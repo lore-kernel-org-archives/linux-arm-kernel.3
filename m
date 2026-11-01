@@ -2,75 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6722606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:18:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0B06606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:18:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nt22Zp7v;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=pBxPxn5n
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4WQXosOT;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=J37+YtqQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=oih8i0WIyQznYHZo2vL+7dttn3r29EGnZfW+AikIH9c=; b=nt22Zp7vVleyAn
-	QCJ5KHcCgPSShtLTQHgZUK3c6WxxY2q4Ydr1VPnx0+W7CSv7zYFVx5rz8TupUfeFDLYB9xnrT7Y/O
-	51V/yZFa5aqyzibIWWDzSLgzxLXbMkhtocgcpSLV+MuAMbNlh1bu+2iIi7UilUstooqKWoH80JNKj
-	Yk0DmVW3AKwquAcErca1ksnlEQO0Cd9w2YrrHcOxypRoP4RE4PeaJ09WmqEeEseS5H59vOf7+JMVA
-	SJnqpMiHIMkWmtcZgbDCGXqDaPWecL0EatAN/mTMYsots9sgigTZxQulJuWC9VLMBlWQTUVJV6z+3
-	0hulXfAe3J9DPH6KjQGQ==;
+	List-Owner; bh=ki2tW3P/WLw9hD2gIz/rvc9LDBcAyijfa3p7DBWWlo8=; b=4WQXosOTw+xuJi
+	0lbKOR5BOHWF9uUkaeL0i0q1SSNH1RPqTzRobGviTorepGKpz2AdT9rgQEZgCKQC5Q/kimFquSSe3
+	HbjgeNWHiVLDoYAjr2iqSMNaowiCa7Q+upI7v/jy+2mg9+vI84D6jrfmeoBDAg+un+k4gI2h8D8V5
+	OBqP2pgdq7Jf0sOQaeu2QUfvX2+zbIRGHIBl+5uz6xh+mOGK0uIrUBNnP8pWBM4luVfzDDwWQH3ns
+	wyDJsThn4nmJZZOsjurkokFZtzwYjyoJ7xMI3b7jcckP7Bg9J50tf4M2QErOOdVLQh4L3rcTgAbnO
+	aTzr87I6NfAbcpyj88kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdsB-0000000F53a-1k7W;
-	Sun, 01 Nov 2026 22:17:55 +0000
+	id 1xNdsD-0000000F5BI-1aDz;
+	Sun, 01 Nov 2026 22:17:57 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdrh-0000000F0Xu-3Hh3;
-	Sun, 01 Nov 2026 22:17:31 +0000
+	id 1xNdro-0000000F0Xu-1hm6;
+	Sun, 01 Nov 2026 22:17:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=oih8i0WIyQznYHZo2vL+7dttn3r29EGnZfW+AikIH9c=; b=pBxPxn5nRbIjhCTk7PI7SrOmJu
-	Ylf9GViTlBEPjuBEOaX0EInTxAW0Wv7HF0sVeRO8u4+ncCOm32vxLsUTy4DcL6PKMBgZ5JqymDISt
-	h0hXNPaQIFDUWKUgwpXX/DP7lufM+EATMu010sf0oJ10ry6wUZw6hLXDlC0V5x97+nWjJcjsFXNUF
-	TQ8c0gm+aGhMC73ON4aVBJfTFUzEf60B0k6F1HMbHL7a9ZSW57iz4L3oqXy04Vn5TrSJidDHrwDRY
-	jnKCU1mJsx8qGlZc5ZHtu+dRjEukt3vb4tLKJBbYHbRFtL0EPNDTQ+GN9aoQTMVDBIzJlt+gqu15R
-	kGxOJPlA==;
+	bh=ki2tW3P/WLw9hD2gIz/rvc9LDBcAyijfa3p7DBWWlo8=; b=J37+YtqQ/0d40Z4gCY5hvQOk8e
+	oOMbRz5pmBf5TnhA1Bh85mB6/DJVLMfn8SuicpDqMpeDDl1ANaqTniuGKAIieI8I4LCYheCLlps1b
+	qj1Qeo6mzg6K4WLOMMaf8hbQgkdLAqXzHZINj0bLIDBGhExq3+AIuKudZilMCsqVZ5shYWqm8m80r
+	SkH9NeDnSRidUXcJ5QYmfK7jM8CFp1Okihhkk6eryhnrmDUF8DABgHVoWQyjaMnu/ynZvDn3F2aDp
+	9XAKBpp5QvHBXX47G9hg89M9n64tHxnm8obpLjZn7IR6r3L/p8rvJ0NxXFf+VIPtg6QIjtX8jmHno
+	Nrz0Qi+A==;
 From: Heiko Stuebner <heiko@sntech.de>
-To: linux-rockchip@lists.infradead.org,
-	Jianfeng Liu <liujianfeng1994@gmail.com>
+To: Stephen Boyd <sboyd@kernel.org>,
+	Yibo Tan <lhfff@tju.edu.cn>
 Cc: Heiko Stuebner <heiko@sntech.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Alexey Charkov <alchark@gmail.com>,
-	Amin Gattout <amin.gattout@gmail.com>,
-	Chris Morgan <macromorgan@hotmail.com>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Coia Prant <coiaprant@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Hrushiraj Gandhi <hrushirajg23@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Michael Riesch <michael.riesch@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Elaine Zhang <zhangqing@rock-chips.com>,
+	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?=E5=AE=89=E5=AE=B9?= <HystericalDragons@proton.me>
-Subject: Re: [PATCH v2 0/2] arm64: dts: rockchip: Add ArmSoM Sige7s support
-Date: Sun,  1 Nov 2026 23:16:34 +0100
-Message-ID: <179357139346.4108484.5874650464024401479.b4-ty@b4>
+	stable@vger.kernel.org
+Subject: Re: [PATCH v1] clk: rockchip: Unregister notifier on multi-PLL registration failure
+Date: Sun,  1 Nov 2026 23:16:33 +0100
+Message-ID: <179357139337.4108484.9561069147699443537.b4-ty@b4>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261029082541.469999-1-liujianfeng1994@gmail.com>
-References: <20261029082541.469999-1-liujianfeng1994@gmail.com>
+In-Reply-To: <20260919163106.1833104-1-lhfff@tju.edu.cn>
+References: <20260919163106.1833104-1-lhfff@tju.edu.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_141725_929140_D3EE93B5 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20261101_141732_483678_A6632343 
+X-CRM114-Status: GOOD (  10.07  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,23 +80,23 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 
-On Thu, 29 Oct 2026 16:25:19 +0800, Jianfeng Liu wrote:
-> Add support for the ArmSoM Sige7s, an RK3588S-based single-board computer.
-> ArmSoM confirmed that it purchased the CoolPi 4B hardware design and made
-> no hardware modifications for the Sige7s.
+On Sun, 20 Sep 2026 00:31:06 +0800, Yibo Tan wrote:
+> rockchip_clk_register_cpuclk_multi_pll() registers an embedded notifier
+> block before duplicating the rate table. If that allocation fails, the
+> error path frees the notifier owner and unregisters the watched composite
+> clock without removing the notifier.
 > 
-> Keep a distinct model and compatible so Linux identifies the board under
-> its marketed name, including when a kernel-provided DTB replaces the
-> firmware-provided DTB. Retain coolpi,pi-4b as a fallback compatible.
+> The common clock framework retains both pointers in its global notifier
+> state. A later rate change walks that state in __clk_notify() and reads the
+> freed watched struct clk before it can compare the clock core. The notifier
+> chain also retains the notifier block embedded in the freed cpuclk.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/2] dt-bindings: arm: rockchip: Add ArmSoM Sige7s
-      commit: 3a1d774014392d4f5f83ed73c2237b3c4a9f525a
-[2/2] arm64: dts: rockchip: Add ArmSoM Sige7s board
-      commit: 718ce9703d90c061e2574d11b8e5e8a50c089243
+[1/1] clk: rockchip: Unregister notifier on multi-PLL registration failure
+      commit: acee45f349c701d29e2753227b813cd692fd8bda
 
 Best regards,
 -- 
