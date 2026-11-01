@@ -2,102 +2,102 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC864606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 08:24:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 210B9606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 08:24:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DAagkAwV;
-	dkim=pass (2048-bit key, unprotected) header.d=gahingwoo.com header.i=@gahingwoo.com header.a=rsa-sha256 header.s=fm1 header.b=DD3dVSEd;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm2 header.b=cObI03vx
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=te3otQZE;
+	dkim=pass (2048-bit key, unprotected) header.d=gahingwoo.com header.i=@gahingwoo.com header.a=rsa-sha256 header.s=fm1 header.b=ZUE2kLUh;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm2 header.b=yA0iizie
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=cgr3O4I7DwkUDW0N/kSwsX4ydZ39VN+0kbFssYLbxJg=; b=DAagkAwVuNy9PI
-	yX7b6YsxokapZSYLdnzxueOmjveSB503jFwZuB1bR7BJY5s2Uh4EzovqmhnS1x81hgRdhJ4F4iYoJ
-	evAyCVmR3cofHZUbQcLmWka29IO3I6dqkQJynbUoZFz2JrNZRM4YRvu72zjPf+k4mh4FMrfHOZx74
-	45jecphzVT5wz7cxoLEwYaDI+cPoG9bqsVcDTG3nSOORuo41pFA1NhaMcgKCG0t+zTAX6A2pbFmBD
-	CrYVBQduS0MTnEEi0Wu4THn3V8BixE4Cp8G4F4BViQouYCMVsa39L34cYcTRqbBO4+YaDjXvI8RTc
-	rEhbetz+rUTb0vgVym2Q==;
+	List-Owner; bh=Xj9axg9dYLGo8p01aLCCgHl7zzs0dRi/f+h5LP9McgI=; b=te3otQZEwG3gPE
+	FJSY3gfquaxp1JKhXTcNn7+xKIBtrHgmHJ71GcXLn/hkWeJDT7egLzraqYkorIncFxWczHsHIKUf1
+	76d/b6GyaY+0BVWK5qe3id+jfwmEUqBZ3R9cUN1W+mO4Mewuc5MKYwCzclnUx+lCWUvupxRWmqp9B
+	lz3L+UJIyvoVIIAg3l86Grj7545rcT1IpLTCerKC3vc6GSYgv/Y7rGvHkjLr+U839ZxqE2mEWV6fr
+	jBumCD3mz13iZf/lUogNRq4rXcfMNmcne2dPXPYdgcxc5dOFQzneNQs7MnSkJXXzDJTUyKIUCfBB/
+	1852Z8lWQz/C82MT0glA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNQrP-0000000Dz6f-1uw1;
-	Sun, 01 Nov 2026 08:24:15 +0000
-Received: from fout-a2-smtp.messagingengine.com ([103.168.172.145])
+	id 1xNQrZ-0000000DzEx-2lxn;
+	Sun, 01 Nov 2026 08:24:25 +0000
+Received: from fhigh-a5-smtp.messagingengine.com ([103.168.172.156])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNQrL-0000000Dz2b-3wF8
+	id 1xNQrW-0000000DzBy-1iyg
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 08:24:13 +0000
+	Sun, 01 Nov 2026 08:24:24 +0000
 Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfout.phl.internal (Postfix) with ESMTP id 28380EC06A3
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  1 Nov 2026 03:24:11 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Sun, 01 Nov 2026 03:24:11 -0500
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 887A6140030D
+	for <linux-arm-kernel@lists.infradead.org>; Sun,  1 Nov 2026 03:24:21 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-06.internal (MEProxy); Sun, 01 Nov 2026 03:24:21 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
 	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1793521451; x=
-	1793607851; bh=cgr3O4I7DwkUDW0N/kSwsX4ydZ39VN+0kbFssYLbxJg=; b=D
-	D3dVSEddWuKhJ5+P4wX4ffYK2bu87Ah0Y+aUc/gI5P1Q8x0W3cV5VkzcEMyz49B3
-	TFydSWKmQPdrWPl9PYzE3a9AFS9fDfL9ZRyL3UuOoLVceWwtlcA/J31+iCDzbS5n
-	qfcX3cQAbXumSFn1DQWtCuD0JnYne7LpSK2r7L83EQnoUJNOkNe2AcVcCP3w3LFh
-	NV9Mbec2JHZhV7bnZu0KOfX+Ni8wgzbZ+0vjN4ATF/LLa+7B2/ecp2lE33Ud8yyV
-	p2i47cX/RYItDMjayZZ3O6j4cJIbJhFJOSxrdILbpGIS1gRp61ZdCqotsz6mO2a3
-	DA9IqIh4TeYG6VahueiGw==
+	:reply-to:subject:subject:to:to; s=fm1; t=1793521461; x=
+	1793607861; bh=Xj9axg9dYLGo8p01aLCCgHl7zzs0dRi/f+h5LP9McgI=; b=Z
+	UE2kLUhu+f0h4zzJ7dQNeGGmU6x0eCmvflkfG8hlr4R+lO5kUaYpg1scaSJLQaTf
+	u9dBXckKhipYFpy5Xry4XzDCgFoseELeenqYN0NwsqfkgPn+97HjYpMDySAqd1Lg
+	ahxW9fRQ5R5YMdfx2CCjngo88MuczShDgw+62LvXZrFXDOfGjcY+CQ/OENHNcfGe
+	L5YsMkAwsFCZ+5ykEIF/wSoX91EbXO98M1kwf706z7tPbeeusGrGY72ZYLJS/QWZ
+	uk0y206WG0075IyUoX/0SvlZs60vA1UL30zLZjnpq//GUXB/4uqZofwRUMtOIApz
+	RgSC4ZSaiGQjcO6xnH2ug==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm2; t=1793521451; x=1793607851; bh=c
-	gr3O4I7DwkUDW0N/kSwsX4ydZ39VN+0kbFssYLbxJg=; b=cObI03vx7rkLK2mau
-	vqkD/wtwMSgcqEFSMnbyq2qRiHqtWhWDsBwB8f2EU9djCdeUpgYiC4d+x8A7Dyer
-	wYc//+BqIH8pSZiYne8DD8ULLYvxG6jUGHca/R+qm07gqOFtatrv9yMkarf5WPm4
-	nEl3fmML044quAzJ3CxXFNet2RRYHx2Izg2GEDuxeta9C++UZT8on+fGWpgJfTXq
-	ySYvnfni0rBJISOJUKjs4qOJtdz/eStYpd7CZteMzdwhm9Ak1GAigYlIlHKMcsZU
-	OCw2ecQWYzmVMETboyE8qZ9SsA8r96Onp4VtOjVoa0TDXxpoToUcLxk7Ntdv6lLy
-	dn88A==
+	:x-me-sender:x-sasl-enc; s=fm2; t=1793521461; x=1793607861; bh=X
+	j9axg9dYLGo8p01aLCCgHl7zzs0dRi/f+h5LP9McgI=; b=yA0iizieupE0/Rl/N
+	QNS3w5eyyCQa2OOnOgJjfo6uOya3dZ+YvoIC+y91f+hC/P7kqlvZ/oOok5wtI6k1
+	cCzVNArcZUvhkV0Q1NS0kF7YvePCWe/5iGBxSh67+utZpZ6107eDd7GudFlvOk9Z
+	kPMv10hPCnmWEIo+pkCSUK3GKY0o6SEP+FvBCLfDszbGm9iXB4BZev1RyzRYuFcq
+	2RXmVSjM0hOJcVBBYbKotRxv0T40pBnqe5JnkxRbC02wnelIq6TjoOWfM4AjvK3M
+	hQ6UlOngvpvDwpPhaPrkFCnBdRwx9DOjqGKuv72SFJKUfZs3ziQ42YhgI6v2q1hu
+	4fgcA==
 X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-08;
 	repo=github.com/dkim2wg/interop; date=2026-10-28; sw=lmtpprox;
 	action=sign d=gahingwoo.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1793521451; d=gahingwoo.com;
+DKIM2-Signature: i=1; m=1; t=1793521461; d=gahingwoo.com;
 	mf=PGdhaGluZ0BnYWhpbmd3b28uY29tPg==;
 	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
-	s=fm1:rsa-sha256:ez76KLX0jFR0f6wpRTwIRITdJtkEfQDKFUemz8p8I7GOghS
-	Ofkzuz3Dv2prS1zkzgahgn8Pj/oaVHPrbGkt6rz26SoCfjn7M2Kcncmgt5C8jbpM
-	5+InS7mZ+3z/du1A7hAmjnvux1NXrbO3iMlsmB+d9fsJ+KPYoW75nSPssyu5uy4x
-	7cGMPKzV9H7cPWpS6AsSgZSHTab6gARdTmwPZqsGkKFA0dkJMvcDLE0Ke+Uaf/mI
-	O7zAGDn0eGEKp+t7Wqd6jasie0ZgtVCK4A8AVK2ejycck1I7KZkTa96JJNI3ocoQ
-	MD53ycyQsFMJqeSajkwUYw/TTiZNMJJHd9JKLhQ==;
+	s=fm1:rsa-sha256:hZBV4K20vn/k86kouUhtLvkrZn/iniPGfgxhWuiBPq3esr6
+	/7Gc5TthP5MxUFSfkI9i5ms5MFggWA1BpEDLbol7sdl3/9p55PaPNGDXRJ0PJk12
+	3FXdCda0h0EFMAp0NXrhdy/SnClCGIubs1WCv+7D2Itb01zkPk2wRwViQY4so7/V
+	GhNattnS7Z9iPO5oGsGU4W3w7l9MNy+vA3+7exlsIijeurvIqYHI9gTRhztSuH9m
+	BvTwqxdDy9qR64nuAF0Wcf2gLNVczWJmsqNhJ88PUXyu6bCOmuxzWtT2Cwif/QiB
+	B+DBY1ReL9vCri7U8RU8snlQzOzJAKHId1Sddlw==;
 X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-08;
 	repo=github.com/dkim2wg/interop; date=2026-10-28; sw=lmtpprox;
 	action=mi-m=1; hc=11;
 	hn=cc,content-transfer-encoding,date,feedback-id,from,
 	in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:G2ezc5FLDefrR+8r2DKGPcy/zKp7XpR519EEybRktVQ=:ZuRx5xe755qYa0gb4/aDfZM05kBxhm1L8sT7M608++E=;
-X-ME-Sender: <xms:K_fmagwT-AqMUXnhdntSZ2H7Iw99TmpZ7uQxFJUTP29XW9T0H51AyA>
-    <xme:K_fmandBoKBlTSlxj7zi4uhyiKcGJX5LmvGQLBB-4S-qtwYcLw5Rdvxmbf4nQGFSn
-    PqF4VJZPwv-_yHlAUnDBuBmZMnPuOKv-lEaEuw3lU5EgP7UlNj5bg>
-X-ME-Received: <xmr:K_fmapLf7WPQU4kdHUuEJcysZ2kHkkXU_LirWcuLhhzx8yQDe4eXsrJyaa97X1b3Ie0OQwvt>
-X-ME-Proxy-Cause: dmFkZTEio0HITRPU8VpT4PebgbYf+HqQTVmTBwoXIcaWhSPJQuOpCGNL4Feyfw1mm6jNto
-    aCqGt+GjGmHddQdDYMsFOcBW2fd2wbE1C2hSqpUPgYFBCtzpG0VAhrL+r+dSJb3xHPmeXu
-    bbiU80H+3s8diofjGu9JFbSOoisVQrvN3eDU6svi49hrmcI63rUfSkuUe5+aUvGFuszdig
-    Qnc72eHSOddgDW0HvcKHXNvldok2Sz2296F+6Jr1XxRzNWV9h54MRHCMGFMHXdGms8Xsm1
-    Bk/Rw1sBqh58/z5F2FEqlRBvxPnvur8T5rxLVrR8npGrMSSnol3N1co7aLduCklPXA/vJl
-    YnFEZni01NLKMQSYX/mIf+ZL4IJ4nKp6UeVFxNKY0H9ZkwD+pN+hUO6U8qVglr0xDwBrUo
-    Ap91fJhWyJmW7tmIhfo1ecixjxPiIxBlkz2+I3fZDeKM0s+jVo4i2YAEMvIRr9oxESn0bA
-    dYOSHaNneoSd7TOH7qPxulWMlw5H4ir1fqyMB6M9qTPz1zCxBgUFVJ72mc2b7lJqlTlc01
-    +yg9c8YauDhdWXWKM/kX7urjBozR2WEB+DztoA8IR0e6n9kkyEWuD0Itq1J4jfQtAKJhFQ
-    ROHqX/PWdXMnjSp1FHjdtvqC3n/RoSZdXckt9BOYpAtvD4wkhxGwK8VtchVA
-X-ME-Proxy: <xmx:K_fmajl6Tpd7Oavv05hJzLJLBJAkMvi23ZRUqHd0v7ajCCrMBk7FYw>
-    <xmx:K_fmakXwlDjbQssh8qwjDpPkjxIhODFkpWdHMz-yPB9qVKPQ6QpqAg>
-    <xmx:K_fmalthWUdisAovsc9BYlxq54liDIo7E_JpxJ25JHFvIm0tuRZdCg>
-    <xmx:K_fmao0d2_aXDgeONcZe9IbDFuV88nXkawIheY8k5uv_ipR0N-09zg>
-    <xmx:K_fmajXp1FzijLW9CrX4NAhVST5I3w_OHQxt0wFumXftctJlTIr2BSAw>
+Message-Instance: m=1; h=sha256:/cR+SVB5SQ0kGP0/C0/QK06xN+k1K/x4EQfQy/b1HSY=:4Xq95QJdIqCjB39RLzyySSIteLteH9r9uz6l54PwLfw=;
+X-ME-Sender: <xms:NffmappYiiEfk4kfjkeNmrE3x9bbwYjo8qJ1BS2hvxfVLSeTq3BWfw>
+    <xme:NffmapTQGRvTElT2d0EPyQjKzgY25MzyOou17JuLGt-pT7K1Mq9znNiujCs5YGg6y
+    sU03Im7CXxLEKsNibXsCP2LqVvFo7AkuioOY8-a2wzUBv4TH44N4A>
+X-ME-Received: <xmr:NffmatlYCyvECxQvyETkXjlReYmwPXTBB_Zwh99ir20A-fFxy3a3zK2VpGW6H5YiHO_PwUYi>
+X-ME-Proxy-Cause: dmFkZTGZ556hZr4OQNVERo9rUYXTF10cGGQBi7vLn3VnSr966c7BEZC28LhiqgFQ0DLnXR
+    bnYwdeOAqs5QxBVuvkRL+ZwpHs/blmZG2wUWUiNLZ7HENeZpMSZpencZWiEx1r/ZYZ/gaT
+    5aRTZsrFo+PnzxoJMR1ENyaKg8E7fhdgt1B6kN2BycVkXJHEJTKc3jHTPe6IjiylVhuTTD
+    rIDq43QCU8cfWL1yKlOgbv7lVceHpNeuB46oYLXbGuG53l6HRsNNJeQwVLCejjdSqA3oLJ
+    mySu3UERpxtLqccEHJ3QQ08pgTmGPEw/h/+EEsPDgBAlHAn17s6eZ3ZSMRh5fpdn/9Y7MW
+    A4rXUGboymQeYRhevUsMu99pylgnR1ci1qPeAm1i9ilW2KXn+HDY/CMMKnD405vPZSMIAh
+    ES4PMdqvNXQ7QUwxpvmakX14ML6/VWcidwIGbtd5Z36B8pG7IVS/WskaIVqL021NAJxc2B
+    /rfw9y47objWwdzSCmJ70FIOgJGSAqR9mntmLWHfzhbdquX0VmYu0VURVrFw2PA8bwIFvh
+    p/JyHLmDqKNUc+pdg4V8gmSCK//MVTL30Lbg6qyUA9FhG3bmA2/MWiurCN/6R3QJ0QTe1i
+    sucgcgOKk16/auPcTGxxu9BmGIQVE1RnosKooRtX8cizl+Tvru/4UwWmSG6A
+X-ME-Proxy: <xmx:NffmatGW220jToEwOhR7lCy7bcaAo0LH2mLgSm1MRCCuN3-Fj9D7zA>
+    <xmx:Nffmagm1kmBFVt9bJp6ZmEDIHeeR-WHXun76PHDhcv23TnKn69DJsA>
+    <xmx:NffmasSr-IKyDYvzy1vq30ODzQqhhzHDD5Dgk_G6fGtCxuSYwdgxGQ>
+    <xmx:Nffmal6FwYnZffS2k_QoX8ZcBMdo5cI06LhkartZ9s68737wETpKkg>
+    <xmx:NffmavXEdFxjRyf7BP8FK3c75DIi3NBZDtANZ4DUTD5ql7SR9v2HcMji>
 Feedback-ID: i7a5e4b5f:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 1 Nov 2026 03:24:03 -0500 (EST)
+ 1 Nov 2026 03:24:13 -0500 (EST)
 From: Jiaxing Hu <gahing@gahingwoo.com>
 To: tomeu@tomeuvizoso.net,
 	heiko@sntech.de,
@@ -129,10 +129,11 @@ Cc: royalnet026@gmail.com,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Jiaxing Hu <gahing@gahingwoo.com>
-Subject: [PATCH v15 05/15] accel/rocket: factor the completion tail out of the IRQ handler
-Date: Sun,  1 Nov 2026 21:22:57 +1300
-Message-ID: <20261101082307.151957-6-gahing@gahingwoo.com>
+	Jiaxing Hu <gahing@gahingwoo.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v15 06/15] dt-bindings: npu: rockchip: add rockchip,rk3576-rknn-core
+Date: Sun,  1 Nov 2026 21:22:58 +1300
+Message-ID: <20261101082307.151957-7-gahing@gahingwoo.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261101082307.151957-1-gahing@gahingwoo.com>
 References: <20261101082307.151957-1-gahing@gahingwoo.com>
@@ -140,8 +141,9 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_012412_050693_A398761B 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20261101_012422_525600_78BFE42D 
+X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -160,63 +162,107 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Move the part of rocket_job_handle_irq() that starts the next task or
-retires the job into rocket_job_next_locked(). No functional change.
+The RK3576 NPU has two cores of the RKNN block this binding describes, with
+two extra CBUF clocks, two power domains per core, one reset instead of
+two, and no SRAM supply. Widen the properties and pin each SoC to its own
+shape in allOf; sram-supply stays required for RK3588.
 
 Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
-Reviewed-by: Igor Paunovic <royalnet026@gmail.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- drivers/accel/rocket/rocket_job.c | 31 ++++++++++++++++++++-----------
- 1 file changed, 20 insertions(+), 11 deletions(-)
+ .../npu/rockchip,rk3588-rknn-core.yaml        | 47 +++++++++++++++++--
+ 1 file changed, 44 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/accel/rocket/rocket_job.c b/drivers/accel/rocket/rocket_job.c
-index 152a9098634b..417d5ef06c09 100644
---- a/drivers/accel/rocket/rocket_job.c
-+++ b/drivers/accel/rocket/rocket_job.c
-@@ -365,6 +365,25 @@ static struct dma_fence *rocket_job_run(struct drm_sched_job *sched_job)
- 	return ERR_PTR(ret);
- }
+diff --git a/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml b/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
+index caca2a4903cd..3b611b64c8aa 100644
+--- a/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
++++ b/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
+@@ -21,6 +21,7 @@ properties:
  
-+/* Start the job's next task, or retire it. Caller holds job_lock. */
-+static void rocket_job_next_locked(struct rocket_core *core)
-+{
-+	lockdep_assert_held(&core->job_lock);
-+
-+	if (!core->in_flight_job)
-+		return;
-+
-+	if (core->in_flight_job->next_task_idx < core->in_flight_job->task_count) {
-+		rocket_job_hw_submit(core, core->in_flight_job);
-+		return;
-+	}
-+
-+	iommu_detach_group(NULL, iommu_group_get(core->dev));
-+	dma_fence_signal(core->in_flight_job->done_fence);
-+	pm_runtime_put_autosuspend(core->dev);
-+	core->in_flight_job = NULL;
-+}
-+
- static void rocket_job_handle_irq(struct rocket_core *core)
- {
- 	pm_runtime_mark_last_busy(core->dev);
-@@ -378,17 +397,7 @@ static void rocket_job_handle_irq(struct rocket_core *core)
- 		rocket_pc_writel(core, OPERATION_ENABLE, 0x0);
- 		rocket_pc_writel(core, INTERRUPT_CLEAR, 0x1ffff);
+   compatible:
+     enum:
++      - rockchip,rk3576-rknn-core
+       - rockchip,rk3588-rknn-core
  
--		if (core->in_flight_job) {
--			if (core->in_flight_job->next_task_idx < core->in_flight_job->task_count) {
--				rocket_job_hw_submit(core, core->in_flight_job);
--				return;
--			}
--
--			iommu_detach_group(NULL, iommu_group_get(core->dev));
--			dma_fence_signal(core->in_flight_job->done_fence);
--			pm_runtime_put_autosuspend(core->dev);
--			core->in_flight_job = NULL;
--		}
-+		rocket_job_next_locked(core);
- 	}
- }
+   reg:
+@@ -33,14 +34,18 @@ properties:
+       - const: core # Main NPU core processing unit registers
+ 
+   clocks:
+-    maxItems: 4
++    minItems: 4
++    maxItems: 6
+ 
+   clock-names:
++    minItems: 4
+     items:
+       - const: aclk
+       - const: hclk
+       - const: npu
+       - const: pclk
++      - const: aclk_cbuf
++      - const: hclk_cbuf
+ 
+   interrupts:
+     maxItems: 1
+@@ -51,12 +56,15 @@ properties:
+   npu-supply: true
+ 
+   power-domains:
+-    maxItems: 1
++    minItems: 1
++    maxItems: 2
+ 
+   resets:
++    minItems: 1
+     maxItems: 2
+ 
+   reset-names:
++    minItems: 1
+     items:
+       - const: srst_a
+       - const: srst_h
+@@ -75,7 +83,40 @@ required:
+   - resets
+   - reset-names
+   - npu-supply
+-  - sram-supply
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: rockchip,rk3588-rknn-core
++    then:
++      properties:
++        clocks:
++          maxItems: 4
++        clock-names:
++          maxItems: 4
++        power-domains:
++          maxItems: 1
++        resets:
++          minItems: 2
++        reset-names:
++          minItems: 2
++      required:
++        - sram-supply
++    else:
++      properties:
++        clocks:
++          minItems: 6
++        clock-names:
++          minItems: 6
++        power-domains:
++          minItems: 2
++        resets:
++          maxItems: 1
++        reset-names:
++          maxItems: 1
++        sram-supply: false
+ 
+ additionalProperties: false
  
 -- 
 2.43.0
