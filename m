@@ -2,74 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B368E606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 23:46:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDEF6606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 23:53:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iYj+rrub;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=OF35KZXi
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mhspKlEs;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WPmoTco4
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=Dr7HLHhmpNPRnakRx/XUhqvaTum3bMcddo5f/qe4qo8=; b=iYj+rrubYjY4WIfYWrNNQ4TIl1
-	FeQjHKp7JfCt9fk8OOuOKK7oUptMJAc3G43ZDIsaKczRwiIjvBWvQb6tFlwHUXz8V+fFyWVp25WAb
-	m9UoiR3E/YibQjeIqLMfxSDFABJbahTunJQuJlox1Ty1TAQv748Lcrtho6/Zi9yfVzNx84OqFaCJL
-	zHeHnKzvYobKuXNtNG08mn36IBiwzgM2KuLX60vSE1Qmz+5pyMEwiDoLRezX+bdPBeXz8pRdopypN
-	uCMFLB04p/oQdi9VPQ20ol+PV1bnpUKqBwAEPd/DDI7QFqdO1h0raP8KhYK5LXYariuaRlpgl6A4K
-	OVCCKYlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=+FdbV1fygpkQa5AYOrs49bje7EWIBa53juEdskXuHwU=; b=mhspKlEs5Apxjj
+	SU12Ibt+PV0B8TPdak29KZAfzMYqmOEboL5f8lQ7SVUgwgbWvh4TsEUk/usFeeuEOkFU8O/DvnT9S
+	ZKq1y2JtaiQWCsC6bdM+pNUVFTonOqs1rvo7YOo3wuRfyiQcUWTokncpfqETOC1YbDmKpD6n/2sJY
+	NZBjOvmqTj3na7rGV9axPFAzx6RILGwtZziXXwLAe9+XUbmkxFREcAeEVUOQEgf2VRjKJg9FegmO6
+	0J30oP7g8Ru8ecK/gm7eCqsYU88bXjDr1SjY95Qxkoww3GkTYGymXjjYrAVdMgtHpHqEfrpwHEOeC
+	Nel0Z3D8AH0JoOcClLRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNfFo-0000000FG5q-26un;
-	Sun, 01 Nov 2026 23:46:24 +0000
-Received: from sender5-op-o11.zoho.com ([165.173.182.11])
+	id 1xNfMK-0000000FGg9-1C82;
+	Sun, 01 Nov 2026 23:53:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNfFm-0000000FG5B-1H7y;
-	Sun, 01 Nov 2026 23:46:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1793576767; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=nFF1HpSoEVKhGCa2OjQyYkqXJZOKSIszAnZw1s8222Xrd2kMjrb/JcjP3+xgAd+EF7NfYB4nI2t+0PS1ovEAqX4peypVDFBqTzX/0AWf47TWUVceAD+RGpLxXtlY9xOlLrkcoFg6rr9+F5deTI01HGYkyA3aAge++eGOasLzxdE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1793576767; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Dr7HLHhmpNPRnakRx/XUhqvaTum3bMcddo5f/qe4qo8=; 
-	b=fDZ8nHTaKuu9Udy2AaJvmQ8QdcNnymHS9p3SPvy7VJHRGxuwc3tLHvh9xsL4zQ3lbHV+R/D79My3/rJtwro5JPPqGjldw0Z8l31fEk6rRBq1qtMaUAdBA7hxFD94jVJjm5yrfwjBgNI+d8fz6vTxJ8KxXjbSac9lI3XvD6Qz2T4=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=OF35KZXix3qxySfPAxVSiT1w0GHR1ywyUWFKqT6KVakay3bNiAr3UYgre4i65utKFaTYjgZN7BbziQ2+msK0hMPQoM354DuzAXpPzGiYkYW3t0iUN+xy1BJA/KoQ4yBEq01U8ZqH3K2H4bPQfO8HcTIibsUmZqCQq1YkbVTYEM0=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=Dr7HLHhmpNPRnakRx/XUhqvaTum3bMcddo5f/qe4qo8=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1793576765533498.29275941676076;
-	Sun, 1 Nov 2026 15:46:05 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id 53936180371; Mon, 02 Nov 2026 00:46:01 +0100 (CET)
-Date: Mon, 2 Nov 2026 00:46:01 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Igor Paunovic <royalnet026@gmail.com>, 
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org, kernel@collabora.com, 
-	Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>
-Subject: Re: [PATCH v18 0/7] usb: dwc3: introduce Rockchip glue driver
-Message-ID: <aufM3PCuU9CM8zFo@venus>
-References: <20261021-b4-rockchip-dwc3-rockchip-glue-v18-0-60000d03fca2@collabora.com>
- <179353091270.2955.16595397888583885694.b4-reply@b4>
+	id 1xNfMJ-0000000FGfi-37RV
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 01 Nov 2026 23:53:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id DA674601FF;
+	Sun,  1 Nov 2026 23:53:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 785891F000C1;
+	Sun,  1 Nov 2026 23:53:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793577186;
+	bh=+FdbV1fygpkQa5AYOrs49bje7EWIBa53juEdskXuHwU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=WPmoTco4mk4LgWTTkVTV2hDqSITZ518aq3iHHoMFevxLyCh6xCDcBiL/ge82h347W
+	 usFpr9+SgHiuFrYPzA6XxL9Sr21lWT6t+pIIyrBEHhoQgf4rA77XYoGLv7ayfLfcHu
+	 9+fYC6kndRxa/UBm2istlaUjrOWIUfoNquMq9dielufemC0GeaOlTIoW5sI1Y1HUL2
+	 gyNY02y5mYc5lrC7NgOHZ1zIOPVroOYr3tJzb8KdjD5o9E/u/46UzkwJlk+vM/YdlL
+	 41lO4lNPnyNJxW4LKExWDoswQYB7EGTxPzI852RaupVVBAqXqjkm46GBm+olVztdm2
+	 6i8uL06R50hcA==
+Date: Sun, 1 Nov 2026 23:52:59 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Arnav Kapoor <kapoorarnav43@gmail.com>
+Cc: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>, Conall O'Griofa
+ <conall.ogriofa@amd.com>, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Michal Simek <michal.simek@amd.com>, Andy Shevchenko
+ <andriy.shevchenko@intel.com>, stable@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] iio: adc: xilinx-ams: fix out-of-bounds accesses
+ when parsing channels
+Message-ID: <20261101235259.27b3b43c@jic23-hlaptop>
+In-Reply-To: <20261023185652.195025-1-kapoorarnav43@gmail.com>
+References: <20261023185652.195025-1-kapoorarnav43@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="z4xoeqz7d7xqkqyp"
-Content-Disposition: inline
-In-Reply-To: <179353091270.2955.16595397888583885694.b4-reply@b4>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/293.557.36
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_154622_370022_A516B845 
-X-CRM114-Status: GOOD (  20.37  )
-X-Spam-Score: -3.1 (---)
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,81 +73,190 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_2
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+On Sat, 24 Oct 2026 00:26:48 +0530
+Arnav Kapoor <kapoorarnav43@gmail.com> wrote:
 
---z4xoeqz7d7xqkqyp
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v18 0/7] usb: dwc3: introduce Rockchip glue driver
-MIME-Version: 1.0
+> ams_parse_firmware() allocates room for ARRAY_SIZE(ams_ps_channels) +
+> ARRAY_SIZE(ams_pl_channels) + ARRAY_SIZE(ams_ctrl_channels) = 51
+> channel specs and lets ams_init_module() fill them for the AMS node and
+> each of its children, without telling it how much room is left.
+> 
+> For the PL-SYSMON node, ams_get_ext_chan() appends one channel per
+> "channel@N" child after the 10 fixed PL channels. The binding allows
+> reg values 20..50, so a PL node can have up to 31 such children, i.e.
+> up to 41 PL channels, while only 31 are budgeted for it. Together with
+> the 13 PS and 7 AMS control channels, this writes past the end of the
+> buffer. Since the modules are filled in device tree order, the fixed
+> channel blocks copied after the PL node can overflow as well.
+> 
+> ams_get_ext_chan() also only checks the upper bound of reg. ext_chan is
+> unsigned, so a reg below 20 makes it wrap and ams_pl_channels[] is read
+> far out of bounds.
+> 
+> Pass the remaining capacity down to ams_init_module() and
+> ams_get_ext_chan() and fail with -ENOSPC when a module does not fit,
+> instead of writing past the buffer. Also reject reg values below 20, as
+> the binding requires.
+> 
+> Fixes: d5c70627a794 ("iio: adc: Add Xilinx AMS driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Arnav Kapoor <kapoorarnav43@gmail.com>
+AMD Xilinx folk, please take a look at this one.
 
-Hi,
+Thanks,
 
-On Sun, Nov 01, 2026 at 04:31:52PM +0530, Manivannan Sadhasivam wrote:
-> On 2026-10-21 20:05 +0200, Sebastian Reichel wrote:
-> > The recent Rockchip platform have a combined PHY, which does USB3 and
-> > DisplayPort as well as muxing the lines in arbitrary order. Changing its
-> > enabled functionality requires a PHY reset and as the PHY provides a
-> > clock to the DWC3 controller, this can result in an SError. Apart from
-> > that the PHY might not start up correctly when the DWC3 PIPE interface
-> > is running. This series prepares a Rockchip specific DWC3 glue driver to
-> > help out with these problems. To become useful more patches are needed
-> > on the Rockchip USBDP PHY side, which are send separately.
-> >=20
-> > This was split from the USBDP cleanup series. v17 has a dependency on
-> > the patches that have been merged to phy's for-next branch. There are
-> > some additional Rockchip USBDP phy fixes, which depend on this series
-> > (which is effectively also a fix).
->=20
-> What is the merge strategy for this series?
+Jonathan
 
-I see these options (ordered by my preference):
+> ---
+> Changes in v2:
+> - Fix the truncated subject line (Andy)
+> - Drop the paragraph about an earlier report, I could not find that
+>   thread again to reference it properly
+> - Pass the remaining capacity as unsigned int and drop the casts (Andy)
+> - Keep the ams_get_ext_chan() call on one line (Andy)
+> - Rebase on fixes-togreg
+> - Drop the bouncing @xilinx.com and @huawei.com addresses from Cc
+> 
+> v1: https://lore.kernel.org/all/20261021225356.625288-1-kapoorarnav43@gmail.com/
+> 
+> Compile-tested only (W=1); I don't have ZynqMP hardware.
+> 
+>  drivers/iio/adc/xilinx-ams.c | 54 ++++++++++++++++++++++++++++--------
+>  1 file changed, 43 insertions(+), 11 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/xilinx-ams.c b/drivers/iio/adc/xilinx-ams.c
+> index 158e6133abf5..7f0f7778d6aa 100644
+> --- a/drivers/iio/adc/xilinx-ams.c
+> +++ b/drivers/iio/adc/xilinx-ams.c
+> @@ -144,7 +144,14 @@
+>  #define AMS_PL_CSTS_ACCESS_MASK		BIT(1)
+>  
+>  #define AMS_PL_MAX_FIXED_CHANNEL	10
+> -#define AMS_PL_MAX_EXT_CHANNEL		20
+> +/*
+> + * The external PL channels are addressed by their channel number. The
+> + * binding allows the range from AMS_PL_EXT_CHANNEL_MIN to
+> + * AMS_PL_EXT_CHANNEL_MAX. AMS_PL_EXT_CHANNEL_MIN maps onto the first
+> + * ams_pl_channels[] entry, AMS_PL_EXT_CHANNEL_MAX onto the last one.
+> + */
+> +#define AMS_PL_EXT_CHANNEL_MIN		20
+> +#define AMS_PL_EXT_CHANNEL_MAX		50
+>  
+>  #define AMS_INIT_POLL_TIME_US		200
+>  #define AMS_INIT_TIMEOUT_US		10000
+> @@ -1142,20 +1149,31 @@ static const struct iio_chan_spec ams_ctrl_channels[] = {
+>  };
+>  
+>  static int ams_get_ext_chan(struct fwnode_handle *chan_node,
+> -			    struct iio_chan_spec *channels, int num_channels)
+> +			    struct iio_chan_spec *channels, int num_channels,
+> +			    unsigned int max_channels)
+>  {
+>  	struct iio_chan_spec *chan;
+> -	struct fwnode_handle *child;
+>  	unsigned int reg, ext_chan;
+>  	int ret;
+>  
+> -	fwnode_for_each_child_node(chan_node, child) {
+> +	fwnode_for_each_child_node_scoped(chan_node, child) {
+>  		ret = fwnode_property_read_u32(child, "reg", &reg);
+> -		if (ret || reg > AMS_PL_MAX_EXT_CHANNEL + 30)
+> +		if (ret)
+> +			continue;
+> +
+> +		/*
+> +		 * Anything outside of the range of channel numbers allowed
+> +		 * by the binding is not a valid channel.
+> +		 */
+> +		if (reg < AMS_PL_EXT_CHANNEL_MIN ||
+> +		    reg > AMS_PL_EXT_CHANNEL_MAX)
+>  			continue;
+>  
+> +		if (num_channels >= max_channels)
+> +			return -ENOSPC;
+> +
+>  		chan = &channels[num_channels];
+> -		ext_chan = reg + AMS_PL_MAX_FIXED_CHANNEL - 30;
+> +		ext_chan = reg - AMS_PL_EXT_CHANNEL_MIN;
+>  		memcpy(chan, &ams_pl_channels[ext_chan], sizeof(*channels));
+>  
+>  		if (fwnode_property_read_bool(child, "xlnx,bipolar"))
+> @@ -1183,7 +1201,8 @@ static void ams_iounmap_pl(void *data)
+>  
+>  static int ams_init_module(struct iio_dev *indio_dev,
+>  			   struct fwnode_handle *fwnode,
+> -			   struct iio_chan_spec *channels)
+> +			   struct iio_chan_spec *channels,
+> +			   unsigned int max_channels)
+>  {
+>  	struct device *dev = indio_dev->dev.parent;
+>  	struct ams *ams = iio_priv(indio_dev);
+> @@ -1191,6 +1210,9 @@ static int ams_init_module(struct iio_dev *indio_dev,
+>  	int ret;
+>  
+>  	if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams-ps")) {
+> +		if (max_channels < ARRAY_SIZE(ams_ps_channels))
+> +			return -ENOSPC;
+> +
+>  		ams->ps_base = fwnode_iomap(fwnode, 0);
+>  		if (!ams->ps_base)
+>  			return -ENXIO;
+> @@ -1202,6 +1224,9 @@ static int ams_init_module(struct iio_dev *indio_dev,
+>  		memcpy(channels, ams_ps_channels, sizeof(ams_ps_channels));
+>  		num_channels = ARRAY_SIZE(ams_ps_channels);
+>  	} else if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams-pl")) {
+> +		if (max_channels < AMS_PL_MAX_FIXED_CHANNEL)
+> +			return -ENOSPC;
+> +
+>  		ams->pl_base = fwnode_iomap(fwnode, 0);
+>  		if (!ams->pl_base)
+>  			return -ENXIO;
+> @@ -1213,9 +1238,14 @@ static int ams_init_module(struct iio_dev *indio_dev,
+>  		/* Copy only first 10 fix channels */
+>  		memcpy(channels, ams_pl_channels, AMS_PL_MAX_FIXED_CHANNEL * sizeof(*channels));
+>  		num_channels += AMS_PL_MAX_FIXED_CHANNEL;
+> -		num_channels = ams_get_ext_chan(fwnode, channels,
+> -						num_channels);
+> +		ret = ams_get_ext_chan(fwnode, channels, num_channels, max_channels);
+> +		if (ret < 0)
+> +			return ret;
+> +		num_channels = ret;
+>  	} else if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams")) {
+> +		if (max_channels < ARRAY_SIZE(ams_ctrl_channels))
+> +			return -ENOSPC;
+> +
+>  		/* add AMS channels to iio device channels */
+>  		memcpy(channels, ams_ctrl_channels, sizeof(ams_ctrl_channels));
+>  		num_channels += ARRAY_SIZE(ams_ctrl_channels);
+> @@ -1245,7 +1275,7 @@ static int ams_parse_firmware(struct iio_dev *indio_dev)
+>  		return -ENOMEM;
+>  
+>  	if (fwnode_device_is_available(fwnode)) {
+> -		ret = ams_init_module(indio_dev, fwnode, ams_channels);
+> +		ret = ams_init_module(indio_dev, fwnode, ams_channels, ams_size);
+>  		if (ret < 0)
+>  			return ret;
+>  
+> @@ -1253,7 +1283,9 @@ static int ams_parse_firmware(struct iio_dev *indio_dev)
+>  	}
+>  
+>  	device_for_each_child_node_scoped(dev, child) {
+> -		ret = ams_init_module(indio_dev, child, ams_channels + num_channels);
+> +		ret = ams_init_module(indio_dev, child,
+> +				      ams_channels + num_channels,
+> +				      ams_size - num_channels);
+>  		if (ret < 0)
+>  			return ret;
+>  
+> 
+> base-commit: 2ef6f5c4ee56e90c237c5f7687f09e635f7d30a9
 
-1: Vinod merges everything; the USB side is mostly a new driver
-   and thus there is not much conflict potential
-
-2: Vinod provides an immutable branch with the first two patches,
-   USB tree merges the immutable branch and the remaining series.
-
-3: Everything is merged through USB; this would block the final
-   cleanup for USBDP from being applied for yet another cycle.
-
-4: Vinod merges patches 1+2, USB patches are merged one cycle
-   later and final USBDP patches are merged two cycles later.
-
-P.S.: I will have to send another version for the correct Sashiko
-feedback on the DWC3 side.
-
-Greetings,
-
--- Sebastian
-
---z4xoeqz7d7xqkqyp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmrnzy4ACgkQ2O7X88g7
-+ppUMw/+IZmalDNrDC3LSfbW/ZyIIGDr+YwPL3ZA9dTFpWBwbX77QSqT3hBTXKiO
-Co5D4QcxugfNSIeeoPFM45BpoZ0sNpLWwxiz9d3UdxHXwNMQBLusq0tsDJ8QzCkV
-TlrI7ej1U2bZcAq4DyXyqyRpWO/cWjf/JBAucghQFCWzqSW5YsAljsbYQnF/QLHI
-y49jW6ltllGr/yC9/+wNba6lZc39SkSgq5lC3mctoUXQGZ2e6zUQbTWKAYr+TLC+
-cvFWUQlmymyhELsdGPjhgpPjQndKetVvQVNuZsJ60hqHSNU0ZTSRxaYgl6IM5UPY
-dTXsOEQENYlYwetq0ZcOfwHVzM+kybIKqyS5Nm2OKUU0588croKVWhtlq/RHKUlq
-72jLZIao0J9KBl8NcAlyehL+taFTmFv3X73W3i5VRaU/A8joulsx0q7Vs8d0qzKa
-yizsxRS1gmVCNjR4dSGMmsSy1B+ZReFnZdc6XHLWeNvoWqX+nxeKD6J6frLrfmlq
-RoCIH72XqYaxT6jTBMek6Sv/FVlmfJvPGhj66ijzMQbYFrI2ABPdV2ZMtb5KdRdB
-/2JFhTzgIUXCP3rcKu9DdUzlmgo2zKEJ4FsZXZnuxp3wjWIcLVSmCcsx7+07uW46
-wDT6LWqChtRB8D54e52esmJc/OPnPa28m8RQqUHJFHE2IZ0iMn0=
-=Kcbn
------END PGP SIGNATURE-----
-
---z4xoeqz7d7xqkqyp--
 
