@@ -2,121 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B419606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 21:37:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC612606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 21:55:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UUvawARk;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=IATU1RQ7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JrLI0hco;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MAsuzcvH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=y+s8DhqIO5ki4BPjT0hMEJ5bMlWwwKI5gQlDegeYWw4=; b=UUvawARkMHOYRl
-	zST11HO0O133TErGRTsf9pNDzWfod+GPYD0cy0WP4m6nKNupo9LOXc2+8QDHkdjBIrLAnJ81h/LHh
-	yKwGUWbqf1ZqWL2Y2MOpKz6ovRMoi380jKGgC2SmLMrBTjZRwcQGc+QsxTkot1gKwvB1TkRmT4Dm/
-	l+g/g49bfDDXLdurpca8mofJmYVuKQ6jbZzhzc9qbvHo4VywB6T0ZkCufjEoRSYvPa8KOO06OQjQx
-	Ywu9ZEIORp+O6hFx0tXE7H8+re1+D1tOJ6E+yH/zF79exqBlDDtPIjy0521X8UG4s3/KeLWRSb29+
-	AB6pY6+8bL2/pUAlYt7g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
+	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=m8uflTso+qkylFTdVQ/JR31DY9iTOBX4x+anRImiGxU=; b=JrLI0hcop1XdxmVVIG3MHrPAnZ
+	VWzTOWWtpajgv8vtoCTUgQqsDIyA7q2P/oTSbUT+o8cLaS+s8pVNGy1FUP8B1SDk8UPenhlHYD/AV
+	b2rbbrwdOdFG77DGWeR/SyR3m2mT26RS/H2OSyrQxwzKNAFQQfXfyvpQkUfTBYmvpiiv7kWj+b29r
+	XOdigKrlWTnCX/AQEwymphNqtpB1+4tG1W70A6SuSgYvVvJLLiUOTGdryA7LzebllY9Sgks96q3ZA
+	KT90RoYwjqmWiokDRrCSnyPaGsrJac85clWu4z5/P47FmG+I0dBIFV/6yVA4AHNNQF4s/Cc3yAy6y
+	V41x15qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdEd-0000000EvU2-1OHM;
-	Sun, 01 Nov 2026 21:37:03 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1xNdWg-0000000Evy8-3y4s;
+	Sun, 01 Nov 2026 21:55:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdEZ-0000000EvTb-08HX
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 21:37:01 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-c4203bbb1e9so378406766b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 13:36:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1793569017; x=1794173817; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=y+s8DhqIO5ki4BPjT0hMEJ5bMlWwwKI5gQlDegeYWw4=;
-        b=IATU1RQ7cilz1bVPiWXtiBs+v2CKRiupd5l/QMsX7OG/rAAUIKInh5nPZz+eOXKTrU
-         K6ljGzY4CIf2FFyMWc+38G4z8yf8ds4SrgkPvzTzBOi+aZV42XyLD1XehVf3o2FRl1P9
-         ZvKqMAL4u9PnVT7oJgyK3xTYyWua+emf1ReLc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793569017; x=1794173817;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=y+s8DhqIO5ki4BPjT0hMEJ5bMlWwwKI5gQlDegeYWw4=;
-        b=S/mFdnIAfmnsIZ7YxEYhmYjECcNq02lohRT0tZkpBgX5S98io9a/2xZoCdsHWcXsNV
-         4O+tm/s5vTB9Jxa2yZ9xyp3tmOF53HWhfLfWhWf+kX2zYZUsFz3e5xWTro2j5QZNHxjp
-         Xk9WZKMntKbF9ysrHyXsIihyrCt1RoUMDIZmarsaziMjRgPuMogJuD2I9wX3N6GUXDxG
-         RA4tnFiyZwIumZfcyXjlOfP2JC5znfOp4BsOME2v+jeJJTB8z+bnzEikD8P0wLUEe5v1
-         eonJDji9Nl13/ZSAoQ0C59NnhXWdMeQbhXHMLBr13bYI2+DLiplNuxdxSlI2/QMquo+i
-         jHkw==
-X-Forwarded-Encrypted: i=1; AKwUvByoGyLxHtFaPodNarclr1pOTfEVYgad8W++3yr+Gre7geQ3NYD3/Z0i5ucgdSCjhRLDqG4c6DCmY0XSFEoFEPGn@lists.infradead.org
-X-Gm-Message-State: AFq9FYLoBTmOtWxCiEhOqx0G5HaeuEq6dk2TUVop1V6hoDXg7pVoq7ae
-	BJRIqUxPBhi2zf3WU1Oltxxgo1Xrd/8NnlhPWo3NeJlTOygtfgYUCsELxYd6Wb2+zAVUc5zhd85
-	sMR3GDA==
-X-Gm-Gg: AYBFou0pqQm9zG4UgZfpIIgnfZLIPANLFnOwT8dJCC07GQ+9fwZZVHuohpD1OxPWEh0
-	GTCsQVsSNeHau4ZorfnRXyWiER4sKRJAAwDNivRZTTS5+SpF1COmcUiSys8BNqgGturU2wkz7U8
-	ELA6lkwo9UEMmMUIfMGgwZNz4+rZq2BJ0VL2FcYAJaNNnXTL/hD12AaFV3IwH+7b9dUEmbUgLP/
-	PuoCBkapY9HiYmMXNcDJ0KrQQgROaiGbvrsWozP8ZLhJcKJBeVcLD/t+3aO0uXnJXglp5xF+idW
-	N1nMqUdmBeEBMCaOwMGCgYkOiF8N/qSQZXQcEy4PmUgahczB3gDMm7PW84x/7gWswrgyQYZyi+1
-	sqYlJrqnErhbEgL8Kz/c3D1ZQDtcW/wd1JfsK4i1DXyOSSKi67cUPxvfzCZ+UTba5ye4PxCXOqY
-	PmQhVVpjPhRfEZQ+CGch+rsrQa7a/u6bBOVuXMIFciQfX7b7C4aRPsqVkWgZ1CRRh50vnlUI5Oy
-	4j1HnktKcdMm+PhnRzsPZYaoCdmhVcSadTL1dx7peJqbwNU5MnhiMbx+YtbPGoUqFBcQOcXUQzZ
-	dnN8n4pNIVNrbLHxqENHewiUCWjj7f4aGcLXYoPqXcZtYa1atOKdUhPDoc/OWEJ5O3k=
-X-Received: by 2002:a17:906:9f87:b0:c33:9fab:5f61 with SMTP id a640c23a62f3a-c4ca7a80dfcmr709691166b.29.1793569016728;
-        Sun, 01 Nov 2026 13:36:56 -0800 (PST)
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com. [209.85.221.52])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c4cabcfd260sm310981066b.22.2026.11.01.13.36.54
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 01 Nov 2026 13:36:55 -0800 (PST)
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-48e09aa5264so1029972f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 13:36:54 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvBxioxiFVL0LnnWe+55GFnWSurcbnbaSGbOvSOgMInJ0/GrwtZ/D+ULysYwfDbGoH/UM21Vjz0f+LxmAL6EejaW9@lists.infradead.org
-X-Received: by 2002:a05:6000:41d9:b0:48e:646e:fb61 with SMTP id
- ffacd0b85a97d-48e6e305b9emr20425341f8f.34.1793569013833; Sun, 01 Nov 2026
- 13:36:53 -0800 (PST)
+	id 1xNdWe-0000000Evvm-1Qz6;
+	Sun, 01 Nov 2026 21:55:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EF3ED605C9;
+	Sun,  1 Nov 2026 21:55:38 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1793570138;
+	b=UCEjMc2MxXTUNmfYLyH1iRNMazX2+xgRhlebtgd9h+GahmbN0qcGxoxXTkwP8fsK1dt9
+	 G4ikRDW/5kHjr5zAVs0PuV/441JyBllPNGqM4Xy4mWdlY7SKhJsUNAQ0M+qKN4bn2YBTY
+	 L1Ob3yzRHaGjpOQ6iJ5gWbVNPOiv3Fe3ZsE4Jg9A35QpbO+M7jIivLZujDDFgDD6Teu2N
+	 WageeYstFZZGUHU56NtQ6O7HjyIIR35p7+zSTZueG3JI2l0Cp6SvQd7iKqIiETyJpnoSv
+	 anFKxhK+CElZ8e2rfTcWkOIS1YvkvvdACfCHbYQ7fL338d0PkB0JE9rPjGCT4fj9xQw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1793570138;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=m8uflTso+qkylFTdVQ/JR31DY9iTOBX4x+anRImiGxU=;
+	b=q5sZZtwMb9s2h3jsuIAzDNZaXhHWh6zPQYo6s1lXFM4nnfZ+7KpXVwkSXhA6RvWZlCIi
+	 FOkfDvccJZtO9S97F9Cr/LKQWufxzZxmClk1c5PwSJ51o4yEcMFXyEuBtNSgOVDY/ZsMH
+	 pfjeJWR1chswkceWf3um/qRpcDCoLXRaVsplKL2Xzzc0hrsInPs/zqhb3o9TbqpzI0ih3
+	 Ut7rbbrr7WEnXPZS3rnxyrUoiZSb2cdmQDBKSc9wMONQGqyet5Ln+MfeJAesy/eye3tB2
+	 NKko0gE+j+xJCu6zKeqLg9ii+t/mfFSl5kUzM7m9ZKy4kx9DPjfn5qLb2gwfEUrHpng==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 7EE401F0093A;
+	Sun,  1 Nov 2026 21:55:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793570138;
+	bh=m8uflTso+qkylFTdVQ/JR31DY9iTOBX4x+anRImiGxU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=MAsuzcvHw1y/ZLulYc+sDQEVwpT8xCpM+QUhG/gpWMHfVs6vMEFh0gswwLiCHFCOd
+	 AYz0Jx125kkWbD/U/Ov1qWuHg6AAjsLAnxqFBrr4KAt/aZR3hlR1gMO9FJ6Mo27Cj0
+	 RzNses0Ufagys3W+uh0FcoK3suD/lAJaiP6OeXTdkrDHVGsHJZv8hvAnM8S90jQKTh
+	 /YzLYPab9Wz8g17t98mH2CesY9kTiHuGZMrktNP42xgWpaasQBDEqq7qDnFxhrRs+8
+	 gHTY3GzULWKRwGRDD9tMV4zdarwaqL8SX/j3xzs14BzHw3l95XSpVyLReWg8P6CB+i
+	 LKQU1EHIzf7uQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id EE97346294;
+	Sun,  1 Nov 2026 21:55:36 +0000 (UTC)
+From: Joachim Eastwood via B4 Relay <devnull+joachim.eastwood.gmail.com@kernel.org>
+Date: Sun, 01 Nov 2026 22:55:20 +0100
+Subject: [PATCH v2 2/9] arm64: dts: rockchip: rk3588s-nanopi: enable
+ mmc-hs400 and add supplies
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261020153652.2907186-1-dianders@chromium.org>
- <CAFLszTgzpQ-donjjtcPwy5T3pfWg_u83QMh0GcdpY2JCq_s75w@mail.gmail.com>
- <CAD=FV=Vt6hgGJuYtv1_mBSQztWQBjmDN9CwLtVxrXcyECGx2-A@mail.gmail.com> <CAFLszTh8geCqamVZwO00fx6t8SDfVHCFP1Fx9PnA2x9TosDKqg@mail.gmail.com>
-In-Reply-To: <CAFLszTh8geCqamVZwO00fx6t8SDfVHCFP1Fx9PnA2x9TosDKqg@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Sun, 1 Nov 2026 13:36:42 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=WGtmBxQhc+ujm3qtVgftfKupqtp9sUpg_ubeQ=-_QG-A@mail.gmail.com>
-X-Gm-Features: AclHuK83p4a2Vbxf-q7Oyea7vApFkqc_qnBlge2O9IlGicuQhVVmFjLkwyEXh7A
-Message-ID: <CAD=FV=WGtmBxQhc+ujm3qtVgftfKupqtp9sUpg_ubeQ=-_QG-A@mail.gmail.com>
-Subject: Re: [RFC PATCH 0/7] arm64: Add fit images for sc7180-trogdor and google,lga
-To: Simon Glass <sjg@chromium.org>
-Cc: Devicetree-compiler@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, linux-kbuild@vger.kernel.org, 
-	Brian Norris <briannorris@chromium.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Chen-Yu Tsai <wenst@chromium.org>, linux-arm-msm@vger.kernel.org, 
-	Nicolas Schier <nsc@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Devicetree@vger.kernel.org, 
-	Julius Werner <jwerner@chromium.org>, Saravana Kannan <saravanak@kernel.org>, 
-	Will Deacon <will@kernel.org>, Michal Simek <michal.simek@amd.com>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Andrew Jones <andrew.jones@linux.dev>, 
-	Bjorn Andersson <andersson@kernel.org>, Breno Leitao <leitao@debian.org>, 
-	David Sterba <dsterba@suse.com>, Gary Guo <gary@garyguo.net>, 
-	Josh Poimboeuf <jpoimboe@kernel.org>, Luis Augenstein <luis.augenstein@tngtech.com>, 
-	Marco Elver <elver@google.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Nick Terrell <terrelln@fb.com>, 
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>, Rong Xu <xur@google.com>, 
-	=?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
-	cros-qcom-dts-watchers@chromium.org, linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_133659_138582_A2CF487D 
-X-CRM114-Status: GOOD (  33.15  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261101-nanopi-m6-improvements-v2-2-a24769efda23@gmail.com>
+References: <20261101-nanopi-m6-improvements-v2-0-a24769efda23@gmail.com>
+In-Reply-To: <20261101-nanopi-m6-improvements-v2-0-a24769efda23@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Shawn Lin <Shawn.lin@rock-chips.com>, 
+ Diederik de Haas <diederik@cknow-tech.com>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Joachim Eastwood <joachim.eastwood@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793570136; l=882;
+ i=joachim.eastwood@gmail.com; s=20260701; h=from:subject:message-id;
+ bh=NtjmoS3gzjTskgyS6fKoVKwOyEqnn+MuBZ7YOy3nJMY=;
+ b=O5Y+nwXb2ANscdU32sZmXZtO31VFMc9bTAk7BixJHkDXBFHbNLKKC1xYk76OyXjb3bmvuTKGF
+ 52AmnStFmGDDmTqh6+yVVG6Sof/vwQHkLaud3hhDvbtVZ/OqUarL7E9
+X-Developer-Key: i=joachim.eastwood@gmail.com; a=ed25519;
+ pk=ZN/8xWtdYaSd5oEfloYSZ1a+/ri0n0VZqjlEeHlbXFU=
+X-Endpoint-Received: by B4 Relay for joachim.eastwood@gmail.com/20260701
+ with auth_id=846
+X-Original-From: Joachim Eastwood <joachim.eastwood@gmail.com>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,118 +109,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: joachim.eastwood@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
+From: Joachim Eastwood <joachim.eastwood@gmail.com>
 
-On Sun, Nov 1, 2026 at 11:34=E2=80=AFAM Simon Glass <sjg@chromium.org> wrot=
-e:
->
-> Hi Doug,
->
-> Doug Anderson <dianders@chromium.org> wrote:
->
-> > Putting the metadata in the configuration's `description` property came
-> > out of discussions with Michal Simek at LPC 2026 (where Xilinx/AMD
-> > already uses configuration descriptions for similar board matching).
->
-> Thanks for the background. The Xilinx case is a bit different, though:
-> the same project writes the string (the binman .dts) and parses it
-> (board.c), so it can change both sides together. Here the kernel would
-> write the string and the Pixel bootloader and outside packaging tools
-> would parse it. That makes it a cross-project ABI, and I'd rather that
-> ABI were typed properties than an unwritten string format.
+The NanoPi 6 series all support eMMC 5.1 HS400 mode. This also matches
+the vendor device tree. Also add power supplies while at it.
 
-OK, fair enough.
+Reviewed-by: Shawn Lin <Shawn.lin@rock-chips.com>
+Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
+index 8c36268e98768..8c77ee71ebf85 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
+@@ -390,7 +390,10 @@ &sdhci {
+ 	no-sdio;
+ 	no-sd;
+ 	non-removable;
+-	mmc-hs200-1_8v;
++	mmc-hs400-1_8v;
++	mmc-hs400-enhanced-strobe;
++	vmmc-supply = <&vcc_3v3_s3>;
++	vqmmc-supply = <&vcc_1v8_s3>;
+ 	status = "okay";
+ };
+ 
 
-> > The proposal I've tried to push a few times is that it's OK that
-> > different loaders have different types of information available
-> > to them, but people don't like that. They want a universal standard,
-> > which nobody can come up with.
->
-> I agree with you here. We don't need a universal set. I've sent a
-> proposed spec change [1] which lets a configuration node hold one or
-> more match sub-nodes. Each one names its scheme with a vendor-prefixed
-> compatible string and carries the properties that scheme defines, for
-> example:
->
->     conf-1 {
->         compatible =3D "google,lga-...";
->         ...
->         match-1 {
->             compatible =3D "google,board-id";
->             board-id =3D <...>;
->             board-rev =3D <...>;
->             soc-id =3D <...>;
->             soc-rev =3D <...>;
->         };
->     };
->
-> Trogdor would use its own scheme (board name as a string, rev and SKU
-> as u32),
-
-Sure. For now I might just leave the "match-" out for Trogdor and
-simply have the config file simply be a list of DTBs. Trogdor
-currently boots OK with the "compatible" strings. Maybe Chen-Yu will
-want to propose something for a newer Chromebook where he can take
-full advantage of it. :-)
+-- 
+2.56.0
 
 
-> and Michal's loader could do the same. Each loader still gets
-> what it needs, the types are explicit, and nobody has to parse
-> 'description'. Please can you take a look and comment there? If it
-> works for you, you can point to it in v2.
-
-That looks reasonable to me. Do I need to respond directly to the
-github proposal, or is my response here OK?
-
-Yeah, I can point to it in v2.
-
-
-> > Should I give it a shot for v2?
->
-> Yes please. The DTB list already reaches make_fit.py from the Makefile
-> through the @file argument, so the new file only has to say which DTBs
-> to include and what metadata each one gets.
-
-FWIW, I still liked the idea of limiting the DTBs that were actually
-compiled based on the list of DTBs included in the FIT image. My
-current v2 draft still has that feature. It adds an argument to
-make_fit.py where we can give it the "fitconfig" file and it can spit
-out the list of dtbs. Then the kernel Makefiles use this to limit
-things. If you don't like that idea, though, it wouldn't be the end of
-the world to (slightly wastefully) compile a bunch of DTBs that we
-don't need.
-
-
-> We'll need a simple
-> per-platform file next to the .dts files, passed with a new option
-> through FIT_EXTRA_ARGS
-
-At the moment my v2 draft doesn't just use the FIT_EXTRA_ARGS but uses
-something like this (which will be documented).
-
-FIT_CONFIG=3Dgoogle/lga.fitconfig
-
-Hopefully that looks good.
-
-
-> Running fdtfactor can then be another make_fit.py option, like --decompos=
-e-dtbs
->
-> [1] https://github.com/open-source-firmware/flat-image-tree/pull/66
-
-I don't think it buys us anything to have make_fit call fdtfactor
-directly, does it? The kernel build can just call it. That also makes
-it easier for people to pass non-standard options into fdtfactor if
-they want (via FDTFACTOR_ARGS)
-
--Doug
 
