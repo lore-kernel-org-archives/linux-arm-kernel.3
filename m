@@ -2,105 +2,164 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3ED82606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 19:16:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FFF3606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 19:17:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gyOkaVck;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CTELCaNL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2Z3tn/Kr;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Lj/u2+tg;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=DUFFok2K
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=inug3MrbHrXAhpoB68QrhA7WfzYA7BHEy40Ul8pbeaI=; b=gyOkaVckdaz1EE
-	9/++8zlmt82PiSyB++2Txt/qFXby0EAg81KvB35Ioq3QQljsBCyaSxwEbcsR7yq9dqAPNCtp8ZAxl
-	lx0U6XvkPPEuNLxSmvUea8oCwz7c/Nv8VrbmIwEBYBrsQPsqHR3Jb3xNgjuFQyO6kPzLNQSEo/K2O
-	kMMRQYkDTxx0AaKEpqKaqmBFifYNMUNQJwhK2KPnzB7G6fU4PTe+O/AA0HwBWSthfzF0SQWYQB2SL
-	97KURAZaIrJG5xtzQXgD7d+kGP1zK1EDfBuHlFZt1jW1sb18DpnHllUX4r6UPkfPldOcP05cZi5B2
-	cNjiwOSy2ur6TEBU+ruQ==;
+	List-Owner; bh=UOs1j22LjLE1SIXla0/ZeRPDc93Djkkb3vt/+irTwsM=; b=2Z3tn/Kr/SAU2N
+	OMZCs7oO0RXKi/882JFfTrUL8XFo1w4cLDyLNNa2E8yS9zz8B0r8a2I8GvIDJlbMwlsghS/Lv1yRq
+	902kF2miOXEQWSJeV1RiaLz0DSueHgodesobRFvUbtVQHAiYDAr81mjq2PEu5wHfC2F9fbTYFAa88
+	isxoUcU7mlwkcX7CkGbU5ZEbEhlvU5UoDfGqoCfISmOZiqQLUVjAGxyAEHhByIiIiIxLkquf9exnB
+	0dsf2dSoJ4yFye24TKpCxJR4SLUPREHMqheyYx7i2xrLfTK/JLoFz9ORtVOHb/bdmIxqnr7AxkAMB
+	AQCEjYJdxN39ui2g9yUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNakk-0000000EmUt-23Wd;
-	Sun, 01 Nov 2026 18:58:02 +0000
-Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
+	id 1xNb36-0000000Eo2I-0ceI;
+	Sun, 01 Nov 2026 19:17:00 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNakg-0000000EmR8-2496
+	id 1xNb33-0000000Eo1p-0FLU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 18:58:01 +0000
-Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-8b0ca1ebc8bso17652277b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 10:57:58 -0800 (PST)
+	Sun, 01 Nov 2026 19:16:58 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A1HQfqu889461
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 1 Nov 2026 19:16:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=UOs1j22LjLE
+	1SIXla0/ZeRPDc93Djkkb3vt/+irTwsM=; b=Lj/u2+tgp0cEoJGTBhM2RPfzUbd
+	ZdX1QbQH2xav3dUclBCjHtSqspvB31kN3ImJf/6GK/s7QWBIIPIPaQF2yi0T0rh6
+	v90h9lDTJp2Z+UjPqCH6hQZi5hGm6/217zhNPn1a7UtWNURuF+O7UkMqQ3j43fuw
+	69qaPPf6VcvCs78nyhhe2QIVeSk4ff2uH26zSl5sdUJmTjQoqvXVu4GuyiZNt7ha
+	qTqFVWGaevtnibDyl6/hO6DizgJtS/PkudXSS9t0kiBO3gDvONPABPrqJT1CqLO3
+	p0Ba0ciC1z7s7/spva0JueoylYMMx7z+6PK+jUevJZPTvU5Y532pBBbrVWg==
+Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hn93ekvv1-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 19:16:56 +0000 (GMT)
+Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5eabedcf97fso358238e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 11:16:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793559477; x=1794164277; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1793560615; x=1794165415; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=inug3MrbHrXAhpoB68QrhA7WfzYA7BHEy40Ul8pbeaI=;
-        b=CTELCaNLzIwi+ETd/m3gDtuywMnc6lnM+0yUrdcB7voGb0f8qHkxfLyK0d+P1muzNh
-         wcTZ3tHFvfLty6UzPg37aDwfQMw57UpQA7gRfxUlb43WCctS2iwcHsk4LNnK4uyue2SF
-         xprrIK5IgEQQ/wIw26He3LN9B0brNrrFvQUl2jhirIU7E+lKz76E0NgNdk5oAeE5Dn1l
-         XG2yW/D1HpTw/u1FZR3JeGnlTgZfPJFc4+8BAKNJEVFXL91ZvRNP1HdnSdmNWpbJLN0q
-         oILoQsn+5XcJPsfcjji/u8hg7X2MDdc1xwncQMMAX9nsaKTi2YeiwXKzEpVbsSQgSP9L
-         ftwg==
+        bh=UOs1j22LjLE1SIXla0/ZeRPDc93Djkkb3vt/+irTwsM=;
+        b=DUFFok2KtQLselwX8gdYhNfoAMbbPTaTTp3CtH0Z5dkSG6M93/Wy2WgzskfACNrIoq
+         j8+Bk3Xt5zzfWZLHM4jeYHJwuTpc7jKpLBvUcvNJbzy8CIJJ68pL/S2C7hG5Bo1Vs02B
+         SO4xp51J5c9GFoKg+TPlatDENRshrgOaQ9H24h0dWhfVamAJpGcV7uomJd5Y5ljc2Vjx
+         LDnPvwhBtLHEfLuCz5UIW0uNHhd0aBN4CGS118pSQPWPSVqaO5j6YhJQaZ1uW66aKbal
+         1my3RqMNBMdpEdJZ4CZgAKi2zSYpcV6trS9hDZ/VDewkNm87EkWwiQKlCLNnSABmFq5Z
+         CZ0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793559477; x=1794164277;
+        d=1e100.net; s=20260707; t=1793560615; x=1794165415;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=inug3MrbHrXAhpoB68QrhA7WfzYA7BHEy40Ul8pbeaI=;
-        b=FDJF4ZiNL3w5hSkwbaiZtKC6Czp2Pjk2IDY21ZwGJrZV+Ht9ceuna4GPRcXdSSIa3s
-         xoimlDRC/nN8dR7oimOX2QDmpE6lYU1hUaxvlO6n+crlh3QAs93I590OamzUuZMMq82a
-         Vm1e71Yq3pKonWUdIVKFa2Q+z2HQBm8RNkqXIFNQWqws5P6/L/suTEktAxuR+RjXuclj
-         WG7pMdh6bdMg0zsKNnUx44VJS+wtT5ihxixphstvoudyJ+Ai+17sf8+0INOEoeA9Go4C
-         8MpjICq8EDR00/wgUet4yZV+msHrJaLp8Zny/GL5EZGB9TLZVL3LRqF59/Sooc/ItEjR
-         M3ZQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwaebuC6qC9m49imGpnXa2fqEt9IbT6xzizVoPZcBOD5sWSkmsByQmi3+MzYcyB2nCMy//HWi6uo85r2zE3mItK@lists.infradead.org
-X-Gm-Message-State: APuU4Z/D8skar5eIhu7nXeVX3FCuSTtdwIS3PiA3+bdT8GcwKtecm00g
-	pbCvORycmjmLUSp6n2OVJNApccA6DzgMcRJfbaBHqrToS2tMJSNRldPB
-X-Gm-Gg: AYBFou3zjaSHTUxuBKeSg7HEXyc4iG4SxMALmm4sBAERVOPKX+5WJ/fSopC4l+/p2ew
-	pFNElbd+VbHTJ4aCvqmzdxGyGcFvFVavrEQJPrzGKoyEluQyqFYW7RALftX+KejwJgslH0S0pNn
-	BLvcb4YMXB1pwKt4hY4P8G72nfSjhaqjt9wZ/SqltT8RIealmvlejfb2IaOzyhLWhZs7MO0Iebu
-	WFv59i0kQYKbJZC85/7LV/KdcAv6R3ywlGGqBAkIujYx/3Eb6ub52fg/Zhmyt5SV26IdZXYqulO
-	QrGboefyICS9WKjQJL0lsd705ffqqjfkYUi9uAiGhnnsaIUuMH6nOvjszUA+Ir7ebg8reYie+N1
-	LSKiAViNHx79rjdaSwXeI/xuuu/1yG7gu+T4BtpX8+OIyt+6m571UYXJauZLL5+G5l3WK8XQXp6
-	hoQ10AnZB+rGA7kwRMhzzU3MkZU5b1FWSpGL7ayvbKSdsOEuC/2m8sMUvH83WKObMSLQV/llpn+
-	QvV9DJ6OIOXMS/gurciE+mv6y65P7WGl4Nt7/xq3Sk8k4jAuufKikpR4ZcgMHGbvf0JZBWbWh6g
-	+f5M8AO7Z0iuJ9YRrKyK+OqPjCYvYoycNBHN8/KA1nvBO28otmtP4t3sXYfXAjSTyR8=
-X-Received: by 2002:a05:690c:6612:b0:8ae:c60c:57ec with SMTP id 00721157ae682-8b2b67a2d40mr50279987b3.61.1793559476785;
-        Sun, 01 Nov 2026 10:57:56 -0800 (PST)
-Received: from hp ([71.12.40.102])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b2b716d420sm40869397b3.33.2026.11.01.10.57.55
+        bh=UOs1j22LjLE1SIXla0/ZeRPDc93Djkkb3vt/+irTwsM=;
+        b=EQ+uHoeEdQGD3u4HAJL+O0hj3kzunaWgM8hSSm4ZCB2kpgTS9hK0vjIdmbBt2zeAPE
+         YIiMihAYytDE9ZW3HgX6aSyCNvFd6LrUO+/OuNb4cAZ6lvxqGwh1pek9Fn3ofsQcNOS0
+         dXshAEJcwqP5N/mdUVrVKH51WNaBDKz9ONe8OZly5EffxrcbuJGPrvFsB+zQsqctD9Us
+         f1Y6CCaAPnleN3xFQgr8L9tn1VEZje31kvqxVCKEyVG3kWBQ4ve5f30CqLODzEt7eIp2
+         vH2j2hLmKQZ4xDSaGwuQCraSXjuxPTM0cO672elsYuLymHERtGRqKgg5TR4JTK7xh2vS
+         M85A==
+X-Forwarded-Encrypted: i=1; AKwUvBy5TszaP5cAwGewP4BqbQUVaS39fFA87Iz7StMLdI7vDifGQAAA+CoVOiRyGhxJSKt04paGapU4l6rgT87uy0qT@lists.infradead.org
+X-Gm-Message-State: APuU4Z8sKqX+24erjrTcBkcflNwrXXOr843EOlWZdT8IQssqn9dWPgEu
+	vZMc0ce67FBVqyiyWPI+q/ChqNyMUzmknNIiWm4NvAjmpL+khLmV8PWw1Oj9xGYZGm6D1jwFfaE
+	Le4TXzaT1P+AiKKbwJAZPxF8b6OdHLljQz8e9uIDwqOfoKTeau5TSTW+qlJwChNkdVGIicWnlnq
+	86Kw==
+X-Gm-Gg: AYBFou373p57y5gVgmBAuws8wIXtphNyCMTXI5sy3f70tTMX/DW2FekxO4cJnT1p2qs
+	V2l+jt5qRRsOtKvnMEIWluGhFdf1BPC0PRzvG+7OvCPubfK2GbIiLnEY32P0KFO3JYyAOepGiZG
+	FEgT9FAGlgkLui/xeXsiDyWRLaw3VN2sGR+2q+o508XMv8WzCVS3PYKEzR8oCvflN+J0Xz2mXWK
+	/pTQffIuUjXy0YaXnFVW/9Wa1HcWGrUGd6ofmNy2tymw6Q8HUaEtnAMbBvCszPT+K/eYr8p+trS
+	CuARIBdvhniyOtnRxJ1RQksVw8r0GOmoNiDxifDMkYQb73yaA2OSBV/s3h0pG9ts7ricedzmwTA
+	ontCQqFTdKkcJDICZK3rx6sMrirkdQvrpPbE8Pj4GcfrkrqZEUzZsRDRyhkvZxg==
+X-Received: by 2002:a05:6102:524a:b0:7cc:1ace:fd11 with SMTP id ada2fe7eead31-7d0726359b5mr2913453137.8.1793560615066;
+        Sun, 01 Nov 2026 11:16:55 -0800 (PST)
+X-Received: by 2002:a05:6102:524a:b0:7cc:1ace:fd11 with SMTP id ada2fe7eead31-7d0726359b5mr2913435137.8.1793560614547;
+        Sun, 01 Nov 2026 11:16:54 -0800 (PST)
+Received: from quoll ([178.197.218.7])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71a4d3f9sm17168223f8f.4.2026.11.01.11.16.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Nov 2026 10:57:56 -0800 (PST)
-From: Tim Michals <tcmichals@gmail.com>
-To: Jassi Brar <jassisinghbrar@gmail.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: linux-sunxi@lists.linux.dev,
-	linux-remoteproc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Tim Michals <tcmichals@gmail.com>
-Subject: [PATCH v3 6/7] mailbox: sun55i: Add KUnit tests
-Date: Sun,  1 Nov 2026 12:57:34 -0600
-Message-ID: <20261101185735.762559-7-tcmichals@gmail.com>
+        Sun, 01 Nov 2026 11:16:53 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Nicolas Ferre <nicolas.ferre@microchip.com>,
+        Alexandre Belloni <alexandre.belloni@bootlin.com>,
+        Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+        Srinivas Kandagatla <srini@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>,
+        Boris Brezillon <bbrezillon@kernel.org>,
+        Mark Brown <broonie@kernel.org>, Andy Gross <andy.gross@linaro.org>,
+        Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        stable@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH v2] soc: qcom: apr: Reject packets with header size larger than packet size
+Date: Sun,  1 Nov 2026 20:07:35 +0100
+Message-ID: <20261101190733.121473-4-krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261101185735.762559-1-tcmichals@gmail.com>
-References: <20261101185735.762559-1-tcmichals@gmail.com>
+In-Reply-To: <20261101190733.121473-3-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20261101190733.121473-3-krzysztof.kozlowski@oss.qualcomm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2069; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=kJg/rvfiN7UDl3v4JnVjo0T2/XuVJN1WlSd/w2seENE=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBq5436kMlPdugyAQucba+rGuml7G8LnGlzYcMDi
+ r4C/KyVAy+JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaueN+gAKCRDBN2bmhouD
+ 15SKD/9rfYsZQDHFYT5ukKYAd98y0gH0XOt/ww0qCH7VHPI2mp+aO43S7bAAR9v2TZQMN9tZvaN
+ co6HZNn83E4znnaaNg/VZOPQxHhCVPJXaECLpRQrSXNMY7WjtUZXqTPI4jEh7E6szRxHSjnmXAv
+ s2ZfruTWiVVLTP8U2Vhnzm77fOCbgwSiLo00BgWXyZ7s+7oIRT4A+E6xXaFb0d4APn6pE68CvI/
+ XYhX+5XPv/V5Urs4iA+8QloZYddAXx6VwwCA009u8ksU8lgWVbMS0bc194nLIzfAxvggB69IDQ1
+ m46Ji4vqediUExfubRsPPpEi+lHkQnquo2FAockRKUyKLbsb5+j5+czLQaj4GKFl0wIoiOCdBmD
+ n957wW1OyUvoXuVtH80dFF4PyOpOxSGfTkGaBp/UfLKgYe40k/j+piY0reZjaQgT7FC4786AFRB
+ YW9pptUes2+3a3J/BI2k1J90Xf6K3LJCbvmRwFDxGuhE0k2hQZog7xa6xlhr7mmmn5i8s11hRW8
+ nQn3v/wC+6w8BXQU8prrKv0l5Tc8nYqeFwmUfqgWDKkX3Ehw2yP+m7s6zIBEznYHV12uqPTaIj9
+ 5j8/M2Cs7jkxmWliJG5JOIeg5UwpUMhNB0P0youYObuv3hpKMiAEjhxJXrNB4IE87U6puXTtaQD uT9sTflUQQlTrRA==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAxMDA3NiBTYWx0ZWRfXxlMz8//BZNgG
+ tUe0Z3t51WfhbZ1in+ER6AMpdGM2H9qGSEiBNFLU7T9+ANPKFPG7Z2aO20leyyLFfOCGSeg486S
+ f7ihj0K+FBEFyppFbmTwqxtaSvwMDfXN/q23shuqJVXmbpVk2mP4n51wCnj5cD5tH+o5ZLEXMsY
+ kjMS22mhu1DuecnJUxhLPvfhjxtP1rkyeNl3C1p6ExQGjuvdpGBaO95b4mrGZYp1t/O/QGqqQA/
+ 2LCVbzmGLKmztur39kDejIe6O0co6Eue3XVIALcfQsYH6crrybROhEu7OrmCu5SnK6vaqGGnKOk
+ uHg4sSCoDSPpvjvFBLT6iNME+mGNAEc+KIQdTARK2rXXsGwptQBVRI5uoj3ppHpEm7weqCRxNkc
+ YHaMBqm40DZPHnKErKdkaI0Eh9VJTpBiVZCUISUJ8Ynw1IVum29XodFvYWkPat32I3GOPxDxkEp
+ lq++3S6XOPLdr4Q+sqA==
+X-Authority-Analysis: v=2.4 cv=FciiV5+6 c=1 sm=1 tr=0 ts=6ae79028 cx=c_pps
+ a=+D9SDfe9YZWTjADjLiQY5g==:117 a=uyPgTw0bjBTS2cVxpiNm5w==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=c92rfblmAAAA:8
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=fiEMaWzmfHqX7dR_b_IA:9
+ a=vmgOmaN-Xu0dpDh8OwbV:22 a=GvGzcOZaWPEFPQC_NcjD:22
+X-Proofpoint-ORIG-GUID: nciu6wPgYkCKiAyPlMiq_7BiOHZ_MC6r
+X-Proofpoint-GUID: nciu6wPgYkCKiAyPlMiq_7BiOHZ_MC6r
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAxMDA3NiBTYWx0ZWRfX3gRbPs41Xpry
+ Ee16JyMQ2zYom7ic9n+E9qxajpPbFsOxe6uZmvmrIXoMgL2q5x6xigkE4DwVlzovsoFXwVJk9P5
+ 4QW4siy40deDH50nnk901PqBkCLTFdQ=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-01_06,2026-10-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 bulkscore=0 impostorscore=0 suspectscore=0 malwarescore=0
+ lowpriorityscore=0 priorityscore=1501 phishscore=0 adultscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610300000 definitions=main-2611010076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_105758_725154_41505513 
-X-CRM114-Status: GOOD (  35.78  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261101_111657_099543_1E1C8A22 
+X-CRM114-Status: GOOD (  16.46  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,1490 +170,65 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add 37 KUnit tests for the sun55i message box driver: the routing of
-all 12 channels, sending on every channel, message order on receive and
-send, a message for a full FIFO held until there is room (behind the
-earlier ones, dropped by shutdown, and dropped when its blocking send
-timed out), last_tx_done() and peek_data() against the FIFO count,
-startup and shutdown dropping stale messages (bounded by the FIFO
-depth), and the interrupt handler (spurious and disabled-channel
-interrupts, empty FIFOs, several channels and routes in one pass, the
-drain bound, the pending bit cleared after the drain, delivery outside
-the lock to a client that replies from its callback, no crosstalk
-between channels). The TX-done line runs on a real descriptor of the
-dummy irq chip: requested before the receive interrupt is enabled,
-shared by the channels of a bank, freed by the last shutdown, TX done
-reported to the core, and a refused message resent through it.
+apr_do_rx_callback() and gpr_do_rx_callback() validate the header size
+and the packet size separately, but never check that the header fits
+within the packet.  Both sizes are u16, so with a malformed packet where
+the header size exceeds the packet size, the subtraction computing
+resp.payload_size gets promoted to int and becomes negative.
 
-The driver's register helpers are redirected with KUnit static stubs to
-mock banks that model the hardware: each channel has an 8-deep FIFO,
-reading it pops and writing it pushes (a write to a full FIFO fails the
-test), a read pending bit clears only once its FIFO is empty, and a
-write pending bit is raised while the FIFO has room and cleared only
-while it is full, as measured on the board. Under forced interrupt
-threading the registered handler is run from the test thread.
+Further check "resp.payload_size > 0" would fail, leading to
+resp.payload left uninitialized (stack value).  Reject such packets as
+having a wrong packet size, although unlikely that firmware would
+produce such packets.
 
-Signed-off-by: Tim Michals <tcmichals@gmail.com>
+Fixes: 6adba21eb434 ("soc: qcom: Add APR bus driver")
+Fixes: ec1471a898cc ("soc: qcom: apr: Add GPR support")
+Cc: stable@vger.kernel.org
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://sashiko.dev/#/bug/linux-82d40745-1593-4c20-8432-d86099836525
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
 ---
-Changes in v3:
-- Moved after the drivers
-- depends on SUN55I_MSGBOX (Sashiko)
-- Register access is redirected with KUnit static stubs to mock banks
-  that model the hardware (8-deep FIFOs, the read and write status as
-  measured). No readl() on plain memory, so no architecture restriction
-  and no endianness issue (Sashiko)
-- File named sun55i_msgbox_kunit.c (kunit/style.rst)
-- The startup flush test now checks that the FIFO is drained; it
-  passed through the failsafe before (Sashiko)
-- New tests: drain before clearing the pending bit, full FIFO never
-  written (message held in timer mode), TX done by write interrupt,
-  delivery outside the lock, message order, the abandoned held message,
-  the TX-done line through a real interrupt descriptor, a refused
-  message resent through the core
-- Duplicate tests merged (routing is one table)
----
- drivers/mailbox/Kconfig               |   12 +
- drivers/mailbox/Makefile              |    1 +
- drivers/mailbox/sun55i_msgbox_kunit.c | 1387 +++++++++++++++++++++++++
- 3 files changed, 1400 insertions(+)
- create mode 100644 drivers/mailbox/sun55i_msgbox_kunit.c
 
-diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
-index 370a55c8dc91..3a83c1fac13b 100644
---- a/drivers/mailbox/Kconfig
-+++ b/drivers/mailbox/Kconfig
-@@ -344,6 +344,18 @@ config SUN55I_MSGBOX
- 	  To compile this driver as a module, choose M here: the module will
- 	  be called sun55i-msgbox.
+Changes in v2:
+1. Test for <=, because hdr==pkt size still would leave the response
+   payload uninitialized.
+---
+ drivers/soc/qcom/apr.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/soc/qcom/apr.c b/drivers/soc/qcom/apr.c
+index 2d5645ff9919..e303562526d4 100644
+--- a/drivers/soc/qcom/apr.c
++++ b/drivers/soc/qcom/apr.c
+@@ -210,7 +210,8 @@ static int apr_do_rx_callback(struct packet_router *apr, struct apr_rx_buf *abuf
+ 		return -EINVAL;
+ 	}
  
-+config SUN55I_MSGBOX_KUNIT_TEST
-+	tristate "KUnit tests for Allwinner sun55i msgbox" if !KUNIT_ALL_TESTS
-+	depends on SUN55I_MSGBOX && KUNIT
-+	default KUNIT_ALL_TESTS
-+	help
-+	  KUnit tests for the Allwinner sun55i-msgbox driver. They run the
-+	  channel operations (send, peek, last_tx_done, startup, shutdown)
-+	  and the interrupt handlers against mock register banks that model
-+	  the 8-deep FIFOs and the read and write status registers, and
-+	  request, share and free the TX-done line on a dummy interrupt.
-+	  Say Y here to run these tests during boot or via kunit.py.
-+
- config SPRD_MBOX
- 	tristate "Spreadtrum Mailbox"
- 	depends on ARCH_SPRD || COMPILE_TEST
-diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
-index 40024aa906a6..d2c0f705818b 100644
---- a/drivers/mailbox/Makefile
-+++ b/drivers/mailbox/Makefile
-@@ -72,6 +72,7 @@ obj-$(CONFIG_ZYNQMP_IPI_MBOX)	+= zynqmp-ipi-mailbox.o
- obj-$(CONFIG_SUN6I_MSGBOX)	+= sun6i-msgbox.o
+-	if (hdr->pkt_size < APR_HDR_SIZE || hdr->pkt_size != len) {
++	if (hdr->pkt_size < APR_HDR_SIZE || hdr->pkt_size != len ||
++	    hdr->pkt_size <= hdr_size) {
+ 		dev_err(apr->dev, "APR: Wrong packet size\n");
+ 		return -EINVAL;
+ 	}
+@@ -280,7 +281,8 @@ static int gpr_do_rx_callback(struct packet_router *gpr, struct apr_rx_buf *abuf
+ 		return -EINVAL;
+ 	}
  
- obj-$(CONFIG_SUN55I_MSGBOX)	+= sun55i-msgbox.o
-+obj-$(CONFIG_SUN55I_MSGBOX_KUNIT_TEST)	+= sun55i_msgbox_kunit.o
- 
- obj-$(CONFIG_SPRD_MBOX)		+= sprd-mailbox.o
- 
-diff --git a/drivers/mailbox/sun55i_msgbox_kunit.c b/drivers/mailbox/sun55i_msgbox_kunit.c
-new file mode 100644
-index 000000000000..f95f69762f78
---- /dev/null
-+++ b/drivers/mailbox/sun55i_msgbox_kunit.c
-@@ -0,0 +1,1387 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * KUnit tests for the Allwinner sun55i Message Box driver (sun55i-msgbox.c)
-+ *
-+ * Covers:
-+ *  - the 12-channel routing table
-+ *  - send_data, last_tx_done, peek_data, startup and shutdown; in timer
-+ *    mode a message for a full FIFO is held until last_tx_done() has room
-+ *  - TX done by write IRQ: armed after every send (and for a full FIFO),
-+ *    the handler disarms, acks and ignores channels it did not arm; a
-+ *    refused message is resent through the core once a slot is free; a
-+ *    startup() that cannot get the line never enables the receive IRQ,
-+ *    and the shutdown() the core then calls leaves the line alone;
-+ *    shutdown() disarms again after a handler re-armed the channel
-+ *  - the interrupt handler: delivery after the drain, outside the lock (a
-+ *    client may reply from its callback), per-channel isolation, several
-+ *    channels and ports in one pass, and the FIFO_MAX drain bound
-+ *
-+ * Directly invokes driver operations. All register access is redirected
-+ * (KUnit static stubs) to mock banks that model the hardware: each message
-+ * FIFO is an 8-deep queue (a read pops, a write pushes), a read pending bit
-+ * only clears once its FIFO is empty, and a write pending bit is raised
-+ * while its FIFO has room and only clears while it is full. The TX-done
-+ * line tests use a real interrupt descriptor on the dummy irq chip.
-+ * The stubs follow the test task, so a real interrupt taken while a test runs
-+ * is redirected too: accesses outside the mock banks from interrupt context
-+ * go to the hardware.
-+ *
-+ * Copyright (C) 2026 Tim Michals <tcmichals@gmail.com>
-+ */
-+
-+#include <kunit/device.h>
-+#include <kunit/static_stub.h>
-+#include <kunit/test.h>
-+#include <linux/io.h>
-+#include <linux/irq.h>
-+#include <linux/irqdesc.h>
-+#include <linux/mailbox_client.h>
-+#include "sun55i-msgbox.h"
-+
-+/* =============== Channel Routing Table Tests =============== */
-+
-+static void test_chan_to_route_all(struct kunit *test)
-+{
-+	/* local_n, p, remote_id, remote_n for host channels 0..11 */
-+	static const int expect[SUN55I_NUM_CHANS][4] = {
-+		{ 0, 0, SUN55I_PROC_CPUS, 0 }, { 0, 1, SUN55I_PROC_CPUS, 0 },
-+		{ 0, 2, SUN55I_PROC_CPUS, 0 }, { 0, 3, SUN55I_PROC_CPUS, 0 },
-+		{ 1, 0, SUN55I_PROC_DSP, 0 },  { 1, 1, SUN55I_PROC_DSP, 0 },
-+		{ 1, 2, SUN55I_PROC_DSP, 0 },  { 1, 3, SUN55I_PROC_DSP, 0 },
-+		{ 2, 0, SUN55I_PROC_RV, 2 },   { 2, 1, SUN55I_PROC_RV, 2 },
-+		{ 2, 2, SUN55I_PROC_RV, 2 },   { 2, 3, SUN55I_PROC_RV, 2 },
-+	};
-+	int ch, local_n, p, remote_id, remote_n;
-+
-+	for (ch = 0; ch < SUN55I_NUM_CHANS; ch++) {
-+		sun55i_msgbox_chan_to_route(ch, &local_n, &p, &remote_id, &remote_n);
-+		KUNIT_EXPECT_EQ_MSG(test, local_n, expect[ch][0], "channel %d", ch);
-+		KUNIT_EXPECT_EQ_MSG(test, p, expect[ch][1], "channel %d", ch);
-+		KUNIT_EXPECT_EQ_MSG(test, remote_id, expect[ch][2], "channel %d", ch);
-+		KUNIT_EXPECT_EQ_MSG(test, remote_n, expect[ch][3], "channel %d", ch);
-+	}
-+}
-+
-+/* =============== Functional Driver Ops Tests (Mock MMIO) =============== */
-+
-+struct mock_rx_sink {
-+	struct mbox_client client;
-+	int count;
-+	u32 last_msg;
-+	u32 msgs[SUN55I_FIFO_MAX * 2];
-+};
-+
-+/* One channel's message FIFO */
-+struct mock_fifo {
-+	u32 msg[SUN55I_FIFO_MAX];
-+	int head, len;
-+};
-+
-+struct mock_msgbox_fixture {
-+	struct sun55i_msgbox mbox;
-+	struct mbox_chan chans[SUN55I_NUM_CHANS];
-+	struct mock_rx_sink sinks[SUN55I_NUM_CHANS];
-+	u32 regs[SUN55I_MAX_PROCESSORS][0x400 / 4];
-+	/* Hardware defect: reading a FIFO does not lower its message count */
-+	bool fifo_stuck;
-+	int fifo_reads;
-+	/* Next write that disarms a channel's write IRQ is undone, as a handler would */
-+	bool rearm_on_disarm;
-+	/* Every bit ever written to the host bank's READ_IRQ_ENABLE, per port */
-+	u32 rd_en_written[SUN55I_NUM_ROUTES];
-+	/* Message FIFOs: bank, port n, channel p */
-+	struct mock_fifo fifo[SUN55I_MAX_PROCESSORS][SUN55I_MAX_PROCESSORS][SUN55I_CHANS_PER_PROC];
-+};
-+
-+/* Test-side access: the registers as stored, no hardware behaviour */
-+static inline void mock_write_reg(struct mock_msgbox_fixture *fix, int proc, u32 reg_idx, u32 val)
-+{
-+	fix->regs[proc][reg_idx] = val;
-+}
-+
-+static inline u32 mock_read_reg(struct mock_msgbox_fixture *fix, int proc, u32 reg_idx)
-+{
-+	return fix->regs[proc][reg_idx];
-+}
-+
-+/* Find the mock register behind a driver address: bank, port n, offset in the port */
-+static u32 *mock_decode(void __iomem *addr, int *bank, u32 *n, u32 *reg)
-+{
-+	struct mock_msgbox_fixture *fix = kunit_get_current_test()->priv;
-+	uintptr_t a = (uintptr_t)addr;
-+	int proc;
-+
-+	for (proc = 0; proc < SUN55I_MAX_PROCESSORS; proc++) {
-+		uintptr_t base = (uintptr_t)fix->regs[proc];
-+
-+		if (a >= base && a < base + sizeof(fix->regs[proc])) {
-+			*bank = proc;
-+			*n = (a - base) / SUN55I_MSGBOX_OFFSET(1);
-+			*reg = (a - base) % SUN55I_MSGBOX_OFFSET(1);
-+			return &fix->regs[proc][(a - base) / 4];
-+		}
-+	}
-+	/* A real interrupt taken while this test runs: not ours to fail */
-+	if (in_task())
-+		KUNIT_FAIL(kunit_get_current_test(), "register access outside the mock banks");
-+	return NULL;
-+}
-+
-+/*
-+ * Messages signalled on host port @n for the channels in @bits: enabled and
-+ * pending (the read enable and pending bits of a channel are the same bit)
-+ */
-+static void mock_rx_pending(struct mock_msgbox_fixture *fix, int n, u32 bits)
-+{
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_READ_IRQ_ENABLE(n) / 4, bits);
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_READ_IRQ_STATUS(n) / 4, bits);
-+}
-+
-+/* MSG_STATUS of the channel whose FIFO register is @fifo (same port, same p) */
-+static u32 *mock_fifo_count(u32 *fifo)
-+{
-+	return fifo - (SUN55I_MSGBOX_MSG_FIFO(0, 0) - SUN55I_MSGBOX_MSG_STATUS(0, 0)) / 4;
-+}
-+
-+static bool mock_is_fifo(u32 reg)
-+{
-+	return reg >= SUN55I_MSGBOX_MSG_FIFO(0, 0) &&
-+	       reg <= SUN55I_MSGBOX_MSG_FIFO(0, SUN55I_CHANS_PER_PROC - 1);
-+}
-+
-+static u32 *mock_msg_count(struct mock_msgbox_fixture *fix, int bank, int n, int p)
-+{
-+	return &fix->regs[bank][SUN55I_MSGBOX_MSG_STATUS(n, p) / 4];
-+}
-+
-+/*
-+ * Queue a message in a FIFO, as its sender would. Tests that only set the
-+ * count and FIFO registers get the register value back on every read.
-+ */
-+static void mock_fifo_push(struct mock_msgbox_fixture *fix, int bank, int n, int p, u32 val)
-+{
-+	struct mock_fifo *f = &fix->fifo[bank][n][p];
-+
-+	KUNIT_ASSERT_LT(kunit_get_current_test(), f->len, SUN55I_FIFO_MAX);
-+	f->msg[(f->head + f->len++) % SUN55I_FIFO_MAX] = val;
-+	(*mock_msg_count(fix, bank, n, p))++;
-+}
-+
-+/* Take the oldest queued message from a FIFO, as its receiver would */
-+static u32 mock_fifo_pop(struct mock_msgbox_fixture *fix, int bank, int n, int p)
-+{
-+	struct mock_fifo *f = &fix->fifo[bank][n][p];
-+	u32 val;
-+
-+	KUNIT_ASSERT_GT(kunit_get_current_test(), f->len, 0);
-+	val = f->msg[f->head];
-+	f->head = (f->head + 1) % SUN55I_FIFO_MAX;
-+	f->len--;
-+	(*mock_msg_count(fix, bank, n, p))--;
-+	return val;
-+}
-+
-+/*
-+ * The write pending bit of a channel is raised while its FIFO has room and
-+ * stays latched; a clear only takes while the FIFO is full.
-+ */
-+static void mock_raise_write_pending(struct mock_msgbox_fixture *fix, int bank, int n, u32 *sta)
-+{
-+	int p;
-+
-+	for (p = 0; p < SUN55I_CHANS_PER_PROC; p++)
-+		if ((*mock_msg_count(fix, bank, n, p) & SUN55I_MSGBOX_MSG_NUM_MASK) <
-+		    SUN55I_FIFO_MAX)
-+			*sta |= SUN55I_MSGBOX_WR_IRQ_PEND_BIT(p);
-+}
-+
-+static u32 mock_readl(void __iomem *addr)
-+{
-+	struct mock_msgbox_fixture *fix = kunit_get_current_test()->priv;
-+	int bank;
-+	u32 n, reg, *r = mock_decode(addr, &bank, &n, &reg);
-+
-+	if (!r)
-+		return in_task() ? 0 : readl(addr);
-+
-+	/*
-+	 * Reading the message FIFO pops one message. A FIFO that a test filled
-+	 * through its registers, not mock_fifo_push(), reads back its register.
-+	 */
-+	if (mock_is_fifo(reg)) {
-+		int p = (reg - SUN55I_MSGBOX_MSG_FIFO(0, 0)) / 4;
-+		u32 *count = mock_fifo_count(r);
-+		u32 val = *r;
-+
-+		fix->fifo_reads++;
-+		if (fix->fifo_stuck || !(*count & SUN55I_MSGBOX_MSG_NUM_MASK))
-+			return val;
-+		if (fix->fifo[bank][n][p].len)
-+			return mock_fifo_pop(fix, bank, n, p);
-+		(*count)--;
-+		return val;
-+	}
-+
-+	if (reg == SUN55I_MSGBOX_WRITE_IRQ_STATUS(0))
-+		mock_raise_write_pending(fix, bank, n, r);
-+
-+	return *r;
-+}
-+
-+static void mock_writel(u32 val, void __iomem *addr)
-+{
-+	struct mock_msgbox_fixture *fix = kunit_get_current_test()->priv;
-+	int bank;
-+	u32 n, reg, *r = mock_decode(addr, &bank, &n, &reg);
-+	int p;
-+
-+	if (!r) {
-+		if (!in_task())
-+			writel(val, addr);
-+		return;
-+	}
-+
-+	switch (reg) {
-+	case SUN55I_MSGBOX_WRITE_IRQ_ENABLE(0):
-+		/*
-+		 * A TX-done handler still running on another CPU submits the
-+		 * next message, and send_data() arms the channel again.
-+		 */
-+		if (fix->rearm_on_disarm && (*r & ~val)) {
-+			fix->rearm_on_disarm = false;
-+			val = *r;
-+		}
-+		break;
-+	case SUN55I_MSGBOX_READ_IRQ_ENABLE(0):
-+		if (r >= fix->regs[0] && r < fix->regs[0] + ARRAY_SIZE(fix->regs[0]) &&
-+		    n < SUN55I_NUM_ROUTES)
-+			fix->rd_en_written[n] |= val;
-+		break;
-+	case SUN55I_MSGBOX_READ_IRQ_STATUS(0):
-+		/* W1C; a read pending bit stays set while its FIFO is not empty */
-+		for (p = 0; p < SUN55I_CHANS_PER_PROC; p++) {
-+			u32 *count = r + (SUN55I_MSGBOX_MSG_STATUS(0, p) -
-+					  SUN55I_MSGBOX_READ_IRQ_STATUS(0)) / 4;
-+
-+			if ((val & SUN55I_MSGBOX_RD_IRQ_PEND_BIT(p)) &&
-+			    !(*count & SUN55I_MSGBOX_MSG_NUM_MASK))
-+				*r &= ~SUN55I_MSGBOX_RD_IRQ_PEND_BIT(p);
-+		}
-+		return;
-+	case SUN55I_MSGBOX_WRITE_IRQ_STATUS(0):
-+		/* Latched; the clear only takes while the FIFO is full */
-+		mock_raise_write_pending(fix, bank, n, r);
-+		for (p = 0; p < SUN55I_CHANS_PER_PROC; p++)
-+			if ((val & SUN55I_MSGBOX_WR_IRQ_PEND_BIT(p)) &&
-+			    (*mock_msg_count(fix, bank, n, p) & SUN55I_MSGBOX_MSG_NUM_MASK) >=
-+			    SUN55I_FIFO_MAX)
-+				*r &= ~SUN55I_MSGBOX_WR_IRQ_PEND_BIT(p);
-+		return;
-+	}
-+
-+	/* Writing the message FIFO pushes one message; a full FIFO is corrupted */
-+	if (mock_is_fifo(reg)) {
-+		u32 *count = mock_fifo_count(r);
-+
-+		p = (reg - SUN55I_MSGBOX_MSG_FIFO(0, 0)) / 4;
-+		KUNIT_EXPECT_LT_MSG(kunit_get_current_test(), *count & SUN55I_MSGBOX_MSG_NUM_MASK,
-+				    (u32)SUN55I_FIFO_MAX, "write to a full FIFO");
-+		if ((*count & SUN55I_MSGBOX_MSG_NUM_MASK) < SUN55I_FIFO_MAX)
-+			mock_fifo_push(fix, bank, n, p, val);
-+	}
-+	*r = val;
-+}
-+
-+static void mock_rx_cb(struct mbox_client *cl, void *data)
-+{
-+	struct mock_rx_sink *sink = container_of(cl, struct mock_rx_sink, client);
-+
-+	if (sink->count < ARRAY_SIZE(sink->msgs))
-+		sink->msgs[sink->count] = *(u32 *)data;
-+	sink->count++;
-+	sink->last_msg = *(u32 *)data;
-+}
-+
-+static void mock_free_irq_desc(void *irq)
-+{
-+	irq_free_desc((unsigned long)irq);
-+}
-+
-+/* A fresh interrupt on the dummy chip, so request_irq() and free_irq() run */
-+static int mock_alloc_irq(struct kunit *test)
-+{
-+	int irq = irq_alloc_desc(NUMA_NO_NODE);
-+
-+	KUNIT_ASSERT_GE(test, irq, 0);
-+	irq_set_chip_and_handler(irq, &dummy_irq_chip, handle_simple_irq);
-+	/* Some architectures (arm, powerpc) mark new descriptors unrequestable */
-+	irq_clear_status_flags(irq, IRQ_NOREQUEST | IRQ_NOPROBE);
-+	KUNIT_ASSERT_EQ(test, kunit_add_action_or_reset(test, mock_free_irq_desc,
-+							(void *)(unsigned long)irq), 0);
-+	return irq;
-+}
-+
-+static struct mock_msgbox_fixture *create_mock_fixture(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix;
-+	int i;
-+
-+	fix = kunit_kzalloc(test, sizeof(*fix), GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_NULL(test, fix);
-+	test->priv = fix;
-+	kunit_activate_static_stub(test, sun55i_msgbox_readl, mock_readl);
-+	kunit_activate_static_stub(test, sun55i_msgbox_writel, mock_writel);
-+
-+	spin_lock_init(&fix->mbox.lock);
-+	/* The host bank line: shutdown() waits for its handler */
-+	fix->mbox.irq = mock_alloc_irq(test);
-+	fix->mbox.controller.dev = kunit_device_register(test, "sun55i-msgbox-test");
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, fix->mbox.controller.dev);
-+	fix->mbox.controller.chans = fix->chans;
-+	fix->mbox.controller.num_chans = SUN55I_NUM_CHANS;
-+
-+	for (i = 0; i < SUN55I_MAX_PROCESSORS; i++)
-+		fix->mbox.regs[i] = (void __iomem *)fix->regs[i];
-+
-+	for (i = 0; i < SUN55I_NUM_CHANS; i++) {
-+		fix->chans[i].con_priv = &fix->mbox;
-+		fix->sinks[i].client.rx_callback = mock_rx_cb;
-+		fix->chans[i].cl = &fix->sinks[i].client;
-+	}
-+
-+	return fix;
-+}
-+
-+static void test_functional_send_data_all_twelve_channels(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	int ch;
-+
-+	/* Send unique test pattern over every channel from 0 to 11 */
-+	for (ch = 0; ch < SUN55I_NUM_CHANS; ch++) {
-+		int local_n, p, remote_id, remote_n;
-+		u32 val = 0x55000000U | (u32)ch;
-+		u32 reg_idx;
-+
-+		sun55i_msgbox_chan_to_route(ch, &local_n, &p, &remote_id, &remote_n);
-+		sun55i_msgbox_chan_ops.send_data(&fix->chans[ch], &val);
-+
-+		reg_idx = SUN55I_MSGBOX_MSG_FIFO(remote_n, p) / 4;
-+		KUNIT_EXPECT_EQ(test,
-+				mock_read_reg(fix, remote_id, reg_idx),
-+				val);
-+	}
-+}
-+
-+static void test_functional_send_data_null(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 reg_idx;
-+
-+	/* NULL data pointer writes 0 to FIFO without dereferencing */
-+	sun55i_msgbox_chan_ops.send_data(&fix->chans[8], NULL);
-+
-+	reg_idx = SUN55I_MSGBOX_MSG_FIFO(2, 0) / 4;
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, reg_idx), 0U);
-+}
-+
-+static void test_functional_last_tx_done_sweep(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 reg_idx = SUN55I_MSGBOX_MSG_STATUS(2, 0) / 4;
-+	u32 count;
-+
-+	/* Counts 0..7: the FIFO has room for the next kick -> done */
-+	for (count = 0; count < SUN55I_FIFO_MAX; count++) {
-+		mock_write_reg(fix, 3, reg_idx, count);
-+		KUNIT_EXPECT_TRUE(test, sun55i_msgbox_chan_ops.last_tx_done(&fix->chans[8]));
-+	}
-+
-+	/* Count 8 (full) and anything above: wait */
-+	for (count = SUN55I_FIFO_MAX; count <= 15; count++) {
-+		mock_write_reg(fix, 3, reg_idx, count);
-+		KUNIT_EXPECT_FALSE(test, sun55i_msgbox_chan_ops.last_tx_done(&fix->chans[8]));
-+	}
-+}
-+
-+static void test_functional_send_data_holds_for_full_fifo(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 status = SUN55I_MSGBOX_MSG_STATUS(2, 1) / 4;
-+	u32 fifo = SUN55I_MSGBOX_MSG_FIFO(2, 1) / 4;
-+	u32 val = 0xA5A5A5A5;
-+
-+	/*
-+	 * Writing a full FIFO corrupts its count: never do it. The core only
-+	 * polls a channel whose send succeeded, so timer mode accepts the
-+	 * message and last_tx_done() writes it once a slot is free.
-+	 */
-+	mock_write_reg(fix, 3, status, SUN55I_FIFO_MAX);
-+	mock_write_reg(fix, 3, fifo, 0);
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_chan_ops.send_data(&fix->chans[9], &val), 0);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, fifo), 0U);
-+
-+	/* Still full: not done, nothing written */
-+	KUNIT_EXPECT_FALSE(test, sun55i_msgbox_chan_ops.last_tx_done(&fix->chans[9]));
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, fifo), 0U);
-+
-+	/* The receiver read one: the held message goes in and fills the FIFO */
-+	mock_write_reg(fix, 3, status, SUN55I_FIFO_MAX - 1);
-+	KUNIT_EXPECT_FALSE(test, sun55i_msgbox_chan_ops.last_tx_done(&fix->chans[9]));
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, fifo), val);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, status), SUN55I_FIFO_MAX);
-+
-+	/* Room again: done, and it is written only once */
-+	mock_write_reg(fix, 3, status, SUN55I_FIFO_MAX - 1);
-+	mock_write_reg(fix, 3, fifo, 0);
-+	KUNIT_EXPECT_TRUE(test, sun55i_msgbox_chan_ops.last_tx_done(&fix->chans[9]));
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, fifo), 0U);
-+
-+	/* With room it writes at once */
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_chan_ops.send_data(&fix->chans[9], &val), 0);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, fifo), val);
-+
-+	/* Timer mode: neither path arms the write IRQ */
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, SUN55I_MSGBOX_WRITE_IRQ_ENABLE(2) / 4), 0U);
-+}
-+
-+static void test_functional_shutdown_drops_held_message(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 status = SUN55I_MSGBOX_MSG_STATUS(2, 1) / 4;
-+	u32 fifo = SUN55I_MSGBOX_MSG_FIFO(2, 1) / 4;
-+	u32 val = 0xA5A5A5A5;
-+
-+	mock_write_reg(fix, 3, status, SUN55I_FIFO_MAX);
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_chan_ops.send_data(&fix->chans[9], &val), 0);
-+	sun55i_msgbox_chan_ops.shutdown(&fix->chans[9]);
-+
-+	/* A held message does not reach the next user of the channel */
-+	mock_write_reg(fix, 3, status, 0);
-+	mock_write_reg(fix, 3, fifo, 0);
-+	KUNIT_EXPECT_TRUE(test, sun55i_msgbox_chan_ops.last_tx_done(&fix->chans[9]));
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, fifo), 0U);
-+}
-+
-+/* Write IRQ mode: fixture channels wired to the mailbox core's txdone path */
-+static struct mock_msgbox_fixture *create_tx_irq_fixture(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	int i;
-+
-+	fix->mbox.tx_done_irq = true;
-+	mutex_init(&fix->mbox.tx_irq_lock);
-+	fix->mbox.controller.ops = &sun55i_msgbox_chan_ops;
-+	for (i = 0; i < SUN55I_NUM_ROUTES; i++) {
-+		fix->mbox.tx_irqs[i].mbox = &fix->mbox;
-+		fix->mbox.tx_irqs[i].local_n = i;
-+	}
-+	for (i = 0; i < SUN55I_NUM_CHANS; i++) {
-+		spin_lock_init(&fix->chans[i].lock);
-+		fix->chans[i].mbox = &fix->mbox.controller;
-+		fix->chans[i].active_req = MBOX_NO_MSG;
-+		fix->chans[i].txdone_method = MBOX_TXDONE_BY_IRQ;
-+	}
-+	return fix;
-+}
-+
-+static void test_tx_irq_armed_after_every_send(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_tx_irq_fixture(test);
-+	u32 status = SUN55I_MSGBOX_MSG_STATUS(2, 1) / 4;
-+	u32 fifo = SUN55I_MSGBOX_MSG_FIFO(2, 1) / 4;
-+	u32 wr_en = SUN55I_MSGBOX_WRITE_IRQ_ENABLE(2) / 4;
-+	u32 wr_sta = SUN55I_MSGBOX_WRITE_IRQ_STATUS(2) / 4;
-+	u32 val = 0x5A5A5A5A;
-+
-+	/*
-+	 * Room in the FIFO: the kick is written and the write IRQ of this
-+	 * channel (p = 1) is armed, after clearing its latched status bit only.
-+	 */
-+	mock_write_reg(fix, 3, status, SUN55I_FIFO_MAX - 1);
-+	mock_write_reg(fix, 3, wr_sta, 0xAA);
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_chan_ops.send_data(&fix->chans[9], &val), 0);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, fifo), val);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, wr_en), SUN55I_MSGBOX_WR_IRQ_EN_BIT(1));
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, wr_sta),
-+			0xAAU & ~SUN55I_MSGBOX_WR_IRQ_PEND_BIT(1));
-+
-+	/* Full: refused without writing, the IRQ is armed to retry it */
-+	mock_write_reg(fix, 3, status, SUN55I_FIFO_MAX);
-+	mock_write_reg(fix, 3, fifo, 0);
-+	mock_write_reg(fix, 3, wr_en, 0);
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_chan_ops.send_data(&fix->chans[9], &val), -EBUSY);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, fifo), 0U);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, wr_en), SUN55I_MSGBOX_WR_IRQ_EN_BIT(1));
-+}
-+
-+static void test_tx_irq_handler_disarms_and_acks(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_tx_irq_fixture(test);
-+	struct sun55i_tx_irq *rv = &fix->mbox.tx_irqs[2];
-+	u32 wr_en = SUN55I_MSGBOX_WRITE_IRQ_ENABLE(2) / 4;
-+	u32 wr_sta = SUN55I_MSGBOX_WRITE_IRQ_STATUS(2) / 4;
-+
-+	/*
-+	 * Armed and raised (the receiver read one): handled and disarmed. The
-+	 * ack does not take while the FIFO has room, so masking the enable is
-+	 * what stops the level interrupt.
-+	 */
-+	mock_write_reg(fix, 3, wr_en, SUN55I_MSGBOX_WR_IRQ_EN_BIT(1));
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_tx_irq(0, rv), IRQ_HANDLED);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, wr_en), 0U);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, wr_sta) & SUN55I_MSGBOX_WR_IRQ_PEND_BIT(1),
-+			SUN55I_MSGBOX_WR_IRQ_PEND_BIT(1));
-+
-+	/* Not armed any more: the next pass leaves the channel alone */
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_tx_irq(0, rv), IRQ_NONE);
-+}
-+
-+static void test_tx_irq_handler_ignores_unarmed(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_tx_irq_fixture(test);
-+	struct sun55i_tx_irq *rv = &fix->mbox.tx_irqs[2];
-+	u32 wr_en = SUN55I_MSGBOX_WRITE_IRQ_ENABLE(2) / 4;
-+	u32 wr_sta = SUN55I_MSGBOX_WRITE_IRQ_STATUS(2) / 4;
-+
-+	/* Status is level and set whenever there is room: not ours unless armed */
-+	mock_write_reg(fix, 3, wr_en, 0);
-+	mock_write_reg(fix, 3, wr_sta, 0xAA);
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_tx_irq(0, rv), IRQ_NONE);
-+
-+	/* Armed on p = 0 only: p = 1 pending is ignored, p = 0 handled */
-+	mock_write_reg(fix, 3, wr_en, SUN55I_MSGBOX_WR_IRQ_EN_BIT(0));
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_tx_irq(0, rv), IRQ_HANDLED);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, wr_en), 0U);
-+
-+	/* The CPUS bank line never handles the RV bank's channels */
-+	mock_write_reg(fix, 3, wr_en, SUN55I_MSGBOX_WR_IRQ_EN_BIT(1));
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_tx_irq(0, &fix->mbox.tx_irqs[0]),
-+			IRQ_NONE);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, wr_en), SUN55I_MSGBOX_WR_IRQ_EN_BIT(1));
-+}
-+
-+static void test_functional_peek_data_sweep(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 reg_idx = SUN55I_MSGBOX_MSG_STATUS(2, 0) / 4;
-+	u32 count;
-+
-+	/* Count 0: no messages -> returns false */
-+	mock_write_reg(fix, 0, reg_idx, 0);
-+	KUNIT_EXPECT_FALSE(test, sun55i_msgbox_chan_ops.peek_data(&fix->chans[8]));
-+
-+	/* Counts 1..15: has messages -> returns true */
-+	for (count = 1; count <= 15; count++) {
-+		mock_write_reg(fix, 0, reg_idx, count);
-+		KUNIT_EXPECT_TRUE(test, sun55i_msgbox_chan_ops.peek_data(&fix->chans[8]));
-+	}
-+}
-+
-+static void test_functional_startup_and_shutdown(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 en_idx = SUN55I_MSGBOX_READ_IRQ_ENABLE(2) / 4;
-+	u32 stat_idx = SUN55I_MSGBOX_READ_IRQ_STATUS(2) / 4;
-+
-+	/* Startup on Channel 8: enables IRQ and clears a stale pending bit */
-+	mock_write_reg(fix, 0, stat_idx, SUN55I_MSGBOX_RD_IRQ_PEND_BIT(0));
-+	sun55i_msgbox_chan_ops.startup(&fix->chans[8]);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 0, en_idx) & SUN55I_MSGBOX_RD_IRQ_EN_BIT(0),
-+			SUN55I_MSGBOX_RD_IRQ_EN_BIT(0));
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 0, stat_idx) & SUN55I_MSGBOX_RD_IRQ_PEND_BIT(0),
-+			0U);
-+
-+	/* Shutdown on Channel 8: disables IRQ */
-+	sun55i_msgbox_chan_ops.shutdown(&fix->chans[8]);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 0, en_idx) & SUN55I_MSGBOX_RD_IRQ_EN_BIT(0), 0U);
-+}
-+
-+static void test_functional_shutdown_isolation(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 en_idx = SUN55I_MSGBOX_READ_IRQ_ENABLE(0) / 4;
-+	u32 both;
-+
-+	/* Enable both Channel 0 and Channel 1 on Port 0 */
-+	sun55i_msgbox_chan_ops.startup(&fix->chans[0]);
-+	sun55i_msgbox_chan_ops.startup(&fix->chans[1]);
-+	both = SUN55I_MSGBOX_RD_IRQ_EN_BIT(0) | SUN55I_MSGBOX_RD_IRQ_EN_BIT(1);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 0, en_idx) & both, both);
-+
-+	/* Shutting down Channel 0 must leave Channel 1 enabled */
-+	sun55i_msgbox_chan_ops.shutdown(&fix->chans[0]);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 0, en_idx) & SUN55I_MSGBOX_RD_IRQ_EN_BIT(0), 0U);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 0, en_idx) & SUN55I_MSGBOX_RD_IRQ_EN_BIT(1),
-+			SUN55I_MSGBOX_RD_IRQ_EN_BIT(1));
-+}
-+
-+static void test_functional_startup_flushes_stale_fifo(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 stat_idx = SUN55I_MSGBOX_READ_IRQ_STATUS(2) / 4;
-+	u32 msg_stat_idx = SUN55I_MSGBOX_MSG_STATUS(2, 0) / 4;
-+
-+	/* Messages left from before the channel was opened (e.g. old firmware) */
-+	mock_write_reg(fix, 0, msg_stat_idx, 4);
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_FIFO(2, 0) / 4, 0xDEADBEEF);
-+	mock_write_reg(fix, 0, stat_idx, SUN55I_MSGBOX_RD_IRQ_PEND_BIT(0));
-+
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_chan_ops.startup(&fix->chans[8]), 0);
-+
-+	/* Drained and dropped, then the pending bit cleared */
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 0, msg_stat_idx), 0U);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 0, stat_idx) & SUN55I_MSGBOX_RD_IRQ_PEND_BIT(0),
-+			0U);
-+	KUNIT_EXPECT_EQ(test, fix->sinks[8].count, 0);
-+}
-+
-+static void test_functional_startup_capped_at_fifo_max(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 msg_stat_idx = SUN55I_MSGBOX_MSG_STATUS(2, 0) / 4;
-+	u32 fifo_idx = SUN55I_MSGBOX_MSG_FIFO(2, 0) / 4;
-+	int ret;
-+
-+	/* Hardware defect: MSG_STATUS always returns non-zero */
-+	fix->fifo_stuck = true;
-+	mock_write_reg(fix, 0, msg_stat_idx, 15);
-+	mock_write_reg(fix, 0, fifo_idx, 0xCAFEBABE);
-+
-+	/* Must stop after SUN55I_FIFO_MAX reads and return 0 */
-+	ret = sun55i_msgbox_chan_ops.startup(&fix->chans[8]);
-+	KUNIT_EXPECT_EQ(test, ret, 0);
-+	KUNIT_EXPECT_EQ(test, fix->fifo_reads, SUN55I_FIFO_MAX);
-+}
-+
-+static void test_functional_shutdown_flushes(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 en_idx = SUN55I_MSGBOX_READ_IRQ_ENABLE(2) / 4;
-+	u32 stat_idx = SUN55I_MSGBOX_READ_IRQ_STATUS(2) / 4;
-+	u32 msg_stat_idx = SUN55I_MSGBOX_MSG_STATUS(2, 0) / 4;
-+	u32 fifo_idx = SUN55I_MSGBOX_MSG_FIFO(2, 0) / 4;
-+
-+	/* First startup */
-+	sun55i_msgbox_chan_ops.startup(&fix->chans[8]);
-+
-+	/* Residual messages arriving before shutdown */
-+	mock_write_reg(fix, 0, msg_stat_idx, 3);
-+	mock_write_reg(fix, 0, fifo_idx, 0x11223344);
-+	mock_write_reg(fix, 0, stat_idx, SUN55I_MSGBOX_RD_IRQ_PEND_BIT(0));
-+
-+	/* IRQ disabled, FIFO drained, then the pending bit cleared */
-+	sun55i_msgbox_chan_ops.shutdown(&fix->chans[8]);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 0, en_idx) & SUN55I_MSGBOX_RD_IRQ_EN_BIT(0), 0U);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 0, msg_stat_idx), 0U);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 0, stat_idx) & SUN55I_MSGBOX_RD_IRQ_PEND_BIT(0),
-+			0U);
-+	KUNIT_EXPECT_EQ(test, fix->sinks[8].count, 0);
-+}
-+
-+/* =============== Interrupt Handler (Hardirq) Simulation =============== */
-+
-+static void test_irq_spurious_returns_none(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	irqreturn_t ret;
-+
-+	/* All IRQ enable and status registers are 0 -> IRQ_NONE */
-+	ret = sun55i_msgbox_irq(0, &fix->mbox);
-+	KUNIT_EXPECT_EQ(test, ret, IRQ_NONE);
-+}
-+
-+static void test_irq_single_message_received(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 en_idx = SUN55I_MSGBOX_READ_IRQ_ENABLE(2) / 4;
-+	u32 stat_idx = SUN55I_MSGBOX_READ_IRQ_STATUS(2) / 4;
-+	u32 msg_stat_idx = SUN55I_MSGBOX_MSG_STATUS(2, 0) / 4;
-+	u32 fifo_idx = SUN55I_MSGBOX_MSG_FIFO(2, 0) / 4;
-+	irqreturn_t ret;
-+
-+	/* Configure pending IRQ on Channel 8 (local_n = 2, p = 0) */
-+	mock_write_reg(fix, 0, en_idx, SUN55I_MSGBOX_RD_IRQ_EN_BIT(0));
-+	mock_write_reg(fix, 0, stat_idx, SUN55I_MSGBOX_RD_IRQ_PEND_BIT(0));
-+	mock_write_reg(fix, 0, msg_stat_idx, 1); /* 1 message in FIFO */
-+	mock_write_reg(fix, 0, fifo_idx, 0xCAFEF00D);
-+
-+	ret = sun55i_msgbox_irq(0, &fix->mbox);
-+	KUNIT_EXPECT_EQ(test, ret, IRQ_HANDLED);
-+
-+	/* Verify data delivered to mailbox client */
-+	KUNIT_EXPECT_EQ(test, fix->sinks[8].count, 1);
-+	KUNIT_EXPECT_EQ(test, fix->sinks[8].last_msg, 0xCAFEF00DU);
-+}
-+
-+static void test_irq_clears_pending_after_drain(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 en_idx = SUN55I_MSGBOX_READ_IRQ_ENABLE(2) / 4;
-+	u32 stat_idx = SUN55I_MSGBOX_READ_IRQ_STATUS(2) / 4;
-+	irqreturn_t ret;
-+
-+	mock_write_reg(fix, 0, en_idx, SUN55I_MSGBOX_RD_IRQ_EN_BIT(0));
-+	mock_write_reg(fix, 0, stat_idx, SUN55I_MSGBOX_RD_IRQ_PEND_BIT(0));
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_STATUS(2, 0) / 4, 2);
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_FIFO(2, 0) / 4, 0xCAFEF00D);
-+
-+	/*
-+	 * The hardware ignores the pending clear while the FIFO is not empty:
-+	 * a clear written before the drain leaves the bit set and the IRQ
-+	 * fires a second time for the same messages.
-+	 */
-+	ret = sun55i_msgbox_irq(0, &fix->mbox);
-+	KUNIT_EXPECT_EQ(test, ret, IRQ_HANDLED);
-+	KUNIT_EXPECT_EQ(test, fix->sinks[8].count, 2);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 0, SUN55I_MSGBOX_MSG_STATUS(2, 0) / 4), 0U);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 0, stat_idx) & SUN55I_MSGBOX_RD_IRQ_PEND_BIT(0),
-+			0U);
-+}
-+
-+/* rx callback that records the state the driver delivers in */
-+struct mock_rx_state {
-+	struct mock_rx_sink sink;
-+	struct mock_msgbox_fixture *fix;
-+	int calls;
-+	u32 fifo_count[SUN55I_FIFO_MAX];
-+};
-+
-+static void mock_rx_state_cb(struct mbox_client *cl, void *data)
-+{
-+	struct mock_rx_state *st = container_of(cl, struct mock_rx_state, sink.client);
-+	struct mock_msgbox_fixture *fix = st->fix;
-+	u32 val = 0x11;
-+
-+	if (st->calls < SUN55I_FIFO_MAX)
-+		st->fifo_count[st->calls] =
-+			mock_read_reg(fix, 0, SUN55I_MSGBOX_MSG_STATUS(2, 1) / 4);
-+	st->calls++;
-+
-+	/* A client may reply from its callback; send_data() takes the lock */
-+	sun55i_msgbox_chan_ops.send_data(&fix->chans[9], &val);
-+}
-+
-+static void test_irq_callback_may_reply(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_tx_irq_fixture(test);
-+	struct mock_rx_state *st = kunit_kzalloc(test, sizeof(*st), GFP_KERNEL);
-+	int i;
-+
-+	KUNIT_ASSERT_NOT_NULL(test, st);
-+	st->fix = fix;
-+	st->sink.client.rx_callback = mock_rx_state_cb;
-+	fix->chans[9].cl = &st->sink.client;
-+
-+	/* Channel 9 (local_n = 2, p = 1): three messages waiting */
-+	mock_rx_pending(fix, 2, SUN55I_MSGBOX_RD_IRQ_PEND_BIT(1));
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_STATUS(2, 1) / 4, 3);
-+
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_irq(0, &fix->mbox), IRQ_HANDLED);
-+	KUNIT_EXPECT_EQ(test, st->calls, 3);
-+
-+	/* The drain and the pending clear finished before the first callback */
-+	for (i = 0; i < 3; i++)
-+		KUNIT_EXPECT_EQ(test, st->fifo_count[i], 0U);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 0, SUN55I_MSGBOX_READ_IRQ_STATUS(2) / 4), 0U);
-+
-+	/* The replies went out */
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, SUN55I_MSGBOX_MSG_STATUS(2, 1) / 4), 3U);
-+}
-+
-+static void test_irq_pending_with_empty_fifo(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 en_idx = SUN55I_MSGBOX_READ_IRQ_ENABLE(2) / 4;
-+	u32 stat_idx = SUN55I_MSGBOX_READ_IRQ_STATUS(2) / 4;
-+	u32 msg_stat_idx = SUN55I_MSGBOX_MSG_STATUS(2, 0) / 4;
-+	irqreturn_t ret;
-+
-+	/* Pending IRQ bit set, but MSG_STATUS has 0 messages */
-+	mock_write_reg(fix, 0, en_idx, SUN55I_MSGBOX_RD_IRQ_EN_BIT(0));
-+	mock_write_reg(fix, 0, stat_idx, SUN55I_MSGBOX_RD_IRQ_PEND_BIT(0));
-+	mock_write_reg(fix, 0, msg_stat_idx, 0);
-+
-+	ret = sun55i_msgbox_irq(0, &fix->mbox);
-+	KUNIT_EXPECT_EQ(test, ret, IRQ_HANDLED);
-+
-+	/* No messages should be dispatched to client */
-+	KUNIT_EXPECT_EQ(test, fix->sinks[8].count, 0);
-+}
-+
-+static void test_irq_multi_channel_concurrency(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	irqreturn_t ret;
-+
-+	/* Both Channel 0 (p=0) and Channel 1 (p=1) pending on Port 0 */
-+	mock_rx_pending(fix, 0,
-+			SUN55I_MSGBOX_RD_IRQ_PEND_BIT(0) | SUN55I_MSGBOX_RD_IRQ_PEND_BIT(1));
-+
-+	/* Ch 0 has message 0x11111111 */
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_STATUS(0, 0) / 4, 1);
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_FIFO(0, 0) / 4, 0x11111111);
-+
-+	/* Ch 1 has message 0x22222222 */
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_STATUS(0, 1) / 4, 1);
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_FIFO(0, 1) / 4, 0x22222222);
-+
-+	ret = sun55i_msgbox_irq(0, &fix->mbox);
-+	KUNIT_EXPECT_EQ(test, ret, IRQ_HANDLED);
-+
-+	/* Both channels must be serviced in the same interrupt invocation */
-+	KUNIT_EXPECT_EQ(test, fix->sinks[0].count, 1);
-+	KUNIT_EXPECT_EQ(test, fix->sinks[0].last_msg, 0x11111111U);
-+
-+	KUNIT_EXPECT_EQ(test, fix->sinks[1].count, 1);
-+	KUNIT_EXPECT_EQ(test, fix->sinks[1].last_msg, 0x22222222U);
-+}
-+
-+static void test_irq_fifo_drain_capped_at_max(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 en_idx = SUN55I_MSGBOX_READ_IRQ_ENABLE(2) / 4;
-+	u32 stat_idx = SUN55I_MSGBOX_READ_IRQ_STATUS(2) / 4;
-+	u32 msg_stat_idx = SUN55I_MSGBOX_MSG_STATUS(2, 0) / 4;
-+	u32 fifo_idx = SUN55I_MSGBOX_MSG_FIFO(2, 0) / 4;
-+	irqreturn_t ret;
-+
-+	/*
-+	 * Simulate hardware defect or runaway remote: MSG_STATUS is permanently
-+	 * non-zero. The ISR MUST NOT hang in an infinite loop; it must drain
-+	 * at most SUN55I_FIFO_MAX (8) messages and return.
-+	 */
-+	mock_write_reg(fix, 0, en_idx, SUN55I_MSGBOX_RD_IRQ_EN_BIT(0));
-+	mock_write_reg(fix, 0, stat_idx, SUN55I_MSGBOX_RD_IRQ_PEND_BIT(0));
-+	fix->fifo_stuck = true;
-+	mock_write_reg(fix, 0, msg_stat_idx, 15); /* Always reports data */
-+	mock_write_reg(fix, 0, fifo_idx, 0x12345678);
-+
-+	ret = sun55i_msgbox_irq(0, &fix->mbox);
-+	KUNIT_EXPECT_EQ(test, ret, IRQ_HANDLED);
-+
-+	/* Drain must be strictly bounded at SUN55I_FIFO_MAX */
-+	KUNIT_EXPECT_EQ(test, fix->sinks[8].count, SUN55I_FIFO_MAX);
-+}
-+
-+static void test_irq_channel_crosstalk_isolation(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 en_idx = SUN55I_MSGBOX_READ_IRQ_ENABLE(0) / 4;
-+	u32 stat_idx = SUN55I_MSGBOX_READ_IRQ_STATUS(0) / 4;
-+	irqreturn_t ret;
-+	int ch;
-+
-+	/* Only Channel 2 (Port 0, p=2) has an interrupt enabled and pending */
-+	mock_write_reg(fix, 0, en_idx, SUN55I_MSGBOX_RD_IRQ_EN_BIT(2));
-+	mock_write_reg(fix, 0, stat_idx, SUN55I_MSGBOX_RD_IRQ_PEND_BIT(2));
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_STATUS(0, 2) / 4, 1);
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_FIFO(0, 2) / 4, 0x33333333);
-+
-+	ret = sun55i_msgbox_irq(0, &fix->mbox);
-+	KUNIT_EXPECT_EQ(test, ret, IRQ_HANDLED);
-+
-+	/* Exactly Channel 2 received the message */
-+	KUNIT_EXPECT_EQ(test, fix->sinks[2].count, 1);
-+	KUNIT_EXPECT_EQ(test, fix->sinks[2].last_msg, 0x33333333U);
-+
-+	/* All other 11 channels must have received 0 messages */
-+	for (ch = 0; ch < SUN55I_NUM_CHANS; ch++) {
-+		if (ch == 2)
-+			continue;
-+		KUNIT_EXPECT_EQ(test, fix->sinks[ch].count, 0);
-+	}
-+}
-+
-+static void test_irq_disabled_channel_ignored(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 en_idx = SUN55I_MSGBOX_READ_IRQ_ENABLE(0) / 4;
-+	u32 stat_idx = SUN55I_MSGBOX_READ_IRQ_STATUS(0) / 4;
-+	irqreturn_t ret;
-+
-+	/* Channel 1 has pending bit set, but IRQ_ENABLE is 0 (channel disabled) */
-+	mock_write_reg(fix, 0, en_idx, 0);
-+	mock_write_reg(fix, 0, stat_idx, SUN55I_MSGBOX_RD_IRQ_PEND_BIT(1));
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_STATUS(0, 1) / 4, 1);
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_FIFO(0, 1) / 4, 0x12345678);
-+
-+	ret = sun55i_msgbox_irq(0, &fix->mbox);
-+	/* Must return IRQ_NONE and must NOT deliver message */
-+	KUNIT_EXPECT_EQ(test, ret, IRQ_NONE);
-+	KUNIT_EXPECT_EQ(test, fix->sinks[1].count, 0);
-+}
-+
-+static void test_irq_multi_port_burst_interleaved(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	irqreturn_t ret;
-+
-+	/* Port 0 (Ch 0: CPUS) has 2 messages */
-+	mock_rx_pending(fix, 0, SUN55I_MSGBOX_RD_IRQ_PEND_BIT(0));
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_STATUS(0, 0) / 4, 2);
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_FIFO(0, 0) / 4, 0xAA01);
-+
-+	/* Port 1 (Ch 4: DSP) has 2 messages */
-+	mock_rx_pending(fix, 1, SUN55I_MSGBOX_RD_IRQ_PEND_BIT(0));
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_STATUS(1, 0) / 4, 2);
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_FIFO(1, 0) / 4, 0xBB01);
-+
-+	/* Port 2 (Ch 8: RV) has 2 messages */
-+	mock_rx_pending(fix, 2, SUN55I_MSGBOX_RD_IRQ_PEND_BIT(0));
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_STATUS(2, 0) / 4, 2);
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_FIFO(2, 0) / 4, 0xCC01);
-+
-+	ret = sun55i_msgbox_irq(0, &fix->mbox);
-+	KUNIT_EXPECT_EQ(test, ret, IRQ_HANDLED);
-+
-+	/* Each route's messages reach its own channel, all in one pass */
-+	KUNIT_EXPECT_EQ(test, fix->sinks[0].count, 2);
-+	KUNIT_EXPECT_EQ(test, fix->sinks[0].last_msg, 0xAA01U);
-+	KUNIT_EXPECT_EQ(test, fix->sinks[4].count, 2);
-+	KUNIT_EXPECT_EQ(test, fix->sinks[4].last_msg, 0xBB01U);
-+	KUNIT_EXPECT_EQ(test, fix->sinks[8].count, 2);
-+	KUNIT_EXPECT_EQ(test, fix->sinks[8].last_msg, 0xCC01U);
-+}
-+
-+/* =============== Message order =============== */
-+
-+static void test_irq_delivers_in_fifo_order(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	int i;
-+
-+	/* A full FIFO of distinct messages on channel 10 (local_n = 2, p = 2) */
-+	for (i = 0; i < SUN55I_FIFO_MAX; i++)
-+		mock_fifo_push(fix, 0, 2, 2, 0xC0DE0000 | i);
-+	mock_rx_pending(fix, 2, SUN55I_MSGBOX_RD_IRQ_PEND_BIT(2));
-+
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_irq(0, &fix->mbox), IRQ_HANDLED);
-+	KUNIT_ASSERT_EQ(test, fix->sinks[10].count, SUN55I_FIFO_MAX);
-+	for (i = 0; i < SUN55I_FIFO_MAX; i++)
-+		KUNIT_EXPECT_EQ_MSG(test, fix->sinks[10].msgs[i], 0xC0DE0000U | i,
-+				    "message %d", i);
-+}
-+
-+static void test_send_data_keeps_order(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 val;
-+	int i;
-+
-+	/* Channel 5 goes to the DSP bank, port 0, p = 1 */
-+	for (i = 0; i < SUN55I_FIFO_MAX; i++) {
-+		val = 0x5E4D0000 | i;
-+		KUNIT_EXPECT_EQ(test, sun55i_msgbox_chan_ops.send_data(&fix->chans[5], &val), 0);
-+	}
-+	KUNIT_EXPECT_FALSE(test, sun55i_msgbox_chan_ops.last_tx_done(&fix->chans[5]));
-+
-+	for (i = 0; i < SUN55I_FIFO_MAX; i++)
-+		KUNIT_EXPECT_EQ_MSG(test, mock_fifo_pop(fix, SUN55I_PROC_DSP, 0, 1),
-+				    0x5E4D0000U | i, "message %d", i);
-+}
-+
-+static void test_held_message_follows_earlier_ones(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 val;
-+	int i;
-+
-+	/* Fill channel 9's FIFO, then one more: held, not written */
-+	for (i = 0; i <= SUN55I_FIFO_MAX; i++) {
-+		val = 0x4E1D0000 | i;
-+		KUNIT_EXPECT_EQ(test, sun55i_msgbox_chan_ops.send_data(&fix->chans[9], &val), 0);
-+	}
-+
-+	/* The E906 reads one; the poll writes the held message behind the rest */
-+	KUNIT_EXPECT_EQ(test, mock_fifo_pop(fix, SUN55I_PROC_RV, 2, 1), 0x4E1D0000U);
-+	KUNIT_EXPECT_FALSE(test, sun55i_msgbox_chan_ops.last_tx_done(&fix->chans[9]));
-+	for (i = 1; i <= SUN55I_FIFO_MAX; i++)
-+		KUNIT_EXPECT_EQ_MSG(test, mock_fifo_pop(fix, SUN55I_PROC_RV, 2, 1),
-+				    0x4E1D0000U | i, "message %d", i);
-+}
-+
-+static void test_held_message_dropped_after_timeout(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	u32 old = 0x01D, new = 0x2E3;
-+	int i;
-+
-+	/* Channel 9's FIFO is full: the message is held */
-+	for (i = 0; i < SUN55I_FIFO_MAX; i++)
-+		mock_fifo_push(fix, SUN55I_PROC_RV, 2, 1, i);
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_chan_ops.send_data(&fix->chans[9], &old), 0);
-+
-+	/*
-+	 * A blocking client times out and the core drops the request; the
-+	 * remote then empties the FIFO and the client sends again.
-+	 */
-+	for (i = 0; i < SUN55I_FIFO_MAX; i++)
-+		mock_fifo_pop(fix, SUN55I_PROC_RV, 2, 1);
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_chan_ops.send_data(&fix->chans[9], &new), 0);
-+	KUNIT_EXPECT_TRUE(test, sun55i_msgbox_chan_ops.last_tx_done(&fix->chans[9]));
-+
-+	/* Only the new message went out; the abandoned one never follows it */
-+	KUNIT_EXPECT_EQ(test, mock_fifo_pop(fix, SUN55I_PROC_RV, 2, 1), new);
-+	KUNIT_EXPECT_EQ(test, fix->fifo[SUN55I_PROC_RV][2][1].len, 0);
-+}
-+
-+/* =============== Bounds =============== */
-+
-+static void test_functional_shutdown_drain_capped_at_fifo_max(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_chan_ops.startup(&fix->chans[8]), 0);
-+
-+	/* Hardware defect: the count never drops. shutdown() must still return */
-+	fix->fifo_stuck = true;
-+	fix->fifo_reads = 0;
-+	mock_write_reg(fix, 0, SUN55I_MSGBOX_MSG_STATUS(2, 0) / 4, 15);
-+	sun55i_msgbox_chan_ops.shutdown(&fix->chans[8]);
-+	KUNIT_EXPECT_EQ(test, fix->fifo_reads, SUN55I_FIFO_MAX);
-+	KUNIT_EXPECT_EQ(test, fix->sinks[8].count, 0);
-+}
-+
-+/* =============== Lock held across delivery =============== */
-+
-+struct mock_lock_probe {
-+	struct mbox_client client;
-+	/* The controller lock, which must be free during delivery */
-+	spinlock_t *lock;
-+	int calls;
-+	bool held;
-+};
-+
-+static void mock_lock_probe_cb(struct mbox_client *cl, void *data)
-+{
-+	struct mock_lock_probe *lp = container_of(cl, struct mock_lock_probe, client);
-+
-+	lp->calls++;
-+	if (spin_trylock(lp->lock))
-+		spin_unlock(lp->lock);
-+	else
-+		lp->held = true;
-+}
-+
-+static void test_irq_callback_runs_unlocked(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_mock_fixture(test);
-+	struct mock_lock_probe *lp = kunit_kzalloc(test, sizeof(*lp), GFP_KERNEL);
-+
-+	/* On UP without spinlock debugging a spinlock is never seen as taken */
-+	if (!IS_ENABLED(CONFIG_SMP) && !IS_ENABLED(CONFIG_DEBUG_SPINLOCK))
-+		kunit_skip(test, "needs CONFIG_SMP or CONFIG_DEBUG_SPINLOCK");
-+
-+	KUNIT_ASSERT_NOT_NULL(test, lp);
-+	lp->lock = &fix->mbox.lock;
-+	lp->client.rx_callback = mock_lock_probe_cb;
-+	fix->chans[8].cl = &lp->client;
-+
-+	mock_fifo_push(fix, 0, 2, 0, 0x10C4);
-+	mock_fifo_push(fix, 0, 2, 0, 0x10C5);
-+	mock_rx_pending(fix, 2, SUN55I_MSGBOX_RD_IRQ_PEND_BIT(0));
-+
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_irq(0, &fix->mbox), IRQ_HANDLED);
-+	KUNIT_EXPECT_EQ(test, lp->calls, 2);
-+	KUNIT_EXPECT_FALSE(test, lp->held);
-+}
-+
-+/* =============== TX done through a real interrupt line =============== */
-+
-+struct mock_tx_client {
-+	struct mbox_client client;
-+	int done;
-+	int last_r;
-+};
-+
-+static void mock_tx_done_cb(struct mbox_client *cl, void *msg, int r)
-+{
-+	struct mock_tx_client *tc = container_of(cl, struct mock_tx_client, client);
-+
-+	tc->done++;
-+	tc->last_r = r;
-+}
-+
-+static struct mock_msgbox_fixture *create_tx_line_fixture(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_tx_irq_fixture(test);
-+	struct sun55i_tx_irq *rv = &fix->mbox.tx_irqs[2];
-+
-+	rv->irq = mock_alloc_irq(test);
-+	rv->name = "sun55i-msgbox-test-rv";
-+	return fix;
-+}
-+
-+static void mock_shutdown_action(void *chan)
-+{
-+	sun55i_msgbox_chan_ops.shutdown(chan);
-+}
-+
-+/*
-+ * startup(), with shutdown() as a cleanup action: the line is released before
-+ * its descriptor is freed even when an assertion ends the test early. A test
-+ * may shut the channel down itself; a second shutdown() is harmless.
-+ */
-+static void mock_startup(struct kunit *test, struct mbox_chan *chan)
-+{
-+	KUNIT_ASSERT_EQ(test, sun55i_msgbox_chan_ops.startup(chan), 0);
-+	KUNIT_ASSERT_EQ(test, kunit_add_action_or_reset(test, mock_shutdown_action, chan), 0);
-+}
-+
-+/*
-+ * Fire the TX-done line. With forced IRQ threading (PREEMPT_RT, threadirqs)
-+ * its handler would run in the line's IRQ thread, where the MMIO stubs, which
-+ * follow the test thread, do not apply: run the handler startup() registered
-+ * here instead, as irq_forced_thread_fn() runs it.
-+ */
-+static void fire_tx_irq(struct kunit *test, int irq)
-+{
-+	/* irq_to_desc() is not exported, so go through the irq_data */
-+	struct irqaction *action = container_of(irq_get_irq_data(irq), struct irq_desc,
-+						irq_data)->action;
-+	irqreturn_t ret;
-+
-+	KUNIT_ASSERT_NOT_NULL(test, action);
-+	if (!action->thread_fn) {
-+		KUNIT_ASSERT_EQ(test, generic_handle_irq_safe(irq), 0);
-+		return;
-+	}
-+
-+	local_bh_disable();
-+	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
-+		local_irq_disable();
-+	ret = action->thread_fn(irq, action->dev_id);
-+	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
-+		local_irq_enable();
-+	local_bh_enable();
-+	KUNIT_EXPECT_EQ(test, ret, IRQ_HANDLED);
-+}
-+
-+static void test_tx_irq_handler_reports_tx_done(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_tx_line_fixture(test);
-+	struct mock_tx_client *tc = kunit_kzalloc(test, sizeof(*tc), GFP_KERNEL);
-+	struct sun55i_tx_irq *rv = &fix->mbox.tx_irqs[2];
-+	static u32 msg = 0xD0E;
-+
-+	KUNIT_ASSERT_NOT_NULL(test, tc);
-+	tc->client.tx_done = mock_tx_done_cb;
-+	fix->chans[9].cl = &tc->client;
-+
-+	mock_startup(test, &fix->chans[9]);
-+
-+	/* A kick in flight on channel 9; the receiver has room again */
-+	fix->chans[9].active_req = &msg;
-+	mock_write_reg(fix, 3, SUN55I_MSGBOX_WRITE_IRQ_ENABLE(2) / 4,
-+		       SUN55I_MSGBOX_WR_IRQ_EN_BIT(1));
-+
-+	/* Through the line startup() requested: the core hears TX done */
-+	fire_tx_irq(test, rv->irq);
-+	KUNIT_EXPECT_EQ(test, tc->done, 1);
-+	KUNIT_EXPECT_EQ(test, tc->last_r, 0);
-+	KUNIT_EXPECT_PTR_EQ(test, fix->chans[9].active_req, MBOX_NO_MSG);
-+}
-+
-+/*
-+ * A message refused for a full FIFO stays queued in the core. Once the
-+ * receiver reads one, the write IRQ fires and the core resubmits it.
-+ */
-+static void test_tx_irq_refused_message_resent(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_tx_line_fixture(test);
-+	struct mock_tx_client *tc = kunit_kzalloc(test, sizeof(*tc), GFP_KERNEL);
-+	struct sun55i_tx_irq *rv = &fix->mbox.tx_irqs[2];
-+	static u32 msg = 0x8E5E;
-+	int i;
-+
-+	KUNIT_ASSERT_NOT_NULL(test, tc);
-+	tc->client.tx_done = mock_tx_done_cb;
-+	fix->chans[9].cl = &tc->client;
-+	mock_startup(test, &fix->chans[9]);
-+
-+	for (i = 0; i < SUN55I_FIFO_MAX; i++)
-+		mock_fifo_push(fix, SUN55I_PROC_RV, 2, 1, i);
-+
-+	/* Full: queued in the core, nothing written, the write IRQ armed */
-+	KUNIT_ASSERT_GE(test, mbox_send_message(&fix->chans[9], &msg), 0);
-+	KUNIT_EXPECT_PTR_EQ(test, fix->chans[9].active_req, MBOX_NO_MSG);
-+	KUNIT_EXPECT_EQ(test, fix->chans[9].msg_count, 1U);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, SUN55I_MSGBOX_WRITE_IRQ_ENABLE(2) / 4),
-+			SUN55I_MSGBOX_WR_IRQ_EN_BIT(1));
-+
-+	/* The E906 reads one: the IRQ makes the core send it again */
-+	mock_fifo_pop(fix, SUN55I_PROC_RV, 2, 1);
-+	fire_tx_irq(test, rv->irq);
-+	KUNIT_EXPECT_EQ(test, fix->chans[9].msg_count, 0U);
-+	KUNIT_EXPECT_PTR_EQ(test, fix->chans[9].active_req, &msg);
-+	for (i = 1; i < SUN55I_FIFO_MAX; i++)
-+		mock_fifo_pop(fix, SUN55I_PROC_RV, 2, 1);
-+	KUNIT_EXPECT_EQ(test, mock_fifo_pop(fix, SUN55I_PROC_RV, 2, 1), msg);
-+
-+	/* The resend armed the IRQ again; it now reports the message done */
-+	fire_tx_irq(test, rv->irq);
-+	KUNIT_EXPECT_EQ(test, tc->done, 1);
-+	KUNIT_EXPECT_PTR_EQ(test, fix->chans[9].active_req, MBOX_NO_MSG);
-+}
-+
-+static void test_tx_irq_line_shared_by_channels(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_tx_line_fixture(test);
-+	struct sun55i_tx_irq *rv = &fix->mbox.tx_irqs[2];
-+	u32 wr_en = SUN55I_MSGBOX_WRITE_IRQ_ENABLE(2) / 4;
-+	u32 val = 0x11;
-+
-+	/* Two channels to the same bank share its line */
-+	mock_startup(test, &fix->chans[8]);
-+	mock_startup(test, &fix->chans[9]);
-+	KUNIT_EXPECT_EQ(test, rv->users, 2U);
-+	KUNIT_EXPECT_TRUE(test, irq_has_action(rv->irq));
-+
-+	/* Both armed by a send */
-+	sun55i_msgbox_chan_ops.send_data(&fix->chans[8], &val);
-+	sun55i_msgbox_chan_ops.send_data(&fix->chans[9], &val);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, wr_en),
-+			SUN55I_MSGBOX_WR_IRQ_EN_BIT(0) | SUN55I_MSGBOX_WR_IRQ_EN_BIT(1));
-+
-+	/* The first shutdown disarms its own channel and keeps the line */
-+	sun55i_msgbox_chan_ops.shutdown(&fix->chans[8]);
-+	KUNIT_EXPECT_EQ(test, rv->users, 1U);
-+	KUNIT_EXPECT_TRUE(test, irq_has_action(rv->irq));
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, wr_en), SUN55I_MSGBOX_WR_IRQ_EN_BIT(1));
-+	KUNIT_EXPECT_FALSE(test, test_bit(8, &fix->mbox.tx_irq_held));
-+
-+	/* The last one frees it */
-+	sun55i_msgbox_chan_ops.shutdown(&fix->chans[9]);
-+	KUNIT_EXPECT_EQ(test, rv->users, 0U);
-+	KUNIT_EXPECT_FALSE(test, irq_has_action(rv->irq));
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, wr_en), 0U);
-+	KUNIT_EXPECT_EQ(test, fix->mbox.tx_irq_held, 0UL);
-+
-+	/* A second shutdown without a startup does not touch the line count */
-+	sun55i_msgbox_chan_ops.shutdown(&fix->chans[9]);
-+	KUNIT_EXPECT_EQ(test, rv->users, 0U);
-+}
-+
-+/*
-+ * A TX-done handler already running when shutdown() starts submits the next
-+ * message, which arms the channel again after shutdown() disarmed it. Once
-+ * the handler is done, shutdown() must disarm it once more.
-+ */
-+static void test_tx_irq_shutdown_disarms_after_handler(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_tx_line_fixture(test);
-+	u32 wr_en = SUN55I_MSGBOX_WRITE_IRQ_ENABLE(2) / 4;
-+	u32 val = 0x11;
-+
-+	mock_startup(test, &fix->chans[9]);
-+	sun55i_msgbox_chan_ops.send_data(&fix->chans[9], &val);
-+	KUNIT_ASSERT_EQ(test, mock_read_reg(fix, 3, wr_en), SUN55I_MSGBOX_WR_IRQ_EN_BIT(1));
-+
-+	fix->rearm_on_disarm = true;
-+	sun55i_msgbox_chan_ops.shutdown(&fix->chans[9]);
-+	KUNIT_EXPECT_FALSE(test, fix->rearm_on_disarm);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, wr_en), 0U);
-+}
-+
-+static void test_tx_irq_startup_enables_rx_after_line(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_tx_line_fixture(test);
-+
-+	/* With the line available, startup() enables the receive IRQ too */
-+	mock_startup(test, &fix->chans[8]);
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 0, SUN55I_MSGBOX_READ_IRQ_ENABLE(2) / 4) &
-+			SUN55I_MSGBOX_RD_IRQ_EN_BIT(0), SUN55I_MSGBOX_RD_IRQ_EN_BIT(0));
-+	KUNIT_EXPECT_TRUE(test, test_bit(8, &fix->mbox.tx_irq_held));
-+	KUNIT_EXPECT_EQ(test, mock_read_reg(fix, 3, SUN55I_MSGBOX_WRITE_IRQ_THRESHOLD(2, 0) / 4),
-+			(u32)SUN55I_MSGBOX_WR_IRQ_THR_ONE_FREE);
-+}
-+
-+/*
-+ * startup() that cannot get the TX-done line fails, and the core then clears
-+ * chan->cl: the receive IRQ must never have been enabled, or a handler on
-+ * another CPU could deliver to the cleared client. The core then calls
-+ * shutdown(), which must not release a line this channel never got.
-+ */
-+static void test_tx_irq_startup_failure_leaves_rx_off(struct kunit *test)
-+{
-+	struct mock_msgbox_fixture *fix = create_tx_line_fixture(test);
-+	struct sun55i_tx_irq *cpus = &fix->mbox.tx_irqs[0];
-+	struct sun55i_tx_irq *rv = &fix->mbox.tx_irqs[2];
-+
-+	/* Channel 9 holds the RV line; channel 0 cannot get the CPUS line */
-+	mock_startup(test, &fix->chans[9]);
-+	cpus->irq = IRQ_NOTCONNECTED;
-+	cpus->name = "sun55i-msgbox-test-cpus";
-+
-+	KUNIT_EXPECT_EQ(test, sun55i_msgbox_chan_ops.startup(&fix->chans[0]), -ENOTCONN);
-+	KUNIT_EXPECT_EQ(test, fix->rd_en_written[0] & SUN55I_MSGBOX_RD_IRQ_EN_BIT(0), 0U);
-+	KUNIT_EXPECT_EQ(test, cpus->users, 0U);
-+	KUNIT_EXPECT_FALSE(test, test_bit(0, &fix->mbox.tx_irq_held));
-+
-+	/* The core's shutdown() of channel 0 leaves both lines alone */
-+	sun55i_msgbox_chan_ops.shutdown(&fix->chans[0]);
-+	KUNIT_EXPECT_EQ(test, cpus->users, 0U);
-+	KUNIT_EXPECT_EQ(test, rv->users, 1U);
-+	KUNIT_EXPECT_TRUE(test, irq_has_action(rv->irq));
-+}
-+
-+/* =============== Test Suite Registration =============== */
-+
-+static struct kunit_case sun55i_msgbox_cases[] = {
-+	/* Routing Table Tests */
-+	KUNIT_CASE(test_chan_to_route_all),
-+	/* Functional Driver Ops Tests */
-+	KUNIT_CASE(test_functional_send_data_all_twelve_channels),
-+	KUNIT_CASE(test_functional_send_data_null),
-+	KUNIT_CASE(test_functional_last_tx_done_sweep),
-+	KUNIT_CASE(test_functional_send_data_holds_for_full_fifo),
-+	KUNIT_CASE(test_functional_shutdown_drops_held_message),
-+	KUNIT_CASE(test_functional_peek_data_sweep),
-+	KUNIT_CASE(test_functional_startup_and_shutdown),
-+	KUNIT_CASE(test_functional_shutdown_isolation),
-+	KUNIT_CASE(test_functional_startup_flushes_stale_fifo),
-+	KUNIT_CASE(test_functional_startup_capped_at_fifo_max),
-+	KUNIT_CASE(test_functional_shutdown_flushes),
-+	KUNIT_CASE(test_functional_shutdown_drain_capped_at_fifo_max),
-+	/* Message order */
-+	KUNIT_CASE(test_irq_delivers_in_fifo_order),
-+	KUNIT_CASE(test_send_data_keeps_order),
-+	KUNIT_CASE(test_held_message_follows_earlier_ones),
-+	KUNIT_CASE(test_held_message_dropped_after_timeout),
-+	/* Hardirq Simulation Tests */
-+	KUNIT_CASE(test_irq_spurious_returns_none),
-+	KUNIT_CASE(test_irq_disabled_channel_ignored),
-+	KUNIT_CASE(test_irq_single_message_received),
-+	KUNIT_CASE(test_irq_clears_pending_after_drain),
-+	KUNIT_CASE(test_irq_callback_may_reply),
-+	KUNIT_CASE(test_irq_callback_runs_unlocked),
-+	KUNIT_CASE(test_irq_pending_with_empty_fifo),
-+	KUNIT_CASE(test_irq_multi_channel_concurrency),
-+	KUNIT_CASE(test_irq_multi_port_burst_interleaved),
-+	KUNIT_CASE(test_irq_fifo_drain_capped_at_max),
-+	KUNIT_CASE(test_irq_channel_crosstalk_isolation),
-+	/* TX done by write IRQ ("allwinner,tx-done-irq") */
-+	KUNIT_CASE(test_tx_irq_armed_after_every_send),
-+	KUNIT_CASE(test_tx_irq_handler_disarms_and_acks),
-+	KUNIT_CASE(test_tx_irq_handler_ignores_unarmed),
-+	KUNIT_CASE(test_tx_irq_startup_failure_leaves_rx_off),
-+	KUNIT_CASE(test_tx_irq_startup_enables_rx_after_line),
-+	KUNIT_CASE(test_tx_irq_handler_reports_tx_done),
-+	KUNIT_CASE(test_tx_irq_refused_message_resent),
-+	KUNIT_CASE(test_tx_irq_line_shared_by_channels),
-+	KUNIT_CASE(test_tx_irq_shutdown_disarms_after_handler),
-+	{}
-+};
-+
-+static struct kunit_suite sun55i_msgbox_test_suite = {
-+	.name = "sun55i_msgbox",
-+	.test_cases = sun55i_msgbox_cases,
-+};
-+
-+kunit_test_suite(sun55i_msgbox_test_suite);
-+
-+MODULE_IMPORT_NS("EXPORTED_FOR_KUNIT_TESTING");
-+MODULE_AUTHOR("Tim Michals <tcmichals@gmail.com>");
-+MODULE_DESCRIPTION("KUnit tests for Allwinner sun55i Message Box driver");
-+MODULE_LICENSE("GPL");
+-	if (hdr->pkt_size < GPR_PKT_HEADER_BYTE_SIZE || hdr->pkt_size != len) {
++	if (hdr->pkt_size < GPR_PKT_HEADER_BYTE_SIZE || hdr->pkt_size != len ||
++	    hdr->pkt_size <= hdr_size * 4) {
+ 		dev_err(gpr->dev, "GPR: Wrong packet size\n");
+ 		return -EINVAL;
+ 	}
 -- 
 2.53.0
 
