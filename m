@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3646A606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 06:38:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22815606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 07:02:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=5FrIes1n;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BCbkyiOc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RZlUuWJJ;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=W1ZSkH1o
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
@@ -14,85 +14,90 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=jk+Iv7E50Op3JEPwALwZ9u6FV2ftF6XFRcZ7NgdVWFo=; b=5FrIes1nlcUPmsURvixrH8/SUK
-	j9GYR8C18UhoStJr789Nl2H9FJqeLrqr7oAeuffpa5kOK1KmrbpqfpIQoaBsGtUVDxJmB6Oc+IQvR
-	Ev7AWsCsSxxtYcahTSVamMZO2SXjGbD/fNMOdj7xSp8yTnO1IkhuRMTSbUUcMpRgKC7aeAAYP/VOy
-	I8C8P0ek1bC+RO/UiiSpWzTUmUu5PC+oGCu7bPjP6HvU7XcuO1I1YFyaSu05qrD85Ub+2WVh5+y5P
-	9ceR/APkdWQ8mfSACdc4f81kJ5Xi8S4ov95CnKKSilEytntk/U2RszciCtx3GoJvNVW4wRW62OMdy
-	dCwrOo/w==;
+	bh=VoA8ZatI3XBB1U2/SoghhJIwCX1MF+HDGH5+WILuFZE=; b=RZlUuWJJJTw+Bt0x4bEOzmjDHN
+	FJ37gN8nxNeqST7s5pRPra0mSDE/nAS7Y+Nu5uxrZqgDJhA73fhdULiriaCDQwEghtMVTLVZ5K7In
+	F8kQu7S17TscRelwWgm5udVGQJ/X+nj48fuyPoopCIwhvoXzVyfNznH8Id43bI9JNOn8UaABxy4CG
+	+qPLFPkDFPaF4DgsW/PdmXMG6SAr8n/vbwSJ6yf/whiVP5lgsYpbxbeRzxIszKzzyc3ZLQOa3pDG7
+	nk9sVbia1nVskbY4vGMv9X2VKuGHkpLOD/BPvLjivWL8DE5Z6/mjA8sqvxhm83p3LLLh8qW6oxIk4
+	ptpcsIeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNPCR-0000000Dvfg-04z9;
-	Sun, 01 Nov 2026 06:37:51 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1xNPZu-0000000DwFI-3hMk;
+	Sun, 01 Nov 2026 07:02:06 +0000
+Received: from mail-dl1-x1234.google.com ([2607:f8b0:4864:20::1234])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNPCO-0000000DvfI-0cRM
+	id 1xNPZs-0000000DwET-0227
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 06:37:49 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2e9eb579c0eso10363455ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 Oct 2026 23:37:47 -0700 (PDT)
+	Sun, 01 Nov 2026 07:02:05 +0000
+Received: by mail-dl1-x1234.google.com with SMTP id a92af1059eb24-1aefd1bf74aso826987c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 00:02:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793515067; x=1794119867; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793516523; x=1794121323; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jk+Iv7E50Op3JEPwALwZ9u6FV2ftF6XFRcZ7NgdVWFo=;
-        b=BCbkyiOcqrn5vCicBnbG/fhmBPbFFkf/WN5E7oOGx+O7H7ZfuvtYDVAkBG5p1oHg/U
-         UizrMSHtcyDiloR0kE8GIJ1N4KMd/Z6fBn3bjX/Yhb/iI4OEhlzUZ+lLMZo33Sab780J
-         BxYU54TH3WjiVD7gPC73HAQ8kEuNkI2yZkOp5xeCBgggo7qD8MdPB+DnNKmHuVw8F1aC
-         Cy8DrZDmcuCypURDGRqbjdyQA5ZrHP0I/u0DqhG8Yr3EakDRvnS3e8cLDlKYHzp5aVLU
-         y+D5YQLjjVJOE4Sp0rJpdULbWiSbN95840mdIcyTY88LOfJfDli+ypNwOYWlXTeeA1di
-         PXjg==
+        bh=VoA8ZatI3XBB1U2/SoghhJIwCX1MF+HDGH5+WILuFZE=;
+        b=W1ZSkH1o1jglCLbJ5EGnmfC1FoeAV+jiXaFA7O63kH4BAxCDT69G8Q8RBpb81cjLEv
+         MiishLt362aeAeVxQ1L9ABXwkWa/1gDXIKNxIwOMUCVM+PXo7L5K/CIa4ZWPZ2AOCdPG
+         nnOzd0TftZCJyn10Fhc6Hst2he01TCJJ8iGzOGjKq+2lJzLX0sy2O+P3I6QzsD0JzFgv
+         7G28Lzvk8DeQPkjziaBCLUjot4sYM6VcaIBnEr+EO2QLrBHs+XMj3nxh6C8udmNBGvlD
+         EM7XxcKK+bYxXNzv48Mnje2dJVtDk6dOGKPVRXWq+6eP3+IJIf+3dP1GI06d+/W4CeQC
+         4o8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793515067; x=1794119867;
+        d=1e100.net; s=20260707; t=1793516523; x=1794121323;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jk+Iv7E50Op3JEPwALwZ9u6FV2ftF6XFRcZ7NgdVWFo=;
-        b=eyMnla1L58vQHrbYHlwnJ7+sW8Tn1n1gtGtN7XcLL7WzUW1FyNS4gHktQuEVQjTcaS
-         6FNAFt3G/s5sBMDRELtmbL5ztkL9BR6lBZkjO+eYVK/VixDf2AnHmJw/csrR7yixL6pj
-         p3iLb4VQpmXGbAdf2SA6k+dWe6A2FONZJkD1SmK+zdOxwBPZBhzDK8BRctCDx36N9rKH
-         TsdzIp+BhoJqmycehDzmPs2DKGo1AG29WgaCdidWZKMHyEobA3cUcPZZnpjuRcLnVuPY
-         fgXKj3cTvJeRlv7ypwiO3JJbG9dEPl4n1yQVqD4BcGw/Zdww45tTe11KHFNBausHgQOx
-         SPXA==
-X-Forwarded-Encrypted: i=1; AKwUvBzpHc5f1WLD3rkLiBloSLlHjqq8AWUV814kZM+SPOd670z7Y64/ZOdtETPVydxRts1i8C0meXSDxZYR0EFu63KI@lists.infradead.org
-X-Gm-Message-State: APuU4Z9hfwX8nHqLsnP0i/rTlW3Gyzt2UGAR+tNtiPbAvT5khaHXx3Sa
-	mLMV7gJNgfBFdalOm6MAMHVLvVlt460vt7T5DzMdR3jVlCwabmhiuten
-X-Gm-Gg: AYBFou1mT1NnXztRCaKWJT8htUVIc1PNlIEtxiE5ENplTmMIfp04z6NpWahLlT+//M8
-	0FwLw/PM9rA7Ucata7gH4o5iTjyXqpdPW+xpEYWIC129iIAkpJAGCk5EQAVULMbOCqsVulXu49L
-	Ndj7n1aygMY1UqbNxxR9OnJeb3hwicktNeGyLyfcX7To7cZYpFM1ls5wAaImbySRig/hANehc1k
-	CqbbPU4sXnbUsdzinn4l5wVZT61gyXwo65CZVI/uL96jgmoxcV2jhWg9jb4BjLUjfDZVHMQwPBE
-	2kvfyXhOIFe5IiVRgklWN++Ef/9xjXQym73YSRjcN9HBCknwHQ4+rba22/tBh8/GG7C0f1HnClS
-	rZv00azvevj5/HdA1eZ3UbbWBs+DRV8dPOF2ifUEfFH3zx26WnIDb936gJefHtpGYTTXFY5Xyg8
-	gB2QOHKg5k7nn+2z4F8iyx7ZrZ/BQ66JefmQ5Uz5EAcdHNOzS5MgGFAneg2DnbdtNptrcpdgN8o
-	UOq+m9zaXo0mye7VT8eSQJP2uAdQ2enDDWrYpSCZC1EzucDvYhadE/LJScjr+triqNBMzNCv862
-	d/zqWvGbpIc5/q/83XjxCf0ZU20JhzB5S4/E6gXwIiNs6ZXB1En6S7PQcuY+jAZ2LF8S
-X-Received: by 2002:a17:90b:5807:b0:3ab:be66:ddbf with SMTP id 98e67ed59e1d1-3ae8981dd4dmr5417304a91.54.1793515066743;
-        Sat, 31 Oct 2026 23:37:46 -0700 (PDT)
-Received: from ubuntu24.vpn.host.chaitin.net ([124.77.157.93])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae6e2a703esm14120742a91.0.2026.10.31.23.37.44
+        bh=VoA8ZatI3XBB1U2/SoghhJIwCX1MF+HDGH5+WILuFZE=;
+        b=zlN3+WIG+QmxEnSAd2i1c6kf2XftFCYBENrZRSfNEA005LzrheRZ7kETe7+VA7Rav8
+         k6Sbdq9jpM6cdG7AFrHRznidzPh2EvnM6VC7+1SiCSIB5YoULszjwd5pKD6by51ekpUu
+         UrUBN94yOVy1ugadwaws6TnUFDWQeoPB1X3GY2zFju3WyfKov8DcWfZ/brxKw5fTC1Fv
+         NYxbHbR+TAYtJKXNb5CJh3/QdIUW4n1Vea9R/RIe4WiUYm1Eiv2W8uQSxzJ3pnH0x/sq
+         q7/D/qC6xdVXziaHFjyucmN+aG4hutKyPP21ACEqmKO1Ocb0tWg8bXJlfhJazo85o85N
+         U7Qw==
+X-Forwarded-Encrypted: i=1; AKwUvBwN6bFE38EGhbpiZPNlfwMzHEp5nIwCJBwV5qV0SrpqJKBAwBc/4gIWMjIArYWq0+B91301jbyjLfdqoFrJQ8J6@lists.infradead.org
+X-Gm-Message-State: AFq9FYKMGqDnVn2sNpetEFP1nR4Gyn1qzYeJU9iVCyQELEFg/jjLpoE0
+	xZ6rOfEd810a5TwC8UNVOFlP3su1rxTnHfp6MGfvzmsVXXrSZWyi5I9z
+X-Gm-Gg: AYBFou08Hte284KcftGzLbH6D7rtUGGkpfF6oBr5XiCbJIVWUZvILRRRsq4LEwdk1nE
+	nQsCA/YhM04oAkCUbAkwFPm0ACydu6ShBgug5h2eDb657n6SGkI8U0whYFJ+TIU6qfsUtr5yj2n
+	o3p8epBvVeb74i6+26ryHwQDzh4vRQ9CFsDOCeBhHnubvTewolojx786ZDt1+iDIxtRNPQ1wCT1
+	S009oeMSCRLch0M+XpW/uRYQ7/PypM9+PpZkSnczywp69JY1KhBg8mQMubX+YHR3Xd+b+nWPKfo
+	bBOWpqQDlqVUtJLFJFEk55hFxbK8dgsTncWjw5ieUm6b9MYmq4s0XWF0vZwejBAS6dw3IktiGvY
+	5PmoMHY+Sbea3BxgQR1s3qWJUVn80gxM/KoV/c1BAZPg7VkAeri87K1Uw7/zsDs4J3yclj8bOGf
+	wTow5NnYeRKmxcKpG+V5d8hAVH+uwFEAWabWLET0y8rqkcAISxxcdTclnddgsGNq9NiQg5Nhk6e
+	BZtZaG8MnTpTP0SF9gC6SlpXnu1x3wRJOuBiw03YmB5XrqheNUjoP3rz9nEcQAo/tylQPr7ncFh
+	MdVckIxnyv8hF28/xFkRWK48ex/ojhNGgJO6bfkQX8HkbD7oquQ9vw==
+X-Received: by 2002:a05:7022:7f02:b0:156:d588:c881 with SMTP id a92af1059eb24-1a9420e36c4mr14043652c88.2.1793516522423;
+        Sun, 01 Nov 2026 00:02:02 -0700 (PDT)
+Received: from localhost.localdomain ([103.178.205.181])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1ac1854d925sm38735421c88.7.2026.11.01.00.01.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 31 Oct 2026 23:37:46 -0700 (PDT)
-From: BeaCox <0xbeac@gmail.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>
-Cc: linux-mmc@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+        Sun, 01 Nov 2026 00:02:01 -0700 (PDT)
+From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+To: sergio.paracuellos@gmail.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	p.zabel@pengutronix.de
+Cc: linux-pci@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [RFC PATCH] mmc: tmio: disable dma_issue work before releasing DMA
-Date: Sun,  1 Nov 2026 14:37:39 +0800
-Message-ID: <20261101063739.89331-1-0xbeac@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Subject: [PATCH] PCI: mt7621: Fix reset control leak on PHY initialization failure
+Date: Sun,  1 Nov 2026 07:01:21 +0000
+Message-ID: <20261101070121.2714-1-sreekuttan2156239@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261031_233748_195899_175C7363 
-X-CRM114-Status: GOOD (  15.75  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261101_000204_080333_A1255DD8 
+X-CRM114-Status: GOOD (  12.70  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,106 +112,41 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
 	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-tmio_mmc_host_remove() drains done and delayed_reset_work, but leaves
-dma_issue pending or running when it releases the DMA resources. Its
-backend callback accesses the host, controller registers and DMA state.
+The PCIe port initialization code acquires a reset control handle using
+of_reset_control_get_exclusive(). However, when PHY initialization or
+power-on fails, the port is removed from the PCIe port list without
+releasing the acquired reset control handle.
 
-Disable dma_issue synchronously before releasing DMA. This also rejects
-late queue attempts from an interrupt handler that is still running;
-cancel_work_sync() alone does not provide that guarantee.
+Since the reset control cleanup iterates over the remaining ports in
+the list, the removed port's reset control handle is never released.
 
-Some DMA backends fall back to PIO before initializing dma_issue. Move
-their work initialization ahead of the fallible setup so the work is
-always initialized when a DMA backend is present. Skip the disable call
-when no DMA backend is configured.
+Call reset_control_put() before removing the failed port from the list
+to ensure that the reset control resource is properly released.
 
-The analysis, patch and validation were assisted by OpenAI Codex.
+Fixes a resource leak on PCIe PHY initialization failure.
 
-Fixes: 85683fb39d9b ("mmc: sdhi: Convert from tasklet to BH workqueue")
-Cc: stable@vger.kernel.org
-Signed-off-by: BeaCox <0xbeac@gmail.com>
+Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
 ---
-Testing: x86_64 COMPILE_TEST object builds with gcc 13.3 and W=1 for
-tmio_mmc_core, renesas_sdhi_core, both Renesas DMA backends and
-uniphier-sd. A userspace model of the extracted remove function checks
-the no-DMA case and modeled late queue attempts before DMA release.
-It does not simulate real IRQ/DMA concurrency or backend hardware.
+ drivers/pci/controller/pcie-mt7621.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-No matching hardware, kernel crash trace or demonstrated unprivileged
-trigger is available. Please review DMA-to-PIO fallback, probe failure
-and teardown on Renesas and UniPhier. The initialization changes cover
-backends that can return before setting up DMA. Other work items and
-the wider IRQ teardown remain outside this patch.
-
- drivers/mmc/host/renesas_sdhi_sys_dmac.c | 4 ++--
- drivers/mmc/host/tmio_mmc_core.c         | 2 ++
- drivers/mmc/host/uniphier-sd.c           | 4 ++--
- 3 files changed, 6 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/mmc/host/renesas_sdhi_sys_dmac.c b/drivers/mmc/host/renesas_sdhi_sys_dmac.c
-index 426308b73b..45e34d57ab 100644
---- a/drivers/mmc/host/renesas_sdhi_sys_dmac.c
-+++ b/drivers/mmc/host/renesas_sdhi_sys_dmac.c
-@@ -340,6 +340,8 @@ static void renesas_sdhi_sys_dmac_request_dma(struct tmio_mmc_host *host,
- {
- 	struct renesas_sdhi *priv = host_to_priv(host);
- 
-+	INIT_WORK(&host->dma_issue, renesas_sdhi_sys_dmac_issue_work_fn);
-+
- 	/* We can only either use DMA for both Tx and Rx or not use it at all */
- 	if (!host->pdev->dev.of_node &&
- 	    (!pdata->chan_priv_tx || !pdata->chan_priv_rx))
-@@ -402,8 +404,6 @@ static void renesas_sdhi_sys_dmac_request_dma(struct tmio_mmc_host *host,
- 			goto ebouncebuf;
- 
- 		init_completion(&priv->dma_priv.dma_dataend);
--		INIT_WORK(&host->dma_issue,
--			  renesas_sdhi_sys_dmac_issue_work_fn);
+diff --git a/drivers/pci/controller/pcie-mt7621.c b/drivers/pci/controller/pcie-mt7621.c
+index 01ead2f92e87..1dcaa2829609 100644
+--- a/drivers/pci/controller/pcie-mt7621.c
++++ b/drivers/pci/controller/pcie-mt7621.c
+@@ -361,6 +361,7 @@ static int mt7621_pcie_init_ports(struct mt7621_pcie *pcie)
+ 		err = mt7621_pcie_init_port(port);
+ 		if (err) {
+ 			dev_err(dev, "initializing port %d failed\n", slot);
++			reset_control_put(port->pcie_rst);
+ 			list_del(&port->list);
+ 		}
  	}
- 
- 	renesas_sdhi_sys_dmac_enable_dma(host, true);
-diff --git a/drivers/mmc/host/tmio_mmc_core.c b/drivers/mmc/host/tmio_mmc_core.c
-index 775e0d9353..d0d3dd05a0 100644
---- a/drivers/mmc/host/tmio_mmc_core.c
-+++ b/drivers/mmc/host/tmio_mmc_core.c
-@@ -1272,6 +1272,8 @@ void tmio_mmc_host_remove(struct tmio_mmc_host *host)
- 	dev_pm_qos_hide_latency_limit(&pdev->dev);
- 
- 	mmc_remove_host(mmc);
-+	if (host->dma_ops)
-+		disable_work_sync(&host->dma_issue);
- 	cancel_work_sync(&host->done);
- 	cancel_delayed_work_sync(&host->delayed_reset_work);
- 	tmio_mmc_release_dma(host);
-diff --git a/drivers/mmc/host/uniphier-sd.c b/drivers/mmc/host/uniphier-sd.c
-index 1eae2f4b6c..cd0fdffa30 100644
---- a/drivers/mmc/host/uniphier-sd.c
-+++ b/drivers/mmc/host/uniphier-sd.c
-@@ -187,6 +187,8 @@ static void uniphier_sd_external_dma_request(struct tmio_mmc_host *host,
- 	struct uniphier_sd_priv *priv = uniphier_sd_priv(host);
- 	struct dma_chan *chan;
- 
-+	INIT_WORK(&host->dma_issue, uniphier_sd_external_dma_issue);
-+
- 	chan = dma_request_chan(mmc_dev(host->mmc), "rx-tx");
- 	if (IS_ERR(chan)) {
- 		dev_warn(mmc_dev(host->mmc),
-@@ -198,8 +200,6 @@ static void uniphier_sd_external_dma_request(struct tmio_mmc_host *host,
- 	priv->chan = chan;
- 	host->chan_rx = chan;
- 	host->chan_tx = chan;
--
--	INIT_WORK(&host->dma_issue, uniphier_sd_external_dma_issue);
- }
- 
- static void uniphier_sd_external_dma_release(struct tmio_mmc_host *host)
-
-base-commit: cbbddb6b08cc9900a87cccaa9b22bbe06aa4f50a
 -- 
-2.43.0
+2.55.0
 
 
