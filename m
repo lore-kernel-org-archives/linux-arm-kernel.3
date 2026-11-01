@@ -2,103 +2,129 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34CD1606A333
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 19:30:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1782E606A325
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 19:35:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GjynvgEJ;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q9w04kzF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Apx2KgPX;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=ET/XeXA6
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=AmWM5i5bcYLOfgd6JgqgudQuIbo9gKLsDd/ijE1n9kA=; b=GjynvgEJ79s42i
-	D8xXkhUN3JFm/4U9cchth1U0mCucApRAOQp1caixJMB79M7T6J2wNe4yRNcXfXl2O3rcJV7YzXfTH
-	jq3uSGkylg3RRq07gaNFZX8znz20EFCa7CwsWQO23hoDC9F3oCBWDl6t6HVkARSeFV3hIJgSxsII/
-	8uVvESKi91KBcwF8zsLuhV4nHwP4NeAChKGCb4uMmV1ETwDk0hpR2LxDBBBuOj/3JO5/aB30vv5hQ
-	DaFDFyIUK4lnzXybx8z3mlUukRyuHpZAWcb2xqZYB60/Eyja35ipmZ2ZjI16zVoA+5F1BVKpVfwyh
-	/gunJtTJN9evePRhIvCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:In-Reply-To:from:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=wdJlAy0M0lu3nCDv3njq9XZb0WjIsN4409XaMh24jfs=; b=Apx2KgPXCGTuJVhZBLY/deULfO
+	pm+rUihc5CpJTDeCb7bsf499P29D3r6WWl+mhMuoU5fUU8E92USFWr6TjGudC7CKAx+u0Xm9EW7XB
+	50aiTpFbJ9EejlOFeREuScflXWNFGojYHr6mIsginmyERhufLHYBoFVAVwTeJBjR6M7tLfS8dVGNz
+	wqGJ/eXc74EPB5Y6SFivleOmPnrUxzfNVVp6SOSjHBDcZKXjMkKHmHpONfxtPDV2F1uPQRd16NyC/
+	BKTF6dHV3F+fYu4lZvOKhYce6C69HU9HAmsqiKwkXJA1zGPjs/2Zw4aHEfvOYWNJKyi1YxoayCVji
+	+GIb5NQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNbFe-0000000Ep04-0Bk4;
-	Sun, 01 Nov 2026 19:29:58 +0000
-Received: from mail-dy2-x08.google.com ([2607:f8b0:4864:36::8])
+	id 1xNbKU-0000000EpXL-3cA3;
+	Sun, 01 Nov 2026 19:34:58 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNbFa-0000000EowM-3Uo8
+	id 1xNbKS-0000000EpWx-3WZI
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 19:29:56 +0000
-Received: by mail-dy2-x08.google.com with SMTP id 5a478bee46e88-3678f64d078so3885061eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 11:29:54 -0800 (PST)
+	Sun, 01 Nov 2026 19:34:58 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-6acb9c018ffso3411174a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 11:34:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1793561694; cv=none;
+        d=google.com; s=arc-20260327;
+        b=pJb2oWHi8QQvk+74XOcGnR01rly3mQM9vfxIsW+WNpZVI1xvMj5DUYeclT85bDIfBK
+         2naNWcqzp8bQljAHzyTvtWa+fW27IPPeTPxnwENCqLkwjIMfC9fygieELaAuhkNxrWIe
+         uzNxT5i5WXVYRwRUliGjU7QzbDT0KpDKvxCF/dZTyxBlHRBaXmZsAeJCgYezOqeYya68
+         rMDRscPgXflM3hl3UbwKQ69CefPPauFH16kx/7UyzB8Rh4saCTYafJ6vjPZCYTXsjU0Q
+         /4seILudERLmzALFgvj5iBuMdueCRE1zxXABaCsR7N0E4Q8dLruOW2kRxVUc+0ETk67G
+         hBrg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:references:in-reply-to:from
+         :mime-version:dkim-signature;
+        bh=wdJlAy0M0lu3nCDv3njq9XZb0WjIsN4409XaMh24jfs=;
+        fh=nh95WtDvaQPtlEcacsgskm4SovOvKkJMNkLD1vCeoN0=;
+        b=ckxR4gs+w0Kj3x/OQIEMoro5IWInQrPEwR3lamg4jX93hqE4W+uZbbM+J99237P8Dn
+         EOdJVQfFziwzkxajRECBsFQx0QT0/6csI8VH2wvU4ZWJX1qdvkDff4/EQs/1514m+EUQ
+         uiU7xsw40QzXiVXjhXOrFeIT/mRztKiu/w1IwaEsuk+MMEwnjaQJoMOQPvkzXOC9PMbQ
+         KysoVrGCojGapILXt/YTbxHfA+RD+Xj3eEwC87CWvLSvgg/2F0KKygkv5r2xzxhjH5Mr
+         BC0sCM935SKgdpcJfsx582AoKEaCF85ENsrQr8si5G7Wheg/f3kXbN/RKHJCwyA8LOF5
+         +olw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793561394; x=1794166194; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=AmWM5i5bcYLOfgd6JgqgudQuIbo9gKLsDd/ijE1n9kA=;
-        b=Q9w04kzF7CyWCpGdKRVyAc3gPMHQcHiyoUaLxFpkOnTI4tdBEijD+WG3YDuIpWqS3p
-         1rTXCwrfP13MkmjCwuyw+JFqCQ8yUBryNqY1LJv1NkvbLzNaKO92hIBwuttusjTBhj3h
-         4XSihXSxvOCw4nuCc4M9ZhYVW+4VYE9pRxuxW5OuAkjbWo116KWqO4u7xAuEgGvnUVTU
-         wfU+zaGWCTAmPiE7NaZaAepi2TYDDEcKHKxfh/Es4IKXv2BiGgK0CAA4erqVcOAOZ1oE
-         15rpV9ThSX8jxMYbwyf0SUxMIsNUYUwvknckjmi7a87XWE+t9B52fmf3oPOnj76unKiv
-         L9eg==
+        d=chromium.org; s=google; t=1793561694; x=1794166494; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:references:in-reply-to
+         :from:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wdJlAy0M0lu3nCDv3njq9XZb0WjIsN4409XaMh24jfs=;
+        b=ET/XeXA6C5x20H7GZeAV/kFooyDsIvHphkHI69dspqy//6raCrnbqDiX8EPKCFiFfN
+         jMfC7S32+XzcuhlB8Yu5C3m8mbTVSdqK9qT9oz/uY9SFyOIWdGXrIV7epOzMl88pJ6Gl
+         38bJx7o0W1wD42c0h7wfHIslmXJ4WCzqwYZA8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793561394; x=1794166194;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=AmWM5i5bcYLOfgd6JgqgudQuIbo9gKLsDd/ijE1n9kA=;
-        b=q1XglQg7ptCk94dY2HjCpfnk4lcTLDf7KZQzF7Pj96UqDXQXQh6BRXBlUdLBy8Dc8f
-         1Q9PJ3GmcXTpESPtmozwMdrHjmdwb85h7M/X8T/mbVfXiPSura9D1QvsEM6TDoWRc6Ev
-         cUspTdf4Cz8dUf/oAUAR9LoUVk5NJD4by14jsZq+0iCLcAZPRNFgo5PCIvK7Mr+9mHTx
-         ioONBHVv3GhC81OF/J1waOvm7hTC7USJOP5/yqqbWzuHVXqtdisYp92ARlpS46VIOjtg
-         DmzYFFMfxFcKtE6Ywr7KLIKks5fkoIdHhLXOjlb9bMumMXHXsFbsghgWuEGBFgStZCTl
-         ppVQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxbReAr53FsLZrLPwf5pnqo0cWr/CuGqsPVB/PWDtiPjXZ0mHQnCKDtfc6xJKFJbwnJPHH1cWB5nvLRBEwhUYrP@lists.infradead.org
-X-Gm-Message-State: APuU4Z/iU0aOE8X/Ou+rRohcnCq97iiN5EpOU4iQHJyh143zfa/nsPm0
-	iXOysf01xc6l2aSLHWIPQ81orSy75rxFdn81ZcVWDmNQQOwyVCueRRpGCR2fW1in
-X-Gm-Gg: AYBFou2vRWFnJTFmfz1/HJKPc94jUjjP4wKzADXwbdMwxFLVedXH7TP2G+k92DyDvX4
-	asqHgf/At1IW5zwHRthy5gRxfVkaBxXEXSZ9J37fUo/tc3ZMcRvd+Yg3EmV7u90O6VYlUNY3kqb
-	XbQx2517gNUAOSR5iVx6/IPgT9+Jg5YRfD6U2Y0RFd2ppToivmaXCYXynfhz6+Wsly3O6F3CzJ1
-	bMLATgGw70IyNwWyD09g7bWQepVRv0JFTyHMREdPcrXTnLD0A/LnZclyQVkMzyAIMt3+iFlYNS1
-	y57ErA9u7TyxZIVgpZGbxyPBu6gQcSxZzzibUdpDQzmdIKbaYMMUbAtxcWnHdgRlg7L53Fdzryi
-	pMosm/U44PEpPD3UOUvjoFab9xGf2AajJbuWKnwBSWvszasKHwB03pD4BLouVKCRx6BYXgISqKh
-	pYIKMxn6E1McLB4yCowT+Exr3IaFbi06IuW5MDCM+OrvHdvDglDuut6wIpaYvVjKBk8cCSkTJzl
-	ru9nbG6dixzd3dgvnlbMBzCqw/WMrRoy7IEJdftBWy/cGq0bbzWLHWSLHTh2ZxHkk5M8q0cRFuK
-	mYnu42yxKQW/Z51L3cAMUD6vttw=
-X-Received: by 2002:a05:7301:710f:b0:359:2edc:e1d8 with SMTP id 5a478bee46e88-36a422039fbmr11538413eec.5.1793561393990;
-        Sun, 01 Nov 2026 11:29:53 -0800 (PST)
-Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36a428af1dfsm31471861eec.7.2026.11.01.11.29.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Nov 2026 11:29:53 -0800 (PST)
-From: Coia Prant <coiaprant@gmail.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	Peter Geis <pgwipeout@gmail.com>,
-	Junhao Xie <bigfoot@classfun.cn>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Coia Prant <coiaprant@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH 5/5] arm64: dts: rockchip: fix USB OTG power on Photonicat in battery mode
-Date: Mon,  2 Nov 2026 03:28:07 +0800
-Message-ID: <20261101192807.897562-6-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261101192807.897562-1-coiaprant@gmail.com>
-References: <20261101192807.897562-1-coiaprant@gmail.com>
+        d=1e100.net; s=20260707; t=1793561694; x=1794166494;
+        h=content-type:cc:to:subject:message-id:date:references:in-reply-to
+         :from:mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=wdJlAy0M0lu3nCDv3njq9XZb0WjIsN4409XaMh24jfs=;
+        b=y/eJk4x7kmgf9eRdTX/UnP0/4RAQYkyQHBWLjl3Xf4zVKifTvWlxE5Rt58le2bhuPH
+         d3pU+mhRGeguzrlyrij2MGwUe+bAMCX4W7zGGC7rfKKoQcDK7O33sswZXJ3Ge3OFmsvp
+         czyg6xBD3qYGAB7EqCK3Kqs6y3wJeKKG8jCR/UYpgCDp3xO3h9HEqNGrV1dvTS3JMo/T
+         SkXH05/puHkcTaXFozRHPQAPMNLSHK2i5ndRKuOCGn8AJqKvxhhBWhppWZQGsMTrpMly
+         Fzvrg+Ee6zDyyjOlcng5sCIgPc6Ex0Emjtj1BVvez+47y1HNo2WCbGGHdl1iuC84rBKt
+         mXLw==
+X-Forwarded-Encrypted: i=1; AKwUvBzyESGgiVA/0nfncrZJmi5hsu0ms4lMMA4m4DYLFbHYJ/ugIZjyBSdtUkJx9+7cnDsD1rbdrfeb5rWuzlzWo0by@lists.infradead.org
+X-Gm-Message-State: APuU4Z/ZCgHYt7kKMxrBctvb6soqEWCAyV0ih/L5ftLDBMMJNLS7LYX7
+	Rz6nS23UluGTMJflNsBWRE00m8qzU2nvO/TGWoEL4X0o0gZX4BhaIIQCHZUSOnXtW5DaUSVf1hI
+	4+pdZ/aPxepCmoR22g+Fm1B8afGjZbqRhlfXTHiBx
+X-Gm-Gg: AYBFou0uw1Jvf4d9xaI8eQZE+8SdD/UtMVBfe4fLXICi8zpRoHkq/xAdTAmizwCNDJB
+	4400Kr7upC5hf9x3T1U7iD/BlRflcGybNHbwLi8EHAnrbpb9rLQ0j2xngpJQeNvD6xzPHPIi4qX
+	tWUygo2UtZEcT4P7Xiu5Q2l5cALcieGYw7uq28SQuxV7YGkpJKm7SCeuImkAs2Y6kjP3luqCcD6
+	pvtSyuk+AoHLeeWVKkJUMwD9v2tCx+EHMFHRn0YtU1FZTEpwvWHxbfTftMh+BDOgGoUuwjwdLT2
+	dVNGJKTHr7LE4OYUYlSRB7w5ZJ2w1DEQq2RUvlgyLxV15X+ZMEaSbI3aXkSOItnf4Ujl7orhQpC
+	wQF0yWhoEI4+/ep7PnB6kZKNPXrHo4mpeOWiTfXTWJxH5iHU3XWklLtrM4ftIyGpQ8w0h6Ba6
+X-Received: by 2002:aa7:da45:0:b0:6b3:e89b:128f with SMTP id
+ 4fb4d7f45d1cf-6b4d4d6d938mr4052419a12.9.1793561694122; Sun, 01 Nov 2026
+ 11:34:54 -0800 (PST)
+Received: from 415065739583 named unknown by gmailapi.google.com with
+ HTTPREST; Sun, 1 Nov 2026 11:34:51 -0800
+Received: from 415065739583 named unknown by gmailapi.google.com with
+ HTTPREST; Sun, 1 Nov 2026 11:34:38 -0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+from: Simon Glass <sjg@chromium.org>
+In-Reply-To: <CAD=FV=Vt6hgGJuYtv1_mBSQztWQBjmDN9CwLtVxrXcyECGx2-A@mail.gmail.com>
+References: <20261020153652.2907186-1-dianders@chromium.org>
+ <CAFLszTgzpQ-donjjtcPwy5T3pfWg_u83QMh0GcdpY2JCq_s75w@mail.gmail.com> <CAD=FV=Vt6hgGJuYtv1_mBSQztWQBjmDN9CwLtVxrXcyECGx2-A@mail.gmail.com>
+Date: Sun, 1 Nov 2026 11:34:51 -0800
+X-Gm-Features: AclHuK-OENc2MfogrHTK6nr_VXdYPKQaHTgRVjZY6Us3vAfjaHxM1Qejmm0CbCs
+Message-ID: <CAFLszTh8geCqamVZwO00fx6t8SDfVHCFP1Fx9PnA2x9TosDKqg@mail.gmail.com>
+Subject: Re: [RFC PATCH 0/7] arm64: Add fit images for sc7180-trogdor and google,lga
+To: Doug Anderson <dianders@chromium.org>
+Cc: Devicetree-compiler@vger.kernel.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, linux-kbuild@vger.kernel.org, 
+	Brian Norris <briannorris@chromium.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Chen-Yu Tsai <wenst@chromium.org>, linux-arm-msm@vger.kernel.org, 
+	Nicolas Schier <nsc@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Devicetree@vger.kernel.org, 
+	Julius Werner <jwerner@chromium.org>, Saravana Kannan <saravanak@kernel.org>, 
+	Will Deacon <will@kernel.org>, Michal Simek <michal.simek@amd.com>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Andrew Jones <andrew.jones@linux.dev>, 
+	Bjorn Andersson <andersson@kernel.org>, Breno Leitao <leitao@debian.org>, 
+	David Sterba <dsterba@suse.com>, Gary Guo <gary@garyguo.net>, 
+	Josh Poimboeuf <jpoimboe@kernel.org>, Luis Augenstein <luis.augenstein@tngtech.com>, 
+	Marco Elver <elver@google.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Nick Terrell <terrelln@fb.com>, 
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>, Rong Xu <xur@google.com>, 
+	=?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
+	cros-qcom-dts-watchers@chromium.org, linux-samsung-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_112954_876069_5F3038D4 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20261101_113456_944314_90DADD7F 
+X-CRM114-Status: GOOD (  14.91  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,84 +136,69 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-20.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-When the Ariaboard Photonicat runs on battery, the USB port has no power
-output and attached devices are not detected. With the external supply
-connected, the same port works fine. The root cause is that the
-regulator feeding usb2phy0_otg (vcc5v0_usb30_otg0) is only available
-from the external DC input, and there is no 5V rail for the USB PHY
-when the board is powered from the battery.
+Hi Doug,
 
-Add a vcc5v0_usb30_otg0_boost regulator, gated by vcc5v0_usb30_otg0,
-and switch usb2phy0_otg to use it as its phy-supply. The boost converter
-is enabled through GPIO4_D2 and generates the 5V USB VBUS from the
-vccin_5v rail. Note that vccin_5v is the actual energy source, while
-vcc5v0_usb30_otg0 gates the path; vin-supply is modelled on the gate so
-the regulator core enables it before the boost.
+Doug Anderson <dianders@chromium.org> wrote:
 
-This restores USB host functionality on battery power, matching the
-vendor firmware behaviour.
+> Putting the metadata in the configuration's `description` property came
+> out of discussions with Michal Simek at LPC 2026 (where Xilinx/AMD
+> already uses configuration descriptions for similar board matching).
 
-Link: https://github.com/immortalwrt/immortalwrt/issues/1534
-Fixes: ba124e06ce7b ("arm64: dts: rockchip: add dts for Ariaboard Photonicat RK3568")
-Cc: stable@vger.kernel.org
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
----
- .../boot/dts/rockchip/rk3568-photonicat.dts   | 19 ++++++++++++++++++-
- 1 file changed, 18 insertions(+), 1 deletion(-)
+Thanks for the background. The Xilinx case is a bit different, though:
+the same project writes the string (the binman .dts) and parses it
+(board.c), so it can change both sides together. Here the kernel would
+write the string and the Pixel bootloader and outside packaging tools
+would parse it. That makes it a cross-project ABI, and I'd rather that
+ABI were typed properties than an unwritten string format.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts b/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
-index 7e0a2ab829209..bcdfe76000c46 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
-@@ -151,6 +151,19 @@ vcc5v0_usb30_otg0: regulator-vcc5v0-usb30-otg0 {
- 		vin-supply = <&vccin_5v>;
- 	};
- 
-+	/* actually fed by vccin_5v, dependent on vcc5v0_usb30_otg0 */
-+	vcc5v0_usb30_otg0_boost: regulator-vcc5v0-boost {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpio = <&gpio4 RK_PD2 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc5v0_boost_en>;
-+		regulator-name = "vcc5v0_boost";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc5v0_usb30_otg0>;
-+	};
-+
- 	vccin_5v: regulator-vccin-5v {
- 		compatible = "regulator-fixed";
- 		regulator-name = "vccin_5v";
-@@ -460,6 +473,10 @@ rf_pwr_en: rf-pwr-en {
- 		usb_host_pwren_h: usb-host-pwren-h {
- 			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
- 		};
-+
-+		vcc5v0_boost_en: vcc5v0-boost-en {
-+			rockchip,pins = <4 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
- 	};
- 
- 	wifi {
-@@ -617,7 +634,7 @@ &usb2phy0_host {
- };
- 
- &usb2phy0_otg {
--	phy-supply = <&vcc5v0_usb30_otg0>;
-+	phy-supply = <&vcc5v0_usb30_otg0_boost>;
- 	status = "okay";
- };
- 
--- 
-2.47.3
+> The proposal I've tried to push a few times is that it's OK that
+> different loaders have different types of information available
+> to them, but people don't like that. They want a universal standard,
+> which nobody can come up with.
 
+I agree with you here. We don't need a universal set. I've sent a
+proposed spec change [1] which lets a configuration node hold one or
+more match sub-nodes. Each one names its scheme with a vendor-prefixed
+compatible string and carries the properties that scheme defines, for
+example:
+
+    conf-1 {
+        compatible = "google,lga-...";
+        ...
+        match-1 {
+            compatible = "google,board-id";
+            board-id = <...>;
+            board-rev = <...>;
+            soc-id = <...>;
+            soc-rev = <...>;
+        };
+    };
+
+Trogdor would use its own scheme (board name as a string, rev and SKU
+as u32), and Michal's loader could do the same. Each loader still gets
+what it needs, the types are explicit, and nobody has to parse
+'description'. Please can you take a look and comment there? If it
+works for you, you can point to it in v2.
+
+> Should I give it a shot for v2?
+
+Yes please. The DTB list already reaches make_fit.py from the Makefile
+through the @file argument, so the new file only has to say which DTBs
+to include and what metadata each one gets. We'll need a simple
+per-platform file next to the .dts files, passed with a new option
+through FIT_EXTRA_ARGS
+
+Running fdtfactor can then be another make_fit.py option, like --decompose-dtbs
+
+[1] https://github.com/open-source-firmware/flat-image-tree/pull/66
+
+Regards,
+Simon
 
