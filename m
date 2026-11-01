@@ -2,76 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FE67606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2A70606A325
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 18:58:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ASOqmIhK;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=szv085wV
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mUdKSoTi;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kdQtIKJR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=JCxeVRFVH5SeA2NpIbzDmV/W44vmxhH7KVeCpg75zJg=; b=ASOqmIhKnV4YI1
-	ads/EbLsvB8wli+0blhH8Ro25HB8ITZSl1njDRjD49lqNqSCnQNbhHIeMH0nlmuZEDt/r/pmb+kk0
-	a1l3+DALnl/F/Vy5e+CohhyJmqfU5WoWtUerycWFelO21RVgI5Iy7nFgo8e9EwFQxcmGDF/G/MmZ2
-	JAEnlPn/NSqBHZt8vy6h2taVLaP85UoNw2r66VjUgiApRytHwYSi1cA6fLEaNtovxNe0qdFkHull9
-	zFb5VHsHTr4rhYKfzFjdFF4PHpN4MKIxnulGJbFUL6Vk5tE3EdLiXdpTHMplqcsRaSNS8u7XiunMR
-	1+GWyY7474S89DffU6Cw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=6kZ202AvHWljwqwG04WTTgSqbAzapYvPwFz9uVKHoOo=; b=mUdKSoTilMM2edA1mZ7vsaYt4K
+	Py5ZKfpNepRg1PwCPCx3cegU23udmVTO218RgjJleH1eiJZDP2Jt/SZik+b1IXNrBO16USTPupH2U
+	xV0WQks+bonJueb11LWMu3Iy6DvriLmVitnPdT+alNz+sN06YMwo7xcmmwry7Pxup8vly14jnQX6H
+	nhGlT9yBsigox4D0Gk6bqIyvSMHDUkmBHaJcCjBME4Bw2ecQTBYmn7UpAejyZITyyy8jq4NACpCZQ
+	Tt1yK3uYC9wINUGz/oL4uFHZ5QZ0ggK2HfLIbSwRf7JsspkWjisIJYNFddcYe/nt3DMmIZ5txaTVh
+	0l2NnaxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNakd-0000000EmQ3-3Zag;
-	Sun, 01 Nov 2026 18:57:55 +0000
-Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
+	id 1xNaka-0000000EmNP-0sVc;
+	Sun, 01 Nov 2026 18:57:52 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNaka-0000000EmNN-3Jht
+	id 1xNakX-0000000EmMk-0hcQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 18:57:54 +0000
-Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-8ab37e44643so14964417b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 10:57:52 -0800 (PST)
+	Sun, 01 Nov 2026 18:57:50 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-8b06c0794cfso19786157b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 10:57:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793559471; x=1794164271; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JCxeVRFVH5SeA2NpIbzDmV/W44vmxhH7KVeCpg75zJg=;
-        b=szv085wVYrmoULYtl1xYDJ2VKykHuQwVPTgW1L3Aq/Vp75AGlg1v8imWAqUbd/6SRw
-         WiLmUmzAHiTfdUrkqorDoqOl8brtxu41CorSwccmUFTJIeBETJSsq08Qb6sUEnHWq/Kr
-         QlzVQfak01N4dorxygObV2410z6lBd+Nr+/iinY5ihnJ9UIcE4oiRH1G/+sjh6GPAdcH
-         2SEe2eMLkhDytrn/eqoYPwppR2kAEUa/pgmW7HAFcx4buckGsFIka5M+HlB99BUBsI1W
-         YHKInWalYsDz8vrfsCftfQjAqh148TnsNkJ/S6NUaBR4VfRWuPNf0J+z9coqBKDJdC+I
-         YaiA==
+        d=gmail.com; s=20260707; t=1793559467; x=1794164267; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=6kZ202AvHWljwqwG04WTTgSqbAzapYvPwFz9uVKHoOo=;
+        b=kdQtIKJRTPvRFQQuc3AqZf9z9LnD8IT5V9AcY0RDP5tgfuJY6zL7KzyfxVRqkxMio/
+         OuAv6cSh3EQtOA2uf3WIB5dcCvYDwPbc9ZEdlKvnOO/m9W1CcrlNJ7En/H6SyscP4VJ1
+         JtWfsgTZctQCRwPH37dVlPAgxxQhfpGWirkgIHj5dK2OHEkMYMMCoEmYkPQsPjLSODWW
+         i4waKSGn9kqXZGZH2UCzzKyPWn/3KIZxzfPejT+ji5Rh9tDrc5k1pHIh7FATZNGkB1KO
+         P2Eg9eThwmG/3LFYO4dWYihCbVdsrDxhmihsn+W3Y6Y5c6m7hYHi07GgKdeCqhn9HA5L
+         Y8gA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793559471; x=1794164271;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JCxeVRFVH5SeA2NpIbzDmV/W44vmxhH7KVeCpg75zJg=;
-        b=wWWOAr/IyiiJ+FP+vT+fLcEsmh78ssakVmQHylnLkcyOSiC6xQIVoGvg1rSL7KkQtY
-         63izrkVQ/YVD+czf/dcgszNjWYtmSqR++lHC3WFtrVANw1oU3fF63pl5heD26hV+Xmzt
-         28W1SXMOAcwobkjK4387n1khKlfM/PR1S+iJp/nJO96aGDtMBz9BUiecZrRjb0KIeSXv
-         HpQrz6dif5XmfeYftLNrGlOQks3ZXTJLMpfhHuagrhXSOWyHDE1ZTeVjPx5HM5aWhzpa
-         +7ABlCwUSjayewNu68u8RoiLoQA3daFBML/b20RBaIrybWWD7pxPyQVG7gV7Mdugqt+/
-         VI8g==
-X-Forwarded-Encrypted: i=1; AKwUvBxMxxAfnSscJ5+WRfzsKdfmrHQrwCUOovSom2ohSvAO1AOUeImXaznMU2YxDbh8ZqKPDIXM1elH1Laeqm9aEc8C@lists.infradead.org
-X-Gm-Message-State: APuU4Z9+5Yg5jKyfNjcrNl7vENeHfQ1CoEd0frqyZ6SMSU1gP/7exoME
-	Sv0d1Ok6Fnk66nbfb2J/LELG45KHswgiwrw7Sif0WgS7TZ/E9NA+GrAZ
-X-Gm-Gg: AYBFou3fz1J72e1eXeZnQQ1C+sXT8DY/ylsQSKSy0DPtJSC/+YScyf9HnuEwfZLnLzI
-	IvGn/hMXCIY5S+xEdYD/7j3vDYxxOG7VoxrfhUirvl9dtp18TE4esnx2aZuRfxp7oJn/+xA/WiY
-	IDutr7E+NuxKkA7uWOiqvwGyUEkIioKdyeFZjA1C7X2Slb3BMGBH9DiRwT+fVZI14JiFKYN7KPw
-	BJ1EpCaElYdOUIyI06nd4BQsDycAD8NgEJyBdlKc93Lo44I6jOaIEoW8FijVoQlPPixFvSPDm5Y
-	GYUsoJ8rpMluYRm/aj3NKoEGsIy/FHNACS80XJGYjOUGO7PZ/0sAEMUTq6qnO8HmD+SYf0ERngA
-	KnyVJpJLPjsYb9Ic58Gs0us6wCSW0yxm4MiaTUj08WYG4a4mlQSmatcBQLoV8gaRB05ig6a4ouZ
-	6+g3Wuj1UOcI/vM8TRM4AfEsBLB6eGFBWenXZwspO6lLtOpg08wb+lNSy9eX7CWlcqp98Cdrma/
-	sEm3J9WSrLQPZiYOtONEoHgoo8RQZx69JIxpeWbr/xtIDkGiFZ8Nm4HWHnqro0lvxjt+wNIGEzf
-	MbRXdA9xHLKryAXMqzNsUQbuCfZlpKe1yv6oUDiRITCHbNTSK07EW6LWRy6erLlCyjk=
-X-Received: by 2002:a05:690c:6d84:b0:8b0:e385:ed99 with SMTP id 00721157ae682-8b2b66c78a5mr43226817b3.30.1793559471312;
-        Sun, 01 Nov 2026 10:57:51 -0800 (PST)
+        d=1e100.net; s=20260707; t=1793559467; x=1794164267;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6kZ202AvHWljwqwG04WTTgSqbAzapYvPwFz9uVKHoOo=;
+        b=PZ8VUCzfeph5yw+HwrXAR7QKnamU9+v/7c2kQiTbV1d+iL7NRD5v6QJw98Iip/5W2r
+         ZPGh0k6uGWioWieExNgkbVzfHtX8egaD0IukE+crAGyGhzBwteLGdXfEXN5HCfQoi+8d
+         Xq4lr/z5jTYo6EHS0nW8ad7PwPIA5HTDbULojpCDD+oRcroRQdAt6ozz3xgcgduEH2lo
+         u3zqtKPGbJpb4yxy+KRaELzhQl3w4KiX0aiGVglEOygPYASc1+aXsGZy7SUhoKChSTGp
+         mKo3ppN/eUeZf/+ZYgpM+c3j496JYIk1XcwADBOLXHS8cpiSf/mIHWfzC+97tD2Nl4YU
+         79CA==
+X-Forwarded-Encrypted: i=1; AKwUvBwN03qW8FWZTgugv+F4BRtBHC65LOWVgWz17YjbkWz01T/xuA24RHahe0qHMcf13vGsfUQxscQ1yc1L0473MDMi@lists.infradead.org
+X-Gm-Message-State: APuU4Z9BC6IDTpuK0gt+bHCREpIHluWZ6pR9VOXJEcMMNT1nEXubT4W2
+	pMBAyEwfhAOmws7KF1TL4muPDHm1VsFueRf6FXOSQ+RMsBKWf0oQwU72
+X-Gm-Gg: AYBFou2/qvchFhDpWFwtnUYBfi2533vOL6eKLdHNK/QbVoFdBDiFLIfNSyrmKC4QSxN
+	TbAD2si3Nh2moXjNpMtrZuAQKOz/cdSTJvevAha3u5D3bD0s+ubnGJDGYQoYCCBtg868n7/p+cQ
+	UBoVbjbJjBnDppd+0Seve/Sw7iAdoubzscZueF+XWbirYUruNLk7K2botFEFpsMxImUcAp5X9ML
+	8WwVAtFlkm9kH9D7VpAq2kY8TA4s5aXJ3yzo8hYpFEHsUdJhe4XLjLBKHnVZvOm8b28p7rCKx/V
+	L9BZOXKbn2/Jemd/1ZzdSUs9DOJencd2R/HOJD2ob2ZqPfUe83DdZmU+TKyvqJKeR+vrQHZjHkc
+	jBu4uekAvvOVuVC39igRrHu6U3ma+QlsGyRCXscPfWjP1EORcn4+yzVJoOAaieHByYpyhNEyHZd
+	+TC9Tt5dw5FETFFaxzNX2msrILzcqbaWJhUv8z4lQDkyCin0HAsXDtt0gES5NoXwjbIBa5fV2uL
+	d6IZr7Bh1gQlzV2kAZV569y4oFWX6UC41Pbly9C7dD6YiVYqeJt9heQqE5HyYt9lIn15FkORMz6
+	n/WI6AvYmb/cJ5vSgTGobHUO4McJFSxPkwCSMY3WsKEGFqW3mjeJ+HVL8rIVXd0SMcY=
+X-Received: by 2002:a05:690c:a046:b0:8b0:eab2:f502 with SMTP id 00721157ae682-8b2b67992e6mr47158847b3.61.1793559467403;
+        Sun, 01 Nov 2026 10:57:47 -0800 (PST)
 Received: from hp ([71.12.40.102])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b2b716d420sm40869397b3.33.2026.11.01.10.57.50
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b2b716d420sm40869397b3.33.2026.11.01.10.57.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Nov 2026 10:57:51 -0800 (PST)
+        Sun, 01 Nov 2026 10:57:47 -0800 (PST)
 From: Tim Michals <tcmichals@gmail.com>
 To: Jassi Brar <jassisinghbrar@gmail.com>,
 	Bjorn Andersson <andersson@kernel.org>,
@@ -88,18 +88,16 @@ Cc: linux-sunxi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Tim Michals <tcmichals@gmail.com>
-Subject: [PATCH v3 3/7] dt-bindings: remoteproc: Add Allwinner A523 RISC-V remote processor
-Date: Sun,  1 Nov 2026 12:57:31 -0600
-Message-ID: <20261101185735.762559-4-tcmichals@gmail.com>
+Subject: [PATCH v3 0/7] Add Allwinner A523 message box and XuanTie E906 remoteproc support
+Date: Sun,  1 Nov 2026 12:57:28 -0600
+Message-ID: <20261101185735.762559-1-tcmichals@gmail.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261101185735.762559-1-tcmichals@gmail.com>
-References: <20261101185735.762559-1-tcmichals@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_105752_846353_B97420EF 
-X-CRM114-Status: GOOD (  22.35  )
+X-CRM114-CacheID: sfid-20261101_105749_228205_C3C86133 
+X-CRM114-Status: GOOD (  25.09  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,205 +109,128 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The Allwinner A523, A527 and T527 (sun55i) contain a T-Head XuanTie E906
-RISC-V core. It runs from a dedicated 256 KiB SRAM and can use a second
-256 KiB SRAM and DRAM; a bit in a PRCM remap register shares a further
-512 KiB SRAM (SRAM A3_2) with its subsystem. Its reset vector is set in
-its configuration block.
+This series adds a driver for the message box of the Allwinner A523,
+A527 and T527 (sun55i) and a remoteproc driver for their T-Head XuanTie
+E906 RISC-V core, with bindings, DT nodes and KUnit tests.
 
-Describe the configuration block, both SRAMs and the remap register,
-the bus, core and SRAM clocks, the configuration, core, SRAM and debug
-resets, the RISC-V and SRAM power domains, one message box channel, the
-reserved memory regions (a pool for virtio, DRAM for firmware, a trace
-buffer) and an optional crash interrupt.
+v2: https://lore.kernel.org/linux-sunxi/20260927002021.797069-1-tcmichals@gmail.com/
 
-Signed-off-by: Tim Michals <tcmichals@gmail.com>
----
-Changes in v3:
-- File renamed to allwinner,sun55i-a523-rproc.yaml to match the
-  compatible
-- reg and reg-names are a fixed list of four (cfg, sram-a3-0,
-  sram-a3-1, remap), all required (Krzysztof); the SRAMs are named as
-  in the T527 manual (SRAMA3_0, SRAMA3_1); the description says the
-  remap bit shares SRAM A3_2, not SRAM space 1
-- clocks and resets are fixed lists, no minItems (Krzysztof); add the
-  debug reset. The msgbox and parent clocks and the msgbox reset are
-  dropped: they belong to the message box node
-- Add the RISC-V and SRAM power domains
-- One message box channel; mbox-names dropped. mboxes is optional: a
-  user can drive the message box from userspace (UIO) instead
-- The crash interrupt description says the A523 has no dedicated line
-  for it; it is the only interrupt, so no interrupt-names
-- memory-region[0] is a shared-dma-pool; the example has the memory
-  regions
-- "schema" dropped from the subject (Krzysztof)
-- Jernej Skrabec and Samuel Holland dropped from the maintainers; the
-  MAINTAINERS entry moves to the driver patch
----
- .../allwinner,sun55i-a523-rproc.yaml          | 146 ++++++++++++++++++
- 1 file changed, 146 insertions(+)
+Changes in v3 (details in each patch):
+  - Message box: all four banks are clocked and out of reset (an
+    unclocked bank drops writes). The FIFO is drained before its pending
+    bit is cleared, and messages are delivered after the controller lock
+    is dropped. A kick is done once the receiver's FIFO has room; a full
+    FIFO is never written, and in poll mode the check and the write are
+    under one lock. The shared reset is never asserted, as in
+    sun6i-msgbox: the other banks carry traffic between the other
+    processors. allwinner,tx-done-irq selects the receiver bank's write
+    interrupt instead of the 1 ms poll. OMAP's ti,mbox-send-noirq is the
+    same kind of per-mailbox switch, in the other direction: it turns
+    the TX interrupt off for the WkupM3.
+  - Remoteproc: one mailbox channel; the receive callback is deferred to
+    an ordered workqueue; address translation covers only the two SRAM
+    windows; debug reset and power domains added; all register regions,
+    clocks and resets are required, the mailbox is optional. Carveouts
+    and crash dump segments are registered in parse_fw(), and crash
+    dumps contain both SRAMs and the carveouts.
+  - Bindings: fixed lists for reg, clocks, resets and interrupts;
+    "schema" dropped from the subjects (Krzysztof). All four message box
+    interrupts are required: every A523 has them. The DSP and CPUS
+    message box bank addresses were swapped in v2 and are fixed. The
+    SRAMs are named as in the T527 manual (sram-a3-0, sram-a3-1).
+  - KUnit patches moved after the drivers. Both suites redirect register
+    access with static stubs to mocks, so they run on any architecture,
+    UML included. Patches 6 and 7 only add tests and can be dropped or
+    taken separately.
+  - Rebased on next-20261030.
+
+Notes for review:
+  - The remap register (0x07010364, PRCM) is shared with the DSP: bit 1
+    shares the 512 KiB SRAM A3_2 with the E906's subsystem, bit 0
+    belongs to the DSP. The driver maps only this register and
+    read-modify-writes bit 1, which is safe while no other Linux driver
+    writes it. I can move it to a syscon or the R-CCU, or describe SRAM
+    A3_2 through the sunxi SRAM driver (allwinner,sram), if preferred.
+  - memory-region index 0 is the virtio DMA pool, then dram and trace,
+    as in the TI K3 and MediaTek SCP bindings.
+  - The optional crash interrupt is supported by the driver but not
+    wired in any DT and not tested on hardware; the A523 has no
+    dedicated line for it and the vendor BSP has none.
+  - System suspend is not supported: the E906 runs next to a Linux that
+    stays up, so the driver has no PM callbacks.
+  - Merging: patches 1, 2 and 6 are for the mailbox tree, 3, 4 and 7
+    for remoteproc, and 5 for sunxi. Patch 5 needs the bindings in
+    patches 1 and 3.
+
+Testing on a Radxa Cubie A5E (A527), Linux 7.1 PREEMPT_RT and PREEMPT
+with the same driver and test files:
+  - KUnit: 37/37 message box, 26/26 remoteproc, built in and as
+    modules. Under UML on x86_64 one message box test is skipped (it
+    needs SMP or spinlock debugging).
+  - rpmsg ping (10000 messages, about 167 us round trip) and stress
+    (100000 messages, 16 in flight, no loss), with vrings in DRAM and in
+    SRAM, TX done by poll and by write interrupt, and message box
+    unbind/bind with the remoteproc driver unbound. One interrupt per
+    message.
+  - The same tests with PROVE_LOCKING and DEBUG_ATOMIC_SLEEP (and
+    PROVE_RAW_LOCK_NESTING on PREEMPT): no lockdep or sleep-in-atomic
+    report.
+  - On next-20261030: W=1 build of each patch with GCC and clang, built
+    in and as modules, dt_binding_check and dtbs_check are clean;
+    checkpatch --strict reports only "does MAINTAINERS need updating?"
+    for the new files, which the entries added in patches 2 and 4 cover.
+
+Tools: I used Claude Code (Anthropic) to help review the code against
+the v2 comments, write the KUnit tests, run the board tests and draft
+commit messages. I reviewed every change; all tests above ran on my
+board.
+
+Thanks to Krzysztof Kozlowski, Chen-Yu Tsai and Rob Herring for
+reviewing v1 and v2.
+
+Tim Michals (7):
+  dt-bindings: mailbox: Add Allwinner A523 message box
+  mailbox: sun55i: Add Allwinner A523 message box driver
+  dt-bindings: remoteproc: Add Allwinner A523 RISC-V remote processor
+  remoteproc: sunxi: Add Allwinner A523 XuanTie E906 driver
+  arm64: dts: allwinner: a523: Add message box and remoteproc nodes
+  mailbox: sun55i: Add KUnit tests
+  remoteproc: sunxi: Add KUnit tests
+
+ .../mailbox/allwinner,sun55i-a523-msgbox.yaml |  146 ++
+ .../allwinner,sun55i-a523-rproc.yaml          |  146 ++
+ MAINTAINERS                                   |   15 +
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |   47 +
+ drivers/mailbox/Kconfig                       |   24 +
+ drivers/mailbox/Makefile                      |    3 +
+ drivers/mailbox/sun55i-msgbox.c               |  613 ++++++++
+ drivers/mailbox/sun55i-msgbox.h               |   95 ++
+ drivers/mailbox/sun55i_msgbox_kunit.c         | 1387 +++++++++++++++++
+ drivers/remoteproc/Kconfig                    |   26 +
+ drivers/remoteproc/Makefile                   |    2 +
+ drivers/remoteproc/sunxi_rproc.c              |  855 ++++++++++
+ drivers/remoteproc/sunxi_rproc.h              |  124 ++
+ drivers/remoteproc/sunxi_rproc_kunit.c        | 1314 ++++++++++++++++
+ 14 files changed, 4797 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/allwinner,sun55i-a523-msgbox.yaml
  create mode 100644 Documentation/devicetree/bindings/remoteproc/allwinner,sun55i-a523-rproc.yaml
+ create mode 100644 drivers/mailbox/sun55i-msgbox.c
+ create mode 100644 drivers/mailbox/sun55i-msgbox.h
+ create mode 100644 drivers/mailbox/sun55i_msgbox_kunit.c
+ create mode 100644 drivers/remoteproc/sunxi_rproc.c
+ create mode 100644 drivers/remoteproc/sunxi_rproc.h
+ create mode 100644 drivers/remoteproc/sunxi_rproc_kunit.c
 
-diff --git a/Documentation/devicetree/bindings/remoteproc/allwinner,sun55i-a523-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/allwinner,sun55i-a523-rproc.yaml
-new file mode 100644
-index 000000000000..b119acaa2df6
---- /dev/null
-+++ b/Documentation/devicetree/bindings/remoteproc/allwinner,sun55i-a523-rproc.yaml
-@@ -0,0 +1,146 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/remoteproc/allwinner,sun55i-a523-rproc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Allwinner A523 XuanTie E906 RISC-V Remote Processor
-+
-+maintainers:
-+  - Tim Michals <tcmichals@gmail.com>
-+
-+description:
-+  The Allwinner A523, A527 and T527 (sun55i) SoCs contain a T-Head XuanTie
-+  E906 RISC-V core next to the Cortex-A55 cluster. The core runs from a
-+  dedicated 256 KiB SRAM, can also use a second 256 KiB SRAM and DRAM,
-+  and a remap register shared with the HiFi4 DSP shares a further 512 KiB
-+  SRAM (SRAM A3_2) with the core's subsystem. Its reset vector is set in a
-+  register of its configuration block, and it exchanges notifications with
-+  the Cortex-A55 host through the message box.
-+
-+properties:
-+  compatible:
-+    const: allwinner,sun55i-a523-rproc
-+
-+  reg:
-+    items:
-+      - description: Configuration block, including the boot address register
-+      - description: SRAM A3_0, the core's dedicated SRAM space 0
-+      - description: SRAM A3_1, the core's SRAM space 1
-+      - description: SRAM remap control register
-+
-+  reg-names:
-+    items:
-+      - const: cfg
-+      - const: sram-a3-0
-+      - const: sram-a3-1
-+      - const: remap
-+
-+  clocks:
-+    items:
-+      - description: Configuration block bus clock
-+      - description: RISC-V core clock
-+      - description: MCU public SRAM bus clock
-+
-+  clock-names:
-+    items:
-+      - const: bus
-+      - const: core
-+      - const: sram
-+
-+  resets:
-+    items:
-+      - description: Configuration block reset
-+      - description: RISC-V core reset
-+      - description: MCU public SRAM reset
-+      - description: RISC-V debug module reset
-+
-+  reset-names:
-+    items:
-+      - const: cfg
-+      - const: core
-+      - const: sram
-+      - const: debug
-+
-+  mboxes:
-+    description:
-+      Message box channel to the RISC-V core. Each channel has a FIFO in
-+      each direction, so it carries notifications both ways.
-+    maxItems: 1
-+
-+  firmware-name:
-+    maxItems: 1
-+
-+  memory-region:
-+    minItems: 1
-+    items:
-+      - description: Virtio vring and buffer pool, a shared-dma-pool
-+      - description: Firmware code and data in DRAM
-+      - description: Trace buffer
-+
-+  memory-region-names:
-+    minItems: 1
-+    items:
-+      - const: vram
-+      - const: dram
-+      - const: trace
-+
-+  interrupts:
-+    maxItems: 1
-+    description:
-+      Interrupt the RISC-V core raises on a fatal error. The A523 has no
-+      dedicated line for this, so it is present only where the system
-+      integration provides one.
-+
-+  power-domains:
-+    items:
-+      - description: RISC-V core power domain
-+      - description: SRAM power domain
-+
-+  power-domain-names:
-+    items:
-+      - const: riscv
-+      - const: sram
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - clocks
-+  - clock-names
-+  - resets
-+  - reset-names
-+  - power-domains
-+  - power-domain-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/sun55i-a523-mcu-ccu.h>
-+    #include <dt-bindings/power/allwinner,sun55i-a523-ppu.h>
-+    #include <dt-bindings/reset/sun55i-a523-mcu-ccu.h>
-+
-+    remoteproc@7130000 {
-+        compatible = "allwinner,sun55i-a523-rproc";
-+        reg = <0x07130000 0x1000>,
-+              <0x07280000 0x40000>,
-+              <0x072c0000 0x40000>,
-+              <0x07010364 0x4>;
-+        reg-names = "cfg", "sram-a3-0", "sram-a3-1", "remap";
-+        clocks = <&mcu_ccu CLK_BUS_MCU_RISCV_CFG>,
-+                 <&mcu_ccu CLK_MCU_RISCV>,
-+                 <&mcu_ccu CLK_BUS_MCU_PUBSRAM>;
-+        clock-names = "bus", "core", "sram";
-+        resets = <&mcu_ccu RST_BUS_MCU_RISCV_CFG>,
-+                 <&mcu_ccu RST_BUS_MCU_RISCV_CORE>,
-+                 <&mcu_ccu RST_BUS_MCU_PUBSRAM>,
-+                 <&mcu_ccu RST_BUS_MCU_RISCV_DEBUG>;
-+        reset-names = "cfg", "core", "sram", "debug";
-+        power-domains = <&ppu PD_RISCV>, <&ppu PD_SRAM>;
-+        power-domain-names = "riscv", "sram";
-+        mboxes = <&msgbox 9>;
-+        memory-region = <&riscv_vram>, <&riscv_dram>;
-+        memory-region-names = "vram", "dram";
-+        firmware-name = "riscv-firmware.elf";
-+    };
+
+base-commit: 7649ba73f9e7e1e04d0b46213e39c79ae09dd55c
 -- 
 2.53.0
 
