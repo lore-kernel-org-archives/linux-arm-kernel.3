@@ -2,76 +2,78 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17D28606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 10:20:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F134606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 10:43:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hhq/Mv1A;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P+nHu0+b
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BxWiLqzP;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nAVAyA4K
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
 	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=TkstfqMwLVi3O9Geq9Sw8ekLhOvsr3GA+4QG8GJigxk=; b=hhq/Mv1AI//tlf
-	9wRL03LIn7rZL086PTcYbfJ+0xXm0c6AcYKFRw72SRKUljxcMj9C9HmuQwGG2wmvIk1ojYrenWZWI
-	Xws9XpaccLoBjcEGW6OVi/iDq7t1h5bupwmJxyGgAmPqDylxe2dr4NPNy0GB19sDpxWCm+ccQ45iT
-	oROVQhEMRHhB9dqjYK39ZVsCTWeGOXpgGY+/ZkKTnxY3FkD6aGdvnUAEERGRw0rsQyjnHZV8EA9s5
-	r1u5mAWonzmPggJxZAvslohf1Lreg12xcwU4ZNM+vgcOM4mnK8qUHLpmDiwVonkAhHV0EGJIrQJcC
-	DfadNNjFPAHwRRG3WIHg==;
+	List-Owner; bh=PBPRx2QNJQ+QM0zRSUMWWFQHyRX2kqxgGvHiKxzQ5A8=; b=BxWiLqzPPvdBNs
+	U2vf3f50BiZ3b377CGVcT5nTlpP2lP8PpC7QZ+vCyIkZ7barYAQ8EP3W/8mo84/rXuuInGB/jDhfb
+	Ty8E4aj13Aya402mFdFBgxAVwCtKTifRd7STWXpaS/3yanloegZ//LGSIGhEAjAsA6f68hms+vIgf
+	T1xxK8AeCngbAH5O1tA2Bu9HFphQHFZjoe+hJDYYjZgZ3ozC54ZputVfBmdusV+57HcT+kJcxqghj
+	eXV2aTd2HZ9xxsX4AuiHyM23pUNTLQ6xKWJXYb6f9yrLFqubOFM7Ne1iLKBrXJWdNcbGeM6xOFG8x
+	ooqM6ucEL4YBNf0lBoYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNSfz-0000000E550-32pf;
-	Sun, 01 Nov 2026 10:20:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xNT1f-0000000E5uz-3GOf;
+	Sun, 01 Nov 2026 10:42:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNSfy-0000000E54n-2AVz;
-	Sun, 01 Nov 2026 10:20:34 +0000
+	id 1xNT1e-0000000E5uq-1o7D;
+	Sun, 01 Nov 2026 10:42:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DB708439A7;
-	Sun,  1 Nov 2026 10:20:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25F161F000C1;
-	Sun,  1 Nov 2026 10:20:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B2A5C600E2;
+	Sun,  1 Nov 2026 10:42:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A576E1F000C1;
+	Sun,  1 Nov 2026 10:42:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793528433;
-	bh=TkstfqMwLVi3O9Geq9Sw8ekLhOvsr3GA+4QG8GJigxk=;
+	s=k20260515; t=1793529777;
+	bh=PBPRx2QNJQ+QM0zRSUMWWFQHyRX2kqxgGvHiKxzQ5A8=;
 	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=P+nHu0+b5rfK+aXhEmjWLD8w8GrD3O3uu18WH0lMRQ4sUXSIdqTNP9iyJ4GuAkxUh
-	 OKppBIwkP5yaYkwup61QUAjbSRjAMdhnenQgRgWsuJiR1aVU4LO4Dvy2nevN6kSeIG
-	 1XAY+SExgSVwzuL6Xkr5HF1msUj9+Q1xUCdw1TKVCPfa23YqGqSVMpuMZVc9bPv+O5
-	 1ERct4siCLQ0LN4Byw825y83ABAnHVSCDOiUbrhEotRJ3e5weoovsQ05jWmnCrk3uf
-	 f6zXV6ZyTRm4AAGnXNfbEhQOhCmH2xe68DRySVRK2+/kJLyGnDw1U9SCg9S14pydmd
-	 mlZU1AD5kDDCw==
+	b=nAVAyA4K5Ip5V7nDF+Ddov3KzTwTkvAZnBZmkLfMpOZqAe1W8jpTswCxwjxApOF2d
+	 uWEVT6cMj8ncY8daPZBjhBEsqO36OInN7OvrtgfGMYcEfXIHWf3p3l+FVp2YMsGk94
+	 ADLlsbdSH1CJd+nTCA4eagDj8bsKHs9bylLi+IjC9xYXiz3hhHMz7pRnmCbP7YpkNy
+	 MWZD/MKOHPMKK+MgJupBNVZJfyBIyoUT+6PQA27VGQK9fHw6Fayu36ch16MWpstNKK
+	 m39RSM/CnvSIv1hS1043R9jz73UwfFFwsliLHPUAuI6PWz8fYp7jXis93pieVx7Tzm
+	 1Cbehw7Uvr+6w==
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v4 2/2] phy: airoha: add support for AN7583 Gen3 PCIe
- PHY driver
+Subject: Re: [PATCH v3] phy: exynos5-usbdrd: Use dynamic phy_cfg size to
+ prevent OOB access
 From: Manivannan Sadhasivam <mani@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261016071225.2092-3-ansuelsmth@gmail.com>
-References: <20261016071225.2092-1-ansuelsmth@gmail.com>
- <20261016071225.2092-3-ansuelsmth@gmail.com>
-Date: Sun, 01 Nov 2026 15:50:23 +0530
-Message-Id: <179352842351.2955.1473721252992943972.b4-reply@b4>
+To: Selvarasu Ganesan <selvarasu.g@samsung.com>
+Cc: vkoul@kernel.org, neil.armstrong@linaro.org, mani@kernel.org, 
+ krzk@kernel.org, peter.griffin@linaro.org, alim.akhtar@samsung.com, 
+ pritam.sutar@samsung.com, andre.draszik@linaro.org, kernel@lvkasz.us, 
+ pengpeng@iscas.ac.cn, kishon@kernel.org, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, jh0801.jung@samsung.com, h10.kim@samsung.com, 
+ dh10.jung@samsung.com, akash.m5@samsung.com, hongpooh.kim@samsung.com, 
+ eomji.oh@samsung.com, shijie.cai@samsung.com, muhammed.ali@samsung.com, 
+ thiagu.r@samsung.com, stable@vger.kernel.org
+In-Reply-To: <20261020063559.3530901-1-selvarasu.g@samsung.com>
+References: <CGME20261020063617epcas5p4ba00854fcd38bf211c573629ee062621@epcas5p4.samsung.com>
+ <20261020063559.3530901-1-selvarasu.g@samsung.com>
+Date: Sun, 01 Nov 2026 16:12:49 +0530
+Message-Id: <179352976902.2955.854677236716853573.b4-reply@b4>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=476; i=mani@kernel.org;
- h=from:subject:message-id; bh=QM9ES64G5eMGECElOm5ezgzKCyheAyccn8+aOEbI0Fg=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBq5xJuJhIJL80l+IydUaS6U2TPqyRHet4HuM9ew
- Y8yUhlL8CyJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaucSbgAKCRBVnxHm/pHO
- 9cm3B/4lSOxWPTXOja4ew2u8cVg06zJcuAYJtyd1F8s+DgKJYRb/B1bbKu46J6EBaFvhD8dkusG
- pcCDP0OrFyTRKlw+FiuRDAMAgLJNCcm++Wl/D5OwNZc8AV2u4FBl0ODdi2Q3AmcA0Fg2bL+jHRT
- aqfRlc9I7f/RIp9Y/EA2vjkpNSQhwwBV7oKkUIZHM7+4AOx6z/btmXejbTjP+489QOMsQX/h8wb
- zRTi3PsLctWQXlGFphkM/6sxo69nFcwSxtLyYtGKa81zp/QBkNrXkFU57WcNLtSwsDFltQ5/bFo
- QvqNmaZFUdzw09RtlMFijjORR3sArnDcZMpHn7SSgJV2pxoq
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1272; i=mani@kernel.org;
+ h=from:subject:message-id; bh=Q6hkz49Y7C/46IdSVDugqi0a1zuCwlweH00ODBFmM68=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBq5xeqiK17PAEwdnRzSQo+D+kWeupWASL+RwRYy
+ NV3WdPKLxiJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaucXqgAKCRBVnxHm/pHO
+ 9XGwB/93eMHO8R0XGhK/8k4EB0U2PnmWNCJCVbfPamNyDOKKBeiGai1NuYr6zulXn84LOYsKIPS
+ eJ91TdkDlTCufw8wuxVITUBLc0xvlUXosHjAN8pWjLaHVSDeJc7dxWgZ6UD90LLJeV5GFzdHl/H
+ d3G2K8pVPbv+Ot4vEAPJ0PJx+TUpvudlXs/9XLkEAqpvSEzdFcD8ZOBxKkJCcDU1Sga2/Rbr4Nv
+ agRLt8rVuQYShZjkpqsFyQv3KDguFeokBg+zG2igGGZpNzAhI2hlobQezJZJn1hZNRqL727FwZ8
+ j5e6gLrC2VPPr6dv/uXfFA+4y/BR+1PNQmP0DMHC0QPp+FgJ
 X-Developer-Key: i=mani@kernel.org; a=openpgp;
  fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -92,14 +94,28 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 2026-10-16 09:12 +0200, Christian Marangi wrote:
-> Add support for AN7583 PCIe PHY driver. This is required to make the
-> Gen3 PCIe port present on the Airoha AN7583 SoC correctly work.
+On 2026-10-20 12:05 +0530, Selvarasu Ganesan wrote:
+> The probe loop currently iterates using EXYNOS5_DRDPHYS_NUM (2),
+> creating both UTMI and PIPE3 PHY instances regardless of the SoC
+> capability. Several SoCs (Exynos2200, Exynos7870, Exynos850, Exynos990,
+> and ExynosAutoV920) provide phy_cfg arrays containing only a single
+> element.
 > 
-> A different setup is needed compared to Airoha EN7581 where the
-> calibration process and the register map greatly changed.
+> On these SoCs, when the loop reaches index 1, the driver reads past the
+> end of the rodata array, populating the second PHY instance with garbage
+> data. Since the configuration structure contains critical function
+> pointers (phy_isol, phy_init, set_refclk), any subsequent access to this
+> PHY instance via exynos5_usbdrd_phy_xlate could result in a kernel oops.
 > 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> Fix this by adding 'n_phy_cfg' to struct exynos5_usbdrd_phy_drvdata to
+> store the actual size of the phy_cfg array for each SoC. Update the
+> probe loop and the xlate function to bound their access against this
+> value instead of the hardcoded EXYNOS5_DRDPHYS_NUM.
+> 
+> Fixes: 59025887fb08 ("phy: Add new Exynos5 USB 3.0 PHY driver")
+> Cc: stable@vger.kernel.org
+> Assisted-by: LLM
+> Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
 
 Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 
