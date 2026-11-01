@@ -2,66 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CC00606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8612606A6C0
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 22:17:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VQ47HIuv;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VlnlOoUU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=47VMpeq9;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=LHHqXp9C;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=OUqoykoQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Fv8sMlP8O3GHUSoY8MBfh8MY+kr37FDNK89rZQzSXdU=; b=VQ47HIuvUm1RJV
-	/kWYIJctCtBMoC2aBTFTfJ4yDEr5sgA2l+wqiqGIeFAvuapFoekZyt2c3EXutMeJAqt7YAF03l9qL
-	t1yO69nGinJcgteIirkLajdc5uIhmgJzF1g0llyzZboOsn/I0krfJPmuePr4pwsIlDR48xN/C3qkt
-	wOPWuCNSuAadzMvUpfIR83UvETH8pIxIUbNTv7eOAq4fUht7lCYpUS9DSw8E57z0K6n9zO+7w9bI1
-	iyVcy7ECszkjfALDcAWw71MCzfRGXyyKJY5PlgRiAgbt0KDP0GEi1lnDWhxJ2621CID/HDouJeH93
-	6xjvb9bCGMLTZcfimzow==;
+	List-Owner; bh=+PSaaDmaOVWUQ+VHhuXHm+ChDICCzay6CedCYV9aBDQ=; b=47VMpeq9beL0Qo
+	UFOcd7Lgs3bZovyQhJWJSWFaC3//0wjVaigr2XLNxfinu2G1mKQekFpkk6R+fpvBIslDrtZzCZdUz
+	rISsnzebX5BA0uVoUo9k96wNB9THkMrgxKlmnmiqxtPh/QhcKYiqBIK/ma4CTM0xGj8G63HqBwgav
+	cSwUIz+LxPldjqZFMB9kx5mP/+/YTF3G+UVv02x+TYuoS7v+JuJDcjMavtLSdm56shWTfATUM/2pX
+	fWN2rts1/Dh6KFGJTaOvqesb72dWHT2U/QHzcSaYCPMvbZc/cSjwM6v18x9HQbe5xSkIQ6tFmT0n4
+	1QpLyKcO+6zpKLz8zhfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdru-0000000F47U-2qzX;
-	Sun, 01 Nov 2026 22:17:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xNdrw-0000000F4Cv-3TSL;
+	Sun, 01 Nov 2026 22:17:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNdrT-0000000F2Tq-0pil;
-	Sun, 01 Nov 2026 22:17:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E3C8F400B8;
-	Sun,  1 Nov 2026 22:17:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2A0F1F00A15;
-	Sun,  1 Nov 2026 22:17:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793571429;
-	bh=Fv8sMlP8O3GHUSoY8MBfh8MY+kr37FDNK89rZQzSXdU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=VlnlOoUUEu9V0plLi4Kke52P9Sf7LmnCXI3/r9nD/EkLF8dgcbn/b70x7s8xOpjzM
-	 vBDpICruAngiVNvxs7IVSzf2GH3D+B5AcFg6C/1RMLmTfGWgGqs0LmJd92jQOeIJaF
-	 wsK9MssC5+2tsvQklkL07S8F2Zzqk3PTJHN1zfusMqgsbvhB+jUERHRUHHZskloFPo
-	 yl/WabE6HiCKHMwoMCYwf1B+T0vXDZWAeuYQt311a5PVRX3ugUcvRN0wyZzbvYibPV
-	 2TlmBTOm6MSHm2nJI9gJKa3Redvt//yKNi/XBo/uFCvCdVwIZi6hXO14jaV0sdhUS0
-	 kunSJJwhwyeCQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id BA5B438003B8;
-	Sun,  1 Nov 2026 22:17:09 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1xNdrS-0000000F2Iv-1kQ9;
+	Sun, 01 Nov 2026 22:17:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=+PSaaDmaOVWUQ+VHhuXHm+ChDICCzay6CedCYV9aBDQ=; b=LHHqXp9C9DxlEkEbaboWakgogq
+	zsBYcKa8Eke8baYUchcCNFgyhkyIBpcW0xmXRJx/cD6X3VEFuJciV+U0BbSd8ztHJ7TumbS2exSUW
+	QmTnihkCF7hNuKzPpeX1KOagW71W31RPJgSZjnXQPpitGWS30AGZaXKOiAIAay2krlK7gknDQWtuk
+	QEbFdAOtMQebcNmuhMPrsNdB3b9rR24BmA+swyKaNkNx9BQWbs+XGNWa+DX5FGvS7IullPks2aSJO
+	N7Fy5gLSQBz00BsTV0yO91h3jdWrhnTDDaWrXX1NC1o8MCuKgAfvWWgU2pRn1fSkI5W2CK/OTTdly
+	ZH3BrrSQ==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNdqg-00000001seX-3A3c;
+	Sun, 01 Nov 2026 22:17:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=+PSaaDmaOVWUQ+VHhuXHm+ChDICCzay6CedCYV9aBDQ=; b=OUqoykoQw5+FEa9dg1IfaI3/Wb
+	A5+bkqs2+YGj018zeUKDS5sFoJlBQoHa+ogK/4vuKvUyqI4qWEM6hM6NDlz6CedUF4omAchCxXGP8
+	isENDwfaU6J66ZpRsyL0BuEiYeEkNhJeS4Ib7eBNJ1Z35l32RlHgb/uGcj/L4NDif9z0eaH4vPSsC
+	zd+jV+HV+wovty79e5z3Ku5GWBX1iOGXioMa616tDSW4hm3R/K66xZtP0Bs9ODV6FAtZgJttgMAbL
+	7pRmUjtcIoHKOqwTmGVgBepiuQoce1jZ/pPr5L9QF7N0iJT2dRTrfayAzYb95aXodqesT93/TVNB6
+	sll/CYMg==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Igor Velkov <iav@iav.lv>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Rosen Penev <rosenp@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: dts: rockchip: Add the GPIO expander to Kobol Helios64
+Date: Sun,  1 Nov 2026 23:16:08 +0100
+Message-ID: <179357136485.4108155.1255031928445083494.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261024-helios64-pca9655-v2-1-97210e9aafb1@iav.lv>
+References: <20261024-helios64-pca9655-v2-1-97210e9aafb1@iav.lv>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH 0/2] lib/crypto: Use size_t lengths for Poly1305 and
- ChaCha
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <179357142829.2624073.2124484665042168888.git-patchwork-notify@kernel.org>
-Date: Sun, 01 Nov 2026 22:17:08 +0000
-References: <20261014152604.323310-1-ebiggers@kernel.org>
-In-Reply-To: <20261014152604.323310-1-ebiggers@kernel.org>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-crypto@vger.kernel.org,
- ardb@kernel.org, Jason@zx2c4.com, herbert@gondor.apana.org.au,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
- vladimir@genproof.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261101_221653_969574_4CB6D3DC 
+X-CRM114-Status: GOOD (  11.17  )
+X-Spam-Score: -0.2 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,39 +86,31 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Eric Biggers <ebiggers@kernel.org>:
-
-On Wed, 14 Oct 2026 17:26:02 +0200 you wrote:
-> This series upgrades the Poly1305 and ChaCha functions to use size_t
-> lengths, matching the rest of the crypto library.
-> 
-> It also fixes the (not currently reached) handling of lengths above
-> S32_MAX bytes, and (not currently known to matter in practice) the
-> assembly functions depending on unspecified high register bits.
+On Sat, 24 Oct 2026 22:15:04 +0000, Igor Velkov wrote:
+> Helios64 has an ON Semiconductor PCA9655E 16-bit GPIO expander at 0x20
+> on I2C2, powered from VCC3V3_SYS_S3. Its 16 lines go to pins 4-19 of
+> the P5 GPIO header, one line per pin in order, so name them after the
+> pins. Its INT# output goes to GPIO0_B1 with an external pull-up (R59
+> to 1V8_S3), so the pin has no internal bias. Schematic, sheets 34 and
+> 35:
+> https://wiki.kobol.io/helios64/files/schematics/Helios64_Schematics_Rev1.2.pdf
 > 
 > [...]
 
-Here is the summary with links:
-  - [1/2] lib/crypto: poly1305: Use size_t length
-    https://git.kernel.org/riscv/c/0b58c136c2f9
-  - [2/2] lib/crypto: chacha: Use size_t length
-    https://git.kernel.org/riscv/c/e42003dba6dd
+Applied, thanks!
 
-You are awesome, thank you!
+[1/1] arm64: dts: rockchip: Add the GPIO expander to Kobol Helios64
+      commit: 3e8f8468c1a9b42740db986ee07d829696a7b5db
+
+Best regards,
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Heiko Stuebner <heiko@sntech.de>
 
