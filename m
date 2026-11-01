@@ -2,85 +2,116 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC175606A325
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 20:02:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A238606A325
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Nov 2026 20:12:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YujZFmrs;
-	dkim=pass (2048-bit key, unprotected) header.d=gmx.net header.i=wahrenst@gmx.net header.a=rsa-sha256 header.s=s31663417 header.b=V9gwQX1T
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XmP5U1v7;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ai4+ibZ8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=KLZgntFVdqduMiclbcA7VEofZFOcfwwrN4T8jD7UAF4=; b=YujZFmrsJFsLps
-	4CyftoRGWFKCBWrXDlcNtihJ9oX26EKp7VvTKMnodXgH4CSqtxzMPMqMCodvFCqmdGgZCjWobtqIN
-	FkblzekFxUSIIQXqY+o6wesieZqzSoLaLMlwIH36Adcqk8G71M7cACWex3o49Dh2auVtbTAFMp7+Z
-	CKIIO2K1XVPl0kVPQQZNuYVIyC/WIO3dEefH1Z47F/I/j4FzaYI6FyEkL2TNaryWtCKkmu0OJqnO/
-	L6ZmjiIBX4OOVdbhF9DWvL0+NSTadZH97LRujxd13pxojMZ9cW94iFKUTh96IAoX4ErJ/S+gu/xKs
-	HOajavdVoT/FgTkK6JvQ==;
+	List-Owner; bh=SAEhnewbdseHCyOO8rtnZ+ccqV7eT1Rq136MpuhqgwQ=; b=XmP5U1v7Qqi/Kj
+	Ns6+hzhH72/R9EWcJra0EtkVnHadaTFKL5CE+CPZj0j2BtJLdoRa+IN3/ty3zz2XrqDbbs8R3VZba
+	AkzrXqVnzo/DlDQmvKa9CKync3TC4F2tssI+Fehbu4TFBLKYb9zS6cARnHJ3Zaq66dVEx2dea9TPn
+	0t59UIgodTn6yd78AqS7kbvhQPeeNG0pyFUM6osfoC9VDSf317LtLrwXhxw2B5pI+WmVMx/2SY3M2
+	zQDigy41f9rXx/G9TBXmbpbaTB/K6Qs8y86+seQkmHNPnivrp1WNIw5QQyoo+YqkNaYb5LARBc1aa
+	+T9m20jxpgHy7zHnQU9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNbl3-0000000Er5d-4Bpa;
-	Sun, 01 Nov 2026 20:02:26 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1xNbuZ-0000000ErdI-0AVV;
+	Sun, 01 Nov 2026 20:12:15 +0000
+Received: from mail-ed2-x07.google.com ([2a00:1450:4864:33::7])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNbl1-0000000Er3K-0WYp
+	id 1xNbuV-0000000ErcB-1e18
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Nov 2026 20:02:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1793563328; x=1794168128; i=wahrenst@gmx.net;
-	bh=KLZgntFVdqduMiclbcA7VEofZFOcfwwrN4T8jD7UAF4=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=V9gwQX1TaNAQzBTmyDxcpgutMGksiGAlLhsKK0h7n/UHiKkMTMcqrK9E1/Av874J
-	 seIO1g7ZOMRFMVSoG3Ct+kKKJXxUltr1/ChgLBT+eh9aevlukIR6xwKLdPGVZQYS6
-	 s5YXyzaqR2D0W+zF9t43sgTzmKSWbdhzm9xhVmSPidalotUj8N7O/KkZe+g4fNRC+
-	 VNwDHqwBjgbv5ohI0gnFjbyUW5P+fspRfx+6Fr8WAirpS7rc9f88BU8B13falc3RO
-	 3JW9v4RQkhtQhLwp+7zdMLK1NcCx/Y8rCK6MiUnGDuVdD90/PavvmOyk2CvqdAIK+
-	 7CSntsw1yjXGPKMf9A==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MaJ7v-1x0KFp2Bt7-00KoIF; Sun, 01
- Nov 2026 21:02:08 +0100
-From: Stefan Wahren <wahrenst@gmx.net>
-To: Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Srinivas Kandagatla <srini@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
-	kernel@pengutronix.de,
-	Fabio Estevam <festevam@gmail.com>,
-	Jacky Bai <ping.bai@nxp.com>,
-	mfd@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH 2/3] nvmem: Add driver for i.MX BBNSM GP register
-Date: Sun,  1 Nov 2026 21:01:39 +0100
-Message-ID: <20261101200140.141642-3-wahrenst@gmx.net>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261101200140.141642-1-wahrenst@gmx.net>
-References: <20261101200140.141642-1-wahrenst@gmx.net>
+	Sun, 01 Nov 2026 20:12:12 +0000
+Received: by mail-ed2-x07.google.com with SMTP id 4fb4d7f45d1cf-6acbccc0fa4so1838514a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 12:12:10 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1793563929; cv=none;
+        d=google.com; s=arc-20260327;
+        b=KURjfSMFdMuIMtfkh0eMWF7W1zJ1vR117SfVALiiC2khwcAenkFTlGo5C/lhI+zmpM
+         mAXz+UXJJgiF/dKHBfDI515I1HJeSllu1ae6ckh5B2m8zJ/umquupsN4Uei2yP5NcTmy
+         gy8OR9oaFvhG+7i230G1X1/JWbrM53hyr6xErgpFyeJBdLt1Lx/zPlaKAGufUx7eWpFh
+         i6G/iaPZFCWkGwp/8cAjAtv6HVSIgNpWqQQb7VU0EU3rItSTISfcMRdb5iKNLd/U2Q3j
+         y7syhVXjDtU+r4/ww/L5uKebQN1yyHAQj+rnil8yvPeIOdExvky7BOrQFDmNBC1S77sM
+         6W8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=SAEhnewbdseHCyOO8rtnZ+ccqV7eT1Rq136MpuhqgwQ=;
+        fh=w9ihraTcDXAVqD5NSPlN0gdcqOXAs/ShzeTxfEL45/w=;
+        b=GFrQuckPaRD0l8A/KRlLEoJrEoW5Qkc/rk4aZuuMcgZQZStFbfyog38hP8WgqYvZOZ
+         EwQ0rCSVxWIndct2++F8n5tQQqrqMgh/bt6+tvqNJZ2mW6ZFbhCcFLhEZmp3FoZHD3uy
+         8g5Ynf58ptlOiWRwbTob1StWXMA4Z5I7Aa6i4SLQqLAtSqm5+MBE1POySBiLaX/lUjDf
+         ardnHvqKOxQ1WdCYx+zVAKDVT+FHLuZDn499HWJ/IakkJeSXMGpR5nnSI3SVIRaodQZN
+         E5aiI93lKwBzrgsY00IrDwtmiJC2prnPlrxTdmGsPAGX6H0Zv6zLK5RLzqCoVrUe1grs
+         R6LQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793563929; x=1794168729; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=SAEhnewbdseHCyOO8rtnZ+ccqV7eT1Rq136MpuhqgwQ=;
+        b=Ai4+ibZ8SNBiI9xUFWF1MuyZbEl/YIMHs5ta17HvOVNKjOgSrUwqVFxC53ts5t3G+6
+         ALluax9q1YTAX2k25A/0usyUTE/I7DjVEDOC2udeam0zz2OQVhw6OXT/yZlW2NNyTT8E
+         NFueiXi3d0G47xVl+c56abde3FGUD8/FLPrGjyPhwmu2nDYli8vsNwIISs/xB2DUkxTE
+         e9P85tDKgrLxMTgu7q3CftQH0t/VDGSdlatDxW7d5Z7O3hXKLCsVWBAl19CmbRuK885v
+         u36pK3cYJHaV2DGGcoWF+9X05ExIur9XrzxzhcFCWZ35i2t/N8b5RTf5C6TgZru1VDRs
+         BydA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793563929; x=1794168729;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SAEhnewbdseHCyOO8rtnZ+ccqV7eT1Rq136MpuhqgwQ=;
+        b=dm4+aY0+E9VqohHB7nPl+qBGv6/d99AcGklgP4W5ucIyVi3mpcVThhYoyWtphu0ZAf
+         u+HZn2iQtbjlQ5PKZdIulFXxpNsm+SkVBXL0iRB2LD+sFCRWpz9F71wqBV9xBhn/CgD8
+         +88Ogb7CH1rx1DOROt0wn7It3yvRUzzkG13CBlMXZ7aPbw7bFnDAf1yjzLRwUfmespNt
+         e9njpoFrjehC2M3w1rbtpoCOj8WdhglU6iKED+vbRrYR5cxKYvkchMV6AqRiPg1Ftqau
+         79O9oyo6dMQFAwHsd1Z5vEJ2RaEALK3HwFhvVEvM/28aU+HT3XnKbN2zT/lVWbPGxqof
+         b8iQ==
+X-Forwarded-Encrypted: i=1; AKwUvByKXIT6Gd8dFelTN/0LeNbmMmfPmYoeXodjdcti59bksokWOVGvDn0s2nbPXT/DSB2JWsispXnkn37CIWCn1jbM@lists.infradead.org
+X-Gm-Message-State: AFq9FYKlKC5nlHMdVnG7usnox1dhLoOhMCTLyeMuR0OmkwzRIfSeQIKX
+	Nifl/87lCdcqXt3CDJWUHSo4O/MzE42O0pZBeE6MyK1ishZ5NunJ9JYb9cjcMFzm1t0JNfZDTzA
+	G3IbvnJuSqkeKW+1PyUtGC9OprPt7bfA=
+X-Gm-Gg: AYBFou2ZmfFGCFnN6tK++t0vEkQm0mfnenrCm/cEsrFDUgv4vlQBwTMjsaAWJNH4abo
+	bM8BNzpcJSo7c7wqx5aSegPeEmRkRLKU610pSjx91VJxZ8yDeZbz74MwjaWCz3sd+EU/Aj9+S4R
+	0LkDLjVkv+ftwlg3GfFbSt4q/qX6S/6LQg5Epi67vn5jdND07MLaSKWXaU47RCG2byFQjiC2TUb
+	5sfhZUljQkmhw16gJOzDO9Pn6UJdWlc86rEEY5BeIiEAn5MsNLuq1UE4XHPD+4LThr0+tLFsAfb
+	8RIUUanB8oDxr6zEcEp7YM0hvW/76VoM1yIDK+FKmDhXWS8ofnKFZsl17Jxe7UaZukL30tVl1om
+	LHliaBIzF8o46XIefjBO5kkg3iNuM68hUYS8s2KaS
+X-Received: by 2002:a17:906:c14d:b0:c40:4f39:22e8 with SMTP id
+ a640c23a62f3a-c4ca7acfb41mr639189266b.44.1793563928992; Sun, 01 Nov 2026
+ 12:12:08 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+References: <20261023053548.1595033-1-coiaprant@gmail.com> <20261023053548.1595033-2-coiaprant@gmail.com>
+ <2977688.AiC22s8V5E@phil>
+In-Reply-To: <2977688.AiC22s8V5E@phil>
+From: Coia Prant <coiaprant@gmail.com>
+Date: Mon, 2 Nov 2026 04:11:56 +0800
+X-Gm-Features: AclHuK9JsP_sappSiOI-OzoOwsqicY7ddXohMyF8cGA-5NNfJ9GwpFb4-3V7qU0
+Message-ID: <CALj3r0g5twZNEiO5b1hHpxy3kAVBxLZNt55E2dxSSeZ5GgXisA@mail.gmail.com>
+Subject: Re: [PATCH v12 1/3] arm64: dts: rockchip: rk3568: add XPCS and
+ fixed-clock nodes
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>, 
+	David Heidelberg <david@ixit.cz>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:stfVwjL5nRDW7hegiXOjryO0YyFv3NOTYl5nOitrm/eYlHLlzhs
- gqw/B+N8QuIFOr+yKROevEbMYdDghRxV3PCd6zj+TX2k3XbZ4P8XDH/fVXPPkmgXbv5n+aA
- dwOxjU7qmx8psaky6iEJd2MJefN15oukpmKvAkAt1fBi2emClk5epCux5KfIw70ao3AEexs
- Pi5yBdEJv+/ci2PKCcfig==
-UI-OutboundReport: notjunk:1;M01:P0:hA6YnnCidBU=;khj4SgqnJpoIivL9ufiA5ouJ5mm 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
- og2OeBNhE0/veKHxfiZvUssJTBGCOaQtyx5VUA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_120223_460897_BC46FCFA 
-X-CRM114-Status: GOOD (  20.56  )
-X-Spam-Score: -3.1 (---)
+X-CRM114-CacheID: sfid-20261101_121211_453126_32B7C8C6 
+X-CRM114-Status: GOOD (  28.32  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,186 +122,99 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
 	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The Battery-Backed Non-Secure Module (BBNSM) on i.MX9 SoCs can have
-some general purpose registers, which retain their data on power-down.
-This driver make these register accessible via NVMEM subsystem.
+Heiko Stuebner <heiko@sntech.de> =E4=BA=8E2026=E5=B9=B411=E6=9C=881=E6=97=
+=A5=E5=91=A8=E6=97=A5 22:06=E5=86=99=E9=81=93=EF=BC=9A
+>
+> Hi,
+>
+> Am Freitag, 23. Oktober 2026, 07:35:46 Mitteleurop=C3=A4ische Normalzeit =
+schrieb Coia Prant:
+> > The RK3568 SoC integrates a Synopsys DesignWare XPCS that provides
+> > the Physical Coding Sublayer for 1000BASE-X, SGMII, and QSGMII
+> > interfaces via its four MII ports.  Add the XPCS device node to the
+> > SoC device tree.
+> >
+> > The XPCS device is accessed via the APB3 bus at 0xfda00000 and
+> > requires the CSR clock (PCLK_XPCS) for register access and the EEE
+> > clock (CLK_XPCS_EEE) for Energy Efficient Ethernet operation.  The
+> > PD_PIPE power domain must be enabled before any register access.
+> >
+> > Also add two fixed-clock nodes (clock-xpcs-gmac0 and clock-xpcs-gmac1,
+> > labelled clk_gmac0_xpcs_mii and clk_gmac1_xpcs_mii) providing the
+> > 125 MHz reference clock for the GMACs when operating with XPCS.  Their
+> > clock-output-names match the CRU mux parent names in clk-rk3568.c, so
+> > boards can reparent SCLK_GMAC0_RX_TX / SCLK_GMAC1_RX_TX through
+> > assigned-clock-parents.
+> >
+> > The XPCS node is disabled by default and must be enabled at the board
+> > level when 1000BASE-X/SGMII/QSGMII is in use.  The fixed-clock nodes
+> > are always present and do not have a status property, as they are
+> > static clock sources.
+> >
+> > The XPCS node requires a reference to the appropriate Naneng Combo PHY
+> > via the phys property.  dtbs_check only validates required properties
+> > for enabled nodes, so the SoC dtsi does not provide phys: boards that
+> > enable the XPCS must supply it, since the SerDes link is a board-level
+> > design choice (combphy1 on some boards, combphy2 on others).
+> >
+> > Signed-off-by: Coia Prant <coiaprant@gmail.com>
+> > ---
+> >  arch/arm64/boot/dts/rockchip/rk3568.dtsi | 23 +++++++++++++++++++++++
+> >  1 file changed, 23 insertions(+)
+> >
+> > diff --git a/arch/arm64/boot/dts/rockchip/rk3568.dtsi b/arch/arm64/boot=
+/dts/rockchip/rk3568.dtsi
+> > index 3bc653f027f1f..20a72785adbc2 100644
+> > --- a/arch/arm64/boot/dts/rockchip/rk3568.dtsi
+> > +++ b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
+> > @@ -8,6 +8,20 @@
+> >  / {
+> >       compatible =3D "rockchip,rk3568";
+> >
+> > +     clk_gmac0_xpcs_mii: clock-xpcs-gmac0 {
+> > +             compatible =3D "fixed-clock";
+> > +             clock-frequency =3D <125000000>;
+> > +             clock-output-names =3D "clk_gmac0_xpcs_mii";
+> > +             #clock-cells =3D <0>;
+> > +     };
+> > +
+> > +     clk_gmac1_xpcs_mii: clock-xpcs-gmac1 {
+> > +             compatible =3D "fixed-clock";
+> > +             clock-frequency =3D <125000000>;
+> > +             clock-output-names =3D "clk_gmac1_xpcs_mii";
+> > +             #clock-cells =3D <0>;
+> > +     };
+> > +
+>
+> these clocks don't belong here.
+>
+> When you place these nodes in the main, they seem to come out of
+> thin air, while that might be true for some boards, that they
+> have dedicated oscillators for that, this will likely not be true
+> for all.
+>
+> So these should be defined in the board dts, to match the actual
+> hardware.
+>
+>
+> Heiko
+>
 
-Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-=2D--
- drivers/nvmem/Kconfig     |  12 ++++
- drivers/nvmem/Makefile    |   2 +
- drivers/nvmem/imx-bbnsm.c | 116 ++++++++++++++++++++++++++++++++++++++
- 3 files changed, 130 insertions(+)
- create mode 100644 drivers/nvmem/imx-bbnsm.c
+Hi Heiko,
 
-diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
-index d2f5bb236663..d238186b1216 100644
-=2D-- a/drivers/nvmem/Kconfig
-+++ b/drivers/nvmem/Kconfig
-@@ -185,6 +185,18 @@ config NVMEM_BRCM_NVRAM
- 	  This driver provides support for Broadcom's NVRAM that can be accessed
- 	  using I/O mapping.
-=20
-+config NVMEM_IMX_BBNSM
-+	tristate "i.MX BBNSM general purpose register support"
-+	depends on ARCH_MXC || COMPILE_TEST
-+	depends on OF
-+	select REGMAP_MMIO
-+	help
-+	  This is a driver for the general purpose registers available in the
-+	  Battery-Backed Non-Secure Module (BBNSM) on i.MX9 SoCs.
-+
-+	  This driver can also be built as a module. If so, the module
-+	  will be called nvmem-imx-bbnsm.
-+
- config NVMEM_IMX_IIM
- 	tristate "i.MX IC Identification Module support"
- 	depends on ARCH_MXC || COMPILE_TEST
-diff --git a/drivers/nvmem/Makefile b/drivers/nvmem/Makefile
-index 5e70bad9f0f9..ec54e83da46a 100644
-=2D-- a/drivers/nvmem/Makefile
-+++ b/drivers/nvmem/Makefile
-@@ -27,6 +27,8 @@ obj-$(CONFIG_NVMEM_BCM_OCOTP)		+=3D nvmem-bcm-ocotp.o
- nvmem-bcm-ocotp-y			:=3D bcm-ocotp.o
- obj-$(CONFIG_NVMEM_BRCM_NVRAM)		+=3D nvmem_brcm_nvram.o
- nvmem_brcm_nvram-y			:=3D brcm_nvram.o
-+obj-$(CONFIG_NVMEM_IMX_BBNSM)		+=3D nvmem-imx-bbnsm.o
-+nvmem-imx-bbnsm-y			:=3D imx-bbnsm.o
- obj-$(CONFIG_NVMEM_IMX_IIM)		+=3D nvmem-imx-iim.o
- nvmem-imx-iim-y				:=3D imx-iim.o
- obj-$(CONFIG_NVMEM_IMX_OCOTP)		+=3D nvmem-imx-ocotp.o
-diff --git a/drivers/nvmem/imx-bbnsm.c b/drivers/nvmem/imx-bbnsm.c
-new file mode 100644
-index 000000000000..4fe96161834e
-=2D-- /dev/null
-+++ b/drivers/nvmem/imx-bbnsm.c
-@@ -0,0 +1,116 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * i.MX Battery-Backed Non-Secure Module general purpose registers
-+ *
-+ * Copyright (c) 2026 Stefan Wahren <wahrenst@gmx.net>
-+ *
-+ * Based on snvs lpgpr driver,
-+ * Copyright (c) 2015 Pengutronix, Steffen Trumtrar <kernel@pengutronix.d=
-e>
-+ * Copyright (c) 2017 Pengutronix, Oleksij Rempel <kernel@pengutronix.de>
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/nvmem-provider.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+#define BBNSM_FEATURES		0x4
-+#define BBNSM_GPR_SZ_SHIFT	2
-+#define BBNSM_GPR_SZ_MASK	GENMASK(7, BBNSM_GPR_SZ_SHIFT)
-+
-+#define BBNSM_GPR		0x300
-+
-+struct imx_bbnsm_priv {
-+	struct regmap		*regmap;
-+	struct nvmem_config	cfg;
-+};
-+
-+static int imx_bbnsm_read(void *context, unsigned int offset, void *val,
-+			  size_t bytes)
-+{
-+	struct imx_bbnsm_priv *priv =3D context;
-+
-+	return regmap_bulk_read(priv->regmap, BBNSM_GPR + offset, val,
-+				bytes / 4);
-+}
-+
-+static int imx_bbnsm_write(void *context, unsigned int offset, void *val,
-+			   size_t bytes)
-+{
-+	struct imx_bbnsm_priv *priv =3D context;
-+
-+	return regmap_bulk_write(priv->regmap, BBNSM_GPR + offset, val,
-+				 bytes / 4);
-+}
-+
-+static int imx_bbnsm_probe(struct platform_device *pdev)
-+{
-+	struct device *dev =3D &pdev->dev;
-+	struct device_node *parent;
-+	struct imx_bbnsm_priv *priv;
-+	struct nvmem_device *nvmem;
-+	u32 gpr_words;
-+	u32 features;
-+	int ret;
-+
-+	if (!dev->of_node)
-+		return -ENOENT;
-+
-+	priv =3D devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	parent =3D of_get_parent(dev->of_node);
-+	if (!parent)
-+		return -ENODEV;
-+
-+	priv->regmap =3D syscon_node_to_regmap(parent);
-+	of_node_put(parent);
-+	if (IS_ERR(priv->regmap))
-+		return PTR_ERR(priv->regmap);
-+
-+	ret =3D regmap_read(priv->regmap, BBNSM_FEATURES, &features);
-+	if (ret)
-+		return ret;
-+
-+	/* Are any general purpose register available? */
-+	gpr_words =3D (features & BBNSM_GPR_SZ_MASK) >> BBNSM_GPR_SZ_SHIFT;
-+	if (!gpr_words)
-+		return -ENODEV;
-+
-+	priv->cfg.dev =3D dev;
-+	priv->cfg.name =3D dev_name(dev);
-+	priv->cfg.owner =3D THIS_MODULE;
-+	priv->cfg.priv =3D priv;
-+	priv->cfg.stride =3D 4;
-+	priv->cfg.word_size =3D 4;
-+	priv->cfg.size =3D gpr_words * sizeof(u32);
-+	priv->cfg.reg_read =3D imx_bbnsm_read;
-+	priv->cfg.reg_write =3D imx_bbnsm_write;
-+
-+	nvmem =3D devm_nvmem_register(dev, &priv->cfg);
-+
-+	return PTR_ERR_OR_ZERO(nvmem);
-+}
-+
-+static const struct of_device_id imx_bbnsm_of_match[] =3D {
-+	{ .compatible =3D "nxp,imx93-bbnsm-nvmem" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, imx_bbnsm_of_match);
-+
-+static struct platform_driver imx_bbnsm_driver =3D {
-+	.probe =3D imx_bbnsm_probe,
-+	.driver =3D {
-+		.name =3D "imx-bbnsm-nvmem",
-+		.of_match_table =3D imx_bbnsm_of_match,
-+	},
-+};
-+module_platform_driver(imx_bbnsm_driver);
-+
-+MODULE_AUTHOR("Stefan Wahren <wahrenst@gmx.net>");
-+MODULE_DESCRIPTION("i.MX BBNSM general purpose register NVMEM driver");
-+MODULE_LICENSE("GPL");
-=2D-=20
-2.53.0
+Okay, these are board-level clock sources, not something the SoC
+provides. Moving both fixed-clock nodes to the Photonicat DTS and
+leaving only the xpcs node in rk3568.dtsi.
 
+I'll respin.
+
+Coia
 
