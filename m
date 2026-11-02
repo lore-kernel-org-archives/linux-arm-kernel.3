@@ -2,147 +2,124 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E923606BA4D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 16:46:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AA25606B93D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 16:48:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qZzuZdve;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=XRuvwZDY
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cBzJRex9;
+	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=msQm7fbT
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=g0LvanIAcOvseeugAOnmxma4SKw9Qmkgb1g8F6kaSt0=; b=qZzuZdveagi3ovKGau9m4hO7tX
-	VcXfS8PEHQ9o9xh+uw/MJJ5SV/Aa/SGQhEzHFQ0W/qNuCZ3gfJPb25ZUelndQgNzf5Gx3RelnWGxL
-	N/63/amCxb5YIsCiRzmOqsgAKQrmHYGSUPmACmX0w60YnW9BEx/od1bGZ+zJNneQJLeM6aP7YMfiQ
-	WusUUW3S/YgkCejM27oSmbnmdMjoceXZ9mCuwJFuIYWnFd3TMI8jIHRVLZZ8LEQwKgNnlO3tTm0Eo
-	0oCbqTPrEhb/WwcOJso1w2yuUfCCjaEszXmXuMtwJWzGCHRnme0OWlMVpBamtSs+IRVGASDeJ8pzf
-	xjyXo8pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=wyGoShxYRaYBKZIJpYvIWwmSQnNz4S7v7I1GDlrX13s=; b=cBzJRex9fsBo2m
+	bjRmTj0dMBqTKOLQgwUBwjmR8YE4Dnq9Xmh8YmXxeYjWpywPP6PKkdAs92wmCqWisSpKNamZg0gy8
+	SFIPIlXGSK9ubaJjkaDA5p3kEgip3iFUTu0/9+WU7PcpGsKb++Jq7LL0OEMZPIEyyr6GKX57kQdih
+	3/+ULRD6+W6bUI0I8o0wLLGk5DmNwnQsMNnPs0/SOWHoswUfVkA7HJrIeUG8JQSTbPCGpydpyPeWa
+	gUBPeA5hg6WZ5yf6wzsVvgbxqoSB67WkZzmtZ/wd373TYIoTX8/9mUzQIgM+4ULNJETNlb9pjHJv6
+	wzEbIQZCUSGUGf1uTwSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNvAm-0000000HKQV-26Rf;
-	Mon, 02 Nov 2026 16:46:16 +0000
-Received: from mail-francesouthazon11011047.outbound.protection.outlook.com ([40.107.130.47] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1xNvCp-0000000HKcr-1IwV;
+	Mon, 02 Nov 2026 16:48:23 +0000
+Received: from mail-westeuropeazon11010032.outbound.protection.outlook.com ([52.101.69.32] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNvAj-0000000HKPv-1ETd
+	id 1xNvCm-0000000HKcB-1tXZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 16:46:14 +0000
+	Mon, 02 Nov 2026 16:48:22 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IO6qQoCX3gz2qvkJOp2kQqVD1xmtMdJDbtJ9BxMCaCS35zRXafcC3IZweD1bIsGnWr83+zJjNHzdyessJCjqK7l8J3PhKsU2mWUsAwPVevF3cQ9pOJHpJ2CQwOF1QS4NuCdAwAEbcjEF/BUu61HIUSC6M0/L6dSnTMOcuKQySLm6YGd5yvr5+kRg312mgP4Iy31xPpaznbfhkZSDBhh7L2iK/NsrO4OSe59Svg1FyZLkUqBJSRxU93rq9YroezcwGATxxTvCZIOt94XsVuNQRm299+A2m5XK29CcME4c5gPd6B5apIlgN45sXe7EMpfWv8QZuwluijv+nYHkyoApFw==
+ b=p7wHqnxEnojwSpwpcWsygtWUQit5PtCg79LUWJ/1whogo34At4yfFEbJXylfuc/EeH1wg0vVPPskU6oH45Zrut22uyyxhaMyyochxnbpA1qaLwDO7pFZlGQ+e5QgL2l/9EMUNwLQpbIsj7mgXatzDC09kWAltOwWkv5r4wZ/JpFcDvHZFFqOzondJcXW4t0/8CzJEOOyZz6LFiU3oDogjfyKwnZe6mtGwQFZQeXxqGh2K66O9Z7wMkQ7kOivGwmNUKnyk2Y6+3D5+wsJsYznSF/IWJCA1Y9aMDaEyOCTBjQJA8c+2ZQ8ac0WpcL6VqO+DexUyPDIghFQ2AcF2sOyTQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=g0LvanIAcOvseeugAOnmxma4SKw9Qmkgb1g8F6kaSt0=;
- b=tTEmAuOnAcUfzMzjwxGJIJ6PwBKXIPwK9u+5JvBI9FV5uTVUboOh51fQgdKZQOd63dJ8dW9nWyYn3hk5yrh9OaasAYle+GVgzxR6BurPoDgmYsh8b4zqKDfcfRDsGLJHnpCfECw62nUAiSExmMrTTmmMc77J3qo+6ojTuz+Y7YnQ787C9t8Y6XuuX9gZYLz+QzLKkkD0oF9t60nLhdyRLsskp6Go2VbjtT9mpzjaZZ1YKEFiE0cNE4VJ+gupkmLzMSbaMvv6nXlxHGvz7rUpep63cg9Bsibt7QDf7GwLI6r6/7nI9QIXYpXYoFhui8swFtDeUTMqOCtEyrhJ/6SfnA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=wyGoShxYRaYBKZIJpYvIWwmSQnNz4S7v7I1GDlrX13s=;
+ b=O36Iureca91gAHK/tWEgVqc54pYXxHmQGw/Bu28GMZvhrOQWFVUN+tcWc3w8nqxN1PWZbS4LXApxxFd8kWDZaI0+GmtZ86ChoWNRiUHfgmwdMq0XG8OMQfnmtVrnQMyZUI46T8hLN0S0xezsBGIsFY9XBZc/ENHHS/ALbDQtVokNj54JaqEvuo//dG0Mtte3eLHn7M2PorRvHiEFF5r04Ay7m3+mwwqezPDUQULSsL+NcuX+U+0Hfbp3jUbxY23wJUP/+nkpEzktNMKg89WiExUvSdr3IYtRCHtwiFvrlqDMoKWhol4KuDxT5jV3GHfW+qHMHnSk1ZFPkHLixPrdJg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=posteo.net smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g0LvanIAcOvseeugAOnmxma4SKw9Qmkgb1g8F6kaSt0=;
- b=XRuvwZDY5rYvb3M5bbkIEwl/Y/Eh4PwZZTzlE1WQfB+NdTF21gGG7OyIrNdlAXB3drztBkkL/W1RNhzQSXaQTu7xM1m2hJBgUUN5965SgnyCA9pYeOfl7+apBqrsifCNvRDt0Pzqx6dh4b358dvf68vLxOIiqdgCYQJPwg/4H8Mr5jprolZ/YtcKWq7PV8TJNr019qORdd4aI91jAag5Jt8KWghHE35/wW62UzVe5DrvZxFb6g47yOLGifOwwXwSom+wLLiPEGH5esMlNvmOwqNqoJftV0xwSSb54OxXbiSq225KwSpm/xrGN7z90A+a/Iycd8VdgXXiLfQySeECyQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by PAXPR04MB8685.eurprd04.prod.outlook.com (2603:10a6:102:21c::22) with
+ bh=wyGoShxYRaYBKZIJpYvIWwmSQnNz4S7v7I1GDlrX13s=;
+ b=msQm7fbTysovlqHbMd3x80BzZuEooxwkiSXJBohjVuYdHBAFdJYTklZiORWfzh0s+LgrpZrkOEVOlB9dGPXa8GS3quo0HFzYul2Nja4EzGHA36rxu+3iUmwzlCjLN7lGhrQlz1Dxb5rEmro659q8vaOTkG1TBeR5PvY8Tyd5hdKF5yMDq9L8JpA53JZFHG7xPLdO1PG20r6auhdrpG7GH7WU8Iunz8dIhPuT9UFRNcEQLhVPiUmNzgI3y4lXaOySOiQpFv70jKLGQS4Oe84A9DFfRbivbFcwOCrisstMdC+HATynx+AXyn+IYd0R7sQqEmZSJAKHmNuhnIbIUnfKpg==
+Received: from PR1P264CA0128.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:2ce::14)
+ by AM8PR10MB4036.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1c9::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Mon, 2 Nov
- 2026 16:46:08 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0569.011; Mon, 2 Nov 2026
- 16:46:08 +0000
-From: Frank.Li@oss.nxp.com
-To: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Jia Jie Ho <jiajie.ho@starfivetech.com>,
-	William Qiu <william.qiu@starfivetech.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	T Pratham <t-pratham@ti.com>,
-	Thorsten Blum <blum@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Pan Chuang <panchuang@vivo.com>,
-	=?UTF-8?q?Maxime=20M=C3=A9r=C3=A9?= <maxime.mere@foss.st.com>,
-	linux-crypto@vger.kernel.org (open list:CRYPTO API),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support),
-	linux-kernel@vger.kernel.org (open list),
-	linux-arm-msm@vger.kernel.org (open list:QUALCOMM CRYPTO DRIVERS),
-	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE)
-Cc: imx@lists.linux.dev,
-	vkoul@kernel.org
-Subject: [PATCH 1/1] crypto: use dmaengine_desc_set_callback()
-Date: Mon,  2 Nov 2026 11:45:30 -0500
-Message-ID: <20261102164538.3834039-1-Frank.Li@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PH0PR07CA0022.namprd07.prod.outlook.com
- (2603:10b6:510:5::27) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Mon, 2 Nov 2026
+ 16:48:12 +0000
+Received: from MAD0EPF000008C2.eurprd05.prod.outlook.com
+ (2603:10a6:102:2ce:cafe::11) by PR1P264CA0128.outlook.office365.com
+ (2603:10a6:102:2ce::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.22 via Frontend Transport; Mon, 2
+ Nov 2026 16:48:12 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ MAD0EPF000008C2.mail.protection.outlook.com (10.167.241.198) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.592.5 via Frontend Transport; Mon, 2 Nov 2026 16:48:11 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Mon, 2 Nov
+ 2026 17:48:55 +0100
+Received: from [10.48.86.101] (10.48.86.101) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Mon, 2 Nov
+ 2026 17:48:10 +0100
+Message-ID: <a5fff7cd-686a-4fef-b9f7-87e19b870fa9@foss.st.com>
+Date: Mon, 2 Nov 2026 17:48:09 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] mmc: mmci: stm32: do not use NEGEDGE in HS200 mode
+To: Mateusz Nowicki <mateusz.nowicki@posteo.net>, Ulf Hansson
+	<ulfh@kernel.org>, <linux-mmc@vger.kernel.org>
+CC: Russell King <linux@armlinux.org.uk>, Linus Walleij <linusw@kernel.org>,
+	Yann Gautier <yann.gautier@foss.st.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>
+References: <20261031120700.42576-1-mateusz.nowicki@posteo.net>
+ <20261031120700.42576-3-mateusz.nowicki@posteo.net>
+Content-Language: en-US
+From: Christophe KERELLO <christophe.kerello@foss.st.com>
+In-Reply-To: <20261031120700.42576-3-mateusz.nowicki@posteo.net>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|PAXPR04MB8685:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4b3b117c-010e-424b-efbb-08df3900cb49
+X-MS-TrafficTypeDiagnostic: MAD0EPF000008C2:EE_|AM8PR10MB4036:EE_
+X-MS-Office365-Filtering-Correlation-Id: c99f029b-6394-474c-cf90-08df39011508
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|366016|1800799024|23010399003|10067099003|18002099003|261102123227099003|921020|56012099006|11063799006|261021121427099003|261026121527099003|261009223027099003|261021123027099003;
-X-Microsoft-Antispam-Message-Info: lmP9RZmAa1cCPA/TbqEABOlksxtmUhFo/iV22Q4qOe75qFx+Rw8WiVrGVtN83ZjWvlxVIfpngkdI38ezLFIyWdK8iIg4EkvsQFEr++CrC7B2yXexxe9KUweODqHYYwpL941vsu0GSV3Wk3HNIGVqQhJIAZii/2kBVVtx37U/6SqrEVoM/91LqxTPJnfVwxxIstTiiGZl2U7iM44a0/KxiIcdbK3RX+wckAL4N+HuNk7vSh/kA1T+SgE4oEzltLOD3f10xbyBGSFtM7Na5B0HXtrfOMPqQRT1Qz/B//D+DqbBz5tOrsXrEzpc8BhLrkoypYTguP5RJSHAG3w2M0t3fA2twAsR8NZqOIU+QtVCa32zXhbE4vcm0cUH1vMSWoVHmLo0pT4JIYLUwSLRe+zG2US34GZta+0AUi8FJ0B0kh1ryxDE47Q6YHNelb5tgPDTy0WA5Wua+M9UV58i1xhgmhUtuC3HMxTi5tTxQYu9Loust+6G6IES1F61asic5jIZT3MZR76r2eyBPCo+ZIjIF/ayAPaF6dON/2Wu+Y2vzTYfB/iV5plUcs4i5aJi91uJWv+ujryxjQ7IH71hxvesx4FNCU/n4EP5VX+JL8qog0L6LXE98/6LjB+6M+//KI7kRVTJEKyC5IwJsN/y/XFxLEkCbQgR+PK+8X+KHw+9Se01AtGMNqU2QH7LHCTp09KEgUaVO9F46B9T9GkYzSbE1Q==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(366016)(1800799024)(23010399003)(10067099003)(18002099003)(261102123227099003)(921020)(56012099006)(11063799006)(261021121427099003)(261026121527099003)(261009223027099003)(261021123027099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|36860700016|82310400026|261102123227099003|261021121427099003|11063799006|4143699003|56012099006|261009223027099003|261028144727099003|261022105027099003|261021123027099003|261026140227099003|261026121527099003|10067099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info: 9IowxUPLnleLduOYSZ/tYJEZlOAcrIIEiXHcVOK7Mc5dDo8SYJBS2GTL0QXPHb1FBWEcF3eQJ9t9+mbNPHgW1KxdfoN0sgl03ngdIoWR2hKWC1K9ZVft7H1dE/GHyTL9X0NAANCjU9oquvGNy4uikndODJY89GWOYZdz4pFJG9kr4Obq35rIvBOk78YMNvWjwoACoWt8Hp/zXFmYtdaDXgG6GiZS457hYsNnPL57n89zQSmweg7nLCqO5212GZewijdrzurxKxfPdBR+gJfe2WzqXDqnOtH4Yl2c59bdn+lCfAjm96GW07z97+vi8rQXqaD01YXlV3ApKE7wOeuC9XJA6o4LrRp2J3EyFIWqxEiCarE17OhJn4HbmxZHXmEa7xUR2Z3cE2wJfdSpG8X9xh3muRL1+KwxM1eMTeSZFmKsT5vtOSbaiR112cx2Wb1pQguWkkeeOeXmGZV3hv4WzJSCq7iC+54GLhvrs1C1Ga0IUfsBsBR3+lkzNAojdKqFR9P/8wHBdCDG0/CAXRZYY+2EwSLeeUhuReyYjWmPJtptb8kFPu0a5hLXMYftiNHOYixa5SIj2VqQwvmFXat7AzqMfvsL0MympyG2aBrJjQ3xET+CcnRsLQLEWdmNOttkPzphtxVjpyNc2uYITvNcqFN5da0Zw9ZsVMAI5nwteWand5tqPk33C/22MyYf3fS3+jD0VxA4/S4wBj/fuDBnKA==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(36860700016)(82310400026)(261102123227099003)(261021121427099003)(11063799006)(4143699003)(56012099006)(261009223027099003)(261028144727099003)(261022105027099003)(261021123027099003)(261026140227099003)(261026121527099003)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?az2k4rleFpNK5ncmeRD9L4zS3ipbyq6B1/10mbCuEeAr6naGsraKxVe5bUC9?=
- =?us-ascii?Q?IGIXg+MOzmwdfWxx9ZZsLxQK6f61ofSjxKHNjEQz7UZ6DG02WK+2E9Fyh7wl?=
- =?us-ascii?Q?JXmRMqoF9Oy/h47R7vUXFtispQYqwGvmgjcGkmGjJ/ilU6H7GsgRYlGyZh9p?=
- =?us-ascii?Q?crwm3rEjF3IwKDf6HVqCMfCylvVO5+Msnmv6zz2WPELDfGOooetOTQDzUQC/?=
- =?us-ascii?Q?Pg23/Pm4SOHkx+9jIreYVIB+OD7Tkgd1ImcB9LoZa4Y9pOf46k6QPZxw2j4U?=
- =?us-ascii?Q?ODfWkVqDhSkLNug5kOuj3cZWTox2epcZYCwRQ5jrPXZOn1r5wPz6ccyxHF8m?=
- =?us-ascii?Q?z831PTZc9Mkoy9LkhDwIAPYLCCaep4iTOegZ4nuczwGz1yGRuRzToA+IFddx?=
- =?us-ascii?Q?v0JBsYQ7m6ioS89PaHJ6fHcvCS90Ts4sfjeO43nMDiyVmrjG4dR/mqWyG6TE?=
- =?us-ascii?Q?b9rUvgGtgA1mgLx/VsgE6g2+rp519EWWQiGat+ZQ+Rz1uU7aMoitxGr2nSXS?=
- =?us-ascii?Q?JQOyrmVasuHIYs5IiNuXRMCWf+cze4bUe9PdMNYIGyLE5flxVo5zVTJ7akSr?=
- =?us-ascii?Q?Af7vHjHGJuqoua5605jHElwbR21iW4LjXJBjRIpOO0qVojvMmWdcpmCxIXLO?=
- =?us-ascii?Q?akXPrPRtMjeZ8rnJlSX1NCzEXkJzGmgIH/i8CAc38iafvUicgOy2DwtJmYnh?=
- =?us-ascii?Q?2kddXst3sG9Ao7Zw4Q1FRNT7eEiPxIqtfHNi2a2ugRD8y+v1WubZwp391xDU?=
- =?us-ascii?Q?KXLLuHMVI+ci/G3dyCaMms/isthVL4vzAsf6yRt80zFfPbYnM2KfZ4uvsXER?=
- =?us-ascii?Q?078BqX/y4IbjnieWcgK/acCFDGPyRYDda6hycic7uhB8M5B6MdxxEAcmdg9g?=
- =?us-ascii?Q?uVWWQyNAWbtIX3c7SfsmenTClo3EaKRTYhqDWwhxfsp94CxUKbwwVcV7Oc1J?=
- =?us-ascii?Q?++3bV0ltChBpf/CM0FtMqzMt6UYlm9ebgSv4LNtC1UMxMg4GCmbWb6y5kYw9?=
- =?us-ascii?Q?6VTsmXuRpQ6TiAQRfGl16ZgJojNnKYL/RatAGVyrqGpgvHxkySclV0o1cEtU?=
- =?us-ascii?Q?81d1gmAejmpXktdqjHr+8TcwX8M9qUKleEwssi0baujg11tQnJ+EpIva3CmC?=
- =?us-ascii?Q?ZlDJP7QHmArfQi1ivLuEG0r84x6pVN7dwl3xIvcWnx16b4E202SdsGrXscXB?=
- =?us-ascii?Q?WhlN8oAXPzoGCzzkQ39z99vSok5usJe09eKUnc41wSI8+XxxlgaiWcTGDkxU?=
- =?us-ascii?Q?3gxOQnDeEbSNV/mxVhnS7lRUBdpZj16KjvzRgGjeQkEZKtwzuU9VD1cNbbp1?=
- =?us-ascii?Q?OCuZN2/qUR/NIOXmT+lWcM84uAXDC1YlVjrZMnfS/0K5SFaciUpZrHWIOcDs?=
- =?us-ascii?Q?ZdeieYIEwbBTX+ukVimsEYm6imAaS0Fnzkibu7rCwYIrlfKWhe8PWyE4vUtC?=
- =?us-ascii?Q?vmVx0Dg53WMXORW5rdb06Jn7g+5NLLImaS0uILlAydXhq9FLyHKRaYQ5qJwH?=
- =?us-ascii?Q?vHLr7hSVCc6pmj8B4Z7dFUdjouwO41/OfebTKsP4y2RREE9AVGqkZibzkE2v?=
- =?us-ascii?Q?6sj32g4tv4YRXk/+s6i2qcsbpcGboeXDfxLGUs8evI1CBrssBwEna91nVp0z?=
- =?us-ascii?Q?zaZmeTAIWrTNFw9oFwXGXk5pZL4+GZO52I5UmcQc6gmXtPEWVK0RCTGBKp8B?=
- =?us-ascii?Q?8CNk6cT5BaA49qs4CnELB9gOyyFTOWhpHo0NI+YSBPqGYXZr022+55U4r6Av?=
- =?us-ascii?Q?xYBEvEajfRu6mET7uxgbykAyyfBCo/qIa7uQ/2wusjRE2aobHiFH?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4b3b117c-010e-424b-efbb-08df3900cb49
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 16:46:08.4000
+X-MS-Exchange-AntiSpam-MessageData-0: Une9ZxMcnuZ4Fkgp1uVoWrA0ew9WGZsOHcqGf0uchao3TqrCdVElCwTUTN7xRUJVS7GpB/kFqCBUdcc0aDbPwmlm12jiKGSI3NNCqggpG9unziHbDP5m/umosLd4ZnOyNSeu74LmeiSdo5/1KQpOrcfAPoEKll8Q+IoPhyg6EFeLW94CW3zoUacVqaqTmn4wN8/ByJD4hmJ71JJYL/I6H/isTC+RLYxVpvDSUp9kP3j7OQPoFS0wjSwX4e7fAY51peyli+vgyEcidNeunLm2JaunC8VeSqoqo0N6KSDonPrbjq9sHxti/C7pnUiY5ZTAzci+EWeeFUvQVF6Nm0Yjxz0FlKuxU1ShYEvgrQJo4xPgemrpcKVBgHm7Fg/PMf12urSTwBVOuggp1mHxZrts4dx33DDIeHBwwZFcw1Q81/H9lqrf4d411CF4IOxY1PZe
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 16:48:11.9489
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4ceM7NvDDD9QsHP9HV/2mtnA5sIcOx8XMiWyueuOjCNqS7I4JZ2I5dDgAScmo+NGNPu4/cL2+EvuGm0kUT4Nj5dHGdCCm0Poh8l9Ff/yQwybAJ1koT+2aMyytu8ecJ0P
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8685
+X-MS-Exchange-CrossTenant-Network-Message-Id: c99f029b-6394-474c-cf90-08df39011508
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: MAD0EPF000008C2.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR10MB4036
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_084613_537598_139A1F95 
-X-CRM114-Status: GOOD (  11.53  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261102_084820_749600_ACD4B033 
+X-CRM114-Status: GOOD (  23.12  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,304 +130,75 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Frank Li <Frank.Li@nxp.com>
+Hello Mateusz,
 
-Replace open-coded assignments to callback and callback_param fields
-of struct dma_async_tx_descriptor with calls to the
-dmaengine_desc_set_callback() helper across various crypto drivers.
+On 10/31/26 13:07, Mateusz Nowicki wrote:
+> RM0457 marks NEGEDGE as not applicable in HS200. With a clock divider it
 
-No functional change intended. Prepare make to struct
-dma_async_tx_descriptor private to the DMA engine.
+No, it is not what it is written in the RM. If clkdiv is equal to 0, 
+NEGEDGE has no effect.
+NEGEDGE has an effect only when clkdiv > 0, so it can be used with HS200.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/crypto/atmel-aes.c            | 3 +--
- drivers/crypto/atmel-sha.c            | 6 ++----
- drivers/crypto/atmel-tdes.c           | 3 +--
- drivers/crypto/img-hash.c             | 3 +--
- drivers/crypto/omap-aes.c             | 8 +++-----
- drivers/crypto/omap-des.c             | 5 ++---
- drivers/crypto/omap-sham.c            | 3 +--
- drivers/crypto/qce/dma.c              | 3 +--
- drivers/crypto/sa2ul.c                | 3 +--
- drivers/crypto/starfive/jh7110-aes.c  | 3 +--
- drivers/crypto/starfive/jh7110-hash.c | 3 +--
- drivers/crypto/stm32/stm32-cryp.c     | 9 +++------
- drivers/crypto/stm32/stm32-hash.c     | 3 +--
- drivers/crypto/ti/dthev2-aes.c        | 9 +++------
- 14 files changed, 22 insertions(+), 42 deletions(-)
+On ST downstream Linux Kernel, you can find following patch not already 
+upstream:
+mmc: mmci: stm32: use the delay block above 100 MHz on stm32mp25 SoC 
+(Commit ca3b1cf)
+By applying previous downstream patch + patch 3 of this patchset + 
+using  original slew rate that was upstream on
+this board (slew rate set to 2 for the clock IO, 1 for the others IOs), 
+HS200 should run on a ST MP25 DK board at 100 MHz.
 
-diff --git a/drivers/crypto/atmel-aes.c b/drivers/crypto/atmel-aes.c
-index 84392411b98d8..49f1bf19747d8 100644
---- a/drivers/crypto/atmel-aes.c
-+++ b/drivers/crypto/atmel-aes.c
-@@ -824,8 +824,7 @@ static int atmel_aes_dma_transfer_start(struct atmel_aes_dev *dd,
- 	if (!desc)
- 		return -ENOMEM;
- 
--	desc->callback = callback;
--	desc->callback_param = dd;
-+	dmaengine_desc_set_callback(desc, callback, NULL, dd);
- 	dmaengine_submit(desc);
- 	dma_async_issue_pending(dma->chan);
- 
-diff --git a/drivers/crypto/atmel-sha.c b/drivers/crypto/atmel-sha.c
-index 4b883a8dcf301..3e4557a9fc8f7 100644
---- a/drivers/crypto/atmel-sha.c
-+++ b/drivers/crypto/atmel-sha.c
-@@ -662,8 +662,7 @@ static int atmel_sha_xmit_dma(struct atmel_sha_dev *dd, dma_addr_t dma_addr1,
- 	if (!in_desc)
- 		return atmel_sha_complete(dd, -EINVAL);
- 
--	in_desc->callback = atmel_sha_dma_callback;
--	in_desc->callback_param = dd;
-+	dmaengine_desc_set_callback(in_desc, atmel_sha_dma_callback, NULL, dd);
- 
- 	atmel_sha_write_ctrl(dd, 1);
- 
-@@ -1472,8 +1471,7 @@ static int atmel_sha_dma_start(struct atmel_sha_dev *dd,
- 		goto unmap_sg;
- 	}
- 
--	desc->callback = atmel_sha_dma_callback2;
--	desc->callback_param = dd;
-+	dmaengine_desc_set_callback(desc, atmel_sha_dma_callback2, NULL, dd);
- 	cookie = dmaengine_submit(desc);
- 	err = dma_submit_error(cookie);
- 	if (err)
-diff --git a/drivers/crypto/atmel-tdes.c b/drivers/crypto/atmel-tdes.c
-index 6b561b333ac6a..8d2f41abb238a 100644
---- a/drivers/crypto/atmel-tdes.c
-+++ b/drivers/crypto/atmel-tdes.c
-@@ -401,8 +401,7 @@ static int atmel_tdes_crypt_dma(struct atmel_tdes_dev *dd,
- 	if (!out_desc)
- 		return -EINVAL;
- 
--	out_desc->callback = atmel_tdes_dma_callback;
--	out_desc->callback_param = dd;
-+	dmaengine_desc_set_callback(out_desc, atmel_tdes_dma_callback, NULL, dd);
- 
- 	dmaengine_submit(out_desc);
- 	dma_async_issue_pending(dd->dma_lch_out.chan);
-diff --git a/drivers/crypto/img-hash.c b/drivers/crypto/img-hash.c
-index 1ccfc0eccc737..fef0d09066add 100644
---- a/drivers/crypto/img-hash.c
-+++ b/drivers/crypto/img-hash.c
-@@ -242,8 +242,7 @@ static int img_hash_xmit_dma(struct img_hash_dev *hdev, struct scatterlist *sg)
- 		dma_unmap_sg(hdev->dev, sg, 1, DMA_TO_DEVICE);
- 		return -EINVAL;
- 	}
--	desc->callback = img_hash_dma_callback;
--	desc->callback_param = hdev;
-+	dmaengine_desc_set_callback(desc, img_hash_dma_callback, NULL, hdev);
- 	dmaengine_submit(desc);
- 	dma_async_issue_pending(hdev->dma_lch);
- 
-diff --git a/drivers/crypto/omap-aes.c b/drivers/crypto/omap-aes.c
-index d40074e5a1427..c34ae8945eca4 100644
---- a/drivers/crypto/omap-aes.c
-+++ b/drivers/crypto/omap-aes.c
-@@ -310,8 +310,7 @@ static int omap_aes_crypt_dma(struct omap_aes_dev *dd,
- 	}
- 
- 	/* No callback necessary */
--	tx_in->callback_param = dd;
--	tx_in->callback = NULL;
-+	dmaengine_desc_set_callback(tx_in, NULL, NULL, dd);
- 
- 	/* OUT */
- 	if (out_sg_len) {
-@@ -337,10 +336,9 @@ static int omap_aes_crypt_dma(struct omap_aes_dev *dd,
- 	}
- 
- 	if (dd->flags & FLAGS_GCM)
--		cb_desc->callback = omap_aes_gcm_dma_out_callback;
-+		dmaengine_desc_set_callback(cb_desc, omap_aes_gcm_dma_out_callback, NULL, dd);
- 	else
--		cb_desc->callback = omap_aes_dma_out_callback;
--	cb_desc->callback_param = dd;
-+		dmaengine_desc_set_callback(cb_desc, omap_aes_dma_out_callback, NULL, dd);
- 
- 
- 	dmaengine_submit(tx_in);
-diff --git a/drivers/crypto/omap-des.c b/drivers/crypto/omap-des.c
-index 4b5a8d13f505e..d366689835175 100644
---- a/drivers/crypto/omap-des.c
-+++ b/drivers/crypto/omap-des.c
-@@ -414,7 +414,7 @@ static int omap_des_crypt_dma(struct crypto_tfm *tfm,
- 	}
- 
- 	/* No callback necessary */
--	tx_in->callback_param = dd;
-+	dmaengine_desc_set_callback(tx_in, NULL, NULL, dd);
- 
- 	/* OUT */
- 	ret = dmaengine_slave_config(dd->dma_lch_out, &cfg);
-@@ -432,8 +432,7 @@ static int omap_des_crypt_dma(struct crypto_tfm *tfm,
- 		return -EINVAL;
- 	}
- 
--	tx_out->callback = omap_des_dma_out_callback;
--	tx_out->callback_param = dd;
-+	dmaengine_desc_set_callback(tx_out, omap_des_dma_out_callback, NULL, dd);
- 
- 	dmaengine_submit(tx_in);
- 	dmaengine_submit(tx_out);
-diff --git a/drivers/crypto/omap-sham.c b/drivers/crypto/omap-sham.c
-index 5e739415a0102..ef9fd1fcef228 100644
---- a/drivers/crypto/omap-sham.c
-+++ b/drivers/crypto/omap-sham.c
-@@ -600,8 +600,7 @@ static int omap_sham_xmit_dma(struct omap_sham_dev *dd, size_t length,
- 		return -EINVAL;
- 	}
- 
--	tx->callback = omap_sham_dma_callback;
--	tx->callback_param = dd;
-+	dmaengine_desc_set_callback(tx, omap_sham_dma_callback, NULL, dd);
- 
- 	dd->pdata->write_ctrl(dd, length, final, 1);
- 
-diff --git a/drivers/crypto/qce/dma.c b/drivers/crypto/qce/dma.c
-index 68cafd4741ad3..620cb1bcf61a9 100644
---- a/drivers/crypto/qce/dma.c
-+++ b/drivers/crypto/qce/dma.c
-@@ -95,8 +95,7 @@ static int qce_dma_prep_sg(struct dma_chan *chan, struct scatterlist *sg,
- 	if (!desc)
- 		return -EINVAL;
- 
--	desc->callback = cb;
--	desc->callback_param = cb_param;
-+	dmaengine_desc_set_callback(desc, cb, NULL, cb_param);
- 	cookie = dmaengine_submit(desc);
- 
- 	return dma_submit_error(cookie);
-diff --git a/drivers/crypto/sa2ul.c b/drivers/crypto/sa2ul.c
-index 4557eae941648..b0bb474239bbd 100644
---- a/drivers/crypto/sa2ul.c
-+++ b/drivers/crypto/sa2ul.c
-@@ -1200,8 +1200,7 @@ static int sa_run(struct sa_req *req)
- 	rxd->enc = req->enc;
- 	rxd->iv_idx = req->ctx->iv_idx;
- 	rxd->enc_iv_size = sa_ctx->cmdl_upd_info.enc_iv.size;
--	rxd->tx_in->callback = req->callback;
--	rxd->tx_in->callback_param = rxd;
-+	dmaengine_desc_set_callback(rxd->tx_in, req->callback, NULL, rxd);
- 
- 	tx_out = dmaengine_prep_slave_sg(pdata->dma_tx, src,
- 					 src_nents, DMA_MEM_TO_DEV,
-diff --git a/drivers/crypto/starfive/jh7110-aes.c b/drivers/crypto/starfive/jh7110-aes.c
-index f59adb2a56510..1746caf8caed4 100644
---- a/drivers/crypto/starfive/jh7110-aes.c
-+++ b/drivers/crypto/starfive/jh7110-aes.c
-@@ -464,8 +464,7 @@ static int starfive_aes_dma_xfer(struct starfive_cryp_dev *cryp,
- 		goto dma_err;
- 	}
- 
--	out_desc->callback = starfive_aes_dma_done;
--	out_desc->callback_param = cryp;
-+	dmaengine_desc_set_callback(out_desc, starfive_aes_dma_done, NULL, cryp);
- 
- 	reinit_completion(&cryp->dma_done);
- 	dmaengine_submit(out_desc);
-diff --git a/drivers/crypto/starfive/jh7110-hash.c b/drivers/crypto/starfive/jh7110-hash.c
-index 008a47baa1657..d49fb9ac7dd8e 100644
---- a/drivers/crypto/starfive/jh7110-hash.c
-+++ b/drivers/crypto/starfive/jh7110-hash.c
-@@ -144,8 +144,7 @@ static int starfive_hash_dma_xfer(struct starfive_cryp_dev *cryp,
- 	}
- 
- 	reinit_completion(&cryp->dma_done);
--	in_desc->callback = starfive_hash_dma_callback;
--	in_desc->callback_param = cryp;
-+	dmaengine_desc_set_callback(in_desc, starfive_hash_dma_callback, NULL, cryp);
- 
- 	dmaengine_submit(in_desc);
- 	dma_async_issue_pending(cryp->tx);
-diff --git a/drivers/crypto/stm32/stm32-cryp.c b/drivers/crypto/stm32/stm32-cryp.c
-index 3fc2db290b0f4..d03d674e019cd 100644
---- a/drivers/crypto/stm32/stm32-cryp.c
-+++ b/drivers/crypto/stm32/stm32-cryp.c
-@@ -982,8 +982,7 @@ static int stm32_cryp_header_dma_start(struct stm32_cryp *cryp)
- 		return -EINVAL;
- 	}
- 
--	tx_in->callback_param = cryp;
--	tx_in->callback = stm32_cryp_header_dma_callback;
-+	dmaengine_desc_set_callback(tx_in, stm32_cryp_header_dma_callback, NULL, cryp);
- 
- 	/* Advance scatterwalk to not DMA'ed data */
- 	align_size = ALIGN_DOWN(cryp->header_in, cryp->hw_blocksize);
-@@ -1034,8 +1033,7 @@ static int stm32_cryp_dma_start(struct stm32_cryp *cryp)
- 	}
- 
- 	/* No callback necessary */
--	tx_in->callback_param = cryp;
--	tx_in->callback = NULL;
-+	dmaengine_desc_set_callback(tx_in, NULL, NULL, cryp);
- 
- 	tx_out = dmaengine_prep_slave_sg(cryp->dma_lch_out, cryp->out_sg, cryp->out_sg_len,
- 					 DMA_DEV_TO_MEM, DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
-@@ -1045,8 +1043,7 @@ static int stm32_cryp_dma_start(struct stm32_cryp *cryp)
- 	}
- 
- 	reinit_completion(&cryp->dma_completion);
--	tx_out->callback = stm32_cryp_dma_callback;
--	tx_out->callback_param = cryp;
-+	dmaengine_desc_set_callback(tx_out, stm32_cryp_dma_callback, NULL, cryp);
- 
- 	/* Advance scatterwalk to not DMA'ed data */
- 	align_size = ALIGN_DOWN(cryp->payload_in, cryp->hw_blocksize);
-diff --git a/drivers/crypto/stm32/stm32-hash.c b/drivers/crypto/stm32/stm32-hash.c
-index e6a1e9b9f88d5..cf790b8992f75 100644
---- a/drivers/crypto/stm32/stm32-hash.c
-+++ b/drivers/crypto/stm32/stm32-hash.c
-@@ -539,8 +539,7 @@ static int stm32_hash_xmit_dma(struct stm32_hash_dev *hdev,
- 	}
- 
- 	reinit_completion(&hdev->dma_completion);
--	in_desc->callback = stm32_hash_dma_callback;
--	in_desc->callback_param = hdev;
-+	dmaengine_desc_set_callback(in_desc, stm32_hash_dma_callback, NULL, hdev);
- 
- 	hdev->flags |= HASH_FLAGS_DMA_ACTIVE;
- 
-diff --git a/drivers/crypto/ti/dthev2-aes.c b/drivers/crypto/ti/dthev2-aes.c
-index a3c069ca2baf2..2474bebcf2b4f 100644
---- a/drivers/crypto/ti/dthev2-aes.c
-+++ b/drivers/crypto/ti/dthev2-aes.c
-@@ -448,8 +448,7 @@ static int dthe_aes_run(struct crypto_engine *engine, void *areq)
- 		goto aes_prep_err;
- 	}
- 
--	desc_in->callback = dthe_aes_dma_in_callback;
--	desc_in->callback_param = req;
-+	dmaengine_desc_set_callback(desc_in, dthe_aes_dma_in_callback, NULL, req);
- 
- 	init_completion(&rctx->aes_compl);
- 
-@@ -1013,12 +1012,10 @@ static int dthe_aead_run(struct crypto_engine *engine, void *areq)
- 			goto aead_dma_prep_dst_err;
- 		}
- 
--		desc_in->callback = dthe_aead_dma_in_callback;
--		desc_in->callback_param = req;
-+		dmaengine_desc_set_callback(desc_in, dthe_aead_dma_in_callback, NULL, req);
- 	} else if (assoclen != 0) {
- 		/* AAD-only operation */
--		desc_aad_out->callback = dthe_aead_dma_in_callback;
--		desc_aad_out->callback_param = req;
-+		dmaengine_desc_set_callback(desc_aad_out, dthe_aead_dma_in_callback, NULL, req);
- 	}
- 
- 	init_completion(&rctx->aes_compl);
--- 
-2.43.0
+This patch breaks also MP13 SoC that is supporting HS200.
+
+Regards,
+Christophe Kerello.
+
+> corrupts multi-block writes: on the STM32MP257F-DK (st,neg-edge, 200 MHz
+> kernel clock, HS200 at 100 MHz) written data read back different. The
+> same writes are correct without NEGEDGE.
+>
+> Fixes: 36240ef8665b ("mmc: mmci: add hs200 support for stm32 sdmmc")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Mateusz Nowicki <mateusz.nowicki@posteo.net>
+> ---
+> RM0457 describes HS200 only without a divider. If HS200 through a
+> divider should not be used at all, the alternatives for the DK are:
+>
+> - Drop mmc-hs200-1_8v from the DK device tree. DDR52 is tested and only
+>    about 5% slower than HS200 at 100 MHz (read/write 78/66 MiB/s against
+>    82/68 MiB/s).
+> - Drop st,neg-edge from the DK device tree. This also changes DDR52,
+>    which was not tested without NEGEDGE.
+> - Set the SDMMC2 kernel clock to 150 MHz in the firmware (OP-TEE). HS200
+>    then runs without a divider (tested, 119/86 MiB/s).
+>
+> Which way is preferred?
+>
+>   drivers/mmc/host/mmci_stm32_sdmmc.c | 4 ++++
+>   1 file changed, 4 insertions(+)
+>
+> diff --git a/drivers/mmc/host/mmci_stm32_sdmmc.c b/drivers/mmc/host/mmci_stm32_sdmmc.c
+> index 9dc51859c2e5..d74efdff6ac2 100644
+> --- a/drivers/mmc/host/mmci_stm32_sdmmc.c
+> +++ b/drivers/mmc/host/mmci_stm32_sdmmc.c
+> @@ -342,6 +342,10 @@ static void mmci_sdmmc_set_clkreg(struct mmci_host *host, unsigned int desired)
+>   	clk |= host->clk_reg_add;
+>   	clk |= ddr;
+>   
+> +	/* NEGEDGE is not applicable in HS200 (RM0457), with a divider it corrupts writes */
+> +	if (host->mmc->ios.timing == MMC_TIMING_MMC_HS200)
+> +		clk &= ~MCI_STM32_CLK_NEGEDGE;
+> +
+>   	if (host->mmc->ios.timing >= MMC_TIMING_UHS_SDR50)
+>   		clk |= MCI_STM32_CLK_BUSSPEED;
+>   
 
 
