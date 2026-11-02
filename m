@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7226960A2601
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 05:20:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EEAA606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 05:20:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ygcBgT/K;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=G9GmSmO5
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oLp3AZ8O;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=np0xJ2Xu
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
@@ -14,28 +14,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Kv8ugP3uvx0dlOiIe/NDQwiGl8OmZ15QL6mg9S2sBKc=; b=ygcBgT/KuMn5Jel5ftLMDD0sGJ
-	7yBns4cXT5+EjerKQ3u3x4GFAZJ/eIwueQFIhPYwcT9yKY90mmn7E/3ZVlFTqfojL4yXko206JIKG
-	sntCg/twoPFS8cPD7opdFn7IDPxEXBmumoWkFGC9oZZq/TeGQbMWRQ2TiReouPnqWD+HU6RCbkyhN
-	oOJYfhnparGJWW5sllq61fcVpEYY0gM7fzw+DbF0rTXtwDn7hMXoHgiaJrA55m04aQphuTcpoBWB8
-	2jSbHNMQlO3pyoDnsCJu/zfBfW33JX6lTdYT07LDyMYc7HpbsW06CQFD2SUgPkl4LMGSoeUPac3U2
-	Aam79EgQ==;
+	bh=g0QnbWoaY2LEGdUv6kRlJZxExGgoNcoWnukNbun0hNo=; b=oLp3AZ8Ozj3vQXRzIXc35fc1gw
+	RXOFgo8Jmmfrt1qfsi2zsKLaHYldVAPg75MCzPzq6/ywzgtxXlymLbpsjDkKMLwfMZ7NnYE3c244H
+	arS7TD769xGVQCXHeSUwv1+HQ7qCBHmFxFGrJOIbbEHKstdlDYloVpFlw3Ot3EIXX3mcxASbv3tcj
+	lAF5flmq/1hxJzvn79wSHmyHWeqracsBMP1H091Dd1ioKfBXHD0kAAbGpk2hASo9zxrxMdOixk1GD
+	6EDmGNUTKv7XGfcUrObISCnHHsKImPQobZ/oOZD+W3pqZVyLz5C5At8Dq361wD5MQvKDIzPo1oab+
+	tyPNJ0Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNkSY-0000000FYdI-1JNC;
-	Mon, 02 Nov 2026 05:19:55 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1xNkSm-0000000FYwN-1TTY;
+	Mon, 02 Nov 2026 05:20:08 +0000
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNkSV-0000000FYb7-2UnA
+	id 1xNkSg-0000000FYmd-3KYp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 05:19:53 +0000
+	Mon, 02 Nov 2026 05:20:04 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Neaw8saJU5mM+icENOVdctSoW1wRdNAWQfif0GFhxzM2iaPuZ6c8WGZfOPGgLSfTHioC8h/9RZVEyTNHPJkcRI7bTdRvkiwbUgoTCAphgiKQY8LqQTgVuIX5aRlxUSLILlb/5tgvyLBvR7qb7p3uoJgkV0MuWtLrQRb7VsEXuZCVXDTrwjEtdcuQl3pXdVgKaQmQDKyP01DqBIB0O9R8vtHTOGYqdk8Cj7w2c+JvpMT8UNHpXlD0INrugDo17K/6SgvXvsP7b85aXFwn7TdV90N6dvj62xRGaGLQwcHHw16uRcVpjFbHkHtb7VWpYoIMJQsslD18+D7daj+oH6qypA==
+ b=nGZLvARpWc0B6ajpor/D6Fj/6nemo0Zh+zgiaOPtbaNRCVeMYKoh23TUYSsDl6yUrluhp3wHBEPo2kQA6s7h9PVSOX+0z97DsH6VGIh0jHr6NzLTlr5QwN9R/u6EI/v6gOnda1ekDSBL5P2VgaBqiOxMxOVSrQ3ycmMF+Nc4bobuPD/CeAcHbLy8nY63EV3IQxDR+P7UDWc8RKSq5+eQW6TGrC61M/9Q6IWQYaAmQPuY0o9+Hlbu1DRbcWSm40SUvggX9sA+ZgpBE+fCgeb9zCvCJHossVLTasbEj5H07O3XiK+xjmzrujjB5GQ0d9yIGyIZ/bjAZATlxfvdLPJE0w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Kv8ugP3uvx0dlOiIe/NDQwiGl8OmZ15QL6mg9S2sBKc=;
- b=IDWnkGVkvdENpa/V0jz5Bn43dbmGH2oueIJU4LyRMiP5XdGqwQesN+I9TmKZZKLmavw8V5GH4Uu2r/4iUJRY9DqrI1p/sR6LnNsyCtYop2EoxPxQ4lzkh8Qp4ckT90JYlJOwCJe25J6XoQDZYY3Am2Za/drWIa7OfTPWRQQN/03VtGDZFRvaYgE5D0ACaCWSCKBZZgLgyc7HK7NolDEXna2tHUzZRivjgY0pY4tN/ktRoz2Dg0dzX3h69ys77kOqSnL+ovAP0F/B3H4+Sti/EI0HRq8b18s3eStRA/YyeIfgXY2PiIVhTSjr1iSGRW8+lCWoirbjD4dsxMbHlKIllQ==
+ bh=g0QnbWoaY2LEGdUv6kRlJZxExGgoNcoWnukNbun0hNo=;
+ b=rM2GbcMc/mC3tRQdLr7Ltfi7u8iT4xCNoSDNCg5X1BouH17IwcjU4MaJUO3V8LG+maGLDgld7NFFaWzABf4R83lPZYfiSFm0/393p4Kq4ulWLtHRwgjR3jP9yRh1b8xqj4wIPc5/QRmBFOBa8crXSKOVzUpjHkpSIGlT0rm4vBoGs+Y7sXZe8SbgrkOX2s80vDyGwylonMcGtZ7w6l4Vz/lj9bOxu2KWbkmlD5ZBzf/GkjdT7oEGQdJP6jP2FiZLWXh8uiNsXOgUfOu9f5pgzy+1FmMYSbtiJvvbq40PbV4G1LwhmIE7D8E2osd4q4mIKkGDKfxX+OjL4ma1UoT68w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -43,18 +43,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Kv8ugP3uvx0dlOiIe/NDQwiGl8OmZ15QL6mg9S2sBKc=;
- b=G9GmSmO5Ifbrd5I5aaZbs/ZfxNWl7alwf5R0o0gs9hMDCV82rPPzmgWgOgi3RImoceMo3FHhc1OQ7Csl2FqKmtXq5Nyh8YSg05wYevCqj8LwGzVyKDst3ARiZNFb6OfZhKCsvlASI+TGm8Ug09IC7WFfg/lRmkEdeugVf1JEPl8jPN05WGKiG6EHSbdtMB6Uzg9vjHeEKbkKPC1W0pwYaPpMqkdfQngABkMMzgaUk39Y/GmhnneQOdsnR1/zLbLdIav3oSf8ueLTpFPUTTNFcbvc3p0iQt21dbkJrrmuL7imnaINqz+Y0OQol0Dsw4dPWZB3ie9CnVgSSZ+it78k1g==
-Received: from SJ0PR05CA0085.namprd05.prod.outlook.com (2603:10b6:a03:332::30)
- by CH2PR12MB4200.namprd12.prod.outlook.com (2603:10b6:610:ac::16) with
+ bh=g0QnbWoaY2LEGdUv6kRlJZxExGgoNcoWnukNbun0hNo=;
+ b=np0xJ2XuswWPJOa4Fs/7tYJT9u05DF9sM9cCjVfWyV0tNVZvbKHPgIUeuWToSBCWfUyIcbq2zCgqXl4km6ChHbfUrixDeQni4prluog8TjWs9xxmHX5UM8shVB1WfD0uB74iiLfDuymWn/yEWwiRHsfDtMUl2nLH8ImRmk3/LKMLgkzukj/s55t+bknNhd4/luBEuVD6NVJRAYg4kYr38pMJ+V5FdbdfJ4GiEd9F52Sj5XlOHU57wuXECygYLl8EQB+Zg1qzFp0kEOVL7RpXN4FbPUd4kxU+5diuZfgMLTtMaR25Dt/EvWvZxQ4hC/OD+ECO65dQwVB8N3gtxlKa9Q==
+Received: from PH8PR07CA0019.namprd07.prod.outlook.com (2603:10b6:510:2cd::18)
+ by PH8PR12MB6842.namprd12.prod.outlook.com (2603:10b6:510:1c9::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Mon, 2 Nov
- 2026 05:19:43 +0000
-Received: from BY1PEPF0001AE17.namprd04.prod.outlook.com
- (2603:10b6:a03:332:cafe::8b) by SJ0PR05CA0085.outlook.office365.com
- (2603:10b6:a03:332::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.8 via Frontend Transport; Mon, 2
- Nov 2026 05:19:43 +0000
+ 2026 05:19:53 +0000
+Received: from BY1PEPF0001AE16.namprd04.prod.outlook.com
+ (2603:10b6:510:2cd:cafe::52) by PH8PR07CA0019.outlook.office365.com
+ (2603:10b6:510:2cd::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.569.12 via Frontend Transport; Mon, 2
+ Nov 2026 05:19:53 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -62,20 +62,20 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.117.161 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.117.161) by
- BY1PEPF0001AE17.mail.protection.outlook.com (10.167.242.107) with Microsoft
+ BY1PEPF0001AE16.mail.protection.outlook.com (10.167.242.104) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.592.5 via Frontend Transport; Mon, 2 Nov 2026 05:19:43 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ 15.21.592.5 via Frontend Transport; Mon, 2 Nov 2026 05:19:53 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
  (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Sun, 1 Nov
- 2026 21:19:31 -0800
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 21:19:42 -0800
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Sun, 1 Nov
- 2026 21:19:30 -0800
+ 2026 21:19:41 -0800
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
  (10.129.68.10) with Microsoft SMTP Server id 15.2.2562.56 via Frontend
- Transport; Sun, 1 Nov 2026 21:19:29 -0800
+ Transport; Sun, 1 Nov 2026 21:19:40 -0800
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: <will@kernel.org>, <jgg@nvidia.com>
 CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <praan@google.com>,
@@ -84,9 +84,9 @@ CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <praan@google.com>,
 	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>, <kas@kernel.org>,
 	Cristian Prundeanu <cpru@amazon.com>, Breno Leitao <leitao@kernel.org>,
 	<xueshuai@linux.alibaba.com>, <john.garry@arm.com>
-Subject: [PATCH v12 02/12] iommu/arm-smmu-v3: Init the vmid_map ida before the stream table setup
-Date: Sun, 1 Nov 2026 21:19:10 -0800
-Message-ID: <5c764fa56a42c0631101f2fb3741e6c010cdfdd3.1793593923.git.nicolinc@nvidia.com>
+Subject: [PATCH v12 10/12] iommu/arm-smmu-v3: Retain CR0_SMMUEN during kdump device reset
+Date: Sun, 1 Nov 2026 21:19:18 -0800
+Message-ID: <f458ce5587ad991c85e65ee12e8f5b271e5f6745.1793593923.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1793593923.git.nicolinc@nvidia.com>
 References: <cover.1793593923.git.nicolinc@nvidia.com>
@@ -97,28 +97,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE17:EE_|CH2PR12MB4200:EE_
-X-MS-Office365-Filtering-Correlation-Id: a1a4cd70-37b4-421b-0739-08df38a0e726
+X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE16:EE_|PH8PR12MB6842:EE_
+X-MS-Office365-Filtering-Correlation-Id: cd908263-e15d-4344-059b-08df38a0ed40
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|36860700016|82310400026|11063799006|56012099006|261009223027099003|261028144727099003|261021121427099003|261021123027099003|261021135927099003|261026121527099003|261026140227099003|261022075727099003|261022105027099003|10067099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: 8KUFi4f9iGgXdbWM1GhKc13HbkFdvi1j81JeDSUynkm+9C6Aj5x+QWVWpYun0ng16wIe+c1A0619aum6mVemtWb9aMi5Hj9SngX5Wv9ZkLCghWfZDY+nan7sSZV63ayKbNyaD/obyLcYjAvy/BfCZm+ih7CdzEg9wnm0fOZdov7LA+TuRNa3zHCgxqErmgHUrxNBSoLp5R8kzPyyzUFtyytpdHtQWw4zWBebr/rqv7lkBsNqRubb1AreEjsHgz8o5hqf6bPsi7RLWhbXEFV10DCJOaoaecU3cfyaRTSzKGz6X3uvi/kc+xh2Fllx/pTKRLAfu6OTwb7KoDHU/fzcaJLwxCE2W1FZM61hxVC1I3NLW3mNmewzu8tkgC9eoMry+iGp2eqpvkx4+wO9lYHapgZQFBnA6dnmgL/8iKdbchI05HNAEglvgPgggkTvtqqAh2Cl3Jbl20iXrLMwYYLxRC8ziPjH3tksVF0PkHGX0UAc0CZB0Rl1VNeYsIpd4aVDjQnrWiCf5R6TYJxz2zWrv2ZPC83gaSqxrZV+Gw0GJXhinYHPCUULGOT2hkhs1oJlaWllbgDUmXYSir5Zm/AlO096TeVJm9qPcpZg/MtVgY2ygOYKu65b1opgn+wdD1tzAQXsnLhOWOhl0biClQPIgo/M90BEYDj9BedNnzEEx+foE3JUejmTs/DBzvItsbPeS4uEff/QMJAqy/uszsgF2w==
+X-Microsoft-Antispam-Message-Info: +3o63CG/brdagkSKvSdpIvQ0mYk2dFtXSsLbE/G3ZbVHxp4dwA6XLMYIqVYGQkX0DK5y1cPlpJpoms4ioxUWYbRE8pALrOK35Sj90+E7Sp/4Q6Y5VVXo/y3Sxq1yu8BDIDcHghn0zIYFpWIpsabS5GZyYNYIa1BgMApYDc5PFr2CPXCZH+GGD8ddhVyZKx0jTGibnDIx6zwzDX+htZYMICKRBA1smGSoFxhSCS4LBZZQcAUt5PPywlNH1Ydjay1v46IsxtpOJ2r64+PD2GKv4a3SKJHFgFSw2FU2cLhaDeWYatj7qwEY+DZ8mL4WDHOnswMqzL1O1DCe3boltf7srDYOI1zLNDFhZrNMthE032McRVVNi70VOPVExzD5sUGcfZg8pKWRRRi7Z4F339f7U6gh+JXCwG75IQ/wYw3ip6dTMSkGhf1D0a0XizNjZEO9VINcK59OyC6++0dEoTJYq/nKdegrOHFTzwAGUdCoPDZ/6/P4F5u6HQ2A6DI/dJHIcC4kSPdsxsgCeuXBeMCURlR/kwqjJAuFqR0oWwKKQJI+WDsQP6EMKoyxWMBXHArFNOrjQ70JNK4Mmxd+5hBXaba2+cZCjT21xVEjfIThXM/RyPRmvEutNAWT42uuM8zJJ3Im01o0QwOwUtzVMIsISK/feU8ktvSPutuFg2q/UA0Oi85Maa14QsD6VZp8jUYLUYFZy4M3DNj8EE/8eMdCgA==
 X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(36860700016)(82310400026)(11063799006)(56012099006)(261009223027099003)(261028144727099003)(261021121427099003)(261021123027099003)(261021135927099003)(261026121527099003)(261026140227099003)(261022075727099003)(261022105027099003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: GRTLM23N3RIGpCHNov26p1vnCYSokJLVI3lTLv2xJ87Iu8KhvbSWEfmOft6pjVQkNQVfhlJf9j1Ngdr7fojefkQysLyHfkItdp3nRXCkXsDSO9NRe2JdyvDmtr0aAoPRP/dlD/sBwA9iCHdFFLRCWwCpZnkxNEiXW0QVaCQOqwU8j0/WdRod3DCkql/rzKEuvKrHa4CfGF3ukmxVxorRzN5Dms0tmQQER/B0JtZ7ydL6YLgB0ubxGMmxhXQyGEFXW8ZFVCbfQvXFgvqtmU/IPRYGFfkaslaRlMPBau08QvPWsO8ARw0/TiwI2/m9vzgcLqrLjB6Z2/s5AcFST+8gUKP6XI9Ba2VJIOFg+OgHkLoWA1/+icRgAl3vFcd0J0KmrTykel5w+k1ybX6qmQ1KpFXQS4shgRIAPw5pXNAEk8xmcfFNNZlsZSVOjMR25Omk
+X-MS-Exchange-AntiSpam-MessageData-0: D6foJGW0Roqt7bDAr8t4SJipoyaMWOryPeYyJmENRVKbrEAN9ffUhucY2JGOfIx9gW8Q7M8/Rs+wa68LjZUWTLpHvf8ueHKJG1x2bOTTE2S34BN1KSmfCWxnTWEqVpH+oYKdmOtncEt3klRDV7+SUuf/X2XzhCi9IzrT6NimySV6lBgrveYASF3dWcBNupx2AZOosVivaZxGHVeEp/WZs7OqIcZ35y1vE2Rqhsf9JUPj+uv/anbuNcdUledgAQkw+qsKBMemW/fcESRFPff58PnPfvTOeupa8rbhCugeTiVdjKvkEhF+m8F8gGoOGtLUfUzaMHep0vLXEBUnN1h+VPOI5zQQHgEhishuUcYl1lQ4FTxGCm4WnfyjN3FNBMi9fmjcR/588V2L/oA+YJ9Tq1KxV45DR2ZOP147HVq0u+clqIp37SzjcFBW7nr4K2Ph
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 05:19:43.3476
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 05:19:53.5971
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a1a4cd70-37b4-421b-0739-08df38a0e726
+X-MS-Exchange-CrossTenant-Network-Message-Id: cd908263-e15d-4344-059b-08df38a0ed40
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE17.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE16.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4200
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6842
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_211951_632823_86A09553 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20261101_212002_843666_E6511498 
+X-CRM114-Status: GOOD (  18.06  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -138,55 +138,124 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The vmid_map ida is initialized after the stream table setup, along with
-the devres action that destroys it.
+When ARM_SMMU_OPT_KDUMP_ADOPT is detected, do not disable SMMUEN and skip
+the CR1/CR2/STRTAB_BASE update sequence in arm_smmu_device_reset(). Those
+register writes are all CONSTRAINED UNPREDICTABLE while CR0_SMMUEN==1, so
+leaving them intact lets in-flight DMAs continue to be translated by the
+adopted stream table.
 
-An upcoming change will reserve the crashed kernel's in-use VMIDs in this
-ida, from a kdump kernel's stream table adoption that runs in place of the
-regular setup and returns early.
+Initialize 'enables' to 0, so it can carry the retained CR0 fields in the
+kdump case, clearing only the queue enable bits. Then, preserve them when
+enabling the command queue.
 
-Move the ida_init() and its devres registration to the entry of the whole
-function, so that the ida is ready by the time the adoption path runs.
+The retained CR0 keeps the crashed kernel's ATSCHK too, which selects the
+fast (0) or the safe (1) mode for the ATS translated traffic. Switching to
+the safe mode would start checking the in-flight traffic against STE.EATS
+fields that the crashed kernel never set up for a check, aborting the very
+DMAs being carried.
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Reviewed-by: Mostafa Saleh <smostafa@google.com>
+Clear latched gerror bits if necessary.
+
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
 Tested-by: Breno Leitao <leitao@kernel.org>
 Tested-by: Cristian Prundeanu <cpru@amazon.com>
 Tested-by: Shuai Xue <xueshuai@linux.alibaba.com>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 57 +++++++++++++++++++--
+ 1 file changed, 53 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 6d4520c473086..5cabbe5652dc6 100644
+index d45ce33334ce2..1c53c690a2b02 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4842,17 +4842,17 @@ static int arm_smmu_init_strtab(struct arm_smmu_device *smmu)
+@@ -5145,10 +5145,39 @@ static void arm_smmu_write_strtab(struct arm_smmu_device *smmu)
+ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
  {
  	int ret;
+-	u32 reg, enables;
++	u32 reg, enables = 0;
  
-+	ida_init(&smmu->vmid_map);
-+	ret = devm_add_action_or_reset(smmu->dev, arm_smmu_destroy_vmid_map,
-+				       &smmu->vmid_map);
-+	if (ret)
-+		return ret;
+-	/* Clear CR0 and sync (disables SMMU and queue processing) */
+ 	reg = readl_relaxed(smmu->base + ARM_SMMU_CR0);
 +
- 	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)
- 		ret = arm_smmu_init_strtab_2lvl(smmu);
- 	else
- 		ret = arm_smmu_init_strtab_linear(smmu);
--	if (ret)
--		return ret;
--
--	ida_init(&smmu->vmid_map);
--
--	return devm_add_action_or_reset(smmu->dev, arm_smmu_destroy_vmid_map,
--					&smmu->vmid_map);
-+	return ret;
- }
++	/*
++	 * In a kdump case (set when CR0_SMMUEN=1 and !GERROR_SFM_ERR), retain
++	 * all the live CR0 fields, e.g. CR0_SMMUEN to avoid aborting in-flight
++	 * DMA and CR0_ATSCHK to carry on the ATS-check policy, while clearing
++	 * only the queue enable bits for this kernel to take over the queues.
++	 *
++	 * According to spec, updating STRTAB_BASE/CR1/CR2 when CR0_SMMUEN=1 is
++	 * CONSTRAINED UNPREDICTABLE. So, skip those register updates and rely
++	 * on the adopted stream table from the crashed kernel.
++	 */
++	if (smmu->options & ARM_SMMU_OPT_KDUMP_ADOPT) {
++		dev_info(smmu->dev,
++			 "kdump: retaining SMMUEN for in-flight DMA\n");
++		enables = reg & ~(CR0_CMDQEN | CR0_EVTQEN | CR0_PRIQEN);
++		/*
++		 * Disable queues since arm_smmu_device_disable() is skipped.
++		 * CR0 fields are independent per spec, so the queue enable bits
++		 * can be cleared while retaining SMMUEN=1.
++		 */
++		ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
++					      ARM_SMMU_CR0ACK);
++		if (ret) {
++			dev_err(smmu->dev, "failed to disable queues\n");
++			return ret;
++		}
++		goto reset_queues;
++	}
++
++	/* Clear CR0 and sync (disables SMMU and queue processing) */
+ 	if (reg & CR0_SMMUEN) {
+ 		dev_warn(smmu->dev, "SMMU currently enabled! Resetting...\n");
+ 		arm_smmu_update_gbpa(smmu, GBPA_ABORT, 0);
+@@ -5178,12 +5207,27 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
+ 	/* Stream table */
+ 	arm_smmu_write_strtab(smmu);
  
- static int arm_smmu_init_structures(struct arm_smmu_device *smmu)
++reset_queues:
++	/*
++	 * GERROR bits are latched. Read after queue disabling so that unhandled
++	 * errors would be visible. Ack everything prior to re-enabling the CMDQ
++	 * as a stale CMDQ_ERR would halt the CMDQ and new command will timeout.
++	 * Acking SFM_ERR is defined too, although it would not exit the SFM.
++	 */
++	if (is_kdump_kernel()) {
++		u32 gerror = readl_relaxed(smmu->base + ARM_SMMU_GERROR);
++		u32 gerrorn = readl_relaxed(smmu->base + ARM_SMMU_GERRORN);
++
++		if ((gerror ^ gerrorn) & GERROR_ERR_MASK)
++			writel(gerror, smmu->base + ARM_SMMU_GERRORN);
++	}
++
+ 	/* Command queue */
+ 	writeq_relaxed(smmu->cmdq.q.q_base, smmu->base + ARM_SMMU_CMDQ_BASE);
+ 	writel_relaxed(smmu->cmdq.q.llq.prod, smmu->base + ARM_SMMU_CMDQ_PROD);
+ 	writel_relaxed(smmu->cmdq.q.llq.cons, smmu->base + ARM_SMMU_CMDQ_CONS);
+ 
+-	enables = CR0_CMDQEN;
++	enables |= CR0_CMDQEN;
+ 	ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
+ 				      ARM_SMMU_CR0ACK);
+ 	if (ret) {
+@@ -5239,7 +5283,12 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
+ 		}
+ 	}
+ 
+-	if (smmu->features & ARM_SMMU_FEAT_ATS) {
++	/*
++	 * In a kdump adopt case, retain the crashed kernel's ATS-check policy
++	 * captured above rather than forcing it on.
++	 */
++	if (!(smmu->options & ARM_SMMU_OPT_KDUMP_ADOPT) &&
++	    (smmu->features & ARM_SMMU_FEAT_ATS)) {
+ 		enables |= CR0_ATSCHK;
+ 		ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
+ 					      ARM_SMMU_CR0ACK);
 -- 
 2.43.0
 
