@@ -2,108 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97E8D606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:12:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0D1F606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:13:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=V5+9Lw1k;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f3JNmNZw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lLHJU5CW;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VRxTfCma
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
-	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=D/s/xAEdSfZnDwTpORRC9ZOWyUJ6URsuayyvBKPDTOE=; b=V5+9Lw1k5mMhEwna/coqCe6nVL
-	9SSfP0fJcX3tbUZqC8VF7eADBOb9BAsZ9rj7dHMm72E2loYwDqI/+07jiaIOvS0ga059Ier3WYddE
-	AaAQoGOZJUmOmsTV9bSqkUmCQ7Kl1qM/rVtN3tAoQCVlGxhk99U4nUSIXQ3wuw4jcUCsuv2kKU7dN
-	OX7YPX6WdB5AQGXkSCe2mlk5JCzn0sKPRDKcFUwEZVtoOv8WkVUxw6JARO0elxqX6x7V6pSXrjZV+
-	1U597sSluvZ0DbW1f2dLciyrAo1wYz9mnRB6reSR3yiq7HHgZLeqiTqm9lNn3JuGPAosAUWFJZmX5
-	q1AfY1Qg==;
+	bh=XPRtcZyPX5uyQlsqBbPqlbi2Hh4PJVsJ6P0BXSRYmAk=; b=lLHJU5CWPjvffwit0H7GhKJA4Y
+	2OeTkfUeGE/QN5hwtduQBfmqx2Rt7Nb4ivg6gdKvXmSGF/IDSNsXtzZdFC+Bwj9foPmqJfJa2Asc8
+	6IzDttoE7POjeIqaTyX2FhQXVx8XLloAOHPnJUHk+3/b4k6cw0Pt4UYAj1B6eRSxcD+Hfu1ilv9XH
+	Z3aNStCYFoGE3u/TVmj3PemjomFj4NS2tL5LMSbDQiS6Oe+xOmTN99qJVX53e8inwtOJW1/LFIpeq
+	HBVW2PktJl045MWj3z9wlA9LsADX6nkJ5XA7zopc5E9SYt1vjArHLEHyQyu+IiW7URaqCKrcgc9Ed
+	XpJng2RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsmL-0000000GjTv-2JcA;
-	Mon, 02 Nov 2026 14:12:53 +0000
+	id 1xNsmb-0000000GjYE-3ABV;
+	Mon, 02 Nov 2026 14:13:09 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsmJ-0000000GjTg-3CVN
+	id 1xNsma-0000000GjXo-1ZmZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 14:12:51 +0000
+	Mon, 02 Nov 2026 14:13:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7165240892;
-	Mon,  2 Nov 2026 14:12:51 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793628771;
-	b=eEZAX9Ttz2wwWwo9eHii6lQUxATqUdV24TYpBfMmnMPlg2JwYSozUnOLOm05HdOS9NWb
-	 pxSC9XZ3E4bBjqNS656kYaD2Kb3jLtcMjXKnsvskUmda5WpTyO5UA9FPEyUipj9r00I8z
-	 5SQ7p1o5P07gtm3SWeypM+aWE4hEfkR6THNqRT3BbkKQG6ILMfzRUcW77RW05n/gNwwzQ
-	 VgogA1bNr8m4Iq0oCvUKus2wMSDIPuameJIqyj6wUSTMAsPeOnN5Z3IlNNe116lhQ+Alk
-	 YbCHGhoXn4NVFX+6LrsaAs2nFbnXhXIxNIjTe9Sxz3rfvkte6SLMC6SpX8PSK5ItXsw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793628771;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
-	 Content-Transfer-Encoding;
-	bh=D/s/xAEdSfZnDwTpORRC9ZOWyUJ6URsuayyvBKPDTOE=;
-	b=tf5s65H9m+wD4lmi0yzmLg+AiJLhjfEJcwkALG3emXaLbgxg/GpjLQgCawSmF6r9BBaD
-	 SmDMlBK2kjWKUub9x0FTBl/vkt8mk+g7R1LHUZenxX/gNJYIN1fnLx6dJ6ygvU/H+Pamn
-	 k3KRgJKrdHVSqrROWoMR7HudZev0iPGpwiF+LnU9wbdtpfr8TJMlJ1t3b91S0AIYdU6lY
-	 FVXDGQ63NMgsHLhxbYg/D9x8JIHDwsZZq+SZB8ECXUPF0qAz6Rmi4V2QNo5eKCiG+uRdc
-	 6/5qrzIbR1AA9YbPXKxTeyIAzGnprpySmeNqgWM6kNbnAsqBu0lZDMSSZPs9slsL+og==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id D84BA1F00A16;
-	Mon,  2 Nov 2026 14:12:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 26CAE402C1;
+	Mon,  2 Nov 2026 14:13:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 415641F00A16;
+	Mon,  2 Nov 2026 14:13:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793628771;
-	bh=D/s/xAEdSfZnDwTpORRC9ZOWyUJ6URsuayyvBKPDTOE=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=f3JNmNZwLkDGwt9N81tnnN+iXXr+Zd/ceba9muRmc/gVSGMF9i2qfuQDTZncTKAVR
-	 IVqv4SHAbxGRERalRrhNgIYA94kgDoqpj8DRMX9hzxks9jdA04jrEAcSEpTf4uLQV6
-	 BSsuOjbaUatyLf4QUADAARPvJWqzHKHbjwyaxD5tGmyoun0NUw01IhyaM70S1iWjkl
-	 TYlmBUXzTv7MpcHKsvHOdzhsCXbQ3JOnz52peSXcp4jSrofDLeepN7QWi9uloYxNkg
-	 NyuKb1w6HojhMaIIERDbCxK1ZdxTjRf+pr7iNrQcrJgjFp9XntcbbeaXmM+ghcs2oS
-	 vATb3iTRFJeyA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 37B3B4653F;
-	Mon,  2 Nov 2026 14:12:50 +0000 (UTC)
-From: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
-Date: Mon, 02 Nov 2026 15:12:47 +0100
-Subject: [PATCH v2] arm64: dts: freescale: lx2160a-nbxv3: fix the TCA9539
- and 1588 line names
+	s=k20260515; t=1793628788;
+	bh=XPRtcZyPX5uyQlsqBbPqlbi2Hh4PJVsJ6P0BXSRYmAk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VRxTfCma8suNDbAIew/uqNt2bgj8LgYc15bq9P6bz/YxU+n1N3TEzLZoUbSEpSg13
+	 IHzInqJBrnlrpMl1kZxiMTqGHQu6ltNsXPcGdQ3xqXN7NB2oak6VPWpe9VMHEyKf8C
+	 apXhKvnNNL5EspRWogeyjQXwMm+/nfDupYn7EVytH1qezntwPTyyaLh6GWcK4lqLMe
+	 Z9bTalVJJCwnuoRg8vEfaY6Z4XXUs6bue1se/fw3bNFLiqoT+uoGAX/OZbolSBpY21
+	 byimb68/dgZy+BOFsbKJcdSjrQrv9e8Up8iNKTNSAHkV6FhIMsvbiKy18gLftamcCt
+	 tnm9kXlL55wqg==
+Date: Mon, 2 Nov 2026 15:13:02 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Sascha Bischoff <sascha.bischoff@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 06/10] irqchip/gic-v5: Honour ACPI ITS noncoherent flag
+Message-ID: <auiabr1U4c9C7FwL@red-moon>
+References: <20261102-host_gicv5_fixes-v1-0-743b61626fc5@arm.com>
+ <20261102-host_gicv5_fixes-v1-6-743b61626fc5@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261102-for-upstream-nbxv3-dts-line-names-v2-1-58f234e478fb@free.fr>
-X-B4-Tracking: v=1; b=H4sIAF6a6GoC/5WNSw6CMBBAr0K6dgxT8IMr72FYtDCVJtKSGWwwh
- LtbuYHL9xbvrUqIPYm6FatiSl58DBn0oVDdYMKTwPeZlS71GbFEcJHhPcnMZEYIdkkV9LPAywe
- CYEYSaCqLGs3J1nWpcmdicn7ZH4828+BljvzZlwl/9p96QkC4dFeizureNO7umOjoWLXbtn0Bv
- fftTdAAAAA=
-To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Vincent Jardin <vjardin@free.fr>
-Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793628769; l=2803;
- i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
- bh=hHUsd9bJRSMGNR0btcyRpbeMGj6quxgOVoYnLHWHvS8=;
- b=XVxrGbzLj2cVry+PSQYRRhZG1x8x3UrZVxwbTaBtdBhzXNMFdnb2kVkOfErzEd2FTDTgnz4HE
- yIovGfitqAKBx9UEb24BZjbAVkxYLcdVO+RCqW6EsWheUXFhTFYmLR2
-X-Developer-Key: i=vjardin@free.fr; a=ed25519;
- pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
-X-Endpoint-Received: by B4 Relay for vjardin@free.fr/20260525 with
- auth_id=871
-X-Original-From: Vincent Jardin <vjardin@free.fr>
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261102-host_gicv5_fixes-v1-6-743b61626fc5@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,96 +73,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: vjardin@free.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Vincent Jardin <vjardin@free.fr>
+On Mon, Nov 02, 2026 at 01:32:59PM +0000, Sascha Bischoff wrote:
+> The ACPI ITS probe passes its noncoherent flag to
+> gicv5_its_init_bases(), but the common initializer checks a DT
+> property instead. For an ACPI ITS, this always selects coherent cache
+> settings and skips the cache maintenance required for its tables.
+> 
+> Use the noncoherent argument, which both firmware paths already
+> supply.
+> 
+> Fixes: a97efa5ba5946 ("irqchip/gic-v5: Add ACPI ITS probing")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  drivers/irqchip/irq-gic-v5-its.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
+> index 866c238f08dfe..c5d057f713134 100644
+> --- a/drivers/irqchip/irq-gic-v5-its.c
+> +++ b/drivers/irqchip/irq-gic-v5-its.c
+> @@ -1135,7 +1135,7 @@ static int __init gicv5_its_init_bases(void __iomem *its_base, struct fwnode_han
+>  			goto out_free_node;
+>  	}
+>  
+> -	if (of_property_read_bool(np, "dma-noncoherent")) {
+> +	if (noncoherent) {
 
-Some gpio-line-names do not properly describe the board.
+Bah. This is a very stupid thinko. Apologies.
 
-The board CPU's RCW sets EC2_PMUX = 2, which gives two GPIO4 pads to
-the 1588 timer, so they are not GPIOs anymore. Name them using
-lx2160 function with the altfn: prefix this file uses for every pad
-muxed to another function:
+Acked-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 
-- GPIO4[14] (ball M3, EC2_TXD1) is TSEC_1588_CLK_OUT, the CPU's 1588
-  clock output to the DPLL's reference input.
-- GPIO4[23] (ball P1, EC2_RX_DV) is TSEC_1588_TRIG_IN1, the CPU's 1588
-  trigger input, driven by the DPLL's 1PPS.
-
-The board-ID TCA9539 is a read-only 8 bit register:
- - P00..P07
- - a test point
- - P11..P17 are wired to GND
-There is no 16-bit board ID.
-
-Only the names are updated: the 1588 timer is already described by
-the CPU's dtsi then the CPU's RCW muxes those at CPU reset.
-
-Fixes: 565b6713a460 ("arm64: dts: freescale: add Nodebox v3 CPU Module")
-Signed-off-by: Vincent Jardin <vjardin@free.fr>
----
-Changes in v2:
-- Better explain changes (Sashiko).
-- Link to v1: https://lore.kernel.org/r/20261101-for-upstream-nbxv3-dts-line-names-v1-1-7c8eecb2da9f@free.fr
----
- arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi
-index 9c5588a75cdd..34e02102c214 100644
---- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi
-@@ -206,9 +206,9 @@ &gpio3 {
- 		"altfn:ec1-rxd1", "altfn:ec1-rxd0",
- 		"altfn:ec1-rx-clk", "altfn:ec1-rx-dv",
- 		"", "",
--		"ptp-refclk-in",
-+		"altfn:tsec1588-clk-out",
- 		"", "", "", "", "", "", "", "",
--		"u1700-zl30733-pps-out",
-+		"altfn:tsec1588-trig-in1",
- 		"",
- 		"ethsw-mdio-en",
- 		"usb1-oc#",	/* USB1_PWRFAULT and USB2_PWRFAULT pads: one wired-OR net */
-@@ -254,14 +254,14 @@ gpio@74 {
- 		#gpio-cells = <2>;
- 		gpio-controller;
- 		gpio-line-names =
--			"boardid-0x0001", "boardid-0x0002",
--			"boardid-0x0004", "boardid-0x0008",
--			"boardid-0x0010", "boardid-0x0020",
--			"boardid-0x0040", "boardid-0x0080",
--			"boardid-0x0100", "boardid-0x0200",
--			"boardid-0x0400", "boardid-0x0800",
--			"boardid-0x1000", "boardid-0x2000",
--			"boardid-0x4000", "boardid-0x8000";
-+			"boardid-0x01", "boardid-0x02",
-+			"boardid-0x04", "boardid-0x08",
-+			"boardid-0x10", "boardid-0x20",
-+			"boardid-0x40", "boardid-0x80",
-+			"test-mode-tp1500",
-+			"gnd-p11", "gnd-p12", "gnd-p13",
-+			"gnd-p14", "gnd-p15", "gnd-p16",
-+			"gnd-p17";
- 	};
- 
- 	u800: gpio@75 {
-
----
-base-commit: cbbddb6b08cc9900a87cccaa9b22bbe06aa4f50a
-change-id: 20261101-for-upstream-nbxv3-dts-line-names-93b121a5b440
-
-Best regards,
--- 
-Vincent Jardin <vjardin@free.fr>
-
-
+>  		/*
+>  		 * A non-coherent ITS implies that some cache levels cannot be
+>  		 * used coherently by the cores and GIC. Our only option is to mark
+> 
+> -- 
+> 2.34.1
+> 
 
