@@ -2,68 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84C29606A901
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:46:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA48F607F6F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:46:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iNMcwFOj;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lGVizo0L
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MMwEJXmW;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kTIJkYx9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=/WWmJnwldp5o5eeWM1lXiHDypa5/5oBu3TEWPCUu+dw=; b=iNMcwFOjXGhKgMpd0desqun09a
-	0SsB/C+aZLaSD11BEKjJtSI+n+3Nyg+Vl3qaEQT1K/rUBEthLN2EyOH2XHmOmJIj17fMsDAW+glBN
-	C1LS1TwRwvAWowSSWkudnHE0UvtaMR24c9anOShuss4LOGY3Y7Anhlq5m7BQ3F19bJbCOo4Mpakhr
-	7TY08IsH1CFW9YGET1wsF7ALLOmoiRs19p4SJMsPZPFi/LG764LdAt/ZoGC/bzi7xaf8VqzZx2xIt
-	Qyy1hz+AmDIvEzjsO77heKb3vMoBxZ9q7oPOLzmE5jzhCO6xwULcV3XuueN9+0UYDrdSyRDELJTl1
-	xoUgfYPw==;
+	bh=1ed4ABVb5WuZx7ievrj1cvm+vrmzhLmj5yV4zTMhJQg=; b=MMwEJXmWKR5l3526LChNEUmB4b
+	r4RSUvnDAhZKIea/haTYWdVtY1DRsb7ebDw7SDRzgi96KaaHw8YjUb+B6qjjsjNnA+cxMv9+5/Npr
+	qKBDFOR4tvEUbp2IvHoEvGPI6rNySQGYz6dk4cpNgSm+HyaumlbUwRKGbDPBhgTmqn+PGAYjrt+pO
+	M0DDBOfZ2xlGt8/KOM8H847n4erTPbUsaKzLQVDW0MMpu7/BbbGO+haExwj0Q6QMHpjdsMvX1wuAM
+	y51y5h9YxuztJVUPuW0oUA0gWKE5+EirESSz6ryDNzb0RBtWNBr5pFV3s60/W6JTk3NsbRa/smUay
+	HK9D2+4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNtIZ-0000000Gsfx-2F5d;
-	Mon, 02 Nov 2026 14:46:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xNtIj-0000000GsjE-2elx;
+	Mon, 02 Nov 2026 14:46:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNtIW-0000000Gsej-3LuN
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 14:46:10 +0000
+	id 1xNtIi-0000000Gsip-2g07;
+	Mon, 02 Nov 2026 14:46:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5872141630;
-	Mon,  2 Nov 2026 14:46:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B23A81F00A16;
-	Mon,  2 Nov 2026 14:46:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C830F600DB;
+	Mon,  2 Nov 2026 14:46:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51E231F00A17;
+	Mon,  2 Nov 2026 14:46:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793630768;
-	bh=/WWmJnwldp5o5eeWM1lXiHDypa5/5oBu3TEWPCUu+dw=;
+	s=k20260515; t=1793630779;
+	bh=1ed4ABVb5WuZx7ievrj1cvm+vrmzhLmj5yV4zTMhJQg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lGVizo0L+8RuLsNUtlO+zNM2+q1ntFpybYeOz3XvGOl7Nf9tUtrMKp+29KsO8Ae+O
-	 fi9+XbumetfQFbWRIx4i8Yqix9/HewLMKh9yVtnBBJVifqo/kGXKDKUOfs8oW/b7qw
-	 9xCwSfyUe79pKpVRcsJaV1mA6fLdwKt4VIxnOptN1RNrajSUi/MZeCRaLMmQmooWtc
-	 8VPOU5r+kP72Fk5E4YahVGWg4/ONtqEFBZjKqrNn9xY+YxLzaB96S5D8OQy1KmTo6f
-	 e5hZBfwMVTcsPUKRf+oJ4jt1Ay9im2eVdYm+k7KBPTJ977zpfux8j7cAbWwGNjNGMg
-	 7+xuuIR/gIbzg==
-Date: Mon, 2 Nov 2026 15:46:03 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Sascha Bischoff <sascha.bischoff@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 09/10] irqchip/gic-v5: Clean the allocated linear device
- table size
-Message-ID: <auiiK0ksqPMbHAmX@red-moon>
-References: <20261102-host_gicv5_fixes-v1-0-743b61626fc5@arm.com>
- <20261102-host_gicv5_fixes-v1-9-743b61626fc5@arm.com>
+	b=kTIJkYx932KW0rEFWbZ55+lbTtsZKF+4aG6/wsWGYG04/dedotlgN7zujoh8O2jQf
+	 z+v8UjodVuo6CFRkW679nsHC4p/DPLC4jCFE523SoM4wk8cUzXSXbnZVaUMoCJZXuW
+	 H7iYQvsi75Ucn/GauIsg7HpX1mHcJ3IuY+tXkV7YDSJu67E7yGUYsr0Ucvq2KDygtH
+	 1ZYEkQ7mdXkmN3HmICVak/FMRLN+Vy77pVLZFXMKyUiGTLR2X60Yuk+8uWN/N3swsi
+	 c+MBOCgIpfmjr3DeQn+wDTIRHm+vegoCu+ll1N4Ajue1ZEef9SKd6+TFT5wGzqqYYc
+	 +SCxPpRiNg7XA==
+Date: Mon, 2 Nov 2026 08:46:16 -0600
+From: Rob Herring <robh@kernel.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-arm-kernel@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Yendapally Reddy Dhananjaya Reddy <yendapally.reddy@broadcom.com>,
+	"open list:GENERIC PHY FRAMEWORK" <linux-phy@lists.infradead.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:USB SUBSYSTEM" <linux-usb@vger.kernel.org>
+Subject: Re: [PATCH 2/9] dt-bindings: phy: bcm-ns-usb3-phy: Describe the NSP
+ variant
+Message-ID: <20261102144616.GE1232511-robh@kernel.org>
+References: <20261021172819.668120-1-florian.fainelli@broadcom.com>
+ <20261021172819.668120-3-florian.fainelli@broadcom.com>
+ <20261030182151.GA1206797-robh@kernel.org>
+ <e25714a5-98b3-4a0e-ad9a-a644b5485749@broadcom.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261102-host_gicv5_fixes-v1-9-743b61626fc5@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <e25714a5-98b3-4a0e-ad9a-a644b5485749@broadcom.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,55 +93,52 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 02, 2026 at 01:33:02PM +0000, Sascha Bischoff wrote:
-> When the linear device table exceeds the kmalloc limit, the driver
-> caps the DeviceID width before allocation but keeps the original size
-> for cache maintenance. On a noncoherent ITS, this cleans beyond the
-> allocated table.
+On Fri, Oct 30, 2026 at 12:14:52PM -0700, Florian Fainelli wrote:
+> On 10/30/26 11:21, Rob Herring wrote:
+> > On Wed, Oct 21, 2026 at 10:28:11AM -0700, Florian Fainelli wrote:
+> > > Northstar Plus uses the Northstar Bx PHY register sequence but also
+> > > requires coordinated USB2 and USB3 core resets and a USB2 IDM interface
+> > > clock enable.
+> > > 
+> > > Add an NSP compatible with a required USB2 DMP phandle. Describe the
+> > > shared PHY relationship with EHCI, OHCI and xHCI so initialization
+> > > finishes before any host starts operating.
+> > > 
+> > > Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> > > ---
+> > >   .../bindings/phy/bcm-ns-usb3-phy.yaml         | 23 +++++++++++++++++++
+> > >   1 file changed, 23 insertions(+)
+> > > 
+> > > diff --git a/Documentation/devicetree/bindings/phy/bcm-ns-usb3-phy.yaml b/Documentation/devicetree/bindings/phy/bcm-ns-usb3-phy.yaml
+> > > index 7fd419db45d0..00d69b86cbff 100644
+> > > --- a/Documentation/devicetree/bindings/phy/bcm-ns-usb3-phy.yaml
+> > > +++ b/Documentation/devicetree/bindings/phy/bcm-ns-usb3-phy.yaml
+> > > @@ -14,6 +14,9 @@ description: |
+> > >     Known B1: BCM4707 rev 6
+> > >     Known C0: BCM47094 rev 0
+> > > +  Northstar Plus uses the Bx programming sequence, with coordinated USB2 and
+> > > +  USB3 resets. Its PHY is shared by the EHCI, OHCI and xHCI controllers.
+> > > +
+> > >   maintainers:
+> > >     - Rafał Miłecki <rafal@milecki.pl>
+> > > @@ -22,6 +25,7 @@ properties:
+> > >       enum:
+> > >         - brcm,ns-ax-usb3-phy
+> > >         - brcm,ns-bx-usb3-phy
+> > > +      - brcm,nsp-usb3-phy
+> > >     reg:
+> > >       description: address of MDIO bus device
+> > > @@ -32,6 +36,13 @@ properties:
+> > >       description:
+> > >         Phandle to the DMP (Device Management Plugin) syscon
+> > > +  usb2-dmp-syscon:
+> > 
+> > brcm,usb2-dmp
 > 
-> Recalculate the size after capping the DeviceID width.
-> 
-> Fixes: 57d72196dfc85 ("irqchip/gic-v5: Add GICv5 ITS support")
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  drivers/irqchip/irq-gic-v5-its.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
-> index 4de07bbdc4923..c0f3982229194 100644
-> --- a/drivers/irqchip/irq-gic-v5-its.c
-> +++ b/drivers/irqchip/irq-gic-v5-its.c
-> @@ -601,6 +601,7 @@ static int gicv5_its_alloc_devtab_linear(struct gicv5_its_chip_data *its,
->  		pr_warn("Limiting device ID bits from %u to %u\n",
->  			device_id_bits, device_id_cap);
->  		device_id_bits = device_id_cap;
-> +		sz = BIT_ULL(device_id_bits) * sizeof(*devtab);
->  	}
->  
+> That would be inconsistent with the usb3-dmp-syscon property that is
+> pre-existing, hence the name chosen here.
 
-Or sz = KMALLOC_MAX_SIZE;
+I'm not sure consistency is really better here, but okay.
 
-that's what we are doing after all.
-
-I wonder whether moving:
-
-sz = BIT_ULL(device_id_bits) * sizeof(*devtab);
-
-after the capping out of the if and do:
-
-if (BIT_ULL(device_id_bits) * sizeof(*devtab) > KMALLOC_MAX_SIZE)
-
-to check whether mem alloc should be capped makes this any easier
-to read.
-
-Regardless, this patch is a fix and it is right to make it as small
-as possible:
-
-Acked-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-
->  	devtab = kcalloc(BIT(device_id_bits), sizeof(*devtab), GFP_KERNEL);
-> 
-> -- 
-> 2.34.1
-> 
+Rob
 
