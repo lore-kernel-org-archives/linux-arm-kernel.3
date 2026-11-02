@@ -2,165 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C31B606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 09:48:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6538606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 09:48:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nBOBZ9cw;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=c60ltpkN;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=XIb+kmd4
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=INTlQS7G;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=lokeArN8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=tBpilLduGmKWuZIcWoFGh3oRU6G+tnaV5vhyAjtxcwA=; b=nBOBZ9cwbMrWVf
-	xSze7JK5w3id0wB7H+PZirUxvwYnJOTpPGkECpwq4q4E47tGDqXflqkmlS62dZvsxuimfl6h7sgp1
-	yNWroaoiYIX7QzqKA69RV8IxAfIAV+sVLm4Y1aA+r05iYJgySLAKSRPvItE6aSgq+DxR963ur+Iiz
-	Zs6535LzezeaslceDNRzIw3CS7gWC5OK1XJw19azoTHw8QtRxP6PIy75ZBQ08NO9VdZm1JiJgRn1S
-	JqkotHF3oawaNmxBb3uyx8x8BDgWI/Ouh7KFMk7OLmVyLCwyVBtkG2bZoJiAz7eDLQxXgn2O62deS
-	IuT4/XeVhvNeT+vUppLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=Ij4gPNs0GfjVbJFGWJtRXm0Tew534zu7KtTk34Zsa9o=; b=INTlQS7Gok1JAhmpZxOgY6msPK
+	Q7w3mn06SdrChiZrBOE5UFPskioRtORT+ROZikyJHPseOYBSDH7vy42oesAiyv1jfY7tIUWvDVZBy
+	EV67+SGsMLvulxNkRrfOMGioCOACSYwd5TksXEMEO+baxb8jMsmwQ89galZJmxOGZTf/KjWCpRzFU
+	xpf0Cxx9LqRqzA5eGsrcde2Fzv6skcYHaQw6vG8mMlNaZSsrT40vbvGIk9KIite0AGn7pJcW5Ce89
+	L59FdjxmcLLGJVzv5Hz3g9s7sbV4p3e+zbsaoUmdGJc64yl2fZU55ahc91V9AIFVkAkcMKyjU1GfV
+	y1QaWpSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNodv-0000000G4IY-3evX;
-	Mon, 02 Nov 2026 09:47:55 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xNoe2-0000000G4PE-0IEU;
+	Mon, 02 Nov 2026 09:48:02 +0000
+Received: from mail-wr1-x445.google.com ([2a00:1450:4864:20::445])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNodt-0000000G4GA-0sWO
+	id 1xNody-0000000G4Jt-2y8z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 09:47:54 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A29ASk92880918
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 2 Nov 2026 09:47:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	tBpilLduGmKWuZIcWoFGh3oRU6G+tnaV5vhyAjtxcwA=; b=c60ltpkN2CjgXaiR
-	LE/HImbNGg1TmZ6HFXIpg06HGEsPeMxmTEnciQ6RPcaq9NZHq5O0SW5H31VDrjir
-	cnbafERiEa+nKkKhhZGqvnTS72Ie/3b1eqVH3jar5nGiUOGk3j2idwTV5s3ZwzyQ
-	6xFmMM/2KTgTUzyrn0Y3PUUZbvrgnz/NPu15AT1+R7Lk3UCaf8oJmNuUvOBOAvcm
-	hH+5XLguFWFIW0OjBeBUHfBH1xnrXTi2mFaQ9ASdWnO2XDtoErgvrjnoHXFA9tCH
-	OyrGtodN6qZAIqyfMujRxMI1QDoRvcJGRRsYeB8/hSKirlrO2hU1kn5SzQ2EpvJM
-	mVlrSA==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hpqfrg716-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 09:47:52 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3ada8bc8575so6267022a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 01:47:52 -0800 (PST)
+	Mon, 02 Nov 2026 09:48:00 +0000
+Received: by mail-wr1-x445.google.com with SMTP id ffacd0b85a97d-48dff112181so2531925f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 01:47:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793612872; x=1794217672; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=tBpilLduGmKWuZIcWoFGh3oRU6G+tnaV5vhyAjtxcwA=;
-        b=XIb+kmd4poHAmy1SOjuppIilwrSwuy0PzJvPV/NhX0CpFC9SqATR+ialYD7a49CEyO
-         ziPsFMlyJpCZmAvfFBFAPuUnlAxalSnEzxhpttUYFlD0889yhkmhJVQUKSA6kqoHMQhY
-         N0epMfw467nIJv4OQp3z9rcmUBQrVlNoLFWo9z8QzqF+e2qXWu2SIRV1DLnoqx5CSqkX
-         hJll7C8lVnCGLrww4YjoKp3Pc70fD3hBkW3juNnOfeoOWpcDzhHFxqq2vBJ6MVoEL++q
-         wgpQj3kCx8omq1I0CUkE882TQVtVZ/cFBnt5w8oieibXv/OP7pBH/GEY//OaASB7Q2f4
-         N8Ig==
+        d=google.com; s=20260707; t=1793612876; x=1794217676; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Ij4gPNs0GfjVbJFGWJtRXm0Tew534zu7KtTk34Zsa9o=;
+        b=lokeArN8v9AoCkPXW6/9rIXdULJaJUNX6+yNFKOLOpAZo4bcuRP/2Iy8Ja/ZkYLdF+
+         Nr83p8tE+OCNgOS8CfK5zD/5gW055Gyj/4lAe6BvuvKzGJcVorQnm5b5MwWSJF3RGcob
+         z6Ew6SsESu7IvSQ4GHs/6z8IizlqDkntTC1xOugPPpd5PZUPbuTZFym9LSb61gUIC5yJ
+         5et9DQ2lGUccHcTkCiHv08Klkulvqr1T2ArXIvOKR59LRAxnn9op2JIR4uT0Be1HLO4w
+         VN5b8ujB6EBeew6ZNxuH1MOzdHPtDHV2KpJTp2CXWO4/EjCiE5oImOUAeGerdUp6yi7f
+         jAgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793612872; x=1794217672;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1793612876; x=1794217676;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=tBpilLduGmKWuZIcWoFGh3oRU6G+tnaV5vhyAjtxcwA=;
-        b=dHX9BM2tU2Fb5LilUd7FY0G3chSCHcfQeKHrTm0wNvqI8B8tnBg5eE8sVgo5nUEbNY
-         JwE15JxbphuW/NIr+aKPekImsuHsXtdjW0zh15+M1b1/mR80IpD5uv+k8V0uov6li8sg
-         erB8unqgxlADRjdTfIX+KPUQ9fHBp2JMyeJtV3TNcmdL/bA/fBTh0YQwLsF7iCIhe9BY
-         eDYjDNLhwhzhn7P18rR6ZLeN6nnq8Kcr/H9HYZBbHM5tU7LbwX+ykxGVL144bxP1tFQ+
-         g19wTYJXcBOthdjNUiygMzzhVSTLtVQy1XK3KfAndI1Zmdh9tIhkdn4ezuF8hErmSSE3
-         khDw==
-X-Forwarded-Encrypted: i=1; AKwUvBy2W+QWnRtJfdTObmQiRf8i3+PfdXp4Jax8dI/HHas3wZS/eE04iqbpoOMKs3fT3Xc1GXWd4x/OgQSlKynrNRYz@lists.infradead.org
-X-Gm-Message-State: APuU4Z+LDeCQwYbtb9xT5/QtOAzWnfkLIdEf/ku2TlJOQ7AOCfm+I8Nq
-	OuVOvuR7uikSg08JiRkSHhrDWbMYerjASbvYmXf271sV2udjJX5hLQ8FU9oT2RKCT0N3KKl4gFU
-	H5aOvuHDNvpgIfdPFapWIeb+OJX97t0xJ/ypUCuWnucND2ACO2dYqSPBgQcZB2CcVYh9g+4jZq0
-	9zIQ==
-X-Gm-Gg: AYBFou1qy5SdY6Dk7juVgGiqNhCJnKH/+4e7acxsuUjPruy8h7u5C855AhiEhkSljq/
-	ev9ZiNT/pyp6lhS6FKBWBu1dMl+IQdSL1ebdWXYpYtkXpgvSXy5bMKJBEcEUXsVM5v9db//4hTe
-	IynK4UAfReH12eB2hLu4SX/yRGfK8dE24DvApgzBMupGmePU9dc0quRQps4lp8WG1MEAnHb0yCg
-	8y3t6hLLFeKqwsR5X3TIgRBELFjZupWIvy29qbheNUp+6/XvABlmZVZp6fasg/JJFkAvk7BtlVy
-	dYKU9Xpt8sZDwkY9UJrQaTTuigU89KwaD5uHyErAjlnuM1MWnOwwVvY/1ZHPhkPhagWPSMrQG4U
-	0dTO6+nYrT9xWWG87/UYkgSqpTDTxBg7HB9e60iZgglofm4krq3IMSNxhMxohaCVtJQC6oUEW+g
-	eb0tZoYUkFVp68eKxP3PupxNFS9IkDqGOz3s8=
-X-Received: by 2002:a17:90b:3c08:b0:3a8:bd51:205b with SMTP id 98e67ed59e1d1-3ae89812f18mr8208558a91.37.1793612872016;
-        Mon, 02 Nov 2026 01:47:52 -0800 (PST)
-X-Received: by 2002:a17:90b:3c08:b0:3a8:bd51:205b with SMTP id 98e67ed59e1d1-3ae89812f18mr8208536a91.37.1793612871588;
-        Mon, 02 Nov 2026 01:47:51 -0800 (PST)
-Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3aebaac28c9sm5053234a91.15.2026.11.02.01.47.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 01:47:50 -0800 (PST)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Mon, 02 Nov 2026 17:46:34 +0800
-Subject: [PATCH v21 6/8] dt-bindings: arm: add an interrupt property for
- Coresight CTCU
+        bh=Ij4gPNs0GfjVbJFGWJtRXm0Tew534zu7KtTk34Zsa9o=;
+        b=j4EHIWOnr4ohJKNH6lgA04gpLSl7WOqWoiK32eS5XuMPU28CTom51Hgruss8KNLwQf
+         gW0PRH9aDCLDbe9X+RKAWSt3bLOWjbfjL5L/FO6qNhGzRLCwcVyLkLnpsFoOTAmVQVAC
+         0htQZE5fWwKIX/AxCiJSheEQ+lw4EALwL//9T/vZK/sDovKH42LDM5i2HdkZWbggKUl3
+         N/5H8qTdt2y42A41oXDFB++aZ9dhTI7LDAh8io4in6fzFkyy7iYsPEh9dUWwYKc66NW2
+         Bk5/xtvg+zddxFqFp8GMtUdbaZZxm+Hnavu33+DeWEW5p6Yff5b7ew12qMnew6JompCn
+         UGdA==
+X-Gm-Message-State: APuU4Z99hzrxikPaBhJGgrNcY2bCbBVmN4BRSxKDquDKhb8jOqHqbS9v
+	rB1YBF2rad2qi/53MW0MioBdv3sGvbUcyuJ7FJxDf59uS60jyXFunnu2f00IUMaNVSpGpScaEw=
+	=
+X-Received: from wrtf8.prod.google.com ([2002:a5d:50c8:0:b0:48e:773f:1c7])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:310c:b0:48e:5cd4:aa60
+ with SMTP id ffacd0b85a97d-48e6e2fbc14mr23004113f8f.42.1793612876088; Mon, 02
+ Nov 2026 01:47:56 -0800 (PST)
+Date: Mon,  2 Nov 2026 10:47:49 +0100
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261102-enable-byte-cntr-for-ctcu-v21-6-231e069b7853@oss.qualcomm.com>
-References: <20261102-enable-byte-cntr-for-ctcu-v21-0-231e069b7853@oss.qualcomm.com>
-In-Reply-To: <20261102-enable-byte-cntr-for-ctcu-v21-0-231e069b7853@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
-        James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Jie Gan <jie.gan@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-        Abel Vesa <abelvesa@kernel.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793612830; l=1754;
- i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=icbknvjFK2vf4oKtSEHbsU4cH2Y3pwIOC3H2EHr7Svw=;
- b=o45iHlSF0WsHgk3PyUkFhRrk//RjLVAmKOrTibXwQpYiryy5lYFSxxkpsFXbsQNmRGSrSi+cq
- xRm9Iigb9M6CDBxuhsa/PC45EBycsR0Aro0FtYcSqhPCkYw7xmvRxHR
-X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
- pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Authority-Analysis: v=2.4 cv=HMJWhYtv c=1 sm=1 tr=0 ts=6ae85c48 cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=EUspDBNiAAAA:8 a=7CQSdrXTAAAA:8 a=gSyxy6DGYGa4b6s9XCEA:9 a=QEXdDO2ut3YA:10
- a=rl5im9kqc5Lf4LNbBjHf:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-GUID: OBsP_uJ7gju4dESMCURmXklQc0HLhqtr
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAyMDAzOCBTYWx0ZWRfXzqqnuaxPqufm
- dzWO71ieuzwiSrkIh+sg0HFELsGp4zpPQAZR4qQMYNCnMGoQ2oJ66Z3TAsdPoR/kLhYESVzAicr
- pBHdKpp6mBboXLBj1ScvpwCINbAXShE=
-X-Proofpoint-ORIG-GUID: OBsP_uJ7gju4dESMCURmXklQc0HLhqtr
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAyMDAzOCBTYWx0ZWRfX2jYQ7K+XraTG
- fB7yWnhuYLPnIR1NyvziDWgooV4NyDSVk3zVfaeiQRWyRtpIYUWL/aSTAYmiDvUoPX86YvgQ2qb
- ckeHPN52InAGg73WhT2TdbJUYut/X5/IrWalM7/wlR4xvsMphC4WIsVxBHeJ054lSSjZ0DhpJkN
- qU7j+KNE44nZSixBCGEbL/6zkY6KovwDg9sAecYK2uPe/Tr1vYMBFgnHg50pj/dt3OvmfJ0jweg
- ahpI2fw2z3GG2JLnGW1gefBXkIxbiQRlRPA7XjKST+GC9LB8DkK4a/sIMlYb7tzAYOeC+T4dnbS
- AWVaAe9SY7xN4Vpcc69xJ1Z5i7uDP+FFDDrfJ91qxW2u8ZL7jPEQGe276pmPAzm9Quo5QZgrDCO
- NUNjrvsZuuR0EUe5eNJoKw7YofS91AO2It0sNU3jmYxq7G8Mw9kX9pJ2gMZTIkBvtxpMjicjDGF
- yt6Ykd2D9uJfAQutmtw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-02_03,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 impostorscore=0 malwarescore=0
- phishscore=0 spamscore=0 adultscore=0 bulkscore=0 clxscore=1015
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610300000
- definitions=main-2611020038
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.317.g454f8302e1-goog
+Message-ID: <20261102094748.2638468-2-ardb+git@google.com>
+Subject: [PATCH] KVM: arm64: Don't livelock when AT can't resolve a fault IPA
+From: Ard Biesheuvel <ardb+git@google.com>
+To: kvmarm@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_014753_275775_3E550D9F 
-X-CRM114-Status: GOOD (  14.89  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261102_014758_778882_7037B378 
+X-CRM114-Status: GOOD (  22.39  )
+X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,63 +88,112 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+X-Spam-Status: No, score=-26.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT,
+	USER_IN_DEF_DKIM_WL autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add an interrupt property to CTCU device. The interrupt will be triggered
-when the data size in the ETR buffer exceeds the threshold of the
-BYTECNTRVAL register. Programming a threshold in the BYTECNTRVAL register
-of CTCU device will enable the interrupt.
+From: Ard Biesheuvel <ardb@kernel.org>
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Reviewed-by: Mike Leach <mike.leach@arm.com>
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+When a stage-2 permission fault doesn't report its IPA in HPFAR_EL2,
+__get_fault_info() recovers it with an AT S1E1R/S1E1A on FAR_EL2. If that
+fails, kvm_hyp_handle_memory_fault() goes straight back to the guest, on
+the assumption that the replayed access will either succeed or take a
+fault that the slow path can handle.
+
+That assumption doesn't hold when the AT fails because its stage-1 walk
+takes a stage-2 fault on one of the guest's page-table pages, while the
+guest still holds a cached translation for the faulting VA. The guest
+doesn't walk its page tables, so it never takes the S1PTW fault that
+would let the slow path fix things up. It takes the same permission fault
+again, the AT fails again, and the vCPU livelocks in the world switch.
+
+This was observed on Apple M2, which has no hardware Access flag
+management at stage 2, and no DIC, so execute permission is granted
+lazily and the first instruction fetch from a page takes a permission
+fault. With DAMON_STAT enabled (CONFIG_DAMON_STAT_ENABLED_DEFAULT=y),
+kdamond keeps sampling guest memory, and damon_pmdp_mkold() ages a whole
+PMD at a time through mmu_notifier_clear_young(). With THP-backed guest
+memory, kvm_age_gfn() therefore clears the stage-2 AF of 32MB of guest
+pages at once, without TLB invalidation. When that covers both freshly
+loaded code and the page-table page that maps it, the first instruction
+fetch from that code livelocks, and the vCPU only ever recovers when its
+thread happens to be moved to another CPU. In all 52 instrumented
+occurrences, the AT reported a stage-2 Access flag fault on a stage-1
+table walk (PAR_EL1.{S,PTW} = {1,1}, FST = Access flag fault, level 3),
+while an AT S12E1R on the same VA succeeded. With DAMON_STAT disabled,
+the AT didn't fail once in 210 boots. Nothing in this is specific to
+nested virtualisation, nor to instruction fetches: a write to a
+read-only memslot hit it too.
+
+A stage-1 fault can lead to the same livelock. A guest that ages its own
+page tables without invalidating the TLB, as MGLRU does through
+ptep_test_and_clear_young(), can keep using a cached translation while
+the descriptor in memory has its Access flag clear. If such an access
+takes a stage-2 permission fault (lazy execute permission, or dirty
+logging), the AT reports a stage-1 Access flag fault (PAR_EL1.S = 0),
+which the guest never takes either, as it doesn't walk its page tables.
+This hasn't been observed, but it is why the invalidation below is done
+whenever the AT fails, rather than only when PAR_EL1.PTW reports a
+stage-2 fault on the walk. A guest that merely races with its own
+page-table updates isn't harmed by it: at worst, it takes a translation
+fault that it was allowed to take anyway.
+
+Invalidate this VMID's TLB entries on the local CPU before replaying the
+access, so that the guest has to walk its page tables and takes the
+fault that the AT ran into: either a stage-2 fault on the page-table
+page, with a valid HPFAR_EL2, which the slow path resolves, or a stage-1
+fault, which the guest resolves itself. In all instrumented cases, the
+next exit was an S1PTW Access flag fault on the page-table page. This
+only happens when the AT fails, so the cost is negligible.
+
+With this change, an EL2 UEFI guest that livelocked in 27 out of 210
+boots didn't hang once in 420 boots.
+
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Joey Gouly <joey.gouly@arm.com>
+Cc: Steffen Eiden <seiden@linux.ibm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Zenghui Yu <yuzenghui@huawei.com>
 
-diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-index 335a8e1a5a9e..decb404e2ab1 100644
---- a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-+++ b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-@@ -49,6 +49,11 @@ properties:
-     items:
-       - const: apb
- 
-+  interrupts:
-+    items:
-+      - description: Interrupt for the ETR device connected to in-port0.
-+      - description: Interrupt for the ETR device connected to in-port1.
-+
-   label:
-     description:
-       Description of a coresight device.
-@@ -70,6 +75,8 @@ additionalProperties: false
- 
- examples:
-   - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-     ctcu@1001000 {
-         compatible = "qcom,sa8775p-ctcu";
-         reg = <0x1001000 0x1000>;
-@@ -77,6 +84,9 @@ examples:
-         clocks = <&aoss_qmp>;
-         clock-names = "apb";
- 
-+        interrupts = <GIC_SPI 270 IRQ_TYPE_EDGE_RISING>,
-+                     <GIC_SPI 262 IRQ_TYPE_EDGE_RISING>;
-+
-         in-ports {
-             #address-cells = <1>;
-             #size-cells = <0>;
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
 
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index e0c55644224c..4ba61b71d511 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -843,8 +843,21 @@ static inline bool kvm_hyp_handle_cp15_32(struct kvm_vcpu *vcpu, u64 *exit_code)
+ static inline bool kvm_hyp_handle_memory_fault(struct kvm_vcpu *vcpu,
+ 					       u64 *exit_code)
+ {
+-	if (!__populate_fault_info(vcpu))
++	if (!__populate_fault_info(vcpu)) {
++		/*
++		 * The AT couldn't resolve the IPA, typically because its
++		 * stage-1 walk took a stage-2 fault, such as an Access flag
++		 * fault on an aged page-table page. If the guest still has a
++		 * cached translation for the VA, it won't take that fault
++		 * itself, and would replay the same permission fault forever.
++		 * Drop this VMID's TLB entries on this CPU, so that the replay
++		 * walks the page tables and faults with a valid HPFAR_EL2.
++		 */
++		__tlbi(vmalls12e1);
++		dsb(nsh);
++		isb();
+ 		return true;
++	}
+ 
+ 	return false;
+ }
 -- 
-2.34.1
+2.56.0.317.g454f8302e1-goog
 
 
