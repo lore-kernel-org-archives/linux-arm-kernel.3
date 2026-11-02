@@ -2,74 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46BBA606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80505606A335
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 22:18:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ua9dlSpD;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fP4sPoiz
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UTBhylqT;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BXwTaWeg
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Brz96hdrz7JmspNQJhcUGehhAL3Axu9lJW4DP1KRAJU=; b=Ua9dlSpDCGcGBF
-	O7ULvW4w57swPbhlYR0dNK7cQMoCbZq/E0JWmpOVa4IH5wd7SXVQ4gusORXjWTMKoP57cOQrcIErv
-	yHNzFsZOdtMd6Mcd29xfZsd5B6X5po/MoQ4tOxsUmIaUzZLXYZPz2h11PAstHKeCfF2QL4lvmkkTg
-	HYdviYNhOfuztHgvNmHRwJYgJ6BE96lGOA4Clvj5G8vujUmzVsF5WobmMxhMMyYO15Oom1/bNbZoo
-	5jW+tTlWzj+9fydFv3fZjPewRs6wqzilkcvtNq/rt4DZmvZlwyov21hvtKiEw+QLt60OG1iIqFEWe
-	CgOaSEfEly3bzn+BQmjw==;
+	List-Owner; bh=H7clgMueEvSON7kclP3SNzqVfpNypygmTsnUrvEaevY=; b=UTBhylqTdA94R4
+	PVlSwM+acSh9g7xVf0suXLC8AFEoJ2fwLxGT6nSPupx96NNH/0dzHCSKKd4xt+HxHXp1Mjh28Lrai
+	mfFZPrZF8g9eYNSU2MJps9DOJNlWqiEq1A74Ugs93IICTEPlpTEkSoZbu0ikJg3t4aA7u4xc4G7mk
+	zrjYtIJ3FQioqLgz/eLoJiX36tyMDhYXXimYCBV/XdiSH7ECGJUfZyKo/NfHwxVUBWpdk36t51jzp
+	03pjxEdEGET1g523NkrqocEPwnA34xpSXL3cQIc57DqnCye1o37i77fzaHNHyUJnBxlQc6DNxWRV+
+	oORR8fA8+QTG55AG2tQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO0Lj-00000000XgK-0PoF;
-	Mon, 02 Nov 2026 22:17:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xO0Ln-00000000Xhi-29KQ;
+	Mon, 02 Nov 2026 22:17:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO0Le-00000000Xf0-3peP;
-	Mon, 02 Nov 2026 22:17:50 +0000
+	id 1xO0Lf-00000000XfG-2oso;
+	Mon, 02 Nov 2026 22:17:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D1A86601F0;
-	Mon,  2 Nov 2026 22:17:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E1341F00A16;
-	Mon,  2 Nov 2026 22:17:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6ED5B406A3;
+	Mon,  2 Nov 2026 22:17:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 370FD1F00A16;
+	Mon,  2 Nov 2026 22:17:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793657869;
-	bh=Brz96hdrz7JmspNQJhcUGehhAL3Axu9lJW4DP1KRAJU=;
+	s=k20260515; t=1793657871;
+	bh=H7clgMueEvSON7kclP3SNzqVfpNypygmTsnUrvEaevY=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=fP4sPoizrBM/sWiBFzkBJYNAQTHXV/XetlGDejSnEpjVVomy3GD6vhS/mWLIC8a4e
-	 C2E3Kex7mvSHZrkiLLHFJbjDkKik4t7rFvjOH5hAhE1JL5kCxfX9B1Tg0FsjmjV25j
-	 6jCoOoiD7NmbJjP4kkp1XEbmFeg45bl+M6YW7B0JbjYcN4keJNL1u7L7tcmvo0EclX
-	 WBvOpazth8Im7O8BYEBGJ34zACJPCspJ0gaoQRmwbra4e5BuHd4pzIphYjmixcvsQX
-	 PiPkkB+5G8AXOqj/H+edwPLtMEdejt/WE1YJwUjvDc0ipWKIOCpD/8GFDAQ5GT70US
-	 EbR8cKlaqK1IQ==
+	b=BXwTaWegeUmc6D9rkHYF0GPvgmnk1UrbsKGzLd9lNblbGkLtlbT0ouP3Gxj/49Xsm
+	 FMjsC+xe7FXIQS5QqJhIw/c37vOQm8RWxiR1F+MLwUdA2gB/Xex/QOVWoP9j+uO4UI
+	 CthQ0JTG/2j6D5XMa3uLyx40BrSdecnwsDYDJAjZZl4CRVT2XXZVpTzPdBb4XJ77JJ
+	 Av3kaKJXwvssJCirFrsD+l7Hm7IvIJhtZNry+xd0gkQC/yH2rWxyks38dOik50w6WZ
+	 dlueEA+0nkXBgMaqKUWRF1ThNVgL165/OIDSis5OR8nPMW8LH5qxQi4E/GCLquUaQI
+	 UnLi9QnPZiv/A==
 Received: from traversing.sirena.org.uk (localhost [IPv6:::1])
-	by traversing.sirena.org.uk (Postfix) with ESMTP id 0F59F24130FA;
-	Mon, 02 Nov 2026 22:17:47 +0000 (GMT)
+	by traversing.sirena.org.uk (Postfix) with ESMTP id DEF10241313D;
+	Mon, 02 Nov 2026 22:17:48 +0000 (GMT)
 From: Mark Brown <broonie@kernel.org>
 To: Liam Girdwood <lgirdwood@gmail.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Alexandre Mergnat <amergnat@baylibre.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
  =?utf-8?q?GIBEOM_LEE_=28=EC=9D=B4=EA=B8=B0=EB=B2=94=29?= <rtx4060@gmail.com>
-In-Reply-To: <20261102-rgp-67-mt6363-regulator-fixes-v1-0-420789a3113e@baylibre.com>
-References: <20261102-rgp-67-mt6363-regulator-fixes-v1-0-420789a3113e@baylibre.com>
-Subject: Re: [PATCH 0/2] regulator: mt6363: Fix register access and VEMC
- voltage handling
-Message-Id: <179364259247.2092401.12751625536535103016.b4-ty@b4>
-Date: Mon, 02 Nov 2026 18:03:12 +0000
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+In-Reply-To: <20261101164405.1743177-1-rtx4060@gmail.com>
+References: <20261101164405.1743177-1-rtx4060@gmail.com>
+Subject: Re: [PATCH 0/2] regulator: mt6363: Fix the regmap value width and
+ the VSRAM LDO registers
+Message-Id: <179364206047.2092401.8748434363467628177.b4-ty@b4>
+Date: Mon, 02 Nov 2026 17:54:20 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1484; i=broonie@kernel.org;
- h=from:subject:message-id; bh=5Lsk5k8uWhWpSMVkEic8ZEeUQMXxLY0HlzaMYJ4qUm4=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJe8rDcubZ4o4eUXPhf5/9GAZYSTNNmXzkqNvFO7QI9P
- /Y/K2TcOkpZGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjARuV0M/6Puaa9YEx8bvjwl
- gTPpytPzv+LSBFY1Bgpv7krxTHbiYWFkeCJ5s8P5ZeMFqXcrTZ489+FMelk6IWhhy4/Qk4ZaH6T
- 5OAE=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1723; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=/7y45hq/hNgDZqvVd6ZLv1SrHpttQmcu6uNDHAt1cFU=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJe8vBIP7r9R25FtrOdfNfvKvEf4msOz77R57Rz+dEnG
+ 36/nxC9rKOUhUGMi0FWTJElLov7ZX3J6zV8Bxe2wcxhZQIZwsDFKQAT2dbI8Icr8gpPlOHdqAXT
+ pn64/3lPMqvQr1DHk1vSVOT2sizZy/iIkWH7wVmFam8cGidGsGY08H7K3r6oT1P9aMnu91+LNxu
+ dL+cGAA==
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -90,13 +88,18 @@ X-Spam-Status: No, score=-12.3 required=3.0 tests=BAYES_00,DATE_IN_PAST_03_06,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, 02 Nov 2026 15:54:16 +0000, Alexandre Mergnat wrote:
-> regulator: mt6363: Fix register access and VEMC voltage handling
+On Mon, 02 Nov 2026 01:44:02 +0900, GIBEOM LEE (이기범) wrote:
+> regulator: mt6363: Fix the regmap value width and the VSRAM LDO registers
 > 
-> Testing the MT6363 regulator driver showed:
->  - the VEMC (UFS VCC) voltage reported as 1.25 V while the PMIC is
->    programmed to 2.55 V
->  - regmap debugfs showing each register merged with the next one
+> These patches fix two problems in the MT6363 regulator driver that can be
+> seen from the code. They are on top of regulator for-next, where the driver
+> is the same as in master and v7.2.12.
+> 
+> Patch 1: the registers have 8 bits but the regmap has 16-bit values, so
+> every write also writes the next register. For example, disabling one of
+> VS2 and VBUCK1-7 also disables VS1, VS3 and VSRAM_{DIGRF,MDFE,MODEM}. The
+> MT6373 driver on the list has 16-bit values too, so its next version will
+> want the same change.
 > 
 > [...]
 
@@ -106,10 +109,8 @@ Applied to
 
 Thanks!
 
-[1/2] regulator: mt6363: Use 8-bit register values
-      https://git.kernel.org/broonie/regulator/c/7318d3833067
-[2/2] regulator: mt6363: Fix VEMC voltage selection
-      https://git.kernel.org/broonie/regulator/c/a8d72f246edb
+[2/2] regulator: mt6363: Fix the registers of the VSRAM CPU and APU LDOs
+      https://git.kernel.org/broonie/regulator/c/8aed8b66751e
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
