@@ -2,108 +2,109 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F65A60A6F51
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:40:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55DF3606A32E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:41:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Jgxebnhg;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=EyMHcKcA
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=m9S/MV5E;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b/xvAP08
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=OwvQ1K/T5ntTIih2Uajc562qVZy7T1bItsBHgcFYO5c=; b=JgxebnhgyxAJOl
-	GgTIsWjd2IUHOYqzJ2kem7WL1xd+xBluggFOD+qScK0l/W2d8iRy38+ePpu3gytWz6dowidl0fBAC
-	QLJl4DjjkQEZKyMtOuuJX/j9WocRsIspYBIFgjf0QJGt4SL8Mcnud3TWvybH5MR7ibij/mGSb5kgz
-	gyhz4sKLqglg/TR+HrVjes/oRhFAE7pZVMnsBEidtxC3p8JINTO1b7Brvfylo2iBrzgDBvK0q9tRb
-	zpDEjGq9QGnNI3XA7U/6h4L2Gy705hRwPbgDSSAB7q66VMJbbeXpiZwhtoIDE2LKdHMuXwK91uQHj
-	3nk1oLfaTrOCug19zGeg==;
+	List-Owner; bh=vtv8xpZBrQmEjFIrQCBqz+2OdEy+M0+o1H6jKGcfgF8=; b=m9S/MV5EkaGYrA
+	oZNEaqWUkeZvIEsG5ro6dJRsN5+v5H+Qz5YJnpNQ0MsGFGWduB3CvH93241YUB4xSjqgdQKwgPrgR
+	ZFnXZNoztoAWcKAHi6MhdyMsoJrQyFPaqj9+KkBNp5g+doWs2C2ucmYmONQIN+y2LtKdOZBFNPIVW
+	kCXiG8h6o7NHBau356tCOK9UhVuD11JDoBrsKEbFRCb7KKQePh+ymirQShvfTk520oNImjfcbT19f
+	ItY0WbJaOuKt1ERGLRCpC0qX2hR/PCDEE7cHln5Xo2ZVsd5QXpQC3QKiI2f4lUMLUo12VtB3FEX1o
+	p7fC1qgd/t8cZ+BSjSTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsHC-0000000Ge6p-3ooe;
-	Mon, 02 Nov 2026 13:40:42 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1xNsHy-0000000GeJp-0EfZ;
+	Mon, 02 Nov 2026 13:41:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsHA-0000000Ge5e-3XBk
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 13:40:42 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4a210470b49so24271955e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 05:40:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1793626839; x=1794231639; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=OwvQ1K/T5ntTIih2Uajc562qVZy7T1bItsBHgcFYO5c=;
-        b=EyMHcKcAf67vQlDJ332RQ40YYAgHVJmOws4n0Orc22nyWNHMbP7Jw42A40/2xh+A4t
-         7cwQT6oxzvTrbp3rPVTXJW36OlV/7321g4o82X6jFtpoLWnozWm34lbPrGS0CHkJcK3J
-         NvOFhisPR940gX/xlIFHoQtyzxpNgjRCxniFLn4m9kJGG4WRR5rRPsu9Hv7totLh1tz1
-         HKzX2hBb937TtITXNTRa2+XvB4cl1Z+U11LgC545kVXNtGDUbuQ9Ems1BLwxIlBufZ8i
-         LUqzJwBqpokfQy+x6EzVhvgZAnfXflPKHx84qsg8ax6fPk0GzrKy8aJUXvsqmDmt/FSw
-         j6vQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793626839; x=1794231639;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OwvQ1K/T5ntTIih2Uajc562qVZy7T1bItsBHgcFYO5c=;
-        b=tc/XDc9CVeQj5fNYa2h9FWCnyXmpHsDNI5/QgT/q3dnTAkPLwV0x8txUrv6JmqBU8Q
-         HvVEoDqLRQGIkJONi++TbFFhjD2anxq1YILdyqRqoKn5amSkX4JXHHIeue9u3Vtns9Xv
-         +XnLsEG2v6Q4vxzvcv1SZLCoAmcpfP5w9GU7c5SLqrWlocEWug6fvyn6hwnXLgOsKA6d
-         eX12SuJ48xWLa6Qup8DoctDjmvVJyjrBro8SQ6Lz4/aCerQJ6DkDc8F1VZXnlJQOIb/+
-         q5/gadKsEwlttxod/kYYxPhu0lSuNknV+2uSKlX5GU8c41Lcx1C2aMOT6jVTRzbZLydd
-         GtaA==
-X-Forwarded-Encrypted: i=1; AKwUvBx9Y62x+LwgOqIe0DRUD6xJXXDLL93Znti9e1NkfGXFANGtUhqbMNJxZZoAVkFtY7sMHX6D0PqFy35LzNYjqy86@lists.infradead.org
-X-Gm-Message-State: AFq9FYKw/RAamHf7BtZZRIvxh2i+WJtoYg8ABpReg0jflBMzEiVe1K1Q
-	UPP+/QybswRWS14IVdRFmd25IxrSyb0x3K+xH2zBtAsrwAYQakc8MXxszp2pB8u9GF8=
-X-Gm-Gg: AYBFou2t2DG83CEeTf+XvmkKEgYqyI5XoIAX4YM3V7TRdZInDs0Zbf0K6NxFhi/XjNp
-	HAm/XxYRr115wEg00L6sF2P9IVW9kJTAO68vfbQk3JBU94fl8gJN9VKbADOjIIRrs3geF1BiwSu
-	qIHT9tAucz0FoL47tPoELE/SlE7kark4ir4yziw0eSGuaPIwtqmEww4hEIQ3aNiiQT4n83zyYvs
-	e9MEfPpB742lI//U7kf/9D5OT/Di+PO7YsCUdNXoezO96zNl1qYlgRCsuOBm8rkO8I5aScRXoHu
-	wV8d7+qHfsNpk9hFRPU88/GY2bBzDiKROgxz7K47tWB2ixuZNZwRncL8mk8fZqxootpGUVU8rBW
-	qIlE1qnIqVXKx103UVp68ZcwJIFQDVLIPU71LV3LGtjulErUlu+SD30HbAh9yzPrMDTeWjQZen6
-	XAt3zCE5d2ui+HhxybtvZOeBiuYrTTEKS1mZBckxrT2Y0/Sv6p6MurOIyiTPG15lGD0S8O6u7sL
-	KfqcdpnsiqTWjSRr12Ok8ORV3VxoPwh/CI2IN3K5KxTQQkz3ofE5xuo8ZtCHNmkMPUHidfT9122
-	V+aEnIUiBPWyXqqvIN4CYctlw1JmUSsN067+9c9pp1tEnbP8Aw==
-X-Received: by 2002:a05:600c:8b06:b0:4a2:d:5ccc with SMTP id 5b1f17b1804b1-4ac17b2bc63mr237869415e9.10.1793626838793;
-        Mon, 02 Nov 2026 05:40:38 -0800 (PST)
-Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4abea533a1esm189194605e9.1.2026.11.02.05.40.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 05:40:38 -0800 (PST)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: Jessica Zhang <jesszhan0024@gmail.com>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, 
- Primoz Fiser <primoz.fiser@norik.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, upstream@lists.phytec.de
-In-Reply-To: <20261008053850.2941955-1-primoz.fiser@norik.com>
-References: <20261008053850.2941955-1-primoz.fiser@norik.com>
-Subject: Re: (subset) [PATCH 1/2] dt-bindings: display: panel-simple: Allow
- "data-mapping" for "auo,g104sn02"
-Message-Id: <179362683780.3310106.8889373164273856192.b4-ty@b4>
-Date: Mon, 02 Nov 2026 14:40:37 +0100
+	id 1xNsHv-0000000GeJ9-3wmJ;
+	Mon, 02 Nov 2026 13:41:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 666964054B;
+	Mon,  2 Nov 2026 13:41:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E41001F00A16;
+	Mon,  2 Nov 2026 13:41:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793626887;
+	bh=vtv8xpZBrQmEjFIrQCBqz+2OdEy+M0+o1H6jKGcfgF8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=b/xvAP08Bjx1FeNnlpwwolEeQo0hJONCM7VpEqmBHaG4h7s3SJNzElndSbaWMvZB6
+	 Dq0/W2YC9bV8CY5WAP0ydIBiEj3KyEpo9+xi5BHMzAokVP8KGx/rV4rs6iSyH4CVay
+	 0pmi45x8rCpJ0FiRclcFpYh9TDPBKqwcjf6AYAtBl25tgHtzR5eC65odz9TGIi0QCt
+	 XgbSOGyLVvJrKLIzSlNvjQ153VtlzhWlgq5xXtqSLyLe+zrsXdBX1adQ3lZTQLCLJQ
+	 CMIf3wP0QtWwAeGQm2Qlz/dWg+OLyHyzssyfkU5psC1yJhMpZrsaKAAILFBviSWhix
+	 z0TrzGzHiNmzA==
+Message-ID: <9742cc0b-e371-4ca1-9ca0-ca3451c39310@kernel.org>
+Date: Mon, 2 Nov 2026 14:41:21 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 01/11] soc: mediatek: dram-ecc: add the DRAM ECC
+ driver skeleton
+To: "santino.wang" <santino.wang@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, light.chen@mediatek.com,
+ Fred-WY.Chen@mediatek.com, arnab.layek@mediatek.com
+References: <20261102092334.138759-1-santino.wang@mediatek.com>
+ <20261102092334.138759-2-santino.wang@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261102092334.138759-2-santino.wang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_054040_914614_21438016 
-X-CRM114-Status: UNSURE (   8.92  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,33 +115,143 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
-
-On Thu, 08 Oct 2026 07:38:49 +0200, Primoz Fiser wrote:
-> As per the AUO G104SN02 datasheet, section 6.4.1 "SEL68", this panel's
-> SEL68 pin selects between 6 bits (SEL68 low/NC) and 8 bits (SEL68 high)
-> per color over LVDS, i.e. an 18-bit or a 24-bit input format.
+On 02/11/2026 10:23, santino.wang wrote:
+> From: Santino Wang <santino.wang@mediatek.com>
 > 
-> Currently, the auo_g104sn02 panel_desc only allows for the 24-bit
-> configuration by default. Boards wired for the 18-bit configuration need
-> the override introduced by commit 1cd3ea3e4b12 ("drm/panel-simple: allow
-> LVDS format override")) to describe that instead.
+> On the MediaTek mt8992 SoC the secure firmware (ATF) owns the DRAM
+> controller ECC interrupts and reports each corrected (CE) or
+> uncorrectable (UCE) error to the OS as an ACPI GHES record. The
+> following patches add the driver that consumes those records.
 > 
-> [...]
+> Add only the module skeleton here: the Kconfig entry, the Makefiles, a
+> class device that the later patches attach their sysfs attributes to,
+> and the MAINTAINERS entry.
+> 
+> Signed-off-by: Santino Wang <santino.wang@mediatek.com>
+> ---
+>  MAINTAINERS                                   |  9 ++++
+>  drivers/soc/mediatek/Kconfig                  |  2 +
+>  drivers/soc/mediatek/Makefile                 |  1 +
+>  drivers/soc/mediatek/dram-ecc/Kconfig         | 16 ++++++
+>  drivers/soc/mediatek/dram-ecc/Makefile        |  3 ++
+>  drivers/soc/mediatek/dram-ecc/core/Makefile   |  6 +++
+>  drivers/soc/mediatek/dram-ecc/core/main.c     | 53 +++++++++++++++++++
+>  .../soc/mediatek/dram-ecc/core/mtk_dram_ecc.h | 24 +++++++++
+>  8 files changed, 114 insertions(+)
+>  create mode 100644 drivers/soc/mediatek/dram-ecc/Kconfig
+>  create mode 100644 drivers/soc/mediatek/dram-ecc/Makefile
+>  create mode 100644 drivers/soc/mediatek/dram-ecc/core/Makefile
+>  create mode 100644 drivers/soc/mediatek/dram-ecc/core/main.c
+>  create mode 100644 drivers/soc/mediatek/dram-ecc/core/mtk_dram_ecc.h
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index aaf2825ac945..e7d25be97f24 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -17026,6 +17026,15 @@ S:	Maintained
+>  F:	Documentation/devicetree/bindings/dma/mediatek,*
+>  F:	drivers/dma/mediatek/
+>  
+> +MEDIATEK DRAM ECC DRIVER
+> +M:	Santino Wang <santino.wang@mediatek.com>
+> +L:	linux-kernel@vger.kernel.org
+> +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+> +L:	linux-mediatek@lists.infradead.org (moderated for non-subscribers)
+> +S:	Maintained
+> +F:	drivers/soc/mediatek/dram-ecc/
+> +F:	include/uapi/linux/mtk_dram_ecc_netlink.h
+> +
+>  MEDIATEK ETHERNET DRIVER
+>  M:	Felix Fietkau <nbd@nbd.name>
+>  M:	Lorenzo Bianconi <lorenzo@kernel.org>
+> diff --git a/drivers/soc/mediatek/Kconfig b/drivers/soc/mediatek/Kconfig
+> index d7293977f06e..91aed7d29be0 100644
+> --- a/drivers/soc/mediatek/Kconfig
+> +++ b/drivers/soc/mediatek/Kconfig
+> @@ -89,4 +89,6 @@ config MTK_SOCINFO
+>  	  information about the SoC to the userspace including the
+>  	  manufacturer name, marketing name and soc name.
+>  
+> +source "drivers/soc/mediatek/dram-ecc/Kconfig"
+> +
+>  endmenu
+> diff --git a/drivers/soc/mediatek/Makefile b/drivers/soc/mediatek/Makefile
+> index 0665573e3c4b..880342bed606 100644
+> --- a/drivers/soc/mediatek/Makefile
+> +++ b/drivers/soc/mediatek/Makefile
+> @@ -9,3 +9,4 @@ obj-$(CONFIG_MTK_MMSYS) += mtk-mmsys.o
+>  obj-$(CONFIG_MTK_MMSYS) += mtk-mutex.o
+>  obj-$(CONFIG_MTK_SVS) += mtk-svs.o
+>  obj-$(CONFIG_MTK_SOCINFO) += mtk-socinfo.o
+> +obj-y += dram-ecc/
+> diff --git a/drivers/soc/mediatek/dram-ecc/Kconfig b/drivers/soc/mediatek/dram-ecc/Kconfig
+> new file mode 100644
+> index 000000000000..c015c66635b2
+> --- /dev/null
+> +++ b/drivers/soc/mediatek/dram-ecc/Kconfig
+> @@ -0,0 +1,16 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +#
+> +# MediaTek DRAM ECC error handling driver
+> +# See plat/mediatek/drivers/dram_ecc/ in ATF for the SMC handler side.
+> +#
+> +
+> +# core/ -> mtk_dram_ecc.ko
+> +config MTK_DRAM_ECC
+> +	tristate "MediaTek DRAM ECC Error Handling Driver"
+> +	depends on HAVE_ARM_SMCCC && ACPI_APEI_GHES
+> +	default m
+> +	help
+> +	  Driver for MediaTek DRAM ECC runtime error handling. It works
+> +	  with the secure firmware (ATF), which owns the DRAM controller
+> +	  ECC interrupts and reports each corrected or uncorrectable
+> +	  error to the OS as an ACPI GHES record.
 
-Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git (drm-misc-next)
+Why is EDAC-like driver outside of edac subsystem? drivers/soc/ is not a
+dumping ground.
 
-[1/2] dt-bindings: display: panel-simple: Allow "data-mapping" for "auo,g104sn02"
-      https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/47459027812c73d4826f5f78bc8291cb59a5de3e
+> +
+> +static int __init mtk_dram_ecc_init(void)
+> +{
+> +	int ret;
+> +
+> +	mtk_dram_ecc_class = class_create("mtk-dram-ecc");
+> +	if (IS_ERR(mtk_dram_ecc_class))
+> +		return PTR_ERR(mtk_dram_ecc_class);
+> +
+> +	mtk_dram_ecc_dev = device_create(mtk_dram_ecc_class, NULL,
+> +					 MKDEV(0, 0), &mtk_ecc_data,
+> +					 "mtk-dram-ecc0");
+> +	if (IS_ERR(mtk_dram_ecc_dev)) {
+> +		ret = PTR_ERR(mtk_dram_ecc_dev);
+> +		goto err_class;
+> +	}
+> +
+> +	dev_info(mtk_dram_ecc_dev, "initialized\n");
 
--- 
-Neil
+No, that's not a code style which exists in upstream.
 
+> +	return 0;
+> +
+> +err_class:
+> +	class_destroy(mtk_dram_ecc_class);
+> +	return ret;
+> +}
+> +
+> +static void __exit mtk_dram_ecc_exit(void)
+> +{
+> +	device_destroy(mtk_dram_ecc_class, MKDEV(0, 0));
+> +	class_destroy(mtk_dram_ecc_class);
+> +}
+> +
+Best regards,
+Krzysztof
 
