@@ -2,100 +2,101 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2971A606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 04:04:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33031606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 04:22:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0kEuNhAC;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VYPUI7jP
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GnX+UW3+;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gsDtm2rW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=VoBL1fg1knaJIkUVWNPfYfv2x4Q0uTv93/Tn44/ErLk=; b=0kEuNhACRm5gLfX1hR8coXASTC
-	8cYpI3YvAbNQglL6aaA8TLnYtKwyl6HBsW0WKZGv7NPIZsQZJFXlaBr7T83Alo2gglJP9Ir8F0jgI
-	v3j5jpc+AEDWT/XTPwp0zd2T0nvLqN3dHNcAcoDd2W0LWNh+vnf9hjD1My8rz+9cXT4NrQTC45jgH
-	ncx2/DrZdksCLtJ+tC9KalwEh3mEeABrKuun24FlbekmmwpKHTsYnnxew9wq8kaZsCCnfgh0W8pv6
-	g77PcPelUZF9w8hreAOBsci9lWBuSt0v3y1/Z0BQnxe5sJK9ASINHSbqRyPMcaN7vGK3y1fSds7Zl
-	TJiKrk+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=7fBV2sDWDd42yKkGMbmzSDyqUamFmlIf4ePGPhr2gNU=; b=GnX+UW3+7l5u9Z
+	dpBjctUOhOAFSWvbNDVSSEXXGp8QQYQqZUyYqk6vy3zC23rPN3khjBywx6FdU2OcTRIFEYzJcdUKm
+	JmbPoGkf982KixRY/SwoePJo/fDoBoAuLnijA07JfOip/XY8hlc2K2iffpIUZdzGy2uEpVElGnDV2
+	Fn3UGdCCZF7IMenZatk7+Kp9xZG7nei9tlYnGKG7BfSOjU2p5ylgS2ZngqlNliDj8T+TiJgNQN6tC
+	WepojWG0sWD/jNWZhEKTjKvlk/h6iOlkPFgRoZ443yXQ0/RJoAfyyUyd+mQQfUxw9IfeQeb9F7xx1
+	l+VkcU1MWcIAC9DNX1pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNjHa-0000000FUjj-3OGQ;
-	Mon, 02 Nov 2026 04:04:30 +0000
-Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
+	id 1xNjZ8-0000000FVTZ-1rKm;
+	Mon, 02 Nov 2026 04:22:38 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNjHX-0000000FUis-0ceM
+	id 1xNjZ5-0000000FVT5-3LH1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 04:04:28 +0000
-Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-170135e43c7so140653c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 20:04:26 -0800 (PST)
+	Mon, 02 Nov 2026 04:22:37 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-cc4aa18f9afso976062a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 20:22:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793592266; x=1794197066; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=VoBL1fg1knaJIkUVWNPfYfv2x4Q0uTv93/Tn44/ErLk=;
-        b=VYPUI7jPtj24G9FEJdy/8vb9pQY9K1kcpaC7A4NYDobA8NJuvyY5ABCPPIxwSrg0cD
-         NcJfTaIAq4o+lExwgH9TPygYxw9Bn+mXdx0rDqyFA/Aw0+B9lX0QmPJtxv/eUPOmCg5v
-         LzpnscIeaYmC3v5IAdyEVcUbNeFMnvOkfvxHbu40em05xjDPgCB7KRegKgumuNr5uTxU
-         j9VUsrNACT9dgO6qjbNSOBT0gJD5J4o0Tn7GnSt0vvcwWxiuvZoXdYWJWfnW4vJLbTOz
-         3UL2mlxyqz/JYy0hgHwlGocOjlOVfJZJkLLwreLEFucarZDT2Y6Qk4hcA5GQfnqa7KVA
-         0c/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793592266; x=1794197066;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1793593355; x=1794198155; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=VoBL1fg1knaJIkUVWNPfYfv2x4Q0uTv93/Tn44/ErLk=;
-        b=gkWQY/ZwCFnlDmCw7WiYqB5UnscDf2rUTu+zoTACL0oXrbEPD8B2gTPVnN2ryqyJuu
-         crDeDPV3HG+v3vdthvpPhXVSr5faboCLt+mbZX5vpKHCJG+nzTTWrMYqQI9BS2vOoB1X
-         Ho8lCVZ1to95OwnUyMgyyLx9tTTgeErPGVZaWjmz2a1LpK4dtM/MsqZEBzMlTt4yzf5C
-         VC33ezXQP01IDB1IHxYqYPnHWf+rBj3fXjMBNa+jMVWZezbEs6fTAXQIppFsNfkp+Cfi
-         WP8bI8OOUKIxywNhRdaCtcMwS9v9+qXKZ3xpubuHOBX5GFLCuzdaX2Bdz2xZv3s8EMww
-         Nvxg==
-X-Forwarded-Encrypted: i=1; AKwUvByH9Rk4AGraquWeI0X66k/uUfryIk13/gXwmI9XhuiqHhXPuwo6frGgr11NAC8TCjhQYMTQ99zzPL3oe/XlcM/N@lists.infradead.org
-X-Gm-Message-State: AFq9FYIXQGh/9DG2pV7TU7poAqgaFBL+vtaaG9Fyd0dR5Z0qNtlW69pj
-	UwyVFbwqFyi61LfoU+Czb3BdzPpxn0gNmy6r/22cdhMsVpmr6uM7FVNv
-X-Gm-Gg: AYBFou1mcA17tWpTlNSsHj95VCzvrAuJVQJ+9v3RIZFnQ/T4B/9vQi0TJ4tkL7cGIrl
-	wsqcnX0SRV634Xov5vu1mLmShhxD/ZkkSuXUQOuosc5XNKCN558xWg8ytk5TW27H1pPHLKwG0GI
-	5MqBZxq1DtLe9BqKwyewRdm2yTTF3TpYmnawdZPPBLaQT96WGKv8TSua75dohuD1+T19ik9CaiH
-	ws47xVDTJAbT2Q9CDng6FkJH0uYxbYnYnxr696iQ8ljemVZXPG7WDMc5LvM8pKxBzrj9yL7ayIN
-	C9VwkR7YmyVqNcr00frTxfzM29p3+bFEdz+8CvaYjtHxHQM05tQ4tyhqeiuCrOYGHRMi1YyMrG2
-	qZbTuqeUMR+4Xz0BqC0Jf4PY+NXICFHWyhh1xzjEcEo6zgU4xm1t5ou8TXlTMovYlaizkAPRv8B
-	/HD0JoYvit6wUe421qlptx1DYH8uIjO+w+ILMeM3fWLP7r95P81YwyR9G2C5uaMTSCphmFiNBYH
-	rlwgrOgg7jOS78lQfGYgSqvLja1CzCo5cDdMbPGeA1m/p2Pif1nLuZarEa8QVZoBFTQPojJ22tR
-	kXMpalul7/HIvc6u3DOKZ8XIJFH7XHceLp1zOv7ImkgCZAeJzrYi306vRz6NB3xvMx5UzLQ=
-X-Received: by 2002:a05:7022:b043:20b0:19c:dd9b:d09e with SMTP id a92af1059eb24-1ac5cdf9b17mr14479268c88.23.1793592266054;
-        Sun, 01 Nov 2026 20:04:26 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:d75c:a9d8:6c00:c5c6])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1ac1845817csm29283682c88.5.2026.11.01.20.04.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Nov 2026 20:04:25 -0800 (PST)
-Date: Sun, 1 Nov 2026 20:04:22 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Ryan Brue <ryanbrue.dev@gmail.com>
-Cc: Mattijs Korpershoek <mkorpershoek@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] dt-bindings: input: mediatek,mt6779-keypad: add the
- MT8173 keypad
-Message-ID: <augLnMBF7Mbw9_sL@google.com>
-References: <20260915-rbrue-suez-upstreaming-mt8173-keypad-v1-1-96c325efacbe@gmail.com>
- <34cec90f-b6f7-49ec-a531-72150891dbb0@gmail.com>
+        bh=7fBV2sDWDd42yKkGMbmzSDyqUamFmlIf4ePGPhr2gNU=;
+        b=gsDtm2rWgZz4nA0jEKlBsnDv7JF+dGSDOgFRZ3J53dm/+ylSIjfxyPRgaFYO85W1ay
+         vbmceirynTCKnLTz1O2SbTweAppYfbPHNCLQFyEAHlCqAioxf5wF6/5JZioJsz/wQtC/
+         r0VIoyx38bswZeMwg01nGg65uE54KwOXdS3W3bmuNlI7ua799j+Ktobb6KmPFVetyhhb
+         w3UKWrAQE8gMnGS/psfq+zwn8vSDmX1VDgv+bHIZtYVZmZnWUPvdAhOqzxXsNhCIHVck
+         6InMeq2cwgfvHI8shGv7nuMkdVBf+KMt652R/80/bOkaJpGXDTolGBPxUCRKutAutsR5
+         nbbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793593355; x=1794198155;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7fBV2sDWDd42yKkGMbmzSDyqUamFmlIf4ePGPhr2gNU=;
+        b=dmRwimLYS6lw5iLMDHIT1u0dOIY2LrW6H1LP35/vyFTM1dvcqyyJ6ee2rAgwHxSumS
+         zD/1aEu3jSs0Q8rXk2nCDyrKwE++cAP+YMKVvUhQay3aIusELkmjjoKQXOJbXRSMvFjI
+         RdypybekrrS7XTfBMXVRssbD2ItqOuDyPGWTZQYCTUhx3EXnA5NDM6IuQRVJgcjELuNQ
+         bva0sGOKRNMg8et0vYtlUOU+fVqw2n65AHSkCiBMY5vC8fn1Tce4t75H2snEYIPh5oPs
+         n3MTY8URCuUCsPQD+yuO4R/J7Hc/n+sGMH0GOKJS59L9PubgIRw40QrK2WV0LJUaTaIZ
+         +/pA==
+X-Forwarded-Encrypted: i=1; AKwUvBxNYL7/99qujsg8BaEidk5jAVBB+oKktkbQWsRemZXeL8mGD4rhDuESeD7ZpgEZ4yFHUOKg0qMqUlItjmGZVCuk@lists.infradead.org
+X-Gm-Message-State: APuU4Z+1n9x/1bRs8ip2Vymi+UlYen4Vt3+F435nZy5nMzB/x8yYO+As
+	W1rytFM8j48GRSIOvWFqKjLJoxLGzpv4C4AwsoZSCIFz4gvkUnTIBzqq
+X-Gm-Gg: AYBFou2HXWwyEmNJLk0rxGliMI5Hutsfj1+BhqbqePdSxeEJypSc0Z7cOY92kfoEZ6g
+	+qMW3Xm9LiWccIeyaZm5rIj97Z6oicgP4B0YHHWOL3T4h4g6BAUHHAMjDHTb3imk3laGopWSqmK
+	gxJxIdY2cuEpXYNXSERhXRKGXQ5eaIqeYyWoEJ/70XzjYfbyqMkPysANvZYRM5BrJWQjepVECLX
+	nlsEhiAIkaXedHitdoU9AyEkH2w6AYWqKKBfA+G8CRq1c3lqZVG67EC+f2b9l4zSHpudQlezWXW
+	jVqYOJMxx7TqmDDqliTpl0++Fg8zJnf7bzgmAQjhLnYqNSfshajKkdeabG+aX8zt8xytGSg3QLN
+	rSqRe785U1L2jzd39hkveJhNUkDRVsEP+nfYAdMbvQCMArEsYO4YZrEXpmbKqyalsTl0kFTu1+w
+	g7wAKmymhv2vYEI11lV/eez8tGVipKCP9yK887faT6LOwJnh798AUFNP6mlyoltM1WKm6Kw0Z75
+	wE7D8ko9+jbzq05MYEgctYZSlr52G3nBqdpUpFx6s6bZvE1ROshLC63yIXNJGavpOW0yvd7HTKs
+	sIoA8cCI7QRbK2gjETvTOadQaZ8M2S9mpDRs5R9yuLEGh+q2AdMb669Hwi1RmlbIw6zci57ueKt
+	mdlE=
+X-Received: by 2002:a17:90b:3b51:b0:39e:6795:f7da with SMTP id 98e67ed59e1d1-3ae897c7d22mr7606558a91.19.1793593354591;
+        Sun, 01 Nov 2026 20:22:34 -0800 (PST)
+Received: from [172.19.1.42] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cdb096b4bcdsm2533701a12.5.2026.11.01.20.22.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 01 Nov 2026 20:22:34 -0800 (PST)
+Message-ID: <81173139-a43c-48a4-97c7-0a82de158b3e@gmail.com>
+Date: Mon, 2 Nov 2026 12:22:28 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <34cec90f-b6f7-49ec-a531-72150891dbb0@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] iio: adc: Add Nuvoton MA35D1 EADC driver
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, cwweng@nuvoton.com
+References: <20261030031501.130290-1-cwweng.linux@gmail.com>
+ <20261030031501.130290-3-cwweng.linux@gmail.com>
+ <20261101005312.1ec5e393@jic23-hlaptop>
+Content-Language: en-US
+From: Chi-Wen Weng <cwweng.linux@gmail.com>
+In-Reply-To: <20261101005312.1ec5e393@jic23-hlaptop>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_200427_193562_86FEFF16 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20261101_202235_897651_B2E2C0AD 
+X-CRM114-Status: GOOD (  46.05  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,25 +108,675 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-14.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Ryan,
 
-On Sun, Nov 01, 2026 at 09:24:58PM -0600, Ryan Brue wrote:
-> Hi Dmitry,
+
+Jonathan Cameron 於 2026/11/1 上午 08:53 寫道:
+> On Fri, 30 Oct 2026 11:15:01 +0800
+> Chi-Wen Weng <cwweng.linux@gmail.com> wrote:
 > 
-> Gentle ping on this one. It has an ack from Rob and reviews from Mattijr and
-> AngeloGioacchino. The device tree for the Amazon Fire HD 10 (2017) that I'm
-> posting for 7.5 uses it for the volume keys. The patch should apply to
-> input/next with a three-way merge. I can resend it rebased if that's easier.
+>> From: Chi-Wen Weng <cwweng@nuvoton.com>
+>>
+>> Add an IIO driver for the Enhanced Analog-to-Digital Converter (EADC)
+>> found on Nuvoton MA35D1 SoCs.
+>>
+>> The driver supports direct conversion and externally triggered buffered
+>> capture using sample module 0. Both single-ended inputs and the four
+>> fixed differential input pairs are supported.
+>>
+>> Use the internal 1.6 V reference when no external reference supply is
+>> provided, and report the reference voltage through the IIO scale
+>> interface.
+>>
+>> Use ADINT0 for conversion completion. Configure the interrupt source
+>> and end-of-conversion position explicitly, and recover from conversion
+>> timeouts by resetting the EADC control circuits, synchronizing the IRQ
+>> and clearing stale conversion state before another conversion is
+>> started.
+>>
+>> Reset the EADC control circuits during hardware initialization and
+>> sanitize interrupt, compare and sample-module trigger configuration so
+>> the driver does not depend on state left by firmware when the external
+>> reset control is unavailable.
+>>
+>> Provide firmware-node channel translation so DT IIO consumers select
+>> channels by the logical channel index described by the channel node's
+>> reg property rather than by the position of the channel in the driver's
+>> channel array.
+>>
+>> Add clock, optional reset and system sleep handling, and restore the
+>> controller configuration after resume.
+>>
+>> Signed-off-by: Chi-Wen Weng <cwweng@nuvoton.com>
+> Hi Chi-Wen
+> 
+> Various comments inline.
+> 
+> Thanks,
+> 
+> Jonathan
+> 
+>> diff --git a/drivers/iio/adc/ma35d1_eadc.c b/drivers/iio/adc/ma35d1_eadc.c
+>> new file mode 100644
+>> index 000000000000..9b6c38a66a66
+>> --- /dev/null
+>> +++ b/drivers/iio/adc/ma35d1_eadc.c
+> 
+> 
+>> +
+>> +static int ma35d1_adc_disable_irq(struct ma35d1_adc *adc)
+>> +{
+>> +	return regmap_clear_bits(adc->regmap, MA35D1_EADC_CTL, MA35D1_EADC_CTL_ADCIEN0);
+>> +}
+>> +
+>> +static int ma35d1_adc_setup_reference(struct ma35d1_adc *adc)
+>> +{
+>> +	struct regmap *map = adc->regmap;
+>> +	int ret;
+>> +
+>> +	/*
+>> +	 * MA35D1 TRM EADC reference control: PDREF selects the external VREF
+>> +	 * pin. With the internal reference selected, VREFSEL = 0 selects 1.6 V.
+>> +	 */
+>> +	if (adc->vref) {
+> 
+> With change below to use the read_voltage function this would then be
+> using a flag set there.
+> 
+>> +		ret = regmap_set_bits(map, MA35D1_EADC_REFADJCTL,
+>> +				      MA35D1_EADC_REFADJCTL_PDREF);
+>> +		if (ret)
+>> +			return ret;
+>> +	} else {
+>> +		ret = regmap_clear_bits(map, MA35D1_EADC_REFADJCTL,
+>> +					MA35D1_EADC_REFADJCTL_PDREF);
+>> +		if (ret)
+>> +			return ret;
+>> +
+>> +		ret = regmap_update_bits(map, MA35D1_EADC_CTL,
+>> +					 MA35D1_EADC_CTL_VREFSEL_MASK,
+>> +					 MA35D1_EADC_CTL_VREFSEL_1V6);
+>> +		if (ret)
+>> +			return ret;
+>> +	}
+>> +
+>> +	fsleep(MA35D1_EADC_REF_STABLE_US);
+>> +
+>> +	return 0;
+>> +}
+> 
+> 
+>> +static int ma35d1_adc_abort_conversion(struct ma35d1_adc *adc)
+>> +{
+>> +	struct regmap *map = adc->regmap;
+>> +	int ret;
+>> +	int err;
+>> +
+>> +	ret = ma35d1_adc_disable_irq(adc);
+>> +
+>> +	/*
+>> +	 * Reset the EADC control circuits to terminate a conversion which may
+>> +	 * still be in progress. EADCRST is cleared automatically by hardware
+>> +	 * when the reset completes and the EADC register values are preserved.
+>> +	 */
+>> +	err = ma35d1_adc_reset_control(adc);
+>> +	if (!ret)
+>> +		ret = err;
+> Why not just set ret directly for this one?
+>> +
+>> +	/* Drain an interrupt which may already have been latched by the GIC. */
+>> +	synchronize_irq(adc->irq);
+>> +
+>> +	err = regmap_write(map, MA35D1_EADC_STATUS2,
+>> +			   MA35D1_EADC_STATUS2_ADIF0);
+> I don't mind going slightly over 80 chars. I would do so for the line above.
+> 
+>> +	if (!ret)
+>> +		ret = err;
+>> +
+>> +	reinit_completion(&adc->completion);
+> Why?  It is reinit at start of read conversion - why else do we need to
+> do it?  Add a comment
+> 
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static int ma35d1_adc_read_conversion(struct ma35d1_adc *adc,
+>> +				      const struct iio_chan_spec *chan, u16 *raw)
+>> +{
+>> +	struct regmap *map = adc->regmap;
+>> +	unsigned int val;
+>> +	long timeout;
+>> +	int ret;
+>> +
+>> +	reinit_completion(&adc->completion);
+>> +
+>> +	ret = regmap_write(map, MA35D1_EADC_STATUS2, MA35D1_EADC_STATUS2_ADIF0);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = ma35d1_adc_config_channel(adc, chan);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = regmap_set_bits(map, MA35D1_EADC_CTL, MA35D1_EADC_CTL_ADCIEN0);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = regmap_write(map, MA35D1_EADC_SWTRG, BIT(0));
+>> +	if (ret)
+>> +		goto disable_irq;
+>> +
+>> +	timeout = wait_for_completion_timeout(&adc->completion,
+>> +					      MA35D1_EADC_TIMEOUT);
+>> +	if (!timeout) {
+>> +		ret = ma35d1_adc_abort_conversion(adc);
+>> +		return ret ?: -ETIMEDOUT;
+> 
+> Timed out first, so I think that should be the return value
+> even if the abort then failed.  Maybe an error print is
+> more appropriate for a failed abort so we don't loose
+> that extra info.
+> 
+>> +	}
+>> +
+>> +	ret = ma35d1_adc_disable_irq(adc);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = regmap_read(map, MA35D1_EADC_DAT(0), &val);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	if (!(val & MA35D1_EADC_DAT_VALID))
+>> +		return -EIO;
+>> +
+>> +	if (val & MA35D1_EADC_DAT_OV)
+>> +		return -EOVERFLOW;
+>> +
+>> +	*raw = FIELD_GET(MA35D1_EADC_DAT_RESULT_MASK, val);
+> 
+> As below - I don't follow why we'd get 16 bits when I think
+> all paths throw away everything above the 12th.
+> 
+>> +
+>> +	return 0;
+>> +
+>> +disable_irq:
+>> +	ma35d1_adc_disable_irq(adc);
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static irqreturn_t ma35d1_adc_isr(int irq, void *data)
+>> +{
+>> +	struct iio_dev *indio_dev = data;
+>> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
+>> +	unsigned int status;
+>> +	int ret;
+>> +
+>> +	ret = regmap_read(adc->regmap, MA35D1_EADC_STATUS2, &status);
+>> +	if (ret || !(status & MA35D1_EADC_STATUS2_ADIF0))
+>> +		return IRQ_NONE;
+>> +
+>> +	regmap_write(adc->regmap, MA35D1_EADC_STATUS2,
+>> +		     MA35D1_EADC_STATUS2_ADIF0);
+>> +	complete(&adc->completion);
+>> +
+>> +	return IRQ_HANDLED;
+>> +}
+>> +
+>> +static int ma35d1_adc_sign_extend(u16 raw)
+>> +{
+>> +	return sign_extend32(raw & MA35D1_EADC_DAT_RESULT_12BIT, 11);
+> 
+> If the result is always 12 bits, why is read_conversion returning 16?
+> 
+>> +}
+>> +
+>> +static int ma35d1_adc_read_raw(struct iio_dev *indio_dev,
+>> +			       const struct iio_chan_spec *chan,
+>> +			       int *val, int *val2, long mask)
+>> +{
+>> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
+>> +	u16 raw;
+>> +	int ret;
+>> +
+>> +	switch (mask) {
+>> +	case IIO_CHAN_INFO_RAW: {
+>> +		IIO_DEV_ACQUIRE_DIRECT_MODE(indio_dev, claim);
+>> +
+> 
+> No blank line here.  We want the acquire and the error check tightly
+> coupled visually.
+> 
+>> +		if (IIO_DEV_ACQUIRE_FAILED(claim))
+>> +			return -EBUSY;
+>> +
+>> +		guard(mutex)(&adc->lock);
+>> +		if (adc->suspended)
+>> +			return -EBUSY;
+>> +
+>> +		ret = ma35d1_adc_read_conversion(adc, chan, &raw);
+>> +		if (ret)
+>> +			return ret;
+>> +
+>> +		if (chan->differential)
+>> +			*val = ma35d1_adc_sign_extend(raw);
+>> +		else
+>> +			*val = raw & MA35D1_EADC_DAT_RESULT_12BIT;
+>> +
+>> +		return IIO_VAL_INT;
+>> +	}
+>> +	case IIO_CHAN_INFO_SCALE:
+>> +		*val = adc->vref_mV;
+>> +		/* Differential mode has a VREF / 2048 LSB; single-ended uses /4096. */
+>> +		*val2 = chan->differential ? 11 : 12;
+>> +		return IIO_VAL_FRACTIONAL_LOG2;
+>> +	default:
+>> +		return -EINVAL;
+>> +	}
+>> +}
+>> +
+>> +static int ma35d1_adc_update_scan_mode(struct iio_dev *indio_dev,
+>> +				       const unsigned long *scan_mask)
+>> +{
+>> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
+>> +	const struct iio_chan_spec *scan_chan = NULL;
+>> +	unsigned long bit;
+>> +
+>> +	for_each_set_bit(bit, scan_mask, iio_get_masklength(indio_dev)) {
+> 	iio_for_each_active_channel()
+> 
+>> +		const struct iio_chan_spec *chan = &indio_dev->channels[bit];
+>> +
+>> +		if (chan->type == IIO_TIMESTAMP)
+>> +			continue;
+>> +
+>> +		if (chan->type != IIO_VOLTAGE || scan_chan)
+>> +			return -EINVAL;
+>> +
+>> +		scan_chan = chan;
+> 
+> This only makes sense if there is only one channel enabled.
+> The driver needs to ensure that is the case (there is a standard
+> validation callback for this).
+> 
+>> +	}
+>> +
+>> +	if (!scan_chan)
+>> +		return -EINVAL;
+>> +
+>> +	adc->scan_chan = scan_chan;
+>> +
+>> +	return 0;
+>> +}
+> 
+>> +
+>> +static irqreturn_t ma35d1_adc_trigger_handler(int irq, void *p)
+> This looks like the device only supports onehot channels (one at a time)
+> That's fine but then you should have the callbacks or available_channels
+> set to indicate that.
+> 
+>> +{
+>> +	struct iio_poll_func *pf = p;
+>> +	struct iio_dev *indio_dev = pf->indio_dev;
+>> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
+>> +	IIO_DECLARE_BUFFER_WITH_TS(u16, scan, 1) = { };
+> Where the timestamp location is fixed (if present) I prefer
+> 	struct {
+> 		u16 channel;
+> 		aligned_s64 timestamp;
+> 	} scan;
+> 
+> as it makes it easier to understand the layout. The macro
+> is for the case where different numbers of channels can be enabled
+> and there are enough of them to have the timestamp moving around
+> depending on what is enabled.
+> 
+>> +	u16 raw;
+>> +	int ret;
+>> +
+>> +	mutex_lock(&adc->lock);
+>> +
+>> +	if (!adc->suspended && adc->scan_chan) {
+>> +		ret = ma35d1_adc_read_conversion(adc, adc->scan_chan, &raw);
+>> +		if (!ret) {
+>> +			scan[0] = raw & MA35D1_EADC_DAT_RESULT_12BIT;
+>> +			iio_push_to_buffers_with_ts(indio_dev, scan, sizeof(scan),
+>> +						    pf->timestamp);
+>> +		}
+>> +	}
+>> +
+>> +	mutex_unlock(&adc->lock);
+>> +
+>> +	iio_trigger_notify_done(indio_dev->trig);
+>> +
+>> +	return IRQ_HANDLED;
+>> +}
+> 
+>> +
+>> +static int ma35d1_adc_fwnode_xlate(struct iio_dev *indio_dev,
+>> +				   const struct fwnode_reference_args *iiospec)
+>> +{
+>> +	unsigned int i;
+>> +
+>> +	if (iiospec->nargs != 1)
+>> +		return -EINVAL;
+>> +
+>> +	for (i = 0; i < indio_dev->num_channels; i++) {
+> 
+> 	for (unsigned int i = 0; ..
+> 
+>> +		const struct iio_chan_spec *chan = &indio_dev->channels[i];
+>> +
+>> +		if (chan->type == IIO_VOLTAGE &&
+>> +		    chan->channel == iiospec->args[0])
+>> +			return i;
+>> +	}
+>> +
+>> +	return -EINVAL;
+>> +}
+>> +
+>> +static const struct iio_info ma35d1_adc_info = {
+>> +	.read_raw = ma35d1_adc_read_raw,
+>> +	.update_scan_mode = ma35d1_adc_update_scan_mode,
+>> +	.fwnode_xlate = ma35d1_adc_fwnode_xlate,
+>> +};
+>> +
+>> +static void ma35d1_adc_init_channel(struct iio_chan_spec *chan, u32 index,
+> 
+> As below.  Given C provides nice ways to set lots of structure elements
+> helpers use those, rather than a fill the values in helper.
+> 
+>> +				    u32 vinp, u32 vinn,
+>> +				    unsigned int scan_index,
+>> +				    bool differential)
+>> +{
+>> +	chan->type = IIO_VOLTAGE;
+>> +	chan->indexed = 1;
+>> +	chan->channel = index;
+>> +	chan->address = vinp;
+>> +	chan->scan_index = scan_index;
+>> +	chan->info_mask_separate =
+>> +		BIT(IIO_CHAN_INFO_RAW) | BIT(IIO_CHAN_INFO_SCALE);
+>> +	chan->scan_type.format = differential ? IIO_SCAN_FORMAT_SIGNED_INT :
+>> +					      IIO_SCAN_FORMAT_UNSIGNED_INT;
+>> +	chan->scan_type.realbits = 12;
+>> +	chan->scan_type.storagebits = 16;
+>> +	chan->scan_type.endianness = IIO_CPU;
+>> +
+>> +	if (differential) {
+>> +		chan->differential = 1;
+>> +		chan->channel2 = vinn;
+>> +	}
+>> +}
+>> +
+>> +static int ma35d1_adc_parse_channels(struct iio_dev *indio_dev,
+>> +				     struct device *dev)
+>> +{
+>> +	DECLARE_BITMAP(used_regs, MA35D1_EADC_MAX_EXT_CHANNELS);
+>> +	struct iio_chan_spec *channels;
+>> +	unsigned int scan_index;
+>> +	int num_channels;
+>> +	int ret;
+>> +
+>> +	bitmap_zero(used_regs, MA35D1_EADC_MAX_EXT_CHANNELS);
+>> +
+>> +	num_channels = device_get_child_node_count(dev);
+>> +	if (!num_channels)
+>> +		return dev_err_probe(dev, -ENOENT, "no ADC channels configured\n");
+>> +
+>> +	if (num_channels > MA35D1_EADC_MAX_EXT_CHANNELS)
+>> +		return dev_err_probe(dev, -EINVAL, "too many ADC channels\n");
+>> +
+>> +	channels = devm_kcalloc(dev, size_add(num_channels, 1),
+>> +				sizeof(*channels), GFP_KERNEL);
+>> +	if (!channels)
+>> +		return -ENOMEM;
+>> +
+>> +	scan_index = 0;
+>> +	device_for_each_child_node_scoped(dev, child) {
+>> +		bool differential;
+>> +		u32 reg;
+>> +		u32 vinp;
+>> +		u32 vinn;
+> 
+> Can combine these related u32s on oneline.
+> 
+>> +
+>> +		ret = fwnode_property_read_u32(child, "reg", &reg);
+>> +		if (ret)
+>> +			return dev_err_probe(dev, ret,
+>> +					     "missing channel reg property\n");
+>> +
+>> +		if (reg >= MA35D1_EADC_MAX_EXT_CHANNELS)
+>> +			return dev_err_probe(dev, -EINVAL,
+>> +					     "invalid ADC channel index %u\n", reg);
+>> +
+>> +		if (test_and_set_bit(reg, used_regs))
+>> +			return dev_err_probe(dev, -EINVAL,
+>> +					     "duplicate ADC channel index %u\n", reg);
+>> +
+>> +		if (fwnode_property_present(child, "single-channel")) {
+>> +			ret = fwnode_property_read_u32(child, "single-channel",
+>> +						       &vinp);
+>> +			if (ret)
+>> +				return dev_err_probe(dev, ret,
+>> +						     "invalid single-channel for index %u\n",
+>> +						     reg);
+>> +
+>> +			if (vinp >= MA35D1_EADC_MAX_EXT_CHANNELS)
+>> +				return dev_err_probe(dev, -EINVAL,
+>> +						     "invalid ADC input %u\n", vinp);
+>> +
+>> +			vinn = 0;
+>> +			differential = false;
+>> +		} else {
+> 
+> This will change to match my requests for the binding so I won't look too closely
+> at it in this revision.
+> 
+>> +			if (reg >= 4)
+>> +				return dev_err_probe(dev, -EINVAL,
+>> +						     "invalid differential pair %u\n", reg);
+>> +
+>> +			vinp = reg;
+>> +			vinn = reg + 4;
+>> +			differential = true;
+>> +		}
+>> +
+>> +		ma35d1_adc_init_channel(&channels[scan_index], reg, vinp, vinn,
+>> +					scan_index, differential);
+> get rid of this and fill the structure in directly in the two different
+> paths above - so have a single ended copy of this and the slightly
+> different one for the differential channels. Bit of duplication
+> but simpler code by putting it all in one place.
+> 
+> 			channels[scan_index] = (struct iio_chan_spec) {
+> 				.type = IIO_VOLTAGE,
+> 				.indexed = 1,
+> 				.channel = index,
+> 				.address = vinp,
+> 				.scan_index = scan_index,
+> 				.info_mask_separate = BIT(IIO_CHAN_INFO_RAW) |
+> 						      BIT(IIO_CHAN_INFO_SCALE);
+> 				.scan_type = {
+> 					.format = IIO_SCAN_FORMAT_UNSIGNED_INT,
+> 					.realbits = 12,
+> 					.storagebits = 16,
+> 					.endianness = IIO_CPU,;
+> 			};
+> 		
+>> +		scan_index++;
+> 
+>> +	}
+>> +
+>> +	channels[scan_index] = IIO_CHAN_SOFT_TIMESTAMP(scan_index);
+> 
+>> +
+>> +	indio_dev->channels = channels;
+>> +	indio_dev->num_channels = scan_index + 1;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int ma35d1_adc_init_vref(struct ma35d1_adc *adc, struct device *dev)
+>> +{
+>> +	int ret;
+>> +
+>> +	adc->vref = devm_regulator_get_optional(dev, "vref");
+>> +	ret = PTR_ERR_OR_ZERO(adc->vref);
+>> +	if (ret == -ENODEV) {
+>> +		adc->vref = NULL;
+>> +		adc->vref_mV = MA35D1_EADC_INTERNAL_VREF_mV;
+>> +		return 0;
+>> +	}
+>> +	if (ret)
+>> +		return dev_err_probe(dev, ret, "failed to get VREF supply\n");
+>> +
+>> +	ret = regulator_enable(adc->vref);
+>> +	if (ret)
+>> +		return dev_err_probe(dev, ret, "failed to enable VREF supply\n");
+>> +
+>> +	ret = devm_add_action_or_reset(dev, ma35d1_adc_vref_disable, adc->vref);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = regulator_get_voltage(adc->vref);
+> 
+> There are plenty of examples of how to use devm_regulator_get_enable_read_voltage()
+> with optional regulators in tree.  Follow one of those and this code will be a lot
+> shorter.
+> 
+>> +	if (ret <= 0)
+>> +		return dev_err_probe(dev, ret ?: -EINVAL,
+>> +				     "failed to get VREF voltage\n");
+>> +
+>> +	adc->vref_mV = ret / (MICRO / MILLI);
+>> +
+>> +	return 0;
+>> +}
+> 
+>> +static int ma35d1_adc_suspend(struct device *dev)
+>> +{
+>> +	struct iio_dev *indio_dev = dev_get_drvdata(dev);
+>> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
+>> +	int ret;
+>> +
+>> +	ret = iio_device_suspend_triggering(indio_dev);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	mutex_lock(&adc->lock);
+>> +
+>> +	ret = ma35d1_adc_disable_irq(adc);
+>> +	if (ret)
+>> +		goto resume_triggering;
+>> +
+>> +	synchronize_irq(adc->irq);
+>> +
+>> +	ret = regmap_clear_bits(adc->regmap, MA35D1_EADC_CTL,
+>> +				MA35D1_EADC_CTL_ADCEN);
+>> +	if (ret)
+> 
+> If this fails, for consistency I think you should probably
+> reenable the irq.  If not add a comment on your thinking for
+> why.
+> 
+>   
+>> +		goto resume_triggering;
+>> +
+>> +	adc->suspended = true;
+>> +	clk_disable_unprepare(adc->clk);
+>> +	mutex_unlock(&adc->lock);
+>> +
+>> +	return 0;
+>> +
+>> +resume_triggering:
+>> +	mutex_unlock(&adc->lock);
+>> +	iio_device_resume_triggering(indio_dev);
+>> +
+>> +	return ret;
+>> +}
+>> +
+> 
 
-Applied, sorry for the delay.
+Hi Jonathan,
 
--- 
-Dmitry
+Thank you for the detailed review.
+
+I will address these comments in v4.
+
+The channel parsing will be reworked together with the binding changes.
+reg will remain the logical channel index, while single-channel and
+diff-channels will describe the physical inputs. Accordingly, the IIO
+channel specification will use channel/channel2 for the physical input
+or differential pair, while address will keep the logical DT channel
+index used for firmware-node translation.
+
+I will also remove ma35d1_adc_init_channel() and initialize the
+iio_chan_spec structures directly in the single-ended and differential
+parsing paths.
+
+Regarding the one-hot scan-mask handling, the MA35D1 hardware itself is
+not limited to one sample module at a time. The EADC has one SAR
+converter shared by multiple sample modules. Multiple sample modules can
+be triggered together, after which the hardware priority arbitrator
+performs their conversions sequentially.
+
+The initial driver, however, currently uses only sample module 0 and
+performs one voltage conversion for each buffered trigger. Therefore
+the buffered interface exposed by this version of the driver supports
+one active voltage channel per scan. I will make this limitation
+explicit using the standard one-hot scan-mask validation callback and
+use iio_for_each_active_channel() when selecting the active channel.
+Support for using multiple sample modules for multi-channel buffered
+scans can be added separately in the future.
+
+Since the scan layout is therefore fixed to one u16 sample plus an
+optional timestamp, I will replace IIO_DECLARE_BUFFER_WITH_TS() with a
+fixed scan structure containing one u16 sample and an aligned timestamp.
+
+For the conversion path I will make the returned ADC sample explicitly
+12 bits. Differential values will then be sign-extended directly from
+that 12-bit value, rather than carrying a 16-bit intermediate result
+whose upper bits are discarded later.
+
+For timeout recovery I will keep -ETIMEDOUT as the primary error. If
+resetting or aborting the timed-out conversion fails, I will report that
+separately instead of replacing the timeout return value. I will also
+remove the redundant completion reinitialization from the abort path,
+since the completion is reinitialized before each new conversion and
+the abort path already synchronizes the IRQ.
+
+I will simplify the optional VREF handling using
+devm_regulator_get_enable_read_voltage() and keep a flag indicating
+whether the external reference is in use.
+
+Regarding the suspend error path, ADCIEN0 is only enabled while a
+conversion is in progress and is normally disabled while the device is
+idle. The suspend path holds the device lock after triggering has been
+suspended, so there is no active conversion at that point. If disabling
+ADCEN fails, leaving ADCIEN0 disabled therefore matches the normal idle
+state, and the next conversion will enable it again. I will add a
+comment to make this state transition clear rather than unconditionally
+re-enabling the interrupt.
+
+I will also take care of the smaller style points, including keeping the
+direct-mode acquire and error check together, using a loop-local
+variable in fwnode_xlate(), combining the related u32 declarations, and
+avoiding unnecessary line wrapping.
+
+Thanks,
+Chi-Wen
+
 
