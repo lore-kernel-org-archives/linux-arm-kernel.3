@@ -2,55 +2,58 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37CC460A380B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7AAF660A380C
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:34:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Usy4U9Qi;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=N1s297oY
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KsS4/iIH;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=p3lhb4EH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=gpaAuh2fOXwrcHbmDYDRiGqkaVYt/5u6+l0Qi75BqpM=; b=Usy4U9QiVWqETW
-	HTENcHpZYa3feePvM6gInKzdQ2vC2grnAEZXaLe2DNOALgQiV0LGatEQ2XwpV4lGDkDN7jU2Q2AgG
-	BkRPTyzi1p4r4T4VaSd1zEgkxOACd8j/ZO+V7YG0991kQut2XZssOLPqJ6JZcUAJibeIBS0kq3pdZ
-	Gwg+ayP3ow8qNkW+Kyux20//rcebihRjhPrrT/hM6EV8f40+9VE9pQnPP1tSAVOEcyJPGbfx9fqHz
-	KJT/MclFvaTKc/xp6W8DZt7WIYSIAYO7rWi1thjBBaybo0Y1/5PThMw/wDEFfAgPehnwihohqB341
-	+SeSHQuYfPwWxXIUuMbw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=3RRTjdcKKSIbRizT4XTN1LUL2BEmwDT8TLX5Ln0/2cA=; b=KsS4/iIHyp8Ddyr7oySedRuKbi
+	/EzX3VhwYypYTQNssnQ1B8iQBxaFCVzt7qOdLXHB/m/DBrCIQF3OymbhAroOAG5WUrXO+U+wDDJKI
+	Gtwvl2vhdUR/wieQj1h935hx2n+NB8UkonHjaWS91QXM+jL9YlwFkmpd1Vgpa4f79RRukkITYVI+k
+	9ZaA0o2QInm9LlumtoeKOtM1klnUPE5aY6Nx5M6DxKT4xjZdv0uqdUEP2B08O/RHU72ZGFxV5XYDl
+	2GakiS+/dAfZt6lKlhuFlnmOV5dRN16UfBzPq2wa2/6IUrdy77RrfqgYU7z+3yGLXfLr0ICfKx7WW
+	jQKcRUbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsAn-0000000Gcjd-2JZi;
-	Mon, 02 Nov 2026 13:34:07 +0000
+	id 1xNsAn-0000000GcjP-1wIA;
+	Mon, 02 Nov 2026 13:34:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsAk-0000000GciB-1VkF
+	id 1xNsAj-0000000Gcht-14ta
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 02 Nov 2026 13:34:03 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4056C293B;
-	Mon,  2 Nov 2026 05:33:58 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C1C91595;
+	Mon,  2 Nov 2026 05:33:55 -0800 (PST)
 Received: from e133894.arm.com (e133894.arm.com [10.2.80.62])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0EC473F632;
-	Mon,  2 Nov 2026 05:33:59 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 95B513F632;
+	Mon,  2 Nov 2026 05:33:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793626441; bh=cwIKq7uEVGikrcixQ23Qo9duokZSRm0jxI8WtgrhzLU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=N1s297oYlTqGLGTfiY+OEttSaJb0UdhNK724z3zOzGIDP3XapPLeJNX76ebo7epCX
-	 q4AXggsPllUCzTtN6LHh+PaQtM5l/Xc75WXZN3tORVXVW3l1hFZUgg7luce2jprP5l
-	 r5Sz2/j6R2vUonu4aZ8o0kCrUoYUjQRi72XqRZ2U=
+	t=1793626438; bh=ty+YvfFlBIL70X7iGAg7g9ZH+ueSEa+D2C0x4sJ4+60=;
+	h=From:Subject:Date:To:Cc:From;
+	b=p3lhb4EH70UiHyExePImKptARY+F9jF9N52LNr1gKFdcIEblXoFjtVoEh8JUH+ffL
+	 D3c87E+SVwrVLqjb7sYmzYFB5ZT97jvQihbyofcsIH6KSn/5HpwWehiqEZAO+mdsB9
+	 ODjgAe0vVCfI8MD97TxnCiB8oREz1fAZn+ZzPK7k=
 From: Sascha Bischoff <sascha.bischoff@arm.com>
-Date: Mon, 02 Nov 2026 13:32:55 +0000
-Subject: [PATCH 02/10] irqchip/gic-v5: Only set IRS DPS when 1ofN routing
- is supported
+Subject: [PATCH 00/10] irqchip/gic-v5: Fix misc IRS and ITS host driver
+ issues
+Date: Mon, 02 Nov 2026 13:32:53 +0000
+Message-Id: <20261102-host_gicv5_fixes-v1-0-743b61626fc5@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261102-host_gicv5_fixes-v1-2-743b61626fc5@arm.com>
-References: <20261102-host_gicv5_fixes-v1-0-743b61626fc5@arm.com>
-In-Reply-To: <20261102-host_gicv5_fixes-v1-0-743b61626fc5@arm.com>
+X-B4-Tracking: v=1; b=H4sIAAWR6GoC/yXMUQqDMBCE4avIPjdgllrQq0iRNE6T9UFLVkUQ7
+ 26sjx/DPzspkkCpKXZKWEVlGjPsoyAf3RhgpM8mLvllbckmTjp3QfxadV/ZoMYCcFz3DPeknP0
+ S/kOu2vdtXT4D/Hz90HGcoER+x3QAAAA=
+X-Change-ID: 20261102-host_gicv5_fixes-1eeea29d2ea4
 To: Marc Zyngier <maz@kernel.org>, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>, 
  Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
@@ -59,11 +62,12 @@ To: Marc Zyngier <maz@kernel.org>,
  Jonathan Cameron <jic23@kernel.org>, 
  "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Sascha Bischoff <sascha.bischoff@arm.com>
+ Sascha Bischoff <sascha.bischoff@arm.com>, stable@vger.kernel.org, 
+ Sashiko AI <sashiko-bot@kernel.org>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_053402_448488_DE60F4A4 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20261102_053401_456585_0E535A49 
+X-CRM114-Status: GOOD (  11.77  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,64 +87,71 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-IRS_PE_CR0.DPS is RES0 when the IRS does not support 1ofN routing.
-Read the capability from IRS_IDR0 and skip programming DPS on systems
-without support for 1ofN routing, rather than blindly writing it.
+This series fixes issues in the GICv5 host IRS and ITS drivers.
 
-Fixes: 5cb1b6dab2def ("irqchip/gic-v5: Add GICv5 IRS/SPI support")
+The ITS invalidation serialisation fix addresses Sashiko's report of a
+race between event and device invalidation commands [1]. The other
+patches correct IRS allocation and routing behaviour, serialise IRS
+synchronisation, and fix ITS L1/L2 table selection, cache maintenance,
+ACPI coherency handling, and resource cleanup.
+
+The IRS changes:
+* Reject allocation of an SPI without an IRS, preventing a null-pointer
+  dereference, and warn about low-quality firmware.
+* Only program IRS_PE_CR0.DPS when 1-of-N routing is supported as this field
+  is RES0, otherwise.
+* Serialise IRS synchronisation requests, as the IRS ignores a request while
+  an earlier one is still active.
+
+The ITS changes:
+* Serialise event and device cache invalidations because both use the ITS's
+  shared DIDR register, so concurrent writes are a bad idea!
+* Select linear device and interrupt translation tables when one L2
+  table covers the full ID space. Currently, this selects the wrong
+  path, then the L1 table code rejects the attempt to create the
+  table.
+* Check the ACPI noncoherent flag with ACPI, rather than checking the
+  DT's property.
+* Correct cache-maintenance sizing after limiting the DeviceID width.
+* Invalidate the device cache before freeing an ITT.
+* Use firmware-node names in initialisation warnings.
+* Release the reserved MMIO region if DT-based ITS initialisation fails.
+
+I've CC'd stable for the IRS/ITS locking fixes, the ITS table alloc
+issue, and the ACPI coherency fix, as these are the most important
+changes to backport.
+
+The series is based on v7.4-rc1. Thanks for taking a look!
+
+Sascha
+
+[1] https://sashiko.dev/#/patchset/20261016155741.979985-1-sascha.bischoff@arm.com?part=11
+
 Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 ---
- drivers/irqchip/irq-gic-v5-irs.c   | 14 +++++++++-----
+Sascha Bischoff (10):
+      irqchip/gic-v5: Reject SPIs not backed by an IRS
+      irqchip/gic-v5: Only set IRS DPS when 1ofN routing is supported
+      irqchip/gic-v5: Serialise IRS synchronisation requests
+      irqchip/gic-v5: Serialise ITS invalidation commands
+      irqchip/gic-v5: Use linear DT and ITT when L2 covers all IDs
+      irqchip/gic-v5: Honour ACPI ITS noncoherent flag
+      irqchip/gic-v5: Use firmware node name in ITS warning
+      irqchip/gic-v5: Invalidate ITS device cache before freeing ITT
+      irqchip/gic-v5: Clean the allocated linear device table size
+      irqchip/gic-v5: Release ITS MMIO region on DT probe failure
+
+ drivers/irqchip/irq-gic-v5-irs.c   | 22 +++++++++++++++-------
+ drivers/irqchip/irq-gic-v5-its.c   | 29 ++++++++++++++++++++++++-----
+ drivers/irqchip/irq-gic-v5.c       |  9 +++++++++
  include/linux/irqchip/arm-gic-v5.h |  1 +
- 2 files changed, 10 insertions(+), 5 deletions(-)
+ 4 files changed, 49 insertions(+), 12 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261102-host_gicv5_fixes-1eeea29d2ea4
 
-diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
-index 9d60f474aa4f6..4edf787f3f97f 100644
---- a/drivers/irqchip/irq-gic-v5-irs.c
-+++ b/drivers/irqchip/irq-gic-v5-irs.c
-@@ -541,12 +541,15 @@ int gicv5_irs_register_cpu(int cpuid)
- 		return -ENXIO;
- 	}
- 
--	cr0 = FIELD_PREP(GICV5_IRS_PE_CR0_DPS, 0x1);
--	irs_writel_relaxed(irs_data, cr0, GICV5_IRS_PE_CR0);
-+	/* IRS_PE_CR0.DPS is RES0 when 1ofN routing is unsupported. */
-+	if (gicv5_global_data.one_of_n) {
-+		cr0 = FIELD_PREP(GICV5_IRS_PE_CR0_DPS, 0x1);
-+		irs_writel_relaxed(irs_data, cr0, GICV5_IRS_PE_CR0);
- 
--	ret = gicv5_irs_wait_for_pe_cr0(irs_data);
--	if (ret)
--		return ret;
-+		ret = gicv5_irs_wait_for_pe_cr0(irs_data);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	pr_debug("CPU %d enabled PE IAFFID 0x%x\n", cpuid, iaffid);
- 
-@@ -725,6 +728,7 @@ static int __init gicv5_irs_init(struct gicv5_irs_chip_data *irs_data)
- 	if (list_empty(&irs_nodes)) {
- 		idr = irs_readl_relaxed(irs_data, GICV5_IRS_IDR0);
- 		gicv5_global_data.virt_capable = !!FIELD_GET(GICV5_IRS_IDR0_VIRT, idr);
-+		gicv5_global_data.one_of_n = !!FIELD_GET(GICV5_IRS_IDR0_ONE_N, idr);
- 
- 		idr = irs_readl_relaxed(irs_data, GICV5_IRS_IDR1);
- 		irs_setup_pri_bits(idr);
-diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
-index 299e75bc95255..34e22e7d4a4c7 100644
---- a/include/linux/irqchip/arm-gic-v5.h
-+++ b/include/linux/irqchip/arm-gic-v5.h
-@@ -532,6 +532,7 @@ struct gicv5_chip_data {
- 	u8			cpuif_id_bits;
- 	u8			irs_pri_bits;
- 	bool			virt_capable;
-+	bool			one_of_n;
- 	struct {
- 		__le64 *l1ist_addr;
- 		u32 l2_size;
-
--- 
-2.34.1
+Best regards,
+--  
+Sascha Bischoff <sascha.bischoff@arm.com>
 
 
