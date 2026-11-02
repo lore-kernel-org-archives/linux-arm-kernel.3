@@ -2,104 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62BB4606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:43:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 594EE606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:43:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Zu/GCL3M;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Kwa3VSx1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dzZoHm6u;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=cT+DaFnB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=3Md2bnpbIvy2X912Bc1LhqLaDZUJHkR+XqT7pG6E7/w=; b=Zu/GCL3MDl8eqK
-	O4H2q+kzdLjgA7vMixxwDlD6ElH9v6eByKaIYuKfbSKWQP0Vd0mjCdzbwxJFyQCWooJe4vzZmy/yE
-	3TEzdjsKOwVBWRSrApVIkmimZIEESITE4+EnN+KNwuaE1ANkuQ10XgcsmrC44a6WxRNKh+7a7kpbQ
-	VKSxwNz3UDW4zgXIIH7EJM7i3UZ/uGpoeC2IJC85zPvJOgNrQe+NZvIKEPFalW0eymOWyvuF359ZF
-	d83h/63q9uBtBxRK1QauyKUJH/oSy0CNK3mQjJSlQ7DKwlAHH7jOYqyLAgieBWffCGvalAS83jw6I
-	5hrWgQIinJ9eY1hYJ8Pg==;
+	List-Owner; bh=Tfbh1sEe/bDWqkSnXbEmJhwFJWqdcIiSyVXsN0XzB/g=; b=dzZoHm6uUNFEGi
+	OrkEQu6l+7ng/gV0sTHcD1DWKJi5xr749O9QL3lkcQBqtRkfAUdmkDAYJGKlQELBRMn4e5O4djk/h
+	MzOHWUYmK0TcZt1m9aoIlfe0XwUUCCloOUuu9+KWS4XrGEdCQ4DMDszejc8CIFIUVKHvLxQk8HL3A
+	gKrAk9S/qBxbekPlDudrHR++7PqNRyVrFmijAzPamZjG9fqUkA8hBS4Fptrx3BuhQu7y8j+N4RrBL
+	/KS9Oz1jvxrphUY9q+ce4cNezYd3dHRlBytqoSKxN4jsiMCzKzwzjB3F45Wwiah3Dp3NW59LnFa2S
+	TCskIwQ4COtIl8QUFH8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsHA-0000000Ge5j-3OZ7;
-	Mon, 02 Nov 2026 13:40:40 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1xNqxG-0000000GQbr-2g11;
+	Mon, 02 Nov 2026 12:16:02 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsH7-0000000Ge47-2T3r
+	id 1xNqxA-0000000GQRw-2fUR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 13:40:39 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-48e10a70540so1684126f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 05:40:36 -0800 (PST)
+	Mon, 02 Nov 2026 12:15:58 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4a20bde60a0so22305925e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 04:15:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1793626835; x=1794231635; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1793621755; x=1794226555; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=3Md2bnpbIvy2X912Bc1LhqLaDZUJHkR+XqT7pG6E7/w=;
-        b=Kwa3VSx11z2wWbYUGG8A74AmO9zjzsruEnyuji8s00pYFbhhlIWeK6a74X4djDkunZ
-         a1us+XlGF+f+jupqdN0oM9Rzmne2Hr2+qcj8f/QQ3ZaGPDYNzrn+4N49j4DRoezidmi6
-         t6c2sKWqYgpPLBdV4KxJn/fMRlGxJUk6fF6nYlGXEB3Otnr4y0i/kfEKKMLX4zkAL93+
-         KLM2p/jtELfDdoCx0YhSMpURhTRexh4fhZejCsV9MhOeeWkoiK98nr35FvlzIBoPXVw1
-         QZgLYog/zFmi3LHz+X3IX4Dh/udl2cxAs4VifcrthJfPQ1I7ZxM46ZIVD0AEc3Zy5pKg
-         6trw==
+        bh=Tfbh1sEe/bDWqkSnXbEmJhwFJWqdcIiSyVXsN0XzB/g=;
+        b=cT+DaFnB93bPNsV2CBID7iY7dolePh/g+BzqKHJ4vthF07q8LkfE+NVeLhnc2UVbfX
+         PXQbsF97g5ail6Rkzss0XT+/XjW2xppuGnO9FssghZLHTZJN05MOxab0jXsMHQHtfmx3
+         Ifvdd/i4FMUjd5xdaWV+4DQ5LtJHC2lCKq4lvvCXoD6CPylo6yW4Z7zAGBe9rrc7vwxU
+         Lwfq/dRqSX/fyllqjVSoNXICgM9PedfyqdCLgdeGL0lasdtwVaZ2tKI8CtKJrz1kw4Dj
+         0+NmY6EDLMs+OHgqpa61ruzxi9GpvvE4ngXIyqBXeu2K9Mt3lhdC2VBbzTF23ZsjzC8i
+         SUow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793626835; x=1794231635;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1793621755; x=1794226555;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=3Md2bnpbIvy2X912Bc1LhqLaDZUJHkR+XqT7pG6E7/w=;
-        b=jn/G6POsxZLrRfCF3DbKIOiwo8SYStk+BAUryhR1Wgh942juwJhjpBvOUo4ykD/cdq
-         S7n5QtyhTLc4HB9D+y7XaWPH+5qbT/9nic3z3QT2F39KignVxOUJpxD/TcKm16amUj8b
-         OB7lbnlpGeAOjmtyRxNMUsjue2U4Ke2SqB03NcOE8c86c0cABOOtLZAmk14iizMQfQr1
-         RC1RvEg8swxrEty3QRe3SZX83R3EqbeDD1GlMDADSbP5aodbUj8xUePyDSi9S+SKWMh5
-         gK7C6KA46oOjmakbBMPl0moajyFu5B+pIRVxlUcXe2SFsJC++ndfOVPLcsLVPT3SYVSc
-         V2wQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwe9fwoksDk5Fg4WXZ4wPqgIPhncMPBlVPw+n/3EvGyNX3q59tHZofHNz88JhzkylrwMXExEggPCqW/iPkPRS7B@lists.infradead.org
-X-Gm-Message-State: AFq9FYIAb5OoZHntkowaiOOnf3Ut/CMrSCL/84eD07UtVg0s8TDWCJK7
-	f5QBPg/AKkAIXmySWeZdHkTjK2aEtkVZlga7tTcSaWPkfO/ot9Z5AzY0VeZ1Vv+TVBo=
-X-Gm-Gg: AYBFou2F69lYXucj6ZEGVZ2lTy29UBh4qNEaCLLIYLXqGYQRQ2+deA+4mdg39b8CHvP
-	oJ/MTK2/jq1FLnKA/8D6oU/0OIV5z+USrhZS9VKkGF7LYfl4X3PnXZf7gtTt/Ah2XDtPI0YuucQ
-	XSWHGX/N2Y5g+Wf0TcyWpFmGPoVR6ght9J7RjLle2PidagkaMZrSD1eS8r3zTklmAun4yEVZefh
-	GBLVunEcKdIhiuHgwNDaJN+BMZeEzwIDa4sdgg55NOoScM5ZbarA7azq4E5tahc9v2t0MYQCJeV
-	Ku6mjse2v5LGb2hNIRemAXanQSaZdPVypXRwYus5Jv+nphlzx4aZ5OiQ+85NY0FculEjaDgEyIQ
-	0SnmBcouRnFZLyKpXrngDU/k2++j+yxbAl+oZ6AmPSsaxpIFSQtQfmq0S2ouFkZM9YJ2Y0N8+Fu
-	fvgvm9NDj//wZc/N8/G2k5A9ejSDmhPU6DTjVoh11DLmMS8AJzdEpuMq/V2G6C3UCKfsAamylK3
-	FmvDR78kUiU4KrcKPhsMn5b2dmfeMEIkRpyIYhSlg7qZrXkiWA5/F+2cud/ZzCZOQdlo7W6I+S1
-	RJ4xCFz9oXgykUvQ8YMy0z9Pml3kXcMPsCU/Wqg1rOk8ZDMrGQ==
-X-Received: by 2002:a05:600c:a4c:b0:4a2:967:dfb8 with SMTP id 5b1f17b1804b1-4ac1765d7d7mr233451845e9.20.1793626835401;
-        Mon, 02 Nov 2026 05:40:35 -0800 (PST)
-Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4abea533a1esm189194605e9.1.2026.11.02.05.40.34
+        bh=Tfbh1sEe/bDWqkSnXbEmJhwFJWqdcIiSyVXsN0XzB/g=;
+        b=aINruDXweSClmIZ5mDYhBJ/G5WqzaV5GyvYA4Z1flkfs95BlnimKJi4hUFd3mUwr9Z
+         gmT4cdXDgxw56JKYxRdZvh4qGlTvAKNaotc2WjB+lNVniXsFYd+OJjxfFBiWN3k8rG4A
+         pr2Csm/KJNKOT+nWYsmTm7Wf0g9EEOpYbBtiKhsNWuO/ISrbTWY8pVYvMMc79ArENW7N
+         01YeCH9rAqmOSDWch3ob/26OJluHQSnoWerW9uSu36efeN+jLFtbx3gJ+V6IFfBCcrki
+         SWm1OMC/Lt9z1TsWKNVxzWGgeAn2JsL9VaEotmx3/xdEFCmUaKqaAV4aOMGd6LKZGond
+         sMqQ==
+X-Forwarded-Encrypted: i=1; AKwUvByON+QPoEogq+sZ/YRnTHPErO3Qz2Ko9WY60dsaYxMZbz0CIUVRsZ7lW2/XENyCLQevjVwtxzwDbja/fk4+LmMQ@lists.infradead.org
+X-Gm-Message-State: AFq9FYJ2mCsdNOCwF8whgz1eqULEZ1hyw/VyWU1WMvBhvUNU8AW9kk6P
+	q9Z3HZBeyCy5Ll9WLqphwLymc6Zb6syxjW/RHkEMQJY1AP+wh8ajME3V8KzpBSqPqlk=
+X-Gm-Gg: AYBFou2h50ij/r8xjprXVlZwIR6hEFSU6uUFGR88VA8XAbySynPtuaAWB6IASO76N8a
+	7XiDEcGFn9GbHNw20OnKddHm7J9ruCLK06DH9t1g4yFOaYI3Q3nvVs/Srco0hMXU2SK8T1bTu6M
+	516/ZdjUx5azn8jqhC/0m9FS836CZ2oWn+yelD1qnEsyTifK4HN9rJo+1u7U57C2A0ZCkniLk4u
+	8iWYa6CoYdBdhOp7uXgib7MNluex7nY9uVHKI0rWOmNYyzwGP9Btzv43FMkVDX4nKm/2OjixD7D
+	RdvOpTR6r209jo3Qxog46Jmh6FzaXTd3GyduIrzwTAy5+9ZQrb0kbLHTcgSBCAw1fURMi+SWbQ3
+	j/TzrJLlbYrdHkC9QCWUor94/0uffYhyPr5Fmxmnz1xDI+qDS0BQSP2KzrfyuEqI57jHceupj5Y
+	bO11JBVy8EiDiI7hi8tGPQX0P2s/N7sgrD/kmJedGy5fJ7yDq8IMLvqVMEOTd5KFmrhCVOTKmvr
+	GIDdWiABVfcChJsdhUG46nBxtqQ13y5fVTVrN1hf+R81h/k4DL+Wq8BSO3QLZ/anzZzMGDSUkYK
+	qYMl4jxlj0kYF5tlq7gAMEtVpqRG88Mc
+X-Received: by 2002:a05:600c:8b61:b0:4a2:1398:dd05 with SMTP id 5b1f17b1804b1-4ac17752ee4mr210928905e9.16.1793621755020;
+        Mon, 02 Nov 2026 04:15:55 -0800 (PST)
+Received: from pop-os.local ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4abf5b27e46sm434974855e9.3.2026.11.02.04.15.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 05:40:34 -0800 (PST)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: Jessica Zhang <jesszhan0024@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- David Lechner <dlechner@baylibre.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-In-Reply-To: <20261006-panel-himax-hx8279-vddp-v1-0-50d884b42aae@baylibre.com>
-References: <20261006-panel-himax-hx8279-vddp-v1-0-50d884b42aae@baylibre.com>
-Subject: Re: (subset) [PATCH 0/4] drm/panel: himax-hx8279: add VDDP supply
- for Startek KD070FHFID078
-Message-Id: <179362683429.3310106.6925209959908507351.b4-ty@b4>
-Date: Mon, 02 Nov 2026 14:40:34 +0100
+        Mon, 02 Nov 2026 04:15:54 -0800 (PST)
+From: James Clark <james.clark@linaro.org>
+Date: Mon, 02 Nov 2026 12:15:23 +0000
+Subject: [PATCH v3 09/18] perf cs-etm: Increase default timestamp
+ generation period
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261102-james-cs-unformatted-per-thread-fix-v3-9-dbcb0c281b9b@linaro.org>
+References: <20261102-james-cs-unformatted-per-thread-fix-v3-0-dbcb0c281b9b@linaro.org>
+In-Reply-To: <20261102-james-cs-unformatted-per-thread-fix-v3-0-dbcb0c281b9b@linaro.org>
+To: Leo Yan <leo.yan@linux.dev>, Adrian Hunter <adrian.hunter@intel.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>, 
+ Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>, 
+ linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Arnaldo Carvalho de Melo <acme@redhat.com>, linux-doc@vger.kernel.org, 
+ James Clark <james.clark@linaro.org>, John Garry <john.garry@linux.dev>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_054037_655839_0E720DFA 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20261102_041556_701859_62AE91CF 
+X-CRM114-Status: GOOD (  16.11  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,34 +114,64 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
+The original purpose of timestamps in per-CPU mode was to roughly emit
+samples in the order they occurred across multiple CPUs, rather than
+emit all the trace from CPU 1 followed by all from CPU 2 etc.
+Previously there was no way to change the interval from the minimum of 1
+cycle, but custom intervals are now supported by the driver.
 
-On Tue, 06 Oct 2026 15:25:00 -0500, David Lechner wrote:
-> The Startek KD070FHFID078 panel has a VDDP power input, which feeds its
-> DC-DC converter in addition to VDD and IOVCC. On the MediaTek Genio 520
-> and 720 EVKs, VDDP is switched by its own regulator, and on the Genio
-> 1200 EVK it comes from its own PMIC LDO, so it needs to be described and
-> enabled. The existing Genio 1200 EVK device tree also turned out to
-> describe the panel supplies incorrectly, so this series fixes that too.
-> 
-> [...]
+Drastically reduce the number of timestamps emitted by increasing the
+interval, which is more than enough to interleave sample generation.
+This reduces the size of the trace generated.
 
-Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git (drm-misc-next)
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+ tools/perf/arch/arm/util/cs-etm.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-[1/4] dt-bindings: display: panel: himax,hx8279: add vddp-supply
-      https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/6ebc6210efd3502c8ce2b1b2740ad61f69188df7
-[2/4] drm/panel: himax-hx8279: add the VDDP supply
-      https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/dabbf2758be8f05c3757bb4727f2e48fba4ca66f
+diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
+index 47b4e386cc53..5e7d09b7170c 100644
+--- a/tools/perf/arch/arm/util/cs-etm.c
++++ b/tools/perf/arch/arm/util/cs-etm.c
+@@ -70,6 +70,9 @@ static const char * const metadata_ete_ro[] = {
+ 
+ enum cs_etm_version { CS_NOT_PRESENT, CS_ETMV3, CS_ETMV4, CS_ETE };
+ 
++/* Default timestamp period of 256 cycles (2 ^ (9 - 1) = 256). */
++#define DEFAULT_TS	9
++
+ static bool cs_etm_is_ete(struct perf_pmu *cs_etm_pmu, struct perf_cpu cpu);
+ static int cs_etm_get_ro(struct perf_pmu *pmu, struct perf_cpu cpu, const char *path, __u64 *val);
+ static bool cs_etm_pmu_path_exists(struct perf_pmu *pmu, struct perf_cpu cpu, const char *path);
+@@ -458,7 +461,7 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
+ 		 * Timestamps are required to interleave samples from different
+ 		 * CPUs.
+ 		 */
+-		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", 1);
++		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", DEFAULT_TS);
+ 		/* Context IDs are required to associate trace to a process */
+ 		evsel__set_config_if_unset(cs_etm_evsel, "contextid", 1);
+ 	} else {
+@@ -481,7 +484,7 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
+ 	 * timestamp tracing.
+ 	 */
+ 	if (opts->sample_time_set)
+-		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", 1);
++		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", DEFAULT_TS);
+ 
+ 	/* Add dummy event to keep tracking */
+ 	err = parse_event(evlist, "dummy:u");
 
 -- 
-Neil
+2.43.0
 
 
