@@ -2,73 +2,64 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB07B60A2615
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 11:41:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45D12606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 11:43:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=H6Zoq+SE;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=KXIvGTeQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Mj8p2BQQ;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dcUgFA8w
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=hli9Pm6PyR4E1whnLP74hf5mHnZKkC5Wmy1ba4WkJhE=; b=H6Zoq+SEov4l/L
-	9xwyjQs0Cct3UEerx1luiIQ6p3xRLE27sBMqNYlVlK1eK4fVEaolgS0wGgt7CF9Uv9u1oZtBVla1G
-	yjerPmC3Skcpt+max2UYWE/fj1xihfAQaIY+/w4dhQeIj42eInirI215RZHrxdRsyNBicHYH49yGK
-	BimjtZGdWDfBaBZwYC0eqP0uOBPTloDfT7Vu6AuFnOrAYYkyRWRiGu9GLpK2J0ZD4Nkye/5TP4uXB
-	Tcyf5ug0mv94NP0BJ0S0TFOFGVNSN8Yj8TKbgiJs0gvU4+tRdgFrKKwqt2mOTgL57MXQQhm2KS9mB
-	I6NFJTV+8AD803IbUE2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=deiRugqUlG37p9Wv3fsfyPkX3UWvJLBCmJ/1+SGNcog=; b=Mj8p2BQQ+4Dpp5eBIoPjfHIBK/
+	c9CUqbAFTDnu1Fex2GZ+CnjxprMp74Vpxn1+4izLxGywtDfjuoFOuOwLy0Q2E38TEJAKQJgL+mIV4
+	ipIPycZ4iQ75G9YhOtObrhxQqZs0pEajqWvXg1h0RBQhbDH38K48s1YdW4UHG6fLxSp9lgEUqGo0A
+	tif/n/KwN7qNR2GIMr0qll2MlsebpwzXcvihxUASrp+pDH1Fr+VHKo6c+4DvqGbbz8un3+SpBOmNC
+	wriiKRlwQIGrqz9j9INcmDliV8sr/M+zJHASZ5E4xvqG7/j+l3ODF4YPOXsUlnrFT8Ia+KwpDx4u1
+	zY9pbalQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNqPn-0000000GNGo-00Yu;
-	Mon, 02 Nov 2026 11:41:27 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xNqS5-0000000GNUW-1Mjg;
+	Mon, 02 Nov 2026 11:43:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNqPl-0000000GNG9-19Rr
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 11:41:26 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 75328BE;
-	Mon,  2 Nov 2026 12:39:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1793619547;
-	bh=T+o17ojaeL3LXS8MEZRII4Gziximst2Yab1GxPQcvhM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KXIvGTeQ97m5HZMByM/E2aPK96z4htwSQbPZrQMzUkZbrLZoiUZPDBa1x8s/HV906
-	 rvr66VS1WTemwmFC6/KPrpMpywOuNSz8/BNKd3fSRFMNtpomPGSXe8lU6Ko7K8KeVU
-	 Zx94ahRVzU7xrC2xlIMX5hWiKAfF0T8eWNmSRigE=
-Message-ID: <02facf72-2b1e-4e31-a84a-cd18913469c2@ideasonboard.com>
-Date: Mon, 2 Nov 2026 13:41:19 +0200
+	id 1xNqS3-0000000GNUH-36Pd;
+	Mon, 02 Nov 2026 11:43:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id DF8F260618;
+	Mon,  2 Nov 2026 11:43:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A15C1F00A16;
+	Mon,  2 Nov 2026 11:43:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793619826;
+	bh=deiRugqUlG37p9Wv3fsfyPkX3UWvJLBCmJ/1+SGNcog=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dcUgFA8wh35BSOtvCYcclVQlwghBnwx0GfFoM5RVAt3mNNYY48YZaftacMfKTw24x
+	 TFwBl2NgdC5ILeT+gED5+Mk7ub3fKYpT4fRYH1Th7UK/y1Z+yZCNo3nvMfupn7nML+
+	 CZY9EViu4HfDSpjouOmkWduYsO7wxYha1m/UbqGIfegrbiipfM6VeXshs+L+ykaRMU
+	 4UR/ahEqSfwNr+Yh04AHyIVd2S71lN9kmQ0W3uZTko9Vl/GHlnW6ZZHYzCMNUT20Fp
+	 S4B5iKYaIM/si8ISYazkCcKr4LTYBZZPBGwpd+yt1c1kyvRtwo2m7/z5OFzJzvDsEN
+	 L990q7EN/OlHA==
+Date: Mon, 2 Nov 2026 12:43:42 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Joachim Eastwood <joachim.eastwood@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Shawn Lin <Shawn.lin@rock-chips.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 1/3] dt-bindings: arm: rockchip: add FriendlyElec NanoPi
+ M6V2
+Message-ID: <20261102-annoying-vulture-of-development-9eb1a1@quoll>
+References: <20261101-nanopi-m6v2-v1-0-e401ea64b394@gmail.com>
+ <20261101-nanopi-m6v2-v1-1-e401ea64b394@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 06/14] drm/tidss: oldi: Drop unnecessary forward
- declaration
-To: Aradhya Bhatia <aradhya.bhatia@linux.dev>
-Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
- Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
- Swamil Jain <s-jain1@ti.com>, Devarsh Thakkar <devarsht@ti.com>,
- Louis Chauvet <louis.chauvet@bootlin.com>
-References: <20261029-beagley-ai-display-v4-0-dc7f2b532478@ideasonboard.com>
- <20261029-beagley-ai-display-v4-6-dc7f2b532478@ideasonboard.com>
- <5044b7a0-5eaf-4008-9653-11027b8055b5@linux.dev>
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Content-Language: en-US
-In-Reply-To: <5044b7a0-5eaf-4008-9653-11027b8055b5@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_034125_464034_E25BF841 
-X-CRM114-Status: UNSURE (   8.65  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261101-nanopi-m6v2-v1-1-e401ea64b394@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,30 +70,27 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
+On Sun, Nov 01, 2026 at 11:00:52PM +0100, Joachim Eastwood wrote:
+> Add device tree binding documentation for FriendlyElec NanoPi M6V2,
+> a single-board computer based on the Rockchip RK3588S SoC. This board
+> is an updated version of the original M6 board with a few changes.
+> 
+> Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/arm/rockchip.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-On 01/11/2026 16:11, Aradhya Bhatia wrote:
-> 
-> 
-> On 29/10/26 10:18, Tomi Valkeinen wrote:
->> Nothing needs "struct tidss_oldi" in tidss_oldi.h, so drop the forward
->> declaration.
->>
->> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> 
-> Should this perhaps have a Fixes tag?
-> Fixes: 7246e0929945 ("drm/tidss: Add OLDI bridge support")
-I think this is more a cleanup than a fix. The forward declaration 
-doesn't cause any issues, so there's nothing to fix.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-  Tomi
+Best regards,
+Krzysztof
 
 
