@@ -2,53 +2,53 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC852606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 08:42:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 118C6606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 08:42:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=h40kD9TY
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZDiJDSb4
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=K/VuNAFvyH2RzF9VWtc5C4dx7BhXxQLtuGzqwhLuChE=; b=h40kD9TYdZLRheabuzs+JGFKkH
-	JVGp4/Moe+XKZigBgFmq9G+nU2LtZSGp0EV3bKK6TQyiJFomafwxjRb+gYSOX6eh1hbMlmZLluuxI
-	KL/Houhspc95hHCVmDP5vCG6Z45gptsg+ObcUPHctc8hxRAmaLghuy6WNBMrnXCh56VfIiOg4vfas
-	fbk6STF2eoXCKAMrysuIPR6ogMZBYKVQmSwVgd6tYFYMM3A90wssswUTq86Br313sT56WPjMxEyJY
-	fEAKZa5+T6+2oCZD5EqbtEgo7i0g1WUo6YRlcYDoyU9UYAoP3CzY6J2rI0Xq6sYvbupY0L4wlEHXV
-	+PL+wudQ==;
+	bh=4i260fXWHKh+C26SB4tIDrAGnSm6VNibwL5cGtIrNaQ=; b=ZDiJDSb4kbnT9Y6Cri/ferH/fx
+	ew6zW5aIpRQVjUj6uTYnh74xQgGHl5AtmNi9RRhQcFQcZJrx1tJsOi9PfLQAKMrPy2AalGIei5fZ/
+	B1r+QmckhGOn3vtWSL6QFlReEdLOpk/HdHSUxRkdDacJ6eIXbMSJrO3/cg5RIQseuWPublojJqlQZ
+	Pzkrt1xDOHeMrD+c5JqG+WLOrpZkbd9E+XhCbB6+JEDAzC0Ze1JScS4DXbTAvtVVqlNlzyNm/o2AN
+	+jkgMIJ9/HuiFuVy1yxHMtoUIL9kl2n0ijGEfbF5xy01wStiUBIbSfPSAN1XGhMkVNQy1eILKpGqW
+	6yNARVAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNncF-0000000FtT6-3GFq;
-	Mon, 02 Nov 2026 08:42:07 +0000
+	id 1xNncK-0000000FtWA-0lVM;
+	Mon, 02 Nov 2026 08:42:12 +0000
 Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNncD-0000000FtRV-0NUn
+	id 1xNncD-0000000FtRK-4C0c
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 08:42:06 +0000
+	Mon, 02 Nov 2026 08:42:07 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wt5djTDr+hkPJUoMFZfsQPzViYERXrw/3qqXI4YRHiTuSanrahnvf72rz47JEoNCKQjmV8EhbNyooYW0qsA7b3PSw2lIKUPOStL/voXkDJwMz1n4t+Gwq1kLtxpJNnngLCBkbHJLB36jNasgy0J1AeshHrpcwlS/L+SEP+kcdAigLKbdgQ/roZ6yb0y5VejDNXx0Wpt2SBzWFc/D7Lgtv2uRsJAzeYCsjewzpF+lw9+ekX8ZgC7hnoRhLnlDW5eXUa/l8RX20TZbQJJMfp8kPAuAYAJOKJHBShIcLgtMlsPoJFUwHvFC6ehm52rkUHDyxvhyzyb+kmZIVfah7NejAg==
+ b=ilQR89MiQGzYLx8fsI5tZuNgkKjbjVLtzOWYdPvyKnEKUeMYp+/MeDQ52a9xpJVP/3zVRSiCHmWk8gLqP2d/r1oyrR5b0CgFxttdGdrJ1mAyeGTw8QnyokePDLle+R27nRtptj072Jo1aRkvnYhZlf1uNysmMZtqt9GrAB3a+GaUCwZWBb9iBtp1iXlxs27Q/51icdo1sN1/l03MWLx/fwdjR+gkEeXciQLwnoCzIYcUqPXWdprzaBJMQ0eSTgrxSG9CZsSy5dN5APG8Z/BEuNaVTCNapDhfLYRl1b+qnA/WIFbG/bGUaXlFtDjgdXXEnaSWSVb1LHEYAp2pXLKvcA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K/VuNAFvyH2RzF9VWtc5C4dx7BhXxQLtuGzqwhLuChE=;
- b=g7xsuFDfwsls+MKc2KRzgt7A1Gmk77GmXFGVY8pDyTsVRYpZ981A659bKTNkeUKW7tqGDGdbu5OtnzXirDsTYSlQ1p91pl5Cc/H8A80ufq1hXZZS5RckvqaOsFwihHAoEVkgcbHe8IVdmLqEYQl8PFoj5FDcjpkG2IybrreLUtr+whReiVJStUnh8T1fMpwOsPUKxRLyYECJ8QEJYll98dTxjp9uVFx3gARrVzcoxf1swHAUU1hVioLbISW1f97nMCLT7kGa47vXYVXKST3OyMv0i5hjQOaaguV3pE7wgECHff7wlldysOOx9hTGlxljHohBQ9yGPk2QJ2snDOUX0Q==
+ bh=4i260fXWHKh+C26SB4tIDrAGnSm6VNibwL5cGtIrNaQ=;
+ b=U1eMYr/JO6PWiqYk4kDrgfS/7ELNVFOfPoP8NoQ/8eh2ggyoqKN8218P1ep6Qljj8GkbmE08i1LsRpJbzs9SI3BTFUTBcq/KPIWTfYZd5ef0PuzXJ4Iz1fJf3qhJIfEREmffGTdcWwjAQcmoRif7et2E+sfYRwAY7hZN91CPpDNV4WnMHzHqYuqEYdhU9KF6FmUbz7wMIOuCWF9lHQItTeEGByy6e47oQKI2cMFdhn+k5+4inXhdU6tNlLgNad4DKRINMrbRZnWFevOmhL3mGT666rTXdp2VYlxU0kgaHZXQhXAH2nXp5NXknsTaVPj0eF/HRJ3bMRWkZaN/wLg8CQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from SI2PR02CA0031.apcprd02.prod.outlook.com (2603:1096:4:195::16)
- by PUZPR06MB6005.apcprd06.prod.outlook.com (2603:1096:301:11b::6) with
- Microsoft SMTP Server (version=TLS1_2,
+Received: from SI3PR01CA0001.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:296::17) by TYNPR06MB8880.apcprd06.prod.outlook.com
+ (2603:1096:405:3c3::13) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Mon, 2 Nov 2026
- 08:41:55 +0000
-Received: from SG1PEPF000082E1.apcprd02.prod.outlook.com
- (2603:1096:4:195:cafe::27) by SI2PR02CA0031.outlook.office365.com
- (2603:1096:4:195::16) with Microsoft SMTP Server (version=TLS1_3,
+ 08:41:54 +0000
+Received: from SG1PEPF000082E3.apcprd02.prod.outlook.com
+ (2603:1096:4:296:cafe::48) by SI3PR01CA0001.outlook.office365.com
+ (2603:1096:4:296::17) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.569.12 via Frontend Transport; Mon, 2
- Nov 2026 08:41:55 +0000
+ Nov 2026 08:41:54 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
  header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
@@ -56,11 +56,11 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG1PEPF000082E1.mail.protection.outlook.com (10.167.240.10) with Microsoft
+ SG1PEPF000082E3.mail.protection.outlook.com (10.167.240.6) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.21.592.5 via Frontend Transport; Mon, 2 Nov 2026 08:41:54 +0000
 Received: from JohnnyFan (unknown [172.21.64.24])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id A2D5E40920E1;
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 60B7540920E2;
 	Mon,  2 Nov 2026 16:41:53 +0800 (CST)
 From: "Johnny.Fan" <johnny.fan@cixtech.com>
 To: will@kernel.org,
@@ -79,42 +79,40 @@ Cc: suzuki.poulose@arm.com,
 	cix-kernel-upstream@cixtech.com,
 	jie.fu@cixtech.com,
 	bob.zhang@cixtech.com,
-	"Johnny.Fan" <Johnny.Fan@cixtech.com>,
-	Fugang Duan <fugang.duan@cixtech.com>
-Subject: [PATCH v3 1/2] perf: arm_pmu: Accept a per-device CPU mask from platform data
-Date: Mon,  2 Nov 2026 16:41:51 +0800
-Message-ID: <20261102084153.3975282-2-johnny.fan@cixtech.com>
+	"Johnny.Fan" <Johnny.Fan@cixtech.com>
+Subject: [PATCH v3 0/2] perf: arm_spe: Support heterogeneous ACPI systems
+Date: Mon,  2 Nov 2026 16:41:50 +0800
+Message-ID: <20261102084153.3975282-1-johnny.fan@cixtech.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261102084153.3975282-1-johnny.fan@cixtech.com>
-References: <20261102084153.3975282-1-johnny.fan@cixtech.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E1:EE_|PUZPR06MB6005:EE_
+X-MS-TrafficTypeDiagnostic: SG1PEPF000082E3:EE_|TYNPR06MB8880:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: ed9b2e39-3567-4e39-dfbd-08df38bd2641
+X-MS-Office365-Filtering-Correlation-Id: 0f8290ec-d6bf-40fd-1ee1-08df38bd25c4
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|82310400026|36860700016|56012099006|261009223027099003|261021123027099003|261021121427099003|261022075727099003|261026121527099003|10067099003|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: 9+o1zi7ovHGVcjb45h/Q5LYn6VRNS7jJvnP3ejEb04evW7+/dtu3oJku8gG7kAvPA62q3N4wkvR9nqNo39tB5xhQNvkpBPtGObZ6+a9e8iYKEKUKKHXfRhWbBHN5KI7ZyexAZAucVqlReKm/mKlmGdjPYmDEhaoWvAUDy494SsJ3nV3KEVTFLP1f2oQr+5cahargg1lTD/KZNOAil3zVj+ltQK06zUt/eMRaFCQjH33g5PBBKZ/s2TW7/IK1T0bs2n2VRk9PnBClz0dXt9UJq+w6xyqRxkiQJB/vciI/TjQWbos1Sw8d+0d+rZeoG7EzblJQH9QAfRvo97UFII/liFhY/w8b7QRnPAICbkjHaJSwG+KP5eX7CTgD4OWHvbsdZZm4bv5Gr9PWrPU7ubN0c4E0JDcbAG4vXG1bw1qf6LcjvhnbsIHziruHJXwt+vEU9RkMAkPPryqiJKlqnaeSjk4n1L0FZe687jO69jmM2rJY5hPp5rhzhmI/E+wGzEbchpGHLJN46GvpDefWJ/Ti0grdoxYUya7/rA8utLqfJbH77Lf4VlFGKascrrZS+vqYJLAPqLsz4e4pJHZILV4S+HDdQRxuJZzN04G+TB5sh5k2IyGm3OyDvy72W6d3c5vSQnuoBBETE00XYBQO23o2A2b+HaqZEt1rhpzFIpgAm/k6HvtXvb1rZH1cKT9LdIOI4aKjQWH/wwUV7D6dnJzdSA==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(82310400026)(36860700016)(56012099006)(261009223027099003)(261021123027099003)(261021121427099003)(261022075727099003)(261026121527099003)(10067099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|82310400026|1800799024|23010399003|10067099003|18002099003|56012099006|261021123027099003|261021121427099003|261022105027099003|261026121527099003|261026140227099003|261022075727099003|261009223027099003|261028144727099003;
+X-Microsoft-Antispam-Message-Info: BXyKhndbgy05W/iXqCTbunrjipH4Zp1FXSkiL7Wj44iavNs1tpg6DPAmgrjnSPD5w3CxJIBGZSj7wYacnYsEvmUIQI6y0/X+TsfAuTjkHzJLGN+PFVa4xNd+156CtkAbraeC1SRhk1AGCXONZSZR5oIkt7ud/nZejRM0OFESRQ6XqshxX8LhiIU7ezCs22fRIfKVHuD+5johFPkzJIlhw8K6LcCn0rKxr142a0J89LTqLy+PS9CGyXDbQJBaGFDs+bsC61LEnP8WWD3qB/A/FkaK7R8NcxvA/gNGZWEyW84IGmOTOqWNV5gO2hbJTU7pUmEdVXWyY8qAyu5A4IWinr3KlrMeWQIyp3N1zXV45BT4Q2XkZiBwexR9CTQt0h1PxBJKn7CNYUEmq1NkDPLUQtGmStbjzVSyldjEpvV1RQ5yuLJ1IOuzJSqGu0o0KiFQjCJpp2VP+O+FVpY7sH8uKn5d3qRtY+kkSppgMKYOKB1EnA2l7yARkbrY/JqilCdbmMVC0J0Aet0LqaI2lvlqrrFL180tttnSXyL9Uk8DWG70U614eCVXvQAH/S1BEf1ND7PAuc2afFtYYd+tvP/zRJO5+k0y9kCzv0tPZrq1Hh7MrNSnSaBnJyv/Ub1GMlMUWd8sTxiYS1cIKvbZNGyNQg==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(82310400026)(1800799024)(23010399003)(10067099003)(18002099003)(56012099006)(261021123027099003)(261021121427099003)(261022105027099003)(261026121527099003)(261026140227099003)(261022075727099003)(261009223027099003)(261028144727099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: U/PEmN3Po6l/7JG/vEQUUYaEgYdZUGFBARH3URFMtYwH4RIB5R+GvtZipQWiRh4pi6EYhmvvb/DPTKmCqAOg/D6ltRDxY8U+i0XCuFEc7m13NtMabH0JMf4/NPkBA29dfmNVvpKVMpvgQvIi2lvShhsD1qMiQr/1NUqkbiV9dYNxjUcRtjZ/7S3G5hkWi9bxb19ZgwWhqgnj8utcue/CAtia8NiBjDwMJ8Ahp3JKSkVPRRfwvkkcJI7Jh4cAPzKt6s70eoh9eZ5aJHDGzMRVrRjrUxuEKed2jVyg3xe42AVp0lTuJmmH3x20ldq93ReLWqBujSCLsF8EtQrogOc8wKHVrRBLMJSWQf3cg7YdzfuT6J/U8hUMC9dXZTs7RTqshDRnNbR71038yTTqjT4usLOWmqgV9xv26kFk1WVJi9zz2a8seVeEahkPnOL6ha1c
+X-MS-Exchange-AntiSpam-MessageData-0: 4b6yJMujTP+Kpia0kqYG2zR2E+7yfPauGOuGM8KmYysbG05EON8VvjXgecNEuYmxtVgl243dEJe4saiev1RopjTO22z+ByjOSxzl4Ac7gJ/IaYvWrI7/cnuc0s6mMX72y3YiE6ivxw7VIenJEwzrf+l6DIefG7ZF/15TWzFl+Ar+dzyoVCpsWoUIUA+f6pg+9PZQlHCYunXihC+wQopOlwLwC6lfbztyeQ6bQw6BekJq0bN4OPmrXCX9WKC5LFdoe6ofm2G8ZAWvnZ73Dz0srVXi+M4ifmlkfa1iN0NmxjbDgpXbSXXwSK7D7w7CiWZb0SMhudku3vEq5EGtenKIZFasNH1tXg1+WinCj29yVKZFxzLxNXU7Pqz6+VCWmbDa95cJtUT3MCfTxeemL7r0AwAzuz9qJgVAaZWmXDoqB171qm9etXSKzFx3B0K8CdD9
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 08:41:54.6297
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 08:41:54.1791
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ed9b2e39-3567-4e39-dfbd-08df38bd2641
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0f8290ec-d6bf-40fd-1ee1-08df38bd25c4
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E1.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E3.apcprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB6005
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYNPR06MB8880
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_004205_138382_77C9619F 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20261102_004206_043175_F5664046 
+X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -126,147 +124,59 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 From: "Johnny.Fan" <Johnny.Fan@cixtech.com>
 
-Synthetic platform devices created from ACPI data have no fwnode, so
-platform_get_irq_affinity() cannot tell which CPUs implement the
-feature and falls back to cpu_possible_mask.
+This series makes SPE and TRBE usable on heterogeneous ACPI systems,
+where not all CPUs implement the feature and the ones that do may use
+different PPIs. The MADT describes both per CPU, and the PPTT hetero id
+tells identical implementations apart.
 
-Add an optional CPU mask to the platform data and make both the SPE and
-the TRBE drivers prefer it over the firmware-described IRQ affinity.
-Device tree devices have no platform data and keep using the affinity.
+Patch 1 lets the drivers take the CPU mask from platform data; patch 2
+creates one platform device per (hetero id, interrupt) group and passes
+the mask along.
 
-TRBE must also pass a stable copy of the mask to
-request_percpu_irq_affinity(), because supported_cpus is pruned as CPUs
-are probed, while the IRQ action keeps a pointer to the mask.
+v2: https://lore.kernel.org/all/20261021020322.3015121-1-johnny.fan@cixtech.com/
 
-This is a preparatory change: no ACPI device carries platform data yet,
-so behaviour is unchanged.
+Changes since v2:
+- Split into two patches: drivers first (no functional change), then
+  the ACPI producer. This keeps every patch bisectable; with the
+  opposite order an intermediate kernel would create devices whose CPU
+  mask falls back to cpu_possible_mask and probe CPUs that do not
+  implement the feature.
+- Reject GICC entries with inconsistent lengths instead of silently
+  skipping them, while still treating tables that never describe the
+  field (pre-ACPI 6.3 for SPE, 6.5 for TRBE) as "feature absent".
+- Allocate the groups dynamically instead of a possible-CPUs-sized
+  array; the counting pass remains as the firmware consistency check.
+- Only release a shared GSI once no successfully registered device uses
+  it, fixing the mapping leak when every group on that GSI fails.
 
-Signed-off-by: Johnny.Fan <Johnny.Fan@cixtech.com>
-Reviewed-by: Fugang Duan <fugang.duan@cixtech.com>
----
- drivers/hwtracing/coresight/coresight-trbe.c | 22 +++++++++++++++++---
- drivers/perf/arm_spe_pmu.c                   | 10 ++++++++-
- include/linux/perf/arm_pmu.h                 | 10 +++++++++
- 3 files changed, 38 insertions(+), 4 deletions(-)
+On Leo's question about exposing the mask through
+platform_get_irq_affinity(): these devices are synthetic and have no
+fwnode, so the lookup falls back to cpu_possible_mask. The mask is a
+property of the device, not of the interrupt: a GSI can be shared by
+groups with disjoint CPU masks, so a per-interrupt affinity would be
+wrong for each of them. ACPI cannot describe PPI affinity today
+anyway.
 
-diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-index c7cbca45f2de..0c4bc8fbcaf3 100644
---- a/drivers/hwtracing/coresight/coresight-trbe.c
-+++ b/drivers/hwtracing/coresight/coresight-trbe.c
-@@ -158,6 +158,7 @@ struct trbe_drvdata {
- 	struct hlist_node hotplug_node;
- 	int irq;
- 	cpumask_t supported_cpus;
-+	cpumask_t irq_affinity;
- 	enum cpuhp_state trbe_online;
- 	struct platform_device *pdev;
- };
-@@ -1533,6 +1534,8 @@ static void arm_trbe_remove_cpuhp(struct trbe_drvdata *drvdata)
- static int arm_trbe_probe_irq(struct platform_device *pdev,
- 			      struct trbe_drvdata *drvdata)
- {
-+	const struct arm_pmu_acpi_dev_data *acpi_data =
-+		dev_get_platdata(&pdev->dev);
- 	const struct cpumask *affinity;
- 	int ret;
- 
-@@ -1547,14 +1550,27 @@ static int arm_trbe_probe_irq(struct platform_device *pdev,
- 		return -EINVAL;
- 	}
- 
--	cpumask_copy(&drvdata->supported_cpus, affinity);
-+	/*
-+	 * The ACPI path has no fwnode describing which CPUs implement TRBE,
-+	 * so it passes the mask explicitly. DT devices still use the
-+	 * firmware-described IRQ affinity.
-+	 */
-+	cpumask_copy(&drvdata->supported_cpus,
-+		     acpi_data ? &acpi_data->cpus : affinity);
-+
-+	/*
-+	 * supported_cpus gets pruned as CPUs are probed, so keep a stable
-+	 * copy for the IRQ action.
-+	 */
-+	cpumask_copy(&drvdata->irq_affinity, &drvdata->supported_cpus);
- 
- 	drvdata->handle = alloc_percpu(struct perf_output_handle *);
- 	if (!drvdata->handle)
- 		return -ENOMEM;
- 
--	ret = request_percpu_irq_affinity(drvdata->irq, arm_trbe_irq_handler, DRVNAME,
--					  affinity, drvdata->handle);
-+	ret = request_percpu_irq_affinity(drvdata->irq, arm_trbe_irq_handler,
-+					  DRVNAME, &drvdata->irq_affinity,
-+					  drvdata->handle);
- 	if (ret) {
- 		free_percpu(drvdata->handle);
- 		return ret;
-diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index b70f3fedf028..712b7f187301 100644
---- a/drivers/perf/arm_spe_pmu.c
-+++ b/drivers/perf/arm_spe_pmu.c
-@@ -1330,6 +1330,8 @@ static void arm_spe_pmu_dev_teardown(struct arm_spe_pmu *spe_pmu)
- static int arm_spe_pmu_irq_probe(struct arm_spe_pmu *spe_pmu)
- {
- 	struct platform_device *pdev = spe_pmu->pdev;
-+	const struct arm_pmu_acpi_dev_data *acpi_data =
-+		dev_get_platdata(&pdev->dev);
- 	const struct cpumask *affinity;
- 	int irq;
- 
-@@ -1342,7 +1344,13 @@ static int arm_spe_pmu_irq_probe(struct arm_spe_pmu *spe_pmu)
- 		return -EINVAL;
- 	}
- 
--	cpumask_copy(&spe_pmu->supported_cpus, affinity);
-+	/*
-+	 * The ACPI path has no fwnode describing which CPUs implement SPE,
-+	 * so it passes the mask explicitly. DT devices still use the
-+	 * firmware-described IRQ affinity.
-+	 */
-+	cpumask_copy(&spe_pmu->supported_cpus,
-+		     acpi_data ? &acpi_data->cpus : affinity);
- 
- 	spe_pmu->irq = irq;
- 	return 0;
-diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
-index 02d2c7f45b52..7f1c03c55025 100644
---- a/include/linux/perf/arm_pmu.h
-+++ b/include/linux/perf/arm_pmu.h
-@@ -8,6 +8,7 @@
- #ifndef __ARM_PMU_H__
- #define __ARM_PMU_H__
- 
-+#include <linux/cpumask.h>
- #include <linux/interrupt.h>
- #include <linux/perf_event.h>
- #include <linux/platform_device.h>
-@@ -199,6 +200,15 @@ void armpmu_free_irq(struct arm_pmu * __percpu *armpmu, int irq, int cpu);
- #define ARMV8_SPE_PDEV_NAME "arm,spe-v1"
- #define ARMV8_TRBE_PDEV_NAME "arm,trbe"
- 
-+/*
-+ * Per-device CPU mask passed by the ACPI MADT walk. The synthetic
-+ * platform devices have no fwnode, so the IRQ affinity cannot describe
-+ * which CPUs actually implement the feature.
-+ */
-+struct arm_pmu_acpi_dev_data {
-+	struct cpumask cpus;
-+};
-+
- /* Why does everything I do descend into this? */
- #define __GEN_PMU_FORMAT_ATTR(cfg, lo, hi)				\
- 	(lo) == (hi) ? #cfg ":" #lo "\n" : #cfg ":" #lo "-" #hi
--- 
+Johnny.Fan (2):
+  perf: arm_pmu: Accept a per-device CPU mask from platform data
+  perf: arm_pmu_acpi: Support heterogeneous ACPI systems
+
+ drivers/hwtracing/coresight/coresight-trbe.c |  22 +-
+ drivers/perf/arm_pmu_acpi.c                  | 238 +++++++++++++------
+ drivers/perf/arm_spe_pmu.c                   |  10 +-
+ include/linux/perf/arm_pmu.h                 |  10 +
+ 4 files changed, 205 insertions(+), 75 deletions(-)
+
+--
 2.55.0
 
 
