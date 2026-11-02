@@ -2,112 +2,147 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 452AB606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 07:04:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DE06606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 07:12:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QoLed2Ah;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hq+Nu9RU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SxCetcp/;
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=Sf/wagEk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=VU9BXhR7VAByKc6pd+oKrjGan0whFepMAX42Ew0W3wU=; b=QoLed2AhMsGTZR
-	N3Khm68+LwEkZjXsKody1kitazh43Ei73joAFTx9Cp3PoWG5ueDlCU2uNLSfIIPd06GXE2ylo9vJx
-	pIgIiu0Mp2gofMnhzFNUiF4R57qkaAuI9qeXp2xHddAZlacTjf1Q4OlxfV6aXL0rmUFOoLJId0RO7
-	DvYXYiqOe4YuB8yi+vKCUoyjUnJV9YTKvozlH+IrFGlUS+ioOIB3VqOrdb+OA1hl69A8XfNUO0/41
-	SLyKIhKd5LnuPJD/jcCutnqBB0EgJW8/vQrwUVGYPgAbMYdb6qmaPqvSyC73WeFcqW509B2qD2i0+
-	cZOpPLD8Kn87ZpkS9uOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=STjztyzTwL0p18OzfDBVbDKy73h6u7sCHye5XimNoyQ=; b=SxCetcp/cCq1+1Kb0Mk491J0L0
+	XS2VJfFcODznkC5ZiegipoDH34pGBtPv5Sprf1KLWtEOKfJt8z6PKtvPUMd7KVMAWT30zFG9XwWuI
+	kJlDrj6KgkFvLzI4AKrmomeyL02J0XxBeV+4l4hg5B/g/dLY12o3/2nPdol4eFD6Cb4ZdsC+nUG9i
+	9SYKE8fNeiTwl5yml26i76scTKl+cnA/Kd9hxPzfYSi8+JghprRuqh/jI1PwwnM19KTZ1YZn5RC98
+	2qimOKs1t0dIDcYWDWPiU+o3gFUarlXpMdzoT/5BrtdtCu+ryn/DcGDE/rwejnUO8z/DdZbp4mbhm
+	n/9mJOIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNm61-0000000FiLm-31ZD;
-	Mon, 02 Nov 2026 07:04:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xNmDJ-0000000FilS-3U6K;
+	Mon, 02 Nov 2026 07:12:17 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNm5z-0000000FiKx-3Akw
+	id 1xNmDG-0000000Fiku-2meJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 07:04:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DCECA60EF6;
-	Mon,  2 Nov 2026 07:04:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 600A11F00A20;
-	Mon,  2 Nov 2026 07:04:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793603082;
-	bh=VU9BXhR7VAByKc6pd+oKrjGan0whFepMAX42Ew0W3wU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=hq+Nu9RUys5ne52FWmDVRuqBrbLemnEHMqRBuGLtmLxD4mjV+TgEY1+gNI4Vyepv9
-	 O6G1NneFk5+encnKy9qGMapN345cgeNzibUy8oUTOi+oiGxtg9+XNB7iu/iW5tfjPb
-	 5I95wxCutFZlVJad0ewMWPuepXA24KPTmMXVmP2NVq0M1AuBfp9IJrqFjMT2MiiYcl
-	 XTb2FHwBN2rZduICmsSpNUUQCiMqfwqEJgChtEmzfmmYG7v6ZR80HQ8bWARVnxVK6B
-	 xWjSNwHIW0CMYaU9Jq/l1rfbz2VaQaa18K7uDKhZffklg1haAJEFnDhINk7wudOSXa
-	 0Ps8dnYfqnPoQ==
-Message-ID: <6cecea78-658a-4278-b5c9-228a827583e0@kernel.org>
-Date: Mon, 2 Nov 2026 08:04:35 +0100
+	Mon, 02 Nov 2026 07:12:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eZqJhjXz30YW3Hc4AXZylGMM4IbWuEoC3GqhzRuhdwb7VMiWDP4q2CmPLUwEbWEtK1x1HpLvr7hnnz4Hk3Bfp7Q/YnH8QIEL6BZmrVghKGppQkT21WleLJDbyWQvuGXq+HvyywxSr25JIK4REStjlljNZQbo5DC4BnvTqSNoyoTT/KquoLAtPooC/j1eY1IWJZCnF63Jlovw19GznHxHhHPv/qCDNFD1kQQORFi11PgPY6X5/XJwO88g6KUEM7NeImOqbFUb8GazBKgMjzkZZcWKVgDRVpc3c5z8BIKDHXHAzXop9d6u0y5Ew9jxLI79k07D6C1+uYRykqnaCn7JUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=STjztyzTwL0p18OzfDBVbDKy73h6u7sCHye5XimNoyQ=;
+ b=WydNpY/G529ri9gljnR/YGyfuxpJnWpib8d1SZXTRdrDISOjalXuszjHiRgJZxdOVQt86hmx1GPk51g95WA7O0vhqtWVcKi0tC3NM/t0L/aIi55kXie7tEZ/YMaxHcvXbN1+1VOgUKmwD2y+IASWru3a7iT8uH6VV0DPE2jIuvGIOSJ7zGUccgPES/Yoa9hgrbbmQef0di4zpOs9Lkl8H5G5Zem0TIusBrQ1lu3JWhE9ai/hfe9KXg/8196TdFCN5SN6ReVZPseTcowhxNozPoa8rBWsfFWkflZeGninascZ/ozAoc8ZxKHcKeh8bQsEqdwSW/0ugc+EWgjRXD5qVg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=STjztyzTwL0p18OzfDBVbDKy73h6u7sCHye5XimNoyQ=;
+ b=Sf/wagEk9B3J5W7gBJQoPIooknL5gDADwSigWich03pdmLEwruN2xbBafv7v4/dG8oUA/WtWKqQ3XbT3Cn5HELPYbNVZ+ocOTEw6+esA9K3Gu1SRWoKziu+Buy3M8EFKgNTX43ysT+MKGWEByRkLXFNUVGPOYjCknu8cYExdvpY=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DS0PR12MB9060.namprd12.prod.outlook.com (2603:10b6:8:c4::12) by
+ PH8PR12MB6819.namprd12.prod.outlook.com (2603:10b6:510:1ca::5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.569.12; Mon, 2 Nov 2026 07:12:08 +0000
+Received: from DS0PR12MB9060.namprd12.prod.outlook.com
+ ([fe80::e096:864d:d60a:c83f]) by DS0PR12MB9060.namprd12.prod.outlook.com
+ ([fe80::e096:864d:d60a:c83f%4]) with mapi id 15.21.0569.011; Mon, 2 Nov 2026
+ 07:12:07 +0000
+Message-ID: <108cf042-5f7f-4b1e-9656-3193744e8043@amd.com>
+Date: Mon, 2 Nov 2026 12:41:59 +0530
+User-Agent: Mozilla Thunderbird
+From: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+Subject: Re: [PATCH v2] iio: adc: xilinx-ams: fix out-of-bounds accesses when
+ parsing channels
+To: Arnav Kapoor <kapoorarnav43@gmail.com>
+Cc: "O'Griofa, Conall" <conall.ogriofa@amd.com>,
+ Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>,
+ =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, "Simek, Michal" <michal.simek@amd.com>,
+ Andy Shevchenko <andriy.shevchenko@intel.com>,
+ "stable@vger.kernel.org" <stable@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20261023185652.195025-1-kapoorarnav43@gmail.com>
+Content-Language: en-US
+In-Reply-To: <20261023185652.195025-1-kapoorarnav43@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5PR01CA0311.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:220::17) To DS0PR12MB9060.namprd12.prod.outlook.com
+ (2603:10b6:8:c4::12)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: soc: ti: Document the
- ti,tda54-mcu-scm-conf binding
-To: Moteen Shah <m-shah@ti.com>
-Cc: conor+dt@kernel.org, robh@kernel.org, krzk+dt@kernel.org, nm@ti.com,
- ssantosh@kernel.org, u-kumar1@ti.com, gehariprasath@ti.com, vigneshr@ti.com,
- afd@ti.com, a-limaye@ti.com, y-abhilashchandra@ti.com, johan@kernel.org,
- kees@kernel.org, jm@ti.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20261027083700.1964371-1-m-shah@ti.com>
- <20261027083700.1964371-2-m-shah@ti.com>
- <20261028-inventive-screeching-bettong-9f4240@quoll>
- <b53d0986-33fd-43d3-a03f-2bbb39dda42a@ti.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <b53d0986-33fd-43d3-a03f-2bbb39dda42a@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB9060:EE_|PH8PR12MB6819:EE_
+X-MS-Office365-Filtering-Correlation-Id: c4555514-e2a7-4ae4-d3c7-08df38b09a5a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|7416014|261021130227099003|261021123027099003|261021121427099003|261021133027099003|261021135927099003|261022113327099003|261022105027099003|261022115727099003|261022075727099003|261009223027099003|261026130827099003|261026121527099003|261026135527099003|261026140227099003|261028144727099003|11063799006|10067099003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: UGUT9EeMA+KgsyhCzCqqIA3Mpqum8l1niO2bhX3ZYi7v4pT4fhYET4FXSMEm4+KlKc4F5Jl/EEV8s0fDOAJ5MSnkPxfZAEd+EAgpDwqXCq2LAGvoBuLH/8l287d8hEqhcegbbWfUc0xDWj05ztdWTL8TcoKr4fFdPvgc6armJXFCbOHO5ErI3evyNojao+9OBGZFLwJHabfgL0X8rRVLyekBhMMHv1iWxqrUGMgTZxnrwM+Y+/BNnF4+6Qx5jhjlH8/r4cKn91WKWooEZMummbtE+W3eOZKcQRbtioF0oJy8H9cOcLLG8XDPSenVrYxYf4cTNgXhMTnOtxazYDBvAYsESFIjoftmmRvFrmkj5JCuJp3WzmtiOWOzeVmDe2BiRhZcaLYyskU/nHIBKWtJr4UydZzZr3KuzygBKsMiiU5Y5bFZb9iRBiwJhDG/ENTFCYHlJ7v9ymHngUT1OeF9mtvYtG8Cl9r8lhygIIJVBA1iJFBUb8p7SNnv38Zto2ucA3zDBokevx0Esp4WNTJH9D1THW8MN+xsHFnzClDN21e/PjVtJUhyMb5ezuRkSTor1kS3XYhksvw4XCNmGXvBfBoePxO+t6xus74T+HcX+7XXdag2zJvzBIyZG8rAId8f
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB9060.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(7416014)(261021130227099003)(261021123027099003)(261021121427099003)(261021133027099003)(261021135927099003)(261022113327099003)(261022105027099003)(261022115727099003)(261022075727099003)(261009223027099003)(261026130827099003)(261026121527099003)(261026135527099003)(261026140227099003)(261028144727099003)(11063799006)(10067099003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZlY2RXl2MmVpSlU5N3FONkFMdGxmUDJQK2hUMEx1L0MxTVc2NWNKZFFlcmZY?=
+ =?utf-8?B?azlNYnNYT0RrNE4yREtrbnNUSXJmNmNpZThTTkZpek81Y014bDlwVXMwZGx3?=
+ =?utf-8?B?REVzVlorQU9WcEUxNWNyUXFuUStBTHBtc2gwTlVtRDRsd0o0cjJEWkluMXVx?=
+ =?utf-8?B?cHZTQ2tYUkpKRDdPdGlKZGVDM1dYWlA3c29RalRYNEJWSnJJNWZMakFGN2JV?=
+ =?utf-8?B?ZlVNbjJFK2Q3eit4TVVldXduNFIyeU5SZWE0WTh5Ulp4Y0FFd1ZOVWZzaWx3?=
+ =?utf-8?B?M0VzdGV6ZFNTMTdKUUZ0N0ZGVVpWSU1rUEZnT3ltWGYyQ1RzdW90TklNYitN?=
+ =?utf-8?B?c1dXTzNlL2NDblNlMnFuWTc1THk0elY4aHBOVHdkdCtQMjM2a3RyVWhEdXls?=
+ =?utf-8?B?V3BLVU05Uk9JR1FkcTdjV3FNSi9PSkxUOE85RHg3SU9lQXZPMHdGQjhjVjlz?=
+ =?utf-8?B?bzl4NzJzYXZ2WG14YXcwMjNqK0dVSUhHOU9UQVp1SkZJMHFNNUEvTng5b3Vq?=
+ =?utf-8?B?cUxxdUR2OEMyaDNBZkNCYWNMNGFIcFIvVHROQ2d6UkJ5TVlnS04zdGV6OGho?=
+ =?utf-8?B?enpuYUtXaU1YWkM1b1ZWSVdpckw2cGVwL1MzQy9VU3RZUG91VWppcS9TUEk5?=
+ =?utf-8?B?dFVuMWxCVHFoTUVob0xxOHdMbEppRWJnSyt2QjBKeWQ2cWFGMXgrSkJ5RmpR?=
+ =?utf-8?B?QVo4czVyN01CeERJK3VuN21LSHV1dDc0N2I5L05pczdnVGhabU42TFlkREZx?=
+ =?utf-8?B?Umh6M3VWNjVHUFM2V3QzdjZnL2M4SzMzUjdja0UvWE9IVThBd3RnMEJ5eWlN?=
+ =?utf-8?B?bmQ4VjBHUUY5Wk1NUHBVT1d4NUtVNEcwTDVOS2ZiWjFJSWZHSytFSkVkYmZw?=
+ =?utf-8?B?QU0yOThWZ1BxVzFlKzBvMkxYRjNuWjBiMG9VWnBFWm4vUDJiVXNjaExOMCtR?=
+ =?utf-8?B?VmkwczZYUkY5cy9Hd0NPMkRXbzlIclZoVnhrRk9DMFdmbXRkRHptdWt6ZkVE?=
+ =?utf-8?B?d2ZmRW5SdldrYStMWEZwL1dBY2J6Um5oWURsQ0I4YjJkRzVkYXE1Q1RSczMw?=
+ =?utf-8?B?MWpVSWdMakRadGMyU2lzMzlLZiszL2ltOVowTlBrUEdrSzVSQTFiQzFrS1Fp?=
+ =?utf-8?B?KzBuSkRKZC9qNndMTG54a3RPUzlmRjNwMUswcjN6bFZpOXlyUzR5bElrYWtl?=
+ =?utf-8?B?TDFDQ2dCS3FZTTVaSFRPSzMrMU9PZ0h2eVZSN0xIbC9oTHBHWkpFVXp6VEUx?=
+ =?utf-8?B?enl3K0hlRXZicXVpNjNOWWR6ZlNKUW0wdnQvL0k0QUlISTZQc01QOWhsRS9P?=
+ =?utf-8?B?UXFnWTBuaFVySHNOS0hjam1yOTNRa0o4MDhMODJaQkh0NEdudC9KTkdxV3J6?=
+ =?utf-8?B?ZWROclZUQmwvWDVLZ0hxUktUTHAwVC9pQUQ5bm9ONzRvdHlmb0NMRkx6cGh4?=
+ =?utf-8?B?Y3g3S3lBbFFscVdsdVNnTGl5U2JmaU1Bb1V4THJwMWJMTHMvMWZnZUl1ajM2?=
+ =?utf-8?B?a0FoL0dtbUFIR0JEZUI5WWFya2RFMFh0MHY0QlFZdnlUWVM4WXhlbWxoWFdF?=
+ =?utf-8?B?cTE4NmFGcWNhQWJMY1pKYSt0T1VNRVJWR3kyQnd2K1JLekZ0N28zbTJvemEx?=
+ =?utf-8?B?cEFQQjRvRGU5eUpUUVMzbURLT2VuSUFNQXlNOVFHLzdsZk9BbjU3a2RCdk9t?=
+ =?utf-8?B?NXZPYjlZVmtaSHpoRWlGTk1DSENYSVFCZy94dG1XenkvV0pPcm9IZHJjV2Ju?=
+ =?utf-8?B?WGt3TXFjV0Rlc0RidTMwWVZZRkRQSkVKb20rSTdVWnFucFFWTXkybGh4Vis4?=
+ =?utf-8?B?SDM2RWhIOVhLUThqSWRCTURjZXo2K3M5Unh6MEc1TGR5SDNzbERHUW16TjVF?=
+ =?utf-8?B?dFdkNzBud2o0a01IYk80eDNxaTB2Z1QvalFXNWYraHJyU0hSUXI5L2VENFky?=
+ =?utf-8?B?YXB5REtiL0JBbEFmc29jd3V0dHNyUXNCOTV6WFh1R2NPRWJNZ0JvdWVXcEhC?=
+ =?utf-8?B?UmEyWTAzcmNHbUd1REVWajZ3SkpWaGdXeUR2MlN3bm9FL3d2M29BMlZBTksv?=
+ =?utf-8?B?elVSOENyUFBvK0JhMi94Y0ZwSEl5VFNMSTNYTW5DNDlwenZCMmI4MjI1c2dp?=
+ =?utf-8?B?czlWb3VHaWUvcGltQnM4dXlQWjY3d3paT0w2RUoyd3J3ZU5QSW1lN3RMb3ph?=
+ =?utf-8?B?cWFZT2UvMUJNYXNGekE1S1h4YWM3SG9vWXF3MFRiVkt3NFBKMWdqek5hUHk2?=
+ =?utf-8?B?UGd5Zk1hWUJiVFpoVFdsalUxY2NYaDdHVGZZSnVnRFZDSG5kK3I1MWNTc20x?=
+ =?utf-8?B?a1B6a3IwZk5Rc0ZhTVZjeW8zN2V2b2lreEhjK3FWaGxRZzNSakVvdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c4555514-e2a7-4ae4-d3c7-08df38b09a5a
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB9060.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 07:12:07.0610
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9vcoSlGLIN5v2NZYjyGI4FCPNGz8OsRyIppD44/d4bOyFsERJy68YagKz/dZGqadyMqDmStA5p8y1dpHUqyFQA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6819
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261101_231214_781631_1FBC3EE0 
+X-CRM114-Status: GOOD (  33.06  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,46 +153,203 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 02/11/2026 06:20, Moteen Shah wrote:
->>> +  ti,proxy-id:
->>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>> +    minimum: 0
->>> +    maximum: 7
->>> +    description:
->>> +      Proxy region (0-7) through which this node's clients access
->>> +      claimable registers and their fault status registers.
->> I don't get the need of this property. You have a one, specific device, so
->> why the proxy id would vary per board?
->>
->> It also looks like re-implementing access controllers.
->>
->> Best regards,
->> Krzysztof
-> 
-> 
-> Thanks for the review, Krzysztof. I’ll drop the redundant “binding” from 
-> the subject.
-> 
-> ti,proxy-id is not intended to vary by board. It selects the proxy 
+Hi Arnav Kapoor,
 
-Then it is implied by compatible, no?
+On 10/24/2026 12:26 AM, Arnav Kapoor wrote:
+> ams_parse_firmware() allocates room for ARRAY_SIZE(ams_ps_channels) +
+> ARRAY_SIZE(ams_pl_channels) + ARRAY_SIZE(ams_ctrl_channels) = 51
+> channel specs and lets ams_init_module() fill them for the AMS node and
+> each of its children, without telling it how much room is left.
+> 
+> For the PL-SYSMON node, ams_get_ext_chan() appends one channel per
+> "channel@N" child after the 10 fixed PL channels. The binding allows
+> reg values 20..50, so a PL node can have up to 31 such children, i.e.
+> up to 41 PL channels, while only 31 are budgeted for it. Together with
+> the 13 PS and 7 AMS control channels, this writes past the end of the
+> buffer. Since the modules are filled in device tree order, the fixed
+> channel blocks copied after the PL node can overflow as well.
+> 
+> ams_get_ext_chan() also only checks the upper bound of reg. ext_chan is
+> unsigned, so a reg below 20 makes it wrap and ams_pl_channels[] is read
+> far out of bounds.
+> 
+> Pass the remaining capacity down to ams_init_module() and
+> ams_get_ext_chan() and fail with -ENOSPC when a module does not fit,
+> instead of writing past the buffer. Also reject reg values below 20, as
+> the binding requires.
+> 
+> Fixes: d5c70627a794 ("iio: adc: Add Xilinx AMS driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Arnav Kapoor <kapoorarnav43@gmail.com>
+> ---
+> Changes in v2:
+> - Fix the truncated subject line (Andy)
+> - Drop the paragraph about an earlier report, I could not find that
+>    thread again to reference it properly
+> - Pass the remaining capacity as unsigned int and drop the casts (Andy)
+> - Keep the ams_get_ext_chan() call on one line (Andy)
+> - Rebase on fixes-togreg
+> - Drop the bouncing @xilinx.com and @huawei.com addresses from Cc
+> 
+> v1: https://lore.kernel.org/all/20261021225356.625288-1-kapoorarnav43@gmail.com/
+> 
+> Compile-tested only (W=1); I don't have ZynqMP hardware.
+> 
+>   drivers/iio/adc/xilinx-ams.c | 54 ++++++++++++++++++++++++++++--------
+>   1 file changed, 43 insertions(+), 11 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/xilinx-ams.c b/drivers/iio/adc/xilinx-ams.c
+> index 158e6133abf5..7f0f7778d6aa 100644
+> --- a/drivers/iio/adc/xilinx-ams.c
+> +++ b/drivers/iio/adc/xilinx-ams.c
+> @@ -144,7 +144,14 @@
+>   #define AMS_PL_CSTS_ACCESS_MASK		BIT(1)
+>   
+>   #define AMS_PL_MAX_FIXED_CHANNEL	10
+> -#define AMS_PL_MAX_EXT_CHANNEL		20
+> +/*
+> + * The external PL channels are addressed by their channel number. The
+> + * binding allows the range from AMS_PL_EXT_CHANNEL_MIN to
+> + * AMS_PL_EXT_CHANNEL_MAX. AMS_PL_EXT_CHANNEL_MIN maps onto the first
+> + * ams_pl_channels[] entry, AMS_PL_EXT_CHANNEL_MAX onto the last one.
+> + */
+> +#define AMS_PL_EXT_CHANNEL_MIN		20
+> +#define AMS_PL_EXT_CHANNEL_MAX		50
+>   
+>   #define AMS_INIT_POLL_TIME_US		200
+>   #define AMS_INIT_TIMEOUT_US		10000
+> @@ -1142,20 +1149,31 @@ static const struct iio_chan_spec ams_ctrl_channels[] = {
+>   };
+>   
+>   static int ams_get_ext_chan(struct fwnode_handle *chan_node,
+> -			    struct iio_chan_spec *channels, int num_channels)
+> +			    struct iio_chan_spec *channels, int num_channels,
+> +			    unsigned int max_channels)
+>   {
+>   	struct iio_chan_spec *chan;
+> -	struct fwnode_handle *child;
+>   	unsigned int reg, ext_chan;
+>   	int ret;
+>   
+> -	fwnode_for_each_child_node(chan_node, child) {
+> +	fwnode_for_each_child_node_scoped(chan_node, child) {
+>   		ret = fwnode_property_read_u32(child, "reg", &reg);
+> -		if (ret || reg > AMS_PL_MAX_EXT_CHANNEL + 30)
+> +		if (ret)
+> +			continue;
+> +
+> +		/*
+> +		 * Anything outside of the range of channel numbers allowed
+> +		 * by the binding is not a valid channel.
+> +		 */
+> +		if (reg < AMS_PL_EXT_CHANNEL_MIN ||
+> +		    reg > AMS_PL_EXT_CHANNEL_MAX)
+>   			continue;
+>   
+> +		if (num_channels >= max_channels)
+> +			return -ENOSPC;
+> +
+>   		chan = &channels[num_channels];
+> -		ext_chan = reg + AMS_PL_MAX_FIXED_CHANNEL - 30;
+> +		ext_chan = reg - AMS_PL_EXT_CHANNEL_MIN;
+>   		memcpy(chan, &ams_pl_channels[ext_chan], sizeof(*channels));
+>   
+>   		if (fwnode_property_read_bool(child, "xlnx,bipolar"))
+> @@ -1183,7 +1201,8 @@ static void ams_iounmap_pl(void *data)
+>   
+>   static int ams_init_module(struct iio_dev *indio_dev,
+>   			   struct fwnode_handle *fwnode,
+> -			   struct iio_chan_spec *channels)
+> +			   struct iio_chan_spec *channels,
+> +			   unsigned int max_channels)
+>   {
+>   	struct device *dev = indio_dev->dev.parent;
+>   	struct ams *ams = iio_priv(indio_dev);
+> @@ -1191,6 +1210,9 @@ static int ams_init_module(struct iio_dev *indio_dev,
+>   	int ret;
+>   
+>   	if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams-ps")) {
+> +		if (max_channels < ARRAY_SIZE(ams_ps_channels))
+> +			return -ENOSPC;
+> +
+>   		ams->ps_base = fwnode_iomap(fwnode, 0);
+>   		if (!ams->ps_base)
+>   			return -ENXIO;
+> @@ -1202,6 +1224,9 @@ static int ams_init_module(struct iio_dev *indio_dev,
+>   		memcpy(channels, ams_ps_channels, sizeof(ams_ps_channels));
+>   		num_channels = ARRAY_SIZE(ams_ps_channels);
+>   	} else if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams-pl")) {
+> +		if (max_channels < AMS_PL_MAX_FIXED_CHANNEL)
+> +			return -ENOSPC;
+> +
+>   		ams->pl_base = fwnode_iomap(fwnode, 0);
+>   		if (!ams->pl_base)
+>   			return -ENXIO;
+> @@ -1213,9 +1238,14 @@ static int ams_init_module(struct iio_dev *indio_dev,
+>   		/* Copy only first 10 fix channels */
+>   		memcpy(channels, ams_pl_channels, AMS_PL_MAX_FIXED_CHANNEL * sizeof(*channels));
+>   		num_channels += AMS_PL_MAX_FIXED_CHANNEL;
+> -		num_channels = ams_get_ext_chan(fwnode, channels,
+> -						num_channels);
+> +		ret = ams_get_ext_chan(fwnode, channels, num_channels, max_channels);
+> +		if (ret < 0)
+> +			return ret;
+> +		num_channels = ret;
+>   	} else if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams")) {
+> +		if (max_channels < ARRAY_SIZE(ams_ctrl_channels))
+> +			return -ENOSPC;
+> +
+>   		/* add AMS channels to iio device channels */
+>   		memcpy(channels, ams_ctrl_channels, sizeof(ams_ctrl_channels));
+>   		num_channels += ARRAY_SIZE(ams_ctrl_channels);
+> @@ -1245,7 +1275,7 @@ static int ams_parse_firmware(struct iio_dev *indio_dev)
+>   		return -ENOMEM;
+>   
+>   	if (fwnode_device_is_available(fwnode)) {
+> -		ret = ams_init_module(indio_dev, fwnode, ams_channels);
+> +		ret = ams_init_module(indio_dev, fwnode, ams_channels, ams_size);
+>   		if (ret < 0)
+>   			return ret;
+>   
+> @@ -1253,7 +1283,9 @@ static int ams_parse_firmware(struct iio_dev *indio_dev)
+>   	}
+>   
+>   	device_for_each_child_node_scoped(dev, child) {
+> -		ret = ams_init_module(indio_dev, child, ams_channels + num_channels);
+> +		ret = ams_init_module(indio_dev, child,
+> +				      ams_channels + num_channels,
+> +				      ams_size - num_channels);
+>   		if (ret < 0)
+>   			return ret;
+>   
 
-> window used by this Linux instance. One use case we need to support is 
-> running two VMs with different proxy IDs, with each VM’s DT describing 
-> the proxy it uses.
-> The driver reads the ID from DT and performs register accesses through 
-> that proxy; it does not allocate proxy IDs or decide which VM uses which 
-> one.
-And if not, my statement still feels applicable.
+Thanks for the patch.
+Changes looks fine to me, it is properly addressing the out-of-bounds
+access. I think the underlying issue is also in the DT binding.
 
-Best regards,
-Krzysztof
+ams_init_module() already copies ams_pl_channels[0..9] as the 10 fixed
+channels. Inside ams_get_ext_chan(), since ext_chan = reg - 20, DT
+entries with reg = 20..29 map to the same entries and it create
+duplicates.
+
+DT binding requires update to allow 30..50 for external channels. This
+gives a maximum of 10 fixed + 21 external = 31 PL channels, matching
+ARRAY_SIZE(ams_pl_channels).
+Please let us know if you plan to include the binding change, otherwise,
+we can handle it separately.
+
+Regards
+Sai Krishna
+
+> 
+> base-commit: 2ef6f5c4ee56e90c237c5f7687f09e635f7d30a9
+
 
