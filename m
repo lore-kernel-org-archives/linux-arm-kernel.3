@@ -2,79 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40D45606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:32:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37CC460A380B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:34:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=joWC+LMf;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xvj4Jys2
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Usy4U9Qi;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=N1s297oY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=+KNo4bpud+SMYchvK5KCDswdCQ037Y0sDC1uaSlb35Y=; b=joWC+LMfgcfZ1r
-	fOsJPZy8kBR863MvyhADR0OADYR2ptv1tbkzKOvVswI/3F4hg/lPAfw3/EPjSHEqXwFZMyKx4iJLI
-	EyU331wFERiavDhG279+MMz8gzR3rRx5hq3vR9Cjkgx87k+Ap0N9y6RHh5g/Rk23H1/SrWJn3nASR
-	cTDBJW2AJp9fo00Sf/w3KxOzCJWHO2lqFTweeYcEXJcjCu+9fYuFgZBiOAwqz3QS4AWNtITFNRRlq
-	Igo8hWXcil2mX+KUFl6KuiG/h8g+O12idQagonfgclmUc591Lo5ztYNSTIcMMBQulT0D2zsXOiM3+
-	PcOT0USbHnqfwqyiqCog==;
+	List-Owner; bh=gpaAuh2fOXwrcHbmDYDRiGqkaVYt/5u6+l0Qi75BqpM=; b=Usy4U9QiVWqETW
+	HTENcHpZYa3feePvM6gInKzdQ2vC2grnAEZXaLe2DNOALgQiV0LGatEQ2XwpV4lGDkDN7jU2Q2AgG
+	BkRPTyzi1p4r4T4VaSd1zEgkxOACd8j/ZO+V7YG0991kQut2XZssOLPqJ6JZcUAJibeIBS0kq3pdZ
+	Gwg+ayP3ow8qNkW+Kyux20//rcebihRjhPrrT/hM6EV8f40+9VE9pQnPP1tSAVOEcyJPGbfx9fqHz
+	KJT/MclFvaTKc/xp6W8DZt7WIYSIAYO7rWi1thjBBaybo0Y1/5PThMw/wDEFfAgPehnwihohqB341
+	+SeSHQuYfPwWxXIUuMbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNs97-0000000GcTs-1HeO;
-	Mon, 02 Nov 2026 13:32:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNs95-0000000GcT5-1ku8
+	id 1xNsAn-0000000Gcjd-2JZi;
+	Mon, 02 Nov 2026 13:34:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNsAk-0000000GciB-1VkF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 13:32:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D31D243CF0
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Nov 2026 13:32:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B84901F00A1C
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  2 Nov 2026 13:32:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793626338;
-	bh=+KNo4bpud+SMYchvK5KCDswdCQ037Y0sDC1uaSlb35Y=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Xvj4Jys23GETo9grfLKMbvGSh4RgLw8HsL6f9b/mbpgnyy/pKYBZTFLhYKpZLQg6H
-	 eufN+0t1CG+Nn6Ru4WCURQFx92w1aPoaY4k0AxuwOeRnebPpYtwpmow5ZYkyC2Z1lC
-	 GuM6/I+9vDPnlDuALgVNJUqAC3AtA8EQjW0gZqjIWzPw779QKPlyYa7BfAKS2uLYN6
-	 X3jvMer+WxHs0dd8LrPgeVnsiGPWarPBMAdukj3Bc5kgQmC+y0LRJQLUXztDevdpDA
-	 x/fz+si4fpVRE0M8+bLkvaZjJrk5DC+VLPO8vprdqT17JBXWvq8p64g345ZcthTtOS
-	 USJGxDCz6vZjA==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5bfa65c8617so1807996e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 05:32:18 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvBzZBH19OuidYOpYxkGP113eu+FN+yqs3tHeG/m2eO30K5R3SKa/SxN/Uf88d+fafpIlOLNjkQ4YhRcWBejCpYr3@lists.infradead.org
-X-Gm-Message-State: APuU4Z9XGEfzJj1eRRZdAUq+iNRzxDvvp/ouR9d3Faz7R2dieslwoYGk
-	6qiBgxPqMmlK/3Lnal+p7vLk9g3ADIv3TLLpMS5XpFyvdrW9VTwDw0Cc5RuX6oYhQMWVjuLMdwX
-	8tEm2XObxOvaetqO54sNCkSO9i2F6Pb0=
-X-Received: by 2002:a05:6512:230e:b0:5bf:b313:993f with SMTP id
- 2adb3069b0e04-5bfd9563266mr3175580e87.18.1793626337495; Mon, 02 Nov 2026
- 05:32:17 -0800 (PST)
+	Mon, 02 Nov 2026 13:34:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4056C293B;
+	Mon,  2 Nov 2026 05:33:58 -0800 (PST)
+Received: from e133894.arm.com (e133894.arm.com [10.2.80.62])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0EC473F632;
+	Mon,  2 Nov 2026 05:33:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793626441; bh=cwIKq7uEVGikrcixQ23Qo9duokZSRm0jxI8WtgrhzLU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=N1s297oYlTqGLGTfiY+OEttSaJb0UdhNK724z3zOzGIDP3XapPLeJNX76ebo7epCX
+	 q4AXggsPllUCzTtN6LHh+PaQtM5l/Xc75WXZN3tORVXVW3l1hFZUgg7luce2jprP5l
+	 r5Sz2/j6R2vUonu4aZ8o0kCrUoYUjQRi72XqRZ2U=
+From: Sascha Bischoff <sascha.bischoff@arm.com>
+Date: Mon, 02 Nov 2026 13:32:55 +0000
+Subject: [PATCH 02/10] irqchip/gic-v5: Only set IRS DPS when 1ofN routing
+ is supported
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261025-genexis-xg6846-smp-v7-3-rc1-v4-0-b352ab54f46b@kernel.org>
- <20261025-genexis-xg6846-smp-v7-3-rc1-v4-3-b352ab54f46b@kernel.org>
- <CAHi4H7Gc9_b0L5xdEBd7dVdbYMUirWm4vSVaSpDDB6yZP8NSHA@mail.gmail.com>
- <CAD++jL=sYrL8BV6ap2POTbT5=4iPEjG1mAUexwexiiQGqEUwPA@mail.gmail.com> <CAHi4H7HkCPWTTMW8tmejx0Cxojn9Xq_Jkm09nH-=v3tJKUGa_w@mail.gmail.com>
-In-Reply-To: <CAHi4H7HkCPWTTMW8tmejx0Cxojn9Xq_Jkm09nH-=v3tJKUGa_w@mail.gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 2 Nov 2026 14:32:04 +0100
-X-Gmail-Original-Message-ID: <CAD++jLny6x9u3iFH1HnmeahSBshzghEXvGFpdFJHN4kzwrrWHA@mail.gmail.com>
-X-Gm-Features: AclHuK9aAhqsiw-4JCsbkVqcNN-7vMsWqGS51RqakSrrCdq1GW5KD7oX1FrUGSg
-Message-ID: <CAD++jLny6x9u3iFH1HnmeahSBshzghEXvGFpdFJHN4kzwrrWHA@mail.gmail.com>
-Subject: Re: [PATCH v4 3/3] ARM: dts: broadcom: Use CFE CPU bring-up on the XG6846B
-To: William Zhang <william.zhang@broadcom.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Russell King <linux@armlinux.org.uk>, Anand Gore <anand.gore@broadcom.com>, 
-	Kursad Oney <kursad.oney@broadcom.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261102-host_gicv5_fixes-v1-2-743b61626fc5@arm.com>
+References: <20261102-host_gicv5_fixes-v1-0-743b61626fc5@arm.com>
+In-Reply-To: <20261102-host_gicv5_fixes-v1-0-743b61626fc5@arm.com>
+To: Marc Zyngier <maz@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
+ Timothy Hayes <timothy.hayes@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Jonathan Cameron <jic23@kernel.org>, 
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Sascha Bischoff <sascha.bischoff@arm.com>
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261102_053402_448488_DE60F4A4 
+X-CRM114-Status: GOOD (  12.88  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,33 +75,72 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 28, 2026 at 6:03=E2=80=AFPM William Zhang
-<william.zhang@broadcom.com> wrote:
+IRS_PE_CR0.DPS is RES0 when the IRS does not support 1ofN routing.
+Read the capability from IRS_IDR0 and skip programming DPS on systems
+without support for 1ofN routing, rather than blindly writing it.
 
-> > > Nitpicky. In your dt-bindings patch,  you use <0xff800568> as example=
-.
-> > > I guess it is better to use the same here to keep consistent, althoug=
-h
-> > > what value doe not really matter.
-> >
-> > I did it this way on purpose because I didn't want to put 0x00000000 in=
-to the
-> > example in the binding, lest the DT maintainers would complain
-> > about that the dummy is not a good example.
-> >
-> All right. I don't have strong preference either way so it is up to
-> you or if anyone else has anything to say.
+Fixes: 5cb1b6dab2def ("irqchip/gic-v5: Add GICv5 IRS/SPI support")
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+---
+ drivers/irqchip/irq-gic-v5-irs.c   | 14 +++++++++-----
+ include/linux/irqchip/arm-gic-v5.h |  1 +
+ 2 files changed, 10 insertions(+), 5 deletions(-)
 
-Me neither, I'll do it any way that makes Florian merge these patches :D
-(I think Florian does the mach-bcm business?)
+diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
+index 9d60f474aa4f6..4edf787f3f97f 100644
+--- a/drivers/irqchip/irq-gic-v5-irs.c
++++ b/drivers/irqchip/irq-gic-v5-irs.c
+@@ -541,12 +541,15 @@ int gicv5_irs_register_cpu(int cpuid)
+ 		return -ENXIO;
+ 	}
+ 
+-	cr0 = FIELD_PREP(GICV5_IRS_PE_CR0_DPS, 0x1);
+-	irs_writel_relaxed(irs_data, cr0, GICV5_IRS_PE_CR0);
++	/* IRS_PE_CR0.DPS is RES0 when 1ofN routing is unsupported. */
++	if (gicv5_global_data.one_of_n) {
++		cr0 = FIELD_PREP(GICV5_IRS_PE_CR0_DPS, 0x1);
++		irs_writel_relaxed(irs_data, cr0, GICV5_IRS_PE_CR0);
+ 
+-	ret = gicv5_irs_wait_for_pe_cr0(irs_data);
+-	if (ret)
+-		return ret;
++		ret = gicv5_irs_wait_for_pe_cr0(irs_data);
++		if (ret)
++			return ret;
++	}
+ 
+ 	pr_debug("CPU %d enabled PE IAFFID 0x%x\n", cpuid, iaffid);
+ 
+@@ -725,6 +728,7 @@ static int __init gicv5_irs_init(struct gicv5_irs_chip_data *irs_data)
+ 	if (list_empty(&irs_nodes)) {
+ 		idr = irs_readl_relaxed(irs_data, GICV5_IRS_IDR0);
+ 		gicv5_global_data.virt_capable = !!FIELD_GET(GICV5_IRS_IDR0_VIRT, idr);
++		gicv5_global_data.one_of_n = !!FIELD_GET(GICV5_IRS_IDR0_ONE_N, idr);
+ 
+ 		idr = irs_readl_relaxed(irs_data, GICV5_IRS_IDR1);
+ 		irs_setup_pri_bits(idr);
+diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
+index 299e75bc95255..34e22e7d4a4c7 100644
+--- a/include/linux/irqchip/arm-gic-v5.h
++++ b/include/linux/irqchip/arm-gic-v5.h
+@@ -532,6 +532,7 @@ struct gicv5_chip_data {
+ 	u8			cpuif_id_bits;
+ 	u8			irs_pri_bits;
+ 	bool			virt_capable;
++	bool			one_of_n;
+ 	struct {
+ 		__le64 *l1ist_addr;
+ 		u32 l2_size;
 
-Yours,
-Linus Walleij
+-- 
+2.34.1
+
 
