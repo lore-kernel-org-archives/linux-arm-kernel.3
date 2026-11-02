@@ -2,72 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D659606A32E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:40:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD1D6606D83C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:40:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lsHU606a;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aKUSJkHE
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JurTYVtt;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=QiJwjxGK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ei1PcyW2bvlCuqWOURcTSE3dLB/l5Xm1TRmGcUX2JW4=; b=lsHU606ag/JE8vWFq+vkJzWLT2
-	eJvA+fNRiPt32wKQKeWm6wLoK5aTQqSCqCt1UhxLd1QCT2VuR20xNXK0VXeMkN//i3KxFKXx1Mv5r
-	WeYAu14xTo7tmBdxJEMJIVV/mXHDxOdf61Klh/ASk8ZA0RnvpUF0tbZ6tUqoCk9JGSr38S5oD+HXy
-	Tut/Y9ADpfIv4LVlEr4OKSGXNZhACeNn+WGnwMeTGM3NQMvnIeiwmEDcvtKrurvYAr9EmU0fP11gC
-	rxQ4wK9TWml/E3uBMwN5HT7WgjDktWqxI/LUkZpe6iEeNRflipFucoiOtD4OEWbyvpm91NWfhOpJJ
-	N0F2ZviQ==;
+	bh=7OJaoJHgx2GzzDd0wBdvqi7D9JZvRZGfZ3cOJLVNOIg=; b=JurTYVttoF+8umMOhllAwj4szV
+	icE+ZNKfUw62FZ8aFzV2Fc5SVT5pU8oChc3uWZ4kHVkpOk6oNEyx2bpdXA8a8l/rOJkZ+m0kSvfTW
+	IITAlPblmLqv26AdnRE670s62zZ/s1zwLbR0cNTllyVTbdDW3DrUZIwDD0N6kaTcmMJy+zlO9JP8L
+	zUDenY236u89EtU56d9IxCECV77ikxwO2nlxqQH+PibBvsB/QWx7nyTTlFNIgmnwC8qzmpxyOeY3Y
+	KyKdFsFEJH7QK4vB2EeKf4lIZ9RsR0kw4BKnhYp2lnFdZ9i9+6otYgorRyemvtYR7vwSFmlCVtZCm
+	ZizioK3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxsq-000000007Lc-3Lm2;
-	Mon, 02 Nov 2026 19:39:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xNxKq-000000003U9-0Omf;
+	Mon, 02 Nov 2026 19:04:48 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxsp-000000007Kx-0db6;
-	Mon, 02 Nov 2026 19:39:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8CAAA43A64;
-	Mon,  2 Nov 2026 19:39:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 886AC1F00A16;
-	Mon,  2 Nov 2026 19:39:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793648394;
-	bh=ei1PcyW2bvlCuqWOURcTSE3dLB/l5Xm1TRmGcUX2JW4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aKUSJkHEjeliqo1dMG/1lWPIuVnBz8f7hQ4tTFS0ZU1ycTsBnlhsolsmLWwL/uWb2
-	 u08mtLopleSjzGsdEEe5RzYgqeAOdwbW7d/yBT8UkDk0oT5f2NFzo5l7hiI1vsXtYV
-	 +lXDxbtOkQKLT7QwPd5ylTPBZ/nak7MzgZuRMYjpYomrQ3w9hg1A4xH1KZB6jUxQ7M
-	 0QKCVIgPI7pz0yLLZyCQvzLPtDEwP4pRx14wjotbFV922AN2yaJlCMyPgaBgXjIyr3
-	 BCSuMu36L3NHPHzhcPR1XtQ+QK6jxYPktgdLoshoZnGEu5FoFqzvprNQG20wluoEJx
-	 sDW+Wp63urkOg==
-Date: Mon, 2 Nov 2026 19:39:49 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Peter Robinson <pbrobinson@gmail.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	bcm-kernel-feedback-list@broadcom.com,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH 1/9] dt-bindings: dma: brcm,bcm2835-dma: Add BCM2711 and
- BCM2712
-Message-ID: <20261102-email-target-d3191584d234@spud>
-References: <20261102090713.896324-1-pbrobinson@gmail.com>
- <20261102090713.896324-2-pbrobinson@gmail.com>
+	id 1xNxKn-000000003Tl-3gYQ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Nov 2026 19:04:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1793646284;
+	bh=C+N3AeR5hg2ytjeyH4W6gOYQhyf8r2d4UKcvMhRy1z4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=QiJwjxGKiuzRahVoyMzU5SyIhQaK8mgHGJu3C1WdCwm9GTmEjx6So+w7wBCRKBN+9
+	 lZ5oarghRG3A9D9I/0VZtBk+W6xJTh0ComdhBFcFHOdsNGwJ9vx71mGgeZH5WFTKO1
+	 wFqUbjdOxvi9IUt1VBqlYwT5jK1s6oAe+SU9A/cnB1tXr2TxRM+yv7gUOUINaLHMkK
+	 vneYBGKrGY0GntHBndGRK4xGcOkW4YeM7yO8s38sSNGrwMVlRdBVVc/57+kBhcSP4m
+	 Rj8w9ZbHE0hD6UYGhWS/DsEj1KYDuP2h+0wMHeASXsAMYUHhvZr/J8ZBpW8Nb4Jl5S
+	 g6r8muUOb6FbQ==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 75A9E17E07EF;
+	Mon, 02 Nov 2026 20:04:42 +0100 (CET)
+Message-ID: <3aea33aba09e7696137df25d621b9f1f61263405.camel@collabora.com>
+Subject: Re: [PATCH 07/10] staging: media: cedrus: validate VP8 frame size
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Jernej Skrabec <jernej.skrabec@gmail.com>, Mauro Carvalho Chehab
+	 <mchehab@kernel.org>, Hans Verkuil <hverkuil@kernel.org>
+Cc: Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski
+ <paulk@sys-base.io>,  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	linux-media@vger.kernel.org, linux-staging@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Date: Mon, 02 Nov 2026 14:04:41 -0500
+In-Reply-To: <20261102170303.1973892-8-jernej.skrabec@gmail.com>
+References: <20261102170303.1973892-1-jernej.skrabec@gmail.com>
+	 <20261102170303.1973892-8-jernej.skrabec@gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-kzIlL7zZnNiNzYsIj0Ze"
+User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="HziPGci4IN+2yC0c"
-Content-Disposition: inline
-In-Reply-To: <20261102090713.896324-2-pbrobinson@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261102_110446_067278_DADBE6DD 
+X-CRM114-Status: GOOD (  18.78  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,111 +102,73 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---HziPGci4IN+2yC0c
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+
+--=-kzIlL7zZnNiNzYsIj0Ze
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 02, 2026 at 09:06:51AM +0000, Peter Robinson wrote:
-> Add compatibles for the BCM2711 40-bit DMA4 channels, which are
-> described by a separate node covering channels 11-14, and for the
-> BCM2712 DMA controllers. The register address of a node identifies its
-> first channel, allowing a controller to be split across nodes.
+Hi,
+
+Le lundi 02 novembre 2026 =C3=A0 18:03 +0100, Jernej Skrabec a =C3=A9crit=
+=C2=A0:
+> A VP8 key frame can change the frame size. If userspace doesn't
+> reallocate the capture buffers, the hardware writes and reads past the
+> buffers, which shows up as IOMMU page faults and decode timeouts.
 >=20
-> Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
+> Check the frame size in try_ctrl, like for the H.264 and HEVC SPS.
 >=20
+> Fixes: 3c39a16d30d8 ("media: cedrus: Add support for VP8 decoding")
+> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 > ---
->  .../bindings/dma/brcm,bcm2835-dma.yaml        | 31 +++++++++++++++++--
->  1 file changed, 29 insertions(+), 2 deletions(-)
+>  drivers/staging/media/sunxi/cedrus/cedrus.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
 >=20
-> diff --git a/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml =
-b/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
-> index c9b9a5490826c..31d97a10a0ea9 100644
-> --- a/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
-> +++ b/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
-> @@ -9,18 +9,27 @@ title: BCM2835 DMA controller
->  maintainers:
->    - Nicolas Saenz Julienne <nsaenz@kernel.org>
-> =20
-> -description:
-> +description: |
->    The BCM2835 DMA controller has 16 channels in total. Only the lower
->    13 channels have an associated IRQ. Some arbitrary channels are used b=
-y the
->    VideoCore firmware (1,3,6,7 in the current firmware version). The chan=
-nels
->    0, 2 and 3 have special functionality and should not be used by the dr=
-iver.
-> =20
-> +  BCM2711 channels 11 to 14 are 40-bit capable DMA4 channels, described =
-by a
-> +  separate brcm,bcm2711-dma node. BCM2712 has 40-bit addressing on all
-> +  channels, with channels 6 to 11 being DMA4 channels. A controller may =
-be
-> +  split across several nodes, the register address identifies the first
-> +  channel of a node.
-
-Uh no, a device should not be split across different nodes. This should
-not be needed, why can't your driver handle the upper channels having
-different capabilities?
-
-Thanks,
-Conor.
-
+> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c b/drivers/stagin=
+g/media/sunxi/cedrus/cedrus.c
+> index 45deebddb630..756243795de8 100644
+> --- a/drivers/staging/media/sunxi/cedrus/cedrus.c
+> +++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
+> @@ -77,6 +77,11 @@ static int cedrus_try_ctrl(struct v4l2_ctrl *ctrl)
+>  					  (sps->pic_width_in_mbs_minus1 + 1) * 16,
+>  					  height))
+>  			return -EINVAL;
+> +	} else if (ctrl->id =3D=3D V4L2_CID_STATELESS_VP8_FRAME) {
+> +		const struct v4l2_ctrl_vp8_frame *frame =3D ctrl->p_new.p_vp8_frame;
 > +
->  allOf:
->    - $ref: dma-controller.yaml#
-> =20
->  properties:
->    compatible:
-> -    const: brcm,bcm2835-dma
-> +    enum:
-> +      - brcm,bcm2835-dma
-> +      - brcm,bcm2711-dma
-> +      - brcm,bcm2712-dma
-> =20
->    reg:
->      maxItems: 1
-> @@ -99,4 +108,22 @@ examples:
->          brcm,dma-channel-mask =3D <0x7f35>;
->      };
-> =20
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    dma-controller@7e007b00 {
-> +      compatible =3D "brcm,bcm2711-dma";
-> +      reg =3D <0x7e007b00 0x400>;
-> +      interrupts =3D <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>,
-> +                   <GIC_SPI 90 IRQ_TYPE_LEVEL_HIGH>,
-> +                   <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>,
-> +                   <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
-> +      interrupt-names =3D "dma11",
-> +                        "dma12",
-> +                        "dma13",
-> +                        "dma14";
-> +      #dma-cells =3D <1>;
-> +      brcm,dma-channel-mask =3D <0x7000>;
-> +    };
-> +
->  ...
-> --=20
-> 2.56.0
->=20
+> +		if (cedrus_check_pic_size(ctx, frame->width, frame->height))
+> +			return -EINVAL;
 
---HziPGci4IN+2yC0c
-Content-Type: application/pgp-signature; name=signature.asc
+This is affected by my previous comment, let's discuss over the other repor=
+t
+first.
+
+Nicolas
+
+>  	} else if (ctrl->id =3D=3D V4L2_CID_STATELESS_HEVC_SPS) {
+>  		const struct v4l2_ctrl_hevc_sps *sps =3D ctrl->p_new.p_hevc_sps;
+>  		unsigned int bit_depth, max_depth;
+> @@ -270,6 +275,7 @@ static const struct cedrus_control cedrus_controls[] =
+=3D {
+>  	{
+>  		.cfg =3D {
+>  			.id	=3D V4L2_CID_STATELESS_VP8_FRAME,
+> +			.ops	=3D &cedrus_ctrl_ops,
+>  		},
+>  		.capabilities	=3D CEDRUS_CAPABILITY_VP8_DEC,
+>  	},
+
+--=-kzIlL7zZnNiNzYsIj0Ze
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaujnBQAKCRB4tDGHoIJi
-0hRLAP0RLHp9wKJWp9KZvKHugGEw7nv+l/NCctuBP0UpDcirAQEA5THbx5eORWZq
-KfVxUSY81BazlR4FE+rstFss+HAzyA0=
-=gXCA
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaujeyQAKCRDZQZRRKWBy
+9IqGAPoC6fM1L/1ZfNyQBC83a/SNL7rGLwLzEEGJT9Zo48jjkgEA8jwnSm2jXDOH
+YkBEh/HriQ/7ez5trmMvNeCBdwMaKwE=
+=hacm
 -----END PGP SIGNATURE-----
 
---HziPGci4IN+2yC0c--
+--=-kzIlL7zZnNiNzYsIj0Ze--
 
