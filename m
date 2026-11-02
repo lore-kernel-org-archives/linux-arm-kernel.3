@@ -2,79 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 284C76075293
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 17:03:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6B1A60AED2A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 17:03:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PAbpqkmH;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=krSPh2Dp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XZYQ418b;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DYuK5eZ0
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=LyWui7dAfXbBCWh/47kRB3Ky2JFvt+VIP6naoPJCv0k=; b=PAbpqkmHKhBczRXJWg9dgG7zri
-	ZvKsGGoZUyCS9ZdIK04v3PVdbExj/xL6AHyBuOM4A5c9W7rizofUDYdhKh/4Rqo5g2ic3MvA9cSKg
-	92tk09dBC2khPCKZcHwl+pOXj29ueS5FFBmN0Hmq00T0QDg7ZBm0ch4z+sJSkA0hleofwqOHBkH8W
-	42yqPUxmmNzWs4vGwSemSHE78Imy9RkL86KjPebRXUjlMRKCutDZ0vAKS7D8201iaB2RcXzjbE+jr
-	dbwJ1ZRa50k03kqQpYUlLgzcblZZKEOVmRfMu0xEXJkgNOcDyA3RNIviAqDCIE4K8z4EqOF2I5ID1
-	KP9UHMjA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=MWiUrUc26qsUdMY2n/PhpO+pC2qChhSw9kx320KNwbA=; b=XZYQ418bprcJdW
+	nqr0pXjEoUnyUX9ybECWdMjqYKQza31uZuuKHW3WaH8tgs2l11c+ZnONAN8CuIkFzkZ20cgaXqJX5
+	4M5s4T/8a17xIS6ZQZvYH6PTeBx+/TOuLqpc1NMqJ+HxDoNW1Hyx7sC+DChK+Hmy9sIByjt8IAXtX
+	rOX7MP7ShYljKjFI5T4Xi6BPDRlBBoQoS6hf9dTrMU1JvBroUCuJ0XW4LMvgN5ZCfuP3JSbG9ridN
+	kYz0250X/BNOaz5WDA/2lxjMHUkiIPXnypVMWlP56Y2fj2kEfRIpG3yxOP4azKxOB10EfvQNOHg6U
+	zpFP+UP1IG0TbD22WP5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNvRI-0000000HO8K-3bPC;
-	Mon, 02 Nov 2026 17:03:20 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1xNvRO-0000000HODx-1o9B;
+	Mon, 02 Nov 2026 17:03:26 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNvRG-0000000HO6z-1Tkr
+	id 1xNvRL-0000000HOA0-47ec
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 17:03:19 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-c40f29667e6so500384466b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 09:03:15 -0800 (PST)
+	Mon, 02 Nov 2026 17:03:25 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-48e3b22e971so1645231f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 09:03:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793638994; x=1794243794; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LyWui7dAfXbBCWh/47kRB3Ky2JFvt+VIP6naoPJCv0k=;
-        b=krSPh2DpaL3K8LKH8nQmXdTewZuIXljowvyFZe3hqoeKF5m9uahKKsM4JMNqee5HnR
-         KSqNEOVs13r0W8yYWutnrt5qFlVwpO+Xp2NCtP+AFf2eIsTkZpDqZDP8MeGZ3yVB7hu2
-         aG/J0Uj5W5D1yOtBHz5gCna6Excw2BoyldVd0JUSoc31nJZj4oLIlQNApemTOhYJto5D
-         zbIZmgKlAtZlxRfiV7/AZOPvgLAt5Va8qjCMJgaQTITGUHDEBBi1A2oPDCs1x0Foq9Bq
-         Cl+3bNtGDa+q+DbbA0nMlFZkEWOSblr69b0T+4mT9+ghFDULygax+QO6xlAuFZ5z/w92
-         p7jg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793638994; x=1794243794;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1793639002; x=1794243802; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=LyWui7dAfXbBCWh/47kRB3Ky2JFvt+VIP6naoPJCv0k=;
-        b=z0e8i4CrTiZVzEyV+pwT661j/5wU2ZCu2sYg2qpQyhaezuGxnsdU6NvnOhq1Jxpv1u
-         NJV5NYLUi6F0F8Sm7191SmRlcuDZhAplVMD0mXQ7Zb/qYniysBBTLA4a7HCcfQKnhv+q
-         9KbW6TKdqSFTSrZ0+R+2cf8BjMSRCZKLrzsbRIKrcM/Kmh4G73X/lKCM8yXRdYa8YOts
-         oNlXvqveOKNGdD96A6wrW2XZHU3JBkX59TG4Hiy+RNsStr/AcXFZv513yfxBNQGjFE9W
-         RBo/v552etskhYy5FIR89Flj8NiREfz1ReyoiZv2wRDX4VeL62WJihIrK3EbYfgtSeGq
-         ZJvg==
-X-Forwarded-Encrypted: i=1; AKwUvBxCZ8wYWJzOh2Sue6s4U+/+I87Ad8yntGTiFnfTUy1TMg9ImQ5I93QmpRwNFmFP6XzrWmpTHgx5tObg8DJsLX4s@lists.infradead.org
-X-Gm-Message-State: AFq9FYK/LB1Lo6u+AdbS+rfkb7fouJyHPj7GQXP8u8eqp3g7Pf2nvK/H
-	QY/06I4MkRMN6VUf4uDX37MpwlG+h3dmrxQWalKSnODAFnKDOefBTUVa
-X-Gm-Gg: AYBFou1aBpZjLuIy0RtIZjO4yV1bJowym20pcmxk0k0QB1GK1WctiFpQZZmlNir2LPX
-	tC2tHcfimOt1JtLvegyIgQoQEXIGxr55yK6HeDpOqxBigkuiXgYWeJ0h0ABDVHQeubiCPKKRu2Q
-	etkSFrXSZKlBAZOXFIgrsJc4TZTWDydMoY7kkoXs0dBfQbdaqDLUXo+rBNCFqsn3cZ51oBWk89b
-	CD+iCwy9iw+l5WbwIU74vS9J26hf3FPaHqKJ2omyuxE8FMzebo+OQsyYPYNd2bt4LonhWhJYnmi
-	dpirUluxKBGol9w1Rst6goBQEkBJnWuHm2Z76JjwaT+HOwvXVy752qRxEg6hvEsZqdfvRwRBE0f
-	G/uQ8vJV94R4Cusfb0loCGAWTDwVTobFz/s1Uukm6U0IRNgKFWlXfQ4CYzUKjkhyl1BUIzmpk8A
-	8HfdKONj7g7Uye3kkfhpq9+DhN/QBch3+6V7brQYBAxwGy+bgzVzHnl/Ah3mGu7nqgT2GCVdv7M
-	uqocsndxlrFefYwapVoXJyH5yfYaXU6lQFQYaY+MpnBtylWQ7eO8cPEREGSSIhzi1TW60u1am9B
-	OH5ifunM1JUL3rLjiSwRzF7G/4wMzxWh/rz17bjOEZhC4F14XqA+miJ0zZOczs0EUecXZMFHASj
-	5h/bz8ofB1BZu232g8hmEoaYqZgkoTKLalQ5aovA5zZ256eZQGrusQd9RD0zD6sFVjxkAWVSzZR
-	axV4Z29rF+sATyevhWGOxthiP6pwKNW/RtONUra8WeceBJF8NN7wqbEdrrztO93yRW4CWHF9Phw
-	aeVTeo4+/CmU0koEouDJp/62PBPmjAnJ9oN66/jrITBVHSq3g==
-X-Received: by 2002:a17:907:e8f:b0:c41:64c1:cc2d with SMTP id a640c23a62f3a-c4ca79353a4mr832997366b.2.1793638993799;
-        Mon, 02 Nov 2026 09:03:13 -0800 (PST)
+        bh=MWiUrUc26qsUdMY2n/PhpO+pC2qChhSw9kx320KNwbA=;
+        b=DYuK5eZ01TsXqhzJyttCCs/6MAUJDF0yRhtFNAfwikjUmYi5b3RsU2UeCsJxoFuar8
+         D1bfuL7gAjQoprSDfxkAjkqw+EPMI6eTg4UH/ZLFhnQYu8Ie6ENFvOUS01ifkxfG3fzd
+         Rop+8bsPojRdkdsmXi0QstnNVrooUTux+olmG/VVKK2NKtb8vRdF1UZonyhCKwYvxuva
+         MmLPInvqqYZwjZTNS+gFwg/uV8fRgtjSzzSNhGsh9/G3LIYjBhyKxL0rd6csj4FIx2eC
+         occyzVdaYT27ZkOeJ3y4+RRXbw5E/KQzX66215tqsSCrohdTyzShSxi/l6QgdlnKs1zP
+         XPyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793639002; x=1794243802;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MWiUrUc26qsUdMY2n/PhpO+pC2qChhSw9kx320KNwbA=;
+        b=cYTB4WzNERAhFeEQe1r68YbKcPNF3V4XWjvYZLseUN9Y9xHIQCG+6Cnu3Nwwqbq6+8
+         zD2MQ/n14D3vx5EWFr9E8/nHgJxX6UKSEziC9VIP1V5gGG970lWCjzUo0InUVSlgfN/I
+         qKV1pJ1Twh6irlKzw3rOEenj/S05YGztoGH/9hL2YiKbVdVAGauHBZ70igteYIrGZuk1
+         /9G7jUtvxmMhRgYUo8eo1fGn/Y2O8Xu85ZugO08OQdQJsJo2v98g3M0KQVyI/NCYt5XM
+         1iagc9PjO3P+VuQzG8qRvJ0t5wIzm0k9n4pE3qM8/mkjSNmtihmb8KK2Mz5BhVzBqjxV
+         dQ/w==
+X-Forwarded-Encrypted: i=1; AKwUvBygAHFIL4QxEBCxSaau1yum0rB6f9dYldALo7YfjR0duMS3KWuZH26dvGA2uqrjmNKHmdyRnmcb1GAZnCwDwDN1@lists.infradead.org
+X-Gm-Message-State: APuU4Z8Jv/f1F6bDAOUqcplM5+/sjOQchczkyOcZWWu/nTALMb4mRINb
+	9S7nYn2FZqvuVmiJnebcVseBpKu8ZT/QCxjwcwivhiLb/fQLMT7U3eQO
+X-Gm-Gg: AYBFou2yAKZYbbNuTUr1NT+lbubGfWxopF5lK+O9NBw7Qq5yMqGsZN5Nt0rj7G063QE
+	6YwccEVTjPim69JKSLDo7h6XNbGbC/ybapjle+5NAkh409VT46QkRMv0FQEgjbvFg4ZDqqEP3XQ
+	Du0cCPWLVH6u8J8xyIiBMSmb8BfmuTj23J1WHN9TgmFVtOEvuUPq8jJSefPxcmDbCG+EZimlcX8
+	WWeXZE1w1QSfbmzuZZpzSpop8s4VfXWUN+WKg/tLAEKQwQER9QOHBXixF39kfG5ONX0h+VoD5r+
+	pTT21RCNHbZ28aggUebMA2/6TLV7SOwvx7yG27AV6puFst0NCXUeT98O9NU4aBRm80J3Cv/IGlz
+	ZJL6OFJkDtBQTESIFzn4gIEvTMGS3OfulR33ZhrJ+lGMvjepbfUs5HrgxIdbqh36W0n/47eMKLu
+	iYspV5gshLUXXouTzxCeAfhIJM+2XqdB71zZj2qdd/vvnMYuEdUxbCvM9syTzXF23+CkZ5gBCfV
+	ToFJ4V/dqdVWFqYLad1wGcg2isGcLQzIBz914DAEhAZUcwVmMMirLdAXKN5w7zeA6z29yDn4PGk
+	PI63pTRSkYdSadoIBG50LWjy9EPT/5pkf1eDgLgqhjLuqvL/EOAKQUulYZhzVAneLsBcybQn475
+	L8GxxKTJhNdxxkVAnup0uQhtF+o+qnJ52k/MX7TkUH4EBhCA6Dlh9Mcty/8hY5vHxz9jDfH3ehC
+	Zg00a7TsNkYOiZzr3Z6xDSsv+UfFKOvhYyaDYwCcb27+s2/iJW/eZPIVxvmnZM08StTk0wNXOsN
+	w29jKpgJh+QbcxK7AIBb1JqwXz1DoaTX95NrlsH3Ww3j9sMxgRH49Fi9kcty09KVeAYK1o=
+X-Received: by 2002:a05:6000:1acb:b0:48b:a7:6396 with SMTP id ffacd0b85a97d-48e6e4f56dbmr22985553f8f.41.1793639001832;
+        Mon, 02 Nov 2026 09:03:21 -0800 (PST)
 Received: from jernej-laptop (194-152-27-116.dynamic.telemach.net. [194.152.27.116])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71a4d3cesm23362309f8f.7.2026.11.02.09.03.11
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71a4d3cesm23362309f8f.7.2026.11.02.09.03.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 09:03:12 -0800 (PST)
+        Mon, 02 Nov 2026 09:03:21 -0800 (PST)
 From: Jernej Skrabec <jernej.skrabec@gmail.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Hans Verkuil <hverkuil@kernel.org>
@@ -90,16 +90,18 @@ Cc: Maxime Ripard <mripard@kernel.org>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH 00/10] staging: media: cedrus: assorted fixes and VP8 4K support
-Date: Mon,  2 Nov 2026 18:02:53 +0100
-Message-ID: <20261102170303.1973892-1-jernej.skrabec@gmail.com>
+Subject: [PATCH 03/10] staging: media: cedrus: h264: mark long-term references in the frame info
+Date: Mon,  2 Nov 2026 18:02:56 +0100
+Message-ID: <20261102170303.1973892-4-jernej.skrabec@gmail.com>
 X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261102170303.1973892-1-jernej.skrabec@gmail.com>
+References: <20261102170303.1973892-1-jernej.skrabec@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_090318_407907_32FEC362 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20261102_090324_056145_BAAD65E6 
+X-CRM114-Status: GOOD (  17.42  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,69 +113,92 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This series fixes a number of bugs in the Cedrus driver, found while
-running the conformance suites and comparing with the vendor library,
-mostly on H616.
+The frame info of a reference has a reference type for each field, in
+bits 1:0 for the top field and 5:4 for the bottom one, which is 1 for a
+long-term reference. The driver never sets it, so the hardware handles
+long-term references like short-term ones, also where they differ, like
+in temporal direct and implicit weighted prediction. The vendor library
+sets it.
 
-Patches 1-9 are fixes:
-- patch 1 fixes MV-col buffer leak when the file handle is closed
-  without STREAMOFF,
-- patches 2 and 7 validate H.264/HEVC SPS and VP8 frame size against
-  the hardware limits and allocated capture buffers, preventing memory
-  overruns and hardware hangs,
-- patch 3 marks H.264 long-term references, which fixes MR8_BT_B and
-  MR9_BT_B conformance samples,
-- patches 4-6 fix MPEG-2 field picture decoding (field height, field
-  order detection and references of the second field),
-- patch 8 enlarges VP8 probability table to the size used by the vendor
-  libraries, since the hardware uses the area past it as scratch space,
-- patch 9 switches H616 to the 256-bit DDR mode, which fixes corrupted
-  reference chroma in H.264 and VP8.
+This fixes MR8_BT_B and MR9_BT_B of the H.264 conformance suite.
 
-Patch 10 is new functionality: VP8 decoding of frames wider than 2048
-pixels.
+Fixes: 6eb9b758e307 ("media: cedrus: Add H264 decoding support")
+Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+---
+ drivers/staging/media/sunxi/cedrus/cedrus_h264.c | 12 +++++++++++-
+ drivers/staging/media/sunxi/cedrus/cedrus_regs.h |  8 ++++++++
+ 2 files changed, 19 insertions(+), 1 deletion(-)
 
-Please take a look.
-
-Best regards,
-Jernej
-
-Jernej Skrabec (10):
-  staging: media: cedrus: free MV-col buffers in buf_cleanup
-  staging: media: cedrus: reject too large H.264/HEVC SPS
-  staging: media: cedrus: h264: mark long-term references in the frame
-    info
-  staging: media: cedrus: mpeg2: use the field height for field pictures
-  staging: media: cedrus: mpeg2: derive the field order of field
-    pictures
-  staging: media: cedrus: mpeg2: fix the references of field pictures
-  staging: media: cedrus: validate VP8 frame size
-  staging: media: cedrus: vp8: use the vendor probability table size
-  staging: media: cedrus: h616: use the 256-bit DDR mode
-  staging: media: cedrus: vp8: support frames wider than 2048 pixels
-
- drivers/staging/media/sunxi/cedrus/cedrus.c   | 60 +++++++++++++++-
- drivers/staging/media/sunxi/cedrus/cedrus.h   | 15 ++++
- .../staging/media/sunxi/cedrus/cedrus_h264.c  | 40 +++++++----
- .../staging/media/sunxi/cedrus/cedrus_h265.c  | 28 ++++----
- .../staging/media/sunxi/cedrus/cedrus_hw.c    | 14 ++--
- .../staging/media/sunxi/cedrus/cedrus_mpeg2.c | 72 ++++++++++++++++---
- .../staging/media/sunxi/cedrus/cedrus_regs.h  |  8 +++
- .../staging/media/sunxi/cedrus/cedrus_video.c | 15 ++--
- .../staging/media/sunxi/cedrus/cedrus_video.h |  5 ++
- .../staging/media/sunxi/cedrus/cedrus_vp8.c   | 66 ++++++++++++++++-
- 10 files changed, 276 insertions(+), 47 deletions(-)
-
-
-base-commit: 27285b099fbc5cb2ae3aef20f3bbd7b3c88b3005
+diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_h264.c b/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
+index 892193c12b2f..a716955655f7 100644
+--- a/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
++++ b/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
+@@ -69,13 +69,21 @@ static void cedrus_fill_ref_pic(struct cedrus_ctx *ctx,
+ 				struct cedrus_buffer *buf,
+ 				unsigned int top_field_order_cnt,
+ 				unsigned int bottom_field_order_cnt,
++				bool long_term,
+ 				struct cedrus_h264_sram_ref_pic *pic)
+ {
+ 	struct vb2_buffer *vbuf = &buf->m2m_buf.vb.vb2_buf;
++	u32 frame_info, ref_type;
+ 
+ 	pic->top_field_order_cnt = cpu_to_le32(top_field_order_cnt);
+ 	pic->bottom_field_order_cnt = cpu_to_le32(bottom_field_order_cnt);
+-	pic->frame_info = cpu_to_le32(buf->codec.h264.pic_type << 8);
++
++	ref_type = long_term ? VE_H264_FRAME_INFO_REF_TYPE_LONG_TERM :
++			       VE_H264_FRAME_INFO_REF_TYPE_SHORT_TERM;
++	frame_info = VE_H264_FRAME_INFO_TOP_REF_TYPE(ref_type) |
++		     VE_H264_FRAME_INFO_BOT_REF_TYPE(ref_type) |
++		     VE_H264_FRAME_INFO_PIC_TYPE(buf->codec.h264.pic_type);
++	pic->frame_info = cpu_to_le32(frame_info);
+ 
+ 	pic->luma_ptr = cpu_to_le32(cedrus_buf_addr(vbuf, &ctx->dst_fmt, 0));
+ 	pic->chroma_ptr = cpu_to_le32(cedrus_buf_addr(vbuf, &ctx->dst_fmt, 1));
+@@ -128,6 +136,7 @@ static int cedrus_write_frame_list(struct cedrus_ctx *ctx,
+ 		cedrus_fill_ref_pic(ctx, cedrus_buf,
+ 				    dpb->top_field_order_cnt,
+ 				    dpb->bottom_field_order_cnt,
++				    dpb->flags & V4L2_H264_DPB_ENTRY_FLAG_LONG_TERM,
+ 				    &pic_list[position]);
+ 	}
+ 
+@@ -174,6 +183,7 @@ static int cedrus_write_frame_list(struct cedrus_ctx *ctx,
+ 	cedrus_fill_ref_pic(ctx, output_buf,
+ 			    decode->top_field_order_cnt,
+ 			    decode->bottom_field_order_cnt,
++			    false,
+ 			    &pic_list[position]);
+ 
+ 	cedrus_h264_write_sram(dev, CEDRUS_SRAM_H264_FRAMEBUFFER_LIST,
+diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_regs.h b/drivers/staging/media/sunxi/cedrus/cedrus_regs.h
+index 05e6cbc548ab..961fe023bb43 100644
+--- a/drivers/staging/media/sunxi/cedrus/cedrus_regs.h
++++ b/drivers/staging/media/sunxi/cedrus/cedrus_regs.h
+@@ -616,6 +616,14 @@
+ #define VE_AVC_SRAM_PORT_OFFSET		0x2e0
+ #define VE_AVC_SRAM_PORT_DATA		0x2e4
+ 
++/* Frame info word of a frame buffer list entry in the AVC SRAM */
++#define VE_H264_FRAME_INFO_PIC_TYPE(v)		SHIFT_AND_MASK_BITS(v, 9, 8)
++#define VE_H264_FRAME_INFO_BOT_REF_TYPE(v)	SHIFT_AND_MASK_BITS(v, 5, 4)
++#define VE_H264_FRAME_INFO_TOP_REF_TYPE(v)	SHIFT_AND_MASK_BITS(v, 1, 0)
++
++#define VE_H264_FRAME_INFO_REF_TYPE_SHORT_TERM	0
++#define VE_H264_FRAME_INFO_REF_TYPE_LONG_TERM	1
++
+ #define VE_VP8_PPS			0x214
+ #define VE_VP8_PPS_PIC_TYPE_P_FRAME		BIT(31)
+ #define VE_VP8_PPS_LAST_SHARPNESS_LEVEL(v)	SHIFT_AND_MASK_BITS(v, 30, 28)
 -- 
 2.43.0
 
