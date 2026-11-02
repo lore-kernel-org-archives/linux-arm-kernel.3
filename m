@@ -2,108 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F731606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:44:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A75F9606EEA5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:45:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mybS11By;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=LW4AiRJd
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cowkmyTa;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=j9ZkicYC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Weu5Zca/hPX7MdlI7TVErZ4xT18FxVN+YlEWkEZPcA8=; b=mybS11By5IiM/a
-	q4Hn2FmgJowXT/KXXMMgXutE9XHpY4Sya1CmrmAXV5rkmaO7yQfTuG7aJeyC6Ps1ynTjGCyi8pszH
-	fPDUzFr5xtJVFS+BKDvUv+5hrKQH4umd71sRztSDrLmmd8Diu56b1xS5EJygHcKABKKymkRQFMGSe
-	Oa4UkZzJ8JFEDLXyCncCw9CO/OOzMEZze7B54aWoiKAYcZ1w1FH6JD85u6VXOfdmXwwrz7+uhgAJv
-	ws3oyWFs0eHi71TaN67e6zCpZ2p2JDM+UyFN76n2qwJSw7TxwMPl7V4Lm8VUJFiRZ2BNOplClS1Am
-	0MAHSHC/uRjgNExc1Diw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=b8ykW9KPLcaIcZvWtgJoASK+Yo/mXwwP8pWBtC51TXQ=; b=cowkmyTaK1I3CJHn5Bjui+kWu+
+	AxnI7rgEcLEtg1ok1KIz0EJyceejdFD5Co1y7zroqFf1sDZMJCK2p+JMsTm+mOBILvtYhBc2kJlzf
+	7TLuVaPx+TpVTr8hfn9aXA4rIPCKYYpL7oQOfgSwuxNSKl1Pf8/aGaDbHbYmUVKU5aC4Zem4n0UGz
+	L7K3y+FNP+CRhf7eUS9ybtOPuj5F3cQS0iN7DDSgamPp8KhAt8ilMllOrfvauRg77/ItovSkQ0lJo
+	Hw31QgXzV45DtY5UiNy2/E0YWnQr/6hIRYulSUMlehAXNOfwjuUxEY/ao5bCCWJG8QCWbPyoSQOUK
+	on/IRirg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxxU-000000008Em-2HGb;
-	Mon, 02 Nov 2026 19:44:46 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxxS-000000008Ds-1EFf
+	id 1xNxxr-000000008La-2UPS;
+	Mon, 02 Nov 2026 19:45:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNxxo-000000008Jw-2DsA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 19:44:43 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-48e46e449e8so2087502f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 11:44:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1793648680; x=1794253480; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Weu5Zca/hPX7MdlI7TVErZ4xT18FxVN+YlEWkEZPcA8=;
-        b=LW4AiRJdp0zWM2rPyUH1WCcUGsJhZAv3dU+HWuL2GZbPO/rhh9RbVGrl8X5uwz2LP9
-         BysUS437vR5w0c2Mu7aHqmKmuHKS86bV0dXZJhuLv3bXz/0LJYWHgf65WSqny7C/67dE
-         Is3r4auR7JfmdW+MIBNHFSyPdpI1+bJBEhjUtC5YLVwGvCfLBFycyAUX7IfGBO0pzBzV
-         ZUoSg+2SmcrbfTp1kyHURHIEWfu5aJXrla5Ox+T8NzIT6aZBIzWHp2c5h6EeNtnl4gDN
-         BfI4fjLs4Js5n2yk34Khpd/cB5g+gRYQe04KsNIU16gpjDJzies8hAvq8VHOye6iP0CR
-         Fyzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793648680; x=1794253480;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Weu5Zca/hPX7MdlI7TVErZ4xT18FxVN+YlEWkEZPcA8=;
-        b=euBIROWz6ehQxVt/MfI1s5FsqDbA8dXKYpO9Hz6woJlHCg2fHjlu1YvQdvydQTzzdw
-         plpowR42RO/HZGhkF2RKIogBT/aiiPP6+7MAjAakWRJHfUI0BROc/jhcFJbCqQIP/Lxs
-         jvdyFfMJWJcwmnpk0MY59LKsD0W+j1UTiL/NVO2nTGtozxOqBT75tw0/Gben2qV2ytip
-         XMj45Pw+ltXb8ZvE34rytqtCzePtJ5pPhRR9fi99oYkD/D9tOLzQTBI7PfDTZoghqgQ5
-         STNcD1nY3p+v5HMsRXOG4mmF3CAtC+b9WFbs8D0fSW196hMOVb0fcCxogpkbJPFnK7+X
-         +qWQ==
-X-Forwarded-Encrypted: i=1; AKwUvBypW+v8fHFexf/roR9UriPgpTq2AkioOaelaaOgjax1wZu7BWL/j89oWWhnNTTGI2BT9/SUOUVP0Ffke5RRSL3W@lists.infradead.org
-X-Gm-Message-State: APuU4Z+PeVStsAIbA4RpOPUKZsI0vcxxRn1h4dCar/EEhbYOTxH2XCqd
-	r0ZM2VTbc9VNSkBxMYqVB5IWf6Y2VRjTLykkco7iQpn/sgl7/Vd83KKtR2HYwibVBv4=
-X-Gm-Gg: AYBFou1ipe3ERybtfzflfc1bJ7mG8u1NRjJhaqvZ7+t8uOOT1car8RS+/9/k4QCwP6z
-	wSeXyfM2zBMsn0/aUzDLNybBsvcMIm23RBzqkTzI7+30f3xkdgEPIfbiOnxb6m0BzpF3wCVcOy+
-	pE7Vk3wPEoJe1hysshl9FevPTuSLZPDV9rNiZNGMwFIy2ZEkwVUkUiqlvefamRmR40DpsjgL9pD
-	FyNdcaHftuJuCb1BTi7fi3RCnea+tMVjOPT0ndv4cciKc9aRjWhlB26BmfY5IMsF69p8LPXcuXJ
-	uYmcDkbdK6lJU2+vfuxM8MpEKnKs2seYSqJainLpx1ezfBJpTBPDgb1aXFoLdV+ay352mRHzid0
-	ZxdyZUffFSd1YXKwZ3NoGmpD17RIx/vXjoJE0k/ZjH5+DkbScu8IhAsvUweku+I0LM6o2jLoJ6S
-	c6GLUTc0QO6uvs17JgOxlWvmcm2M3p23wdydte89Jxu5FZhn5LjxuEA+qV36u7CtOAKDH/zNmXH
-	A1e28CJHkstEcdjtNlRarb9aPEWu63zP/ZfV9yt/yD3Mz3krmZXLQPHCfoIBJD84wPcBacBeeSF
-	wtruBfeh9m6qWCsq/vRPcQVQtGNZYV/lBe2c61pI9ltkCmz0IOLxemdUJHRoiqKe1ZeHwwxRo5p
-	NHLYbI6u7waKK7wXHBGVQOYW6/SbWOwo2klQjQo5mUg==
-X-Received: by 2002:a05:6000:2611:b0:48e:4e00:b72f with SMTP id ffacd0b85a97d-48e6e50c8ecmr23807080f8f.32.1793648679554;
-        Mon, 02 Nov 2026 11:44:39 -0800 (PST)
-Received: from localhost ([151.40.161.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71b80333sm23147608f8f.32.2026.11.02.11.44.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Nov 2026 11:44:39 -0800 (PST)
+	Mon, 02 Nov 2026 19:45:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1975A16A3;
+	Mon,  2 Nov 2026 11:45:00 -0800 (PST)
+Received: from e133894.cambridge.arm.com (e133894.arm.com [10.2.80.62])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 60AE73F673;
+	Mon,  2 Nov 2026 11:45:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793648703; bh=LKycxJwdqBPls6Zote9opLCnQI+1WQCo59QObvax/Ro=;
+	h=From:To:Cc:Subject:Date:From;
+	b=j9ZkicYC/zXxj3W43V0qg0DyPe1/T4BGqYFMNiIiO02JMG6NsQJHyHn9RVm07D3Lp
+	 9b+YPzqYDFl/p1NvgEjSgAJsWTWmZwpjyE0bDhjFri1ZUxOVKqqWmVat/GGEzpiRNw
+	 cB4zaCxRhblOryuYXaXD0A4THOlFaJD3PfxZQY7U=
+From: Sascha Bischoff <sascha.bischoff@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org
+Cc: maz@kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	peter.maydell@linaro.org,
+	lpieralisi@kernel.org,
+	timothy.hayes@arm.com,
+	fuad.tabba@linux.dev
+Subject: [PATCH v2 00/16] KVM: arm64: Add GICv5 ITS support
+Date: Mon,  2 Nov 2026 19:44:38 +0000
+Message-Id: <20261102194454.4086911-1-sascha.bischoff@arm.com>
+X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 02 Nov 2026 20:44:38 +0100
-Message-Id: <DMKZE3GQVDLB.18QYA9ULAH75I@linaro.org>
-Cc: "Aaro Koskinen" <aaro.koskinen@iki.fi>, "Kevin Hilman"
- <khilman@baylibre.com>, "Roger Quadros" <rogerq@kernel.org>, "Tony
- Lindgren" <tony@atomide.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Christopher Obbard" <chris.obbard@oss.qualcomm.com>, "Andrew Goodbody"
- <andrew.goodbody@linaro.org>, "Paul Walmsley" <paul@pwsan.com>, "Russell
- King" <linux@armlinux.org.uk>, "Rouven Czerwinski"
- <rouven.czerwinski@linaro.org>, <linux-omap@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 5/9] ARM: dts: omap: dm816x: Correct speed for
- sysclk5
-From: "Ettore Chimenti" <ettore.chimenti@linaro.org>
-To: "Andreas Kemnade" <andreas@kemnade.info>, "Ettore Chimenti"
- <ettore.chimenti@linaro.org>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261028-patch-ektor5-dm8168-dts-v2-0-4544429251e2@linaro.org>
- <20261028-patch-ektor5-dm8168-dts-v2-5-4544429251e2@linaro.org>
- <20261101222942.1a78c6fb@kemnade.info>
-In-Reply-To: <20261101222942.1a78c6fb@kemnade.info>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_114442_363648_AC81B49A 
-X-CRM114-Status: GOOD (  24.97  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261102_114505_612464_AA607F1D 
+X-CRM114-Status: GOOD (  21.48  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,68 +75,167 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Andreas,
+Hi all,
 
-On Sun Nov 1, 2026 at 10:29 PM CET, Andreas Kemnade wrote:
-> On Wed, 28 Oct 2026 17:06:06 +0100
-> Ettore Chimenti <ettore.chimenti@linaro.org> wrote:
->
->> From: Andrew Goodbody <andrew.goodbody@linaro.org>
->>=20
->> The default code for setting up the clocks results in sysclk5 running at
->> 1.6GHz whereas it is expected to run at half that ie 813MHz. Force the
->> divider to be /2 to achieve the 813MHz speed.
->>=20
->> Signed-off-by: Andrew Goodbody <andrew.goodbody@linaro.org>
->> Signed-off-by: Ettore Chimenti <ettore.chimenti@linaro.org>
->> ---
->>  arch/arm/boot/dts/ti/omap/dm816x-clocks.dtsi | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
->>=20
->> diff --git a/arch/arm/boot/dts/ti/omap/dm816x-clocks.dtsi b/arch/arm/boo=
-t/dts/ti/omap/dm816x-clocks.dtsi
->> index 76ebc6c3c3e5..cb990773b098 100644
->> --- a/arch/arm/boot/dts/ti/omap/dm816x-clocks.dtsi
->> +++ b/arch/arm/boot/dts/ti/omap/dm816x-clocks.dtsi
->> @@ -144,7 +144,7 @@ sysclk5_ck: sysclk5_ck@310 {
->>  		#clock-cells =3D <0>;
->>  		compatible =3D "ti,divider-clock";
->>  		clocks =3D <&sysclk4_ck>;
->> -		ti,max-div =3D <1>;
->> +		ti,dividers =3D <2>;
->
-> so this changes register value  0 is intepreted as divider 1
-> to divider 2. Sounds strange. It just changes the interpretation of the
-> register values, not the setting. Maybe checkout the register value from
-> user space with tools like devmem. The original interpretation was right.
-> So this change does not make any sense. I think sysclk5 still runs at
-> 1.6Ghz, but it is displayed as 813Mhz.
->
-> I would expect some assigned-clocks / assigned-clock-rates pair somewhere
-> in this patch instead.
->
+This is the second posting of my GICv5 KVM ITS series.
 
-We tested on EVM with devmem and this patch correctly sets bit 0 to 1
-(which is /2 in the manual).
+This series builds on the GICv5 IRS support now in 7.4-rc1 and adds
+support for the GICv5 ITS, as described by the GICv5 specification
+[1]. It allows a GICv5 guest to receive LPIs generated by MSIs,
+including those from physical PCI devices mapped into the guest via
+VFIO.
 
-However, should ti,max-div in this case be <2> (and all the other clocks
-that supports two dividers)?=20
+The ITS is exposed as a separate KVM device, alongside the VGICv5
+device. The guest owns the device table and interrupt translation
+tables. KVM walks these tables to resolve a DeviceID and EventID to an
+LPI, and caches the result until the guest invalidates the relevant
+translation or changes the table configuration.
 
-I tested to set `ti,max-div =3D <2>;` and it seems to correctly set the /2
-divider as well, but without specifying any assigned-clock{s,-rates}, so
-I'm missing the rationale of how the divider is selected.
+The main pieces are:
 
-I'll drop this patch from the series for now, I think it needs more
-investigation to figure out why it behaves like this.
+* An emulated GICv5 ITS CONFIG_FRAME, including table configuration,
+  event generation, and invalidation registers.
+
+* Guest table walking for linear and two-level device and interrupt
+  translation tables, together with a disposable XArray-based
+  translation cache.
+
+* MSI injection through KVM_SIGNAL_MSI and irqfd. GICv5 requires a
+  DeviceID for each MSI, and the virtual ITS supports 16-bit EventIDs.
+
+* Direct injection through the host ITS when an interrupt is forwarded
+  to a vCPU. Forwarding teardown restores the host translation.
+
+* Userspace attributes to configure the ITS address, access its
+  registers, and reset the emulated state, together with ABI
+  documentation.
+
+* Selftests for the ITS attributes, guest table translation, MSI
+  delivery, and guest-driven cache invalidation.
+
+The guest tables remain the authoritative translation state. KVM's
+cache can be discarded and rebuilt from guest memory; there is no
+separate ITS table data for the VMM to save/restore.
+
+Lorenzo's GICv5 Linux software enablement guide [2] describes how to
+set up the GICv5 software stack. These changes have been tested on an
+Arm FVP 11.32 release [3].
+
+These changes are based on v7.4-rc1. The corresponding kvmtool patches
+have been posted separately [4]. I plan to post an updated kvmtool
+series shortly.
+
+These changes are also available as a branch at [5]. For reference, v1
+of this series can be found at [6].
+
+This series applies independently of the host GICv5 fixes [7], but
+concurrent use may encounter the host driver issues described there. A
+branch with both series is available at [8]. Both series need to be
+merged for the ITS support to be complete.
+
+The main changes since v1 are:
+
+* Rebased onto v7.4-rc1.
+
+* Reused upstream ITS model tracking, removing the separate has_its
+  state.
+
+* Sashiko flagged some races for GICv3 LPIs, which were caused by me
+  making the allocation common to both vITSes. Group 1 is set before
+  adding the LPI to the tracking XArray. The GICv3 ITS path performs
+  one initial lookup before allocating a new LPI.
+
+* Replaced the translation cache hash table with an XArray. This
+  avoids the locking/lockup issues raised by Sashiko. Furthermore, it
+  is no longer possible for a malicious guest to force all LPI
+  mappings into one hashtable bucket.
+
+* Tightened translation and MSI handling: enforce advertised DeviceID
+  and EventID limits, report invalid guest translations as blocked
+  MSIs, and allow software injection to proceed if caching fails.
+
+* Expanded ITS register handling and the userspace ABI: serialise
+  register access, support 32-bit accesses to 64-bit registers, and
+  validate restoration of IDR0-IDR2 and READ_EVENT_DATAR while keeping
+  them read-only to the guest.
+
+* Hardened direct injection teardown: track which translation owns
+  forwarding, synchronise host translation restoration, and retain the
+  IRQ association when a timeout requires a later retry.
+
+* Extended selftests for register access widths, read-only behaviour,
+  ID limits, malformed MSIs, and cache invalidation.
+
+Thanks for taking the time to look at these changes!
 
 Thanks,
-Ettore
+Sascha
+
+[1] https://support.arm.com/documentation/111701/latest
+[2] https://linaro.atlassian.net/wiki/x/CQAF-wY
+[3] https://support.arm.com/tools-and-software/fixed-virtual-platforms/arm-architecture-fvps
+[4] https://lore.kernel.org/all/20261016153939.913764-1-sascha.bischoff@arm.com
+[5] https://gitlab.arm.com/linux-arm/linux-sb/-/tree/gicv5_kvm_its_support_v2
+[6] https://lore.kernel.org/all/20261016155741.979985-1-sascha.bischoff@arm.com/
+[7] https://lore.kernel.org/all/20261102-host_gicv5_fixes-v1-0-743b61626fc5@arm.com/
+[8] https://gitlab.arm.com/linux-arm/linux-sb/-/tree/gicv5_kvm_its_support_v2_with_host_fixes
+
+Sascha Bischoff (16):
+  KVM: arm64: vgic: Split out common LPI allocation
+  KVM: arm64: vgic: Pass opaque device pointer to ITS MMIO callbacks
+  KVM: arm64: gic-v5: Share CoreSight ID register emulation
+  irqchip/gic-v5: Add ITS MMIO register definitions
+  KVM: arm64: gic-v5: Add ITS device skeleton
+  KVM: arm64: gic-v5: Add ITS MMIO state emulation
+  KVM: arm64: gic-v5: Add ITS guest table translation emulation
+  KVM: arm64: gic-v5: Add ITS translation cache maintenance
+  KVM: arm64: gic-v5: Add ITS MSI injection
+  KVM: arm64: gic-v5: Add ITS userspace register access
+  irqchip/gic-v5: Enable direct injection in ITS
+  KVM: arm64: vgic: Move direct MSI support helper to common MMIO code
+  KVM: arm64: gic-v5: Implement irq forwarding
+  KVM: selftests: Add VGICv5 ITS attribute tests
+  KVM: selftests: Add VGICv5 ITS translation cache tests
+  KVM: arm64: gic-v5: Document ITS userspace ABI
+
+ .../virt/kvm/devices/arm-vgic-v5-its.rst      |  111 ++
+ Documentation/virt/kvm/devices/index.rst      |    1 +
+ arch/arm64/include/uapi/asm/kvm.h             |    2 +
+ arch/arm64/kvm/Makefile                       |    1 +
+ arch/arm64/kvm/arm.c                          |    6 +-
+ arch/arm64/kvm/vgic/vgic-irqfd.c              |    8 +
+ arch/arm64/kvm/vgic/vgic-irs-v5.c             |   75 +-
+ arch/arm64/kvm/vgic/vgic-its-v5.c             | 1562 +++++++++++++++++
+ arch/arm64/kvm/vgic/vgic-its.c                |  130 +-
+ arch/arm64/kvm/vgic/vgic-kvm-device.c         |    4 +
+ arch/arm64/kvm/vgic/vgic-mmio-v3.c            |   20 -
+ arch/arm64/kvm/vgic/vgic-mmio.c               |   34 +
+ arch/arm64/kvm/vgic/vgic-mmio.h               |    6 +-
+ arch/arm64/kvm/vgic/vgic-v5.c                 |  182 ++
+ arch/arm64/kvm/vgic/vgic.c                    |   99 ++
+ arch/arm64/kvm/vgic/vgic.h                    |   20 +
+ drivers/irqchip/irq-gic-v5-its.c              |  141 ++
+ include/kvm/arm_vgic.h                        |  107 +-
+ include/linux/irqchip/arm-gic-v5.h            |  136 +-
+ include/uapi/linux/kvm.h                      |    2 +
+ tools/include/uapi/linux/kvm.h                |    2 +
+ tools/testing/selftests/kvm/arm64/vgic_v5.c   |  882 +++++++++-
+ .../selftests/kvm/include/arm64/gic_v5.h      |   88 +
+ 23 files changed, 3384 insertions(+), 235 deletions(-)
+ create mode 100644 Documentation/virt/kvm/devices/arm-vgic-v5-its.rst
+ create mode 100644 arch/arm64/kvm/vgic/vgic-its-v5.c
+
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+-- 
+2.34.1
+
 
