@@ -2,62 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31537606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 18:40:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECBFA606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 18:41:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Rxi3oJxJ;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=iav.lv header.i=@iav.lv header.a=rsa-sha256 header.s=zoho header.b=AzFW1jds
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Xjc5KiYX;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SCW3pZSQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=x2JYvPAFU2onTnd8tUYxjXC7Nzj85EYDqdqRJ3qq08g=; b=Rxi3oJxJMzU058
-	+2EkRii7MWbxGQqQnPMXT70jCaFJWYaVPND2uDlYryzzvbHUFcO12c3D6UOYxrjqgcN9uta3zfGv6
-	tZDt6uaLZBmF978zn2qhFloSPQ419YAKx4D8qWSiueaD6tSgNhAX86qAa51NusuHbSRvCkYIYIaI1
-	W7LecDOjFpKUqfgCH6eI4vJg3goJQ2IQqt86Mv93/+mMSK9Wm+QXVbhKlx3+EvgaKpCphqSURrNeM
-	gwUv53IeDTR0tU5gF0FxDcqvzhQKSlFlwzjvXykyDVrmQY5PLmS5qGFyo/lDgZ1X9uL3pmHohvp8H
-	5jLPSpqo/MggDJ1hr11w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=1siRmUO4vM6mmsoG9PiDb9+LFZeVOS+fG7WHL62iNvw=; b=Xjc5KiYXtd5Snfr0m1dnY+gePL
+	MMozuve7hGGsrXitZkZ5CDK0cha5Yw2W0WUTJSSqNG74fWNuCrhzlvN3naFWp35iRIfHAaPKq7OzZ
+	UHEt7V5MsyKVsXd+yGnhA+RaBelRW9dT43Lv5LJvv9/B4YWz+mLwBmuHB5/YfGBuDXpvyZYptNMZs
+	+m63HBTHCkK2NVtZv+1I0n28QR+tPoDj7d1IaZoSiJ0fINo4yoy+kzO/562UxUGo8RCmwjZQb/wA2
+	3b0tyvVZ5Hbvoaas7JRDOVXkcTvUuRV7tladRGf95OsYXYpeEFQpwNkocvQE/4qWIxUzod8C0wepb
+	aQgvzyYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNwxb-000000000Tm-0KIJ;
-	Mon, 02 Nov 2026 18:40:47 +0000
-Received: from sender-op-o17.zoho.eu ([136.143.169.17])
+	id 1xNwy8-000000000dI-21ik;
+	Mon, 02 Nov 2026 18:41:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNwxX-000000000T6-0pDw;
-	Mon, 02 Nov 2026 18:40:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1793644839; cv=none; 
-	d=zohomail.eu; s=zohoarc; 
-	b=ZI1w18v9ajwZLxKG63htNilqe0d2mwvjzda/tAdlLQxiC78vodaJrepsFUv0cgqc9FpKflSma0uP8EXUm/ateujJFAyDpAz2pmxClGC2azmYEU0Ix9fo55nRNrjgm3myfmr5GGzNVqjBLRh4zrCa3NBCozXdWL03CJwAW1t4++k=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
-	t=1793644839; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=x2JYvPAFU2onTnd8tUYxjXC7Nzj85EYDqdqRJ3qq08g=; 
-	b=ON9c6+GulNPP/MVg3P1Oyh+Mi0Re5wMo/RnB1hyZBbY4x3s0zP8vHwSOu0pfUsRiwu73CeDvue/6ZeOaMm25qXI9S7d6orhZWawtgQ9SAdmBP8ITItGs9PRdtIUhEFXlA92edkG9aOLWi8REPqkAYb6oNjMchVXoemEsEs7/uVQ=
-ARC-Authentication-Results: i=1; mx.zohomail.eu;
-	dkim=pass  header.i=iav.lv;
-	spf=pass  smtp.mailfrom=iav@iav.lv;
-	dmarc=pass header.from=<iav@iav.lv>
-DKIM-Signature: a=rsa-sha256; b=AzFW1jdsBWQAQEu6mLS0kkwz/CCkMCivK5e7hQqLegFoHV/g4isoTOvoG2M+ZPpqaqr/GJYb2pB3+O3DU+NI8hDv6nGwOHnmvgy8K8U0FrKCcn93EVCDPorRMaManKiO3+dQoHGBIrbZCHyzkV+f2dFQYYNXBm2gDsNT6yCZn9Q=; c=relaxed/relaxed; s=zoho; d=iav.lv; v=1; bh=x2JYvPAFU2onTnd8tUYxjXC7Nzj85EYDqdqRJ3qq08g=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zoho.eu with SMTPS id 1793644838477757.940158003217;
-	Mon, 2 Nov 2026 19:40:38 +0100 (CET)
-From: Igor Velkov <iav@iav.lv>
-To: Christian Hewitt <christianshewitt@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Dongjin Kim <tobetter@gmail.com>, Eric Neulight <Eric.Neulight@linuxdev.slmail.me>, linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
-Subject: Re: [PATCH] arm64: dts: amlogic: meson-sm1-odroid: let the SD card be powered down
-Date: Mon, 02 Nov 2026 20:38:31 +0200
-Message-ID: <20261102-hc4-sd-hewitt-reply-1@iav.lv>
-In-Reply-To: <AD1E9AE8-8FA9-4CC2-AED8-AB2F455FA8E2@gmail.com>
-References: <20261003-hc4-sd-power-off-v1-1-f7ffba01b348@iav.lv> <179100548183.3372253.2014593916926884551@iav.lv> <179140715034.293470.4459182430175564610@iav.lv> <AD1E9AE8-8FA9-4CC2-AED8-AB2F455FA8E2@gmail.com>
+	id 1xNwy7-000000000d4-01c7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Nov 2026 18:41:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 666EB437F3;
+	Mon,  2 Nov 2026 18:41:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AF831F00A1A;
+	Mon,  2 Nov 2026 18:41:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793644878;
+	bh=1siRmUO4vM6mmsoG9PiDb9+LFZeVOS+fG7WHL62iNvw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=SCW3pZSQiuuCCSRrJEbYUc/Rtta1yJfKnOc7PlPInpy6+CvR4M5f94reuHeIOq20p
+	 eV8ZksdI+7U3MTC+Sh4es8lXO5ej8E2aT8tkViYrN8qSFVLE3GwnoyjZt0/dFAD2kO
+	 qEKyvVrXiwX90O6FW+3NhoBoE5Jdk2WPUt7zPwVx7EuscnxvQMM91BAPfTqx/ZsBs0
+	 jICmqnf5y+TVgNJ8TVmAKljm2/dHOd+v20IedDJmNPVyLs58TgAul6/6u3qehoH6Fd
+	 HjBPxKUCp73f82UApmNo9WkX6JVs8FUW2l9bm/DSxBgjyKlbMpWC2mcioLXMfgdkBH
+	 s80etyyTOYvKQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xNwy4-0000000A2b6-0jFh;
+	Mon, 02 Nov 2026 18:41:16 +0000
+Date: Mon, 02 Nov 2026 18:41:15 +0000
+Message-ID: <86a4nr2i0k.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Ard Biesheuvel" <ardb@kernel.org>
+Cc: "Fuad Tabba" <fuad.tabba@linux.dev>,
+	"Will Deacon" <will@kernel.org>,
+	"Ard Biesheuvel" <ardb+git@google.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	"Oliver Upton" <oupton@kernel.org>,
+	"Joey Gouly" <joey.gouly@arm.com>,
+	"Steffen Eiden" <seiden@linux.ibm.com>,
+	"Suzuki K Poulose" <suzuki.poulose@arm.com>,
+	"Zenghui Yu" <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: Don't livelock when AT can't resolve a fault IPA
+In-Reply-To: <08db10ef-c3d8-44b8-9d80-e7505400bf12@app.fastmail.com>
+References: <20261102094748.2638468-2-ardb+git@google.com>
+	<auiXMN5td-2QlDkd@willie-the-truck>
+	<CA+EHjTxVPyY70Dm+BiwgQQNwx1cJpEKvJBJGZWPCKLx2M8X2FA@mail.gmail.com>
+	<86bj872n1b.wl-maz@kernel.org>
+	<08db10ef-c3d8-44b8-9d80-e7505400bf12@app.fastmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_104043_549604_0A0C9F08 
-X-CRM114-Status: UNSURE (   6.62  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ardb@kernel.org, fuad.tabba@linux.dev, will@kernel.org, ardb+git@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,26 +91,110 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Christian,
+On Mon, 02 Nov 2026 18:23:09 +0000,
+"Ard Biesheuvel" <ardb@kernel.org> wrote:
+> 
+> 
+> 
+> On Mon, 2 Nov 2026, at 17:52, Marc Zyngier wrote:
+> > On Mon, 02 Nov 2026 15:57:51 +0000,
+> > Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> >> 
+> >> Hi Will,
+> >> 
+> >> On Mon, 02 Nov 2026 14:17:10 +0000, Will Deacon <will@kernel.org> wrote:
+> >> > On Mon, Nov 02, 2026 at 02:09:25PM +0000, Marc Zyngier wrote:
+> >> > > On Mon, 02 Nov 2026 13:59:12 +0000,
+> >> > > Will Deacon <will@kernel.org> wrote:
+> >> [...]
+> >> > > > > diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> >> [...]
+> >> > > > >  static inline bool kvm_hyp_handle_memory_fault(struct kvm_vcpu *vcpu,
+> >> > > > >                                                 u64 *exit_code)
+> >> > > > >  {
+> >> > > > > -        if (!__populate_fault_info(vcpu))
+> >> > > > > +        if (!__populate_fault_info(vcpu)) {
+> >> > > >
+> >> > > > Presumably we need a barrier (DSB?) here, to ensure that the TLBI happens
+> >> > > > after the AT instruction?
+> >> 
+> >> I don't think the TLBI requires a barrier before it, because it
+> >> doesn't matter if the AT's walk allocates entries after the TLBI.
+> >> Anything it allocates matches memory, and the stage-2 descriptor the
+> >> AT faulted on has AF clear, so that descriptor can't be cached:
+> >> 
+> >> R_XCLRD: Translation table entries that generate a Translation
+> >> fault, an Address size fault, or an Access flag fault are never cached
+> >> in a TLB.
+> >> 
+> >> The stale entries the guest keeps hitting were already there before
+> >> the TLBI, and the dsb(nsh) and isb after it are what complete it
+> >> against them.
+> >> 
+> >> [... your other reply ... ]
+> >> > > Alternatively, VMALLE1 or even VAE1 should be enough to get rid of the
+> >> > > S1 TLB.
+> >> >
+> >> > Ah, sorry, VMALLE1 is what I meant to ask about. I basically haven't
+> >> > understood the need to invalidate the stage-2.
+> >> 
+> >> The guest's walk can also go through a stage-2 entry for its
+> >> page-table page, cached before the aging cleared that page's AF, and
+> >> nothing requires the AT to use that entry:
+> >> 
+> >> R_NPZWX: When an address translation instruction is executed, it is
+> >> IMPLEMENTATION DEFINED whether the result can be returned from a TLB,
+> >> or a translation table walk occurs.
+> >> 
+> >> So if my reading is correct, on a CPU whose AT walks memory instead,
+> >> the AT keeps failing while the guest's walk goes through the stale
+> >> entry, and the guest takes the same permission fault again. VMALLE1
+> >> and VAE1 only cover stage 1, so they'd leave that loop in place.
+> >
+> > If we assume that the TLB covers VA->PA (which is a very likely case),
+> > TLBI VAE1 should nuke the permission fault that brought the vcpu to
+> > EL2, and instead walk the page tables, getting the access fault.
+> >
+> > The only case I can imagine where invalidating S2 would matter is if
+> > you are running under NV, because there is an independent S2 TLB (the
+> > shadow S2), and then VMALLS12E1 makes total sense.
+> >
+> > Ard, was this solely observed under NV? Or did you see it on a non NV
+> > guest as well?
+> >
+> 
+> No it happens with guests running at EL1 too.
 
-For HC4 I sent the U-Boot side on Oct 13 [1]: the same idea as your
-first patch, plus u-boot,off-on-delay-us = <100000> on TFLASH_VDD.
-Without it mmc_power_cycle() keeps the supply off for only 2 ms. With it
-HC4 boots from SD after a watchdog reset 3/3 (0/3 before), so the delay
-may be worth a try on VIM1S.
+Damn!
 
-On ODROID-N2 the factory BL2 leaves DELAY1/DELAY2/ADJUST at 0, so I
-haven't seen your second issue there.
+> My experiments seem to indicate that on this uarch, the AT instruction
+> does not hit in the TLB, and so it can fail on AF==0 for an IPA that
+> is covered by a S2-only TLB entry (with AF==1 and XN==1 due to lazy exec).
+> 
+> So after the VAAE1, the S1 walk happily produces the same translation
+> we just invalidated, without taking a S1PTW fault, and the guest faults
+> again on the I-fetch that took us to hyp the first time around.
 
-[1] https://lore.kernel.org/r/20261013-b4-hc4-sd-power-cycle-v1-1-cde760a256a5@iav.lv
+Ah, I think I see what can happen, even without split TLBs.
 
---
-Igor Velkov
+If you have a S2 walk cache that skips the descriptor where AF=0, then
+the TLB refill just succeeds, and the cycle repeats. OK, I'm now
+convinced we need S2 invalidation as well even in the VA->PA case. We
+needed it for NV anyway, but hey...
+
+Hopefully this doesn't happen too often.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
