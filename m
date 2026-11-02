@@ -2,71 +2,123 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 029EB606A32E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8346E606A32E
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:46:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3T9YZgi9;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=pD9yP+2M
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BePxX0hU;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FC/9kbvD
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=+NOo5xkBbc3f2BbNLUmdp9/dTWvq69FacuNY1c/vFa4=; b=3T9YZgi994N3kD
-	dg4QzEPS5sRWR42pdzDdlf7a+NOXLYRQQHgmWrMWxoh9JwqXRMIprESrT5XDWzvimAMb6PsbA14F1
-	Pp5KYCWBmVlzuaSCsWyP/t8QFkQocWBVLbElel3n+KHRpcicbay+8JnsVW/ASxjNeTtnmSw/SsU91
-	ZlBdVcrXJABdDuMR+ummh2g4cUkx32ybg34db7ISsCSmGL4XkfLKWnh5D+VBKP6v6r0pm/g3lPqa9
-	58Pz4hV8ggONtsKSbtWC4z6mbkvZhOL159SgskwVLYczMoBFxtmQkY7GoEUNZUkHDBFfKLtCG2BJL
-	oApzw3pFfcqjGN73800A==;
+	List-Owner; bh=vuLX4aqv2NwWnayVJvuaUsysVyU5Yw4azjI1P5BNB+M=; b=BePxX0hUxO1lgI
+	hyWI/Yaqp5IgzH7lci23iqIHnRgjGOq1NVOUfDZnRqBBYqt0cCcbNtVeCwZTTSN+pQI0ov6o/oliq
+	I63GbWLCJ5f00UNdLCJyPW2CJBcDjqmNoswe7E5zLhZZK126SPPmadkjscm2LiFoEu4/XdrwS3Kh2
+	RrVCfAlrrF/gccdyNkdHhNVPUZGQLriGgYFHn8niyQxpTe1dMpIsrsIGZ4tla/9pheITOXYd79MEw
+	FWOtLod3Rwx4N2QhGTQShgDIthyjsE3sKLlOkIWPFtZX7z3h1a/PlRUrxStoHX6eNyaq2sYvxjDD2
+	dq+ZWiB/ZbDQZdHoCO2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxyz-00000000A5M-1nLg;
-	Mon, 02 Nov 2026 19:46:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxy5-000000008bA-2eZr
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 19:45:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F22921C14;
-	Mon,  2 Nov 2026 11:45:17 -0800 (PST)
-Received: from e133894.cambridge.arm.com (e133894.arm.com [10.2.80.62])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8DB993FB9E;
-	Mon,  2 Nov 2026 11:45:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793648721; bh=Tk77NTIJOW7X1q61eFcXK6Rq36pF0H/sFRkZQTHUPZE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pD9yP+2M1i7Lnot3VfuUrSUsAX4TrvXjtjYcmaWFqrWA+yuRTV5qSvhzVsEEpLZzb
-	 LdC9Th2PfQPjUV6LkfbEEx+KgsXVD55dWzlz5wE34//Nfs6cjNA6FI/8sUdMA6R85w
-	 2E4Y/1edYJgrkCElsCewjxuadaO+850I2yJhCkrI=
-From: Sascha Bischoff <sascha.bischoff@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org
-Cc: maz@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	peter.maydell@linaro.org,
-	lpieralisi@kernel.org,
-	timothy.hayes@arm.com,
-	fuad.tabba@linux.dev
-Subject: [PATCH v2 04/16] irqchip/gic-v5: Add ITS MMIO register definitions
-Date: Mon,  2 Nov 2026 19:44:42 +0000
-Message-Id: <20261102194454.4086911-5-sascha.bischoff@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261102194454.4086911-1-sascha.bischoff@arm.com>
-References: <20261102194454.4086911-1-sascha.bischoff@arm.com>
+	id 1xNxz0-00000000A8k-20Ag;
+	Mon, 02 Nov 2026 19:46:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNxy7-000000008bd-37S4;
+	Mon, 02 Nov 2026 19:45:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4C94344630;
+	Mon,  2 Nov 2026 19:45:23 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1793648723;
+	b=dBLmgi7e2//cg1GRlUf+f6kQP/t7/dJu+qvs9QN2+glnzFAJ2d7IV1XEIcAKN68wt1gg
+	 i98k3ep8VV+XEadxkCyjahzjlOl51TuOZDY4HWo4hdgtm9eesnaqpYHl4lyLp4H3+JqbK
+	 CrNBzqmSRPyOuiNJnv1mAlrpAcAg2UqPBjXlkviy7e3bsJgLMwQxUBntzeRfGof3pHxdp
+	 5abrtdIbJuXHnPIZes+XyUz6xDclq+UvwP/h/mUnu/PgfdG5BDRTWOGfyv4NV4njWRad/
+	 Qh0QoP/Agkr/bfvGZoTYE/rjMt/9XxKWUcKdOKBtkdaOLUIeDXfpiVJIArtwclU0cDw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1793648723;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=vuLX4aqv2NwWnayVJvuaUsysVyU5Yw4azjI1P5BNB+M=;
+	b=ueNT6Ou7wwWoZNDQRELUGaKvf3I3CWoeyrGAm8iaJvy4KTTebL6Uea9ZekonDSHpoULS
+	 UeJdvZ/Wz367r5oSVuAj+s3Pt4Tcx1VLElN++aMYYKri+deAChuAiK2XoH5neOuvp7dh4
+	 78uBoWBw/d1xKOvDejngDmayGjZrKrySpNk4N/l2s4bKz879+2XTpd2O21pdcHAW7tIv2
+	 S9+d/WrjF4riVzblFPIgnXYvh8ad/+liQP3aj1S6hI6nWqDDe7yuDG9lmz/k+Y73u6sQI
+	 h4JFc+Xf7WKXl6c3zVj3WCh/GldUIBK6LVZVHCkSyivZNPA3oJ23MdqbDdSZb45f5WQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id ED3AC1F00A23;
+	Mon,  2 Nov 2026 19:45:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793648723;
+	bh=vuLX4aqv2NwWnayVJvuaUsysVyU5Yw4azjI1P5BNB+M=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=FC/9kbvDY6OEwhAe5BNgUfTzAaoFwc+P7cJFdZ8XTWFLcDMUpWhXzjNN30ZloZiHb
+	 gIqeG6cQcbIJhTV3gjVu75z0Lg2JtFt6Q0F+cqqIdZgAc2crOuwyyJoyyYriMlfQfT
+	 UOXbqtRIchYptnfwgln8sNrOrO1niFrkVndYUbo7Id5Odm8P4yIlnjSnybHGz1eXwX
+	 zhkIiz/7/LIe8zwTbKAQVfgjJpNKlYKh8GXubGjomHdxHt1iyykHzsqbgDbEh34O19
+	 mKxc/3fuljKrLIGw43crBGUYViG0IDHkUVYatfscgbE/asFXlo8AzGjfkqjzzPRhsp
+	 Di1u5jFu8jZbQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 770D346635;
+	Mon,  2 Nov 2026 19:45:09 +0000 (UTC)
+From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
+Date: Tue, 03 Nov 2026 03:45:16 +0800
+Subject: [PATCH RFC v3 13/17] riscv: dts: zhihe: add A210 UARTs
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_114525_766737_D9C97DD0 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -4.4 (----)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261103-a210-scmi-v3-13-ee6b31580808@iscas.ac.cn>
+References: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
+In-Reply-To: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
+To: Sudeep Holla <sudeep.holla@kernel.org>, 
+ Cristian Marussi <cristian.marussi@arm.com>, 
+ Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>, 
+ Jassi Brar <jassisinghbrar@gmail.com>, Linus Walleij <linusw@kernel.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Thomas Gleixner <tglx@kernel.org>, 
+ Radu Rendec <radu@rendec.net>, Samuel Holland <samuel.holland@sifive.com>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Anup Patel <anup@brainfault.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Drew Fustini <fustini@kernel.org>, 
+ Icenowy Zheng <uwu@icenowy.me>, Inochi Amaoto <inochiama@gmail.com>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>, 
+ Jiaxun Yang <jiaxun.yang@flygoat.com>
+Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org, 
+ linux-serial@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, 
+ Han Gao <gaohan@iscas.ac.cn>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793648705; l=6182;
+ i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
+ bh=B6tm2OM7jOdMucw1zXohh3+kCm1z/YVGQ/Bj++2MOGQ=;
+ b=MdU04rFHtyT7xgYvIzJMTtd38JmLDv+MB5iQiT2A5YpllXnQHclLizyhh+Zdkkg+ee/VrTV+r
+ 5KfV/TFl7h7BGdSKk48dZvSz+COQF6fQbB5vlVk/iSCwzu3kGLi2Wn0
+X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
+ pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
+X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
+ auth_id=1262
+X-Original-From: Han Gao <gaohan@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,189 +128,208 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: gaohan@iscas.ac.cn
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UPPERCASE_50_75,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Introduce the GICv5 ITS MMIO register offsets and bit definitions in
-one place before the virtual ITS starts consuming them.
+From: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
 
-Keeping the ITS register frame definitions together avoids spreading
-register-definition churn across the subsequent KVM ITS emulation
-patches.
+Describe the ten DW APB UARTs with SCMI clocks and their separate APB
+and serial resets.
 
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+Signed-off-by: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- include/linux/irqchip/arm-gic-v5.h | 126 +++++++++++++++++++++--------
- 1 file changed, 92 insertions(+), 34 deletions(-)
+ arch/riscv/boot/dts/zhihe/a210.dtsi | 160 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 160 insertions(+)
 
-diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
-index ee3677413560f..6e8484fef9faf 100644
---- a/include/linux/irqchip/arm-gic-v5.h
-+++ b/include/linux/irqchip/arm-gic-v5.h
-@@ -364,50 +364,88 @@
- /*
-  * ITS registers and tables structures
-  */
--#define GICV5_ITS_IDR1		0x0004
--#define GICV5_ITS_IDR2		0x0008
--#define GICV5_ITS_CR0		0x0080
--#define GICV5_ITS_CR1		0x0084
--#define GICV5_ITS_DT_BASER	0x00c0
--#define GICV5_ITS_DT_CFGR	0x00d0
--#define GICV5_ITS_DIDR		0x0100
--#define GICV5_ITS_EIDR		0x0108
--#define GICV5_ITS_INV_EVENTR	0x010c
--#define GICV5_ITS_INV_DEVICER	0x0110
--#define GICV5_ITS_STATUSR	0x0120
--#define GICV5_ITS_SYNCR		0x0140
--#define GICV5_ITS_SYNC_STATUSR	0x0148
--
--#define GICV5_ITS_IDR1_L2SZ			GENMASK(10, 8)
--#define GICV5_ITS_IDR1_ITT_LEVELS		BIT(7)
--#define GICV5_ITS_IDR1_DT_LEVELS		BIT(6)
--#define GICV5_ITS_IDR1_DEVICEID_BITS		GENMASK(5, 0)
-+#define GICV5_ITS_IDR0			0x0000
-+#define GICV5_ITS_IDR1			0x0004
-+#define GICV5_ITS_IDR2			0x0008
-+#define GICV5_ITS_IIDR			0x0040
-+#define GICV5_ITS_AIDR			0x0044
-+#define GICV5_ITS_CR0			0x0080
-+#define GICV5_ITS_CR1			0x0084
-+#define GICV5_ITS_DT_BASER		0x00c0
-+#define GICV5_ITS_DT_CFGR		0x00d0
-+#define GICV5_ITS_DIDR			0x0100
-+#define GICV5_ITS_EIDR			0x0108
-+#define GICV5_ITS_INV_EVENTR		0x010c
-+#define GICV5_ITS_INV_DEVICER		0x0110
-+#define GICV5_ITS_READ_EVENTR		0x0114
-+#define GICV5_ITS_READ_EVENT_DATAR	0x0118
-+#define GICV5_ITS_STATUSR		0x0120
-+#define GICV5_ITS_SYNCR			0x0140
-+#define GICV5_ITS_SYNC_STATUSR		0x0148
-+#define GICV5_ITS_GEN_EVENT_DIDR	0x0180
-+#define GICV5_ITS_GEN_EVENT_EIDR	0x0188
-+#define GICV5_ITS_GEN_EVENTR		0x018c
-+#define GICV5_ITS_GEN_EVENT_STATUSR	0x0190
-+#define GICV5_ITS_MEC_IDR		0x01c0
-+#define GICV5_ITS_MEC_MECID_R		0x01c4
-+#define GICV5_ITS_MPAM_IDR		0x0200
-+#define GICV5_ITS_MPAM_PARTID_R		0x0204
-+#define GICV5_ITS_SWERR_STATUSR		0x0240
-+#define GICV5_ITS_SWERR_SYNDROMER0	0x0248
-+#define GICV5_ITS_SWERR_SYNDROMER1	0x0250
-+#define GICV5_ITS_MPAM_PMGR		0x0258
+diff --git a/arch/riscv/boot/dts/zhihe/a210.dtsi b/arch/riscv/boot/dts/zhihe/a210.dtsi
+index 6d85d94f0af1..caa3005830ca 100644
+--- a/arch/riscv/boot/dts/zhihe/a210.dtsi
++++ b/arch/riscv/boot/dts/zhihe/a210.dtsi
+@@ -353,6 +353,70 @@ mbox_e902: mailbox@320000 {
+ 			#mbox-cells = <1>;
+ 		};
+ 
++		uart0: serial@2014000 {
++			compatible = "zhihe,a210-uart", "snps,dw-apb-uart";
++			reg = <0x0 0x02014000 0x0 0x1000>;
++			clocks = <&scmi_clk A210_CLK_UART_SCLK(0)>,
++				 <&scmi_clk A210_CLK_UART_PCLK(0)>;
++			clock-names = "baudclk", "apb_pclk";
++			interrupt-parent = <&intc>;
++			interrupts = <321 IRQ_TYPE_LEVEL_HIGH>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			resets = <&scmi_reset A210_RESET_UART_PRST(0)>,
++				 <&scmi_reset A210_RESET_UART_SRST(0)>;
 +
-+#define GICV5_ITS_TRANSLATER		0x0000
-+#define GICV5_ITS_RL_TRANSLATER		0x0008
++			status = "disabled";
++		};
 +
-+#define GICV5_ITS_IDR0_ITSID		GENMASK(31, 16)
-+#define GICV5_ITS_IDR0_SWE		BIT(8)
-+#define GICV5_ITS_IDR0_MPAM		BIT(7)
-+#define GICV5_ITS_IDR0_MEC		BIT(6)
-+#define GICV5_ITS_IDR0_PA_RANGE		GENMASK(5, 2)
-+#define GICV5_ITS_IDR0_DOM		GENMASK(1, 0)
++		uart1: serial@2015000 {
++			compatible = "zhihe,a210-uart", "snps,dw-apb-uart";
++			reg = <0x0 0x02015000 0x0 0x1000>;
++			clocks = <&scmi_clk A210_CLK_UART_SCLK(1)>,
++				 <&scmi_clk A210_CLK_UART_PCLK(1)>;
++			clock-names = "baudclk", "apb_pclk";
++			interrupt-parent = <&intc>;
++			interrupts = <322 IRQ_TYPE_LEVEL_HIGH>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			resets = <&scmi_reset A210_RESET_UART_PRST(1)>,
++				 <&scmi_reset A210_RESET_UART_SRST(1)>;
 +
-+#define GICV5_ITS_IDR0_DOMAIN_SECURE		0b00
-+#define GICV5_ITS_IDR0_DOMAIN_NON_SECURE	0b01
-+#define GICV5_ITS_IDR0_DOMAIN_EL3		0b10
-+#define GICV5_ITS_IDR0_DOMAIN_REALM		0b11
++			status = "disabled";
++		};
 +
-+#define GICV5_ITS_IDR1_L2SZ		GENMASK(10, 8)
-+#define GICV5_ITS_IDR1_ITT_LEVELS	BIT(7)
-+#define GICV5_ITS_IDR1_DT_LEVELS	BIT(6)
-+#define GICV5_ITS_IDR1_DEVICEID_BITS	GENMASK(5, 0)
- 
- #define GICV5_ITS_IDR1_L2SZ_SUPPORT_4KB(r)	FIELD_GET(BIT(8), (r))
- #define GICV5_ITS_IDR1_L2SZ_SUPPORT_16KB(r)	FIELD_GET(BIT(9), (r))
- #define GICV5_ITS_IDR1_L2SZ_SUPPORT_64KB(r)	FIELD_GET(BIT(10), (r))
- 
--#define GICV5_ITS_IDR2_XDMN_EVENTs		GENMASK(6, 5)
--#define GICV5_ITS_IDR2_EVENTID_BITS		GENMASK(4, 0)
-+#define GICV5_ITS_IDR2_XDMN_EVENTS	GENMASK(6, 5)
-+#define GICV5_ITS_IDR2_EVENTID_BITS	GENMASK(4, 0)
- 
--#define GICV5_ITS_CR0_IDLE			BIT(1)
--#define GICV5_ITS_CR0_ITSEN			BIT(0)
-+#define GICV5_ITS_IIDR_PRODUCT_ID	GENMASK(31, 20)
-+#define GICV5_ITS_IIDR_VARIANT		GENMASK(19, 16)
-+#define GICV5_ITS_IIDR_REVISION		GENMASK(15, 12)
-+#define GICV5_ITS_IIDR_IMPLEMENTER	GENMASK(11, 0)
- 
--#define GICV5_ITS_CR1_ITT_RA			BIT(7)
--#define GICV5_ITS_CR1_DT_RA			BIT(6)
--#define GICV5_ITS_CR1_IC			GENMASK(5, 4)
--#define GICV5_ITS_CR1_OC			GENMASK(3, 2)
--#define GICV5_ITS_CR1_SH			GENMASK(1, 0)
-+#define GICV5_ITS_AIDR_COMPONENT	GENMASK(11, 8)
-+#define GICV5_ITS_AIDR_ARCHMAJORREV	GENMASK(7, 4)
-+#define GICV5_ITS_AIDR_ARCHMINORREV	GENMASK(3, 0)
- 
--#define GICV5_ITS_DT_CFGR_STRUCTURE		BIT(16)
--#define GICV5_ITS_DT_CFGR_L2SZ			GENMASK(7, 6)
--#define GICV5_ITS_DT_CFGR_DEVICEID_BITS		GENMASK(5, 0)
-+#define GICV5_ITS_CR0_IDLE		BIT(1)
-+#define GICV5_ITS_CR0_ITSEN		BIT(0)
- 
--#define GICV5_ITS_DT_BASER_ADDR_MASK		GENMASK_ULL(55, 3)
-+#define GICV5_ITS_CR1_ITT_RA		BIT(7)
-+#define GICV5_ITS_CR1_DT_RA		BIT(6)
-+#define GICV5_ITS_CR1_IC		GENMASK(5, 4)
-+#define GICV5_ITS_CR1_OC		GENMASK(3, 2)
-+#define GICV5_ITS_CR1_SH		GENMASK(1, 0)
- 
--#define GICV5_ITS_INV_DEVICER_I			BIT(31)
--#define GICV5_ITS_INV_DEVICER_EVENTID_BITS	GENMASK(5, 1)
--#define GICV5_ITS_INV_DEVICER_L1		BIT(0)
-+#define GICV5_ITS_DT_BASER_ADDR_MASK	GENMASK_ULL(55, 3)
-+#define GICV5_ITS_DT_BASER_ADDR_SHIFT	3ULL
++		uart2: serial@2016000 {
++			compatible = "zhihe,a210-uart", "snps,dw-apb-uart";
++			reg = <0x0 0x02016000 0x0 0x1000>;
++			clocks = <&scmi_clk A210_CLK_UART_SCLK(2)>,
++				 <&scmi_clk A210_CLK_UART_PCLK(2)>;
++			clock-names = "baudclk", "apb_pclk";
++			interrupt-parent = <&intc>;
++			interrupts = <323 IRQ_TYPE_LEVEL_HIGH>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			resets = <&scmi_reset A210_RESET_UART_PRST(2)>,
++				 <&scmi_reset A210_RESET_UART_SRST(2)>;
 +
-+#define GICV5_ITS_DT_CFGR_STRUCTURE	BIT(16)
-+#define GICV5_ITS_DT_CFGR_L2SZ		GENMASK(7, 6)
-+#define GICV5_ITS_DT_CFGR_DEVICEID_BITS	GENMASK(5, 0)
++			status = "disabled";
++		};
++
++		uart3: serial@2017000 {
++			compatible = "zhihe,a210-uart", "snps,dw-apb-uart";
++			reg = <0x0 0x02017000 0x0 0x1000>;
++			clocks = <&scmi_clk A210_CLK_UART_SCLK(3)>,
++				 <&scmi_clk A210_CLK_UART_PCLK(3)>;
++			clock-names = "baudclk", "apb_pclk";
++			interrupt-parent = <&intc>;
++			interrupts = <324 IRQ_TYPE_LEVEL_HIGH>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			resets = <&scmi_reset A210_RESET_UART_PRST(3)>,
++				 <&scmi_reset A210_RESET_UART_SRST(3)>;
++
++			status = "disabled";
++		};
++
+ 		peri1_padctrl: pinctrl@2026000 {
+ 			compatible = "zhihe,a210-peri1-pinctrl";
+ 			reg = <0x0 0x02026000 0x0 0x1000>;
+@@ -363,6 +427,102 @@ peri1_padctrl: pinctrl@2026000 {
+ 			status = "disabled";
+ 		};
  
- #define GICV5_ITS_DIDR_DEVICEID			GENMASK_ULL(31, 0)
- 
-@@ -417,6 +455,17 @@
- #define GICV5_ITS_INV_EVENTR_ITT_L2SZ		GENMASK(2, 1)
- #define GICV5_ITS_INV_EVENTR_L1			BIT(0)
- 
-+#define GICV5_ITS_INV_DEVICER_I			BIT(31)
-+#define GICV5_ITS_INV_DEVICER_EVENTID_BITS	GENMASK(5, 1)
-+#define GICV5_ITS_INV_DEVICER_L1		BIT(0)
++		uart4: serial@8401000 {
++			compatible = "zhihe,a210-uart", "snps,dw-apb-uart";
++			reg = <0x0 0x08401000 0x0 0x1000>;
++			clocks = <&scmi_clk A210_CLK_UART_SCLK(4)>,
++				 <&scmi_clk A210_CLK_UART_PCLK(4)>;
++			clock-names = "baudclk", "apb_pclk";
++			interrupt-parent = <&intc>;
++			interrupts = <325 IRQ_TYPE_LEVEL_HIGH>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			resets = <&scmi_reset A210_RESET_UART_PRST(4)>,
++				 <&scmi_reset A210_RESET_UART_SRST(4)>;
 +
-+#define GICV5_ITS_READ_EVENTR_R			BIT(31)
++			status = "disabled";
++		};
 +
-+#define GICV5_ITS_READ_EVENT_DATAR_VIRT		BIT_ULL(63)
-+#define GICV5_ITS_READ_EVENT_DATAR_VM_ID	GENMASK_ULL(47, 32)
-+#define GICV5_ITS_READ_EVENT_DATAR_VALID	BIT_ULL(31)
-+#define GICV5_ITS_READ_EVENT_DATAR_LPI_ID	GENMASK_ULL(23, 0)
++		uart5: serial@8402000 {
++			compatible = "zhihe,a210-uart", "snps,dw-apb-uart";
++			reg = <0x0 0x08402000 0x0 0x1000>;
++			clocks = <&scmi_clk A210_CLK_UART_SCLK(5)>,
++				 <&scmi_clk A210_CLK_UART_PCLK(5)>;
++			clock-names = "baudclk", "apb_pclk";
++			interrupt-parent = <&intc>;
++			interrupts = <326 IRQ_TYPE_LEVEL_HIGH>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			resets = <&scmi_reset A210_RESET_UART_PRST(5)>,
++				 <&scmi_reset A210_RESET_UART_SRST(5)>;
 +
- #define GICV5_ITS_STATUSR_IDLE			BIT(0)
- 
- #define GICV5_ITS_SYNCR_SYNC			BIT_ULL(63)
-@@ -425,6 +474,15 @@
- 
- #define GICV5_ITS_SYNC_STATUSR_IDLE		BIT(0)
- 
-+#define GICV5_ITS_GEN_EVENT_DIDR_DEVICEID	GENMASK_ULL(31, 0)
++			status = "disabled";
++		};
 +
-+#define GICV5_ITS_GEN_EVENT_EIDR_EVENTID	GENMASK(15, 0)
++		uart6: serial@8403000 {
++			compatible = "zhihe,a210-uart", "snps,dw-apb-uart";
++			reg = <0x0 0x08403000 0x0 0x1000>;
++			clocks = <&scmi_clk A210_CLK_UART_SCLK(6)>,
++				 <&scmi_clk A210_CLK_UART_PCLK(6)>;
++			clock-names = "baudclk", "apb_pclk";
++			interrupt-parent = <&intc>;
++			interrupts = <327 IRQ_TYPE_LEVEL_HIGH>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			resets = <&scmi_reset A210_RESET_UART_PRST(6)>,
++				 <&scmi_reset A210_RESET_UART_SRST(6)>;
 +
-+#define GICV5_ITS_GEN_EVENTR_R			BIT(31)
-+#define GICV5_ITS_GEN_EVENTR_TARGET_DOMAIN	GENMASK(1, 0)
++			status = "disabled";
++		};
 +
-+#define GICV5_ITS_GEN_EVENT_STATUSR_IDLE	BIT(0)
++		uart7: serial@8404000 {
++			compatible = "zhihe,a210-uart", "snps,dw-apb-uart";
++			reg = <0x0 0x08404000 0x0 0x1000>;
++			clocks = <&scmi_clk A210_CLK_UART_SCLK(7)>,
++				 <&scmi_clk A210_CLK_UART_PCLK(7)>;
++			clock-names = "baudclk", "apb_pclk";
++			interrupt-parent = <&intc>;
++			interrupts = <328 IRQ_TYPE_LEVEL_HIGH>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			resets = <&scmi_reset A210_RESET_UART_PRST(7)>,
++				 <&scmi_reset A210_RESET_UART_SRST(7)>;
 +
- #define GICV5_DTL1E_VALID			BIT_ULL(0)
- /* Note that there is no shift for the address by design */
- #define GICV5_DTL1E_L2_ADDR_MASK		GENMASK_ULL(55, 3)
++			status = "disabled";
++		};
++
++		uart8: serial@8405000 {
++			compatible = "zhihe,a210-uart", "snps,dw-apb-uart";
++			reg = <0x0 0x08405000 0x0 0x1000>;
++			clocks = <&scmi_clk A210_CLK_UART_SCLK(8)>,
++				 <&scmi_clk A210_CLK_UART_PCLK(8)>;
++			clock-names = "baudclk", "apb_pclk";
++			interrupt-parent = <&intc>;
++			interrupts = <329 IRQ_TYPE_LEVEL_HIGH>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			resets = <&scmi_reset A210_RESET_UART_PRST(8)>,
++				 <&scmi_reset A210_RESET_UART_SRST(8)>;
++
++			status = "disabled";
++		};
++
++		uart9: serial@8406000 {
++			compatible = "zhihe,a210-uart", "snps,dw-apb-uart";
++			reg = <0x0 0x08406000 0x0 0x1000>;
++			clocks = <&scmi_clk A210_CLK_UART_SCLK(9)>,
++				 <&scmi_clk A210_CLK_UART_PCLK(9)>;
++			clock-names = "baudclk", "apb_pclk";
++			interrupt-parent = <&intc>;
++			interrupts = <330 IRQ_TYPE_LEVEL_HIGH>;
++			reg-io-width = <4>;
++			reg-shift = <2>;
++			resets = <&scmi_reset A210_RESET_UART_PRST(9)>,
++				 <&scmi_reset A210_RESET_UART_SRST(9)>;
++
++			status = "disabled";
++		};
++
+ 		peri2_padctrl: pinctrl@8411000 {
+ 			compatible = "zhihe,a210-peri2-pinctrl";
+ 			reg = <0x0 0x08411000 0x0 0x1000>;
+
 -- 
-2.34.1
+2.55.0
+
 
 
