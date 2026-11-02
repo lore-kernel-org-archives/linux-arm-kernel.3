@@ -2,95 +2,113 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CB9F606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 07:13:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FD6D606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 07:17:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lFrbrQaB;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZA9DL3zL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UHSxTHh/;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U3zt+J9v
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=C1/iihW28aNu18mLJFGbicoB+M36ExxUuA1vjoQI5nY=; b=lFrbrQaBALzDX5Ym6W8xh0xMPQ
-	9sscwt6zD53LMX4CU88ZlpY/2yaEPm4fz83DfKVQyXCYi1dL2J9txSxOBLhkA5N5NBP8e7aJO6oql
-	VqAA1S4NW6M13MJggboSdIEKnJAPaP5QxYSSN75xur/O0IyNMIEFA8aO8IEwGbuYqUyCSYtgyted/
-	tzVuEpUXy1LEkuLRL1bu0dLX3MS0BIf9dd+lJw5tT1O8ZboWA12j4VQlvN0TjEtKb/+u68vZhxJ1i
-	LEyGPnw3l86AQ3B2Txqni7U7IE8amozeXq31za4dZsO9NwWhKx6AqWNwnjMqs5FeGmXsv6WzVpXXn
-	MBZfJm5A==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=IRRSzlFERtC04EgY/YgoUh8ILIPmo4NEPdC+84g3mHo=; b=UHSxTHh/ak+v7D
+	YoSd9H2BMyTX9j2d8s2LorwieTljGpnLkpEsfo4x9kQEbqP3o41lgl3HMd7p3Vi09tgYV13apgJWj
+	BQutMFF/cgw16S21kOAykORdMlL3etvWSOCuONUZ2xqLR8anCM1dytn1oMI2wIBc+5oWTMnY+3Pko
+	BKSP/CT0xMFoLHEeEJcoJyPy71rMgz5jTyfEqvLXYoHLPWarl2nObTDtg7tW7jWFUtKRaIEsvblIE
+	X57Uk17NzeAp1T2XZTt8b8xd0VIub346DUHPi2JtE0l/tTBZQjceyw2n33nBzzD3TmqhETbQ6PDm5
+	tKhOkja4kyrlxx2cUMUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNmEC-0000000Fiti-48gd;
-	Mon, 02 Nov 2026 07:13:13 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1xNmHr-0000000FjP6-0Hob;
+	Mon, 02 Nov 2026 07:16:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNmE9-0000000Fisw-22CN
+	id 1xNmHp-0000000FjOX-07fx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 07:13:12 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-cc751eddf25so1520026a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 23:13:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793603588; x=1794208388; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=C1/iihW28aNu18mLJFGbicoB+M36ExxUuA1vjoQI5nY=;
-        b=ZA9DL3zLHZ7B2ClyNjH6XlG2e4PmoyxD3XKAMkARzoS/ZSjX1hHyGm58IMm1Emp3en
-         4XjJ8Ciyiw94O38hy3aONTnR+t6IzB08LeQTlzc9DcHkKc7Wt3wkXv61yPimM3uoLBce
-         f8Z6rvUc030/wYERVOPooeAfrTb1ONfWPVgeUnwzZQJQ3RELBdDMnxdSvKB/p2n4uiNF
-         CABJmBuP6xH8vKibppXhb+ERj7fSyeA8REyol3D9N4fhi0UiDiFUPRmbQ3cTJ5TAgLF1
-         FN/kDnI80O7Dw0VZGkJUo+q9jUJ5P6tOFs9JoZxKjtfh/1nVNnUyCw1gAJbxSCiWv/AE
-         6voA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793603588; x=1794208388;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=C1/iihW28aNu18mLJFGbicoB+M36ExxUuA1vjoQI5nY=;
-        b=sb6uYnnvKVUEEb1lhg8M9TRZvdo2n69a/As/VMhee29JHV9hEHDfWjY/Uzu61Jp7gA
-         5NwWdPAzITKIEtHWnQs32bSr+PcZ59qrmRu76edKYaofOB1or01ouskCAJm9+ObYKrM5
-         yP8KuqNNfGBmGPQtCgZ5vDp0XgKkFp1HB0+GwDdmWaY7CbMoVMVGPrFjBlh1qgj2NV8U
-         h6TjlfAEUdqu+Ss/m7ydZruSbQdcL0T9f/SV3nI5CWKAus/lVzg9zO3VXqDkVWHTxDt8
-         0YpYgA6EyxMDC894+L4c2vSeTtRu0V8XZiWK2ZqEkL52Bbr4OKrxZuaKpxmAZ0ukiEMa
-         EchA==
-X-Forwarded-Encrypted: i=1; AKwUvBx7o+bSayGd5rRDmMRztkcJuuZshyWjiI6Oj0WHDp/Imlc4EcBAcewNI0+6v+YQ0aEEJwdxz+5XvIR5hk/EQvXg@lists.infradead.org
-X-Gm-Message-State: AFq9FYLqF3R5qsquDMpRNcNm/Fohc4i5D8Mz38VU+4wSwGWKNLRTRCgP
-	8lhSD9cSGSdU6JkpuhadmoH2WIqGSsaDudKOZ4z/Dz5ZNikkc974M6CO
-X-Gm-Gg: AYBFou1K/t9DF2p9GOvnUbeefvnkz14I8gpWD8wozEVz5OEaAw1Ig3s9xq4F2PIqZbr
-	0sL9NoFjXkN36yGJnavQRqxx3JhyOqcRAUYVyMlYkm83vTuUjTYQZOosz0xZiqImV0vaVwNSPxZ
-	gvI7cAiYUfoa3WKw+uFJBhJXkJl5IfksjiVk6oYHP7lP1pKg0D6eRxxFcHlmk5ZvjQDuvZ831K1
-	8BQj63meQTYEbebCiXybiwn1CkOncAqSQnmAHSEWtkm7Ci78o53GuKuCdaMGz86tPepxAVigDMd
-	nVqbmcQqJLJ2BuPeqSzE5I8LIE7IEapTkH8+T1sgx0CUsVRyZ7GsVrNXPkaQDZorHjiULHdCcQl
-	NMPu8VinKLu7fuYhQ4SJXOCZ14vmxfdwxSDbcGrPkuxuGsjv7nNxo6ksoxBONI02E2bo+HrqWaM
-	2ewoaLdg+wsoBFQJdyasKt5ys7oB4gtvXSrWTzkVKXHuvT3KAYRuAaQw8FFrayhXooxBJdwEZKs
-	fi3cJR8u/uGvYnfLGUDsOkLl1ANlf703CTt5Bajc3pfrzYXQNWZThp+Xxlvg9EZKSnYkHUgMSFU
-	gPlODdwDdJf7v9ION4FsfVTPcKu7fnEaYg==
-X-Received: by 2002:a05:6300:67c7:b0:3e2:47ab:6a25 with SMTP id adf61e73a8af0-3e9289d5d85mr8302838637.46.1793603587953;
-        Sun, 01 Nov 2026 23:13:07 -0800 (PST)
-Received: from server225.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cdb096fcf15sm2660232a12.18.2026.11.01.23.13.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Nov 2026 23:13:07 -0800 (PST)
-From: Ping Li <leeonion.muyu@gmail.com>
-To: james.morse@arm.com,
-	ben.horgan@arm.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	reinette.chatre@intel.com,
-	fenghuay@nvidia.com,
-	Ping Li <leeonion.muyu@gmail.com>
-Subject: [PATCH] arm_mpam: Only program MATCH_PMG when the monitor supports it
-Date: Mon,  2 Nov 2026 15:13:00 +0800
-Message-Id: <20261102071300.554160-1-leeonion.muyu@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 02 Nov 2026 07:16:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 23F2260DC0;
+	Mon,  2 Nov 2026 07:16:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 874831F000C1;
+	Mon,  2 Nov 2026 07:16:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793603815;
+	bh=IRRSzlFERtC04EgY/YgoUh8ILIPmo4NEPdC+84g3mHo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=U3zt+J9v0y+R4Fy5ABH5505GeWQElaRf2eRkhJAs9ZH6/a9kmYRSKFBoxFZLiLTPm
+	 z8PUM2O+mk31AMYY9KB+bIH9MMNpOz3rPR76nQsNrUEiEkP0yJUZHyvqeaUz6aMv6q
+	 BubFzWy1M9rL1ike8WQUmkt4/e8BGJs+6h4DUNrsg7UwhJNRLsikC7LQGj4KRZ3b63
+	 FhOFw4XOT+baeJ87ze3OIamHOlYVRFbgqSF7vARYdgauP3phfMkoNTvn30g4+oIB9B
+	 +hTyRaGIJ4Prk+pL2tvqAf64J4s+/aMnr0xPuRAqiWbQu7qgzPenrICUIBIs4O4Zwn
+	 Va3PPB74BtEpg==
+Message-ID: <8ffc41d7-b032-481c-9643-a87847b8452b@kernel.org>
+Date: Mon, 2 Nov 2026 08:16:47 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_231309_529078_71C9C8D5 
-X-CRM114-Status: GOOD (  15.55  )
-X-Spam-Score: -2.1 (--)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] Documentation/process: Add a maintainer entry profile
+ for KVM/arm64
+To: Matthias Goergens <matthias.goergens@gmail.com>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+ Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org,
+ workflows@vger.kernel.org
+References: <20261030083351.3040604-1-matthias.goergens@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261030083351.3040604-1-matthias.goergens@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,128 +119,39 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-An MSC of ours implements the MBWU monitor without PMG support:
-MPAMF_MBWUMON_IDR.NO_MATCH_PMG is 1, so MSMON_CFG_x_CTL.MATCH_PMG is
-RES0. On this hardware resctrl monitor reads always returned 0.
+On 30/10/2026 09:33, Matthias Goergens wrote:
+> +
+> +If your series depends on something else that is not yet in mainline, such as
+> +another series under review, say so in the cover letter and name exactly what
+> +it applies on top of.
+> +
+> +Use ``git format-patch --base`` so that the base commit is recorded in the
+> +patches.
 
-Tracking this down: __read_mon() unconditionally sets match_pmg,
-because the resctrl (closid, rmid) model maps rmid to PMG. The
-expected configuration generated by gen_msmon_ctl_flt_vals() then
-contains MATCH_PMG, but the hardware ignores the bit, so the
-configuration read back never matches, config_mismatch is always
-true and the monitor is reprogrammed on every read - the counter
-never accumulates.
+You should rather encourage usage of b4, which does above for you.
 
-The architecture allows an MSMON implementation without PMG
-support, so read the NO_MATCH_PMG bits during probe and only
-program MATCH_PMG when the monitor supports PMG filtering,
-falling back to filtering by PARTID only. The CSU monitor has
-the same issue and is covered the same way.
+...
 
-Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
----
- drivers/resctrl/mpam_devices.c  | 22 +++++++++++++++++++++-
- drivers/resctrl/mpam_internal.h |  4 ++++
- 2 files changed, 25 insertions(+), 1 deletion(-)
+> +
+> +Security issues
+> +---------------
+> +
+> +Bugs that let a guest attack its host, or a nested guest attack its guest
+> +hypervisor, should be reported as described in
+> +Documentation/process/security-bugs.rst.
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index c067b6d57d71..2086ff121b59 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -1089,6 +1089,9 @@ static int mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 				if (FIELD_GET(MPAMF_CSUMON_IDR_HAS_XCL, csumonidr))
- 					mpam_set_feature(mpam_feat_msmon_csu_xcl, props);
- 
-+				if (!FIELD_GET(MPAMF_CSUMON_IDR_NO_MATCH_PMG, csumonidr))
-+					mpam_set_feature(mpam_feat_msmon_csu_match_pmg, props);
-+
- 				/* Is NRDY hardware managed? */
- 				err = mpam_ris_hw_probe_csu_nrdy(ris);
- 				if (err < 0)
-@@ -1118,6 +1121,9 @@ static int mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 				if (FIELD_GET(MPAMF_MBWUMON_IDR_HAS_RWBW, mbwumon_idr))
- 					mpam_set_feature(mpam_feat_msmon_mbwu_rwbw, props);
- 
-+				if (!FIELD_GET(MPAMF_MBWUMON_IDR_NO_MATCH_PMG, mbwumon_idr))
-+					mpam_set_feature(mpam_feat_msmon_mbwu_match_pmg, props);
-+
- 				has_long = FIELD_GET(MPAMF_MBWUMON_IDR_HAS_LONG, mbwumon_idr);
- 				if (has_long) {
- 					if (FIELD_GET(MPAMF_MBWUMON_IDR_LWD, mbwumon_idr))
-@@ -1309,6 +1315,20 @@ static int mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
- 	return __mpam_write_reg(msc, MSMON_MBWU_L + 4, 0);
- }
- 
-+static bool msmon_supports_match_pmg(struct mon_read *m)
-+{
-+	switch (m->type) {
-+	case mpam_feat_msmon_csu:
-+		return mpam_has_feature(mpam_feat_msmon_csu_match_pmg, &m->ris->props);
-+	case mpam_feat_msmon_mbwu_31counter:
-+	case mpam_feat_msmon_mbwu_44counter:
-+	case mpam_feat_msmon_mbwu_63counter:
-+		return mpam_has_feature(mpam_feat_msmon_mbwu_match_pmg, &m->ris->props);
-+	default:
-+		return true;
-+	}
-+}
-+
- static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
- 				   u32 *flt_val)
- {
-@@ -1322,7 +1342,7 @@ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
- 
- 	*flt_val = FIELD_PREP(MSMON_CFG_x_FLT_PARTID, ctx->partid);
- 
--	if (m->ctx->match_pmg) {
-+	if (m->ctx->match_pmg && msmon_supports_match_pmg(m)) {
- 		*ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
- 		*flt_val |= FIELD_PREP(MSMON_CFG_x_FLT_PMG, ctx->pmg);
- 	}
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 1f86cc158100..88cd5ac4cde3 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -227,12 +227,14 @@ enum mpam_device_features {
- 	mpam_feat_msmon_csu,
- 	mpam_feat_msmon_csu_capture,
- 	mpam_feat_msmon_csu_xcl,
-+	mpam_feat_msmon_csu_match_pmg,
- 	mpam_feat_msmon_mbwu,
- 	mpam_feat_msmon_mbwu_31counter,
- 	mpam_feat_msmon_mbwu_44counter,
- 	mpam_feat_msmon_mbwu_63counter,
- 	mpam_feat_msmon_mbwu_capture,
- 	mpam_feat_msmon_mbwu_rwbw,
-+	mpam_feat_msmon_mbwu_match_pmg,
- 	mpam_feat_partid_nrw,
- 	MPAM_FEATURE_LAST
- };
-@@ -645,6 +647,7 @@ int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc);
- 
- /* MPAMF_CSUMON_IDR - MPAM cache storage usage monitor ID register */
- #define MPAMF_CSUMON_IDR_NUM_MON	GENMASK(15, 0)
-+#define MPAMF_CSUMON_IDR_NO_MATCH_PMG	BIT(22)
- #define MPAMF_CSUMON_IDR_HAS_OFLOW_CAPT	BIT(24)
- #define MPAMF_CSUMON_IDR_HAS_CEVNT_OFLW	BIT(25)
- #define MPAMF_CSUMON_IDR_HAS_OFSR	BIT(26)
-@@ -655,6 +658,7 @@ int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc);
- 
- /* MPAMF_MBWUMON_IDR - MPAM memory bandwidth usage monitor ID register */
- #define MPAMF_MBWUMON_IDR_NUM_MON	GENMASK(15, 0)
-+#define MPAMF_MBWUMON_IDR_NO_MATCH_PMG	BIT(22)
- #define MPAMF_MBWUMON_IDR_HAS_RWBW	BIT(28)
- #define MPAMF_MBWUMON_IDR_LWD		BIT(29)
- #define MPAMF_MBWUMON_IDR_HAS_LONG	BIT(30)
--- 
-2.34.1
+Do we need to repeat standard stuff in every maintainer profile? Above
+is quite obvious, so maybe skip it which would make the document shorter
+increasing the chances anyone will read it.
 
+Best regards,
+Krzysztof
 
