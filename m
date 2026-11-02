@@ -2,140 +2,141 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF963606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 23:10:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C546D606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 23:10:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=H/6wjhGz;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GfXf1IO4;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BquDL5dp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=v7FUF4N0;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZUNjv8iO;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=XztgwNDY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=gSxjo7G/C4iKFeABmyD/cOIF2FiAgdOm/dXL8y9CJck=; b=H/6wjhGzItwt31
-	cpeaFT9BnXIsJ7re+/FKkMJARG9hbmCAKhtwXAdRYhWoNmmyIgC203DluyB4DCMa4ahx1nCwfKnDt
-	+4Xr4EX5SzABgMZVQbTmqvDOhQ3PRlKfrDi4QsvVnpW3CQvW1wYnBfzZHFdWBRfRy8cTkhucU4ieh
-	RchxJH93hUY1tNlpftEuwXrOk3m9KaXaZr0jCaT9pI0xIAp57qNPvHxZH+FD6VLtswWjp8PPb9Nrv
-	sQFAT8peeRH0+cGr9AkiXdSIGIIbVPdNhEgllRlfJ8xQ4nuS+rmIXn7zC3rsiSY1TRv6Md5hixxOi
-	Ne844t32m8jDqv1ozvAw==;
+	List-Owner; bh=RNPEXbcvLHlz70jUnJvyWiGs4WgJ8gGzePseO2P4c0Y=; b=v7FUF4N0ZyPWqA
+	ojWAHyNI5rt9+PxAVNHAabueinboqOSaAqo7sVjZeYNFu7yuaYT/z5u0rLqsyax/NSK/DJNbW+nYm
+	4gXk7uxX7hQ81rhISZ5NQsnO4x1UfY4mjR0fGHKanoL0fVZRDbppj0MHqb/V9WyOfOeMFpyODXvek
+	vIh7VaXfqSd7d2z3nIZjKV8lEGRJ9CuZd8VXjlPNwFYx0Yl9hMDM/KaqwrbXLL+oRA1b6KLzA2iIs
+	otkVukNHMaOr5ePCxyctTQi0OLVVGm7hOriaSpXhuwoeE8cnDQ3ji6A1F6iK5jKyVk8ARKB+GqYMf
+	Olml6KxSvvHuB2WX8TaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO1An-00000000cEH-43Bm;
-	Mon, 02 Nov 2026 23:10:41 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xO1Au-00000000cKb-3eFO;
+	Mon, 02 Nov 2026 23:10:48 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO1Aj-00000000cB2-3j43
+	id 1xO1Al-00000000cBv-2KTz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 23:10:39 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A2K6M3e1301304
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 2 Nov 2026 23:10:37 GMT
+	Mon, 02 Nov 2026 23:10:41 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A2K6CoH1746253
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 2 Nov 2026 23:10:39 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=gSxjo7G/C4i
-	KFeABmyD/cOIF2FiAgdOm/dXL8y9CJck=; b=GfXf1IO4G333Kn+mISHKagwfJvd
-	jg3ziOgrRSmF8W7h2zp2MNPIJ+jghNIW0xLXDO2Fm2KQEhyfls2jx7N2Gf9WN/xW
-	ApZxRo7/gdXbngf9TjMw0ixVNCVdVILFFDEDszi8zFzfyD/krL9ZvqLVYEU21yAB
-	d75JRXcPSS3nCeAs6VvD5k+4R1RtqKaxTs3GuXauJSL5nvwNS2/95tRbod2sRziP
-	Eo2D2L8gT4OjDt9Rg2g5S7F4LaumsKcBsWFTBHtPaKx0knAikw3sGB6dxdbxl8zm
-	o3ZSKnIWUKFg5qakEtjA7jfkCqYLb0Mlg1+w1+rAWRZe3j4YHpUi/yQ8eyA==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hpsa6tu9y-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=RNPEXbcvLHl
+	z70jUnJvyWiGs4WgJ8gGzePseO2P4c0Y=; b=ZUNjv8iOu0cW5VdrUGImHyJiA16
+	Y+L8jMtCrcru0H+eiv4v+0T6AGLDpg7SuT/sSijN3ioOElR55w7lOd2zSi3aNJka
+	Q40NDdlPZuInNL1WYquTpit3QKEn5NCAiirvIo8h9v6Qh6MfHYxzNlSh7VMTB23B
+	S+5YTrjCRs6pNv69AOmVdj/r1O/XSWGTivyq3LFfirFuYMw/XXxn520EXWFv4rbZ
+	OOLsPv/8PluEs5ceDLV2srFwq3cWw8S1yULOkj4b8TeEzvxZHYYORtIczAwaUsa8
+	qaihozL7CbKg+/Lz+B/gXXbjXAVqZVu+4NVHpYYejX26wz6pvpXjOiHlXZw==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hpqmvuaa2-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 23:10:36 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93ecdc701a2so410944985a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 15:10:36 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 23:10:39 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93f559420f3so316985385a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 15:10:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793661036; x=1794265836; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1793661038; x=1794265838; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gSxjo7G/C4iKFeABmyD/cOIF2FiAgdOm/dXL8y9CJck=;
-        b=BquDL5dpQrvLSUbwtsIAtPpmxkAPSPy6r/6hVCNNCbvKONzIy9jvVFnOgULEP73W/F
-         Wo6Bji7jxMjwbOQTsJ035zrZX8yQYoHtJPx3EOR+m6rWDBMsjKxxOOsD13oMwuEEzhai
-         7EAVjl3PNusMl0h5l1unf8R3CpefPQ/NoqfQQPWqknXuVAb3+XiGW7KsdJFHRhxDj4cT
-         eKb/f/DxlfK6dCsPNiPBrVXLz2L3b0DZBXiSVOhOK8wwOCyVcY2OP6Sz3gRnaHX2kRkT
-         n4kLFWioc9+FpH/K/3axb2qZB7DI+jo2gYvFzkTdEmiRGUA/g5kbeAw4e6zJvhmSRS9F
-         kVPA==
+        bh=RNPEXbcvLHlz70jUnJvyWiGs4WgJ8gGzePseO2P4c0Y=;
+        b=XztgwNDYvBYckAp8IUw0EKHMQWskFk4CF1IfzVWUKaPLGJGM3LWhZeniUrH3lVPRLI
+         x5zCE6u430bc14MXldOyiexcUhS2VGZphoiKVIfbHKMOzhIixGxzCoVl+RFOfvkFlGSa
+         YCakIwKh+pv+q8ReFcpRmpVqCDS/Dafvg+OpfsIRhUIAEjXnEZVTlVPWd3uh/LgI6NhL
+         GrhiZa0SEnpS/o0MVoJLivjUTJWOqxjf+y4OSIZvan8b7uT8pkAqs6QtHWuzHixv7tZi
+         u472oZOko66DkioQ1OSjyPD+qpgWNRc+UHbnHocovmsc5zCbbU5ND9UC+jc7aXUh9Q4m
+         uJFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793661036; x=1794265836;
+        d=1e100.net; s=20260707; t=1793661038; x=1794265838;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gSxjo7G/C4iKFeABmyD/cOIF2FiAgdOm/dXL8y9CJck=;
-        b=UeHREIyZvV2ZiQyfe/JbCn9r8u3FxzOgV7Jk/pqkIqfi0xwMbSb/4RnTOjTh1/QWsR
-         NR2/6NmGz4vCMa0fRixAgWbMjjJWM7AmCeiIS9XWqK//1W6VNWuB4wtXS1BnZ5Nf6SZJ
-         2LcznDa4NLt2T1zbwGIa2NPeOGBz0gcyHJU710ekuxJt9PhdSSsNBg6chNO9ExitDjAm
-         us/B+69rGD82zal/9Z1hyLcQDwrDrGvPSOZ4DEfN+eYikSFghcBvXxKCQP+y7wWoNjhg
-         C0VkZywXAH1goXkDhYbvSzx5Qp8zYgm5cTvhpiepU3kMnYBQJ1h0aBOfWQxoHhpp7CkK
-         aIjQ==
-X-Forwarded-Encrypted: i=1; AKwUvByKO6izQNqaQrGx1S+RxrHbacCW8sq1QdGXKXBFuxqwxe6Ld3dazobUwdJs95J+xhf3IQ09I6w00YNLDwjMPDR1@lists.infradead.org
-X-Gm-Message-State: AFq9FYK+ye6T0E45sxZCcP5OlOjyd3MAGzBvmyQgmELAZb9wDRP3nmP1
-	cDlo5NnBCPFu7ZPVnsyYXqHs2EKDA2dmYtoD00PIzxVeFcMXZBkwL3OAieGGIHmoE80LnAizM24
-	Jp+cay0HHvGaoGFWQfj6Bz/NImjINDPU7FFXFK41QAKfVsR0027fuCD9UF1IiqLNzPnsJh6Dsp5
-	GiAw==
-X-Gm-Gg: AYBFou2JRFSNm/ftfoQ1bzL5+n+lb+jPGljHMCEuokn+84YSAQbCqBgzYSqM05hw5lg
-	lpwXkbSQsMjb5XWYweBqcOHI1IytXcDHYQG/5husBy7MwOwPrBw2HZm4IfVINr9pZCIJLxhSRVg
-	XdW7sfsiHjmp5H78vGcE1cyl1mOrv6sCj24q20tzmUj5NI8QuYADwA8csQHoSlgRXf7qbESkqlw
-	QQKKv3Sx2MMMtsDJsa/9BsqZVXpXl6HChlwEZ3ZaBvWj1KpzYNYZDLszdotgkocy3ConuGVFt8/
-	QvK0U9t0NHY0/s+0w5b1bB42TaH1NCjs5YsR00u42btfbyyvmVw8h3wXPjIEWcVdAHJG2FiZAV8
-	lJuB4YOwKeh6btYIJXFF12Pccky1QsrUy4NlGGitP4rzc73kqTebid2xQgX6/RpBRduazLD/B8X
-	v4
-X-Received: by 2002:a05:620a:880e:b0:93e:c12c:fbcf with SMTP id af79cd13be357-944217b26bfmr1799037085a.75.1793661035840;
-        Mon, 02 Nov 2026 15:10:35 -0800 (PST)
-X-Received: by 2002:a05:620a:880e:b0:93e:c12c:fbcf with SMTP id af79cd13be357-944217b26bfmr1799034385a.75.1793661035243;
-        Mon, 02 Nov 2026 15:10:35 -0800 (PST)
+        bh=RNPEXbcvLHlz70jUnJvyWiGs4WgJ8gGzePseO2P4c0Y=;
+        b=WKiMIvLk2DB6AFHnqfuZ4txm4kE4XwPcmb1hJ4kJ4dZIGxE0PJjlvGNoiMkQ/K/L9h
+         YBetrEsAwFSneT4KwnrV2lq+8TynyHEMNOKq78Jzbf+PV0BxzLFRa+FbLTB5giOD69gH
+         PVpAWegVce6A+IZ6zExmk2xjJHMzDwPm76Voz33DJ4EVYhKKOGYgT/w9Yf0+KINslOpD
+         yWgg+90JVSYwoLb+ghdel85xPq8v9hk8rhEkEOXlOEA6Xuc8GUbzZ7tebTun72eKMlN0
+         OLANUiysRlsj3anu9ONK8bRBXmhM1/oRZzE/QvFlMo3XXRaKLm0XAh4qqzFCwndAUdlk
+         Sxlg==
+X-Forwarded-Encrypted: i=1; AKwUvBzoFaPBGkTVahB12r0/OKjZoyqNqJdgsN+RzcyKPOBh35AYjp2t1ndmY110XYzReTLIT8QVw79tKvUGu92u/cXS@lists.infradead.org
+X-Gm-Message-State: AFq9FYKJEVsOJKzZUpLGVnxL7/QgPO2YIipvI3+Dr6o7gi63FDlzl67V
+	DGxfXNptNopwu5S+gW9o6R9DiuNxOHEi1amM7G0P+hUwUYEPNxXxNOVWdDAcijN21NOgiq4aUHe
+	7m4kgBE7rcSnuDzK+UpTKEvFNGdW3E1YkjxqbN+AaGUepV8E6xQ5InBcl0wAHOd90HL3t3ST4zf
+	F0+A==
+X-Gm-Gg: AYBFou33YwzdDaLbqsihtygYGl3pKp+/o9K98/E5ERrVYruliyhTggfF3tgGUHiqNtl
+	yx1ASwJb5DecAqY7U9BPiegksVilEVIfgxPSmepVg9yBv0BaGswYtd/BEMEyf+PJx1B6636V9AM
+	PSWNXE3gfk09fi1Q8aO3wy0hxT6CQffOXPEcAjtpzji377tmVXC9ibikp+/XkWXYmww6cKsNbEC
+	lAvBOj1lDwa6PE1CfWO0B+tmM7HoHtIgzzDyzB4NsWGym/HkJWtvCwDhbiuVivfm4HVPKPC6MGs
+	Z9OumyqG0dBDl6CkCanY2Qtf0rb5kbn/YTKOeXrha+u1Ksfh7rnBQk5lKQ3DG+FeTB9zafn1fxx
+	geiETJtOr91g5fUYVIz5lV8mpZqOc8Pm7dAvgrbaGidbpCgUdiEG8cRx9sVKVIIXZTUQtT0dCu8
+	9+
+X-Received: by 2002:a05:620a:28c6:b0:93c:6fd4:467a with SMTP id af79cd13be357-94421541a87mr1857269185a.2.1793661037849;
+        Mon, 02 Nov 2026 15:10:37 -0800 (PST)
+X-Received: by 2002:a05:620a:28c6:b0:93c:6fd4:467a with SMTP id af79cd13be357-94421541a87mr1857266285a.2.1793661037320;
+        Mon, 02 Nov 2026 15:10:37 -0800 (PST)
 Received: from mai.box.freepro.com ([2a05:6e02:1041:c10:8b9e:7797:dd05:11cb])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b2a82cf248sm25198725e9.2.2026.11.02.15.10.34
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b2a82cf248sm25198725e9.2.2026.11.02.15.10.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 15:10:34 -0800 (PST)
+        Mon, 02 Nov 2026 15:10:35 -0800 (PST)
 From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
 To: akpm@linux-foundation.org, rafael@kernel.org, tglx@kernel.org,
         peterz@infradead.org
 Cc: Heiko Stuebner <heiko@sntech.de>,
         linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support),
         linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support),
-        linux-kernel@vger.kernel.org (open list:CPU HOTPLUG)
-Subject: [PATCH 1/2] smpboot: Allow restricting per-CPU threads to a CPU mask
-Date: Tue,  3 Nov 2026 00:09:40 +0100
-Message-ID: <af37c4e7811a86adafb2064e7cf4aa4f5090ab4b.1793660202.git.daniel.lezcano@oss.qualcomm.com>
+        linux-pm@vger.kernel.org (open list:POWER MANAGEMENT CORE),
+        linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH 2/2] powercap: idle_inject: Create per-CPU threads on registration
+Date: Tue,  3 Nov 2026 00:09:41 +0100
+Message-ID: <71091b05daff46020ccd1bba3ed66b0055c85046.1793660202.git.daniel.lezcano@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1793660202.git.daniel.lezcano@oss.qualcomm.com>
 References: <cover.1793660202.git.daniel.lezcano@oss.qualcomm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAyMDA5MSBTYWx0ZWRfX9/8qNbewXjsS
- ZS/0qXm8dL8mGm9rLCBNKUXSXPNHlfTIrfgZPIC81uvd29R2f4IEFcVc0y69fm2E7Ecw2aTs8vB
- KLk1M4TsmpPIvi0/lpTtiwYH1CZ8OdjBUdDh5NatK8APktaCCPmUcZftkQy+K9dwZR8pZyorQdu
- chU9w1e0hkhNmrP515v8oCQth6cAloe1JUiSNdNB4iCnN9RrtevVh9d7mFvMRYLvPrjThJAEVL/
- PKcgWmA3IO8W74UgvrF005b3pb9Sot4MpuwMZPmNjwf25ok7U9NrN13xZ2T0RQITASmVgUYH1pG
- 1ShFxZJc+i0tUHfs3qxfens4u2JTBDDYeu7krGTD4poN3fJVjE0rx4MdRwBxXoLz6QwZmfr/3LA
- bdUJISu5JNlRNj1PFl7+xIJkjghi1Ytx18uAB4xv9EZqyiispnBoncvzwZFC+nxa75YKi5S+pvz
- QdePLunEX2O+C2F1TvQ==
-X-Proofpoint-GUID: A2R4-tW-pEqjW7y8kFA5b45EnU2P1JKx
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAyMDA5MSBTYWx0ZWRfXz6vz570/t9l1
- aQnLPejZMf5fvWIIS9rnZFOQb5V21vIQcJvHhJYKZqRkl9LEPrnVBiLMUPSHYYxaqIxFs6JnOzF
- GT33xdNh71UQ+FFWYUacnhjRMfk29j8=
-X-Proofpoint-ORIG-GUID: A2R4-tW-pEqjW7y8kFA5b45EnU2P1JKx
-X-Authority-Analysis: v=2.4 cv=I9fw19gg c=1 sm=1 tr=0 ts=6ae9186c cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=zJRp6_cAMcgA:10
+X-Authority-Analysis: v=2.4 cv=TMDQ2Fla c=1 sm=1 tr=0 ts=6ae9186f cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=zJRp6_cAMcgA:10
  a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8 a=igP56NFfHUNPCibkussA:9
- a=PEH46H7Ffwr30OY-TuGO:22
+ a=Um2Pa8k9VHT-vaBCBUpS:22 a=Z4Rwk6OoAAAA:8 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=z2xlO20o2AOZ5rEB0BcA:9 a=bTQJ7kPSJx9SKPbeHEYW:22 a=HkZW87K1Qel5hWWM3VKY:22
+X-Proofpoint-GUID: gV-Z9F7Xb7OTfnVolELLazN58BWyBQKI
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAyMDA5MSBTYWx0ZWRfX8HCLu7CYluhJ
+ E7RkGisuS9OpXzAhV6sxjJFbZkjozfAElQkorNL3FbmLSGvH02EmsnhbqE8KV3XkoIGbRGNpw2w
+ mMTEY6HE7NEZ3Otc8dcr7rVSHzLU0gQ=
+X-Proofpoint-ORIG-GUID: gV-Z9F7Xb7OTfnVolELLazN58BWyBQKI
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAyMDA5MSBTYWx0ZWRfXxb2dPYK8zrE8
+ fwofMiff+Ml9JH884Co1JtE6TRu570/U7UnBCF7Wdq8i9A/PsJiI+P7nlK10LjGdxWZD/pppwrx
+ AoQWr3SLtMIPRqCneUweBpYjE7twYHcsbu5d4SaVH4Q2zOz67zkLkzfNERcp31V7Q2bpnGnH8bD
+ HUYPOkvNVKJmknHMl0jq4dH4vogNOobtossGi17YUjJsha7XeaXnlsUbstvqrtTeJSwPVWEA91r
+ HV4ile+Uoh3TS8JeLIF5cHG16W+pG8ttI7vP2FWzFOBwzsZCdFvfiPYU+Yz+fHIHOWCS2tu58RJ
+ PYIuw2v2EuGY5MjIZSl8qMD4Rh51ThZyEycZ7cJhjrcJXXOkfQgZ7gZcntM8W+M5aIOaVKpiKRi
+ svM8fgCApqej73HzAQJvq/suQJTjkM5IeHkwP0eCQSRN1sCx8PprEj6gSHkWNvbNpyg870+3oSP
+ zeZ7FkRu8ubILpSfKzQ==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-02_06,2026-11-02_03,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 clxscore=1015 phishscore=0 priorityscore=1501
- bulkscore=0 lowpriorityscore=0 suspectscore=0 impostorscore=0 malwarescore=0
+ spamscore=0 impostorscore=0 bulkscore=0 priorityscore=1501 adultscore=0
+ phishscore=0 malwarescore=0 suspectscore=0 clxscore=1015 lowpriorityscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2610300000 definitions=main-2611020091
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_151038_104719_D4C33ED3 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20261102_151039_620836_D56C484D 
+X-CRM114-Status: GOOD (  26.79  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -155,133 +156,204 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-smpboot_register_percpu_thread() creates a thread for every online CPU
-and registers the descriptor for subsequent CPU hotplug operations.
-There is currently no way to restrict these threads to a subset of
-CPUs, even when the user only needs work performed on that subset.
+Create idle injection threads when a device registers instead of
+creating them unconditionally during early initialization. Destroy the
+threads when the device unregisters.
 
-For example, an idle injection device targets a specific CPU mask.
-Creating threads outside that mask consumes resources unnecessarily.
-Supporting multiple such devices also requires each descriptor to
-manage only the threads associated with its own CPUs.
+Use a per-device smpboot descriptor with the device's CPU mask so thread
+creation and CPU hotplug handling are limited to the CPUs registered by
+that device. Allow stopping devices whose offline CPUs have not yet had
+a thread created, and update the registration documentation to describe
+the thread lifecycle and possible failures.
 
-Add an optional CPU mask to struct smp_hotplug_thread and apply it
-throughout the thread lifecycle. Registration creates threads only for
-online CPUs in the mask. CPU bring-up creates threads for selected
-CPUs that were offline at registration, while parking and unparking
-are restricted to the same mask.
+Serialize CPU ownership checks and claims with a framework-wide mutex.
+Without serialization, registrations with overlapping masks can both
+observe an unclaimed CPU and overwrite each other's device pointer.
+Their smpboot descriptors can then share the same per-CPU task, allowing
+one device's teardown to destroy a thread belonging to another device.
+Registration rollback can also clear another caller's ownership.
 
-Apply the restriction to thread destruction as well, both during
-unregistration and registration failure cleanup. This is necessary
-when descriptors with disjoint masks share the same per-CPU task
-storage: tearing down one descriptor must not stop or clear threads
-owned by another descriptor.
+Hold the mutex through smpboot registration and failure rollback, and
+during thread unregistration through ownership release. This prevents a
+CPU from being claimed again until its previous thread is destroyed.
 
-The caller must keep the mask valid and unchanged until the descriptor
-is unregistered. Callers sharing per-CPU task storage must ensure their
-masks do not overlap and serialize ownership changes themselves.
+Stop idle injection before acquiring the mutex, keeping timer callback
+cancellation and stop-side hotplug exclusion outside the ownership
+critical section. Neither the idle injection threads nor their smpboot
+hotplug paths acquire this mutex. The existing caller-side lifecycle
+synchronization requirement remains in effect.
 
-A NULL mask preserves the existing behavior, so current users continue
-to manage threads on all CPUs.
-
+Reported-by: Andrew Morton <akpm@linux-foundation.org>
+Cc: Rafael J. Wysocki (Intel) <rafael@kernel.org>
 Signed-off-by: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
 ---
- include/linux/smpboot.h |  4 ++++
- kernel/smpboot.c        | 17 +++++++++++++++--
- 2 files changed, 19 insertions(+), 2 deletions(-)
+ drivers/powercap/idle_inject.c | 69 +++++++++++++++++++++-------------
+ 1 file changed, 42 insertions(+), 27 deletions(-)
 
-diff --git a/include/linux/smpboot.h b/include/linux/smpboot.h
-index 9d1bc65d226c..98c072eeaf24 100644
---- a/include/linux/smpboot.h
-+++ b/include/linux/smpboot.h
-@@ -5,6 +5,7 @@
- #include <linux/types.h>
- 
- struct task_struct;
-+struct cpumask;
- /* Cookie handed to the thread_fn*/
- struct smpboot_thread_data;
- 
-@@ -27,6 +28,8 @@ struct smpboot_thread_data;
-  *			unparked (cpu online)
-  * @selfparking:	Thread is not parked by the park function.
-  * @thread_comm:	The base name of the thread
-+ * @cpumask:		Optional mask of CPUs on which to create threads. Must remain
-+ *			valid and unchanged until the descriptor is unregistered.
-  */
- struct smp_hotplug_thread {
- 	struct task_struct		* __percpu *store;
-@@ -40,6 +43,7 @@ struct smp_hotplug_thread {
- 	void				(*unpark)(unsigned int cpu);
- 	bool				selfparking;
- 	const char			*thread_comm;
-+	const struct cpumask		*cpumask;
- };
- 
- int smpboot_register_percpu_thread(struct smp_hotplug_thread *plug_thread);
-diff --git a/kernel/smpboot.c b/kernel/smpboot.c
-index 4503b60ce9bd..07857523a465 100644
---- a/kernel/smpboot.c
-+++ b/kernel/smpboot.c
-@@ -168,6 +168,9 @@ __smpboot_create_thread(struct smp_hotplug_thread *ht, unsigned int cpu)
- 	struct task_struct *tsk = *per_cpu_ptr(ht->store, cpu);
- 	struct smpboot_thread_data *td;
- 
-+	if (ht->cpumask && !cpumask_test_cpu(cpu, ht->cpumask))
-+		return 0;
-+
- 	if (tsk)
- 		return 0;
- 
-@@ -225,6 +228,9 @@ static void smpboot_unpark_thread(struct smp_hotplug_thread *ht, unsigned int cp
- {
- 	struct task_struct *tsk = *per_cpu_ptr(ht->store, cpu);
- 
-+	if (ht->cpumask && !cpumask_test_cpu(cpu, ht->cpumask))
-+		return;
-+
- 	if (!ht->selfparking)
- 		kthread_unpark(tsk);
- }
-@@ -244,6 +250,9 @@ static void smpboot_park_thread(struct smp_hotplug_thread *ht, unsigned int cpu)
- {
- 	struct task_struct *tsk = *per_cpu_ptr(ht->store, cpu);
- 
-+	if (ht->cpumask && !cpumask_test_cpu(cpu, ht->cpumask))
-+		return;
-+
- 	if (tsk && !ht->selfparking)
- 		kthread_park(tsk);
- }
-@@ -267,6 +276,9 @@ static void smpboot_destroy_threads(struct smp_hotplug_thread *ht)
- 	for_each_possible_cpu(cpu) {
- 		struct task_struct *tsk = *per_cpu_ptr(ht->store, cpu);
- 
-+		if (ht->cpumask && !cpumask_test_cpu(cpu, ht->cpumask))
-+			continue;
-+
- 		if (tsk) {
- 			kthread_stop_put(tsk);
- 			*per_cpu_ptr(ht->store, cpu) = NULL;
-@@ -279,7 +291,8 @@ static void smpboot_destroy_threads(struct smp_hotplug_thread *ht)
-  * 					    to hotplug
-  * @plug_thread:	Hotplug thread descriptor
+diff --git a/drivers/powercap/idle_inject.c b/drivers/powercap/idle_inject.c
+index a25eb2018acd..24646b8be9ac 100644
+--- a/drivers/powercap/idle_inject.c
++++ b/drivers/powercap/idle_inject.c
+@@ -10,11 +10,9 @@
+  * It relies on the smpboot kthreads feature providing common code for CPU
+  * hotplug and thread [un]parking.
   *
-- * Creates and starts the threads on all online cpus.
-+ * Creates and starts the threads on online CPUs selected by the descriptor's
-+ * cpumask, or all online CPUs if no mask is specified.
-  */
- int smpboot_register_percpu_thread(struct smp_hotplug_thread *plug_thread)
- {
-@@ -308,7 +321,7 @@ EXPORT_SYMBOL_GPL(smpboot_register_percpu_thread);
-  * smpboot_unregister_percpu_thread - Unregister a per_cpu thread related to hotplug
-  * @plug_thread:	Hotplug thread descriptor
+- * All of the kthreads used for idle injection are created at init time.
+- *
+- * Next, the users of the idle injection framework provide a cpumask via
+- * its register function. The kthreads will be synchronized with respect to
+- * this cpumask.
++ * Users of the idle injection framework provide a cpumask via its register
++ * function. The kthreads are created on demand for CPUs in this mask and
++ * will be synchronized with respect to it.
   *
-- * Stops all threads on all possible cpus.
-+ * Stops all threads associated with the descriptor, including offline CPUs.
+  * The idle + run duration is specified via separate helpers and that allows
+  * idle injection to be started.
+@@ -40,6 +38,7 @@
+ #include <linux/cpu.h>
+ #include <linux/hrtimer.h>
+ #include <linux/kthread.h>
++#include <linux/mutex.h>
+ #include <linux/sched.h>
+ #include <linux/slab.h>
+ #include <linux/smpboot.h>
+@@ -60,6 +59,7 @@ struct idle_inject_thread {
+ /**
+  * struct idle_inject_device - idle injection data
+  * @timer: idle injection period timer
++ * @threads: per-device CPU hotplug thread descriptor
+  * @idle_duration_us: duration of CPU idle time to inject
+  * @run_duration_us: duration of CPU run time to allow
+  * @latency_us: max allowed latency
+@@ -82,6 +82,7 @@ struct idle_inject_thread {
   */
- void smpboot_unregister_percpu_thread(struct smp_hotplug_thread *plug_thread)
+ struct idle_inject_device {
+ 	struct hrtimer timer;
++	struct smp_hotplug_thread threads;
+ 	unsigned int idle_duration_us;
+ 	unsigned int run_duration_us;
+ 	unsigned int latency_us;
+@@ -92,6 +93,9 @@ struct idle_inject_device {
+ static DEFINE_PER_CPU(struct idle_inject_thread, idle_inject_thread);
+ static DEFINE_PER_CPU(struct idle_inject_device *, idle_inject_device);
+ 
++/* Serialize CPU ownership changes and the associated thread lifecycle. */
++static DEFINE_MUTEX(idle_inject_lock);
++
+ /**
+  * idle_inject_wakeup - Wake up idle injection threads
+  * @ii_dev: target idle injection device
+@@ -279,7 +283,8 @@ void idle_inject_stop(struct idle_inject_device *ii_dev)
+ 		iit = per_cpu_ptr(&idle_inject_thread, cpu);
+ 		iit->should_run = 0;
+ 
+-		wait_task_inactive(iit->tsk, TASK_ANY);
++		if (iit->tsk)
++			wait_task_inactive(iit->tsk, TASK_ANY);
+ 	}
+ 
+ 	cpu_hotplug_enable();
+@@ -319,12 +324,12 @@ static int idle_inject_should_run(unsigned int cpu)
+  * idle
+  *
+  * This function creates an idle injection control device structure for the
+- * given set of CPUs and initializes the timer associated with it. This
++ * given set of CPUs, registers their kthreads and initializes the timer. This
+  * function also allows to register update()callback.
+  * It does not start any injection cycles.
+  *
+- * Return: NULL if memory allocation fails, idle injection control device
+- * pointer on success.
++ * Return: NULL if allocation or thread registration fails, or a CPU is already
++ * registered; idle injection control device pointer on success.
+  */
+ 
+ struct idle_inject_device *idle_inject_register_full(struct cpumask *cpumask,
+@@ -342,6 +347,8 @@ struct idle_inject_device *idle_inject_register_full(struct cpumask *cpumask,
+ 	ii_dev->latency_us = UINT_MAX;
+ 	ii_dev->update = update;
+ 
++	mutex_lock(&idle_inject_lock);
++
+ 	for_each_cpu(cpu, to_cpumask(ii_dev->cpumask)) {
+ 
+ 		if (per_cpu(idle_inject_device, cpu)) {
+@@ -352,6 +359,20 @@ struct idle_inject_device *idle_inject_register_full(struct cpumask *cpumask,
+ 		per_cpu(idle_inject_device, cpu) = ii_dev;
+ 	}
+ 
++	ii_dev->threads = (struct smp_hotplug_thread) {
++		.store = &idle_inject_thread.tsk,
++		.setup = idle_inject_setup,
++		.thread_fn = idle_inject_fn,
++		.thread_comm = "idle_inject/%u",
++		.thread_should_run = idle_inject_should_run,
++		.cpumask = to_cpumask(ii_dev->cpumask),
++	};
++
++	if (smpboot_register_percpu_thread(&ii_dev->threads))
++		goto out_rollback;
++
++	mutex_unlock(&idle_inject_lock);
++
+ 	return ii_dev;
+ 
+ out_rollback:
+@@ -361,6 +382,8 @@ struct idle_inject_device *idle_inject_register_full(struct cpumask *cpumask,
+ 		per_cpu(idle_inject_device, cpu_rb) = NULL;
+ 	}
+ 
++	mutex_unlock(&idle_inject_lock);
++
+ 	kfree(ii_dev);
+ 
+ 	return NULL;
+@@ -372,11 +395,11 @@ EXPORT_SYMBOL_NS_GPL(idle_inject_register_full, "IDLE_INJECT");
+  * @cpumask: CPUs to be affected by idle injection
+  *
+  * This function creates an idle injection control device structure for the
+- * given set of CPUs and initializes the timer associated with it.  It does not
+- * start any injection cycles.
++ * given set of CPUs, registers their kthreads and initializes the timer. It
++ * does not start any injection cycles.
+  *
+- * Return: NULL if memory allocation fails, idle injection control device
+- * pointer on success.
++ * Return: NULL if allocation or thread registration fails, or a CPU is already
++ * registered; idle injection control device pointer on success.
+  */
+ struct idle_inject_device *idle_inject_register(struct cpumask *cpumask)
  {
+@@ -398,23 +421,15 @@ void idle_inject_unregister(struct idle_inject_device *ii_dev)
+ 
+ 	idle_inject_stop(ii_dev);
+ 
++	mutex_lock(&idle_inject_lock);
++
++	smpboot_unregister_percpu_thread(&ii_dev->threads);
++
+ 	for_each_cpu(cpu, to_cpumask(ii_dev->cpumask))
+ 		per_cpu(idle_inject_device, cpu) = NULL;
+ 
++	mutex_unlock(&idle_inject_lock);
++
+ 	kfree(ii_dev);
+ }
+ EXPORT_SYMBOL_NS_GPL(idle_inject_unregister, "IDLE_INJECT");
+-
+-static struct smp_hotplug_thread idle_inject_threads = {
+-	.store = &idle_inject_thread.tsk,
+-	.setup = idle_inject_setup,
+-	.thread_fn = idle_inject_fn,
+-	.thread_comm = "idle_inject/%u",
+-	.thread_should_run = idle_inject_should_run,
+-};
+-
+-static int __init idle_inject_init(void)
+-{
+-	return smpboot_register_percpu_thread(&idle_inject_threads);
+-}
+-early_initcall(idle_inject_init);
 -- 
 2.43.0
 
