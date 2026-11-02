@@ -2,89 +2,90 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B35C1609B58D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 15:03:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2CF66076D9B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 15:12:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HX/nIHlT;
-	dkim=pass (2048-bit key, unprotected) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=UO6wl9m7;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=cjq+t5yW
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OfhcGu5X;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=d5U+AbfK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=vmeP5yEnqnkyVoHBFqgCtuQIbq8hDW1r9WecfwOSwuQ=; b=HX/nIHlTmDPHBikew1k1XA3j78
-	LPmc/RAAKsBUVCAQ4jdV30NFOy/eulG33Fp9+mXTUuSRQZgli1CNKYQ0K0tyglauf+eV5Q13+IGvi
-	yyTNof7UugOxU4qx6mndiEnpq3WxEFolX6GKFnArEv6nLTT49Twa2epc8FcgK7QtXSy3vlKDXsHxF
-	VzS1VkOdn6smkyHkdxkg0GqPdzkXE0LmtVd6YS3ObOJXlTza83/JVZ9OXCHMs5Eu3RzVhu5H/WDbj
-	spI8UcU7j2MHeYQ2gE69LQ+b8orGu1t4Ni/4smiO72rOii8Mwd+m3qMp/9QktRVMxevEKSUXS4gnZ
-	Fo8Rz/4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=s7ppLZMAjyyuilbixYy866dZSoM5/UMmIQ8fY8VwQIM=; b=OfhcGu5XGhxUrY
+	CSoBx6rj1SBxKL8cBTDP42n3hKkqNtG6Ca69QE8x30cUsGKJHrCpX5vZqgi3BcXJdXhG3m5xm3vBS
+	uwE27RVHxNfBqRkuVWJTQQj816/1msXYx6Tuwg+lgdKSYEAJks/KE9iUjOwLW0aTRthA3RXU2HSQs
+	q5jSX/SA6jTLdZQDJgt2SD/SscAAJkGEUOHtcQfSh8+6ov6NbXJyij98nfZLwkcCgOufTasheBtV2
+	vdM1kpQI9dqmZrb2qCfGtCmDORBvTPOcxKhOBXKnbSHPltGKqRHIuSjntfA72uwTN+5GGHX8RU96o
+	AgtWb95Xw2yKhejCcZ1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNtZX-0000000GxzJ-0Mth;
-	Mon, 02 Nov 2026 15:03:43 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNtZU-0000000Gxvf-0d9y;
-	Mon, 02 Nov 2026 15:03:41 +0000
-Date: Mon, 2 Nov 2026 16:03:34 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1793631816;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vmeP5yEnqnkyVoHBFqgCtuQIbq8hDW1r9WecfwOSwuQ=;
-	b=UO6wl9m7RBHrJieOiZZvN4brHRib9ZtQyiwmHyHaWuAYRG64DM5WGvmVptZLI4u3WKDJnF
-	M71KpRdCjGEYRQ0ZNyuUrg2MBf6G/0h8AtNOtxhd609crQRWsn9ULFz1c0bdVFLsOo+Ghl
-	MxtJ5voXI2MjoMbwE0/348BYH4kSOiCqUbcKQKAueZveDDZ/i81+/UswGenDgvc4Hrk7ho
-	0OGIHcI9bOYmI2VW1SPwAumWkw28Y5/C1tLPFAGAX+/wylYCKe8tauPeEQB4FvI/4TGv85
-	vD/54DUZTKSuMkHRKk5V75A01BIW35D4ajgKmrXW7lzY0S8uv9iWtC9sayWk8Q==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1793631816;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vmeP5yEnqnkyVoHBFqgCtuQIbq8hDW1r9WecfwOSwuQ=;
-	b=cjq+t5yW0qbGlmcj6omOC7sdr5+cqnKu1szT+dy1lmE74Kt1pDmVGyuE1tjvvm6Sp7AedD
-	0pwVWf/K/m4EnjCQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Ryan Brue <ryanbrue.dev@gmail.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>, Mark Brown <broonie@kernel.org>,
-	Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Sean Wang <sean.wang@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Yingjoe Chen <yingjoe.chen@mediatek.com>,
-	Chaotian Jing <chaotian.jing@mediatek.com>,
-	Hongzhou Yang <hongzhou.yang@mediatek.com>,
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rt-devel@lists.linux.dev, mfd@lists.linux.dev
-Subject: Re: [PATCH] pinctrl: mediatek: common-v1: Use a raw spinlock for the
- pinctrl regmap
-Message-ID: <20261102150334.9q83qkpM@linutronix.de>
-References: <20260929-rbrue-suez-upstreaming-mtk-pinctrl-raw-regmap-v1-1-db92943f42cb@gmail.com>
- <20260930080609.dnK1-Uta@linutronix.de>
- <CAGXv+5FssQL3Go3VDFbLAT6HP12RS3U3OgxhYOeapzs64QTdUw@mail.gmail.com>
- <d3d3e7b3-eb8b-456d-9a2c-116334e86c14@gmail.com>
- <20261020073236.dDVmd3BW@linutronix.de>
- <7981f7c6-c949-42e6-ad53-15e6530588cb@gmail.com>
+	id 1xNthn-0000000H0a1-1lXI;
+	Mon, 02 Nov 2026 15:12:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNthk-0000000H0YD-3LB5
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Nov 2026 15:12:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BED8B1595;
+	Mon,  2 Nov 2026 07:12:08 -0800 (PST)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8053F3F871;
+	Mon,  2 Nov 2026 07:12:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793632331; bh=m3wJSJtQD9D+ud0ZiYqt81AP0zFjBodMC7qvifLjgJM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=d5U+AbfKMQ+WQ+H64mUgHOPj+0VxOmTroJphZ7yU3xRTnKcSzCeOPvCZ51upxaez9
+	 1zseJ0VSVrE65X5rYLfPftuaGKIecMKJ7UMt38Z8i6G17tBccd47v2kL5UbnRkZwv2
+	 FGg9aEze2odeZX47fJ5ayfhbvGDPwmGheoxz4Lw0=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Tian Zheng <zhengtian10@huawei.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	maz@kernel.org,
+	oupton@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	corbet@lwn.net,
+	pbonzini@redhat.com,
+	yuzenghui@huawei.com,
+	wangzhou1@hisilicon.com,
+	yangjinqian1@huawei.com,
+	caijian11@h-partners.com,
+	liuyonglong@huawei.com,
+	tangchengchang@huawei.com,
+	yezhenyu2@huawei.com,
+	yubihong@huawei.com,
+	linuxarm@huawei.com,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	fuad.tabba@linux.dev,
+	mark.rutland@arm.com,
+	seanjc@google.com,
+	rdunlap@infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	skhan@linuxfoundation.org
+Subject: Re: [PATCH v5 13/15] KVM: arm64: Add HDBSS buffer size ioctl for dirty-bitmap mode
+Date: Mon,  2 Nov 2026 15:12:04 +0000
+Message-ID: <auioRICO9Frhk-zT@LeoBrasDK>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20260929103655.85107-14-zhengtian10@huawei.com>
+References: <20260929103655.85107-1-zhengtian10@huawei.com> <20260929103655.85107-14-zhengtian10@huawei.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <7981f7c6-c949-42e6-ad53-15e6530588cb@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_070340_342008_6EB3D830 
-X-CRM114-Status: GOOD (  23.87  )
+X-CRM114-CacheID: sfid-20261102_071212_924051_E0875E5D 
+X-CRM114-Status: GOOD (  23.05  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,61 +97,99 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 2026-10-28 15:30:38 [-0500], Ryan Brue wrote:
-> On 10/20/26 2:32 AM, Sebastian Andrzej Siewior wrote:
-> > bulk writes could be a concern. The 40us delay is within the lock
-> > acquired? If so, could this be done without the lock? I assume this is
-> > part of the init sequence so nothing should use the HW so the writes
-> > should not be interrupted by other writes to the device.
->=20
-> Yes, it's under the lock. regmap_multi_reg_write() holds the regmap lock =
-for
-> the whole sequence, and since an MMIO syscon's regmap can't sleep, the
-> delays are udelay()s. The PLL's enable runs that sequence (13 writes, 40 =
-us
-> of delays) whenever the PLL goes from off to on, retrying up to 10 times
-> until it locks.
+On Tue, Sep 29, 2026 at 06:36:53PM +0800, Tian Zheng wrote:
+> In dirty-bitmap mode, a larger HDBSS buffer lets the guest dirty more
+> pages between VM exits, at the cost of memory. The default of one page
+> per vCPU is a reasonable starting point, so allow userspace to opt
+> into a larger buffer via KVM_CAP_ARM_HDBSS_BUFFER_SIZE.
+> 
+> The size is specified in bytes through KVM_ENABLE_CAP and must be a
+> power of two in [PAGE_SIZE, SZ_2M]: the upper bound is the largest
+> HDBSSBR_EL2.SZ encoding, and the power-of-two requirement matches the
+> buddy allocator. It must be set before any vCPU is created: -EINVAL
+> after vCPUs exist, -EBUSY if already set.
+> 
+> The capability is rejected in dirty-ring mode, where the size is
+> pinned by kvm_arch_dirty_ring_size_updated().
+> 
+> KVM_CHECK_EXTENSION returns the configured size for a VM, or SZ_2M
+> when queried globally with a NULL kvm.
+> 
+> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+> ---
+>  arch/arm64/kvm/arm.c     | 34 ++++++++++++++++++++++++++++++++++
+>  include/uapi/linux/kvm.h |  1 +
+>  2 files changed, 35 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 5a7046acb62e..eadbf3a88d31 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -19,6 +19,7 @@
+>  #include <linux/kvm.h>
+>  #include <linux/kvm_irqfd.h>
+>  #include <linux/irqbypass.h>
+> +#include <linux/log2.h>
+>  #include <linux/sched/stat.h>
+>  #include <linux/psci.h>
+>  #include <trace/events/kvm.h>
+> @@ -203,6 +204,31 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
+>  		r = 0;
+>  		set_bit(KVM_ARCH_FLAG_EXIT_SEA, &kvm->arch.flags);
+>  		break;
+> +	case KVM_CAP_ARM_HDBSS_BUFFER_SIZE: {
+> +		u64 size = cap->args[0];
+> +
+> +		if (!system_supports_hdbss())
+> +			break;
+> +		if (kvm->dirty_ring_size)
+> +			break;
+> +		if (size < KVM_ARM_HDBSS_DEFAULT_SIZE ||
+> +		    size > KVM_ARM_HDBSS_MAX_SIZE)
+> +			break;
+> +		if (!is_power_of_2(size))
+> +			break;
+> +
+> +		mutex_lock(&kvm->lock);
+> +		if (kvm->created_vcpus) {
+> +			r = -EINVAL;
+> +		} else if (kvm->arch.hdbss_buffer_size) {
+> +			r = -EBUSY;
+> +		} else {
+> +			kvm->arch.hdbss_buffer_size = size;
+> +			r = 0;
+> +		}
+> +		mutex_unlock(&kvm->lock);
+> +		break;
+> +	}
+>  	default:
+>  		break;
+>  	}
+> @@ -500,6 +526,14 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+>  		else
+>  			r = KVM_ARM_EAGER_SPLIT_CHUNK_SIZE_DEFAULT;
+>  		break;
+> +	case KVM_CAP_ARM_HDBSS_BUFFER_SIZE:
+> +		if (!system_supports_hdbss())
+> +			r = 0;
+> +		else if (kvm)
+> +			r = kvm->arch.hdbss_buffer_size ?: KVM_ARM_HDBSS_DEFAULT_SIZE;
 
-If this is only at boot-up then it is less of a problem. It would be
-more of a problem if a driver, such as SPI, would use this to fill its
-entire FIFO during a regular transfer. This would then spike up during
-the transfer.
+This whole thing of allowing hdbss_buf_size to be set only once makes 
+everything more complex. Why do we have this limitation again?
 
-> In practice it's init-time, though. The G12A USB3/PCIe PHY takes the PLL
-> with devm_clk_get_enabled() at probe and keeps it on, so it runs only onc=
-e.
-> Nothing else writes the PLL then, but the lock is the HHI syscon's, so on=
- RT
-> the other clocks in that block would wait it out. Running it without the
-> lock would mean changing how the meson PLL code writes its init sequence,
-> which I wouldn't want to take on in a pinctrl fix (unless that were
-> preferred).
+I mean, if we want to restrict size changes after the first hdbss buffer 
+gets allocated, it makes sense, other than that, I would like to understand 
+the reason for that.
 
-Okay.
-
-> > So it would be safe for now=E2=80=A6
-> Yes, that's the trade-off with the second option, which relies on the DIN
-> never being written in a multi-step sequence. Nothing enforces that thoug=
-h.
->=20
-> I'd like to send a v2 after -rc1, but I don't know the best option for the
-> fix. Still waiting on Lee, Arnd, and Mark to pitch in if they have a
-> preference, or any option I've missed.
-
-This is (I think) the second time the syscon mapping becomes a problem.
-I would be a bit worried if the same mapping/ regs could be accessed by
-different drivers under different locks.
-But yeah=E2=80=A6
-
-> Best regards,
-> Ryan Brue
-
-Sebastian
+Thanks!
+Leo
 
