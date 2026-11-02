@@ -2,88 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 328EA606D81C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96BC6606D81B
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 23:15:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dz2qyHq+;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dAQLeOgg
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bzLtoEVP;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q/VLktmQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=69yqTw3b1FgCvynLTALTT9jflSgvCMUx2Kr+ky+iCjg=; b=dz2qyHq+T6cxbG
-	frlWa6/wzWani7OEtsUNcvEooMzNtGXT9elhM3uH1CjVSQfz3vfiVr5l55vT2TyvUj2FL6BXragxi
-	/KR95Hu55G3Flac1HaVofFZEPltIl7r7lF+7zU5Mom8fbI0o0OopruwB6TMzxiZPOMne2MSizIwBr
-	8aQCSATtLbg5kn2DlBg0eG/yAXgkq8Vp9SNnIPEZCiccRf2jYRHdImCl0pFKRYg7F9WXzQZ8GBjSs
-	AFjSpXA/SsronxfCGroMtiOkgCXPfXI5inHookpBMQOMPARFYqDh1Kr/qKYRE3MxIJGhpnQhTVecd
-	lSTzT6fNFL0DJwbmx4jQ==;
+	List-Owner; bh=M2XizxjRx7xN+F/hlanXYNYyKgk6aZTIwuutS9IFyiI=; b=bzLtoEVPq3PFex
+	yBvYmU75WPLo6wF24hCLKfw2Kj+PSpfCCa4tWWIpi2K5FgEUHi5NyRV+xNKccS1sJnw+TiHMmQNs+
+	gQ8V+tisym4HTei0KdSfAJk2Ayshh/o2asaPsBSAuKGfb+sse0Ln4wUrcRaxgpgIF7kFqY/HL3dCg
+	fiUZd7dginF3x+TdAtall+pBFT8r9vwQFsSLHThYQpqHiQ19ByRFncqSlBu6jpVm3DNWu6JiHB/oH
+	lFzzNsjdYgpiEUB/1ih2cXiF76U3no8gflilPGsmmRSBvD46TsE56EtzUg2FPKnHtp2j4pE+VUd6X
+	RofRcKReM5LHnvm6EQPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO1El-00000000cuR-1NAq;
-	Mon, 02 Nov 2026 23:14:47 +0000
-Received: from mail-oo1-xc32.google.com ([2607:f8b0:4864:20::c32])
+	id 1xO1Er-00000000d00-16rT;
+	Mon, 02 Nov 2026 23:14:53 +0000
+Received: from mail-oo1-xc35.google.com ([2607:f8b0:4864:20::c35])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO1Ef-00000000crJ-1jgX
+	id 1xO1El-00000000cuH-3Z1D
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 23:14:43 +0000
-Received: by mail-oo1-xc32.google.com with SMTP id 006d021491bc7-6b8e2d8df4fso2557363eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 15:14:41 -0800 (PST)
+	Mon, 02 Nov 2026 23:14:50 +0000
+Received: by mail-oo1-xc35.google.com with SMTP id 006d021491bc7-705cb6cedd5so78359eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 15:14:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793661280; x=1794266080; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793661287; x=1794266087; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=69yqTw3b1FgCvynLTALTT9jflSgvCMUx2Kr+ky+iCjg=;
-        b=dAQLeOggJeEmCEop0xV4LWUd8vripdWHmUYNxqdOKjQ769rGGis0GLEZxPsBrJ2BTl
-         385VwDZHG4Qddlizc9NT3Sobu2pOhhXfVHdIMercPrnSz6LyMRUgJ49zXeVVuSmWFJzY
-         /96884sfJYsz9m7xV9p7rMxeGVsyJOKTrFMyFjCYUIav2FfVML1z9fJ9I4qKsqMoAZRx
-         5UxCyn6Z1UVEPuOjfMT7wBPz3DXovU8nIGQwUAz5NHu8XQWNMtTdewqTW5hxM7xYnd4t
-         a0ykehY8bvKoBvZ24lU717jwmqOl8G5NQO1Uj3Kbm3m5D5Z7sIeuk3NMyvJGmhpqWaZk
-         lzMw==
+        bh=M2XizxjRx7xN+F/hlanXYNYyKgk6aZTIwuutS9IFyiI=;
+        b=Q/VLktmQy+a1yzmZZ/fX2deNoJ8LhakqRbo+7uAGZv0oRuU11iN/veIevvK1Ju0bEI
+         Rly1vZW/BD3NQi3Q0EgnhqiFgqPLYsGKlRM8y76D6edL/1VK1f1r7rxkKt+JWOWfWptq
+         FQypbTlzh4ADiwGwDeZavnF2AUensFIgol3cOPqHFpD7ghy/4vvpf10pylgJpnOhsci8
+         zq44SFy3Q2SvOzV70WST4UuxdmHY9zqJWuJ6+lMQ+Up2YFnNluN2cQSlML5SJ4bqLurU
+         1uY3JKfGEvM+TDXCGFpbKmvCgFN/1uQDp2ONnyMCkFp6mfg4Nfh2u58c6j2QGtMYV5QF
+         FiHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793661280; x=1794266080;
+        d=1e100.net; s=20260707; t=1793661287; x=1794266087;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=69yqTw3b1FgCvynLTALTT9jflSgvCMUx2Kr+ky+iCjg=;
-        b=Yi75lNpQeZ4POVKGux95zU5b/1q31qVA/yuLfJVlXErcbKKaMrJEz5WjzRv1nwLFcW
-         BGRb6xBU+kZZBwCBa3MdssvPbK4RLP4AebLZtl0nss1Bdvx+5LyZaK4jwhbtGVhUVbaN
-         D5X+A8P89A5JKHS/ZsywjuTihJHTn/Bw/X+HgAAkQiZeqkh5XNKLJ8QGRyUVLw2awlfp
-         ZJIbZYgIJTonYXLC5sSjNVyEunu8A62M/owaMJTtUIu4KuK8WCnFxrsOyizCdIYUtw/O
-         v2K/Vrxi6J5OEAa2ta8USp6jl/YYvCTKxU/vr2+bQ/S8Nh2EX8mK3d60eK+VMBJCvbjI
-         SyHQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwRuNzRQrZmvfV7VqNO/JlKthzlKmqgqGb+2Ajpv3DVzHqDnkr5Vk9yxPQaQTOxuu2pc8SKZ1fn2VnOeVoQ6MnH@lists.infradead.org
-X-Gm-Message-State: AFq9FYIB7Wo475E8qcRc0XlFWNNyBcABbzV8FVu8xJcKOhgljVwypShY
-	WUAxVbHq9qc4jUtfKnRDX1/nfOErGUXsWnHdS/T3rH8/KHW+7VxLocdv9q9GKbL/
-X-Gm-Gg: AYBFou18STJlO2TeTEK3brqWaYwZfHSzMzBSpdOvpugRjxbGOLLLfY7ko5NgCx1aP8o
-	TZ0N5uV7eRDFLm3BE5F61oyoPPCGf+1f6NqaC4mcTJ6vzOBmiRMkWGzc8bSfYghaQS/tYf87DPs
-	vA2aqS0Pv4HLcsmlbomntMeVmB2VuwAPJTvxnNgOKEtxlKuR32Ii+neddcRaotq/Gl0Am+Kipt3
-	P7HdY8opJeAbXmf3lmzTEXL+ThKVmCRB9kMczOxjXwgELc1VCKRO25pSs2FJEU7Q/Z4OnSsPZbu
-	GaYGxX6m+Ex5uHEjy+2xIMTlaBFxHF6cmHAditL0o4m4we5EGTrYL5RDBre3NIdqgt+bbrum2Fc
-	VA8Ah5HMOxFatSVro49mzfQa7Eq+IY3sWNIMTbNkmZ2FkKM/lK/LMmSiS1Vt1GNDQGRF4pPGcKt
-	S71EH3wIabn/Uzfsk8u47FjpL1NCmnWEPAGe4JAHIkSZ9X/EWU8p5Jb+qFru7/deVatteU8bWjP
-	a7C2EFnkS32K03US01BCK8a5LWFFuL1iXlY8uPAMTuaQ2Kkg8XxW41PzUUEI+O78dkx+bmSghFM
-	nW4laIJZBHclHWOfcmnRRL6Z+J6s4TKREVWuFCxUUelyGJ3MECe/xp7lfxbXwFKZpoPd0zvzoAN
-	IrkZOd47diFx3xMX+FiTiwymfwMTOfI4L6ayCbkobqBXH/fOyeaTALDQh/ewC4fmt7rYrRBlzZ0
-	SItmgghFkDy2tQpX9KVsfzlKAZ9UW+gBQtU/VCM5Ux7zIHKCYFGrQ=
-X-Received: by 2002:a05:6820:338c:10b0:6f8:82ac:cc72 with SMTP id 006d021491bc7-714f2a821f9mr4959075eaf.69.1793661280016;
-        Mon, 02 Nov 2026 15:14:40 -0800 (PST)
+        bh=M2XizxjRx7xN+F/hlanXYNYyKgk6aZTIwuutS9IFyiI=;
+        b=uoACCWqU9TY4N/ss5c8ZJlPF+lBGLpW4KzsIgrvfIBqW2Wx55+dG26kU4LC1B5gAk3
+         5gwV278C0WmXVfck+6vXGh7rNxDfI/BUd7eL1pxOIYx+t7RR0CxYMo3j+SVGkG6q1IBi
+         Rxmn+KauSOgut378foRGYbDDQGj1+0eOs1NrweEPKrAj2XjDvnIQhyYgBK7NzAMiZl2H
+         /n5DjKmH+HL9CFHS+smWo1ZDivbSR5JhguhDEOQdoyRuQsjomn6DJ037rP46SQ3/V27D
+         blnmtW4BfcwWX53SCKYxyNxRq+9yP54qNqhLStTgwp4dvCQS5Yldbf+3C1ByDKAyp88Z
+         2+EA==
+X-Forwarded-Encrypted: i=1; AKwUvBx2aJR7rGlv29TCrKluoA+QJRxj09nRyw6Agjf8vR7wKS40gc6ne+M+I0ZHbgc19DuMVfA/Jh81EimWDLPEIzyN@lists.infradead.org
+X-Gm-Message-State: AFq9FYLeIGb9ZEcTujITCwmgvfujNAldMCbLJNU6itXe/DArXRAcQNWP
+	biE0DSkvVSt3Yx8t2qqQBlBI6CXlLw892mKvs+InIU4IOit3q+snNW+h
+X-Gm-Gg: AYBFou1+0Gd2nPTR5/DsdfA8Gjy6XLIiDRyCCKAeizP5B1BwjVJMkbl4hjPHCbVnf0H
+	trEokkYL7b5vnVxk4RohhXK57dMvN0swcLviQ14MoPsb5DvsZ4DEK0KLPcUmJl4iyYxkSGTt4UJ
+	NziRc5yG4bhYXFbL5nsI9b6jm3n2kCgfzEpt+PDyx4wYDoQ0he/nhwKHsOHWz6fgD4fjSR6rBbX
+	QSMF36DGKstijMdG6ugz72aeNUPO0HP/RefThM1TCEDhDk+yeWkyHD39xZvFHznkPE1dKN2l3ho
+	j+ZvsFfjmarW+s7JLeyZCzIGt9FwbchAQm1NMXwBUKB489LfJWQ5fR9s09T1+h1U5TikT8+8iQL
+	Ha7NVEy9KH3zb2xJQsjMghheQspW99Um2N6sUdz+IqIbfPDnqJrLY0dcDeLPywCSaPNL/hy0hZX
+	LmoUVjdi2B3opadMqjYlQ+rrwH3W7GAWYJEqnWmqf70IZPmHqp+FIC8VXanb/ViA/7I0+gjBEWf
+	A13SDlM/UZgFbE6k7kZLWAGQlDtLEIePNY7Xi9SqOTlet4M5vXwAkPEU1oVMP71KVykfBTHYmCY
+	5Tnw4dHCY/2OuVoMzuco9ht47Xn9QHi8BRoPDepfWwRTmNRyrYD4vVII6VQq7zFSJtT6/+kVyDo
+	90vk5GQ5QKW9DyP/JwL0Kpvz2K0nyYeTVEGxTIPCUFRBcoouUYdYCcmGjNEBi2tjQ0nOB3G6LaB
+	chDgAxhBHm6GdDJqNEmdr2wGkfg7jLrdgJJJXtxg5yj0BC6DHjwrU=
+X-Received: by 2002:a05:6820:1612:b0:713:da3b:9049 with SMTP id 006d021491bc7-714f2942b37mr4721551eaf.7.1793661286589;
+        Mon, 02 Nov 2026 15:14:46 -0800 (PST)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-714f2ce869asm10134463eaf.4.2026.11.02.15.14.38
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-714f2ce869asm10134463eaf.4.2026.11.02.15.14.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 15:14:39 -0800 (PST)
+        Mon, 02 Nov 2026 15:14:46 -0800 (PST)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Mon, 02 Nov 2026 16:14:29 -0700
-Subject: [PATCH v9 2/8] serial: serialize asynchronous write wakeups with
- the port lock
+Date: Mon, 02 Nov 2026 16:14:33 -0700
+Subject: [PATCH v9 6/8] serial: 8250: drain canceled TX DMA before reusing
+ its buffer
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261102-submit-serial-8250-dma-cancel-v1-v9-2-9159caade148@gmail.com>
+Message-Id: <20261102-submit-serial-8250-dma-cancel-v1-v9-6-9159caade148@gmail.com>
 References: <20261102-submit-serial-8250-dma-cancel-v1-v9-0-9159caade148@gmail.com>
 In-Reply-To: <20261102-submit-serial-8250-dma-cancel-v1-v9-0-9159caade148@gmail.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -110,8 +110,8 @@ Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_151441_558891_B2607067 
-X-CRM114-Status: GOOD (  24.58  )
+X-CRM114-CacheID: sfid-20261102_151448_677412_D4F470D3 
+X-CRM114-Status: GOOD (  27.54  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,898 +131,421 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-uart_write_wakeup() expects the UART port lock to be held. Several worker,
-DMA completion and interrupt paths call it without that lock, including
-indirect calls from uart_handle_cts_change() and the transmit helpers.
+uart_flush_buffer() resets the transmit kfifo before calling the driver.
+serial8250_tx_dma_flush() terminates DMA asynchronously and clears
+tx_running, allowing a new write to replace tx_size while a detached
+callback has not yet run. That callback can then consume bytes
+from the new transmission. Reusing the reset kfifo can also overwrite the
+source of a transfer that has not stopped yet.
 
-Take the port lock around these notifications or their transmit helper.
-Keep sleeping SPI and regmap accesses outside the locked region, and keep
-the FSL LPUART completion lock held through its wakeup. Acquire the port
-lock after releasing private channel locks to preserve the ordering used
-by UART callbacks. In the MUX timer, publish available FIFO space under
-the port lock and keep the hardware FIFO-drain wait outside it.
+Reserve the flushed FIFO storage through serial core before returning
+from the flush callback. Keep tx_running set until a worker synchronizes
+the terminated channel, suppressing old callbacks and new submissions
+during that interval. Return the mapping to CPU ownership before releasing
+the reservation and waking writers. Normal transfers continue to use the
+FIFO directly.
 
-Use plain port locking in hard-IRQ handlers and in helpers whose callers
-already mask interrupts. Atmel status handling is also called during
-resume, where lock_suspended is acquired with interrupts disabled; JSM
-interrupt processing holds its IRQ-saving board lock. Keep IRQ-saving
-locking in workers, tasklets and other mixed-context paths.
+Reuse the locked completion processing after retirement, including OMAP
+delayed register restoration and transmitter-empty handling. Take a runtime
+PM reference around worker UART accesses and drain the worker before
+releasing the channels. Shutdown releases the FIFO reservation after
+stopping DMA and unmapping its source. Serial core keeps writes and wakeups
+gated until startup or resume makes the port ready again.
 
-Take the port lock after requesting the ST ASC interrupt and hold it
-through startup's transmit servicing and RX interrupt enable. The transmit
-helper can notify writers even when the FIFO is empty, and serial core
-calls startup without holding the port spinlock.
+Track a flushed FIFO separately from the transfer length. If termination
+fails, retain the reservation until normal completion and account the
+completed bytes without advancing the reset FIFO. After successful
+cancellation, process a zero-length completion once callbacks have drained.
 
-Use IRQ-safe locking in the Atmel RX and TX tasklets and SB1250 termios
-path, since their interrupt handlers now acquire the same port lock.
-Preserve the caller's interrupt state when releasing those locks.
+The race was found by inspecting cancellation and restart while preparing
+H616 UART DMA support.
 
-On SB1250, lock modem-state updates after reading and filtering the change
-status, and wake modem-status waiters after unlocking. Take the TX lock
-inside its service routine so RX-only interrupts need no acquisition.
-Keep that lock across x_char handling, FIFO consumption and the decision
-to mask TX interrupts: a writer must not enqueue data and enable TX between
-the empty-FIFO check and the interrupt-mask write. Each TX invocation sends
-at most one character.
+Retain the tx_running check in both completion callbacks. Releasing the
+reservation relies on the DMA provider draining detached callbacks when
+dmaengine_synchronize() returns; provider callback-lifetime fixes supply
+that guarantee for controllers which previously lacked it.
 
-Serialize CLPS711x TX servicing and its interrupt-enable state with the
-port lock. Disable TX interrupts without waiting in stop_tx(), since a
-threaded handler may need that same lock. Have an already queued handler
-leave stopped output untouched, and drain it outside the lock during
-shutdown before the transmit FIFO can be released.
-
-SCCNXP handles interrupts under a controller lock which its UART callbacks
-acquire with the port lock already held. Collect the ports needing wakeups
-in an unsigned long bitmap while servicing the controller, then release
-that lock before visiting the set bits, taking each port lock and
-rechecking the wakeup threshold. Removal drains the IRQ or timer before
-unregistering the ports.
-
-This serializes write notifications with port-locked serial-core state
-changes, allowing readiness and transmit-storage reservations to gate the
-notification without a check-versus-shutdown race.
-
-Cover DZ TX servicing and JSM Classic modem notifications as well. On
-DECstation ZS, acquire the port lock before the SCC lock and notify writers
-after releasing the SCC lock. Defer normal TX restart after console output
-to a worker, since console output can already run under the port lock.
-Check transmitter readiness before consuming another character and drain
-the restart worker during shutdown and removal. Release Lantiq's hardware
-lock through the transmit helper's completion hook before notifying the
-line discipline.
-
+Fixes: a424a34b8fad ("serial: 8250: Fix TX deadlock when using DMA")
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/tty/serial/21285.c         |  2 +
- drivers/tty/serial/atmel_serial.c  | 12 ++---
- drivers/tty/serial/clps711x.c      | 23 +++++++---
- drivers/tty/serial/cpm_uart.c      |  2 +
- drivers/tty/serial/dz.c            |  9 ++--
- drivers/tty/serial/fsl_lpuart.c    |  2 +-
- drivers/tty/serial/jsm/jsm_cls.c   |  6 ++-
- drivers/tty/serial/jsm/jsm_neo.c   |  9 ++--
- drivers/tty/serial/lantiq.c        | 12 +++--
- drivers/tty/serial/ma35d1_serial.c |  6 ++-
- drivers/tty/serial/max3100.c       |  6 ++-
- drivers/tty/serial/max310x.c       |  9 ++--
- drivers/tty/serial/mux.c           | 13 ++++--
- drivers/tty/serial/mvebu-uart.c    |  2 +
- drivers/tty/serial/mxs-auart.c     |  2 +
- drivers/tty/serial/sb1250-duart.c  | 25 ++++++----
- drivers/tty/serial/sccnxp.c        | 45 +++++++++++++-----
- drivers/tty/serial/st-asc.c        |  2 +
- drivers/tty/serial/ucc_uart.c      |  6 ++-
- drivers/tty/serial/zs.c            | 94 ++++++++++++++++++++++++++++----------
- drivers/tty/serial/zs.h            |  3 ++
- 21 files changed, 202 insertions(+), 88 deletions(-)
+ drivers/tty/serial/8250/8250.h      |  20 +++++-
+ drivers/tty/serial/8250/8250_dma.c  | 130 ++++++++++++++++++++++++++----------
+ drivers/tty/serial/8250/8250_omap.c |  21 ++++--
+ 3 files changed, 125 insertions(+), 46 deletions(-)
 
-diff --git a/drivers/tty/serial/21285.c b/drivers/tty/serial/21285.c
-index 4de0c975ebdc..c12b888c1b7e 100644
---- a/drivers/tty/serial/21285.c
-+++ b/drivers/tty/serial/21285.c
-@@ -157,6 +157,8 @@ static irqreturn_t serial21285_tx_chars(int irq, void *dev_id)
- 	struct uart_port *port = dev_id;
- 	u8 ch;
+diff --git a/drivers/tty/serial/8250/8250.h b/drivers/tty/serial/8250/8250.h
+index 974a47f24084..9f01fa36fa3c 100644
+--- a/drivers/tty/serial/8250/8250.h
++++ b/drivers/tty/serial/8250/8250.h
+@@ -11,6 +11,7 @@
+ #include <linux/serial_8250.h>
+ #include <linux/serial_core.h>
+ #include <linux/dmaengine.h>
++#include <linux/workqueue.h>
  
-+	guard(uart_port_lock)(port);
+ #include "../serial_mctrl_gpio.h"
+ 
+@@ -19,6 +20,10 @@ struct uart_8250_dma {
+ 	int (*rx_dma)(struct uart_8250_port *p);
+ 	void (*prepare_tx_dma)(struct uart_8250_port *p);
+ 	void (*prepare_rx_dma)(struct uart_8250_port *p);
++	/* Completion processing with the port lock held. */
++	void (*tx_complete)(struct uart_8250_port *p);
++	struct work_struct tx_flush_work;
++	struct uart_8250_port *port;
+ 
+ 	/* Filter function */
+ 	dma_filter_fn		fn;
+@@ -52,7 +57,9 @@ struct uart_8250_dma {
+ 	unsigned char		tx_err;
+ 	unsigned char		rx_running;
+ 	/* Protected by the UART port lock. */
+-	bool			shutting_down;
++	bool			shutting_down:1;
++	bool			tx_terminating:1;
++	bool			tx_flushed:1;
+ };
+ 
+ struct old_serial_port {
+@@ -400,8 +407,15 @@ static inline int is_omap1510_8250(struct uart_8250_port *pt)
+ #endif
+ 
+ #ifdef CONFIG_SERIAL_8250_DMA
++static inline bool serial8250_tx_dma_blocked(struct uart_8250_dma *dma)
++{
++	return dma->shutting_down || dma->tx_terminating;
++}
 +
- 	uart_port_tx_limited(port, ch, 256,
- 		!(*CSR_UARTFLG & 0x20),
- 		*CSR_UARTDR = ch,
-diff --git a/drivers/tty/serial/atmel_serial.c b/drivers/tty/serial/atmel_serial.c
-index c3880259e3bc..4c3a6e10d92f 100644
---- a/drivers/tty/serial/atmel_serial.c
-+++ b/drivers/tty/serial/atmel_serial.c
-@@ -1371,6 +1371,8 @@ atmel_handle_status(struct uart_port *port, unsigned int pending,
- 
- 		if (status_change & (ATMEL_US_RI | ATMEL_US_DSR
- 					| ATMEL_US_DCD | ATMEL_US_CTS)) {
-+			guard(uart_port_lock)(port);
-+
- 			/* TODO: All reads to CSR will clear these interrupts! */
- 			if (status_change & ATMEL_US_RI)
- 				port->icount.rng++;
-@@ -1702,10 +1704,9 @@ static void atmel_tasklet_rx_func(struct tasklet_struct *t)
- 							  tasklet_rx);
- 	struct uart_port *port = &atmel_port->uart;
- 
--	/* The interrupt handler does not take the lock */
--	uart_port_lock(port);
-+	guard(uart_port_lock_irqsave)(port);
-+
- 	atmel_port->schedule_rx(port);
--	uart_port_unlock(port);
- }
- 
- static void atmel_tasklet_tx_func(struct tasklet_struct *t)
-@@ -1714,10 +1715,9 @@ static void atmel_tasklet_tx_func(struct tasklet_struct *t)
- 							  tasklet_tx);
- 	struct uart_port *port = &atmel_port->uart;
- 
--	/* The interrupt handler does not take the lock */
--	uart_port_lock(port);
-+	guard(uart_port_lock_irqsave)(port);
-+
- 	atmel_port->schedule_tx(port);
--	uart_port_unlock(port);
- }
- 
- static void atmel_init_property(struct atmel_uart_port *atmel_port,
-diff --git a/drivers/tty/serial/clps711x.c b/drivers/tty/serial/clps711x.c
-index 83186bf50002..37b2635dda47 100644
---- a/drivers/tty/serial/clps711x.c
-+++ b/drivers/tty/serial/clps711x.c
-@@ -73,7 +73,8 @@ static void uart_clps711x_stop_tx(struct uart_port *port)
- 	struct clps711x_port *s = dev_get_drvdata(port->dev);
- 
- 	if (s->tx_enabled) {
--		disable_irq(port->irq);
-+		/* The handler also takes the port lock. */
-+		disable_irq_nosync(port->irq);
- 		s->tx_enabled = 0;
- 	}
- }
-@@ -146,9 +147,16 @@ static irqreturn_t uart_clps711x_int_tx(int irq, void *dev_id)
+ extern int serial8250_tx_dma(struct uart_8250_port *);
+ extern void serial8250_tx_dma_flush(struct uart_8250_port *);
++void serial8250_tx_dma_sync_buffer(struct uart_8250_port *p,
++				   struct scatterlist *sgl, unsigned int nents);
+ extern int serial8250_rx_dma(struct uart_8250_port *);
+ extern void serial8250_rx_dma_flush(struct uart_8250_port *);
+ extern int serial8250_request_dma(struct uart_8250_port *);
+@@ -434,7 +448,7 @@ static inline void serial8250_tx_dma_pause(struct uart_8250_port *p)
  {
- 	struct uart_port *port = dev_id;
- 	struct clps711x_port *s = dev_get_drvdata(port->dev);
--	struct tty_port *tport = &port->state->port;
-+	struct tty_port *tport;
- 	unsigned char c;
+ 	struct uart_8250_dma *dma = p->dma;
  
-+	guard(uart_port_lock)(port);
-+
-+	if (!s->tx_enabled)
-+		return IRQ_HANDLED;
-+
-+	tport = &port->state->port;
-+
- 	if (port->x_char) {
- 		writew(port->x_char, port->membase + UARTDR_OFFSET);
- 		port->icount.tx++;
-@@ -157,10 +165,7 @@ static irqreturn_t uart_clps711x_int_tx(int irq, void *dev_id)
- 	}
- 
- 	if (kfifo_is_empty(&tport->xmit_fifo) || uart_tx_stopped(port)) {
--		if (s->tx_enabled) {
--			disable_irq_nosync(port->irq);
--			s->tx_enabled = 0;
--		}
-+		uart_clps711x_stop_tx(port);
- 		return IRQ_HANDLED;
- 	}
- 
-@@ -245,8 +250,14 @@ static void uart_clps711x_shutdown(struct uart_port *port)
- {
- 	struct clps711x_port *s = dev_get_drvdata(port->dev);
- 
-+	scoped_guard(uart_port_lock_irqsave, port)
-+		uart_clps711x_stop_tx(port);
-+
- 	/* Disable the port */
- 	regmap_update_bits(s->syscon, SYSCON_OFFSET, SYSCON_UARTEN, 0);
-+
-+	/* Drain the non-waiting TX disable before releasing the FIFO. */
-+	synchronize_irq(port->irq);
- }
- 
- static void uart_clps711x_set_termios(struct uart_port *port,
-diff --git a/drivers/tty/serial/cpm_uart.c b/drivers/tty/serial/cpm_uart.c
-index 39f54bb7b485..3f1e51b04f9f 100644
---- a/drivers/tty/serial/cpm_uart.c
-+++ b/drivers/tty/serial/cpm_uart.c
-@@ -214,6 +214,8 @@ static void cpm_uart_int_tx(struct uart_port *port)
- {
- 	pr_debug("CPM uart[%d]:TX INT\n", port->line);
- 
-+	guard(uart_port_lock)(port);
-+
- 	cpm_uart_tx_pump(port);
- }
- 
-diff --git a/drivers/tty/serial/dz.c b/drivers/tty/serial/dz.c
-index 39d93e9c2d15..c86453937a0f 100644
---- a/drivers/tty/serial/dz.c
-+++ b/drivers/tty/serial/dz.c
-@@ -254,6 +254,8 @@ static inline void dz_transmit_chars(struct dz_mux *mux)
- 
- 	status = dz_in(dport, DZ_CSR);
- 	dport = &mux->dport[LINE(status)];
-+	guard(uart_port_lock)(&dport->port);
-+
- 	tport = &dport->port.state->port;
- 
- 	if (dport->port.x_char) {		/* XON/XOFF chars */
-@@ -265,9 +267,7 @@ static inline void dz_transmit_chars(struct dz_mux *mux)
- 	/* If nothing to do or stopped or hardware stopped. */
- 	if (uart_tx_stopped(&dport->port) ||
- 			!uart_fifo_get(&dport->port, &tmp)) {
--		uart_port_lock(&dport->port);
- 		dz_stop_tx(&dport->port);
--		uart_port_unlock(&dport->port);
+-	if (!dma->tx_running)
++	if (!dma->tx_running || serial8250_tx_dma_blocked(dma))
  		return;
- 	}
  
-@@ -281,11 +281,8 @@ static inline void dz_transmit_chars(struct dz_mux *mux)
- 		uart_write_wakeup(&dport->port);
+ 	dmaengine_pause(dma->txchan);
+@@ -444,7 +458,7 @@ static inline void serial8250_tx_dma_resume(struct uart_8250_port *p)
+ {
+ 	struct uart_8250_dma *dma = p->dma;
  
- 	/* Are we are done. */
--	if (kfifo_is_empty(&tport->xmit_fifo)) {
--		uart_port_lock(&dport->port);
-+	if (kfifo_is_empty(&tport->xmit_fifo))
- 		dz_stop_tx(&dport->port);
--		uart_port_unlock(&dport->port);
--	}
- }
+-	if (!dma->tx_running)
++	if (!dma->tx_running || serial8250_tx_dma_blocked(dma))
+ 		return;
  
- /*
-diff --git a/drivers/tty/serial/fsl_lpuart.c b/drivers/tty/serial/fsl_lpuart.c
-index c8575c965203..cb04571c3d0e 100644
---- a/drivers/tty/serial/fsl_lpuart.c
-+++ b/drivers/tty/serial/fsl_lpuart.c
-@@ -540,10 +540,10 @@ static void lpuart_dma_tx_complete(void *arg)
+ 	dmaengine_resume(dma->txchan);
+diff --git a/drivers/tty/serial/8250/8250_dma.c b/drivers/tty/serial/8250/8250_dma.c
+index 57fc7915adac..344f0dd24b41 100644
+--- a/drivers/tty/serial/8250/8250_dma.c
++++ b/drivers/tty/serial/8250/8250_dma.c
+@@ -11,24 +11,23 @@
  
- 	uart_xmit_advance(&sport->port, sport->dma_tx_bytes);
- 	sport->dma_tx_in_progress = false;
--	uart_port_unlock_irqrestore(&sport->port, flags);
+ #include "8250.h"
+ 
+-static void __dma_tx_complete(void *param)
++static void serial8250_tx_dma_complete(struct uart_8250_port *p)
+ {
+-	struct uart_8250_port	*p = param;
+ 	struct uart_8250_dma	*dma = p->dma;
+ 	struct tty_port		*tport = &p->port.state->port;
+-	unsigned long	flags;
+ 	int		ret;
+ 
+-	uart_port_lock_irqsave(&p->port, &flags);
+-	if (dma->shutting_down)
+-		goto out;
+-
+ 	dma_sync_single_for_cpu(dmaengine_get_dma_device(dma->txchan), dma->tx_addr,
+ 				UART_XMIT_SIZE, DMA_TO_DEVICE);
+ 
+ 	dma->tx_running = 0;
+ 
+-	uart_xmit_advance(&p->port, dma->tx_size);
++	if (dma->tx_flushed) {
++		p->port.icount.tx += dma->tx_size;
++		uart_xmit_unblock(&p->port);
++	} else {
++		uart_xmit_advance(&p->port, dma->tx_size);
++	}
  
  	if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
- 		uart_write_wakeup(&sport->port);
-+	uart_port_unlock_irqrestore(&sport->port, flags);
+ 		uart_write_wakeup(&p->port);
+@@ -36,11 +35,57 @@ static void __dma_tx_complete(void *param)
+ 	ret = serial8250_tx_dma(p);
+ 	if (ret || !dma->tx_running)
+ 		serial8250_set_THRI(p);
++}
  
- 	if (waitqueue_active(&sport->dma_wait)) {
- 		wake_up(&sport->dma_wait);
-diff --git a/drivers/tty/serial/jsm/jsm_cls.c b/drivers/tty/serial/jsm/jsm_cls.c
-index 6e40792f92cf..e8e90181504b 100644
---- a/drivers/tty/serial/jsm/jsm_cls.c
-+++ b/drivers/tty/serial/jsm/jsm_cls.c
-@@ -571,7 +571,8 @@ static inline void cls_parse_isr(struct jsm_board *brd, uint port)
- 			spin_lock_irqsave(&ch->ch_lock, flags);
- 			ch->ch_flags |= (CH_TX_FIFO_EMPTY | CH_TX_FIFO_LWM);
- 			spin_unlock_irqrestore(&ch->ch_lock, flags);
--			cls_copy_data_from_queue_to_uart(ch);
-+			scoped_guard(uart_port_lock, &ch->uart_port)
-+				cls_copy_data_from_queue_to_uart(ch);
- 		}
- 
- 		/*
-@@ -581,7 +582,8 @@ static inline void cls_parse_isr(struct jsm_board *brd, uint port)
- 		 */
- 
- 		/* Parse any modem signal changes */
--		cls_parse_modem(ch, readb(&ch->ch_cls_uart->msr));
-+		scoped_guard(uart_port_lock, &ch->uart_port)
-+			cls_parse_modem(ch, readb(&ch->ch_cls_uart->msr));
- 	}
- }
- 
-diff --git a/drivers/tty/serial/jsm/jsm_neo.c b/drivers/tty/serial/jsm/jsm_neo.c
-index e8e13bf056e2..d27aa2166364 100644
---- a/drivers/tty/serial/jsm/jsm_neo.c
-+++ b/drivers/tty/serial/jsm/jsm_neo.c
-@@ -740,7 +740,8 @@ static void neo_parse_isr(struct jsm_board *brd, u32 port)
- 			spin_lock_irqsave(&ch->ch_lock, lock_flags);
- 			ch->ch_flags |= (CH_TX_FIFO_EMPTY | CH_TX_FIFO_LWM);
- 			spin_unlock_irqrestore(&ch->ch_lock, lock_flags);
--			neo_copy_data_from_queue_to_uart(ch);
-+			scoped_guard(uart_port_lock, &ch->uart_port)
-+				neo_copy_data_from_queue_to_uart(ch);
- 		}
- 
- 		if (isr & UART_17158_IIR_XONXOFF) {
-@@ -895,7 +896,8 @@ static inline void neo_parse_lsr(struct jsm_board *brd, u32 port)
- 		spin_unlock_irqrestore(&ch->ch_lock, lock_flags);
- 
- 		/* Transfer data (if any) from Write Queue -> UART. */
--		neo_copy_data_from_queue_to_uart(ch);
-+		scoped_guard(uart_port_lock, &ch->uart_port)
-+			neo_copy_data_from_queue_to_uart(ch);
- 	}
- 	else if (linestatus & UART_17158_TX_AND_FIFO_CLR) {
- 		spin_lock_irqsave(&ch->ch_lock, lock_flags);
-@@ -903,7 +905,8 @@ static inline void neo_parse_lsr(struct jsm_board *brd, u32 port)
- 		spin_unlock_irqrestore(&ch->ch_lock, lock_flags);
- 
- 		/* Transfer data (if any) from Write Queue -> UART. */
--		neo_copy_data_from_queue_to_uart(ch);
-+		scoped_guard(uart_port_lock, &ch->uart_port)
-+			neo_copy_data_from_queue_to_uart(ch);
- 	}
- }
- 
-diff --git a/drivers/tty/serial/lantiq.c b/drivers/tty/serial/lantiq.c
-index 62cd9e0bb377..e0b2c7335692 100644
---- a/drivers/tty/serial/lantiq.c
-+++ b/drivers/tty/serial/lantiq.c
-@@ -153,11 +153,12 @@ lqasc_start_tx(struct uart_port *port)
- 	struct ltq_uart_port *ltq_port = to_ltq_uart_port(port);
- 	u8 ch;
- 
-+	/* Drop the hardware lock before the helper notifies the line discipline. */
- 	spin_lock_irqsave(&ltq_port->lock, flags);
--	uart_port_tx(port, ch,
--		lqasc_tx_ready(port),
--		writeb(ch, port->membase + LTQ_ASC_TBUF));
--	spin_unlock_irqrestore(&ltq_port->lock, flags);
-+	uart_port_tx_limited(port, ch, port->fifosize,
-+			     lqasc_tx_ready(port),
-+			     writeb(ch, port->membase + LTQ_ASC_TBUF),
-+			     spin_unlock_irqrestore(&ltq_port->lock, flags));
- 	return;
- }
- 
-@@ -239,7 +240,8 @@ lqasc_tx_int(int irq, void *_port)
- 	spin_lock_irqsave(&ltq_port->lock, flags);
- 	__raw_writel(ASC_IRNCR_TIR, port->membase + LTQ_ASC_IRNCR);
- 	spin_unlock_irqrestore(&ltq_port->lock, flags);
--	lqasc_start_tx(port);
-+	scoped_guard(uart_port_lock, port)
-+		lqasc_start_tx(port);
- 	return IRQ_HANDLED;
- }
- 
-diff --git a/drivers/tty/serial/ma35d1_serial.c b/drivers/tty/serial/ma35d1_serial.c
-index 3be30fb05513..a59a8496a83b 100644
---- a/drivers/tty/serial/ma35d1_serial.c
-+++ b/drivers/tty/serial/ma35d1_serial.c
-@@ -295,8 +295,10 @@ static irqreturn_t ma35d1serial_interrupt(int irq, void *dev_id)
- 
- 	if (isr & (MA35_ISR_RDA_IF | MA35_ISR_RXTO_IF))
- 		receive_chars(up);
--	if (isr & MA35_ISR_THRE_INT)
--		transmit_chars(up);
-+	if (isr & MA35_ISR_THRE_INT) {
-+		scoped_guard(uart_port_lock, port)
-+			transmit_chars(up);
-+	}
- 	if (fsr & MA35_FSR_TX_OVER_IF)
- 		serial_out(up, MA35_FSR_REG, MA35_FSR_TX_OVER_IF);
- 
-diff --git a/drivers/tty/serial/max3100.c b/drivers/tty/serial/max3100.c
-index f858a6669011..5a8817eb82ad 100644
---- a/drivers/tty/serial/max3100.c
-+++ b/drivers/tty/serial/max3100.c
-@@ -287,8 +287,10 @@ static void max3100_work(struct work_struct *w)
- 			tty_flip_buffer_push(&s->port.state->port);
- 			rxchars = 0;
- 		}
--		if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
--			uart_write_wakeup(&s->port);
-+		scoped_guard(uart_port_lock_irqsave, &s->port) {
-+			if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
-+				uart_write_wakeup(&s->port);
-+		}
- 
- 	} while (!s->force_end_work &&
- 		 !freezing(current) &&
-diff --git a/drivers/tty/serial/max310x.c b/drivers/tty/serial/max310x.c
-index a0ed70185555..d9ce6ba53c7f 100644
---- a/drivers/tty/serial/max310x.c
-+++ b/drivers/tty/serial/max310x.c
-@@ -950,8 +950,10 @@ static void max310x_handle_tx(struct uart_port *port)
- 		uart_xmit_advance(port, to_send);
- 	}
- 
--	if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
--		uart_write_wakeup(port);
-+	scoped_guard(uart_port_lock_irqsave, port) {
-+		if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
-+			uart_write_wakeup(port);
-+	}
- }
- 
- /*
-@@ -1043,7 +1045,8 @@ static irqreturn_t max310x_port_irq(struct max310x_port *s, int portno)
- 
- 		if (ists & MAX310X_IRQ_CTS_BIT) {
- 			lsr = max310x_port_read(port, MAX310X_LSR_IRQSTS_REG);
--			uart_handle_cts_change(port, lsr & MAX310X_LSR_CTS_BIT);
-+			scoped_guard(uart_port_lock_irqsave, port)
-+				uart_handle_cts_change(port, lsr & MAX310X_LSR_CTS_BIT);
- 		}
- 		if (rxlen)
- 			max310x_handle_rx(port, rxlen);
-diff --git a/drivers/tty/serial/mux.c b/drivers/tty/serial/mux.c
-index 3a77a7e5c7bc..8be5b3031749 100644
---- a/drivers/tty/serial/mux.c
-+++ b/drivers/tty/serial/mux.c
-@@ -189,11 +189,14 @@ static void mux_write(struct uart_port *port)
- {
- 	u8 ch;
- 
--	uart_port_tx_limited(port, ch,
--		port->fifosize - UART_GET_FIFO_CNT(port),
--		true,
--		UART_PUT_CHAR(port, ch),
--		mux_tx_done(port));
-+	scoped_guard(uart_port_lock_irqsave, port) {
-+		uart_port_tx_limited(port, ch,
-+			port->fifosize - UART_GET_FIFO_CNT(port),
-+			true,
-+			UART_PUT_CHAR(port, ch),
-+			({}));
-+	}
-+	mux_tx_done(port);
- }
- 
- /**
-diff --git a/drivers/tty/serial/mvebu-uart.c b/drivers/tty/serial/mvebu-uart.c
-index 33ea496c93b2..35b55138637b 100644
---- a/drivers/tty/serial/mvebu-uart.c
-+++ b/drivers/tty/serial/mvebu-uart.c
-@@ -334,6 +334,8 @@ static void mvebu_uart_tx_chars(struct uart_port *port, unsigned int status)
- {
- 	u8 ch;
- 
-+	guard(uart_port_lock)(port);
+-out:
+-	uart_port_unlock_irqrestore(&p->port, flags);
++static void __dma_tx_complete(void *param)
++{
++	struct uart_8250_port *p = param;
++	struct uart_8250_dma *dma = p->dma;
 +
- 	uart_port_tx_limited(port, ch, port->fifosize,
- 		!(readl(port->membase + UART_STAT) & STAT_TX_FIFO_FUL),
- 		writel(ch, port->membase + UART_TSH(port)),
-diff --git a/drivers/tty/serial/mxs-auart.c b/drivers/tty/serial/mxs-auart.c
-index 697318dbb146..6a310309b55d 100644
---- a/drivers/tty/serial/mxs-auart.c
-+++ b/drivers/tty/serial/mxs-auart.c
-@@ -521,6 +521,8 @@ static void dma_tx_callback(void *param)
- 
- 	dma_unmap_sg(s->dev, &s->tx_sgl, 1, DMA_TO_DEVICE);
- 
-+	guard(uart_port_lock_irqsave)(&s->port);
++	guard(uart_port_lock_irqsave)(&p->port);
 +
- 	/* clear the bit used to serialize the DMA tx. */
- 	clear_bit(MXS_AUART_DMA_TX_SYNC, &s->flags);
- 	smp_mb__after_atomic();
-diff --git a/drivers/tty/serial/sb1250-duart.c b/drivers/tty/serial/sb1250-duart.c
-index b4e1b90e5960..af6a0fe1df70 100644
---- a/drivers/tty/serial/sb1250-duart.c
-+++ b/drivers/tty/serial/sb1250-duart.c
-@@ -387,6 +387,9 @@ static void sbd_transmit_chars(struct sbd_port *sport)
- 	unsigned int mask;
- 	int stop_tx;
- 
-+	/* Serialize FIFO consumption and interrupt masking with start_tx(). */
-+	guard(uart_port_lock)(uport);
-+
- 	/* XON/XOFF chars.  */
- 	if (sport->port.x_char) {
- 		write_sbdchn(sport, R_DUART_TX_HOLD, sport->port.x_char);
-@@ -424,15 +427,19 @@ static void sbd_status_handle(struct sbd_port *sport)
- 	delta = read_sbdshr(sport, R_DUART_INCHREG((uport->line) % 2));
- 	delta >>= (uport->line) % 2;
- 
--	if (delta & (M_DUART_IN_PIN0_VAL << S_DUART_IN_PIN_CHNG))
--		uart_handle_cts_change(uport, !(delta & M_DUART_IN_PIN0_VAL));
-+	if (!(delta & ((M_DUART_IN_PIN2_VAL | M_DUART_IN_PIN0_VAL) <<
-+		       S_DUART_IN_PIN_CHNG)))
++	if (serial8250_tx_dma_blocked(dma) || !dma->tx_running)
 +		return;
- 
--	if (delta & (M_DUART_IN_PIN2_VAL << S_DUART_IN_PIN_CHNG))
--		uport->icount.dsr++;
-+	scoped_guard(uart_port_lock, uport) {
-+		if (delta & (M_DUART_IN_PIN0_VAL << S_DUART_IN_PIN_CHNG))
-+			uart_handle_cts_change(uport, !(delta & M_DUART_IN_PIN0_VAL));
- 
--	if (delta & ((M_DUART_IN_PIN2_VAL | M_DUART_IN_PIN0_VAL) <<
--		     S_DUART_IN_PIN_CHNG))
--		wake_up_interruptible(&uport->state->port.delta_msr_wait);
-+		if (delta & (M_DUART_IN_PIN2_VAL << S_DUART_IN_PIN_CHNG))
-+			uport->icount.dsr++;
-+	}
++	serial8250_tx_dma_complete(p);
++}
 +
-+	wake_up_interruptible(&uport->state->port.delta_msr_wait);
++static void serial8250_tx_dma_flush_work(struct work_struct *work)
++{
++	struct uart_8250_dma *dma = container_of(work, struct uart_8250_dma, tx_flush_work);
++	struct uart_8250_port *p = dma->port;
++
++	/* Neither the channel nor its buffer may be reused before this returns. */
++	dmaengine_synchronize(dma->txchan);
++
++	guard(serial8250_rpm)(p);
++
++	guard(uart_port_lock_irqsave)(&p->port);
++
++	dma->tx_terminating = false;
++	dma->tx_size = 0;
++	if (dma->shutting_down)
++		return;
++	dma->tx_complete(p);
  }
  
- static irqreturn_t sbd_interrupt(int irq, void *dev_id)
-@@ -611,7 +618,7 @@ static void sbd_set_termios(struct uart_port *uport, struct ktermios *termios,
- 	else
- 		aux &= ~M_DUART_CTS_CHNG_ENA;
++void serial8250_tx_dma_sync_buffer(struct uart_8250_port *p,
++				   struct scatterlist *sgl, unsigned int nents)
++{
++	struct uart_8250_dma *dma = p->dma;
++	struct device *dev = dmaengine_get_dma_device(dma->txchan);
++	struct scatterlist *sg;
++	unsigned int i;
++
++	/* DMA reads the FIFO directly; its occupied ranges remain reserved. */
++	for_each_sg(sgl, sg, nents, i) {
++		size_t offset = sg_dma_address(sg) - dma->tx_addr;
++
++		dma_sync_single_range_for_device(dev, dma->tx_addr, offset,
++						 sg_dma_len(sg), DMA_TO_DEVICE);
++	}
++}
++EXPORT_SYMBOL_GPL(serial8250_tx_dma_sync_buffer);
++
+ static void __dma_rx_complete(struct uart_8250_port *p)
+ {
+ 	struct uart_8250_dma	*dma = p->dma;
+@@ -101,7 +146,7 @@ int serial8250_tx_dma(struct uart_8250_port *p)
+ 	int i;
+ 	int ret;
  
--	uart_port_lock(uport);
-+	guard(uart_port_lock_irqsave)(uport);
+-	if (dma->shutting_down)
++	if (serial8250_tx_dma_blocked(dma))
+ 		return 0;
  
- 	if (sport->tx_stopped)
- 		command |= M_DUART_TX_DIS;
-@@ -632,8 +639,6 @@ static void sbd_set_termios(struct uart_port *uport, struct ktermios *termios,
- 	write_sbdchn(sport, R_DUART_AUXCTL_X, aux | oldaux);
+ 	if (dma->tx_running) {
+@@ -131,24 +176,25 @@ int serial8250_tx_dma(struct uart_8250_port *p)
+ 		dma->tx_size += sg_dma_len(sg);
  
- 	write_sbdchn(sport, R_DUART_CMD, command);
+ 	serial8250_do_prepare_tx_dma(p);
++	serial8250_tx_dma_sync_buffer(p, sgl, ret);
+ 
+ 	desc = dmaengine_prep_slave_sg(dma->txchan, sgl, ret,
+ 				       DMA_MEM_TO_DEV,
+ 				       DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
+ 	if (!desc) {
++		dma_sync_single_for_cpu(dmaengine_get_dma_device(dma->txchan), dma->tx_addr,
++					UART_XMIT_SIZE, DMA_TO_DEVICE);
+ 		ret = -EBUSY;
+ 		goto err;
+ 	}
+ 
+ 	dma->tx_running = 1;
++	dma->tx_flushed = false;
++	dma->tx_complete = serial8250_tx_dma_complete;
+ 	desc->callback = __dma_tx_complete;
+ 	desc->callback_param = p;
+ 
+ 	dma->tx_cookie = dmaengine_submit(desc);
 -
--	uart_port_unlock(uport);
- }
- 
- 
-diff --git a/drivers/tty/serial/sccnxp.c b/drivers/tty/serial/sccnxp.c
-index cb31e3aceb62..50845e64d633 100644
---- a/drivers/tty/serial/sccnxp.c
-+++ b/drivers/tty/serial/sccnxp.c
-@@ -10,6 +10,7 @@
- #include <linux/clk.h>
- #include <linux/delay.h>
- #include <linux/err.h>
-+#include <linux/find.h>
- #include <linux/module.h>
- #include <linux/device.h>
- #include <linux/console.h>
-@@ -435,7 +436,7 @@ static void sccnxp_handle_rx(struct uart_port *port)
- 	tty_flip_buffer_push(&port->state->port);
- }
- 
--static void sccnxp_handle_tx(struct uart_port *port)
-+static bool sccnxp_handle_tx(struct uart_port *port)
+-	dma_sync_single_for_device(dmaengine_get_dma_device(dma->txchan), dma->tx_addr,
+-				   UART_XMIT_SIZE, DMA_TO_DEVICE);
+-
+ 	dma_async_issue_pending(dma->txchan);
+ 	serial8250_clear_THRI(p);
+ 	dma->tx_err = 0;
+@@ -162,32 +208,31 @@ int serial8250_tx_dma(struct uart_8250_port *p)
+ void serial8250_tx_dma_flush(struct uart_8250_port *p)
  {
- 	u8 sr;
- 	struct tty_port *tport = &port->state->port;
-@@ -445,7 +446,7 @@ static void sccnxp_handle_tx(struct uart_port *port)
- 		sccnxp_port_write(port, SCCNXP_THR_REG, port->x_char);
- 		port->icount.tx++;
- 		port->x_char = 0;
--		return;
-+		return false;
- 	}
+ 	struct uart_8250_dma *dma = p->dma;
++	int ret;
  
- 	if (kfifo_is_empty(&tport->xmit_fifo) || uart_tx_stopped(port)) {
-@@ -457,7 +458,7 @@ static void sccnxp_handle_tx(struct uart_port *port)
- 			if (s->chip->flags & SCCNXP_HAVE_IO)
- 				sccnxp_set_bit(port, DIR_OP, 0);
- 		}
--		return;
-+		return false;
- 	}
+-	if (!dma->tx_running)
++	if (!dma->tx_running || serial8250_tx_dma_blocked(dma))
+ 		return;
  
- 	while (1) {
-@@ -473,13 +474,13 @@ static void sccnxp_handle_tx(struct uart_port *port)
- 		sccnxp_port_write(port, SCCNXP_THR_REG, ch);
- 	}
+ 	/*
+ 	 * kfifo_reset() has been called by the serial core, avoid
+-	 * advancing and underflowing in __dma_tx_complete().
++	 * advancing the reset FIFO when the old transfer completes.
+ 	 */
+-	dma->tx_size = 0;
++	dma->tx_flushed = true;
++	/* The core reset the FIFO indices, but DMA may still read its storage. */
++	uart_xmit_block(&p->port);
  
--	if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
--		uart_write_wakeup(port);
-+	return kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS;
- }
- 
--static void sccnxp_handle_events(struct sccnxp_port *s)
-+static unsigned long sccnxp_handle_events(struct sccnxp_port *s)
- {
--	int i;
-+	unsigned long wakeup = 0;
-+	unsigned int i;
- 	u8 isr;
- 
- 	do {
-@@ -491,20 +492,40 @@ static void sccnxp_handle_events(struct sccnxp_port *s)
- 		for (i = 0; i < s->uart.nr; i++) {
- 			if (s->opened[i] && (isr & ISR_RXRDY(i)))
- 				sccnxp_handle_rx(&s->port[i]);
--			if (s->opened[i] && (isr & ISR_TXRDY(i)))
--				sccnxp_handle_tx(&s->port[i]);
-+			if (s->opened[i] && (isr & ISR_TXRDY(i)) &&
-+			    sccnxp_handle_tx(&s->port[i]))
-+				wakeup |= BIT(i);
- 		}
- 	} while (1);
-+
-+	return wakeup;
-+}
-+
-+static void sccnxp_write_wakeup(struct sccnxp_port *s, unsigned long wakeup)
-+{
-+	unsigned int i;
-+
-+	/* UART callbacks take s->lock with the port lock already held. */
-+	for_each_set_bit(i, &wakeup, s->uart.nr) {
-+		struct uart_port *port = &s->port[i];
-+
-+		scoped_guard(uart_port_lock_irqsave, port) {
-+			if (kfifo_len(&port->state->port.xmit_fifo) < WAKEUP_CHARS)
-+				uart_write_wakeup(port);
-+		}
-+	}
- }
- 
- static void sccnxp_timer(struct timer_list *t)
- {
- 	struct sccnxp_port *s = timer_container_of(s, t, timer);
- 	unsigned long flags;
-+	unsigned long wakeup;
- 
- 	spin_lock_irqsave(&s->lock, flags);
--	sccnxp_handle_events(s);
-+	wakeup = sccnxp_handle_events(s);
- 	spin_unlock_irqrestore(&s->lock, flags);
-+	sccnxp_write_wakeup(s, wakeup);
- 
- 	mod_timer(&s->timer, jiffies + usecs_to_jiffies(s->pdata.poll_time_us));
- }
-@@ -513,10 +534,12 @@ static irqreturn_t sccnxp_ist(int irq, void *dev_id)
- {
- 	struct sccnxp_port *s = (struct sccnxp_port *)dev_id;
- 	unsigned long flags;
-+	unsigned long wakeup;
- 
- 	spin_lock_irqsave(&s->lock, flags);
--	sccnxp_handle_events(s);
-+	wakeup = sccnxp_handle_events(s);
- 	spin_unlock_irqrestore(&s->lock, flags);
-+	sccnxp_write_wakeup(s, wakeup);
- 
- 	return IRQ_HANDLED;
- }
-diff --git a/drivers/tty/serial/st-asc.c b/drivers/tty/serial/st-asc.c
-index 6ed9a327702b..5fefa3325a1f 100644
---- a/drivers/tty/serial/st-asc.c
-+++ b/drivers/tty/serial/st-asc.c
-@@ -422,6 +422,8 @@ static int asc_startup(struct uart_port *port)
- 		return -ENODEV;
- 	}
- 
-+	guard(uart_port_lock_irqsave)(port);
-+
- 	asc_transmit_chars(port);
- 	asc_enable_rx_interrupts(port);
- 
-diff --git a/drivers/tty/serial/ucc_uart.c b/drivers/tty/serial/ucc_uart.c
-index 6b7dcbbacd13..4c4e8e4621ec 100644
---- a/drivers/tty/serial/ucc_uart.c
-+++ b/drivers/tty/serial/ucc_uart.c
-@@ -570,8 +570,10 @@ static irqreturn_t qe_uart_int(int irq, void *data)
- 	if (events & UCC_UART_UCCE_RX)
- 		qe_uart_int_rx(qe_port);
- 
--	if (events & UCC_UART_UCCE_TX)
--		qe_uart_tx_pump(qe_port);
-+	if (events & UCC_UART_UCCE_TX) {
-+		scoped_guard(uart_port_lock, &qe_port->port)
-+			qe_uart_tx_pump(qe_port);
-+	}
- 
- 	return events ? IRQ_HANDLED : IRQ_NONE;
- }
-diff --git a/drivers/tty/serial/zs.c b/drivers/tty/serial/zs.c
-index 8f92b4129a38..6126dee0301d 100644
---- a/drivers/tty/serial/zs.c
-+++ b/drivers/tty/serial/zs.c
-@@ -431,20 +431,23 @@ static void zs_stop_tx(struct uart_port *uport)
- 	spin_unlock(&scc->zlock);
- }
- 
--static void zs_raw_transmit_chars(struct zs_port *);
-+static bool zs_raw_transmit_chars(struct zs_port *);
- 
- static void zs_start_tx(struct uart_port *uport)
- {
- 	struct zs_port *zport = to_zport(uport);
- 	struct zs_scc *scc = zport->scc;
-+	bool wakeup = false;
- 
- 	spin_lock(&scc->zlock);
- 	if (zport->tx_stopped) {
- 		zs_transmit_drain(zport, 0);
- 		zport->tx_stopped = 0;
--		zs_raw_transmit_chars(zport);
-+		wakeup = zs_raw_transmit_chars(zport);
- 	}
- 	spin_unlock(&scc->zlock);
-+	if (wakeup)
-+		uart_write_wakeup(uport);
- }
- 
- static void zs_stop_rx(struct uart_port *uport)
-@@ -603,51 +606,81 @@ static void zs_receive_chars(struct zs_port *zport)
- 	tty_flip_buffer_push(&uport->state->port);
- }
- 
--static void zs_raw_transmit_chars(struct zs_port *zport)
-+static bool zs_raw_transmit_chars(struct zs_port *zport)
- {
- 	struct tty_port *tport = &zport->port.state->port;
- 	unsigned char ch;
-+	bool wakeup;
-+
-+	/* A deferred console restart can race a pending TX interrupt. */
-+	if (!(read_zsreg(zport, R0) & Tx_BUF_EMP))
-+		return false;
- 
- 	/* XON/XOFF chars.  */
- 	if (zport->port.x_char) {
- 		write_zsdata(zport, zport->port.x_char);
- 		zport->port.icount.tx++;
- 		zport->port.x_char = 0;
--		return;
-+		return false;
- 	}
- 
- 	/* If nothing to do or stopped or hardware stopped.  */
- 	if (uart_tx_stopped(&zport->port) ||
- 			!uart_fifo_get(&zport->port, &ch)) {
- 		zs_raw_stop_tx(zport);
--		return;
-+		return false;
- 	}
- 
- 	/* Send char.  */
- 	write_zsdata(zport, ch);
- 
--	if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
--		uart_write_wakeup(&zport->port);
-+	wakeup = kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS;
- 
- 	/* Are we are done?  */
- 	if (kfifo_is_empty(&tport->xmit_fifo))
- 		zs_raw_stop_tx(zport);
-+
-+	return wakeup;
- }
- 
- static void zs_transmit_chars(struct zs_port *zport)
- {
- 	struct zs_scc *scc = zport->scc;
-+	bool wakeup;
-+
-+	guard(uart_port_lock)(&zport->port);
- 
- 	spin_lock(&scc->zlock);
--	zs_raw_transmit_chars(zport);
-+	wakeup = zs_raw_transmit_chars(zport);
- 	spin_unlock(&scc->zlock);
-+	if (wakeup)
-+		uart_write_wakeup(&zport->port);
-+}
-+
-+static void zs_tx_work(struct work_struct *work)
-+{
-+	struct zs_port *zport = container_of(work, struct zs_port, tx_work);
-+	struct uart_port *uport = &zport->port;
-+	bool wakeup = false;
-+
-+	guard(uart_port_lock_irqsave)(uport);
-+
-+	if (!uport->state || !uport->state->port.xmit_buf)
+ 	/*
+ 	 * We can't use `dmaengine_terminate_sync` because `uart_flush_buffer` is
+ 	 * holding the uart port spinlock.
+ 	 */
+-	dmaengine_terminate_async(dma->txchan);
+-
+-	/*
+-	 * The callback might or might not run. If it doesn't run, we need to ensure
+-	 * that `tx_running` is cleared so that we can schedule new transactions.
+-	 * If it does run, then the zombie callback will clear `tx_running` again
+-	 * and perform a no-op since `tx_size` was cleared above.
+-	 *
+-	 * In either case, we ASSUME the DMA transaction will terminate before we
+-	 * issue a new `serial8250_tx_dma`.
+-	 */
+-	dma->tx_running = 0;
++	dma->tx_terminating = true;
++	ret = dmaengine_terminate_async(dma->txchan);
++	if (ret) {
++		/* Keep the buffer owned by the transfer until its callback runs. */
++		dma->tx_terminating = false;
 +		return;
-+
-+	scoped_guard(spinlock, &zport->scc->zlock) {
-+		if (!zport->tx_stopped)
-+			wakeup = zs_raw_transmit_chars(zport);
 +	}
-+	if (wakeup)
-+		uart_write_wakeup(uport);
++	schedule_work(&dma->tx_flush_work);
  }
  
- static void zs_status_handle(struct zs_port *zport, struct zs_port *zport_a)
- {
- 	struct uart_port *uport = &zport->port;
- 	struct zs_scc *scc = zport->scc;
--	unsigned int delta;
-+	unsigned int delta, mctrl;
- 	u8 status, brk;
- 
- 	spin_lock(&scc->zlock);
-@@ -670,18 +703,19 @@ static void zs_status_handle(struct zs_port *zport, struct zs_port *zport_a)
- 
- 	if (zport != zport_a) {
- 		delta = zs_raw_xor_mctrl(zport);
-+		mctrl = zport->mctrl;
- 		spin_unlock(&scc->zlock);
- 
--		if (delta & TIOCM_CTS)
--			uart_handle_cts_change(uport,
--					       zport->mctrl & TIOCM_CTS);
--		if (delta & TIOCM_CAR)
--			uart_handle_dcd_change(uport,
--					       zport->mctrl & TIOCM_CAR);
--		if (delta & TIOCM_RNG)
--			uport->icount.rng++;
--		if (delta & TIOCM_DSR)
--			uport->icount.dsr++;
-+		scoped_guard(uart_port_lock, uport) {
-+			if (delta & TIOCM_CTS)
-+				uart_handle_cts_change(uport, mctrl & TIOCM_CTS);
-+			if (delta & TIOCM_CAR)
-+				uart_handle_dcd_change(uport, mctrl & TIOCM_CAR);
-+			if (delta & TIOCM_RNG)
-+				uport->icount.rng++;
-+			if (delta & TIOCM_DSR)
-+				uport->icount.dsr++;
-+		}
- 
- 		if (delta)
- 			wake_up_interruptible(&uport->state->port.delta_msr_wait);
-@@ -809,13 +843,19 @@ static void zs_shutdown(struct uart_port *uport)
- 	unsigned long flags;
- 	int irq_guard;
- 
--	spin_lock_irqsave(&scc->zlock, flags);
-+	uart_port_lock_irqsave(uport, &flags);
-+	spin_lock(&scc->zlock);
-+	zs_raw_stop_tx(zport);
-+	zport->regs[1] &= ~TxINT_ENAB;
-+	write_zsreg(zport, R1, zport->regs[1]);
- 
- 	zport->regs[3] &= ~RxENABLE;
- 	write_zsreg(zport, R5, zport->regs[5]);
- 	write_zsreg(zport, R3, zport->regs[3]);
- 
--	spin_unlock_irqrestore(&scc->zlock, flags);
-+	spin_unlock(&scc->zlock);
-+	uart_port_unlock_irqrestore(uport, flags);
-+	cancel_work_sync(&zport->tx_work);
- 
- 	irq_guard = atomic_add_return(-1, &scc->irq_guard);
- 	if (!irq_guard)
-@@ -1066,6 +1106,7 @@ static int __init zs_probe(struct platform_device *pdev)
- 
- 		zport->scc	= &zs_sccs[chip];
- 		zport->clk_mode	= 16;
-+		INIT_WORK(&zport->tx_work, zs_tx_work);
- 
- 		uport->dev	= &pdev->dev;
- 		uport->has_sysrq = IS_ENABLED(CONFIG_SERIAL_ZS_CONSOLE);
-@@ -1098,8 +1139,10 @@ static void __exit zs_remove(struct platform_device *pdev)
- 		struct zs_port *zport = &zs_sccs[chip].zport[side];
- 		struct uart_port *uport = &zport->port;
- 
--		if (uport->dev)
-+		if (uport->dev) {
- 			uart_remove_one_port(&zs_reg, uport);
-+			cancel_work_sync(&zport->tx_work);
-+		}
+ int serial8250_rx_dma(struct uart_8250_port *p)
+@@ -312,21 +357,28 @@ int serial8250_request_dma(struct uart_8250_port *p)
+ 		goto err;
  	}
- }
  
-@@ -1161,9 +1204,12 @@ static void zs_console_write(struct console *co, const char *s,
- 		zport->regs[1] |= TxINT_ENAB;
- 		write_zsreg(zport, R1, zport->regs[1]);
- 
--		/* Resume any transmission as the TxIP bit won't be set.  */
-+		/*
-+		 * TxIP won't be set. Defer the restart: console output may be
-+		 * called with the port lock held, and TX must acquire it first.
-+		 */
- 		if (!zport->tx_stopped)
--			zs_raw_transmit_chars(zport);
-+			schedule_work(&zport->tx_work);
+-	/* TX buffer */
++	/* Normal TX uses serial core's FIFO; flush reserves it until retirement. */
+ 	dma->tx_addr = dma_map_single(tx_dev, p->port.state->port.xmit_buf,
+ 				      UART_XMIT_SIZE, DMA_TO_DEVICE);
+ 	if (dma_mapping_error(tx_dev, dma->tx_addr)) {
+-		dma_free_coherent(rx_dev, dma->rx_size,
+-				  dma->rx_buf, dma->rx_addr);
+ 		ret = -ENOMEM;
+-		goto err;
++		goto free_rx;
  	}
- 	spin_unlock_irqrestore(&scc->zlock, flags);
- }
-diff --git a/drivers/tty/serial/zs.h b/drivers/tty/serial/zs.h
-index e0d3c189b33f..0404294e4533 100644
---- a/drivers/tty/serial/zs.h
-+++ b/drivers/tty/serial/zs.h
-@@ -14,6 +14,8 @@
- 
- #ifdef __KERNEL__
- 
-+#include <linux/workqueue.h>
++	dma_sync_single_for_cpu(tx_dev, dma->tx_addr, UART_XMIT_SIZE, DMA_TO_DEVICE);
 +
- #define ZS_NUM_REGS 16
++	dma->port = p;
++	INIT_WORK(&dma->tx_flush_work, serial8250_tx_dma_flush_work);
  
- /*
-@@ -22,6 +24,7 @@
- struct zs_port {
- 	struct zs_scc	*scc;			/* Containing SCC.  */
- 	struct uart_port port;			/* Underlying UART.  */
-+	struct work_struct tx_work;		/* Restart after console output. */
+-	scoped_guard(uart_port_lock_irqsave, &p->port)
++	scoped_guard(uart_port_lock_irqsave, &p->port) {
++		dma->tx_terminating = false;
++		dma->tx_flushed = false;
+ 		dma->shutting_down = false;
++	}
+ 	dev_dbg_ratelimited(p->port.dev, "got both dma channels\n");
  
- 	int		clk_mode;		/* May be 1, 16, 32, or 64.  */
+ 	return 0;
++free_rx:
++	dma_free_coherent(rx_dev, dma->rx_size, dma->rx_buf, dma->rx_addr);
+ err:
+ 	dma_release_channel(dma->txchan);
+ release_rx:
+@@ -342,6 +394,8 @@ void serial8250_release_dma(struct uart_8250_port *p)
+ 	if (!dma)
+ 		return;
  
++	cancel_work_sync(&dma->tx_flush_work);
++
+ 	/* Release RX resources */
+ 	dmaengine_terminate_sync(dma->rxchan);
+ 	dma->rx_running = 0;
+@@ -356,7 +410,11 @@ void serial8250_release_dma(struct uart_8250_port *p)
+ 			 UART_XMIT_SIZE, DMA_TO_DEVICE);
+ 	dma_release_channel(dma->txchan);
+ 	dma->txchan = NULL;
+-	dma->tx_running = 0;
++	scoped_guard(uart_port_lock_irqsave, &p->port) {
++		dma->tx_running = 0;
++		dma->tx_terminating = false;
++		uart_xmit_unblock(&p->port);
++	}
+ 
+ 	dev_dbg_ratelimited(p->port.dev, "dma channels released\n");
+ }
+diff --git a/drivers/tty/serial/8250/8250_omap.c b/drivers/tty/serial/8250/8250_omap.c
+index fc1a83d6fa7c..9211ccda316a 100644
+--- a/drivers/tty/serial/8250/8250_omap.c
++++ b/drivers/tty/serial/8250/8250_omap.c
+@@ -1099,7 +1099,12 @@ static void omap_8250_tx_dma_complete(struct uart_8250_port *p)
+ 
+ 	dma->tx_running = 0;
+ 
+-	uart_xmit_advance(&p->port, dma->tx_size);
++	if (dma->tx_flushed) {
++		p->port.icount.tx += dma->tx_size;
++		uart_xmit_unblock(&p->port);
++	} else {
++		uart_xmit_advance(&p->port, dma->tx_size);
++	}
+ 
+ 	if (priv->delayed_restore) {
+ 		priv->delayed_restore = 0;
+@@ -1132,7 +1137,7 @@ static void omap_8250_dma_tx_complete(void *param)
+ 
+ 	guard(uart_port_lock_irqsave)(&p->port);
+ 
+-	if (dma->shutting_down)
++	if (serial8250_tx_dma_blocked(dma) || !dma->tx_running)
+ 		return;
+ 	omap_8250_tx_dma_complete(p);
+ }
+@@ -1147,7 +1152,7 @@ static int omap_8250_tx_dma(struct uart_8250_port *p)
+ 	int skip_byte = -1;
+ 	int ret;
+ 
+-	if (dma->shutting_down || dma->tx_running)
++	if (serial8250_tx_dma_blocked(dma) || dma->tx_running)
+ 		return 0;
+ 	if (uart_tx_stopped(&p->port) || kfifo_is_empty(&tport->xmit_fifo)) {
+ 
+@@ -1206,24 +1211,26 @@ static int omap_8250_tx_dma(struct uart_8250_port *p)
+ 		goto err;
+ 	}
+ 
++	serial8250_tx_dma_sync_buffer(p, &sg, 1);
++
+ 	desc = dmaengine_prep_slave_sg(dma->txchan, &sg, 1, DMA_MEM_TO_DEV,
+ 			DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
+ 	if (!desc) {
++		dma_sync_single_for_cpu(dmaengine_get_dma_device(dma->txchan), dma->tx_addr,
++					UART_XMIT_SIZE, DMA_TO_DEVICE);
+ 		ret = -EBUSY;
+ 		goto err;
+ 	}
+ 
+ 	dma->tx_size = sg_dma_len(&sg);
+ 	dma->tx_running = 1;
++	dma->tx_flushed = false;
++	dma->tx_complete = omap_8250_tx_dma_complete;
+ 
+ 	desc->callback = omap_8250_dma_tx_complete;
+ 	desc->callback_param = p;
+ 
+ 	dma->tx_cookie = dmaengine_submit(desc);
+-
+-	dma_sync_single_for_device(dmaengine_get_dma_device(dma->txchan), dma->tx_addr,
+-				   UART_XMIT_SIZE, DMA_TO_DEVICE);
+-
+ 	dma_async_issue_pending(dma->txchan);
+ 	if (dma->tx_err)
+ 		dma->tx_err = 0;
 
 -- 
 2.53.0
