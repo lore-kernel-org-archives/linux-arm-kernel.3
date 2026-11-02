@@ -2,129 +2,96 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B8B2608A354
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 15:33:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DC5060A0CAB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 15:34:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zgfj1fgm;
-	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=km0KRzyr
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3R0jJBtS;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=oPe0IcYv
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=BQsaASFcwTR98Ua/j2/w7tivjnC0NUs/EPQM2iEIWxg=; b=zgfj1fgmYHbIqdKXrtYFznQaOF
-	6lEVOWLA4k/ICbYYC6q77JrRiQAaq+bVooVI4hOSkRzJOpgyhKm6n8n2JqCaZM1emn6+Y8pOMY5Xg
-	X1kxAOQINKnvT0v4PJLkQyaoNoL0ut8z4gaO28Hnwz5ki4EZXhPyEogKvrMABzm+3K5SB8ZQXNy8K
-	qAXit+zQPruAYnrPZAPl7pp1dRBdAsL2j1PK4EHSjKyjY10ILxgw9DXhJ1lliMXNO7ROckjvw36SD
-	QEn3k0WAaXvEYsBr5FuB6MdafStS+d0fY2+AJhD9iFlARQHcJAq11TrNPrl8DCgypC4zbNqEA9XT1
-	t6JJwU6g==;
+	bh=s4vRCplgEoCQN3eUv6q9zSWbIbV1TXU7YJjG5+iZQYY=; b=3R0jJBtSm8QLNkQtoOVU1odQ/h
+	x4pCv2dyK2k7h8+5DIf1GflpL1ZFjFtuPXqCZAi0aHo19uE749s/Z3z10FTfAYNoN0tVPd26fGdvI
+	dmOFkAJpR9NPMxRAV93WMIGCJgejNbxJ9mKImAjHKlnyxn9twycWKjRaM44d0R7wjT3yx2buYadhQ
+	BVvlXWXzyEmZHnwPYBGz3IjNRMS83hzBZYjK6G2WGb3dQtzxxzVRnTIHtWld4QNH6NVuOTPQXAC7O
+	lAld7ZL9G8FQoFLxJDhyu2mWf2TmCzHSqjtryKcsCWeFjUDm4EojkzkAeDJgTOceeqh9y+NRCDkqT
+	6jWPiXQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNu1x-0000000H7mr-0K3S;
-	Mon, 02 Nov 2026 15:33:05 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1xNu3S-0000000H8T7-0nU0;
+	Mon, 02 Nov 2026 15:34:38 +0000
+Received: from mail-pj1-x1048.google.com ([2607:f8b0:4864:20::1048])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNu1r-0000000H7i9-3HJz;
-	Mon, 02 Nov 2026 15:33:02 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A2EEFDH3333621;
-	Mon, 2 Nov 2026 15:32:36 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=BQsaASFcwTR98Ua/j2/w7tivjnC0NU
-	s/EPQM2iEIWxg=; b=km0KRzyrvJCvYWGvdxZLIQtpVChnlJb09PzDpSMrjXB+y2
-	EiEtQfSUoklr4D7ZLh98AvH4myEMejuvNotugTEDk+hc9IH7sBGPC4XNbh+CkmJ0
-	+HzZAOHhqosaf7waExH3cFRGjqkQNjEd0VW5D8xQYNU0LzVZLt5HMxuwvff3/IMA
-	+ggupIXDvaRZDKuTLLD+rCJzOSj/A6/UD9excoqDFlPSHXeO2LkSAXr/cwZ77ksM
-	U09ej/4wKCOvha+VgMWDi+xIuMLlni3IjPdfdnlGlxcl+MezqxSHAKNIL2e7VSx/
-	D0jSPesAcXu/7UJmjIE5DJyVdWwxoxvrPRwtBKhQ==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4hn7u39cp5-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 02 Nov 2026 15:32:35 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6A2Dp3k8932188;
-	Mon, 2 Nov 2026 15:32:34 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4hnunjxhmn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 02 Nov 2026 15:32:34 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6A2FWUrY45220142
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 2 Nov 2026 15:32:30 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3DAF120043;
-	Mon,  2 Nov 2026 15:32:30 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6387620040;
-	Mon,  2 Nov 2026 15:32:29 +0000 (GMT)
-Received: from osiris (unknown [9.87.153.156])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon,  2 Nov 2026 15:32:29 +0000 (GMT)
-Date: Mon, 2 Nov 2026 16:32:28 +0100
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
-        Huacai Chen <chenhuacai@kernel.org>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Paolo Bonzini <pbonzini@redhat.com>, Fuad Tabba <fuad.tabba@linux.dev>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>, Nicholas Piggin <npiggin@gmail.com>,
-        Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        kvm@vger.kernel.org, loongarch@lists.linux.dev,
-        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Stefan Teodorescu <fane@google.com>
-Subject: Re: [PATCH 1/7] KVM: s390: Drop unused and unreachable
- kvm_arch_vcpu_should_kick()
-Message-ID: <20261102153228.240804-H-seiden@linux.ibm.com>
-References: <20261028190259.1819571-1-seanjc@google.com>
- <20261028190259.1819571-2-seanjc@google.com>
+	id 1xNu3P-0000000H8RY-0Z1F
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Nov 2026 15:34:37 +0000
+Received: by mail-pj1-x1048.google.com with SMTP id 98e67ed59e1d1-3aca98f01c1so3042674a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 07:34:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1793633673; x=1794238473; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=s4vRCplgEoCQN3eUv6q9zSWbIbV1TXU7YJjG5+iZQYY=;
+        b=oPe0IcYvzRVIEPSrn83v8Zxlre0REOvLhv6juNd/Yejhv+zHjL3g8CeVoppGvuxmXu
+         xYycZfW817swvXZxIunZyYzewVqyVZ16Zw+OTMuRwTlozhUVpD92CFExGr5NH3kwgP3U
+         tmZtpYkQrhIoig7e3/4tWMUhe8JNgwCwHRxZzQOrQ1lVF2E59UYbAbH4fTSB5rPkWh/D
+         awTXoCdo1EiXQi74VjXLn1m4RkJJi36IRj71F4U5hlGzzqY3BVXLQBz+AnlvSMG30iAM
+         eVdipn0/A+l4WraFhi2x0EotRLa2xQE+VmX9Pny7TPG5isBJR9znrpQD5ehtoHfGt1iS
+         CdxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793633673; x=1794238473;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=s4vRCplgEoCQN3eUv6q9zSWbIbV1TXU7YJjG5+iZQYY=;
+        b=XCkmA0e75wbNX4Nu0diR8MaBRZ7RC4wmb4Py0bT7vPDgN4nMfuABkPmXO99Aqjvacm
+         KIA/zafx/+WH5w2HHPtfmZgmv1/jl99cL8wRyURY6S3/Q/ZDNvKt7wYQLBWCsH1NZUf1
+         z9H9v5URdh/Sc9gB+BxP9FTg/Bn9ETfD9QcAM44nWtyAtcoUBpfqrf+Ryx1XP7b3bgVN
+         qGrb+E09CFvJp9Pw2/lAL55QQOyf6LBwQbEMR4ijP0K+fJ/EncjWYUbJqb5Q6ibJE0H+
+         FzthLR6bZVpd7/Qz55+JidFTwkxWMjyVPGPJSFL8eL/sPJk7sjIwcB3Oy0dTIC7Lke8c
+         U1zg==
+X-Forwarded-Encrypted: i=1; AKwUvBzVn1v/X0TT7kcOWmr+g7OCXzlwYlhd1SBDcgRvbr/cmkf5Kc+bujd4q6GPFsD4rMxUItnpT2m+8GaQNjTNG353@lists.infradead.org
+X-Gm-Message-State: APuU4Z9j/h8swThkFsenvzrsWmdEfMQLL7FatAukOyQA9x0zxh4o4r4+
+	Gc4ksYMIHUJpEm7UfP3LeQRSdINz3yOJfKLADctfefpyde8P9osxmQ6Z9PaDQ2CaNWH0HdCq9LS
+	OOa9vwg==
+X-Received: from pjso1.prod.google.com ([2002:a17:90a:c081:b0:3a8:211b:6c8b])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2749:b0:3ad:43c1:7d41
+ with SMTP id 98e67ed59e1d1-3ae897429b9mr7590262a91.33.1793633673063; Mon, 02
+ Nov 2026 07:34:33 -0800 (PST)
+Date: Mon, 2 Nov 2026 07:34:32 -0800
+In-Reply-To: <20261102153228.240804-H-seiden@linux.ibm.com>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261028190259.1819571-2-seanjc@google.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=Zsp4uN7G c=1 sm=1 tr=0 ts=6ae8ad13 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=1XWaLZrsAAAA:8
- a=e2WrUwKQfGWSWgw8ceQA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: TmxCuOpzq6vA5Vx27S-wl8VaUu08c3rl
-X-Proofpoint-GUID: KVXVtrhgD1GJzUOP0CvMGutz2Xg2IILr
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAyMDA2MCBTYWx0ZWRfX7bqvyy+G4IRi
- YuDNWW2rtZhIuWgYthjFwF9+9BvaQqjUd0NCjGgytPI2kgitQSqHnwzde0DvmKT5ekh2NyjS0Nq
- F9Z/Zdzj1pOgrZG2yR5VLS36NId8bM3pN7WDBUKOt9UCD+QFNKQAZu+Jyci2pVHVvCbSWlrBtzk
- 4AIduMbPdqh6wI13eR6unsEG4RU8A4ZAJXpBquIr8jswWYP5JT1UMzhOQVTUhyasVm3yKq19/37
- g8IQ6IsFUU0CmiqM7aH5od6K0UDK4Pufp7iAip5do5FEjWgMz0BL8a8ds/SYC3EFA4Du3R6hGdA
- 0zHdfqn6psBiKyEKCPFmlpIxWnmBKc5C9d6tL8dsAaGzrFS280m4gYPAHt09nU+p77BxB+4etoO
- zPcjuUT7rpSjV4uYvQkRwMMejfxArhysp1beSjd8DEChKl+d8KSwLwvy9Sujp9ZrxPVJILSraLV
- unHwMnZGlBbuYsnY1Xg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAyMDA2MCBTYWx0ZWRfXzMWFCRCaICBW
- YVdaYUPRVlAbXrli6ZNZR2sTDTrenRk6sxAut1SiSIk+5dhzpZRcRftKd34+qSoKLUq5b5QITXp
- q7EjnwMhcLT8GbXDC7vsw0JN8N6I7PQ=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-02_04,2026-11-02_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 adultscore=0 priorityscore=1501 bulkscore=0 clxscore=1011
- impostorscore=0 spamscore=0 malwarescore=0 suspectscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610300000 definitions=main-2611020060
+Mime-Version: 1.0
+References: <20261028190259.1819571-1-seanjc@google.com> <20261028190259.1819571-2-seanjc@google.com>
+ <20261102153228.240804-H-seiden@linux.ibm.com>
+Message-ID: <auitiPKnFueBJzPA@google.com>
+Subject: Re: [PATCH 1/7] KVM: s390: Drop unused and unreachable kvm_arch_vcpu_should_kick()
+From: Sean Christopherson <seanjc@google.com>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Nicholas Piggin <npiggin@gmail.com>, 
+	Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Stefan Teodorescu <fane@google.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_073259_841924_7015F5A8 
-X-CRM114-Status: GOOD (  19.65  )
-X-Spam-Score: -2.6 (--)
+X-CRM114-CacheID: sfid-20261102_073435_335350_40D85E0F 
+X-CRM114-Status: GOOD (  13.66  )
+X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,51 +102,25 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 28, 2026 at 12:02:53PM -0700, Sean Christopherson wrote:
-> Drop s390's kvm_arch_vcpu_should_kick() stub as the one and only call site
-> is wrapped with "#ifndef CONFIG_S390".
+On Mon, Nov 02, 2026, Steffen Eiden wrote:
+> On Wed, Oct 28, 2026 at 12:02:53PM -0700, Sean Christopherson wrote:
+> > Drop s390's kvm_arch_vcpu_should_kick() stub as the one and only call site
+> > is wrapped with "#ifndef CONFIG_S390".
+> 
+> In the somehow near future I'll remove those #ifdefs and use the kick
+> stuff for kvm_arm64. The native s390 KVM then must at least keep an
+> (unused) symbol at hand. It seems that the compiler could not optimize
+> those calls away. So let's keep it there so I do not have to re-add it
+> soon.
 
-In the somehow near future I'll remove those #ifdefs and use the kick
-stuff for kvm_arm64. The native s390 KVM then must at least keep an
-(unused) symbol at hand. It seems that the compiler could not optimize
-those calls away. So let's keep it there so I do not have to re-add it
-soon.
-
-	Steffen
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/s390/kvm/s390/s390.c | 7 -------
->  1 file changed, 7 deletions(-)
-> 
-> diff --git a/arch/s390/kvm/s390/s390.c b/arch/s390/kvm/s390/s390.c
-> index 18fb200f854a..9900a1a1c148 100644
-> --- a/arch/s390/kvm/s390/s390.c
-> +++ b/arch/s390/kvm/s390/s390.c
-> @@ -3922,13 +3922,6 @@ bool kvm_arch_no_poll(struct kvm_vcpu *vcpu)
->  	return false;
->  }
->  
-> -int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu)
-> -{
-> -	/* kvm common code refers to this, but never calls it */
-> -	BUG();
-> -	return 0;
-> -}
-> -
->  static int kvm_arch_vcpu_ioctl_get_one_reg(struct kvm_vcpu *vcpu,
->  					   struct kvm_one_reg *reg)
->  {
-> -- 
-> 2.56.0.313.g2479322e68-goog
-> 
+Please read the rest of the series.  kvm_arch_vcpu_should_kick() goes away
+entirely.
 
