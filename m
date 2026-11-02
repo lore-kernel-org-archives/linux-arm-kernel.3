@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDD8F606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 20:47:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A32BC606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 20:47:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0LPb87IT;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=SubT2QF3
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oP5kAXhM;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Q5wd0F45
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
@@ -14,63 +14,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=PzxpOf9GSU8BWppDC1NmhSxLG0SFtPxkYuGCabdeGqE=; b=0LPb87IT2btn3/22eWnY4F9ht+
-	DXj4/nnGO2E3odhogOxsDlAZ0dFgrsBA2lxd2Zo7MwoyNbmjtivdH/AOm3IxFx0wCFfFXASCebhvn
-	ULkSvIZ6NpxpU4L5RPtdn2NXcqAw4wQbU3mAj8by78xphC+nGLW30F6cXA1B6rNp96WU91NNDGh44
-	FalTDmkQQGCTRvQGVqgE44l68BnPjoECWVeBw1jjMVH6ECA3lclng9yCTcucIcTIprY6iU9VQNLr/
-	VNxWQimtqyJS161l99CmsWFACeorYiuO1U1xzClxL8za/pzMkV5uPW3jGOMMK/pntRsCLqhL/38jn
-	qmuUhGbQ==;
+	bh=W8pU5bTLgvDP6PnnKl35Nqm4I8JchvKzNMP0M/KHP68=; b=oP5kAXhML9L8XIbhAKaS0Yixha
+	OvDKcUyCcX5VqZoHpg9ikiXZLq1nvnBPj1Z4mCUdfCSAP0iol0WhvZFLzTt+PZNVWJ6xqZxrD/wvv
+	FD3O+IbualOrQiS3Xh/EKg/wehHCYiUd3rJtFIpfrpV4ww8fWob12WbRltYgJo+gkuXCbZCJrGcX5
+	hVmlKt5nZXlcPnKL5M2e0GCmWSAu24rFNKh0FuYT2UvmpjhwvKsO7I859dGgT62zK6O/h6yyU6c1C
+	FbVb52bIBvh585tqIAwfyKxzTEI4Fxs3QahhObix6joTJY4d58ntwiUCFFidheg48hnQ239Q6175h
+	RF2ZYg/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNywF-00000000O27-1c1d;
-	Mon, 02 Nov 2026 20:47:31 +0000
-Received: from mail-wr1-x445.google.com ([2a00:1450:4864:20::445])
+	id 1xNyw9-00000000Nvf-04Hn;
+	Mon, 02 Nov 2026 20:47:27 +0000
+Received: from mail-wr1-f70.google.com ([209.85.221.70])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNyw4-00000000NlH-3QCk
+	id 1xNyw3-00000000NiT-1Sqz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 20:47:23 +0000
-Received: by mail-wr1-x445.google.com with SMTP id ffacd0b85a97d-48c4445512dso2824212f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 12:47:20 -0800 (PST)
+	Mon, 02 Nov 2026 20:47:20 +0000
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-48e1291432aso2681973f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 12:47:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1793652439; x=1794257239; darn=lists.infradead.org;
+        d=google.com; s=20260707; t=1793652437; x=1794257237; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PzxpOf9GSU8BWppDC1NmhSxLG0SFtPxkYuGCabdeGqE=;
-        b=SubT2QF3RM8QxPhFSKh/YOhoG/XkMfFhRBsthKGv+1oRnyVdL6jNiYs4lbvq9oNiiT
-         cu7FLxMk0VujDer7Erx6aFARE7NYiWrJpgtG7I6g0PX70t7Vz8Gi9wy5fERNYKJKrnO4
-         RAbtLRe0vzr9vys5Krl3ti+a0AyG1ulA1wWOC72qeMXC5NZ+2SiB07AcxtlZ6glTHL0m
-         16Da6dbph1Msrpj5DphEFdpEJbYA8jybOLgOjLWbgDSv7xSedGGVMmD9HmOLEVsIuMvX
-         JwwbF5wQAthyLrc1Ah69luzW1pe9u7LYweQkX9OchDK3j1a0qP8ak3Ivqiv7NSsVxltp
-         sdTg==
+        bh=W8pU5bTLgvDP6PnnKl35Nqm4I8JchvKzNMP0M/KHP68=;
+        b=Q5wd0F45VvMj8udzWaa6+PYI4MABqekfEswt6aSslQrijL3gWoT3AGYuJ8z6iJ7SNv
+         FtwyjmA8/nX17xZ6k3InDCV88ptDtS0MHgip4flCB2F9vb1MHyZ/0YuegWOWhFSJ1KXK
+         Co5abJmChlcULf638hOHneEySCVF5nNtuS7EE8MWwmwfuKxuUkxb7KIrt3BmzNBsahRD
+         O4M1WCS3KewoYsIk5p2oPSPL3y+KTzYSgOHcPbwEYI4pCU9H3l2JBkn6L6xp+LWM2ULl
+         +bevl723ESXm9lg1unKq83SWWmKq2NCqaKND8GJezC3m0X2qm7JGCtPn0Un+qRBsI1pd
+         Hv1A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793652439; x=1794257239;
+        d=1e100.net; s=20260707; t=1793652437; x=1794257237;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=PzxpOf9GSU8BWppDC1NmhSxLG0SFtPxkYuGCabdeGqE=;
-        b=BrOXoC4ml3c72gqikv4Jx/cbdrtb59Lv92f7PfkQWhPLaCFwZbEaPdlgfaHFET/5av
-         ELm+3ZyrTWaa5xxHjG0fnEMiALOwNjBNRgghea0/K8YAmvlIP1kwSKdOjPpyn9rZguBN
-         LTZd+dyb3Xe7jaobgg3BjlLPcFh7ruelwGkvHZQJfeq+zuNYxbo4HlG3m7xYyVa9pgXv
-         aqL11GtiD7sMmfflmSOduR4nGzDuG60BiZDgd/fieLlzAep7xlQGJbGR9CYm9jZycVn6
-         OKCB1drsTHeqwVQ1F9Is8fGZlMvMSFu4uBTIxs4I5v9fLhW9yHUA016H5HRr8i2plGtQ
-         TOFQ==
-X-Forwarded-Encrypted: i=1; AKwUvBywe/2zYh3sIDtAmicpKTkmgF03I+fY7jbpBg39s10SINKR3x55xOsGK8Xig94zw5QkOrLzmQFc6j+KJ9VfCojJ@lists.infradead.org
-X-Gm-Message-State: APuU4Z+eXIYZm6Aq2SYnr+heViRDTqvtvk23/25FclWFNSIT5Xc58l2N
-	yI70heuP3ISl0xNXWBWZxPbeKewxRdX+T2GhgtIbk8fvT7Eb65xwXFv5PnnmlU5KNw4RCACYnGz
-	7Qwpl+R9fbQo4OvjCPzJZag==
-X-Received: from wrri2.prod.google.com ([2002:adf:fc02:0:b0:48d:fd11:11f2])
+        bh=W8pU5bTLgvDP6PnnKl35Nqm4I8JchvKzNMP0M/KHP68=;
+        b=UaX+P0oi/Cl7jYUOX33rMKSowE3LhNxhso76GsRAL0nLxf00zsVsoN/a40vpHoJygT
+         HaYO4n0Zhi3CYipe0CRC6EtU9SCfLYRJDSUKyG6Jeecnue2kwZ6pmz+Hw7l9/u1ZKi8/
+         m2mSqDtJPBlayafcfFAIFilXMhbyyIwctuj9UW4+VWOz8aGl29dbE51ojJ0KdCGaGnh+
+         fjKLnc4JQyyJjCk5VqBwYHRRP16t9A6rUvlDXp4J7Ds9t1Fukfn1Fx0Ry7xR70l7ps1n
+         ZE0OmotlYX0HTQpoaTnioapH0oo0gyjaFlSLzWhcUiQIn9MGsu2aVEk0J4HWMLmt6xrV
+         hlHQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxUnXLI61eLsVWUMWFGRqXQ4hAhInBoi4R81DRbfq0DyNvK5aY0tbGUbYcE1qES2AIrZrUHI4xQzsJHhyEsvGKC@lists.infradead.org
+X-Gm-Message-State: APuU4Z8z+rImPnBjRFHhXDy5XTG1elyOhDbV3Kw2j2qzbWzPtFWYowLi
+	8EPlGZrV39GAsg85HNe+jMrxaFseUPtbdTx3oUnCBNG++5GloGgm11Ht2tMu/R6QSBKQNE3hmcI
+	Gj8Ul4QkA1egD1gD9U/ZNHQ==
+X-Received: from wrwh9.prod.google.com ([2002:a5d:4fc9:0:b0:48d:eacb:c491])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:4a0a:b0:486:e707:42eb with SMTP id ffacd0b85a97d-48e71a3e74cmr23910206f8f.33.1793652438679;
- Mon, 02 Nov 2026 12:47:18 -0800 (PST)
-Date: Mon,  2 Nov 2026 20:46:21 +0000
+ 2002:a05:6000:4810:b0:487:106f:ee31 with SMTP id ffacd0b85a97d-48e6e304036mr28089625f8f.27.1793652436386;
+ Mon, 02 Nov 2026 12:47:16 -0800 (PST)
+Date: Mon,  2 Nov 2026 20:46:19 +0000
 In-Reply-To: <20261102204628.401871-1-vdonnefort@google.com>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
 References: <20261102204628.401871-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.56.0.385.gac671c819a-goog
-Message-ID: <20261102204628.401871-17-vdonnefort@google.com>
-Subject: [PATCH v3 16/23] KVM: arm64: Warn on pKVM guest stage-2 block collapse
+Message-ID: <20261102204628.401871-15-vdonnefort@google.com>
+Subject: [PATCH v3 14/23] KVM: arm64: Handle huge mappings in __pkvm_vcpu_in_poison_fault()
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -80,8 +80,8 @@ Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_124720_979254_9B420AB5 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20261102_124719_402705_5B4D3643 
+X-CRM114-Status: GOOD (  12.16  )
 X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,44 +101,27 @@ X-Spam-Status: No, score=-26.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-When pKVM is enabled, the host relies on a pkvm_mapping tree that
-mirrors the actual hypervisor-owned stage-2. The hypervisor is not
-allowed to silently split blocks or collapse page-tables. This should be
-treated as a bug.
-
-Therefore, WARN on guest stage-2 page-table collapse which would
-otherwise be fatal anyway.
+In preparation for supporting stage-2 huge mappings for protected VMs,
+allow __pkvm_vcpu_in_poison_fault() to work with PMD_SIZE mappings.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 751f76d3ec39..88af0aec1ea9 100644
+index 68ed886e294e..b9b591533b30 100644
 --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
 +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -226,6 +226,12 @@ static void guest_s2_put_page(void *addr)
- 	hyp_put_page(&current_vm->pool, addr);
- }
+@@ -994,7 +994,7 @@ int __pkvm_vcpu_in_poison_fault(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 	if (ret)
+ 		goto unlock;
  
-+static void guest_s2_free_unlinked_table(void *addr, s8 level)
-+{
-+	/* We should never collapse guest stage-2 tables into blocks */
-+	WARN_ON(1);
-+}
-+
- static void __apply_guest_page(void *va, size_t size,
- 			       void (*func)(void *addr, size_t size))
- {
-@@ -294,6 +300,7 @@ int kvm_guest_prepare_stage2(struct pkvm_hyp_vm *vm, void *pgd)
- 		.put_page		= guest_s2_put_page,
- 		.dcache_clean_inval_poc	= clean_dcache_guest_page,
- 		.icache_inval_pou	= invalidate_icache_guest_page,
-+		.free_unlinked_table	= guest_s2_free_unlinked_table,
- 	};
- 
- 	guest_lock_component(vm);
+-	if (level != KVM_PGTABLE_LAST_LEVEL) {
++	if (level < KVM_PGTABLE_LAST_LEVEL - 1) {
+ 		ret = -EINVAL;
+ 		goto unlock;
+ 	}
 -- 
 2.56.0.385.gac671c819a-goog
 
