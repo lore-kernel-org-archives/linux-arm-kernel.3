@@ -2,67 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9789D606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 22:17:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46BBA606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 22:18:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=v8x6qbo/;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ObgOMNj5
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ua9dlSpD;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fP4sPoiz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=1LoOI02nUgf322enYv05Hw1vZImTbwLOdnlR5QXFbCU=; b=v8x6qbo/MYFHnR
-	WC7vagpYnf5kKo7stVenbvDNUXXhsmWETjtmVPGo3WxdYKYLuo6wqK5yGT0VouwMtW7uHGiIGUf1E
-	sKEEjNlM4QitEqM/kbxR1h2tPnMExnflIlvjaqeURiCJrN1tahUo4TVrtrr7bT6prwra7bmF7z+I8
-	AumhG3o1GRQFPWOnNrjgjLZXpZSvNLi8wyBlyrC/oAueSSiaPI0qa9Jwfc5+5rNVqTtTVZJM+0pV/
-	6r+SU1DxtRkBcTe/1+c4LDAv159sgEC46JTYMu6e7z4637XknNwYvIjq9WoLQZeG0wjU6h98ToFO1
-	TyC3mfJHLAKd0O8JRvSg==;
+	List-Owner; bh=Brz96hdrz7JmspNQJhcUGehhAL3Axu9lJW4DP1KRAJU=; b=Ua9dlSpDCGcGBF
+	O7ULvW4w57swPbhlYR0dNK7cQMoCbZq/E0JWmpOVa4IH5wd7SXVQ4gusORXjWTMKoP57cOQrcIErv
+	yHNzFsZOdtMd6Mcd29xfZsd5B6X5po/MoQ4tOxsUmIaUzZLXYZPz2h11PAstHKeCfF2QL4lvmkkTg
+	HYdviYNhOfuztHgvNmHRwJYgJ6BE96lGOA4Clvj5G8vujUmzVsF5WobmMxhMMyYO15Oom1/bNbZoo
+	5jW+tTlWzj+9fydFv3fZjPewRs6wqzilkcvtNq/rt4DZmvZlwyov21hvtKiEw+QLt60OG1iIqFEWe
+	CgOaSEfEly3bzn+BQmjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO0Lf-00000000XfP-3TWc;
-	Mon, 02 Nov 2026 22:17:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xO0Lj-00000000XgK-0PoF;
+	Mon, 02 Nov 2026 22:17:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO0Le-00000000Xez-0hI3
-	for linux-arm-kernel@lists.infradead.org;
+	id 1xO0Le-00000000Xf0-3peP;
 	Mon, 02 Nov 2026 22:17:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3D4D4600D1;
+	by tor.source.kernel.org (Postfix) with ESMTP id D1A86601F0;
 	Mon,  2 Nov 2026 22:17:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D43001F00A16;
-	Mon,  2 Nov 2026 22:17:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E1341F00A16;
+	Mon,  2 Nov 2026 22:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793657868;
-	bh=1LoOI02nUgf322enYv05Hw1vZImTbwLOdnlR5QXFbCU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=ObgOMNj5Lbd3V13//0LFm+utOm/JdVKk7AxgGFlxRn9SX1kIYeKyER2zPJe58+5XQ
-	 ViXIdVRafeXa46tlIjLul/LH+U6Ul5GI+w/XunHpEIo5vCsjwSPUA807unl2WMxoqU
-	 4l1HPGgjK/4Zyzs97BO/kAGr6KLrnOet/GT4vsZeIBsQT4EMFiEhRuChIuy//f3Mie
-	 X08I1Qu/SZc8e5znS4ck/mQSOyJTDXaZFANax1+bymxWpu6iGPWi+AeWQbABWOibSd
-	 iLtJg2zv7JVP31v0DmlEpG/z39iav5Jg8N9gs/+O/Y2G4h+EIa2kGCHzqFEEDBLb3X
-	 UA0tO/6O2ynZA==
-Date: Mon, 2 Nov 2026 22:17:44 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Chi-Wen Weng <cwweng.linux@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- cwweng@nuvoton.com
-Subject: Re: [PATCH v3 2/2] iio: adc: Add Nuvoton MA35D1 EADC driver
-Message-ID: <20261102221744.4bd13ae6@jic23-hlaptop>
-In-Reply-To: <81173139-a43c-48a4-97c7-0a82de158b3e@gmail.com>
-References: <20261030031501.130290-1-cwweng.linux@gmail.com>
-	<20261030031501.130290-3-cwweng.linux@gmail.com>
-	<20261101005312.1ec5e393@jic23-hlaptop>
-	<81173139-a43c-48a4-97c7-0a82de158b3e@gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1793657869;
+	bh=Brz96hdrz7JmspNQJhcUGehhAL3Axu9lJW4DP1KRAJU=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=fP4sPoizrBM/sWiBFzkBJYNAQTHXV/XetlGDejSnEpjVVomy3GD6vhS/mWLIC8a4e
+	 C2E3Kex7mvSHZrkiLLHFJbjDkKik4t7rFvjOH5hAhE1JL5kCxfX9B1Tg0FsjmjV25j
+	 6jCoOoiD7NmbJjP4kkp1XEbmFeg45bl+M6YW7B0JbjYcN4keJNL1u7L7tcmvo0EclX
+	 WBvOpazth8Im7O8BYEBGJ34zACJPCspJ0gaoQRmwbra4e5BuHd4pzIphYjmixcvsQX
+	 PiPkkB+5G8AXOqj/H+edwPLtMEdejt/WE1YJwUjvDc0ipWKIOCpD/8GFDAQ5GT70US
+	 EbR8cKlaqK1IQ==
+Received: from traversing.sirena.org.uk (localhost [IPv6:::1])
+	by traversing.sirena.org.uk (Postfix) with ESMTP id 0F59F24130FA;
+	Mon, 02 Nov 2026 22:17:47 +0000 (GMT)
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Alexandre Mergnat <amergnat@baylibre.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ =?utf-8?q?GIBEOM_LEE_=28=EC=9D=B4=EA=B8=B0=EB=B2=94=29?= <rtx4060@gmail.com>
+In-Reply-To: <20261102-rgp-67-mt6363-regulator-fixes-v1-0-420789a3113e@baylibre.com>
+References: <20261102-rgp-67-mt6363-regulator-fixes-v1-0-420789a3113e@baylibre.com>
+Subject: Re: [PATCH 0/2] regulator: mt6363: Fix register access and VEMC
+ voltage handling
+Message-Id: <179364259247.2092401.12751625536535103016.b4-ty@b4>
+Date: Mon, 02 Nov 2026 18:03:12 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1484; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=5Lsk5k8uWhWpSMVkEic8ZEeUQMXxLY0HlzaMYJ4qUm4=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJe8rDcubZ4o4eUXPhf5/9GAZYSTNNmXzkqNvFO7QI9P
+ /Y/K2TcOkpZGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjARuV0M/6Puaa9YEx8bvjwl
+ gTPpytPzv+LSBFY1Bgpv7krxTHbiYWFkeCJ5s8P5ZeMFqXcrTZ489+FMelk6IWhhy4/Qk4ZaH6T
+ 5OAE=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,63 +82,52 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_2 autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-12.3 required=3.0 tests=BAYES_00,DATE_IN_PAST_03_06,
+	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
-> >   
+On Mon, 02 Nov 2026 15:54:16 +0000, Alexandre Mergnat wrote:
+> regulator: mt6363: Fix register access and VEMC voltage handling
 > 
-> Hi Jonathan,
+> Testing the MT6363 regulator driver showed:
+>  - the VEMC (UFS VCC) voltage reported as 1.25 V while the PMIC is
+>    programmed to 2.55 V
+>  - regmap debugfs showing each register merged with the next one
 > 
-> Thank you for the detailed review.
-> 
-> I will address these comments in v4.
-Hi,
+> [...]
 
-A couple of process things.
+Applied to
 
-Most of this didn't need a reply at all.  When you agree with feedback
-and plan to modify the code, keep any description of that for
-the change log of v2.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-7.4
 
-Also, reply inline to individual comments. The reviewer has probably 
-forgotten most of the details of what they commented on and so
-has to do the tiresome step of reading their own reply and then correlating
-that with what you have at the end.  If you reply inline as I did during
-the review, the context they need is right there.  Keep to tight
-focused comments where you want further feedback or disagree with the
-review.
+Thanks!
 
-...
+[1/2] regulator: mt6363: Use 8-bit register values
+      https://git.kernel.org/broonie/regulator/c/7318d3833067
+[2/2] regulator: mt6363: Fix VEMC voltage selection
+      https://git.kernel.org/broonie/regulator/c/a8d72f246edb
 
-> 
-> Regarding the one-hot scan-mask handling, the MA35D1 hardware itself is
-> not limited to one sample module at a time. The EADC has one SAR
-> converter shared by multiple sample modules. Multiple sample modules can
-> be triggered together, after which the hardware priority arbitrator
-> performs their conversions sequentially.
-> 
-> The initial driver, however, currently uses only sample module 0 and
-> performs one voltage conversion for each buffered trigger. Therefore
-> the buffered interface exposed by this version of the driver supports
-> one active voltage channel per scan. I will make this limitation
-> explicit using the standard one-hot scan-mask validation callback and
-> use iio_for_each_active_channel() when selecting the active channel.
-> Support for using multiple sample modules for multi-channel buffered
-> scans can be added separately in the future.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-This part would have been helpful inline next to the comment it is addressing.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-> 
-> Since the scan layout is therefore fixed to one u16 sample plus an
-> optional timestamp, I will replace IIO_DECLARE_BUFFER_WITH_TS() with a
-> fixed scan structure containing one u16 sample and an aligned timestamp.
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-Jonathan
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
