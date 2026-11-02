@@ -2,107 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ACB260A5BE5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:15:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D963C606B5CA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:16:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oGmMqZhJ;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=TQH5kuCk;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DfFADJBH
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CcbeYP31;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WewyZlvL
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Tq1Dinw97u5EFy5drMhI1ClpCkMeAoB7KpvZ0g2Cdjg=; b=oGmMqZhJNbQGv9v8NYh2D2GnFO
-	qFf9whgEUHkX92bOkYoWgaSsCB7Tr+kMN/G+VrJgLGJSTeLpNK+fsL3vH2sFN8ljwhM9/FUEl6N/R
-	so0owQ/+IGYKFdHJERA8RpyeW+BbKSM8q5JtAliZbIH50TaNZJ9RjmfRmRu7ZcB5YADGVYJxRmyoa
-	0Q0/Y6LmwsyBSIYtjHXh9v+MRIT86WSO8LxIUpL/Kq+5VFKn83frv4YIvVB6OazlO2iDkcZs4yznq
-	IgjHiqmoSo/xHmi2BGIzLNfUSpuG1RibyjsrjWlgUMxAmthxDQcTh0MRCZaJCZAz3vYb+QsUtMECY
-	fp20QWMA==;
+	bh=PAuzFOuclOSMC3fnm+jBEciQlj+SqOgZ/K1w8865E7Q=; b=CcbeYP31pgF1+3MuZEDOOzcwM8
+	PCHQadJwzDnCnTpToxInCdGVvIi91ntB+VOyoACo343OJCDL4l5PjJB5NouieuO1FBoQEF5Z16HUV
+	Hz3bu5NAgOVF5jaQLGSmzy+eJqNw7wPyWTdonYt7gwdXVpiNtSHJdj5QfMd+ZhIiUGSrOtmX4Iq9Q
+	KXH9YdzcAu4it1LFaS9iz7/WXKA/G3QzWNmSMxDmXey2DkCDZH2qoZDCcnOMvttjkuly6GHCayzwn
+	vRQxdvylQiP0rH3d27FiIt3aBxHD8u29BhVykd3RFSDbSRXJ6WYzQiI7zHcgXxh0uAbJrJtUd4xe+
+	V10Ad8cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsoS-0000000Gkk9-2ZYK;
-	Mon, 02 Nov 2026 14:15:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xNsq4-0000000GlDT-3lug;
+	Mon, 02 Nov 2026 14:16:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsoR-0000000GkiW-2urZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Nov 2026 14:15:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Tq1Dinw97u5EFy5drMhI1ClpCkMeAoB7KpvZ0g2Cdjg=; b=TQH5kuCk/blcebFKF60UdYW9Oz
-	5dwxqI0eka1+yoqq6VKFYAMXflEQ2271DdBfhwhG1S/gBsyx83Qua4l2ftnKDCj5OQo+KmmA//epx
-	vgTiy/bv0kKptpm5NKXRLoM/9DEftRNXMK/feu456oJfKjF9/cFvig5KQQJCeHGQSl1nUSKTX36RB
-	QdirSOJgQKCuCIMjUE47DPtsCZ8jWVPG5ISt3yh2nA9LOieFNbL2cqO8PrwpJybHzzEczIXsTg2qV
-	YZWby/rzc/QG4o5f3d+shXUk+g/3pDvAyPPVsgW0TXv0EZ43fNO21RUILNSxUdl/Kyt9iyu4VRm9V
-	Nfb0ZK8w==;
-Received: from mail-ej1-x645.google.com ([2a00:1450:4864:20::645])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsoE-00000002cIH-1h9J
+	id 1xNsq3-0000000GlDM-3twW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 14:14:57 +0000
-Received: by mail-ej1-x645.google.com with SMTP id a640c23a62f3a-c4322d31021so191642666b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 06:14:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1793628887; x=1794233687; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Tq1Dinw97u5EFy5drMhI1ClpCkMeAoB7KpvZ0g2Cdjg=;
-        b=DfFADJBH0/axBkOueNxGKSxHSZdbYKESRFWys4vf9CKMWXSEW8eUVylgTUpCJ9n8M+
-         +23B8xcLGvF3NUyQ7ghHA0fwH1Awz+qKBUOgXuqRbnUPmhICHouxyauuZqSRKapwfm7W
-         +NudCpv2HwKhaUWpv3pyIX/vlbMXclb74EbwSqjf40/nLbtjIGayKxB3/QNBoeKCGNA9
-         c6mdBs88Ia/P0UDB7Go45Z4aK3egHwk0KuvbOwapXBt1Mo2/0hOlG8duIEuqd95fJehe
-         hgChvcDL31cV9HdjAqpP6x2jf5N/2mcyfbiHXgZZ4AXX/65EPVaSt1X0E9/9Lbl8s35/
-         Hf+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793628887; x=1794233687;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Tq1Dinw97u5EFy5drMhI1ClpCkMeAoB7KpvZ0g2Cdjg=;
-        b=znEQGzmLXmxgLdkZeRpghZe3AIu60LnesacN+nHJzoxvZEoRLJV6SwBKOQehV5PRhS
-         BVypMI106HluT5Hzg0j91Y64YF3x34z059miwq7LbWFuh9dKiKjmzjMd2E1SEzWo9Del
-         lJ0mE7QjuZIsMhqiVQFdRig13BxT7cpAr3CwQ9PGJxboS2HuxZziK4I3E306HgmMiHDa
-         ErKOma0AMHiD9Cz8ycvx/3ez6s9W0C3ZusRgyGwbpXrTzTnsPZH2FaayKipLef0EJL2u
-         T/Yaz6D7sohvX0PqypBp1A7kPdU9O5HERp/jLTAliZP+f6oyafIDHdnI4kolD9fehg+1
-         4Zsw==
-X-Forwarded-Encrypted: i=1; AKwUvByK/iYy42fJux8NHjR68ZbKB2gKrtgQzNxchEJwSprKT+cSQ4PyMpLp9uVZIwx+3NGpSl/ie26EIYKdYNay8RqN@lists.infradead.org
-X-Gm-Message-State: APuU4Z9HrR8LaSF5/KisESRFIWyknENJEhZq2V1i4b9i9TgzL7T81C7l
-	cg1bFWd3Nr7fMbKEboDgAUoiArJav6OzJATZHiIgqi0DGsUkt7P2vw31tpvvyWQ9Iul6i6g9W0w
-	eCRxCoxhOl3hF/AewwKb7ElUtww==
-X-Received: from edgd16-n1.prod.google.com ([2002:a05:6402:a510:10b0:6b1:b88a:bd11])
- (user=snehalreddy job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6402:5683:b0:6ae:550e:59e2 with SMTP id 4fb4d7f45d1cf-6b4d5ee26a2mr5205769a12.35.1793628887174;
- Mon, 02 Nov 2026 06:14:47 -0800 (PST)
-Date: Mon,  2 Nov 2026 14:14:43 +0000
-In-Reply-To: <20261102141444.1830221-1-snehalreddy@google.com>
+	Mon, 02 Nov 2026 14:16:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 658134386B;
+	Mon,  2 Nov 2026 14:16:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 473361F00A18;
+	Mon,  2 Nov 2026 14:16:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793629003;
+	bh=PAuzFOuclOSMC3fnm+jBEciQlj+SqOgZ/K1w8865E7Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=WewyZlvLd/tRB9W7Op0jcHwzO/nJrik6O/1bDl/hIi4CsBwgeAkNHKATizUZsplzK
+	 VlS8xH4qbw1szzCBVN6octtHmG4g3XelmIz07mRt2Z4Pdzrdc0V1By/Mh/QEgLEDUv
+	 dExjixtKNxEt1zlgnC3zuHvUF8trtUstZ9/mp08G7452k4jYtNlxEjmIc9nQ/K8UAv
+	 3wskhVB+0LxmRntj4hvbRe7szA6Rbxuk6FajrLwerPlQjqpr9EFyjQJ+5wX5wUMA2K
+	 PcbawXfU/YwBlWvH52fIknOnFT4LieJILxnQNgGH1/EnmtpEVJfvYkUgyU79wEDuk4
+	 44JtCx1V9i3YA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xNsq0-00000009sib-3jtI;
+	Mon, 02 Nov 2026 14:16:40 +0000
+Date: Mon, 02 Nov 2026 14:16:40 +0000
+Message-ID: <86ecd32u9j.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: Don't livelock when AT can't resolve a fault IPA
+In-Reply-To: <20261102094748.2638468-2-ardb+git@google.com>
+References: <20261102094748.2638468-2-ardb+git@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-References: <20261102141444.1830221-1-snehalreddy@google.com>
-X-Mailer: git-send-email 2.56.0.317.g454f8302e1-goog
-Message-ID: <20261102141444.1830221-2-snehalreddy@google.com>
-Subject: [PATCH v3 1/2] firmware: arm_ffa: Add FFA_MEM_RECLAIM2 function ID
-From: Snehal Koukuntla <snehalreddy@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Vincent Donnefort <vdonnefort@google.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Sebastian Ene <sebastianene@google.com>, 
-	Mostafa Saleh <smostafa@google.com>, Snehal Koukuntla <snehalreddy@google.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_141455_256282_A105C36F 
-X-CRM114-Status: GOOD (  12.62  )
-X-Spam-Score: -7.6 (-------)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ardb+git@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, ardb@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,48 +86,72 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-26.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT,
-	USER_IN_DEF_DKIM_WL autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-FF-A v1.3 BET0 (DEN0140 rev K) introduces the optional FFA_MEM_RECLAIM2
-(0xC4000091) ABI, which enables an Owner to reclaim exclusive access to
-a subset of pages of a memory region without requiring the Relayer to
-maintain intermediate transaction state.
+On Mon, 02 Nov 2026 09:47:49 +0000,
+Ard Biesheuvel <ardb+git@google.com> wrote:
+> 
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> When a stage-2 permission fault doesn't report its IPA in HPFAR_EL2,
+> __get_fault_info() recovers it with an AT S1E1R/S1E1A on FAR_EL2. If that
+> fails, kvm_hyp_handle_memory_fault() goes straight back to the guest, on
+> the assumption that the replayed access will either succeed or take a
+> fault that the slow path can handle.
+> 
+> That assumption doesn't hold when the AT fails because its stage-1 walk
+> takes a stage-2 fault on one of the guest's page-table pages, while the
+> guest still holds a cached translation for the faulting VA. The guest
+> doesn't walk its page tables, so it never takes the S1PTW fault that
+> would let the slow path fix things up. It takes the same permission fault
+> again, the AT fails again, and the vCPU livelocks in the world switch.
 
-Add the FFA_MEM_RECLAIM2 function ID definition to arm_ffa.h.
+That's because the TLBs tend to cache VA->PA, while ATS1R is after the
+IPA.  So you get the permission fault from the TLB, and the access
+fault from AT. Rinse, repeat.
 
-Link: https://support.arm.com/documentation/den0140/k
-Signed-off-by: Snehal Koukuntla <snehalreddy@google.com>
----
-Changes in v3:
-- Drop RFC tag and update specification reference to FF-A v1.3 BET0
-  (DEN0140 rev K)
+Amazing find, really. This code has been in this exact shape for 13
+years, and it took that long to notice the issue.
 
-Changes in v2:
-- Rename FFA_FN64_MEM_RECLAIM2 to FFA_MEM_RECLAIM2, following the
-  existing convention for 64-bit-only ABIs (sashiko)
+[...]
 
- include/linux/arm_ffa.h | 1 +
- 1 file changed, 1 insertion(+)
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> index e0c55644224c..4ba61b71d511 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> @@ -843,8 +843,21 @@ static inline bool kvm_hyp_handle_cp15_32(struct kvm_vcpu *vcpu, u64 *exit_code)
+>  static inline bool kvm_hyp_handle_memory_fault(struct kvm_vcpu *vcpu,
+>  					       u64 *exit_code)
+>  {
+> -	if (!__populate_fault_info(vcpu))
+> +	if (!__populate_fault_info(vcpu)) {
+> +		/*
+> +		 * The AT couldn't resolve the IPA, typically because its
+> +		 * stage-1 walk took a stage-2 fault, such as an Access flag
+> +		 * fault on an aged page-table page. If the guest still has a
+> +		 * cached translation for the VA, it won't take that fault
+> +		 * itself, and would replay the same permission fault forever.
+> +		 * Drop this VMID's TLB entries on this CPU, so that the replay
+> +		 * walks the page tables and faults with a valid HPFAR_EL2.
+> +		 */
+> +		__tlbi(vmalls12e1);
 
-diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-index e71d83ee0aef..85c2e490a387 100644
---- a/include/linux/arm_ffa.h
-+++ b/include/linux/arm_ffa.h
-@@ -78,6 +78,7 @@
- #define FFA_EL3_INTR_HANDLE		FFA_SMC_32(0x8C)
- #define FFA_MSG_SEND_DIRECT_REQ2	FFA_SMC_64(0x8D)
- #define FFA_MSG_SEND_DIRECT_RESP2	FFA_SMC_64(0x8E)
-+#define FFA_MEM_RECLAIM2		FFA_SMC_64(0x91)
- 
- /*
-  * For some calls it is necessary to use SMC64 to pass or return 64-bit values.
+As I was saying in my response to Will, I reckon this could be made
+more focused on the faulting VA. Something like:
+
+	__tlbi(vae1, read_sysreg_el2(SYS_FAR));
+
+If you respin, a Cc: stable would be appreciated.
+
+Thanks,
+
+	M.
+
 -- 
-2.56.0.317.g454f8302e1-goog
-
+Without deviation from the norm, progress is not possible.
 
