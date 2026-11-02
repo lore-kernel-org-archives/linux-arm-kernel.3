@@ -2,91 +2,132 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A424D606B1DA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:34:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BF84606A58C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:39:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=c0EkxhEL;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OrR46o0z
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xVOIfZ4k;
+	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=jrsDzUSF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=mnbEcy9yAD6phXCBWi7ToEYZPml/PD9q0TObYO3iXg0=; b=c0EkxhELVGmABk
-	xwIF5iHyWECxbRXMM/o6ydnzL7S/mLIbilUKX/m4wEpaVMFoxdS9ybo7TY5IFEUQdLeb7mK3fI512
-	jKIPpKf8Cy/BOsai+HprqaGd833QK7wVwrzzu2FLkYONbN/hfCns9TghNC7iYnx+gTk4q7L7v3LfD
-	4JdXFMYZuPk9HqbLaDnUHFZ746/mwk2lu3OuVwr92w3Ih1E5k24cRbxvTOkCnz+5UyPdCTuboE/pe
-	wKQ1K/Z0Fy9ayiGx/4QIMQl2cQbDDQp2ntkteDrWrTbmEOTK5auaQCvotf3Nv8d4mYVqHojRcTyO9
-	l5jd9vu+QFTGI9/czhqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=t3uMzKFF0fpXKNPzeuZqcP8SHbCjBILits3drrR5UAs=; b=xVOIfZ4k2Gkj8i77J9BAv1ptY9
+	HSO0NNg7lWrXRcIBZHTj6KJXwYyNH7vGeKEEu3sTfkGv7NdpL/qpu/45y7QANkG/CIRjqUz4Ihcor
+	70CfpWQiv36H1Xm+uTSVonYoXvMJCUimXOh1Fj0ihGbwg/h5DbCF/NbS3wV3UtDSKUoAQAI4tSovK
+	2g4rD1kaevP9Pnej2s6raXZS12hBaNwI90q2OthjqOfhsjih1SRQXBS/dBSvcrxQhe0nnEjLgMPE7
+	nXJYnZW1UM18owzYAJidrdEE9IXwegm+iWnor7uUr62egE6e2dL9jJftigVGwjyIBnXOQ+HtQvpTY
+	Oi1HESkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNt7C-0000000Gqiu-0TrN;
-	Mon, 02 Nov 2026 14:34:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNt78-0000000GqiI-3cnF
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 14:34:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7C1CD1576;
-	Mon,  2 Nov 2026 06:34:16 -0800 (PST)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3F42D3F59E;
-	Mon,  2 Nov 2026 06:34:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793630059; bh=sSMXuhaToN1bbAGIonxsHXOHufl/pcpSiAvNaSVjj+o=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OrR46o0zexxiwk2zJWR5KHZn9xMWBWhTC1MviO+EetdzupvPVTzTZsZ4QeJxUM3+L
-	 XJ3Rvwgg9U7dRNVQm62aibAmTq/cDOGknoI2kI+vuyt/LJ4BLAFCf3NvpYpeOAekuo
-	 u7A3xYfqid7T5oZMMXLVocyyLHQU439ZM9ugRbeM=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Tian Zheng <zhengtian10@huawei.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	maz@kernel.org,
-	oupton@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
-	pbonzini@redhat.com,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	yangjinqian1@huawei.com,
-	caijian11@h-partners.com,
-	liuyonglong@huawei.com,
-	tangchengchang@huawei.com,
-	yezhenyu2@huawei.com,
-	yubihong@huawei.com,
-	linuxarm@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	fuad.tabba@linux.dev,
-	mark.rutland@arm.com,
-	seanjc@google.com,
-	rdunlap@infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	skhan@linuxfoundation.org
-Subject: Re: [PATCH v5 09/15] KVM: arm64: Handle HDBSS faults
-Date: Mon,  2 Nov 2026 14:34:03 +0000
-Message-ID: <auifWrY1u72afXfJ@LeoBrasDK>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20260929103655.85107-10-zhengtian10@huawei.com>
-References: <20260929103655.85107-1-zhengtian10@huawei.com> <20260929103655.85107-10-zhengtian10@huawei.com>
+	id 1xNtBi-0000000Gr8F-2gqT;
+	Mon, 02 Nov 2026 14:39:06 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNtBf-0000000Gr7I-1t1r;
+	Mon, 02 Nov 2026 14:39:05 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A2EEEvg3103442;
+	Mon, 2 Nov 2026 14:38:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=t3uMzKFF0fpXKNPzeuZqcP8SHbCjBI
+	Lits3drrR5UAs=; b=jrsDzUSF/OggKdN81wWhb4EQ3nK8LML9mgaSnR8qAY70jz
+	0DbJXtS4PJuv8PQiLy7abs+fG7sndfj6ShOJulStFvMaB4jzVmChtTE0sAet0Vm3
+	A1+30vWOdajDQi0XubC1JRA8+Z0IFqBUkwIt3tZHqrS7135+dwCfgEZ9oFFGPewC
+	l25ok0YfFnDEr9VN3wS8SYboK6sKCmQ6lfAwbRcX9ljp4AV5DyeSlhrCxiJoEWty
+	Y1DzMBTvPDR+g06pwD9FhYxvyUDi1W8x+t9hc8THVHlowf7A2mNVTcdtd7GnSpo3
+	aFq1FAonyVk3KK0s0pDgB8L2nMIRTSxdOjGsR3jA==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4hn826h1td-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 02 Nov 2026 14:38:33 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6A2E5w6Q1034496;
+	Mon, 2 Nov 2026 14:38:32 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4hnu1vebv3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 02 Nov 2026 14:38:32 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6A2EcS5845613524
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 2 Nov 2026 14:38:28 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A89912004D;
+	Mon,  2 Nov 2026 14:38:28 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0A5D02004E;
+	Mon,  2 Nov 2026 14:38:22 +0000 (GMT)
+Received: from li-fbf77acc-29ba-11b2-a85c-e8e934f50a46.ibm.com (unknown [9.39.25.78])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon,  2 Nov 2026 14:38:21 +0000 (GMT)
+Date: Mon, 2 Nov 2026 20:08:19 +0530
+From: Gautam Menghani <gautam@linux.ibm.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+        Huacai Chen <chenhuacai@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Paolo Bonzini <pbonzini@redhat.com>, Fuad Tabba <fuad.tabba@linux.dev>,
+        Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>, Nicholas Piggin <npiggin@gmail.com>,
+        Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        kvm@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Stefan Teodorescu <fane@google.com>
+Subject: Re: [PATCH 3/7] KVM: PPC: Explicitly force IPIs when directly
+ kicking vCPUs
+Message-ID: <auiZYdVzhFbnj0iy@li-fbf77acc-29ba-11b2-a85c-e8e934f50a46.ibm.com>
+References: <20261028190259.1819571-1-seanjc@google.com>
+ <20261028190259.1819571-4-seanjc@google.com>
+ <auStM0rbFol79h5o@li-fbf77acc-29ba-11b2-a85c-e8e934f50a46.ibm.com>
+ <auTohixp3V5-vNsB@google.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <auTohixp3V5-vNsB@google.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: MVuzkhZ7vtCvo0_kidGaNnCzUH4z2Q5t
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAyMDA1NiBTYWx0ZWRfX9NPC/owi16S7
+ 9yPcxDuxCXAVRis8gROnpHUQtX1lgGRd8hAKUnleFK3QWlX1SdAjhFR8oEvK54MRQDdismPxh+K
+ SQ8loUK3UQRzfSLpS9uRj+aWjubkYTlbIquMNg8PhpfWVJkZ76O3xxEXr80qfN6IOD19XJfjKtr
+ 634hKk5awadYPmt24Ux7BsSNM3cqVRZujAolWeljDDPrwops7bov/t92bCk4p83QwKy6YXStSnl
+ 0VsEIPP7bIE5T7r4zJSL0tKzTIgSYx+WFY3Qwo3DYgWTx5sTM9UVeBsh0rxrl31K1IM0pQFj1A7
+ gw+VtvRxiUYjK/87Jg4SStypE42sXR/2o22pNseu+/r/yDHR8uGSsjBtiHv4st3RTmohj8hx7JP
+ UCE4D1U1IEi/wr/eFIXPrL9wTCpxRXnB0VIgaijskvnY1QOUMWWKwaAo3sk8IykSUxckF0V1iQL
+ y3XMeya+tQcv90pkeiQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAyMDA1NiBTYWx0ZWRfX/Jv0f66eb8FC
+ gBsCZTcz1I/pV05gMEXUAwMes48ABsD2pbDotd5Qxpz6XqvBunVHHDSaqleBJACDat+c8lSkusL
+ mmZ2c5c7i5Q1tgycd0AKgoXZ+Q680vQ=
+X-Proofpoint-GUID: 3_YY6ZYXsy9uBgG-NjaOA9L9V7gYRG4x
+X-Authority-Analysis: v=2.4 cv=EsJHPicA c=1 sm=1 tr=0 ts=6ae8a06a cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8
+ a=1XWaLZrsAAAA:8 a=VnNF1IyMAAAA:8 a=duh_M4KPJp97uAtK-N0A:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-02_04,2026-11-02_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 clxscore=1015 lowpriorityscore=0 malwarescore=0
+ priorityscore=1501 adultscore=0 impostorscore=0 phishscore=0 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610300000
+ definitions=main-2611020056
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_063423_098480_217B072D 
-X-CRM114-Status: GOOD (  23.78  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261102_063903_494433_D26AA3D3 
+X-CRM114-Status: GOOD (  31.19  )
+X-Spam-Score: -2.6 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,135 +138,77 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Sep 29, 2026 at 06:36:49PM +0800, Tian Zheng wrote:
-> From: Eillon <yezhenyu2@huawei.com>
+On Fri, Oct 30, 2026 at 11:57:10AM -0700, Sean Christopherson wrote:
+> On Fri, Oct 30, 2026, Gautam Menghani wrote:
+> > On Wed, Oct 28, 2026 at 12:02:55PM -0700, Sean Christopherson wrote:
+> > > Explicitly force an IPI when invoking kvm_vcpu_kick() directly instead of
+> > > relying on kvm_arch_vcpu_should_kick() to unconditionally return 1/true.
+> > > This will allow dropping kvm_arch_vcpu_should_kick() in favor of
+> > > kvm_request_needs_ipi().
+> > > 
+> > > No functional change intended (1 || 1 == true).
+> > > 
+> > > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> > > ---
+> > >  arch/powerpc/include/asm/kvm_ppc.h | 13 ++++++++++++-
+> > >  arch/powerpc/kvm/book3s.c          |  4 ++--
+> > >  arch/powerpc/kvm/book3s_pr.c       |  2 +-
+> > >  arch/powerpc/kvm/booke.c           |  6 +++---
+> > >  arch/powerpc/kvm/e500_emulate.c    |  2 +-
+> > >  arch/powerpc/kvm/powerpc.c         |  2 +-
+> > >  6 files changed, 20 insertions(+), 9 deletions(-)
+> > > 
+> > > diff --git a/arch/powerpc/include/asm/kvm_ppc.h b/arch/powerpc/include/asm/kvm_ppc.h
+> > > index 169ea6a7fbad..bbe7378ad0ef 100644
+> > > --- a/arch/powerpc/include/asm/kvm_ppc.h
+> > > +++ b/arch/powerpc/include/asm/kvm_ppc.h
+> > > @@ -30,6 +30,17 @@
+> > >  #endif
+> > >  #include <asm/inst.h>
+> > >  
+> > > +/*
+> > > + * TODO: For unknown reasons, KVM PPC has historically ignored vcpu->mode when
+> > > + *       determining if kicking a vCPU needs an IPI.  Either document why that
+> > > + *       behavior is necessary, or drop this helper and the @force param from
+> > > + *       __kvm_vcpu_kick().
+> > > + */
+> > > +static inline void kvmppc_vcpu_kick(struct kvm_vcpu *vcpu)
+> > > +{
+> > > +	__kvm_vcpu_kick(vcpu, false, true);
+> > > +}
+> > > +
+> > 
+> > AFAICS, there is no reason for PPC to always return 1. I was looking at
+> > the old patches on mailing list and found this - https://lore.kernel.org/kvm/0FEE585F-5E21-47F2-A3F0-AD0DE05EBB43@suse.de
+> > 
+> > ```
+> > How about we return 1 for kvm_arch_vcpu_in_guest_mode() on !x86 always, just
+> > like it's done today basically? Then we can worry about needless IPIs later
+> > and don't regress from the respective current kick implementations.
+> > ```
 > 
-> Once the buffer is full, hardware stops promoting writable-clean
-> descriptors and raises a stage-2 Permission fault with
-> ESR_EL2.ISS2.HDBSSF instead. Failed HDBSS accesses, such as external
-> aborts and granule protection faults, are reported the same way.
+> FWIW, I found that as well, but there are a metric ton of kvm_vcpu_kick() calls
+> that have been added since then, and they scared me.
 > 
-> Dispatch from kvm_handle_guest_abort() via the new esr_iss2_is_hdbssf()
-> helper. FSC == OK means the exit path already flushed, so resume the
-> guest; any other FSC is an error - clear it and report -EFAULT.
+> > However, I'll do some testing and get back by mid next week to make sure
+> > there are no suprises.
 > 
-> Signed-off-by: Eillon <yezhenyu2@huawei.com>
-> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
-> ---
->  arch/arm64/include/asm/esr.h           |  5 +++++
->  arch/arm64/include/asm/kvm_dirty_bit.h |  1 +
->  arch/arm64/kvm/dirty_bit.c             | 29 ++++++++++++++++++++++++++
->  arch/arm64/kvm/mmu.c                   |  4 ++++
->  4 files changed, 39 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-> index f816f5d77f1a..4b3ccd407faa 100644
-> --- a/arch/arm64/include/asm/esr.h
-> +++ b/arch/arm64/include/asm/esr.h
-> @@ -437,6 +437,11 @@
->  #ifndef __ASSEMBLER__
->  #include <asm/types.h>
-> 
-> +static inline bool esr_iss2_is_hdbssf(unsigned long esr)
-> +{
-> +	return !!(ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF);
-> +}
-> +
->  static inline unsigned long esr_brk_comment(unsigned long esr)
->  {
->  	return esr & ESR_ELx_BRK64_ISS_COMMENT_MASK;
-> diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
-> index d828e6b43fe9..eb2039820777 100644
-> --- a/arch/arm64/include/asm/kvm_dirty_bit.h
-> +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
-> @@ -39,5 +39,6 @@ static inline bool vcpu_hdbss_enabled(struct kvm_vcpu *vcpu)
->  int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu);
->  void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
->  void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
-> +int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu);
-> 
->  #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
-> diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
-> index be0d12555c84..893a8c4248bc 100644
-> --- a/arch/arm64/kvm/dirty_bit.c
-> +++ b/arch/arm64/kvm/dirty_bit.c
-> @@ -98,3 +98,32 @@ void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu)
->  	vcpu->arch.hdbss.hdbssprod_el2 = prod;
->  	isb();
->  }
-> +
-> +int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu)
-> +{
-> +	u64 prod;
-> +	u64 fsc;
-> +
-> +	if (WARN_ON_ONCE(!system_supports_hdbss()))
-> +		return -EFAULT;
-> +
-> +	if (WARN_ON_ONCE(!vcpu_hdbss_enabled(vcpu)))
-> +		return -EFAULT;
-> +
-> +	prod = read_sysreg_s(SYS_HDBSSPROD_EL2);
-> +	fsc = FIELD_GET(HDBSSPROD_EL2_FSC_MASK, prod);
-> +
-> +	if (fsc == HDBSSPROD_EL2_FSC_OK)
-> +		/* Buffer full: the exit path drained it before handle_exit. */
-> +		return 1;
-> +
-> +	if (fsc != HDBSSPROD_EL2_FSC_ExternalAbort &&
-> +	    fsc != HDBSSPROD_EL2_FSC_GPF)
-> +		WARN_ONCE(1,
-> +			  "Unexpected HDBSS fault type, FSC: 0x%llx (prod=0x%llx, vcpu=%d)\n",
-> +			  fsc, prod, vcpu->vcpu_id);
+> Thanks!  If we can drop the PPC behavior, that would be wonderful!  Though if
+> we do that, it should be for 7.5 in a follow-up (this series really should go
+> into 7.4 due to the SNP issue).
 
-Any reason for using if() before warn_once, given the first parameter is a 
-condition? I mean, why not use, instead:
 
-+	WARN_ONCE(fsc != HDBSSPROD_EL2_FSC_ExternalAbort &&
-+		  fsc != HDBSSPROD_EL2_FSC_GPF,
-+		  "Unexpected HDBSS fault type, FSC: 0x%llx (prod=0x%llx, vcpu=%d)\n",
-+		  fsc, prod, vcpu->vcpu_id);
+Yeah I looked into it and realized that the newer variants of KVM on PPC
+are not even using vcpu->mode at all. So that has to be fixed from our
+end.
 
-> +
-> +	/* Clear FSC so hardware dirty state updates can resume. */
-> +	write_sysreg_s(prod & ~HDBSSPROD_EL2_FSC_MASK, SYS_HDBSSPROD_EL2);
-> +	return -EFAULT;
-> +}
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 85a98d2c23a9..7bf82d65041c 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -15,6 +15,7 @@
->  #include <asm/pgalloc.h>
->  #include <asm/cacheflush.h>
->  #include <asm/kvm_arm.h>
-> +#include <asm/kvm_dirty_bit.h>
->  #include <asm/kvm_mmu.h>
->  #include <asm/kvm_pgtable.h>
->  #include <asm/kvm_pkvm.h>
-> @@ -2315,6 +2316,9 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
-> 
->  	is_iabt = kvm_vcpu_trap_is_iabt(vcpu);
-> 
-> +	if (esr_iss2_is_hdbssf(esr))
-> +		return kvm_handle_hdbss_fault(vcpu);
-> +
->  	if (esr_fsc_is_translation_fault(esr)) {
->  		/* Beyond sanitised PARange (which is the IPA limit) */
->  		if (fault_ipa >= BIT_ULL(get_kvm_ipa_limit())) {
-
-I did not get the criteria used to positioning it here:
-Why placed before is_abt, if not using the result before returning?
-What is the rationale to putting it here?
-
-Thanks!
-Leo 
+For this series,
+Reviewed-by: Gautam Menghani <gautam@linux.ibm.com> # PPC
 
