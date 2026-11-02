@@ -2,74 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FDCA606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:02:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32A3E606A32D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:09:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OMrNbj2Z;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=diI04PxX
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eYyIAnX0;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Or6+I7EF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=rrDt8/qG+jvKZq+V2MNsQBcgRe5gnhLdJ83DrJanIU0=; b=OMrNbj2Zwu++NP
-	iggZEey8ThmyATTApn8cfkCZ1LLyBaDJooOc6TtZVqA8F+ykNXVxf6f2GylVrzdEs2n6SWO7eHhpN
-	KwsSc3sDNsFAycjeYeThwjc0MDPsHGbngpB1rtaYLxfNJSPyj4KtmGW5ifO553bdfz49DvgQsLsrc
-	hRzmMxsr7qqUJuZiBXPbbZkeXUbmK/uxAPeQgqadeJ32KVXXF8/HaVWqvPofQZSKWVnDosZygwPnG
-	ZkBLHly/arKhUBOxHEAqAAdv+o9q+ZDtlfGiwwejzGdpawntmocO74G1CMS+owkO0uehlFFk0wE21
-	m8ONptkYxdsH8sQBglow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=CZoEVf6F8YCU84CWatPj9epyRoPyWPQUR01ARmr0ePM=; b=eYyIAnX032Ux4HJtBnK09UTCHD
+	e1S2WSO73zQgG8JG3s1lvfOOGoFPCA9ayb+AY41OgwcCE4fnEDM1e4mUlXzzRDzShwOHlnyM+9o2f
+	x84PLmPKDLy9jxCSz6/n+n4PR486JlSfvfkw60opvLNNBWQZG18jvTNcvgZK/DBrqkwo56BUO1sTn
+	LzkSjpVdkB5VwmDYM1GAsElE6oqic4AOV5/NPwAk0rxZjKZ7abtoWaN5FNzbqcVaSROpS8OHfSdw2
+	/ZRRx97T7eMS7Vh5fuNq7OEBTFOOYWxS3AgDVh/GGiduPMcvBBD1o3vHpS1dJiccgUqE1lzOfUDEl
+	d+XxqdaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNscJ-0000000GhnI-08au;
-	Mon, 02 Nov 2026 14:02:31 +0000
-Received: from out-212.mta1.migadu.com ([2001:41d0:203:375::d4] helo=mta1.migadu.com)
+	id 1xNsj4-0000000Gj7C-0ckk;
+	Mon, 02 Nov 2026 14:09:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNscE-0000000GhkO-1eeL
+	id 1xNsj2-0000000Gj75-1pDd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 14:02:29 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=+GKTSizLrrZQBsZt056y5c/KPEn+gWcclfGVamWBXAE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793628142; v=1; x=1794232942;
- b=diI04PxXwN1bLWx1nMktOW2LeCn+YIgEwUt2DkT3/JN4sWWuaGYkfWWEWYuAAZsvFENMJcmA
- B9qO3Yf5OlGidKY+VkftWe7g0rZWcqXw4OiZTME6aDAfAaut2SOH8zaQt6bvw8EPil8xbkaGAYx
- Kbr4JZUPTAF8cR26/HzXTLg0=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 308c65e25e6731cd;
-	Mon, 02 Nov 2026 14:02:14 +0000
-X-Mizu-Trace-ID: 308c65e25e6731cd
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <5782a7a2-3fb4-4d74-aae9-e1ff0d0d4393@linux.dev>
-Date: Mon, 2 Nov 2026 14:02:13 +0000
+	Mon, 02 Nov 2026 14:09:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 354C1421F2;
+	Mon,  2 Nov 2026 14:09:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 151A41F00A16;
+	Mon,  2 Nov 2026 14:09:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793628568;
+	bh=CZoEVf6F8YCU84CWatPj9epyRoPyWPQUR01ARmr0ePM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Or6+I7EFdsKuZBQJXq9kNEm+ElOS/QCA1+vNT24vSXNWQw82ZplS9esCoI1O9PXNO
+	 kd5WYCxtllLVTJDuL5gSxeQwg3Js2onA3eTwO0oYF7i9tOxzw+3S3MLbTsfpezUtI+
+	 YVbvQBnacOYM4C9ZkzKhqi+SU3lFHlATPMzBuC7Soq1Tz6BIBUf6xmyQcBIQHY/Xm9
+	 u4fbL33PYo/gpsQwX8/FC4WZ4bEnZI66OwrG2oOH8HvD5Eek3mjOToij/lLQ0invVn
+	 d4ZU6gB0NMSwBjzzS70ZDAv3dvL4Q76aFXtgaSdFp93WOZihJlzusgFp2AGcC3cLyh
+	 M1H1YU9Mm6aGQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xNsiz-00000009sMz-3ARh;
+	Mon, 02 Nov 2026 14:09:25 +0000
+Date: Mon, 02 Nov 2026 14:09:25 +0000
+Message-ID: <86fqxj2ulm.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Ard Biesheuvel <ardb+git@google.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: Don't livelock when AT can't resolve a fault IPA
+In-Reply-To: <auiXMN5td-2QlDkd@willie-the-truck>
+References: <20261102094748.2638468-2-ardb+git@google.com>
+	<auiXMN5td-2QlDkd@willie-the-truck>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 12/14] drm/tidss: Add support for AM62P display
- subsystem
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
- Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
- Swamil Jain <s-jain1@ti.com>, Devarsh Thakkar <devarsht@ti.com>,
- Louis Chauvet <louis.chauvet@bootlin.com>
-Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20261029-beagley-ai-display-v4-0-dc7f2b532478@ideasonboard.com>
- <20261029-beagley-ai-display-v4-12-dc7f2b532478@ideasonboard.com>
-Content-Language: en-US
-From: Aradhya Bhatia <aradhya.bhatia@linux.dev>
-In-Reply-To: <20261029-beagley-ai-display-v4-12-dc7f2b532478@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_060226_586561_11A02629 
-X-CRM114-Status: GOOD (  19.88  )
-X-Spam-Score: -2.1 (--)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, ardb+git@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, ardb@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,76 +88,60 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Tomi,
-
-On 29/10/26 10:18, Tomi Valkeinen wrote:
-> From: Swamil Jain <s-jain1@ti.com>
+On Mon, 02 Nov 2026 13:59:12 +0000,
+Will Deacon <will@kernel.org> wrote:
 > 
-> The DSS controller on TI's AM62P SoC features two instances of the TI
-> DSS. Each DSS instance supports two video ports, similar to the DSS
-> controller found on the TI AM62X SoC. This allows three independent
-> video streams to be supported: OLDI, DPI, and DSI.
+> On Mon, Nov 02, 2026 at 10:47:49AM +0100, Ard Biesheuvel wrote:
+> > From: Ard Biesheuvel <ardb@kernel.org>
+
+[...]
+
+> > diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> > index e0c55644224c..4ba61b71d511 100644
+> > --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> > +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> > @@ -843,8 +843,21 @@ static inline bool kvm_hyp_handle_cp15_32(struct kvm_vcpu *vcpu, u64 *exit_code)
+> >  static inline bool kvm_hyp_handle_memory_fault(struct kvm_vcpu *vcpu,
+> >  					       u64 *exit_code)
+> >  {
+> > -	if (!__populate_fault_info(vcpu))
+> > +	if (!__populate_fault_info(vcpu)) {
 > 
-> Since the DSS instances on AM62P are architecturally similar to those
-> on the AM62X DSS controller, the existing dispc_am625_feats
-> configuration can be reused for the AM62P DSS support.
+> Presumably we need a barrier (DSB?) here, to ensure that the TLBI happens
+> after the AT instruction?
+>
+> > +		/*
+> > +		 * The AT couldn't resolve the IPA, typically because its
+> > +		 * stage-1 walk took a stage-2 fault, such as an Access flag
+> > +		 * fault on an aged page-table page. If the guest still has a
+> > +		 * cached translation for the VA, it won't take that fault
+> > +		 * itself, and would replay the same permission fault forever.
+> > +		 * Drop this VMID's TLB entries on this CPU, so that the replay
+> > +		 * walks the page tables and faults with a valid HPFAR_EL2.
+> > +		 */
+> > +		__tlbi(vmalls12e1);
 > 
-> This commit adds the necessary device tree compatibility entry for
-> "ti,am62p-dss" in the tidss driver, pointing to dispc_am625_feats,
-> thereby enabling DSS support on AM62P devices.
-> 
-> Signed-off-by: Swamil Jain <s-jain1@ti.com>
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> Can we get away with an ALLE1 here, or do we really need to blow away the
+> whole lot?
 
-Reviewed-by: Aradhya Bhatia <aradhya.bhatia@linux.dev>
+ALLE1 blows EL1 translations for all VMIDs, while VMALLS12E1 is
+localised to this VMID. Feels like the latter is the least invasive
+option.
 
-> ---
->  drivers/gpu/drm/tidss/tidss_drv.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/gpu/drm/tidss/tidss_drv.c b/drivers/gpu/drm/tidss/tidss_drv.c
-> index 44b0b009c29a..8e3cbfb5ef87 100644
-> --- a/drivers/gpu/drm/tidss/tidss_drv.c
-> +++ b/drivers/gpu/drm/tidss/tidss_drv.c
-> @@ -240,6 +240,7 @@ static const struct of_device_id tidss_of_table[] = {
->  	{ .compatible = "ti,am625-dss", .data = &dispc_am625_feats, },
->  	{ .compatible = "ti,am62a7-dss", .data = &dispc_am62a7_feats, },
+Alternatively, VMALLE1 or even VAE1 should be enough to get rid of the
+S1 TLB.
 
-On a separate note,
+Thanks,
 
-Now that `vp_bus_type` support has been dropped, the only thing
-different `dispc_am62a7_feats` has from `dispc_am625_feats` is the
-subrev macro.
+	M.
 
-The DSS in AM62A7 SoC is functionally same with that in AM625 SoC; the
-only difference being the absence of both the OLDI TXes in AM62A7.
-
-The dt-bindings enforce that rule.
-
-The only place subrev DISPC_AM625 is used, and subrev DISPC_AM62A7 is
-not, is for an OLDI reset done log print.
-
-if (dispc->feat->subrev == DISPC_AM625 ||
-    dispc->feat->subrev == DISPC_AM65X)
-	dev_dbg(dispc->dev, "OLDI RESETDONE %d,%d,%d\n",
-		REG_GET(dispc, DSS_SYSSTATUS, GENMASK(5, 5)),
-		REG_GET(dispc, DSS_SYSSTATUS, GENMASK(6, 6)),
-		REG_GET(dispc, DSS_SYSSTATUS, GENMASK(7, 7)));
-
-Should we consider some workaround for this print, so that we can
-entirely drop `dispc_am62a7_feats`?
-
-
---
-Regards
-Aradhya
-
+-- 
+Without deviation from the norm, progress is not possible.
 
