@@ -2,59 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD131607F6FC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:28:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3A2560A2633
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:28:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TQlE38bl;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=QFYBVzxR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1DNosXgZ;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C6U8zPnz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=L38WitxfSqxFzIlzs1i93G62+S2UwcYyS3oEsrBG3S8=; b=TQlE38blfcOSN86+AOtgdh2YhZ
-	bY5Ndf2lN7bP/+xhcLKWxbPrux/2OSGtX7xJRxDTmxuGn6+hNPcnJgH/MGtr4gVAyz3ZN3Gqzmqvh
-	aA4L1NLAsAoQwOeP05SILk7xK0Xbuqh/RXphS6zUk8ZYprrdV8uBc9mLmCl0CYIzpq3lvFeCwo0Ln
-	kZPUNA6maSnJPdbMXbur6uJS+lGE1cJPtSgl1+h8uhbYlIcZZs7zOzkTCqpiKH94WZg+T+yro3/GH
-	tVafWjbjR4+E1WLLS83LyvOk6ZPy+1ieCrkfPrEMDkxD/l+y/cqhryKJxGYhJRLrXcGOfLvAN8klE
-	x460ll5A==;
+	bh=4Cie1gSyrYbMTqRrUQtHSjOhd7eFIgioVLrH28tB3EY=; b=1DNosXgZOa2teR1i/OoPLVnzce
+	nXdncQqExKXV4ZBjXYmPJCMwMZLm7K6nHOjJMjPfrGfQMb/WqGaA5hyKH6i/aqGT/OI/Dm62mIsUX
+	STZqtnF65bV0/5evQoNr9GAFXml2q5G/OpAFO744SwO759qE4zLuduLNNf07AvHddfksJUCSl+DmK
+	VjReSffkyVTcwu2CsBO61tPRBNsLeIUIiNX2Yu+fKof8neIljSWinr8mBT0efKFe2dscHo1fs3gPG
+	+WxqmcQRtoUO1wntrPhq84Z4iJFfI4Wx9pCFe4g3+FMryw+2WZ/z5YXMPPuUCO0prXmjGRNxnRaip
+	eYWMfvKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsc2-0000000GhhZ-3fmS;
-	Mon, 02 Nov 2026 14:02:14 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xNt1G-0000000GpM1-39zB;
+	Mon, 02 Nov 2026 14:28:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsbz-0000000Ghgk-3oV5;
-	Mon, 02 Nov 2026 14:02:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=L38WitxfSqxFzIlzs1i93G62+S2UwcYyS3oEsrBG3S8=; b=QFYBVzxRz9TqhAsSgdZjkgLffM
-	xwiWRe8MKZApYOUWjyQBybEuU0nGiO1sEduE0dumhcyaJT9MUgPk1tIv/klO+J2APdop+ozo62rF2
-	IvuqSmZi8NMzPaiM7rmulpZpiiy2ygSDZjPs2bEpYR2zDJHIqSRJiP9Da3z3h56iULOUO5HySLcnT
-	EOGBKglillPZ7B7jAAHjhBFwnd50YFKd9Hbb9ADpDuABBHQ1nfd8He42qSMSltzh3O/o51+YRhFHj
-	yelLiTfbP8363g7j7/Mx+01/QReNoakEL6KOE4Jzsv3Oc5x++61QcR45C8t3FWLDg1ApQX1nC0Kl3
-	OMLiRYqA==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Yaozhong Li <yaozhonguwl@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, Yaozhong Li <yaozhonguwl@gmail.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: enable SD UHS-I on Firefly-RK3399
-Date: Mon, 02 Nov 2026 15:02:08 +0100
-Message-ID: <11288903.zapYfy813O@diego>
-In-Reply-To: <20261101154407.3949-1-yaozhonguwl@gmail.com>
-References: <20260922055011.14972-1-yaozhonguwl@gmail.com>
- <20261101154407.3949-1-yaozhonguwl@gmail.com>
+	id 1xNt1F-0000000GpLI-3gqa;
+	Mon, 02 Nov 2026 14:28:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8DE154172D;
+	Mon,  2 Nov 2026 14:28:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4374A1F00A18;
+	Mon,  2 Nov 2026 14:28:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793629697;
+	bh=4Cie1gSyrYbMTqRrUQtHSjOhd7eFIgioVLrH28tB3EY=;
+	h=From:To:Cc:Subject:Date;
+	b=C6U8zPnzG6Kk9C0WRXWL/Lt86oVNlsaKN09RWtD8XeNRWioGGKqy3qwU2Bdzg2H5d
+	 kw+BmHVxewm+dTtZA1nJ7zizeUtamf5oxcGrOBineN25XtKAEObYg+fHTayncrRYic
+	 zRnLoSyqZfQ06x74xzj2+NOwtHcI09h5Rn2YjDrk5QgH6k6IOnOD6E73ePK7WD/Wu2
+	 eBip2dQCqpYBJw5a6PIrHrLCe6en30EOKg0NcG/R61DkYaOtCEmVg0APnYpnYXLUSf
+	 urRggLadORKILDtiwYo1mh/LFjTqbf9hY+HW5v6nKk/j1dFsH8B7+1hMA4iC2XRk/O
+	 FWWpWaY7MzFeg==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jiaxin Yu <jiaxin.yu@mediatek.com>
+Cc: linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] ASoC: dt-bindings: mediatek: Fix MT8186 child node names
+Date: Mon,  2 Nov 2026 08:28:11 -0600
+Message-ID: <20261102142812.2743578-1-robh@kernel.org>
+X-Mailer: git-send-email 2.53.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_060211_968675_A299EDAF 
-X-CRM114-Status: GOOD (  13.01  )
-X-Spam-Score: -2.1 (--)
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,51 +73,52 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
+Use 'playback-codecs' instead of 'speaker-codecs' in the legacy-property
+exclusion for both MT8186 sound card bindings. This appears to be a
+copy-n-paste error as 'playback-codecs' is the name defined by these
+bindings and consumed by the driver.
 
-Am Sonntag, 1. November 2026, 16:44:07 Mitteleurop=C3=A4ische Normalzeit sc=
-hrieb Yaozhong Li:
-> Hi Heiko,
->=20
-> Gentle ping on this one. It still applies cleanly to current mainline.
-> Please let me know if you would like anything changed.
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/sound/mt8186-mt6366-da7219-max98357.yaml           | 2 +-
+ .../devicetree/bindings/sound/mt8186-mt6366-rt1019-rt5682s.yaml | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-to change would be the the commit message, it is way too verbose and
-quite confusing.
-
-Also as can be seen in wifi-module datasheets, they seem to call their
-main supply " VBAT - Main power voltage source input", which is
-vcc3v3_sys on the firefly, so the sdio block should get an appropriate
-vmmc-supply too.
-
-The gist for a commit message as I currently get it would be like:
-
-=3D=3D=3D=3D=3D=3D
-Contrary to the naming, vcc-sdio is actually the io-supply routed to the
-sdmmc controller - as can be seen in the schematics.
-
-The schematics also show the wifi block's VBAT main input source coming
-from VCC3V3_SYS and it's io-supply is the already correct vcc_1v8_s3
-although the datesheet is mixing namings up a bit.
-
-Adapt the supplies for sdmmc0 and sdio accordingly and enable the sdr104
-UHS mode that now becomes possible
-
-With UHS enabled sequential read goes from 22 MB/s to 60 MB/s with a
-64GB SDXC card. WiFi remained associated at 5 GHz, -50 dBm, with no
-kernel errors.
-=3D=3D=3D=3D=3D=3D
-
-includes adding the correct sdio vmmc-supply.
-
-Heiko
-
+diff --git a/Documentation/devicetree/bindings/sound/mt8186-mt6366-da7219-max98357.yaml b/Documentation/devicetree/bindings/sound/mt8186-mt6366-da7219-max98357.yaml
+index 037f21443ad1..922dfdf55a66 100644
+--- a/Documentation/devicetree/bindings/sound/mt8186-mt6366-da7219-max98357.yaml
++++ b/Documentation/devicetree/bindings/sound/mt8186-mt6366-da7219-max98357.yaml
+@@ -145,7 +145,7 @@ if:
+ then:
+   properties:
+     headset-codec: false
+-    speaker-codecs: false
++    playback-codecs: false
+ 
+ examples:
+   - |
+diff --git a/Documentation/devicetree/bindings/sound/mt8186-mt6366-rt1019-rt5682s.yaml b/Documentation/devicetree/bindings/sound/mt8186-mt6366-rt1019-rt5682s.yaml
+index ed93f18ef985..ddc7a0ce69be 100644
+--- a/Documentation/devicetree/bindings/sound/mt8186-mt6366-rt1019-rt5682s.yaml
++++ b/Documentation/devicetree/bindings/sound/mt8186-mt6366-rt1019-rt5682s.yaml
+@@ -144,7 +144,7 @@ if:
+ then:
+   properties:
+     headset-codec: false
+-    speaker-codecs: false
++    playback-codecs: false
+ 
+ examples:
+   - |
+-- 
+2.53.0
 
 
