@@ -2,70 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28D41606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 17:03:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A294606D80D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 17:03:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zPgNaZIW;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n5NEqPng
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0cLZywWL;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SzUQxUeC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=XniwFWmdWJJxTKlBX3jUY4ryliNwdMdnocDo12kQRnA=; b=zPgNaZIWdrtnMzwGEqQsJnJvNr
-	f9EWrPOL6Pd9KDrpau9n5F+17XyRqfQDvTa0WrkglYEt0F4fJmiDo7e26kQs4r01H/eFiYE3qecQp
-	M240VAKwikEm9rKYaQt1SUuRpxYt3e1PVEoVK7Vmz8fKy4KMk2FIji88VZgocBv0d8dG1Zl9hL3YN
-	hVPqSO12fcn926aFcKQnKvhZNwh7QyvTnREnUX1nWfpu+/92II4tmTCZhkq4NSuyouHeHmnDYDVt1
-	DcFxPQS1KFB7NDfeNvmdeahBgvFuT3q/XWdJhb4s9PBNOZQrnKvQBWf6C7gRvqAk3DkQJMHgHqVy2
-	PPvXPJ2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=wo1gkUw2MFaF8a5iqM0r8NH3vtS0k2uzINNVZCVyXw4=; b=0cLZywWLi4NiW5
+	VqQSH63Sg1EH9Ixap/sSdg3hb5NvRX2KL9FW8UWaIsLZPDoxAHfP+Hm8MgOXdrCRqQx59Nxr691Dp
+	Zw8vK5f469FFXQOxOBxKS+wtw/APqjsKc1zubW8U3PdvGy4QNtWPaPLTOFYioDoBoZOGeidkZ0JrT
+	JCBsvKSj0cSBXuTYzM9/N29ZigSttPX3uQ28Eho9w6dfmBeJg9WFc6i7WUYfQ0r3dHpvuC8jQ2yCQ
+	wKGeLcNbWQ++Oryl7j+yFAuoQu/+z7nFDsLunYK5DB0EZbVy/QM0lR1SPyMx1fVNVXtfogFJavl0K
+	aOi/n5Tnw9W9K1hCDVQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOHum-00000003G2o-3C2K;
-	Tue, 03 Nov 2026 17:03:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xOHvB-00000003G7e-3gcj;
+	Tue, 03 Nov 2026 17:03:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOHul-00000003G2O-34RH
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 17:03:15 +0000
+	id 1xOHv9-00000003G6n-0GF2;
+	Tue, 03 Nov 2026 17:03:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 277694368C;
-	Tue,  3 Nov 2026 17:03:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D354A1F000C1;
-	Tue,  3 Nov 2026 17:03:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8572B4106B;
+	Tue,  3 Nov 2026 17:03:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C9051F0093A;
+	Tue,  3 Nov 2026 17:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793725395;
-	bh=XniwFWmdWJJxTKlBX3jUY4ryliNwdMdnocDo12kQRnA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=n5NEqPng3ViSCzXGdS1xqMMiuW9nsrOJq+jQasw2mK1EPAC+gI42YyFFbJFiWm6V7
-	 DgBZ+c1W/VFRIzCeaqA4gYXHf7Og6X6+kuzd9UTGwVXY6hJfadCJec5LnpnO5ANZuO
-	 yCxTUBy9I7NoufAXyvjWWjOTXw6Cql6g9B6SV9BTuWa5twkN2kCUSDYop54lrvpvaA
-	 0cgZVwOUklAlNjQkjzRAfWnKfLtPaJsJPSzqM7feSHWl78prGoYPgFUUDSnZa7gBVE
-	 VMRcGI/OW4vZbCEPaIgaOPOn8u9hL7DrLbL+gmL9zhVECMxg/BEQYFaBIcLwU3OF45
-	 rnlnyXGEzftHA==
-Date: Tue, 3 Nov 2026 09:03:13 -0800
-From: Oliver Upton <oupton@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH 0/3] KVM: arm64: Stop stage-2 teardown scaling with the
- IPA size
-Message-ID: <auoT0b1LxuDlZOnc@kernel.org>
-References: <20261103084742.1302597-1-fuad.tabba@linux.dev>
+	s=k20260515; t=1793725418;
+	bh=wo1gkUw2MFaF8a5iqM0r8NH3vtS0k2uzINNVZCVyXw4=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=SzUQxUeC6N7QCcqsoJP5KOy9N3VAqHBC7WFVqdRAfAcpv7VYqaf3X3z8p5CE5PrHI
+	 JeGCVG0DssB4aPpJSL/PixxZjcF8D+tYNRBG8zA2wPEhDpiEORvWjsIbHHIAcaKypi
+	 Yml17rA4lL4EMisUaX6rixQLmrNYm9nlFzXFGPyzUn8nXpyMSqCgx5olCXd3Q/myqH
+	 Cs8hnXrn94ucSMaMUML+PIDk//oy4gfiffCgzrsDsZEoCxdCBXlEfDK2fStHgQkG2A
+	 yp9xQsgNsaC/o9eN5hFucS4YvQKHT9f68u5fF+b2zGerudnICTW2OQ+HGNguOsqbu2
+	 Am/rW21V5+2PQ==
+Received: from traversing.sirena.org.uk (localhost [IPv6:::1])
+	by traversing.sirena.org.uk (Postfix) with ESMTP id 83024255727D;
+	Tue, 03 Nov 2026 17:03:36 +0000 (GMT)
+From: Mark Brown <broonie@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ phucduc.bui@gmail.com
+Cc: Liam Girdwood <lgirdwood@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, cassiogabrielcontato@gmail.com, 
+ Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, 
+ Liviu Dudau <liviu.dudau@arm.com>, Cyril Chao <Cyril.Chao@mediatek.com>, 
+ Darren Ye <darren.ye@mediatek.com>, linux-sound@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261020052747.568770-1-phucduc.bui@gmail.com>
+References: <20261020052747.568770-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH] ASoC: mediatek: mt8196: Ensure the DAI is marked as
+ started on success
+Message-Id: <179366039724.2186205.4496100188192576076.b4-ty@b4>
+Date: Mon, 02 Nov 2026 22:59:57 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261103084742.1302597-1-fuad.tabba@linux.dev>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1167; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=bnFFXu7ZamnjWNSZ7qWKob4tK5jbMYG3jzS96z+40+E=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJeCb84vvXq7KpNum0bXz9njZM6plviXHJinV188W6/v
+ EnqrIxPO0pZGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjAR670M/6z4ttRci5/sXrdN
+ KGG67RX3erMPys/ufjp8x9frrm5+RQHD/yCRrI8XpNiNKn/Z2++rOnm28EGylkjLuXd2ia8n92o
+ 6cgMA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,50 +85,43 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DATE_IN_PAST_12_24,
+	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Fuad,
+On Tue, 20 Oct 2026 12:27:47 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: mediatek: mt8196: Ensure the DAI is marked as started on success
 
-On Tue, Nov 03, 2026 at 08:47:39AM +0000, Fuad Tabba wrote:
-> Hi folks,
-> 
-> Two fixes for stage-2 teardown, which since 4ddfab5436b6 takes time
-> proportional to the size of the IPA space rather than to what is mapped.
-> 
-> Under QEMU TCG ('-cpu max', 16K pages with LPA2), destroying even an
-> empty VM takes about 7 seconds in pKVM. Without pKVM it takes about 19
-> seconds if the VM requests a 52-bit IPA (crosvm requests the host's
-> limit). I would expect it to scale the same way in hardware. I tested
-> only under QEMU, since I don't have hardware with LPA2.
-> 
-> pKVM gives every VM the host's IPA limit. The first makes it release the
-> VM's mappings from its tree instead of walking that space. My series
-> honoring KVM_VM_TYPE_ARM_IPA_SIZE in pKVM [1] (respinning it soon)
-> doesn't replace the fix, as crosvm requests the limit there too.
-> 
-> The second makes the non-pKVM teardown step over an empty entry larger
-> than the largest block in one go, rather than start a new walk for each
-> block-sized chunk of it. It depends on the first, as the lookup it adds
-> reads fields that hold the mapping tree on a pKVM stage-2.
-> 
-> The third moves the pKVM/non-pKVM split in the teardown into
-> kvm_vm_s2_ops, with no functional change. The first two apply back to
-> 7.1, except that a backport of the second drops the flags argument 7.4
-> added to kvm_pgtable_get_leaf().
+Applied to
 
-I don't see why optimized destroy walks for CCA and pKVM is
-fundamentally incompatible with driving them from a loop that
-reschedules. Non-preemptible kernels are still very much a thing, I'd
-rather not undo the fix we took for that exact use case.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-So unless I'm missing something completely obvious, I'd rather that CCA
-and pKVM do teardowns from that loop.
+Thanks!
+
+[1/1] ASoC: mediatek: mt8196: Ensure the DAI is marked as started on success
+      https://git.kernel.org/broonie/sound/c/e672cfa10dbc
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
 Thanks,
-Oliver
+Mark
+
 
