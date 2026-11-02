@@ -2,44 +2,44 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67C3D606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 07:59:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37F5D606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 07:59:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QmnhlVgx;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ogl8CBtQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qmq6STOd;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=a0DPpKqq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=I7f0XyCAtF4SJfvjHPyOeR1juZYlK47QDPUr9ArN18s=; b=QmnhlVgxxhltsP
-	TdIEGqAGASRMWIKMJZxw79YXPTnp7K83w8PL3KEC+M4KQe4lTYKKZuqnyk839Qvy269PtSnpERJi/
-	KCiSLciux6K85neU5UJS621vJSl8feBgsUlh8IgT/GMK4Guu/U+6EvvVvB9JiYUSLEn/3E1qXc8pS
-	jkDMaO1Nn9ctYmzM23r/ljMrwukqpA4mo+rrXCaFa0t1tni58Uy+pcYNbuT9u6VSwoWTpc0rKrNno
-	tI97oTTiuQ3JQYXK2BWT12DQxoivsLqcmcjtBki7XXqEvLiQJbyvC34iNAkyVEARuvW59xpFjCmLN
-	VslJxa3Tzk12YsKsxgMQ==;
+	List-Owner; bh=z58+V1LgFPW+j6akovhxZv60ektir/LOJatWFadIMFw=; b=qmq6STOdhBu80a
+	qufgwflH3aTR23wukQrgE/YJLXqECEuMgCXA9+oy7St4/8iO9G3YF074inI3aAdx+dGXYNVT0f+x2
+	wbGPAOEJ8GW5ujy7sPFI39ICNPc0H+4n14mJEoM22s+S1ku8CT37pU5sUcscec5OYfqAuF4UymCM5
+	16ZjLEQuzWvktUcJlvkACy0dmtfnYLd+eIzOagrLiLFTlSaMvwCDBDqzMp7p8sJl85tMs3a/rUcln
+	WDCiQeJdQs0IzskLKRa9/UkBQUAyfD+vhyFwyD+Rz4XKF/0pfe+wuYNW1xl6NIdBNod3vBXLzJ2Kq
+	gd9bYTL2DBhyiZGQRXqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNmwT-0000000FoMJ-0iea;
-	Mon, 02 Nov 2026 07:58:57 +0000
-Received: from out-114.mta0.migadu.com ([2001:41d0:1004:224b::72] helo=mta0.migadu.com)
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNmwO-0000000FoK1-1UJP
-	for linux-arm-kernel@lists.infradead.org;
+	id 1xNmwP-0000000FoKw-49UT;
 	Mon, 02 Nov 2026 07:58:53 +0000
+Received: from out-226.mta1.migadu.com ([2001:41d0:203:375::e2] helo=mta1.migadu.com)
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNmwN-0000000FoK2-205e
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Nov 2026 07:58:52 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=0wwKFnAfKLxHm3MqsSLnib+x1Cbbb0RE6cyNuCZw7gg=;
+DKIM-Signature: a=rsa-sha256; bh=E+yNN660ZSvNAcxzl1biL8JK8VlI5gYHahRxIDWZ1l4=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793606328; v=1; x=1794211128;
- b=ogl8CBtQDjMx17gldrzG8y9aQpsv613GYEwNn1rJXC+6g/+opPkIIcn+HlXnAavrY1GAUOPR
- txvgIyi154ghhKYCU0qOvD37Z8I+Q68/aAi2YXxkuHE8YpTvtAEVvcChEiA6LpGxcNy4ifYtDgx
- 6Gx1AIx4F8D+VlBhLhO16xlA=
+ t=1793606329; v=1; x=1794211129;
+ b=a0DPpKqqdE39iZynjDq4nwTpgkIP3QqfmtbeYZJHXrl5DfT9kvVRcmYbyltl5ncZtL8Z7ZyM
+ tzWmjc6Nh2e7Frx+sERoyChDcCA/2NCCwBXJ5qhqTBtacqIW9NX61nODjv+I4kvkjqwoT0rrnBI
+ HOnd7vRXi32EPLCIwHGpJnjU=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 9c4dd2f3ef011e26;
-	Mon, 02 Nov 2026 07:58:48 +0000
-X-Mizu-Trace-ID: 9c4dd2f3ef011e26
+Received: by smtp.migadu.com with ESMTPS id af6687c61325397b;
+	Mon, 02 Nov 2026 07:58:49 +0000
+X-Mizu-Trace-ID: af6687c61325397b
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -56,9 +56,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v4 1/2] KVM: arm64: Clear the VM's feature bitmap when kvm_setup_vcpu() fails
-Date: Mon,  2 Nov 2026 07:58:42 +0000
-Message-ID: <20261102075843.2556018-2-fuad.tabba@linux.dev>
+Subject: [PATCH v4 2/2] KVM: arm64: Clear the default PMU when kvm_setup_vcpu() fails
+Date: Mon,  2 Nov 2026 07:58:43 +0000
+Message-ID: <20261102075843.2556018-3-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261102075843.2556018-1-fuad.tabba@linux.dev>
 References: <20261102075843.2556018-1-fuad.tabba@linux.dev>
@@ -66,8 +66,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_235852_533677_7DDF34B3 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20261101_235851_657816_29B67074 
+X-CRM114-Status: GOOD (  13.92  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,46 +87,46 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-KVM_ARM_VCPU_INIT records the requested features in the VM-wide bitmap
-before kvm_setup_vcpu() runs, and leaves them there when setup fails
-(e.g., HAS_EL2_E2H0 on a host without FEAT_NV1). The PMU attributes
-read that bitmap before the vCPU is initialized, so after such a
-failure with PMU_V3 requested, KVM_SET_DEVICE_ATTR on the PMU group no
-longer returns -ENODEV.
+Under KVM_ARM_VCPU_PMU_V3_STRICT, the VM has no PMU until userspace
+selects one, and initializing the PMU fails with -ENXIO until then.
+However, without STRICT, kvm_setup_vcpu() selects the default PMU
+before it prepares the vCPU for nested virtualization, and leaves it
+set when that preparation fails. After a retry with STRICT,
+initializing the PMU succeeds and the guest gets the PMU of the CPU
+the failed INIT ran on.
 
-Until an INIT has succeeded, every INIT that gets past the feature
-checks rewrites the bitmap. After that, kvm_vcpu_init_changed()
-requires the requested features to match it, so the copy is a no-op.
-Clear the bitmap on failure while KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED
-is clear.
+Drop the PMU and its number of counters along with the VM's feature
+bitmap. While KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED is clear, no vCPU
+has been initialized and the PMU attributes return -ENODEV, so only
+such a failure can have set them. Once the flag is set, every INIT has the
+features of the first one that succeeded, which either selected a PMU
+or had none to select, so kvm_setup_vcpu() doesn't select another.
 
-Fixes: 427733579744e ("KVM: arm64: Select default PMU in KVM_ARM_VCPU_INIT handler")
-Suggested-by: Oliver Upton <oupton@kernel.org>
-Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Fixes: ad220e275c398 ("KVM: arm64: Add KVM_ARM_VCPU_PMU_V3_STRICT vCPU feature")
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/arm.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/arm.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 157bf4b812020..3e91e01b032c4 100644
+index 3e91e01b032c4..65194e02cdbc2 100644
 --- a/arch/arm64/kvm/arm.c
 +++ b/arch/arm64/kvm/arm.c
-@@ -1856,8 +1856,13 @@ static int __kvm_vcpu_set_target(struct kvm_vcpu *vcpu,
- 	bitmap_copy(kvm->arch.vcpu_features, &features, KVM_VCPU_MAX_FEATURES);
+@@ -1857,9 +1857,12 @@ static int __kvm_vcpu_set_target(struct kvm_vcpu *vcpu,
  
  	ret = kvm_setup_vcpu(vcpu);
--	if (ret)
-+	if (ret) {
-+		/* Clear the bitmap if setup fails on the first vCPU to be initialized. */
-+		if (!test_bit(KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED, &kvm->arch.flags))
-+			bitmap_zero(kvm->arch.vcpu_features, KVM_VCPU_MAX_FEATURES);
-+
- 		goto out_unlock;
-+	}
+ 	if (ret) {
+-		/* Clear the bitmap if setup fails on the first vCPU to be initialized. */
+-		if (!test_bit(KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED, &kvm->arch.flags))
++		/* Clear the bitmap and PMU if setup fails on the first vCPU to be initialized. */
++		if (!test_bit(KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED, &kvm->arch.flags)) {
+ 			bitmap_zero(kvm->arch.vcpu_features, KVM_VCPU_MAX_FEATURES);
++			kvm->arch.arm_pmu = NULL;
++			kvm->arch.nr_pmu_counters = 0;
++		}
  
- 	/* Now we know what it is, we can reset it. */
- 	kvm_reset_vcpu(vcpu);
+ 		goto out_unlock;
+ 	}
 -- 
 2.47.3
 
