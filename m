@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 933B6606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 10:17:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1383C60A2614
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 10:20:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WO80hcx8;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zm9qlG7A
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Y42u7Ez6;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZUwko7vp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,37 +14,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ZOywiX5vpz/9Vgi/VZ95rgQ3MSCKGsbX1Q854mIZ2y0=; b=WO80hcx8tR48ePIAnWX/Q8a5Un
-	vU8Asi8EHiqN8ljb13CdB+QEc1lqCEuFI6kknqmaj+Lr2GqawXa4HTx+9hYk76UDkGVQ9ybRKiHjt
-	xCJW9fTmsha+TP1UzVOUHbJnE87/DfxwO0L+f65VHyXP68l92y5gBY5oKacn9HjS7BGQb3khZVuKp
-	zs//j5yWy0ZOCdMqUKJ55U7r6/Py9Bhs4gdMLJieVvOy8IdmhHPJLtvKSFyDZv0wH5leEB8BcXz03
-	1DmuyppXNsz4kKcakqzKD/1FmJbvIZ6B83bisi0dJLH97FIlI318UlfMjO0ReuSOZQwOQRxWoYAWJ
-	fWgFa+bw==;
+	bh=Tl3iLmTid8/VrS6d3Y95ShDoORoeWrX++btEogTfWQQ=; b=Y42u7Ez69nALBsiYIu3ekb49dm
+	wZkmPoE1NvBlx3rfNHygu7PPYuCxJrC9UdNmfQtJo23ChECfDQitmFofskym7QKfGex3u1HcysWxL
+	1uNENIHtRnyQN0JUOMidmeQUc3RkMfKPq27juj+qfJ7A5t0zIAJ6tHQs520oBLz0jyPkD6im/FIeO
+	2hFg0oglWmkwkl3vXak7xva4aEcFvnPBI6gxBzEUGSVlrl+ZF/73NzlhtlX3Gz6tEt/BpLYmnAukp
+	f5jaJFeoslXmTX2TkdP/JFv5xvUhOzKqHuVZ5q+0p2K6wyfjVqLyUgDQIDqqFm7JKN4HmO073vxnv
+	n4o7mYcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNp6o-0000000G8z4-2Nrw;
-	Mon, 02 Nov 2026 10:17:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xNp8x-0000000G9CL-3ORn;
+	Mon, 02 Nov 2026 10:19:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNp6m-0000000G8yx-2rha
+	id 1xNp8w-0000000G9C7-2dj6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 10:17:44 +0000
+	Mon, 02 Nov 2026 10:19:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D51F660F1F;
-	Mon,  2 Nov 2026 10:17:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC34B1F00919;
-	Mon,  2 Nov 2026 10:17:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1AB8840F0A;
+	Mon,  2 Nov 2026 10:19:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E3741F00A02;
+	Mon,  2 Nov 2026 10:19:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793614663;
-	bh=ZOywiX5vpz/9Vgi/VZ95rgQ3MSCKGsbX1Q854mIZ2y0=;
+	s=k20260515; t=1793614798;
+	bh=Tl3iLmTid8/VrS6d3Y95ShDoORoeWrX++btEogTfWQQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Zm9qlG7ApWRNOEArVSRiymIwIZuyctseHPwOsfkpKF+7z61/onmtRhN0xCACQKdap
-	 1VKmFJ5xkP905Ul1navWQXMt5ak9NPLoGhwZ4xfZaZmHVaCSymM/rcecTsvctDGdT5
-	 s2ugYropnuxjqnWgIjWzbe1iP61d6NMFjVNBQ73JlbMW0P8nIWKURIiKyd8TPA2Rcj
-	 Jg+sQpKYk9PDQafQhs6ZwC3JMVcMuawV4SqSwGpVNC1KipFBSn6v50lnGfEtlusyY3
-	 fkvnAAJFsCsAwbk/2hh7jyia0eN52OvSQReunIandJ0RPszFOwFd2o9pFVYj+l8/LN
-	 iJgXTLcSQG2aQ==
-Date: Mon, 2 Nov 2026 11:17:39 +0100
+	b=ZUwko7vpee2/H6UhO5p2zvjf20y6adM38N3S906E+Yq8W46IW5DGmOGx7iS83Q7u6
+	 fWK9u9aHAZITM6kTGz6wWjxWVe9gdnJLYHA8teLCfrbnjjM9ELw+1lcT1nCKWEsik6
+	 EdDTFFMmmFhG7/RQcsyg76AaqA3VVoOJm5DstPqCHHIeTKgBWESPyMEsM/VimLOq96
+	 dIsBNZ6EtmgZoN7Fqxf1FvWyu+Ess0C+p66ZnVFbqSWQLzyUWco40WZqhj/r3IweTm
+	 eKqTR0JqFWpxenT5G/PNIU9fzBavR2cKzkidz7NXXXj4TkPsIlNoyG3+N44ysN/r4N
+	 t/TG0ygxEe3GA==
+Date: Mon, 2 Nov 2026 11:19:54 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Tim Michals <tcmichals@gmail.com>
 Cc: Jassi Brar <jassisinghbrar@gmail.com>, 
@@ -54,16 +54,16 @@ Cc: Jassi Brar <jassisinghbrar@gmail.com>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
 	linux-sunxi@lists.linux.dev, linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/7] dt-bindings: mailbox: Add Allwinner A523 message
- box
-Message-ID: <20261102-hot-glistening-cassowary-c1da4e@quoll>
+Subject: Re: [PATCH v3 3/7] dt-bindings: remoteproc: Add Allwinner A523
+ RISC-V remote processor
+Message-ID: <20261102-warping-victorious-shrew-7cee1e@quoll>
 References: <20261101185735.762559-1-tcmichals@gmail.com>
- <20261101185735.762559-2-tcmichals@gmail.com>
+ <20261101185735.762559-4-tcmichals@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261101185735.762559-2-tcmichals@gmail.com>
+In-Reply-To: <20261101185735.762559-4-tcmichals@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,24 +81,46 @@ X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sun, Nov 01, 2026 at 12:57:29PM -0600, Tim Michals wrote:
-> The Allwinner A523, A527 and T527 (sun55i) message box connects the
-> Cortex-A55 host with the HiFi4 DSP, the CPUS power management core and
-> the XuanTie E906 RISC-V core. Each processor has its own register bank.
-> A sender writes a message into the receiving processor's bank, and a
-> channel has an 8-entry FIFO in each direction.
-> 
-> The host bank has 12 channels, four for each remote processor. The
-> binding lists all four banks, since the host writes to and reads the
-> FIFO status of the remote banks, and lists the bank interrupts in the
-> same order: the host bank read interrupt and the write interrupts of
-> the three remote banks, which every A523 has. Each bank has its own bus
-> clock and reset, and an unclocked bank drops writes, so all four are
-> described. The optional allwinner,tx-done-irq property selects TX
-> completion by the receiver bank's write interrupt instead of polling.
->
+On Sun, Nov 01, 2026 at 12:57:31PM -0600, Tim Michals wrote:
+> +  mboxes:
+> +    description:
+> +      Message box channel to the RISC-V core. Each channel has a FIFO in
+> +      each direction, so it carries notifications both ways.
+> +    maxItems: 1
+> +
+> +  firmware-name:
+> +    maxItems: 1
+> +
+> +  memory-region:
+> +    minItems: 1
 
-Sashiko comment looks valid, rest seems ok.
+
+Here
+
+> +    items:
+> +      - description: Virtio vring and buffer pool, a shared-dma-pool
+> +      - description: Firmware code and data in DRAM
+> +      - description: Trace buffer
+> +
+> +  memory-region-names:
+> +    minItems: 1
+
+here
+
+> +    items:
+> +      - const: vram
+> +      - const: dram
+> +      - const: trace
+> +
+> +  interrupts:
+> +    maxItems: 1
+
+and here, same comments as for v2.
+
+> +    description:
+> +      Interrupt the RISC-V core raises on a fatal error. The A523 has no
+> +      dedicated line for this, so it is present only where the system
+> +      integration provides one.
 
 Best regards,
 Krzysztof
