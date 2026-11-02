@@ -2,82 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FCAB606E015
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 16:53:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BB8B6079043
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 16:53:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Mv1g2VLx;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NkrBxRCM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WgeoeryY;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hd1iJO17
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=BZ5RmFxRoz8rcy8X7QXJx9lbysA5ICz4SCKVtxX405I=; b=Mv1g2VLxMuF36xB6xthdgeaQ8r
-	/FAP37qjSCqeFN5d1IIWVtlpWHGh528jxUyJ98AwqAtD6rXAFwsB7rgVCETYoHe831tKjTegqqUva
-	A5OnWQXeyoy2hMl/OsNM+C7rQt+pkJv0jvS3VpQhT97fYvCGRpvtREngS/QwF8Tfi6+oUY1AyUGQ8
-	nTTWIP8/RHOnD/aGBViD82LqZlAMYwf62lSRo8EmEWhuBcc0EE1Jz9dfat020sgx+bvKNP4omZDHO
-	hVCyTI6d2IDgXGNC94ffL0elWCGfS4qEG8JLHzyY9wJVa+dAFj/TrGbkoBZ1w6B09rOW49ocHZzVf
-	oCD4Gn+g==;
+	bh=4hSSmxRQOYQLc9X1LIBh+NOmGHv/RzthQxE33huemtQ=; b=WgeoeryYP7GgfPP3LTLB2lm6WB
+	cvNs8no8sn9JJg9G5Zhyl8azl1Kvmu/sm+tGoSmVD6tj52ZDGgCYMU4TDy7hZvC3dzWnIPUfkVOcn
+	TBRp9T9PDfsHDDF88F4qKu8p/4MB8wl2cdr+8inYkODCcNq5CkiBk+F/LVx/vCpM3xqqfKPRsUj3i
+	DM7auZU5jEUfqXxHfgPMS/GtJ25h9uXoEgSiSjy4fxVGyV0c3IT8LHo0yCsGYjgMPDlQYy7fFPoqh
+	+SYE8ZDVFkCa/esNAElPyX/1JM4O2n+fy/6uZXUD7BcKXr5knuH8YsRgdMZEit+mH0Q3RjDxIoEbL
+	fsW13BBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNvHB-0000000HLJ3-3uSP;
-	Mon, 02 Nov 2026 16:52:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xNvHQ-0000000HLMj-0GVT;
+	Mon, 02 Nov 2026 16:53:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNvHA-0000000HLIs-1QlO
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 16:52:52 +0000
+	id 1xNvHO-0000000HLLy-3YsL;
+	Mon, 02 Nov 2026 16:53:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 98A4141A9A;
-	Mon,  2 Nov 2026 16:52:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78F5B1F00A1D;
-	Mon,  2 Nov 2026 16:52:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 075CC60134;
+	Mon,  2 Nov 2026 16:53:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C2421F00A1D;
+	Mon,  2 Nov 2026 16:53:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793638371;
-	bh=BZ5RmFxRoz8rcy8X7QXJx9lbysA5ICz4SCKVtxX405I=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=NkrBxRCMP6tQJNMDILPONUCfTdDs4GJu675qFwgE0O2s30ln4ywM9gteok7RdWdAc
-	 Fw1ZCnHHgI3z8YY1kL2eE+84CYz/UncCSA3Cl1KwTsvepIYa8bKoPKyvl8CHf6BFyK
-	 Ahng0UjLEjtMMFcI23CLSgjy9aEQwmKkk49DfTlh5h0ZEJO3J6Evuo+1ievc1RehAx
-	 dZGexaiRA6HL+eIr0ZK7VRQ1YJo4KDESPOeEe/LU1MnUBIabMKh/6cNpdBtUZiTu5Q
-	 +YrVpzGOxC9sJ3T4ZaqkyvWqzReColK/vWhYtFQoascasJLSyWwvVRSo6woGqm6r4d
-	 IeUpa4Ox4cbsw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xNvH7-00000009z5S-1qpv;
-	Mon, 02 Nov 2026 16:52:49 +0000
-Date: Mon, 02 Nov 2026 16:52:48 +0000
-Message-ID: <86bj872n1b.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb+git@google.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH] KVM: arm64: Don't livelock when AT can't resolve a fault IPA
-In-Reply-To: <CA+EHjTxVPyY70Dm+BiwgQQNwx1cJpEKvJBJGZWPCKLx2M8X2FA@mail.gmail.com>
-References: <20261102094748.2638468-2-ardb+git@google.com>
-	<auiXMN5td-2QlDkd@willie-the-truck>
-	<CA+EHjTxVPyY70Dm+BiwgQQNwx1cJpEKvJBJGZWPCKLx2M8X2FA@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	s=k20260515; t=1793638385;
+	bh=4hSSmxRQOYQLc9X1LIBh+NOmGHv/RzthQxE33huemtQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hd1iJO17zYx5UbfD1AhdqZ0MOToj3xpVgH9dJStKut9idV8JWyc1ZpdH0d8UtMuD3
+	 8mjxtC+Wq5QGHqs/r1p2+7cFiFoWTNXb0nNE3Lh/FYOZ98Z/hfCC9lFRgSpgMyqLF3
+	 t9Oyvu70FzchK/LPHyEmXnhjQqa/MyDp8OOx79xK4NZVyTE6YykGqVeyLisI2VrlfK
+	 Vr5danEHRYbxmSDW1IUajEX5QjqRCoW0SQzXMNtD3r87C4jbVzJRWXX5KfPBDQQQgW
+	 QDMreyeCPukHqU0TXae1qzbsoLU+2vwFEiCBes8iWrL+ePfuyLaVc1LBJz2lvbRf9Q
+	 0M8cieXD54jEA==
+Date: Mon, 2 Nov 2026 17:52:59 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-kernel@vger.kernel.org, Damien Le Moal <dlemoal@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Tejun Heo <tj@kernel.org>,
+	Yendapally Reddy Dhananjaya Reddy <yendapally.reddy@broadcom.com>,
+	"open list:LIBATA SUBSYSTEM (Serial and Parallel ATA drivers)" <linux-ide@vger.kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"moderated list:BROADCOM IPROC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	"open list:GENERIC PHY FRAMEWORK" <linux-phy@lists.infradead.org>
+Subject: Re: [PATCH v4 0/6] Fix SATA support for NSP SoCs
+Message-ID: <aui_68Kxlpr7zdyn@ryzen>
+References: <20261029212513.4126083-1-florian.fainelli@broadcom.com>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ardb@kernel.org, fuad.tabba@linux.dev, will@kernel.org, ardb+git@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261029212513.4126083-1-florian.fainelli@broadcom.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,82 +80,37 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, 02 Nov 2026 15:57:51 +0000,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> Hi Will,
-> 
-> On Mon, 02 Nov 2026 14:17:10 +0000, Will Deacon <will@kernel.org> wrote:
-> > On Mon, Nov 02, 2026 at 02:09:25PM +0000, Marc Zyngier wrote:
-> > > On Mon, 02 Nov 2026 13:59:12 +0000,
-> > > Will Deacon <will@kernel.org> wrote:
-> [...]
-> > > > > diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> [...]
-> > > > >  static inline bool kvm_hyp_handle_memory_fault(struct kvm_vcpu *vcpu,
-> > > > >                                                 u64 *exit_code)
-> > > > >  {
-> > > > > -        if (!__populate_fault_info(vcpu))
-> > > > > +        if (!__populate_fault_info(vcpu)) {
-> > > >
-> > > > Presumably we need a barrier (DSB?) here, to ensure that the TLBI happens
-> > > > after the AT instruction?
-> 
-> I don't think the TLBI requires a barrier before it, because it
-> doesn't matter if the AT's walk allocates entries after the TLBI.
-> Anything it allocates matches memory, and the stage-2 descriptor the
-> AT faulted on has AF clear, so that descriptor can't be cached:
-> 
-> R_XCLRD: Translation table entries that generate a Translation
-> fault, an Address size fault, or an Access flag fault are never cached
-> in a TLB.
-> 
-> The stale entries the guest keeps hitting were already there before
-> the TLBI, and the dsb(nsh) and isb after it are what complete it
-> against them.
-> 
-> [... your other reply ... ]
-> > > Alternatively, VMALLE1 or even VAE1 should be enough to get rid of the
-> > > S1 TLB.
-> >
-> > Ah, sorry, VMALLE1 is what I meant to ask about. I basically haven't
-> > understood the need to invalidate the stage-2.
-> 
-> The guest's walk can also go through a stage-2 entry for its
-> page-table page, cached before the aging cleared that page's AF, and
-> nothing requires the AT to use that entry:
-> 
-> R_NPZWX: When an address translation instruction is executed, it is
-> IMPLEMENTATION DEFINED whether the result can be returned from a TLB,
-> or a translation table walk occurs.
-> 
-> So if my reading is correct, on a CPU whose AT walks memory instead,
-> the AT keeps failing while the guest's walk goes through the stale
-> entry, and the guest takes the same permission fault again. VMALLE1
-> and VAE1 only cover stage 1, so they'd leave that loop in place.
+Hello Florian,
 
-If we assume that the TLB covers VA->PA (which is a very likely case),
-TLBI VAE1 should nuke the permission fault that brought the vcpu to
-EL2, and instead walk the page tables, getting the access fault.
+On Thu, Oct 29, 2026 at 02:25:07PM -0700, Florian Fainelli wrote:
+> This patch series fixes SATA on the Northstar Plus (BCM58xxx/8831x)
+> which was broken due to a number of things:
+> 
+> - the SATA PHY assumed separate PCB windows when a shared one is used
+>   for this generation of SoCs
+> - the clock/reset (IDM) was not being configured by the driver which
+>   meant that depending upon what the boot loader did, or did not, we
+>   could have had the AHCI controller still in reset by then
+> - on some reference boards, the AHCI controller is not DMA coherent,
+>   assuming so leads to all sorts of timeouts, data corruption, etc.
+> 
+> Since this touches several subsystems: DT, PHY, AHCI and DTS, I would be
+> keen on having Damien merge all of those via his tree if acceptable by
+> the DT and PHY maintainers, I am OK either way for Broadcom SoC.
 
-The only case I can imagine where invalidating S2 would matter is if
-you are running under NV, because there is an independent S2 TLB (the
-shadow S2), and then VMALLS12E1 makes total sense.
+Patch 2 (after we get an R-b from DT maintainers) and patch 3 can go via
+libata tree, but the normal way would be for phy changes to go via PHY
+tree and device tree changes usually go via arm-soc (and lately it seems
+to go via a broadcom specific tree first).
 
-Ard, was this solely observed under NV? Or did you see it on a non NV
-guest as well?
 
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Kind regards,
+Niklas
 
