@@ -2,68 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69B09606E032
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 15:56:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9264A606A5B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 15:57:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=S6vsOCf9;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X0TlLx/+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rqs9J+mH;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=fnGlHX+U
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=rIIz/gtfC2Y+ir/ymx8Qwz0qEnZD5kOfLUgExDZlSUE=; b=S6vsOCf9K/tD0hqEnI9ZUN/3XQ
-	Q9a3NxTpG+Bku/bxnjVJg8kwlJw+2gAFc8uiCAfn8FfNA0KXsI5HLqzlwxf52pxWa/XXGmxyDNch9
-	bx7ZirOp1L6It4OPa6krxOCaj4PfzpCLO/45d5WE1dUOsq5xyCSKHIIl1qTG4gv19rQsyfFSnrpci
-	Sc5npotKF7odapEIlw7/uRnJFUM/Jtbn7X0wdJCct8vfACH4BFIHxgYo2IHYe+IRR1T51vHEA+J7K
-	HslJTxhXWC+48JYuBpDy0nLDSx52zViGCKTY2b+urvcjpEsktRhr3fcKHVT9uoQlBYCe+BosIf8Fa
-	98+T5tbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=nmjX+gZnq1JmQb9kEyFBLchOqDlgvPlEFS1E5xvlvxE=; b=rqs9J+mH7m4lyw
+	u76tAoQYfahk0m+D2Y+yHVH1ubolpgoRVDJdfHZzVjsLe8JZa8Zqe7ekr06xHmysRcljkZHuqXLAS
+	rCaVUb6ymCVHYvqrzFabFLKGIfAFwd3X7twhOzFDtioImT7hjMKns50L3k0zHwqALf2JJCGj7cYPN
+	IIbm6YqBsWuuR7eINmHecNk2u7w/2e+A5Ecce2qUHEtcmcTv5UhnYgkcFokBLM0jSq4+MQaKtk1iW
+	oD8rU8yHKlLipGkD4v9kKSaoA0bkc3RVrCw1Lil8l123+i9aV3bNAELvAj8DA7M7M3sQs5bFWTTaf
+	ZG1PcUkiRR+YQnJJgzeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNuOh-0000000HE6P-43nZ;
-	Mon, 02 Nov 2026 15:56:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNuOg-0000000HE62-3T3a
+	id 1xNuPj-0000000HEGZ-0wwp;
+	Mon, 02 Nov 2026 15:57:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNuPh-0000000HEG7-0S8a
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 15:56:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 44F814369C;
-	Mon,  2 Nov 2026 15:56:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3842E1F00A16;
-	Mon,  2 Nov 2026 15:56:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793634994;
-	bh=rIIz/gtfC2Y+ir/ymx8Qwz0qEnZD5kOfLUgExDZlSUE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=X0TlLx/+2BqpUJ0O7uF4HJlMVjvUqcctCY4wJh2DmEYtVPJMg/9bWsnMuFoxFMO7/
-	 MHHvPM999easQh4jTVkg75DMRhcS29B06kRPVVmHKc75emzSi00DGtxtv/DxIyQ4yg
-	 w9PQDEyAO1LRnGyVBgqgsSIafZzzptaLT4MEa/zEFBFuAXD/5ot8yT8pfKc6e1GYYD
-	 AF7yXXmK9NChbzEO1Fv/Tzj0lvMDW+wZbc2tvAum4QhbDU/pVrCQL36pdKP+WiC5eQ
-	 SxSj10W/ACEPziCQVHNxjY+RYeC4lNHQrtSIvBcliS/BFJ09TguCFozEEGSZ78+nna
-	 JjEmR9ugF0lQQ==
-Date: Mon, 2 Nov 2026 16:56:28 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Sascha Bischoff <sascha.bischoff@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Sashiko AI <sashiko-bot@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH 04/10] irqchip/gic-v5: Serialise ITS invalidation commands
-Message-ID: <auiyrFXjX0hGgd7D@red-moon>
-References: <20261102-host_gicv5_fixes-v1-0-743b61626fc5@arm.com>
- <20261102-host_gicv5_fixes-v1-4-743b61626fc5@arm.com>
+	Mon, 02 Nov 2026 15:57:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06AA11691;
+	Mon,  2 Nov 2026 07:57:33 -0800 (PST)
+Received: from [10.57.66.79] (unknown [10.57.66.79])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8B8703F673;
+	Mon,  2 Nov 2026 07:57:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793635056; bh=17j2yXfs58CpqKQEHFy6H451nac5qtYTTRF17xOQiSw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fnGlHX+UPMKGBP4eiXdt3RMc/CD0IYMClJYY6xjctAvQ6jZVSB9jGzI//Eeq8Tlp1
+	 b5pFugq0mn9nU1RHNbvkKV4aYN7E24deQtMM8+tufCWNMZWa39mw5yvvqiRx4GIOMG
+	 XfBRk/rotWv3ZIXj8FtfUybUKIm4ZQabM2yXAqlk=
+Message-ID: <46c28259-086e-4948-8c00-183f9e62114a@arm.com>
+Date: Mon, 2 Nov 2026 15:57:33 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261102-host_gicv5_fixes-v1-4-743b61626fc5@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 1/2] KVM: arm64: CCA: Add support for configuring
+ the Realm MEC policy
+Content-Language: en-GB
+To: Kohei Enju <enju.kohei@fujitsu.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev, cgroups@vger.kernel.org, linux-coco@lists.linux.dev,
+ Marc Zyngier <maz@kernel.org>, Fuad Tabba <tabba@google.com>,
+ Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>
+References: <20260724094120.166536-1-enju.kohei@fujitsu.com>
+ <20260724094120.166536-2-enju.kohei@fujitsu.com>
+ <46d78aa2-cacb-4efd-ae62-3026f5fe9b3f@arm.com>
+ <amwrnJ1KhllC-gVu@FCCLS0092175.localdomain>
+ <auio781Uu9Zzyq3i@FCCLS0092175.localdomain>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <auio781Uu9Zzyq3i@FCCLS0092175.localdomain>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261102_075737_230195_09808A67 
+X-CRM114-Status: GOOD (  27.98  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,99 +76,101 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 02, 2026 at 01:32:57PM +0000, Sascha Bischoff wrote:
-> The ITS uses DIDR and EIDR to select the translation to invalidate.
-> These registers are shared by all interrupts targeting the ITS. Event
-> invalidation can run concurrently for different IRQs, and device
-> invalidation can overlap it. The per-IRQ descriptor lock does not
-> serialise the commands, so one CPU can accidentally issue an
-> invalidation using another CPU's DeviceID or EventID.
+Hi Kohei,
 
-"Another CPU's DeviceID or EventID " can probably be explained better
-(or just removed because it is unclear) I understand there is a link to
-Sashiko's report but it is worth updating the log IMO.
-
-"using the DeviceID or EventID associated with an IRQ that is invalidated
-on another CPU" or something like that.
-
-> Add a raw spinlock to each ITS and hold it across the command register
-> writes and the STATUSR.IDLE poll for both invalidation paths. A raw
-> spinlock is required because the forwarding path calls the event
-
-Can you please define "the forwarding path" more explicitly ?  See above.
-
-Thanks,
-Lorenzo
-
-> invalidation helper with the IRQ descriptor lock held.
+On 02/11/2026 15:19, Kohei Enju wrote:
+> Hi Suzuki,
 > 
-> Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
-> Reported-by: Sashiko AI <sashiko-bot@kernel.org>
-> Link: https://sashiko.dev/#/patchset/20261016155741.979985-1-sascha.bischoff@arm.com?part=11
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  drivers/irqchip/irq-gic-v5-its.c | 9 +++++++++
->  1 file changed, 9 insertions(+)
+> I sent the message below off-list a few weeks ago, but I'm following up
+> on-list in case it didn't reach you.
 > 
-> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
-> index 28e39b065de0e..6d98f3dbe34b6 100644
-> --- a/drivers/irqchip/irq-gic-v5-its.c
-> +++ b/drivers/irqchip/irq-gic-v5-its.c
-> @@ -16,6 +16,7 @@
->  #include <linux/of_address.h>
->  #include <linux/of_irq.h>
->  #include <linux/slab.h>
-> +#include <linux/spinlock.h>
->  
->  #include <linux/irqchip.h>
->  #include <linux/irqchip/arm-gic-v5.h>
-> @@ -28,6 +29,8 @@
->  struct gicv5_its_chip_data {
->  	struct	xarray			its_devices;
->  	struct	mutex			dev_alloc_lock;
-> +	/* Event and device invalidation commands share DIDR. */
-> +	raw_spinlock_t			inv_lock;
->  	struct	fwnode_handle		*fwnode;
->  	struct gicv5_its_devtab_cfg	devtab_cfgr;
->  	void	__iomem			*its_base;
-> @@ -129,6 +132,8 @@ static int gicv5_its_itt_cache_inv(struct gicv5_its_chip_data *its, u32 device_i
->  	eidr = FIELD_PREP(GICV5_ITS_EIDR_EVENTID, event_id);
->  	eventr = FIELD_PREP(GICV5_ITS_INV_EVENTR_I, 0x1);
->  
-> +	guard(raw_spinlock_irqsave)(&its->inv_lock);
-> +
->  	its_writeq_relaxed(its, didr, GICV5_ITS_DIDR);
->  	its_writel_relaxed(its, eidr, GICV5_ITS_EIDR);
->  	its_writel_relaxed(its, eventr, GICV5_ITS_INV_EVENTR);
-> @@ -371,6 +376,9 @@ static int gicv5_its_device_cache_inv(struct gicv5_its_chip_data *its,
->  		  FIELD_PREP(GICV5_ITS_INV_DEVICER_EVENTID_BITS,
->  			     its_dev->itt_cfg.event_id_bits)	|
->  		  FIELD_PREP(GICV5_ITS_INV_DEVICER_L1, 0x0);
-> +
-> +	guard(raw_spinlock_irqsave)(&its->inv_lock);
-> +
->  	its_writeq_relaxed(its, didr, GICV5_ITS_DIDR);
->  	its_writel_relaxed(its, devicer, GICV5_ITS_INV_DEVICER);
->  
-> @@ -1112,6 +1120,7 @@ static int __init gicv5_its_init_bases(void __iomem *its_base, struct fwnode_han
->  		return -ENOMEM;
->  
->  	mutex_init(&its_node->dev_alloc_lock);
-> +	raw_spin_lock_init(&its_node->inv_lock);
->  	xa_init(&its_node->its_devices);
->  	its_node->fwnode = handle;
->  	its_node->its_base = its_base;
+> Since then, I've started reworking the series based on the
+> kvm_device_attr approach you suggested, and I'm currently testing it
+> against v23 of the CCA host support.
 > 
-> -- 
-> 2.34.1
+> I'd still appreciate any feedback on the ABI direction, as well as
+> whether you see any concerns with posting the RFC series while the host
+> support is not yet upstream.
 > 
+> Thanks,
+> Kohei
+> 
+> On Fri, Oct 9, 2026 at 03:15:23PM +0900, Kohei Enju wrote:
+>> On 07/31 14:09, Kohei Enju wrote:
+>>> On 07/29 12:47, Suzuki K Poulose wrote:
+>>>> Hello
+>>>>
+>>>> Thanks for sending the patch. Please find my comments inline below.
+>>>>
+>>>>
+>>>> On 24/07/2026 10:40, Kohei Enju wrote:
+>>>>> Introduce the KVM_ARM_RMI_CONFIG ioctl to allow userspace to configure
+>>>>> Realm VM parameters before the Realm is created.
+>>>>
+>>>> This approach is something we tried in the past. Another option is to
+>>>> add these as kvm_device_attr for the KVM VM, under a new group, e.g.,
+>>>> KVM_ARM_VM_RMI_CTRL and add the following attributes :
+>>>>
+>>>> KVM_ARM_VM_RMI_CTRL_RPV 		-> Realm Personalization Value
+>>>> KVM_ARM_VM_RMI_CTRL_MEASUREMENT_ALGO	-> Measuerment algo
+>>>> KVM_ARM_VM_RMI_CTRL_MEC_PRIVATE		-> Private MEC Policy. By default to shared
+>>>> ?
+>>>
+>>> Hi Suzuki, thanks for suggesting another option. That looks good to me,
+>>> and I'd be happy with either approach.
+>>> Anyway I'd like to wait for feedback from the maintainers and other
+>>> reviewers.
+>>
+>> Hi Suzuki,
+>>
+>> I'm thinking of respinning the MEC policy series as RFC v2, as you
+>> mentioned in the Core Collective WG last month.
+>>
+>> For the ABI, I'm planning to switch to the kvm_device_attr-based
+>> approach you suggested instead of introducing a new VM ioctl. Before I
+>> start reworking the series, do you have any concerns with that
+>> direction?
+
+...
+
+
+>>
+>> One other point is that the series still depends on the CCA host
+>> support, which is not upstream yet. As a result, tools such as Sashiko
+>> would likely be unable to identify the correct base tree and may not be
+>> able to provide useful automated review feedback.
+>>
+>> Personally, I think this is acceptable since the series is still RFC and
+>> the primary goal is to get feedback on the ABI and overall design rather
+>> than seeking integration at this stage. However, I am aware that posting
+>> patches on top of non-upstream trees can sometimes be problematic from a
+>> review perspective.
+>>
+>> Do you have any concerns about posting an RFC series in this situation,
+>> or would you prefer that I wait until the host support lands upstream?
+
+It would be useful to have the RFC on the list to get an idea on shaping
+the UABI. It may also be useful for people to verify the end-to-end
+stack, including the remote attestation flow. (the branch we have is
+ancient)
+
+But nothing else, i.e, code correctness or functional reviews
+etc (that rules out meaningful Sashiko reviews etc).
+
+Suzuki
+
+
+
+>>
+>> Thanks,
+>> Kohei
+
 
