@@ -2,44 +2,60 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4C5C60A380F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:14:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CED6460A3827
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:14:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rv/9hCZ7;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=M111ZIT/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=R+pKwO9M;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=jol3zGDB;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=FJNeMNAr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=0CR6E+bn1Yy6xbocFj/9seNy7JbEsK4i2xFk1mAZAKA=; b=rv/9hCZ7HgdRTm
-	fLS7ZzbXK1h8qtWfG/upFLE9M3OinEUnEzD6/Q/AKuITf+uCopEfARivyPXw8dRsQ1bDZmotT9oGr
-	I1toflCK4gabaQP3K0XVicVyntbrVSvhtnKvS44k5pe4eRXRNuE0OSRNZ+CNyvXtcgFeRwodakRQU
-	qW5lleYnviAKUltyD1ZYd7KG4gVdP9TXrwbcjiX47jTLqgNJv6pCNKNJ7hkipKIHoQYT5ymaGkQRr
-	ZpBXDduxMEKK1aWpnyYtN89lYn1ELW7ZwgtYYHv9NNn4fMLZhU8ReKeLwzERR/AL6fQXlv3cYeMUE
-	3Ofvk04o15E/QIPJm49g==;
+	List-Owner; bh=HzY4kNQliOBdSYHuCWOcNdnbOEYbbVVueL43oBD+82g=; b=R+pKwO9MWpm54j
+	xlhr0PI2Ec1n6plj/9043mue4Q89It0q3LIQPyWQc1gumyQoXigiWRNHV0jRbLTZ270bAkCcENv8H
+	fgg2vbKSBOFUqVhmm+MqDQ7/gYp/4oh9w2Tq3O2EkxxLE7iOfD+LYV3Fml9NiMgr+ww6ciYU958fe
+	hoKio0nO/FBid6ut+8vU5pR8CQMm8mIOwBOJa+ITVL7shbQxpKa6w0ThJiUgU37HxcDjl4HCvnieR
+	irdKpBVBNx6vIgziulcp+/tDOCDqpPtiCo9TbPxeqY0h0xWcTpUeqoFRA56pEaevWSLNBJSwDqwa1
+	EF0NBDChODvHul6cdH2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsnM-0000000GjpF-1ApZ;
-	Mon, 02 Nov 2026 14:13:56 +0000
+	id 1xNsnQ-0000000Gjrq-2PTk;
+	Mon, 02 Nov 2026 14:14:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNsnO-0000000Gjpw-1g4F
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 02 Nov 2026 14:13:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=HzY4kNQliOBdSYHuCWOcNdnbOEYbbVVueL43oBD+82g=; b=jol3zGDByNtnn8aZLJGqiGDKhj
+	rARqaMvLEbVY81qNwoi3BHDs9adehIg/qXHAjgt+r/BD4SYApQM2+u41N9rq2q3Pju5+fohGfTDWB
+	zwAvPpmGbfMwJuOeysMe4skR6nuaSAyeNYOEhm6mvEbLC8ItSGnwZrLQG4ET7/lLOFILgEl8Ic1uX
+	BT4+rNBQgZjhcc/lLD1IC/2tOxlKV1rDOB5L+zOswELgBerNYFRPOqSYTCyKhiel4FLR35bP4RV/p
+	TnmK/USz5/Y92j/tYhXq8ylquy6TX3jdSXBzHLvrXdbKj2ZF47MRdmrmUzOg/xYELsDZX1Er3nxzO
+	3KIjF5qQ==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsnK-0000000GjoF-1otK
+	by desiato.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNsnB-00000002cAq-1Td2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 14:13:55 +0000
+	Mon, 02 Nov 2026 14:13:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B40B619F0;
-	Mon,  2 Nov 2026 06:13:50 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4A7F51691;
+	Mon,  2 Nov 2026 06:13:37 -0800 (PST)
 Received: from e122027.arm.com (unknown [10.57.58.9])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 206613F59E;
-	Mon,  2 Nov 2026 06:13:50 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 564F43F59E;
+	Mon,  2 Nov 2026 06:13:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793628833; bh=oP2Nt6Drf3zSmA8WscZ35ko8TghDQk6KJhslmNIwLj4=;
+	t=1793628820; bh=e4v3s3OtNGjU2/JfrxOiatPhPYFH+/6uDmQBS0pC+J0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=M111ZIT/1UoC+/KjFk6KePEqAYvvmSwrLhIZF/WOUujjTmowUMbsSRLnMyW50wBto
-	 W86UqS0oidrwtuYxWd7fc0cCUzqzhgb5QDshOy5A1jHCSzq8OJfQNpz3z6xlS6fo/f
-	 DDWyF8GMkXY7OuFqNQ9v5uYSM4+MEP+mLrFos5f0=
+	b=FJNeMNArGKbH5s45G3rKJrcloPjjzbuj0ZuuPysdQTlAjNPeHRUlmye8ow6/kTWeG
+	 coFGF0PWQd0g7Q0gf2zHwr+LKJkHLiJtTMPz4A1n2YXvnF8kvfaIei2RmcsJRS314j
+	 ZLMkLczE8hL8lQbFuxVcjI+WvqkGtjX6orZGeXks=
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -67,9 +83,9 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	WeiLin.Chang@arm.com,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Steven Price <steven.price@arm.com>
-Subject: [PATCH 05/11] KVM: arm64: Handle attributes in stage2_unmap_range
-Date: Mon,  2 Nov 2026 14:12:56 +0000
-Message-ID: <20261102141304.126883-6-steven.price@arm.com>
+Subject: [PATCH 02/11] KVM: arm64: CCA: Introduce Realms
+Date: Mon,  2 Nov 2026 14:12:53 +0000
+Message-ID: <20261102141304.126883-3-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261102141304.126883-1-steven.price@arm.com>
 References: <20261102141304.126883-1-steven.price@arm.com>
@@ -77,9 +93,9 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_061354_559736_2F61F22B 
-X-CRM114-Status: GOOD (  14.31  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261102_141349_482749_241A3F1B 
+X-CRM114-Status: GOOD (  37.60  )
+X-Spam-Score: -2.5 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,123 +116,457 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-With the introduction of private memory support, we need to
-handle invalidation requests with filters for a given type.
-Add support for passing the attributes down.
+Add foundational work for supporting Realms.
+ - Add a new VM flavor.
+ - At KVM init, check if the KVM can support Realms (though not functional
+   yet) and will be advertised by static key kvm_rmi_is_available. This
+   will be turned on in a later patch, once we have all the bits and
+   pieces ready. For now check if we are blessed with KVM_MODE_RMM.
+ - Add realm specific tracking in kvm_arch. Since Realm and protected pKVM
+   states are mutually exclusive, move them into a union.
+ - Also adjust the memslot preparation checks to reflect the changes.
+
+Please note that we cannot create Realm VMs yet. This requires further
+changes to the UABI and core RMI driver support, which will come later.
 
 Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
- arch/arm64/include/asm/kvm_host.h |  4 +++-
- arch/arm64/kvm/mmu.c              | 31 +++++++++++++++++++++++--------
- 2 files changed, 26 insertions(+), 9 deletions(-)
+ arch/arm64/include/asm/kvm_emulate.h   | 16 +++++++
+ arch/arm64/include/asm/kvm_host.h      | 57 +++++++++++++++++-------
+ arch/arm64/include/asm/kvm_rmi.h       | 61 ++++++++++++++++++++++++++
+ arch/arm64/include/asm/virt.h          |  1 +
+ arch/arm64/kvm/Makefile                |  2 +-
+ arch/arm64/kvm/arm.c                   | 24 ++++++++--
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  2 +-
+ arch/arm64/kvm/hyp/nvhe/switch.c       |  4 +-
+ arch/arm64/kvm/hyp/nvhe/timer-sr.c     |  2 +-
+ arch/arm64/kvm/mmu.c                   | 13 +++---
+ arch/arm64/kvm/rmi.c                   | 18 ++++++++
+ 11 files changed, 169 insertions(+), 31 deletions(-)
+ create mode 100644 arch/arm64/include/asm/kvm_rmi.h
+ create mode 100644 arch/arm64/kvm/rmi.c
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 7d0222047ca1..41e15230263d 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -241,6 +241,7 @@ struct kvm_vcpu_ops {
- };
- 
- struct kvm_gfn_range;
-+enum kvm_gfn_range_filter;
- struct kvm_s2_fault_desc;
- 
- struct kvm_vm_s2_ops {
-@@ -251,7 +252,8 @@ struct kvm_vm_s2_ops {
- 					  u64 nr_pages);
- 	void (*vm_stage2_unmap_range)(struct kvm_s2_mmu *mmu,
- 				      phys_addr_t start, u64 size,
--				      bool may_block);
-+				      bool may_block,
-+				      enum kvm_gfn_range_filter filter);
- 	int (*vm_mem_abort)(const struct kvm_s2_fault_desc *s2fd);
- };
- 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 34ddcb2f094a..1301c563d705 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -324,7 +324,8 @@ static int kvm_pgtable_stage2_unmap_tracked(struct kvm_pgtable *pgt,
- 
- static void kvm_vm_stage2_unmap_range(struct kvm_s2_mmu *mmu,
- 				      phys_addr_t start,
--				      u64 size, bool may_block)
-+				      u64 size, bool may_block,
-+				      enum kvm_gfn_range_filter filter)
- {
- 	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
- 	int (*fn)(struct kvm_pgtable *, u64, u64);
-@@ -339,14 +340,16 @@ static void kvm_vm_stage2_unmap_range(struct kvm_s2_mmu *mmu,
- 
- static void pkvm_stage2_unmap_range(struct kvm_s2_mmu *mmu,
- 				    phys_addr_t start,
--				    u64 size, bool may_block)
-+				    u64 size, bool may_block,
-+				    enum kvm_gfn_range_filter filter)
- {
- 	WARN_ON(stage2_apply_range(mmu, start, start + size,
- 				   pkvm_pgtable_stage2_unmap, may_block));
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index 334211b8b2ee..32021bdf2610 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -831,4 +831,20 @@ static inline void kvm_reset_vcpu_psci(struct kvm_vcpu *vcpu,
+ 	vcpu_set_reg(vcpu, 0, reset_state->r0);
  }
  
- static void no_stage2_unmap_range(struct kvm_s2_mmu *mmu,
--				  phys_addr_t start, u64 size, bool may_block)
-+				  phys_addr_t start, u64 size, bool may_block,
-+				  enum kvm_gfn_range_filter filter)
- {
- }
- 
-@@ -388,25 +391,36 @@ static int kvm_pgtable_stage2_unmap_tracked(struct kvm_pgtable *pgt, u64 addr, u
- }
- 
- /**
-- * kvm_stage2_unmap_range -- Clear stage2 page table entries to unmap a range
-+ * kvm_stage2_unmap_range_filter -- Clear stage2 page table entries to unmap a
-+ * range
-  * @mmu:   The KVM stage-2 MMU pointer
-  * @start: The intermediate physical base address of the range to unmap
-  * @size:  The size of the area to unmap
-  * @may_block: Whether or not we are permitted to block
-+ * @filter: Filter for the ipa range (private and/or shared)
-  *
-  * Clear a range of stage-2 mappings, lowering the various ref-counts.  Must
-  * be called while holding mmu_lock otherwise another faulting VCPU may
-  * come in and mess with things behind our backs.
-  */
--void kvm_stage2_unmap_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
--			    u64 size, bool may_block)
-+static void kvm_stage2_unmap_range_filter(struct kvm_s2_mmu *mmu, phys_addr_t start,
-+					  u64 size, bool may_block,
-+					  enum kvm_gfn_range_filter filter)
- {
- 	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
- 
- 	lockdep_assert_held_write(&kvm->mmu_lock);
- 	WARN_ON(size & ~PAGE_MASK);
- 
--	kvm->arch.vm_s2_ops->vm_stage2_unmap_range(mmu, start, size, may_block);
-+	kvm->arch.vm_s2_ops->vm_stage2_unmap_range(mmu, start, size,
-+						   may_block, filter);
++static inline enum realm_state kvm_realm_state(struct kvm *kvm)
++{
++	return READ_ONCE(kvm->arch.realm.state);
 +}
 +
-+void kvm_stage2_unmap_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
-+			    u64 size, bool may_block)
++static inline void kvm_set_realm_state(struct kvm *kvm,
++				       enum realm_state new_state)
 +{
-+	kvm_stage2_unmap_range_filter(mmu, start, size, may_block,
-+				      KVM_FILTER_PRIVATE | KVM_FILTER_SHARED);
++	WRITE_ONCE(kvm->arch.realm.state, new_state);
++}
++
++static inline bool kvm_realm_is_created(struct kvm *kvm)
++{
++	return kvm_vm_is_realm(kvm) && kvm_realm_state(kvm) != REALM_STATE_NONE;
++}
++
+ #endif /* __ARM64_KVM_EMULATE_H__ */
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index ccd2dc8f73c3..7d0222047ca1 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -29,6 +29,7 @@
+ #include <asm/kvm.h>
+ #include <asm/kvm_asm.h>
+ #include <asm/kvm_hcall.h>
++#include <asm/kvm_rmi.h>
+ #include <asm/vncr_mapping.h>
+ 
+ #define __KVM_HAVE_ARCH_INTC_INITIALIZED
+@@ -48,6 +49,13 @@
+ #define KVM_VCPU_MAX_FEATURES 10
+ #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
+ 
++#define KVM_REALM_VCPU_VALID_FEATURES			\
++	(BIT(KVM_ARM_VCPU_POWER_OFF)		|	\
++	 BIT(KVM_ARM_VCPU_PSCI_0_2)		|	\
++	 BIT(KVM_ARM_VCPU_PTRAUTH_ADDRESS)	|	\
++	 BIT(KVM_ARM_VCPU_SVE)			|	\
++	 BIT(KVM_ARM_VCPU_PTRAUTH_GENERIC))
++
+ #define KVM_REQ_SLEEP \
+ 	KVM_ARCH_REQ_FLAGS(0, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
+ #define KVM_REQ_IRQ_PENDING		KVM_ARCH_REQ(1)
+@@ -409,6 +417,7 @@ enum kvm_arm_vm_flavor {
+ 	VM_PKVM,		/* Normal guests on pKVM */
+ 	MARKER(__VM_PROTECTED),
+ 	VM_PROTECTED_PKVM,	/* Protected VM */
++	VM_REALM,		/* CCA */
+ 	VM_FLAVOR_MAX
+ };
+ 
+@@ -502,11 +511,14 @@ struct kvm_arch {
+ 	/* Count the number of VNCR_EL2 TLBs */
+ 	atomic_t vncr_tlb_count;
+ 
+-	/*
+-	 * For an untrusted host VM, 'pkvm.handle' is used to lookup
+-	 * the associated pKVM instance in the hypervisor.
+-	 */
+-	struct kvm_protected_vm pkvm;
++	union {
++		/*
++		 * For an untrusted host VM, 'pkvm.handle' is used to lookup
++		 * the associated pKVM instance in the hypervisor.
++		 */
++		struct kvm_protected_vm pkvm;
++		struct realm realm;
++	};
+ 
+ #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
+ 	/* Nested virtualization info */
+@@ -1572,30 +1584,43 @@ struct kvm *kvm_arch_alloc_vm(void);
+ 
+ #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+ 
+-#ifdef __KVM_NVHE_HYPERVISOR__
++#define kvm_vm_is_protected(kvm)	((kvm)->arch.vm_flavor >= __VM_PROTECTED)
+ 
+-#define kvm_vm_is_protected(kvm)			\
+-	(is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PROTECTED_PKVM))
++#ifdef __KVM_NVHE_HYPERVISOR__
+ /*
+  * Accessing vcpu->kvm from nVHE hyp stub is tricky, as we need to convert the
+  * pointer to the hyp VA. With pKVM, the nVHE code runs with the hyp_vcpu,
+- * which is populated correctly and is gated on is_protected_kvm_enabled().
++ * which is populated correctly. Always vcpu_is_protected_pkvm(), which is
++ * gated on is_protected_kvm_enabled().
++ */
++#define vcpu_is_protected(vcpu)		BUILD_BUG_ON(1)
++#else
++#define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
++#endif
++
++#define kvm_vm_is_protected_pkvm(kvm)					\
++	(is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PROTECTED_PKVM))
++
++/*
++ * Rely on is_protected_kvm_enabled() check in kvm_vm_is_protected_pkvm() to
++ * make sure the vcpu->kvm is always valid VA in the context
+  */
+-#define vcpu_is_protected(vcpu)						\
++#define vcpu_is_protected_pkvm(vcpu)					\
+ 	({								\
+ 		struct kvm *__kvm = READ_ONCE((vcpu)->kvm);		\
+ 									\
+-		(__kvm && kvm_vm_is_protected(__kvm));			\
++		(__kvm && kvm_vm_is_protected_pkvm(__kvm));		\
+ 	})
+ 
+-#else
+-
+-#define kvm_vm_is_protected(kvm)	((kvm)->arch.vm_flavor >= __VM_PROTECTED)
+-#define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
++#define kvm_vm_is_realm(kvm)		((kvm)->arch.vm_flavor == VM_REALM)
++#define vcpu_is_rec(vcpu)		kvm_vm_is_realm((vcpu)->kvm)
+ 
+ #define kvm_vm_hyp_is_distrusting(kvm)	((kvm)->arch.vm_flavor >= __VM_DISTRUSTING_HYP)
+ 
+-#endif	/* __KVM_NVHE_HYPERVISOR__ */
++#define kvm_arch_has_private_mem(kvm) kvm_vm_is_realm(kvm)
++
++int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
++bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
+ 
+ #define kvm_has_mte(kvm)					\
+ 	(system_supports_mte() &&				\
+diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+new file mode 100644
+index 000000000000..3194daaacf2b
+--- /dev/null
++++ b/arch/arm64/include/asm/kvm_rmi.h
+@@ -0,0 +1,61 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023-2026 ARM Ltd.
++ */
++
++#ifndef __ASM_KVM_RMI_H
++#define __ASM_KVM_RMI_H
++
++/**
++ * enum realm_state - State of a Realm
++ *
++ * Mirrors the RMM's Realm lifecycle states where they are meaningful to KVM,
++ * with REALM_STATE_DYING being a KVM-internal state used to prevent further
++ * requests while teardown is in progress. KVM does not track REALM_SYSTEM_OFF
++ * or REALM_ZOMBIE separately as they naturally lead to teardown.
++ */
++enum realm_state {
++	/**
++	 * @REALM_STATE_NONE:
++	 *      Realm has not yet been created. rmi_realm_create() has not
++	 *      yet been called.
++	 */
++	REALM_STATE_NONE,
++	/**
++	 * @REALM_STATE_NEW:
++	 *      Realm is under construction, Realm Descriptor has been created,
++	 *      but it is not yet activated. Memory may be populated.
++	 */
++	REALM_STATE_NEW,
++	/**
++	 * @REALM_STATE_ACTIVE:
++	 *      Realm has been created and is eligible for execution with
++	 *      rmi_rec_enter(). Memory may no longer be populated with known
++	 *	contents.
++	 */
++	REALM_STATE_ACTIVE,
++	/**
++	 * @REALM_STATE_DYING:
++	 *      Realm is in the process of being destroyed or has already been
++	 *      destroyed.
++	 */
++	REALM_STATE_DYING,
++	/**
++	 * @REALM_STATE_DEAD:
++	 *      Realm has been destroyed.
++	 */
++	REALM_STATE_DEAD
++};
++
++/**
++ * struct realm - Additional per VM data for a Realm
++ *
++ * @state: The lifetime state machine for the realm
++ */
++struct realm {
++	enum realm_state state;
++};
++
++void kvm_init_rmi(void);
++
++#endif /* __ASM_KVM_RMI_H */
+diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
+index b546703c3ab9..92cec42952f4 100644
+--- a/arch/arm64/include/asm/virt.h
++++ b/arch/arm64/include/asm/virt.h
+@@ -87,6 +87,7 @@ void __hyp_reset_vectors(void);
+ bool is_kvm_arm_initialised(void);
+ 
+ DECLARE_STATIC_KEY_FALSE(kvm_protected_mode_initialized);
++DECLARE_STATIC_KEY_FALSE(kvm_rmi_is_available);
+ 
+ static inline bool is_pkvm_initialized(void)
+ {
+diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+index 7aaeeb84e788..66a719ab5b6b 100644
+--- a/arch/arm64/kvm/Makefile
++++ b/arch/arm64/kvm/Makefile
+@@ -16,7 +16,7 @@ CFLAGS_handle_exit.o += -Wno-override-init
+ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
+ 	 inject_fault.o va_layout.o handle_exit.o config.o \
+ 	 guest.o debug.o reset.o sys_regs.o stacktrace.o \
+-	 vgic-sys-reg-v3.o fpsimd.o pkvm.o \
++	 vgic-sys-reg-v3.o fpsimd.o pkvm.o rmi.o \
+ 	 arch_timer.o trng.o vmid.o emulate-nested.o nested.o at.o \
+ 	 vgic/vgic.o vgic/vgic-init.o \
+ 	 vgic/vgic-irqfd.o vgic/vgic-v2.o \
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 157bf4b81202..c8599fed5902 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -42,6 +42,7 @@
+ #include <asm/kvm_nested.h>
+ #include <asm/kvm_pkvm.h>
+ #include <asm/kvm_ptrauth.h>
++#include <asm/kvm_rmi.h>
+ #include <asm/sections.h>
+ #include <asm/stacktrace/nvhe.h>
+ 
+@@ -112,6 +113,8 @@ long kvm_get_cap_for_kvm_ioctl(unsigned int ioctl, long *ext)
+ 	return -EINVAL;
  }
  
- void kvm_stage2_flush_range(struct kvm_s2_mmu *mmu, phys_addr_t addr, phys_addr_t end)
-@@ -2597,7 +2611,8 @@ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
- 	if (!kvm->arch.mmu.pgt)
- 		return false;
++DEFINE_STATIC_KEY_FALSE(kvm_rmi_is_available);
++
+ DECLARE_KVM_HYP_PER_CPU(unsigned long, kvm_hyp_vector);
  
--	kvm_stage2_unmap_range(&kvm->arch.mmu, gpa, size, may_block);
-+	kvm_stage2_unmap_range_filter(&kvm->arch.mmu, gpa, size, may_block,
-+				      range->attr_filter);
- 	kvm_nested_unmap_cipa_range(kvm, gpa, size, may_block);
+ DEFINE_PER_CPU(unsigned long, kvm_arm_hyp_stack_base);
+@@ -1732,10 +1735,19 @@ static unsigned long system_supported_vcpu_features(struct kvm_vcpu *vcpu)
+ {
+ 	unsigned long features = KVM_VCPU_VALID_FEATURES;
  
- 	return false;
+-	if (vcpu->kvm->arch.vm_flavor == VM_PROTECTED_PKVM)
++	switch (vcpu->kvm->arch.vm_flavor) {
++	case VM_PROTECTED_PKVM:
+ 		kvm_pkvm_vcpu_allowed_features(vcpu->kvm, &features);
++		break;
++	case VM_REALM:
++		features = KVM_REALM_VCPU_VALID_FEATURES;
++		break;
++	default:
++		break;
++	}
+ 
+-	if (!cpus_have_final_cap(ARM64_HAS_32BIT_EL1))
++	if (vcpu_is_protected(vcpu) ||
++	    !cpus_have_final_cap(ARM64_HAS_32BIT_EL1))
+ 		clear_bit(KVM_ARM_VCPU_EL1_32BIT, &features);
+ 
+ 	if (!kvm_supports_guest_pmuv3()) {
+@@ -1751,7 +1763,8 @@ static unsigned long system_supported_vcpu_features(struct kvm_vcpu *vcpu)
+ 		clear_bit(KVM_ARM_VCPU_PTRAUTH_GENERIC, &features);
+ 	}
+ 
+-	if (!cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
++	if (vcpu_is_protected(vcpu) ||
++	    !cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
+ 		clear_bit(KVM_ARM_VCPU_HAS_EL2, &features);
+ 
+ 	return features;
+@@ -1775,7 +1788,7 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
+ 	if (features & ~system_supported_vcpu_features(vcpu))
+ 		return -EINVAL;
+ 
+-	/* EL2 implements PSCI 1.1; the host must not dispatch as 0.1. */
++	/* Both pKVM and RMM implements PSCI 1.1; the host must not dispatch as 0.1. */
+ 	if (vcpu_is_protected(vcpu) &&
+ 	    !test_bit(KVM_ARM_VCPU_PSCI_0_2, &features))
+ 		return -EINVAL;
+@@ -2312,6 +2325,7 @@ static const struct kvm_vcpu_ops *arm64_vcpu_ops[] = {
+ 	KVM_VCPU_OPS(VM_VHE, vhe_vcpu_ops),
+ 	KVM_VCPU_OPS(VM_PKVM, pkvm_vcpu_ops),
+ 	KVM_VCPU_OPS(VM_PROTECTED_PKVM, pkvm_vcpu_ops),
++	[VM_REALM] = NULL,
+ };
+ 
+ static void kvm_init_vcpu_ops(struct kvm_vcpu *vcpu)
+@@ -3269,6 +3283,8 @@ static __init int kvm_arm_init(void)
+ 
+ 	in_hyp_mode = is_kernel_in_hyp_mode();
+ 
++	kvm_init_rmi();
++
+ 	if (cpus_have_final_cap(ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE) ||
+ 	    cpus_have_final_cap(ARM64_WORKAROUND_1508412))
+ 		kvm_info("Guests without required CPU erratum workarounds can deadlock system!\n" \
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+index 0261b2bc681f..ae6ced6d7b9e 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+@@ -84,7 +84,7 @@ pkvm_hyp_vcpu_to_hyp_vm(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 
+ static inline bool pkvm_hyp_vcpu_is_protected(struct pkvm_hyp_vcpu *hyp_vcpu)
+ {
+-	return vcpu_is_protected(&hyp_vcpu->vcpu);
++	return vcpu_is_protected_pkvm(&hyp_vcpu->vcpu);
+ }
+ 
+ static inline bool pkvm_hyp_vm_is_protected(struct pkvm_hyp_vm *hyp_vm)
+diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+index 89fb9dd351ad..6c03f48e6be3 100644
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -238,7 +238,7 @@ static const exit_handler_fn pvm_exit_handlers[] = {
+ 
+ static const exit_handler_fn *kvm_get_exit_handler_array(struct kvm_vcpu *vcpu)
+ {
+-	if (unlikely(vcpu_is_protected(vcpu)))
++	if (unlikely(vcpu_is_protected_pkvm(vcpu)))
+ 		return pvm_exit_handlers;
+ 
+ 	return hyp_exit_handlers;
+@@ -259,7 +259,7 @@ static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
+ 	 * it.  The check below is based on the one in
+ 	 * kvm_arch_vcpu_ioctl_run().
+ 	 */
+-	if (unlikely(vcpu_is_protected(vcpu) && vcpu_mode_is_32bit(vcpu))) {
++	if (unlikely(vcpu_is_protected_pkvm(vcpu) && vcpu_mode_is_32bit(vcpu))) {
+ 		/*
+ 		 * As we have caught the guest red-handed, decide that it isn't
+ 		 * fit for purpose anymore by making the vcpu invalid. The VMM
+diff --git a/arch/arm64/kvm/hyp/nvhe/timer-sr.c b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+index 993065716913..17bd1ff621ab 100644
+--- a/arch/arm64/kvm/hyp/nvhe/timer-sr.c
++++ b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+@@ -48,7 +48,7 @@ void __timer_enable_traps(struct kvm_vcpu *vcpu)
+ 	 * or running a protected VM (we don't offset anything in this case).
+ 	 */
+ 	clr = CNTHCTL_EL1PCEN;
+-	if (vcpu_is_protected(vcpu) ||
++	if (vcpu_is_protected_pkvm(vcpu) ||
+ 	    !timer_get_offset(vcpu_ptimer(vcpu)))
+ 		set |= CNTHCTL_EL1PCTEN;
+ 	else
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 1db10d8d6db7..34ddcb2f094a 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -2814,17 +2814,17 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+ 	hva_t hva, reg_end;
+ 	int ret = 0;
+ 
+-	if (kvm_vm_is_protected(kvm)) {
++	if (kvm_vm_is_protected(kvm) && new &&
++	    (new->flags & (KVM_MEM_LOG_DIRTY_PAGES | KVM_MEM_READONLY)))
++		return -EPERM;
++
++	if (kvm->arch.vm_flavor == VM_PROTECTED_PKVM) {
+ 		/* Cannot modify memslots once a pVM has run. */
+ 		if (pkvm_hyp_vm_is_created(kvm) &&
+ 		    (change == KVM_MR_DELETE || change == KVM_MR_MOVE)) {
+ 			return -EPERM;
+ 		}
+ 
+-		if (new &&
+-		    new->flags & (KVM_MEM_LOG_DIRTY_PAGES | KVM_MEM_READONLY)) {
+-			return -EPERM;
+-		}
+ 	}
+ 
+ 	if (change != KVM_MR_CREATE && change != KVM_MR_MOVE &&
+@@ -3158,13 +3158,14 @@ static const struct kvm_vm_s2_ops kvm_default_vm_s2_ops = {
+ };
+ 
+ #define KVM_VM_S2_OPS(flavor, ops)		\
+-		[(flavor)] = &(ops)
++		[flavor] = &(ops)
+ 
+ static const struct kvm_vm_s2_ops *arm64_vm_s2_ops[] = {
+ 	KVM_VM_S2_OPS(VM_VHE, kvm_default_vm_s2_ops),
+ 	KVM_VM_S2_OPS(VM_NVHE, kvm_default_vm_s2_ops),
+ 	KVM_VM_S2_OPS(VM_PKVM, pkvm_vm_s2_ops),
+ 	KVM_VM_S2_OPS(VM_PROTECTED_PKVM, protected_pkvm_vm_s2_ops),
++	[VM_REALM] = NULL,
+ };
+ 
+ static int kvm_vm_init_vm_s2_ops(struct kvm *kvm)
+diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+new file mode 100644
+index 000000000000..5ecc8b349869
+--- /dev/null
++++ b/arch/arm64/kvm/rmi.c
+@@ -0,0 +1,18 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2023-2026 ARM Ltd.
++ */
++
++#include <linux/kvm_host.h>
++
++#include <asm/virt.h>
++
++void kvm_init_rmi(void)
++{
++	if (kvm_get_mode() != KVM_MODE_RMM)
++		return;
++
++	/* TODO: Check if the RMI is available */
++
++	/* Future patch will enable static branch kvm_rmi_is_available */
++}
 -- 
 2.43.0
 
