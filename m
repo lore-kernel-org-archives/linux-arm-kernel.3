@@ -2,101 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA10A6079049
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 15:52:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7495607B45F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 15:54:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t/C8BfIK;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=EEKHr8cw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Mx3eRwwG;
+	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=IyakJ+Zj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=j6RtsTbIlQ1+MerKC0xhFDG/d459vnICRyJwyVtriLE=; b=t/C8BfIKd4LId83jOjswjgp6BV
-	fAAp5bDegUdQL9atVm/IASrH3vBmq5lmW9Y67o/ROPn8UeaWqPX4Xfwfb+gbeuAoBMPIJe+HXz7o8
-	PVBfKZqlqkmxm83scbjOUjWYPDGMjIjGzzM+/VtwBFHv9jvLwNE92d5hCQKSd+5P3Sp5tYLKH6Y80
-	vjlQSKQfZI8bHahLBDDdp9HgLsv2lE9uX0QQ0cNKd0c50EMc/g0gpysfEwe+/QOPZn2SSV7U3DQVW
-	9ekNDbn24TlomlJEsBvLitA707j4IwKBeqQAo4pqA4bkvBWl3l9kHAVq8SbuX7cwmg6bV8R2Wp3XE
-	ziYDhcvg==;
+	bh=xnOa3ZtGPyqMrk1+fNJbiWllN3BMewNZtqbMjDkqfXo=; b=Mx3eRwwGDr2TENnzJh5C+D0WnK
+	khr7ovYMAkuY3ThP72t51gwmf9kSAp81To7Bz30h0cnf3PV0hmVX4QmVRtQm5bPsNdXoL+XBbxdA5
+	FGVZtP0w1NgP65BoD3+8J2bkVi0Jhj+xC54ofRlrlnuGEtavxO5C9/bPuJDUCBf4CAGJFhmHJamJL
+	26CR9ZySZio7Rqcw6qKI0cOUW6ScCvdZfsAdCIneLCZ1OPAYJ9Ydgkr40NDbWxLK058Z3GwxE9fpU
+	LaWtzKmrLQnoT6Wyurw0Md64kCKfYNEFQIDHZepxtpClMFjxI4k+d2JmDkmhE8SzO7FjVnRKRiMFy
+	a1X/6v/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNuKa-0000000HCv1-1Stn;
-	Mon, 02 Nov 2026 15:52:20 +0000
-Received: from mail-ed1-x546.google.com ([2a00:1450:4864:20::546])
+	id 1xNuMf-0000000HDTJ-2w4Y;
+	Mon, 02 Nov 2026 15:54:29 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNuKX-0000000HCtW-1BfT
+	id 1xNuMa-0000000HDQO-46Q2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 15:52:19 +0000
-Received: by mail-ed1-x546.google.com with SMTP id 4fb4d7f45d1cf-6b499549f64so728701a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 07:52:15 -0800 (PST)
+	Mon, 02 Nov 2026 15:54:28 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4a5036bbac7so19484205e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 07:54:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1793634734; x=1794239534; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=j6RtsTbIlQ1+MerKC0xhFDG/d459vnICRyJwyVtriLE=;
-        b=EEKHr8cw36n2z1VtncAjkVTNUp+r3LKIdXK82fKyJ5R/gcgkZtficJREv8yVW96m4B
-         HFFSOLY2OdMChbWFsa2MtjknOF3EVHYZ86d5rkq+hsuiP+YY/5+nIUPiSBhWozAWmLp7
-         aWfpYAHeS/zjgBN4UQ1mCAJca1ttJdAAmUwEp62V+2WLxrsryz43FPbH7p00Ko9mHE6V
-         Hry/7bZwZJ0H+dQjb0AM7XLd0Cq8kryLhzuuMn+mMd56XoU72UB9oQckGDdVDopBCQ7b
-         T0ms/bNMTqCvW7K7CMd7Na4g1QAeBwm6LAMSaFUlg5UFmW8TOKRCf3uy/BlMgO2RHqug
-         zsJg==
+        d=baylibre.com; s=google; t=1793634863; x=1794239663; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=xnOa3ZtGPyqMrk1+fNJbiWllN3BMewNZtqbMjDkqfXo=;
+        b=IyakJ+Zjmv7/k5WnV3ziNTXRrhywJusxayv+C4u4UAovG7Z8YtQpIub0L/myUu0o1O
+         H4OSkuhjO8rPFWK7OnKO/1B2mpsYtRLsbA7bWeUpybdlmnbAsOpM1u0RV3rf5cheGzos
+         XzqBX9bfz0UISEUkAjAux9oQgE+dr4GP06MN8q0Vv2c7x9GZ8HlQ1QRsenYNwtwlbjqG
+         wDX18eotxFmyhmswrdKMXEqNqYS0+ofdaPBeRCkPtj8YnXYayvU7vU7cnLebhW+Yy3Ny
+         SlAWNDWIB9JUTuKHcGugFY+1ojdtdy3gqDnVYTlhGZvY8uBRvpunqcm3xZaeN7Rcrw3q
+         Yzew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793634734; x=1794239534;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=j6RtsTbIlQ1+MerKC0xhFDG/d459vnICRyJwyVtriLE=;
-        b=S1dtRbPtJIiAI7xHrCEbMhRllgjVgM563f7iNZyfHx4Q+moZ0+1YQA6SaIen0AJxJC
-         69xs8/gXKJbuyOVo+3DEz6ru9+P7NKJ8ArWeKtvNpzfY7DNQ1siFU+cjU2ZOTT4Z28a5
-         NQjO6A3Jx+fZfXItPvrWrMUftnIjQKYR4Fql6TQyB3un6GGFHCk77HIqlor+rv587CPV
-         9LZdnLykdzQRnLkC9ytg3HDUJpz00eop6E4q7TfbqouabXym8XqG5gcPz5gpWlRJjsdi
-         UnWxmyLOLnJoJ7uqoaG/y80ieUY18+sjoxZRh8ICYfUvfE/59rqQ/6QkVt3my6Z+9H3N
-         fWbg==
-X-Forwarded-Encrypted: i=1; AKwUvBwvu2antI6pVUifJQJPnKAh2sGaPwYtdNAcMGa3wG6jwcOm72/iGddaHErgyTVX8/emEmuO1Mk13SbLBe+ddnSi@lists.infradead.org
-X-Gm-Message-State: APuU4Z9HkxI96ffR4YFx1IyxtfxpYj0puEQtcNGSzCBqn8lJHQTyRLfm
-	tVWj0UggGK3Lgjoca+9/BMpkERqdW5qQfHNiN7fBAUH9tZhZI1hKr8iG0IaH8auZsI1wCDxUE6m
-	sgc3HpxfhKhMdHgYI3Q==
-X-Received: from edwr13.prod.google.com ([2002:a05:6402:34d:b0:6ac:bd6a:1c30])
- (user=tarunsahu job=prod-delivery.src-stubby-dispatcher) by
- 2002:aa7:cc09:0:b0:6ac:7737:e50d with SMTP id 4fb4d7f45d1cf-6b4d4d83eb2mr5865537a12.29.1793634733847;
- Mon, 02 Nov 2026 07:52:13 -0800 (PST)
-Date: Mon, 02 Nov 2026 15:52:12 +0000
-In-Reply-To: <auI02M-pZO_aQ4jn@google.com>
+        d=1e100.net; s=20260707; t=1793634863; x=1794239663;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=xnOa3ZtGPyqMrk1+fNJbiWllN3BMewNZtqbMjDkqfXo=;
+        b=V/Km3W7yRIgG5zOxDQlfM/0Ps6G+3BSzaIkm9fym2HKJtzlWgTnMOBVWvTmEfk8CeJ
+         JkCMkecQWMcjrimIKockaun5OoKyqYsp8MitCuX+UBZw0+tdLZtTIn+E/eo/sB9jLnkL
+         rUL9QH8b18fuSKC/Jm8fDeOUXYWf8sPDELVNMTTNEZHF6dGMOaNzxMlZMW+/v0ylkMV/
+         WQz8GdVfx/Y4dxuEfcdJ6w7mqQATMyZBc19Lc6an0FTFgYIQKFH0nJjVZdWIU458sV29
+         /yv7bBHOP7vvVsmZ/rFfZYilBMiK+yb1933Ds6Q8REzmp4Ab/+OkAWNo4cb5pLTyg3Tn
+         U6kQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwA/3vl9lPpGIw9rp/m1B/UNdUHSKbi4v3LwpdItjIhNwTl6JcYY/CPx6fuXCr/yJP9MfjrqJwohtfhkOh9Apzv@lists.infradead.org
+X-Gm-Message-State: AFq9FYJSsKAG1S/uaYCcrYKMrQxysfwP1hcHynkpyrhepcX50W56TCzZ
+	LB1b9KL1quZAiMhfU2iks5waty0H7znayODW6s6iFjGP7FDl7RnILRTuFNTGvN74kjc=
+X-Gm-Gg: AYBFou1PE6oEj3uOCgyV/6GCCeUzJjN4nifP06ZMbBrDPfUdBW/lnzFfxSxdLPNP8Zr
+	2Oxo7LKD3v5OajwHKIJ7mQKYHxgQtlZaH9mEQ6UyLqNM6vEjbWHkJ7pVpeof8Gr6MBzPMUgFpJT
+	n4AEYtb2sGf8U0Eukbtk4VhYHA257bKfzJUfD1Kz792TQqMAwFz+lwd9MbNwdhSGBLBU/1rroon
+	mbwWeLBPSXaqaL27qjOh2dfbvLtmyqxRS/A955ATz8zGmjq0qQi8RUyJnbF8DjyHDk26ibvr6Is
+	yGcE1jBgRSA1j01eyhT1AGjOsOyWhXyCIbJib/Ty6qYWQ+6FRZ+s5rpxtPyPieWMMyaHkp+FdjT
+	bgh7SD23CsQ6yXBmXXNIpQEk2a8B89NZBkvCcCvCxIGGFQfIWZW+LjPU6FdvG36m1sv3Z+gqv48
+	mQ7UTEH8kzdlNFKCML2nFdgcyRvW16kUrXTFwQErhetoVEoRqKZHr6NHC5Cdz/VcabUYeCHNmur
+	pFLAVlCd9uQ1PBfRhEobM+wlrBkZAX1N44B7P2ZwkvXo142UG12yba6dzro7R1JuwOaVqI0avrl
+	l3qse+XEvnNmtqWNPCMfIl5O7qQA7Y7Q8El8Qz8hLyIVevic5wgZ7BRb
+X-Received: by 2002:a05:600c:4f8b:b0:4a3:5a98:c279 with SMTP id 5b1f17b1804b1-4ac17ffb07cmr236421765e9.8.1793634862845;
+        Mon, 02 Nov 2026 07:54:22 -0800 (PST)
+Received: from [127.0.1.1] (82-230-44-19.subs.proxad.net. [82.230.44.19])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-48e71ba24f6sm21229288f8f.51.2026.11.02.07.54.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Nov 2026 07:54:22 -0800 (PST)
+From: Alexandre Mergnat <amergnat@baylibre.com>
+Subject: [PATCH 0/2] regulator: mt6363: Fix register access and VEMC
+ voltage handling
+Date: Mon, 02 Nov 2026 15:54:16 +0000
+Message-Id: <20261102-rgp-67-mt6363-regulator-fixes-v1-0-420789a3113e@baylibre.com>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-References: <CA+CK2bBFXnJA1kddbLKGq0DAHDgjYhsTSQQay-xeX7jJC1V_UQ@mail.gmail.com>
- <CALzav=e=ho2gVrn+7KpZ3ZyasvH2u15-pC-RSRSS7KcMfKqUJQ@mail.gmail.com>
- <CA+CK2bAJo8dnTOyKMgnnMnk-SCXbTsv+JCLEOWkjyj-wqtEkHg@mail.gmail.com>
- <atpNFEFIlqAoYIwH@google.com> <CA+CK2bB2C3Am5ssRuzYpfiU7_vB81vxMGc19HQLq7N=_7YrbTg@mail.gmail.com>
- <attmFVIFU_mS0Y7p@google.com> <CA+CK2bDXDWbww_d3sD6OZqpo37V1a3t76_ubbrXLQS=9DB3dWA@mail.gmail.com>
- <at-8vkVpN2SF3XgB@google.com> <2vxz8q3hoicx.fsf@kernel.org>
- <CALzav=eG5j2n5omO2Mxqw8xA4sZLduxdbBYFcnHpPn0PDpt9Hg@mail.gmail.com> <auI02M-pZO_aQ4jn@google.com>
-Message-ID: <9huzik2fz0wj.fsf@tarunix.c.googlers.com>
-Subject: Re: [RFC PATCH v2 3/4] liveupdate: Replace compatibility string with
- a 2-bit pair feature header
-From: tarunsahu@google.com
-To: Pasha Tatashin <pasha.tatashin@soleen.com>, David Matlack <dmatlack@google.com>
-Cc: Pratyush Yadav <pratyush@kernel.org>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, joro@8bytes.org, 
-	Mike Rapoport <rppt@kernel.org>, maz@kernel.org, arnd@arndb.de, jgg@nvidia.com, 
-	robin.murphy@arm.com, loganodell@google.com, oupton@kernel.org, 
-	kevin.tian@intel.com, alex@shazbot.org, dwmw2@infradead.org, 
-	pbonzini@redhat.com, seanjc@google.com, will@kernel.org, 
-	Alexander Graf <graf@amazon.com>, Bjorn Helgaas <bhelgaas@google.com>, baolu.lu@linux.intel.com, 
-	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org, 
-	sagis@google.com, linux-mm@kvack.org, kvmarm@lists.linux.dev, 
-	iommu@lists.linux.dev, linux-pci@vger.kernel.org, kexec@lists.infradead.org, 
-	skhawaja@google.com, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACiy6GoC/y2Nyw6CMBBFf4XM2iYwhRb9FcNi2g5YIw/bYkwI/
+ 24Vlyf35pwNIgfPES7FBoFfPvp5ylCdCrA3mgYW3mUGLFFVJZYiDItQWoxJSSVF4GF9UJqD6P2
+ bozDsZKOJbI0WsmMJ/Buy4todHFdzZ5u+0v8j8HPN4XTcwFBkYedx9OlSWNcbJsttg+7MGk0tG
+ XMCWeqeMknCVqsaun3/AL0Vqb7NAAAA
+X-Change-ID: 20261020-rgp-67-mt6363-regulator-fixes-bed357aac42c
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ =?utf-8?q?GIBEOM_LEE_=28=EC=9D=B4=EA=B8=B0=EB=B2=94=29?= <rtx4060@gmail.com>, 
+ Alexandre Mergnat <amergnat@baylibre.com>
+X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_075217_330775_321509A3 
-X-CRM114-Status: GOOD (  31.17  )
-X-Spam-Score: -9.5 (---------)
+X-CRM114-CacheID: sfid-20261102_075425_070938_67D40BD3 
+X-CRM114-Status: GOOD (  11.81  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,91 +109,44 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_IN_DEF_DKIM_WL autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Pasha Tatashin <pasha.tatashin@soleen.com> writes:
+Testing the MT6363 regulator driver showed:
+ - the VEMC (UFS VCC) voltage reported as 1.25 V while the PMIC is
+   programmed to 2.55 V
+ - regmap debugfs showing each register merged with the next one
 
-> On 10-28 10:24, David Matlack wrote:
->> On Wed, Oct 28, 2026 at 10:17=E2=80=AFAM Pratyush Yadav <pratyush@kernel=
-.org> wrote:
->> >
->> > On Mon, Oct 26 2026, David Matlack wrote:
->> >
->> > > On 2026-10-25 04:38 PM, Pasha Tatashin wrote:
->> > >> On Fri, Oct 23, 2026 at 9:50=E2=80=AFAM David Matlack <dmatlack@goo=
-gle.com> wrote:
->> > >
->> > [...]
->> > >> The reason I care about keeping the header compact is that we are
->> > >> defining a foundational kernel ABI and want to use this header acro=
-ss
->> > >> almost every serialized data structure so we can evolve them later
->> > >> without breaking compatibility. While some top-level structs are on
->> > >> sparse folios today, other serialized structs are tightly packed, a=
-nd
->> > >> we are looking to add KHO slab support in the future where tightly
->> > >> packed allocations will be common.
->> > >
->> > > My intuition is we will have a small number of headers per preserved
->> > > file and per preserved FLB. One for the top-level struct and then
->> > > optionally a few more for sub-structs like arch-specific data. That =
-is
->> > > why I am less worried 8 bytes per header, even if we fix the folio
->> > > problem.
->> > >
->> > > Maybe where our visions differ is when there are collections of
->> > > serialized structs, like KHO blocks. For collections I don't think t=
-he
->> > > elements will each have their own headers. Otherwise the elements co=
-uld
->> > > be different sizes.
->> >
->> > kho_block today doesn't store entry_size in the serialized payload. It
->> > relies on its caller to do so. With extensible structures, this can ge=
-t
->> > messy. Sure, the owner of the kho_block_set can track the size somewhe=
-re
->> > in its payload, but perhaps we should store the size in
->> > kho_block_header_ser to begin with?
->>=20
->> +1000
->>=20
->> KHO block should track the entry size automatically and not rely on
->> the caller. Otherwise every caller is going to have to store the entry
->> size in the struct that owns the KHO block, like I had to do in the
->> PCI v10 series :(
->
-> I am fine with updating this as part of the versioning change so that we=
-=20
-> do not have to do it twice.
->
-> Tarun, could you pelase include entry size change into the next version a=
-s=20
-> well?
+Reading the code with the datasheet showed more problems:
+ - a VEMC voltage change to the misreported value is skipped while
+   VEMC is enabled
+ - disabling VS2 or a VBUCK rail also clears the enable bits of VS1,
+   VS3 and three VSRAM rails
+ - the BUCK and TMA key writes also overwrite the two registers after
+   each key
+ - with hardware trap 1, VEMC voltage changes are not applied and the
+   voltage is misreported
 
-Yes, This will be important to track the extensible serialized structure
-across kernel. For example struct luo_session_ser has larger size in N+1
-kernel which gets deserialized on the beginning of the boot so incoming
-block_set must use entry_size of the kernel N which we can update inside
-kho_block_set_restore(). And this updated incoming->block_set be used
-for iterator in luo_session_deserialize to properly walk through
-session_ser entries.
+Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
+---
+Alexandre Mergnat (2):
+      regulator: mt6363: Use 8-bit register values
+      regulator: mt6363: Fix VEMC voltage selection
 
-I will send v4 soon including this.
+ drivers/regulator/mt6363-regulator.c       | 131 +++++++++--------------------
+ include/linux/regulator/mt6363-regulator.h |   1 +
+ 2 files changed, 39 insertions(+), 93 deletions(-)
+---
+base-commit: cdfbeace852d9e72b43e23572e37fab433a28764
+change-id: 20261020-rgp-67-mt6363-regulator-fixes-bed357aac42c
 
-~Tarun
+Best regards,
+--  
+Alexandre Mergnat <amergnat@baylibre.com>
 
->
-> Thanks,
-> Pasha
->
->>=20
->> > Anyway, not a problem this series needs to solve, but something we
->> > should eventually do.
 
