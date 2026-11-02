@@ -2,70 +2,125 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9ABF606EEB8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:45:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 444BA606D806
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:45:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jywsf+mt;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Yq44rYbu
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nnkNdWnq;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OnQkQ8ZY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=SxDeP+VVrehaEoxAacbpEcDKEnQestaQVUxckwi1z4Q=; b=jywsf+mtyHUxKD
-	71soNvsgrsRQNcITWVBLo1e1/kw0SJw67qaOv+EfAGiHJC9d+UmxHgwfZ+8gxI1RjnOyXCwpcVhVh
-	q60Yd6WBnyhneqBBNszcf/qc5jI6hWNwUOKCjcdUT3Dq2rGFKsR1uE3nlrt9VpDCLJhjHeyVCyScy
-	ZwD3Moo0a+RtDTGkhzxu7t9WuasszBl9KaQpHH/7vljzdxEOLU9qKw02aRGFEVLfx6/OpX1GSdx5V
-	sISvlAmzGyFMJpg2roxr4RGGK7dJWCV38a6NBkzA4aKEo8JwgF2Sdy/F8Dc/8BwSJJAMbFZkVRoS9
-	QRLWeAoX2iOc4rE7+F8Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
+	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=VCSQCc0yvtrmOoCjuIRBo5BrPWCg2fD0xLmeKel1ZGQ=; b=nnkNdWnqY2mubwfcsSrvqOZk5X
+	6Tjf+0qmCBx+JRIcoa2bF1Wc/ysBOszxDmavRaVF9OQDP5Zxoc21+OVjbeKNLGvgW7cKf32Nds1Z0
+	nIURJCkmLbBha3SUqH4/o+LdNKtl90A1FpWPD1VkvPctYmXgfGX7hKnTqewrtAlgudqfOXJcN82KO
+	4kMvVDSfBBLF4HXHE+O1+kiNKqL5TTLuUhtWG0hTkZLLzHvx+o/AAToxDyonXMO6/LBlnpi5lTWFg
+	dyAfR2vkY5NT3jYjRnJxu/f66yZdyhBXAeSJOKidMSd+H9uygxFFHBWoITEgjcVXbJVL6+5KMz9gS
+	d+45S2Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxyH-000000008o1-43OR;
-	Mon, 02 Nov 2026 19:45:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxxx-000000008Qg-0kqe
-	for linux-arm-kernel@lists.infradead.org;
+	id 1xNxyL-000000008vw-45DI;
+	Mon, 02 Nov 2026 19:45:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNxxz-000000008SU-0I6l;
 	Mon, 02 Nov 2026 19:45:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D4CC16A3;
-	Mon,  2 Nov 2026 11:45:09 -0800 (PST)
-Received: from e133894.cambridge.arm.com (e133894.arm.com [10.2.80.62])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D98B63F673;
-	Mon,  2 Nov 2026 11:45:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793648712; bh=amDiy+/ROWpP26/w1KGH5V47ch5HrMmB725iyWflZog=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Yq44rYbu5yvylisult486QxQUL3jSeYkEcobdMl251Kz5R75syCv5ICA26XR9Dd0i
-	 7BMBMo1ZiSBQJNTRKH/bLIOzbDQqQzIPywdNUneIPtGis2al1NtHvgNzYqcbV8DAFy
-	 9pT5++s+Os+RyAFJrjy1V4llCOme+aHHj/7z5mAM=
-From: Sascha Bischoff <sascha.bischoff@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org
-Cc: maz@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	peter.maydell@linaro.org,
-	lpieralisi@kernel.org,
-	timothy.hayes@arm.com,
-	fuad.tabba@linux.dev
-Subject: [PATCH v2 02/16] KVM: arm64: vgic: Pass opaque device pointer to ITS MMIO callbacks
-Date: Mon,  2 Nov 2026 19:44:40 +0000
-Message-Id: <20261102194454.4086911-3-sascha.bischoff@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261102194454.4086911-1-sascha.bischoff@arm.com>
-References: <20261102194454.4086911-1-sascha.bischoff@arm.com>
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C7BD3445FF;
+	Mon,  2 Nov 2026 19:45:14 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1793648714;
+	b=JMGWiSVVVXf4xctn0obdvYfTRTXWniO5A5TDR0cW7kKo9DLspWWRxU37gLCBjndyxWhw
+	 lRWAkgvHK6Eh+wORzX/Ci1ySpTzOAbVXX3lIZbFVKr4TKH2MWLhIGFV6Ul7Mbqw8bGE+E
+	 +5RQQ2xQrsEslpYClet2GKieEvDUZnvnVasPwiP5vXztP1NVlLnyJrfMt6RDbdu4Fm2eh
+	 yu8DGlKi81xr66vWHAR/whkoAKBrq8ttFWeyyMbBHw4yVjLJa92W/inh+9FuQKeJJNald
+	 PWQypYzhbcMHKXTdcEZW+20KCO+bJXWow9EEpVoM8/d1Zvnf9hZxAjh2F/KNRNbN5rg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1793648714;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=VCSQCc0yvtrmOoCjuIRBo5BrPWCg2fD0xLmeKel1ZGQ=;
+	b=C5xgXsTUUjuB7sq426Jq3sRr8HbxsDuiT2YHEqnwn7PS0JfdkmrvmITDJkGpTHLoOOjD
+	 jvzUIJEDqYyPLBxILoe7ySpQqSZ8S3RmCCJBIVydt4fZQ5f6PFYYfGYdEMeTKB1AzFqK9
+	 rtXjCGVsPC0z7ydsbZGoAgaktTEli08gqdseiHTS9ycgUT/cD/s8pdGV8GGSY/WTj6UR2
+	 L68rkFXbd9piYWugaXofw1RRZybtvYtsDTAdM7S2PZgSBUGavLp8Iw1wAI3Hxfim08078
+	 5Jb2ht4FjbbJayxlZMvYrVvivwhynMhaD57bGpCVlhhRjcqc4YRWjJkfJBWn/KRng2Q==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 17D941F00A22;
+	Mon,  2 Nov 2026 19:45:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793648714;
+	bh=VCSQCc0yvtrmOoCjuIRBo5BrPWCg2fD0xLmeKel1ZGQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=OnQkQ8ZYp84mqS6QCCnSb3gnwXsarHyT6RqKEI1PIklhgIgiOY23/nu+tIhrqYXSF
+	 zHfTuGjaNI4a7BcRXhDDR/YDIWgz8zqDc9pSflAql+W5zPfZU4ad1Y0sE/3cW2YoUX
+	 sJOQ050S7hLCRW4vw/tiVYT0+533qNKUDP7BAr/wWRqE2m6q1ZFzpLPnF5FWd4Dl8P
+	 MqIWKIwek98qgfgUWOHcpnqFJ55ta9ktvDq2HXC1Psjlqh65WWEoWjtp1FikDusEq9
+	 sPRI/cAaSikjzj5KhCQLxjirAbXz85jQnUAO2TEAED5mwLpLaSyY/BSjopYggK3R/J
+	 cjuPAz55Mio2w==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id EE05546616;
+	Mon,  2 Nov 2026 19:45:08 +0000 (UTC)
+From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
+Date: Tue, 03 Nov 2026 03:45:08 +0800
+Subject: [PATCH RFC v3 05/17] mailbox: add Zhihe A210 AP to E902 mailbox
+ driver
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_114513_316628_2F5F0CC8 
-X-CRM114-Status: GOOD (  15.20  )
-X-Spam-Score: -4.4 (----)
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261103-a210-scmi-v3-5-ee6b31580808@iscas.ac.cn>
+References: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
+In-Reply-To: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
+To: Sudeep Holla <sudeep.holla@kernel.org>, 
+ Cristian Marussi <cristian.marussi@arm.com>, 
+ Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>, 
+ Jassi Brar <jassisinghbrar@gmail.com>, Linus Walleij <linusw@kernel.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Thomas Gleixner <tglx@kernel.org>, 
+ Radu Rendec <radu@rendec.net>, Samuel Holland <samuel.holland@sifive.com>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Anup Patel <anup@brainfault.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Drew Fustini <fustini@kernel.org>, 
+ Icenowy Zheng <uwu@icenowy.me>, Inochi Amaoto <inochiama@gmail.com>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>, 
+ Jiaxun Yang <jiaxun.yang@flygoat.com>
+Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org, 
+ linux-serial@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, 
+ Han Gao <gaohan@iscas.ac.cn>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793648705; l=7374;
+ i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
+ bh=Z7rtD2lVv6OIg4Vqe4Ikd4EKS6jFLkfoX9GIDAAsyp4=;
+ b=VrOF7udLcDMVqx667ugeUMpkqXHz40e/x5dOG22NIXupxPiSI/4m12WowhII4y0a+jNIua+MQ
+ VjdvRvtrVyxBOac3UusDx0riIWfcXEcwv2P1AymO4vKOpG25rZoaynf
+X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
+ pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
+X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
+ auth_id=1262
+X-Original-From: Han Gao <gaohan@iscas.ac.cn>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,6 +130,7 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: gaohan@iscas.ac.cn
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
@@ -84,233 +140,239 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The ITS MMIO callbacks currently take a struct vgic_its pointer,
-which ties them to the GICv3 ITS. GICv5 needs to use the same MMIO
-dispatch path with a different device structure.
+From: Han Gao <gaohan@iscas.ac.cn>
 
-Pass an opaque device pointer to the callbacks and cast it in the
-GICv3 handlers. This does not change GICv3 behaviour.
+Add a mailbox controller for the doorbells between the A210 application
+processors and the E902 management core. It serves as the SCMI
+transport to the E902 firmware.
 
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+Channel 0 rings E902 and receives its completions. Channel 1 is receive
+only and carries E902 notifications. Both share one interrupt, and E902
+writes INFO0 or INFO1 to tell them apart.
+
+The E902 firmware keeps both mailboxes clocked and out of reset, so the
+driver does not manage clocks or resets.
+
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- arch/arm64/kvm/vgic/vgic-its.c  | 55 +++++++++++++++++----------------
- arch/arm64/kvm/vgic/vgic-mmio.h |  6 ++--
- 2 files changed, 32 insertions(+), 29 deletions(-)
+ drivers/mailbox/Kconfig        |   9 +++
+ drivers/mailbox/Makefile       |   2 +
+ drivers/mailbox/mailbox-a210.c | 176 +++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 187 insertions(+)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index 34c1c89bfbfe1..c6e069af7c614 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -386,10 +386,10 @@ static int its_sync_lpi_pending_table(struct kvm_vcpu *vcpu)
- 	return ret;
- }
+diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
+index ab869769e278..6d620b0dde6f 100644
+--- a/drivers/mailbox/Kconfig
++++ b/drivers/mailbox/Kconfig
+@@ -409,4 +409,13 @@ config AXIADO_MAILBOX
+ 	  Axiado SoCs.
+ 	  If unsure, say N.
  
--static unsigned long vgic_mmio_read_its_typer(struct kvm *kvm,
--					      struct vgic_its *its,
-+static unsigned long vgic_mmio_read_its_typer(struct kvm *kvm, void *dev,
- 					      gpa_t addr, unsigned int len)
- {
-+	struct vgic_its *its = dev;
- 	const struct vgic_its_abi *abi = vgic_its_get_abi(its);
- 	u64 reg = GITS_TYPER_PLPIS;
++config ZHIHE_A210_MBOX
++	bool "Zhihe A210 AP to E902 mailbox"
++	depends on OF && (ARCH_ZHIHE || COMPILE_TEST)
++	help
++	  Mailbox driver for the doorbells between the application
++	  processors and the E902 management core of the Zhihe A210. The
++	  doorbells carry no data, so clients pass their messages through
++	  shared memory. Say Y to use the SCMI firmware on the E902.
++
+ endif
+diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
+index 45dc59bb3e7f..f537ebb8aaff 100644
+--- a/drivers/mailbox/Makefile
++++ b/drivers/mailbox/Makefile
+@@ -86,3 +86,5 @@ obj-$(CONFIG_BCM74110_MAILBOX)	+= bcm74110-mailbox.o
+ obj-$(CONFIG_RISCV_SBI_MPXY_MBOX)	+= riscv-sbi-mpxy-mbox.o
  
-@@ -408,10 +408,10 @@ static unsigned long vgic_mmio_read_its_typer(struct kvm *kvm,
- 	return extract_bytes(reg, addr & 7, len);
- }
- 
--static unsigned long vgic_mmio_read_its_iidr(struct kvm *kvm,
--					     struct vgic_its *its,
-+static unsigned long vgic_mmio_read_its_iidr(struct kvm *kvm, void *dev,
- 					     gpa_t addr, unsigned int len)
- {
-+	struct vgic_its *its = dev;
- 	u32 val;
- 
- 	val = (its->abi_rev << GITS_IIDR_REV_SHIFT) & GITS_IIDR_REV_MASK;
-@@ -419,11 +419,11 @@ static unsigned long vgic_mmio_read_its_iidr(struct kvm *kvm,
- 	return val;
- }
- 
--static int vgic_mmio_uaccess_write_its_iidr(struct kvm *kvm,
--					    struct vgic_its *its,
-+static int vgic_mmio_uaccess_write_its_iidr(struct kvm *kvm, void *dev,
- 					    gpa_t addr, unsigned int len,
- 					    unsigned long val)
- {
-+	struct vgic_its *its = dev;
- 	u32 rev = GITS_IIDR_REV(val);
- 
- 	if (rev >= NR_ITS_ABIS)
-@@ -433,7 +433,7 @@ static int vgic_mmio_uaccess_write_its_iidr(struct kvm *kvm,
- }
- 
- static unsigned long vgic_mmio_read_its_idregs(struct kvm *kvm,
--					       struct vgic_its *its,
-+					       void *dev,
- 					       gpa_t addr, unsigned int len)
- {
- 	switch (addr & 0xffff) {
-@@ -1496,17 +1496,18 @@ static u64 vgic_sanitise_its_cbaser(u64 reg)
- 	return reg;
- }
- 
--static unsigned long vgic_mmio_read_its_cbaser(struct kvm *kvm,
--					       struct vgic_its *its,
-+static unsigned long vgic_mmio_read_its_cbaser(struct kvm *kvm, void *dev,
- 					       gpa_t addr, unsigned int len)
- {
-+	struct vgic_its *its = dev;
- 	return extract_bytes(its->cbaser, addr & 7, len);
- }
- 
--static void vgic_mmio_write_its_cbaser(struct kvm *kvm, struct vgic_its *its,
-+static void vgic_mmio_write_its_cbaser(struct kvm *kvm, void *dev,
- 				       gpa_t addr, unsigned int len,
- 				       unsigned long val)
- {
-+	struct vgic_its *its = dev;
- 	/* When GITS_CTLR.Enable is 1, this register is RO. */
- 	if (its->enabled)
- 		return;
-@@ -1564,10 +1565,11 @@ static void vgic_its_process_commands(struct kvm *kvm, struct vgic_its *its)
-  * protects our ring buffer variables, so that there is only one user
-  * per ITS handling commands at a given time.
-  */
--static void vgic_mmio_write_its_cwriter(struct kvm *kvm, struct vgic_its *its,
-+static void vgic_mmio_write_its_cwriter(struct kvm *kvm, void *dev,
- 					gpa_t addr, unsigned int len,
- 					unsigned long val)
- {
-+	struct vgic_its *its = dev;
- 	u64 reg;
- 
- 	if (!its)
-@@ -1588,25 +1590,25 @@ static void vgic_mmio_write_its_cwriter(struct kvm *kvm, struct vgic_its *its,
- 	mutex_unlock(&its->cmd_lock);
- }
- 
--static unsigned long vgic_mmio_read_its_cwriter(struct kvm *kvm,
--						struct vgic_its *its,
-+static unsigned long vgic_mmio_read_its_cwriter(struct kvm *kvm, void *dev,
- 						gpa_t addr, unsigned int len)
- {
-+	struct vgic_its *its = dev;
- 	return extract_bytes(its->cwriter, addr & 0x7, len);
- }
- 
--static unsigned long vgic_mmio_read_its_creadr(struct kvm *kvm,
--					       struct vgic_its *its,
-+static unsigned long vgic_mmio_read_its_creadr(struct kvm *kvm, void *dev,
- 					       gpa_t addr, unsigned int len)
- {
-+	struct vgic_its *its = dev;
- 	return extract_bytes(its->creadr, addr & 0x7, len);
- }
- 
--static int vgic_mmio_uaccess_write_its_creadr(struct kvm *kvm,
--					      struct vgic_its *its,
-+static int vgic_mmio_uaccess_write_its_creadr(struct kvm *kvm, void *dev,
- 					      gpa_t addr, unsigned int len,
- 					      unsigned long val)
- {
-+	struct vgic_its *its = dev;
- 	u32 cmd_offset;
- 	int ret = 0;
- 
-@@ -1630,10 +1632,10 @@ static int vgic_mmio_uaccess_write_its_creadr(struct kvm *kvm,
- }
- 
- #define BASER_INDEX(addr) (((addr) / sizeof(u64)) & 0x7)
--static unsigned long vgic_mmio_read_its_baser(struct kvm *kvm,
--					      struct vgic_its *its,
-+static unsigned long vgic_mmio_read_its_baser(struct kvm *kvm, void *dev,
- 					      gpa_t addr, unsigned int len)
- {
-+	struct vgic_its *its = dev;
- 	u64 reg;
- 
- 	switch (BASER_INDEX(addr)) {
-@@ -1652,11 +1654,11 @@ static unsigned long vgic_mmio_read_its_baser(struct kvm *kvm,
- }
- 
- #define GITS_BASER_RO_MASK	(GENMASK_ULL(52, 48) | GENMASK_ULL(58, 56))
--static void vgic_mmio_write_its_baser(struct kvm *kvm,
--				      struct vgic_its *its,
-+static void vgic_mmio_write_its_baser(struct kvm *kvm, void *dev,
- 				      gpa_t addr, unsigned int len,
- 				      unsigned long val)
- {
-+	struct vgic_its *its = dev;
- 	const struct vgic_its_abi *abi = vgic_its_get_abi(its);
- 	u64 old, entry_size, table_type;
- 	u64 reg, *regptr, clearbits = 0;
-@@ -1711,10 +1713,10 @@ static void vgic_mmio_write_its_baser(struct kvm *kvm,
- 	}
- }
- 
--static unsigned long vgic_mmio_read_its_ctlr(struct kvm *vcpu,
--					     struct vgic_its *its,
-+static unsigned long vgic_mmio_read_its_ctlr(struct kvm *vcpu, void *dev,
- 					     gpa_t addr, unsigned int len)
- {
-+	struct vgic_its *its = dev;
- 	u32 reg = 0;
- 
- 	mutex_lock(&its->cmd_lock);
-@@ -1727,10 +1729,11 @@ static unsigned long vgic_mmio_read_its_ctlr(struct kvm *vcpu,
- 	return reg;
- }
- 
--static void vgic_mmio_write_its_ctlr(struct kvm *kvm, struct vgic_its *its,
-+static void vgic_mmio_write_its_ctlr(struct kvm *kvm, void *dev,
- 				     gpa_t addr, unsigned int len,
- 				     unsigned long val)
- {
-+	struct vgic_its *its = dev;
- 	mutex_lock(&its->cmd_lock);
- 
- 	/*
-@@ -1776,8 +1779,8 @@ static void vgic_mmio_write_its_ctlr(struct kvm *kvm, struct vgic_its *its,
- 	.uaccess_its_write = uwr,				\
- }
- 
--static void its_mmio_write_wi(struct kvm *kvm, struct vgic_its *its,
--			      gpa_t addr, unsigned int len, unsigned long val)
-+static void its_mmio_write_wi(struct kvm *kvm, void *dev, gpa_t addr,
-+			      unsigned int len, unsigned long val)
- {
- 	/* Ignore */
- }
-diff --git a/arch/arm64/kvm/vgic/vgic-mmio.h b/arch/arm64/kvm/vgic/vgic-mmio.h
-index 38ed730d68ac3..c3b6d3e752d8d 100644
---- a/arch/arm64/kvm/vgic/vgic-mmio.h
-+++ b/arch/arm64/kvm/vgic/vgic-mmio.h
-@@ -13,13 +13,13 @@ struct vgic_register_region {
- 	union {
- 		unsigned long (*read)(struct kvm_vcpu *vcpu, gpa_t addr,
- 				      unsigned int len);
--		unsigned long (*its_read)(struct kvm *kvm, struct vgic_its *its,
-+		unsigned long (*its_read)(struct kvm *kvm, void *dev,
- 					  gpa_t addr, unsigned int len);
- 	};
- 	union {
- 		void (*write)(struct kvm_vcpu *vcpu, gpa_t addr,
- 			      unsigned int len, unsigned long val);
--		void (*its_write)(struct kvm *kvm, struct vgic_its *its,
-+		void (*its_write)(struct kvm *kvm, void *dev,
- 				  gpa_t addr, unsigned int len,
- 				  unsigned long val);
- 	};
-@@ -28,7 +28,7 @@ struct vgic_register_region {
- 	union {
- 		int (*uaccess_write)(struct kvm_vcpu *vcpu, gpa_t addr,
- 				     unsigned int len, unsigned long val);
--		int (*uaccess_its_write)(struct kvm *kvm, struct vgic_its *its,
-+		int (*uaccess_its_write)(struct kvm *kvm, void *dev,
- 					 gpa_t addr, unsigned int len,
- 					 unsigned long val);
- 	};
+ obj-$(CONFIG_AXIADO_MAILBOX)	+= axiado-mailbox.o
++
++obj-$(CONFIG_ZHIHE_A210_MBOX) += mailbox-a210.o
+diff --git a/drivers/mailbox/mailbox-a210.c b/drivers/mailbox/mailbox-a210.c
+new file mode 100644
+index 000000000000..0b66fded6b09
+--- /dev/null
++++ b/drivers/mailbox/mailbox-a210.c
+@@ -0,0 +1,176 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/* Zhihe A210 application processor to E902 mailbox */
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/mailbox_controller.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/spinlock.h>
++
++/* The local mailbox holds the INFO bank and, one page up, the AP interrupt. */
++#define A210_MBOX_STATUS		0x1000
++#define A210_MBOX_CLEAR		0x1004
++#define A210_MBOX_MASK		0x100c
++#define A210_MBOX_GENERATE	0x10
++#define A210_MBOX_INFO(n)	(0x14 + 4 * (n))
++#define A210_MBOX_E902_PENDING	BIT(0)
++#define A210_MBOX_NOTIFY		BIT(6)
++
++/* Channel 0 carries AP requests and completions, channel 1 E902 notifications. */
++#define A210_MBOX_CHANS		2
++
++struct a210_mbox {
++	struct mbox_controller controller;
++	struct mbox_chan channels[A210_MBOX_CHANS];
++	void __iomem *local;
++	void __iomem *remote;
++	/* Protects the shared interrupt mask and the set of started channels. */
++	spinlock_t lock;
++	unsigned long started;
++	int irq;
++};
++
++static void a210_mbox_mask(struct a210_mbox *mbox, unsigned int index, bool enable)
++{
++	unsigned long flags;
++	u32 value;
++
++	spin_lock_irqsave(&mbox->lock, flags);
++	if (enable)
++		__set_bit(index, &mbox->started);
++	else
++		__clear_bit(index, &mbox->started);
++	value = readl(mbox->local + A210_MBOX_MASK);
++	if (mbox->started)
++		value |= A210_MBOX_E902_PENDING;
++	else
++		value &= ~A210_MBOX_E902_PENDING;
++	writel(value, mbox->local + A210_MBOX_MASK);
++	spin_unlock_irqrestore(&mbox->lock, flags);
++}
++
++static irqreturn_t a210_mbox_irq(int irq, void *data)
++{
++	struct a210_mbox *mbox = data;
++
++	if (!(readl(mbox->local + A210_MBOX_MASK) & A210_MBOX_E902_PENDING))
++		return IRQ_NONE;
++	if (!(readl(mbox->local + A210_MBOX_STATUS) & A210_MBOX_E902_PENDING))
++		return IRQ_NONE;
++
++	writel(A210_MBOX_E902_PENDING, mbox->local + A210_MBOX_CLEAR);
++
++	/* E902 sets INFO<n> before ringing the shared doorbell for channel n. */
++	for (unsigned int i = 0; i < A210_MBOX_CHANS; i++) {
++		if (!readl(mbox->local + A210_MBOX_INFO(i)))
++			continue;
++		writel(0, mbox->local + A210_MBOX_INFO(i));
++		if (test_bit(i, &mbox->started))
++			mbox_chan_received_data(&mbox->channels[i], NULL);
++	}
++	return IRQ_HANDLED;
++}
++
++static unsigned int a210_mbox_index(struct a210_mbox *mbox, struct mbox_chan *channel)
++{
++	return channel - mbox->channels;
++}
++
++static int a210_mbox_send(struct mbox_chan *channel, void *data)
++{
++	struct a210_mbox *mbox = channel->con_priv;
++
++	/* E902 notifications are receive-only. */
++	if (a210_mbox_index(mbox, channel))
++		return -EINVAL;
++
++	/* Payload and completion ownership belong to the shared-memory client. */
++	writel(A210_MBOX_NOTIFY, mbox->remote + A210_MBOX_GENERATE);
++	return 0;
++}
++
++static int a210_mbox_startup(struct mbox_chan *channel)
++{
++	struct a210_mbox *mbox = channel->con_priv;
++	unsigned int index = a210_mbox_index(mbox, channel);
++
++	writel(0, mbox->local + A210_MBOX_INFO(index));
++	a210_mbox_mask(mbox, index, true);
++	return 0;
++}
++
++static void a210_mbox_shutdown(struct mbox_chan *channel)
++{
++	struct a210_mbox *mbox = channel->con_priv;
++
++	a210_mbox_mask(mbox, a210_mbox_index(mbox, channel), false);
++	synchronize_irq(mbox->irq);
++}
++
++static const struct mbox_chan_ops a210_mbox_ops = {
++	.send_data = a210_mbox_send,
++	.startup = a210_mbox_startup,
++	.shutdown = a210_mbox_shutdown,
++};
++
++static int a210_mbox_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct a210_mbox *mbox;
++	int ret;
++
++	mbox = devm_kzalloc(dev, sizeof(*mbox), GFP_KERNEL);
++	if (!mbox)
++		return -ENOMEM;
++
++	mbox->local = devm_platform_ioremap_resource_byname(pdev, "local");
++	if (IS_ERR(mbox->local))
++		return PTR_ERR(mbox->local);
++	mbox->remote = devm_platform_ioremap_resource_byname(pdev, "remote");
++	if (IS_ERR(mbox->remote))
++		return PTR_ERR(mbox->remote);
++	mbox->irq = platform_get_irq(pdev, 0);
++	if (mbox->irq < 0)
++		return mbox->irq;
++
++	spin_lock_init(&mbox->lock);
++	a210_mbox_mask(mbox, 0, false);
++	for (unsigned int i = 0; i < A210_MBOX_CHANS; i++)
++		mbox->channels[i].con_priv = mbox;
++	/*
++	 * Neither txdone_irq nor txdone_poll is set: the client acknowledges
++	 * completion after consuming shared memory.
++	 */
++	mbox->controller.dev = dev;
++	mbox->controller.chans = mbox->channels;
++	mbox->controller.num_chans = A210_MBOX_CHANS;
++	mbox->controller.ops = &a210_mbox_ops;
++
++	ret = devm_request_irq(dev, mbox->irq, a210_mbox_irq, 0, dev_name(dev),
++			       mbox);
++	if (ret)
++		return ret;
++
++	return devm_mbox_controller_register(dev, &mbox->controller);
++}
++
++static const struct of_device_id a210_mbox_match[] = {
++	{ .compatible = "zhihe,a210-ap-mailbox" },
++	{}
++};
++MODULE_DEVICE_TABLE(of, a210_mbox_match);
++
++static struct platform_driver a210_mbox_driver = {
++	.probe = a210_mbox_probe,
++	.driver = {
++		.name = "a210-mailbox",
++		.of_match_table = a210_mbox_match,
++		/* Running E902 firmware continuously accesses the remote bank. */
++		.suppress_bind_attrs = true,
++	},
++};
++module_platform_driver(a210_mbox_driver);
++
++MODULE_AUTHOR("Han Gao <gaohan@iscas.ac.cn>");
++MODULE_DESCRIPTION("Zhihe A210 AP to E902 mailbox");
++MODULE_LICENSE("GPL");
+
 -- 
-2.34.1
+2.55.0
+
 
 
