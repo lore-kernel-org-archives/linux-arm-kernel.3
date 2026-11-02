@@ -2,125 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92DD7606D81F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:46:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FBF16082BEE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:46:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zxSHDXuX;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W5rudeN/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fWCuLSvr;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=BItXzWWY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
-	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=Rmfx7QYlhFdbxH6abqp7/AYToCj2a0IViMkw7PBXQf8=; b=zxSHDXuXO5uQ7xMWQCN3XoNSI5
-	t+bbiO20vqRBMlOC4+AcldvKLRnhXE6A4mJqqtgTvamX1rcT52XtR0R8V2PIbbYxZNJD9+tXZsSBm
-	1j7p+siQzG/ePZd7Lp1MNajfzyoo92zvwl2867HdZOLhPd85/9cR2zwxguaRY9ksjKEFESs+z/Xqa
-	iKcEKvGhe4M8mU6gUGpHoK5TzNqRT0MQaBTIonmscrfGFdnIyUvn9uVf4ioKfVMV3f2m2IfUxvObp
-	DGfCDi5n0GYLEMS85vOzfSS/0z/KCVmPMPPcdgLezSVoWPrhVgU2ujUPf1DMOlxTx4/Zugl8NU0zn
-	luH/F+FQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=X3Wl76sNh2EDZcFFg+MvKbcdjE0WEhfwDpthLQhEmtM=; b=fWCuLSvryjr+Op
+	SSMVtvw5Q6F/qcAjFgoNxWi6WA1ijpzia0KPmIVS6aW4V7UP1GndTl9fz+j4LqrqVor7LkkDkTtjd
+	dkSZ9nYe0i8LX3/gfdxDS+dtpL8a1ab9xjf6Nl14QF9CN+7UBhS1Vy3ND+28c+CScuFL9TYf1keem
+	02QikSLL//Ag8YJ5+DHIJmdGl9uTQzC0+i7SNfhbp/cgmJ/nvx/pz1yovxAWI0VKdk0l92JlfzR2c
+	mqf4laUchrkAB6PdY9EOBg7OANdgIcKo+MOubqV1SHbZPb9jB7ewi7koVckHjF7cbNicnVfG1Vgtu
+	TMzNupyMNASLqO19YlIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxyr-000000009gP-0cao;
-	Mon, 02 Nov 2026 19:46:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxy6-000000008bS-29hD;
+	id 1xNxys-000000009lX-3Uht;
+	Mon, 02 Nov 2026 19:46:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNxy1-000000008Wh-2PIZ
+	for linux-arm-kernel@lists.infradead.org;
 	Mon, 02 Nov 2026 19:45:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4461B44610;
-	Mon,  2 Nov 2026 19:45:22 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793648722;
-	b=sIvOjamXTvZrndOeoaw0Z1RawDRDFjqk3hyNUMPR1P3G2KttkIAZXBB1X5l0TOvZ05Sb
-	 AI+gC/N0lHSST4JRte7Yk9f1ReMSg2L0FeycIJqYGsGxoEwdrkGPCXZYToCgb5+ejoHQV
-	 Eqb08XdUC4uwMuuuksCxHq2DaJzovlX3gqXYxcrxB8+yNX3AhMQneQpl0xBvya3BRHOSd
-	 ybCtR9EghIPZfTgbFEjdeHGhcibfHCurJeVDVIC6wgKvMad5JQEOOYsuS3wYkd/ZzY7PF
-	 NmeBkPBS2YvVu6qofPVHCPuyNeqrps27YHnPclrgeLdIAYpOKCNW/SfqEQh3oHd0xPw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793648722;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Rmfx7QYlhFdbxH6abqp7/AYToCj2a0IViMkw7PBXQf8=;
-	b=xMI+bY0x09fuhFnB0dFX/DogrCXcsLJTJi/An02AZ/ny4M1VhyUNFX5CTxPhEBlsUyG0
-	 aQlcfzY/KlxZLwiB1MFCrrdq8zMqY4HOL4Men5hAs5fpSxGuqUQj9hnCc/a23YoM+lzYI
-	 07c84BLidSS7S7ocGvlqG2NBy9h9YFcZrhufQHCyQLUUen/YgVYSEtqEasww2KcDwdrCk
-	 FMhSOdwdZqI2bI0NkLIFUj8h3rUmDK0pknxhucgN0C7qXatDuseIwJPBNV+76fPRnrLZJ
-	 69amymiMzFFUu7HxDfkZTqWfFSp3ujJNfTNmA5hsMPMmtDx4IO3s6N4QbprtOeqxMRQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B95B31F00A2A;
-	Mon,  2 Nov 2026 19:45:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793648722;
-	bh=Rmfx7QYlhFdbxH6abqp7/AYToCj2a0IViMkw7PBXQf8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=W5rudeN/9ftHf2uMl3BdPZ05LRbMbd3yveTCJ3gcETNplQP+7wwydsdWBk07mnb2c
-	 6IppoNJDPkaHDQrq2ce0HBasQsbS+21PZ9rZ6UI76e8AfnHzhPzD1OBMHTSs9kZDG8
-	 BNqvv/VUDRWHoMl7eM/gW7FzNRFBDsfuHf8TI8Dr551JP86QX8R/TcOEz46uqszw19
-	 RNQ1JSqTMLtS6T6vAVJ5TVPbkLyryyDAHHwf8Pg5SrGX9KnH1smH1AMJUz/atNT01V
-	 rMMALjI+pwrYgXrPonhiuwDD1BM/MO/vIvZVnYmmYlvUe0Rx9F+iifzwL9TTETVq2Z
-	 0PIEEdeKApzTA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 568294662D;
-	Mon,  2 Nov 2026 19:45:09 +0000 (UTC)
-From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Tue, 03 Nov 2026 03:45:14 +0800
-Subject: [PATCH RFC v3 11/17] dt-bindings: serial: snps-dw-apb-uart: add
- Zhihe A210 UART
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C7549175D;
+	Mon,  2 Nov 2026 11:45:13 -0800 (PST)
+Received: from e133894.cambridge.arm.com (e133894.arm.com [10.2.80.62])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 613093F673;
+	Mon,  2 Nov 2026 11:45:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793648716; bh=SOZ66g2j8NEnKOqTTWZoObY3YvcNmy2tUIDaqYf+yq4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=BItXzWWYL6kN4anqzLzKI6Ftz9Se+Sax4XEuzMzrHxpD8E/Fve3MhlB6zguALbyKN
+	 hngrHsMGa9EtcsRCYVAwQ6iE4Oue50JBrQqEgvbeT4eV68yWY0I9aaLgR8JpiBhLBr
+	 h7ncotPqtkrV/rUEusxfj1ZfAnWJiBwVRWUH8qQk=
+From: Sascha Bischoff <sascha.bischoff@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org
+Cc: maz@kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	peter.maydell@linaro.org,
+	lpieralisi@kernel.org,
+	timothy.hayes@arm.com,
+	fuad.tabba@linux.dev
+Subject: [PATCH v2 03/16] KVM: arm64: gic-v5: Share CoreSight ID register emulation
+Date: Mon,  2 Nov 2026 19:44:41 +0000
+Message-Id: <20261102194454.4086911-4-sascha.bischoff@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261102194454.4086911-1-sascha.bischoff@arm.com>
+References: <20261102194454.4086911-1-sascha.bischoff@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261103-a210-scmi-v3-11-ee6b31580808@iscas.ac.cn>
-References: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
-In-Reply-To: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
-To: Sudeep Holla <sudeep.holla@kernel.org>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>, 
- Jassi Brar <jassisinghbrar@gmail.com>, Linus Walleij <linusw@kernel.org>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
- Bartosz Golaszewski <brgl@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Thomas Gleixner <tglx@kernel.org>, 
- Radu Rendec <radu@rendec.net>, Samuel Holland <samuel.holland@sifive.com>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Anup Patel <anup@brainfault.org>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Drew Fustini <fustini@kernel.org>, 
- Icenowy Zheng <uwu@icenowy.me>, Inochi Amaoto <inochiama@gmail.com>, 
- Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>, 
- Jiaxun Yang <jiaxun.yang@flygoat.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org, 
- linux-serial@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, 
- Han Gao <gaohan@iscas.ac.cn>, Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793648705; l=1465;
- i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=QLjwbL73GqPkQVnItJ73UGwGElc2NGvSKMH+o+6GPQk=;
- b=GwTMVWufbQ3apHJbtkCx8hlRQnr+EZ3B6ni/R6Ct6tj8GjQaIdyxcUFNA6jzCIbaIHbScNRAo
- NxteGYBNi8CCG2wb3dxhMiBYvRAuuXZM8hNZ8O6SDJT8ZST/KoSAtkO
-X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
- pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
-X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
- auth_id=1262
-X-Original-From: Han Gao <gaohan@iscas.ac.cn>
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261102_114521_044703_8FC5E9F7 
+X-CRM114-Status: GOOD (  15.90  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,7 +75,6 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: gaohan@iscas.ac.cn
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
@@ -140,52 +84,185 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Han Gao <gaohan@iscas.ac.cn>
+The GICv5 IRS and ITS expose the same CoreSight identification register
+block. Move the register-value switch into a shared helper and describe
+the contiguous ID register range with one register-region descriptor.
 
-The Zhihe A210 UARTs have separate APB and serial clock domain resets.
-Add an SoC-specific compatible that, like the StarFive JH7110 one,
-allows both resets.
+This keeps the IRS behaviour unchanged while giving the ITS MMIO
+emulation a helper it can reuse when it is added in the following commit.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 ---
- Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/vgic/vgic-irs-v5.c  | 75 +++---------------------------
+ arch/arm64/kvm/vgic/vgic-v5.c      | 34 ++++++++++++++
+ arch/arm64/kvm/vgic/vgic.h         |  1 +
+ include/linux/irqchip/arm-gic-v5.h |  2 +
+ 4 files changed, 44 insertions(+), 68 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-index e2ca126d58ba..a46a87e100bf 100644
---- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-@@ -29,7 +29,9 @@ allOf:
-       properties:
-         compatible:
-           contains:
--            const: starfive,jh7110-uart
-+            enum:
-+              - starfive,jh7110-uart
-+              - zhihe,a210-uart
-     then:
-       properties:
-         resets:
-@@ -43,6 +45,7 @@ allOf:
-               enum:
-                 - starfive,jh7110-uart
-                 - syna,sl2610-uart
-+                - zhihe,a210-uart
-     then:
-       properties:
-         resets:
-@@ -92,6 +95,7 @@ properties:
-               - syna,sl2610-uart
-               - ti,tda54-uart
-               - ultrarisc,dp1000-uart
-+              - zhihe,a210-uart
-           - const: snps,dw-apb-uart
-       - const: snps,dw-apb-uart
+diff --git a/arch/arm64/kvm/vgic/vgic-irs-v5.c b/arch/arm64/kvm/vgic/vgic-irs-v5.c
+index 8d0ad74ebc64a..d0ebed2e1663b 100644
+--- a/arch/arm64/kvm/vgic/vgic-irs-v5.c
++++ b/arch/arm64/kvm/vgic/vgic-irs-v5.c
+@@ -520,38 +520,9 @@ static void vgic_v5_mmio_write_irs_ist(struct kvm_vcpu *vcpu, gpa_t addr,
+ static unsigned long vgic_v5_coresight_read(struct kvm_vcpu *vcpu,
+ 					    gpa_t addr, unsigned int len)
+ {
+-	const size_t offset = addr & (SZ_64K - 1);
++	u32 offset = addr & (SZ_64K - 1);
  
-
+-	switch (offset) {
+-	case GICV5_CORESIGHT_DEVARCH:
+-		return GICV5_CORESIGHT_DEVARCH_VAL;
+-	case GICV5_CORESIGHT_PIDR4:
+-		return GICV5_CORESIGHT_PIDR4_JEP106_CONT;
+-	case GICV5_CORESIGHT_PIDR5:
+-		return GICV5_CORESIGHT_PIDR5_RES0;
+-	case GICV5_CORESIGHT_PIDR6:
+-		return GICV5_CORESIGHT_PIDR6_RES0;
+-	case GICV5_CORESIGHT_PIDR7:
+-		return GICV5_CORESIGHT_PIDR7_RES0;
+-	case GICV5_CORESIGHT_PIDR0:
+-		return GICV5_CORESIGHT_PIDR0_PART_0;
+-	case GICV5_CORESIGHT_PIDR1:
+-		return GICV5_CORESIGHT_PIDR1_DES_0_PART_1;
+-	case GICV5_CORESIGHT_PIDR2:
+-		return GICV5_CORESIGHT_PIDR2_DES_1;
+-	case GICV5_CORESIGHT_PIDR3:
+-		return GICV5_CORESIGHT_PIDR3_REVAND_CMOD;
+-	case GICV5_CORESIGHT_CIDR0:
+-		return GICV5_CORESIGHT_CIDR0_VAL;
+-	case GICV5_CORESIGHT_CIDR1:
+-		return GICV5_CORESIGHT_CIDR1_VAL;
+-	case GICV5_CORESIGHT_CIDR2:
+-		return GICV5_CORESIGHT_CIDR2_VAL;
+-	case GICV5_CORESIGHT_CIDR3:
+-		return GICV5_CORESIGHT_CIDR3_VAL;
+-	default:
+-		return 0;
+-	}
++	return vgic_v5_handle_guest_coresight_idreg_read(offset);
+ }
+ 
+ static unsigned long vgic_v5_mmio_uaccess_read_irs_status(struct kvm_vcpu *vcpu,
+@@ -903,45 +874,13 @@ static const struct vgic_register_region vgic_v5_irs_registers[] = {
+ 				  vgic_mmio_read_raz, vgic_mmio_write_wi, 8,
+ 				  VGIC_ACCESS_64bit | VGIC_ACCESS_32bit),
+ 
+-	/* CoreSight identification registers */
++	/* Split the ranges so KVM_HAS_DEVICE_ATTR only reports actual registers. */
+ 	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_DEVARCH,
+-				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+-				  VGIC_ACCESS_32bit),
++				  vgic_v5_coresight_read, vgic_mmio_write_wi,
++				  4, VGIC_ACCESS_32bit),
+ 	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR4,
+-				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+-				  VGIC_ACCESS_32bit),
+-	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR5,
+-				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+-				  VGIC_ACCESS_32bit),
+-	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR6,
+-				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+-				  VGIC_ACCESS_32bit),
+-	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR7,
+-				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+-				  VGIC_ACCESS_32bit),
+-	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR0,
+-				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+-				  VGIC_ACCESS_32bit),
+-	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR1,
+-				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+-				  VGIC_ACCESS_32bit),
+-	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR2,
+-				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+-				  VGIC_ACCESS_32bit),
+-	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR3,
+-				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+-				  VGIC_ACCESS_32bit),
+-	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_CIDR0,
+-				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+-				  VGIC_ACCESS_32bit),
+-	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_CIDR1,
+-				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+-				  VGIC_ACCESS_32bit),
+-	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_CIDR2,
+-				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+-				  VGIC_ACCESS_32bit),
+-	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_CIDR3,
+-				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
++				  vgic_v5_coresight_read, vgic_mmio_write_wi,
++				  GICV5_CORESIGHT_PIDR_CIDR_SIZE,
+ 				  VGIC_ACCESS_32bit),
+ };
+ 
+diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+index 91810fbd99afa..18184020e188b 100644
+--- a/arch/arm64/kvm/vgic/vgic-v5.c
++++ b/arch/arm64/kvm/vgic/vgic-v5.c
+@@ -1601,3 +1601,37 @@ int vgic_v5_irs_restore_ists(struct kvm *kvm, struct kvm_device_attr *attr)
+ 
+ 	return ret;
+ }
++
++unsigned long vgic_v5_handle_guest_coresight_idreg_read(u32 offset)
++{
++	switch (offset) {
++	case GICV5_CORESIGHT_DEVARCH:
++		return GICV5_CORESIGHT_DEVARCH_VAL;
++	case GICV5_CORESIGHT_PIDR4:
++		return GICV5_CORESIGHT_PIDR4_JEP106_CONT;
++	case GICV5_CORESIGHT_PIDR5:
++		return GICV5_CORESIGHT_PIDR5_RES0;
++	case GICV5_CORESIGHT_PIDR6:
++		return GICV5_CORESIGHT_PIDR6_RES0;
++	case GICV5_CORESIGHT_PIDR7:
++		return GICV5_CORESIGHT_PIDR7_RES0;
++	case GICV5_CORESIGHT_PIDR0:
++		return GICV5_CORESIGHT_PIDR0_PART_0;
++	case GICV5_CORESIGHT_PIDR1:
++		return GICV5_CORESIGHT_PIDR1_DES_0_PART_1;
++	case GICV5_CORESIGHT_PIDR2:
++		return GICV5_CORESIGHT_PIDR2_DES_1;
++	case GICV5_CORESIGHT_PIDR3:
++		return GICV5_CORESIGHT_PIDR3_REVAND_CMOD;
++	case GICV5_CORESIGHT_CIDR0:
++		return GICV5_CORESIGHT_CIDR0_VAL;
++	case GICV5_CORESIGHT_CIDR1:
++		return GICV5_CORESIGHT_CIDR1_VAL;
++	case GICV5_CORESIGHT_CIDR2:
++		return GICV5_CORESIGHT_CIDR2_VAL;
++	case GICV5_CORESIGHT_CIDR3:
++		return GICV5_CORESIGHT_CIDR3_VAL;
++	default:
++		return 0;
++	}
++}
+diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+index 8792953057bb7..f95eec6a01f63 100644
+--- a/arch/arm64/kvm/vgic/vgic.h
++++ b/arch/arm64/kvm/vgic/vgic.h
+@@ -390,6 +390,7 @@ int vgic_v5_probe(const struct gic_kvm_info *info);
+ void vgic_v5_reset(struct kvm_vcpu *vcpu);
+ int vgic_v5_init(struct kvm *kvm);
+ int kvm_vgic_v5_irs_init(struct kvm *kvm, unsigned int nr_spis);
++unsigned long vgic_v5_handle_guest_coresight_idreg_read(u32 offset);
+ void vgic_v5_teardown(struct kvm *kvm);
+ int vgic_v5_map_resources(struct kvm *kvm);
+ void vgic_v5_set_ppi_ops(struct kvm_vcpu *vcpu, u32 vintid);
+diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
+index 299e75bc95255..ee3677413560f 100644
+--- a/include/linux/irqchip/arm-gic-v5.h
++++ b/include/linux/irqchip/arm-gic-v5.h
+@@ -498,6 +498,8 @@
+ #define GICV5_CORESIGHT_CIDR1		0xfff4
+ #define GICV5_CORESIGHT_CIDR2		0xfff8
+ #define GICV5_CORESIGHT_CIDR3		0xfffc
++#define GICV5_CORESIGHT_PIDR_CIDR_SIZE	\
++	(GICV5_CORESIGHT_CIDR3 + 4 - GICV5_CORESIGHT_PIDR4)
+ 
+ #define GICV5_CORESIGHT_DEVARCH_VAL			\
+ 	(FIELD_PREP(GENMASK(31, 21), 0x23b) |		\
 -- 
-2.55.0
-
+2.34.1
 
 
