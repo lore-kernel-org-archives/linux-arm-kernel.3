@@ -2,44 +2,44 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1DCA60A5BCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:03:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C028860A5BDA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:03:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rEr3Rggj;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jgvdxVZ7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IQErLf4A;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=AyNUsiyW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=faRMA1mhLkjqpnghPc6PRr7KsYaRPBjovOnD9EFU2+o=; b=rEr3RggjHCVlmM
-	NnK1icrlaTsBdvnTaOWcIbl8RUVJTKaf0IoyqOh3WgfWmDCWSNDfWKlPcQviMitnrjIQaKMgDYHa8
-	oUA6iPRv63Vw1ds9kQm5vKvLd0TGeMHSeQ7vy8th+JdxfbjjWh6PXixYTWFq90XHA4dFdJvCvpR0K
-	HvJZ0usj1FbzO7OvIKgEgU6u3pzxLwaKxlQc/3CXEKBo+tmTWMIG1V0wmu7NwJUxPozgB6MIJryiv
-	/nB3Jhv0FAy4jU4NBa2jaU6bIip/y4uGTP7AhqHpAoxr7qJmEuYyeJm7ny6mT/XAS1O0s/vjJ0Oar
-	P+0X60xE1LUnWnWVgf+Q==;
+	List-Owner; bh=LWyZ1UkaDVoP3VWJmfwDCKmpQUjYhiraBCsKNKTFD9o=; b=IQErLf4AYgxaKW
+	s8VnJQ/f0Sl4SRETwd2V+FD4ujjxNjarVYFEGHVWzYg+WsEaeu3gUdAZY1IOzwD5jGXoc1QGClHe/
+	Fm0USToVhEGBGX3Sv3c4tHYARNkeEYFPjTy64HNaLwt+fLhmDKr0Ba6JsjxOk96bOc4D4t8yMKVAW
+	oRn+cdnUPuK7oljiF4pxFRQdyEqdF6IyZxGT5e859G3qjw8zmnujSUtuNB21vCE7TsuLVoUrH+eq/
+	BD6O3A2UlykBGYJxXLtqA+UaNK62hRIxiI2HBBS0/XL5ZIMpH7J+ojQTKdMfrFc76gECIs5Urqs4S
+	lKcnKRS0uz/1DvAQ6tpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNrgs-0000000GYYL-1Mcz;
-	Mon, 02 Nov 2026 13:03:10 +0000
-Received: from out-170.mta1.migadu.com ([2001:41d0:203:375::aa] helo=mta1.migadu.com)
+	id 1xNrgw-0000000GYc9-2nAv;
+	Mon, 02 Nov 2026 13:03:14 +0000
+Received: from out-171.mta0.migadu.com ([2001:41d0:1004:224b::ab] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNrgp-0000000GYVo-2W7o
+	id 1xNrgu-0000000GYYb-1Nji
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 13:03:09 +0000
+	Mon, 02 Nov 2026 13:03:13 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=jfMbSdvFeToanOblzM2qnSXimwftl4Nc9RBM7D5wNIY=;
+DKIM-Signature: a=rsa-sha256; bh=DS9B5U4J+iTHwDTvPcTcDhDaIW+dVQnOIDk5Q84LEB8=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793624585; v=1; x=1794229385;
- b=jgvdxVZ7kLoPnyJWWk/pys/Za799lnNoQef7/hIQLHfuYvf5eoA7Gwf6RMXidhmMowE6PUDh
- S9VuFm23aBZJUWhYAEHlNY2dXkcH3fg1EFYTS3eW1wBYWiqVZIMA2rdTPu8QM82QN2jSnKb8Yrj
- JssbfMJlWem4xH2zIxtm/YpM=
+ t=1793624590; v=1; x=1794229390;
+ b=AyNUsiyWPHUvVlLm0Ch+hskD0hLC+FTCjlnZY8sp3N9AFrVOsYilvnhDTRAL5FSwum5dJGyC
+ aXwJ0D5Gv0OUNQfdN1xo0hajYpoR9LqRXlOf0FwMg0R45SA1PmmYtY/4J2dajfX0I/PFLUVuHhb
+ eXnW07vHhxA+dayiKJfaxGT4=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id fe16e33d5f126d1c;
-	Mon, 02 Nov 2026 13:03:05 +0000
-X-Mizu-Trace-ID: fe16e33d5f126d1c
+Received: by smtp.migadu.com with ESMTPS id 28a34c058c471d7f;
+	Mon, 02 Nov 2026 13:03:10 +0000
+X-Mizu-Trace-ID: 28a34c058c471d7f
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -65,9 +65,9 @@ Cc: Will Deacon <will@kernel.org>,
 	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 12/13] KVM: arm64: Reject ITS commands whose IDs are out of range
-Date: Mon,  2 Nov 2026 13:01:32 +0000
-Message-ID: <20261102130133.3684226-13-fuad.tabba@linux.dev>
+Subject: [PATCH v3 13/13] Documentation: KVM: arm64: Describe the ITS hardening
+Date: Mon,  2 Nov 2026 13:01:33 +0000
+Message-ID: <20261102130133.3684226-14-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261102130133.3684226-1-fuad.tabba@linux.dev>
 References: <20261102130133.3684226-1-fuad.tabba@linux.dev>
@@ -75,9 +75,9 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_050307_780657_41F6BDF9 
-X-CRM114-Status: GOOD (  19.94  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261102_050312_506816_230549FA 
+X-CRM114-Status: GOOD (  13.47  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,173 +96,58 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The ITS can't be relied on to reject a command with an out-of-range ID:
-IHI 0069H.b 5.3.2 makes the response to a command error CONSTRAINED
-UNPREDICTABLE, and one permitted outcome is "The data that generated the
-error or errors is treated as having a legal value, and the command is
-processed accordingly". An out-of-range DeviceID, EventID or ICID then
-has the ITS access memory past the device table, the ITT or the
-collection table.
-
-Bound each ID before forwarding the command: the DeviceID by
-GITS_TYPER.Devbits and the device table, the EventID by the size its
-device was mapped with, and the ICID by the ICID width and the number of
-collections. Also reject a command for an event of a device whose unmap
-is queued, as its ITE would land in an ITT the hypervisor may already
-have released. The driver loses nothing. It never allocates an
-out-of-range DeviceID or EventID, or sends a command for a device after
-its unmap. Its ICIDs are CPU numbers, which exceed the collections only
-on an ITS that already treats its MAPC as a command error (IHI 0069H.b
-5.3.9).
-
-MAPTI's pINTID, which the ITS only stores in the ITE, and the RDbase of
-MAPC, MOVALL and SYNC are left to the redistributor series, as both
-concern the redistributors.
+Add the ITS hardening to pkvm.rst: why the hypervisor emulates the
+host's ITS, and how protected mode differs from non-protected mode as a
+result.
 
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/hyp/nvhe/its_emulate.c | 49 +++++++++++++++++++++++++--
- include/linux/irqchip/arm-gic-v3.h    |  3 ++
- 2 files changed, 49 insertions(+), 3 deletions(-)
+ Documentation/virt/kvm/arm/pkvm.rst | 32 +++++++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/its_emulate.c b/arch/arm64/kvm/hyp/nvhe/its_emulate.c
-index 8f06b738ad118..8bcdb06632b65 100644
---- a/arch/arm64/kvm/hyp/nvhe/its_emulate.c
-+++ b/arch/arm64/kvm/hyp/nvhe/its_emulate.c
-@@ -55,8 +55,12 @@ struct its_priv {
- 	u64			cbaser;
- 	u8			id_bits;
- 	u8			itt_entry_size;
-+	u8			dev_bits;
-+	u8			icid_bits;
-+	u32			max_collections;
- 	struct its_table	tables[GITS_BASER_NR_REGS];
- 	struct its_table	*dev_table;
-+	struct its_table	*coll_table;
+diff --git a/Documentation/virt/kvm/arm/pkvm.rst b/Documentation/virt/kvm/arm/pkvm.rst
+index b75bb8ad6f26d..1ebae35f8373e 100644
+--- a/Documentation/virt/kvm/arm/pkvm.rst
++++ b/Documentation/virt/kvm/arm/pkvm.rst
+@@ -89,6 +89,38 @@ DMA isolation using an IOMMU
  
- 	/* Sorted by device_id, in the rest of the donated pages. */
- 	struct its_device_map	*devices;
-@@ -254,7 +258,7 @@ static bool its_mapd(struct its_priv *its, struct its_cmd_block *cmd)
- {
- 	u32 device_id = its_cmd_get_deviceid(cmd->raw_cmd);
+ Status: **Unimplemented.**
  
--	if (!its_publish_l1(its, device_id))
-+	if (device_id >= BIT_ULL(its->dev_bits) || !its_publish_l1(its, device_id))
- 		return false;
- 
- 	if (its_cmd_get_validbit(cmd->raw_cmd))
-@@ -265,21 +269,42 @@ static bool its_mapd(struct its_priv *its, struct its_cmd_block *cmd)
- 	return true;
- }
- 
-+/* An event of a device whose unmap is queued is out of range too. */
-+static bool its_event_in_range(struct its_priv *its, struct its_cmd_block *cmd)
-+{
-+	struct its_device_map *dev;
-+	bool found;
++GICv3 ITS hardening
++-------------------
 +
-+	dev = &its->devices[its_dev_search(its, its_cmd_get_deviceid(cmd->raw_cmd), &found)];
-+	return found && !dev->release_pending &&
-+	       its_cmd_get_id(cmd->raw_cmd) < BIT_ULL(dev->event_bits);
-+}
++Status: Host accesses to the ITS control registers are trapped and
++emulated by the hypervisor. The LPI configuration and pending tables
++remain under host control.
 +
-+static bool its_collection_in_range(struct its_priv *its, struct its_cmd_block *cmd)
-+{
-+	u32 icid = its_cmd_get_collection(cmd->raw_cmd);
++The ITS reads and writes memory at addresses programmed by the host, so
++the hypervisor emulates the ITS control registers and command queue to
++ensure that the host cannot use the ITS as a confused deputy to write
++to hypervisor or pVM memory. The command queue, the ITS tables and each
++device's interrupt translation table are owned by the hypervisor while
++the ITS can access them.
 +
-+	return icid < BIT_ULL(its->icid_bits) && icid < its->max_collections;
-+}
++This gives rise to some user-visible differences when compared to
++non-protected mode:
 +
- static bool its_process_cmd(struct its_priv *its, struct its_cmd_block *cmd)
- {
- 	switch (its_cmd_get_command(cmd->raw_cmd)) {
- 	case GITS_CMD_MAPD:
- 		return its_mapd(its, cmd);
- 	case GITS_CMD_MAPC:
-+	case GITS_CMD_INVALL:
-+		return its_collection_in_range(its, cmd);
- 	case GITS_CMD_MAPTI:
- 	case GITS_CMD_MAPI:
- 	case GITS_CMD_MOVI:
-+		return its_event_in_range(its, cmd) && its_collection_in_range(its, cmd);
- 	case GITS_CMD_DISCARD:
- 	case GITS_CMD_INV:
--	case GITS_CMD_MOVALL:
--	case GITS_CMD_INVALL:
- 	case GITS_CMD_INT:
- 	case GITS_CMD_CLEAR:
-+		return its_event_in_range(its, cmd);
-+	case GITS_CMD_MOVALL:
- 	case GITS_CMD_SYNC:
- 		return true;
- 	default:
-@@ -639,6 +664,9 @@ static int its_take_tables(struct its_priv *its, struct its_pkvm_desc *desc)
- 			copy_pa = desc->dev_l1_copy_pa;
- 			its->dev_table = t;
- 			break;
-+		case GITS_BASER_TYPE_COLLECTION:
-+			its->coll_table = t;
-+			break;
- 		case GITS_BASER_TYPE_VCPU:
- 			/* Taken: writing it while the ITS is enabled is UNPREDICTABLE (5.2.1). */
- 			if (its_vpe_table_taken(t->baser))
-@@ -654,6 +682,17 @@ static int its_take_tables(struct its_priv *its, struct its_pkvm_desc *desc)
- 	return 0;
- }
++* Protected mode requires the hypervisor to take control of every ITS
++  in the system: KVM does not initialise with more than 8 ITSes, and
++  if the takeover fails the host is not deprivileged and
++  ``KVM_CREATE_VM`` returns ``-ENODEV``.
++* An ITS command or register write that the hypervisor rejects is
++  delivered to the host as a data abort.
++* The number of devices that can be mapped through each ITS is limited
++  by the hypervisor, and MSI allocation fails with ``-ENOMEM`` beyond
++  that limit.
++* Interrupt translation tables are page-aligned, so each device
++  consumes at least one page.
++* GICv4 is disabled: direct injection of LPIs is not available to
++  non-protected guests, and a guest saved with ``GICD_TYPER2.nASSGIcap``
++  set cannot be restored (``-EINVAL``).
++
+ Proxying of Trustzone services
+ ------------------------------
  
-+/* GITS_TYPER.CCT indicates whether the ITS's HCC collections add to the memory table's. */
-+static u32 its_collection_count(struct its_priv *its)
-+{
-+	u32 hcc = GITS_TYPER_HCC(its->typer), in_mem = 0;
-+
-+	if (its->coll_table)
-+		in_mem = its->coll_table->size / its->coll_table->esz;
-+
-+	return its->typer & GITS_TYPER_CCT ? hcc + in_mem : max(hcc, in_mem);
-+}
-+
- static int its_take_devices(struct its_priv *its, struct its_pkvm_desc *desc)
- {
- 	u32 i;
-@@ -709,6 +748,9 @@ int pkvm_its_emulate_setup(phys_addr_t its_base, phys_addr_t desc_pa,
- 	its->cbaser = readq_relaxed(its->base + GITS_CBASER);
- 	its->id_bits = FIELD_GET(GITS_TYPER_IDBITS, its->typer) + 1;
- 	its->itt_entry_size = FIELD_GET(GITS_TYPER_ITT_ENTRY_SIZE, its->typer) + 1;
-+	its->dev_bits = FIELD_GET(GITS_TYPER_DEVBITS, its->typer) + 1;
-+	its->icid_bits = its->typer & GITS_TYPER_CIL ?
-+			 FIELD_GET(GITS_TYPER_CIDBITS, its->typer) + 1 : 16;
- 	its->devices = (void *)(its + 1);
- 	its->max_devices = (priv_pages * PAGE_SIZE - sizeof(*its)) / sizeof(*its->devices);
- 
-@@ -722,6 +764,7 @@ int pkvm_its_emulate_setup(phys_addr_t its_base, phys_addr_t desc_pa,
- 	ret = its_take_tables(its, desc);
- 	if (ret)
- 		return ret;
-+	its->max_collections = its_collection_count(its);
- 
- 	ret = its_take_devices(its, desc);
- 	if (ret)
-diff --git a/include/linux/irqchip/arm-gic-v3.h b/include/linux/irqchip/arm-gic-v3.h
-index 794d37c3bbf55..9e2a42a5ceb40 100644
---- a/include/linux/irqchip/arm-gic-v3.h
-+++ b/include/linux/irqchip/arm-gic-v3.h
-@@ -392,6 +392,7 @@
- 
- #define GITS_TYPER_PLPIS		(1UL << 0)
- #define GITS_TYPER_VLPIS		(1UL << 1)
-+#define GITS_TYPER_CCT			(1UL << 2)
- #define GITS_TYPER_ITT_ENTRY_SIZE_SHIFT	4
- #define GITS_TYPER_ITT_ENTRY_SIZE	GENMASK_ULL(7, 4)
- #define GITS_TYPER_IDBITS		GENMASK_ULL(12, 8)
-@@ -401,6 +402,8 @@
- #define GITS_TYPER_PTA			(1UL << 19)
- #define GITS_TYPER_HCC_SHIFT		24
- #define GITS_TYPER_HCC(r)		(((r) >> GITS_TYPER_HCC_SHIFT) & 0xff)
-+#define GITS_TYPER_CIDBITS		GENMASK_ULL(35, 32)
-+#define GITS_TYPER_CIL			(1ULL << 36)
- #define GITS_TYPER_VMOVP		(1ULL << 37)
- #define GITS_TYPER_VMAPP		(1ULL << 40)
- #define GITS_TYPER_SVPET		GENMASK_ULL(42, 41)
 -- 
 2.47.3
 
