@@ -2,86 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2CC8606D202
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 12:16:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA3EA606A87B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 12:16:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t/wdcfZe;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=IFYZaGDm
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wPQiC0s2;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=nMwAFINE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=gDOKgyiHoV1+L9IrHJGqzLdyPO03dwc9hJe20Z/mTLk=; b=t/wdcfZeq84n9E
-	ngXs0yciotAXln5IzQbw5KuaOtMwpSMBJXVyum/5Rt7tMOxh9/noXatIdrPWKbKcVKH4dL/bpwAdm
-	R6wd0SrpF0kb17UNvMrD1h7TYWwtYMWXaotUEbyv5HMkPcjqK0Qp1Vb/YnW8+8WVWhitegAVesjdR
-	XmfwLLCZz2TM4Na0z83MeKYl15bl3Z4HhBgAnDKLOl67J53wWxz0qh2qeJpqgw6mI3kUzIe+3Q+RF
-	CdxdlvinBX4te1aLlXCbgRS0P7JorCxxgCcC6kW5ZSXZJ18o4Ozk7paoCel9tvhfuCB5zWqwEm+td
-	HgOAnrzKNaYGwFdAf8Pw==;
+	List-Owner; bh=ZFE+K6ibkytnijDp2/HAIN0tLVK/PlyfhjsWm9snroY=; b=wPQiC0s2sr5MdT
+	0QS3RiGR2HQdgieT7KQ7Por53pSJgji48fvYfZXprte+xRbXcY2AbRL0CtoBX264T9xYtVJfUvtZp
+	c7/fGfD3A22THBuwWKtaa7lPJfJjAV83qfuV7vVbc8TTHqETIqkk7yuyCV/j4QT/44Jq8fNRu7ry8
+	PLC/MKcHkK0nV60mbQA5QYpDbQvDhgYBCTt3mRdzgPeRf9mjF9VKOdcdasz1S5DC/MP/6H2sAlJY+
+	frsox+4y1wwCJNNKH6A5Qc7/m4ckUDf2KA410Vyi52yWcpTFMa3y67F89MlmyZBaX5b3eYSQk2N7i
+	OtOBnmG0300VbXASN83Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNqxG-0000000GQa8-0gQ0;
-	Mon, 02 Nov 2026 12:16:02 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1xNqxH-0000000GQd3-09aS;
+	Mon, 02 Nov 2026 12:16:03 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNqx3-0000000GQQV-1pPw
+	id 1xNqxD-0000000GQVd-1xgA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 12:15:58 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4a5177d78c7so29914095e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 04:15:48 -0800 (PST)
+	Mon, 02 Nov 2026 12:16:00 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4a20bde60a0so22306575e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 04:15:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1793621747; x=1794226547; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1793621758; x=1794226558; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gDOKgyiHoV1+L9IrHJGqzLdyPO03dwc9hJe20Z/mTLk=;
-        b=IFYZaGDmmFL1H9AJCUcpPcIeWdmnVe+P79pDuATb+a5aQuIJTjwsr3Bm5jX7D1ZCRR
-         2iKRTmyHArQZDEh63OAmracA7YWmRfKEt9JMczzlH2OIVgfThRcJbRJ9JjWefYfzxrWF
-         VK/qZKxMqAuFhyO52HcCDiA6Epkfxkn8y6gFBxkbdUCNv9akGe7vMRapWIhwSP1Uf4pM
-         ZXOGsNCJpXZuRfbXgYMoDoLVclFk1BpMcKlCR21dPooK8hgArPMAxv0lmI2J1fKse0k7
-         +2TdgMjThbQygfvNxD0tvPkHBHDCRuyXNdXcwTNuT8yDAGvAWhakWi7mpoald2ja4Eqe
-         RiKg==
+        bh=ZFE+K6ibkytnijDp2/HAIN0tLVK/PlyfhjsWm9snroY=;
+        b=nMwAFINEr/NDVHZe+9QUehYEDB94NQALzWjFxGZnnrLpEl7NorR7X3E9ftvtnGtUFu
+         tpiSLE6seIYS0a87ojWcEbTmAijASyldEKt7JZdYdLJpcZ+bGME2R48B4z5dkcWaGKj9
+         6CyjO3a6ehSL2aQKsuuyWRcb+R+5K3stHBuphBoBT6pUzA6bQR61KcIe+nUiwzBB8cSA
+         KSsShvZyj2+nyvS8PBXa5G4ZS/eug997XDF0Aw+32XHLG3VTlJw3PyFGeobOjbkY32yV
+         3y3XyKdTpl5uN0jlPvc79zV091UuISdsr6CdqRRpoXxb/vD5UquooJmS+hTBQKGboMQC
+         4vSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793621747; x=1794226547;
+        d=1e100.net; s=20260707; t=1793621758; x=1794226558;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=gDOKgyiHoV1+L9IrHJGqzLdyPO03dwc9hJe20Z/mTLk=;
-        b=qExXDArwsmWexbj4B9pWyKKnh4B6vEbJUjXNVRT8FPwLO5hJ1Bw7NIcr1BCHUbdSL8
-         nM1OXezfjM7OtHTeCqYcOpfI7C+yc2C2788cYC2/U7Sm5eINBMhqjLiuagyOmlB7cHyx
-         mUludxhTYEzyZmoNWaIxSKzb1O7pM02bCFd3R1d0AQmRPURCSaP12NDLZViz/0KyaH2Z
-         kZkN75S63U83lDv4raBa1FHJ6Prfuhvmk9T/2G9CGbjYy88b4v5zNM2GmihOUiQlpxCc
-         nSAegA+Y7EGbWRZBT/c7jeW5QJMsunIQUvrtvIKjLcKkuPrHqZ2iSm5SykdFx+Ge0tEX
-         2+3Q==
-X-Forwarded-Encrypted: i=1; AKwUvBw22ePk+ZJTs7edGSmWnkfryiz78w+vIuJCvO183nXERNAmd6oDCzdP+w0+NvUtjHAf67ZjC8JwpAoTmW8GCkPn@lists.infradead.org
-X-Gm-Message-State: AFq9FYLMDjp3KzAAdUY31AGuGbc3K8dYjo/mboE5lW/zztg9COyuOP/g
-	VW1Hm5AnhQvmyPlTk+7Jxl5tMNmw3i887uFHBZSc8OfHOnvgHCwTW2/+M9CXdVO8k9g=
-X-Gm-Gg: AYBFou37yKKeYNig/z2hCkXqtBcDF+gxhwOZj0R4EjSSPEdyFge1dxV7GbPqFEEhWzA
-	uJ5GFRvvI87qq52XiQ2h9S2hGDC0rrrJtQdIPwIBTb1NXrV+snGopQRWJKfmKfd26MwBPzuowWF
-	3GQ1cbK4XAAUVryf3RaGm3kpjFK/hOhSaPSCA/eUixX5qskgw6WkOs6GMTT8AhhXd0PS7uAvVp3
-	Yjz+zTzNtaZHBjxwIpqxNqdkh+mVShemiDgnx5WlL89CRTEQ/qG5jF/Ng3GNYRF2XFNOSmkE0NG
-	vXAGPEeoX8lM/XIqUIQuVkZE41F/FgOoMd35gGx7BuQGavEiw5cTOrTjuLMp14LXoR9BqJ14Auk
-	eelvX2eb5XY3ibld/QewQzpAv0++AulXW9JC7XbPCmGvtQNHEnNYs1WRsaG2d1lBPdmKiJv5XNF
-	D/LCGYngWU+J+kslbbpuOJ4BWNZ2hv2mS8Ok0y5r8WLIxiC4NCl9LrJxgw5WkiBYMcC258UJmVl
-	dDEfCAuMyXbS53sjsoCAt2qM9Y+RuoIxIzO2QJO1hCeEUOlEkwQWpS/xVBehGfENhbi2n5Lgqrx
-	FsKwqZswWDosQVkCR7tAeB77JZz8fQr3
-X-Received: by 2002:a05:600c:1990:b0:4a7:462c:6b9e with SMTP id 5b1f17b1804b1-4ac1923581cmr215808995e9.32.1793621747540;
-        Mon, 02 Nov 2026 04:15:47 -0800 (PST)
+        bh=ZFE+K6ibkytnijDp2/HAIN0tLVK/PlyfhjsWm9snroY=;
+        b=pHqntebraj5FJO3XIfav6NBK/nAo20cdkPdtzklf0hKG11Dr+o0dy0AxebGvXUI6Qf
+         uFpXhu3sAS/s+wZuDjSuZb3osShBFlsb/0pOSt48iC0fh+jDSt9f8fwGjSf4O4SyBs/5
+         EBpcctA7VvjrPy5Z5r5M33agtetHjif26mwLe4h4G4WiJQiz/qA4gIJl0jjy0NmIY5mO
+         Bv+HJpANAbDvgOyfeYQGJV/ahw29NNgZQFvUUT0SPC/vX8vNX/oU/vKwthrnALWLP9kL
+         CtlAah4aRETRuFckoHa0jnno76ctBlcs6AmZpURkDql+y07GXGVsav6m4+JZ/RcFeZXE
+         4OBA==
+X-Forwarded-Encrypted: i=1; AKwUvBy0ZpNRvjRvvyfdyZgemmjwRoj1+cshihukJqbRcXqLqw7tPhpqExYH5wAGqz9JlM75TnJCPPFDuuXj0Dc2QTXu@lists.infradead.org
+X-Gm-Message-State: AFq9FYJK0o6fnPfWxfmxSlQbpsJUfpWA2OPi4K10ijGA7CG6gEaodap8
+	F0K5WINCszJtAiS2nvtExkUUdg7LLDYXijtsYVfIUmRmH7Hj1bT5gFcnhEN13uHQIw8=
+X-Gm-Gg: AYBFou2O4pOMiMF8qrczy1JaUAxw1PLNmEkpzX3rrqI4LEjLVyTucurK+5hh3iD0d7Q
+	KEaEVPv4/PkGhvOcpw49+V60xe92R4G93w36kX5BAP4Wxm4zsfqHHJCBFnCUQs1uWxVEvBaTBGD
+	Oj+rEB29qUpha2wkBvLgFTj7w/0pELPjoKCdGXrzE2Js5v77ljg1PlbEEFemkf6fM9qOMQM1p0A
+	pO12+f+/adxQDo4ZT+eeYhTjG1VOGxwF7wN24hUqs5iCkzvxs9NAvFiS+bplQ2QTIfWgs7wKi56
+	hk2FAqG1qV5tCwHrU+lE3tN2k8MIUOF+6eQLVd37AQ2Bg92lMfz31z/qWG7kzdMewurXcxclAPc
+	xrNLm1lz3AACGyYqTdNEyzQMSioLcEXxTsBLY5F1ERF2FYXlWpRjPYFPOLha4b21XGusmg1x4+d
+	gCNitGQsvq5rPAFqWVWz0DHXzu+z5nEiJKU4VPhY+BDav0LoqG7eWAbhy8GoSGZ4pZeatz3GOZE
+	jW5RW42/q3gbapub0hT704NHO3gOaO6+aSW/GBVmdEPQgws5fNGGZTVOEhSzOdGMnF/AM/6lkta
+	5ehCUopVEYiBjvGz/6YJWwNVKsFICfAWgXtXOXJrIyl4iAp9AJL6qg==
+X-Received: by 2002:a05:600c:1d07:b0:4a5:87a:50ba with SMTP id 5b1f17b1804b1-4ac18e5dbaamr222388115e9.33.1793621757770;
+        Mon, 02 Nov 2026 04:15:57 -0800 (PST)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4abf5b27e46sm434974855e9.3.2026.11.02.04.15.46
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4abf5b27e46sm434974855e9.3.2026.11.02.04.15.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 04:15:47 -0800 (PST)
+        Mon, 02 Nov 2026 04:15:57 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Mon, 02 Nov 2026 12:15:18 +0000
-Subject: [PATCH v3 04/18] perf cs-etm: Use per-CPU queues for per-thread
- mode
+Date: Mon, 02 Nov 2026 12:15:25 +0000
+Subject: [PATCH v3 11/18] perf arm-spe: Use generic snapshot search
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261102-james-cs-unformatted-per-thread-fix-v3-4-dbcb0c281b9b@linaro.org>
+Message-Id: <20261102-james-cs-unformatted-per-thread-fix-v3-11-dbcb0c281b9b@linaro.org>
 References: <20261102-james-cs-unformatted-per-thread-fix-v3-0-dbcb0c281b9b@linaro.org>
 In-Reply-To: <20261102-james-cs-unformatted-per-thread-fix-v3-0-dbcb0c281b9b@linaro.org>
 To: Leo Yan <leo.yan@linux.dev>, Adrian Hunter <adrian.hunter@intel.com>
@@ -101,8 +100,8 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
  James Clark <james.clark@linaro.org>, John Garry <john.garry@linux.dev>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_041555_751702_CD5891FC 
-X-CRM114-Status: GOOD (  20.35  )
+X-CRM114-CacheID: sfid-20261102_041559_552637_E6D7AF44 
+X-CRM114-Status: GOOD (  34.69  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,113 +121,234 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This makes it easier to support multiple threads without creating a
-decode tree for every CPU for every thread. It also fixes the CPU field
-of synthesised samples being incorrect when the CPU can't be retrieved
-using the trace ID in unformatted mode.
+The new generic snapshot search gives a similar result as the
+reimplemented version of it here. One slight difference is in the
+pointer fixup. SPE has:
 
-It also simplifies by removing a special case in the decode path for
-per-thread mode. Per-thread mode is now decoded in exactly the same way
-as per-CPU (apart from pre-initialising the context).
+  *head += mm->len;
+  *old = *head - mm->len;
 
+Which gives exactly the same result but written in reverse order to the
+generic one:
+
+  *old = *head;
+  *head += mm->len;
+
+SPE also had a special fixup cases (if (head >= buffer_size)):
+
+ * head > isn't needed because the SPE driver always wraps them, and
+   __auxtrace_mmap__read() handles that anyway.
+ * head == buffer_size isn't wrapped by the driver, but it just
+   indicates 'full' which doesn't mean wrapped any more or less than any
+   other index in the buffer.
+
+Both of these cases are covered by the 512 byte search.
+
+It also didn't have the special case for old > head for when the wrap
+heuristic fails but the pointers showed a wrap had happened.
+
+The other feature lost is that this search only looked from head to the
+end of the buffer, rather than always at the last 512 bytes. This was
+flawed because once head is close to the end, it's likely it could
+contain zero padding from actual SPE data and a wrap would be missed.
+It's better to err on the side of caution and mark as a wrap, rather
+than trying to optimize by limiting the search from head onwards. This
+can mistake old data as evidence of a wrap, but for false positives
+[head..mm->len] contains zero data. This should be fine, as zero data
+are treated as PAD packets and discarded during decoding.
+
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/util/cs-etm.c | 40 ++++++++++++++++++++++++++++++----------
- 1 file changed, 30 insertions(+), 10 deletions(-)
+ tools/perf/arch/arm64/util/arm-spe.c | 147 +----------------------------------
+ 1 file changed, 2 insertions(+), 145 deletions(-)
 
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 509ec014b276..f19aa4f787fa 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -296,9 +296,6 @@ static int cs_etm__map_trace_id(struct cs_etm_queue *etmq, u8 trace_chan_id,
+diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/arm64/util/arm-spe.c
+index 1ba803a8d9b4..8d6a2bde2892 100644
+--- a/tools/perf/arch/arm64/util/arm-spe.c
++++ b/tools/perf/arch/arm64/util/arm-spe.c
+@@ -26,7 +26,6 @@
+ #include "../../../util/record.h"
+ #include "../../../util/header.h"
+ #include "../../../util/arm-spe.h"
+-#include <tools/libc_compat.h> // reallocarray
  
- static struct cs_etm_queue *cs_etm__get_queue(struct cs_etm_auxtrace *etm, int cpu)
- {
--	if (etm->per_thread_decoding)
--		return etm->queues.queue_array[0].priv;
--
- 	if (cpu < 0 || cpu >= (int)etm->queues.nr_queues)
- 		return NULL;
+ #define ARM_SPE_CPU_MAGIC		0x1010101010101010ULL
  
-@@ -436,11 +433,7 @@ static int cs_etm__map_unformatted_trace_ids(struct cs_etm_auxtrace *etm)
- 			return -EINVAL;
- 		}
+@@ -37,8 +36,6 @@ struct arm_spe_recording {
+ 	struct auxtrace_record		itr;
+ 	struct perf_pmu			*arm_spe_pmu;
+ 	struct evlist		*evlist;
+-	int			wrapped_cnt;
+-	bool			*wrapped;
+ };
  
--		if (etm->per_thread_decoding)
--			cpu_data = etm->metadata[0];
--		else
--			cpu_data = get_cpu_data(etm, queue->cpu);
--
-+		cpu_data = get_cpu_data(etm, queue->cpu);
- 		if (!cpu_data) {
- 			pr_err("CS_ETM: Unformatted queue missing CPU metadata\n");
- 			return -EINVAL;
-@@ -1301,7 +1294,7 @@ static int cs_etm__setup_queue(struct cs_etm_auxtrace *etm,
- 	queue->priv = etmq;
- 	etmq->etm = etm;
- 	etmq->queue_nr = queue_nr;
--	queue->cpu = queue_nr; /* Placeholder, may be reset to -1 in per-thread mode */
-+	queue->cpu = queue_nr;
- 	etmq->offset = 0;
- 	etmq->sink_id = SINK_UNSET;
- 
-@@ -2187,6 +2180,7 @@ static void cs_etm__flush_all_stack(struct cs_etm_queue *etmq)
-  */
- static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
- {
-+	struct cs_etm_auxtrace *etm = etmq->etm;
- 	int ret;
- 
- 	/* The current block is not finished */
-@@ -2215,6 +2209,29 @@ static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
- 	 */
- 	cs_etm__flush_all_stack(etmq);
- 
-+	/*
-+	 * Per-thread mode still uses a queue for each CPU, but that CPU can run
-+	 * different threads. When the TID from the AUX record on a CPU changes,
-+	 * re-initialize the thread using the AUX record/buffer fragment TID so
-+	 * we can start decoding even if the context ID packet was cropped or
-+	 * they're disabled.
-+	 */
-+	if (etm->per_thread_decoding) {
-+		struct cs_etm_traceid_queue *tidq = cs_etm__etmq_get_traceid_queue(etmq,
-+							CS_ETM_PER_THREAD_TRACEID);
-+
-+		if (thread__tid(tidq->decode_thread) != etmq->buffer->tid) {
-+			thread__zput(tidq->frontend_thread);
-+			thread__zput(tidq->decode_thread);
-+			tidq->frontend_thread = machine__findnew_thread(
-+				&etm->session->machines.host, -1,
-+				etmq->buffer->tid);
-+			tidq->decode_thread = machine__findnew_thread(
-+				&etm->session->machines.host, -1,
-+				etmq->buffer->tid);
-+		}
-+	}
-+
- 	return 1;
+ /* Iterate config list to detect if the "freq" parameter is set */
+@@ -497,146 +494,6 @@ static int arm_spe_snapshot_finish(struct auxtrace_record *itr)
+ 	return ret;
  }
  
-@@ -3288,7 +3305,9 @@ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_o
+-static int arm_spe_alloc_wrapped_array(struct arm_spe_recording *ptr, int idx)
+-{
+-	bool *wrapped;
+-	int cnt = ptr->wrapped_cnt, new_cnt, i;
+-
+-	/*
+-	 * No need to allocate, so return early.
+-	 */
+-	if (idx < cnt)
+-		return 0;
+-
+-	/*
+-	 * Make ptr->wrapped as big as idx.
+-	 */
+-	new_cnt = idx + 1;
+-
+-	/*
+-	 * Free'ed in arm_spe_recording_free().
+-	 */
+-	wrapped = reallocarray(ptr->wrapped, new_cnt, sizeof(bool));
+-	if (!wrapped)
+-		return -ENOMEM;
+-
+-	/*
+-	 * init new allocated values.
+-	 */
+-	for (i = cnt; i < new_cnt; i++)
+-		wrapped[i] = false;
+-
+-	ptr->wrapped_cnt = new_cnt;
+-	ptr->wrapped = wrapped;
+-
+-	return 0;
+-}
+-
+-static bool arm_spe_buffer_has_wrapped(unsigned char *buffer,
+-				      size_t buffer_size, u64 head)
+-{
+-	u64 i, watermark;
+-	u64 *buf = (u64 *)buffer;
+-	size_t buf_size = buffer_size;
+-
+-	/*
+-	 * Defensively handle the case where head might be continually increasing - if its value is
+-	 * equal or greater than the size of the ring buffer, then we can safely determine it has
+-	 * wrapped around. Otherwise, continue to detect if head might have wrapped.
+-	 */
+-	if (head >= buffer_size)
+-		return true;
+-
+-	/*
+-	 * We want to look the very last 512 byte (chosen arbitrarily) in the ring buffer.
+-	 */
+-	watermark = buf_size - 512;
+-
+-	/*
+-	 * The value of head is somewhere within the size of the ring buffer. This can be that there
+-	 * hasn't been enough data to fill the ring buffer yet or the trace time was so long that
+-	 * head has numerically wrapped around.  To find we need to check if we have data at the
+-	 * very end of the ring buffer.  We can reliably do this because mmap'ed pages are zeroed
+-	 * out and there is a fresh mapping with every new session.
+-	 */
+-
+-	/*
+-	 * head is less than 512 byte from the end of the ring buffer.
+-	 */
+-	if (head > watermark)
+-		watermark = head;
+-
+-	/*
+-	 * Speed things up by using 64 bit transactions (see "u64 *buf" above)
+-	 */
+-	watermark /= sizeof(u64);
+-	buf_size /= sizeof(u64);
+-
+-	/*
+-	 * If we find trace data at the end of the ring buffer, head has been there and has
+-	 * numerically wrapped around at least once.
+-	 */
+-	for (i = watermark; i < buf_size; i++)
+-		if (buf[i])
+-			return true;
+-
+-	return false;
+-}
+-
+-static int arm_spe_find_snapshot(struct auxtrace_record *itr, int idx,
+-				  struct auxtrace_mmap *mm, unsigned char *data,
+-				  u64 *head, u64 *old)
+-{
+-	int err;
+-	bool wrapped;
+-	struct arm_spe_recording *ptr =
+-			container_of(itr, struct arm_spe_recording, itr);
+-
+-	/*
+-	 * Allocate memory to keep track of wrapping if this is the first
+-	 * time we deal with this *mm.
+-	 */
+-	if (idx >= ptr->wrapped_cnt) {
+-		err = arm_spe_alloc_wrapped_array(ptr, idx);
+-		if (err)
+-			return err;
+-	}
+-
+-	/*
+-	 * Check to see if *head has wrapped around.  If it hasn't only the
+-	 * amount of data between *head and *old is snapshot'ed to avoid
+-	 * bloating the perf.data file with zeros.  But as soon as *head has
+-	 * wrapped around the entire size of the AUX ring buffer it taken.
+-	 */
+-	wrapped = ptr->wrapped[idx];
+-	if (!wrapped && arm_spe_buffer_has_wrapped(data, mm->len, *head)) {
+-		wrapped = true;
+-		ptr->wrapped[idx] = true;
+-	}
+-
+-	pr_debug3("%s: mmap index %d old head %zu new head %zu size %zu\n",
+-		  __func__, idx, (size_t)*old, (size_t)*head, mm->len);
+-
+-	/*
+-	 * No wrap has occurred, we can just use *head and *old.
+-	 */
+-	if (!wrapped)
+-		return 0;
+-
+-	/*
+-	 * *head has wrapped around - adjust *head and *old to pickup the
+-	 * entire content of the AUX buffer.
+-	 */
+-	if (*head >= mm->len) {
+-		*old = *head - mm->len;
+-	} else {
+-		*head += mm->len;
+-		*old = *head - mm->len;
+-	}
+-
+-	return 0;
+-}
+-
+ static u64 arm_spe_reference(struct auxtrace_record *itr __maybe_unused)
+ {
+ 	struct timespec ts;
+@@ -651,7 +508,6 @@ static void arm_spe_recording_free(struct auxtrace_record *itr)
+ 	struct arm_spe_recording *sper =
+ 			container_of(itr, struct arm_spe_recording, itr);
  
- 	if (aux_offset >= auxtrace_event->offset &&
- 	    aux_offset + aux_size <= auxtrace_event->offset + auxtrace_event->size) {
--		struct cs_etm_queue *etmq = cs_etm__get_queue(etm, auxtrace_event->cpu);
-+		/* Old per-thread files have no CPU (before v6.4) */
-+		int queue_idx = sample->cpu == (u32)-1 ? 0 : sample->cpu;
-+		struct cs_etm_queue *etmq = cs_etm__get_queue(etm, queue_idx);
+-	zfree(&sper->wrapped);
+ 	free(sper);
+ }
  
- 		if (!etmq)
- 			return -EINVAL;
-@@ -3301,6 +3320,7 @@ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_o
- 		auxtrace_fragment.auxtrace.size = aux_size;
- 		auxtrace_fragment.auxtrace.offset = aux_offset;
- 		auxtrace_fragment.auxtrace.idx = etmq->queue_nr;
-+		auxtrace_fragment.auxtrace.cpu = etmq->queue_nr;
- 		file_offset += aux_offset - auxtrace_event->offset + auxtrace_event->header.size;
- 
- 		pr_debug3("CS ETM: Queue buffer size: %#"PRI_lx64" offset: %#"PRI_lx64
+@@ -674,7 +530,8 @@ struct auxtrace_record *arm_spe_recording_init(int *err,
+ 	sper->arm_spe_pmu = arm_spe_pmu;
+ 	sper->itr.snapshot_start = arm_spe_snapshot_start;
+ 	sper->itr.snapshot_finish = arm_spe_snapshot_finish;
+-	sper->itr.find_snapshot = arm_spe_find_snapshot;
++	sper->itr.find_snapshot = auxtrace_record__default_find_snapshot;
++	sper->itr.snapshot_search_bytes = 512;
+ 	sper->itr.parse_snapshot_options = arm_spe_parse_snapshot_options;
+ 	sper->itr.recording_options = arm_spe_recording_options;
+ 	sper->itr.info_priv_size = arm_spe_info_priv_size;
 
 -- 
 2.43.0
