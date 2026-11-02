@@ -2,45 +2,44 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3122606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:01:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF6EA606A332
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:02:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=e1UYxVOv;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mi+ipPC1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IKY6q+rg;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=aX23+1+G
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=cBC7srJMZfkKBmSIaxASX5h7RvkEOMv1BFV9kmI3PJo=; b=e1UYxVOvvy+wOOwQxgiJl9VxcR
-	Slw5PLFuNj4yYBtlkRiDUqOBLACbfe2vpPtScZZ70nuWjWzKvt81u/m6OWUTlhUgDughhv65ZN4za
-	mn3RXJha8swgUVAzF7K3UKkj9xh/+ya0JuJGbswRnsXJ+M0qQoJ4/MWWDd+0aWIdb1oK7ma6s1uFm
-	puXicyfTytbzZa6zoYxchubrkHmC6OVAQtXcYH5zOWXQY/v2ogewmF202hBk8fEheSXmatzwsMiZg
-	FzXv5cYJYTH1OedSgZ9EJEjjWvnlK1haRWX/d1Yqf7km+wKV4Niyz5rLbJ5m5ZjX8GShw2JCSFwo5
-	wFUCYmDA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=vzUCBfEqZA71dS3jLvdXgp0iBiHaOT4PnmGdXf9hgiI=; b=IKY6q+rgRR1AdH
+	03AHVySFL2b155rU+Co94y7uHpM3pzz+oVc3by0yRSI2HLmMToS1NZKU60LP+0u8Weo4ilcDo0ECb
+	SaNEaaiHVG+Nrha33jhMI2BxTbcp0E/akQDMlH95HHc4hfhqlXzCZrbioR6F6rTiviYGL39b2/SY2
+	kvozXO/kkH8jR/kwrJb43K7WTgkvN/ndu9aOKwbxFjjPvp1yl6ot/WIfqA1+XdKSfKH1Z7MSiArli
+	yk0ihJJFatkNoKR/pKxlTm5BEuHnjO8nd43GI8IxItxhlqNrpXmPFkcf28lurnBY1QNXhjgrTJVNP
+	MXw0uzycfGuHrZVhbbtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNrfT-0000000GXde-1RA3;
-	Mon, 02 Nov 2026 13:01:43 +0000
-Received: from out-29.mta0.migadu.com ([2001:41d0:1004:224b::1d] helo=mta0.migadu.com)
+	id 1xNrfe-0000000GXht-2w0w;
+	Mon, 02 Nov 2026 13:01:54 +0000
+Received: from out-48.mta0.migadu.com ([2001:41d0:1004:224b::30] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNrfQ-0000000GXcb-1YO6
+	id 1xNrfb-0000000GXgC-33Ah
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 13:01:42 +0000
+	Mon, 02 Nov 2026 13:01:53 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=oaewjRBjkq9+BUbIscHYddd1XYcswqnQ9DXIMebK79Y=;
+DKIM-Signature: a=rsa-sha256; bh=ic6nIPaRt569Q39hvXzAm3CJLBkg+LPeh9WqbciieLg=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793624498; v=1; x=1794229298;
- b=mi+ipPC16wf8eFieOnvJlUYlgPHcZj/4z7oGx4Msn6LnpF+IGVAvqNs8nX5a0l8wq7YKS+eK
- LuC39CqBdgLPiwKdEgQ3Lm589UlrXhVlH6Xh61BnkqyQbDoEnJ1ZiLigsZSnBbrN9UhIV0F9Y+k
- W5LwVYgmVJJ/eoj2Pp1x6c2Q=
+ t=1793624509; v=1; x=1794229309;
+ b=aX23+1+GSfAb4heSxPGHbC4itt2et46sZoOAiZzTKmW840sXVuY9VVvs7iuP2g0p6XIr4ZtB
+ D70KVPSkJD85JQLfPLdZcrEAm/ntdwQoCe2F1k8fZRvY0Wzus5SWWTxj6k9dgaqFT6+cqpUEkwW
+ RNZwAVKLeVYlw7/Un/lEOopg=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 9df1652454d8c181;
-	Mon, 02 Nov 2026 13:01:38 +0000
-X-Mizu-Trace-ID: 9df1652454d8c181
+Received: by smtp.migadu.com with ESMTPS id a1dd30557d3ae716;
+	Mon, 02 Nov 2026 13:01:49 +0000
+X-Mizu-Trace-ID: a1dd30557d3ae716
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -66,17 +65,18 @@ Cc: Will Deacon <will@kernel.org>,
 	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 00/13] KVM: ITS hardening for pKVM
-Date: Mon,  2 Nov 2026 13:01:20 +0000
-Message-ID: <20261102130133.3684226-1-fuad.tabba@linux.dev>
+Subject: [PATCH v3 02/13] KVM: arm64: Take host-registered MMIO regions at pKVM finalisation
+Date: Mon,  2 Nov 2026 13:01:22 +0000
+Message-ID: <20261102130133.3684226-3-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261102130133.3684226-1-fuad.tabba@linux.dev>
+References: <20261102130133.3684226-1-fuad.tabba@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_050140_746663_E86AA045 
-X-CRM114-Status: GOOD (  21.33  )
+X-CRM114-CacheID: sfid-20261102_050152_490453_97A15C72 
+X-CRM114-Status: GOOD (  17.48  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,149 +88,123 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi folks,
+From: Sebastian Ene <sebastianene@google.com>
 
-Changes since v2 [1]:
-  - Redesigned: the takeover, the register handling, the command checks,
-    and how the tables and ITTs are taken. The new design is described
-    below, and each patch from v2 lists its changes below its ---.
-  - Restructured the patches, merging and redoing some of them.
+To mediate a device, the protected KVM hypervisor has to own its
+registers, so that a host access to them takes a stage-2 abort rather
+than reaching the device.
 
-This is v3 of the ITS hardening series [1], which I'm carrying while
-Seb is on leave. Much of the design and the code were redone, so it's
-described whole here.
+Let the host register MMIO regions before the hypervisor initialises,
+and have __pkvm_init_finalise() donate each one and record where it's
+mapped in the hypervisor's private range. The donation runs before
+pkvm_check_host_ownership(), which then covers those mappings too. A
+failed donation fails the hypervisor's initialisation before the host
+stage 2 is installed, so nothing is given back.
 
-The ITS writes to the memory its command queue and tables point to, and
-the host owns all of it, so host control of the ITS is a write
-primitive into hypervisor and protected-VM memory.
+Nothing registers a region yet.
 
-When the hypervisor initialises, it takes ownership of each ITS's
-control frame. Inside the stop_machine() that deprivileges the host, it
-takes the command queue and tables the ITS registers point to, and the
-ITTs of the devices already mapped. If that fails, no CPU is
-deprivileged and KVM_CREATE_VM fails.
+Signed-off-by: Sebastian Ene <sebastianene@google.com>
+Co-developed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
 
-From then on, every host access to the control frame traps
-(GITS_TRANSLATER stays host-mapped). The hypervisor checks each command
-before copying it into the hardware queue, takes each ITT for as long
-as its device is mapped, and writes each level-1 device table entry
-only once. A command or register write it rejects aborts the host's
-access.
+Notes:
+    Changes since v2 (v2 patches 02 and 03, merged):
+    - The trap handling moved to patch 9, which calls the ITS emulation
+      directly (was a per-region callback)
+    - Each region records its hypervisor VA
+    - A failed donation is no longer unwound
 
-This is the ITS part. The redistributor part follows as its own series.
+ arch/arm64/include/asm/kvm_pkvm.h     | 12 ++++++++++++
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c |  3 +++
+ arch/arm64/kvm/hyp/nvhe/setup.c       | 22 ++++++++++++++++++++++
+ 3 files changed, 37 insertions(+)
 
-A few points for discussion:
-
-  - GICv4 is off for the host in protected mode (patch 3): the vLPI
-    commands aren't emulated yet, and VMAPP's VPT_base is a host-chosen
-    address the ITS and the redistributors write to. The host loses
-    direct injection for its non-protected guests. The ITS part stands
-    on its own, and what the host gives up is a feature that is off by
-    default (kvm-arm.vgic_v4_enable).
-
-  - The hypervisor's device tracker lives in the eight pages the driver
-    gives it at setup, which hold about a thousand devices per ITS on a
-    4K host. Past that, its_create_device() fails as it would on running
-    out of LPIs. I've left growing it for when a platform needs more.
-
-  - KVM doesn't initialise in protected mode on a host with more than
-    eight ITSes, as each ITS takes one of the eight MMIO region slots
-    (patch 9).
-
-Tested on QEMU with a reproducer that writes to the ITS through /dev/mem
-from the host's userspace, as a hostile host would. The hypervisor
-rejects forged level-1 entries, out-of-range MAPTIs, MAPTIs queued after
-their device's unmap and the register writes it doesn't allow, and
-still forwards the commands queued before a rejected one.
-
-A PCIe device hot-added after deprivilege, then unbound and rebound,
-exercises publishing a level-1 entry and taking and releasing the ITT,
-and is clean under PROVE_LOCKING. Hosts with 16K or 64K pages, or with
-GICv3 and no GICv4, boot and run a non-protected guest, and
-vgic_lpi_stress passes with and without pKVM.
-
-In a debug build that caps the tracker, the driver fails the extra
-device. In one that forces the takeover to fail, the host boots and
-KVM_CREATE_VM fails. Not tested: hardware, two ITSes, and suspend and
-resume (QEMU's PSCI has no SYSTEM_SUSPEND).
-
-The series is structured as follows:
-
-  01:     MMIO donation.
-  02:     Taking host-registered MMIO regions at finalisation.
-  03-06:  Driver preparation: GICv4 off, page-aligned ITTs, the wait
-          target under the ITS lock, the shared command accessors.
-  07:     Deprivileging the host under stop_machine().
-  08-09:  The takeover: the driver's entry points, then the hypervisor
-          trapping the control frame, taking the command queue and
-          emulating GITS_CTLR and GITS_CBASER.
-  10-11:  The tables and GITS_BASER<n>, then the ITTs.
-  12:     Bounding the IDs that select what the ITS writes.
-  13:     Documentation.
-
-Based on v7.4-rc1.
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/20260807164322.2970811-2-sebastianene@google.com/
-
-Bartłomiej Grzesik (2):
-  irqchip/gic-v3: Disable GICv4 features in protected KVM mode
-  irqchip/gic-v3-its: Page-align ITT allocations under protected KVM
-
-Fuad Tabba (7):
-  irqchip/gic-v3-its: Compute the wait target under the ITS lock
-  KVM: arm64: Share the ITS command field accessors with the hypervisor
-  KVM: arm64: Deprivilege the host under stop_machine()
-  KVM: arm64: Take the ITS tables and restrict GITS_BASER<n>
-  KVM: arm64: Take the ITT for the lifetime of a device mapping
-  KVM: arm64: Reject ITS commands whose IDs are out of range
-  Documentation: KVM: arm64: Describe the ITS hardening
-
-Mostafa Saleh (1):
-  KVM: arm64: Donate MMIO to the hypervisor
-
-Sebastian Ene (3):
-  KVM: arm64: Take host-registered MMIO regions at pKVM finalisation
-  irqchip/gic-v3-its: Add the protected-KVM takeover entry points
-  KVM: arm64: Emulate the ITS command queue
-
- .../admin-guide/kernel-parameters.txt         |   8 +-
- Documentation/virt/kvm/arm/pkvm.rst           |  32 +
- arch/arm64/include/asm/kvm_asm.h              |   2 +
- arch/arm64/include/asm/kvm_hcall.h            |   2 +
- arch/arm64/include/asm/kvm_pgtable.h          |   2 +
- arch/arm64/include/asm/kvm_pkvm.h             |  16 +
- arch/arm64/kvm/arm.c                          |   4 +
- arch/arm64/kvm/hyp/include/nvhe/its_emulate.h |  16 +
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |   5 +
- arch/arm64/kvm/hyp/nvhe/Makefile              |   3 +-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c            |   8 +
- arch/arm64/kvm/hyp/nvhe/its_emulate.c         | 777 ++++++++++++++++++
- arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 130 ++-
- arch/arm64/kvm/hyp/nvhe/setup.c               |  22 +
- arch/arm64/kvm/hyp/pgtable.c                  |   8 +-
- arch/arm64/kvm/pkvm.c                         | 105 ++-
- arch/arm64/kvm/vgic/vgic-its.c                |  15 -
- drivers/irqchip/irq-gic-common.h              |  13 +
- drivers/irqchip/irq-gic-v3-its.c              | 256 +++++-
- drivers/irqchip/irq-gic-v3.c                  |   8 +
- include/linux/irqchip/arm-gic-v3.h            |  60 ++
- 21 files changed, 1439 insertions(+), 53 deletions(-)
- create mode 100644 arch/arm64/kvm/hyp/include/nvhe/its_emulate.h
- create mode 100644 arch/arm64/kvm/hyp/nvhe/its_emulate.c
-
-
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+index fd042d2b54624..4695c35b31e1a 100644
+--- a/arch/arm64/include/asm/kvm_pkvm.h
++++ b/arch/arm64/include/asm/kvm_pkvm.h
+@@ -17,6 +17,18 @@
+ 
+ #define HYP_MEMBLOCK_REGIONS 128
+ 
++/* MMIO regions the host registers for the hypervisor to take at finalisation. */
++#define PKVM_PROTECTED_REGS_NUM	8
++
++struct pkvm_protected_reg {
++	u64			pfn;
++	u64			nr_pages;
++	void __iomem		*hyp_va;
++};
++
++extern struct pkvm_protected_reg kvm_nvhe_sym(pkvm_protected_regs)[];
++extern unsigned int kvm_nvhe_sym(num_protected_reg);
++
+ int pkvm_init_host_vm(struct kvm *kvm);
+ int pkvm_create_hyp_vm(struct kvm *kvm);
+ bool pkvm_hyp_vm_is_created(struct kvm *kvm);
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index a6dacaca77610..8d45f45d30e6a 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -28,6 +28,9 @@ struct host_mmu host_mmu;
+ 
+ static struct hyp_pool host_s2_pool;
+ 
++unsigned int num_protected_reg;
++struct pkvm_protected_reg pkvm_protected_regs[PKVM_PROTECTED_REGS_NUM];
++
+ static DEFINE_PER_CPU(struct pkvm_hyp_vm *, __current_vm);
+ #define current_vm (*this_cpu_ptr(&__current_vm))
+ 
+diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+index 7bbc26b28faa5..18f348d1331a8 100644
+--- a/arch/arm64/kvm/hyp/nvhe/setup.c
++++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+@@ -295,6 +295,24 @@ static int fix_hyp_pgtable_refcnt(void)
+ 				&walker);
+ }
+ 
++static int donate_protected_mmio_regions(void)
++{
++	struct pkvm_protected_reg *region;
++	unsigned long haddr;
++	int ret, i;
++
++	for (i = 0; i < num_protected_reg; i++) {
++		region = &pkvm_protected_regs[i];
++		ret = __pkvm_host_donate_hyp_mmio(region->pfn, region->nr_pages, &haddr);
++		if (ret)
++			return ret;
++
++		region->hyp_va = (void __iomem *)haddr;
++	}
++
++	return 0;
++}
++
+ void __noreturn __pkvm_init_finalise(void)
+ {
+ 	struct kvm_cpu_context *host_ctxt = host_data_ptr(host_ctxt);
+@@ -335,6 +353,10 @@ void __noreturn __pkvm_init_finalise(void)
+ 	if (ret)
+ 		goto out;
+ 
++	ret = donate_protected_mmio_regions();
++	if (ret)
++		goto out;
++
+ 	ret = pkvm_check_host_ownership();
+ 	if (ret)
+ 		goto out;
 -- 
 2.47.3
 
