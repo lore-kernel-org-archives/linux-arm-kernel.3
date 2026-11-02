@@ -2,99 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A84FE606A591
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 15:54:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69B09606E032
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 15:56:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=O9s+liVR;
-	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=ihTbh9oJ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=S6vsOCf9;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X0TlLx/+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=s6I4cHkq0fuuN6rf65WlcWbhxrb9QhcwY/p8gIVUaoE=; b=O9s+liVRD6D9wI
-	f2vdOeisBCBi6ZCNVDzMaPsT7X48Am7prIjsbh/s8Ya5Jg11z9txwA9DWWTqnxvV1Oe8WWUVvw302
-	/SQ3qWap358yHFhmTMQUfqG9Qgh+Tv4iZY+K+GlLY0OtBwdZCLxts18VOxJ7miD8fO1tvh4vAklHA
-	ZUq405+9qVZssIJqNrOzpiG+UNLgA42oubOAI4FPaEmZQ/vgVetTNYJZ97d506N63G6oB92J1BWQF
-	/UMqgJnyynLQqdMeL0X/OgBixD7IelkOxT4yHvRpUgmmPCFToajvV11d6XwhXPi7mEWqUBVDXndk7
-	GhE90XG/cJa/hwujtGWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=rIIz/gtfC2Y+ir/ymx8Qwz0qEnZD5kOfLUgExDZlSUE=; b=S6vsOCf9K/tD0hqEnI9ZUN/3XQ
+	Q9a3NxTpG+Bku/bxnjVJg8kwlJw+2gAFc8uiCAfn8FfNA0KXsI5HLqzlwxf52pxWa/XXGmxyDNch9
+	bx7ZirOp1L6It4OPa6krxOCaj4PfzpCLO/45d5WE1dUOsq5xyCSKHIIl1qTG4gv19rQsyfFSnrpci
+	Sc5npotKF7odapEIlw7/uRnJFUM/Jtbn7X0wdJCct8vfACH4BFIHxgYo2IHYe+IRR1T51vHEA+J7K
+	HslJTxhXWC+48JYuBpDy0nLDSx52zViGCKTY2b+urvcjpEsktRhr3fcKHVT9uoQlBYCe+BosIf8Fa
+	98+T5tbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNuMi-0000000HDXf-2Ypj;
-	Mon, 02 Nov 2026 15:54:32 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1xNuOh-0000000HE6P-43nZ;
+	Mon, 02 Nov 2026 15:56:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNuMc-0000000HDRD-2ahD
+	id 1xNuOg-0000000HE62-3T3a
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 15:54:31 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4a4dc547987so16642795e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 07:54:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1793634865; x=1794239665; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=s6I4cHkq0fuuN6rf65WlcWbhxrb9QhcwY/p8gIVUaoE=;
-        b=ihTbh9oJXp/dHCdbpi5ApKrdFcDSnG02ae4PutZZCiHCnQghAsQp4E8CyUp5WZMsPy
-         Um0eNKegKGvyG0qh4spccw5oZDTgTaYKLzPel/Uy1KpWqdHNELAyEiYfZloOHt7zNf8I
-         FonAsbMfHUKr99AyK4US73N4EDEk4fLXBbCf5IBQPR9dGVgPvSKerTV6NV8ikKVTWOiQ
-         EHrMqgHcwx/JJZG7O0SdL4W173RDR8AVak5x0J5SrLc1Wmz+RUwT7FgB+VOnp1X8VnBC
-         E9AYJiRilQ7sfcHWhcsR2Fj9JKD8YC0huTsYGNsl2MfE1pj5iojYiZp9rx740M5c+Vrg
-         xdfg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793634865; x=1794239665;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=s6I4cHkq0fuuN6rf65WlcWbhxrb9QhcwY/p8gIVUaoE=;
-        b=p2FxouhmM0tt9JOr2ICKG9HYoPEEmkbrWLM26ygven8/qceEBxTjGnAIVBYINuB0RL
-         55pYlqPMfgDqvTAtUmRAgWN8wQw33qTXulNdruVeBZD1YCCYzj1fnnD22MDE9M85fTQX
-         wt44Gv6lVZYbNrh5ly9sEVQ23HYptMPcjFwBZoscMTx8Ft6sgLNaBqPXjC7eNScyza0Q
-         GUDCD2Io/tydDKEjdsxee9+vRz3YmEwo1rn68aF8apzscdFYWKMCZUPVBUxcNYwOFvlw
-         SqBfz8dRYNHGWpumMEzMYhP6oGx/Rcxv5yDS3D38xuzSb2P18637MWbAkT+sjlX8T4By
-         KANQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwdiqpgoYjHOz6VW1zUsO9Tvo7j3uVnEguQVNzsuJqOccCFqygBc85OfOq60pqASVEAvSr6b+6fY9QjXYbt7462@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ+D0R0bVM23ixg9bFsxo3IuQCifq3EVtwuBmmvSAiQPfkIgD6X
-	R27pb4rn26HUpTUjXr9DCrNoby3cDbTv2gM95SYFgdaCjD+LIZ6HiyLywlyTn5tcGlo=
-X-Gm-Gg: AYBFou1SVzn7zqamoqpvj2KfLTI2z7cZ3ZZH+00pahPC4wQFWukSzr0DD9PyXeNiChT
-	t2pf1EkjT/7JX2bYRAWwCN1OeL6bjsa4Muy4XpwoE19nWlSJIwOlNvznLBof/fOmSOAb4wCDKfw
-	B6ifxxoOIW3eRzCnv3M/E8mWKAHftblCWcAUUzHIh0M2Cy+IiHuIEedaYso38uIBr9guGv4EbuR
-	EMmUuBNL8vuysDfEI6FgFSsNjzcuCFn7eJz90nW8jokccaSIxQrVOMfc7C7pmUvq/B9MENXzHpK
-	V+gNyX4tDKiODuZBq2jazkbXQDlsNEnUKFVGe8Gho1/eRt1Yr9HamVOZs5PxJ7an1RgIZCuGPbW
-	If6lvxjf3HeyvuDAByReeoPXCBFHOFVV2By6Pl5JgnptEMpMarJEtHaY/mj6GAZmXlhw24CFPnU
-	nEh7o9PrxaXDrWul2X0ctsQVGL/Q46++LBsFFj3B9zQACVK0xn9JQ1LPiLOxGmuhTz2FH7GDgGF
-	MTqXwTNZY+PDxMC9gV/Z3JBjauLTEbtX4iEHN75RCNWk3kD7vjnDaIvTHsW5kzfKWTbBOy0p7kk
-	yWejjv4Le8fy7FgAo55Di2J3QQiqwpuTLEo0KI2GPk1F7NhXpCdnLfPL
-X-Received: by 2002:a05:600c:4f86:b0:4a7:669c:c988 with SMTP id 5b1f17b1804b1-4ac18b7df2cmr245616975e9.23.1793634864747;
-        Mon, 02 Nov 2026 07:54:24 -0800 (PST)
-Received: from [127.0.1.1] (82-230-44-19.subs.proxad.net. [82.230.44.19])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-48e71ba24f6sm21229288f8f.51.2026.11.02.07.54.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 07:54:24 -0800 (PST)
-From: Alexandre Mergnat <amergnat@baylibre.com>
-Date: Mon, 02 Nov 2026 15:54:18 +0000
-Subject: [PATCH 2/2] regulator: mt6363: Fix VEMC voltage selection
+	Mon, 02 Nov 2026 15:56:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 44F814369C;
+	Mon,  2 Nov 2026 15:56:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3842E1F00A16;
+	Mon,  2 Nov 2026 15:56:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793634994;
+	bh=rIIz/gtfC2Y+ir/ymx8Qwz0qEnZD5kOfLUgExDZlSUE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=X0TlLx/+2BqpUJ0O7uF4HJlMVjvUqcctCY4wJh2DmEYtVPJMg/9bWsnMuFoxFMO7/
+	 MHHvPM999easQh4jTVkg75DMRhcS29B06kRPVVmHKc75emzSi00DGtxtv/DxIyQ4yg
+	 w9PQDEyAO1LRnGyVBgqgsSIafZzzptaLT4MEa/zEFBFuAXD/5ot8yT8pfKc6e1GYYD
+	 AF7yXXmK9NChbzEO1Fv/Tzj0lvMDW+wZbc2tvAum4QhbDU/pVrCQL36pdKP+WiC5eQ
+	 SxSj10W/ACEPziCQVHNxjY+RYeC4lNHQrtSIvBcliS/BFJ09TguCFozEEGSZ78+nna
+	 JjEmR9ugF0lQQ==
+Date: Mon, 2 Nov 2026 16:56:28 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Sascha Bischoff <sascha.bischoff@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Sashiko AI <sashiko-bot@kernel.org>, stable@vger.kernel.org
+Subject: Re: [PATCH 04/10] irqchip/gic-v5: Serialise ITS invalidation commands
+Message-ID: <auiyrFXjX0hGgd7D@red-moon>
+References: <20261102-host_gicv5_fixes-v1-0-743b61626fc5@arm.com>
+ <20261102-host_gicv5_fixes-v1-4-743b61626fc5@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261102-rgp-67-mt6363-regulator-fixes-v1-2-420789a3113e@baylibre.com>
-References: <20261102-rgp-67-mt6363-regulator-fixes-v1-0-420789a3113e@baylibre.com>
-In-Reply-To: <20261102-rgp-67-mt6363-regulator-fixes-v1-0-420789a3113e@baylibre.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- =?utf-8?q?GIBEOM_LEE_=28=EC=9D=B4=EA=B8=B0=EB=B2=94=29?= <rtx4060@gmail.com>, 
- Alexandre Mergnat <amergnat@baylibre.com>
-X-Mailer: b4 0.16.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_075426_708097_714E4EB5 
-X-CRM114-Status: GOOD (  26.48  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261102-host_gicv5_fixes-v1-4-743b61626fc5@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,230 +74,99 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-VEMC encodes its voltage as a range and a trim value. The custom
-getter looks up the range with
+On Mon, Nov 02, 2026 at 01:32:57PM +0000, Sascha Bischoff wrote:
+> The ITS uses DIDR and EIDR to select the translation to invalidate.
+> These registers are shared by all interrupts targeting the ITS. Event
+> invalidation can run concurrently for different IRQs, and device
+> invalidation can overlap it. The per-IRQ descriptor lock does not
+> serialise the commands, so one CPU can accidentally issue an
+> invalidation using another CPU's DeviceID or EventID.
 
-	if (rdesc->linear_range_selectors_bitfield[range] != calsel)
+"Another CPU's DeviceID or EventID " can probably be explained better
+(or just removed because it is unclear) I understand there is a link to
+Sashiko's report but it is worth updating the log IMO.
 
-so it stops at the first non-matching range and the reported voltage is
-wrong for every range setting. With hardware trap 1, the custom getter
-and setter apply MT6363_RG_VEMC_VOSEL_1_MASK, the trap 1 range field,
-to the trap 0 trim register and keep the trap 0 range field. Voltage
-changes are then not applied and the reported voltage does not reflect
-the trap 1 settings.
+"using the DeviceID or EventID associated with an IRQ that is invalidated
+on another CPU" or something like that.
 
-Apart from the trap handling, both callbacks reimplement the regulator
-core pickable regmap helpers, which work for VEMC once the descriptor
-holds the range field and trim register of the hardware trap. Select
-that field and register at probe and use the helpers instead of
-fixing the copies. Keep the setter as a wrapper for the TMA unlock
-and relock around the write, which the helper does not do. A trap
-value other than 0 or 1, or a failed trap read, now fails the probe
-instead of the VEMC voltage get and set.
+> Add a raw spinlock to each ITS and hold it across the command register
+> writes and the STATUSR.IDLE poll for both invalidation paths. A raw
+> spinlock is required because the forwarding path calls the event
 
-Fixes: 3c36965df808 ("regulator: Add support for MediaTek MT6363 SPMI PMIC Regulators")
-Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
----
- drivers/regulator/mt6363-regulator.c       | 120 ++++++++---------------------
- include/linux/regulator/mt6363-regulator.h |   1 +
- 2 files changed, 33 insertions(+), 88 deletions(-)
+Can you please define "the forwarding path" more explicitly ?  See above.
 
-diff --git a/drivers/regulator/mt6363-regulator.c b/drivers/regulator/mt6363-regulator.c
-index ac79ad6698bf..27d12baa9f2f 100644
---- a/drivers/regulator/mt6363-regulator.c
-+++ b/drivers/regulator/mt6363-regulator.c
-@@ -4,7 +4,6 @@
- // Copyright (c) 2025 Collabora Ltd
- //                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
- 
--#include <linux/bitfield.h>
- #include <linux/delay.h>
- #include <linux/devm-helpers.h>
- #include <linux/err.h>
-@@ -484,30 +483,7 @@ static int mt6363_vemc_set_voltage_sel(struct regulator_dev *rdev, unsigned int
- {
- 	const __le16 tma_unlock_key = cpu_to_le16(MT6363_TMA_UNLOCK_VALUE);
- 	const __le16 tma_lock_key = cpu_to_le16(0);
--	const struct regulator_desc *rdesc = rdev->desc;
--	struct regmap *regmap = rdev->regmap;
--	unsigned int range, val;
--	int i, ret;
--	u16 mask;
--
--	for (i = 0; i < rdesc->n_linear_ranges; i++) {
--		const struct linear_range *r = &rdesc->linear_ranges[i];
--		unsigned int voltages_in_range = linear_range_values_in_range(r);
--
--		if (sel < voltages_in_range)
--			break;
--		sel -= voltages_in_range;
--	}
--
--	if (i == rdesc->n_linear_ranges)
--		return -EINVAL;
--
--	ret = regmap_read(rdev->regmap, MT6363_TOP_TRAP, &val);
--	if (ret)
--		return ret;
--
--	if (val > 1)
--		return -EINVAL;
-+	int ret;
- 
- 	/* Unlock TMA for writing */
- 	ret = regmap_bulk_write(rdev->regmap, MT6363_TOP_TMA_KEY_L,
-@@ -515,30 +491,8 @@ static int mt6363_vemc_set_voltage_sel(struct regulator_dev *rdev, unsigned int
- 	if (ret)
- 		return ret;
- 
--	/* If HW trapping value is 1, use VEMC_VOSEL_1 instead of VEMC_VOSEL_0 */
--	if (val == 1) {
--		mask = MT6363_RG_VEMC_VOSEL_1_MASK;
--		sel = FIELD_PREP(MT6363_RG_VEMC_VOSEL_1_MASK, sel);
--	} else {
--		mask = rdesc->vsel_mask;
--	}
--
--	sel <<= ffs(rdesc->vsel_mask) - 1;
--	sel += rdesc->linear_ranges[i].min_sel;
--
--	range = rdesc->linear_range_selectors_bitfield[i];
--	range <<= ffs(rdesc->vsel_range_mask) - 1;
--
--	/* Write to the vreg calibration register for voltage finetuning */
--	ret = regmap_update_bits(regmap, rdesc->vsel_range_reg,
--				 rdesc->vsel_range_mask, range);
--	if (ret)
--		goto lock_tma;
--
--	/* Function must return the result of this write operation */
--	ret = regmap_update_bits(regmap, rdesc->vsel_reg, mask, sel);
-+	ret = regulator_set_voltage_sel_pickable_regmap(rdev, sel);
- 
--lock_tma:
- 	/* Unconditionally re-lock TMA */
- 	regmap_bulk_write(rdev->regmap, MT6363_TOP_TMA_KEY_L,
- 			  &tma_lock_key, sizeof(tma_lock_key));
-@@ -546,45 +500,6 @@ static int mt6363_vemc_set_voltage_sel(struct regulator_dev *rdev, unsigned int
- 	return ret;
- }
- 
--static int mt6363_vemc_get_voltage_sel(struct regulator_dev *rdev)
--{
--	const struct regulator_desc *rdesc = rdev->desc;
--	unsigned int vosel, trap, calsel;
--	int vcal, vsel, range, ret;
--
--	ret = regmap_read(rdev->regmap, rdesc->vsel_reg, &vosel);
--	if (ret)
--		return ret;
--
--	ret = regmap_read(rdev->regmap, rdesc->vsel_range_reg, &calsel);
--	if (ret)
--		return ret;
--
--	calsel &= rdesc->vsel_range_mask;
--	for (range = 0; range < rdesc->n_linear_ranges; range++)
--		if (rdesc->linear_range_selectors_bitfield[range] != calsel)
--			break;
--
--	if (range == rdesc->n_linear_ranges)
--		return -EINVAL;
--
--	ret = regmap_read(rdev->regmap, MT6363_TOP_TRAP, &trap);
--	if (ret)
--		return ret;
--
--	/* If HW trapping value is 1, use VEMC_VOSEL_1 instead of VEMC_VOSEL_0 */
--	if (trap > 1)
--		return -EINVAL;
--	else if (trap == 1)
--		vsel = FIELD_GET(MT6363_RG_VEMC_VOSEL_1_MASK, vosel);
--	else
--		vsel = vosel & rdesc->vsel_mask;
--
--	vcal = linear_range_values_in_range_array(rdesc->linear_ranges, range);
--
--	return vsel + vcal;
--}
--
- static int mt6363_va15_set_voltage_sel(struct regulator_dev *rdev, unsigned int sel)
- {
- 	struct regmap *regmap = rdev->regmap;
-@@ -697,7 +612,7 @@ static const struct regulator_ops mt6363_ldo_vemc_ops = {
- 	.list_voltage = regulator_list_voltage_pickable_linear_range,
- 	.map_voltage = regulator_map_voltage_pickable_linear_range,
- 	.set_voltage_sel = mt6363_vemc_set_voltage_sel,
--	.get_voltage_sel = mt6363_vemc_get_voltage_sel,
-+	.get_voltage_sel = regulator_get_voltage_sel_pickable_regmap,
- 	.set_voltage_time_sel = regulator_set_voltage_time_sel,
- 	.enable = regulator_enable_regmap,
- 	.disable = regulator_disable_regmap,
-@@ -794,6 +709,30 @@ static int mt6363_backup_op_setting(struct regmap *map, struct mt6363_regulator_
- 	return 0;
- }
- 
-+static int mt6363_vemc_select_bank(struct regmap *map, struct regulator_desc *desc)
-+{
-+	unsigned int trap;
-+	int ret;
-+
-+	ret = regmap_read(map, MT6363_TOP_TRAP, &trap);
-+	if (ret)
-+		return ret;
-+
-+	/* The hardware trap value selects which VEMC voltage controls are used */
-+	switch (trap) {
-+	case 0:
-+		desc->vsel_reg = MT6363_RG_VEMC_VOCAL_ADDR;
-+		desc->vsel_range_mask = MT6363_RG_VEMC_VOSEL_MASK;
-+		return 0;
-+	case 1:
-+		desc->vsel_reg = MT6363_RG_VEMC_VOCAL_1_ADDR;
-+		desc->vsel_range_mask = MT6363_RG_VEMC_VOSEL_1_MASK;
-+		return 0;
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
- static void mt6363_irq_remove(void *data)
- {
- 	int *virq = data;
-@@ -878,6 +817,11 @@ static int mt6363_regulator_probe(struct platform_device *pdev)
- 	 */
- 	regmap_read(config.regmap, MT6363_TOP_TRAP, &val);
- 
-+	ret = mt6363_vemc_select_bank(config.regmap,
-+				      &mt6363_regulators[MT6363_ID_VEMC].desc);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to select VEMC bank\n");
-+
- 	interrupt_parent = of_irq_find_parent(dev->of_node);
- 	if (!interrupt_parent)
- 		return dev_err_probe(dev, -EINVAL, "Cannot find IRQ parent\n");
-diff --git a/include/linux/regulator/mt6363-regulator.h b/include/linux/regulator/mt6363-regulator.h
-index 60761f01d3ad..e0d2c01827a7 100644
---- a/include/linux/regulator/mt6363-regulator.h
-+++ b/include/linux/regulator/mt6363-regulator.h
-@@ -138,6 +138,7 @@
- #define MT6363_RG_LDO_VSRAM_APU_VOSEL_ADDR	0x1b17
- #define MT6363_RG_LDO_VSRAM_APU_VOSEL_MASK	GENMASK(6, 0)
- #define MT6363_RG_VEMC_VOCAL_ADDR		0x1b1b
-+#define MT6363_RG_VEMC_VOCAL_1_ADDR		0x1b1c
- #define MT6363_RG_VEMC_VOCAL_MASK		GENMASK(3, 0)
- #define MT6363_RG_LDO_VCN15_ADDR		0x1b57
- #define MT6363_RG_LDO_VCN15_EN_BIT		0
+Thanks,
+Lorenzo
 
--- 
-2.43.0
-
+> invalidation helper with the IRQ descriptor lock held.
+> 
+> Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
+> Reported-by: Sashiko AI <sashiko-bot@kernel.org>
+> Link: https://sashiko.dev/#/patchset/20261016155741.979985-1-sascha.bischoff@arm.com?part=11
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  drivers/irqchip/irq-gic-v5-its.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
+> index 28e39b065de0e..6d98f3dbe34b6 100644
+> --- a/drivers/irqchip/irq-gic-v5-its.c
+> +++ b/drivers/irqchip/irq-gic-v5-its.c
+> @@ -16,6 +16,7 @@
+>  #include <linux/of_address.h>
+>  #include <linux/of_irq.h>
+>  #include <linux/slab.h>
+> +#include <linux/spinlock.h>
+>  
+>  #include <linux/irqchip.h>
+>  #include <linux/irqchip/arm-gic-v5.h>
+> @@ -28,6 +29,8 @@
+>  struct gicv5_its_chip_data {
+>  	struct	xarray			its_devices;
+>  	struct	mutex			dev_alloc_lock;
+> +	/* Event and device invalidation commands share DIDR. */
+> +	raw_spinlock_t			inv_lock;
+>  	struct	fwnode_handle		*fwnode;
+>  	struct gicv5_its_devtab_cfg	devtab_cfgr;
+>  	void	__iomem			*its_base;
+> @@ -129,6 +132,8 @@ static int gicv5_its_itt_cache_inv(struct gicv5_its_chip_data *its, u32 device_i
+>  	eidr = FIELD_PREP(GICV5_ITS_EIDR_EVENTID, event_id);
+>  	eventr = FIELD_PREP(GICV5_ITS_INV_EVENTR_I, 0x1);
+>  
+> +	guard(raw_spinlock_irqsave)(&its->inv_lock);
+> +
+>  	its_writeq_relaxed(its, didr, GICV5_ITS_DIDR);
+>  	its_writel_relaxed(its, eidr, GICV5_ITS_EIDR);
+>  	its_writel_relaxed(its, eventr, GICV5_ITS_INV_EVENTR);
+> @@ -371,6 +376,9 @@ static int gicv5_its_device_cache_inv(struct gicv5_its_chip_data *its,
+>  		  FIELD_PREP(GICV5_ITS_INV_DEVICER_EVENTID_BITS,
+>  			     its_dev->itt_cfg.event_id_bits)	|
+>  		  FIELD_PREP(GICV5_ITS_INV_DEVICER_L1, 0x0);
+> +
+> +	guard(raw_spinlock_irqsave)(&its->inv_lock);
+> +
+>  	its_writeq_relaxed(its, didr, GICV5_ITS_DIDR);
+>  	its_writel_relaxed(its, devicer, GICV5_ITS_INV_DEVICER);
+>  
+> @@ -1112,6 +1120,7 @@ static int __init gicv5_its_init_bases(void __iomem *its_base, struct fwnode_han
+>  		return -ENOMEM;
+>  
+>  	mutex_init(&its_node->dev_alloc_lock);
+> +	raw_spin_lock_init(&its_node->inv_lock);
+>  	xa_init(&its_node->its_devices);
+>  	its_node->fwnode = handle;
+>  	its_node->its_base = its_base;
+> 
+> -- 
+> 2.34.1
+> 
 
