@@ -2,103 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C69BF606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 10:28:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42100606A335
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 10:31:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Gjg3FluN;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YwcYO7tK
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=183/KztR;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=I0i/oXxe
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=mrNq0ZRBvQ+zprkdb1UnBV4ag8e9ryaPGCvBvx+AW1Q=; b=Gjg3FluNvXKoCI
-	LfrWwxoE4UW6Wb1zOOptKkvY+SsvFqB5KedHt1WRtaA3JgYjs9cUeHMLNV0/s9Y8pgE77bUC/WrB+
-	OxzckzxG6z1EOU53hVA8HFz3Rl4OXeUDQvAGhcetfwubHRDSIVCfc7HxOdxsbQu8+FHPst6G9srWN
-	pxQwea0x3YCWOVurdw04z3LVnY2ZkgYdI62mlGGcgBCbgO+Eovcq2uO5xDi/l8Fp12wblvHnkWJch
-	h5PvSPjtV4U3YC8sYJb/8N1pAjVGIfWqaYbLWrtgcGruw+ChKwlIW/PnB5P/ApV8bsKqkWznhjCb9
-	e8Ilrrwn2y+CcNQwBIHQ==;
+	List-Owner; bh=TG6233zEpb+rSVfSqflC2boy12f75HN0PuFPajXRgoQ=; b=183/KztRH238ce
+	dlfljnt7JUcuDoyHJxUljr8XFLrrkEkj1y0qtihYilOhdp3Vt/z65xDWpCoKhu7U4VnrT64V8CaQ9
+	IuZM02N2hRVhx3jhKlrRIHJAxGAzFvGysKprRb9dh8mrBmGnAFqEyAO8HAD6JEO/H+dEGBNAH6kzH
+	MV0m76A4nDx1qp1NjmlBFJVvVz8QHi6Ob+VLsKnH6pr5FHgC1O/Y3Nl64ZsUJxr9FGCr6mRoSZn0l
+	Jp6N6+Sq1xAr4RVBxueoFVdmnLsrUfFnzSh7/icpJYgvL0VGZDgKkTX0onshYVmzsCubbTxC0TSJb
+	hci0IiBpo3pb/+h1kCXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNpGd-0000000GAar-1PJj;
-	Mon, 02 Nov 2026 10:27:55 +0000
-Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
+	id 1xNpJa-0000000GB2X-3J34;
+	Mon, 02 Nov 2026 10:30:58 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNpGa-0000000GAYy-2gRF
+	id 1xNpJX-0000000GB1u-0qEa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 10:27:54 +0000
-Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-14394530ec6so3422942c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 02:27:52 -0800 (PST)
+	Mon, 02 Nov 2026 10:30:57 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-c3fd91337baso471445066b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 02:30:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793615272; x=1794220072; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=mrNq0ZRBvQ+zprkdb1UnBV4ag8e9ryaPGCvBvx+AW1Q=;
-        b=YwcYO7tKRfzcledU1wa4Ui5AttrjA9EIrXJoCuXSK6Du2T4AhLKjY0xmZCKGN1mXXv
-         IJZ8qSp/00Ea3hGYAr8ZTxKLxoo3I3D2lDwtC5O9MuRZZQ2RMkC3pMqHRN+mdUSJ4ShL
-         DIzbmndifICzPz77UZS4LUWXQ+ts8pFvj14Ym+0U0EAOxBKtrh9HzKwSlwhXHPvdfobk
-         idEk8B/gbBjq36UTKCI/Y1PWPzIUMbpNUR9M+Kw4Z5U/KWPOE9eMux+psece+IXCmfLS
-         MqS9+x9Z2fkw5QcCYEE1vdQ7CJDa9a7kUuVocr1xu2YMpAppT7XqAekCGf9zY7CtHI0s
-         iJUA==
+        d=linaro.org; s=google; t=1793615453; x=1794220253; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=TG6233zEpb+rSVfSqflC2boy12f75HN0PuFPajXRgoQ=;
+        b=I0i/oXxejmzcpMeVpBYGVn3CJk93f42Q+RA+d5/eTnd0AOq5WrNY1f1yk08HXS0fYx
+         fmBNU+6xCAz5xANKCdGgZG506nISeOCDA5xaURZs7oaq7iUrnZEYfg4T/aoL1MLtyIXS
+         l72W9340O/2GhFtcgjNFezliZ+cirZn1RYUSAy+LvbcgSt8ymTcn0fnSPqbGENYjA0V0
+         KkPwUGwxy6Yik7+kX3nM76u5dAAM2t1BUmWX0Y5QCKNglMI9w65jyy5IgHaNRbD2ArGy
+         fiNYJWUtCn9nqm/Hjmz2rPJSdbKIPqioMEIsNawng4Dp5qTI0yxOA8bcH/ZO3z9YzCWq
+         WlXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793615272; x=1794220072;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mrNq0ZRBvQ+zprkdb1UnBV4ag8e9ryaPGCvBvx+AW1Q=;
-        b=p3NZBH6pv3uvEmsR9qWS9UduVEhV1bxzJbM70q1bXsCTOCkeDDcijd/a6wiFPOulmd
-         W5cMzyOyfun1SNNiB2xJIM4cobXNASBBA2fvY0TmrVIzItM//L3DhoGMju80msUuKbKn
-         W/szSxySuv4A/nc8BPYG1DXcAbqaQjTMpjAK/XhRRNlOPqQaw/G+qb8AxPJUsfV9jU4W
-         PWv0476OjNjJ0cvoZsVs9xOSexzcpk/mKuZ08IA+PAfzGgV5csRiBy2bQpgN7J1TjB7x
-         QgBVDCSooi+aWNTEpZ+IvHJuB04q6hCTkRWXLjRzjSqc5GGyDd5YSpuIeSv8v4uCd0sz
-         kt3Q==
-X-Forwarded-Encrypted: i=1; AKwUvBxmTEvCya0FzxWgYudD/lO9MVkMKQGehHoOfYR/8hoLc9R0ASyeaSg1mYNulqoZinpBTSfpjJ75NsA+4dRW4h3d@lists.infradead.org
-X-Gm-Message-State: AFq9FYKACFkJpF8J83+gZico5Tn7tXQoqE4aqqX1w84+3AqUOpP/AEdF
-	EPs+U5FGzWFRqNEfGpKeTRlNGeMj1gfe5rv3E0ilUnTHXHieSZrSzIVg
-X-Gm-Gg: AYBFou3mIi51ujVlkN1/Kcvx3m1x1L0J/6ISL+MCdK6KMDqdd3bDBzQqw1gWM8/b4d6
-	O1fFgiO+3sTq1rWLvj8v243Zmlp/u7P/Y5Ui/DrfWB3MLmabQzp9ZhNWVvIHKErwfr73YJWIOMk
-	msSHRgJiqfeXEeEa9RpGtPZgaxvS+OQsDcHHa8LBA7m3VzKsDHpbv0aA60UF4U9K9zU29ALqYma
-	Eim6UQF/rpO53wJgz0HrF6QAKY8Ml++O52fsxUVOw3or4bemdhKd8dVWoW3M2WrPhb4UR2qKZnz
-	dKoC2ml/RgxvOS1xfVNN5CjmpkHaQh8aPbzEzkkgeSZRRNhNjfS6wBMrBxOukj08h9EhvpwW0Xy
-	KGB4sRE/Hx96X5EaSlt50AcTuQquUeUnZrdFvN9W10EVkiDa7KzovTFPvMRcjNKHiJ4sRLPVD2v
-	May5Ev2sWNAQBoKiZeoeONvYFWz+OZuyKLuJbhcIV1B1SjzHbn4fPp1wJ11L2UnVW0PkDIrg04n
-	AGQfPNHaHyySr/FtCf19ubBqonyUpv3+1x18ZOLLxF8rXWAYbKm/EK6kfrvk0Cpfz/2LawSCDrt
-	ZBKuqu+5V8UtQ/HvS0lz54cUAHPh2VZ1iueOGiUkimc=
-X-Received: by 2002:a05:701a:c907:b0:16a:1fa:58cb with SMTP id a92af1059eb24-1ac56d95460mr14072256c88.1.1793615271404;
-        Mon, 02 Nov 2026 02:27:51 -0800 (PST)
-Received: from localhost.localdomain ([14.97.230.66])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1ac1854d925sm56946724c88.7.2026.11.02.02.27.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 02:27:50 -0800 (PST)
-From: Dinesh kumar v <dineshkumarv85@gmail.com>
-X-Google-Original-From: Dinesh kumar v <dinesh.v@adlinktech.com>
-To: Frank.Li@nxp.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	s.hauer@pengutronix.de
-Cc: imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	Dinesh kumar v <dinesh.v@adlinktech.com>
-Subject: [PATCH v2 3/3] arm64: dts: imx95: Add ADLINK LEC-iMX95 board support
-Date: Mon,  2 Nov 2026 15:56:53 +0530
-Message-Id: <20261102102653.272056-4-dinesh.v@adlinktech.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261102102653.272056-1-dinesh.v@adlinktech.com>
-References: <20261102065645.121046-1-dinesh.v@adlinktech.com>
- <20261102102653.272056-1-dinesh.v@adlinktech.com>
+        d=1e100.net; s=20260707; t=1793615453; x=1794220253;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TG6233zEpb+rSVfSqflC2boy12f75HN0PuFPajXRgoQ=;
+        b=rMNvDTdk3j067buIoPmYMG3j/9LpU8ZQmaUX+vnfaAFmWGkyIAyDQoo4EyFgHyJWbn
+         wum/oDDS6A4Hcrva6jJOLIrKSqNlDPFNd4Qzu6rVYVfYKhKfYaftMeO56gXjazJlqseM
+         Siko1TboG6Vumz66ygBAFYZGzhRnVIHgwKEJtm1bwaHkHS5inu5MB/X2JTxOXLGQYgGL
+         7Pn8bXO6lv8mN40q1hZW6ckbCPrCteec+lSybdXvG2YQj8q18UYN8hSpJ/Mf9eZjYhL1
+         dCgwhJZkARAByQ15n7CK+xjk34A302nEnRzpM1reqNB4b3AXTWtqlgGsGgy+CjAuA+0Y
+         V0Og==
+X-Forwarded-Encrypted: i=1; AKwUvBzM+daUXJWwpVyY3YzMCG8EAHYURmDxtzNjdVjfTUvkQ4BOlGVh+C9ddCv3mnLCBKBFxhQf1Mi+Vhkv+VcpUdcB@lists.infradead.org
+X-Gm-Message-State: APuU4Z9MwTy1XX2JOM8nKXHRtXsMgZlx/W1yh9AmrnRHTAssxzkCYow3
+	HcQIVB3X2tm4FNsohuuKRKGddtozmVIYTOW3BpDy3r8srIB4N5ycz1PVMRWTrw7grdayf5sLL5M
+	4m5ay0k8=
+X-Gm-Gg: AYBFou0XnlhttrVmd0Rqq+R1mZ1VdPHzLaI6zBW/dTwRNrPF2BHOVSORqC7DefsBzZx
+	f9qEY0i5gToYFmzYhqqkiE0jpTEH4mA5IgaY+fny9+Dp9Db1Mzj1J18InLKvM3cnUO0E7uvxH2u
+	dogefYXgjXaFIZHLjqRcBJL69T4IHILil+mtWQ1u3gVhicV2QUElUZO6hH+k5H+1hrBHp2m7s4U
+	Sn3N8WtQeSGSBaCC60TeqDeqRyk9sZC34vM9iGp/4EHGLLW7+136crO4G76C5Y6q0vA3nVupgT2
+	WbC6qRMa3t+vSIZCjQC8R1Zq0GDp/4uwJUKU0T9OHmHGiulYVO0wcy5tPtd/Fs5nQ0aAo4ZIcUM
+	Q7XoqnE/EYVP96HAK3LUwxoI7lrf/giL8d+AVIzh7jOaQzSV0rMHeY3vUhlnMxvM8XL5ejz2SDG
+	BNgAetf+reh8XZ7HcNuY9aRDB/gpkNQFAyhPAb2OfiH66Dw3+vWb1MKLkxVkBrmYPErx3IkJvK7
+	A0RuiD1zzcipd22vJAba7Jak4ZVfNyWdSzxI79r0fo5fd4zjfQYrJLO+H5vTheA08IXbhCx7UvI
+	nbx/tkjaPNeSVQISUaEB2Mtlq5MyYKPs
+X-Received: by 2002:a17:906:c156:b0:c49:9383:a28 with SMTP id a640c23a62f3a-c4ca7ac537bmr772991066b.35.1793615452931;
+        Mon, 02 Nov 2026 02:30:52 -0800 (PST)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c4cabeb11acsm371161266b.70.2026.11.02.02.30.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Nov 2026 02:30:52 -0800 (PST)
+Message-ID: <6682e9cf-8350-4410-8acc-1fbeca638e64@linaro.org>
+Date: Mon, 2 Nov 2026 10:30:51 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/14] perf cs-etm: Fix bogus branch samples on
+ exceptions
+To: Leo Yan <leo.yan@arm.com>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
+ Mike Leach <mike.leach@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
+References: <20261030-perf_cs_etm_fix_non_taken-v3-0-7629b52ab047@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20261030-perf_cs_etm_fix_non_taken-v3-0-7629b52ab047@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_022752_699274_8598116F 
-X-CRM114-Status: GOOD (  16.59  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261102_023055_300761_8093A2A3 
+X-CRM114-Status: GOOD (  24.28  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,705 +110,131 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add the common device tree description for the ADLINK LEC-iMX95
-module and the I-Pi SMARC Plus carrier board.
 
-Describe the onboard peripherals and carrier-specific hardware
-connections.
 
-Signed-off-by: Dinesh kumar v <dinesh.v@adlinktech.com>
----
- arch/arm64/boot/dts/freescale/Makefile        |   1 +
- .../dts/freescale/imx95-lec-ipi-smarc.dts     | 237 ++++++++++
- arch/arm64/boot/dts/freescale/imx95-lec.dtsi  | 414 ++++++++++++++++++
- 3 files changed, 652 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx95-lec-ipi-smarc.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx95-lec.dtsi
+On 30/10/2026 15:13, Leo Yan wrote:
+> CoreSight currently models exception entry by changing the preceding
+> instruction range into a taken branch. This can give an IRQ the source
+> PC of an instruction that already retired and overwrite a real branch
+> immediately before the exception.
+> 
+> For an untaken B.LS followed by an IRQ, perf script currently reports:
+> 
+>    hw int  4000f8 => ffff800080010c80  b.ls #0x400118
+>    ...
+>    iret    ffff800080012284 => 4000fc  eret
+> 
+> The hardware trace supplies 0x4000fc as the preferred return address.
+> For an IRQ, this is the architectural resume PC (Arm ARM, R_VBQMV).
+> B.LS has retired, and the saved PC identifies the boundary before the
+> following MOV. Using this PC as the IRQ source reflects the
+> architectural state at exception entry:
+> 
+>    hw int  4000fc => ffff800080010c80  movz x2, #0x1796
+>    ...
+>    iret    ffff800080012284 => 4000fc  eret
+> 
+> The IRQ sample represents the transfer from this architectural execution
+> position to the handler. The series synthesizes exception entries from
+> exception packets, preserving the preceding branch and its outcome.
+> 
+> The supporting changes:
+> 
+> - Let decoders supply sample.ret_addr so later instruction fetching cannot
+>    change thread-stack return addresses. Apply this to Intel PT
+>    asynchronous samples as well.
+> - Prepare packet ISA and instruction-size handling and share sample
+>    synthesis helpers. Mark untaken branches and break history when
+>    instruction memory is unavailable.
+> - Add a thread-stack regression test and four AArch64 CoreSight tests.
+>    IRQs and page faults must resume at the entry PC; SVC and emulated MRS
+>    must resume four bytes later.
+> 
+> Based on the AI search and test on my x86 machine, this matches perf's
+> Intel PT handling of IRQs. Intel PT records the next instruction's IP in
+> the FUP packet, and Perf uses that IP as the interrupt sample's source.
+> 
+> This series is verified on Orion6 board with "perf test coresight".
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+> Changes in v3:
+> - Introduced the pref_ret_addr/end_addr union (James).
+> - Clarified zero-size A32/A64 exception handling and why T32 retains
+>    per-address instruction decoding (James).
+> - Retreed missing exception pairs for up to three recordings,
+>    then fail instead of skipping (James).
+> - Shorten the IRQ workload (James).
+> - Fix FIFO argument quoting and remove redundant ShellCheck source
+>    directives (James).
+> - Checked instruction length before copying bytes into sample->insn
+>    (Sashiko).
+> - Retried MRS checks when instruction page faults may match the opcode
+>    filter (Sashiko).
+> - Rebased onto the updated perf tree and collect review tags.
+> - Link to v2: https://lore.kernel.org/r/20260923-perf_cs_etm_fix_non_taken-v2-0-6ab8c07a5455@arm.com
+> 
+> Changes in v2:
+> 
+> - Rework the fix around exception packets to preserve both exception
+>    entries and preceding branches.
+> - Add explicit return addresses and the Intel PT asynchronous-branch fix.
+> - Split out packet/synthesis preparation, record not-taken branches and
+>    handle unreadable instruction memory.
+> - Add thread-stack regression coverage and four CoreSight tests.
+> - Link to v1: https://lore.kernel.org/r/20260713-perf_cs_etm_fix_non_taken-v1-0-4561607fc69f@arm.com
+> 
+> ---
+> Leo Yan (14):
+>        perf sample: Allow decoders to supply branch return addresses
+>        perf intel-pt: Preserve return addresses for asynchronous branches
+>        perf cs-etm: Break branch history when instruction memory is unavailable
+>        perf cs-etm: Centralize packet ISA initialization
+>        perf cs-etm: Use the recorded instruction size for A32 and A64
+>        perf cs-etm: Mark branches that were not taken
+>        perf cs-etm: Factor out final instruction sample synthesis
+>        perf cs-etm: Centralize branch sample synthesis checks
+>        perf cs-etm: Classify exception calls using the exception packet
+>        perf cs-etm: Synthesize exception entries separately from branches
+>        perf tests: Check CoreSight IRQ entry and exit
+>        perf tests: Check CoreSight syscall entry and exit
+>        perf tests: Check CoreSight abort entry and exit
+>        perf tests: Check CoreSight emulated instruction entry and exit
+> 
+>   tools/perf/tests/Build                             |   1 +
+>   tools/perf/tests/builtin-test.c                    |   3 +
+>   .../perf/tests/shell/coresight/abort_entry_exit.sh |  32 +++
+>   tools/perf/tests/shell/coresight/irq_entry_exit.sh |  36 +++
+>   .../tests/shell/coresight/syscall_entry_exit.sh    |  32 +++
+>   .../perf/tests/shell/coresight/trap_entry_exit.sh  |  39 ++++
+>   tools/perf/tests/shell/lib/coresight_exception.sh  | 164 ++++++++++++++
+>   tools/perf/tests/tests.h                           |   3 +
+>   tools/perf/tests/thread-stack.c                    | 106 +++++++++
+>   tools/perf/tests/workloads/Build                   |   4 +
+>   tools/perf/tests/workloads/branch_not_taken_loop.c |  33 +++
+>   tools/perf/tests/workloads/page_fault_loop.c       |  37 ++++
+>   tools/perf/util/cs-etm-decoder/cs-etm-decoder.c    | 106 ++++++---
+>   tools/perf/util/cs-etm.c                           | 246 +++++++++++----------
+>   tools/perf/util/cs-etm.h                           |   6 +-
+>   tools/perf/util/intel-pt.c                         |   7 +
+>   tools/perf/util/sample.c                           |   1 +
+>   tools/perf/util/sample.h                           |   5 +
+>   tools/perf/util/thread-stack.c                     |   5 +-
+>   19 files changed, 714 insertions(+), 152 deletions(-)
+> ---
+> base-commit: 4626d370ae89b8af4d46a45372b269f926ec662d
+> change-id: 20260713-perf_cs_etm_fix_non_taken-5b4d7f73f41e
+> 
+> Best regards,
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index a80cccf34eb5..26b432127faa 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -983,6 +983,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-ivy.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-mallow.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-yavia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-zinnia.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx95-lec-ipi-smarc.dtb
- 
- imx95-15x15-evk-pcie-dtbs += imx95-15x15-evk.dtb imx-m2-pcie.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk-pcie.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx95-lec-ipi-smarc.dts b/arch/arm64/boot/dts/freescale/imx95-lec-ipi-smarc.dts
-new file mode 100644
-index 000000000000..9a77bff42b22
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx95-lec-ipi-smarc.dts
-@@ -0,0 +1,237 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright (C) 2026 ADLINK Technology Inc.
-+ *
-+ * https://www.adlinktech.com/products/Computer_on_Modules/SMARC/LEC-IMX95
-+ * https://www.adlinktech.com/products/computer_on_modules/SMARCStarterKits/I-Pi_SMARC_IMX95
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx95-lec.dtsi"
-+
-+/ {
-+	model = "ADLINK LEC-iMX95 on I-Pi SMARC Plus Carrier Board";
-+	compatible = "adlink,lec-imx95-ipi-smarc",
-+		     "adlink,lec-imx95",
-+		     "fsl,imx95";
-+};
-+
-+/* Ethernet SMARC GBE0 */
-+&enetc_port0 {
-+	pinctrl-0 = <&pinctrl_enetc0>;
-+	phy-handle = <&ethphy0>;
-+	pinctrl-names = "default";
-+	phy-mode = "rgmii-id";
-+
-+	status = "okay";
-+};
-+
-+/* Ethernet SMARC GBE1 */
-+&enetc_port1 {
-+	pinctrl-0 = <&pinctrl_enetc1>;
-+	phy-handle = <&ethphy1>;
-+	pinctrl-names = "default";
-+	phy-mode = "rgmii-id";
-+
-+	status = "okay";
-+};
-+
-+&lpi2c2 {
-+	clock-frequency = <100000>;
-+	pinctrl-0 = <&pinctrl_lpi2c2>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+
-+	/* U1000 SX1509BIULTRT_SEMTECH */
-+	i2c2_gpio_expander_71: pinctrl@71 {
-+		/*
-+		 * GPIO Expander Mapping:
-+		 * - 0: ENET1_RST_B_3V		=>		U2001
-+		 * - 1: ENET2_RST_B_3V		=>		U2101
-+		 * - 2: SERDES_RST#_3V		=>		SMARC S77 PCIE_C_RST
-+		 * - 3: RC210_EN_3V		=>		U1300, RC21008B001GND
-+		 * - 4: LT9611_RSTN_3V		=>		U1500
-+		 * - 5: HDMI_INT_3V		<=		U1500
-+		 * - 6: PCIEA_RST#_3V		=>		SMARC P75
-+		 * - 7: PCIEB_RST#_3V		=>		SMARC S76
-+		 * - 8: TPM_RST_N_1V8		=>		U2400
-+		 * - 9: LID#_1V8		<=	R1005	SMARC S148
-+		 * - 10: SLEEP#_1V8		<=	R1010	SMARC S149
-+		 * - 11: CHARGING#_1V8		<=	R1007	SMARC S151
-+		 * - 12: CHARGER_PRSNT#_1V8	<=	R1011	SMARC S152
-+		 * - 13: BATLOW#_1V8		<=	R1014	SMARC S156
-+		 * - 14: TEST#_1V8		<=	R1015	SMARC S157
-+		 * - 15: DSI0_TE_1V8		<=	R1087	SMARC S144
-+		 */
-+		compatible = "semtech,sx1509q";
-+		reg = <0x71>;
-+		#gpio-cells = <2>;
-+		gpio-controller;
-+		#interrupt-cells = <2>;
-+		interrupt-controller;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <15 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-0 = <&pinctrl_sx1509q>;
-+		pinctrl-names = "default";
-+		semtech,probe-reset;
-+
-+		status = "okay";
-+	};
-+};
-+
-+&lpi2c3 {
-+	pinctrl-0 = <&pinctrl_lpi2c3>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&lpi2c8 {
-+	pinctrl-0 = <&pinctrl_lpi2c8>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+/* SMARC SPI0 */
-+&lpspi6 {
-+	cs-gpios = <&gpio2 0 GPIO_ACTIVE_LOW>, <&gpio2 24 GPIO_ACTIVE_LOW>;
-+	pinctrl-0 = <&pinctrl_lpspi6>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+/* SMARC SER1, used as the Linux Console */
-+&lpuart1 {
-+	bootph-pre-ram;
-+	pinctrl-0 = <&pinctrl_uart1>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&lpuart2 {
-+	pinctrl-0 = <&pinctrl_uart2>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&lpuart5 {
-+	pinctrl-0 = <&pinctrl_uart5>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+/* SMARC SER2 */
-+&lpuart6 {
-+	pinctrl-0 = <&pinctrl_uart6>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+/* SMARC SER0 */
-+&lpuart7 {
-+	pinctrl-0 = <&pinctrl_uart7>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&netc_blk_ctrl {
-+	status = "okay";
-+};
-+
-+&netc_emdio {
-+	pinctrl-0 = <&pinctrl_emdio>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+
-+	ethphy0: ethernet-phy@1 {
-+		compatible = "ethernet-phy-id001c.c916";
-+		reg = <1>;
-+		eee-broken-1000t;
-+		realtek,clkout-disable;
-+	};
-+
-+	ethphy1: ethernet-phy@4 {
-+		compatible = "ethernet-phy-id001c.c916";
-+		reg = <4>;
-+		eee-broken-1000t;
-+		realtek,clkout-disable;
-+	};
-+};
-+
-+&netc_timer {
-+	status = "okay";
-+};
-+
-+&netcmix_blk_ctrl {
-+	status = "okay";
-+};
-+
-+/* SMARC PCIE_A */
-+&pcie0 {
-+	pinctrl-0 = <&pinctrl_pcie0>;
-+	pinctrl-names = "default";
-+	supports-clkreq;
-+
-+	status = "okay";
-+};
-+
-+&pcie0_port0 {
-+	reset-gpios = <&i2c2_gpio_expander_71 6 GPIO_ACTIVE_LOW>; /* PCIEA_RST#_3V */
-+};
-+
-+/* U1900 AW-CM276NF */
-+&pcie1 {
-+	pinctrl-0 = <&pinctrl_pcie1>;
-+	pinctrl-names = "default";
-+
-+	status = "okay";
-+};
-+
-+&pcie1_port0 {
-+	reset-gpios = <&i2c2_gpio_expander_71 7 GPIO_ACTIVE_LOW>; /* PCIEB_RST#_3V */
-+};
-+
-+/* SMARC USB0 */
-+&usb2 {
-+	dr_mode = "host";
-+	hnp-disable;
-+	adp-disable;
-+	srp-disable;
-+	disable-over-current;
-+
-+	status = "okay";
-+};
-+
-+&usb3 {
-+	status = "okay";
-+};
-+
-+&usb3_dwc3 {
-+	dr_mode = "host";
-+	snps,dis-u1-entry-quirk;
-+	snps,dis-u2-entry-quirk;
-+
-+	status = "okay";
-+};
-+
-+&usb3_phy {
-+	status = "okay";
-+};
-+
-+&usdhc1 {
-+	status = "okay";
-+};
-+
-+&usdhc2 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx95-lec.dtsi b/arch/arm64/boot/dts/freescale/imx95-lec.dtsi
-new file mode 100644
-index 000000000000..60d68c146ae4
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx95-lec.dtsi
-@@ -0,0 +1,414 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright (C) 2026 ADLINK Technology Inc.
-+ * https://www.adlinktech.com/products/Computer_on_Modules/SMARC/LEC-IMX95
-+ * https://www.adlinktech.com/products/computer_on_modules/SMARCStarterKits/I-Pi_SMARC_IMX95
-+ */
-+
-+#include "imx95.dtsi"
-+
-+/ {
-+	aliases {
-+		ethernet0 = &enetc_port0;
-+		ethernet1 = &enetc_port1;
-+		gpio0 = &gpio1;
-+		gpio1 = &gpio2;
-+		gpio2 = &gpio3;
-+		gpio3 = &gpio4;
-+		gpio4 = &gpio5;
-+		i2c1 = &lpi2c2;
-+		i2c2 = &lpi2c3;
-+		i2c7 = &lpi2c8;
-+		mmc0 = &usdhc1;
-+		mmc1 = &usdhc2;
-+		serial0 = &lpuart1;
-+		serial1 = &lpuart2;
-+		serial4 = &lpuart5;
-+		serial5 = &lpuart6;
-+		serial6 = &lpuart7;
-+		spi0 = &lpspi6;
-+		usb0 = &usb3_dwc3;
-+		usb1 = &usb2;
-+	};
-+
-+	chosen {
-+		stdout-path = &lpuart1;
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x01 0x00>;
-+	};
-+
-+	reg_usdhc2_vmmc: regulator-usdhc2 {
-+		compatible = "regulator-fixed";
-+		bootph-pre-ram;
-+		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
-+		enable-active-high;
-+		pinctrl-names = "default";
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		gpio = <&gpio3 7 GPIO_ACTIVE_HIGH>;
-+		regulator-name = "VDD_SD2_3V3";
-+		off-on-delay-us = <12000>;
-+	};
-+
-+	reserved-memory {
-+		ranges;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+
-+		linux_cma: linux,cma {
-+			compatible = "shared-dma-pool";
-+			alloc-ranges = <0 0x80000000 0 0x7f000000>;
-+			reusable;
-+			size = <0 0x3c000000>;
-+			linux,cma-default;
-+		};
-+	};
-+};
-+
-+&gpio2 {
-+	gpio-line-names =
-+		"SMARC_SPI0_CS0#",	/* 0 - GPIO_IO00 */
-+		"SMARC_SPI0_DIN",	/* 1 - GPIO_IO01 */
-+		"SMARC_SPI0_DO",	/* 2 - GPIO_IO02 */
-+		"SMARC_SPI0_CK",	/* 3 - GPIO_IO03 */
-+		"",			/* 4 - GPIO_IO04 */
-+		"",			/* 5 - GPIO_IO05 */
-+		"",			/* 6 - GPIO_IO06 */
-+		"",			/* 7 - GPIO_IO07 */
-+		"SMARC_UART0_TXD",	/* 8 - GPIO_IO08 */
-+		"SMARC_UART0_RXD",	/* 9 - GPIO_IO09 */
-+		"SMARC_UART0_CTS_B",	/* 10 - GPIO_IO10 */
-+		"SMARC_UART0_RTS_B",	/* 11 - GPIO_IO11 */
-+		"SMARC_I2C_GP_DAT",	/* 12 - GPIO_IO12 */
-+		"SMARC_I2C_GP_CK",	/* 13 - GPIO_IO13 */
-+		"UART3_TXD_1V8",	/* 14 - GPIO_IO14 */
-+		"UART3_RXD_1V8",	/* 15 - GPIO_IO15 */
-+		"SAI3_TXC_1V8",		/* 16 - GPIO_IO16 */
-+		"SAI3_MCLK_1V8",	/* 17 - GPIO_IO17 */
-+		"SMB_INT_B_1V8",	/* 18 - GPIO_IO18 */
-+		"LVDS0_BKLT_PWM_1V8",	/* 19 - GPIO_IO19 */
-+		"SAI3_RXD_1V8",		/* 20 - GPIO_IO20 */
-+		"SAI3_TXD_1V8",		/* 21 - GPIO_IO21 */
-+		"FAN_PWM_1V8",		/* 22 - GPIO_IO22 */
-+		"LVDS1_BKLT_PWM_1V8",	/* 23 - GPIO_IO23 */
-+		"SPI6_SS1_1V8",		/* 24 - GPIO_IO24 */
-+		"",			/* 25 - GPIO_IO25 */
-+		"SAI3_TXFS_1V8",	/* 26 - GPIO_IO26 */
-+		"TPM_INT_N_1V8",	/* 27 - GPIO_IO27 */
-+		"SMARC_I2C_PM_DAT",	/* 28 - GPIO_IO28 */
-+		"SMARC_I2C_PM_CK",	/* 29 - GPIO_IO29 */
-+		"SMARC_CAN1_TX",	/* 30 - GPIO_IO30 (SMARC CAN1_H via transceiver) */
-+		"SMARC_CAN1_RX";	/* 31 - GPIO_IO31 (SMARC CAN1_L via transceiver) */
-+};
-+
-+&gpio3 {
-+	gpio-line-names =
-+		"SD2_CD_B",
-+		"SD2_CLK",
-+		"SD2_CMD",
-+		"SD2_DATA0",
-+		"SD2_DATA1",
-+		"SD2_DATA2",
-+		"SD2_DATA3",
-+		"SD2_RST_B_1V8A3V",
-+		"SD1_CLK",
-+		"SD1_CMD",
-+		"SD1_DATA0",
-+		"SD1_DATA1",
-+		"SD1_DATA2",
-+		"SD1_DATA3",
-+		"SD1_DATA4",
-+		"SD1_DATA5",
-+		"SD1_DATA6",
-+		"SD1_DATA7",
-+		"SD1_STROBE",
-+		"SD2_VSEL_1V8",
-+		"SD3_CLK",
-+		"SD3_CMD",
-+		"SD3_DATA0",
-+		"SD3_DATA1",
-+		"SD3_DATA2",
-+		"SD3_DATA3",
-+		"CCM_CLKO1",
-+		"CCM_CLKO2",
-+		"DAP_TDI",
-+		"DAP_TMS_SWDIO",
-+		"DAP_TCLK_SWCLK",
-+		"DAP_TDO_TRACESWO";
-+};
-+
-+&gpio4 {
-+	gpio-line-names =
-+		"ENET1_MDC",
-+		"ENET1_MDIO",
-+		"ENET1_TD3",
-+		"ENET1_TD2",
-+		"ENET1_TD1",
-+		"ENET1_TD0",
-+		"ENET1_TX_CTL",
-+		"ENET1_TXC",
-+		"ENET1_RX_CTL",
-+		"ENET1_RXC",
-+		"ENET1_RD0",
-+		"ENET1_RD1",
-+		"ENET1_RD2",
-+		"ENET1_RD3",
-+		"RTC_INT#_1V8",
-+		"IOEXP2_INT#_1V8",
-+		"ENET2_TD3",
-+		"ENET2_TD2",
-+		"ENET2_TD1",
-+		"ENET2_TD0",
-+		"ENET2_TX_CTL",
-+		"ENET2_TXC",
-+		"ENET2_RX_CTL",
-+		"ENET2_RXC",
-+		"ENET2_RD0",
-+		"ENET2_RD1",
-+		"ENET2_RD2",
-+		"ENET2_RD3",
-+		"CCM_CLKO3",
-+		"CCM_CLKO4";
-+};
-+
-+&gpio5 {
-+	gpio-line-names =
-+		"QSPIA_DATA0",
-+		"QSPIA_DATA1",
-+		"QSPIA_DATA2",
-+		"QSPIA_DATA3",
-+		"SKU_CONFIG1_1V8",
-+		"SKU_CONFIG2_1V8",
-+		"SKU_CONFIG3_1V8",
-+		"SYS_STATUS_1V8",
-+		"SD2_WP_1V8",
-+		"QSPIA_SCLK",
-+		"QSPIA_nSS0",
-+		"SYS_RST#_1V8",
-+		"PCIE1_IMX_CLKREQ#_1V8",
-+		"MCU_INTB1_1V8",
-+		"MCU_INTB2_1V8",
-+		"PCIE2_IMX_CLKREQ#_1V8",
-+		"ENET1_INT_B_1V8",
-+		"ENET2_INT_B_1V8";
-+};
-+
-+&usdhc1 {
-+	bootph-pre-ram;
-+	pinctrl-0 = <&pinctrl_usdhc1>;
-+	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
-+	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
-+	pinctrl-3 = <&pinctrl_usdhc1>;
-+	bus-width = <8>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-+	no-sdio;
-+	no-sd;
-+	non-removable;
-+};
-+
-+&usdhc2 {
-+	bootph-pre-ram;
-+	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-3 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	cd-gpios = <&gpio3 0 GPIO_ACTIVE_LOW>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-+	bus-width = <4>;
-+	vmmc-supply = <&reg_usdhc2_vmmc>;
-+};
-+
-+&scmi_iomuxc {
-+	pinctrl_emdio: emdiogrp {
-+		fsl,pins = <IMX95_PAD_ENET1_MDC__NETCMIX_TOP_NETC_MDC		0x50e>,
-+			   <IMX95_PAD_ENET1_MDIO__NETCMIX_TOP_NETC_MDIO		0x90e>;
-+	};
-+
-+	pinctrl_enetc0: enetc0grp {
-+		fsl,pins = <IMX95_PAD_ENET1_TD3__NETCMIX_TOP_ETH0_RGMII_TD3		0x50e>,
-+			   <IMX95_PAD_ENET1_TD2__NETCMIX_TOP_ETH0_RGMII_TD2		0x50e>,
-+			   <IMX95_PAD_ENET1_TD1__NETCMIX_TOP_ETH0_RGMII_TD1		0x50e>,
-+			   <IMX95_PAD_ENET1_TD0__NETCMIX_TOP_ETH0_RGMII_TD0		0x50e>,
-+			   <IMX95_PAD_ENET1_TX_CTL__NETCMIX_TOP_ETH0_RGMII_TX_CTL	0x57e>,
-+			   <IMX95_PAD_ENET1_TXC__NETCMIX_TOP_ETH0_RGMII_TX_CLK	        0x58e>,
-+			   <IMX95_PAD_ENET1_RX_CTL__NETCMIX_TOP_ETH0_RGMII_RX_CTL	0x57e>,
-+			   <IMX95_PAD_ENET1_RXC__NETCMIX_TOP_ETH0_RGMII_RX_CLK	        0x58e>,
-+			   <IMX95_PAD_ENET1_RD0__NETCMIX_TOP_ETH0_RGMII_RD0		0x57e>,
-+			   <IMX95_PAD_ENET1_RD1__NETCMIX_TOP_ETH0_RGMII_RD1		0x57e>,
-+			   <IMX95_PAD_ENET1_RD2__NETCMIX_TOP_ETH0_RGMII_RD2		0x57e>,
-+			   <IMX95_PAD_ENET1_RD3__NETCMIX_TOP_ETH0_RGMII_RD3		0x57e>;
-+	};
-+
-+	pinctrl_enetc1: enetc1grp {
-+		fsl,pins = <IMX95_PAD_ENET2_TD3__NETCMIX_TOP_ETH1_RGMII_TD3		0x57e>,
-+			   <IMX95_PAD_ENET2_TD2__NETCMIX_TOP_ETH1_RGMII_TD2		0x57e>,
-+			   <IMX95_PAD_ENET2_TD1__NETCMIX_TOP_ETH1_RGMII_TD1		0x57e>,
-+			   <IMX95_PAD_ENET2_TD0__NETCMIX_TOP_ETH1_RGMII_TD0		0x57e>,
-+			   <IMX95_PAD_ENET2_TX_CTL__NETCMIX_TOP_ETH1_RGMII_TX_CTL	0x57e>,
-+			   <IMX95_PAD_ENET2_TXC__NETCMIX_TOP_ETH1_RGMII_TX_CLK	        0x5fe>,
-+			   <IMX95_PAD_ENET2_RX_CTL__NETCMIX_TOP_ETH1_RGMII_RX_CTL	0x57e>,
-+			   <IMX95_PAD_ENET2_RXC__NETCMIX_TOP_ETH1_RGMII_RX_CLK	        0x5fe>,
-+			   <IMX95_PAD_ENET2_RD0__NETCMIX_TOP_ETH1_RGMII_RD0		0x57e>,
-+			   <IMX95_PAD_ENET2_RD1__NETCMIX_TOP_ETH1_RGMII_RD1		0x57e>,
-+			   <IMX95_PAD_ENET2_RD2__NETCMIX_TOP_ETH1_RGMII_RD2		0x57e>,
-+			   <IMX95_PAD_ENET2_RD3__NETCMIX_TOP_ETH1_RGMII_RD3		0x57e>;
-+	};
-+
-+	pinctrl_lpi2c2: lpi2c2grp {
-+		fsl,pins = <IMX95_PAD_I2C2_SCL__AONMIX_TOP_LPI2C2_SCL		0x40000b9e>,
-+			   <IMX95_PAD_I2C2_SDA__AONMIX_TOP_LPI2C2_SDA		0x40000b9e>;
-+	};
-+
-+	pinctrl_lpi2c3: lpi2c3grp {
-+		fsl,pins = <IMX95_PAD_GPIO_IO28__LPI2C3_SDA			0x40000b9e>,
-+			   <IMX95_PAD_GPIO_IO29__LPI2C3_SCL			0x40000b9e>;
-+	};
-+
-+	pinctrl_lpi2c8: lpi2c8grp {
-+		fsl,pins = <IMX95_PAD_GPIO_IO13__LPI2C8_SCL		0x40000b9e>,
-+			   <IMX95_PAD_GPIO_IO12__LPI2C8_SDA		0x40000b9e>;
-+	};
-+
-+	pinctrl_lpspi6: lpspi6grp {
-+		fsl,pins = <IMX95_PAD_GPIO_IO00__GPIO2_IO_BIT0		0x1fe>,
-+			   <IMX95_PAD_GPIO_IO24__GPIO2_IO_BIT24		0x1fe>,
-+			   <IMX95_PAD_GPIO_IO01__LPSPI6_SIN		0x3fe>,
-+			   <IMX95_PAD_GPIO_IO02__LPSPI6_SOUT		0x3fe>,
-+			   <IMX95_PAD_GPIO_IO03__LPSPI6_SCK		0x3fe>;
-+	};
-+
-+	pinctrl_pcie0: pcie0grp {
-+		fsl,pins = <IMX95_PAD_GPIO_IO32__HSIOMIX_TOP_PCIE1_CLKREQ_B		0x4000031e>;
-+	};
-+
-+	pinctrl_pcie1: pcie1grp {
-+		fsl,pins = <IMX95_PAD_GPIO_IO35__HSIOMIX_TOP_PCIE2_CLKREQ_B		0x4000031e>;
-+	};
-+
-+	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
-+		bootph-pre-ram;
-+		fsl,pins = <IMX95_PAD_SD2_RESET_B__GPIO3_IO_BIT7		0x31e>;
-+	};
-+
-+	pinctrl_sx1509q: sx1509qgrp {
-+		fsl,pins = <IMX95_PAD_ENET2_MDIO__GPIO4_IO_BIT15		0x1fe>;
-+	};
-+
-+	pinctrl_uart1: uart1grp {
-+		bootph-pre-ram;
-+		fsl,pins = <IMX95_PAD_UART1_RXD__AONMIX_TOP_LPUART1_RX	0x31e>,
-+			   <IMX95_PAD_UART1_TXD__AONMIX_TOP_LPUART1_TX	0x31e>;
-+	};
-+
-+	pinctrl_uart2: uart2grp {
-+		fsl,pins = <IMX95_PAD_UART2_RXD__AONMIX_TOP_LPUART2_RX	0x31e>,
-+			   <IMX95_PAD_UART2_TXD__AONMIX_TOP_LPUART2_TX	0x31e>;
-+	};
-+
-+	pinctrl_uart5: uart5grp {
-+		fsl,pins = <IMX95_PAD_DAP_TDO_TRACESWO__LPUART5_TX			0x31e>,
-+			   <IMX95_PAD_DAP_TDI__LPUART5_RX				0x31e>,
-+			   <IMX95_PAD_DAP_TMS_SWDIO__LPUART5_RTS_B			0x31e>,
-+			   <IMX95_PAD_DAP_TCLK_SWCLK__LPUART5_CTS_B			0x31e>;
-+	};
-+
-+	pinctrl_uart6: uart6grp {
-+		fsl,pins = <IMX95_PAD_GPIO_IO04__LPUART6_TX				0x31e>,
-+			   <IMX95_PAD_GPIO_IO05__LPUART6_RX				0x31e>,
-+			   <IMX95_PAD_GPIO_IO07__LPUART6_RTS_B				0x31e>,
-+			   <IMX95_PAD_GPIO_IO06__LPUART6_CTS_B				0x31e>;
-+	};
-+
-+	pinctrl_uart7: uart7grp {
-+		fsl,pins = <IMX95_PAD_GPIO_IO08__LPUART7_TX				0x31e>,
-+			   <IMX95_PAD_GPIO_IO09__LPUART7_RX				0x31e>,
-+			   <IMX95_PAD_GPIO_IO11__LPUART7_RTS_B				0x31e>,
-+			   <IMX95_PAD_GPIO_IO10__LPUART7_CTS_B				0x31e>;
-+	};
-+
-+	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
-+		bootph-pre-ram;
-+		fsl,pins = <IMX95_PAD_SD1_CLK__USDHC1_CLK			0x158e>,
-+			   <IMX95_PAD_SD1_CMD__USDHC1_CMD			0x138e>,
-+			   <IMX95_PAD_SD1_DATA0__USDHC1_DATA0			0x138e>,
-+			   <IMX95_PAD_SD1_DATA1__USDHC1_DATA1			0x138e>,
-+			   <IMX95_PAD_SD1_DATA2__USDHC1_DATA2			0x138e>,
-+			   <IMX95_PAD_SD1_DATA3__USDHC1_DATA3			0x138e>,
-+			   <IMX95_PAD_SD1_DATA4__USDHC1_DATA4			0x138e>,
-+			   <IMX95_PAD_SD1_DATA5__USDHC1_DATA5			0x138e>,
-+			   <IMX95_PAD_SD1_DATA6__USDHC1_DATA6			0x138e>,
-+			   <IMX95_PAD_SD1_DATA7__USDHC1_DATA7			0x138e>,
-+			   <IMX95_PAD_SD1_STROBE__USDHC1_STROBE			0x158e>;
-+	};
-+
-+	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
-+		bootph-pre-ram;
-+		fsl,pins = <IMX95_PAD_SD1_CLK__USDHC1_CLK			0x15fe>,
-+			   <IMX95_PAD_SD1_CMD__USDHC1_CMD			0x13fe>,
-+			   <IMX95_PAD_SD1_DATA0__USDHC1_DATA0			0x13fe>,
-+			   <IMX95_PAD_SD1_DATA1__USDHC1_DATA1			0x13fe>,
-+			   <IMX95_PAD_SD1_DATA2__USDHC1_DATA2			0x13fe>,
-+			   <IMX95_PAD_SD1_DATA3__USDHC1_DATA3			0x13fe>,
-+			   <IMX95_PAD_SD1_DATA4__USDHC1_DATA4			0x13fe>,
-+			   <IMX95_PAD_SD1_DATA5__USDHC1_DATA5			0x13fe>,
-+			   <IMX95_PAD_SD1_DATA6__USDHC1_DATA6			0x13fe>,
-+			   <IMX95_PAD_SD1_DATA7__USDHC1_DATA7			0x13fe>,
-+			   <IMX95_PAD_SD1_STROBE__USDHC1_STROBE			0x15fe>;
-+	};
-+
-+	pinctrl_usdhc1: usdhc1grp {
-+		bootph-pre-ram;
-+		fsl,pins = <IMX95_PAD_SD1_CLK__USDHC1_CLK			0x158e>,
-+			   <IMX95_PAD_SD1_CMD__USDHC1_CMD			0x138e>,
-+			   <IMX95_PAD_SD1_DATA0__USDHC1_DATA0			0x138e>,
-+			   <IMX95_PAD_SD1_DATA1__USDHC1_DATA1			0x138e>,
-+			   <IMX95_PAD_SD1_DATA2__USDHC1_DATA2			0x138e>,
-+			   <IMX95_PAD_SD1_DATA3__USDHC1_DATA3			0x138e>,
-+			   <IMX95_PAD_SD1_DATA4__USDHC1_DATA4			0x138e>,
-+			   <IMX95_PAD_SD1_DATA5__USDHC1_DATA5			0x138e>,
-+			   <IMX95_PAD_SD1_DATA6__USDHC1_DATA6			0x138e>,
-+			   <IMX95_PAD_SD1_DATA7__USDHC1_DATA7			0x138e>,
-+			   <IMX95_PAD_SD1_STROBE__USDHC1_STROBE			0x158e>;
-+	};
-+
-+	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-+		bootph-pre-ram;
-+		fsl,pins = <IMX95_PAD_SD2_CLK__USDHC2_CLK			0x158e>,
-+			   <IMX95_PAD_SD2_CMD__USDHC2_CMD			0x138e>,
-+			   <IMX95_PAD_SD2_DATA0__USDHC2_DATA0			0x138e>,
-+			   <IMX95_PAD_SD2_DATA1__USDHC2_DATA1			0x138e>,
-+			   <IMX95_PAD_SD2_DATA2__USDHC2_DATA2			0x138e>,
-+			   <IMX95_PAD_SD2_DATA3__USDHC2_DATA3			0x138e>,
-+			   <IMX95_PAD_SD2_VSELECT__USDHC2_VSELECT		0x51e>;
-+	};
-+
-+	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-+		bootph-pre-ram;
-+		fsl,pins = <IMX95_PAD_SD2_CLK__USDHC2_CLK			0x158e>,
-+			   <IMX95_PAD_SD2_CMD__USDHC2_CMD			0x138e>,
-+			   <IMX95_PAD_SD2_DATA0__USDHC2_DATA0			0x138e>,
-+			   <IMX95_PAD_SD2_DATA1__USDHC2_DATA1			0x138e>,
-+			   <IMX95_PAD_SD2_DATA2__USDHC2_DATA2			0x138e>,
-+			   <IMX95_PAD_SD2_DATA3__USDHC2_DATA3			0x138e>,
-+			   <IMX95_PAD_SD2_VSELECT__USDHC2_VSELECT		0x51e>;
-+	};
-+
-+	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
-+		bootph-pre-ram;
-+		fsl,pins = <IMX95_PAD_SD2_CD_B__GPIO3_IO_BIT0		0x31e>;
-+	};
-+
-+	pinctrl_usdhc2: usdhc2grp {
-+		bootph-pre-ram;
-+		fsl,pins = <IMX95_PAD_SD2_CLK__USDHC2_CLK			0x158e>,
-+			   <IMX95_PAD_SD2_CMD__USDHC2_CMD			0x138e>,
-+			   <IMX95_PAD_SD2_DATA0__USDHC2_DATA0			0x138e>,
-+			   <IMX95_PAD_SD2_DATA1__USDHC2_DATA1			0x138e>,
-+			   <IMX95_PAD_SD2_DATA2__USDHC2_DATA2			0x138e>,
-+			   <IMX95_PAD_SD2_DATA3__USDHC2_DATA3			0x138e>,
-+			   <IMX95_PAD_SD2_VSELECT__USDHC2_VSELECT		0x51e>;
-+	};
-+};
--- 
-2.25.1
+Reviewed-by: James Clark <james.clark@linaro.org>
 
 
