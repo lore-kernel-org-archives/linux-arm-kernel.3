@@ -2,86 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8BDA606D220
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 12:16:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECA2E606D22F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 12:16:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=l/MlotkA;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=b9iYtpzv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yInxz6Mb;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=PHELBYAi
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=oer2FEylh2AuHX11Qb8KMHS0ZlqBiWuym9WiBTameTg=; b=l/MlotkAc/hgm+
-	pGDbDxaxtVgkRbAHdtBdLI6X5XlUNpsoG+UetOOt+ba4y4dtUZ53zLv4k3ISYNBtvcwsAz/fM2z4q
-	5N/vjitFhIAVEr22c4e/MzMfjRmnvRaZu1IMdW2f25BVtEa5DVrgYURQAEpkdfuguHK7OXoYd+4Dr
-	4uB3fSB9YqzSdcYjjLDU/265FtAVsWPEi+1Cl7wheLkVGyK2RMGAQ/aTU0yZqYOW471d0YGsP0xNG
-	tmtLYQ68N6eSAAeJxjx+pU2EKwE0pkhjkfpNqNek2FbUcj748tTa6qdWfg+ot8tRnSmyn6Ehq14m2
-	08yYu4T1sk5w6IWHDOWw==;
+	List-Owner; bh=S4s5XiFFed+m0dwtvV2BD0K5lP+U3CdMGGYPhjLKYQ8=; b=yInxz6MbSXu+ZL
+	k9u43Ww7mz3SS+i1bcVKvUBmQDPNkUmc/F9Qed890zVuizrB96ZxoUXw2+6+8mBOjigF2F5TlXa3z
+	mNN/00bMafmUaoS81VDhNmIwsFz57hGQVIAvNaDBpkSSCF3EXYGT/V8ZfEe97uTOPqS8Lr+9Rm7Ra
+	5Uc6aGcXYpF4CjrHAM1CVZYpGCJg1zaDScsBJ6eqZUhYUJdl2taNIZ3mVnBsRNAKfeXJS33Ow/lKp
+	sWod1YIgZYJb890NO/Tq0rN3Atyp4xBfeGj5um2RxX+CaJpUE8PIoC9gOSVk0DFSDhy7CFJ3Xna79
+	QUps280YngFvd1k+5aGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNqxG-0000000GQau-1nvL;
-	Mon, 02 Nov 2026 12:16:02 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1xNqxN-0000000GQoX-008d;
+	Mon, 02 Nov 2026 12:16:09 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNqx6-0000000GQRZ-0J9i
+	id 1xNqxE-0000000GQXt-3KGa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 12:15:58 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4a2167bd087so24209285e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 04:15:51 -0800 (PST)
+	Mon, 02 Nov 2026 12:16:02 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a5177d78c7so29917055e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 04:16:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1793621750; x=1794226550; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1793621759; x=1794226559; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=oer2FEylh2AuHX11Qb8KMHS0ZlqBiWuym9WiBTameTg=;
-        b=b9iYtpzvp1Bto6afErUHrZDw5E2lwHczkX/2tyOcdXektkRATxRIUmeWz7+2foVWx5
-         hz2+Q6qkaL1Xf9SYh5p5OK9LzUykODdD6HDVoknQImUrAlnIC9x777hyAEyZyXFSo7vo
-         PMGQfqZUBK8n7o1Z0gskj0uXhGcC49TsS1puLAO6H49Uemh1EnVxb7eA1rxEcLeGhI1l
-         vU8sOJfuIJ/ri2aawbKHeLVJzFFdrhZLaNszIM8Nepcun4BuneAruJJwpuRmsAqcg9Ri
-         uV1Q5kKYzLvHHCygTulrggwiSNoFpRCGI8I07qGTwVGyowPayl9nZ7xOe3zukp2HsHNE
-         h/HQ==
+        bh=S4s5XiFFed+m0dwtvV2BD0K5lP+U3CdMGGYPhjLKYQ8=;
+        b=PHELBYAiIBAv8jtlpQGMpYZBtLLd7p6c9PNUR7TvVwnLdfPpjraNOF/Boaaaar/+Pp
+         uKoq3WTXYGHRS168h7OTfQq0FfPiztqYeZzD4gQk/oGb1trp71r6wBUX1tcIfdx+8wtJ
+         CiKFdwH9Em4j5QWk3s80F8deqP0eLFVEp2ltEvVjf8XdozS4Z89ymQtv/1rgQcbRtz+w
+         1jIiugzfCHsZr7f/k/OqgpJXkvqkkjgGwRTIZagGrWLZSoHtUIYUCa5XZ1TcMPpS5mcM
+         AiV6o304NNMXIK3qEs1incvLxeURWPtU6NRLR7VimcIXDyOhwqJh/iD7CfA8lNMHG0qr
+         j4xg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793621750; x=1794226550;
+        d=1e100.net; s=20260707; t=1793621759; x=1794226559;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=oer2FEylh2AuHX11Qb8KMHS0ZlqBiWuym9WiBTameTg=;
-        b=D4wUtqpTgB8WXN/LLQGzAxs+H/7Gk6h+ZxomoNkpV/zE67Ir9hRbtrbvpox770thoA
-         QBq4lfs/C7dACNrCOs8xfXeYsZqLwacPK+DlkW6TItiMWUZ3+ovHGRyK69/kAWhwix/M
-         5VZ8l+DT0MLEZ7JLHPwsORO4GxX+Axew4fh6rDnM4YLCXwbaV/Yo5yx9PlOg6EtcDibg
-         gas4L69Gq18zzMUZwRkFmDSo/DrHh/57HNq7qWPB4UVou775VQcp7bCVIrx3qON/cQfv
-         7oii/jSJofhw8yg7+Jqk/N5AMoLpxQ/QFxw9BA7ekii04VBEYBFK/IvtbnDbIY+oy+nq
-         gWoQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzXTapeTS/Xph3txta5R+wuczkx4AefbBRVjf9Wxx9IfyFzAgbPEhexWrSWPmJaaXW0zfSSAVljYSE0QAyAR0ma@lists.infradead.org
-X-Gm-Message-State: AFq9FYLVNJS+BHz4RcmII66pN+02qmQT81oLGz7C7pzB2au2zKAXSyna
-	4HaGPm+dmvOucrvehgKCXkOZ2lVqwA4j+yQXWA2DSFPXVrgUbquDXSoSJsD+YZr1qSQ=
-X-Gm-Gg: AYBFou2+s3hv55Tej/fh6eHbZHbXQZibHqqYVwXyAk6P4lR34Qc9I3lNilcHslnz/YI
-	Ayx2s8QOGU+xP6InyqmwmQEra1E+0t3dOyFnPgPo5nAcwD67/IHigVBUFCGbiRe18DekHTthlkj
-	G2KeYTYpFIaEyw0EtIpAIpcPc8QVmOriawVVQljkrBEfMZKh5yEX+g6fLe/6D6xlPibwWRECoof
-	5wiQSD+HZ/qyXMlQacgLs7Wwl+V6YTqHfXvaMM3PKKOBEmv3DnCg2xXRJ7SX885T1h7thVgHMou
-	ruSVYg/ED5HKQKt8eZswQaPpCUaBrbyhfOIsyF6Q7WnPoBMTKKr8JXbyyPZQMkk87Ws5XmmKD7y
-	1hVLT61CMhjzVmTOmPPb619eOBoKoKDZAhi50+kUcVWBGoNhM9H2v5ZLtdUkMQ+ARVO9MnYFDIL
-	tFjLmwIFBYHPjfCeI6/1w8x+u1rc5h6z00YOTkLBKizkwordmIyQ3Cm8GUYqIsg+zjaAlJlaaGq
-	h3Zw6A1246FXBVb3R9by/7Rif+Xc9L2RRcHpS4UPZMs/HKGLodJg5lHfr1PkGrYSNvMZmw21F9G
-	/OyZqo10W3h04lITHxDfE3vVwV3LgczI
-X-Received: by 2002:a05:600c:4e90:b0:4a4:f48e:78fa with SMTP id 5b1f17b1804b1-4ac175669e4mr220866395e9.12.1793621750147;
-        Mon, 02 Nov 2026 04:15:50 -0800 (PST)
+        bh=S4s5XiFFed+m0dwtvV2BD0K5lP+U3CdMGGYPhjLKYQ8=;
+        b=M4lJQP4sg4A7nsOxdHqC5ojmtQSL/DdEozzXGoDKgOHzYhKa7xBqnj1XHSzAXL+f6X
+         Mz5j3RdEn6wpr3Ag8UnAOGKuGUkTF1pfJpEa+eR/3DuJcspxrxBNn07423rl2rIi1IrI
+         srl8o1Mqh9f0vTolZX7pTUBjwxx5u/g5UOXbJwYewWl4gSHc7CKL7ZJ053LeO0OW+8LD
+         96h76jkWLl0bH2TnpAoKTSR2+v1DfTU0umySJBbHEGqxDhORzIKMQV94QGXYfBSJeyBG
+         nSvNdMGsybL2xk08iqeLL4r+km4ShVlqt9gvk/Q5tnjOSMRcXQ7G5R5CfJ1MbHMTli/M
+         Omaw==
+X-Forwarded-Encrypted: i=1; AKwUvByxQBj1y/BJ5VVQrw1eS5QzalFgFw96OQK3eBIHT4zjl3tjD1zvJ9fR4iOBzCjuhgHfFy7+VSL2do4DAsqXuw/D@lists.infradead.org
+X-Gm-Message-State: AFq9FYLLn7KcvgOaLcS/4NZdD20yctBbc5t0YN6x63mzmIXhi1wZyJ8z
+	IMB6EypKdfHp59+yDg+yRcf3Q0Ry8uoE1gbQ01C21YqGd8MEI29m/wFRQnZ+o1VAsS4=
+X-Gm-Gg: AYBFou3pkd4wh8Yr1Do50ngQ8mPC7ipwTvWWCkX68BUh6RuGwRKdrasmz45bKsLsNut
+	uwuxwhGpay9aixY/5HpgW3jCnM2yDyQzaJClq1ePIR7GbVB1IjgyiAK1KzInfbJqJqEzA0EDzUc
+	MbUi1+KMJu9jbLa3nC8B4dC2jNK3ivW7Lh6PbRD0t6574Xh/5YtH0Yw03GuiRofWZlyebsiXaLb
+	JQ3s+F/QBd+UPkN2frOIDG49hhlRe5lL7b/vIc3QG+3EA75yV/Aw5n3SRufYYiWdLna+/XCjUyF
+	ZVc+wVptakluCgzxvzyiIYwry1meEiPHJoCUslodLglpc9hvBlVfmwWAXUAxAOopTRvODF5yj2G
+	g2XkOgyx7jy281sElCkN+4BDunYH2/fMiou1cIO/UIegymkTj28QvozIlz5LwZva8UU6O85JPaA
+	19iF4eITqw+e4ZkdceK2Q9nyKYQXv2/wIBuNbtDjt1yMG8uL1Y5MBohEr+4SxjwrH34EMDilRbx
+	umcS6+qKpaRFtYdCwPKmNAGoC5XRkfrG3OHGnPrD3rxzI2u6ErKnnnvAyb6iZyMYf8jPncJAAzR
+	TpLP6fNVrLFkg5wS1tlHQkNHt6clfxYT
+X-Received: by 2002:a05:600c:83c5:b0:4a1:f377:5c75 with SMTP id 5b1f17b1804b1-4ac19329ea4mr197102405e9.33.1793621759044;
+        Mon, 02 Nov 2026 04:15:59 -0800 (PST)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4abf5b27e46sm434974855e9.3.2026.11.02.04.15.48
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4abf5b27e46sm434974855e9.3.2026.11.02.04.15.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 04:15:49 -0800 (PST)
+        Mon, 02 Nov 2026 04:15:58 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Mon, 02 Nov 2026 12:15:20 +0000
-Subject: [PATCH v3 06/18] perf cs-etm: Don't drop previous target for
- kernel samples
+Date: Mon, 02 Nov 2026 12:15:26 +0000
+Subject: [PATCH v3 12/18] perf auxtrace: intel-pt: Use common snapshot
+ pointer fixup
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261102-james-cs-unformatted-per-thread-fix-v3-6-dbcb0c281b9b@linaro.org>
+Message-Id: <20261102-james-cs-unformatted-per-thread-fix-v3-12-dbcb0c281b9b@linaro.org>
 References: <20261102-james-cs-unformatted-per-thread-fix-v3-0-dbcb0c281b9b@linaro.org>
 In-Reply-To: <20261102-james-cs-unformatted-per-thread-fix-v3-0-dbcb0c281b9b@linaro.org>
 To: Leo Yan <leo.yan@linux.dev>, Adrian Hunter <adrian.hunter@intel.com>
@@ -101,8 +101,8 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
  James Clark <james.clark@linaro.org>, John Garry <john.garry@linux.dev>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_041555_769293_769CB0BB 
-X-CRM114-Status: GOOD (  18.26  )
+X-CRM114-CacheID: sfid-20261102_041600_913805_6939BE90 
+X-CRM114-Status: GOOD (  13.80  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,50 +122,48 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The branch target of the previous sample is used as the start of the
-range to disassemble, but if that sample's DSO is "[unknown]" then we'll
-drop it even though it's useful information. This happens when recording
-userspace only. Save the address earlier for "Trace On" samples, before
-we get to the early exit condition for unknown DSOs.
+Intel PT has its own wrap search but the same pointer fixup logic as the
+generic auxtrace_record__default_find_snapshot(). Replace the duplicate
+code with auxtrace_record__snapshot_fixup().
 
-In a later commit to change the default timestamp interval, trace will
-be collected that triggers this issue, so fix it now.
+No functional changes intended.
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/python/arm-cs-trace-disasm.py | 13 +++++++------
- 1 file changed, 7 insertions(+), 6 deletions(-)
+ tools/perf/arch/x86/util/intel-pt.c | 21 +--------------------
+ 1 file changed, 1 insertion(+), 20 deletions(-)
 
-diff --git a/tools/perf/python/arm-cs-trace-disasm.py b/tools/perf/python/arm-cs-trace-disasm.py
-index 1812ccaf4b20..5a7daf927bea 100755
---- a/tools/perf/python/arm-cs-trace-disasm.py
-+++ b/tools/perf/python/arm-cs-trace-disasm.py
-@@ -52,6 +52,7 @@ DISASM_CACHE: Dict[str, List[str]] = {}
- DISASM_RE = re.compile(r"^\s*([0-9a-fA-F]+):")
- DISASM_FUNC_RE = re.compile(r"^\s*([0-9a-fA-F]+)\s.*:")
- CACHE_SIZE = 1024
-+PERF_IP_FLAG_TRACE_BEGIN = 1 << 8
- class _State:
-     sample_idx: int = -1
-     source_file_name: Optional[str] = None
-@@ -252,12 +253,12 @@ class TraceDisasm:
-             print(f"Event type: {ev_name}")
-             print_sample(sample)
+diff --git a/tools/perf/arch/x86/util/intel-pt.c b/tools/perf/arch/x86/util/intel-pt.c
+index a533114c0048..ce854209213d 100644
+--- a/tools/perf/arch/x86/util/intel-pt.c
++++ b/tools/perf/arch/x86/util/intel-pt.c
+@@ -1150,26 +1150,7 @@ static int intel_pt_find_snapshot(struct auxtrace_record *itr, int idx,
+ 		}
+ 	}
  
--        # Initialize CPU data if it's empty, and directly return back
--        # if this is the first tracing event for this CPU. This must happen
--        # before the dso == '[unknown]' check because the initial
--        # CS_ETM_TRACE_ON sample has ip == 0 (dso == '[unknown]') and
--        # carries the starting target address in sample.sample_addr.
--        if self.cpu_data.get(f"{sample.sample_cpu}addr") is None:
-+        # Initialize CPU data on the first event and whenever tracing resumes.
-+        # Trace-start samples may have no source DSO map, but carry the next
-+        # range's starting address in sample.sample_addr. Instruction samples
-+        # in the first range also have TRACE_BEGIN set, so only check branches.
-+        if (self.cpu_data.get(f"{sample.sample_cpu}addr") is None or
-+                ("branches" in ev_name and sample.flags & PERF_IP_FLAG_TRACE_BEGIN)):
-             self.cpu_data[f"{sample.sample_cpu}addr"] = sample.sample_addr
-             return
+-	/*
+-	 * In full trace mode 'head' continually increases.  However in snapshot
+-	 * mode 'head' is an offset within the buffer.  Here 'old' and 'head'
+-	 * are adjusted to match the full trace case which expects that 'old' is
+-	 * always less than 'head'.
+-	 */
+-	if (wrapped) {
+-		*old = *head;
+-		*head += mm->len;
+-	} else {
+-		if (mm->mask)
+-			*old &= mm->mask;
+-		else
+-			*old %= mm->len;
+-		if (*old > *head)
+-			*head += mm->len;
+-	}
+-
+-	pr_debug3("%s: wrap-around %sdetected, adjusted old head %zu adjusted new head %zu\n",
+-		  __func__, wrapped ? "" : "not ", (size_t)*old, (size_t)*head);
++	auxtrace_record__snapshot_fixup(mm, wrapped, head, old);
+ 
+ 	return 0;
  
 
 -- 
