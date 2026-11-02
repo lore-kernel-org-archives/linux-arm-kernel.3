@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 048BB606A333
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 09:26:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1244160A261E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 09:26:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gpMUBIfG;
-	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=j4w/+Vdo
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jsYez9/+;
+	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=FcbU5qEX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
@@ -14,43 +14,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=nx9t0DBjKPEzI7mXKLL19DVrkZGWq9IzOdeDEWe3D9Y=; b=gpMUBIfGcbYzsr/kKHFsWCgQSy
-	9Wr5eDgKvkyPvoE+FDdrVEa4fg+ZE/jvwtGRsaGNI3RhLRnxz3POLB4tPDUZt/vRZJGnMDBs2PTOi
-	a4Mw3S0sqcK5kHX9ZEDa8B5q8p7LqONMo2yPuE9fhKC1uvQCdLc2I341y3qGG3PZ1X0PgUGBi++FN
-	Gs8knEei4/fVMdEkQk7de1phfgBvVRKlCQM0nNN0yuh+P2LxEp5yxwZgJ73wEygQuuiwD+mxFF+7/
-	fzBiQUnpQdZYy3L7m+sDmYHJgzPyvHaHIoxwkfCxbKNAqGtbV7qO216W2hmpZ/IPl+d7v07qH+duG
-	l0PmtmpQ==;
+	bh=+Ov7OEX1vdj1zkQZUp4X36mr+q06C3STKhUZ+iM/WWU=; b=jsYez9/+VPe4dRerle3zfDHsqZ
+	kPpM30GrTuI/luZTPI0TnWRDF4nrw+naRs56ZAHHbaDnHJ5oDT7wpq+4MRS1SpaUQZGd3J+BGb9i3
+	z/yzc2bH+uuhfpMYBAdBSGHypDPgBgnsGqOou+stLrDnsZN1Y9x1x4gCoJeO/rsZ0bjalr7ipvy5F
+	hv/2tD7MP7iWnckoxoIWsVcFY3AjB+FYMK+2mPJzMLgzFrH8R9sM1X5MNM1sctaIhzZF88wp6Z0GF
+	YZIx+R4Q4OKKf6UkI8Hqsd5omzSwoG401IHWjzI70eIzVGnPYnGJrEw5RnmNED+cYROdCVqO2Wger
+	M1VLCRBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNoIH-0000000Fze1-347X;
-	Mon, 02 Nov 2026 09:25:33 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1xNoIL-0000000FzpB-2l1l;
+	Mon, 02 Nov 2026 09:25:37 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNoID-0000000FzWV-40Zi;
-	Mon, 02 Nov 2026 09:25:30 +0000
-X-UUID: 54ff2194d69f11f1acbe4559397dec65-20261102
+	id 1xNoIF-0000000FzaE-4C75;
+	Mon, 02 Nov 2026 09:25:35 +0000
+X-UUID: 55a0d1c4d69f11f1afed4741b24580c9-20261102
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=nx9t0DBjKPEzI7mXKLL19DVrkZGWq9IzOdeDEWe3D9Y=;
-	b=j4w/+VdobJfZOmmxo2skt0/swVg3lpkdaG1SC93DouoBdgca1oiVkMgFzdKD1IsEIL4eKo2qd0MekTBaNpzphiuGYpmry+6L+gABzUnm1OhJocbmN1yu9P7L26XQMnYjwM5YA6TJS2Mf8HoljjEPUsqeh7N9kKN+ykalPir0jQk=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=+Ov7OEX1vdj1zkQZUp4X36mr+q06C3STKhUZ+iM/WWU=;
+	b=FcbU5qEXTWx9OmZTigeGj97wnhgXRS5iYVnPRQSF1IINuDY9JZZ1ED5nVx2y38smjsputjELPsd2XNlElLLTppzHP/LLnwemfQ6sInnRUUhH3uf7uZ2KK2TrBxlI6VOSiqZczbuUomNLrTRB8tAFZ0DOo5GQqv1OUo/x51J1X1o=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:67b8e54c-c08c-4623-a1c9-e0226cd4e9f4,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0318ac,CLOUDID:c8fc9978-4c28-42d9-a11b-3ae385bafce8,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|136|836|865|888|898,TC:-5,Content:0|
-	15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL
-	:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-O-INFO: VERSION:1.3.21,REQID:f5e3e355-dafc-45d8-9f94-7b172177b341,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:b0318ac,CLOUDID:a77c69a3-2f6f-43d1-a751-2a61c87fd6c5,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
+	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,
+	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 54ff2194d69f11f1acbe4559397dec65-20261102
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
+X-UUID: 55a0d1c4d69f11f1afed4741b24580c9-20261102
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
 	(envelope-from <santino.wang@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1327124901; Mon, 02 Nov 2026 02:25:23 -0700
+	with ESMTP id 1528396510; Mon, 02 Nov 2026 02:25:24 -0700
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.2.2562.29; Mon, 2 Nov 2026 17:25:21 +0800
 Received: from mtksitap99.mediatek.inc (10.233.130.16) by
@@ -63,9 +63,9 @@ CC: <linux-mediatek@lists.infradead.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<light.chen@mediatek.com>, <Fred-WY.Chen@mediatek.com>,
 	<arnab.layek@mediatek.com>, Santino Wang <santino.wang@mediatek.com>
-Subject: [RFC PATCH 06/11] soc: mediatek: dram-ecc: keep error counters across boots
-Date: Mon, 2 Nov 2026 17:23:28 +0800
-Message-ID: <20261102092334.138759-7-santino.wang@mediatek.com>
+Subject: [RFC PATCH 07/11] soc: mediatek: dram-ecc: add containment policy and storm protection
+Date: Mon, 2 Nov 2026 17:23:29 +0800
+Message-ID: <20261102092334.138759-8-santino.wang@mediatek.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20261102092334.138759-1-santino.wang@mediatek.com>
 References: <20261102092334.138759-1-santino.wang@mediatek.com>
@@ -75,9 +75,9 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_012530_069967_9071B597 
-X-CRM114-Status: GOOD (  21.39  )
-X-Spam-Note: SpamAssassin invocation failed
+X-CRM114-CacheID: sfid-20261102_012532_092285_D3DFAE41 
+X-CRM114-Status: GOOD (  26.17  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,264 +98,559 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Santino Wang <santino.wang@mediatek.com>
 
-Keep aggregate corrected and uncorrectable error counters in EFI
-variables, so they survive a reboot. The firmware creates the
-variables; the driver increments them.
+Add the sysfs attributes that configure the error handling done by the
+secure firmware and push each setting to it through SMC:
 
-EFI SetVariable() can take tens of milliseconds, so the increments are
-accumulated and written from a work item instead of the GHES notifier
-context.
+ - whether uncorrectable errors are contained and the default severity
+   of a contained error,
+ - the CE storm protection threshold, time window and cool-down,
+ - per address range severity overrides.
 
 Signed-off-by: Santino Wang <santino.wang@mediatek.com>
 ---
- drivers/soc/mediatek/dram-ecc/core/counters.c | 145 +++++++++++++++++-
- drivers/soc/mediatek/dram-ecc/core/counters.h |   3 +
- .../mediatek/dram-ecc/core/ghes_notifier.c    |   6 +-
- 3 files changed, 150 insertions(+), 4 deletions(-)
+ drivers/soc/mediatek/dram-ecc/core/Makefile   |   6 +-
+ drivers/soc/mediatek/dram-ecc/core/main.c     |   9 +-
+ .../soc/mediatek/dram-ecc/core/mtk_dram_ecc.h |   3 +
+ .../dram-ecc/core/policy/address_range.c      | 120 +++++++++++++++
+ .../dram-ecc/core/policy/containment.c        | 107 ++++++++++++++
+ .../mediatek/dram-ecc/core/policy/policy.c    |  50 +++++++
+ .../mediatek/dram-ecc/core/policy/policy.h    |  19 +++
+ .../dram-ecc/core/policy/storm_protection.c   | 137 ++++++++++++++++++
+ 8 files changed, 449 insertions(+), 2 deletions(-)
+ create mode 100644 drivers/soc/mediatek/dram-ecc/core/policy/address_range.c
+ create mode 100644 drivers/soc/mediatek/dram-ecc/core/policy/containment.c
+ create mode 100644 drivers/soc/mediatek/dram-ecc/core/policy/policy.c
+ create mode 100644 drivers/soc/mediatek/dram-ecc/core/policy/policy.h
+ create mode 100644 drivers/soc/mediatek/dram-ecc/core/policy/storm_protection.c
 
-diff --git a/drivers/soc/mediatek/dram-ecc/core/counters.c b/drivers/soc/mediatek/dram-ecc/core/counters.c
-index 88d7961975db..8e3fd83cf60a 100644
---- a/drivers/soc/mediatek/dram-ecc/core/counters.c
-+++ b/drivers/soc/mediatek/dram-ecc/core/counters.c
-@@ -3,13 +3,20 @@
-  * Copyright (c) 2026 MediaTek Inc.
-  */
- /*
-- * Volatile (reset every boot) CE/UCE counters come from ghes_notifier.c's
-- * in-memory tally; retired pages are tracked per PFN so each page is
-- * counted once.
-+ * Aggregate CE/UCE counters. "volatile" counters (reset every boot) come
-+ * from ghes_notifier.c's in-memory tally; "agg" counters persist across
-+ * boots via the same EFI NV variable UEFI RasDxe.c initializes
-+ * (MtkDramEccCeCount, MtkDramEccUceCount_inline, MtkDramEccUceCount_ondie,
-+ * GUID must match RasDxe.c's mMtkEccCounterGuid). The UCE count is kept
-+ * per ECC source. Inline ECC detects every UCE, including one that
-+ * originates in the DRAM die, so agg_uce_inline is the total; the
-+ * agg_uce_ondie subset counts those that on-die ECC also flagged.
-  */
- #include <linux/kobject.h>
- #include <linux/sysfs.h>
-+#include <linux/efi.h>
- #include <linux/export.h>
-+#include <linux/workqueue.h>
- #include <linux/atomic.h>
- #include <linux/xarray.h>
+diff --git a/drivers/soc/mediatek/dram-ecc/core/Makefile b/drivers/soc/mediatek/dram-ecc/core/Makefile
+index 96d37c6a3b9c..d8d878f321d4 100644
+--- a/drivers/soc/mediatek/dram-ecc/core/Makefile
++++ b/drivers/soc/mediatek/dram-ecc/core/Makefile
+@@ -8,6 +8,10 @@ mtk_dram_ecc-y := \
+ 	ghes_notifier.o \
+ 	trace.o \
+ 	counters.o \
+-	addresses.o
++	addresses.o \
++	policy/policy.o \
++	policy/containment.o \
++	policy/storm_protection.o \
++	policy/address_range.o
  
-@@ -17,12 +24,110 @@
- #include "ghes_notifier.h"
- #include "counters.h"
+ CFLAGS_trace.o := -I$(src)
+diff --git a/drivers/soc/mediatek/dram-ecc/core/main.c b/drivers/soc/mediatek/dram-ecc/core/main.c
+index b859af25bcc0..315bdcbd650a 100644
+--- a/drivers/soc/mediatek/dram-ecc/core/main.c
++++ b/drivers/soc/mediatek/dram-ecc/core/main.c
+@@ -37,10 +37,14 @@ static int __init mtk_dram_ecc_init(void)
+ 		goto err_class;
+ 	}
  
-+#define MTK_ECC_EFI_ATTR \
-+	(EFI_VARIABLE_NON_VOLATILE | \
-+	 EFI_VARIABLE_BOOTSERVICE_ACCESS | \
-+	 EFI_VARIABLE_RUNTIME_ACCESS)
-+
-+static efi_guid_t mtk_ecc_efi_guid =
-+	EFI_GUID(0x5a3f1e8c, 0x0b2d, 0x4e7f,
-+		 0x9c, 0x6a, 0x1d, 0x2b, 0x3e, 0x4f, 0x5a, 0x6b);
-+
-+static efi_char16_t mtk_ce_var_name[]  = L"MtkDramEccCeCount";
-+static efi_char16_t mtk_uce_inline_var_name[] = L"MtkDramEccUceCount_inline";
-+static efi_char16_t mtk_uce_ondie_var_name[]  = L"MtkDramEccUceCount_ondie";
-+
- static struct kobject *counters_kobj;
- static struct kobject *retired_kobj;
- static atomic64_t retired_by_ce = ATOMIC64_INIT(0);
- static atomic64_t retired_by_uce = ATOMIC64_INIT(0);
- static DEFINE_XARRAY(retired_pfns);
+-	ret = mtk_dram_ecc_counters_init(&mtk_dram_ecc_dev->kobj);
++	ret = mtk_dram_ecc_policy_init(mtk_dram_ecc_dev);
+ 	if (ret)
+ 		goto err_dev;
  
++	ret = mtk_dram_ecc_counters_init(&mtk_dram_ecc_dev->kobj);
++	if (ret)
++		goto err_policy;
++
+ 	ret = mtk_dram_ecc_addresses_init(&mtk_dram_ecc_dev->kobj);
+ 	if (ret)
+ 		goto err_counters;
+@@ -62,6 +66,8 @@ static int __init mtk_dram_ecc_init(void)
+ 	mtk_dram_ecc_addresses_exit();
+ err_counters:
+ 	mtk_dram_ecc_counters_exit();
++err_policy:
++	mtk_dram_ecc_policy_exit(mtk_dram_ecc_dev);
+ err_dev:
+ 	device_destroy(mtk_dram_ecc_class, MKDEV(0, 0));
+ err_class:
+@@ -79,6 +85,7 @@ static void __exit mtk_dram_ecc_exit(void)
+ 	mtk_dram_ecc_ghes_exit();
+ 	mtk_dram_ecc_addresses_exit();
+ 	mtk_dram_ecc_counters_exit();
++	mtk_dram_ecc_policy_exit(mtk_dram_ecc_dev);
+ 	device_destroy(mtk_dram_ecc_class, MKDEV(0, 0));
+ 	class_destroy(mtk_dram_ecc_class);
+ 	trace_mtk_dram_ecc_lifecycle(1);
+diff --git a/drivers/soc/mediatek/dram-ecc/core/mtk_dram_ecc.h b/drivers/soc/mediatek/dram-ecc/core/mtk_dram_ecc.h
+index 456961818ccd..c8a75450dac5 100644
+--- a/drivers/soc/mediatek/dram-ecc/core/mtk_dram_ecc.h
++++ b/drivers/soc/mediatek/dram-ecc/core/mtk_dram_ecc.h
+@@ -21,4 +21,7 @@ struct mtk_dram_ecc_data {
+ 
+ extern struct mtk_dram_ecc_data mtk_ecc_data;
+ 
++int mtk_dram_ecc_policy_init(struct device *dev);
++void mtk_dram_ecc_policy_exit(struct device *dev);
++
+ #endif /* _MTK_DRAM_ECC_H_ */
+diff --git a/drivers/soc/mediatek/dram-ecc/core/policy/address_range.c b/drivers/soc/mediatek/dram-ecc/core/policy/address_range.c
+new file mode 100644
+index 000000000000..4ead23d52d7b
+--- /dev/null
++++ b/drivers/soc/mediatek/dram-ecc/core/policy/address_range.c
+@@ -0,0 +1,120 @@
++// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Deferred EFI variable write.  SetVariable NV can take tens of
-+ * milliseconds, so it should not be called from the GHES vendor-record
-+ * notifier's atomic/IRQ context.  We accumulate pending increments and
-+ * flush them from a workqueue instead.
++ * Copyright (c) 2026 MediaTek Inc.
 + */
-+static atomic_t pending_ce_inc  = ATOMIC_INIT(0);
-+static atomic_t pending_uce_inline_inc = ATOMIC_INIT(0);
-+static atomic_t pending_uce_ondie_inc  = ATOMIC_INIT(0);
-+static void counters_flush_work_fn(struct work_struct *work);
-+static DECLARE_WORK(counters_flush_work, counters_flush_work_fn);
++#include <linux/kobject.h>
++#include <linux/sysfs.h>
++#include <linux/string.h>
 +
-+static u64 efi_counter_get(efi_char16_t *name)
++#include "../mtk_dram_ecc.h"
++#include "../smc.h"
++#include "policy.h"
++
++/*
++ * Kernel-side sanity cap on entries_show()'s enumeration loop only - not
++ * the real limit. ATF owns the actual table size (policy.c's
++ * DRAM_ECC_MAX_RANGE_ENTRIES) and is the source of truth; this just
++ * bounds the loop in case ATF ever misbehaves.
++ */
++#define ADDRESS_RANGE_ENUM_CAP 64
++
++static struct kobject *address_range_kobj;
++
++static ssize_t entries_show(struct kobject *kobj, struct kobj_attribute *attr,
++			    char *buf)
 +{
-+	unsigned long size = sizeof(u64);
-+	u64 val = 0;
-+	efi_status_t status;
++	ssize_t len = 0;
++	u32 i;
 +
-+	if (!efi_rt_services_supported(EFI_RT_SUPPORTED_GET_VARIABLE))
-+		return 0;
++	for (i = 0; i < ADDRESS_RANGE_ENUM_CAP; i++) {
++		u64 addr_from, addr_to;
++		bool recoverable;
 +
-+	status = efi.get_variable(name, &mtk_ecc_efi_guid, NULL, &size, &val);
++		if (mtk_dram_ecc_smc_range_get(i, &addr_from, &addr_to, &recoverable))
++			break;
 +
-+	if (status != EFI_SUCCESS && status != EFI_NOT_FOUND)
-+		pr_warn("mtk-dram-ecc: get EFI var failed: 0x%lx\n", status);
++		len += sysfs_emit_at(buf, len, "0x%llx 0x%llx %s\n",
++				     addr_from, addr_to, recoverable ? "recoverable" : "fatal");
++	}
 +
-+	return (status == EFI_SUCCESS) ? val : 0;
++	return len;
 +}
 +
-+static void efi_counter_inc(efi_char16_t *name, int delta)
++/*
++ * entries_store - add or update one range. Format: "addr_from addr_to
++ * fatal|recoverable". No stored state on the kernel side - ATF holds the
++ * table; entries_show() always reads it back fresh.
++ */
++static ssize_t entries_store(struct kobject *kobj, struct kobj_attribute *attr,
++			     const char *buf, size_t count)
 +{
-+	unsigned long size = sizeof(u64);
-+	u64 val = 0;
-+	efi_status_t status;
++	u64 addr_from, addr_to;
++	char severity_str[16];
++	bool recoverable;
++	int ret;
 +
-+	if (!efi_rt_services_supported(EFI_RT_SUPPORTED_SET_VARIABLE))
-+		return;
++	if (sscanf(buf, "%llx %llx %15s", &addr_from, &addr_to, severity_str) != 3)
++		return -EINVAL;
 +
-+	status = efi.get_variable(name, &mtk_ecc_efi_guid, NULL, &size, &val);
-+	if (status == EFI_NOT_FOUND)
-+		val = 0;
-+	else if (status != EFI_SUCCESS)
-+		return;
++	if (sysfs_streq(severity_str, "recoverable"))
++		recoverable = true;
++	else if (sysfs_streq(severity_str, "fatal"))
++		recoverable = false;
++	else
++		return -EINVAL;
 +
-+	val += delta;
-+	status = efi.set_variable(name, &mtk_ecc_efi_guid,
-+				  MTK_ECC_EFI_ATTR, sizeof(u64), &val);
-+	if (status != EFI_SUCCESS)
-+		pr_warn("mtk-dram-ecc: set EFI var failed: 0x%lx\n", status);
++	ret = mtk_dram_ecc_smc_range_add(addr_from, addr_to, recoverable);
++	if (ret)
++		return -EIO;
++
++	return count;
 +}
 +
-+static void counters_flush_work_fn(struct work_struct *work)
++/* clear_store - any write clears the whole ATF-side range table. */
++static ssize_t clear_store(struct kobject *kobj, struct kobj_attribute *attr,
++			   const char *buf, size_t count)
 +{
-+	int ce_delta, uce_inline_delta, uce_ondie_delta;
++	int ret = mtk_dram_ecc_smc_range_clear();
 +
-+	ce_delta = atomic_xchg(&pending_ce_inc, 0);
-+	uce_inline_delta = atomic_xchg(&pending_uce_inline_inc, 0);
-+	uce_ondie_delta = atomic_xchg(&pending_uce_ondie_inc, 0);
++	if (ret)
++		return -EIO;
 +
-+	if (ce_delta > 0)
-+		efi_counter_inc(mtk_ce_var_name, ce_delta);
-+	if (uce_inline_delta > 0)
-+		efi_counter_inc(mtk_uce_inline_var_name, uce_inline_delta);
-+	if (uce_ondie_delta > 0)
-+		efi_counter_inc(mtk_uce_ondie_var_name, uce_ondie_delta);
++	return count;
 +}
 +
-+void mtk_dram_ecc_agg_ce_inc(void)
++static struct kobj_attribute entries_attr =
++	__ATTR(entries, 0644, entries_show, entries_store);
++static struct kobj_attribute clear_attr =
++	__ATTR(clear, 0200, NULL, clear_store);
++
++static struct attribute *attrs[] = {
++	&entries_attr.attr,
++	&clear_attr.attr,
++	NULL,
++};
++
++static const struct attribute_group group = {
++	.attrs = attrs,
++};
++
++int address_range_init(struct kobject *parent)
 +{
-+	atomic_inc(&pending_ce_inc);
-+	schedule_work(&counters_flush_work);
++	int ret;
++
++	address_range_kobj = kobject_create_and_add("address_range", parent);
++	if (!address_range_kobj)
++		return -ENOMEM;
++
++	ret = sysfs_create_group(address_range_kobj, &group);
++	if (ret) {
++		kobject_put(address_range_kobj);
++		return ret;
++	}
++	return 0;
 +}
 +
-+void mtk_dram_ecc_agg_uce_inline_inc(void)
++void address_range_exit(struct kobject *parent)
 +{
-+	atomic_inc(&pending_uce_inline_inc);
-+	schedule_work(&counters_flush_work);
++	sysfs_remove_group(address_range_kobj, &group);
++	kobject_put(address_range_kobj);
++}
+diff --git a/drivers/soc/mediatek/dram-ecc/core/policy/containment.c b/drivers/soc/mediatek/dram-ecc/core/policy/containment.c
+new file mode 100644
+index 000000000000..98c7ec6fafb0
+--- /dev/null
++++ b/drivers/soc/mediatek/dram-ecc/core/policy/containment.c
+@@ -0,0 +1,107 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2026 MediaTek Inc.
++ */
++#include <linux/kobject.h>
++#include <linux/sysfs.h>
++#include <linux/string.h>
++
++#include "../mtk_dram_ecc.h"
++#include "../smc.h"
++#include "policy.h"
++
++static struct kobject *containment_kobj;
++
++static ssize_t enabled_show(struct kobject *kobj, struct kobj_attribute *attr,
++			    char *buf)
++{
++	bool enabled;
++
++	if (mtk_dram_ecc_smc_containment_get_enabled(&enabled))
++		return -EIO;
++	return sysfs_emit(buf, "%d\n", enabled ? 1 : 0);
 +}
 +
-+void mtk_dram_ecc_agg_uce_ondie_inc(void)
++static ssize_t enabled_store(struct kobject *kobj, struct kobj_attribute *attr,
++			     const char *buf, size_t count)
 +{
-+	atomic_inc(&pending_uce_ondie_inc);
-+	schedule_work(&counters_flush_work);
++	bool val;
++	int ret;
++
++	ret = kstrtobool(buf, &val);
++	if (ret)
++		return ret;
++
++	ret = mtk_dram_ecc_smc_containment_set_enabled(val);
++	if (ret)
++		return -EIO;
++
++	return count;
 +}
 +
- void mtk_dram_ecc_record_retired_page(unsigned long pfn,
- 				      enum mtk_dram_ecc_retire_reason reason,
- 				      int memory_failure_ret)
-@@ -79,6 +184,12 @@ static ssize_t volatile_uce_show(struct kobject *kobj,
- 	return sysfs_emit(buf, "%llu\n", mtk_dram_ecc_get_volatile_uce());
- }
- 
-+static ssize_t agg_ce_show(struct kobject *kobj,
-+			   struct kobj_attribute *attr, char *buf)
++static ssize_t default_severity_show(struct kobject *kobj, struct kobj_attribute *attr,
++				     char *buf)
 +{
-+	return sysfs_emit(buf, "%llu\n", efi_counter_get(mtk_ce_var_name));
++	bool recoverable;
++
++	if (mtk_dram_ecc_smc_containment_get_default_severity(&recoverable))
++		return -EIO;
++	return sysfs_emit(buf, "%s\n", recoverable ? "recoverable" : "fatal");
 +}
 +
- static ssize_t volatile_uce_inline_show(struct kobject *kobj,
- 					struct kobj_attribute *attr, char *buf)
- {
-@@ -91,16 +202,43 @@ static ssize_t volatile_uce_ondie_show(struct kobject *kobj,
- 	return sysfs_emit(buf, "%llu\n", mtk_dram_ecc_get_volatile_uce_ondie());
- }
- 
-+static ssize_t agg_uce_inline_show(struct kobject *kobj,
-+				   struct kobj_attribute *attr, char *buf)
++static ssize_t default_severity_store(struct kobject *kobj, struct kobj_attribute *attr,
++				      const char *buf, size_t count)
 +{
-+	return sysfs_emit(buf, "%llu\n", efi_counter_get(mtk_uce_inline_var_name));
++	bool recoverable;
++	int ret;
++
++	if (sysfs_streq(buf, "recoverable"))
++		recoverable = true;
++	else if (sysfs_streq(buf, "fatal"))
++		recoverable = false;
++	else
++		return -EINVAL;
++
++	ret = mtk_dram_ecc_smc_containment_set_default_severity(recoverable);
++	if (ret)
++		return -EIO;
++
++	return count;
 +}
 +
-+static ssize_t agg_uce_ondie_show(struct kobject *kobj,
-+				  struct kobj_attribute *attr, char *buf)
++static struct kobj_attribute enabled_attr =
++	__ATTR(enabled, 0644, enabled_show, enabled_store);
++static struct kobj_attribute default_severity_attr =
++	__ATTR(default_severity, 0644, default_severity_show, default_severity_store);
++
++static struct attribute *attrs[] = {
++	&enabled_attr.attr,
++	&default_severity_attr.attr,
++	NULL,
++};
++
++static const struct attribute_group group = {
++	.attrs = attrs,
++};
++
++int containment_init(struct kobject *parent)
 +{
-+	return sysfs_emit(buf, "%llu\n", efi_counter_get(mtk_uce_ondie_var_name));
++	int ret;
++
++	containment_kobj = kobject_create_and_add("containment", parent);
++	if (!containment_kobj)
++		return -ENOMEM;
++
++	ret = sysfs_create_group(containment_kobj, &group);
++	if (ret) {
++		kobject_put(containment_kobj);
++		return ret;
++	}
++	return 0;
 +}
 +
-+/* Total UCE count across boots: every UCE is seen by inline ECC. */
-+static ssize_t agg_uce_show(struct kobject *kobj,
-+			    struct kobj_attribute *attr, char *buf)
++void containment_exit(struct kobject *parent)
 +{
-+	return sysfs_emit(buf, "%llu\n", efi_counter_get(mtk_uce_inline_var_name));
++	sysfs_remove_group(containment_kobj, &group);
++	kobject_put(containment_kobj);
++}
+diff --git a/drivers/soc/mediatek/dram-ecc/core/policy/policy.c b/drivers/soc/mediatek/dram-ecc/core/policy/policy.c
+new file mode 100644
+index 000000000000..ecd0a430de6d
+--- /dev/null
++++ b/drivers/soc/mediatek/dram-ecc/core/policy/policy.c
+@@ -0,0 +1,50 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2026 MediaTek Inc.
++ */
++#include <linux/kobject.h>
++#include <linux/device.h>
++
++#include "../mtk_dram_ecc.h"
++#include "policy.h"
++
++static struct kobject *policy_kobj;
++
++int mtk_dram_ecc_policy_init(struct device *dev)
++{
++	int ret;
++
++	policy_kobj = kobject_create_and_add("policy", &dev->kobj);
++	if (!policy_kobj)
++		return -ENOMEM;
++
++	ret = containment_init(policy_kobj);
++	if (ret)
++		goto err_policy;
++
++	ret = storm_protection_init(policy_kobj);
++	if (ret)
++		goto err_containment;
++
++	ret = address_range_init(policy_kobj);
++	if (ret)
++		goto err_storm;
++
++	return 0;
++
++err_storm:
++	storm_protection_exit(policy_kobj);
++err_containment:
++	containment_exit(policy_kobj);
++err_policy:
++	kobject_put(policy_kobj);
++	return ret;
 +}
 +
- static struct kobj_attribute volatile_ce_attr = __ATTR_RO(volatile_ce);
- static struct kobj_attribute volatile_uce_attr = __ATTR_RO(volatile_uce);
-+static struct kobj_attribute agg_ce_attr = __ATTR_RO(agg_ce);
-+static struct kobj_attribute agg_uce_attr = __ATTR_RO(agg_uce);
- static struct kobj_attribute volatile_uce_inline_attr = __ATTR_RO(volatile_uce_inline);
- static struct kobj_attribute volatile_uce_ondie_attr = __ATTR_RO(volatile_uce_ondie);
-+static struct kobj_attribute agg_uce_inline_attr = __ATTR_RO(agg_uce_inline);
-+static struct kobj_attribute agg_uce_ondie_attr = __ATTR_RO(agg_uce_ondie);
- 
- static struct attribute *attrs[] = {
- 	&volatile_ce_attr.attr,
- 	&volatile_uce_attr.attr,
-+	&agg_ce_attr.attr,
-+	&agg_uce_attr.attr,
- 	&volatile_uce_inline_attr.attr,
- 	&volatile_uce_ondie_attr.attr,
-+	&agg_uce_inline_attr.attr,
-+	&agg_uce_ondie_attr.attr,
- 	NULL,
- };
- 
-@@ -169,6 +307,7 @@ int mtk_dram_ecc_counters_init(struct kobject *parent)
- 
- void mtk_dram_ecc_counters_exit(void)
- {
-+	cancel_work_sync(&counters_flush_work);
- 	sysfs_remove_group(retired_kobj, &retired_group);
- 	kobject_put(retired_kobj);
- 	sysfs_remove_group(counters_kobj, &group);
-diff --git a/drivers/soc/mediatek/dram-ecc/core/counters.h b/drivers/soc/mediatek/dram-ecc/core/counters.h
-index fd718dc45ea6..af2e5ea16b90 100644
---- a/drivers/soc/mediatek/dram-ecc/core/counters.h
-+++ b/drivers/soc/mediatek/dram-ecc/core/counters.h
-@@ -16,6 +16,9 @@ enum mtk_dram_ecc_retire_reason {
- int mtk_dram_ecc_counters_init(struct kobject *parent);
- void mtk_dram_ecc_counters_exit(void);
- 
-+void mtk_dram_ecc_agg_ce_inc(void);
-+void mtk_dram_ecc_agg_uce_inline_inc(void);
-+void mtk_dram_ecc_agg_uce_ondie_inc(void);
- void mtk_dram_ecc_record_retired_page(unsigned long pfn,
- 				      enum mtk_dram_ecc_retire_reason reason,
- 				      int memory_failure_ret);
-diff --git a/drivers/soc/mediatek/dram-ecc/core/ghes_notifier.c b/drivers/soc/mediatek/dram-ecc/core/ghes_notifier.c
-index c1d885f0bf15..633bf89e2231 100644
---- a/drivers/soc/mediatek/dram-ecc/core/ghes_notifier.c
-+++ b/drivers/soc/mediatek/dram-ecc/core/ghes_notifier.c
-@@ -242,6 +242,7 @@ static int mtk_ghes_vendor_cb(struct notifier_block *nb, unsigned long severity,
- 
- 	if (evt.severity == MTK_DRAM_ECC_NOTIFY_CE) {
- 		atomic64_inc(&volatile_ce_count);
-+		mtk_dram_ecc_agg_ce_inc();
- 		spin_lock(&addr_lock);
- 		if (ce_addr_count < MTK_ECC_MAX_BOOT_ADDRS)
- 			ce_addrs[ce_addr_count++] = evt.spa;
-@@ -258,8 +259,11 @@ static int mtk_ghes_vendor_cb(struct notifier_block *nb, unsigned long severity,
- 
- 		/* Inline ECC detects every UCE, including an on-die one. */
- 		atomic64_inc(&volatile_uce_inline_count);
--		if (vs->from_ondie_ecc)
-+		mtk_dram_ecc_agg_uce_inline_inc();
-+		if (vs->from_ondie_ecc) {
- 			atomic64_inc(&volatile_uce_ondie_count);
-+			mtk_dram_ecc_agg_uce_ondie_inc();
-+		}
- 		spin_lock(&addr_lock);
- 		if (uce_addr_count < MTK_ECC_MAX_BOOT_ADDRS)
- 			uce_addrs[uce_addr_count++] = evt.spa;
++void mtk_dram_ecc_policy_exit(struct device *dev)
++{
++	address_range_exit(policy_kobj);
++	storm_protection_exit(policy_kobj);
++	containment_exit(policy_kobj);
++	kobject_put(policy_kobj);
++}
+diff --git a/drivers/soc/mediatek/dram-ecc/core/policy/policy.h b/drivers/soc/mediatek/dram-ecc/core/policy/policy.h
+new file mode 100644
+index 000000000000..a535e2ce0e6d
+--- /dev/null
++++ b/drivers/soc/mediatek/dram-ecc/core/policy/policy.h
+@@ -0,0 +1,19 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (c) 2026 MediaTek Inc.
++ */
++#ifndef _MTK_DRAM_ECC_POLICY_H_
++#define _MTK_DRAM_ECC_POLICY_H_
++
++#include <linux/kobject.h>
++
++int containment_init(struct kobject *parent);
++void containment_exit(struct kobject *parent);
++
++int storm_protection_init(struct kobject *parent);
++void storm_protection_exit(struct kobject *parent);
++
++int address_range_init(struct kobject *parent);
++void address_range_exit(struct kobject *parent);
++
++#endif /* _MTK_DRAM_ECC_POLICY_H_ */
+diff --git a/drivers/soc/mediatek/dram-ecc/core/policy/storm_protection.c b/drivers/soc/mediatek/dram-ecc/core/policy/storm_protection.c
+new file mode 100644
+index 000000000000..971ad8bdbaae
+--- /dev/null
++++ b/drivers/soc/mediatek/dram-ecc/core/policy/storm_protection.c
+@@ -0,0 +1,137 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2026 MediaTek Inc.
++ */
++#include <linux/kobject.h>
++#include <linux/sysfs.h>
++#include <linux/string.h>
++
++#include "../mtk_dram_ecc.h"
++#include "../smc.h"
++#include "policy.h"
++
++static struct kobject *storm_protection_kobj;
++
++static ssize_t threshold_show(struct kobject *kobj,
++			      struct kobj_attribute *attr, char *buf)
++{
++	u32 val;
++
++	if (mtk_dram_ecc_smc_storm_get_threshold(&val))
++		return -EIO;
++	return sysfs_emit(buf, "%u\n", val);
++}
++
++static ssize_t threshold_store(struct kobject *kobj,
++			       struct kobj_attribute *attr,
++			       const char *buf, size_t count)
++{
++	u32 val;
++	int ret;
++
++	ret = kstrtou32(buf, 0, &val);
++	if (ret)
++		return ret;
++
++	ret = mtk_dram_ecc_smc_storm_set_threshold(val);
++	if (ret)
++		return -EIO;
++
++	return count;
++}
++
++static ssize_t time_window_show(struct kobject *kobj,
++				struct kobj_attribute *attr, char *buf)
++{
++	u32 val;
++
++	if (mtk_dram_ecc_smc_storm_get_time_window(&val))
++		return -EIO;
++	return sysfs_emit(buf, "%u\n", val);
++}
++
++static ssize_t time_window_store(struct kobject *kobj,
++				 struct kobj_attribute *attr,
++				 const char *buf, size_t count)
++{
++	u32 val;
++	int ret;
++
++	ret = kstrtou32(buf, 0, &val);
++	if (ret)
++		return ret;
++
++	ret = mtk_dram_ecc_smc_storm_set_time_window(val);
++	if (ret)
++		return -EIO;
++
++	return count;
++}
++
++static ssize_t cooldown_show(struct kobject *kobj,
++			     struct kobj_attribute *attr, char *buf)
++{
++	u32 val;
++
++	if (mtk_dram_ecc_smc_storm_get_cooldown(&val))
++		return -EIO;
++	return sysfs_emit(buf, "%u\n", val);
++}
++
++static ssize_t cooldown_store(struct kobject *kobj,
++			      struct kobj_attribute *attr,
++			      const char *buf, size_t count)
++{
++	u32 val;
++	int ret;
++
++	ret = kstrtou32(buf, 0, &val);
++	if (ret)
++		return ret;
++
++	ret = mtk_dram_ecc_smc_storm_set_cooldown(val);
++	if (ret)
++		return -EIO;
++
++	return count;
++}
++
++static struct kobj_attribute threshold_attr =
++	__ATTR_RW(threshold);
++static struct kobj_attribute time_window_attr =
++	__ATTR_RW(time_window);
++static struct kobj_attribute cooldown_attr =
++	__ATTR_RW(cooldown);
++
++static struct attribute *attrs[] = {
++	&threshold_attr.attr,
++	&time_window_attr.attr,
++	&cooldown_attr.attr,
++	NULL,
++};
++
++static const struct attribute_group group = {
++	.attrs = attrs,
++};
++
++int storm_protection_init(struct kobject *parent)
++{
++	int ret;
++
++	storm_protection_kobj = kobject_create_and_add("storm_protection", parent);
++	if (!storm_protection_kobj)
++		return -ENOMEM;
++
++	ret = sysfs_create_group(storm_protection_kobj, &group);
++	if (ret) {
++		kobject_put(storm_protection_kobj);
++		return ret;
++	}
++	return 0;
++}
++
++void storm_protection_exit(struct kobject *parent)
++{
++	sysfs_remove_group(storm_protection_kobj, &group);
++	kobject_put(storm_protection_kobj);
++}
 -- 
 2.45.2
 
