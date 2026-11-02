@@ -2,79 +2,159 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0242C606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 23:06:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E79E1606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 23:08:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NWE5vwRz;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=W6MGK/7Q
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iVaHf+Mo;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=fji1uKBZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=P1UmFa71qVwzXmh4FTJpuqgeeWfto6XzMT/Krewt34k=; b=NWE5vwRz4m4CnWTB27UOVQ+tj9
-	f9P1KQvi5IhOFF0dxy4oiLpcvdYfo1ZWmRC/i+qa9acsfzKoIijDYalkvNjXc2LRhanvY7rEustQV
-	xTbY/NsDB9jG9ICABB0AXtXaX+xexuRIyeSi0WRavdgiiD4PdlzEeeqdMNwR2/qGE93rct7DHf1Gz
-	5u4wxjsFl3KHq4Lo1MWs0qZIB7d5DwELPE3X4jZczCwG3HjtwUpxYCeKtLlZ+rK3axLBB5OvSrREg
-	lq9a7MnTrh1od0eu6+c0LPe5n7wOCXuUMzG4In20mMEJRE3uVxNN5rTIbk1ucv5T6Lc04AAvB8bPk
-	I9qWnFsw==;
+	bh=8taulI6/dnJX2Kxp9fyhhrfT7fPkkcS9mtQPJrEltec=; b=iVaHf+Mo2XSXX3WGS4A8qtu52E
+	9WTgMrBkXkErURpMs7uSLNrH8WPBOcMCcXmM06UK6P3iy44Hs5xXi7zGIyQ2qRsuriFe4Qr5AiJHi
+	vTV5NtuuKpbA9q4hnNOIuSvn/ABSIsOusA41TrTq1IToS/f4sFJOlhXWJzBnIPZ7mLhDHLRKqkgvV
+	R7qhClj8FtCqpOMPVaU3OO+nqswJEHY3Rx+gdVMiclgLJ4toAd3dAoR6AXIo6bbLvoQ1rRimbyJfg
+	kriL+z33oKjV04yhBlFFQEI338xr+XmLA/qj/+fHAJgtvYDsNYWoNaYpGWh54ZORlXrPePOvFIIz9
+	xl6NuLTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO16W-00000000bjK-2O8F;
-	Mon, 02 Nov 2026 23:06:16 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xO18I-00000000bzB-0ONL;
+	Mon, 02 Nov 2026 23:08:06 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO16U-00000000bia-0521
+	id 1xO18F-00000000byl-18uN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 23:06:15 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 69A5D5E;
-	Tue,  3 Nov 2026 00:03:55 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1793660635;
-	bh=2byjm4k+A5rsgICC1mRH3xTUZkTfMTmI5jO1ag3NyPQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=W6MGK/7Qt2JUslewlTuaJUR41ENOWS4FgcUPwW9gbz7vIQTmQu9ZDkEToU94UkCmD
-	 pTHAlf9KWc70gmZHItC/0V/w8EDmU5YnK63bs29WMLSIG5T0f8O6U4ntRM4KlLflxP
-	 QUFXxFDbOBZf1qdVDMMz2z3GpHwwc1h+DSLyB6CA=
-Date: Tue, 3 Nov 2026 01:06:10 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Ulf Hansson <ulfh@kernel.org>, Magnus Damm <magnus.damm@gmail.com>,
-	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Subject: Re: [PATCH 07/11] dt-bindings: clock: renesas,r8a78000-cpg: Add PWM
- clocks
-Message-ID: <20261102230610.GC3548113@killaraus.ideasonboard.com>
-References: <cover.1793026273.git.geert+renesas@glider.be>
- <e723696e02cfb34fb808e2ae3ccb6faf68528c00.1793026273.git.geert+renesas@glider.be>
- <20261028132937.GL15441@killaraus.ideasonboard.com>
- <CAMuHMdXycpJ6COtiAA-2oRRfHSfLK40n2cacStW15QJRN3EfLQ@mail.gmail.com>
- <20261028163940.GA2673734@killaraus.ideasonboard.com>
- <CAMuHMdVOT+DTZum525kmYfP+jzzPrxMnEeRAkapxOMGz4XMHBA@mail.gmail.com>
- <20261030112314.GD2587681@killaraus.ideasonboard.com>
- <CAMuHMdXR=dcooQoKwrycDpTaZjFk2CCueL08dYYFJLE9bP90cg@mail.gmail.com>
- <20261102160945.GH3368923@killaraus.ideasonboard.com>
- <CAMuHMdVHFquHz+OzpHirWENEEQeZbiXx=8eeRDKssvw++jGOUw@mail.gmail.com>
+	Mon, 02 Nov 2026 23:08:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wvAMmYGA0NQSCh5ONsi8bSUmSsskA18SvUOcVHf0GaLBD1yUAr31Fd3n8G8u+kklH/Wdysdwhfe3vHRvmkoetE/ldn+f9EuBV0Wu7KF+HuY/lIpxl6xoi07DbCzsOP4yjreDFUQiLimeFx3CRjlC8JJDogTlV+TSnCzTR4/umQSNnQ4krdFYbVRMGADbGPdnZN8nF+NiqNRgVQAuk1lF4BEu7J7Yz0b3z8BxvWHNpWL8Fx6f0XRwSm+oEinXwusFtSS5xIub3yC12M+6YwhKX1+KP5k5AQqQSww8RAwF6GArzgflrEshNGIxXBy/xtTKwwvN1T7EZjTRaBKtBxENrg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8taulI6/dnJX2Kxp9fyhhrfT7fPkkcS9mtQPJrEltec=;
+ b=cbinj+5vLXyInxVA5YwJFCTQzHN9OpYvFeOwy6eT4MPVWeHdjxWruC96eMX5BZ/mLhE/7Q8OT597RYCzFLWndKOqJ+e1KNgilKKxvioXSLJ++nlZ+/BmciVydTuIxTBbiuLVebThIPQOcA5ULRMaBJv5ZfXhKFs7OxiBFbn6fG79TkSFwr2gpldoWHy6IWN+3g9oR+4AmO9RdupROMuh6rLmF3thPuHq8OoKRhb99HYTYrVd39pnOGUzMFmH/Pq8JkcQxWa87BRAxVU3RjcSDyPCZEu2N2Y8sLqwaVVnRcA0avS4Sp+V3VDDDY8DyWc/jCmAT4JcjPQJrOpxQTNIOw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8taulI6/dnJX2Kxp9fyhhrfT7fPkkcS9mtQPJrEltec=;
+ b=fji1uKBZ6aN3ndkv2daG9LL+Af9Cm6LEYUfQ0p034U9cBHQdxYMiGvIzHFy/VH2fC9t5ybe+c34EqVmFEK+8C3bQgzuSBxzAGAd3bRD+vYJlbtfDqDy2R2/bVi2n3V3lL7WlqMtad9TWlXLqrz6CjxO8fhXc/BI5BYi6SbxCGzTRn69+9Dhm9Fxqz+kBTVs5Z3BtY1K4C46FL1lPluds8xSTGhB028HOzlJuXRMwiODWPVTBIAp+cVH7hhG7T4xApLK9ZcwVIyiFfURI8/GCoOVg3IQ/NpOmzkpJx0C90hfShzLJQI1roqe0APwnoJDYfNsH4F9+bFiBAl7HFCNSog==
+Received: from SA1PR12MB6773.namprd12.prod.outlook.com (2603:10b6:806:258::16)
+ by SJ0PR12MB8091.namprd12.prod.outlook.com (2603:10b6:a03:4d5::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Mon, 2 Nov
+ 2026 23:07:56 +0000
+Received: from SA1PR12MB6773.namprd12.prod.outlook.com
+ ([fe80::ba62:69e8:261f:1cdf]) by SA1PR12MB6773.namprd12.prod.outlook.com
+ ([fe80::ba62:69e8:261f:1cdf%5]) with mapi id 15.21.0569.010; Mon, 2 Nov 2026
+ 23:07:55 +0000
+From: Besar Wicaksono <bwicaksono@nvidia.com>
+To: Ian Rogers <irogers@google.com>
+CC: Will Deacon <will@kernel.org>, "acme@kernel.org" <acme@kernel.org>,
+	"namhyung@kernel.org" <namhyung@kernel.org>, "ctshao@google.com"
+	<ctshao@google.com>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-perf-users@vger.kernel.org"
+	<linux-perf-users@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Vikram Sethi <vsethi@nvidia.com>, Rich Wiley
+	<rwiley@nvidia.com>, Sean Kelley <skelley@nvidia.com>, Matt Ochs
+	<mochs@nvidia.com>, Raj Joshi <rajjoshi@nvidia.com>, Thierry Reding
+	<treding@nvidia.com>, Jon Hunter <jonathanh@nvidia.com>,
+	"john.garry@linux.dev" <john.garry@linux.dev>, "james.clark@linaro.org"
+	<james.clark@linaro.org>, "mike.leach@arm.com" <mike.leach@arm.com>,
+	"leo.yan@linux.dev" <leo.yan@linux.dev>, "mark.rutland@arm.com"
+	<mark.rutland@arm.com>, "alexander.shishkin@linux.intel.com"
+	<alexander.shishkin@linux.intel.com>, "jolsa@kernel.org" <jolsa@kernel.org>,
+	"adrian.hunter@intel.com" <adrian.hunter@intel.com>
+Subject: RE: [PATCH v2 0/9] perf: Add NVIDIA Tegra410 uncore PMU events and
+ metrics
+Thread-Topic: [PATCH v2 0/9] perf: Add NVIDIA Tegra410 uncore PMU events and
+ metrics
+Thread-Index: AQHdaJbu7bxc3v7n20O69F3+XMrNxrcWYcCAgABCJFCAAGiKAIAEUl7g
+Date: Mon, 2 Nov 2026 23:07:55 +0000
+Message-ID: <SA1PR12MB6773A9E13CCFD7322501EE0BA06A2@SA1PR12MB6773.namprd12.prod.outlook.com>
+References: <20261030174816.1544471-1-bwicaksono@nvidia.com>
+ <CAP-5=fUEmNrREh-ipxYMiStr5xCakGDBZW8OmAj1rhACs8qaZw@mail.gmail.com>
+ <SA1PR12MB6773B13BD3EB2B60FBED6013A06D2@SA1PR12MB6773.namprd12.prod.outlook.com>
+ <CAP-5=fWJn=Fws6ew_HCsxVo6Bcqvvgn-8g=21+nvoEHA5GhLKA@mail.gmail.com>
+In-Reply-To: <CAP-5=fWJn=Fws6ew_HCsxVo6Bcqvvgn-8g=21+nvoEHA5GhLKA@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SA1PR12MB6773:EE_|SJ0PR12MB8091:EE_
+x-ms-office365-filtering-correlation-id: 524f5e8f-ebfa-45d7-f537-08df39362138
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|23010399003|3023799007|6133799003|10067099003|18002099003|261102123227099003|22082099003|13003099007|56012099006|38070700021|11063799006|5023799004|4143699003|261026121527099003|261022105027099003|261022075727099003|261026140227099003|261009223027099003|261028144727099003|261021121427099003|261021123027099003;
+x-microsoft-antispam-message-info: 0WgWisebA/FtWbIu5U6RPFmK6BFCOFhTrBiWMqxCPpNNk9z5+eTQUnVrwbklIbw4Cy2ulUf/iYzLw3HK/evF7O0bNFK0si2WkKq31/jU1o7UOuFyMto7fp7fqTGAad124vuoixBUgvJv/ULy/KwRvj8i0xyhHC98oqkjScSXD3Zo6AKe4NH/Oig+SowVPrTZjBOwFP3pl0oOWohYsZSWPzZdOrAIiCQ1CtCYFV1u5K8MdJVK8O+69ncvD5tfoKa8WxGMhOPEtA9SatRbp6c7RBienMYk7qKijr5eknOPXB3CP+ZsKsDlphIuIJxJ6Jt7om/leEsEPaup6e2yXvXmKVFR0Oh5f1YnS09lVSFCDwRyffK07MhLM5Y7uQZIrYXGKpYiHudOuVn9wvZrBg7aATXBno9aaJj6t/5QlS1TGQTPFI9QlYp2R5u/8+SVxBcnQwspr+GCcsE8MncmznSQqi0jdwr/59tI6jJTbEsD3ZkF6jg7XEE5f3VusHto3/dXO7o4ZHYFwRooxAPBhlxYFJxQznTulmWixIYfle6UdZFaIFLpw4D4idpNIpZ7YloOgcalLs7sfUxEYHUAaOJsHrphG4oIMSkLy+cYa8n1a1zngadi0m/c4T9tGABUByUdTO5hd9uwn00LsE7z6jthaW4hhpEdNsmqKSBCTd7gSlW//opaVVUfql/5yYmiR5nzx0WAmbXPWsmnu7eYNfMPfHX2pf3i6q+KZD+dUE6J2Bo=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB6773.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(23010399003)(3023799007)(6133799003)(10067099003)(18002099003)(261102123227099003)(22082099003)(13003099007)(56012099006)(38070700021)(11063799006)(5023799004)(4143699003)(261026121527099003)(261022105027099003)(261022075727099003)(261026140227099003)(261009223027099003)(261028144727099003)(261021121427099003)(261021123027099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SHZPUUtzTDFaczEzSHJValAzUVRwczArL3ZpeU8xbUJOTFpscFhobTJmQ1JT?=
+ =?utf-8?B?Z2lNQUxpZ3ZVRm5kam5yTVJ1NEhDVEliRHErTDdFcVlnVThKMm1ZNGdrQXZm?=
+ =?utf-8?B?R0ZCYzhPdFNNTGZ5Z0hJQllIRWpvQ3hVd3BZZjVmSzdDZHltUGRRb2lOVkMy?=
+ =?utf-8?B?M1VLbGp3V1U0bkZiaG9jTkNIVE1venJSUTFGV1JxWExHa2dZRXhtcVRPYm0y?=
+ =?utf-8?B?elBQYmlyUmwrWFp3MklwNDh4eHYxQm9nWWtDSnlJUndQZDZxZ2ZYTWV3WVJD?=
+ =?utf-8?B?QU9xMi9mdmJBMUZxbDBmOHI0Tk1oUHF4eDdsMkdIRzEzb0xXYU1CZ1dKMnpr?=
+ =?utf-8?B?eVc3dHIrNW9JcmdqeWFFWEtzUTcrR0Z3TEEzdmJOU00xY01SbW5la1dsaitI?=
+ =?utf-8?B?OGdBbHphalBGYnF5aDhiTHd0dnp0VG0wbEgyS0hMODRGVDFrSTFYbHVCbTlZ?=
+ =?utf-8?B?YXZPRDM5bVlwMFRPeEpoZDZyZ0pZdzkwNVFiL2VJaVdnMm1XZEhPYmdVcUdU?=
+ =?utf-8?B?TCtLL1lPUDFVZjdyL2kyYU92b2VaZGhIeEJNUTFob1BCN2lHOGJ6bXdIbTJ0?=
+ =?utf-8?B?cGl4NXZjcVpTcStDcFl3U1FDc3AxTTBvKzhPbitaY0k3bllBN29iMXRPQ2w4?=
+ =?utf-8?B?cE1CdHBXbHlNczhjVXlKQkRncUYyTzgwbW8wclBOZzRyZHI4YmMreWJxME9v?=
+ =?utf-8?B?MW4wcWdnMkEyQitkbkZVdjR0R3pQVDBNdmZpVlJOVUVpMmpwUVJ4R0EyRDhK?=
+ =?utf-8?B?Wk5SOEdYei9uc0dLLy9PcTBiMmhjeTIxWTZvVzZabWFUdWs3dHZzZXJhVFQy?=
+ =?utf-8?B?NTlTTGxwSjRLcG95aWNOdDZWekRDUlVUa053L29UWnJKVDc3ZXJ0cHYxRFph?=
+ =?utf-8?B?b3RkbVVFSHJ0Ui9iakNWWXo5T1dvUUNDYW12RnNpL2xWdmhpUXFWVy82dDl1?=
+ =?utf-8?B?YjVWNnZpT2VCWmJBWnp1S2NPZFJhczRUQUlVeDh6RldvZzJXNjFVbGZ0ZnZl?=
+ =?utf-8?B?VEZrdVBWSEsyQUhLMjRCVEpRN0Vsc0xud3gyZ2I3OG1rUHZwdFdYRWpSRFFV?=
+ =?utf-8?B?REFZaDBLbzR0ZXZ1cW1kdUppSjBQazQrK2s2RVpaNnNVaVVPWHgrRFY0aXA5?=
+ =?utf-8?B?Mkh6UUtZKzRPaENzSE9aTXZpbURnZ21XR3k0RVg4VFFEVnNkRy9rR0IrYk5M?=
+ =?utf-8?B?MTNidHF5aFgzOHpDL2VrQjIvM0Z6N0ZaY0xrQUwvQXlqZGlNME5RUk5sTEFy?=
+ =?utf-8?B?ZGxuZlNHSkZ1L2ZJenNtbWFKUVRyajdWbnlZV0xmVzVSVEFIL0o2Nk5RVmVV?=
+ =?utf-8?B?VmwzR0FuaHZmM1R3SFdxbGhzellRZy9LWmFlcVFiSE9DbHRiSnF0NnVvTUFx?=
+ =?utf-8?B?Rmt5YXhUaE9HZU9HYTlhRGdQcEIzUjdKT2FYRjdVYUlhb2hBVnBKRnh6c0g5?=
+ =?utf-8?B?VnBwSkRMcXhzNmlURERoS3JhM2JodGw1MDJhRkVyNHNBOURmVllXWlhLSW94?=
+ =?utf-8?B?L0VkM3BtaWpKS1d2RUhmYWJIaGRKeUtkL3U0YXVyYnYyQ3VBZVNnbS9YcHp6?=
+ =?utf-8?B?dktRQ1VSNmdvZXQ1VkM2R0VCYnlqa29KWW1tVUhaWWkrNEpycjdGREdGL1Jj?=
+ =?utf-8?B?YU9jR09TK1VDbE54YXVJSmpIQTR3US9SNW9OeVZtQ3NuSmI3ek9nZFdsSmlM?=
+ =?utf-8?B?NUJnY0tJd0NMTnVQb3Q0RFltOERUYUZ6MkZtRjdsbFpwWk9WeG5UUVU4cDE2?=
+ =?utf-8?B?UFRrUVE0VndvUnNuUzQ0R2Vac0tpU2x3UHJnZnJtSk5mdllJU0trY0RKem0r?=
+ =?utf-8?B?TmFPQnh2N0hWMHdXM2JFRUpiRExLZU9QaWhOWm42S1BmSURCY3lra3IwTzRK?=
+ =?utf-8?B?MDRWZW5yMjZoNjU3L0YzSTlodkhxdi9WbjVBREZzVG1LM1dINXMybi9kaU44?=
+ =?utf-8?B?aGludVJ1UFMwajVxQkthY09GdGcwMWFXMFFScm4ya1dYZUI4dElZVVlrSEFy?=
+ =?utf-8?B?UDdBanFSZXBkWWhlR1NFQ3VaY0hYcWJNTXhsNmsyMFpZYzdYa2ZlOXZLNnI2?=
+ =?utf-8?B?ZG5Udjd2Sm9KWTZYd0tCQklCZGwwSXFlMHgwRXlpanQ0UElyUm9ZZFFEdDdT?=
+ =?utf-8?B?Q3dzeG5UZCtDNUJOeVZWVy9sREFUTU9NcEt2YWRhMEpka0paQzFQMkxBZEMv?=
+ =?utf-8?B?SjQxbUkxSXB1ZEg4TUdQVXY2RG1mYkYvWGoycnBpWnFUcmgrZERiVVBQSW9S?=
+ =?utf-8?B?T0hUaVdnWm93VzN3MFNuNnM2dkNjTnVreHhIMW5ROXcrU3NpT013WjhFTlNS?=
+ =?utf-8?B?S3FSWEhJR0JvT2RxemN4QnFHY1FVTHZBQ3FNRnZhdlJsbWl6YmdwQT09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdVHFquHz+OzpHirWENEEQeZbiXx=8eeRDKssvw++jGOUw@mail.gmail.com>
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB6773.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 524f5e8f-ebfa-45d7-f537-08df39362138
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Nov 2026 23:07:55.7841
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: zQmSuqh5Ctt9HUZ9lC57NL7VxUNXOkut0owjiP4E5Yh8nReIeGC0Hu7oEdfBY5YXJrdSbcXxbyrMQEvXstmZxg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB8091
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_150614_361910_5D6E026C 
-X-CRM114-Status: GOOD (  80.25  )
+X-CRM114-CacheID: sfid-20261102_150803_344573_5460FD9F 
+X-CRM114-Status: GOOD (  23.28  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,335 +168,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 02, 2026 at 05:59:02PM +0100, Geert Uytterhoeven wrote:
-> On Mon, 2 Nov 2026 at 17:09, Laurent Pinchart wrote:
-> > On Fri, Oct 30, 2026 at 02:51:54PM +0100, Geert Uytterhoeven wrote:
-> > > On Fri, 30 Oct 2026 at 12:23, Laurent Pinchart wrote:
-> > > > On Thu, Oct 29, 2026 at 10:08:28AM +0100, Geert Uytterhoeven wrote:
-> > > > > On Wed, 28 Oct 2026 at 17:39, Laurent Pinchart wrote:
-> > > > > > On Wed, Oct 28, 2026 at 03:43:42PM +0100, Geert Uytterhoeven wrote:
-> > > > > > > On Wed, 28 Oct 2026 at 14:29, Laurent Pinchart wrote:
-> > > > > > > > On Mon, Oct 26, 2026 at 03:55:23PM +0100, Geert Uytterhoeven wrote:
-> > > > > > > > > Add definitions for the clocks used by the PWM modules on R-Car X5H:
-> > > > > > > > >  - R8A78000_CPG_SGASYNCD16_PERW_MAIN,
-> > > > > > > > >  - R8A78000_CPG_S0ASYNCD8_PERW_MAIN.
-> > > > > > > > > Include R8A78000_CPG_SGASYNCD8_PERW_MAIN for ordering consistency.
-> > > > > > > > >
-> > > > > > > > > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > > > > > >
-> > > > > > > > > --- a/include/dt-bindings/clock/renesas,r8a78000-cpg.h
-> > > > > > > > > +++ b/include/dt-bindings/clock/renesas,r8a78000-cpg.h
-> > > > > > > > > @@ -28,5 +28,8 @@
-> > > > > > > > >  #define R8A78000_CPG_SGD8_PERW_BUS           18
-> > > > > > > > >  #define R8A78000_CPG_SGD32_PERW_BUS          19
-> > > > > > > > >  #define R8A78000_CPG_S0D24_HSCN_OTHER                20
-> > > > > > > > > +#define R8A78000_CPG_SGASYNCD8_PERW_MAIN     21
-> > > > > > > > > +#define R8A78000_CPG_SGASYNCD16_PERW_MAIN    22
-> > > > > > > >
-> > > > > > > > Could you also add R8A78000_CPG_SGASYNCD4_PERW_MAIN and
-> > > > > > > > R8A78000_CPG_SGASYNCD32_PERW_MAIN for ordering consistency ? The
-> > > > > > > > dependency patch should then also include R8A78000_CPG_SGD4_PERW_BUS and
-> > > > > > > > R8A78000_CPG_SGD16_PERW_BUS, as well as
-> > > > > > > > R8A78000_CPG_S0D{1,2,4,8,12,16}_HSCN_OTHER.
-> > > > > > >
-> > > > > > > I could add them, but do you have any need to refer to them from DT?
-> > > > > > > So far I only added clocks that are listed as clock supplies of on-SoC
-> > > > > > > modules, e.g. R8A78000_CPG_SGASYNCD8_PERW_MAIN is supplied to the
-> > > > > > > Timer Unit (TMU)).
-> > > > > >
-> > > > > > So we have two conflicting goals here. One of them is to only add clocks
-> > > > > > that we have validated to exist (and ideally work as documented). The
-> > > > > > other is to keep renesas,r8a78000-cpg.h readable. We won't be able to
-> > > > > > satisfy them both fully.
-> > > > > >
-> > > > > > I think we previously discussed adding whole groups of dividers in one
-> > > > > > go, as some sort of middle-ground approach. Those are clocks that are
-> > > > >
-> > > > > That is what did in this and the previous patch: we need
-> > > > >   - R8A78000_CPG_SGASYNCDn_PERW_MAIN for n=16, and added the one for
-> > > > >     n=8, too.
-> > > >
-> > > > That's missing n=4 and n=32. While SGASYNCD32 isn't referenced in the
-> > > > datasheet, SGASYNCD4 is (in SCIF and HSCIF). Maybe that's just an
-> > > > oversight ?
-> > >
-> > > We already have the clocks for (H)SCIF (_BUS, not _MAIN!):
-> > >
-> > >     #define R8A78000_CPG_SGASYNCD4_PERW_BUS         0
-> > >     #define R8A78000_CPG_SGASYNCD8_PERW_BUS         1
-> >
-> > Wait... Aren't R8A78000_CPG_SGASYNCD8_PERW_MAIN and
-> > R8A78000_CPG_SGASYNCD8_PERW_BUS the same clock, just with a different
-> > name ? The user manual says _BUS, the clock diagram in the spreadsheet
-> > says _MAIN. The SCP firmware defines both, with the same parent (PLL5)
-> > and the same frequency. I have a feeling it may "just" be discrepancy
-> > between the user manual and the spreadsheets.
-> >
-> > *sigh*
-> 
-> After my previous comment about "87 SGD4_* clocks" (quoted at the end),
-> I started wondering if they are really identical and ungateable.
-> The documentation calls each clock list a "clock hierarchy"
-> (e.g. the PERW hierarchy), and each sublist another "clock hiearchy"
-> (e.g. PERW_BUS vs. PERW_MAIN) which sounds like they are different.
-
-I only see PERW_MAIN, not PERW_BUS. There's a PERW_MAIN_MP sub-hierarchy
-though. And I'm fairly sure there are errors in the diagrams (at least
-in the VIO hierarchy).
-
-> I also wouldn't be surprised if each (sub)hierarchy is gateable, too.
-> So unless we can get clear confirmation, I'd rather be safe than sorry.
-
-I haven't found any sign neither in the documentation nor in the SCP
-firmware sources that those would be gateable. If they are, they are not
-gated by default.
-
-In any case, I think it would make sense to model in DT all the clocks
-listed in the diagrams. That should make it possible to properly handle
-gates after the fact, should there be any.
-
-> > > > >   - R8A78000_CPG_SCPBUSDn_SCP_MAIN for n=16, and added the ones for
-> > > > >     n=1,2,4,6,8,32, too.
-> > > > >   - R8A78000_CPG_S0Dn_PERE_MAIN for n=24, and added the ones for
-> > > > >     n=1,2,3,4,8, too.
-> > > > >   - R8A78000_CPG_SGDn_PERW_BUS for n=32, and added the ones for n=8,
-> > > > >     too.
-> > > > >
-> > > > > I did not includes clocks with values for n that exist according to
-> > > > > the documentation, but are not used as suppliers for modules.
-> > > > > Of course the documentation may be incorrect or incomplete, and we may
-> > > > > need to add them later. As IDs are ABI and the list is append-only,
-> > > > > they must be added at the end, which could indeed lead to not all
-> > > > > clocks of the same group being located together.  From an ABI point
-> > > > > of view that is OK, but from a human-readability point of view it is
-> > > > > indeed suboptimal.
-> > > > >
-> > > > > Before, we tended to add all clocks from the clock tables listed the
-> > > > > documentation upfront, ignoring clocks that are clearly internal-only.
-> > > > > Some of them turned out not to exist later.
-> > > > > Some new clocks had to be added when the documentation was updated.
-> > > > > Nothing new here, except that the list of clocks on R-Car X5H is an
-> > > > > order of magnitude longer.
-> > > > >
-> > > > > Note that we don't use a linear array of clocks indexed by clock ID
-> > > > > in the R-Car X5H CPG driver (yet), so large holes of unused clocks do
-> > > > > not hurt (they do hurt in the SCMI driver ;-)
-> > > > >
-> > > > > > not directly controllable. There's a risk of adding clocks that don't
-> > > > >
-> > > > > FTR, the xDn clocks are not directly controllable; clocks like
-> > > > > R8A78000_CPG_MSO_SCP_MAIN are.  We know the latter exist, as they
-> > > > > are used.
-> > > >
-> > > > Yes, I was talking about the clocks documented in the various
-> > > > non-PLL "hierarchy" sections.
-> > > >
-> > > > > > exist, or clocks that we won't need to reference from DT (because
-> > > > > > they're only used as parents of the MDLC-controlled module clock). Do
-> > > > >
-> > > > > The direct parent of an MDLC-controlled module clock should be in DT.
-> > > >
-> > > > An additional difficulty is that we don't actually know what clocks the
-> > > > MDLC gates :-/
-> > >
-> > > This hasn't changed much: on other R-Car generations we also didn't
-> > > know which clock(s) are gated by a single MSTP (Module SToP) bit.
-> > > Historically (old SH parts), there was only a single clock supplying
-> > > each module. Modules on later SoCs gained more clock supplies.
-> > > Hence we always assumed (at least) the functional clock is gated by
-> > > the MSTP bit, and modelled the gateable SMTP clocks as a child of the
-> >
-> > Sometimes I want to gate everybody's SMTP clocks :D
-> >
-> > > functional clock parent.  But it's quite possible other clock inputs
-> > > to the module are gated, too, depending on the actual module (some
-> > > modules e.g. need a PHY clock running to be able to process wake-up
-> > > events).
-> >
-> > Yes, it's not new.
-> >
-> > /me wants to get a copy of the RTL alongside the user manual
-> >
-> > > Comparing older R-Car with R-Car Gen5, I actually like how the new
-> > > MDLC block combines the power domain functionality of the old SYSC
-> > > block and the clock domain functionality of the old MSSR (Module Standby
-> > > and Software Reset) block. It improves upon the now imprecise modelling
-> > > of MSTP clocks, and maps nicely on the Linux PM Domain abstraction:
-> > >   - power domain: generic_pm_domain.power_{on,off}(domain),
-> > >   - clock domain: generic_pm_domain.dev_ops.{start,stop}(device).
-> >
-> > I *think* I like the resulting DT better. As the module standby feature
-> > is now listed in the power-domains property, even if we model it
-> > internally as a clock, it doesn't appear as a clock any more in DT.
-> > Clocks the drivers need have to be listed independently, which decouples
-> > them from the module standby.
-> 
-> Agreed.
-> 
-> > > > > Higher-up parents should not be needed iff the SCMI firmware exposed
-> > > > > and/or implements the proper clock hierarchy (which it does not at
-> > > > > the moment).
-> > > >
-> > > > A big *iff* :-)
-> > > >
-> > > > Even in that case, we'll have (at least) two issues:
-> > > >
-> > > > - Some modules may need to know the rate of the functional clock gated
-> > > >   by the MDLC. As those clocks are controlled through power domains,
-> > > >   they are only specified as the last cell of the power-domains
-> > > >   property, and are not listed in the clocks property. How do you
-> > > >   envision this to work ?
-> > >
-> > > The functional clock (or its parent) is still listed in the clocks
-> > > property.  Compare e.g. the hscif0 nodes on R-Car V4H:
-> > >
-> > >     clocks = <&cpg CPG_MOD 514>,
-> > >              <&cpg CPG_CORE R8A779G0_CLK_SASYNCPERD1>,
-> > >              <&scif_clk>;
-> > >     clock-names = "fck", "brg_int", "scif_clk";
-> > >     power-domains = <&sysc R8A779G0_PD_ALWAYS_ON>;
-> > >     resets = <&cpg 514>;
-> > >
-> > > and R-Car X5H:
-> > >
-> > >     clocks = <&cpg R8A78000_CPG_SGASYNCD4_PERW_BUS>,
-> > >              <&cpg R8A78000_CPG_SGASYNCD4_PERW_BUS>,
-> > >              <&scif_clk>;
-> > >     clock-names = "fck", "brg_int", "scif_clk";
-> > >     power-domains = <&mdlc_perw R8A78000_MDLC_PD_APL 0x54>;
-> > >     resets = <&mdlc_perw 0x54>;
-> > >
-> > > On R-Car V4H, MSTP514 aka "hscif0" is modelled as a gateable MSTP
-> > > clock with parent R8A779G0_CLK_SASYNCPERD1, and used as "fck".
-> > > On R-Car X5H, R8A78000_CPG_SGASYNCD4_PERW_BUS is used as "fck" directly.
-> > > Calling clk_get_rate() on MSTP514 and R8A78000_CPG_SGASYNCD4_PERW_BUS
-> > > gives similar results.
-> >
-> > On Gen5 we will then end up enabling the clock twice, once through the
-> > power domain, and once through the explicit clk_enable(fck) in the
-> > driver. I suppose that's fine in theory (there's an extra runtime cost
-> 
-> It depends, and can only be true for drivers that still do explicit
-> clock management.
-
-Yes, I forgot to mention that.
-
-> Many drivers that don't need to know anything
-> (e.g. the rate) about the clock have been modified to delegate this
-> fully to Runtime PM.
-> 
-> On R-Car Gen5, the (now purely internal) module clock used for module
-> standby is different from the "fck" clock in DT.  So perw 0x54 is
-> controlled through Runtime PM, and SGASYNCD4_PERW_BUS is
-> controlled by the SCIF driver directly (but it is a no-op as the bus clock is
-> always-on).
-
-I expect the FCK input of the IP core to be connected to the clock gated
-by the MDLC. Using SGASYNCD4_PERW_BUS in DT is likely inaccurate. It
-should work fine for now as the SCP firmware doesn't make the clock
-controllable, but I'm not sure that the bus clock is really always on.
-The dividers listed in the CPGMA* diagrams typically have clock gating
-capability.
-
-> On previous R-Car generations, "fck" is the module clock, and is
-> enabled twice.
-> 
-> > though) as clocks are reference-counted. However, the current SCP
-> > firmware reference-counts the clocks based on their SCMI ID, and the
-> > MDLC clock (perw 0x54) and its parent (R8A78000_CPG_SGASYNCD4_PERW_BUS)
-> > have different IDs. This can cause the clock to be disabled at an
-> > unexpected point. In this specific case, however, given that
-> > R8A78000_CPG_SGASYNCD4_PERW_BUS isn't controllable, it won't cause an
-> > issue, but in the generic case it can fail badly.
-> 
-> Current SCP firmware indeed doesn't handle parent-child relations:
-> e.g. perw 0x54 has a clock rate of zero, and is not a child of
-> SGASYNCD4_PERW_BUS.  So the MDLC remapping driver ended up becoming
-> responsible for controlling the parent clock if it is gateable, which
-> is the case for e.g. MSIOF (see mod_map_in.fw_fck_parent).
-
-It's worse than that. The firmware doesn't implement parent-child
-relationships, but sometimes it tries to control the parent
-independently from different children :-(
-
-Look for instance at the DPCKCR register. bit CKSTP is documented as
-gating the DP_EXT_VIO_DP[012] clocks. I expect that bit to actually gate
-the parent clock, DP_EXT_VIO (from CPGMA1). However, the three separate
-DP_EXT_VIO_DP[012] clocks exposed by the SCMI firmware (and named
-SCP_CLOCK_ID_CLK_DP_EXT_OTHER[012] because consistent names wouldn't be
-confusing enough) all map to the DPCKCR.CKSTP bit in the backend, and
-are reference-counted separately. 
-
-> > > > - When multiple clocks derive from the same PLL, it's common for the PLL
-> > > >   rate to be specified through assigned-clock-rates. If we want to
-> > > >   continue doing that, we need to to make the whole clock hierarchy
-> > > >   available to DT.
-> > >
-> > > Yes, you need a public ID to refer to a clock from DT.
-> > > Do you have an example where we would assigned-clock-rates it for a PLL?
-> >
-> > Not on Renesas platforms so far. I can imagine this being used to
-> > control for instance the whole VIO hierarchy. Depending on the bandwidth
-> > used by image sensors, system integrators may want to tweak the PLL
-> > frequency.
-> 
-> A definition can be added when needed. Note that SCMI does not expose
-> the PLLs to any agent anyway...
-
-*sigh* x2
-
-> > > So far all users of assigned-clock-rates on Renesas SoCs use it
-> > > on clocks that are already public as they are also needed as clock
-> > > supplies in clocks properties (e.g. CAN-FD and SPI reference clocks).
-> > >
-> > > > > Still, they can be internal enum, starting after the last
-> > > > > DT clock, like we did in other R-Car clock drivers.
-> > > > >
-> > > > > > you think that's an issue, could it cause ABI problems in the future ?
-> > > > >
-> > > > > An ABI problem appears only when you refer in DT to a clock that does
-> > > > > not exist in hardware.  This should be caught by testing before the
-> > > > > DT user is added.
-> > > >
-> > > > So we could add e.g. SGASYNCD32 already, as long as we don't reference
-> > > > it in DT without testing.
-> > >
-> > > We could, but which one: "_PERW_BUS" or "_PERW_MAIN"? Or both?
-> >
-> > See above :-)
-> >
-> > > And what's the point if there are no users?
-> >
-> > Future-proofing, to avoid adding the SGASYNCD32 clock later with a
-> > non-consecutive ID.
-> 
-> Then perhaps we should add all clocks from the spreadsheet upfront?
-
-It's tempting. Maybe doing it per-hierarchy ? When enabling devices in
-the VIO hierachy, I ended up verifying most of the clocks anyway. We can
-then try to spot all inconsistencies and ask for confirmation.
-
-> > > BTW, there are 87 SGD4_* clocks listed in the documentation.  They are
-> > > all sourced from the same PLL, and have all the same clock rate.
-> > > I don't think any of these can be gated.  Hence if I would write a
-> > > bare metal clock driver, I would just expose and instantiate a single
-> > > SGD4 clock.  But the current SCMI implementation exposes 87 different
-> > > clocks (and didn't make them usable by Linux until recently)...
-> > >
-> > > Perhaps we should drop the domain suffixes from the definitions? Even
-> > > e.g. MSOCK_PERW_BUS and MSOCK_PERW_MAIN seem to be the same clock...
-> >
-> > I think we should also ask for names to be double-checked and fixed in
-> > the next version of the documentation.
-
--- 
-Regards,
-
-Laurent Pinchart
+DQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogSWFuIFJvZ2VycyA8aXJv
+Z2Vyc0Bnb29nbGUuY29tPg0KPiBTZW50OiBTYXR1cmRheSwgT2N0b2JlciAzMSwgMjAyNiA0OjE4
+IEFNDQo+IFRvOiBCZXNhciBXaWNha3Nvbm8gPGJ3aWNha3Nvbm9AbnZpZGlhLmNvbT4NCj4gQ2M6
+IFdpbGwgRGVhY29uIDx3aWxsQGtlcm5lbC5vcmc+OyBhY21lQGtlcm5lbC5vcmc7DQo+IG5hbWh5
+dW5nQGtlcm5lbC5vcmc7IGN0c2hhb0Bnb29nbGUuY29tOyBsaW51eC10ZWdyYUB2Z2VyLmtlcm5l
+bC5vcmc7DQo+IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZzsgbGludXgtcGVy
+Zi11c2Vyc0B2Z2VyLmtlcm5lbC5vcmc7DQo+IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc7
+IFZpa3JhbSBTZXRoaSA8dnNldGhpQG52aWRpYS5jb20+OyBSaWNoIFdpbGV5DQo+IDxyd2lsZXlA
+bnZpZGlhLmNvbT47IFNlYW4gS2VsbGV5IDxza2VsbGV5QG52aWRpYS5jb20+OyBNYXR0IE9jaHMN
+Cj4gPG1vY2hzQG52aWRpYS5jb20+OyBSYWogSm9zaGkgPHJhampvc2hpQG52aWRpYS5jb20+OyBU
+aGllcnJ5IFJlZGluZw0KPiA8dHJlZGluZ0BudmlkaWEuY29tPjsgSm9uIEh1bnRlciA8am9uYXRo
+YW5oQG52aWRpYS5jb20+Ow0KPiBqb2huLmdhcnJ5QGxpbnV4LmRldjsgamFtZXMuY2xhcmtAbGlu
+YXJvLm9yZzsgbWlrZS5sZWFjaEBhcm0uY29tOw0KPiBsZW8ueWFuQGxpbnV4LmRldjsgbWFyay5y
+dXRsYW5kQGFybS5jb207DQo+IGFsZXhhbmRlci5zaGlzaGtpbkBsaW51eC5pbnRlbC5jb207IGpv
+bHNhQGtlcm5lbC5vcmc7DQo+IGFkcmlhbi5odW50ZXJAaW50ZWwuY29tDQo+IFN1YmplY3Q6IFJl
+OiBbUEFUQ0ggdjIgMC85XSBwZXJmOiBBZGQgTlZJRElBIFRlZ3JhNDEwIHVuY29yZSBQTVUgZXZl
+bnRzDQo+IGFuZCBtZXRyaWNzDQo+IA0KPiBFeHRlcm5hbCBlbWFpbDogVXNlIGNhdXRpb24gb3Bl
+bmluZyBsaW5rcyBvciBhdHRhY2htZW50cw0KPiANCj4gDQo+IE9uIEZyaSwgT2N0IDMwLCAyMDI2
+IGF0IDM6MTnigK9QTSBCZXNhciBXaWNha3Nvbm8NCj4gPGJ3aWNha3Nvbm9AbnZpZGlhLmNvbT4g
+d3JvdGU6DQo+ID4NCj4gPiA+IC0tLS0tT3JpZ2luYWwgTWVzc2FnZS0tLS0tDQo+ID4gPiBGcm9t
+OiBJYW4gUm9nZXJzIDxpcm9nZXJzQGdvb2dsZS5jb20+DQo+ID4gPiBTZW50OiBGcmlkYXksIE9j
+dG9iZXIgMzAsIDIwMjYgNjowNyBQTQ0KPiA+ID4gVG86IEJlc2FyIFdpY2Frc29ubyA8YndpY2Fr
+c29ub0BudmlkaWEuY29tPg0KPiA+ID4gQ2M6IGFjbWVAa2VybmVsLm9yZzsgbmFtaHl1bmdAa2Vy
+bmVsLm9yZzsgY3RzaGFvQGdvb2dsZS5jb207DQo+IGxpbnV4LQ0KPiA+ID4gdGVncmFAdmdlci5r
+ZXJuZWwub3JnOyBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmc7IGxpbnV4LXBl
+cmYtDQo+ID4gPiB1c2Vyc0B2Z2VyLmtlcm5lbC5vcmc7IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5l
+bC5vcmc7IFZpa3JhbSBTZXRoaQ0KPiA+ID4gPHZzZXRoaUBudmlkaWEuY29tPjsgUmljaCBXaWxl
+eSA8cndpbGV5QG52aWRpYS5jb20+OyBTZWFuIEtlbGxleQ0KPiA+ID4gPHNrZWxsZXlAbnZpZGlh
+LmNvbT47IE1hdHQgT2NocyA8bW9jaHNAbnZpZGlhLmNvbT47IFJhaiBKb3NoaQ0KPiA+ID4gPHJh
+ampvc2hpQG52aWRpYS5jb20+OyBUaGllcnJ5IFJlZGluZyA8dHJlZGluZ0BudmlkaWEuY29tPjsg
+Sm9uDQo+IEh1bnRlcg0KPiA+ID4gPGpvbmF0aGFuaEBudmlkaWEuY29tPjsgam9obi5nYXJyeUBs
+aW51eC5kZXY7IHdpbGxAa2VybmVsLm9yZzsNCj4gPiA+IGphbWVzLmNsYXJrQGxpbmFyby5vcmc7
+IG1pa2UubGVhY2hAYXJtLmNvbTsgbGVvLnlhbkBsaW51eC5kZXY7DQo+ID4gPiBtYXJrLnJ1dGxh
+bmRAYXJtLmNvbTsgYWxleGFuZGVyLnNoaXNoa2luQGxpbnV4LmludGVsLmNvbTsNCj4gPiA+IGpv
+bHNhQGtlcm5lbC5vcmc7IGFkcmlhbi5odW50ZXJAaW50ZWwuY29tDQo+ID4gPiBTdWJqZWN0OiBS
+ZTogW1BBVENIIHYyIDAvOV0gcGVyZjogQWRkIE5WSURJQSBUZWdyYTQxMCB1bmNvcmUgUE1VDQo+
+IGV2ZW50cw0KPiA+ID4gYW5kIG1ldHJpY3MNCj4gPiA+DQo+ID4gPiBFeHRlcm5hbCBlbWFpbDog
+VXNlIGNhdXRpb24gb3BlbmluZyBsaW5rcyBvciBhdHRhY2htZW50cw0KPiA+ID4NCj4gPiA+DQo+
+ID4gPiBPbiBGcmksIE9jdCAzMCwgMjAyNiBhdCAxMDo0OeKAr0FNIEJlc2FyIFdpY2Frc29ubw0K
+PiA+ID4gPGJ3aWNha3Nvbm9AbnZpZGlhLmNvbT4gd3JvdGU6DQo+ID4gPiA+DQo+ID4gPiA+IEFk
+ZCBldmVudCBhbGlhc2VzIGFuZCBkZXJpdmVkIG1ldHJpY3MgZm9yIHRoZSBOVklESUEgVGVncmE0
+MTAgdW5jb3JlDQo+ID4gPiA+IFBNVXMsIGFuZCBmaXggcGVyZidzIGFnZ3JlZ2F0aW9uIG9mIFBN
+VSBpbnN0YW5jZXMgdGhhdCBhcmUgbnVtYmVyZWQNCj4gaW4NCj4gPiA+ID4gbW9yZSB0aGFuIG9u
+ZSBwYXJ0cyBpbiB0aGVpciBuYW1lLg0KPiA+ID4gPg0KPiA+ID4gPiBUaGUgc2VyaWVzIGNvdmVy
+cyB0aGUgVUNGLCBQQ0llLCBQQ0llIHRhcmdldCwgQ1BVIG1lbW9yeSBsYXRlbmN5LCBhbmQNCj4g
+PiA+ID4gY2hpcC10by1jaGlwIGludGVyY29ubmVjdCBQTVVzLiBJdCBwcm92aWRlcyBzeW1ib2xp
+YyBuYW1lcyBmb3IgdGhlDQo+IHJhdw0KPiA+ID4gPiBldmVudCBlbmNvZGluZ3MgYW5kIG1ldHJp
+Y3MgZm9yIGJhbmR3aWR0aCwgZnJlcXVlbmN5LCBhbmQgYXZlcmFnZQ0KPiByZWFkDQo+ID4gPiA+
+IGxhdGVuY3kuDQo+ID4gPiA+DQo+ID4gPiA+IFRoZSBQQ0llIGFuZCBQQ0llIHRhcmdldCBQTVVz
+IGFyZSBuYW1lZA0KPiA+ID4gbnZpZGlhX3BjaWVfcG11Xzxzb2NrZXQ+X3JjXzxyYz4NCj4gPiA+
+ID4gYW5kIG52aWRpYV9wY2llX3RndF9wbXVfPHNvY2tldD5fcmNfPHJjPi4gVGhlaXIganNvbiBV
+bml0IHVzZXMgdGhlDQo+ID4gPiA+IGV4aXN0aW5nIGNvbW1hLXNlcGFyYXRlZCBmb3JtICgibnZp
+ZGlhX3BjaWVfcG11XyxyY18iKSwgYnV0IHBlcmYNCj4gb25seQ0KPiA+ID4gPiBtZXJnZWQgaW5z
+dGFuY2VzIHRoYXQgZGlmZmVyIGluIHRoZSB0cmFpbGluZyBudW1iZXIsIHNvIHRoZXNlIGV2ZW50
+cyBhbmQNCj4gPiA+ID4gbWV0cmljcyBnYXZlIG9uZSByZXN1bHQgcGVyIHNvY2tldCBhbmQgd2Vy
+ZSByZXBvcnRlZCBpbmNvcnJlY3RseSAoZS5nLg0KPiA+ID4gPiB3aXRoIC0tbWV0cmljLW9ubHkp
+LCBhcyBkaXNjdXNzZWQgaW4gdjEuIFBhdGNoZXMgNi05IGZpeCB0aGlzOg0KPiA+ID4gPg0KPiA+
+ID4gPiAtIFBhdGNoIDYgYWRkcyBhIGNoZWNrIG9mIHRoZSBjcHVtYXNrcyBvZiBhbGwgbWVyZ2Vk
+IFBNVSBpbnN0YW5jZXMgdG8NCj4gdGhlDQo+ID4gPiA+ICAgemVyby1jb3VudCBza2lwIGluIHBl
+cmYgc3RhdCwgc28gYSBzb2NrZXQgdGhhdCBjb3VudHMgbm90aGluZyBzaG93cyAwDQo+ID4gPiA+
+ICAgaW5zdGVhZCBvZiBoYXZpbmcgaXRzIHJvdyBoaWRkZW4uDQo+ID4gPiA+IC0gUGF0Y2ggNyBt
+ZXJnZXMgUE1VIGluc3RhbmNlcyB0aGF0IG1hdGNoIHRoZSBzYW1lIGNvbW1hLQ0KPiBzZXBhcmF0
+ZWQNCj4gPiA+IGpzb24NCj4gPiA+ID4gICBVbml0LiBUaGlzIGFsc28gYXBwbGllcyB0byB0aGUg
+SGlTaWxpY29uIGhpc2lfc2NjbCBQTVVzLCB3aGljaCB1c2UgdGhlDQo+ID4gPiA+ICAgc2FtZSBq
+c29uIGZvcm07IG5vdCB0ZXN0ZWQgb24gSGlTaWxpY29uIGhhcmR3YXJlLg0KPiA+ID4gPiAtIFBh
+dGNoIDggbGFiZWxzIGEgbWVyZ2VkIHVuY29yZSBjb3VudGVyIGFmdGVyIGFsbCBvZiBpdHMgUE1V
+cywgZS5nLg0KPiA+ID4gPiAgIG52aWRpYV9wY2llX3BtdV8qX3JjXyovY3ljbGVzLyBvciBudmlk
+aWFfdWNmX3BtdS9jeWNsZXMvLCBpbnN0ZWFkDQo+IG9mDQo+ID4gPiA+ICAgYWZ0ZXIgdGhlIGZp
+cnN0IGluc3RhbmNlLCBzdWNoIGFzIG52aWRpYV9wY2llX3BtdV8wX3JjXzAvY3ljbGVzLy4NCj4g
+PiA+ID4gICBPdXRwdXQgd2l0aCAtLW5vLWFnZ3IgaXMgdW5jaGFuZ2VkLg0KPiA+ID4gPiAtIFBh
+dGNoIDkgZGVzY3JpYmVzIHRoZXNlIFBNVSBuYW1lcyBpbiB0aGUgQUJJIGRvY3VtZW50Lg0KPiA+
+ID4gPg0KPiA+ID4gPiBDaGFuZ2VzIGluIHYyOg0KPiA+ID4gPiAtIE1vdmUgdGhlIHVuY29yZSBK
+U09OIG91dCBvZiB0aGUgc3lzIGRpcmVjdG9yeSBhbmQgcmVtb3ZlIHRoZQ0KPiA+ID4gPiAgICJD
+b21wYXQiIGZpZWxkcy4gVGhhbmtzIHRvIElhbiBSb2dlcnMgZm9yIHRoZSBmZWVkYmFjay4NCj4g
+PiA+ID4gLSBEcm9wICJwZXJmIGpldmVudHM6IFByb2Nlc3MgbW9kZWwgZmlsZXMgYmVmb3JlIHN5
+cyBzdWJkaXJlY3RvcmllcyIsDQo+ID4gPiA+ICAgd2hpY2ggdGhpcyBzZXJpZXMgbm8gbG9uZ2Vy
+IG5lZWRzLg0KPiA+ID4gPiAtIEFkZCBVQ0YgU0xDIGFuZCBtZW1vcnkgYmFuZHdpZHRoIG1ldHJp
+Y3MgZnJvbSBhbGwgc291cmNlcyB0byBsb2NhbA0KPiA+ID4gPiAgIENNRU0gKHJlYWQsIHdyaXRl
+IGFuZCByZWFkK3dyaXRlKSBhbmQgZnJvbSBsb2NhbCBzb3VyY2VzIHRvIGxvY2FsDQo+ID4gPiA+
+ICAgQ01FTSBhbmQgdG8gcmVtb3RlIG1lbW9yeSwgUENJZSBiYW5kd2lkdGggbWV0cmljcyB0byBs
+b2NhbA0KPiA+ID4gPiAgIGRlc3RpbmF0aW9ucywgYW5kIHJlYWQrd3JpdGUgYmFuZHdpZHRoIG1l
+dHJpY3MgZm9yIFVDRiBTTEMsIFVDRg0KPiA+ID4gPiAgIG1lbW9yeSBhbmQgUENJZS4gVGhhbmtz
+IHRvIENodW4tVHNlIFNoYW8gZm9yIHRoZSBzdWdnZXN0aW9uLg0KPiA+ID4gPiAtIEFkZCBwYXRj
+aGVzIDYtOSB0byBmaXggdGhlIFBDSWUgaW5zdGFuY2UgYWdncmVnYXRpb24uIFRoYW5rcyB0byBJ
+YW4NCj4gPiA+ID4gICBSb2dlcnMgYW5kIENodW4tVHNlIFNoYW8gZm9yIHRoZSBwb2ludGVycy4N
+Cj4gPiA+ID4NCj4gPiA+ID4gdjE6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDI2MTAx
+OTE2NDI0MS40MDM2NDQtMS0NCj4gPiA+IGJ3aWNha3Nvbm9AbnZpZGlhLmNvbS8NCj4gPiA+DQo+
+ID4gPiBXaHkgZG9uJ3Qgd2UgbG9vayB0byBmaXggY29kZSBpbiBkcml2ZXJzL3BlcmY/IFRoaXMg
+c2VyaWVzIGludHJvZHVjZXMNCj4gPiA+IFBNVSBpbnN0YW5jZXMsIG92ZXJsb2FkcyB0aGUgbWVh
+bmluZyBvZiBhbGlhc2VzLCBhbmQgYSBidW5jaCBvZiBvdGhlcg0KPiA+ID4gc2lsbHkgY29tcGxl
+eGl0eSBkdWUgdG8gcG9vciByZXZpZXdzIGFuZCBtYWludGVuYW5jZSBvZiBkcml2ZXJzL3BlcmYg
+LQ0KPiA+ID4gc3BlY2lmaWNhbGx5IGJ5IG5vdCBwb2ludGluZyBvdXQgdGhlIEFCSSBpc3N1ZXMu
+IElzbid0IHRoaXMgYQ0KPiA+ID4gc3RyYWlnaHRmb3J3YXJkLCB3aG9vcHMgd2UgZGlkIGEgYmFk
+IHN1ZmZpeCBhbmQgaGVyZSdzIHRoZSBwYXRjaCB0bw0KPiA+ID4gcmVuYW1lIG91ciBQTVUgaW4g
+dGhlIGRyaXZlcj8gVGhyb3dpbmcgbW9yZSBjb21wbGV4aXR5IGF0IHRoZQ0KPiBwcm9ibGVtDQo+
+ID4gPiBkb2Vzbid0IGZlZWwgbGlrZSB0aGUgcmlnaHQgZml4Lg0KPiA+DQo+ID4gSGkgSWFuLA0K
+PiA+DQo+ID4gTXkgYXBvbG9naWVzIGZvciB0aGUgbmFtZXMgbm90IGZvbGxvd2luZyBwZXJmJ3Mg
+UE1VIG5hbWluZyBjb252ZW50aW9uLg0KPiA+IEkgd2lsbCBiZSBtb3JlIGNhcmVmdWwgYWJvdXQg
+dGhpcyBpbiBmdXR1cmUuDQo+ID4NCj4gPiBUaGVzZSBuYW1lcyAobnZpZGlhX3BjaWVfcG11Xzxz
+b2NrZXQ+X3JjXzxyb290IGNvbXBsZXg+IGFuZA0KPiA+IG52aWRpYV9wY2llX3RndF9wbXVfPHNv
+Y2tldD5fcmNfPHJvb3QgY29tcGxleD4pIGhhdmUgYmVlbiB1cHN0cmVhbQ0KPiA+IHNpbmNlIHY3
+LjEsIGFuZCBzZXZlcmFsIGN1c3RvbWVycyBhbHJlYWR5IHJlbHkgb24gdGhlbS4gUmVuYW1pbmcg
+dGhlbSBpbg0KPiA+IHRoZSBkcml2ZXIgd291bGQgYnJlYWsgdGhlaXIgdXNlIGNhc2UuDQo+IA0K
+PiBJdCBvbmx5IGJyZWFrcyB0aGVpciB1c2UgY2FzZSBpZiB0aGV5IG5hbWUgdGhlIFBNVSB3aXRo
+IGFuIGV2ZW50LiBZb3UNCj4gaGF2ZSBtdWx0aXBsZSBuYW1pbmcgY29udmVudGlvbnMgZm9yIHRo
+ZSBQTVUgYW5kIG9ubHkgdGhvc2UgaW52b2x2aW5nDQo+IG11bHRpcGxlIHNvY2tldHMgaGF2ZSBh
+IGJyb2tlbiBzdWZmaXguDQo+IA0KDQpOYW1pbmcgdGhlIFBNVSBpbiB0aGUgZXZlbnQgaXMgY3Vy
+cmVudGx5IHRoZSBtYWluIHdheSB0byB1c2UgdGhlIFBDSUUgUE1VcywNCndoaWNoIHdlIGNhbid0
+IGJyZWFrLg0KDQo+ID4gR2l2ZW4gdGhhdCwgd2hhdCB3b3VsZCB5b3Ugc3VnZ2VzdCBhcyB0aGUg
+bmV4dCBzdGVwPyBXb3VsZCBoYW5kbGluZw0KPiB0aGVzZQ0KPiA+IG5hbWVzIGluIHBlcmYsIGFz
+IGluIHBhdGNoIDcgYW5kIDgsIGJlIHJlYXNvbmFibGUsIG9yIGRvIHlvdSBoYXZlIGFub3RoZXIN
+Cj4gPiBhcHByb2FjaCBpbiBtaW5kPw0KPiANCj4gU28gd2UgZG9uJ3QgbmVlZCBhIG5ldyBhYnN0
+cmFjdGlvbiwgSSd2ZSBiZWVuIHJlZHVjaW5nIGFnZ3JlZ2F0aW9uDQo+IGFic3RyYWN0aW9ucyBp
+biB0aGUgcGVyZiB0b29sLiBBcyBJIHBvaW50ZWQgdG8gcHJldmlvdXNseSwgdGhlIHN1ZmZpeA0K
+PiBpcyBjb21wdXRlZCB3aXRoIHBtdV9uYW1lX2xlbl9ub19zdWZmaXg6DQo+IGh0dHBzOi8vd2Vi
+LmdpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC9wZXJmL3BlcmYtdG9vbHMt
+DQo+IG5leHQuZ2l0L3RyZWUvdG9vbHMvcGVyZi91dGlsL3BtdXMuYz9oPXBlcmYtdG9vbHMtbmV4
+dCNuNjYNCj4gU28geW91IGNhbiBkbyBzb21ldGhpbmcgbGlrZSAodW50ZXN0ZWQpOg0KPiBgYGAN
+Cj4gc2l6ZV90IHBtdV9uYW1lX2xlbl9ub19zdWZmaXgoY29uc3QgY2hhciAqc3RyKQ0KPiB7DQo+
+ICAgaWYgKHN0cnN0YXJ0cyhzdHIsICJudmlkaWFfIikgJiYgc3Ryc3RyKHN0ciwgIl9yY18iKSkg
+ew0KPiAgICAgLy8gbnZpZGlhIFBNVSB3aXRoIGEgbm9uLUFCSSBzdWZmaXggb2YgbnZpZGlhXy4u
+Ll9bMC05XStfcmNfWzAtOV0rDQo+ICAgICBjb25zdCBjaGFyICpwID0gc3RyICsgc3RybGVuKHN0
+cik7DQo+ICAgICBpbnQgbiA9IDM7DQo+ICAgICB3aGlsZShwID4gc3RyICYmIG4gPiAwKSB7DQo+
+ICAgICAgICBpZiAoKnAtLSA9PSAnXycpDQo+ICAgICAgICAgICBuLS0NCj4gICAgICB9DQo+ICAg
+ICAgcmV0dXJuIHAgLSBzdHI7DQo+ICAgfQ0KPiAgIC8vIFRoZSByZXN0IG9mIHRoZSBleGlzdGlu
+ZyBwbXVfbmFtZV9sZW5fbm9fc3VmZml4IGNvZGUuDQo+ICAgLi4uDQo+IH0NCj4gYGBgDQoNClRo
+YW5rcyBmb3IgdGhlIHN1Z2dlc3Rpb24uIEkgY2FuIHJlcGxhY2UgdGhlIGNoYW5nZXMgaW4gcGF0
+Y2ggNyBhbmQgOA0Kd2l0aCBOVklESUEgUENJRSBSQyBzcGVjaWZpYyBjaGVjayBpbiBwbXVfbmFt
+ZV9sZW5fbm9fc3VmZml4KCkuDQoNCldoaWxlIHRyeWluZyBpdCwgSSBub3RpY2VkIHR3byBzaWRl
+IGVmZmVjdHM6DQoxLiBwZXJmIGxpc3Qgbm93IGNvbWJpbmVzIHRoZSBudmlkaWFfcGNpZV9wbXVf
+PHNvY2tldD5fcmNfPHJjPiBQTVVzIGFuZA0KICAgc2hvd3MgdGhlaXIgZXZlbnRzIGFzIG52aWRp
+YV9wY2llX3BtdS88ZXZlbnQ+LywgYnV0ICJwZXJmIHN0YXQiIGRvZXNuJ3QNCiAgIGFjY2VwdCBq
+dXN0ICJudmlkaWFfcGNpZV9wbXUiIG9uIHRoZSBjb21tYW5kIGxpbmUsIGUuZy4NCiAgICJwZXJm
+IHN0YXQgLWUgbnZpZGlhX3BjaWVfcG11L3JkX3JlcS8iIGNhbid0IGZpbmQgdGhlIFBNVS4NCjIu
+IEFmdGVyIGZpeGluZyBuby4xLCAicGVyZiBzdGF0IC1BIC1hICAtZSBudmlkaWFfcGNpZV9wbXUv
+cmRfcmVxLyINCiAgIGxpc3RzIHRoZSByZXN1bHQgaW4gc3lzZnMgZGlyZWN0b3J5IG9yZGVyLiBP
+biBteSBzeXN0ZW0sIGl0IGdpdmVzIHRoZQ0KICAgcmVzdWx0IGZvciBSQyAwLCA1LCAzLCAxLCA0
+LCAyLg0KDQpCb3RoIGxvb2sgbGlrZSB0aGV5IGNhbiBiZSBoYW5kbGVkIHdpdGggYSBzaW1pbGFy
+IE5WSURJQSBzcGVjaWZpYyBjaGVjaw0KaW4gcGVyZl9wbXVfX21hdGNoX3dpbGRjYXJkKCkgYW5k
+IHBtdV9uYW1lX2NtcCgpOg0KDQovKiBwZXJmX3BtdV9fbWF0Y2hfd2lsZGNhcmQoKSAqLw0KaWYg
+KHN0cnN0YXJ0cyhwbXVfbmFtZSwgIm52aWRpYSIpICYmIHN0cnN0cihwbXVfbmFtZSwgIl9yY18i
+KSkgew0KCS8qIE5WSURJQSBQTVUgd2l0aCBhIG5vbi1BQkkgc3VmZml4IG9mIG52aWRpYV8uLi5f
+WzAtOV0rX3JjX1swLTldKy4gKi8NCglpZiAodG9rX2xlbiA9PSBwbXVfbmFtZV9sZW5fbm9fc3Vm
+Zml4KHBtdV9uYW1lKSAmJiAhc3RybmNtcChwbXVfbmFtZSwgdG9rLCB0b2tfbGVuKSkNCgkJcmV0
+dXJuIHRydWU7DQp9DQoNCi8qIHBtdV9uYW1lX2NtcCgpKi8NCmlmIChsaHNfbnVtID09IHJoc19u
+dW0gJiYgc3Ryc3RhcnRzKGxoc19wbXVfbmFtZSwgIm52aWRpYSIpKSB7DQoJLyoNCgkgKiBOVklE
+SUEgUE1VIHdpdGggYSBub24tQUJJIHN1ZmZpeCBvZiBudmlkaWFfLi4uX1swLTldK19yY19bMC05
+XSs6DQoJICogY29tcGFyZSB0aGUgUkMgdG9vLg0KCSAqLw0KCWNvbnN0IGNoYXIgKmxoc19yYyA9
+IHN0cnN0cihsaHNfcG11X25hbWUsICJfcmNfIik7DQoJY29uc3QgY2hhciAqcmhzX3JjID0gc3Ry
+c3RyKHJoc19wbXVfbmFtZSwgIl9yY18iKTsNCglpZiAobGhzX3JjICYmIHJoc19yYykgew0KCQls
+aHNfbnVtID0gc3RydG91bGwobGhzX3JjICsgNCwgTlVMTCwgMTApOw0KCQlyaHNfbnVtID0gc3Ry
+dG91bGwocmhzX3JjICsgNCwgTlVMTCwgMTApOw0KCX0NCn0NCg0KV2hhdCBkbyB5b3UgdGhpbmsg
+YWJvdXQgdGhlc2UgYWRkaXRpb25hbCBjaGFuZ2VzPw0KDQpSZWdhcmRzLA0KQmVzYXINCg0KPiBJ
+J2QgbXVjaCByYXRoZXIgd2UgZGlkbid0IGFkZCBiZXNwb2tlIGJlaGF2aW9yIHRvIHRoZSB0b29s
+IGZvciBldmVyeQ0KPiBuZXcgUE1VLiBUaGlzIGhhcHBlbmVkIHByZXZpb3VzbHkgd2hlbiBQTVVz
+IHdlcmUgbWVyZ2VkIGluDQo+IGRyaXZlcnMvcGVyZiB3aXRoIGhleCBpbnN0ZWFkIG9mIG51bWVy
+aWMgc3VmZml4ZXMuIFdlIGFscmVhZHkgaGFuZGxlDQo+IGNlcnRhaW4gUE1VcyBzcGVjaWFsbHkg
+ZHVlIHRvIHRoZWlyIGxhY2sgb2YgaG90cGx1ZyBzdXBwb3J0Og0KPiBodHRwczovL3dlYi5naXQu
+a2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvcGVyZi9wZXJmLXRvb2xzLQ0KPiBu
+ZXh0LmdpdC90cmVlL3Rvb2xzL3BlcmYvYXJjaC9hcm0vdXRpbC9wbXUuYz9oPXBlcmYtdG9vbHMt
+bmV4dCNuNDENCj4gQW5kIGR1ZSB0byBldmVudCBuYW1lIGZpYXNjb3M6DQo+IGh0dHBzOi8vd2Vi
+LmdpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC9wZXJmL3BlcmYtdG9vbHMt
+DQo+IG5leHQuZ2l0L3RyZWUvdG9vbHMvcGVyZi9idWlsdGluLXJlY29yZC5jP2g9cGVyZi10b29s
+cy1uZXh0I24xMzk1DQo+IEF0IHNvbWUgcG9pbnQsIHBlcmYncyBpbnRlcm5hbHMgYmVjb21lIHNv
+IGZvcmtlZCBkdWUgdG8gbWlzbWF0Y2hlZA0KPiBjb252ZW50aW9ucyB0aGF0IGV2ZXJ5IGNvZGUg
+cGF0aCB3aWxsIGhhdmUgYSB2YXJpYW50LiBUaGlzIHNhZGRlbnMgbWUNCj4gYXMgc29tZXRoaW5n
+IHRoYXQgd2UndmUgbXVjaCBpbXByb3ZlZCB0aGlzIHllYXIgaXMgYmVpbmcgYWJsZSB0byBzYXkN
+Cj4gYHBlcmYgc3RhdCByZWNvcmRgIG9uIG9uZSBtYWNoaW5lIHR5cGUgYW5kIHRoZW4gYHBlcmYg
+c3RhdCByZXBvcnRgIG9uDQo+IGFub3RoZXIuDQo+IA0KPiBUaGFua3MsDQo+IElhbg0KPiANCj4g
+PiBXaWxsLCBkbyB5b3UgaGF2ZSBhbnkgY29tbWVudCBvbiB0aGlzPw0KPiA+DQo+ID4gVGhhbmtz
+LA0KPiA+IEJlc2FyDQo+ID4NCj4gPiA+DQo+ID4gPiBUaGFua3MsDQo+ID4gPiBJYW4NCj4gPiA+
+DQo+ID4gPiA+IEJlc2FyIFdpY2Frc29ubyAoOSk6DQo+ID4gPiA+ICAgcGVyZiBqZXZlbnRzOiBB
+ZGQgc3VwcG9ydCBmb3IgTlZJRElBIFRlZ3JhNDEwIFVDRiBQTVUgYWxpYXNpbmcNCj4gPiA+ID4g
+ICBwZXJmIGpldmVudHM6IEFkZCBzdXBwb3J0IGZvciBOVklESUEgVGVncmE0MTAgUENJRSBQTVUg
+YWxpYXNpbmcNCj4gPiA+ID4gICBwZXJmIGpldmVudHM6IEFkZCBzdXBwb3J0IGZvciBOVklESUEg
+VGVncmE0MTAgUENJRS1UR1QgUE1VIGFsaWFzaW5nDQo+ID4gPiA+ICAgcGVyZiBqZXZlbnRzOiBB
+ZGQgc3VwcG9ydCBmb3IgTlZJRElBIFRlZ3JhNDEwIENQVSBNZW1vcnkgTGF0ZW5jeQ0KPiA+ID4g
+UE1VDQo+ID4gPiA+ICAgICBhbGlhc2luZw0KPiA+ID4gPiAgIHBlcmYgamV2ZW50czogQWRkIHN1
+cHBvcnQgZm9yIE5WSURJQSBUZWdyYTQxMCBDMkMgUE1VIGFsaWFzaW5nDQo+ID4gPiA+ICAgcGVy
+ZiBzdGF0OiBDaGVjayBtZXJnZWQgUE1VIGluc3RhbmNlJ3MgY3B1bWFza3Mgd2hlbiBza2lwcGlu
+ZyB6ZXJvDQo+ID4gPiA+ICAgICBjb3VudHMNCj4gPiA+ID4gICBwZXJmIHBtdTogTWVyZ2UgUE1V
+IGluc3RhbmNlcyB0aGF0IG1hdGNoIHRoZSBzYW1lIGNvbW1hLQ0KPiBzZXBhcmF0ZWQNCj4gPiA+
+IGpzb24NCj4gPiA+ID4gICAgIFVuaXQNCj4gPiA+ID4gICBwZXJmIGV2c2VsOiBOYW1lIGEgbWVy
+Z2VkIHVuY29yZSBjb3VudGVyIGFmdGVyIGFsbCBvZiBpdHMgUE1Vcw0KPiA+ID4gPiAgIHBlcmYg
+RG9jdW1lbnRhdGlvbjogRGVzY3JpYmUgUE1VIG5hbWVzIG51bWJlcmVkIGluIG1vcmUgdGhhbg0K
+PiBvbmUNCj4gPiA+IHBsYWNlDQo+ID4gPiA+DQo+ID4gPiA+ICAuLi4vdGVzdGluZy9zeXNmcy1i
+dXMtZXZlbnRfc291cmNlLWRldmljZXMgICAgfCAgMTQgKw0KPiA+ID4gPiAgLi4uL2FybTY0L252
+aWRpYS90NDEwL3VuY29yZS1jcHVfbWVtLmpzb24gICAgIHwgIDQzICsNCj4gPiA+ID4gIC4uLi9h
+cm02NC9udmlkaWEvdDQxMC91bmNvcmUtbnZjbGluay5qc29uICAgICB8ICA2NyArKw0KPiA+ID4g
+PiAgLi4uL2FybTY0L252aWRpYS90NDEwL3VuY29yZS1udmRsaW5rLmpzb24gICAgIHwgIDQzICsN
+Cj4gPiA+ID4gIC4uLi9hcm02NC9udmlkaWEvdDQxMC91bmNvcmUtbnZsaW5rX2MyYy5qc29uICB8
+IDExNSArKysNCj4gPiA+ID4gIC4uLi9hcmNoL2FybTY0L252aWRpYS90NDEwL3VuY29yZS1wY2ll
+Lmpzb24gICB8IDI0OSArKysrKysNCj4gPiA+ID4gIC4uLi9hcm02NC9udmlkaWEvdDQxMC91bmNv
+cmUtcGNpZV90Z3QuanNvbiAgICB8ICA4MyArKw0KPiA+ID4gPiAgLi4uL2FyY2gvYXJtNjQvbnZp
+ZGlhL3Q0MTAvdW5jb3JlLXVjZi5qc29uICAgIHwgNzY0DQo+ID4gPiArKysrKysrKysrKysrKysr
+KysNCj4gPiA+ID4gIHRvb2xzL3BlcmYvdGVzdHMvcG11LmMgICAgICAgICAgICAgICAgICAgICAg
+ICB8IDEzNCArKysNCj4gPiA+ID4gIHRvb2xzL3BlcmYvdXRpbC9ldmxpc3QuYyAgICAgICAgICAg
+ICAgICAgICAgICB8ICAgMiArLQ0KPiA+ID4gPiAgdG9vbHMvcGVyZi91dGlsL2V2c2VsLmMgICAg
+ICAgICAgICAgICAgICAgICAgIHwgIDgzICstDQo+ID4gPiA+ICB0b29scy9wZXJmL3V0aWwvZXZz
+ZWwuaCAgICAgICAgICAgICAgICAgICAgICAgfCAgIDIgKy0NCj4gPiA+ID4gIHRvb2xzL3BlcmYv
+dXRpbC9wYXJzZS1ldmVudHMuYyAgICAgICAgICAgICAgICB8ICAgMiArLQ0KPiA+ID4gPiAgdG9v
+bHMvcGVyZi91dGlsL3BtdS5jICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDY1ICsrDQo+ID4g
+PiA+ICB0b29scy9wZXJmL3V0aWwvcG11LmggICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDkg
+Kw0KPiA+ID4gPiAgdG9vbHMvcGVyZi91dGlsL3BtdXMuYyAgICAgICAgICAgICAgICAgICAgICAg
+IHwgIDQ3ICsrDQo+ID4gPiA+ICB0b29scy9wZXJmL3V0aWwvcG11cy5oICAgICAgICAgICAgICAg
+ICAgICAgICAgfCAgIDEgKw0KPiA+ID4gPiAgdG9vbHMvcGVyZi91dGlsL3N0YXQtZGlzcGxheS5j
+ICAgICAgICAgICAgICAgIHwgIDIwICsNCj4gPiA+ID4gIDE4IGZpbGVzIGNoYW5nZWQsIDE3Mzcg
+aW5zZXJ0aW9ucygrKSwgNiBkZWxldGlvbnMoLSkNCj4gPiA+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0
+NCB0b29scy9wZXJmL3BtdS0NCj4gPiA+IGV2ZW50cy9hcmNoL2FybTY0L252aWRpYS90NDEwL3Vu
+Y29yZS1jcHVfbWVtLmpzb24NCj4gPiA+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJm
+L3BtdS0NCj4gPiA+IGV2ZW50cy9hcmNoL2FybTY0L252aWRpYS90NDEwL3VuY29yZS1udmNsaW5r
+Lmpzb24NCj4gPiA+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL3BtdS0NCj4gPiA+
+IGV2ZW50cy9hcmNoL2FybTY0L252aWRpYS90NDEwL3VuY29yZS1udmRsaW5rLmpzb24NCj4gPiA+
+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL3BtdS0NCj4gPiA+IGV2ZW50cy9hcmNo
+L2FybTY0L252aWRpYS90NDEwL3VuY29yZS1udmxpbmtfYzJjLmpzb24NCj4gPiA+ID4gIGNyZWF0
+ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL3BtdS0NCj4gPiA+IGV2ZW50cy9hcmNoL2FybTY0L252
+aWRpYS90NDEwL3VuY29yZS1wY2llLmpzb24NCj4gPiA+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCB0
+b29scy9wZXJmL3BtdS0NCj4gPiA+IGV2ZW50cy9hcmNoL2FybTY0L252aWRpYS90NDEwL3VuY29y
+ZS1wY2llX3RndC5qc29uDQo+ID4gPiA+ICBjcmVhdGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9w
+bXUtDQo+ID4gPiBldmVudHMvYXJjaC9hcm02NC9udmlkaWEvdDQxMC91bmNvcmUtdWNmLmpzb24N
+Cj4gPiA+ID4NCj4gPiA+ID4gLS0NCj4gPiA+ID4gMi40My4wDQo+ID4gPiA+DQo=
 
