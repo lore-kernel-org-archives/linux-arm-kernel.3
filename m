@@ -2,106 +2,190 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8F42606A32E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 12:53:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82130606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 12:53:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Qvvr7mDk;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=ahRbmrNv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=s5cj2dyK;
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=eCXcnMtt
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=+5OEi4AFHAPS6IUP4LkrtQ2C4AGOARjvYXHgM+3nAC0=; b=Qvvr7mDkdh3zBC
-	7+xn3F4kLRB4ot02d/zhSRV24InGdlisC46z1xVNYLsLLhzpnUC2sUC16HNp4URI9M3inf+xHHi/N
-	MR/sOnKpkABg0Tg1nNnHPpVTxOySeKA8ozJMnOaYSgsWpmGg18o+noznXRet1SjPPL85sIxhr2jhb
-	iK72HllkD2VoLVT0EmNZetWqZBB7zDlssiAn2cIRLKc4AgYQMGuoC/F7ls8PE3SXX2plXSa2/kN9R
-	bNTcEKVHje9KU4SWb53BbVqJtcsTtvNXZi4S/Dy/BaCc6EZSSXKI7+MqEmlLxT7sCauLMQ5j0z0nN
-	3bJ+f//VtapOy87YnY8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=sCDIhSRtC8yi+9gsGaMrgIx/fF2p9iFq3WqccRPdbvA=; b=s5cj2dyKHzy+nVDeOhWaYB7TcW
+	bPiaKT1/8AxFXIVmYhal2oiG/88AgGAar84QKVPTGM/uNIEbHE+Nzp0PH8/x11efW6ZqvxyVUNHdW
+	MyNIVHeFNe/bGpgVSJks6UQUY6x3dxM5YCZyAzHahS2eoLL5amfZbrAuRMMxG/htfbxLcraKmLQth
+	3HX6VZkvMdAuWSIcTRxsgjbV4DFXuGVpgdKdoeusCfAjqp3V12/leCnAe0WdQuPSgkqsyKyxx7PX5
+	B91zHqeUO+0/LOvSOdk4gyMDUOjXkgN+QPsACDxsRgAylIbZCX4mqE/w78jNDWni5NWyhSbqosj/Z
+	SnVW3cdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNqxP-0000000GQuQ-48eF;
-	Mon, 02 Nov 2026 12:16:12 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1xNrXq-0000000GX7F-2D3R;
+	Mon, 02 Nov 2026 12:53:50 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNqxI-0000000GQdR-3s6q
+	id 1xNrXo-0000000GX6W-1XI8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 12:16:07 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4a214af2076so22144295e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 04:16:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1793621763; x=1794226563; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+5OEi4AFHAPS6IUP4LkrtQ2C4AGOARjvYXHgM+3nAC0=;
-        b=ahRbmrNvcVa/lE0inAj9ztm7JrrJvbyedQjvxJRs6i6xdRcDBlnSYJvKlPHStkA8cI
-         lDfKF0eAOg7YIfvuzAxo/khD8K9z28RckXAsHNuwZ7fO1kPCC2ZaNk9KWDZKjQ5HzXSa
-         PbmwAmD9qeFm5SaUEYQw4Yl0gKe6Rbaj+WQPLudl+Bfa8EelfXVVf4BSwl9QLb/xJyIR
-         LmoNky3JGbq0w6i0KUBs8xoVjVrbpfh1WV4oK+MZ4D7nNPxfp0bCwdpvFpMvvWaC863l
-         SXHF7j5aRkWVLn5vwJi4dnK3lSGKNsLhCrYEpjtPzipKKdCCEfoW3lCRatD+af3Nia21
-         nx4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793621763; x=1794226563;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+5OEi4AFHAPS6IUP4LkrtQ2C4AGOARjvYXHgM+3nAC0=;
-        b=ZWUV7oZizlwbcFNAsYCjLC9aRI1W3PXuv+v0DcsHUgn5eX5UGBx5AuitJ1Rmq5fhIg
-         zv6V6VlaN0YfNsJoe3Yqg/pBy8ystfLFCNZUoqeBbm3MCQjRFtvnJzRjg8yR/KuCb7gc
-         0fdbk9SnxubAbGZfCfOJZAL6J8t74O7erfMnpiVso5ON4+nDFCiJKgccCzPx+VW9oYKh
-         OJQV1zP/C5hno8aHvODbrTiiHm9qtjthgqwlN9AyzkLvN5VV0yrY97XQceA6sChJwbJI
-         IkP7KtL/ka/E0UuQTkgm9sFsG2CbxR/Ys6fbeDQq8YDr3+mb2LO+H04BFy+kuKZtQBwr
-         233Q==
-X-Forwarded-Encrypted: i=1; AKwUvBzF1POcOybyS0wP8m7TTs5U8IAyk260H38L2GqACaXf9ELm6GXqgLPb1qL6TZxMLvW4OiQrWC+9djniDVkAB3W2@lists.infradead.org
-X-Gm-Message-State: AFq9FYK6hBA/bu6oSmRzWQ8/Ftlr5/sVhmVY516UkX4/95P73OR91o2z
-	gf1DicvDgVyw4TExBNdZmisZ3A5k82VEDrBq+g1NCtDmFNK2H6SE9tLKiBKl7a0Gja8=
-X-Gm-Gg: AYBFou02t6pRPYDQJFF07VGIbLkjyEWHbDsWBROpdklrEQkpDLJkqzZhF28/ad0M3+N
-	zkCs+poEZiMk6f9RO7DVQJF50XoETBoImCiEvgLYY4VvAOZEqKDLkBkL6RrrpdAXh9CBBuW4+j9
-	mjIwI66JHeOV3xrHBu3OQYRr/RkMaB/3ST4baVOzCvJmhFuR4sswxwTyK2v2r/zAInXo1zdXbd3
-	iW3fIeh1PTLqVlQojEg1e9vgDB4RaUYBV3k26/qkpcIf2Jc2i11FyFKzjSZ+m8ONREenQnPvbLR
-	/T5xci/C2dCM1iT+AkhfBtbZdb/H2HTELOJundkfqRBFm7GW3nqqTiLtiiEeBOcLGsv7OehH2uV
-	ZauYvU2zTK/TjOsLcUV5FSptSTZS46N6NfZ0VavNZQL36+Pxc8bGoXM2eyHxxkdYgR2xLq4kTqA
-	sP0k1l2+f/e/IRPQnNxeroFfAzu0fgwQFrgv45mEqbVKeYISwVzOE5Y6rPBQvqrR3xM0Akby6sP
-	0O3J/EJ376SgqV/d3gah9ky2EeCjJr92tEBOyQbI3Cl+FhmN52kEvfd0mdTH5rHYyeEy/27bcRL
-	f1tbczQoplHil6/Y8QP1sO7Cj/Z2EU7NPKQ4IGkN986A407NkP/Ixa4=
-X-Received: by 2002:a05:600c:3b2a:b0:4a2:cbe:bec2 with SMTP id 5b1f17b1804b1-4ac18a8882cmr227993145e9.32.1793621762952;
-        Mon, 02 Nov 2026 04:16:02 -0800 (PST)
-Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4abf5b27e46sm434974855e9.3.2026.11.02.04.16.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 04:16:02 -0800 (PST)
-From: James Clark <james.clark@linaro.org>
-Date: Mon, 02 Nov 2026 12:15:29 +0000
-Subject: [PATCH v3 15/18] perf auxtrace: cs-etm: Capture wrapped snapshots
+	Mon, 02 Nov 2026 12:53:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=K/PdNUIBkDbpwjZo+Lti9//sUu9zor0P4rBoXA+BldQmDoc+86owD83KwYM+GqpnOTQ/5wsnLnZgRaEARHgtT0i4BSXtZVXMgRsUcOoJJaIRAlBltVkDJpC8yE0xMMoMHyqbxMHxjPrI1h5Qth+/ZHprpcCmhlkOKjZmJf+ZRoQjFr/ru4iCDOdTquoOxThgyQteWLjbXsuy4n/dRME7hlbWwNIwMOptap08JpYIhTUaXn1UGcOf0TIceR7KVxe6XcC17lNjBtSledpC/u/IedGAAi9EH5HrTLJyTuweW7KwcTl4qIiFvK2YSDI52znueVCbAxOD6qbU34MVI0BAUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sCDIhSRtC8yi+9gsGaMrgIx/fF2p9iFq3WqccRPdbvA=;
+ b=oPQOwm+IM0Uo04ykH0EDLweDiVLgR30cOJJNUBT3z6mv/GOp/sNnyVbmNcYeJQJ9wLipnJODS5fXBwAaEjk0N8zy97OyR8lOn8TehEw91/xE5Zdg14zQt3DPoOlsWultDQ7vZMAlnnmrcPgKRs5v14XUeyb40fIPGv4FGAp3YYS4a4RWBNA8e6SJJC98cinG3oaoWa056IU1rpt+kt1fzAHolcT27Y+7y5wXY1CoQxVqKXaHVto4x8D/BIy+MN+2MpV/ZFrZfDTb+QucnZJNbysrZrvxmT8gwMZNs+/IO77TPgrXz/X+AIY78Oz1sNHdOYNKnxEv1RBmJRRZlqrusw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sCDIhSRtC8yi+9gsGaMrgIx/fF2p9iFq3WqccRPdbvA=;
+ b=eCXcnMttwUHkUeVKbYZW3GEAsZ9K6MIfD/H7tZwx1ZIJ6f8Z2+C9DvMnBk7WwmJknwLFPscn/PuDawDHLzSbnL5Dk59JajcDH4YOUA29ir9gJu09Ii3/ZvaGanpRyUkSEKUD5GuK7SUrHAPA3U1IGdSHWG2hXgRinygfAIdV7BY=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
+ by BL1PR12MB5947.namprd12.prod.outlook.com (2603:10b6:208:39a::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Mon, 2 Nov
+ 2026 12:53:43 +0000
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287%5]) with mapi id 15.21.0569.011; Mon, 2 Nov 2026
+ 12:53:42 +0000
+Message-ID: <6723a142-c77e-4dcd-b05d-502a41e7b5b7@amd.com>
+Date: Mon, 2 Nov 2026 13:53:31 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6/6] MAINTAINERS: update Versal SysMon maintainers
+To: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
+ Jonathan Cameron <jic23@kernel.org>,
+ Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+ David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ amitrkcian2002@gmail.com
+References: <20261102122112.1723130-1-amit.kumar-mahapatra@amd.com>
+ <20261102122112.1723130-7-amit.kumar-mahapatra@amd.com>
+Content-Language: en-US
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ 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
+ mpwx1d8=
+In-Reply-To: <20261102122112.1723130-7-amit.kumar-mahapatra@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: VIUP296CA0010.AUTP296.PROD.OUTLOOK.COM
+ (2603:10a6:800:34f::11) To LV5PR12MB9779.namprd12.prod.outlook.com
+ (2603:10b6:408:301::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261102-james-cs-unformatted-per-thread-fix-v3-15-dbcb0c281b9b@linaro.org>
-References: <20261102-james-cs-unformatted-per-thread-fix-v3-0-dbcb0c281b9b@linaro.org>
-In-Reply-To: <20261102-james-cs-unformatted-per-thread-fix-v3-0-dbcb0c281b9b@linaro.org>
-To: Leo Yan <leo.yan@linux.dev>, Adrian Hunter <adrian.hunter@intel.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>, 
- Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>, 
- linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Arnaldo Carvalho de Melo <acme@redhat.com>, linux-doc@vger.kernel.org, 
- James Clark <james.clark@linaro.org>, John Garry <john.garry@linux.dev>
-X-Mailer: b4 0.15.2
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|BL1PR12MB5947:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4de02c4c-b229-4daf-db60-08df38e052ff
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|366016|10067099003|22082099003|18002099003|56012099006|11063799006|4143699003|261021121427099003|261026121527099003|261022105027099003|261026140227099003|261009223027099003|261028144727099003|261021123027099003;
+X-Microsoft-Antispam-Message-Info: haewhlVmDIvKGsZ+Oirz52oMnK0LmUrBmCIvVgxh1mkATsWLOBtOOSR6XTvV4Q2eiYK6BHs7f0a1Yw82RH96+an3sQekLbRub7OstbXh0JIrfEersUvkZd4FHmpHSDv7gXM2R29UY759kzxg45PNOSOn/kRnOvZXM6i5r2vK6Hqu1rmuxHr8sFhc8DC9waYj4+bb5mYeKinjrQrBIGj5L8aBmXH8IkO9UGoC0/vosWTkmpKlRQdFNX0EiM+EWDLnQ4K1vRrQlNOX4/XXfzVcv6hQ4K+jtmuH4lnKd9Xe9Fv1LwEnfQ5gOVUWq70xzDIoQmI9LmSVs0bLH8daNLUFRrR8ADpp14X3PFgsKw8cSe/gHF11pRXd3sHo255MDINyNp0Q71gCs3IDEIKWt2s5N0fiLDyL0f6HbvO6q5/UwjGeRyT5TarvtAY4Id2AQvP2ZJuKCsOCtxzXY2vcj8upTTKvGSaa25yRX9S1KRWYR3y9AKV92ul3nv2iskvWV3MYZI9X8lvA5VOFvu20s2RsgdgcRAyG6kQ0PbP/SUgFqu1O/5PsEvGslC3KqFjZysLsVBEwD+B1N4DyNgdLDwYXbhW3NEk7fv5sA+xXDXkt84qNWS6Xt6XBve3VvFwtofDsRS8zKUBfOQQjV71WQr6B6KNH9CRHhluXebyhd0im3Kc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(366016)(10067099003)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003)(261021121427099003)(261026121527099003)(261022105027099003)(261026140227099003)(261009223027099003)(261028144727099003)(261021123027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aE0vWkh2TzZyT29CTW5aOGVFeEhWWG5CTDF4aGZudlVGSVBOSXhZYXVVZFN0?=
+ =?utf-8?B?MTZCQ1JrR1ZkUjJJRGdpNmt4YkhpZWUyZUdrNE51VGxlaHNjc09hTmNZTUkv?=
+ =?utf-8?B?VjYwVW9vTVFXSmJVNmJ3d212MFFUanpNQ0lkS2FHV3FxMGU1NXhjSVlxWENP?=
+ =?utf-8?B?TlZTVWhHcytNRkpzdTdUb0dIQTdxRktweTY1cWZ2cmMvY3YzVlVWWGtuLzdm?=
+ =?utf-8?B?WlBEWVlWOWN5U0cyTTZOREtST2JIWWdNcXJzd3UwQnZHaFo1QW8vRjJGVmM2?=
+ =?utf-8?B?V0tCV2FZbXNrMGw5K1BlMXhtSWlTRWhkVXcrZmljRlFHZ3BKSWxZVEF4ZTFX?=
+ =?utf-8?B?Q1p1SjRFN0hpb2tFWU84cy9xVFE1R0pZZmEyczlEZ0dtWDVoazBTUGtDdWNQ?=
+ =?utf-8?B?YmFUMCsyK0RLbDdiNEFUSDc0VUZOS3FNMFZUOTR2R2lMNGZ0emRpNXMwNE1Z?=
+ =?utf-8?B?UHZZM3hoYzFub2dQRWVWalR3M2VWZUFvb1FDUVhBTmlwRkhHbnZXSk9kYU9p?=
+ =?utf-8?B?cjZyTGhZM2hIbUZSVmdVT1lCRmZIWFVpZ0syYm5oMlZ0VzNXRm9LbHVPOTM2?=
+ =?utf-8?B?RTdCV2tuVmJuSnJySll3S3NvVWtSTWVLQUhvK1BhZVJOcFlwM1lNOHVDTDU1?=
+ =?utf-8?B?dzloNkJKeExVV20vRm5qM2h0ZDFvUGhobFhyV25BTFVxdmN1QWkrTWxUSHQ0?=
+ =?utf-8?B?VzU2bGpIZ2lBS0hiYnI5RXluSHlyMDJlV01IVDlQY3I3STIyQmx2MU5yeUpE?=
+ =?utf-8?B?K1lVVjUvV1RnSXlyUUdsOVdnMnBtYTZmY3Q2dlVOLzFYOFRvRTBWWUtWRkcw?=
+ =?utf-8?B?OXRINzRWUnJLSkk4YlB1WU81NHg2UWIzdXZvVHBWVDJpT1R2bldMd20rZ1ZU?=
+ =?utf-8?B?MjBoOVQ0cCtvRFc4bE9icWFaRERnZlNodVA4TWI1TWg5RmgvOWZuUG9ibDhR?=
+ =?utf-8?B?QURmZ2hEcFVER1p4VUJaTGZvQ2tyL012QnJUd0hxUzZXQThlSk1hWVJNRS9M?=
+ =?utf-8?B?ZTQ1NzBjamt0ZFgra05ObHlWQ3Y5ZHcxc3hZYWFCZHRkMDJhWGNaMW5nT2Js?=
+ =?utf-8?B?TlpuOWFZSnM4aVVIZkF0azZRdzlrWkpjKzBNMUZ4TkxCRU1nQ2pQajhkZUpq?=
+ =?utf-8?B?QUgwQzVxTTNNNHNseHNKYlBXck5vbFRRV0xSQlJUcWpVUzJKbmptNGVnVStP?=
+ =?utf-8?B?eThFVzZwVTBHWk8rcGRneFVPSzBTTDV4dHFLUGJqb1VoMHlpVVYvaW5ybFhG?=
+ =?utf-8?B?eFZuRk1EUHhSajkzVkFGdVhzbEVUOEhjRm5rSXVxNDNkdTUvRGlmOWd1NWdK?=
+ =?utf-8?B?UDRZdnZXSEM5dHR1YlBmb1dRVkxob1pkSXF2ejdZYjVkOTd6SjlPaGtaQTJW?=
+ =?utf-8?B?UjMvZXFDc1hEaHVMODE5bDlyMGo0cVpFd2ZTYk5QNCtzSVlpRm1FREZsVkxV?=
+ =?utf-8?B?WGxSTGgyNDRmbzhCRW81NWgvODBiaWc3Mmp1b1grVHN3QXUrekRDMVBhR2R3?=
+ =?utf-8?B?M3pPVmErVlhvaWE1K25pclhKd1JQYVhVOUl5Q3hYanhCZXMzdTV4T09zTEZw?=
+ =?utf-8?B?aWFDanhMdFFOL2JlYlZnQmRUUnduclhxRExGNEN3dnRJOEZtU01McFhmWTlZ?=
+ =?utf-8?B?Q24yNW5BRGk1WCtZdVQ5R2ZNOWxoR0ZPYWkwbExiZ01mUndPNXNMZWZLekoy?=
+ =?utf-8?B?UUNXYWh2TnlQelZBRkFtK1pPQk9TTFVqSCsxelFqWU9YNVlKMGphenFzTmxO?=
+ =?utf-8?B?RzRHWFJwMUl1L3lJMXAweEwzN216RitkWEV0bWZaU2VRQUJuQzJhQTJ3SGtK?=
+ =?utf-8?B?OFdNTmJQejZzVHBLS1Rra0Q5SUVzb0Fxb2ZnblhjZ1N5Z283WnJQZTdLblgr?=
+ =?utf-8?B?ZHEyZGQvQndtVnZlRElrNVM2aU1US3lXR0NqUmNEUDE4V0RyWEttdWRtRHcz?=
+ =?utf-8?B?VU5teThkZUZNeE9zb1NNdmxWMThoaElna3NhY1A0YW1RMC83cFZmVURRTHdo?=
+ =?utf-8?B?NjBscjFuSFRWZTBmRUEyVmUyKzhDNStRMlJwT2VIMzRxZUpabVJLS3RxWERj?=
+ =?utf-8?B?cVh2VWRLVXU1RDhWbnUzcHdaVW1PMkVMVTRvQnF6WERISmp5U2tmU0hIN2Y3?=
+ =?utf-8?B?M0VGSUF3MUlMc1ZTOFlhek1tQ2NOckRWaU1VS3daQjdzaHdaRGxTNGtsQlpW?=
+ =?utf-8?B?UUpXU1cxWi9qVmFreFN4U0Y1ZVpnWTdPdUF0N3NzRGttUUVoblE1bDduOWo3?=
+ =?utf-8?B?akIwcHMzbWJxakZRN0E5N2ZrL28wYmRYRTR5YVVHUVJJMnIwWGM4aHJiU2xo?=
+ =?utf-8?B?YjhiaEVmbm4rV28xaVExK2p1MC9ZbG5meHpEOS9qTEFJMzRQVlNOdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4de02c4c-b229-4daf-db60-08df38e052ff
+X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 12:53:42.8157
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 41526DYCj4d+OX1JeIdmRw/B2EHNROijIqUItmAw43xEvT1sBJYqCVrg1LoSxb0R
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5947
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_041605_316984_20F67EFF 
-X-CRM114-Status: GOOD (  24.80  )
+X-CRM114-CacheID: sfid-20261102_045348_434219_01723332 
+X-CRM114-Status: GOOD (  13.33  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,130 +197,42 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-find_snapshot() isn't implemented for Coresight, so when a wrap occurs
-we only save from offset 0 to current head, modulo buffer size, rather
-than capturing the whole buffer. Coresight drivers currently use a
-monotonic head pointer even in snapshot mode, which gives a lot more
-information for taking snapshots than a wrapped pointer. It means we
-don't need to search for data at the end of the buffer to guess if a
-wrap has occurred, and we can go back to saving partial buffers after a
-wrap by checking if the next size to take is less than the buffer
-size.
 
-The drivers will always be able to generate a monotonic head because
-TRBE has a bytes written counter, so even if we stop generating an AUX
-record on every overflow, we can check if the counter indicated an
-overwrite and offset head by a whole buffer size if it wrapped. This
-forces userspace to read the whole buffer rather than between last and
-current head. ETR and other sinks use software double buffering, so can
-continue as they are.
 
-Add auxtrace_record__monotonic_find_snapshot() and use it for Coresight.
-A monotonic head can't be auto-detected in the default find_snapshot()
-by checking if head > buffer size, because before the first wrap a
-monotonic head looks the same as a wrapped one. The search would then
-falsely detect a wrap when head is near the end of the buffer, and the
-wrapped pointer fixup moves 'old' and 'head' a whole buffer ahead of the
-driver's head. With a wrapped head that doesn't matter because only the
-offset within the buffer is used, but with a monotonic head the next
-snapshot would either save already saved data again or drop up to a
-buffer's worth of new data.
+On 11/2/26 13:21, Amit Kumar Mahapatra wrote:
+> Replace Salih Erim with myself as a maintainer of the Versal SysMon
+> driver.
+> 
+> Signed-off-by: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
+> ---
+>   MAINTAINERS | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index ecc22d1149d1..e3aca3bee13a 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -30023,8 +30023,8 @@ F:	drivers/edac/versalnet_edac.c
+>   F:	include/linux/cdx/edac_cdx_pcol.h
+>   
+>   XILINX VERSAL SYSMON DRIVER
+> -M:	Salih Erim <salih.erim@amd.com>
+>   M:	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+> +M:	Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
+>   L:	linux-iio@vger.kernel.org
+>   S:	Maintained
+>   F:	Documentation/devicetree/bindings/iio/adc/xlnx,versal-sysmon.yaml
 
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- tools/perf/arch/arm/util/cs-etm.c                  |  1 +
- .../perf/tests/shell/coresight/raw_dump_stress.sh  |  5 -----
- tools/perf/util/auxtrace.c                         | 23 ++++++++++++++++++++++
- tools/perf/util/auxtrace.h                         |  4 ++++
- 4 files changed, 28 insertions(+), 5 deletions(-)
+Acked-by: Michal Simek <michal.simek@amd.com>
 
-diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
-index 5e7d09b7170c..84a5d7392a5f 100644
---- a/tools/perf/arch/arm/util/cs-etm.c
-+++ b/tools/perf/arch/arm/util/cs-etm.c
-@@ -922,6 +922,7 @@ struct auxtrace_record *cs_etm_record_init(int *err)
- 	ptr->itr.info_fill		= cs_etm_info_fill;
- 	ptr->itr.snapshot_start		= cs_etm_snapshot_start;
- 	ptr->itr.snapshot_finish	= cs_etm_snapshot_finish;
-+	ptr->itr.find_snapshot		= auxtrace_record__monotonic_find_snapshot;
- 	ptr->itr.reference		= cs_etm_reference;
- 	ptr->itr.free			= cs_etm_recording_free;
- 	ptr->itr.read_finish		= auxtrace_record__read_finish;
-diff --git a/tools/perf/tests/shell/coresight/raw_dump_stress.sh b/tools/perf/tests/shell/coresight/raw_dump_stress.sh
-index bea70d825596..c9459ded4cbe 100755
---- a/tools/perf/tests/shell/coresight/raw_dump_stress.sh
-+++ b/tools/perf/tests/shell/coresight/raw_dump_stress.sh
-@@ -48,11 +48,6 @@ read -r size offset last_idx <<< "$(awk '
- # everything was dumped. Allow 48 bytes difference to cover 3 frames: current
- # frame length, a partial frame and a final empty one, all of which aren't
- # dumped.
--#
--# TODO: for a single snapshot, offset should always be zero. However, we
--# currently output AUX records in snapshot mode when we shouldn't, which
--# increments the offset. Allow for that until it's fixed so we can test raw
--# dumping.
- decode_size=$((1 + last_idx - offset))
- if [ "$decode_size" -gt "$((size - 48))" ] && [ "$decode_size" -le "$((size))" ]; then
- 	echo "PASS: AUXTRACE buffer length matches dumped packet index"
-diff --git a/tools/perf/util/auxtrace.c b/tools/perf/util/auxtrace.c
-index c613efd83223..3aabf2f4bd47 100644
---- a/tools/perf/util/auxtrace.c
-+++ b/tools/perf/util/auxtrace.c
-@@ -750,6 +750,29 @@ int auxtrace_record__default_find_snapshot(struct auxtrace_record *itr, int idx,
- 	return 0;
- }
- 
-+/*
-+ * auxtrace_record::find_snapshot() implementation for drivers that don't wrap
-+ * 'head' in snapshot mode, so it's already monotonic like in full trace mode.
-+ * No search is needed, only force a full buffer read if more than a buffer's
-+ * worth of data was written since the last read.
-+ */
-+int auxtrace_record__monotonic_find_snapshot(struct auxtrace_record *itr __maybe_unused,
-+					     int idx, struct auxtrace_mmap *mm,
-+					     unsigned char *data __maybe_unused,
-+					     u64 *head, u64 *old)
-+{
-+	pr_debug3("%s: mmap index %d old head 0x%"PRIx64" new head 0x%"PRIx64"\n",
-+		  __func__, idx, *old, *head);
-+
-+	if (*head - *old > mm->len) {
-+		*old = *head - mm->len;
-+		pr_debug3("%s: wrap-around detected, adjusted old head 0x%"PRIx64"\n",
-+			  __func__, *old);
-+	}
-+
-+	return 0;
-+}
-+
- int auxtrace_record__options(struct auxtrace_record *itr,
- 			     struct evlist *evlist,
- 			     struct record_opts *opts)
-diff --git a/tools/perf/util/auxtrace.h b/tools/perf/util/auxtrace.h
-index 9d86f8366ad7..980acb2dc687 100644
---- a/tools/perf/util/auxtrace.h
-+++ b/tools/perf/util/auxtrace.h
-@@ -607,6 +607,10 @@ int auxtrace_record__default_find_snapshot(struct auxtrace_record *itr, int idx,
- 					   struct auxtrace_mmap *mm,
- 					   unsigned char *data, u64 *head,
- 					   u64 *old);
-+int auxtrace_record__monotonic_find_snapshot(struct auxtrace_record *itr,
-+					     int idx, struct auxtrace_mmap *mm,
-+					     unsigned char *data, u64 *head,
-+					     u64 *old);
- void auxtrace_record__snapshot_fixup(struct auxtrace_mmap *mm, bool wrapped,
- 				     u64 *head, u64 *old);
- u64 auxtrace_record__reference(struct auxtrace_record *itr);
-
--- 
-2.43.0
-
+Thanks,
+Michal
 
