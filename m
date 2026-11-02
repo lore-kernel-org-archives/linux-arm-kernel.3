@@ -2,124 +2,89 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90E86606A334
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:46:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 899EC606D812
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:46:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=q5jHqT7A;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SekwYctf
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZdKP/RgB;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=VyGtwxG0
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
-	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=VoO5psaD9DFnzn5bc1zZcOjZ9Zx/iOn4te5QyeYQEoQ=; b=q5jHqT7AP9tR2EpwYTsnKiGHz1
-	dMHexMVWDqgEG4ySRgAD4nDZB0wDHEcWUayt/gKXUUAOUOxAug5k0ZY+0pncAR5bh23OQZryv3HsO
-	oUPMhYXiZUvjEOnFlNGr+Ds+Ci97m6hYbFHOcU/s7b/v6j9EIGBHztNe3SsK7skqTvS6EEFxJ7I8D
-	UF/KHvQOaqCOhpRSwSW1cYul7k+9UHWhlwL9LzUOGU/ZFXPp4Ec8d++X2i3CZHi/rBCOL2i/q4Ibt
-	UvqxDnh/vwBxK1wOq1MJ+5yDTZOOBZ3wgoq+BgdmdEHMuj9Mb0pc8alqkGQpNWeuxVYil0ZFclIAy
-	wG5DPJoA==;
+	bh=CX4y91oCS4X6RsvbXPen90jyyXJyF7CCD61h0ekNQwc=; b=ZdKP/RgBXL1cTx10LjKk5rN9K9
+	jpIpq6mTUYDgxEOVrdwEYjNphJc+3j93srm1z9CBvmuSjlhSkVERKLBsnbEdVA/JjilDZMFkTHZ9V
+	hxAPoyRKLcVCdjsKhL74PNgu4VG8ZyaHswLFUQguK/6x9H834zEZYsfOzaq8b5XCxP917pXq1y4i2
+	HkYYziduFTBr+QJphKvuNm6kw5ljRLlf9N4uK89bCv3be0M8kizX4UtPym/JeE1PRT0NaUSkiOnSb
+	kYdwAMlgUhSRPq50gmOZdefNohCUS/ZzghJn8qJCtGpND8lDgQYmf1op6yYZmZmg7pqNjlOT/T0/c
+	dfkueIxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxyd-000000009F2-11PO;
-	Mon, 02 Nov 2026 19:45:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xNxJR-000000003Li-3r5C;
+	Mon, 02 Nov 2026 19:03:21 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxy2-000000008Y0-3YEs;
-	Mon, 02 Nov 2026 19:45:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4A6A960534;
-	Mon,  2 Nov 2026 19:45:18 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793648718;
-	b=mj234G8tfZCAg07vFT4myHJnpt/EL3yllG6y7KXQQFV3DgxxPL8Sj9Gk++NC2TxysHrj
-	 EFJpDFRww6goBRUt+ne/iw+hPMj4mwKcT34uY5EaVilH+K5gIzTvOT3IrPd1bqXbW/8j1
-	 USMIgIETl3pHhfHdRVIt7H6W0X+v5lqGxeMVmNVoFMfwnjFi3U1a/QUmxRq2M1D1ktqdK
-	 1T98ihm0I0KVh2Df+bZbHrwZzIyknDAFYX3wNSXtZKXICxR3KUebSEswbsZeNgbXfeJN8
-	 pKLcP1HKAYUIV2mdoHmhYjVQWwq/vHlUeMFew2hmkmqcMfvyHgEi+vlXD5oLyIsrDIA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793648718;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=VoO5psaD9DFnzn5bc1zZcOjZ9Zx/iOn4te5QyeYQEoQ=;
-	b=MvW1a1JzvxsoQsoodmPwMi5NjKN6WZi8r/EqDVpcWMkjZVOAu94dNzPvvyPLIIf3GP46
-	 zB4AvHqgBln9D9umV5WeV/X8kbv2mGhZTSQke9TgH7xhlDbZFYqZVorBcge+sq1LIOEBw
-	 TDD/HCAfqqa9n7XPSByKuD0ujsW8mpK8EAVeK+1W1QLJ8NTB6oNjalrBMbEGxq0HQc8vY
-	 Pv6n6ucwYueDjkAo59CVcaimumDcN4D6bByh8GYr8naxwumhnUU6nAvK+GVRCkPy9VtqK
-	 q5b0bZvLQ7zJC/hsoiKHiZTUH3H4aja9x7mMEJcgIgV/ohKzbJ05C+MJcdOQCLtprwg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	id 1xNxJP-000000003Km-28p7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Nov 2026 19:03:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1793646197;
+	bh=IWtvRXFF6VmkuKKK6g4FsEq+PzfJvMm8gmMONaMJar8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=VyGtwxG0sSBNmwsEpkBWQ30njRSws7Fj7ubr5g5gfpduPk2j2lBW4Bg1cX0AFyZdu
+	 TNGDBaob+zAaq9lgfzLk+3IOUJBvn2iLZMOtbeVlwArfIgjArp7xmLBu5pOZhus/fP
+	 fGqA/TcPjSbQimcydcTPfQI7ORbqbGL6djGYAW5GR4dXRI19y7eZppStJ9qsVWQ35o
+	 8V6ARHAsmVx1PjyFwvvRdJIqO0OYY6O0XJm3hly0LyX3O7/fK0AAaLza7Sa3m8GpXt
+	 bCuCixnyJSKWHRdLh38y28KXTVp80L2y7232Al6srBgpcBmiQwvizpPI7xUvjejrep
+	 kVO3dTsIPIyhw==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange secp256r1)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 721841F00A1A;
-	Mon,  2 Nov 2026 19:45:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793648717;
-	bh=VoO5psaD9DFnzn5bc1zZcOjZ9Zx/iOn4te5QyeYQEoQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=SekwYctfGqRKX5oFltaManGyX0fj/7CkBatkH4+jvnKgdMlrhmpMH3kPORVTppbvp
-	 Y2GjN/IRqpw4pijL6CLSu1PtPehMGtXDi9VY2BQd21zUOxlH6f2ZBwblA6AIwUWrJB
-	 gnX+71AeE8pxYFUFb7I1PLCKW6FwZAdrkjBq2ASGsM0fZJVdCdU+AqaSV0VkpsVb3h
-	 DtRADZ+fMek+mi3OMjX5Ml7biAF57eVLIZML7Hr9Gxi8PUi0er3Ek9VWI8wf7qmYmj
-	 t6hcUYWhq1vQaU4XbIXa8jJBdfYELVoWd6Jk1dUnXpGiKiCcSq86AYVPkESmvluDzI
-	 OmFzD6luwNqNw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 472D646629;
-	Mon,  2 Nov 2026 19:45:09 +0000 (UTC)
-From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Tue, 03 Nov 2026 03:45:13 +0800
-Subject: [PATCH RFC v3 10/17] dt-bindings: timer: add Zhihe A210 CLINT
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A0E0817E07F6;
+	Mon, 02 Nov 2026 20:03:15 +0100 (CET)
+Message-ID: <feee5706d6a1e66dc50c21614fdf0469342befc2.camel@collabora.com>
+Subject: Re: [PATCH 06/10] staging: media: cedrus: mpeg2: fix the references
+ of field pictures
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Jernej Skrabec <jernej.skrabec@gmail.com>, Mauro Carvalho Chehab
+	 <mchehab@kernel.org>, Hans Verkuil <hverkuil@kernel.org>
+Cc: Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski
+ <paulk@sys-base.io>,  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	linux-media@vger.kernel.org, linux-staging@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Date: Mon, 02 Nov 2026 14:03:14 -0500
+In-Reply-To: <20261102170303.1973892-7-jernej.skrabec@gmail.com>
+References: <20261102170303.1973892-1-jernej.skrabec@gmail.com>
+	 <20261102170303.1973892-7-jernej.skrabec@gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-YZXbPAR+wWFJqah0WQvL"
+User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261103-a210-scmi-v3-10-ee6b31580808@iscas.ac.cn>
-References: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
-In-Reply-To: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
-To: Sudeep Holla <sudeep.holla@kernel.org>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>, 
- Jassi Brar <jassisinghbrar@gmail.com>, Linus Walleij <linusw@kernel.org>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
- Bartosz Golaszewski <brgl@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Thomas Gleixner <tglx@kernel.org>, 
- Radu Rendec <radu@rendec.net>, Samuel Holland <samuel.holland@sifive.com>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Anup Patel <anup@brainfault.org>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Drew Fustini <fustini@kernel.org>, 
- Icenowy Zheng <uwu@icenowy.me>, Inochi Amaoto <inochiama@gmail.com>, 
- Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>, 
- Jiaxun Yang <jiaxun.yang@flygoat.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org, 
- linux-serial@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, 
- Han Gao <gaohan@iscas.ac.cn>, Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793648705; l=860;
- i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=xDW3mj4crTCYIjLMrm7hiotLvXuQDaJfNmGBDmcpw/Y=;
- b=jPnhhqjJYSQguFvLE9NtnRdhJ2pnOIJBkGdeFMOGQktm4CG6PWJlPA6aa0aC7ETMCM8DQqjwJ
- BARoYkifsKZBP3NCtPK4kUUcLiUf/xOXjljT0FkuSVWrt1HIZCy3wuW
-X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
- pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
-X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
- auth_id=1262
-X-Original-From: Han Gao <gaohan@iscas.ac.cn>
-Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261102_110319_701702_45420230 
+X-CRM114-Status: GOOD (  22.36  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,41 +94,109 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: gaohan@iscas.ac.cn
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Han Gao <gaohan@iscas.ac.cn>
 
-Add the A210 CLINT compatible with the thead,c900-clint fallback.
+--=-YZXbPAR+wWFJqah0WQvL
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
----
- Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Hi,
 
-diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-index d53f52e80d88..6480c8dacf6b 100644
---- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-+++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-@@ -55,6 +55,7 @@ properties:
-               - sophgo,sg2000-clint
-               - sophgo,sg2002-clint
-               - thead,th1520-clint
-+              - zhihe,a210-clint
-           - const: thead,c900-clint
-       - items:
-           - const: sifive,clint0
+Le lundi 02 novembre 2026 =C3=A0 18:02 +0100, Jernej Skrabec a =C3=A9crit=
+=C2=A0:
+> The second field of an I or P frame can be predicted from the first
+> field of the same frame, which the hardware takes from the backward
+> reference. The driver programs the backward reference passed by
+> userspace instead, which doesn't point to the frame being decoded, so
+> the second field is predicted from the wrong picture.
+>=20
+> Use the current frame as the backward reference of I and P pictures,
+> like the vendor library does. Also fall back to the current frame
+> instead of address 0 when a reference buffer is missing, so the
+> hardware never reads from an invalid address.
+>=20
+> Fixes: 50e761516f2b ("media: platform: Add Cedrus VPU decoder driver")
+> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
--- 
-2.55.0
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
+> ---
+>  .../staging/media/sunxi/cedrus/cedrus_mpeg2.c | 29 ++++++++++++++-----
+>  1 file changed, 22 insertions(+), 7 deletions(-)
+>=20
+> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c b/drivers/=
+staging/media/sunxi/cedrus/cedrus_mpeg2.c
+> index 4c8accee5389..0a2f8e77fb29 100644
+> --- a/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
+> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
+> @@ -56,6 +56,7 @@ static int cedrus_mpeg2_setup(struct cedrus_ctx *ctx, s=
+truct cedrus_run *run)
+>  	dma_addr_t src_buf_addr, dst_luma_addr, dst_chroma_addr;
+>  	struct cedrus_dev *dev =3D ctx->dev;
+>  	struct vb2_queue *vq;
+> +	struct vb2_buffer *fwd, *bwd;
+>  	const u8 *matrix;
+>  	unsigned int i;
+>  	bool field, tff;
+> @@ -147,15 +148,29 @@ static int cedrus_mpeg2_setup(struct cedrus_ctx *ct=
+x, struct cedrus_run *run)
+> =20
+>  	cedrus_write(dev, VE_DEC_MPEG_PICBOUNDSIZE, reg);
+> =20
+> -	/* Forward and backward prediction reference buffers. */
+> +	/*
+> +	 * Forward and backward prediction reference buffers. As the vendor
+> +	 * library does, I and P pictures use the current frame as backward
+> +	 * reference: the second field of a frame predicts from the first one.
+> +	 * Missing references also fall back to the current frame.
+> +	 */
+>  	vq =3D v4l2_m2m_get_vq(ctx->fh.m2m_ctx, V4L2_BUF_TYPE_VIDEO_CAPTURE);
+> =20
+> -	cedrus_write_ref_buf_addr(ctx, vq, pic->forward_ref_ts,
+> -				  VE_DEC_MPEG_FWD_REF_LUMA_ADDR,
+> -				  VE_DEC_MPEG_FWD_REF_CHROMA_ADDR);
+> -	cedrus_write_ref_buf_addr(ctx, vq, pic->backward_ref_ts,
+> -				  VE_DEC_MPEG_BWD_REF_LUMA_ADDR,
+> -				  VE_DEC_MPEG_BWD_REF_CHROMA_ADDR);
+> +	fwd =3D vb2_find_buffer(vq, pic->forward_ref_ts) ?: &run->dst->vb2_buf;
+> +	if (pic->picture_coding_type =3D=3D V4L2_MPEG2_PIC_CODING_TYPE_B)
+> +		bwd =3D vb2_find_buffer(vq, pic->backward_ref_ts) ?:
+> +		      &run->dst->vb2_buf;
+> +	else
+> +		bwd =3D &run->dst->vb2_buf;
+> +
+> +	cedrus_write(dev, VE_DEC_MPEG_FWD_REF_LUMA_ADDR,
+> +		     cedrus_dst_buf_addr(ctx, fwd, 0));
+> +	cedrus_write(dev, VE_DEC_MPEG_FWD_REF_CHROMA_ADDR,
+> +		     cedrus_dst_buf_addr(ctx, fwd, 1));
+> +	cedrus_write(dev, VE_DEC_MPEG_BWD_REF_LUMA_ADDR,
+> +		     cedrus_dst_buf_addr(ctx, bwd, 0));
+> +	cedrus_write(dev, VE_DEC_MPEG_BWD_REF_CHROMA_ADDR,
+> +		     cedrus_dst_buf_addr(ctx, bwd, 1));
+> =20
+>  	/* Destination luma and chroma buffers. */
+> =20
 
+--=-YZXbPAR+wWFJqah0WQvL
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaujecgAKCRDZQZRRKWBy
+9BK+AQCDH54gcF4YDMxujVSz7o9opPm5JnaiHGLjqlcvafVZ2QD9HTyF0xiado/u
+5TvCWrlgd1mFralXkVMfG9vP8ymhNAQ=
+=ftEY
+-----END PGP SIGNATURE-----
+
+--=-YZXbPAR+wWFJqah0WQvL--
 
