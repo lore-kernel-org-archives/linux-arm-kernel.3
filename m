@@ -2,79 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 385576070CA3
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B17516070CA3
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 17:03:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tR+pyEb4;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NivwLGAa
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KokujDKY;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=v/rN73EK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=NKzzwtKTgXz6R9jTvzKIhg/OY56xKISF3o/pTEJt26A=; b=tR+pyEb4iAAF64
-	4X75Sib1JaXw9yIdz2RDKSvfE7V1DONhqVP1vPYunsFh5EEGXvJTlxKY2mlkWMVXfsmgfj78jaPAs
-	eB2Lvos11pFIMZaRs6ny49yo48nRWGG9NL3J+0p/LQqsrIDNG2wxtIcVTeMUmK8xd2Kge+YYuIRot
-	2Gtf2EhYCQ6t/5JnhLn/erUqls1oGpDj8AcqaYmMaYwbXOyMqMSVlxyybgr4axx6ljREgcT/WDsLK
-	TSFUWaumzYLCMfiiAcfvCf1yCDDjl0elmbbGzVoYhRXsmvqmSGbAzlOcMCi68KFuELWujmaNocPFg
-	7FpNV3wbjbohC5ckQ3Fg==;
+	List-Owner; bh=DB2KcGsKCTwj0N32grxyHjYPqw3VEDsJ25BOlOdNqgk=; b=KokujDKYqsxiT6
+	LMYQ17CDloSeOKQGlc0UlfyvzvKBMMovnegoRLfmwL5HkJoQnr5f8ERgGNiASPEz6K3j5MMjI5Dxu
+	rDFqhupSccJZmwm1bcZrwYrWZ1ADNde/drrFWsW/dBUibsxRe69wdwFijr42YgilNR3sQ+4KrsyE0
+	lfWFrj5WFv8aHZCL4B2cYip/AYs13PBts78rBsySQCfisOUCB4HY8fL8DnJFzgq4FOZ7X9dv9R8J0
+	wlPQpo5wmwuoNiEEBqKahFuLQsYmnIbgrzCilqcuvTEt/Jnii5ytdv8xxOB5zAKee1umyQrb4cDAJ
+	lI4rHw2wQPS5PdknGP3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNvRW-0000000HOOL-1ZPn;
+	id 1xNvRW-0000000HONb-0PgH;
 	Mon, 02 Nov 2026 17:03:34 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNvRS-0000000HOGj-2h8E
+	id 1xNvRR-0000000HOEK-131x
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 17:03:33 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-48e0d885929so2678884f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 09:03:29 -0800 (PST)
+	Mon, 02 Nov 2026 17:03:32 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-c4395d31228so499093066b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 09:03:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793639008; x=1794243808; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793639007; x=1794243807; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=NKzzwtKTgXz6R9jTvzKIhg/OY56xKISF3o/pTEJt26A=;
-        b=NivwLGAatpOzbFaOeYpnvdG+LAznvMWTBbHkvlSh6b5YC4Qg52I4iOE22kb3/7yjlY
-         PiiByS0gXS7Fn7Hr4pw4srhyOvtglCFCFceTz1kSq7f1xZ7WrRkmMeLovUFK70lpmWIE
-         q6nW9SM7CWhjK8fQr3pemHvK2x2r8mZth7J3L7GZJBrQkNkizbU9N+HLg7LIl/Dq/8Tu
-         gGMSFJfVZwJ6lZmFQ03GdCaFiv5BY/hMVq/+wldWJjOCHzBUJRAX2mXtNLM9IXENTcY4
-         2St2Rw+O4Bx3w2aHtFKMZCPhj3GHtF81iTCgvWKRCdKh7AG4lie/PQFtOXGDKo0cnnsE
-         djQg==
+        bh=DB2KcGsKCTwj0N32grxyHjYPqw3VEDsJ25BOlOdNqgk=;
+        b=v/rN73EKQ7Zvv6tTI3+6lZ+LPayDadPwCYMa16sFCZ4kYYlmPM5ljA89BMTUpjuVyd
+         iMyefGvC4BhfAtaTmVhA6dhbci8yDqtGtNXzOeBt/nIjgOWmY9KSGPK+putkhPwxE7ZY
+         ejkirROiIgvYaHx2dUNbfxUbBarjAn+1gZjsRQXsdJTpEyYHJtUuWVWkf792wRtTK/II
+         z0idu6Xru2hxnN1h9MF3ohLGk/lKuA4Of8+7hsWES4OPBE3x+Clj3B1hDX4j9gKWR9tX
+         sjKF8q8RFoAV86FtnxipKFNbukNRAarLsRr+3IxBTkRzdgkUbO2hYzCfn3VEgl5wv/MP
+         46hQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793639008; x=1794243808;
+        d=1e100.net; s=20260707; t=1793639007; x=1794243807;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NKzzwtKTgXz6R9jTvzKIhg/OY56xKISF3o/pTEJt26A=;
-        b=Fg+M3vpAgb08aJ0zbWQbO7V069SB02DkvyWH9Ye69MqUa2qvw4ZbnwkHwPkgXEsX/q
-         ZL8vlFyiUxyGkioCZVgsvjNbLoOagxjXWQ4otcpj9apEUEvLXhJHimw4COw2C0id1DrW
-         8J7lYGF9H0e3PuMJWdx8gndDCTS585085pNw3FBjO0nMI6VSzQ5qqpKLx6SO2lFw4YGT
-         1OuczG7w1A8NMmjnVxkMI7f5y47dgzXLXmGeSrSGzHZ91mMskYdlrnVUmxuol2NazgcD
-         Gj+RRCFVqMromneS1tE5sdmPUzRHcZBHlZVbmgUbwdySrwGBj1yDo0uQSIC9ynPT+Z2a
-         e+Vw==
-X-Forwarded-Encrypted: i=1; AKwUvBxBLUvO+9ytyUaJI0R8cqKWpkj4ldhOGPV2H7fVJczigi4pOWFFrI0vsyLs2pKfeA2cGWad7aq2mt+hbQTChGo9@lists.infradead.org
-X-Gm-Message-State: AFq9FYI/GP7/KUsS6IXjKqOEL6d2G/85YoWA1qGCkkFeNuAa5TVG2aSq
-	HB0Pc4RramI1W+yqJbS0tGNyW+ijbrRc8BT+IVNklSrIIKoS6MQ64obI
-X-Gm-Gg: AYBFou1L4nrseQVmW5x2D6lO9LndQGO2KlX9xTudaiOffIYNbSSug72WksPFwEIozrj
-	N+NkGc+s9F9yLCILA6CsVZJ4q5Fm/TMRLxmpjaDFhe9EUYk42StAX/YIKmpGS8udV+v+cE/NY21
-	aBcU2f2aB+GZ/6IXSQQrg0SNBliNAPcnfjIJoU0IhJURCa05PbxH0yGyoatdVbRhUeFKn8M8pr8
-	4RRsY3zqTuBnANc1Ep73w0Q78RBXBnW9PMp1Ufxq7e1QTCTAY1E2sV5hSD0BseLA4ogLHF0kb5U
-	G6GdwjCLPVMqdIKqZsyQW/QvENQ/jaQrAGVK+V658gQ318r3Pb2t6vZVd8N2zNZd4jZeU7i0pBn
-	1gNCWXgWCS11vPs96+D3et/TPh9HwZ89uOgzT4tyOwjMkbRTW/1fqu+ZlbkF7UV7zQsgQCuX4h6
-	hNZQoAo4puT+8LNvjOjlhacbYiOfUVtkVaODx3AG0MKl5VctPPeCgKFVrwpw7p2nDlstczc4uGY
-	hhJkgBkljiVkZR7ZfgYMrrjFL62zfKIBjEzKU9g7iO/RBSGnkiGY8mmRum4rij9Frt34ckiS+wC
-	ZRzmuHFnNxZVLdbcQlDL3LVpCFkYu8k7x9o6KvCS8hWdsL/Nvr4W4YbCEvMSIElqJCevu+hv9gn
-	8P7g1wxPwHMv2ANbQebMddozHRSiafRJ7mbQkJOlkclCMYu1GBfYp0XqVatxfp+VS//S3qNK6KE
-	wGowSBYYrCY75SQdaenqdAirMS2XGlUn4gPN3A7kdxk19FA1MBoMQpgnq0ZRGsML+QK0dqReEcS
-	92ubu8Qlz2+hWWmmxnp+9ZcY4gjAZGmytXy73dteOYm1qTvog==
-X-Received: by 2002:a05:600c:1385:b0:4a3:5991:718 with SMTP id 5b1f17b1804b1-4ac182dc0a1mr261716365e9.16.1793639008306;
-        Mon, 02 Nov 2026 09:03:28 -0800 (PST)
+        bh=DB2KcGsKCTwj0N32grxyHjYPqw3VEDsJ25BOlOdNqgk=;
+        b=n7ACNNd+hgIbhM4etqqgQRf1H4tQsWMnm9Sngpy+Oy8yIJAC+rx+a1KmVxmS8kOCoT
+         BJgeuuI3fWuO9dVyHpplc12mcr/P/Hs8ysSbfQElTVL1pm6EfboNUJrhvi8Z7vYasC35
+         Edz54PZts1phn4k8b9g+a3SziQkiIxzDY7QU6YeU95zzrRT99aFvqVBk8CFe/N4qjdQi
+         xkgwWV4tvl51DDVFfhmIfm2LNtSHwpxznPwFkohvtPIoHk6D/Ug+lg/4jo4sUPmiDE0I
+         X5slMCFkz+GFcbRce4+M9kErSpaMnJ+T0sFzE7lmviwkW5fGEn7E5Fj5sga9BJ25BXf/
+         gtVQ==
+X-Forwarded-Encrypted: i=1; AKwUvByEQ+Cgfo1Z5tsy3TzJROCcXHBFkouoh6S8J7hggDdgiT8GoRPQ08lPrAvxF2yctgszInLi0xpEtqmxC/EoHPqS@lists.infradead.org
+X-Gm-Message-State: APuU4Z86RtId9hWUJG5nToZ5GvYHAvqDryRK+4bda01/m96vdYZzI8uT
+	gQ8TZiR8COiscVmmkFMuRfGmBa1cR5LETT/mzWzV9OBGDcV1Ky0BzOOt
+X-Gm-Gg: AYBFou0bZfgjgGVFJkA9tfJ2O5nJyHtqOkPqnbInHhBPHwbmPZzZttRRnVmOTK6G12y
+	QDN4zj6+qbu2QELq/PwfhtU3jNW7fIx07Y4SVElu7cjwvZm3WaHwdL3W01eqrObTo4W5PVRpkf4
+	Iaepbf19oEqybooys2/bHEsHwE66BsWfBA5ZZZFQFxVdWAWGo3UtkEVSiVH3sUd8N0nakMb9auG
+	wTlSZMUlVGH3osYDSouuJTx/lLdQ6uV3nX5g86IMv2Q86X3vhQBYp1NAQ3LwUwiBGZ+4DPJFNih
+	0hTD44+mJXsyR/hkXns/RsVo+fdtl8zexjRWoot60E5vZrfQLtOzDPhKvuJ8QqZEr/Yp2CZQ9FJ
+	pYcXzspHXDyhMQkajtiifxTgBGySnYW4krVrFzRSS3ScxcXQXJVSDuauVsOvOvDwWqGw5qx3yG7
+	hkkGEl+emXr0fs9/6OVVXLMFQBWYek+/by+c89dkcXrWNywquMx3qAmvCep+fre0XK3bpzMq+j9
+	si5HYFVjXe7qJCEyc/LKXXG5ArdOaD8ZY5sKVe9AP54mxexsNzAYJaU8Qe9/wuFEuG5Qvg+b4lq
+	s9BsM/GyjYzB3yMjCbdCLcIfyHOeMhQZjKyDsOSaLI4vrlE6A8bW+Li7pQ4+DsaQeKw/j0X9GkM
+	p3bAf9yxVMeRkTjs4gVQjjaGeUdIcrJaoiX8E4jogO/uoLzljW1xTsDDhDN+QC9Y3X4dDDPR8oX
+	zzM4D0+yeVOYCa5ACQe3Pm5iu3UiFEFftETPxOUmh8XA33eRX4gKxTHbJjlezgLwBnLwm4TT0aQ
+	rrQQqvn7wrJL0hALDVM+4fN59p6u8eAMRqdwMfvLHx0rJU7MA==
+X-Received: by 2002:a17:906:ef0a:b0:c3e:cb50:b7c8 with SMTP id a640c23a62f3a-c4ca7a1997amr921711866b.12.1793639006912;
+        Mon, 02 Nov 2026 09:03:26 -0800 (PST)
 Received: from jernej-laptop (194-152-27-116.dynamic.telemach.net. [194.152.27.116])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71a4d3cesm23362309f8f.7.2026.11.02.09.03.27
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71a4d3cesm23362309f8f.7.2026.11.02.09.03.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 09:03:27 -0800 (PST)
+        Mon, 02 Nov 2026 09:03:26 -0800 (PST)
 From: Jernej Skrabec <jernej.skrabec@gmail.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Hans Verkuil <hverkuil@kernel.org>
@@ -90,9 +90,9 @@ Cc: Maxime Ripard <mripard@kernel.org>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH 07/10] staging: media: cedrus: validate VP8 frame size
-Date: Mon,  2 Nov 2026 18:03:00 +0100
-Message-ID: <20261102170303.1973892-8-jernej.skrabec@gmail.com>
+Subject: [PATCH 06/10] staging: media: cedrus: mpeg2: fix the references of field pictures
+Date: Mon,  2 Nov 2026 18:02:59 +0100
+Message-ID: <20261102170303.1973892-7-jernej.skrabec@gmail.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261102170303.1973892-1-jernej.skrabec@gmail.com>
 References: <20261102170303.1973892-1-jernej.skrabec@gmail.com>
@@ -100,8 +100,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_090330_763507_94B4C11C 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20261102_090329_636890_477C3D6F 
+X-CRM114-Status: GOOD (  17.64  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,42 +121,72 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-A VP8 key frame can change the frame size. If userspace doesn't
-reallocate the capture buffers, the hardware writes and reads past the
-buffers, which shows up as IOMMU page faults and decode timeouts.
+The second field of an I or P frame can be predicted from the first
+field of the same frame, which the hardware takes from the backward
+reference. The driver programs the backward reference passed by
+userspace instead, which doesn't point to the frame being decoded, so
+the second field is predicted from the wrong picture.
 
-Check the frame size in try_ctrl, like for the H.264 and HEVC SPS.
+Use the current frame as the backward reference of I and P pictures,
+like the vendor library does. Also fall back to the current frame
+instead of address 0 when a reference buffer is missing, so the
+hardware never reads from an invalid address.
 
-Fixes: 3c39a16d30d8 ("media: cedrus: Add support for VP8 decoding")
+Fixes: 50e761516f2b ("media: platform: Add Cedrus VPU decoder driver")
 Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 ---
- drivers/staging/media/sunxi/cedrus/cedrus.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ .../staging/media/sunxi/cedrus/cedrus_mpeg2.c | 29 ++++++++++++++-----
+ 1 file changed, 22 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c b/drivers/staging/media/sunxi/cedrus/cedrus.c
-index 45deebddb630..756243795de8 100644
---- a/drivers/staging/media/sunxi/cedrus/cedrus.c
-+++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
-@@ -77,6 +77,11 @@ static int cedrus_try_ctrl(struct v4l2_ctrl *ctrl)
- 					  (sps->pic_width_in_mbs_minus1 + 1) * 16,
- 					  height))
- 			return -EINVAL;
-+	} else if (ctrl->id == V4L2_CID_STATELESS_VP8_FRAME) {
-+		const struct v4l2_ctrl_vp8_frame *frame = ctrl->p_new.p_vp8_frame;
+diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c b/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
+index 4c8accee5389..0a2f8e77fb29 100644
+--- a/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
++++ b/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
+@@ -56,6 +56,7 @@ static int cedrus_mpeg2_setup(struct cedrus_ctx *ctx, struct cedrus_run *run)
+ 	dma_addr_t src_buf_addr, dst_luma_addr, dst_chroma_addr;
+ 	struct cedrus_dev *dev = ctx->dev;
+ 	struct vb2_queue *vq;
++	struct vb2_buffer *fwd, *bwd;
+ 	const u8 *matrix;
+ 	unsigned int i;
+ 	bool field, tff;
+@@ -147,15 +148,29 @@ static int cedrus_mpeg2_setup(struct cedrus_ctx *ctx, struct cedrus_run *run)
+ 
+ 	cedrus_write(dev, VE_DEC_MPEG_PICBOUNDSIZE, reg);
+ 
+-	/* Forward and backward prediction reference buffers. */
++	/*
++	 * Forward and backward prediction reference buffers. As the vendor
++	 * library does, I and P pictures use the current frame as backward
++	 * reference: the second field of a frame predicts from the first one.
++	 * Missing references also fall back to the current frame.
++	 */
+ 	vq = v4l2_m2m_get_vq(ctx->fh.m2m_ctx, V4L2_BUF_TYPE_VIDEO_CAPTURE);
+ 
+-	cedrus_write_ref_buf_addr(ctx, vq, pic->forward_ref_ts,
+-				  VE_DEC_MPEG_FWD_REF_LUMA_ADDR,
+-				  VE_DEC_MPEG_FWD_REF_CHROMA_ADDR);
+-	cedrus_write_ref_buf_addr(ctx, vq, pic->backward_ref_ts,
+-				  VE_DEC_MPEG_BWD_REF_LUMA_ADDR,
+-				  VE_DEC_MPEG_BWD_REF_CHROMA_ADDR);
++	fwd = vb2_find_buffer(vq, pic->forward_ref_ts) ?: &run->dst->vb2_buf;
++	if (pic->picture_coding_type == V4L2_MPEG2_PIC_CODING_TYPE_B)
++		bwd = vb2_find_buffer(vq, pic->backward_ref_ts) ?:
++		      &run->dst->vb2_buf;
++	else
++		bwd = &run->dst->vb2_buf;
 +
-+		if (cedrus_check_pic_size(ctx, frame->width, frame->height))
-+			return -EINVAL;
- 	} else if (ctrl->id == V4L2_CID_STATELESS_HEVC_SPS) {
- 		const struct v4l2_ctrl_hevc_sps *sps = ctrl->p_new.p_hevc_sps;
- 		unsigned int bit_depth, max_depth;
-@@ -270,6 +275,7 @@ static const struct cedrus_control cedrus_controls[] = {
- 	{
- 		.cfg = {
- 			.id	= V4L2_CID_STATELESS_VP8_FRAME,
-+			.ops	= &cedrus_ctrl_ops,
- 		},
- 		.capabilities	= CEDRUS_CAPABILITY_VP8_DEC,
- 	},
++	cedrus_write(dev, VE_DEC_MPEG_FWD_REF_LUMA_ADDR,
++		     cedrus_dst_buf_addr(ctx, fwd, 0));
++	cedrus_write(dev, VE_DEC_MPEG_FWD_REF_CHROMA_ADDR,
++		     cedrus_dst_buf_addr(ctx, fwd, 1));
++	cedrus_write(dev, VE_DEC_MPEG_BWD_REF_LUMA_ADDR,
++		     cedrus_dst_buf_addr(ctx, bwd, 0));
++	cedrus_write(dev, VE_DEC_MPEG_BWD_REF_CHROMA_ADDR,
++		     cedrus_dst_buf_addr(ctx, bwd, 1));
+ 
+ 	/* Destination luma and chroma buffers. */
+ 
 -- 
 2.43.0
 
