@@ -2,79 +2,97 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DF97606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 11:57:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2284606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 12:05:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LbtP2sW8;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=a45A7YzR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LmdVeZjm;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lIc9Xanj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=a+lxVdcflxyH59Md6E2MblMjFZPkYamJmvZNqoXT46o=; b=LbtP2sW8KOxuhWs8vOuWH07Pwe
-	+auENz/nz/S43Utby78fk7EPkQVda1nPYH31qa4kxDi7nU3OCxo8s7lgsKbMOyNrXiOvaspdeZPHi
-	ANNS+gZPbQ+6JI8C/k81jicCRX9ovY4/8U1N2LUvB1sHWMWWXmh1bMzo4lA2evOz3NOtoBpWUKL4z
-	Iqi3OJO2gjgU2Vq03z+APi/HGAcOyuckwUAhAe60dGLx3W7jLu/QEfeHep7xx++12skzVHHBDAeKI
-	Dr/Y0o3asPVsDoDMmUdSYe/9bSPSERbpSEd2usjA7v+qbUirIPHzru6/I+phbG49bAWEc+2wuX8Kb
-	ojCB2WBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=QWQ1m2neibp5bAGpRKNHNRra+4fDpL5hqLSr90AaWkA=; b=LmdVeZjmizTj9j
+	dGOm7vP2eKcrrWpQdIvCZxgqNa1L0MnIgiPnUUIsuo8fd0takXUWadpfAKZ+tQxrP1WWe7xYO2O6N
+	633y6LoJP+jD0m+D1Xhs6o0UFnZM5IHKJyniNjGYuTIiKdXndBSB5EcKnV6EKrOZ0TtvOHo6g3nW9
+	QYYgaYi4h7D6T5xG18by5pWB6Iw+sNa8YlhDxaevD/MmdnEbZA+8o+5GLmuMDb5a4JINWaTS+sakc
+	VHJOa8HcK2oa5e8to+BoeR0AkzuQj65aw+dccYGIU3saFmfDEpWMRfParLKu2n9HzFnrjtXq6qUH8
+	gvltxaLS3eR6p9qZ6Qrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNqfe-0000000GPAz-0nu1;
-	Mon, 02 Nov 2026 11:57:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNqfc-0000000GPAC-0skT
+	id 1xNqnB-0000000GPj2-1OZo;
+	Mon, 02 Nov 2026 12:05:37 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNqn8-0000000GPie-0kgg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 11:57:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7ACC11FC4;
-	Mon,  2 Nov 2026 03:57:42 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9D6C93F632;
-	Mon,  2 Nov 2026 03:57:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793620665; bh=YqQ0EI1oDh/HUj0/mvZSV2WfYlpip86rcsjzSKEAyQo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a45A7YzRxXii7hkUN4U13CFuVd5h+Xv32KParPswsRdTy/3XNv4Mo5BbONhCRZsLV
-	 3pjKnI8wTLHf1EMVmfa9yvsFbTLbVtY/WusJlGGmwshkQkkh/qCiaFmxs15vf9XElP
-	 2hzbFxeijAot2yJ6elFOUEkpRxLMpGtrYIBfMV8s=
-Date: Mon, 2 Nov 2026 11:57:41 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Dexuan Cui <DECUI@microsoft.com>
-Cc: Kameron Carr <kameroncarr@linux.microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	"wei.liu@kernel.org" <wei.liu@kernel.org>,
-	"mhklinux@outlook.com" <mhklinux@outlook.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"Mark.Rutland" <Mark.Rutland@arm.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"sudeep.holla@kernel.org" <sudeep.holla@kernel.org>,
-	"arnd@arndb.de" <arnd@arndb.de>,
-	"thuth@redhat.com" <thuth@redhat.com>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>
-Subject: Re: [EXTERNAL] Re: [PATCH v5 2/6] firmware: smccc: Detect hypervisor
- via RSI host call in CCA Realms
-Message-ID: <auh6tWHyMU15QbRC@arm.com>
-References: <20261002215725.2015959-1-kameroncarr@linux.microsoft.com>
- <20261002215725.2015959-3-kameroncarr@linux.microsoft.com>
- <auPOnb_9Jfzh-oQE@arm.com>
- <CH4PPF0966F22FCAF3D8C6535743902930DBF6C2@CH4PPF0966F22FC.namprd21.prod.outlook.com>
+	Mon, 02 Nov 2026 12:05:35 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-c46bd7a7345so588585366b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 04:05:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793621132; x=1794225932; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=QWQ1m2neibp5bAGpRKNHNRra+4fDpL5hqLSr90AaWkA=;
+        b=lIc9XanjuQiP7PiBQweu/9HUdDIdFZpPjp7JlPZB2co84L22PoGy/fzCfHEhKHfrPv
+         GDy4GewHqcjjSHkl4Aq3QfinmQN29ODBazYsXGFvILjW8pbuqcbrQjl1yptKcV8rCuWZ
+         it/dQbF044w2rTXcfWfUupwjWbHlJ2BiNikfOSGHHTyh8hhXdcyXeHNSEND45HpQGDvd
+         6Sf9LLszauHJqa2wGGyW7BkMceWnHwAF9qbivaTE7RNiX94H7XF1wIe4rl6oqebpoIbG
+         R+gIasDjSnSULVahAQQCuWDMryFal3hYf1PhoGEBgxoOcGUaYIKEteMHrCMAAP72eJ0d
+         HjCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793621132; x=1794225932;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=QWQ1m2neibp5bAGpRKNHNRra+4fDpL5hqLSr90AaWkA=;
+        b=eiUv3VLpr6vABgXE/5OeYwOVV53G7f34DODF+sQyBfhiqvPOhb7B7FQF3VdDleEZvu
+         d1dd1ksaIk1c1CpSboAuaWtVW9/T4tZJ15VmnoSbt8KdL7tfsW29yoEbQYvYP5qJ72Wa
+         qSRgeIfDVt7dElJ7h2nVKDY/1oLMXkSrMX0VJPsFQ6eptV27+E0AxWCwC/TXpIbhcLMa
+         4WRR+Nbrgmi2/RDhCJhFW1UT9iHeHbDG8xV0kSiJfRrAIS5i1Fv1NZql7WeSDsHfwZen
+         YJGYOG578kQokZzNaaFSMGZxI6hqDaAZP74QMjKcoAB68aYiWvTVhVdRcMvgigFh1ljq
+         RGrw==
+X-Forwarded-Encrypted: i=1; AKwUvBwDOKaKdVcFyGqX94EGoCVkXTJa0Y35yECemLDzIWglQSgxjGdTLdrTqMyu0BgQEsiSnFkuCpiKW6V0/+RKGo6q@lists.infradead.org
+X-Gm-Message-State: AFq9FYKQpx0Mllmysh39hBF5Kr2DzHwkJ4E0ZTCbz4HgFyarP3tj0qbF
+	Drv0oHTDap3Yls425ovYPACxONp4Bg4oCnPArnbmoqDlg06o3X17/ouc
+X-Gm-Gg: AYBFou2Hk3X8w/ANd7flYxGRzRXvbPda84tcGkvuK7Zn5LgSB+a4CPc+ljj+grEfNcE
+	LcYNCmjZWO3rn2jhY8AI8EtiMGvSfp8zoOpXI7ivITpI5+B2CYW1u12PwnBWkigIg0/nuwfjepm
+	FnLVtvDERqOQEhNwJtYOpRCzm1C9x17kojY3V+rPOEEdbXwiUrhC4alq9K5FH9nn2YddKUx5r8u
+	LpyVBuk3H3yN4akEQMuTE1mhMzxH4oWhCNCV64BRCQp1Y8JZCMjy318FNI2+ae1g1lzr97uXz0D
+	9qkhhrHUTIbs24yUO5zpXyFMdNOTwZ8cOro4F3VGceqVz/JCyICjmofTG4OXiSU15BdjkXf6wcU
+	1jksqmdLfUX82Jaa0a1rY63ey5oAj58wKFs6tdVMlME+vwOew7kubUcGCO+2qtuJWbybawAMbAs
+	4NpuZrFQ1GaJWEQT5rpfFcW9zZFX++eOQn6QGzkpzRV3AxjTZyH7QEzlEOnaQDrXjQ3CPi1qgza
+	Jd97FCnv6UiDK6tcItd4ihwaUJPSHFuiJiDEnzvu3SnXjJyOBx5LOej4e5K3u80X/QW3xCazIDO
+	iiFe8wFJA7lwXa3xACDt8fY1r6eCUYRk5g==
+X-Received: by 2002:a17:907:1c89:b0:c46:d493:47be with SMTP id a640c23a62f3a-c4ca7ac23a0mr868597366b.19.1793621131875;
+        Mon, 02 Nov 2026 04:05:31 -0800 (PST)
+Received: from server225.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c4cabe3c449sm379033066b.49.2026.11.02.04.05.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Nov 2026 04:05:31 -0800 (PST)
+From: Ping Li <leeonion.muyu@gmail.com>
+To: ben.horgan@arm.com,
+	james.morse@arm.com
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	reinette.chatre@intel.com,
+	fenghuay@nvidia.com
+Subject: Re: [PATCH] arm_mpam: Only program MATCH_PMG when the monitor supports it
+Date: Mon,  2 Nov 2026 20:05:24 +0800
+Message-Id: <20261102120524.1213679-1-leeonion.muyu@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <912dbaa0-0fc0-46fb-819a-6594538b47cd@arm.com>
+References: <912dbaa0-0fc0-46fb-819a-6594538b47cd@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CH4PPF0966F22FCAF3D8C6535743902930DBF6C2@CH4PPF0966F22FC.namprd21.prod.outlook.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_035748_341021_B577D286 
-X-CRM114-Status: GOOD (  20.54  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261102_040534_246314_D8C51CB8 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,60 +103,30 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Dexuan,
+Hi Ben,
 
-On Sat, Oct 31, 2026 at 04:47:32AM +0000, Dexuan Cui wrote:
-> > From: Catalin Marinas <catalin.marinas@arm.com>
-> > Sent: Thursday, October 29, 2026 3:54 PM
-> > > +#ifdef CONFIG_ARM64
-> > > +	if (is_realm_world())
-> > > +		arm_smccc_realm_get_hypervisor_uuid(&res);
-> > > +	else
-> > > +#endif
-> > > + 	arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID,
-> > > +				     &res);
-> > 
-> > Is this meant to be generic? I'm not sure the trick to pass
-> > ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID in gprs[0] and forward it to
-> > the host is a documented ABI. I think it even confuses other realm guests
-> > that don't expect this (e.g. kvm_init_hyp_services()).
-> 
-> Regarding the concern about passing ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID
-> In gprs and forwarding it to the host via an RSI Host Call: if I read the code correctly,
-> this pattern actually aligns seamlessly with the current KVM host-side
-> implementation for ARM CCA (e.g., in the v16 patchset [1]).
+Apologies for raising this directly on the list - hardware questions
+like this should go to support@arm.com first.
 
-[...]
+To answer your question: our memory controller is still at the FPGA
+stage. It has 32 PARTIDs but no PMG. After talking with our hardware
+team and reading the specification, I had wrongly assumed this design
+was legitimate. Our intended usage was one control group in resctrl
+with no further monitor groups underneath, so the PARTID-only
+monitoring would have been sufficient for us.
 
-> Because KVM deliberately unpacks the RSI Host Call structure and pushes
-> it down the traditional non-CVM HVC servicing pipeline, the guest passing
-> standard SMCCC Function IDs inside the gprs array of an RSI Host Call is
-> exactly how the host expects to handle hypervisor services. It shouldn't
-> break or confuse other standard realm implementations since this exact
-> emulation block translates the RSI exception back into a generic HVC
-> abstraction for the hypervisor layer.
+I will get our hardware team to review the RTL with Arm support, and
+will drop this patch.
 
-My point is not the RSI host call itself to query the UUID but what the
-Realm does afterwards. kvm_init_hyp_services() gets a positive answer
-for the KVM UUID and continues with an SMCCC 1.1 invocation to query the
-supported KVM features. The latter is not an RSI host call but an
-ordinary SMC call, to which the RMM responds with -1 in res.a0 (all
-lower 32 bits set). So we end up treating KVM hyp services as available
-in a Realm but their calls still use the SMC conduit and are rejected by
-the RMM.
+Sorry for the noise, and thanks for the pointers.
 
-Supporting such hyp services (e.g. KVM PTP) in a Realm would need a
-separate hypervisor-service conduit using RSI_HOST_CALL. Both discovery
-and subsequent calls would use the same transport without adding
-Realm-specific checks to each caller. Not sure how feasible this is.
-
--- 
-Catalin
+Ping
 
