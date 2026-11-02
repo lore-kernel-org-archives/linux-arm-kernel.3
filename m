@@ -2,53 +2,53 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55DF3606A32E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:41:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1253B606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:42:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=m9S/MV5E;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b/xvAP08
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lC8yDDrx;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nXbZutSQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=vtv8xpZBrQmEjFIrQCBqz+2OdEy+M0+o1H6jKGcfgF8=; b=m9S/MV5EkaGYrA
-	oZNEaqWUkeZvIEsG5ro6dJRsN5+v5H+Qz5YJnpNQ0MsGFGWduB3CvH93241YUB4xSjqgdQKwgPrgR
-	ZFnXZNoztoAWcKAHi6MhdyMsoJrQyFPaqj9+KkBNp5g+doWs2C2ucmYmONQIN+y2LtKdOZBFNPIVW
-	kCXiG8h6o7NHBau356tCOK9UhVuD11JDoBrsKEbFRCb7KKQePh+ymirQShvfTk520oNImjfcbT19f
-	ItY0WbJaOuKt1ERGLRCpC0qX2hR/PCDEE7cHln5Xo2ZVsd5QXpQC3QKiI2f4lUMLUo12VtB3FEX1o
-	p7fC1qgd/t8cZ+BSjSTA==;
+	List-Owner; bh=n8krnApcdxXIbrhooq5aa+FZznz/OJP/sKAy+beq8Y4=; b=lC8yDDrx1qW5KC
+	SXpeiWTVesMh5M/bOp5g6q3ntM/5vyUK9TaBYcKyCCD/fVpOhP+ZyyglL+ZZvTwgQb4sB1Fr84ica
+	vNhlnogzY+UMGQpzPhBp2OCLYUrcda1sZftPrpHJRMkVEChzKQj2S27lXdq1cJAp61QIDbG1KStP1
+	pKhhSFr+nnLNZaoG7xhcj5eoWccMFMqPImCvqTHCyKV2c2/G61lvyQCjzZ/cfxPy4kKhkTP61OYt1
+	5sLZ1027SfyIP/Mwwumnd0Qbvb+Gfo6RYAp0LQ1rOE+RAKIT5wByXbCgFx62ro/h0s3yllWHXQX3w
+	LIBuEbQv5k40PBl1PaDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsHy-0000000GeJp-0EfZ;
-	Mon, 02 Nov 2026 13:41:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xNsJ6-0000000GegG-2XDC;
+	Mon, 02 Nov 2026 13:42:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsHv-0000000GeJ9-3wmJ;
-	Mon, 02 Nov 2026 13:41:27 +0000
+	id 1xNsJ5-0000000Gefy-1ZSq;
+	Mon, 02 Nov 2026 13:42:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 666964054B;
-	Mon,  2 Nov 2026 13:41:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E41001F00A16;
-	Mon,  2 Nov 2026 13:41:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C0A3043B45;
+	Mon,  2 Nov 2026 13:42:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AE861F00A16;
+	Mon,  2 Nov 2026 13:42:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793626887;
-	bh=vtv8xpZBrQmEjFIrQCBqz+2OdEy+M0+o1H6jKGcfgF8=;
+	s=k20260515; t=1793626958;
+	bh=n8krnApcdxXIbrhooq5aa+FZznz/OJP/sKAy+beq8Y4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=b/xvAP08Bjx1FeNnlpwwolEeQo0hJONCM7VpEqmBHaG4h7s3SJNzElndSbaWMvZB6
-	 Dq0/W2YC9bV8CY5WAP0ydIBiEj3KyEpo9+xi5BHMzAokVP8KGx/rV4rs6iSyH4CVay
-	 0pmi45x8rCpJ0FiRclcFpYh9TDPBKqwcjf6AYAtBl25tgHtzR5eC65odz9TGIi0QCt
-	 XgbSOGyLVvJrKLIzSlNvjQ153VtlzhWlgq5xXtqSLyLe+zrsXdBX1adQ3lZTQLCLJQ
-	 CMIf3wP0QtWwAeGQm2Qlz/dWg+OLyHyzssyfkU5psC1yJhMpZrsaKAAILFBviSWhix
-	 z0TrzGzHiNmzA==
-Message-ID: <9742cc0b-e371-4ca1-9ca0-ca3451c39310@kernel.org>
-Date: Mon, 2 Nov 2026 14:41:21 +0100
+	b=nXbZutSQBhI9djuwabEGr2dBj61HIzmQw6r2u9j2T6oIK5fxQO7FkBt1KcFQ9auRS
+	 Iv+HpKbVbOoN3l0zcRt+rtQo/xd3o0bU9eYY+zS0EejM6hGnNqLjfJ6WdRCncq/lGq
+	 4Of73MdSAm06le2GfQMsaRdi3rHTpYT5bx8uES8VwqFuNAAxU+Qdc87Q6dt8jh5Pgm
+	 /S0rJnRLILezvtuK4WKfZ/sLlIIuGDQNsROudVBWfzwkcM7KDGTSOCan2go6H6AYYH
+	 A/jRIaGoafhfLLDusZJ9d4yUf0GUwL305IYPc6ihcK8/XcFMq9Jgmfu2wybDixTmPm
+	 GFV/5IpLsIxlQ==
+Message-ID: <4c473b0f-6b7a-4436-8aae-a14118de555d@kernel.org>
+Date: Mon, 2 Nov 2026 14:42:34 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 01/11] soc: mediatek: dram-ecc: add the DRAM ECC
- driver skeleton
+Subject: Re: [RFC PATCH 05/11] soc: mediatek: dram-ecc: add error counters and
+ the address lists
 To: "santino.wang" <santino.wang@mediatek.com>,
  Matthias Brugger <matthias.bgg@gmail.com>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
@@ -56,7 +56,7 @@ Cc: linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, light.chen@mediatek.com,
  Fred-WY.Chen@mediatek.com, arnab.layek@mediatek.com
 References: <20261102092334.138759-1-santino.wang@mediatek.com>
- <20261102092334.138759-2-santino.wang@mediatek.com>
+ <20261102092334.138759-6-santino.wang@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,7 +102,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20261102092334.138759-2-santino.wang@mediatek.com>
+In-Reply-To: <20261102092334.138759-6-santino.wang@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -115,143 +115,61 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=unavailable autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 On 02/11/2026 10:23, santino.wang wrote:
-> From: Santino Wang <santino.wang@mediatek.com>
-> 
-> On the MediaTek mt8992 SoC the secure firmware (ATF) owns the DRAM
-> controller ECC interrupts and reports each corrected (CE) or
-> uncorrectable (UCE) error to the OS as an ACPI GHES record. The
-> following patches add the driver that consumes those records.
-> 
-> Add only the module skeleton here: the Kconfig entry, the Makefiles, a
-> class device that the later patches attach their sysfs attributes to,
-> and the MAINTAINERS entry.
-> 
-> Signed-off-by: Santino Wang <santino.wang@mediatek.com>
-> ---
->  MAINTAINERS                                   |  9 ++++
->  drivers/soc/mediatek/Kconfig                  |  2 +
->  drivers/soc/mediatek/Makefile                 |  1 +
->  drivers/soc/mediatek/dram-ecc/Kconfig         | 16 ++++++
->  drivers/soc/mediatek/dram-ecc/Makefile        |  3 ++
->  drivers/soc/mediatek/dram-ecc/core/Makefile   |  6 +++
->  drivers/soc/mediatek/dram-ecc/core/main.c     | 53 +++++++++++++++++++
->  .../soc/mediatek/dram-ecc/core/mtk_dram_ecc.h | 24 +++++++++
->  8 files changed, 114 insertions(+)
->  create mode 100644 drivers/soc/mediatek/dram-ecc/Kconfig
->  create mode 100644 drivers/soc/mediatek/dram-ecc/Makefile
->  create mode 100644 drivers/soc/mediatek/dram-ecc/core/Makefile
->  create mode 100644 drivers/soc/mediatek/dram-ecc/core/main.c
->  create mode 100644 drivers/soc/mediatek/dram-ecc/core/mtk_dram_ecc.h
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index aaf2825ac945..e7d25be97f24 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -17026,6 +17026,15 @@ S:	Maintained
->  F:	Documentation/devicetree/bindings/dma/mediatek,*
->  F:	drivers/dma/mediatek/
->  
-> +MEDIATEK DRAM ECC DRIVER
-> +M:	Santino Wang <santino.wang@mediatek.com>
-> +L:	linux-kernel@vger.kernel.org
-> +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-> +L:	linux-mediatek@lists.infradead.org (moderated for non-subscribers)
-> +S:	Maintained
-> +F:	drivers/soc/mediatek/dram-ecc/
-> +F:	include/uapi/linux/mtk_dram_ecc_netlink.h
 > +
->  MEDIATEK ETHERNET DRIVER
->  M:	Felix Fietkau <nbd@nbd.name>
->  M:	Lorenzo Bianconi <lorenzo@kernel.org>
-> diff --git a/drivers/soc/mediatek/Kconfig b/drivers/soc/mediatek/Kconfig
-> index d7293977f06e..91aed7d29be0 100644
-> --- a/drivers/soc/mediatek/Kconfig
-> +++ b/drivers/soc/mediatek/Kconfig
-> @@ -89,4 +89,6 @@ config MTK_SOCINFO
->  	  information about the SoC to the userspace including the
->  	  manufacturer name, marketing name and soc name.
->  
-> +source "drivers/soc/mediatek/dram-ecc/Kconfig"
+> +static ssize_t by_ce_show(struct kobject *kobj,
+> +			  struct kobj_attribute *attr, char *buf)
+> +{
+> +	return sysfs_emit(buf, "%llu\n", mtk_dram_ecc_get_retired_by_ce());
+> +}
 > +
->  endmenu
-> diff --git a/drivers/soc/mediatek/Makefile b/drivers/soc/mediatek/Makefile
-> index 0665573e3c4b..880342bed606 100644
-> --- a/drivers/soc/mediatek/Makefile
-> +++ b/drivers/soc/mediatek/Makefile
-> @@ -9,3 +9,4 @@ obj-$(CONFIG_MTK_MMSYS) += mtk-mmsys.o
->  obj-$(CONFIG_MTK_MMSYS) += mtk-mutex.o
->  obj-$(CONFIG_MTK_SVS) += mtk-svs.o
->  obj-$(CONFIG_MTK_SOCINFO) += mtk-socinfo.o
-> +obj-y += dram-ecc/
-> diff --git a/drivers/soc/mediatek/dram-ecc/Kconfig b/drivers/soc/mediatek/dram-ecc/Kconfig
-> new file mode 100644
-> index 000000000000..c015c66635b2
-> --- /dev/null
-> +++ b/drivers/soc/mediatek/dram-ecc/Kconfig
-> @@ -0,0 +1,16 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +#
-> +# MediaTek DRAM ECC error handling driver
-> +# See plat/mediatek/drivers/dram_ecc/ in ATF for the SMC handler side.
-> +#
+> +static ssize_t by_uce_show(struct kobject *kobj,
+> +			   struct kobj_attribute *attr, char *buf)
+> +{
+> +	return sysfs_emit(buf, "%llu\n", mtk_dram_ecc_get_retired_by_uce());
+> +}
 > +
-> +# core/ -> mtk_dram_ecc.ko
-> +config MTK_DRAM_ECC
-> +	tristate "MediaTek DRAM ECC Error Handling Driver"
-> +	depends on HAVE_ARM_SMCCC && ACPI_APEI_GHES
-> +	default m
-> +	help
-> +	  Driver for MediaTek DRAM ECC runtime error handling. It works
-> +	  with the secure firmware (ATF), which owns the DRAM controller
-> +	  ECC interrupts and reports each corrected or uncorrectable
-> +	  error to the OS as an ACPI GHES record.
-
-Why is EDAC-like driver outside of edac subsystem? drivers/soc/ is not a
-dumping ground.
-
+> +static struct kobj_attribute retired_by_ce_attr = __ATTR_RO(by_ce);
+> +static struct kobj_attribute retired_by_uce_attr = __ATTR_RO(by_uce);
 > +
-> +static int __init mtk_dram_ecc_init(void)
+> +static struct attribute *retired_attrs[] = {
+> +	&retired_by_ce_attr.attr,
+> +	&retired_by_uce_attr.attr,
+> +	NULL,
+> +};
+> +
+> +static const struct attribute_group retired_group = {
+> +	.attrs = retired_attrs,
+> +};
+> +
+> +int mtk_dram_ecc_counters_init(struct kobject *parent)
 > +{
 > +	int ret;
 > +
-> +	mtk_dram_ecc_class = class_create("mtk-dram-ecc");
-> +	if (IS_ERR(mtk_dram_ecc_class))
-> +		return PTR_ERR(mtk_dram_ecc_class);
+> +	counters_kobj = kobject_create_and_add("counters", parent);
+> +	if (!counters_kobj)
+> +		return -ENOMEM;
 > +
-> +	mtk_dram_ecc_dev = device_create(mtk_dram_ecc_class, NULL,
-> +					 MKDEV(0, 0), &mtk_ecc_data,
-> +					 "mtk-dram-ecc0");
-> +	if (IS_ERR(mtk_dram_ecc_dev)) {
-> +		ret = PTR_ERR(mtk_dram_ecc_dev);
-> +		goto err_class;
+> +	ret = sysfs_create_group(counters_kobj, &group);
+> +	if (ret) {
+> +		kobject_put(counters_kobj);
+> +		return ret;
 > +	}
 > +
-> +	dev_info(mtk_dram_ecc_dev, "initialized\n");
 
-No, that's not a code style which exists in upstream.
+Sorry, but no. You do not get your own interface, especially
+undocumented one. Use existing subsystems. Also, drivers/soc/ cannot
+expose interface to user space.
 
-> +	return 0;
-> +
-> +err_class:
-> +	class_destroy(mtk_dram_ecc_class);
-> +	return ret;
-> +}
-> +
-> +static void __exit mtk_dram_ecc_exit(void)
-> +{
-> +	device_destroy(mtk_dram_ecc_class, MKDEV(0, 0));
-> +	class_destroy(mtk_dram_ecc_class);
-> +}
-> +
+
 Best regards,
 Krzysztof
 
