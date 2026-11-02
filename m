@@ -2,77 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3FE060A2605
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:51:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4893B606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:53:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=38lrZEVV;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DzW3QY/E
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ckSU+dh+;
+	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=gMNlcfdI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=yUE+ajKb2SvUu34rlf3PuV8op+JEWESp3G1IkxKNGVg=; b=38lrZEVVnJ4SSz
-	E5R8pqGN/gLuaw8DxrZDHJU3DLhOQEAUdlhM6aETYEdNpfb7fhsRRSVvvziPZOpUi+MVNVgkzexjA
-	BgNiUHvKY0BfuF+1mUpdJg0pHLPsV1L016kQwjD+scEmttuV0Flivy9JgtuBks1BXHLfb3iSmGuni
-	/xjcrKhvlWSMkpw7IBc4i1a/nUWri30NteKj/yO5R5qnPBpaXEDFd78nXFP4r3ENq9Vnk+HQzB4ac
-	WXxRNmbxwxAlYJbZAMTlDH7+4TV6B4+cg4pJNL/mH1eD8qIrVomAtZKWZlBntvlLq9MKiggjh6uXs
-	9DBoAd8PsBzPXQeBV3Fw==;
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=pspFCwZK0uUittOLVFwBxDEYM+Bon0qCG8snuHiLGJg=; b=ckSU+dh+Cbcu7tpo+aJKVkY4X/
+	Y3rPue45k+7RWo7lqTU4lQIVuKepLAU7MDMD/wCdYJIrer/q+Mq1DiqGbWinPc8JG2HPbfUYpjVS8
+	rfW4a8If628P+9Jz0fHq8TNbi1NDZAVU1hteEW7cxwh1XTAmmCV5Ohei0K2CE3GnUgddfnKEBASNy
+	gIAVexJbYUsEoswROKd3jMOd7OJHSDfsdODvfy/SJuGx+/4dHRWcB7mWEl8cffM/lC83J9stIVsQv
+	WcdMPyZXGDjTUqDFoVNlTHzseMIaRco1wGUYhuCs3k79zTy+JVE6u8hQwZo43R8rRzbZSBtENrmWC
+	VRCBW6Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsRW-0000000Gg9S-2UNy;
-	Mon, 02 Nov 2026 13:51:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xNsTM-0000000GgR9-0L9K;
+	Mon, 02 Nov 2026 13:53:16 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsRU-0000000Gg8U-3Pju;
-	Mon, 02 Nov 2026 13:51:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EC584600D4;
-	Mon,  2 Nov 2026 13:51:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 881AB1F00A16;
-	Mon,  2 Nov 2026 13:51:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793627479;
-	bh=yUE+ajKb2SvUu34rlf3PuV8op+JEWESp3G1IkxKNGVg=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=DzW3QY/E1vTYb0tPj5dhj31TqNOVZLX3yHkAtyhaoWRl55SR9+VWdUGoQdoUArbeF
-	 oOmbLYVMiJJo6w7s3YA+pUyBE40zbeCBYcoys4vrEcq26jihwgKWcukCnDX5HPjnNA
-	 Yzi3dEK12FV1CjQ0gyfVenSlnygpmL8YXnOQKAiBhTxiyrXsIdvj3p2AHikiUP0BdN
-	 ZdXvVHzumMQ/sh0VZ0wDrSIhkr6YzJBzicE2g38hnlymFLXLPmb3CkpSPRbcOpfleb
-	 ZDHS22NwN/8NkdzNtDvStsihWKQP5CT/vadj266iVCYOJ1+qFkIYpYFeYJA6lt1c1r
-	 VLNTonOzIvqtw==
-Received: from traversing.sirena.org.uk (localhost [IPv6:::1])
-	by traversing.sirena.org.uk (Postfix) with ESMTP id C65672344C8A;
-	Mon, 02 Nov 2026 13:51:17 +0000 (GMT)
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, 
- =?utf-8?q?Micha=C5=82_Kope=C4=87?= <michal@nozomi.space>
-Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Trevor Wu <trevor.wu@mediatek.com>, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-In-Reply-To: <20261016161455.194400-1-michal@nozomi.space>
-References: <20261016161455.194400-1-michal@nozomi.space>
-Subject: Re: [PATCH] ASoC: mediatek: mt8188: Suspend the AFE across system
- sleep
-Message-Id: <179357913438.1716893.724348214369386121.b4-ty@b4>
-Date: Mon, 02 Nov 2026 00:25:34 +0000
+	id 1xNsTI-0000000GgQV-2At6
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Nov 2026 13:53:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1793627590;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=pspFCwZK0uUittOLVFwBxDEYM+Bon0qCG8snuHiLGJg=;
+	b=gMNlcfdIepnZo7X4ZSPy6RWOIZyYnooyGfWpAKqQ7tBhLG60d4dQVu9SJadHyjueENh6sx
+	Qtbe/+vj12yn/MECrw5t7RRjkUYbqVhjL9ZLPvuJ2/UBCG+zoUqnn/uXaTp6BrcPU+1LqC
+	re7C26zrwWpPgEm1TMgryuwNYuXyvok=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-627-nRjytpMmMyuCzqlzW4aDbQ-1; Mon,
+ 02 Nov 2026 08:53:07 -0500
+X-MC-Unique: nRjytpMmMyuCzqlzW4aDbQ-1
+X-Mimecast-MFC-AGG-ID: nRjytpMmMyuCzqlzW4aDbQ_1793627586
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 37E621955F28;
+	Mon,  2 Nov 2026 13:53:06 +0000 (UTC)
+Received: from [172.20.94.172] (unknown [10.30.45.107])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id E77DA1956087;
+	Mon,  2 Nov 2026 13:53:04 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4p2M?= FAIL (MISSED 10 of 54): Test report for for-kernelci
+ (7.4.0-rc1, upstream-arm-next, 6628e7d4)
+Date: Mon, 02 Nov 2026 13:53:04 -0000
+To: mpatalan@redhat.com, ftjahjad@redhat.com, fsuba@redhat.com,
+ linux-arm-kernel@lists.infradead.org, jmoyer@redhat.com,
+ catalin.marinas@arm.com, will@kernel.org, bgoncalv@redhat.com
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+Message-Id: <13572.126110208530702698@us-mta-627.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: QFUXJArMP5Yrf7NzgGOyzaABv_cv1QUrqNAZ4pfWug0_1793627586
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1138; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Q+rLYquHGS+G0a65fcTBl8j90yUlRSeS2WSUr1yi3T0=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJeTA2NfyBbv/DNFum23rnHi4PeaBq8fxo3Ocb/9EReV
- S5mG6nbHaUsDGJcDLJiiixxWdwv60ter+E7uLANZg4rE8gQBi5OAZjI4UsM/yOMXE2554gJFJzg
- mviM+wTjEQvWU9OepKpNN2559n+FGBMjw9Ku+YvfHGQuyGINOC1kV90o4VcmHrrS17KQSVdk8WI
- /HgA=
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261102_055312_624954_97913452 
+X-CRM114-Status: UNSURE (   7.18  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.5 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,43 +85,84 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DATE_IN_PAST_12_24,
-	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=4.0.1
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, 16 Oct 2026 18:14:55 +0200, Michał Kopeć wrote:
-> ASoC: mediatek: mt8188: Suspend the AFE across system sleep
+Hi, we tested your kernel and here are the results:
 
-Applied to
+    Overall result: FAILED
+             Merge: OK
+           Compile: OK
+              Test: FAILED
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-Thanks!
+Kernel information:
+    Commit message: Linux 7.4-rc1
 
-[1/1] ASoC: mediatek: mt8188: Suspend the AFE across system sleep
-      https://git.kernel.org/broonie/sound/c/6c97476ea8d6
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:3017229113
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+One or more kernel tests failed:
+    Unrecognized or new issues:
+        Boot test
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:3017229113_aarch64_kernel_kcidb_tool_1200606255_6
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL Panic: Oops:
+                       =E2=9A=A1 ERROR Warn: External Watchdog Expired
+        Storage - blktests - throtl
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:3017229113_aarch64_kernel_kcidb_tool_1200606256_8
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL Panic: Oops:
+                       =E2=9A=A1 ERROR Warn: External Watchdog Expired
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+    We also see the following known issues which are not related to your ch=
+anges:
+        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
+res
+            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
+            Affected tests:
+                Hardware - Firmware test suite [aarch64]
+        Issue: selinux-policy: serge-testsuite: Client ioctl BINDER_WRITE_R=
+EAD error: Invalid argument
+            URL: https://lore.kernel.org/selinux/CAAUqJDt1pXQ2KVBvMoMiDrzz8=
+ishonqhQ0nnQLEppot4nmv9Bw@mail.gmail.com/T/
+            Affected tests:
+                selinux-policy: serge-testsuite [aarch64]
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+Tests that were not ran because of internal issues:
+    /distribution/command [aarch64]
+    Reboot test [aarch64]
+    Storage - blktests - throtl [aarch64]
+    Storage - blktests - ublk [aarch64]
+    stress: stress-ng - cpu-cache [aarch64]
+    stress: stress-ng - memory [aarch64]
 
-Thanks,
-Mark
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
 
 
