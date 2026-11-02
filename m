@@ -2,79 +2,160 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA48F607F6F2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:46:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8665D608B7D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:50:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MMwEJXmW;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kTIJkYx9
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NgYJAa4Q;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=RoLKWotl
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=1ed4ABVb5WuZx7ievrj1cvm+vrmzhLmj5yV4zTMhJQg=; b=MMwEJXmWKR5l3526LChNEUmB4b
-	r4RSUvnDAhZKIea/haTYWdVtY1DRsb7ebDw7SDRzgi96KaaHw8YjUb+B6qjjsjNnA+cxMv9+5/Npr
-	qKBDFOR4tvEUbp2IvHoEvGPI6rNySQGYz6dk4cpNgSm+HyaumlbUwRKGbDPBhgTmqn+PGAYjrt+pO
-	M0DDBOfZ2xlGt8/KOM8H847n4erTPbUsaKzLQVDW0MMpu7/BbbGO+haExwj0Q6QMHpjdsMvX1wuAM
-	y51y5h9YxuztJVUPuW0oUA0gWKE5+EirESSz6ryDNzb0RBtWNBr5pFV3s60/W6JTk3NsbRa/smUay
-	HK9D2+4g==;
+	bh=0X4mXGhKygq3SXERn4rL52v4k+NZABPwOT13QUOkoIA=; b=NgYJAa4QyPYZkaaZUq0hhnRk0o
+	o9/7hPkX3aBDoMnLu6eyVVPLaaGlZYLWxJ3t9bFnduU3HBeTz7XECac9uWeoEbMi4spSwFcuPfgeV
+	1zG2cYHVYNpgmb9LuIkcvdgFPVfqNblWCd8frOQ6fPCrVMR8y1144Gbk3DZaFki8K+VgIuqyVTFqr
+	Yght+G9PyVo0/YbGNwzdm3uRQSWoMqsEE6z2WyC1PuBsfw2pZ7lpZg6tMq26ZMVBsLyhqHUgrENK9
+	xNJgp7X6PsevSLUHf9QVWGD3Yp0qm7XYMw5HFS35OcviXqLqTtFAQmVkRbPSIOBjLFvbbGC/E5XQy
+	pNoEQ0Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNtIj-0000000GsjE-2elx;
-	Mon, 02 Nov 2026 14:46:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xNtMS-0000000Gtt5-2ndw;
+	Mon, 02 Nov 2026 14:50:12 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNtIi-0000000Gsip-2g07;
-	Mon, 02 Nov 2026 14:46:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C830F600DB;
-	Mon,  2 Nov 2026 14:46:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51E231F00A17;
-	Mon,  2 Nov 2026 14:46:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793630779;
-	bh=1ed4ABVb5WuZx7ievrj1cvm+vrmzhLmj5yV4zTMhJQg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kTIJkYx932KW0rEFWbZ55+lbTtsZKF+4aG6/wsWGYG04/dedotlgN7zujoh8O2jQf
-	 z+v8UjodVuo6CFRkW679nsHC4p/DPLC4jCFE523SoM4wk8cUzXSXbnZVaUMoCJZXuW
-	 H7iYQvsi75Ucn/GauIsg7HpX1mHcJ3IuY+tXkV7YDSJu67E7yGUYsr0Ucvq2KDygtH
-	 1ZYEkQ7mdXkmN3HmICVak/FMRLN+Vy77pVLZFXMKyUiGTLR2X60Yuk+8uWN/N3swsi
-	 c+MBOCgIpfmjr3DeQn+wDTIRHm+vegoCu+ll1N4Ajue1ZEef9SKd6+TFT5wGzqqYYc
-	 +SCxPpRiNg7XA==
-Date: Mon, 2 Nov 2026 08:46:16 -0600
-From: Rob Herring <robh@kernel.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: linux-arm-kernel@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Yendapally Reddy Dhananjaya Reddy <yendapally.reddy@broadcom.com>,
-	"open list:GENERIC PHY FRAMEWORK" <linux-phy@lists.infradead.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:USB SUBSYSTEM" <linux-usb@vger.kernel.org>
-Subject: Re: [PATCH 2/9] dt-bindings: phy: bcm-ns-usb3-phy: Describe the NSP
- variant
-Message-ID: <20261102144616.GE1232511-robh@kernel.org>
-References: <20261021172819.668120-1-florian.fainelli@broadcom.com>
- <20261021172819.668120-3-florian.fainelli@broadcom.com>
- <20261030182151.GA1206797-robh@kernel.org>
- <e25714a5-98b3-4a0e-ad9a-a644b5485749@broadcom.com>
+	id 1xNtMQ-0000000GtrD-3L9c
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Nov 2026 14:50:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=US6yATeh3UOvhX8AAtu1guU6FP1XXL0YPYvJjFe8S1HewH6QY013iRIuVWFUym5VwXiQsK1Hash/PrJVffH1ItHAn0SptWpf83s33oCoRN6g5lMRkrkD+hdwB2gqC6G33hkI8gSzGPFNTvvbdkudmTI6jRtK7FmxUkvSMsExH7C5nLKUVN8/d8wAuzOjlhjT5NUMGghyxnghqPRtLQiSiuXLQNin8ntZXNi13TQLWreVdkNLgUqYguaMHrk8DiFhPljUoayZtRTJ7PVZlQ/K8iJDFKdC45l0ILZRr1sIUD5YUaoRAHVCXIenjsgKzgN2OxeODrGQLs0QxOPdXM0atA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0X4mXGhKygq3SXERn4rL52v4k+NZABPwOT13QUOkoIA=;
+ b=lQ9Kvmt4Bi63Md+a3+gNi7hItIsCcZ8UzixHnIrNwjqBfJ0Sz55PZC+1IrJhIGlBV6HJ3UpUZxIN2INRJVWY8e4TxVzrxKClFqMp1CDT3ek/nxGKEu6zt+kBtHxA6ipHEoBZ0wHxV0SyL11MS6N1OH/lLqdTwiNSgsbeb7sgw3LkjyVLR5/4GWOr6WPokXL3STg5OjXzU17qoiof7VZSnTCCEM93X+836208t6V3qdldc7TFXKgvL+RZJBuQ8TxTDumiq2hhji2gT44ADk9AKqfr62OSuIk+hJ92NkgqnLD9Qt9fLjTcL8xOwO42xEw6fT4LPUp7/Cmg3O6rkqwRJA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0X4mXGhKygq3SXERn4rL52v4k+NZABPwOT13QUOkoIA=;
+ b=RoLKWotlsY+BvznjtQxLYUS9/1JnF6CstrdbVM5iM/I0unrcNLEmJ/UuEpnQXKK+2jKH41pvFvXMw0djny+W0Y7YnQeTtATjoxCPIuNZmhKtJwMjjMvz6IQVKmnciSqMrYAOlxhoTnfzxCgrxfIfEetdviaDJyiw8mCjN21RotFSTYVeaRvKUlFjL3ZfwBZ92jhG4QZV/Eptz5coECxDxgW1ddstwtou4CFthfZgRiSMRrzDHb+1vTNZBhfIIk8CUve7wcmRrgCOxF5s9A6FqaNzxYNSSbAkWkhOX40ncMCUgFTxrpEQ8JcPuK3uaXnlikQCvMU0u3S7yvtY+TrZ5g==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
+ by GVXPR04MB10633.eurprd04.prod.outlook.com (2603:10a6:150:225::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Mon, 2 Nov
+ 2026 14:50:01 +0000
+Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
+ ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
+ ([fe80::a551:cde0:6730:1d85%5]) with mapi id 15.21.0569.011; Mon, 2 Nov 2026
+ 14:50:01 +0000
+Message-ID: <1cb65dfc-78a7-4cdb-bb39-c40b980b2504@oss.nxp.com>
+Date: Mon, 2 Nov 2026 16:49:47 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: Enable PINCTRL_S32G2
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chester Lin <chester62515@gmail.com>,
+ Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+ Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+ Jacky Bai <ping.bai@nxp.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Srinivas Kandagatla <srini@kernel.org>, Alberto Ruiz <aruizrui@redhat.com>,
+ Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org,
+ Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ NXP S32 Linux Team <s32@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Vincent Guittot <vincent.guittot@linaro.org>
+References: <20261102141635.3768024-1-khristineandreea.barbulescu@oss.nxp.com>
+ <2026110233-unlocked-outclass-9584@gregkh>
+Content-Language: en-US
+From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+In-Reply-To: <2026110233-unlocked-outclass-9584@gregkh>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0134.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:b9::8) To AM9PR04MB8179.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3b5::20)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <e25714a5-98b3-4a0e-ad9a-a644b5485749@broadcom.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|GVXPR04MB10633:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3be45614-7dfa-4232-583f-08df38f09293
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|376014|7416014|19092799006|11063799006|4143699003|56012099006|261009223027099003|261021121427099003|10067099003|18002099003|22082099003|261102123227099002;
+X-Microsoft-Antispam-Message-Info: fIIj0WBc1FJHNDbitwPSJrStR4SxEwA2RpMqdRBMZ2lLxrOGeUeeDYxuH8FKhvR7QaZT11BVoqdO8o9bxBqu+tHNHIVdW+jplMRMEnfZi01Qlo3UERB7EqFAt+/ouWhAwgJwC7+6uVsFxsWEfW+eLnMJGxAiH0T0OyWNPzRxv2xX5+w6gQSfBBbdV4qmoduqIy6vvUfj+9Zxl6H6k5KZ1f0reefxhwo5sJsaCSBSIrbaIWXspxo0/40l3ylcSnHK6yYRZmQOsHX4u88HaGSUAruUteR01JCkwW3MISkPSW6f22ffhK0eYk49fyotzZakCPVP1gSs+E+M3n6muTa/BG47Y7B+SCBtXMQvKGHz5qptfPExkNYHMc0sLyGz3LlX9e9HZhUexFJdlHvmkTUITx/p0pFF/CcJWo5EyXIWr4tEmZ2qSCyLz4PALgOJnHIA45dg5OdQWkcky+ORIaPCbELiZcldOGyCoqHxZR8+AUBOC4VmfkbRCVA/NuIEgFIX4wTDyC7YLe+joGz4XaL7rvSxgcVZf8vXemZXru6GpxPLPANTi5NcPEM9RAVH/rBy+agGwsTRS0SDugnWUkQL4zd6MGq3JN4P5pUYJtXvqZF6QzFu7jYTjo7Bt3ny2q2nt+aDGBcaYr4Eye3xRudZW58lOTdrEVfqzNVG23s+zxI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(376014)(7416014)(19092799006)(11063799006)(4143699003)(56012099006)(261009223027099003)(261021121427099003)(10067099003)(18002099003)(22082099003)(261102123227099002);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eDRNM3hGWkNHaEFkNks0VEsvSFZFSVVmR2NDaHk1QTNNb1ZHN0FpaTcrK3lz?=
+ =?utf-8?B?ZDNGakk1bDk5cUFoRUJkakJ6N0EzQWFiRUlwSUdRbXJwZXowUWFvN2ROd2dr?=
+ =?utf-8?B?ekNiSFpJNDBOUFkza09MZ2trZ0gySWRoSTJIMG5SUzZhR3NVMW5DVjQwRlpH?=
+ =?utf-8?B?Y3VJWHl2NGFBczBmckRPMkc1cVlDdDJvUkJ3OXc3MUdQY2VXUWZRdWh5dXlh?=
+ =?utf-8?B?Ukl4M3FUNkI2L2d4NFBXK1FqSzUycUJQOTR4aVZKRTc4Y3d6Tm1lK1F2SkVY?=
+ =?utf-8?B?RWdXSWZTN2psOXJWc05Ha25oL004TWhMMCtibE4xK0FzNjZiaE80aUpPdTVh?=
+ =?utf-8?B?OXM5dG1ReEtmTWIzcFZzN3B5TG5mTzhidlNhREQzM0ViV09BOHZyMWNBYXFH?=
+ =?utf-8?B?UDVINEpzVmVuWXcybHdOQkdydnFGZEh0UjB2bS9pVjIxbFh2dWlnWVVxQjl4?=
+ =?utf-8?B?VzZVdHJHV1QwS1Q3WnBTaUF0WVM5SWFPMjFuWEFRRnQxM1lCQlhCQ1pXeGk5?=
+ =?utf-8?B?QXZZcEdDVG92eUpTSXpNbzVDVmErUUNVVzk3TnRFd3VmNm53aFFtUlQxb2d0?=
+ =?utf-8?B?V003MElRNm9GZWdqRDkxWTZiaUpQckRsY2kvSnArUkY5eHAwbjlmMFYxY1l4?=
+ =?utf-8?B?aGU0eTIrSHZFKzk4NHhsNE1Ib0FxNUtHaU1iSEVjT3R1QzVmb3E4aXpCZlcy?=
+ =?utf-8?B?aTZ1OWJvUVIwT1NmeEI1S2g3TVdFTHVBVUF4QU4vMzY5QjlkT2p2THhHbzBt?=
+ =?utf-8?B?ZVpmMDRmd2x6YVVVTitIbkF2RGVwelRmTjZSUVVxbnhVc05CZE53TFJRdG1X?=
+ =?utf-8?B?RDhqQ25VN1lxazlNSkVYdzBoajRvbVBnczc3L09OUHdYK0lxWUhrMW95OVNh?=
+ =?utf-8?B?VmsvcXRPeTM2TS9BTWZvejNqZ3IxdERGQWJqbDRCNzJUUjlQUVgvSSs3bHhM?=
+ =?utf-8?B?VXRGMU1rOHcvdkZkYU9QUjhEK0hEdlJQTk8wNUxjejBsbHdUVCszejc2eGZ6?=
+ =?utf-8?B?Mm96RlA2N2NmOW03Y0h6akkwRE5RQmc3VWZmYXVGTWJmVWp2SjZYZTk2MkI3?=
+ =?utf-8?B?MUF3TG5nL1VlL1VvZnhJSkZXbjdwSHoyWEpvZitGM0RTYjN3R3dXMjJmbjdZ?=
+ =?utf-8?B?aTNWVVpkQVc5bE1mVmdRY1hNdmc0ZFFrR2pvRkxxeFJWbE9aK0tOSlRUNC9L?=
+ =?utf-8?B?U1VlbTdkbmJ1Y1A1UDZxRytXUG1zdVU5VTNPemx4K0hCRHBOWGdFQmV4Z3M5?=
+ =?utf-8?B?U2pqR081L3BMcUJsRjhCLzYrUWNmOTJFVDZaZzY4akhWMERSdHhsbVdubjd5?=
+ =?utf-8?B?TGlYMWN6MzZaV2ZwWGpBbVRMTGUzeXBxUWNDa0hkSkpmTmU3TXEvZFVIYllF?=
+ =?utf-8?B?NkprT3ZvMGRQN1VQLzR2VDd1eHVYZU8zNUJKSVRWVG9GVmZvK0pDamNVRi9u?=
+ =?utf-8?B?S0FKTnlDUHlNQTJFVmtpYlc3eENYVFVwbmJZNFdYdWZCSThZTFpZZXNKQ3Rw?=
+ =?utf-8?B?aGlRRkpVRndJWlFwa2RhK1dMdUhYWU9CM3JrRmMwcS9zZ2xaMXNwQ05HeXFS?=
+ =?utf-8?B?OGhUSzJvN3NDTTFWZ1JTRG54TW9ETkxTL1Zicnc2RFVRN1BTK0t6YXJYaVVi?=
+ =?utf-8?B?bmxrSEZFc2FaYlRLUmFZVmpIY1pOR1EzTFRXZXpqamVzdDYrZkc4Y0h5bXh0?=
+ =?utf-8?B?WDUxdUZVV2taalRMNlVJRThEdnYyWmxUdEpRRkVqakRaNGFCRE51TVlJbUJV?=
+ =?utf-8?B?UVQwZ25SaFJGRG1JUC9MQ0o4NFJxRWFuemFCTHczNkliNnBMWUNmYmFqdDVK?=
+ =?utf-8?B?UnNHTGFEOS9DTXNtU29sWDl0cWM3K0tub3VMQ2xpOFlOZHFoVkJsaHc1ajNx?=
+ =?utf-8?B?NWpFQ3c1WUJoVVFZdVh3ZVRiSzFKMUJsMUxoUWhnd0l3TzcrbkJjY2pMeGMv?=
+ =?utf-8?B?V2lBYVpLcmpCR0p6cENucXA4eDl0WmhBcWJiWGhKT3NkOE1aQ1A0dlZPNS9N?=
+ =?utf-8?B?MXE5SXE4SWhySVBWY1FMMDF4R2pxRW11VS9pZlhuM1NrU3ZrV0pCQzRnbHQv?=
+ =?utf-8?B?MnZncGdlZks0RHdPV3Buc2NyOHlCdmdSQVRiblZQeWNXek9JYVhnTWM4Smhu?=
+ =?utf-8?B?NExDUmZ0U3ZDS1RsWnRxdXpzWFhsZHFEQUZqSmE4aWpJaXYza1ZOWG4yL1JP?=
+ =?utf-8?B?djl0ZWtqL1ZKV2d2bHQ0ZWFwZU5JR0pYMXZkeGhUYWVaclFNMURsRzIydnpK?=
+ =?utf-8?B?TDJ1a1hwb1ZpMG1YSDI0UmhCb1ZjNFNBNXVEYlAvUFNpU3g0Smx2MXhPMWZI?=
+ =?utf-8?B?RThKTXFBaGY1dFg4ODUvL3BZemhibW11dDZZcUExQ3Vwb3lMa2o4S0ZnVzFK?=
+ =?utf-8?Q?mBzzjqqM9VwUM/KUkhiJLrGQPIMzkIi/Dl4zJ?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3be45614-7dfa-4232-583f-08df38f09293
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 14:50:01.4314
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: v4TFg04MLuhG8w7N+6ULfNcLcI/WxQk+gOHiiVM6nQYUy7/xt8YA83KDkd1ORtc1ec5/wt9/J13+QpFGtxBjSm/Q40i1woKni7ofK3DT72MW8Q+6mMJxWQfC5dAsjZG2
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10633
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261102_065010_843152_0C543887 
+X-CRM114-Status: GOOD (  14.55  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,60 +166,51 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 30, 2026 at 12:14:52PM -0700, Florian Fainelli wrote:
-> On 10/30/26 11:21, Rob Herring wrote:
-> > On Wed, Oct 21, 2026 at 10:28:11AM -0700, Florian Fainelli wrote:
-> > > Northstar Plus uses the Northstar Bx PHY register sequence but also
-> > > requires coordinated USB2 and USB3 core resets and a USB2 IDM interface
-> > > clock enable.
-> > > 
-> > > Add an NSP compatible with a required USB2 DMP phandle. Describe the
-> > > shared PHY relationship with EHCI, OHCI and xHCI so initialization
-> > > finishes before any host starts operating.
-> > > 
-> > > Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> > > ---
-> > >   .../bindings/phy/bcm-ns-usb3-phy.yaml         | 23 +++++++++++++++++++
-> > >   1 file changed, 23 insertions(+)
-> > > 
-> > > diff --git a/Documentation/devicetree/bindings/phy/bcm-ns-usb3-phy.yaml b/Documentation/devicetree/bindings/phy/bcm-ns-usb3-phy.yaml
-> > > index 7fd419db45d0..00d69b86cbff 100644
-> > > --- a/Documentation/devicetree/bindings/phy/bcm-ns-usb3-phy.yaml
-> > > +++ b/Documentation/devicetree/bindings/phy/bcm-ns-usb3-phy.yaml
-> > > @@ -14,6 +14,9 @@ description: |
-> > >     Known B1: BCM4707 rev 6
-> > >     Known C0: BCM47094 rev 0
-> > > +  Northstar Plus uses the Bx programming sequence, with coordinated USB2 and
-> > > +  USB3 resets. Its PHY is shared by the EHCI, OHCI and xHCI controllers.
-> > > +
-> > >   maintainers:
-> > >     - Rafał Miłecki <rafal@milecki.pl>
-> > > @@ -22,6 +25,7 @@ properties:
-> > >       enum:
-> > >         - brcm,ns-ax-usb3-phy
-> > >         - brcm,ns-bx-usb3-phy
-> > > +      - brcm,nsp-usb3-phy
-> > >     reg:
-> > >       description: address of MDIO bus device
-> > > @@ -32,6 +36,13 @@ properties:
-> > >       description:
-> > >         Phandle to the DMP (Device Management Plugin) syscon
-> > > +  usb2-dmp-syscon:
-> > 
-> > brcm,usb2-dmp
+On 11/2/2026 4:24 PM, Greg Kroah-Hartman wrote:
+> On Mon, Nov 02, 2026 at 03:16:35PM +0100, Khristine Andreea Barbulescu wrote:
+>> Enable the NXP S32G2 pin controller driver in the arm64 defconfig so it
+>> no longer requires a manual "make menuconfig" step. The symbol selects
+>> PINCTRL_S32CC, pulling in the common S32 pin controller support used
+>> across the S32G family.
+>>
+>> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+>> ---
+>>  arch/arm64/configs/defconfig | 1 +
+>>  1 file changed, 1 insertion(+)
+>>
+>> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+>> index 7b4985b29b21..545a2b7db8a5 100644
+>> --- a/arch/arm64/configs/defconfig
+>> +++ b/arch/arm64/configs/defconfig
+>> @@ -704,6 +704,7 @@ CONFIG_PINCTRL_BCM2712=y
+>>  CONFIG_PINCTRL_SKY1=y
+>>  CONFIG_PINCTRL_IMX_SCMI=y
+>>  CONFIG_PINCTRL_IMX91=y
+>> +CONFIG_PINCTRL_S32G2=y
 > 
-> That would be inconsistent with the usb3-dmp-syscon property that is
-> pre-existing, hence the name chosen here.
+> Why?  Shouldn't the normal platform-specific defconfig work for this
+> instead?  what defines the arm64 defconfig to require this now for all
+> arm74 platforms?
+> 
+> thanks,
+> 
+> greg k-h
 
-I'm not sure consistency is really better here, but okay.
+Hello Greg,
 
-Rob
+ARCH_S32 is already enabled in the arm64 defconfig, but the supported
+S32G boards also depend on this pin controller for their pin muxing.
+Without it, some peripherals never finish probing, so a defconfig kernel
+cannot boot to rootfs on these boards.
+
+Regards,
+Khristine
 
