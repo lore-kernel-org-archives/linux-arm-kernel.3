@@ -2,64 +2,119 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11545606F73C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 06:47:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7730F606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 06:50:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lb86l4rl;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MXJY8ES7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gybD9m3l;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aiUUzn6v
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=nkhheCwH9L+tBFyhGay7Do8wQju4PMsW+7y8pV5il6M=; b=lb86l4rlxS3fHqXonLatt4UzR9
-	3eU8KmPKh0TycVjF/Urlv2pFe+l0YY7dWRNo1af3FK97xn+T6N2wfO0vI0at2DOYkvbSpTC9r/N8D
-	z0UhGhpeA9geRj+Jv2iLBlz6oWlr4JC1B4Ad9HLhUCvC7E+ATMeaz9/eAtY/qnFfPswU0/1wZRhf6
-	j3QUwnkp8QH45X9eEWyztAl0QqPKdMW+1MJ96pT/NJfoPzpXfBp/jf7ZsBuXCz2ZMkB0I/3XYk9Gn
-	KBN7udggcRHiB9zG8pZOKo4wV5P5pYcnFClLRm3uiy5BCH8USJPo34fwCJrPkDfml30cc5qsles4c
-	LqWEj0mg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=HtL+dUx5zijYY0B+lc0w6A3fJyitr/WFBbFcx2fVy0w=; b=gybD9m3lkfsjgu
+	EMs7ZAZ3sC3/gxrG0N+TfM4/ZGm3TrYRIGxqHls8v/Or+30h4LvqNPOM9UZVRNw6fMPEXNYUl+nLg
+	y/gyFd6basfmTORFII4dAjhgg0w5C6F544enFlUlzy6HB4ZWMkzLnpp5ywovYuY+4Qr2J2OYny6lp
+	VChTxYecHYFJDYPtgIuCCgB3G612M8TMYt+0gGRis2eMxvmsy/bRHuN4fibKVFQHQaQs5ocKb7ilA
+	q+TR3xKVXrwJy5sA/RJ9/H3Rh/w59+1dnY8Ciy+Htha6lRxg9igDk7Neh8WSsc9X+Podr4PlO4lyu
+	VhtQQ9KZQkj9eCftbkxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNlp3-0000000Fgww-09Uk;
-	Mon, 02 Nov 2026 06:47:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xNlsN-0000000FhBO-2Df5;
+	Mon, 02 Nov 2026 06:50:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNlp1-0000000Fgwk-3tDq
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 06:47:11 +0000
+	id 1xNlsM-0000000FhB1-2EIL;
+	Mon, 02 Nov 2026 06:50:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 15A0E60F05;
-	Mon,  2 Nov 2026 06:47:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1AC21F01804;
-	Mon,  2 Nov 2026 06:47:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DB87B43B0C;
+	Mon,  2 Nov 2026 06:50:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2CF01F000C1;
+	Mon,  2 Nov 2026 06:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793602030;
-	bh=nkhheCwH9L+tBFyhGay7Do8wQju4PMsW+7y8pV5il6M=;
-	h=From:To:Cc:Subject:Date;
-	b=MXJY8ES7gUSMSqhE1AbpYrMtXVwsh4cC3DFQNxc+Efi72XLezAXCqXCXFnlQJp9IG
-	 IlqBs4ZoDzrAIABwevuNn8Az+TPQg8zUNUnRsHxtfu+jHPgDkHqO1mD/ws2CZLtwXP
-	 exlpI0MTBErXVAiR/4Q/is1AgJ6JDjpPA4AAbkTen8vo57oMy1BaepUe9yceQKsRwa
-	 oZxmn/Gd85MFkWnEXJ4i54kpv+7Z6tBiVE+90Nk+zW4iCMEmY7XLaFIlvNwxKi4H+y
-	 4m9IV6BZ/maJMuaETyYndNoxuzCvnxQynl91UBW98CQL6/TXjYcbwzp0QAikwwJkRp
-	 GzgzkDKIiDd3A==
-From: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
-To: torvalds@linux-foundation.org
-Cc: linux-kernel@vger.kernel.org,
-	"Jiri Slaby (SUSE)" <jirislaby@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-arm-kernel@lists.infradead.org,
-	Scott Branden <scott.branden@broadcom.com>,
-	Ray Jui <ray.jui@broadcom.com>
-Subject: [PATCH v3] MAINTAINERS: fix bouncing {sbranden,rjui}@broadcom.com
-Date: Mon,  2 Nov 2026 07:47:06 +0100
-Message-ID: <510bf9b037c522ccfba270926c95170291115ef3.1793602003.git.jirislaby@kernel.org>
-X-Mailer: git-send-email 2.56.0
+	s=k20260515; t=1793602237;
+	bh=HtL+dUx5zijYY0B+lc0w6A3fJyitr/WFBbFcx2fVy0w=;
+	h=Date:Subject:List-Id:To:Cc:References:From:In-Reply-To;
+	b=aiUUzn6v7lPyJuBR/8K4DSaWmIZxkxL2xuN5GHlkfQc1PvtcIO4pUGsVGvz+V4CRZ
+	 /+KnnBdTbIBSJFZBvNeFrFyAg0lqpe3Q/xc4QOfP1FjGWQoGLLVADDtH5ITUdw/Dbl
+	 yHXF2V7WjQsNXI5HERbWp8uHdNgepUfOgmz+VZiGwCPy2UgnoXPLDmbalWWdKJyIQ6
+	 Y6bgtLA0uhIo004gm/eVsgFV+/4jYzduNwueSQ4BjC1jWdV7ZGz8q7ar2ytYQJfZBr
+	 Kojp04d4gIvpdPLGbUE5fsvPGolAalIyIP19Yqs5mw/CtCnvUZAGzi6XtmKMlWrIXc
+	 kaS6aQUNPYtsA==
+Message-ID: <3ba0259a-f675-4fc6-81ec-8ed49bd104f9@kernel.org>
+Date: Mon, 2 Nov 2026 07:50:29 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/8] mm: Drop pxd_ERROR()
+To: patchwork-bot+linux-riscv@kernel.org,
+ Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-riscv@lists.infradead.org, linux-mm@kvack.org,
+ samuel.holland@sifive.com, rppt@kernel.org, akpm@linux-foundation.org,
+ ljs@kernel.org, ysato@users.sourceforge.jp, dalias@libc.org,
+ glaubitz@physik.fu-berlin.de, James.Bottomley@HansenPartnership.com,
+ deller@gmx.de, chenhuacai@kernel.org, kernel@xen0n.name,
+ linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-arch@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260831054331.625505-1-anshuman.khandual@arm.com>
+ <179357139104.2624073.10186400247460209292.git-patchwork-notify@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <179357139104.2624073.10186400247460209292.git-patchwork-notify@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,74 +125,24 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-23.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+X-Spam-Status: No, score=-10.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Both emails are bouncing like:
-  Final-Recipient: rfc822; rjui@broadcom.com
-  Action: failed
-  Status: 5.1.3
-  Diagnostic-Code: smtp; The email account that you tried to reach does
-    not exist. Please try double-checking the recipient's email address
-    for typos or unnecessary spaces.
+On 11/1/26 23:16, patchwork-bot+linux-riscv@kernel.org wrote:
+> Hello:
+> 
+> This series was applied to riscv/linux.git (fixes)
+> by Andrew Morton <akpm@linux-foundation.org>:
 
-According to Florian, it should be first.lastname@broadcom.com.
+What's up with these weird messages? Can we ... stop them please?
 
-Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
-Acked-by: Florian Fainelli <florian.fainelli@broadcom.com>
-Link: https://lore.kernel.org/all/688738af-100b-48af-bee1-4bcbe4422f94@broadcom.com
-Cc: bcm-kernel-feedback-list@broadcom.com
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: Scott Branden <scott.branden@broadcom.com>
-Cc: Ray Jui <ray.jui@broadcom.com>
----
-[v3] just resend, noone picked it up yet
-[v2] fix emails instead of their removal
----
- MAINTAINERS | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 04f465490612..88e010e78eb4 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -5318,8 +5318,8 @@ F:	drivers/iommu/generic_pt/fmt/*bcm2712*
- 
- BROADCOM BCM281XX/BCM11XXX/BCM216XX ARM ARCHITECTURE
- M:	Florian Fainelli <florian.fainelli@broadcom.com>
--M:	Ray Jui <rjui@broadcom.com>
--M:	Scott Branden <sbranden@broadcom.com>
-+M:	Ray Jui <ray.jui@broadcom.com>
-+M:	Scott Branden <scott.branden@broadcom.com>
- R:	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
- S:	Maintained
- T:	git https://github.com/broadcom/mach-bcm
-@@ -5616,8 +5616,8 @@ F:	drivers/net/mdio/mdio-bcm-unimac.c
- F:	include/linux/platform_data/mdio-bcm-unimac.h
- 
- BROADCOM IPROC ARM ARCHITECTURE
--M:	Ray Jui <rjui@broadcom.com>
--M:	Scott Branden <sbranden@broadcom.com>
-+M:	Ray Jui <ray.jui@broadcom.com>
-+M:	Scott Branden <scott.branden@broadcom.com>
- R:	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
-@@ -5654,7 +5654,7 @@ F:	drivers/net/ethernet/broadcom/bgmac*
- F:	drivers/net/ethernet/broadcom/unimac.h
- 
- BROADCOM KONA GPIO DRIVER
--M:	Ray Jui <rjui@broadcom.com>
-+M:	Ray Jui <ray.jui@broadcom.com>
- R:	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
- S:	Supported
- F:	Documentation/devicetree/bindings/gpio/brcm,kona-gpio.yaml
 -- 
-2.56.0
+Cheers,
 
+David
 
