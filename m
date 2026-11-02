@@ -2,83 +2,143 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92FAD606A32E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:04:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0048B606A32E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:04:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cI1MFlVq;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=w1WrA+QX
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ssW0fZSl;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=lEAiFJzb
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=huQ0ijUwRXsaVECpM6U2QYII1iXOy65EuxhrHwpGo7U=; b=cI1MFlVqsVhnNY
-	KnoU5JuNIrC+tPmLFcOD9xEtHDjw090y9hJttltl+/cm+plh/4fDF4PMPwiceVufq3V9GE5jUm9oC
-	G54s9Q2Tjg6XTDXkdOsM6vhaCep8spnVmHl2wC7uLmpqR7/pbizceaxVFOH7W7c81L05MSZB64Jgo
-	l/nSkY/wrfpYXqLWpdlVfix5iZC0+yhl8z6LWGwthPYwfHrqqdPIwMTFfHWS3jtlqTaD5084WBde1
-	Zqbbw7PU75bRd+NyE5wGLVJMTZ1uZIR37quOlpbJ3YGgszvOI0TVwnj6g60qRopTty6uzgo8n/Wyi
-	dWHpnQd306CNiSLq1www==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=eM3DKNSJ9197KhMSUbAI+R8YewD6b8ZZFJPcktleL5s=; b=ssW0fZSlH2YhAW7MhD/qedLGz2
+	C3CgvnWQaoso1D/VEyWuzOEp1qT0Ugmab0412pv8G+Qbc3SIx1UowcOYqbrIfKNbS9OLoQnm4U3fK
+	bZi0g4rTwzN+TEXyndFbSkAMiaT4ACjjAgiAkX72uqcxOKu0+Z1znhqiqasfWOE6IAd5CZX/huxmN
+	gHwRkDFkVozjXsnizDT5PeYUv+OjFtgQIRlnNFqzKMHei7Ggd6OL0E4D3fzO0uDljqsPHKwXPWIJP
+	zoG0cqTcBQJQdWnt6+UN031guLhjHsEYyzb8oxdvCsORXhl3zasphwsEWeqSCCWTvazygM5n7A6b3
+	u0wSAh8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNrfn-0000000GXn4-07Eq;
-	Mon, 02 Nov 2026 13:02:03 +0000
-Received: from out-194.mta1.migadu.com ([95.215.58.194] helo=mta1.migadu.com)
+	id 1xNrht-0000000GZ3M-0eDF;
+	Mon, 02 Nov 2026 13:04:13 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNrfj-0000000GXkB-3imp
+	id 1xNrhq-0000000GZ2m-2Osm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 13:02:01 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=UYSZWfHATTfeaAzNdQKHeR6V+/Yl8CVJBkSsVEPXnhs=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793624517; v=1; x=1794229317;
- b=w1WrA+QXLi8ERIeOHNlSSW08IDnMTvbodcd01jDJYbndDE8XcnceRkgwaZajVkfebLD99U5c
- KMXFUK93hcUtJIMwkKzuQK5HQtHivoc2Yi/TxIq/nWxxli5mHHPPm7X1ipChArN48ktqLmRGbNC
- aeuWQAfFF0xBQYWg9W/ta51M=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id c86092ad60db5f7c;
-	Mon, 02 Nov 2026 13:01:57 +0000
-X-Mizu-Trace-ID: c86092ad60db5f7c
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Sebastian Ene <sebastianene@google.com>,
-	=?UTF-8?q?Bart=C5=82omiej=20Grzesik?= <bgrzesik@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Vladimir Murzin <vladimir.murzin@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Zenghui Yu <zenghui.yu@linux.dev>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Radu Rendec <radu@rendec.net>,
-	Fuad Tabba <tabba@google.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 04/13] irqchip/gic-v3-its: Page-align ITT allocations under protected KVM
-Date: Mon,  2 Nov 2026 13:01:24 +0000
-Message-ID: <20261102130133.3684226-5-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261102130133.3684226-1-fuad.tabba@linux.dev>
-References: <20261102130133.3684226-1-fuad.tabba@linux.dev>
+	Mon, 02 Nov 2026 13:04:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yW9sfKLebmyflz5DZ06ZsgNZMmtlKJrG9t4XGrN05K7HBkx/P/i8PYN4Cj9+qoQIj7sS+HENdvCdTOCaHH76UzVdEIPPZlMrKruVOxydYA0uNI3UyA8tfrED8yGsqyBFMZNJnnlmEVJsYGW14LPguqZiT+r1LZBHrvDywlXTi8YJxLZFWMuSLcndwTOimVdKtaHjG2gxLfrkQQ8k7bGzPgkklYTs2R1qGDIDLDKHq0EUYwOwn1suS3kYU0HsD8pOjaeHgsNIDW0H/9BDN5ft93+GEYeh8WS68ys7iqxtqWaSjl949p2AikjM8qPa0pITo1wlc5dAEcHYHs+WL/9yFQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eM3DKNSJ9197KhMSUbAI+R8YewD6b8ZZFJPcktleL5s=;
+ b=rr2SFcpFXCnrsYAyFghFxx1+zz6TwVmm9skoN3DDW/IdnwbOGG0fymBdStYROTCaLq5686fsbqQfcjAw7wDO5GdYWEUZiGRGUaHReyq46SIXUNIM1W4BvrmVPdX7uyl1BSU2INev/+RjYDbQqYMCzW6gKIYGQuuzNjacjqwAVqFrquYOFIDNtXhAtCFV/44LQW6RkLAtJQahz0Cs4jYSaMlTZB/d9YcM9nGJzaWyc5J7mJf+IM+Ay7xxn8rIu5NXuJoefM64/NSAB/dJnT5bhxxQCAQQA7s17TAJ9WKFmVT/DfmwTiXDrAGJ/O8vQI03XWd5PYGN4kJyw+NUBYsmOw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eM3DKNSJ9197KhMSUbAI+R8YewD6b8ZZFJPcktleL5s=;
+ b=lEAiFJzbozsffkr2aGEjQNR721Eow0++/lOJ5OYcljnvCcoNc1FhrcmU1P+ypklNYvT6odAb6K8nDo94cOG73oknIVolnhBz0LBNBkvB3pV5ctNblCqoZZl84aAGYngnGaMFySlW+rLGGv5i7bIeUd+rMn/h+1JXE/ysj5lKrm1rswwtFVTPf2YsmyzusFcduw/ZhU85O/munR3bcK/rNEafVZJE0cPND/bDwXtPf6hAGkjeUKlmWFDxqiLf7N7nAV541fHcS8K0ly5Pncyizi9P8xmirf2897QcjLrxsF/3nALWa5FQ8WBXE/VeRy9WKNky48+kcX7M/CE6dV95FQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by MARPR04MB626191.eurprd04.prod.outlook.com (2603:10a6:250:201::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Mon, 2 Nov
+ 2026 13:04:05 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0569.011; Mon, 2 Nov 2026
+ 13:04:05 +0000
+Date: Mon, 2 Nov 2026 21:08:54 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Stefan Agner <stefan@agner.ch>,
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 01/11] dt-bindings: gpio: vf610: fix clock requirements
+ per SoC
+Message-ID: <auiLZh+aBGRPivtT@shlinux89>
+References: <20261029-gpio-vf610-fixes-v1-0-45b484b4c434@nxp.com>
+ <20261029-gpio-vf610-fixes-v1-1-45b484b4c434@nxp.com>
+ <20261102-curious-economic-grouse-ccfd6b@quoll>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261102-curious-economic-grouse-ccfd6b@quoll>
+X-ClientProxiedBy: SI2P153CA0011.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:140::14) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|MARPR04MB626191:EE_
+X-MS-Office365-Filtering-Correlation-Id: ae70083b-fdf1-4cf1-abbb-08df38e1c601
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|19092799006|18002099003|22082099003|56012099006|261021121427099003|4143699003|11063799006|10067099003|261026121527099003;
+X-Microsoft-Antispam-Message-Info: qTJ/KAGwT/b/BgNJmEfH+AoWB4vVJKWtxdGe1IT6MxQDOKVepA5l3vkVmRVp1g+34bLXvOAslvJox1gFsNC7maKP7UQw28N++/5uDSedOqmmmPLMIHKTVd0BYwmeAQ5vgPLmCvLU2JrbCckL9dUzN9pNE6pOKNnwdr8Zh9DEDBplVTrWolPtDD2Ch+bA/drUcMNljJeOgNRZl8q6bRKdX/keGpb2K77aQXs2y4hFevBz+9ZJ+YAaLhCaGzfD78QtfAL019g4boo5gzvQw2GrkL3gHS/muSacXK+Uduue9IB2bok95oheeubmnW5dIPgNHBy+MHzFwAy0jzUUmoxGY3mZG9unKe7vosPN3D9mo97w8M24xgT51O5C63TY7IuVFV5bowzCnHSc324Eq5tQCIU+Vbwt3M2r+deOyXnWj4uJWXz3rOPxZuICg+CjjqIRbpI727wAy1oHmmvjP4RPJ2kK5/4PQiL+sNoN7yeNtm+377CJMML5c9rhJz39LmaxU0tFyseEZnGgW8KgXyeKwUhYpRG0gQ0CU4uCNcvLIDkHxuxsQR+eVduN14C26SaaFI3xbuS2jgP4nJvD7TFr9L9HbAN5amoTlzVl6uBNkRgzth2fep8PQDJcdRRfI5U0AvK7lpIdYLayBOyQyR8nHqER2WOZy7ZJ/b3GsM9dp90=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(19092799006)(18002099003)(22082099003)(56012099006)(261021121427099003)(4143699003)(11063799006)(10067099003)(261026121527099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rp0xObV0r4q7jF2F20SPX5IViXzBqhn9eFDCgh/TJnd+GhsTeDxwQFsDpcZC?=
+ =?us-ascii?Q?jDjFIYPV4FjbJEmC8+duLgWpR3rFPpH+a430kUBD7SfucKDw+aruBi0M7JWO?=
+ =?us-ascii?Q?J8flRE3l8SB1L9EtJWUpvZE5tAHbLyiwdalwenrJlClQJWOweEF+B8g3nnAQ?=
+ =?us-ascii?Q?RyN9SEbbHHfP/Da03UZ2cM52MfXGu0Pom8RCjKeNMn37aQRxzPJ6xj0kktnT?=
+ =?us-ascii?Q?wq3kNQNVgvmHeHLuGPv+72p317XjksORGvWFz/FTb0FLjY23QFEAdoBwzfiU?=
+ =?us-ascii?Q?EYGhTgPQ9T46I3m942uqDF7QkQmxTUtyx3wRqJykE4f/0KIsYnVsiTx/oJCZ?=
+ =?us-ascii?Q?mcsU85G10k2Y48zH4g5cPYfq9by5WU3S3rvwEHIwM8XCZRt1kERi2XCzZGPU?=
+ =?us-ascii?Q?GyYvC9rqBkKB2EVQU2Qs9v/WSse9FKA/IAeIWfqj/trPNTR71OY+K8lgD+ny?=
+ =?us-ascii?Q?Wv5RcwCr1yFJJTvTanEzM2iJbNJAU5tvVo7F22AgVdyOOIPGGQbxqfvpO12X?=
+ =?us-ascii?Q?PqPSWfJkHVBrZsLONnBH0wcuqpemGr3DnMXIL40HrX3uPfALnsisr7mDQARg?=
+ =?us-ascii?Q?OhkBQSj96jrpu+Mf5KDZBMHkl2S/bdVw//OV9xKQyrShkuGRZzjcmmPhBCRk?=
+ =?us-ascii?Q?oQ2s0IT02pJBdAAHIuhNOYBP65y+05AjK2Qekje3llkiTXMk5o6xruLWOMkS?=
+ =?us-ascii?Q?c/nWJwIKuqAM8xMgsudL3tGsklJ4FV2mRItwMHx3jCUjyLCyFUZrFaJvl0PZ?=
+ =?us-ascii?Q?HjRFWe7ijnEfJIr8jmUNomge4G/D0i/PbgGRgSVH2FOpbZvhJmAb28RzX8Mg?=
+ =?us-ascii?Q?qIvV3RDjWIH04eMdpLwb2oSd1HqCL8hLJDNVN3+oag0KN7WGXu6QHIjkFAht?=
+ =?us-ascii?Q?uaXXl/yvObhJ0U7pzMQCiI43fOcLI+ENkp3FzJYsQMWRGKJ1mPjoYQIP3arL?=
+ =?us-ascii?Q?/YCiS3ln2P9J3RZaFLOyzU/u0xHqoy1dd5Rn8HNVYm00/LZwkDCFL+CMs35w?=
+ =?us-ascii?Q?rmlKjdojs6JUxtcr3NpmtUSnb+4xrpnev1/S3tL8RiqPIOfed09FdUeP4NA2?=
+ =?us-ascii?Q?9rTQHm+9GpfbeELhyqHHtnfDhFCSIgeYPirol7nxBkyg3+R5SFHhSLJeUAtZ?=
+ =?us-ascii?Q?c3y4tLtORnPWhVfZGDQXukMfd5ec4NA/C2uRXfEwA87AKMbGzWp57nncJLln?=
+ =?us-ascii?Q?UG4Sryg9eyCAK7tK2z3vdytVz21krGYKl5llZsphkgAVXWKBobYdZdeEWwPM?=
+ =?us-ascii?Q?CiUIcueUe7L7WWCviaMDike4kOM2IhpbOEtzvDb85XFkSRJGLKRHAX9++PSN?=
+ =?us-ascii?Q?X6P3Enojz8oIU2PZwsIJSYbFlIXT3AfNd3bAZdiHcL4p2inEqwv3TkPMIbu8?=
+ =?us-ascii?Q?TcX7rhuCg8KB+NPIXZZzHyCbAu/sNcmptjE4VXarPrCNpusuYswKRjbTaoJn?=
+ =?us-ascii?Q?aZ11Sbv7ZNx3ebDs/Wf9pOTCmIOkV0IudoJsOgnin/R1mhjKlUArdMSFgLl7?=
+ =?us-ascii?Q?JWld4uvu3fr6lJ87KHEA5Jv4ULCg0SLxLqWQXTRFKtKC2yXhMV4qSMIu4kv/?=
+ =?us-ascii?Q?Lb11oXCoRVc9VJnWe1Z1gL0wLH1BUC5efD6hzMjw9Twcp7u9Yo1OrLLheGiS?=
+ =?us-ascii?Q?+G6lGcnzbjNg70+5wqgn0F7VLHJTnfTQG6CgtsvUoCyyE6Su9LlGfQB1SsDi?=
+ =?us-ascii?Q?2gibX4SdNZkf5VPDmk5HiOpxM1Z3P46VGJ89SUDUUwAYBnFbsNnzISoal9l3?=
+ =?us-ascii?Q?2QjoAKLCt0JFHKfy+nRCh67iXZUvARQ3ZDiC8UeBnPm+ceir7Aem?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ae70083b-fdf1-4cf1-abbb-08df38e1c601
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 13:04:05.3434
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VEHGixzHKjD844EAucaQWfB9AgzPRxGjqMSKd+RB1HToSKryDq8DMI8p0SAOm5C4D63twFOeua2qbSB8Ppa7HidDXc7oX0uhfkKnmKobGRnStfrOwb3XjdxbzyozzaMa
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MARPR04MB626191
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_050200_073952_8857C4AB 
-X-CRM114-Status: GOOD (  11.96  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261102_050410_622510_B207A889 
+X-CRM114-Status: GOOD (  10.84  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,47 +149,36 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Bartłomiej Grzesik <bgrzesik@google.com>
+On Mon, Nov 02, 2026 at 12:05:47PM +0100, Krzysztof Kozlowski wrote:
+>On Thu, Oct 29, 2026 at 09:42:25PM +0800, Peng Fan (OSS) wrote:
+>> From: Peng Fan <peng.fan@nxp.com>
+>> 
+>> The i.MX7ULP GPIO controller needs both the GPIO and PORT clocks,
+>> while the i.MX8ULP and its derivatives (i.MX93/94/95/952) only have
+>> a single "gpio" clock. The vf610 controller has no gateable clocks,
+>
+>VF610
+>
+>> so keep clocks optional there.
+>
+>You mention VF610, but I do not see corresponding change in the binding.
 
-A later patch has the protected KVM hypervisor take each device's ITT
-for as long as the device is mapped, by having the host donate its
-pages. A page the hypervisor already owns can't be donated again, so the
-MAPD of a device whose ITT shares a page with another device's would be
-rejected.
+Since this patch touches several SoCs, so I just pick vf610(leave it in
+subject) from the file name gpio-vf610.yaml.
 
-Round each ITT up to whole pages in protected mode. This spends up to a
-page per MSI device where a 256-byte ITT would have shared one: tens of
-pages on a phone, thousands on a server with thousands of VFs.
-
-Signed-off-by: Bartłomiej Grzesik <bgrzesik@google.com>
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- drivers/irqchip/irq-gic-v3-its.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 282e4bafb084f..8cc1bd8e7835b 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -3493,6 +3493,9 @@ static struct its_device *its_create_device(struct its_node *its, u32 dev_id,
- 	nr_ites = max(2, nvecs);
- 	sz = nr_ites * (FIELD_GET(GITS_TYPER_ITT_ENTRY_SIZE, its->typer) + 1);
- 	sz = max(sz, ITS_ITT_ALIGN);
-+	/* The hypervisor takes ITT pages per device. */
-+	if (gic_is_protected_kvm())
-+		sz = PAGE_ALIGN(sz);
- 
- 	itt = itt_alloc_pool(its->numa_node, sz);
- 
--- 
-2.47.3
-
+Thanks
+Peng
+>
+>Best regards,
+>Krzysztof
+>
+>
+>
 
