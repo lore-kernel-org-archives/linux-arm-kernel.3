@@ -2,87 +2,143 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F40F606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 22:09:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 460AC606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 22:10:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MNLIvigv;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Nwo3HcNW
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VA0IyOHx;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=aHFKuFA1
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=w2tY55u+HIoZXFSIRIfNeWE5ZAW4zWZlDYWANGIU94o=; b=MNLIvigv4YzF4o+KGrIvdE1Lzm
-	/s9Y8VS9Su1CyJwLZONiAMVTypLxTFlVvjCcn2XRuD0uGXHSDJYy53paR1KWnhgoRuN8i61G6yGs+
-	C0Xwrw4TnhCCDvS4CZbgN3jyj3uBAPtMjZ7gYGBYSPO69516x5m96UPlaEHKSAZxT2D06Pq0cZ7kx
-	4ExFRKVYGRDyAglDFVhM3ihuUAlmFsbH8nS7xHiIxQzjugPEbWu8aTQiDHimwDmuAqU1xGN2OVh0V
-	34R0xGeo9fB/CsAot/SJMk2MKEMQ8mMT7Y+1/APNx2vcFPr5FJ1qwxv9pnE9qZ3TCy5zQfYZo8k++
-	IztbRi9w==;
+	bh=TDIvWnwDtKWjPBeSEijuQwbcWng7n4+0E+Frwtf0vvU=; b=VA0IyOHxkC90G56xsy8YvJlGYA
+	sVO/xsG1p5CNV/dw7ludo+LrFWTkFswBu0kWx1Olg+aSjAZGAzehH2gUDCrXWp646SejzYo3AVOrw
+	l63UkLepj8mG0UyffXJxdbI6lqRMpxn+14PERQBMux304u/Xydj4U0sT4oeWvzb5Nais+xqgH8dM8
+	UCJFP59KdSTWsYPg/uF/VRiDIS4edVbtV/nehwTVY03qp8iOVz2xzr4yqzsi9fGjYN072dYBHV16N
+	9Oz0BY+TmDfLkhCq5dINqbsZQmxwnxpAH2wWI2jwm9ypntp9wYjNqcdPizJs4/3ecUsZLXxDvRDlF
+	qmUwh0LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNyw1-00000000NhR-02cW;
-	Mon, 02 Nov 2026 20:47:17 +0000
-Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
+	id 1xO0Eb-00000000X3p-3OSI;
+	Mon, 02 Nov 2026 22:10:33 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNyvt-00000000NYm-0GL6
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 20:47:10 +0000
-Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-4a210f93860so15760255e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 12:47:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1793652426; x=1794257226; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=w2tY55u+HIoZXFSIRIfNeWE5ZAW4zWZlDYWANGIU94o=;
-        b=Nwo3HcNWnqHXw18lQPxQzuWUVna90zskDKQ/eLtI9PpaVZ+8JxmkE2U0OOrlsVRzNc
-         oU5Y4yw3Pw227rzzhb+m//G/NeolACLK2ewFjKg6rqsfZtcF4GJceZkmSE3XA24w5AcH
-         ruR4KuF7O6ZOgMAzizkWjVq6qXikjeWynsRAVd/KpBzXT9RbTnTdxcS0c6ULRTCybcNW
-         5YM6mrgcdv+jjrZX0ep6ZsKM+cc7CWxtAVTwAu8CZO6saBN9Y5mPxLFLbeAFhk27jOwe
-         M+XL0xhALz9NKWmPjiRp1FJk/PgtuJju3We0YKNgfNKX60DXEsyGctuD4/szBZ9BLM0I
-         /MjA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793652426; x=1794257226;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=w2tY55u+HIoZXFSIRIfNeWE5ZAW4zWZlDYWANGIU94o=;
-        b=mDG+Cqu9QaJMgDZKm7Xa14I/NIGxIPtZqUYTNNtlcA2km5zkjL+FbdQ5SorwL6lv+a
-         ohzR5LLC3P59fjN2pzXFfJyH2XO0ufd+dquSob7Q5mUFwri3Cjl/8vn4XbLDqQsw858D
-         jVw1TfhqRxdok+BowQsZLw+i1eyezHJ5DKNAGIm+v7cORqk2aqRmfZxw1AxF9+U7kb0k
-         AcOvRcbxifaMzNM3iXW02bptKY5AZNkJ2e3A4CwecVJk63f7hyOdJelziXkzAOxt8wCk
-         58J43SIJK0ct7KRuv9oX4D8rSuAv3XEA7D2Nvhg9GC1k3fL7NR7JwDSDkhn8l4mKgEZe
-         SQ7Q==
-X-Forwarded-Encrypted: i=1; AKwUvBxVfDxt4TBXjHjANRl6yvTeBpaMq12fNRl657xPEWJi48eDpuq6r6tmWUTLd85CCJec1vIn/gfn8ETVW7wkn2Pn@lists.infradead.org
-X-Gm-Message-State: AFq9FYIEmWlRmsP5YKsOEzcbO4cSSIjFnN+7/hbfTVp/dCFqcniBN07e
-	Aac2Kd+Rq52/SmT3tgNAZFtdVM8oVGKHib0Szciahd5R/ycisKjq0RSLYN9zSHyGdFSnnVXldcU
-	s0BPQ+W/4XDCyQedc2wNgfA==
-X-Received: from wmbhn4.prod.google.com ([2002:a05:600c:a384:b0:4a3:9bdc:d7e4])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4fd4:b0:4a1:e250:b191 with SMTP id 5b1f17b1804b1-4ac180f2ff3mr253813305e9.17.1793652426457;
- Mon, 02 Nov 2026 12:47:06 -0800 (PST)
-Date: Mon,  2 Nov 2026 20:46:10 +0000
-In-Reply-To: <20261102204628.401871-1-vdonnefort@google.com>
+	id 1xO0EY-00000000X2D-3iJj;
+	Mon, 02 Nov 2026 22:10:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vtaedo1MuCDyYftbVBp11tHahPhQsy/CDc35e81vtSXNtegBEoeg1UiInt91+vxVEMGOWkOW88x5zol/TI+mMvwWUUWLT7+gaPzZlwwDa9aj1XyzcVJpkPgwYVWje+rF1Vl/LIWOw6RdllMt2RX3n0KKLHkXWnwesLiJ5B6LNxqNT5p9pi9CMoysVOYJXkpUnTF05gNRqzXeUFZkWzVpiTAR42LqfOfF9BJNEowilRF+9R1KSuBFzzS4hL8YkiIxOL3owSJoDTxkU78ZImg4wB4vg3xv6pLjqHSaivJre91kUWQOHUMaclLqUKcQBiyYY/47rwh+l+hVuQ7TQ9GGBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TDIvWnwDtKWjPBeSEijuQwbcWng7n4+0E+Frwtf0vvU=;
+ b=Cb5vMnqHOKVArDkQDQlNZzgcxuS+tJthUmAWvqH57d71+yawD1VrQ+PQcDTVyIT+keFCnURxb9Aj2RtKpbNEOe4HXtBdzp8b80D92eX76leBpui0lYPBlXmgbZr2GPlE5KhgFtJVuOky3lvRKd1WykC9bk59H5Nl5BGHlqMY6HiLcms6Wk6rvl7Qn2XPaThlh50LLVmmx16MKjZ0CI9UmmUaGqD2yH7RPLuvnLfgtMH9VLjLgfBMjR3LpWuEuxVUqel6Quv8AV3WO8O8Jih1YActGxJwsSqFolGG2tu6rXOyMIx77L6+eUISva2KFnVGKDs/r6j26TBmY/o6/t/NyA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TDIvWnwDtKWjPBeSEijuQwbcWng7n4+0E+Frwtf0vvU=;
+ b=aHFKuFA17Y6s4B7C4LR2cekP056CIIOaUSceHcDsYmd9ZL3qdT5/6Pgi9Sp5yflZiiaPqDitRHAXWc2fvHKzw3+LzrrLnBS2mucoDgGqScWZ9+IJX8VbhKxwj9OY9L/twFzBT7SI7RywAxX0P1yi2cUp97XU2RbjnEFMQpGCGQCXy7D9GcsfdyjWBt0ooOcUoyNtuXQtyL14qJipr9JdGfHJryx56sJKcUybxNGmAbt5qImP8e79ZcwK+H8UgX2UXkyFZAcRvBpWrEm/OQ+rNVhyd1bpMWAGuaiKx+/gNu/O+ZWjuEBpfSlSiSLrOGg1Z/KPvyjGZt4ldfFcKo066w==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by BR0PR04MB983609.eurprd04.prod.outlook.com (2603:10a6:2c8:60::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Mon, 2 Nov
+ 2026 22:10:24 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0569.011; Mon, 2 Nov 2026
+ 22:10:24 +0000
+Date: Mon, 2 Nov 2026 17:10:13 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Junyi Zhao <junyi.zhao@amlogic.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-i3c@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, imx@lists.linux.dev,
+	linux-hardening@vger.kernel.org, xianwei.zhao@amlogic.com,
+	Kelvin.Zhang@amlogic.com
+Subject: Re: [PATCH v2 1/2] i3c: master: svc: Add amlogic a9 support
+Message-ID: <aukKRUYfEABgIruC@lizhi-Precision-Tower-5810>
+References: <20261102-a9_i3c-v2-0-0c474bfccffa@amlogic.com>
+ <20261102-a9_i3c-v2-1-0c474bfccffa@amlogic.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261102-a9_i3c-v2-1-0c474bfccffa@amlogic.com>
+X-ClientProxiedBy: PH7P223CA0010.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:510:338::19) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-References: <20261102204628.401871-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.56.0.385.gac671c819a-goog
-Message-ID: <20261102204628.401871-6-vdonnefort@google.com>
-Subject: [PATCH v3 05/23] KVM: arm64: Make pKVM ownership selftest an HVC
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	kernel-team@android.com, fuad.tabba@linux.dev, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|BR0PR04MB983609:EE_
+X-MS-Office365-Filtering-Correlation-Id: 435c2e1b-9bf2-4e0a-e205-08df392e17bb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|19092799006|366016|261102123227099003|261021133027099003|56012099006|4143699003|11063799006|261021123027099003|261026135527099003|261009223027099003|261009221227099003|261021135927099003|261028144727099003|261022113327099003|261022075727099003|261021130227099003|261022105027099003|261026140227099003|261026130827099003|261022115727099003|261026121527099003|261021121427099003|10067099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info: c5Uo9WFT2eH9jRlSei8WRsMyrpxbpMWeUPwKj8AubSFzWSjc7E5e49UTrcjvqlK02pF14leeaxh4m+B3jfV4ZTUNZlt36zIHYDNDB3CEVxwFYj5OBX8cwv0yT6r0K56v066VG5aqTpaY4Q0q4q+mkVnmahXpfuYxYGxDLNMOhoXxxcY777CnCBRoTWxmCwxO0w6XjRSOwXfjPPVB713spsK/uNNUEgDy/YQ027bd2T6tapqQ0z+dsz8WnFV/9bh8yM78V/oJaqT82gYbc7/XyEK/bcco6BEHRNldAWeHz/0cvU5Kx0bkREFmcJYFg6wJkUJjn3Ih53+Hgwdd2bSilZXegNt+8Ttv65SdYpGXnTb/9iC9EQXNRbfSv75DNmY+gHjnr94wEQt+Au9cYa+CbVvg6AwAeinthuzkihMa4HlR0b1+1NqSpHYy+ryfHUqjA2VgEzFjdknYjw/FsLp15pv7Bn4PLfhp+ZOpRv1p0VHi9UhROwIczML9lB5+lVjdUMuOBM+EueTucHIf8qW6gg/O278jT9lotaZFdHP/i2ZSxSNtE5VWfEVuh5Cl5XdFFuTVrSQLFNA8ipzLruSZXz07Nwm5c0HHIzHfPXa5f2c9fispIfUY4kJhylp0L+wJmz1dxBsVGBq6D4ATf7C2fpBjGMp7rmOQ6VqaUFANhQs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(19092799006)(366016)(261102123227099003)(261021133027099003)(56012099006)(4143699003)(11063799006)(261021123027099003)(261026135527099003)(261009223027099003)(261009221227099003)(261021135927099003)(261028144727099003)(261022113327099003)(261022075727099003)(261021130227099003)(261022105027099003)(261026140227099003)(261026130827099003)(261022115727099003)(261026121527099003)(261021121427099003)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hWR4Rw97bY5wFdAE4mfvclEewc1ZEx71vXPtSxs+8IzT7Bc8NmCWFXX5ZjQi?=
+ =?us-ascii?Q?GFwIau9wn0hyPL9O8/sfhg5dR2mrY0Gh8TbKMOvtzQqlewa5WyHB5MptpLg/?=
+ =?us-ascii?Q?xwyL8/rYvO67s8FKD0cF7YQRfbGTDmoMNSlgomko369IUyBJtYnBn9ECGfYW?=
+ =?us-ascii?Q?cLGib2OSo+HudfEsADYZeP7HbSdt3wQUIkpVPShoRSDp6xNdy4iZVFW/xU+1?=
+ =?us-ascii?Q?VDS8wdBAaqoGmwICz6iOdavTYkmxT3uMVDSkR9lCnXbDhjDDpUJCo1App77S?=
+ =?us-ascii?Q?aDGdpCMk7F41tt/NI1v0YPeT+l/Fw3Jpo8gBmNoWRNCgRGEZDmEd2uHIoI5i?=
+ =?us-ascii?Q?e9ux2PHa9h43SjFPS9WkbGlX1EZUWwqsYSEGjtecmJ7883d2eNRj8+5HSnHg?=
+ =?us-ascii?Q?+taS9DuKpJ+pGgXJE0hdeTYizu6/a0E+4pedoyrNd9bx6EQI/NCv8qWyQ/D9?=
+ =?us-ascii?Q?lGuFEw6VRpX3vpyC2aUL0BbYU2Bcp+p5aGcuJCTMBKc7GIbQ+LACtlJCOzFM?=
+ =?us-ascii?Q?+9dMrppCZeswx9qGK01bWvhm1yDIoPL30yXNJ+3JqG7067YthzyhvRcmaK4c?=
+ =?us-ascii?Q?MZf83CxawdS1q0l6J5ojQV/WkwLwF0vBfaFjg0fRmM+5BLsjq07+RGKEhpuV?=
+ =?us-ascii?Q?gKOJYdH0w9fIm3krm5m9INJumfZSgEmBwjzRm34lskphlJvDw14mSW+EJD7P?=
+ =?us-ascii?Q?KwInmGL6MnMIxG7WqMA3j+5Ts5VgJYoBY4snT7Rv1glzguYQvsVYVEA+h+2B?=
+ =?us-ascii?Q?ctYxjOvTDyYb8WHWQDlhSjTwO5GkjZckGADR5smXxjAOrzA8ukX483o0fCnl?=
+ =?us-ascii?Q?9ioMLLdJvkNVuf7FqavhiqS63CSAkTlcY2+z8ehWlI/z3Lw78M4GD/Vw/s3Y?=
+ =?us-ascii?Q?SQiCEVrtcKh3xaywp8ZVrEhjDF2F9/xLTMnE79ENC4+QsRmDGwXAuHR4TWx0?=
+ =?us-ascii?Q?D3cj9Z/HDgTfrFots7dprAAEp+bGVn6HXMadAOyx7IjKIlEDWCvMLX3lcDfZ?=
+ =?us-ascii?Q?xJPMQVpi1HVHQlkVHZllbGoZqMe9dOMwzCwwqmhsLD3d/tKgPcuewq9/y1Y8?=
+ =?us-ascii?Q?A/E5AYrLgZsIG7gnmFhBK5l1H7OgU6n1oYAZbxI8iuTOu/lXHknYoNHVMCtN?=
+ =?us-ascii?Q?BuqLcZIeeQb4P0A3S091VznaD/O0arHklvQND9EQl1Mb5+DZCgBUWr49Gz4f?=
+ =?us-ascii?Q?If+9lixfz5YnjhDFG712DdoTmMvENIjXQj8+vTpCB3q9++JHdOEBLe5G7sw7?=
+ =?us-ascii?Q?KnF2f2hlQ4qw/D4wHCqJwDiN3JVECRFflL+3kSDto9aHThzftD3mTEJ6dEZ7?=
+ =?us-ascii?Q?9kth8JaG2eRgcyXRNhjfduUb2OvB+59Fb7D8Z7CAp1RcGkTNJ1F2p+YKxLuR?=
+ =?us-ascii?Q?cgE74f71aydcxnEVtUuKAu2Xzg0c1gs/UGJrOybSlfUdSCwt4XVmkHHx8jDB?=
+ =?us-ascii?Q?rLYEPMc40qLnDWLxLwmhk5/hSMvRYYZd2KwibP9iAHMJ0Znm3R55PJFU7q0s?=
+ =?us-ascii?Q?2Im0mrBl8UxivI2YEnkJL4s3XlyCIjmk6hmTNtWeGP3k0OGaWI4zbdvQ7ah0?=
+ =?us-ascii?Q?SHE2e3DkDnILoq59EQpZQDyuKZfzCcjr+gn6MHFHi5Od91JBmvkvmHzewx6n?=
+ =?us-ascii?Q?jmo6f0laPAsN7sDpYANxMi96YFPc3QzjEDin9q4uVQKh0XLWZeVRr87ddPXw?=
+ =?us-ascii?Q?jF4XiBx/l8++TCatuWHeaiAD0BTjqt1ubcnnwTPK77nHFWfIiOAWWHUvlI78?=
+ =?us-ascii?Q?4/Om9NgLMCqs+ZVm7llpNxJJlfWB9hBNI8MUHbzQXdI38iQDqlyz?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 435c2e1b-9bf2-4e0a-e205-08df392e17bb
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 22:10:24.1529
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tKwz5ZrcW9cQ+clH80lhcaIQGKKbC4gVaOutHLLbM/OibM8McKATTygGX795Z8pKJlwqrVO2SObBTHJGFDHBN4DHKG10XMHdx7LcfKlLegf2KrgruFoEiacMaSvEBDh/
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR04MB983609
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_124709_167492_A71C177B 
-X-CRM114-Status: GOOD (  24.94  )
-X-Spam-Score: -9.5 (---------)
+X-CRM114-CacheID: sfid-20261102_141031_352259_7444CC05 
+X-CRM114-Status: GOOD (  32.73  )
+X-Spam-Score: -1.0 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,343 +149,343 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-26.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT,
-	USER_IN_DEF_DKIM_WL autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-In preparation for testing the pKVM ownership with huge mappings,
-refactor the selftest to be triggered via an HVC using dynamically
-allocated memory from the host. This avoids wasting memory which would
-be even worse for testing ownership transitions for huge stage-2
-mappings.
+On Mon, Nov 02, 2026 at 07:05:39PM +0800, Junyi Zhao wrote:
+> Amlogic a9 SoCs integrate the Silvaco I3C IP, and their peripheral
+> clocks vary from the vanilla implementation:
+>
+>   - The EE-domain controller (amlogic,a9-i3c) takes two clocks,
+>     "pclk" and "fast_clk", and the fast clock rate must be
+>     programmed before the controller can be used.
+>
+>   - The AO-domain controller (amlogic,a9-ao-i3c) exposes only "pclk":
+>     its bus clock is generated by an internal divider located in the
+>     controller's own register space.
+>
+> Add a vendor_init callback to handle this clock setup.
+> Add a vendor_quirks field to describe AO-specific behavior.
+>
+> Signed-off-by: Junyi Zhao <junyi.zhao@amlogic.com>
+> ---
+>  drivers/i3c/master/svc-i3c-master.c | 214 +++++++++++++++++++++++++++++++++++-
+>  1 file changed, 209 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/i3c/master/svc-i3c-master.c b/drivers/i3c/master/svc-i3c-master.c
+> index e700392f0..98aa6eb0f 100644
+> --- a/drivers/i3c/master/svc-i3c-master.c
+> +++ b/drivers/i3c/master/svc-i3c-master.c
+> @@ -9,6 +9,7 @@
+>
+>  #include <linux/bitfield.h>
+>  #include <linux/clk.h>
+> +#include <linux/clk-provider.h>
+>  #include <linux/completion.h>
+>  #include <linux/errno.h>
+>  #include <linux/i3c/master.h>
+> @@ -166,6 +167,21 @@
+>   */
+>  #define SVC_I3C_QUIRK_DAA_CORRUPT	BIT(2)
+>
+> +/* Amlogic specific registers */
+> +#define AML_AO_I3C_FCLK_DIV_CTRL		0x304
+> +#define AML_AO_I3C_FCLK_DIV_EN_SHIFT		8
+> +#define AML_AO_I3C_FCLK_DIV_SHIFT		0
+> +#define AML_AO_I3C_FCLK_DIV_WIDTH		8
+> +#define AML_AO_I3C_FCLK_EN_SHIFT		9
+> +
+> +/*
+> + * AML_I3C_QUIRK_AO:
+> + * AO is the Always-On domain on Amlogic SoCs (remains powered in suspend).
+> + * Its clock is generated by an internal divider located in the I3C
+> + * controller own register space.
+> + */
+> +#define AML_I3C_QUIRK_AO	BIT(0)
+> +
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
----
- arch/arm64/include/asm/kvm_asm.h              |  1 +
- arch/arm64/include/asm/kvm_hcall.h            |  2 +
- arch/arm64/include/asm/kvm_pkvm.h             |  6 ---
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  7 ++--
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |  4 ++
- arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  7 ++++
- arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 39 +++++++++++------
- arch/arm64/kvm/hyp/nvhe/pkvm.c                | 12 +++++-
- arch/arm64/kvm/hyp/nvhe/setup.c               |  8 ----
- arch/arm64/kvm/pkvm.c                         | 42 +++++++++++++++++--
- 10 files changed, 92 insertions(+), 36 deletions(-)
+There are not much quick now, just put after SVC_I3C_QUIRK_DAA_CORRUPT
 
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index abda476e023d..ed7bd93aea1b 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -63,6 +63,7 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___vgic_v3_init_lrs,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v3_get_gic_config,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_hyp_alloc_selftest,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_ownership_selftest,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v5_make_resident,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v5_make_non_resident,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v5_vdpend,
-diff --git a/arch/arm64/include/asm/kvm_hcall.h b/arch/arm64/include/asm/kvm_hcall.h
-index 5f77a8aa2963..64d18b7f2392 100644
---- a/arch/arm64/include/asm/kvm_hcall.h
-+++ b/arch/arm64/include/asm/kvm_hcall.h
-@@ -156,6 +156,8 @@ DECLARE_KVM_HOST_HCALL0(void, __kvm_enable_ssbs)
- DECLARE_KVM_HOST_HCALL0(void, __vgic_v3_init_lrs)
- DECLARE_KVM_HOST_HCALL0(u64, __vgic_v3_get_gic_config)
- DECLARE_KVM_HOST_HCALL0(int, __pkvm_hyp_alloc_selftest)
-+DECLARE_KVM_HOST_HCALL(int, __pkvm_ownership_selftest,
-+	u64, pfn, u64, pgtable_pfn, unsigned long, pgtable_nr_pages)
- 
- DECLARE_KVM_HOST_HCALL0(int, __pkvm_prot_finalize)
- 
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index fd042d2b5462..b75dc3d03a98 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -193,12 +193,6 @@ static inline unsigned long host_s2_pgtable_pages(void)
- 	return res;
- }
- 
--#ifdef CONFIG_NVHE_EL2_DEBUG
--static inline unsigned long pkvm_selftest_pages(void) { return 32; }
--#else
--static inline unsigned long pkvm_selftest_pages(void) { return 0; }
--#endif
--
- #define KVM_FFA_MBOX_NR_PAGES	1
- 
- static inline unsigned long hyp_ffa_proxy_pages(void)
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-index ec85a9547120..a1c9c71beb36 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-@@ -76,10 +76,9 @@ static __always_inline void __load_host_stage2(void)
- }
- 
- #ifdef CONFIG_NVHE_EL2_DEBUG
--void pkvm_ownership_selftest(void *base);
--struct pkvm_hyp_vcpu *init_selftest_vm(void *virt);
--void teardown_selftest_vm(void);
-+int __pkvm_ownership_selftest(u64 pfn, u64 pgtable_pfn, unsigned long pgtable_nr_pages);
- #else
--static inline void pkvm_ownership_selftest(void *base) { }
-+static inline int
-+__pkvm_ownership_selftest(u64 pfn, u64 pgtable_pfn, unsigned long pgtable_nr_pages) { return 0; }
- #endif
- #endif /* __KVM_NVHE_MEM_PROTECT__ */
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-index 0261b2bc681f..aa5cf5568504 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-@@ -133,6 +133,10 @@ bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
- void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
- void kvm_reset_pvm_sys_regs(struct kvm_vcpu *vcpu);
- int kvm_check_pvm_sysreg_table(void);
-+#ifdef CONFIG_NVHE_EL2_DEBUG
-+struct pkvm_hyp_vcpu *init_selftest_vm(void *virt, u64 nr_pages);
-+void teardown_selftest_vm(void);
-+#endif
- 
- int pkvm_reset_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu);
- struct pkvm_hyp_vcpu *pkvm_mpidr_to_hyp_vcpu(struct pkvm_hyp_vm *vm, unsigned long mpidr);
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 179d7c8277b8..bf3d13a15b2f 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -1313,6 +1313,12 @@ DEFINE_KVM_HOST_HCALL(ulong, __pkvm_create_private_mapping,
- 	return haddr;
- }
- 
-+DEFINE_KVM_HOST_HCALL(int, __pkvm_ownership_selftest,
-+	u64, pfn, u64, pgtable_pfn, unsigned long, pgtable_nr_pages)
-+{
-+	return __pkvm_ownership_selftest(pfn, pgtable_pfn, pgtable_nr_pages);
-+}
-+
- DEFINE_KVM_HOST_HCALL0(int, __pkvm_prot_finalize)
- {
- 	return __pkvm_prot_finalize();
-@@ -1550,6 +1556,7 @@ static const hcall_t host_hcall[] = {
- 	HANDLE_FUNC(__vgic_v3_init_lrs),
- 	HANDLE_FUNC(__vgic_v3_get_gic_config),
- 	HANDLE_FUNC(__pkvm_hyp_alloc_selftest),
-+	HANDLE_FUNC(__pkvm_ownership_selftest),
- 	HANDLE_FUNC(__pkvm_prot_finalize),
- 
- 	HANDLE_FUNC(__kvm_adjust_pc),
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 58094d52b8a2..8d5bfae67396 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -1768,24 +1768,36 @@ static void assert_page_state(void)
- 		assert_page_state();			\
- 	} while (0)
- 
--void pkvm_ownership_selftest(void *base)
-+int __pkvm_ownership_selftest(u64 pfn, u64 pgtable_pfn, unsigned long pgtable_nr_pages)
- {
- 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_RWX;
--	void *virt = hyp_alloc_pages(&host_s2_pool, 0);
- 	struct pkvm_hyp_vcpu *vcpu;
--	u64 phys, size, pfn, gfn;
- 	struct pkvm_hyp_vm *vm;
-+	u64 phys, size, gfn;
-+	void *virt;
-+	int ret;
- 
--	WARN_ON(!virt);
--	selftest_page = hyp_virt_to_page(virt);
--	selftest_page->refcount = 0;
--	selftest_vcpu = vcpu = init_selftest_vm(base);
-+	ret = __pkvm_host_donate_hyp(pgtable_pfn, pgtable_nr_pages);
-+	if (ret)
-+		return ret;
-+
-+	ret = __pkvm_host_donate_hyp(pfn, 1);
-+	if (ret) {
-+		WARN_ON(__pkvm_hyp_donate_host(pgtable_pfn, pgtable_nr_pages));
-+		return ret;
-+	}
-+
-+	selftest_vcpu = vcpu = init_selftest_vm(hyp_phys_to_virt(hyp_pfn_to_phys(pgtable_pfn)),
-+						pgtable_nr_pages);
- 	vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
- 
--	size = PAGE_SIZE << selftest_page->order;
--	phys = hyp_virt_to_phys(virt);
--	pfn = hyp_phys_to_pfn(phys);
-+	phys = hyp_pfn_to_phys(pfn);
-+	virt = hyp_phys_to_virt(phys);
- 	gfn = hyp_phys_to_pfn(selftest_ipa());
-+	size = PAGE_SIZE;
-+
-+	selftest_page = hyp_virt_to_page(virt);
-+	selftest_page->refcount = 0;
- 
- 	selftest_state.host = PKVM_NOPAGE;
- 	selftest_state.hyp = PKVM_PAGE_OWNED;
-@@ -1946,8 +1958,11 @@ void pkvm_ownership_selftest(void *base)
- 	selftest_state.hyp = PKVM_PAGE_OWNED;
- 	assert_transition_res(0,	__pkvm_host_donate_hyp, pfn, 1);
- 
-+	/* This also gives back the ownership to the host */
- 	teardown_selftest_vm();
--	selftest_page->refcount = 1;
--	hyp_put_page(&host_s2_pool, virt);
-+
-+	WARN_ON(__pkvm_hyp_donate_host(pfn, 1));
-+
-+	return 0;
- }
- #endif
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index fc0475f0877d..ae34c09f1f39 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -843,7 +843,7 @@ static struct pkvm_hyp_vcpu selftest_vcpu = {
- 	},
- };
- 
--struct pkvm_hyp_vcpu *init_selftest_vm(void *virt)
-+struct pkvm_hyp_vcpu *init_selftest_vm(void *virt, u64 nr_pages)
- {
- 	struct hyp_page *p = hyp_virt_to_page(virt);
- 	unsigned long min_pages, seeded = 0;
-@@ -859,7 +859,7 @@ struct pkvm_hyp_vcpu *init_selftest_vm(void *virt)
- 	 */
- 	min_pages = kvm_mmu_cache_min_pages(&selftest_vm.kvm.arch.mmu);
- 
--	for (i = 0; i < pkvm_selftest_pages(); i++) {
-+	for (i = 0; i < nr_pages; i++) {
- 		if (p[i].refcount)
- 			continue;
- 		p[i].refcount = 1;
-@@ -879,9 +879,17 @@ struct pkvm_hyp_vcpu *init_selftest_vm(void *virt)
- 
- void teardown_selftest_vm(void)
- {
-+	struct kvm_hyp_memcache *vcpu_mc = &selftest_vcpu.vcpu.arch.stage2_mc;
-+	struct kvm_hyp_memcache mc = { 0 };
-+
-+	while (vcpu_mc->nr_pages)
-+		hyp_put_page(&selftest_vm.pool, pop_hyp_memcache(vcpu_mc, hyp_phys_to_virt));
-+
- 	hyp_spin_lock(&vm_table_lock);
- 	remove_vm_table_entry(selftest_vm.kvm.arch.pkvm.handle);
- 	hyp_spin_unlock(&vm_table_lock);
-+
-+	reclaim_pgtable_pages(&selftest_vm, &mc);
- }
- #endif /* CONFIG_NVHE_EL2_DEBUG */
- 
-diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
-index e72b7626799d..b2a953adedc3 100644
---- a/arch/arm64/kvm/hyp/nvhe/setup.c
-+++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-@@ -29,7 +29,6 @@ static void *vmemmap_base;
- static void *vm_table_base;
- static void *hyp_pgt_base;
- static void *host_s2_pgt_base;
--static void *selftest_base;
- static void *ffa_proxy_pages;
- static struct kvm_pgtable_mm_ops pkvm_pgtable_mm_ops;
- static struct hyp_pool hpool;
-@@ -40,11 +39,6 @@ static int divide_memory_pool(void *virt, unsigned long size)
- 
- 	hyp_early_alloc_init(virt, size);
- 
--	nr_pages = pkvm_selftest_pages();
--	selftest_base = hyp_early_alloc_contig(nr_pages);
--	if (nr_pages && !selftest_base)
--		return -ENOMEM;
--
- 	nr_pages = hyp_vmemmap_pages(sizeof(struct hyp_page));
- 	vmemmap_base = hyp_early_alloc_contig(nr_pages);
- 	if (!vmemmap_base)
-@@ -385,8 +379,6 @@ void __noreturn __pkvm_init_finalise(void)
- 		goto out;
- 
- 	pkvm_hyp_vm_table_init(vm_table_base);
--
--	pkvm_ownership_selftest(selftest_base);
- out:
- 	/*
- 	 * We tail-called to here from handle___pkvm_init() and will not return,
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 016997288fd2..29e7a51a1c03 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -64,7 +64,6 @@ void __init kvm_hyp_reserve(void)
- 	hyp_mem_pages += host_s2_pgtable_pages();
- 	hyp_mem_pages += hyp_vm_table_pages();
- 	hyp_mem_pages += hyp_vmemmap_pages(STRUCT_HYP_PAGE_SIZE);
--	hyp_mem_pages += pkvm_selftest_pages();
- 	hyp_mem_pages += hyp_ffa_proxy_pages();
- 
- 	/*
-@@ -333,9 +332,36 @@ static int __init pkvm_drop_host_privileges(void)
- 	return ret;
- }
- 
--static void __init pkvm_selftests(void)
--{
- #ifdef CONFIG_NVHE_EL2_DEBUG
-+static void __init pkvm_ownership_selftest(void)
-+{
-+	unsigned long pgtable_order = 5;
-+	unsigned long pgtable = 0;
-+	unsigned long page = 0;
-+	long ret = -ENOMEM;
-+
-+	/* Memory for the VM page-table */
-+	pgtable = __get_free_pages(GFP_KERNEL, pgtable_order);
-+	if (!pgtable)
-+		goto out;
-+
-+	/* Page whose ownership will be tested */
-+	page = __get_free_page(GFP_KERNEL);
-+	if (!page)
-+		goto out;
-+
-+	ret = kvm_call_hyp_nvhe(__pkvm_ownership_selftest, virt_to_pfn((void *)page),
-+				virt_to_pfn((void *)pgtable), 1 << pgtable_order);
-+out:
-+	if (ret)
-+		kvm_err("pKVM ownership selftest failed (%ld)\n", ret);
-+
-+	free_pages(pgtable, pgtable_order);
-+	free_page(page);
-+}
-+
-+static void __init pkvm_hyp_alloc_selftest(void)
-+{
- 	int ret = pkvm_call_hyp_req(__pkvm_hyp_alloc_selftest);
- 	unsigned long reclaimed;
- 
-@@ -346,9 +372,17 @@ static void __init pkvm_selftests(void)
- 		WARN_ON(reclaimed != 6 /* SELFTEST_MAX_PAGES */);
- 	else
- 		kvm_err("pKVM hyp allocator selftest failed (%d)\n", ret);
--#endif
- }
- 
-+static void __init pkvm_selftests(void)
-+{
-+	pkvm_ownership_selftest();
-+	pkvm_hyp_alloc_selftest();
-+}
-+#else
-+static void __init pkvm_selftests(void) { }
-+#endif
-+
- static unsigned long pkvm_shrinker_count(struct shrinker *shrink, struct shrink_control *sc)
- {
- 	unsigned long reclaimable = 0;
--- 
-2.56.0.385.gac671c819a-goog
+#define AML_I3C_QUIRK_AO     BIT(3)
 
+use a unified quirk define.
+
+>  struct svc_i3c_cmd {
+>  	u8 addr;
+>  	union {
+> @@ -195,10 +211,6 @@ struct svc_i3c_regs_save {
+>  	u32 mdynaddr;
+>  };
+>
+> -struct svc_i3c_drvdata {
+> -	u32 quirks;
+> -};
+> -
+>  /**
+>   * struct svc_i3c_master - Silvaco I3C Master structure
+>   * @base: I3C master controller
+> @@ -257,6 +269,12 @@ struct svc_i3c_master {
+>  	u32 mctrl_config;
+>  };
+>
+> +struct svc_i3c_drvdata {
+> +	u32 quirks;
+> +	u32 vendor_quirks;
+
+Needn't this, direct use quirks
+
+> +	int (*vendor_init)(struct svc_i3c_master *master);
+> +};
+> +
+
+why need move this struct
+
+>  /**
+>   * struct svc_i3c_i2c_dev_data - Device specific data
+>   * @index: Index in the master tables corresponding to this device
+> @@ -274,6 +292,11 @@ static inline bool svc_has_quirk(struct svc_i3c_master *master, u32 quirk)
+>  	return (master->drvdata->quirks & quirk);
+>  }
+>
+> +static inline bool vendor_has_quirk(struct svc_i3c_master *master, u32 quirk)
+> +{
+> +	return (master->drvdata->vendor_quirks & quirk);
+> +}
+> +
+
+Needn't this one
+
+>  static inline bool svc_has_daa_corrupt(struct svc_i3c_master *master)
+>  {
+>  	return ((master->drvdata->quirks & SVC_I3C_QUIRK_DAA_CORRUPT) &&
+> @@ -2011,6 +2034,7 @@ static int svc_i3c_master_probe(struct platform_device *pdev)
+>  	if (!master->drvdata)
+>  		return -EINVAL;
+>
+> +	master->dev = dev;
+>  	master->regs = devm_platform_ioremap_resource(pdev, 0);
+>  	if (IS_ERR(master->regs))
+>  		return PTR_ERR(master->regs);
+> @@ -2019,6 +2043,12 @@ static int svc_i3c_master_probe(struct platform_device *pdev)
+>  	if (master->num_clks < 0)
+>  		return dev_err_probe(dev, -EINVAL, "can't get I3C clocks\n");
+>
+> +	if (master->drvdata->vendor_init) {
+> +		ret = master->drvdata->vendor_init(master);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+>  	for (i = 0; i < master->num_clks; i++) {
+>  		if (!strcmp(master->clks[i].id, "fast_clk"))
+>  			break;
+> @@ -2036,7 +2066,6 @@ static int svc_i3c_master_probe(struct platform_device *pdev)
+>  	if (master->irq < 0)
+>  		return master->irq;
+>
+> -	master->dev = dev;
+>  	ret = clk_bulk_prepare_enable(master->num_clks, master->clks);
+>  	if (ret)
+>  		return dev_err_probe(dev, ret, "can't enable I3C clocks\n");
+> @@ -2163,9 +2192,184 @@ static const struct svc_i3c_drvdata npcm845_drvdata = {
+>
+>  static const struct svc_i3c_drvdata svc_default_drvdata = {};
+>
+> +/*
+> + * Container for the tail clocks of the AO domain variant. The clock HW
+> + * structures are registered with the clock framework and must stay alive
+> + * for the whole driver lifetime, so they are kept along with the shared
+> + * lock used by their gate/divider operations.
+> + */
+> +struct aml_i3c_ao_clk {
+> +	struct clk_gate div_en;
+> +	struct clk_divider div;
+> +	struct clk_gate gate;
+> +	spinlock_t lock;
+> +};
+> +
+> +/*
+> + * aml_ao_i3c_tail_clocks - register the internal divider chain that
+> + * produces the AO variant's fast_clk, and append it to the clk bulk
+> + * array as "fast_clk".  @parent must be "pclk", the only clock the AO
+> + * variant exposes (see silvaco,i3c-master.yaml).
+> + */
+
+use kernel doc format.
+
+> +static int aml_ao_i3c_tail_clocks(struct svc_i3c_master *master, struct clk *parent)
+> +{
+> +	struct device *dev = master->dev;
+> +	struct aml_i3c_ao_clk *ao;
+> +	struct clk_init_data init = {};
+> +	char name[64];
+> +	int ret;
+> +	struct clk_bulk_data *new_clks;
+> +	struct clk *fclk;
+
+keep revise Chemistry order
+
+Frank
+
+> +
+> +	ao = devm_kzalloc(dev, sizeof(*ao), GFP_KERNEL);
+> +	if (!ao)
+> +		return -ENOMEM;
+> +
+> +	spin_lock_init(&ao->lock);
+> +
+> +	snprintf(name, sizeof(name), "%s#div_en", dev_name(dev));
+> +	init.name = name;
+> +	init.ops = &clk_gate_ops;
+> +	init.flags = CLK_IGNORE_UNUSED;
+> +	init.parent_data = &(struct clk_parent_data) {
+> +		.index = -1,
+> +		.hw = __clk_get_hw(parent),
+> +	};
+> +	init.num_parents = 1;
+> +
+> +	ao->div_en.reg = master->regs + AML_AO_I3C_FCLK_DIV_CTRL;
+> +	ao->div_en.bit_idx = AML_AO_I3C_FCLK_DIV_EN_SHIFT;
+> +	ao->div_en.hw.init = &init;
+> +	ao->div_en.lock = &ao->lock;
+> +
+> +	ret = devm_clk_hw_register(dev, &ao->div_en.hw);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to register %s\n", name);
+> +
+> +	snprintf(name, sizeof(name), "%s#div", dev_name(dev));
+> +	init.name = name;
+> +	init.ops = &clk_divider_ops;
+> +	init.flags = 0;
+> +	init.parent_data = &(struct clk_parent_data) {
+> +		.index = -1,
+> +		.hw = &ao->div_en.hw,
+> +	};
+> +	init.num_parents = 1;
+> +
+> +	ao->div.reg = master->regs + AML_AO_I3C_FCLK_DIV_CTRL;
+> +	ao->div.shift = AML_AO_I3C_FCLK_DIV_SHIFT;
+> +	ao->div.width = AML_AO_I3C_FCLK_DIV_WIDTH;
+> +	ao->div.hw.init = &init;
+> +	ao->div.lock = &ao->lock;
+> +
+> +	ret = devm_clk_hw_register(dev, &ao->div.hw);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to register %s\n", name);
+> +
+> +	snprintf(name, sizeof(name), "%s#gate", dev_name(dev));
+> +	init.name = name;
+> +	init.ops = &clk_gate_ops;
+> +	init.flags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED;
+> +	init.parent_data = &(struct clk_parent_data) {
+> +		.index = -1,
+> +		.hw = &ao->div.hw,
+> +	};
+> +	init.num_parents = 1;
+> +
+> +	ao->gate.reg = master->regs + AML_AO_I3C_FCLK_DIV_CTRL;
+> +	ao->gate.bit_idx = AML_AO_I3C_FCLK_EN_SHIFT;
+> +	ao->gate.hw.init = &init;
+> +	ao->gate.lock = &ao->lock;
+> +
+> +	ret = devm_clk_hw_register(dev, &ao->gate.hw);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to register %s\n", name);
+> +
+> +	fclk = devm_clk_hw_get_clk(dev, &ao->gate.hw, NULL);
+> +	if (IS_ERR(fclk))
+> +		return dev_err_probe(dev, PTR_ERR(fclk),
+> +				     "tail i3c fast clock failed\n");
+> +
+> +	new_clks = devm_kcalloc(dev,
+> +				master->num_clks + 1,
+> +				sizeof(*new_clks),
+> +				GFP_KERNEL);
+> +	memcpy(new_clks, master->clks,
+> +			master->num_clks * sizeof(*master->clks));
+> +	new_clks[master->num_clks].id = "fast_clk";
+> +	new_clks[master->num_clks].clk = fclk;
+> +	master->clks = new_clks;
+> +	master->num_clks++;
+> +
+> +	return 0;
+> +}
+> +
+> +static int aml_i3c_init(struct svc_i3c_master *master)
+> +{
+> +	struct device *dev = master->dev;
+> +	long fin_freq;
+> +	int ret, i;
+> +	struct clk *fclk;
+> +
+> +	if (vendor_has_quirk(master, AML_I3C_QUIRK_AO)) {
+> +		/*
+> +		 * clk_bulk_get_all() preserves the DT order, and the
+> +		 * binding restricts the AO variant to exactly one clock,
+> +		 * which is always "pclk".  So clks[0] is the input of the
+> +		 * internal divider chain.
+> +		 */
+> +		ret = aml_ao_i3c_tail_clocks(master, master->clks[0].clk);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	for (i = 0; i < master->num_clks; i++) {
+> +		if (!strcmp(master->clks[i].id, "fast_clk"))
+> +			break;
+> +	}
+> +
+> +	if (i == master->num_clks)
+> +		return dev_err_probe(dev, -EINVAL,
+> +				     "can't get I3C fast clock\n");
+> +
+> +	fclk = master->clks[i].clk;
+> +	if (IS_ERR(fclk))
+> +		return PTR_ERR(fclk);
+> +
+> +	fin_freq = clk_round_rate(fclk, 25000000);
+> +	if (fin_freq <= 0) {
+> +		dev_err(dev, "invalid fast_clk\n");
+> +		return fin_freq ? fin_freq : -EINVAL;
+> +	}
+> +
+> +	ret = clk_set_rate(fclk, fin_freq);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "setting fast_clk rate failed\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct svc_i3c_drvdata aml_a9_drvdata = {
+> +	.quirks = SVC_I3C_QUIRK_FIFO_EMPTY |
+> +		  SVC_I3C_QUIRK_FALSE_SLVSTART |
+> +		  SVC_I3C_QUIRK_DAA_CORRUPT,
+> +	.vendor_init = aml_i3c_init,
+> +};
+> +
+> +static const struct svc_i3c_drvdata aml_a9_ao_drvdata = {
+> +	.quirks = SVC_I3C_QUIRK_FIFO_EMPTY |
+> +		  SVC_I3C_QUIRK_FALSE_SLVSTART |
+> +		  SVC_I3C_QUIRK_DAA_CORRUPT,
+> +	.vendor_quirks = AML_I3C_QUIRK_AO,
+> +	.vendor_init = aml_i3c_init,
+> +};
+> +
+>  static const struct of_device_id svc_i3c_master_of_match_tbl[] = {
+>  	{ .compatible = "nuvoton,npcm845-i3c", .data = &npcm845_drvdata },
+>  	{ .compatible = "silvaco,i3c-master-v1", .data = &svc_default_drvdata },
+> +	{ .compatible = "amlogic,a9-i3c", .data = &aml_a9_drvdata },
+> +	{ .compatible = "amlogic,a9-ao-i3c", .data = &aml_a9_ao_drvdata },
+>  	{ /* sentinel */ },
+>  };
+>  MODULE_DEVICE_TABLE(of, svc_i3c_master_of_match_tbl);
+>
+> --
+> 2.42.0
+>
 
