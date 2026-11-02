@@ -2,186 +2,172 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5047606BA59
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 17:21:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD5BD606B1C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 17:21:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oDOKa0hS;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=erQhudjB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4OIUP/uo;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=FOj+RuJv
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=/dtNOcWWA1xUV4+gfaF8Y6jQTYl2+OJzIWQS1EKXSSw=; b=oDOKa0hSUEfwBNZAHfuW4W4jT2
-	1tpq4p19Rnn2sCQBBadhJ3hZolsKTfTe8ERMviuu5WaSCnd/zlMujRy1bAp3owJnABIcDiYN4blBc
-	M/BrNAx7cEfK4xVWZrXriqlmUt1W01I6jMvkEVXkDmf30DQJqMoG1ZgTkalgnNtvXnKaqehLK5aka
-	L6Mpm0pK6cyybdF1Watgs8TiC/V6tVccyhNmns82vlhUDSnVHEk6AZXInXjGJM50lwVA9a5mqpQju
-	j0tKLADggjGKJmmFJVEUL9SDvYFRYm2sj137bIg0OmxuWU1s/KSsUElvZ74dG/75HN3K5VgbMMYaO
-	wkTtUUaw==;
+	bh=bPO5rapN4v6Y8cI5tKdEKxZsiCrSBEDoAFlejyIoEbw=; b=4OIUP/uoDJZ+rWI0mptVWtCn0f
+	CI9j7W1VZx2StFqOLjChVhJrT3FMO3YvziouOZJOidsSE6Lhqsh8oTWtZZTQ7Hkk9suG6PJDl4W5F
+	o2EVe0MqTK2erPN6xSkVez4MfLFTtqP4IwVVOL4VqbyL20SIQb0DtdIE33PLm7XXUU9waojqbrKQI
+	lexoMIPOY8crVOF16iY0bM53TrBhZuH8Hek7mh6+sws3S7dAvSxOFqYwWtpv/cdtYqNoZAjPpe5dM
+	JtA523wz94tR1Vz462EVOJsZ9X4gEayMwn7RM8Ys33XAaY+TvLQPnBosYcn9wxd03gNqfxKpLPjnB
+	WWtbFmPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNviJ-0000000HRUq-2WoR;
-	Mon, 02 Nov 2026 17:20:55 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1xNvj4-0000000HRcy-1yFe;
+	Mon, 02 Nov 2026 17:21:42 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNviH-0000000HRUW-39yq
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 17:20:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793640053; x=1825176053;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=bFiQbJMI5h0YTn0Q6kpKz8C2yqXPCm/49WOWM45So+E=;
-  b=erQhudjBbRHDVjVgOJO9iKKdnphqxWdMEqzz8PtFKLZLvvVYSJfJfWJe
-   ale62qY00gzvQNbaAa6q1DTIiKmAqTVmaU9g6xHDuF74FxJKXUqZBUHia
-   bL7NBfUPyEHtENeM8IHv8tCZF+2OcY2M8VUgo4NcZpKeheKDyM4CBf+Xl
-   9bBXTEF/nKIQE7Qz6c/qpiVMBnbF3Rgf51UNljWr/Mq3Zfnt9DRR7oceA
-   b+Yvt7Yc2nkhfAzadSkSyWG8TOYF+W0jioGDDSWjvtvQHFs03LGwc78B1
-   kF2vS0bUATQgedldCW77v7h4Dr1QcV/9GbAIvOX9CE1QsjKIZLBCxlOrg
-   w==;
-X-CSE-ConnectionGUID: xduo1ByuSRO8/5B+Xnu4lg==
-X-CSE-MsgGUID: NoBGmAohQE6zsQn1qpyV9A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11954"; a="2235128"
-X-IronPort-AV: E=Sophos;i="6.27,191,1787036400"; 
-   d="scan'208";a="2235128"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Nov 2026 09:20:52 -0800
-X-CSE-ConnectionGUID: eIEcnW0bSUu8DPoQyhYeKQ==
-X-CSE-MsgGUID: um+hs1NbS+OmsOwbFdDIrQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,191,1787036400"; 
-   d="scan'208";a="6720292"
-Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Nov 2026 09:20:52 -0800
-Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
- fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Mon, 2 Nov 2026 09:20:52 -0800
-Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
- FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Mon, 2 Nov 2026 09:20:52 -0800
-Received: from BL2PR02CU003.outbound.protection.outlook.com (52.101.52.33) by
- edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Mon, 2 Nov 2026 09:20:51 -0800
+	id 1xNvj2-0000000HRbf-0YTT;
+	Mon, 02 Nov 2026 17:21:41 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bXJBCCDMFmC5V3ITNyuuP4jkkK8bqsJbY/nYdQoiGaq7CWPpZhyoBgClNEY52KDJRq3D+qIAGThPFZU2FaVRf4Jb/Az6BkoinoBiA8zMuHVAEI0ZrrhTrRMks/Nw+ILSJaSpmMnNDBeBrrn15Sp+67/dGNZ6vRBbFwswMgavh9mJM/gUedswFNbhYIXf9aI0slu2k5ba+PCmJGJ+iYgH1HeTSjPLvapEx9lR1jDEgtPD4anApy+Ta8bigs2cRgzqjW1jL5IdyGtBY79Ygq4gT6kIihpbX/frlcrWjM5s6AGUtAdAo/Nsyj+bi9JlOkLc0COrkFs5Q8B6pcE0qC8B5g==
+ b=koMkJXBvJvTPCgOtUAxFt8ak6UhB8T6MnWx1LYnzdWqon6jXdUNBxvJ/O/ezgplBjONWVS1nfu+z/qzczewV0wbebGjs4ybhzwFYX23WTV9xJXmgwAT8qzfT1oHqKPWji4ghHep3pKrm9cWTDpSINs71XbfbCvBljDblmOqI8Zpx3E17h4VpauHOpdI8CGuBhT+LQoutxCbDMsJ7Lm9zgBTt+erraVw8YZc5j5+YOl+KV4R59vuJwhO1rin7isO4QFZvVsiLO1a196+PElVuET/3pnyBQxeU7mihwC660bSx+ySaCaN370Jc8ieRp6EQeJ8R8Upta7Ixw50aL5aJ4Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/dtNOcWWA1xUV4+gfaF8Y6jQTYl2+OJzIWQS1EKXSSw=;
- b=QO6e3HuJlJqAl0DB4vkbf77VsmeNPYo31imiLHUrZODLGBboUKjPRpcxuHnB2v5Wg9+IV7hsijRxmzFBXcYS18EEOjQ5NsdVTEDmpmXSefy8DxJ9qbFtTitziHBKAD1XCsS50OGk5SpF3KlZoxn/QGBJyb70eQKoDw+OW+7ALlSQSKflu+gL7zXo0TEiy0r7ivAPW34o1GjEzWgLYypnS50B6o9hQH9fJRwRaMuTu3Cb0zCYgfzSoaJBjyNx8N1cZJ0xeXVmNrbseiRV6/yAofeeC2FhYCIkcxs7Yqn+1GTCx6F80W7vYHGmVpPexu+wfeGHr7IaSFJbjFvJ5fAsbA==
+ bh=bPO5rapN4v6Y8cI5tKdEKxZsiCrSBEDoAFlejyIoEbw=;
+ b=WwipYQhzTOaQ2ZEncO5eCgreW2D68PhRQnfu5vlarhn0VLKbUmtnUnf5A4GiRqS03N0/P9mp/m61zB+n4t8faGLOUndhuv3fdTE0SqFZuvJFelcfmLi9ha5B7XqvGq/E6S4/Hy9PkcAz4ocTYl2yHX314E+1YEcTAYczld2VzARlVu8OJqCMMkpWxXJ3knTmkpblUdj2JkjyNORQFw6Ae+/fKT2ETlpFKy4kkvJpzjMUfQJtDTDRhorNg1b/dr4P6M/W1rt6hA6xgCN1/FXmJpH17IWdt3vXkfYeXmf/Be9svaeKYtxuXyJFrlkNArOBFNnxa0BWuoPHyFpgTUQqcQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bPO5rapN4v6Y8cI5tKdEKxZsiCrSBEDoAFlejyIoEbw=;
+ b=FOj+RuJvWiuxQZyz+oz6KUlLGD5yDvDNIMvkF5hfH0degvo/1ZT/8GZfjg0KspzdkOxKm5f3pE3hwtfZb2B9mfDLi+EttXVjW8p+OF6u75Y+OMfQ9CaLcAhWXM1ShZUCAYyfPvmHIyuxhm+/NK2kJ8YYCADEgZCSeElnDB5ye1t6B1648xDx1NYRLuKB4QgBxCNV8A+XqC/UThbeO6zYtqGOg0XEZ2RSQ3PVDxsDA+xdBowg1Wl+Bmvsj0He60X18JoJ2vXDfJhIT3yy050gGXuptXIzw3+eKkDHk9AOY9mnJtMKFyZ7dpCHsJU/JkihbUVyYoYz5PNRjAORvGZHkQ==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
- by SA2PR11MB5163.namprd11.prod.outlook.com (2603:10b6:806:113::20) with
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by PA3PR04MB11204.eurprd04.prod.outlook.com (2603:10a6:102:4aa::22) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Mon, 2 Nov
- 2026 17:20:44 +0000
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc%6]) with mapi id 15.21.0569.011; Mon, 2 Nov 2026
- 17:20:44 +0000
-Message-ID: <3a06c4c8-51cb-4636-b95e-d6decf33d9a5@intel.com>
-Date: Mon, 2 Nov 2026 09:20:42 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 04/10] arm_mpam: resctrl: Split control and
- monitoring domain setup into helpers
-To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>, "ben.horgan@arm.com"
-	<ben.horgan@arm.com>, "james.morse@arm.com" <james.morse@arm.com>,
-	"Dave.Martin@arm.com" <Dave.Martin@arm.com>, "fenghuay@nvidia.com"
-	<fenghuay@nvidia.com>
-CC: "tony.luck@intel.com" <tony.luck@intel.com>, "yu.c.chen@intel.com"
-	<yu.c.chen@intel.com>, "babu.moger@amd.com" <babu.moger@amd.com>,
-	"fustini@kernel.org" <fustini@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "patches@lists.linux.dev"
-	<patches@lists.linux.dev>
-References: <20621c28067916be2709fc4437473f1ccad7e334.1792443633.git.reinette.chatre@intel.com>
- <TY4PR01MB16930DAEC61D558A935F8C27E8B6A2@TY4PR01MB16930.jpnprd01.prod.outlook.com>
-Content-Language: en-US
-From: Reinette Chatre <reinette.chatre@intel.com>
-In-Reply-To: <TY4PR01MB16930DAEC61D558A935F8C27E8B6A2@TY4PR01MB16930.jpnprd01.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR03CA0008.namprd03.prod.outlook.com
- (2603:10b6:303:8f::13) To SJ2PR11MB8370.namprd11.prod.outlook.com
- (2603:10b6:a03:540::20)
+ 2026 17:21:33 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0569.011; Mon, 2 Nov 2026
+ 17:21:33 +0000
+From: Frank.Li@oss.nxp.com
+To: Aubin Constans <aubin.constans@microchip.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Jaehoon Chung <jh80.chung@samsung.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Lars Persson <lars.persson@axis.com>,
+	John Garry <john.garry@linux.dev>,
+	Hemanth Selam <hemanth.selam@gmail.com>,
+	Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	Rosen Penev <rosenp@gmail.com>,
+	Fan Wu <fanwu01@zju.edu.cn>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Pan Chuang <panchuang@vivo.com>,
+	Zhan Xusheng <zhanxusheng1024@gmail.com>,
+	Rakuram Eswaran <rakuram.e96@gmail.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Runyu Xiao <runyu.xiao@seu.edu.cn>,
+	linux-mmc@vger.kernel.org (open list:MULTIMEDIA CARD (MMC), SECURE DIGITAL (SD) AND...),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support),
+	linux-kernel@vger.kernel.org (open list),
+	linux-rpi-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC / LAYERSCAPE ARM ARCHIT...),
+	linux-omap@vger.kernel.org (open list:OMAP MMC SUPPORT),
+	linux-actions@lists.infradead.org (moderated list:ARM/ACTIONS SEMI ARCHITECTURE),
+	linux-renesas-soc@vger.kernel.org (open list:TMIO/SDHI MMC DRIVER),
+	linux-arm-kernel@axis.com (open list:ARM/ARTPEC MACHINE SUPPORT)
+Cc: imx@lists.linux.dev,
+	vkoul@kernel.org
+Subject: [PATCH 1/1] mmc: use dmaengine_desc_set_callback()
+Date: Mon,  2 Nov 2026 12:21:03 -0500
+Message-ID: <20261102172126.3890568-1-Frank.Li@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: PH1PEPF00013306.namprd07.prod.outlook.com
+ (2603:10b6:518:1::13) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|SA2PR11MB5163:EE_
-X-MS-Office365-Filtering-Correlation-Id: 535597d3-c07c-446d-de39-08df3905a088
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|PA3PR04MB11204:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4648b49e-7710-429c-4b6e-08df3905be21
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|23010399003|18002099003|56012099006|261102123227099003|22082099003|261009223027099003|261022075727099003|261022105027099003|261021121427099003|11063799006|4143699003|10067099003|261028144727099003|261026121527099003|261026140227099003;
-X-Microsoft-Antispam-Message-Info: DcDUq+pTxMmY7gN7VTY89Y3L7QeVLdryi973bq7Q+jHJ84BqvsX5sKEe+L0ZN5V+BrjWVajROz178HRCZEXXiktLKoiIwjVgElgTgu6wEBWiBNNSXPIvNRpP5xYwcuELPrLGFZ+ccTevxD0+m2i8KZWhdDVCiV9dnUQBWCXJADzn405wkxBn+/Y5Yj38s+aaQZTtATx8cBINYieBH842xs3ui65ic0/enrD34hEFt/9kg9/0PSnFYx4SV5iLyCaRia9un3gIDcSCo072ePY1gL4Eo9jb/KeO4pTeMCZeFHCWGXqhg9SyapEef6yuO8MXuiWPTCAZQ5NocL0zFrW957J2nyf+Eeqy2oCPFM7PO5jyeoFqNINCbaxA7oL206pHDG9o4zpP4iFxRoemqFO6FC7uKWjx8IwtkxotFwc6/hjJnAyEg2ZyuIJ+bXD+LJ1F9SdvhDlH7CwDLagujP0Y8jVzkuDBAf6Gs69qcZS0sOQoBaDp17TLNsR9r/sI9tmfiCuBlj/5XFOBEU/ZAee2zmKD5oT6WfMyGjhblfBv/3TU+cgquPg8DHIY3nwVzm1nE+yiL1hhyeZWXbbZe+0Dg0ssSVkkZ/8m3LQDt51WBMngReYRUxEPQYpA3Dsgha5CNAGH0BbvSpghXDamdsE6wOfiPG+0+cC94yzqrXoh6sI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(23010399003)(18002099003)(56012099006)(261102123227099003)(22082099003)(261009223027099003)(261022075727099003)(261022105027099003)(261021121427099003)(11063799006)(4143699003)(10067099003)(261028144727099003)(261026121527099003)(261026140227099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014|23010399003|19092799006|18002099003|56012099006|261102123227099003|10067099003|261009223027099003|921020|261022105027099003|261021123027099003|261021121427099003|11063799006|261028144727099003|261026140227099003|261026121527099003;
+X-Microsoft-Antispam-Message-Info: ilb/HuJu4myw2uUYDDEhG24ksGmWXHV8RewKTjtgR/RHyg38tkl20udGIvc97o0YkNydYNpoMYf4UVifa3tdfqtEcUlsrdaqT1sYd0mm52CSFamB344FN1J0lFjBo/yTMWwlh9QtNgILyokrEhBvbbus9Om/ibqnxbmtB5suXErQHnKU4wI3H2LnSAUD3x1f5C2Qh5HY3FEv9TM1btURqGD8928y+YTonUoAqzY7e/4pPQzp9NL2gjW6/3KSKR6esDgqeXNGRBu3YfaPp79as+8v+KHj5H7xQy4RZrjvApz4f245UbuX/YFsqWhrMciP7KcXOnCAEi6PYic1aSS5UESXuoH48YQaI6sOM4KRLP2RaDEZL8qWY2udg53ETPqv/qXFCK0JReHWX7HmlfEzKNdgCD0V8MXCpwCMfXXebB3OpL5ntLWNSzOeu950RaxMGuHH0fNTSZwDu5/3iOEwv+LJK/V2iZjTFHeKAn7KkNebtVraDFaZLEbjOm9fNwG4CtaANpVpgQH93hl0HBjub03uvzQ6QSlk8c/DMTBmQRdA9v78pIKzSBYOAswEUgdfomE8oTEgk3Am+wUpbdoRgs9/KjiUvnXeyaScJJs0+ZyzyLbRInywMpjglRoI05aCOlUCwFeXreXfevmRtsUVWGb7+BkvOapKOPrVoOeRLFpViB/zxa2Sg8n16mE+fXKtNANv1y6r2fwyOfXpXReHIw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014)(23010399003)(19092799006)(18002099003)(56012099006)(261102123227099003)(10067099003)(261009223027099003)(921020)(261022105027099003)(261021123027099003)(261021121427099003)(11063799006)(261028144727099003)(261026140227099003)(261026121527099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b3NTVlF2b1drZEZKVVVZOFBocjNsSjNUVWJzV1MxUVB4b3Zxb2hTNldGeUtF?=
- =?utf-8?B?cFN6ejJob3Rqa1ZJMFk0VXpyRE5CVGlyMFRRa3phbTgzejhNQmRrY01ndmRq?=
- =?utf-8?B?Rk96cEMrcnVlQm12ZkN1RnBCZ2swelVEck9hNG5YTmt1WXJXc2ZHRklxQ2oz?=
- =?utf-8?B?dlVRd3FBZDU4c3Azam9FdHNlaXdJaU5ES1Mya1oxM1JiMTVRTGxrWVp1WGVH?=
- =?utf-8?B?NGIxOHB2VGU2NTdkcy9DRENkNUxHTEduK2VlT0dkMk0vMitzdXdCenY1dkpI?=
- =?utf-8?B?Y1QveFQrVU1xYzJjTjJhZ2NMYVNMQ2tLUE8zaEs4eVlhWnlocm1JejJlNlVF?=
- =?utf-8?B?YWlZeTBIS2hHU0wwaDVvckdiUGVXV1lORnFtdWF6ZHp3N2ZZUFpBUU9sRmlT?=
- =?utf-8?B?dHdiVVJUQ3dYY1l2cDNkeU93aHhGNUYvbkx2SFJvQXNRZ1B0MHAxcUNsa0gx?=
- =?utf-8?B?M0JCcWRlWlVvd3lhSlRMRE1ibXFQM1FsRklNbDRWTmhNckRxYTk3UzdtZ1BZ?=
- =?utf-8?B?TnNsOXMzcGZaTFV6SDBGM3lJMHBUeC9TRXUvVlRGU2k3ZFJHNFphNnFFZXBM?=
- =?utf-8?B?S3lHdWY0dkNHQzBSTUNZbmdUbXBwU09icEQ3SVlZWnE3OGY5VG1GK3Rpak1D?=
- =?utf-8?B?clpWaDdDeWR2WTNmQ1BYS0lZditxTzBYbkZBTXZPUXNkU1MzTW9Ed0ZtcVR5?=
- =?utf-8?B?TUFDUmJwZXZqUys5dW4rVkw1dytybVRFOHNabktEQklBU1k2RXo0Ym9qeTBC?=
- =?utf-8?B?dXRpc3BIeVJidHk4RjNpY09wNHIyRXJ4WVpxWGtGek5Ga2JjbXAvQi83MEpu?=
- =?utf-8?B?VElhQzZhckVrOXJyeC9Kemc1Yi9MMG5wM0d6QU44bGxoUE9JZ28vN1l0THpE?=
- =?utf-8?B?MHMrMktJWkpCU3RpaWdvc3BqeGN3Q3BxUDdtL2J1QWMrcnFuWnhZbXFieTRU?=
- =?utf-8?B?NDV4SkZXM0ZjcWc3UXY2MUhBcGFJU1RXM2JEcmlncEU2WWNNQVNlTU9Qamho?=
- =?utf-8?B?THI0S3Iwb1FQL3FSWlRNbEtXbHc2UGUydHJJVXlxbzlxbFU0V3Z0ZVlXUEgw?=
- =?utf-8?B?ZmpWNEhBajZWbjlLS0h6Mk9VWVZmVWZtc3J0Z3Z0UTR2azhLVlZKNXdzWE1x?=
- =?utf-8?B?MWJzaVRqN1BiVEgrWDZBSXdxRk04MmhacUJhYTJsYUhwS3FOZW12U25EK1Vl?=
- =?utf-8?B?dmF0Y1NoVzdBNHhva1Z1Mml4MFZNcmRkNk1wRG51T2gyTGovbHNGTnZEK2w1?=
- =?utf-8?B?OUI4ZGluaWs5d1JMSGlTL2FFUzNnWGdQVzRnTzc1a0lyRWlBSXVEUU5xNUh3?=
- =?utf-8?B?N2hqYSt1akpzTkMyU1BXRUdwSDNlU0dyNjdONEszbmtxYklVdTNwVkh6RkpX?=
- =?utf-8?B?R1FCVVBBVHQ4ci82YmYrQlcxVU5pTTR6Y2JDWE1WdUFudjlDdjdIM2FyY2Nq?=
- =?utf-8?B?MEVCNkNxMWhnYlBvT2V2V0d5Q05FTjhmMGVWOHJGMEdZbVZFY0Zmd1l1ajBI?=
- =?utf-8?B?bkFCMmhOWHFLS0FMSGxqMFU3RXlPM3Q3SWYxYXBoQ2Jnbmxlb1ZyaGxuWHFQ?=
- =?utf-8?B?T1FTUEtDQzFueUJtZHlzRk1aK3p5UUR3b0hNL1dEeFZOeWNHS3lXNFRUcE1p?=
- =?utf-8?B?aEpFNXp6Z3F3VVVNTms2SnU2R3AyY0taaG5zUENNQnBUT21xSTFEQkxtQWM0?=
- =?utf-8?B?dTRKbzRWY2pwK3M4S1JRZ3YyL3RIcWJIWlJSR204SUNrbXpvcDNtV2hkQ1g4?=
- =?utf-8?B?RlVzSGhPZXB1UkpCRDZLTm43dm12bVFpdkFQT0drQjdmQWMxeGhwMTJoSXEz?=
- =?utf-8?B?M2xBUzZ3MmJWOCtHZzRRS3lkdjJSVW9ZUkNDNWRodEpBOVpyV29CVDBSUlZN?=
- =?utf-8?B?Qkh4U2g5WTk2ZkwrRXZSZ3Y0andlVmFiSHllZDRxTU5ib2VSU01lY05YWmJ1?=
- =?utf-8?B?WExRaVIxNjN5MUoxVStBMmpqTWp4WkllS295QUlCTkRsd0VkQ1N1dWZHRHVZ?=
- =?utf-8?B?ZHRiL0dZakd4aDJ6S29IcEthSFJSbHJQSnd1bVZjRmtDc2k5ZVpkbnpibTdt?=
- =?utf-8?B?MXppR2NmNm9nQURQNEMzbmhpdFJFOTRQNm1lR2ZxbndDWThsMHQ3ajVNWUJM?=
- =?utf-8?B?TXB0SjNOdkRIajVNOVdFaGZmT1lsL1pjWnRjci9ESWMyVHVGQVVWdnR1ZFlP?=
- =?utf-8?B?TCs1T013ZGV3eE0xbkptUW5ScmlvcnVPbitzbnU1aTVCVyswT3JlQ09mYS9Q?=
- =?utf-8?B?N0N5Zk5BeDJIYWFJLy80am53dno1OWcwSzlqTW5PYWVvT1pHNHFaT3ZrNzh1?=
- =?utf-8?B?aEthU0VQQlVwTDhQdC9jQngvQzl5SmgwMURWNGMxS0Q4UUJCQ3phN3RSSzFj?=
- =?utf-8?Q?mo8vfDI0lh1D5UjY=3D?=
-X-Exchange-RoutingPolicyChecked: twD7gWT2djvzOQ4fqvRgMIQ56T+2/7VW73A0Ll55fyQL+dV6ZXbBTBqM2B0EBKEfzC7ZPzobh1UGflXaIaeZZMS/dyCuPi4Xkz5Wh+DKqorOs2QO7oxyr5p/bapUokCUIeSZoC6fg9a/sfvp9Rw6wNse1287zw40QCIpjnsxLAhyN3mkBdHDr6nHFqg5cyjSJ2xVV0V9jVsLD2N0O8ya3Co4WsxmRnDidMCKBwsNDtRdfGhwQ1HoT8/cSSP6IrY9qGGJURWlYj1hW0ycaZOw++kuerJYVtuc+o3mm7ZZfCeRAAXtspssvPqGyduIYoEPQTyoDJegDj9h/udRlgukLw==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 535597d3-c07c-446d-de39-08df3905a088
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?a3vIbI9ddhZAuIbhf+OxiUTLDr3CHEpE7kqCzYQBiRFEGm2tYVJj78mBwyZC?=
+ =?us-ascii?Q?NAL/AZyXvuWVa7PX46Xxk9W7FT/y9IcRGdom6euiortyqQiiP8VKx7itbIxr?=
+ =?us-ascii?Q?ijab6qwIDA/gxiUxxlcIelJLWHfrLnn4Ggan9ycXYCBK2Su2er7Bgrkza7mX?=
+ =?us-ascii?Q?qmJaSoZGSC/Yvs97+IavPmwz8C/gJfJ0T4hfFDUVQUbhf+DxVQCW8cdJayVW?=
+ =?us-ascii?Q?rN0RzYs1nPgpAoUxMU7xi3XQgAlldlcE/aEzlywGCuYsSoKV38WZ8HCBPXSo?=
+ =?us-ascii?Q?+28YLpdnDj6d/k9TwcIvJCFKvBeqS03wipzU29+B6FbQ/pC2k8xbj1YQUj0f?=
+ =?us-ascii?Q?L8A2d3q5ZkFNrEAECBTymYNBHgIzn45rVQdhbcgaqgMu708GqO1Q6vXWpGPJ?=
+ =?us-ascii?Q?acRRSBs7xY6KyHFYFGaaIBrEVBfW6lXxjO7/xBELFkb7mcGi/pCakuNBEH2y?=
+ =?us-ascii?Q?mraFGLEhUSErnV9MGC3e5Ucxtvsq/KP7JzeiDOsccrnbBd9Jk62Mn7bjcfkb?=
+ =?us-ascii?Q?RZhHAw/HHcz4o6krxdTCAEHYJlBPc3MNztLR9QoUfbLUEYUZ9C8h5NaBXnS3?=
+ =?us-ascii?Q?nXqKIQ/jF4J0dbgCPlrQlC1jln1g/edHWQW061zKsgUmONgMK7BvFIuMjCBe?=
+ =?us-ascii?Q?/TzZGrH8p+BOcpE6B0092NnsP+JZQZDD+NUU6Thg7acTqsuY4TwZMI3JNFLh?=
+ =?us-ascii?Q?Oh1gKaNqLPydVUbrX5mpMy5K4wlhyi3b1rQOx4XhGNsygr06OV9mBnA2KJgN?=
+ =?us-ascii?Q?4bbln9d1PBqTmojBdZfMLH/r93Mt3E7x7tY7QowAYB7xFwayZlcDCo4cGvmp?=
+ =?us-ascii?Q?zTAJLFmES2XGMNxIPwv6WVHpaFo6dQN6eiBmI1H9tDZ6Rlbj7m5j+DzCwvjr?=
+ =?us-ascii?Q?/lQFpBo5fKl05/8FGfHEbRNlS+XfVecKC5lJ8LKnMJLeh3FcG4fXQe7JfiM/?=
+ =?us-ascii?Q?geQnC+Zy9HkdSJWz2HB2jtHBFy6s7nlTFYsJ6tukNe0u1rdlwaCj+Z+8bqvS?=
+ =?us-ascii?Q?0XkP0za3Karfc6zgtBwotb2u+COxsB6x3BA9Q6bFOeHufNycUYMDo0bUJdti?=
+ =?us-ascii?Q?xDTI5pG+5TYOKcbsadiOkamvUzyqII4hbPP0lNCYW/ncd92oazvhmDKMjUAV?=
+ =?us-ascii?Q?gltKimmn0EB1TIYrZbcK/Q79NOiBsRuuO5o2NRvHjBWXpx6vaVAUqUW+QrH4?=
+ =?us-ascii?Q?T18gEkpgi9FMjLi4laD9NPFmhfKyDXGmZ3hoo5yWBAibco0TehVU+cChR9Zl?=
+ =?us-ascii?Q?dG6bfaz6ZsLOw/XP0KEnuiHzU82u4SRLKwjXjQ8ZbyQLDsFCPUN/pz3CEBl7?=
+ =?us-ascii?Q?87RL5pvEJmB3od6lfkIUrXFgQpHyNSeCi0/GF34VQK6tlZpRAxuZ2v78Zt7v?=
+ =?us-ascii?Q?FetMsblsRH6YsBeEsy/8hGZ0GeHQ614XVNSMqgmjTKltSEtcvMC7aHFeAUzS?=
+ =?us-ascii?Q?PhZV+/T6a2QG7RkK26F315CyqgK0gfcnr5whBqkOH8byDavoOnxOlAr7FJ/P?=
+ =?us-ascii?Q?iqcB/hNmyzxl+xoQADJp+S0IHiDWAaTtyzwYG9rRyfkZs/d8+kqmzVPPeMeb?=
+ =?us-ascii?Q?1z2xWZKRVP/tifu5BjSXkefFcENmQAzB+VDMTI4lXTKVJH9gtdeags4HFQxy?=
+ =?us-ascii?Q?vu2TSvn/AYol6bCvjhpvkn3I10dRLQ4bMxvsS59JOSvG8sZa3KrV5QUemeR+?=
+ =?us-ascii?Q?0/slONkTa5LcG+w8X4tA+X0qedDW+ER/z5cEF2sbmJtXs3xHsgDelb396ry8?=
+ =?us-ascii?Q?52PbyahGy2lHx2LVxXgNUb04uXoaIU8=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4648b49e-7710-429c-4b6e-08df3905be21
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 17:20:44.2104
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 17:21:33.8035
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qPhk/RbCY8IzfYz946Gr/FMZOBrBQqZCGoYBToMm2Xx8vHen146pswPeWNdyYuqqnvakG99xihLVUyQeza08Rscyya4eEhZiz/GITVCP7vk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR11MB5163
-X-OriginatorOrg: intel.com
+X-MS-Exchange-CrossTenant-UserPrincipalName: A+FwQH8bNAwLPY1+2DX25NUlNmPUEwU5c+mDfoIooGlPigTKzIT6TyiqTd7ocWUkUaT3GIkGMsm75+MIngoB/552ROUtLmkEstwMyl+b4lkZ5J3qKZr1EtYu4yYO9oss
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PR04MB11204
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_092053_839579_3CD97AD7 
-X-CRM114-Status: GOOD (  22.24  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261102_092140_318345_B0CA6AE5 
+X-CRM114-Status: GOOD (  12.10  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,118 +178,272 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Shaopeng,
+From: Frank Li <Frank.Li@nxp.com>
 
-Thank you very much for taking a look.
+Replace open-coded assignments to callback and callback_param fields
+of struct dma_async_tx_descriptor with calls to the
+dmaengine_desc_set_callback() helper across MMC host drivers.
 
-On 11/1/26 9:41 PM, Shaopeng Tan (Fujitsu) wrote:
+No functional change intended. Prepare make to struct
+dma_async_tx_descriptor private to the DMA engine.
 
-...
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+ drivers/mmc/host/atmel-mci.c             | 3 +--
+ drivers/mmc/host/bcm2835.c               | 3 +--
+ drivers/mmc/host/dw_mmc.c                | 3 +--
+ drivers/mmc/host/moxart-mmc.c            | 3 +--
+ drivers/mmc/host/mxcmmc.c                | 3 +--
+ drivers/mmc/host/mxs-mmc.c               | 3 +--
+ drivers/mmc/host/omap.c                  | 3 +--
+ drivers/mmc/host/omap_hsmmc.c            | 3 +--
+ drivers/mmc/host/owl-mmc.c               | 3 +--
+ drivers/mmc/host/pxamci.c                | 3 +--
+ drivers/mmc/host/renesas_sdhi_sys_dmac.c | 6 ++----
+ drivers/mmc/host/sdhci.c                 | 3 +--
+ drivers/mmc/host/sh_mmcif.c              | 6 ++----
+ drivers/mmc/host/uniphier-sd.c           | 3 +--
+ drivers/mmc/host/usdhi6rol0.c            | 3 +--
+ 15 files changed, 17 insertions(+), 34 deletions(-)
 
->> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
->> index dc442851fd7e..246560247a28 100644
->> --- a/drivers/resctrl/mpam_resctrl.c
->> +++ b/drivers/resctrl/mpam_resctrl.c
->> @@ -1615,13 +1615,77 @@ static struct mpam_component *find_component(struct mpam_class *class, int cpu)
->>          return NULL;
->>  }
->>  
->> +static int mpam_resctrl_setup_ctrl_domain(unsigned int cpu,
->> +                                         struct rdt_resource *r,
->> +                                         struct mpam_component *comp,
->> +                                         struct mpam_resctrl_dom *dom)
->> +{
->> +       struct rdt_ctrl_domain *ctrl_d = &dom->resctrl_ctrl_dom;
->> +       int err;
->> +
->> +       dom->ctrl_comp = comp;
->> +
->> +       mpam_resctrl_domain_hdr_init(cpu, comp, r->rid, &ctrl_d->hdr);
->> +       ctrl_d->hdr.type = RESCTRL_CTRL_DOMAIN;
->> +       err = resctrl_online_ctrl_domain(r, ctrl_d);
->> +       if (err)
->> +               return err;
->> +
->> +       mpam_resctrl_domain_insert(&r->ctrl_domains, &ctrl_d->hdr);
->> +
->> +       return 0;
->> +}
->> +
->> +static int mpam_resctrl_setup_mon_domain(unsigned int cpu,
->> +                                        struct rdt_resource *r,
->> +                                        struct mpam_resctrl_dom *dom)
->> +{
->> +       struct rdt_l3_mon_domain *mon_d = &dom->resctrl_mon_dom;
->> +       struct mpam_component *any_mon_comp = NULL;
->> +       enum resctrl_event_id eventid;
->> +       struct mpam_resctrl_mon *mon;
->> +       int err;
->> +
->> +       /*
->> +        * Even if the monitor domain is backed by a different
->> +        * component, the L3 component IDs need to be used... only
->> +        * there may be no ctrl_comp for the L3.
->> +        * Search each event's class list for a component with
->> +        * overlapping CPUs and set up the dom->mon_comp array.
->> +        */
->> +
->> +       for_each_mpam_resctrl_mon(mon, eventid) {
->> +               struct mpam_component *mon_comp;
->> +
->> +               if (!mon->class)
->> +                       continue;       // dummy resource
->> +
->> +               mon_comp = find_component(mon->class, cpu);
->> +               dom->mon_comp[eventid] = mon_comp;
->> +               if (mon_comp)
->> +                       any_mon_comp = mon_comp;
->> +       }
->> +       if (!any_mon_comp) {
->> +               WARN_ON_ONCE(0);
->> +               return -EFAULT;
->> +       }
->> +
->> +       mpam_resctrl_domain_hdr_init(cpu, any_mon_comp, r->rid, &mon_d->hdr);
->> +       mon_d->hdr.type = RESCTRL_MON_DOMAIN;
->> +       err = resctrl_online_mon_domain(r, &mon_d->hdr);
->> +       if (err)
->> +               return err;
->> +
->> +       mpam_resctrl_domain_insert(&r->mon_domains, &mon_d->hdr);
->> +
->> +       return 0;
->> +}
->> +
-> 
-> Currently, it returns success even when the domain fails to be inserted. Is there a specific reason for this design?
-> I believe it would be safer if mpam_resctrl_domain_insert() returned an int to indicate success or failure. 
-> 
-> For example:
-> 	static int mpam_resctrl_domain_insert(struct list_head *list,
-> 					       struct rdt_domain_hdr *new)
+diff --git a/drivers/mmc/host/atmel-mci.c b/drivers/mmc/host/atmel-mci.c
+index 98933be5f1744..de4ef7a675892 100644
+--- a/drivers/mmc/host/atmel-mci.c
++++ b/drivers/mmc/host/atmel-mci.c
+@@ -1172,8 +1172,7 @@ atmci_prepare_data_dma(struct atmel_mci *host, struct mmc_data *data)
+ 		goto unmap_exit;
+ 
+ 	host->dma.data_desc = desc;
+-	desc->callback = atmci_dma_complete;
+-	desc->callback_param = host;
++	dmaengine_desc_set_callback(desc, atmci_dma_complete, NULL, host);
+ 
+ 	return iflags;
+ unmap_exit:
+diff --git a/drivers/mmc/host/bcm2835.c b/drivers/mmc/host/bcm2835.c
+index efd1903c3ccd4..9a2c995577d46 100644
+--- a/drivers/mmc/host/bcm2835.c
++++ b/drivers/mmc/host/bcm2835.c
+@@ -506,8 +506,7 @@ void bcm2835_prepare_dma(struct bcm2835_host *host, struct mmc_data *data)
+ 		return;
+ 	}
+ 
+-	desc->callback = bcm2835_dma_complete;
+-	desc->callback_param = host;
++	dmaengine_desc_set_callback(desc, bcm2835_dma_complete, NULL, host);
+ 	host->dma_desc = desc;
+ 	host->dma_chan = dma_chan;
+ 	host->dma_dir = dir_data;
+diff --git a/drivers/mmc/host/dw_mmc.c b/drivers/mmc/host/dw_mmc.c
+index ff0b25d287a94..15c65aeea8030 100644
+--- a/drivers/mmc/host/dw_mmc.c
++++ b/drivers/mmc/host/dw_mmc.c
+@@ -884,8 +884,7 @@ static int dw_mci_edmac_start_dma(struct dw_mci *host,
+ 	}
+ 
+ 	/* Set dw_mci_dmac_complete_dma as callback */
+-	desc->callback = dw_mci_dmac_complete_dma;
+-	desc->callback_param = (void *)host;
++	dmaengine_desc_set_callback(desc, dw_mci_dmac_complete_dma, NULL, (void *)host);
+ 	dmaengine_submit(desc);
+ 
+ 	/* Flush cache before write */
+diff --git a/drivers/mmc/host/moxart-mmc.c b/drivers/mmc/host/moxart-mmc.c
+index 28aed13549a64..15689717c76bf 100644
+--- a/drivers/mmc/host/moxart-mmc.c
++++ b/drivers/mmc/host/moxart-mmc.c
+@@ -289,8 +289,7 @@ static void moxart_transfer_dma(struct mmc_data *data, struct moxart_host *host)
+ 
+ 	if (desc) {
+ 		host->tx_desc = desc;
+-		desc->callback = moxart_dma_complete;
+-		desc->callback_param = host;
++		dmaengine_desc_set_callback(desc, moxart_dma_complete, NULL, host);
+ 		dmaengine_submit(desc);
+ 		dma_async_issue_pending(dma_chan);
+ 	}
+diff --git a/drivers/mmc/host/mxcmmc.c b/drivers/mmc/host/mxcmmc.c
+index 097498a3f8ff4..e6271d67b6f6c 100644
+--- a/drivers/mmc/host/mxcmmc.c
++++ b/drivers/mmc/host/mxcmmc.c
+@@ -394,8 +394,7 @@ static int mxcmci_start_cmd(struct mxcmci_host *host, struct mmc_command *cmd,
+ 
+ 	if (mxcmci_use_dma(host)) {
+ 		if (host->dma_dir == DMA_FROM_DEVICE) {
+-			host->desc->callback = mxcmci_dma_callback;
+-			host->desc->callback_param = host;
++			dmaengine_desc_set_callback(host->desc, mxcmci_dma_callback, NULL, host);
+ 		} else {
+ 			int_cntr |= INT_WRITE_OP_DONE_EN;
+ 		}
+diff --git a/drivers/mmc/host/mxs-mmc.c b/drivers/mmc/host/mxs-mmc.c
+index 7c7c52d9e8e72..6a2b3e6d9a207 100644
+--- a/drivers/mmc/host/mxs-mmc.c
++++ b/drivers/mmc/host/mxs-mmc.c
+@@ -234,8 +234,7 @@ static struct dma_async_tx_descriptor *mxs_mmc_prep_dma(
+ 	desc = dmaengine_prep_slave_sg(ssp->dmach,
+ 				sgl, sg_len, ssp->slave_dirn, flags);
+ 	if (desc) {
+-		desc->callback = mxs_mmc_dma_irq_callback;
+-		desc->callback_param = host;
++		dmaengine_desc_set_callback(desc, mxs_mmc_dma_irq_callback, NULL, host);
+ 	} else {
+ 		if (data)
+ 			dma_unmap_sg(mmc_dev(host->mmc), data->sg,
+diff --git a/drivers/mmc/host/omap.c b/drivers/mmc/host/omap.c
+index 527b89a5ed707..4e72e57d11971 100644
+--- a/drivers/mmc/host/omap.c
++++ b/drivers/mmc/host/omap.c
+@@ -1050,8 +1050,7 @@ mmc_omap_prepare_data(struct mmc_omap_host *host, struct mmc_request *req)
+ 
+ 		OMAP_MMC_WRITE(host, BUF, buf);
+ 
+-		tx->callback = mmc_omap_dma_callback;
+-		tx->callback_param = host;
++		dmaengine_desc_set_callback(tx, mmc_omap_dma_callback, NULL, host);
+ 		dmaengine_submit(tx);
+ 		host->brs_received = 0;
+ 		host->dma_done = 0;
+diff --git a/drivers/mmc/host/omap_hsmmc.c b/drivers/mmc/host/omap_hsmmc.c
+index de5a3b70107d8..ba60b81560fbd 100644
+--- a/drivers/mmc/host/omap_hsmmc.c
++++ b/drivers/mmc/host/omap_hsmmc.c
+@@ -1279,8 +1279,7 @@ static int omap_hsmmc_setup_dma_transfer(struct omap_hsmmc_host *host,
+ 		return -1;
+ 	}
+ 
+-	tx->callback = omap_hsmmc_dma_callback;
+-	tx->callback_param = host;
++	dmaengine_desc_set_callback(tx, omap_hsmmc_dma_callback, NULL, host);
+ 
+ 	/* Does not fail */
+ 	dmaengine_submit(tx);
+diff --git a/drivers/mmc/host/owl-mmc.c b/drivers/mmc/host/owl-mmc.c
+index d5b8a110267b8..8e0520d338c47 100644
+--- a/drivers/mmc/host/owl-mmc.c
++++ b/drivers/mmc/host/owl-mmc.c
+@@ -329,8 +329,7 @@ static int owl_mmc_prepare_data(struct owl_mmc_host *owl_host,
+ 
+ 	owl_host->data = data;
+ 
+-	owl_host->desc->callback = owl_mmc_dma_complete;
+-	owl_host->desc->callback_param = (void *)owl_host;
++	dmaengine_desc_set_callback(owl_host->desc, owl_mmc_dma_complete, NULL, (void *)owl_host);
+ 	data->error = 0;
+ 
+ 	return 0;
+diff --git a/drivers/mmc/host/pxamci.c b/drivers/mmc/host/pxamci.c
+index f8427f071c009..06483f7355206 100644
+--- a/drivers/mmc/host/pxamci.c
++++ b/drivers/mmc/host/pxamci.c
+@@ -212,8 +212,7 @@ static void pxamci_setup_data(struct pxamci_host *host, struct mmc_data *data)
+ 	}
+ 
+ 	if (!(data->flags & MMC_DATA_READ)) {
+-		tx->callback = pxamci_dma_irq;
+-		tx->callback_param = host;
++		dmaengine_desc_set_callback(tx, pxamci_dma_irq, NULL, host);
+ 	}
+ 
+ 	host->dma_cookie = dmaengine_submit(tx);
+diff --git a/drivers/mmc/host/renesas_sdhi_sys_dmac.c b/drivers/mmc/host/renesas_sdhi_sys_dmac.c
+index 426308b73b490..e5ef3bae88d59 100644
+--- a/drivers/mmc/host/renesas_sdhi_sys_dmac.c
++++ b/drivers/mmc/host/renesas_sdhi_sys_dmac.c
+@@ -196,8 +196,7 @@ static void renesas_sdhi_sys_dmac_start_dma_rx(struct tmio_mmc_host *host)
+ 
+ 	if (desc) {
+ 		reinit_completion(&priv->dma_priv.dma_dataend);
+-		desc->callback = renesas_sdhi_sys_dmac_dma_callback;
+-		desc->callback_param = host;
++		dmaengine_desc_set_callback(desc, renesas_sdhi_sys_dmac_dma_callback, NULL, host);
+ 
+ 		cookie = dmaengine_submit(desc);
+ 		if (cookie < 0) {
+@@ -272,8 +271,7 @@ static void renesas_sdhi_sys_dmac_start_dma_tx(struct tmio_mmc_host *host)
+ 
+ 	if (desc) {
+ 		reinit_completion(&priv->dma_priv.dma_dataend);
+-		desc->callback = renesas_sdhi_sys_dmac_dma_callback;
+-		desc->callback_param = host;
++		dmaengine_desc_set_callback(desc, renesas_sdhi_sys_dmac_dma_callback, NULL, host);
+ 
+ 		cookie = dmaengine_submit(desc);
+ 		if (cookie < 0) {
+diff --git a/drivers/mmc/host/sdhci.c b/drivers/mmc/host/sdhci.c
+index efb4c7742fe21..18aca84834fb6 100644
+--- a/drivers/mmc/host/sdhci.c
++++ b/drivers/mmc/host/sdhci.c
+@@ -1298,8 +1298,7 @@ static int sdhci_external_dma_setup(struct sdhci_host *host,
+ 	if (!desc)
+ 		return -EINVAL;
+ 
+-	desc->callback = NULL;
+-	desc->callback_param = NULL;
++	dmaengine_desc_set_callback(desc, NULL, NULL, NULL);
+ 
+ 	cookie = dmaengine_submit(desc);
+ 	if (dma_submit_error(cookie))
+diff --git a/drivers/mmc/host/sh_mmcif.c b/drivers/mmc/host/sh_mmcif.c
+index 8bd9cdedafa4d..9fe49fa8f372f 100644
+--- a/drivers/mmc/host/sh_mmcif.c
++++ b/drivers/mmc/host/sh_mmcif.c
+@@ -299,8 +299,7 @@ static void sh_mmcif_start_dma_rx(struct sh_mmcif_host *host)
+ 	}
+ 
+ 	if (desc) {
+-		desc->callback = sh_mmcif_dma_complete;
+-		desc->callback_param = host;
++		dmaengine_desc_set_callback(desc, sh_mmcif_dma_complete, NULL, host);
+ 		cookie = dmaengine_submit(desc);
+ 		sh_mmcif_bitset(host, MMCIF_CE_BUF_ACC, BUF_ACC_DMAREN);
+ 		dma_async_issue_pending(chan);
+@@ -349,8 +348,7 @@ static void sh_mmcif_start_dma_tx(struct sh_mmcif_host *host)
+ 	}
+ 
+ 	if (desc) {
+-		desc->callback = sh_mmcif_dma_complete;
+-		desc->callback_param = host;
++		dmaengine_desc_set_callback(desc, sh_mmcif_dma_complete, NULL, host);
+ 		cookie = dmaengine_submit(desc);
+ 		sh_mmcif_bitset(host, MMCIF_CE_BUF_ACC, BUF_ACC_DMAWEN);
+ 		dma_async_issue_pending(chan);
+diff --git a/drivers/mmc/host/uniphier-sd.c b/drivers/mmc/host/uniphier-sd.c
+index 1eae2f4b6c1f9..d75ac6abd853c 100644
+--- a/drivers/mmc/host/uniphier-sd.c
++++ b/drivers/mmc/host/uniphier-sd.c
+@@ -158,8 +158,7 @@ static void uniphier_sd_external_dma_start(struct tmio_mmc_host *host,
+ 	if (!desc)
+ 		goto unmap_sg;
+ 
+-	desc->callback_result = uniphier_sd_external_dma_callback;
+-	desc->callback_param = host;
++	dmaengine_desc_set_callback(desc, NULL, uniphier_sd_external_dma_callback, host);
+ 
+ 	cookie = dmaengine_submit(desc);
+ 	if (cookie < 0)
+diff --git a/drivers/mmc/host/usdhi6rol0.c b/drivers/mmc/host/usdhi6rol0.c
+index 3bccf800339ba..8b2bb44e2f86a 100644
+--- a/drivers/mmc/host/usdhi6rol0.c
++++ b/drivers/mmc/host/usdhi6rol0.c
+@@ -592,8 +592,7 @@ static int usdhi6_dma_setup(struct usdhi6_host *host, struct dma_chan *chan,
+ 	}
+ 
+ 	if (desc) {
+-		desc->callback = usdhi6_dma_complete;
+-		desc->callback_param = host;
++		dmaengine_desc_set_callback(desc, usdhi6_dma_complete, NULL, host);
+ 		cookie = dmaengine_submit(desc);
+ 	}
+ 
+-- 
+2.43.0
 
-Could mpam_resctrl_domain_insert() ever fail? A domain is only created
-after the lookup found none for this CPU. For a control domain the lookup is by
-the component's CPU affinity while the insert checks the domain id, but the id
-is the component's id and component affinities within a class do not overlap, so
-absence of one implies absence of the other. For a monitoring domain both are
-the L3 cache id.
-
-For mpam_resctrl_domain_insert() to return a failure an insert would have found
-an existing domain which means a domain appeared _after_ it was found to be absent.
-That would be a driver bug rather than a runtime error. The WARN_ON_ONCE() reports
-it. Handling it would add unwind code for a state that cannot occur.
-
-This is how I understand the flow and believe this is why the existing code
-does not report it. 
-
-Reinette
 
