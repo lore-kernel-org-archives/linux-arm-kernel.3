@@ -2,81 +2,150 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3AB8606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 00:36:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B3CB606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 00:41:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PiSOThTZ;
-	dkim=pass (4096-bit key, unprotected) header.d=david-bauer.net header.i=@david-bauer.net header.a=rsa-sha256 header.s=uberspace header.b=vM7c0oWQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=enywyUdt;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=WBgc3cFO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=PWx7yD2PbJfwHT7mGuRmzTwLanSHlLuCjcyfxjQ8Zq8=; b=PiSOThTZiGXrvNxqlE7S6smMGx
-	ybqvgSavHTc4O0AhhRlu3UHxh+f8wURI2LnHgpwqO9XMkhzHp1WdgWcStyI2LLcDnRWMP+VcDrYx+
-	nE+gpemrEusQZVJcRRJijN3xQah5lSViTgmxT0LCpcKE09v8tGNNUMoFZ8NWIskrU54UMtSPAQwnn
-	3kdfZdJ3ryQnyHpXHsPvHMDw+kO2i8iacg93wdPVTYy5ekDgbg+wftUXDkxluFk0zqbDYflviyPzh
-	mhfCVmTZDTy+K//+xxcrWyH4m8zaEEOnB4SOWGX63McGFD+F/2ibrIsFNKgGqkvZH5U8lLXCmZY0f
-	OH7Yd5Mg==;
+	bh=sjy6vYvXFNTd6ETR5xtpTQMVgsNZMJkwBzP/ZTHQ08E=; b=enywyUdt1Qa2t7PA61CdZRIAN5
+	F/PVUSEBQNHvqa4k/DJaIbSYRShG+3c+SJdfpmRwcKvFp24l4LbbDysRS/b1hqQCIbXnFfp/0XGPc
+	ee+05PKjZMVJvNiwqn8YSV0yLZ4r0HgSgSlYNETZFl8UtkfU2OtSBPCLk7QzP+Q+f957u15i7IIwO
+	IF0aGXcna1uVSetXoy4YQd0ti2WSfmYMTVYoPLb7DHE/FpFw33k6LmoRffLq3thX2H5cv3llzgGSU
+	cm2sedJdxjKzPudqg4pvILyhCG+MPsfByw1WHJI6Kw0hjU6Z12AENiRJGPnE/uTah37eSZ/J/42kG
+	13T7Es0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO2VE-00000000kFr-2px2;
-	Tue, 03 Nov 2026 00:35:52 +0000
-Received: from mailgate01.uberspace.is ([95.143.172.20])
+	id 1xO1ky-00000000gfm-14IX;
+	Mon, 02 Nov 2026 23:48:04 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO2V9-00000000kBc-32m1
+	id 1xO1kt-00000000gcA-2teA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 00:35:51 +0000
-Received: from perseus.uberspace.de (perseus.uberspace.de [95.143.172.134])
-	by mailgate01.uberspace.is (Postfix) with ESMTPS id A7C29610E7
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 01:35:45 +0100 (CET)
-Received: (qmail 3470 invoked by uid 988); 3 Nov 2026 00:35:45 -0000
-Authentication-Results: perseus.uberspace.de;
-	auth=pass (plain)
-Received: from unknown (HELO unknown) (::1)
-	by perseus.uberspace.de (Haraka/3.1.1) with ESMTPSA; Tue, 03 Nov 2026 01:35:45 +0100
-From: David Bauer <mail@david-bauer.net>
-To: Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH mt76] wifi: mt76: mt7603: track consecutive failed PSE resets
-Date: Tue,  3 Nov 2026 01:35:33 +0100
-Message-ID: <20261103003534.176866-1-mail@david-bauer.net>
-X-Mailer: git-send-email 2.53.0
+	Mon, 02 Nov 2026 23:48:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Rra5EftqwWng0qrv1gsX1pvtygSqi4/Jfz6J9vWH1SKTWmRESgEJFfoWlaby3qHycG0pYC40sxkxZ9x5Zef4Y37zEMSY803ECECqcKDJyWfDCKWWZ+odQggOgh9c5APsCuj2wOSSBhpFsE5gMTxzGDjoGeYaj6eyhtlxE4bCKBL4evhxSfk78V5QdHsU3TPeyb/kSDC6uqPJRvcxwoZvVNbkswvdlNiDTx7DomL8m8yiP2Dz3B2/OJJNbfDU/7QuHGx0iN0baQ6GqSYsVpQkOPCTW4YtQNaZWPFuEhPIs1WTtNR5CcTX3hdwZJhSZOccUvSVPPJfJw/kjdhJ6t+hPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sjy6vYvXFNTd6ETR5xtpTQMVgsNZMJkwBzP/ZTHQ08E=;
+ b=jRK+ERCqTfqp0NhVdWI4R47KcxNNi+EEIbtbCxBk8/OP0wsZ13PsSXRwiLC/1h3ndrWRJ3lEpHiRidU2c6nxI1iphUo6kR0goIEEbe53TJyJEkjyAjqVpe7w/he8NRnjoz58ISwwanjYXtlfMdffNDMNDKEKRuITvwaau6HhFXnvPs9q5Gq19FlEzle5Pspy/t8cCKwEItfRKtMis4QhUCbRaW5UBbISvnQRPSfWdvNVmJ/wqMN7OOMM/qK5w9ZOB1YbTC1DJfyJpbu7sGbTAvCDW36sGe2t/lP73EZbXqJUVaoyXY6yEimqYuelIVjOJ1bY5FyRaBfbjbQQ9GYgZg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sjy6vYvXFNTd6ETR5xtpTQMVgsNZMJkwBzP/ZTHQ08E=;
+ b=WBgc3cFOYLdzkmfT5Bttr85VKSv0BIl0zj9RozrXezQ7iy8OBqqI2xk1WRSVY2zdW3IjIgA2FbCFdx3QsaPGbdtDW33q4Tx+mdPevtlvx9d5wahZHZuXigTPqZH46n7j16QRqrVtrXFjisvgp4v3Bh7VDcxsmLLWA4sGY9NWRbfnf7+R5BgzQ4ZfE0uzVHUNHwPJ3JLIZY8Sg1CGkSFoPwQGuxKHNYVska1SSvu3CbtoIWpOSGQVejkEWNKjCvC028d/6voyb0eNl+Ww1vZJDz1OJVNEGoYUk0lkNpcFK9XGfdc6nuiTVQmE/wu5euWz8NLaR/YXUkCsTXDizasGgg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by CPJPR04MB458518.eurprd04.prod.outlook.com (2603:10a6:380:10::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Mon, 2 Nov
+ 2026 23:47:55 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0569.011; Mon, 2 Nov 2026
+ 23:47:54 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Date: Tue, 03 Nov 2026 07:44:08 +0800
+Subject: [PATCH v2 04/11] gpio: vf610: drop unneeded header
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261103-gpio-vf610-fixes-v2-4-7c71fb36e184@nxp.com>
+References: <20261103-gpio-vf610-fixes-v2-0-7c71fb36e184@nxp.com>
+In-Reply-To: <20261103-gpio-vf610-fixes-v2-0-7c71fb36e184@nxp.com>
+To: Linus Walleij <linusw@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Stefan Agner <stefan@agner.ch>, 
+ Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.15.2
+X-ClientProxiedBy: SI2P153CA0034.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:190::17) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Bar: /
-X-Rspamd-Report: SUSPICIOUS_RECIPS(1.5) BAYES_HAM(-3) MID_CONTAINS_FROM(1) MIME_GOOD(-0.1) R_MISSING_CHARSET(0.5)
-X-Rspamd-Score: -0.1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=david-bauer.net; s=uberspace;
-	h=from:to:cc:subject:date;
-	bh=35HUvqpd53EuKLwxCx6c9zVK+zSfoB8JoaLgSV2muLQ=;
-	b=vM7c0oWQsSVeeVPhrVjietOxfWaQDUpeCk8BMLGixTIlpccX1fSPUGGVSU7y68ByWHrDeQGWhm
-	K374Uc8rMn0a425vxRBN5WygGiiC7WDIdtf7X3y0czMsKc83HFlnCbqENzWniHs/Xd03Aq2dhsvm
-	dvcWmFUChQplWd2P0pNiKH3d2iRjNKJDmXEnZCtZ9r2kTaNQfHIz6Lc+qGueQnLbKBXnQP4KVVix
-	f9mqpieIHm3nUFgY/0CQDWrc4CwXvf5I7AnygKBACik7JVF9nhMwgHKxwbHuBvLVXGgi/B9swv7d
-	PtyMLVy5fvx7iEMb9O1IPfgYmaErymvKu5VR+Rejx0kWxUZMhkyEdtaMfTKsLMALLA4sRoM4gvwB
-	X3U5E9MmzcsgZHz27Sgc+KZ4VfjsOe02MzQmMi03uI/yciqB1aVUHWObj9jxlcNq1te0UNCgZYv9
-	kj8Ab/G2gw+cdpi8zwPnpsEYAzBYjw5Sf5PCR1gNZKcakxJ5ZHn62xm8hnl+GdnGCCLcw+F580Ue
-	MM39KcP1BElYyzARu88BQvq6CPdQG14P8VZsnjJYBo/KgTDIzMd23XeTpglIaWRZ5BBYTn4HqKGP
-	RLV1tRZPLADsnnTtxsgjqem0L1+eRz7bfTbOmqj++D90JUD8vrMOn1aCibepeHTAfVeEN3kYFN7D
-	Q=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|CPJPR04MB458518:EE_
+X-MS-Office365-Filtering-Correlation-Id: dfbfce64-4e76-4723-8202-08df393bb706
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|19092799006|376014|366016|1800799024|23010399003|6133799003|10067099003|22082099003|261102123227099003|18002099003|921020|56012099006|11063799006|261021123027099003|261026121527099003|261021121427099003|261009223027099003;
+X-Microsoft-Antispam-Message-Info: bIa6laJnG6P3BJ2F6+IybJaNy3+kLfeIAWXzG8U8QAobW+D82UVwpcNIvzk7xsP7K+rOdL5ayWUktv3CVMifC8dduUVhMak8FjL5TmcYtI38l9ag7Qp50aj14Zruy5wG15OQaCepMxtdlinx7X6hILknuzlairrCMZAY/XpQXUPcWP6xLSlxGRcydOApR3PvfskkE99iW097eH5/bm1H4M5KdbsZgja/DcEixwzdFlzJVeHWrQR8vhtQOsPoNSNG3Xtqc4VK7xAm1Z6Ou4F2yFSRoHYdqhnymt3k/LcCq2NHcxItHV1ZLszuz9aGuYfBQi/BTh60/gcTH5nzygNZjJHLsRRp8sr9kQw23fLiG44sCBVFjehCBXs4Vaxo3hOH1YBbxgNSb9tT8++iwkjTcek8SyXEe+N2Mwwl+cAguA5GyzAGhIzgHMqDEHWxwkI+7JXL1mGmTraEgfdOMvcshebmmzSaOblVImKO7YhL0VFnf+cwpiiLpOwgaEXjPWNgOMngRu6uxRZjqeaL790GQvnS8K4/6RKSEX5HTQf16Tp1zQOosYOzsmVOKFgfh2CWX/3H7hTc1XyR4slren8ACzXHOdeuaZ9skVMdekzrElSnAYnNxV+MsK+yZNuY88BCV3To+9CmxA5B19fFpgFmcyYsTVq3nqoZ2J5LqKY11MwlMBB3qqXIbyCN23ZQCVVtuRYTZHJdTYFzZ755lN+pVA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(19092799006)(376014)(366016)(1800799024)(23010399003)(6133799003)(10067099003)(22082099003)(261102123227099003)(18002099003)(921020)(56012099006)(11063799006)(261021123027099003)(261026121527099003)(261021121427099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?blptckw5cy9xMmMzNW1wREpyR1FHSVYzdThFbUd6T29QcVFJQkl6NVRoQ0U3?=
+ =?utf-8?B?cVRpUHRmcm9vemthN2Q0blpTTVdhdnZRb1B0UXJ3N1MvUjdtTERMaWJPTENF?=
+ =?utf-8?B?Q0VuUDlCRlVRSUVqbEhTaUpyTXRvSW04a3NCd1VvR2VyRWdrOWFENlBzZFZu?=
+ =?utf-8?B?TUY4STRkSnppK0lKbjAyb2Q4R21nOVNEZXNIbzcrYlF2SmtCNk83bmo2SG0x?=
+ =?utf-8?B?RXBHaEIzcGR6UkZNTUlrc2hGLzBFTkp3MnNBMXdPR2w1NDU1M09XUTZSSHlt?=
+ =?utf-8?B?WTVUcjJpY2RqL0tNYVZGL1hxQm4ydjJ4U1h1cTV2dG9wY3BlMG1pNWZ6SVZl?=
+ =?utf-8?B?R1pKTzFSVkZXWG42aWU2M0dkMk5XdkJrM1IveG9rNHR0N291bGYvTkN3b1Z2?=
+ =?utf-8?B?WklzbDVxaXFOcUYrRVdRYzRTeWNnT3V0T3A0bkFEOUtoR2ZVSjJlNGQ0ZkJH?=
+ =?utf-8?B?N3lTZ1AvZmdRSUdaTFZUbGg1Q2tXNmxteUJ6MGRycnFKc0xJTlBhVFFId3NP?=
+ =?utf-8?B?VEVVUHE1NUZuTzZ3ZFZvSzlyN1owaHBkUXpkTlhKKzdvYWo2U001VGhNdWV0?=
+ =?utf-8?B?VTE5ak82WVVDQkxyc2ppcG94ZFlkREg0YWJEelF2R2dGallBdFNHNWVFU0JC?=
+ =?utf-8?B?dnVzNGo0SDNvbzFrajFPdUkzVklOcldQQnZTVTF4WGJ6RXVYdDlyMWFQcS9Q?=
+ =?utf-8?B?aWlqU1d4STBaWS9OME01NUV5UndIeHFUaVJLOUxJUTJud281UEMyL29zVWwz?=
+ =?utf-8?B?K1FETlNiZ1pzRHFkcG9seWtYQmtGTWdZWmh2QllhWTk1RUdleHF4Uk9hNEpr?=
+ =?utf-8?B?Ty9Xa2R6dVBRS2o4cFNlbEJuN3dzLzVSaUQ3K3lSOTFpYzVsRTdsKzk1dW5o?=
+ =?utf-8?B?aVUwd3RXaFg3ZkxmMzRQdEs1VDBjSnY4MVU5SnlmZ1dkMnFtRHExSkIzeXVD?=
+ =?utf-8?B?UStrd3ZNWXhoaHk3MCtKVG43WG9DYW5ZNkx0aEJxalRvdFFiMFplTk5QY1Uy?=
+ =?utf-8?B?NlpQdHZGRml4a0VITU9NRm52WVNnU1IvdVdYa0JUTzY1TC9rYU9HMmd5elp1?=
+ =?utf-8?B?M3dOcGVSdHdWNjhCSXRieUFhZkQ0dVpBWkVUR3RHTnRYdnBuZmpyQnpza0N0?=
+ =?utf-8?B?Q0lRdUdtT1FNYngrL1VoNGRjQTh4aEQ5eStDTWJXYkdQMlVIa2txaDIwMFhr?=
+ =?utf-8?B?UEh4Q3FibCtmdjUwYWtwakYzeWoyVjg2Q1l4b3RFMjQwUlNmR3pyei9XRito?=
+ =?utf-8?B?SVRoaVdlelZIUVVDMlgzSSs4Ly9mdDZRUlF3RTVsb2tnSHlGV2c5WFhiVUx6?=
+ =?utf-8?B?RmNNcjBpTXdSQ01zWlJCZ2NQZThYaFJ1NXB2TVMzeFZzdmhmMGJ5R2J4NFQ4?=
+ =?utf-8?B?NmpQVEM4cURIMmk5VlRjUEN2Y0JvaWRhMDJvM3JiTWJKY0RvaGtMUy9YcThr?=
+ =?utf-8?B?NzhyREFLcUdQUmdBMk1kYWNSVGRiMUIvb2NEMENrM2JENXY5NUVteUpMYWdP?=
+ =?utf-8?B?aXlwSHR2c1FsbU82ZU1VcXUrcE9pZlJnbnh6RGlydHJWN0VnNGk1VUg1cUlP?=
+ =?utf-8?B?cWRZbHNVNmpHdi9HSGh2aXBMajJnejBkb25IdXlRZCtxUVIvTzFXb01yaldD?=
+ =?utf-8?B?aXBPTExhTWpHUWJIOTVNUlplTEc4VHBFMnd3WFZXVVh2Z2lNRDBuZGhEQ0pQ?=
+ =?utf-8?B?ckZyQjJSQS9pVEFRME5ZLzN1UGZwbFZZdVNScUErTHJPOTdzTWFTWkRlYkE4?=
+ =?utf-8?B?N1Y5RTF0d2w5NnplTi9oZTZ4b1hMQUVxR3EwTzNBMklOV3dONFVVMXRtNGk4?=
+ =?utf-8?B?MmVGKy9GdXgvU2N0UXg0bXpoMHRxOUlkbVUvMHRteXhTb0QzeVV0dWxFaGho?=
+ =?utf-8?B?S0ViakVCT3JVSkRXZ1Nyd1FhUlZ2MmNEY1ZrUU5mQXZsMUhRYlY3QThrVlp6?=
+ =?utf-8?B?T1VHdVFyODYrVXp6WjRJMnBXUHpSN1VheUFYREVPTkVsMi8xT1BkMkwxV1ZU?=
+ =?utf-8?B?T0JVbXRqTWV2SE9lOTlCK0l0QlZIWlo2ZE5ZRGVBSVBhdEthQWlGc2xpVnND?=
+ =?utf-8?B?NVFMSGZyVVQwbERNbVMzOEdDQ1Ryem5XU2ZxMlI4SmJSY2xjU2RHTDFOZzVz?=
+ =?utf-8?B?MzgxVG5leDBURDIxNnM1NHhtcW5EUXFpNWdvVWZ0V2ZoS3IrdzJaT3FXNGk2?=
+ =?utf-8?B?S01IUjZCNzNTMWxCNGFZZGxrc1ZZTFB3SHYvV0tETE9HQkpkUUxHOHpibWcw?=
+ =?utf-8?B?TXhlUnlZaENvSGlYMm82cHZyRXhzNGVTZEsrcFFDTzhpcDBicC9SK1Y4UWNV?=
+ =?utf-8?B?K0pHWlRUWHJxbThiZ1hOWFdjZFhudWU4d2FrSHhEWE1RMVY4ZVVwbHZzWlF1?=
+ =?utf-8?Q?B1yyLCvuIO7gK6BdMbQPzIC0P1o4pov/Xs8QK?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dfbfce64-4e76-4723-8202-08df393bb706
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 23:47:54.7908
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mJ7vCatTxudJxwbbIp6LHmTsnJpCgYbtxzuSyrU9F9y7lJMy3AInrPMAwGfhhZDADeLm/BoHK5TqOkyp7oEkkmM500z/Ds+hvjwsiSRS4ZlhjtMtcRP/6PR0e6hGiMgL
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CPJPR04MB458518
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_163548_053628_E5342D6C 
-X-CRM114-Status: GOOD (  17.30  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261102_154759_738038_796E6A93 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,108 +156,38 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The current PSE recovery process uses the global reset cause counter to
-clear the MT_MCU_DEBUG_RESET_PSE_S only every 3rd attempt. The counter
-then wraps around.
+From: Peng Fan <peng.fan@nxp.com>
 
-This does not allow to track the total number of failed PSE reset
-attempts. Introduce a new separate counter for consecutive failed resets
-and clear the bit based on the value of that counter.
+Remove the unused pinctrl consumer header since the driver doesn't use
+any pinctrl consumer functions.
 
-Keep RESET_FAILED reset cause as a cumulative statistic.
-
-Also add a short comment about how the reset procedure handles the
-failed case in terms of the retry limit.
-
-Signed-off-by: David Bauer <mail@david-bauer.net>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
 ---
- .../net/wireless/mediatek/mt76/mt7603/mac.c   | 21 ++++++++++++-------
- .../wireless/mediatek/mt76/mt7603/mt7603.h    |  1 +
- 2 files changed, 15 insertions(+), 7 deletions(-)
+ drivers/gpio/gpio-vf610.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mac.c b/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
-index fa0bf9a201ce2..549b0d3358f68 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7603/mac.c
-@@ -1342,7 +1342,7 @@ wait_for_wpdma(struct mt7603_dev *dev)
- static void mt7603_pse_reset(struct mt7603_dev *dev)
- {
- 	/* Clear previous reset result */
--	if (!dev->reset_cause[RESET_CAUSE_RESET_FAILED])
-+	if (!dev->failed_pse_reset_attempts)
- 		mt76_clear(dev, MT_MCU_DEBUG_RESET, MT_MCU_DEBUG_RESET_PSE_S);
+diff --git a/drivers/gpio/gpio-vf610.c b/drivers/gpio/gpio-vf610.c
+index 9ebb4469fd15..d14cd5515293 100644
+--- a/drivers/gpio/gpio-vf610.c
++++ b/drivers/gpio/gpio-vf610.c
+@@ -16,7 +16,6 @@
+ #include <linux/io.h>
+ #include <linux/ioport.h>
+ #include <linux/irq.h>
+-#include <linux/pinctrl/consumer.h>
+ #include <linux/platform_device.h>
+ #include <linux/property.h>
  
- 	/* Reset PSE */
-@@ -1351,15 +1351,22 @@ static void mt7603_pse_reset(struct mt7603_dev *dev)
- 	if (!mt76_poll_msec(dev, MT_MCU_DEBUG_RESET,
- 			    MT_MCU_DEBUG_RESET_PSE_S,
- 			    MT_MCU_DEBUG_RESET_PSE_S, 500)) {
-+		dev->failed_pse_reset_attempts++;
- 		dev->reset_cause[RESET_CAUSE_RESET_FAILED]++;
- 		mt76_clear(dev, MT_MCU_DEBUG_RESET, MT_MCU_DEBUG_RESET_PSE);
- 	} else {
--		dev->reset_cause[RESET_CAUSE_RESET_FAILED] = 0;
-+		dev->failed_pse_reset_attempts = 0;
- 		mt76_clear(dev, MT_MCU_DEBUG_RESET, MT_MCU_DEBUG_RESET_QUEUES);
- 	}
- 
--	if (dev->reset_cause[RESET_CAUSE_RESET_FAILED] >= 3)
--		dev->reset_cause[RESET_CAUSE_RESET_FAILED] = 0;
-+	/* Limit the number of consecutive failed PSE reset attempts.
-+	 *
-+	 * After 3 consecutive failed attempts, the reset limit is
-+	 * reached, the counter is reset and the device will
-+	 * return to normal operation.
-+	 */
-+	if (dev->failed_pse_reset_attempts >= 3)
-+		dev->failed_pse_reset_attempts = 0;
- }
- 
- void mt7603_mac_dma_start(struct mt7603_dev *dev)
-@@ -1481,11 +1488,11 @@ static void mt7603_mac_watchdog_reset(struct mt7603_dev *dev)
- 		mt76_queue_rx_reset(dev, i);
- 	}
- 
--	if (dev->reset_cause[RESET_CAUSE_RESET_FAILED] ||
-+	if (dev->failed_pse_reset_attempts ||
- 	    dev->cur_reset_cause == RESET_CAUSE_RX_PSE_BUSY)
- 		mt7603_pse_reset(dev);
- 
--	if (!dev->reset_cause[RESET_CAUSE_RESET_FAILED]) {
-+	if (!dev->failed_pse_reset_attempts) {
- 		mt7603_mac_dma_start(dev);
- 
- 		mt7603_irq_enable(dev, mask);
-@@ -1920,7 +1927,7 @@ void mt7603_mac_work(struct work_struct *work)
- 	    mt7603_watchdog_check(dev, &dev->mcu_hang,
- 				  RESET_CAUSE_MCU_HANG,
- 				  NULL) ||
--	    dev->reset_cause[RESET_CAUSE_RESET_FAILED]) {
-+	    dev->failed_pse_reset_attempts) {
- 		dev->beacon_check = 0;
- 		dev->tx_dma_check = 0;
- 		dev->tx_hang_check = 0;
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h b/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
-index 5b0ecd01aad95..47f5be44292d6 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7603/mt7603.h
-@@ -155,6 +155,7 @@ struct mt7603_dev {
- 
- 	u32 reset_test;
- 
-+	u8 failed_pse_reset_attempts;
- 	unsigned int reset_cause[__RESET_CAUSE_MAX];
- };
- 
+
 -- 
-2.53.0
+2.51.0
 
 
