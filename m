@@ -2,109 +2,120 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09FBC606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 08:38:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2362606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 08:42:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=J3Xtmy3L;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Gx36y+EF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eHSMW841
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=8d0vDitzezDWa7J6bkNN1sM4Lg1Dh0lgOVgctT1VpEs=; b=J3Xtmy3L8ZdAKg
-	sISFvuGMOxemyePXQ2IPE/ZL5GmAX5/U3VtUnYKrz1KKMikSxoqUN3/D8n2GNxYD7r2y5P/wptLkB
-	7XkTiV5OzejrmWVpB71AeW3ece4AnkpUcBe+5M6691YXe6CM1AnuSlCbdYfTpNVI/IyQg1hzL1Xki
-	mDaT8uu4P5SpXBeRda/j9pK9xJ2SBe8Yw+iU6LyKr6ZtWkK/ITH8XT6y99mw0HPs1uQkjX5ief80I
-	NueORwEKmALneQL2R7LWQ2YQ+mO+K9kq01Tm3FXAWXCvbBHVw35LuQRDqvd9CCaMi097q6s2u7ZA1
-	K5IIDwVLykGQpxFHvtZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=9qzDgUCXrz4JKwbBbc9TcKJRoM2FELG/m/U+XEzH/68=; b=eHSMW841MhT6Cv7Hf5J44kBbX7
+	mGvFx8u6FX82voQFwL4lAePqwc2BvW7SLv/m553xl/ADwRhgv//To21ZPAXtMFKaiMhXAm23GunhG
+	ie6W9ebB660trxERMeZqYH91pakNJTTLnSWcJoHipvtrHJRpU2ElVq1TQ8gDpZeE6o733MIov5BrD
+	mCZktmuGzDw/t0XjZ2GabcztfTkQJ63D0XGppLusVl89I6NcAI5ma9m1FFKugMTpzLHSHVptBqblh
+	u3VbD885uB2oZz4r9kXs+qZk9TwA6ZdF8Q1oNIHLeu4gI14DpEZ2Me6KDgFrtwug6Ql9yxx09LPPQ
+	IBi5ba5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNnYO-0000000Ft9e-416q;
-	Mon, 02 Nov 2026 08:38:08 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1xNncF-0000000FtTQ-3nvQ;
+	Mon, 02 Nov 2026 08:42:07 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNnYN-0000000Ft9L-0XzZ
+	id 1xNncC-0000000FtQk-3gAV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 08:38:08 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-cdadf7e248aso925988a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 00:38:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793608686; x=1794213486; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8d0vDitzezDWa7J6bkNN1sM4Lg1Dh0lgOVgctT1VpEs=;
-        b=Gx36y+EFtDXNeq36RZTjon+hZGLiEU3ZT0nfHJDTpze1U8qXB46AcFQymOwT8ZfJpv
-         S0OSKDtnf0tWFe9PIuhqbSvvAZ4kT2gUDh7CiVE3PrhJga1S/s+CAMfLM+SBJU/BKivZ
-         CluSnsRmwGE7mqZtAsZwfmOKWUP1Ywpw9p/L5RZEb8NMh75HuuJAIFvGg2cnSgqPrWc7
-         4R+EDogB+KNulKy9r5bJdHyaSBV4u5BNf7jkeSDELUsWm1igHJ1wynVwe9uTGegce6LM
-         JiEu+EwbCLevIMMp/BNcP/y4WLhE4qHF8N8l9xMXkMz+r6CLTeGk/l3MMwZPtQi3nlKh
-         JXNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793608686; x=1794213486;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8d0vDitzezDWa7J6bkNN1sM4Lg1Dh0lgOVgctT1VpEs=;
-        b=1pHpN4hN9tZbbwCBkCBFk95hr+53oC6HoyaTzh4txg0cPxXKld7DhvzBiduCJTuI/k
-         1+D7i6nAxhZwN10be+R8OMFwW8+4tKOZFr/Lndc84IBZlX81NvBDKVBzAiBRWh3pDoGv
-         qKqP6z3JGCS+2twPd1lx8pLesLdyM3HEGEw0iD1o1fyHc2Hp/2J0/IbqRRpW72ZgpogX
-         e8nAn6lir8GrV0WFHNHRczrr4lt+SBFB93ZqGbS7NkiF3gz4xONWNzfx7pyH1uHpuTGh
-         VHcQYLDaR1tfEC8pcRkKcOZD8jhnwFJ4/JSsFo2JFxIoI61wnNZY/xpFkvoR48aEY3x0
-         exQg==
-X-Forwarded-Encrypted: i=1; AKwUvBxbFKzjtw1pZSp+fTUWKUXJhiYHwUhVGtqMNbgDDscDkIROr1BbRR7mDyojXGSDnyspxNwyodvBaGg1DReGO/Ll@lists.infradead.org
-X-Gm-Message-State: APuU4Z+hWWjhlHnYRpql1BuAWNdsxtuL6ZV4swE1jk1wmYLLkL9srd5T
-	qnvD/nLCjfsOKARPexMVFSYkHd9QhHoNa30W04gdlgmkaqG1ciEghvTS
-X-Gm-Gg: AYBFou2fxH/3/a2xqwz7LUu3yvJ4o/i7he2qhbfRIXt7A10b54Rewlmo4OocJw/yuTE
-	ddaHX4KuIbMlV6aqdK75TV5wTPfbrZlV/hh/xDdYD1VSu6bsp3VlOio/X1jrTVzpYAFXuT3YTEi
-	zsHWzRuetHP6aBgiPjl4l0Zij9s/6lv25954OrxyMAQn1ZDoGkR7SdxDc5PiobpOU37TNmfQUA3
-	MLLA19YsWk0sOLwqgfqEMLaWN8d6B9XIrs4fyz99XBI85YcLO3nqXPSrwn9MpAB56JiUACF53Us
-	YVg4R6Lb+f1C/oqDQoahbrnkw2pxjPJUZMFDU3ZBSOUyoklQMQTxJlPXk68jiJnwf1TDkBj1qq+
-	IuK/hPqlRpKNn1NgYZhYgQw1YOcAovpYkkWCA5JlWugib7GozUvJkrqFvKOfJuCPyWjlhq7lYKf
-	VHPY+vaVg00NtcGxNkEw2NAn7sC2cWLX6Yw8Hcsw0MhOrcqlgeIBHEgWNkmu2oI5NDsR02qtJUM
-	4s9hSapx5K80mWDL/lcASu7FIm2qlF9Ul/mtJ/UKga17qJTCx1Eet2Vo7yNdg5okVPTadlH1aAs
-	7itxE7RZUTJAYzpcfcjyi+4bDQTc9QRPLWdyNgZ7Sjk2m1pDH4C9zEA8R/PrJiPdSFA3b+u5kLa
-	TqEWVm+lm6Hm+aWKs6ebK+aRmNk3gAy/lT8FUHQYq7WbPce78ltg5MkV/mZwzIplaDOAySA01ue
-	t4TcRGPDKgd6Iylg==
-X-Received: by 2002:a17:90b:5648:b0:3ad:93b4:718f with SMTP id 98e67ed59e1d1-3ae89879b52mr8145082a91.65.1793608685557;
-        Mon, 02 Nov 2026 00:38:05 -0800 (PST)
-Received: from spider.bream-herring.ts.net ([103.6.151.236])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3ae85f3e087sm7861463a91.1.2026.11.02.00.38.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 00:38:05 -0800 (PST)
-From: Matthias Goergens <matthias.goergens@gmail.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	kvmarm@lists.linux.dev,
+	Mon, 02 Nov 2026 08:42:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DCVxwcCRaDa+yit29YfRTnvZEKB5Kzzm7867sNHDhzfdJCIKzW+3m+2CGiywfMV9W/omo0gunm6T7VwXLG1Xj5IOqAAQPnWWbFXcH1/nF9vKcELox52OIEGlYmmumt6VRJ9cJr/rzg0ld6656kt7SBSQ0+G4y+oJKTVZ5irmEyMfnJk0gZ1in78BTMkiYCYFhYt3+o5hNRbSYlo0/yaPR0CVoOLBmaDJcokBt/eh/8ONnW6wTb6X2pYcQmU0+gx2UbBBy17iFlKu3T6ODN5wa0AXaAGEnvvmSENJEpTGr65CdW5otbY9FlXyj5iqYF/Wg8s7OX5bItYt6Io7+iV4QQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9qzDgUCXrz4JKwbBbc9TcKJRoM2FELG/m/U+XEzH/68=;
+ b=aJ//lECZWI8OzwpiQYqJcRp/E42utB5XKsCKeOIJRYK5p8pWfYzeO8+1sFooaxePaf6fBEZ6OmH2xF+PzEWzcElmhrK/NsIm2ALlxiqrQ04gHGoo5XFnsbsHwxXOYHEA0IsxY1zOw2VfKcXBC9RyYIuMhTosPWabpW/v5Jnt9Nx+P23QS2kiJlB6K/JXO8rb8xzWiyaPOCTPn+XTViYehnWQ6P/nna3S1Eokgn5RhDPs/jYOB2cYH6uyugGQabt+x+EE5tZDfQLlJlr9/Dsfam9iFeO3SeL3E9sK5Sz9wmgUAPbF/5wYSKbLg17IFE86KcWEOfNfFPC8a4jgPHYHLA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from MA5PR01CA0018.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:177::7)
+ by TYSPR06MB7260.apcprd06.prod.outlook.com (2603:1096:405:84::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Mon, 2 Nov 2026
+ 08:41:56 +0000
+Received: from SG1PEPF000082E4.apcprd02.prod.outlook.com
+ (2603:1096:a01:177:cafe::17) by MA5PR01CA0018.outlook.office365.com
+ (2603:1096:a01:177::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.569.12 via Frontend Transport; Mon, 2
+ Nov 2026 08:41:55 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG1PEPF000082E4.mail.protection.outlook.com (10.167.240.4) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.592.5 via Frontend Transport; Mon, 2 Nov 2026 08:41:55 +0000
+Received: from JohnnyFan (unknown [172.21.64.24])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id EA58F40920E5;
+	Mon,  2 Nov 2026 16:41:53 +0800 (CST)
+From: "Johnny.Fan" <johnny.fan@cixtech.com>
+To: will@kernel.org,
+	mark.rutland@arm.com
+Cc: suzuki.poulose@arm.com,
+	leo.yan@arm.com,
+	jeremy.linton@arm.com,
+	maz@kernel.org,
+	mike.leach@arm.com,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	Randy Dunlap <rdunlap@infradead.org>,
+	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	workflows@vger.kernel.org
-Subject: Re: [PATCH v2] Documentation/process: Add a maintainer entry profile for KVM/arm64
-Date: Mon,  2 Nov 2026 16:37:59 +0800
-Message-ID: <20261102083759.1561867-1-matthias.goergens@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <6urqt376s23fcyr5pchfrrowvjoo6acg5xt4ujkft7gww6sagj@jxz5rqihtkja>
-References: <20261030083351.3040604-1-matthias.goergens@gmail.com> <6urqt376s23fcyr5pchfrrowvjoo6acg5xt4ujkft7gww6sagj@jxz5rqihtkja>
+	cix-kernel-upstream@cixtech.com,
+	jie.fu@cixtech.com,
+	bob.zhang@cixtech.com,
+	"Johnny.Fan" <Johnny.Fan@cixtech.com>,
+	Fugang Duan <fugang.duan@cixtech.com>
+Subject: [PATCH v3 2/2] perf: arm_pmu_acpi: Support heterogeneous ACPI systems
+Date: Mon,  2 Nov 2026 16:41:52 +0800
+Message-ID: <20261102084153.3975282-3-johnny.fan@cixtech.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261102084153.3975282-1-johnny.fan@cixtech.com>
+References: <20261102084153.3975282-1-johnny.fan@cixtech.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG1PEPF000082E4:EE_|TYSPR06MB7260:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 286e5f08-bee9-4bbf-9c33-08df38bd2686
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700016|82310400026|1800799024|23010399003|10067099003|18002099003|22082099003|56012099006|261021123027099003|261021121427099003|261026140227099003|261022105027099003|261022075727099003|261026121527099003|261009223027099003|261028144727099003;
+X-Microsoft-Antispam-Message-Info: 3VrQenq5cLYNYRwvGw3Xro0ELRLTaceMyFr+6NurjgzFLE8FBntp+NrYLHAWkgZoI32YhiZMXerd0Ab83tTJ9oeO34ehh7V9X0CqDCDntzoetSvE48QpiopQZQNaKKB/MVLOk3gStI6etJAinURmhqJDOXix47fo8f5634N+E/9qmgBDpkC0sISVSKcCvt8Ugqa23yr0dEIRflOyPxajF5fqN1pv4DX7APGPgimNsMVY9KXzyIL60WlmhcKTky9cbbN+4U4huR0KCegQvbljmcoDJFuicFEfccCL1qmGAHMj8ZUiQoPCLpqw++xnEGRla1TprzAt8Hs5cvQMY3G0qEbVPbph2zyKYD0c1XZ7mlwdMc+OVY46crhCNziUFLeSP/W0evYBElFV8Iq96ufLwZEy81i2C7EGnZidw0JKCAvon70NZkWZezr3LwCapOb+5Joh532sr35ZP7qqJTQCW9LaJ5SudRkUuHv2dRkzqQ/bkULwP9khDSsH9hJ4DowQHntooyQ6sl+KVz2cpPknUwkWgjNCswAF9vNifU6qavdxV5/CFmSwZpUUrUNlkNSThxQirhI5zWIhaA9OJpUt5FzpCWzH/jcCWufVI4ucxaMOXrHOBRqmdaNbIME8WW30DgiyAqmTVSBjjyzF4zXpup+sZguPdx0V+/Km9CFqQGAuZVLU+vvCFRj0uFyc+P2hpO/QSkyWvhyeIJSNQ7kTaQ==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(82310400026)(1800799024)(23010399003)(10067099003)(18002099003)(22082099003)(56012099006)(261021123027099003)(261021121427099003)(261026140227099003)(261022105027099003)(261022075727099003)(261026121527099003)(261009223027099003)(261028144727099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: JgFOoNqcsRSD35NG5quAYkkdMbvsIn7EW4GqTYc0s1Wfyl1M+/bSWzO/9VKij1TmA91Ucg1CyjH5lAxNzqZqlPEk2WTQOH4yvjjmU986RF2bsswlCW9275YnkzC9BKD/UUVmPzIG4HGl28x6koEYSiYrEZm3EOZUTtMRn9NgqsMAyIWd0stCUOUJoPk0ZkkpYftHjfOTQqtP9/r5ujRA3NsTfffQ0aHPGe1taHYUP6tECfft3veGxWS+DDFDZNab12b5nw0O/Zd8f22K7zT0YBoUiu/rQaorj9FIrMEAHKkMrZY31CDArAIDv6S3yJXIvglNRwA7XvGAQD8NTqqJ7ZvaSIWb3ZeLhsmmFZD46yeCahb+W5BEIdQVBZg/5hXj0UFymh01WuN2XLqCuIAyaCIBa2KJkpG3MK6TrSq5otXCfYQSf7mrNUCdGK2DyGCO
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 08:41:55.0891
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 286e5f08-bee9-4bbf-9c33-08df38bd2686
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E4.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB7260
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_003807_191870_733714A2 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261102_004205_048351_D63179F1 
+X-CRM114-Status: GOOD (  31.22  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,26 +126,349 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, 31 Oct 2026 21:03:17 +0000, Wei-Lin Chang wrote:
->> +Minor problems are often fixed up by the maintainers when applying; if they
->> +say "no need to resend", don't.
->
-> The second half of this is a little silly :P
-> What about just:
->
-> Minor problems are often fixed up by the maintainers when applying; ask
-> if you are unsure whether to resend.
+From: "Johnny.Fan" <Johnny.Fan@cixtech.com>
 
-Agreed, that reads better.  I'll use your wording in v3.
+On heterogeneous ACPI systems, not all CPUs implement SPE or TRBE, and
+the ones that do may use different PPIs. The MADT describes this per
+GICC entry: a CPU without the feature reports a zero overflow
+interrupt, and the PPTT hetero id identifies CPUs of the same
+implementation.
 
-Thanks,
-Matthias
+The current code registers a single platform device and gives up if the
+GICC entries disagree on the hetero id or on the interrupt, so the
+feature is unavailable on such systems even though the firmware
+describes it.
+
+Group the CPUs by (hetero id, interrupt) and register one platform
+device per group. A GSI may be shared between groups with
+non-overlapping CPU masks, so only unregister the GSI mapping once no
+successfully registered device uses it, as the mapping is not reference
+counted.
+
+Entries too short to contain the field mean that the firmware does not
+describe the feature, which is what pre-ACPI 6.3 (SPE) and pre-ACPI 6.5
+(TRBE) tables look like. If only some entries carry the field, the MADT
+is inconsistent: warn and create no device at all.
+
+Pass the CPU mask to the driver as platform data, as added by the
+previous patch.
+
+Tested on a CIX sky1 SoC with heterogeneous SPE support.
+
+Signed-off-by: Johnny.Fan <Johnny.Fan@cixtech.com>
+Reviewed-by: Fugang Duan <fugang.duan@cixtech.com>
+---
+ drivers/perf/arm_pmu_acpi.c | 238 +++++++++++++++++++++++++-----------
+ 1 file changed, 167 insertions(+), 71 deletions(-)
+
+diff --git a/drivers/perf/arm_pmu_acpi.c b/drivers/perf/arm_pmu_acpi.c
+index ca6bf8f86cfe..bffeeb063800 100644
+--- a/drivers/perf/arm_pmu_acpi.c
++++ b/drivers/perf/arm_pmu_acpi.c
+@@ -12,6 +12,8 @@
+ #include <linux/irqdesc.h>
+ #include <linux/percpu.h>
+ #include <linux/perf/arm_pmu.h>
++#include <linux/platform_device.h>
++#include <linux/slab.h>
+ 
+ #include <asm/cpu.h>
+ #include <asm/cputype.h>
+@@ -68,91 +70,196 @@ static void arm_pmu_acpi_unregister_irq(int cpu)
+ 		acpi_unregister_gsi(gsi);
+ }
+ 
++struct arm_pmu_acpi_group {
++	int hetid;
++	u16 gsi;
++	bool registered;
++	struct cpumask cpus;
++};
++
++static int arm_acpi_find_group(struct arm_pmu_acpi_group **groups,
++			       int nr_groups, int hetid, u16 gsi)
++{
++	int i;
++
++	for (i = 0; i < nr_groups; i++) {
++		if (groups[i]->hetid == hetid && groups[i]->gsi == gsi)
++			return i;
++	}
++
++	return -1;
++}
++
++static bool arm_acpi_gsi_in_use(struct arm_pmu_acpi_group **groups,
++				int nr_groups, int idx)
++{
++	int i;
++
++	for (i = 0; i < nr_groups; i++) {
++		if (i == idx)
++			continue;
++		if (groups[i]->registered && groups[i]->gsi == groups[idx]->gsi)
++			return true;
++	}
++
++	return false;
++}
++
++static int arm_acpi_register_group(struct arm_pmu_acpi_group *group,
++				   const char *name)
++{
++	struct arm_pmu_acpi_dev_data data = { };
++	struct platform_device *pdev;
++	struct resource res;
++	int irq, ret;
++
++	irq = acpi_register_gsi(NULL, group->gsi, ACPI_LEVEL_SENSITIVE,
++				ACPI_ACTIVE_HIGH);
++	if (irq < 0)
++		return irq;
++
++	pdev = platform_device_alloc(name, PLATFORM_DEVID_AUTO);
++	if (!pdev)
++		return -ENOMEM;
++
++	res = DEFINE_RES_IRQ(irq);
++	data.cpus = group->cpus;
++
++	ret = platform_device_add_resources(pdev, &res, 1);
++	if (ret)
++		goto err_put;
++
++	ret = platform_device_add_data(pdev, &data, sizeof(data));
++	if (ret)
++		goto err_put;
++
++	ret = platform_device_add(pdev);
++	if (!ret)
++		return 0;
++
++err_put:
++	platform_device_put(pdev);
++	return ret;
++}
++
+ static int __maybe_unused
+-arm_acpi_register_pmu_device(struct platform_device *pdev, u8 len,
+-			     u16 (*parse_gsi)(struct acpi_madt_generic_interrupt *))
++arm_acpi_register_pmu_devices(const char *name, u8 len,
++			      u16 (*parse_gsi)(struct acpi_madt_generic_interrupt *))
+ {
+-	int cpu, this_hetid, hetid, irq, ret;
+-	u16 this_gsi = 0, gsi = 0;
++	struct arm_pmu_acpi_group **groups;
++	int cpu, i, nr_cpus = 0, nr_groups = 0, nr_devices = 0;
++	int nr_full = 0, nr_short = 0, last_err = 0, ret;
+ 
+ 	/*
+-	 * Ensure that platform device must have IORESOURCE_IRQ
+-	 * resource to hold gsi interrupt.
++	 * The firmware describes the interrupt for every CPU on ACPI 6.3
++	 * (SPE) or 6.5 (TRBE) and later, and for none of them on earlier
++	 * revisions, where the field does not exist. A mix means the MADT
++	 * cannot be trusted, so create no device at all.
+ 	 */
+-	if (pdev->num_resources != 1)
+-		return -ENXIO;
++	for_each_possible_cpu(cpu) {
++		struct acpi_madt_generic_interrupt *gicc;
+ 
+-	if (pdev->resource[0].flags != IORESOURCE_IRQ)
++		gicc = acpi_cpu_get_madt_gicc(cpu);
++		if (gicc->header.length < len) {
++			nr_short++;
++			continue;
++		}
++
++		nr_full++;
++		if (parse_gsi(gicc))
++			nr_cpus++;
++	}
++
++	if (nr_short && nr_full) {
++		pr_warn("ACPI: %s: inconsistent GICC entries\n", name);
+ 		return -ENXIO;
++	}
++
++	if (!nr_cpus)
++		return 0;
++
++	groups = kcalloc(nr_cpus, sizeof(*groups), GFP_KERNEL);
++	if (!groups)
++		return -ENOMEM;
+ 
+-	/*
+-	 * Sanity check all the GICC tables for the same interrupt
+-	 * number. For now, only support homogeneous ACPI machines.
+-	 */
+ 	for_each_possible_cpu(cpu) {
++		struct arm_pmu_acpi_group *group;
+ 		struct acpi_madt_generic_interrupt *gicc;
++		int hetid;
++		u16 gsi;
+ 
+ 		gicc = acpi_cpu_get_madt_gicc(cpu);
+-		if (gicc->header.length < len)
+-			return gsi ? -ENXIO : 0;
+-
+-		this_gsi = parse_gsi(gicc);
+-		this_hetid = find_acpi_cpu_topology_hetero_id(cpu);
+-		if (!gsi) {
+-			hetid = this_hetid;
+-			gsi = this_gsi;
+-		} else if (hetid != this_hetid || gsi != this_gsi) {
+-			pr_warn("ACPI: %s: must be homogeneous\n", pdev->name);
+-			return -ENXIO;
++		gsi = parse_gsi(gicc);
++		if (!gsi)
++			continue;
++
++		hetid = find_acpi_cpu_topology_hetero_id(cpu);
++		i = arm_acpi_find_group(groups, nr_groups, hetid, gsi);
++		if (i < 0) {
++			group = kzalloc_obj(*group, GFP_KERNEL);
++			if (!group) {
++				ret = -ENOMEM;
++				goto err_free;
++			}
++
++			group->hetid = hetid;
++			group->gsi = gsi;
++			groups[nr_groups] = group;
++			i = nr_groups++;
+ 		}
++
++		cpumask_set_cpu(cpu, &groups[i]->cpus);
+ 	}
+ 
+-	if (!this_gsi)
+-		return 0;
++	for (i = 0; i < nr_groups; i++) {
++		ret = arm_acpi_register_group(groups[i], name);
++		if (ret) {
++			pr_warn("ACPI: %s: %*pbl: add device failed (%d)\n",
++				name, cpumask_pr_args(&groups[i]->cpus), ret);
++			last_err = ret;
++			continue;
++		}
+ 
+-	irq = acpi_register_gsi(NULL, gsi, ACPI_LEVEL_SENSITIVE, ACPI_ACTIVE_HIGH);
+-	if (irq < 0) {
+-		pr_warn("ACPI: %s Unable to register interrupt: %d\n", pdev->name, gsi);
+-		return -ENXIO;
++		groups[i]->registered = true;
++		nr_devices++;
+ 	}
+ 
+-	pdev->resource[0].start = irq;
+-	ret = platform_device_register(pdev);
+-	if (ret)
+-		acpi_unregister_gsi(gsi);
++	/*
++	 * acpi_register_gsi() does not reference count the GSI mapping, so
++	 * release a shared GSI only once no successfully registered device
++	 * uses it any more.
++	 */
++	for (i = 0; i < nr_groups; i++) {
++		if (groups[i]->registered)
++			continue;
++		if (arm_acpi_gsi_in_use(groups, nr_groups, i))
++			continue;
++		acpi_unregister_gsi(groups[i]->gsi);
++	}
++
++	ret = nr_devices ? 0 : last_err;
++
++err_free:
++	for (i = 0; i < nr_groups; i++)
++		kfree(groups[i]);
++	kfree(groups);
+ 
+ 	return ret;
+ }
+ 
+ #if IS_ENABLED(CONFIG_ARM_SPE_PMU)
+-static struct resource spe_resources[] = {
+-	{
+-		/* irq */
+-		.flags          = IORESOURCE_IRQ,
+-	}
+-};
+-
+-static struct platform_device spe_dev = {
+-	.name = ARMV8_SPE_PDEV_NAME,
+-	.id = -1,
+-	.resource = spe_resources,
+-	.num_resources = ARRAY_SIZE(spe_resources)
+-};
+-
+ static u16 arm_spe_parse_gsi(struct acpi_madt_generic_interrupt *gicc)
+ {
+ 	return gicc->spe_interrupt;
+ }
+ 
+-/*
+- * For lack of a better place, hook the normal PMU MADT walk
+- * and create a SPE device if we detect a recent MADT with
+- * a homogeneous PPI mapping.
+- */
+ static void arm_spe_acpi_register_device(void)
+ {
+-	int ret = arm_acpi_register_pmu_device(&spe_dev, ACPI_MADT_GICC_SPE,
+-					       arm_spe_parse_gsi);
++	int ret;
++
++	ret = arm_acpi_register_pmu_devices(ARMV8_SPE_PDEV_NAME,
++					    ACPI_MADT_GICC_SPE,
++					    arm_spe_parse_gsi);
+ 	if (ret)
+ 		pr_warn("ACPI: SPE: Unable to register device\n");
+ }
+@@ -163,20 +270,6 @@ static inline void arm_spe_acpi_register_device(void)
+ #endif /* CONFIG_ARM_SPE_PMU */
+ 
+ #if IS_ENABLED(CONFIG_CORESIGHT_TRBE)
+-static struct resource trbe_resources[] = {
+-	{
+-		/* irq */
+-		.flags          = IORESOURCE_IRQ,
+-	}
+-};
+-
+-static struct platform_device trbe_dev = {
+-	.name = ARMV8_TRBE_PDEV_NAME,
+-	.id = -1,
+-	.resource = trbe_resources,
+-	.num_resources = ARRAY_SIZE(trbe_resources)
+-};
+-
+ static u16 arm_trbe_parse_gsi(struct acpi_madt_generic_interrupt *gicc)
+ {
+ 	return gicc->trbe_interrupt;
+@@ -184,8 +277,11 @@ static u16 arm_trbe_parse_gsi(struct acpi_madt_generic_interrupt *gicc)
+ 
+ static void arm_trbe_acpi_register_device(void)
+ {
+-	int ret = arm_acpi_register_pmu_device(&trbe_dev, ACPI_MADT_GICC_TRBE,
+-					       arm_trbe_parse_gsi);
++	int ret;
++
++	ret = arm_acpi_register_pmu_devices(ARMV8_TRBE_PDEV_NAME,
++					    ACPI_MADT_GICC_TRBE,
++					    arm_trbe_parse_gsi);
+ 	if (ret)
+ 		pr_warn("ACPI: TRBE: Unable to register device\n");
+ }
+-- 
+2.55.0
+
 
