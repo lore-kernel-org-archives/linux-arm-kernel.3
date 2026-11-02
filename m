@@ -2,79 +2,110 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4893B606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:53:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54A6D60A381B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:54:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ckSU+dh+;
-	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=gMNlcfdI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Q8AWgUxC;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mTmS8CX3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=pspFCwZK0uUittOLVFwBxDEYM+Bon0qCG8snuHiLGJg=; b=ckSU+dh+Cbcu7tpo+aJKVkY4X/
-	Y3rPue45k+7RWo7lqTU4lQIVuKepLAU7MDMD/wCdYJIrer/q+Mq1DiqGbWinPc8JG2HPbfUYpjVS8
-	rfW4a8If628P+9Jz0fHq8TNbi1NDZAVU1hteEW7cxwh1XTAmmCV5Ohei0K2CE3GnUgddfnKEBASNy
-	gIAVexJbYUsEoswROKd3jMOd7OJHSDfsdODvfy/SJuGx+/4dHRWcB7mWEl8cffM/lC83J9stIVsQv
-	WcdMPyZXGDjTUqDFoVNlTHzseMIaRco1wGUYhuCs3k79zTy+JVE6u8hQwZo43R8rRzbZSBtENrmWC
-	VRCBW6Zw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=QS2A6RVporIMo1a+1YYRSQLz7OfV4Pf3A/A2Z7pJ3n8=; b=Q8AWgUxCCPoqxn
+	wrkXzD0bjWdVUtxTCP1boh6f+ZkHgN5ifMKxnCqkR9PFqi0epDzSesl62ZPG1rLm+vHTe9eSFbddm
+	w//4c5OOh6KqTMtIsAXwpXtJOP/Rjl0avH5Z/MdWIDywc5w5JdLi88Tgg6PBIW5M74wOLeDUdAYuu
+	i6XlWPZMijQma1UtY73YaeXh8UJT8rGef/Q8CtJTXDNrzyLCWQP76ZFjzwA1alt3IkLNR8cJL4+fQ
+	uEfvD1cL0KUqe5/v97QmTqI9cr1kxrdFPdle6E2LZEy4Wq0krjFuXcGHwP2YlLVbugwNLFRRKad2b
+	rzjoTrZBrigjWSWvZgPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsTM-0000000GgR9-0L9K;
-	Mon, 02 Nov 2026 13:53:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1xNsUX-0000000Ggdq-26Lz;
+	Mon, 02 Nov 2026 13:54:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsTI-0000000GgQV-2At6
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 13:53:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1793627590;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=pspFCwZK0uUittOLVFwBxDEYM+Bon0qCG8snuHiLGJg=;
-	b=gMNlcfdIepnZo7X4ZSPy6RWOIZyYnooyGfWpAKqQ7tBhLG60d4dQVu9SJadHyjueENh6sx
-	Qtbe/+vj12yn/MECrw5t7RRjkUYbqVhjL9ZLPvuJ2/UBCG+zoUqnn/uXaTp6BrcPU+1LqC
-	re7C26zrwWpPgEm1TMgryuwNYuXyvok=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-627-nRjytpMmMyuCzqlzW4aDbQ-1; Mon,
- 02 Nov 2026 08:53:07 -0500
-X-MC-Unique: nRjytpMmMyuCzqlzW4aDbQ-1
-X-Mimecast-MFC-AGG-ID: nRjytpMmMyuCzqlzW4aDbQ_1793627586
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 37E621955F28;
-	Mon,  2 Nov 2026 13:53:06 +0000 (UTC)
-Received: from [172.20.94.172] (unknown [10.30.45.107])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id E77DA1956087;
-	Mon,  2 Nov 2026 13:53:04 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4p2M?= FAIL (MISSED 10 of 54): Test report for for-kernelci
- (7.4.0-rc1, upstream-arm-next, 6628e7d4)
-Date: Mon, 02 Nov 2026 13:53:04 -0000
-To: mpatalan@redhat.com, ftjahjad@redhat.com, fsuba@redhat.com,
- linux-arm-kernel@lists.infradead.org, jmoyer@redhat.com,
- catalin.marinas@arm.com, will@kernel.org, bgoncalv@redhat.com
+	id 1xNsUV-0000000GgdT-3PNQ;
+	Mon, 02 Nov 2026 13:54:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8D401407B3;
+	Mon,  2 Nov 2026 13:54:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAB511F00A1E;
+	Mon,  2 Nov 2026 13:54:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793627667;
+	bh=QS2A6RVporIMo1a+1YYRSQLz7OfV4Pf3A/A2Z7pJ3n8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=mTmS8CX3Yeh6gA5kL8Ne1AtPywEYlEVgndy2Aj3VtM91jOTJDC568QkcDwIzCmivD
+	 2LYuSafTGVhqXilQrH7jf5VAnxujN5ZZVo6NNIgpP02KLyTJ1BIFfh3hX5l5pc003Z
+	 IIc2dzGj6tqehwINNSUeFNimzIhdsQ00m1X3sZ7WyyaKB727AfH+ec317Abl4Fp+73
+	 qZHTnZNDAQvrFl5cK/zB9+5/+a8voikVXiN2KwOAMdz+jFjlA7Q6g959u6nKrRhXBS
+	 JKk0rfQP8Zm9eq4mqXmdfqzMs/IaAPM1ajPAgQO+GaqtAixFcfdFG5VImUJAY6SixU
+	 iHUaYGM8DrZCw==
+Message-ID: <e10d1eff-0b9d-4834-b1ed-77def7f716bf@kernel.org>
+Date: Mon, 2 Nov 2026 14:54:20 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-Message-Id: <13572.126110208530702698@us-mta-627.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: QFUXJArMP5Yrf7NzgGOyzaABv_cv1QUrqNAZ4pfWug0_1793627586
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_055312_624954_97913452 
-X-CRM114-Status: UNSURE (   7.18  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.5 (/)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] memory: mtk-smi: fail larb runtime resume until
+ component bind
+To: Valentin Haudiquet <valentin.haudiquet@canonical.com>,
+ linux-mediatek@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Jian Hui Lee <jianhui.lee@canonical.com>,
+ stable@vger.kernel.org, Yong Wu <yong.wu@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>
+References: <20260926192417.1448813-1-valentin.haudiquet@canonical.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260926192417.1448813-1-valentin.haudiquet@canonical.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,84 +116,76 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi, we tested your kernel and here are the results:
+On 26/09/2026 21:24, Valentin Haudiquet wrote:
+> 
+> Publish the bind state with smp_store_release() and check it with
+> smp_load_acquire() in mtk_smi_larb_resume(); that answers how the
+> check synchronizes between CPUs.  Fail the resume with -EAGAIN: the
+> larb stays RPM_SUSPENDED and retryable, the error is dropped by
+> pm_runtime_get_suppliers() on the driver-core probe path, and the
+> consumer's first runtime resume after the bind (at display enable,
+> mtk_crtc_atomic_enable()) re-runs the callback, which configures the
 
-    Overall result: FAILED
-             Merge: OK
-           Compile: OK
-              Test: FAILED
-
-
-Kernel information:
-    Commit message: Linux 7.4-rc1
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:3017229113
-
-One or more kernel tests failed:
-    Unrecognized or new issues:
-        Boot test
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:3017229113_aarch64_kernel_kcidb_tool_1200606255_6
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL Panic: Oops:
-                       =E2=9A=A1 ERROR Warn: External Watchdog Expired
-        Storage - blktests - throtl
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:3017229113_aarch64_kernel_kcidb_tool_1200606256_8
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL Panic: Oops:
-                       =E2=9A=A1 ERROR Warn: External Watchdog Expired
-
-    We also see the following known issues which are not related to your ch=
-anges:
-        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
-res
-            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
-            Affected tests:
-                Hardware - Firmware test suite [aarch64]
-        Issue: selinux-policy: serge-testsuite: Client ioctl BINDER_WRITE_R=
-EAD error: Invalid argument
-            URL: https://lore.kernel.org/selinux/CAAUqJDt1pXQ2KVBvMoMiDrzz8=
-ishonqhQ0nnQLEppot4nmv9Bw@mail.gmail.com/T/
-            Affected tests:
-                selinux-policy: serge-testsuite [aarch64]
+Do not describe obvious patch contents. You wrote huge wall of text,
+instead of keeping it concise and informative.
 
 
-Tests that were not ran because of internal issues:
-    /distribution/command [aarch64]
-    Reboot test [aarch64]
-    Storage - blktests - throtl [aarch64]
-    Storage - blktests - ublk [aarch64]
-    stress: stress-ng - cpu-cache [aarch64]
-    stress: stress-ng - memory [aarch64]
+> larb ports then.  Failing rather than skipping keeps the larb
+> suspended instead of marking it active with unconfigured MMU ports,
+> which would only turn the crash into silent iommu faults.
+> 
+> A failed supplier resume does not break the consumer's probe.
+> pm_runtime_get_suppliers() is void and drops the error, so a probe
+> inside the window just proceeds.  The display components do not touch
+> the larb in probe: mtk_disp_ovl_probe() and its siblings only call
+> pm_runtime_enable(), and mdp3 only enables runtime PM for its
+> DMA-capable components (mtk-mdp3-comp.c).  The first real runtime
+> resume happens later, at display enable: mtk_crtc_atomic_enable()
+> does pm_runtime_resume_and_get() and the device links resume the
+> larb first.  By then the component master bind has completed, so the
+> larb configures its ports and the resume succeeds.  There is no
+> deadlock either: the bind only records the larb pointers, it does not
+> resume the larb, so the window closes when the bind completes
+> regardless of what consumers do.  -ENODEV is not an alternative;
+> like -EPROBE_DEFER it is recorded in dev->power.runtime_error
+> instead of being exempted.
+> 
+> The bind state is a separate flag rather than a NULL test on
+> larb->mmu so that the publication explicitly covers both larb->mmu
+> and larb->bank.  mtk_smi_larb_unbind() clears it again with
+> WRITE_ONCE(), which is all the clear side needs since it publishes
+> nothing, so an iommu removal or module unload can not leave a stale
+> bound state pointing at the freed iommu data.  A resume in flight
+> while the iommu goes away is a pre-existing teardown hazard (the
+> data it reads belongs to the iommu device, whose removal breaks
+> bound consumers anyway); clearing the flag makes every resume that
+> starts after the clear fail safely instead.
+
+All this looks LLM generated. Don't send LLM explanation to people. It's
+only for you.
+
+> 
+> Tested on MT8183 (krane) with the full MTK stack built as modules:
+> with this change applied the machine boots reliably, the iommu
+> probes and binds all larbs, and the display stack comes up fully
+> functional.
+> 
+> The Fixes: tag points at 4f0a1a1ae351, which moved the port
+> configuration into the runtime resume.  The device links that open
+> the race window are added on the mtk-iommu side, but the dereference
+> guarded here is the one that commit introduced.
 
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
+I do not see how is this relevant.
 
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+Best regards,
+Krzysztof
 
