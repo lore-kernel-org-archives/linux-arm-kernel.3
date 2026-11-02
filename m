@@ -2,124 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BF956085081
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:45:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9ABF606EEB8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:45:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fPgXRt8o;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BWxt7RJR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jywsf+mt;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Yq44rYbu
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=VMZZaYjxAsNk+aIsMMw7wg9+anqipnDz8dl+A17D+zw=; b=fPgXRt8oI51r+e
-	r7DlgGx8MUM9vaIUWvlJWFHCUDvpvcJk1JQE0Oe2rUgqedOMFqF2kEGs5vCwhaZ7djPhDrSnItFUx
-	g75y4m/JfgPmAtRhlmoT+dBIl8TGZZkiVVRp1SAHVaQrZmXpS6Tf2zNej+t7K1Y9M20/5xmpjizWt
-	udCXwzxQxkk2dPrNFu+P0HQcVxidyAZIYjypAoUcjO4dS1SKRa0NsQdpXGC0DWCn99vZlhCVxOXYJ
-	XS98fMlf0nrwhLJqPU7kYYSU9Ptv7y4z6hXsm1IPYGu6ULYPGh5cd78y4vbNSrZdIlYZsOw4IwdVx
-	f+DUgcOl5ZO5t27Z9FOw==;
+	List-Owner; bh=SxDeP+VVrehaEoxAacbpEcDKEnQestaQVUxckwi1z4Q=; b=jywsf+mtyHUxKD
+	71soNvsgrsRQNcITWVBLo1e1/kw0SJw67qaOv+EfAGiHJC9d+UmxHgwfZ+8gxI1RjnOyXCwpcVhVh
+	q60Yd6WBnyhneqBBNszcf/qc5jI6hWNwUOKCjcdUT3Dq2rGFKsR1uE3nlrt9VpDCLJhjHeyVCyScy
+	ZwD3Moo0a+RtDTGkhzxu7t9WuasszBl9KaQpHH/7vljzdxEOLU9qKw02aRGFEVLfx6/OpX1GSdx5V
+	sISvlAmzGyFMJpg2roxr4RGGK7dJWCV38a6NBkzA4aKEo8JwgF2Sdy/F8Dc/8BwSJJAMbFZkVRoS9
+	QRLWeAoX2iOc4rE7+F8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxyH-000000008mB-1B0z;
+	id 1xNxyH-000000008o1-43OR;
 	Mon, 02 Nov 2026 19:45:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxxy-000000008Rd-0tys;
-	Mon, 02 Nov 2026 19:45:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9B203601FA;
-	Mon,  2 Nov 2026 19:45:13 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793648713;
-	b=FtS+ZscDcPTK7+GQqaKYhIU1n8vHpNR+05JgRf4Atri2inuyvavYCwD+GU+DMkd0ET4l
-	 TtwG6tFKi+wFJRiTZQ3jPLx7Lo//0dnxd6x2KVxftTM/zf+6dBBmvxj+GWord6LG6lv91
-	 mzJ1E5fppWs+RWX5+x5jogVgXZNqzL8tQisXzJERG4FCXYYYjWUILRz3OM9FkiOaxHn2c
-	 OIuL5ft3KO/dj8AT21S37VDCa0xH2eePqVDAXxtjz2cfdFeR/kKxd5GIfVz3dr5nds9+e
-	 /AnI/6Z3eL3c7lmconAAlpS9XA7Pqhfq8MyI+MOI0F5xY90pWX4Eg9Oxzyaw1IrHPCg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793648713;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=VMZZaYjxAsNk+aIsMMw7wg9+anqipnDz8dl+A17D+zw=;
-	b=zYGEyIV8kqanvXyAIIbj+EvVl47tHsTWbky5BjmDaRgAbcVfPpHkSCaEzBHvC6nylDY3
-	 6yac3Q5d+Rh+aHBeDG0tK4L6Uy4p6Rcb4KUjWuaVplr40i2W6KLOZyGmkujs1DtYZ+RzV
-	 fX83YnuFWgCKnkf4z3Jj5cT/ZPSV6rTqTFWQspihbaC2v+XGJGyYuszCkdXAgjd2rALTH
-	 A7AblFGAlmi7OHr0sqLE/KLSTBhVo9RpcdJGch407Bp/dOHweUErgNJ+fc2LMCDM9O6qH
-	 vcwlgSZYLOHyWKSdvkotiyGdDksgrTHHxlseNw21yqo2FpH0ipE1Xjv9pbwENxICyQg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4218E1F00AD9;
-	Mon,  2 Nov 2026 19:45:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793648713;
-	bh=VMZZaYjxAsNk+aIsMMw7wg9+anqipnDz8dl+A17D+zw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=BWxt7RJR5Cjo6U1odBa6mLZ38YxBnIEWYC1RYGHLXPDkpcplakOhlBlTmkM/X2NXO
-	 wNRiZ8tW6qPKa2NzWMdeNOALg7qRHBw70hmvnF2Om8E+jBzZGGvC0mf9phJnuWSZbb
-	 ATfwyKIpx0zWR5ekycRq5ydh0ptarSLU6xUCtKP73sunGbYBWGUdCyUHW3NKCgN3u0
-	 R1YhtiluzR/+BtT24wBSpFV/xPFSwnCS8zrqup12dAi6XegRzUUsdmWXygHhA3UGKx
-	 BFfd+iBzhHIVnQ7bct2CimX443b7106eDauaRFo/YyUonhVmzgRu6s4zPW7EClWkAK
-	 bNhQZm7XTNjMA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 286DD46621;
-	Mon,  2 Nov 2026 19:45:09 +0000 (UTC)
-From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Tue, 03 Nov 2026 03:45:11 +0800
-Subject: [PATCH RFC v3 08/17] dt-bindings: interrupt-controller: add Zhihe
- A210 PLIC
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNxxx-000000008Qg-0kqe
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Nov 2026 19:45:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D4CC16A3;
+	Mon,  2 Nov 2026 11:45:09 -0800 (PST)
+Received: from e133894.cambridge.arm.com (e133894.arm.com [10.2.80.62])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D98B63F673;
+	Mon,  2 Nov 2026 11:45:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793648712; bh=amDiy+/ROWpP26/w1KGH5V47ch5HrMmB725iyWflZog=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Yq44rYbu5yvylisult486QxQUL3jSeYkEcobdMl251Kz5R75syCv5ICA26XR9Dd0i
+	 7BMBMo1ZiSBQJNTRKH/bLIOzbDQqQzIPywdNUneIPtGis2al1NtHvgNzYqcbV8DAFy
+	 9pT5++s+Os+RyAFJrjy1V4llCOme+aHHj/7z5mAM=
+From: Sascha Bischoff <sascha.bischoff@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org
+Cc: maz@kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	peter.maydell@linaro.org,
+	lpieralisi@kernel.org,
+	timothy.hayes@arm.com,
+	fuad.tabba@linux.dev
+Subject: [PATCH v2 02/16] KVM: arm64: vgic: Pass opaque device pointer to ITS MMIO callbacks
+Date: Mon,  2 Nov 2026 19:44:40 +0000
+Message-Id: <20261102194454.4086911-3-sascha.bischoff@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261102194454.4086911-1-sascha.bischoff@arm.com>
+References: <20261102194454.4086911-1-sascha.bischoff@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261103-a210-scmi-v3-8-ee6b31580808@iscas.ac.cn>
-References: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
-In-Reply-To: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
-To: Sudeep Holla <sudeep.holla@kernel.org>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>, 
- Jassi Brar <jassisinghbrar@gmail.com>, Linus Walleij <linusw@kernel.org>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
- Bartosz Golaszewski <brgl@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Thomas Gleixner <tglx@kernel.org>, 
- Radu Rendec <radu@rendec.net>, Samuel Holland <samuel.holland@sifive.com>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Anup Patel <anup@brainfault.org>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Drew Fustini <fustini@kernel.org>, 
- Icenowy Zheng <uwu@icenowy.me>, Inochi Amaoto <inochiama@gmail.com>, 
- Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>, 
- Jiaxun Yang <jiaxun.yang@flygoat.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org, 
- linux-serial@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, 
- Han Gao <gaohan@iscas.ac.cn>, Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793648705; l=1014;
- i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=AEoDt8k53w5dy3iSBlDwYkPfz+bxGBpVIveGLfYHoNA=;
- b=7RILR+3lREaOAzh0obueWAuK4utvjEs/cnspNsTORZ6cXjK2zvh0wLtr52zyIicT8GL+6gVjp
- 8Ie9jpeCMeUAh+7QR1AO8ZIjRc9U4P6FAN3B3LqdmGYiKd61C7/P6sA
-X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
- pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
-X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
- auth_id=1262
-X-Original-From: Han Gao <gaohan@iscas.ac.cn>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261102_114513_316628_2F5F0CC8 
+X-CRM114-Status: GOOD (  15.20  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,7 +75,6 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: gaohan@iscas.ac.cn
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
@@ -139,32 +84,233 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
+The ITS MMIO callbacks currently take a struct vgic_its pointer,
+which ties them to the GICv3 ITS. GICv5 needs to use the same MMIO
+dispatch path with a different device structure.
 
-Add the A210 PLIC compatible with the thead,c900-plic fallback.
+Pass an opaque device pointer to the callbacks and cast it in the
+GICv3 handlers. This does not change GICv3 behaviour.
 
-Signed-off-by: Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 ---
- .../devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml      | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/kvm/vgic/vgic-its.c  | 55 +++++++++++++++++----------------
+ arch/arm64/kvm/vgic/vgic-mmio.h |  6 ++--
+ 2 files changed, 32 insertions(+), 29 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-index cde4bb691897..fd5b61db3f5f 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-@@ -80,6 +80,7 @@ properties:
-               - sophgo,sg2042-plic
-               - sophgo,sg2044-plic
-               - thead,th1520-plic
-+              - zhihe,a210-plic
-           - const: thead,c900-plic
-       - items:
-           - const: ultrarisc,dp1000-plic
-
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index 34c1c89bfbfe1..c6e069af7c614 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -386,10 +386,10 @@ static int its_sync_lpi_pending_table(struct kvm_vcpu *vcpu)
+ 	return ret;
+ }
+ 
+-static unsigned long vgic_mmio_read_its_typer(struct kvm *kvm,
+-					      struct vgic_its *its,
++static unsigned long vgic_mmio_read_its_typer(struct kvm *kvm, void *dev,
+ 					      gpa_t addr, unsigned int len)
+ {
++	struct vgic_its *its = dev;
+ 	const struct vgic_its_abi *abi = vgic_its_get_abi(its);
+ 	u64 reg = GITS_TYPER_PLPIS;
+ 
+@@ -408,10 +408,10 @@ static unsigned long vgic_mmio_read_its_typer(struct kvm *kvm,
+ 	return extract_bytes(reg, addr & 7, len);
+ }
+ 
+-static unsigned long vgic_mmio_read_its_iidr(struct kvm *kvm,
+-					     struct vgic_its *its,
++static unsigned long vgic_mmio_read_its_iidr(struct kvm *kvm, void *dev,
+ 					     gpa_t addr, unsigned int len)
+ {
++	struct vgic_its *its = dev;
+ 	u32 val;
+ 
+ 	val = (its->abi_rev << GITS_IIDR_REV_SHIFT) & GITS_IIDR_REV_MASK;
+@@ -419,11 +419,11 @@ static unsigned long vgic_mmio_read_its_iidr(struct kvm *kvm,
+ 	return val;
+ }
+ 
+-static int vgic_mmio_uaccess_write_its_iidr(struct kvm *kvm,
+-					    struct vgic_its *its,
++static int vgic_mmio_uaccess_write_its_iidr(struct kvm *kvm, void *dev,
+ 					    gpa_t addr, unsigned int len,
+ 					    unsigned long val)
+ {
++	struct vgic_its *its = dev;
+ 	u32 rev = GITS_IIDR_REV(val);
+ 
+ 	if (rev >= NR_ITS_ABIS)
+@@ -433,7 +433,7 @@ static int vgic_mmio_uaccess_write_its_iidr(struct kvm *kvm,
+ }
+ 
+ static unsigned long vgic_mmio_read_its_idregs(struct kvm *kvm,
+-					       struct vgic_its *its,
++					       void *dev,
+ 					       gpa_t addr, unsigned int len)
+ {
+ 	switch (addr & 0xffff) {
+@@ -1496,17 +1496,18 @@ static u64 vgic_sanitise_its_cbaser(u64 reg)
+ 	return reg;
+ }
+ 
+-static unsigned long vgic_mmio_read_its_cbaser(struct kvm *kvm,
+-					       struct vgic_its *its,
++static unsigned long vgic_mmio_read_its_cbaser(struct kvm *kvm, void *dev,
+ 					       gpa_t addr, unsigned int len)
+ {
++	struct vgic_its *its = dev;
+ 	return extract_bytes(its->cbaser, addr & 7, len);
+ }
+ 
+-static void vgic_mmio_write_its_cbaser(struct kvm *kvm, struct vgic_its *its,
++static void vgic_mmio_write_its_cbaser(struct kvm *kvm, void *dev,
+ 				       gpa_t addr, unsigned int len,
+ 				       unsigned long val)
+ {
++	struct vgic_its *its = dev;
+ 	/* When GITS_CTLR.Enable is 1, this register is RO. */
+ 	if (its->enabled)
+ 		return;
+@@ -1564,10 +1565,11 @@ static void vgic_its_process_commands(struct kvm *kvm, struct vgic_its *its)
+  * protects our ring buffer variables, so that there is only one user
+  * per ITS handling commands at a given time.
+  */
+-static void vgic_mmio_write_its_cwriter(struct kvm *kvm, struct vgic_its *its,
++static void vgic_mmio_write_its_cwriter(struct kvm *kvm, void *dev,
+ 					gpa_t addr, unsigned int len,
+ 					unsigned long val)
+ {
++	struct vgic_its *its = dev;
+ 	u64 reg;
+ 
+ 	if (!its)
+@@ -1588,25 +1590,25 @@ static void vgic_mmio_write_its_cwriter(struct kvm *kvm, struct vgic_its *its,
+ 	mutex_unlock(&its->cmd_lock);
+ }
+ 
+-static unsigned long vgic_mmio_read_its_cwriter(struct kvm *kvm,
+-						struct vgic_its *its,
++static unsigned long vgic_mmio_read_its_cwriter(struct kvm *kvm, void *dev,
+ 						gpa_t addr, unsigned int len)
+ {
++	struct vgic_its *its = dev;
+ 	return extract_bytes(its->cwriter, addr & 0x7, len);
+ }
+ 
+-static unsigned long vgic_mmio_read_its_creadr(struct kvm *kvm,
+-					       struct vgic_its *its,
++static unsigned long vgic_mmio_read_its_creadr(struct kvm *kvm, void *dev,
+ 					       gpa_t addr, unsigned int len)
+ {
++	struct vgic_its *its = dev;
+ 	return extract_bytes(its->creadr, addr & 0x7, len);
+ }
+ 
+-static int vgic_mmio_uaccess_write_its_creadr(struct kvm *kvm,
+-					      struct vgic_its *its,
++static int vgic_mmio_uaccess_write_its_creadr(struct kvm *kvm, void *dev,
+ 					      gpa_t addr, unsigned int len,
+ 					      unsigned long val)
+ {
++	struct vgic_its *its = dev;
+ 	u32 cmd_offset;
+ 	int ret = 0;
+ 
+@@ -1630,10 +1632,10 @@ static int vgic_mmio_uaccess_write_its_creadr(struct kvm *kvm,
+ }
+ 
+ #define BASER_INDEX(addr) (((addr) / sizeof(u64)) & 0x7)
+-static unsigned long vgic_mmio_read_its_baser(struct kvm *kvm,
+-					      struct vgic_its *its,
++static unsigned long vgic_mmio_read_its_baser(struct kvm *kvm, void *dev,
+ 					      gpa_t addr, unsigned int len)
+ {
++	struct vgic_its *its = dev;
+ 	u64 reg;
+ 
+ 	switch (BASER_INDEX(addr)) {
+@@ -1652,11 +1654,11 @@ static unsigned long vgic_mmio_read_its_baser(struct kvm *kvm,
+ }
+ 
+ #define GITS_BASER_RO_MASK	(GENMASK_ULL(52, 48) | GENMASK_ULL(58, 56))
+-static void vgic_mmio_write_its_baser(struct kvm *kvm,
+-				      struct vgic_its *its,
++static void vgic_mmio_write_its_baser(struct kvm *kvm, void *dev,
+ 				      gpa_t addr, unsigned int len,
+ 				      unsigned long val)
+ {
++	struct vgic_its *its = dev;
+ 	const struct vgic_its_abi *abi = vgic_its_get_abi(its);
+ 	u64 old, entry_size, table_type;
+ 	u64 reg, *regptr, clearbits = 0;
+@@ -1711,10 +1713,10 @@ static void vgic_mmio_write_its_baser(struct kvm *kvm,
+ 	}
+ }
+ 
+-static unsigned long vgic_mmio_read_its_ctlr(struct kvm *vcpu,
+-					     struct vgic_its *its,
++static unsigned long vgic_mmio_read_its_ctlr(struct kvm *vcpu, void *dev,
+ 					     gpa_t addr, unsigned int len)
+ {
++	struct vgic_its *its = dev;
+ 	u32 reg = 0;
+ 
+ 	mutex_lock(&its->cmd_lock);
+@@ -1727,10 +1729,11 @@ static unsigned long vgic_mmio_read_its_ctlr(struct kvm *vcpu,
+ 	return reg;
+ }
+ 
+-static void vgic_mmio_write_its_ctlr(struct kvm *kvm, struct vgic_its *its,
++static void vgic_mmio_write_its_ctlr(struct kvm *kvm, void *dev,
+ 				     gpa_t addr, unsigned int len,
+ 				     unsigned long val)
+ {
++	struct vgic_its *its = dev;
+ 	mutex_lock(&its->cmd_lock);
+ 
+ 	/*
+@@ -1776,8 +1779,8 @@ static void vgic_mmio_write_its_ctlr(struct kvm *kvm, struct vgic_its *its,
+ 	.uaccess_its_write = uwr,				\
+ }
+ 
+-static void its_mmio_write_wi(struct kvm *kvm, struct vgic_its *its,
+-			      gpa_t addr, unsigned int len, unsigned long val)
++static void its_mmio_write_wi(struct kvm *kvm, void *dev, gpa_t addr,
++			      unsigned int len, unsigned long val)
+ {
+ 	/* Ignore */
+ }
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio.h b/arch/arm64/kvm/vgic/vgic-mmio.h
+index 38ed730d68ac3..c3b6d3e752d8d 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio.h
++++ b/arch/arm64/kvm/vgic/vgic-mmio.h
+@@ -13,13 +13,13 @@ struct vgic_register_region {
+ 	union {
+ 		unsigned long (*read)(struct kvm_vcpu *vcpu, gpa_t addr,
+ 				      unsigned int len);
+-		unsigned long (*its_read)(struct kvm *kvm, struct vgic_its *its,
++		unsigned long (*its_read)(struct kvm *kvm, void *dev,
+ 					  gpa_t addr, unsigned int len);
+ 	};
+ 	union {
+ 		void (*write)(struct kvm_vcpu *vcpu, gpa_t addr,
+ 			      unsigned int len, unsigned long val);
+-		void (*its_write)(struct kvm *kvm, struct vgic_its *its,
++		void (*its_write)(struct kvm *kvm, void *dev,
+ 				  gpa_t addr, unsigned int len,
+ 				  unsigned long val);
+ 	};
+@@ -28,7 +28,7 @@ struct vgic_register_region {
+ 	union {
+ 		int (*uaccess_write)(struct kvm_vcpu *vcpu, gpa_t addr,
+ 				     unsigned int len, unsigned long val);
+-		int (*uaccess_its_write)(struct kvm *kvm, struct vgic_its *its,
++		int (*uaccess_its_write)(struct kvm *kvm, void *dev,
+ 					 gpa_t addr, unsigned int len,
+ 					 unsigned long val);
+ 	};
 -- 
-2.55.0
-
+2.34.1
 
 
