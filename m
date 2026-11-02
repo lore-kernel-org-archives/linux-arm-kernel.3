@@ -2,105 +2,89 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E721606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 18:55:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18F93606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 18:57:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HPANVpo5;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vkGKb0LY
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zk+qKIbc;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=BQyDa+Qt
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=OXL77zZ32z4nvR/569ppBfTKmHJlxwpJjlMvH+VK56Y=; b=HPANVpo5FZt73GlMLEFmDtNp/9
-	I9SKltbJkoDk3LUD9dXU7gJLrkNWI9YHJSlX6mTIxD3e7aLlg+Z/GFWdn2NNqUcRtSv4ASmSkCaW7
-	/9qTNZY5jSgDhkhUNee6JrNkT3770TYG+Cff2cpfWmuOsd3RMx/+4iEIriB0/mhkTLNzGJO6K3oQG
-	DySYm5rzhklZSRfWGlQevm9NxqKJh6Jy8k+0Ynb/A++HD5vx/NBXXFw3cGoHydIpqOhEw3MEY+Me3
-	Cu+PRo2VXQndV2lFPJGPSDHTspdrq4xhoUtUcZjClxLM2PGeCh6xIQsSBZ4pq841ivUA680vWdzKh
-	WTUiCAtQ==;
+	bh=Em7LgszDC3yV2ax9pGbeyhWHik0oIvE0LFFvVjdiovc=; b=zk+qKIbcuBxlgmv4Wbk0Ztyr/w
+	M6hIdZR/AVfDFa9Gc4rg5B00khoT4Kh5RZAHLFyid6dnHFtESVH7xDLuHJKicdaZmn+n2XsbUA7bq
+	UwrEM8bDdlSP1VekrPhkLWaTuqMNMwUZR3GlF2wI0wEfMByrH6EXGuHsuuVtDBW1vO+SMgk9YCiun
+	IiXj1iPeVlyF0vfCl0rf0hbDvn1Fzxq4dRaNweX5CeOYb+3/G2yCjP5vbtOAQE8RBMzOeteNf0FUV
+	rFc9rxuEcp2sOD+sSC6DDuvYjqB9blovvlDcqJ780UdH/cdo6ZM19FYurSfDCp3wAlRdm0q3yUjHy
+	IDIishuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxBk-0000000023s-3udf;
-	Mon, 02 Nov 2026 18:55:24 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1xNxDH-000000002Pt-1wFQ;
+	Mon, 02 Nov 2026 18:56:59 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxBh-0000000022a-3OyV
+	id 1xNxDF-000000002OY-0AU6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 18:55:23 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-48e00eee27dso1691758f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 10:55:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793645720; x=1794250520; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OXL77zZ32z4nvR/569ppBfTKmHJlxwpJjlMvH+VK56Y=;
-        b=vkGKb0LYrZ1tqBn9dZhnYGN9gRJ5Hy+NS1LaaO4XMw19FLhthxVcvT7J8z4rST0Fw4
-         Fupa7Js4Og94Kshsrpwjg5QilENIPxjF5Ne1azaYlf6Yd4FdwznevWZYIkF7Z54MycU3
-         9Gjf1QzTgUyHY0pCylcnTYJxSyXjrFl9xM7cMfRW+9x+KN8ATe8cvnLLZHC+ZCWv5U1X
-         wCFKkri/pzpMsVXckdha9xUYb3ajw6mfNIAb0Cx9daz4SwOBk0/QIj4cvVgX0zv0jg4N
-         ejjf/5rwh+lxt1vzoc0aN2dzLTR8Wtev5bMpkZs0GgorOAE5kILgiy7EmvRBHzNm9axQ
-         tspA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793645720; x=1794250520;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=OXL77zZ32z4nvR/569ppBfTKmHJlxwpJjlMvH+VK56Y=;
-        b=Klxpnvxyh30HvYzOvqJ+pB8DXQsSxo9bhmqtzRa4S4n4Jf+1h6/Z768/y+RryUsaH3
-         HSqqLY+EiFsuiEPqR4HtUBC8LJnkVhKEuR68EZUVAIyymhXy7EQjsNoOsHaWnqszaAud
-         r97jlZ3NFr6tEeLZKsAGIZAHCfe3kvQzzPupSvUojCgToReJOheNuLdcs5OKmkC4j5lh
-         ypeQb7e3AG+N2PadM40vpBaqzw+aMVXPh4sLUVTfS6ub6yKfwbIrN3GpD3Nar/XVUqfW
-         I8DDAczcpNsu66qCoBjXixVnsa8rAx5gIjSVKUjPB2usDoiG/IuIBvko5sQQesk27hTv
-         KAEA==
-X-Forwarded-Encrypted: i=1; AKwUvBysNg82gBA1ZlVAGUDFlkgHXeDk5S4eTeM0m/8RMXCq46tWm3wXNmkXnFBol+5wZyXWIfI6ZiYHSAX7ILjzzGSm@lists.infradead.org
-X-Gm-Message-State: APuU4Z+lMQKNw4qP45V8ACMG/OKaLgO6E4nBsZFTDEMCz4SCNLCiM863
-	cn3uOewroB+xq1FGh3IpcYvvTI6ai/tgCby9y9gLzHxrfv4e9Z+ZCf/H
-X-Gm-Gg: AYBFou2T/W5JlbxOzrLOuHBczPL7muCT8pvkLAah9qSn3fblIpxZF0E6Pg7ttYa3yRu
-	9My7PSE69tilbjjztoWny1tXfv2Mez+C5uAtzSdKL7UiQL7z2GltCSBkz4fdiKK9o4Cqd7+SadU
-	kdscatigEMnv9RT6P1qaam7HB2EML2lX0kopvgVqtCbfe3iIAlVm+w0U+yzx3f+vZ3SeyXT8XgF
-	5oSspL+UJAgZlNDXftcBLbWbhO6326AK/m+geR7CihBkQGZbsddSHIDcbQVZLn8FOKogBOxqJ7j
-	uswJl2x1OM4E+oj52UMXyZODwdFI5nwA00tPfiTjvzwXNTrlvkHDdz/DkINTDf3M6W17EpfC9Hv
-	ebz2JhL0RTpGJGqBTodd5J7LWNjuHMU8QYHf18ytOMtOe+f1HT1VDAsA9JO2WNav4IM67m8KMlo
-	l4CNomc4tPUJdHdjBturfU/cR0MrYkpoJSCLY7BFSBY6yP6moBitU1f2sTVMdVp6lGrHaVE5NeG
-	2T2reIbHXA1HXhfIheJjUviXBDcRfzICqSQv6cio8TpzrxsNIoZAdmC8FKydOEdn2IBsieGRUHR
-	nO0TV2rrXXUt0cpDT5OvEvpXCOrf5LmZlPoC8jH5mr6RVHhtvy4AzJFL9DOO1eQKQdPIsm/jk3P
-	MjTLgqir89fqMj0Ind8X+3Tee/uxx+gH25CC8KuHejr7DaqNBdszY0A/vHRRKFuNS8LQ8C7pb/g
-	==
-X-Received: by 2002:a05:6000:4021:b0:48d:e6f6:21cf with SMTP id ffacd0b85a97d-48e6e306900mr25328622f8f.31.1793645719465;
-        Mon, 02 Nov 2026 10:55:19 -0800 (PST)
-Received: from Lord-Beerus.station ([93.66.71.207])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71b7815fsm21965403f8f.22.2026.11.02.10.55.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 10:55:17 -0800 (PST)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v1 0/2] arm64: dts: imx93: enable UART wakeup on Variscite boards
-Date: Mon,  2 Nov 2026 19:55:02 +0100
-Message-ID: <cover.1793645417.git.stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
+	Mon, 02 Nov 2026 18:56:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1793645815;
+	bh=fOLpOB2LsNGYFnbSGDntDvT7olJ/DoIyk1p1zTIGGg4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=BQyDa+QtEF/80OwP/TH+CIWiZ+c9fDqQ4cNvyl03AhCjS4ptcy81Q0y/fQiCY8QiB
+	 plyP4LTlwcILzEXf+9jijXl1qYlprb6cPDDX6WY/mDaASVNkVxdTlofccdqA1aMC91
+	 KAjiiJ6CRyfPDKRssS/i/c4wf341SFNsBryfEti9CUuXwIsqBzIgEyKzg29/DGVl3F
+	 LcLpxYWK1Nl2FS+nhQPIIK+L8UZxumV0kZvnudDqKTXVAYl7D+1bCZ/LIfzJlFEPxM
+	 YLBZtoQNBIfbDbRGCrd1jgCpRq47kSZrDIKJbSveNLz6xzDLwOslbxTxhsSTPnucex
+	 ySWR8mk8GhWTg==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3F78E17E07F6;
+	Mon, 02 Nov 2026 19:56:53 +0100 (CET)
+Message-ID: <cd5780876274ab5aa73739f890a32ceacf2e793b.camel@collabora.com>
+Subject: Re: [PATCH 04/10] staging: media: cedrus: mpeg2: use the field
+ height for field pictures
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Jernej Skrabec <jernej.skrabec@gmail.com>, Mauro Carvalho Chehab
+	 <mchehab@kernel.org>, Hans Verkuil <hverkuil@kernel.org>
+Cc: Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski
+ <paulk@sys-base.io>,  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	linux-media@vger.kernel.org, linux-staging@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Date: Mon, 02 Nov 2026 13:56:52 -0500
+In-Reply-To: <20261102170303.1973892-5-jernej.skrabec@gmail.com>
+References: <20261102170303.1973892-1-jernej.skrabec@gmail.com>
+	 <20261102170303.1973892-5-jernej.skrabec@gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-P2HLuzwLLDfm1tPGi+tN"
+User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_105521_880680_940DD1AF 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261102_105657_240489_DF6E02B8 
+X-CRM114-Status: GOOD (  21.28  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,30 +95,101 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This series marks the LPUART1 serial console as a wakeup source on the
-Variscite DART-MX93 with the Sonata carrier board and VAR-SOM-MX93 with
-the Symphony carrier board, allowing console input to wake the system
-from suspend.
 
-Stefano Radaelli (2):
-  arm64: dts: imx93-var-dart-sonata: enable UART wakeup
-  arm64: dts: imx93-var-som-symphony: enable UART wakeup
+--=-P2HLuzwLLDfm1tPGi+tN
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
- arch/arm64/boot/dts/freescale/imx93-var-dart-sonata.dts  | 1 +
- arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts | 1 +
- 2 files changed, 2 insertions(+)
+Le lundi 02 novembre 2026 =C3=A0 18:02 +0100, Jernej Skrabec a =C3=A9crit=
+=C2=A0:
+> A field picture covers only half of the macroblock rows of a frame, but
+> the driver programs the coded and the boundary size of the whole frame
+> for it, as for a frame picture.
+>=20
+> Program the height of a field for field pictures, like the vendor
+> library does.
+>=20
+> Fixes: 50e761516f2b ("media: platform: Add Cedrus VPU decoder driver")
+> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+> ---
+>  drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c | 13 +++++++++++--
+>  1 file changed, 11 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c b/drivers/=
+staging/media/sunxi/cedrus/cedrus_mpeg2.c
+> index 10e98f08aafc..ca66a3c6b830 100644
+> --- a/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
+> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
+> @@ -58,6 +58,7 @@ static int cedrus_mpeg2_setup(struct cedrus_ctx *ctx, s=
+truct cedrus_run *run)
+>  	struct vb2_queue *vq;
+>  	const u8 *matrix;
+>  	unsigned int i;
+> +	bool field;
+>  	u32 reg;
+> =20
+>  	seq =3D run->mpeg2.sequence;
+> @@ -108,13 +109,21 @@ static int cedrus_mpeg2_setup(struct cedrus_ctx *ct=
+x, struct cedrus_run *run)
+> =20
+>  	/* Set frame dimensions. */
+> =20
+> +	/*
+> +	 * Field pictures cover half of the frame's macroblock rows; the
+> +	 * vendor library halves both the coded and the boundary height.
+> +	 */
+> +	field =3D pic->picture_structure !=3D V4L2_MPEG2_PIC_FRAME;
+> +
+>  	reg =3D VE_DEC_MPEG_PICCODEDSIZE_WIDTH(seq->horizontal_size);
+> -	reg |=3D VE_DEC_MPEG_PICCODEDSIZE_HEIGHT(seq->vertical_size);
+> +	reg |=3D VE_DEC_MPEG_PICCODEDSIZE_HEIGHT(field ?
+> +			ALIGN(seq->vertical_size, 32) / 2 : seq->vertical_size);
+> =20
+>  	cedrus_write(dev, VE_DEC_MPEG_PICCODEDSIZE, reg);
+> =20
+>  	reg =3D VE_DEC_MPEG_PICBOUNDSIZE_WIDTH(ctx->src_fmt.width);
+> -	reg |=3D VE_DEC_MPEG_PICBOUNDSIZE_HEIGHT(ctx->src_fmt.height);
+> +	reg |=3D VE_DEC_MPEG_PICBOUNDSIZE_HEIGHT(field ? ctx->src_fmt.height / =
+2 :
+> +						   ctx->src_fmt.height);
 
+I'm not entirely sure, but I see:
 
-base-commit: e20daa6eb46fdb339be122a37211aa408488a3e3
--- 
-2.47.3
+	fsize->stepwise.step_height =3D 1;
 
+But I don't think interlaced video can have odd height in the first place. =
+But
+it also have an implication here as you are not rounding up to a multiple o=
+f 2.
+Not sure what is the proper fix, but I have this impression something is
+missing.
+
+Nicolas
+
+> =20
+>  	cedrus_write(dev, VE_DEC_MPEG_PICBOUNDSIZE, reg);
+> =20
+
+--=-P2HLuzwLLDfm1tPGi+tN
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaujc9AAKCRDZQZRRKWBy
+9FCtAP9jsMoceNEcZBP9smOFURh22hfFhq9F7bGhoIiXygecnwD/TZd0tE9tcnxF
+yNRD1b/TdxpJUTqjYdMx/wp68lb2mAs=
+=X4Qg
+-----END PGP SIGNATURE-----
+
+--=-P2HLuzwLLDfm1tPGi+tN--
 
