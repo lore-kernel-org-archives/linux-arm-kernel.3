@@ -2,156 +2,147 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13C70606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 06:09:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F23A6606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 06:21:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xx5w0f7U;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZF160nBl;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=R3KKxFO9
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TpOnxMZJ;
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=mS172ct+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=zueH4EHn/lD7l9x2yjdaQYpbQCvXUU5hvsdEAPTBPQI=; b=xx5w0f7UenvK9G
-	fK+ClV31E3oYM1vEjoJ3/+JdRZQjs5l8x4v8SPDUBRMBtDFTZeiAMWNFUUAHrkv+0NFcJf3cmr8qA
-	gEZsRc8prL1dgXjyh/4jaaBmxjAPgQqAatcFkPs466ayH2o7s2miD62VHJ5oOkkErDvfH+OZo2eb7
-	U18jWej3/yvHduSH3uH0IQRBTVAj4XHoG/t51piR8QI9lflpUplTnGFUVcvs9M7zL9Rb1CE9I/zny
-	oZHRLhwsWbRRc6n3mHOaMPSmOp4eqtPXW7dI7zoS+Odl1AOKyOVC97C9flkIJFMzxdChKCzi+wg56
-	5erALckWBwDRIm5iuY2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=QRpZvifyIXXkrc2I+m+B9rAZp0uguA0rKZYYfsrGugA=; b=TpOnxMZJAhUA7IUUu1BcYHVHHx
+	/AYDEa1zgpkpYT37GsQBiTEFsyH96V5XYuv6HDb0tSjE+vQHlN5bjAktMyYYMUSGpPhT7ljKUB97q
+	xT0ZIvZd+U+vDzczXuIvVWDft85wLkF86F8yuI1t/V9q2V7RSnd4dN0uPvR6/jSx7e7/7JLS2cjH8
+	Cvso++t5yMf73JMoXY7X7D2iy2wowjhlbttxxNSPCHVCgmuY7N1sfSlhrjvkjupm1ySmjGZ3TLQiW
+	GnRMxC5jVG8xLSOoufYVgcCYgJl999x44pMN79mU/fVQR5NAClsAEigporE/Quz06JZxtDm3XZuYx
+	Ms6/6acA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNlEP-0000000FcyH-0LP7;
-	Mon, 02 Nov 2026 06:09:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xNlPY-0000000Fdqp-47sy;
+	Mon, 02 Nov 2026 06:20:53 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNlEL-0000000Fcxu-3zW7
+	id 1xNlPV-0000000FdqE-3hxy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 06:09:19 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A24CYRK1811485
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 2 Nov 2026 06:09:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	zueH4EHn/lD7l9x2yjdaQYpbQCvXUU5hvsdEAPTBPQI=; b=ZF160nBls992pB7m
-	oVZcOD1SOxpQ4fAPh5X3Ns3oYFTa77lximGLGfvjk4rT/SCSPZ4EBKOH7E0V7Ixh
-	mo+O/qdY61Vak3aFHJRg+rqqXnJaI9c0uaPp7wqKbd4Lwmekr0uTT3KMRgQfy3FY
-	b2fkBZJ+E402ahWYQJzC9ERlJEps/o6GdPi7CbligQJjgLofmWGjzLSZMJOsZl1L
-	7I0+mj9lUV7A8cHm5IpEp0cTgYokMaMx8hxSNjiFPlOrCqbgK57fuiqrCdClvHDH
-	qhveVHJLEN8J7ks0gLe2rzaC7v4MqLahUQd83ZSbk/Bq8ZtQUNX+70e0bKpjBqdU
-	n1qbJA==
-Received: from mail-yw1-f200.google.com (mail-yw1-f200.google.com [209.85.128.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hpk9rg9we-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 06:09:16 +0000 (GMT)
-Received: by mail-yw1-f200.google.com with SMTP id 00721157ae682-8ab43f7f5faso46178397b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Nov 2026 22:09:16 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1793599756; cv=none;
-        d=google.com; s=arc-20260327;
-        b=AXpvyRbFZfcZZFa4aidRPmeTRDhhfEMIuNEURDbo/547gPMBLstfOdaUpr90iYTMlz
-         o5G4iN9FzVpoekBSTHFR71BfkeNtz14XW97Ceqxpo/p6M1kVDdQSFpi8IqlNdGis+W2n
-         KRpTRlixKI266puyVKoXNUfISTCyvm0lCdgTQoVPE9s25y+mDNhKkaWp41RfbEHPHmqa
-         C9rB9CtbDhdbnk90u9fsMg1dJutSOovk/At6xNz+BDwZCgFjyFGbmfDROX2A9qvnA5RV
-         tdf2veKWMNMXavAeONTBwr8pL8PnJDG+paNSkP9hLbcNf+ZgFrr2WADyBN8YmiJ5RlWJ
-         Mrxg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=zueH4EHn/lD7l9x2yjdaQYpbQCvXUU5hvsdEAPTBPQI=;
-        fh=uDFXe6f1AYrr1beOXhxzp1H0CSgpzBMt0CZY2Y541fo=;
-        b=EdVUQqLp+GFgpJFK4nnFQJ8u2p8bYZUxXteRis7m8YjL24SobwftFkTqE8k+vL3E0U
-         q82frX12DRkIYGX4Wd9eXMuG4OOd0hI8VmfFp2pyShorOqLcqyQ5BPG57jCYxC3pWUD0
-         q9QWeOzUyKpX2MuCkb6/v/W+VrnCjlyZzSMI7JNWjdRi7+PcTPTADqIsOysCFo8fuO47
-         MbuF6ZCg5iMYDF31LX3Wdx7L7LxuwoGs6Cte0kSQM/L+sdVj/WuZym1AyZrNXNEtpNge
-         Aupbize80U8ttZ9p/QItsYnBdPq6G+Pr3N/Oj1X7vuxCoTrNRrD/YZUnPJqgKLm0tWFV
-         lIWg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793599756; x=1794204556; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=zueH4EHn/lD7l9x2yjdaQYpbQCvXUU5hvsdEAPTBPQI=;
-        b=R3KKxFO9SlTepu4E2CW5ZqOzZaIVHLhFxNOjvnEHUj6Ea79T7XvDQINHSfkjmYY0Ic
-         cxdZK5L37blvPKQn/dRkczcClyt20y8SiUGnkInNa/Z+go/g5yc+O/a7DtrkLhokQUJO
-         NKwlYHIqlC5X3yOvb+drVNT0ShNPCenz8T1JRV+3npYNqsTIxSIYrse0dG8IPzJ76bGa
-         QjKf/6z3jo9oHZwua6CQUBXPuA064AAldEGKE6r4AsxgApS68D09+ij/dV9A5hgVzVOQ
-         Cst9WzrsYhZ8anU+DtIE5J+V/QUAHrOJvh7yBnG5tWGXPrc0Aicw8arfm3diTGQsnCnH
-         9mYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793599756; x=1794204556;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zueH4EHn/lD7l9x2yjdaQYpbQCvXUU5hvsdEAPTBPQI=;
-        b=O+N5ACHeZIo3drXf2M+8vNodd5WKHZMObxA6AphLR2jqSLd5PsbMbk8HO/uI1qtNSM
-         YntnsFdwUzD/bTrQYcneZ6hyz/vNY2KWKRYFRGZT15WjtvPIwhM0kkujLm2TQ/XAgMP+
-         RY43wwaFVSMmrV153RJuJkKhsJCDC7VxfvvhUG/tY1Tm1sarAO5VjMKC7TyZGN9n+EoS
-         9hpLLzk4Tandcafjb++tT9fauqBdYJu8h6gIFxQhs4Jj1opLkE3VdXH0b5KgiV0fJNkl
-         4SbkJhwIJET3j+i5kSm16wsLyCvF3DCY3kVplXyJJi/tEorZ7sjmTGXN0aqaow5oEfaw
-         BEtQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxQuErJH1XJ5ZbgG8RQsTBv30VbGAhZWR8liTddIRQxXloWT1VNvfsUw1+bmx0cvHm8CeuBjcJD16m9Uw4eIzhB@lists.infradead.org
-X-Gm-Message-State: APuU4Z/Wl/2MFSlJMhppw/GvEpl6JuSIeV3TSLIxZ2yD7tzwl7hAdkaL
-	yIp3TiYVRuYop7iDhZ/ft3zdN7bqtMWvr80P6sSY5AdewcjVWX9pj0R9BZCuh98mi8CaASOylAy
-	p0MmnvGSgMi7ikTkDvD0x9td0Mzk+gcpmsG2xG08MmNwIzUzSeemuVGlRMt8eoJE+keCMWhr+VA
-	94MZ8qT5Vq8X+ETLJYXE1gS7NDxyxq3Xkb0XjWgyoLr9hBRgsppWPinpXli20W7H8=
-X-Gm-Gg: AYBFou2fPejvGDhIrAHtdB9ZgcMwCFyWB3VpNIBMcilySKTscd0XzfHnbh3heCHeXlL
-	bx3V2Z6ve0ulqjS3QYc+gqqv1fYt8UQoipGr+u8bGSYPqcq6LqJV6fBKMsWlYnHDpXE8dw/R5pK
-	ztkTeQV928LX6wu2aXdD/gvT9S0VSbGXA8Z1Sq2ar1HcismC4gRR6EKaMmAQ==
-X-Received: by 2002:a05:690e:4594:10b0:673:e272:f3f8 with SMTP id 956f58d0204a3-67ba4c89334mr3369647d50.20.1793599756025;
-        Sun, 01 Nov 2026 22:09:16 -0800 (PST)
-X-Received: by 2002:a05:690e:4594:10b0:673:e272:f3f8 with SMTP id
- 956f58d0204a3-67ba4c89334mr3369635d50.20.1793599755206; Sun, 01 Nov 2026
- 22:09:15 -0800 (PST)
+	Mon, 02 Nov 2026 06:20:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yNQsmRATqrtjY9cWI0SRT3RmK8p4W0LhFesl9haJU//TuwTHniCKcMzy1JDjXJh5dBtWtk6QmV5ALznf3PSLs67SZ6WXN9vzapziSHTdS30b/GxOvIVY5kKNL6QqQEq40qOgxTON2+lg0ldhaINwXKKNI+QcdpYnH0M2RL0wyL7UFqnWeYDgZvjoNMg3p6L1CoxPjIST/JsfPqCEm6IjCWO42SPMkrD+qmjiXMMybGp4VZCXxv6nUfo3in58yUp1X2Xg4fMTW6MtbSia2O3lm5XgYifovVM76fhVKe9oLCRPSSXVmggPIkDNqUFG3qV1aOgP9+ISZE9y1s3e/pQdQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QRpZvifyIXXkrc2I+m+B9rAZp0uguA0rKZYYfsrGugA=;
+ b=s5ZhArANxEe0xRBjVELIJVYlwD3X4z01pX3WjhKBAlMq86VyyC7tSn28YTBfv0ME8tiwrANnQep0HwhTnqeQ/CS/t6azpC0zc4KFIKQedaNnwVGoLI96zWOr7aJtwdfNKSW7eGDIJyg361E82HJHl2nQ67mL5dze5YK+FAWk5FVw9N9CqBdEX8tdOwGDIMfMG00KkPMsQSxFGa6L3FxLQzDyCWm9ulOhc654WXSIqBf5HRJ8ed2EH7b52mbmJPNImh/bVeVMjcaZGUMnuEuA2Xmn6bd51sDdpuA/xC1O4bCb4eOzd23Iqy/K/gbF5R8MJ3FHwouJ05zb5XYWCl1sQg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QRpZvifyIXXkrc2I+m+B9rAZp0uguA0rKZYYfsrGugA=;
+ b=mS172ct+ecoWXylGdozFSYVkvjyXjDUXTo5pICTKa3YnJqevmiPn7EQu07Yf6oqrQ/MsoWQ8PQcG4rffejBe++Jzm6LX4AqJ8CjgQwXmgqhSgiguhBsKdH+hMbWPUjUzw6FjRKnHOhGrbpLVDaipMp6/7AC8L2y7LJZ6BVPulbI=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from LV5PR12MB9804.namprd12.prod.outlook.com (2603:10b6:408:303::8)
+ by DM4PR12MB5746.namprd12.prod.outlook.com (2603:10b6:8:5d::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Mon, 2 Nov
+ 2026 06:20:43 +0000
+Received: from LV5PR12MB9804.namprd12.prod.outlook.com
+ ([fe80::cab9:7e9a:fc29:bcb2]) by LV5PR12MB9804.namprd12.prod.outlook.com
+ ([fe80::cab9:7e9a:fc29:bcb2%5]) with mapi id 15.21.0569.011; Mon, 2 Nov 2026
+ 06:20:42 +0000
+Message-ID: <cf369d2a-3e3c-418c-8a36-219fdfd485ec@amd.com>
+Date: Mon, 2 Nov 2026 11:50:35 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] can: xilinx_can: enable NAPI before starting the
+ controller
+To: Patrick Zhang <patrzhan@amazon.com>,
+ Marc Kleine-Budde <mkl@pengutronix.de>, Vincent Mailhol
+ <mailhol@kernel.org>, "linux-can@vger.kernel.org" <linux-can@vger.kernel.org>
+Cc: Pavel Pisa <pisa@cmp.felk.cvut.cz>, Ondrej Ille <ondrej.ille@gmail.com>,
+ "Simek, Michal" <michal.simek@amd.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "stable@vger.kernel.org" <stable@vger.kernel.org>
+References: <20261030233330.3483988-1-patrzhan@amazon.com>
+ <20261030233330.3483988-3-patrzhan@amazon.com>
+Content-Language: en-US
+From: "T, Harini" <harini.t@amd.com>
+In-Reply-To: <20261030233330.3483988-3-patrzhan@amazon.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA0PR01CA0091.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ae::14) To LV5PR12MB9804.namprd12.prod.outlook.com
+ (2603:10b6:408:303::8)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20260922130653.357615-1-andersson@kernel.org> <04be768e-7c38-4ca6-a721-d716947b8708@app.fastmail.com>
- <CAGptzHOaNfXhDf7pZ0v=nKGXE6UjwOaw4pacPA4y9Lop8yP37g@mail.gmail.com>
-In-Reply-To: <CAGptzHOaNfXhDf7pZ0v=nKGXE6UjwOaw4pacPA4y9Lop8yP37g@mail.gmail.com>
-From: Sumit Garg <sumit.garg@oss.qualcomm.com>
-Date: Mon, 2 Nov 2026 11:39:04 +0530
-X-Gm-Features: AclHuK_ZGfEtpfZA1498jVLU3PJS-3rP5e-VPIRkigYGxV0PkiHkLUhpOvX20yI
-Message-ID: <CAGptzHM-FgeDuaE_xMT2FNJrN5y=8L=FmdtoPs5tELNXZ20CRw@mail.gmail.com>
-Subject: Re: [GIT PULL] Qualcomm driver fixes for v7.3
-To: Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson <andersson@kernel.org>
-Cc: arm <arm@kernel.org>, soc@kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-ORIG-GUID: V2E42jbY68B5BY_BUnF4khQpwxkl2tQ3
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAyMDAyNCBTYWx0ZWRfXzdUX0ceJefpA
- ZvxAnCglHmYx2UtK4xrvB48XhMArGYLlNUbjlv8sSRiwlFDz7m2Ocfw53eJs3koRq1ru2ZrdUGi
- 8OHZ3uSrXxNqGO0eqfhZ0p5rheQltbg9dLFZRF0TDMUxM9ORyMv37ltAz5gQXEjekY3FYHR1hxp
- N6w9WPLcpWrUUlTBLgMnU74VpbxrRexBeQFbqXwqPxlYlJAdN5mnuumFTFuXgCuVmxUXBBkrLYh
- LQURgUgYblZVkkFG6FX1yF+mHozyjyNx7/FlSNXTcK5u/nqo19Y+zHVmmCBWkU6qEBZSe+WnviK
- m9xsBJQYw/62Nr48NuxKS37Z67SuqOLJVmtsprE3co95tzAcN2Sp29yi9iNct3VLYI18sKH3el8
- V/rAONK9sYlm2UsCDbMBxugFyiJljbTNIU/OglwzHK+UeeK33OtIiUhJYSlL7gLMHm789v/60fi
- WWS1CLupUDSs/fXBf6Q==
-X-Proofpoint-GUID: V2E42jbY68B5BY_BUnF4khQpwxkl2tQ3
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAyMDAyNCBTYWx0ZWRfXwCaUc6rZCqRW
- 9KwYpB2T+S7JNle7gQqF79i1zyIT4+XglrBO+ta6syX2ivFiNOnJ2btPru/Bg+BCWavYkMs86fz
- MOtPidAwKnt9I1d9mOTcUUbL9j2DNyI=
-X-Authority-Analysis: v=2.4 cv=LvwHWXdc c=1 sm=1 tr=0 ts=6ae8290c cx=c_pps
- a=NMvoxGxYzVyQPkMeJjVPKg==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8 a=kdkvEyMxHJgC4A9uITsA:9
- a=QEXdDO2ut3YA:10 a=kLokIza1BN8a-hAJ3hfR:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-02_02,2026-10-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 malwarescore=0 bulkscore=0 lowpriorityscore=0
- phishscore=0 priorityscore=1501 adultscore=0 suspectscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610300000 definitions=main-2611020024
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV5PR12MB9804:EE_|DM4PR12MB5746:EE_
+X-MS-Office365-Filtering-Correlation-Id: fb4c745a-00a8-4e9d-f18e-08df38a96c12
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|261021121427099003|261021123027099003|261022105027099003|261022075727099003|261009223027099003|261026121527099003|261026140227099003|261028144727099003|4143699003|11063799006|5023799004|10067099003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: ns4h+crO29bTiy9wxPQQZPNceGZnZvHFAld8YxLiUzBbeVBUuqW2lerj4+NVOmn4VxIGFtHa5HjYah0Bcc4iG4cv2Pi6S+uYSZzfia1qbuDmy/omUplZM48fyxu3qXSeAKtPcFJeR8peWV7QTZhZYUR61PQKZygxN9ExN0dbD2x6xcjeGXgq5Y3nbVx61A6JgFsDlk91f9/EKI15JmjKJDpXUvEPj1bQPR/sI4tOr9mjyhpsfmMjGRTLl2oN+8xP8RTY8zj4HIydxwGg9baoG+Lj7aYWaB2J4u3Vwoqb/Kp5GmYIMip+RNq/6p9p3/s9tHI10AFsEOnHcLyB1sHwmrR31d+WrrLDRpBluwJawlNJP50RUh4UMqn3NqzyPd2xlXZKAxYKwZfM3PJJUOD0vX8bbCrq56yMrTyENL4RQIJ5y/PzMKz3wCWPNiOMxyqsXpIIapVKoEUzU9mjjKe09hxlfWVRSUNuXam7r1ESavN1XXcYFd4YaCtnESMy80m+Sg3m3t5qagPneS+UeqE++MsZylw4HrkIuHgYNvu04Yw+zjZppyCdWTFOzbMVCg1xxcGPIhEz6LpTX2Yeethpuq8a7EaeEz9vxdh823/AeOqmKIfT3Ik+RH0DqeddH79Z
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9804.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(261021121427099003)(261021123027099003)(261022105027099003)(261022075727099003)(261009223027099003)(261026121527099003)(261026140227099003)(261028144727099003)(4143699003)(11063799006)(5023799004)(10067099003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UVZEajRBSWh0cFB0QWdZMmIzVGJRQWJkUVNPdzVEMEgrOUt2QURKaWliS0N0?=
+ =?utf-8?B?bDNCa0J1SmdNdkt6OFB3cDJNMnRCZE9nbGxJemtTWUdXZkMzbFJVcldiejFx?=
+ =?utf-8?B?bDZVbEFPN3pvTC9sL1JjV2lLbS9FdGJhTDlZUlc3bDVodjJET2MxNzJDUkVN?=
+ =?utf-8?B?SnRxNGtmSzZkbzh6YmpoY1U4bEs3SWVYdG9USWxadEF5bjVYZGpHZkdaUlFG?=
+ =?utf-8?B?V2Q0dDZSU1Q5bGw3T2hrYW5xWmExTWgrUHdwV1BsQlFWVXRlVFBXS3ZFQXl6?=
+ =?utf-8?B?Nm5PRlNXUU9xN05ULzh6S3lpVlgyb0dEQWhsdDJoMitHL21kTlJza0lMTXNX?=
+ =?utf-8?B?SWpncklvQVVveDh5aWZ5WG1ZcG5obHZzeDI2RW5Bb0krNmJ4NUpVS2RkOFlX?=
+ =?utf-8?B?b0l6LzJnTlFaSzR2bWEzQ1gxNGs3eW1SQkQ5akdreHFJejVqeHFVb2NuRDlk?=
+ =?utf-8?B?TDBGeHJKcHFQdkhVVUV1T1g1Qml4Q0pibWE4SEdkeGVmNjdWSFhqWkkzZW5U?=
+ =?utf-8?B?UVNRamgyTnNveWNsWGRxWngrd0lqUFppUm9wOFBnOG43TEFmMVhJRW1TV0ps?=
+ =?utf-8?B?UXFIdWVCYktSU1htYU5WY213MFh0Z2pUVHA5K1VncUdxRHFYTjVXWHBoVCtR?=
+ =?utf-8?B?TytKRWVTM2FMMzhTeXdPcjJoSFg0WiszSGRDSGNuek12RlU3Z1YzN2RpQ2k4?=
+ =?utf-8?B?Ry8yazQwWDc0NFBYOXdjWWdWcXNGY3ovSlpFZDBGcWlNZC9ZSFhDOWNBeWc2?=
+ =?utf-8?B?czkrQ3ZGWUtpM25HTFBvTm9BcklnWDF4NTI0Z0dLY3dHT3c3TklNRm0ySWFl?=
+ =?utf-8?B?ODY3TVM1aDNSVFNZM2EwZWdZU2pMdkhrcE82NWFyQzFsdkVzVjB0UDlaVGtJ?=
+ =?utf-8?B?YnZZUXpRYlI2NTllSzJjSmgzb1hnN1paTTR5eTV5aEtBZ3gyUjJ4OVVEMkMw?=
+ =?utf-8?B?cTg5bElDOWxLMmFnWlp2MnROUUhiOTFqa0tDZHBweFhSejBNWWNjcWVEQzJD?=
+ =?utf-8?B?ZGQ2NlAzUS85ZktwTGZhR1pMMFNDM0ZSNmhMd2cxY05lblRJV21xZExVaHUz?=
+ =?utf-8?B?K2FRZGQrTWRWYm5WbjA2VHJONzFISnkvRVo2WGg4eHdnbnFIdFg2bzZadERX?=
+ =?utf-8?B?cnRTTmFXM1YyNHdXeStIU3hrRHd1YlVJOW5QTVNoS1U3dEt0UjdNMU1qbGU0?=
+ =?utf-8?B?cDU3c0MwaFJnWE1MVXU3TjBteVZTQ0RXSGQrTVptNlg5NTdmSjJia2k1dWtW?=
+ =?utf-8?B?VVVpS1FtVVdQQVRmUTV6aEdZNmxEYkw3aFBRVWtJeHEyYUV5am5FdzY5cnRG?=
+ =?utf-8?B?VDNnZkE5MGlNZDdVOTJMVnQwT0VaQkpjRzlKK29nL0JsbGZFaldYWGQzbjgz?=
+ =?utf-8?B?cUV5L1VUUEpDTHhSQWt4cXFMRVU5dDhvWDREWTBCZnFEZHN0Ynp4blRKWDdD?=
+ =?utf-8?B?WWVDZjNIN0ZIdmFTcEs5M1BDNXE0RFJ5Zk1MUVFoL2ZaSVVxZXZMdGlVcnlj?=
+ =?utf-8?B?aVhzLzRNQ0EvVUp0cWpLU2pIWUM5Zkl5TVVmS3N0WEpwOGt6NnVnSEVaaG5n?=
+ =?utf-8?B?c1pwcm9FaFBVWSs3Umwvemc1UGJWNlFGM2pmUkJRTjBrME1yNmcyQk9DVmNP?=
+ =?utf-8?B?bDdiOTE0N25ZK3AwV1MvRWFTQmJucThhRy9zWHUyeDh0blh1S1ZJa2pENTVB?=
+ =?utf-8?B?cDR1bUVrK3VOc3Z4TDNzVFg2cDBxWm1LaWpyWWtlc0NZejNDaW1vTWZiL0ZS?=
+ =?utf-8?B?STN5ZmVIeEtYeTIrQzdPUWgwcWc2Q0FYRk9IZ3g2U1N0YWR6aDV3azREZGs0?=
+ =?utf-8?B?b0wwRXZiV1FOUHl0R3FYUzZ4QzNBdkJUa1dLRUZZNW9FdmZnRG0xZzNXcEhJ?=
+ =?utf-8?B?WGhqZUwrNzBxRURtZndmWFdjYlRWOW9PUWxBN255K2JsWjFXcTBubXduNU5q?=
+ =?utf-8?B?Yy9veHhTZEx4bWFXUlNlVlpKU0JDbld6RUNrd29kdUlUcDVJSzhwYlhWa2xO?=
+ =?utf-8?B?MlQxSTB3aTVnNE81bHA1emJpZllkUmFRczJGZmloRmJ4ODJoUG5JM1VsRFk3?=
+ =?utf-8?B?eVlvQzQ5MHFwaUdSUVZNSXhOanBsWjhYeExJQzV0eU9SYkI4bDJ2N3FIRDI3?=
+ =?utf-8?B?VTYvWldjY05WT0JrQWpvYVZDdUR0dmR1eVNISDhvZ0tKYXhHdTJJRlEvN1BC?=
+ =?utf-8?B?aWEvbEFwdk5xZ0dCUG5yUStDYWFEbnM0RFNRMWhiWGpZZ0U2cFdrMDJueURw?=
+ =?utf-8?B?cFFoeWsrb2c5NUt0NWhGWllVemVxRUxsbGMvMUk5YkxaeUljTGM5RjJFeC9q?=
+ =?utf-8?Q?NhSFFiqFgUX+uBTu45?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fb4c745a-00a8-4e9d-f18e-08df38a96c12
+X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9804.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 06:20:42.7129
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aD7Mx5vRi5LZvbzcrnKts3yfjh1W7uLUWJCtQjpgwVJTTZ+EJKDOFvHXxzPSbly8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5746
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_220918_004679_13DD0A44 
-X-CRM114-Status: GOOD (  26.27  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261101_222049_952234_61FB7EF5 
+X-CRM114-Status: GOOD (  27.73  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,59 +153,100 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hey Bjorn,
+Thanks Patrick,
 
-On Thu, Oct 8, 2026 at 10:35=E2=80=AFAM Sumit Garg <sumit.garg@oss.qualcomm=
-.com> wrote:
->
-> Hi Arnd,
->
-> Coming back to work today after vacation.
->
-> On Sat, Oct 3, 2026 at 3:07=E2=80=AFAM Arnd Bergmann <arnd@arndb.de> wrot=
-e:
-> >
-> > On Tue, Sep 22, 2026, at 15:06, Bjorn Andersson wrote:
-> > > The following changes since commit cee9395acd8043be0644b25c34bfa86623=
-f2b935:
-> > > ----------------------------------------------------------------
-> > > Qualcomm driver fixes for v7.3
-> > >
-> > > All clients was migrated from the Qualcomm SCM PAS API to the Qualcom=
-m
-> > > PAS API in v7.3, remove the now unused direct API.
-> > >
-> > > ----------------------------------------------------------------
-> > > Sumit Garg (1):
-> > >       firmware: qcom_scm: Remove SCM PAS wrappers
-> >
-> > Hi Bjorn and Sumit,
-> >
-> > I was running a little behind on the fixes merges, sorry about that.
-> >
-> > As it's getting a little late for 7.3, I would suggest skipping this
-> > one patch as it is a bit large and is a cleanup rather than a fix.
-> >
-> > I would instead merge this directly for 7.4 but still take the other
-> > ones for 7.3. Let me know if there is some reason I missed why this
-> > needs to be in 7.3 after all.
->
-> I agree it's pretty late for v7.3. I am fine for v7.4 if Bjorn is able
-> to keep the dependencies sorted.
+On 10/31/2026 5:03 AM, Patrick Zhang wrote:
+> Caution: This message originated from an External Source. Use proper caution when opening attachments, clicking links, or responding.
+> 
+> 
+> xcan_open() calls xcan_chip_start(), which writes XCAN_IER_OFFSET to
+> unmask the RX interrupts and then sets XCAN_SRR_CEN_MASK to enable the
+> controller, and only then calls napi_enable(). A frame that arrives in
+> that window raises the RX interrupt. xcan_interrupt() clears the RX
+> bits in XCAN_IER_OFFSET and calls napi_schedule(). NAPI is still
+> disabled, so napi_schedule_prep() finds NAPI_STATE_SCHED set and the
+> schedule is dropped. Only xcan_rx_poll() unmasks RX again, and it never
+> runs. The interface receives no data frames until the next close.
+> Transmit still works. The RX overflow interrupt stays enabled, so once
+> the RX FIFO fills, xcan_err_interrupt() counts rx_over_errors and
+> reports overflow error frames, but nothing reads the FIFO. Every
+> re-open (ip link down/up, a driver rebind) runs the same race again.
+> 
+> The window is only the tail of xcan_chip_start(), so the failure is
+> rare. Adding an mdelay(50) at the end of xcan_chip_start() makes it
+> reproducible with continuous traffic from another node and a single
+> "ip link set down/up" on the test device.
+> 
+> Enable NAPI before the controller starts, so that an early RX interrupt
+> can schedule the poll. NAPI can be enabled while the controller is in
+> reset, because nothing schedules it until an interrupt arrives. If
+> xcan_chip_start() fails, disable NAPI again. Otherwise the next open
+> would call napi_enable() on an already enabled instance and trip the
+> BUG_ON() in napi_enable_locked().
+> 
+> This is the same race as in "can: ctucanfd: enable NAPI before starting
+> the controller".
+> 
+> Tested on a Versal board.
+> 
+> Fixes: b1201e44f50b ("can: xilinx CAN controller support")
+> Cc: stable@vger.kernel.org
+> Assisted-by: LLM
+> Signed-off-by: Patrick Zhang <patrzhan@amazon.com>
 
-Looks like we were also not able to land this cleanup patch in v7.4-rc1:
+LGTM.
 
-firmware: qcom_scm: Remove SCM PAS wrappers
+Reviewed-by: Harini T <harini.t@amd.com>
 
-Would you be able to merge it for the v7.4-rc2 at-least? This is just
-causing issues with patches being developed on top.
+> ---
+> 
+> Notes:
+>      v2:
+>      - Correct the commit message: the RX overflow interrupt stays enabled
+>        during the stall, so rx_over_errors is counted once the FIFO fills
+>      - Name the ctucanfd fix by subject instead of "the previous patch"
+>      - v1: https://lore.kernel.org/r/20261021205924.2538511-3-patrzhan@amazon.com
+> 
+>   drivers/net/can/xilinx_can.c | 6 +++++-
+>   1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/can/xilinx_can.c b/drivers/net/can/xilinx_can.c
+> index 43d7f2282..5c2412bf9 100644
+> --- a/drivers/net/can/xilinx_can.c
+> +++ b/drivers/net/can/xilinx_can.c
+> @@ -1570,18 +1570,22 @@ static int xcan_open(struct net_device *ndev)
+>          if (ret)
+>                  goto err_irq;
+> 
+> +       /* Keep before xcan_chip_start(): the ISR masks RX interrupts and only
+> +        * the poll unmasks them.
+> +        */
+> +       napi_enable(&priv->napi);
+>          ret = xcan_chip_start(ndev);
+>          if (ret < 0) {
+>                  netdev_err(ndev, "xcan_chip_start failed!\n");
+>                  goto err_candev;
+>          }
+> 
+> -       napi_enable(&priv->napi);
+>          netif_start_queue(ndev);
+> 
+>          return 0;
+> 
+>   err_candev:
+> +       napi_disable(&priv->napi);
+>          close_candev(ndev);
+>   err_irq:
+>          free_irq(ndev->irq, ndev);
+> --
+> 2.50.1
 
--Sumit
 
