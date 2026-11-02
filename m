@@ -2,66 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EA1C60A260C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 08:03:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5207A606A32E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 08:05:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=terjsuUO;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nkNoZJ0n
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=v4NgO3V9;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AR6KG4f6
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=U6rujUAQs2Y1Y1weMw1WSfHc22ibpIuMwbt2s+QB2+k=; b=terjsuUOnf3+HBYMlHRaHl9wLv
-	F3i2sUi3le4etmR4yl3M5tUkox5Zhy/nCh3ywvV03eRFVYqK0zRt/Hw5y59lR8FJoKigq5GVXnSzp
-	NgPdkjDs7cpN86VxQxkNisZx5rxUn5xHlft+O9JKUa2OWidWv5eVwZ3fDM28w2godZUEPYIFWppBE
-	ijGFBSZPyBpu14TjpnwokPP2oR/xj6XjZ6blU9dVgdRqByrLWESt00xufqDxtnK/U9bT95bmwYqxk
-	2CMPAbKimOLfQj2V+As0KkAyauShkrRNBoKccwgZmLVDPyo372jpwt6+FVDcAKDSOhVO0tquHRNeq
-	+W7c39FA==;
+	bh=s3MVvxzGnSWvttHCkz12dBX/2TzSeRqwx2B+vBpsohA=; b=v4NgO3V9wetNEu8SbE0mE3ex7b
+	kKNQB+vUcQp7w9qLihBK6TgIF46FEBXveDrqk7tGnLmsdNRDzKIK2/ji3Ct2FEVnlU0HcOGgyAJ/l
+	13w7mV1MVPpCWjfyEbwnH49L9WXoberWs5Kprn8ZR73XPvfbfpxIURT8Pa4hiO9bsAxdFWjxvxhCu
+	844+/WjJU9oayqCFHIQvfGQ+z1QuukSt2vxdZRuMrm5Q7jfWEnph1ey398d8tlfll2nh1CLyeZxOX
+	n7jstSD2e0qLg5c0eQxPU0zUA2jteVL54V2T2z+3Ir/fzmZa1qOXFDoi7+rVROJQeyYbc8ALbFwoT
+	xRtypo4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNn0T-0000000Fp9h-1fip;
-	Mon, 02 Nov 2026 08:03:05 +0000
+	id 1xNn2p-0000000FpUp-0QW8;
+	Mon, 02 Nov 2026 08:05:31 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNn0S-0000000Fp8z-0Qiz;
-	Mon, 02 Nov 2026 08:03:04 +0000
+	id 1xNn2m-0000000FpUf-3bNT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Nov 2026 08:05:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F30B660EF6;
-	Mon,  2 Nov 2026 08:03:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E330D1F000C1;
-	Mon,  2 Nov 2026 08:03:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5048160EEE;
+	Mon,  2 Nov 2026 08:05:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 047321F000C1;
+	Mon,  2 Nov 2026 08:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793606582;
-	bh=U6rujUAQs2Y1Y1weMw1WSfHc22ibpIuMwbt2s+QB2+k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nkNoZJ0ncC7kvMOAEmJnnNbUlp2tHy4dbnyuT9fv2n0nS+11B4dO41kssOR9pUspI
-	 uw7G7IjA3et1iqmN3UrjTsJsuonqATVfKe8Q13m899JkYYSdLFl3uirYA+ODqCruDQ
-	 De9T/FrComFmMPphSBzjqN7NSJZXQ5iyG6Dcd6ByZYpxsJrkHRDC+JGhTMq5IPgtmd
-	 l9X/GdwM+JNmiv5wsfI3vTgae/P0PXBTjjzEQ9EvvVv0ut1SOvVUCH7WzAU1oQmR+Z
-	 HMQRDP6G4NKov4OmSRq4W0SsODcyr+0GiMbtJq7WYyzNX3iEtthDt2tDeC1fCh6nAn
-	 LZzuLcLx0fLcQ==
-Date: Mon, 2 Nov 2026 09:02:59 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Cunhao Lu <1579567540@qq.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
-	Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Elaine Zhang <zhangqing@rock-chips.com>, Richard Cochran <richardcochran@gmail.com>, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v5 1/4] dt-bindings: clock: rockchip: Add RK3572 CRU
-Message-ID: <20261102-casual-free-starling-fd87a5@quoll>
-References: <20261030-add-board-ok3572-c-clk-v5-0-9a43403cb149@qq.com>
- <20261030-add-board-ok3572-c-clk-v5-1-9a43403cb149@qq.com>
+	s=k20260515; t=1793606728;
+	bh=s3MVvxzGnSWvttHCkz12dBX/2TzSeRqwx2B+vBpsohA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=AR6KG4f6xIXaHUlSombXmoSQ3IvLm0GY8dPAquP6rdFe+3aO/0eJ/SyIZX18LyxEA
+	 oPhCDuI8dM4a1KeoQdYB8PpxAL50hgODsXNIG5Ym19gtekg3Yr3cZWWe+RhYohzB9g
+	 7OSHewDoFxYPaUJUPLsxc4k1knuZiHL55xm0f72hKmfloHJMrwybTLcK45oIprHLyb
+	 my/qQh3w5ZW21XTNdKICi8B6RQtTl8BlwIdkMVE8ZOIT4+sL0ef/Vf0bdxZ1oIwKY2
+	 zSit37Mkx1ls5d6VKOIZJFa0RXAuERrEocaENfN9F1FY0asgN8o3rYYEJpE9dl0xqs
+	 zs4zSuOmYeSHA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xNn2j-00000009iDv-2tka;
+	Mon, 02 Nov 2026 08:05:25 +0000
+Date: Mon, 02 Nov 2026 08:05:25 +0000
+Message-ID: <86ik2f3bga.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Matthias Goergens <matthias.goergens@gmail.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	Randy Dunlap <rdunlap@infradead.org>,
+	linux-kernel@vger.kernel.org,
+	workflows@vger.kernel.org
+Subject: Re: [PATCH v2] Documentation/process: Add a maintainer entry profile for KVM/arm64
+In-Reply-To: <8ffc41d7-b032-481c-9643-a87847b8452b@kernel.org>
+References: <20261030083351.3040604-1-matthias.goergens@gmail.com>
+	<8ffc41d7-b032-481c-9643-a87847b8452b@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261030-add-board-ok3572-c-clk-v5-1-9a43403cb149@qq.com>
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: krzk@kernel.org, matthias.goergens@gmail.com, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, corbet@lwn.net, skhan@linuxfoundation.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, rdunlap@infradead.org, linux-kernel@vger.kernel.org, workflows@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,28 +94,52 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 30, 2026 at 05:43:57PM +0800, Cunhao Lu wrote:
-> From: Elaine Zhang <zhangqing@rock-chips.com>
+On Mon, 02 Nov 2026 07:16:47 +0000,
+Krzysztof Kozlowski <krzk@kernel.org> wrote:
 > 
-> The RK3572 CRU uses the PMU0 GRF for the AUPLL reference mux.
-> Describe the controller and define its clock and reset IDs.
+> On 30/10/2026 09:33, Matthias Goergens wrote:
+> > +
+> > +If your series depends on something else that is not yet in mainline, such as
+> > +another series under review, say so in the cover letter and name exactly what
+> > +it applies on top of.
+> > +
+> > +Use ``git format-patch --base`` so that the base commit is recorded in the
+> > +patches.
 > 
-> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
-> [adapted to mainline rockchip clock and reset handling (xin24m input,
->  don't introduce CLK_NR_CLKS)]
-> Signed-off-by: Cunhao Lu <1579567540@qq.com>
-> ---
+> You should rather encourage usage of b4, which does above for you.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+No. People use whatever they want to use, and we don't have to be
+prescriptive.
 
-Best regards,
-Krzysztof
+>
+> ...
+> 
+> > +
+> > +Security issues
+> > +---------------
+> > +
+> > +Bugs that let a guest attack its host, or a nested guest attack its guest
+> > +hypervisor, should be reported as described in
+> > +Documentation/process/security-bugs.rst.
+> 
+> Do we need to repeat standard stuff in every maintainer profile? Above
+> is quite obvious, so maybe skip it which would make the document shorter
+> increasing the chances anyone will read it.
 
+I'm perfectly happy to have this here. Most people will only read the
+one document they need to (if any). And I really doubt that the
+mention of a nested guest escape is that common (as a basic grep would
+have shown you).
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
