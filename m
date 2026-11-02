@@ -2,44 +2,44 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCB23606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:02:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5CAC606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:02:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cL/0+CPI;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dGUV5oke
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=C2G+wFGu;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Pjdur3pL
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=1O2oFv+ZK/pYAWPwm8rrF9G+J2Ax3U/VnIbvtvMMFys=; b=cL/0+CPIo9S58+
-	7xT/LDaBy/HzIA0z/k7NoksWwcVaGb9/Lc1mqFwsL0tcCMK2zTjSDKfuOy0y91GPOyCl7i0s1Ptr3
-	ousJTlJn2WclgKd+qcxXf7t1sRHm5454NxXDENWcAJi2U5R+59y6wVhH6ljPNevgqdbl4W/FbAc2a
-	PN6uUxGLtoC/dGLYMUW1EU0yCjT0LwVr7L2ap938Y7vjIY0rt1mgPBpbWU0G46/D90LUdf3FNdqR/
-	MPU+yEB8J7VmjO2IP2QquvXpfGqjkBVU+HPzTjjqXGkU81NvkL/X+Id2+NxdPN/2LpXsdjGhqKc6a
-	xMwhVdUgJmD3ajG8LSog==;
+	List-Owner; bh=+XGY/v6BR2NT4up8v10Wc/v7759RgeWyYpEIAPxEWSM=; b=C2G+wFGu4k5opA
+	Z6VNnMlVR9xQMDwtwNy2CyCxnV6U4eTw/WfDRsXxj+kFyxqjPT7bcQ0tXap9e3xYlRjR1HU4FFhQ4
+	AID7h40HoBR93uY/P8SG3a6rbewWoDNSPLRw6ipEI4DQCkmLDTvxBI6ErDRWb62r5biPzaueoSIRB
+	wPQZdoJ3OefRhorCP2qnV4NVVBCen6Cmw00XwZiZz0deK5yBjNBhP0LlHs3iMNZkErvjMqAULQ6Iw
+	kXvR8hFWmXc88Rwoaeshx6ZgeegdGS4tIHNuv1e634rqer89dsPuLw9+sQ9yIvEDquJsyPMaf+lQd
+	ONCKTShg0vPiT/hrXsrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNrfZ-0000000GXfg-2RUh;
-	Mon, 02 Nov 2026 13:01:49 +0000
-Received: from out-37.mta0.migadu.com ([2001:41d0:1004:224b::25] helo=mta0.migadu.com)
+	id 1xNrfk-0000000GXlY-3rgH;
+	Mon, 02 Nov 2026 13:02:00 +0000
+Received: from out-64.mta0.migadu.com ([2001:41d0:1004:224b::40] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNrfW-0000000GXeD-1lF6
+	id 1xNrfh-0000000GXio-1vWp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 13:01:47 +0000
+	Mon, 02 Nov 2026 13:02:00 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=ivYalubDN93bEKTb9+BptVFT0cZ/wcR7OB8hL+64CIY=;
+DKIM-Signature: a=rsa-sha256; bh=dmrpggB/4/cFopVedznZGtlVQgchY7JNs1MqKk3Qx8M=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793624504; v=1; x=1794229304;
- b=dGUV5okeZjO0Fu0p1T1vR4cYVRePT+BQDFaZHhpb/pbf2o5d6mEI/hYxZ7Uq0jxRNwbM3gef
- pkU9puzvU3eUx5HXGqjoepVVUqMqHepiPGs46tDOmkz69ajkqH6b3lhZaQWvQxgMPGwOxMz2iyO
- QD4bWPgRhfn6c2Nf86F+RFIk=
+ t=1793624515; v=1; x=1794229315;
+ b=Pjdur3pLSK2K2BqKtYGZl3kLkZfZMv3hJf+usQ6etUaTJxmto96AroKwDkZjalKt9xyLEVnn
+ Ak8fQY3sG+MJgsa3QYBVFKMEo1QfrW2XDrYl6wr+mXrL2WbJ/4F7L9Nh7oYjy3b7Yvs8vK/Rle2
+ C/brQXJoAZneoh6zd3BSv5Qc=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 88645c0bdba3211b;
-	Mon, 02 Nov 2026 13:01:44 +0000
-X-Mizu-Trace-ID: 88645c0bdba3211b
+Received: by smtp.migadu.com with ESMTPS id 9efc73450d7a3700;
+	Mon, 02 Nov 2026 13:01:55 +0000
+X-Mizu-Trace-ID: 9efc73450d7a3700
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -65,18 +65,19 @@ Cc: Will Deacon <will@kernel.org>,
 	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 01/13] KVM: arm64: Donate MMIO to the hypervisor
-Date: Mon,  2 Nov 2026 13:01:21 +0000
-Message-ID: <20261102130133.3684226-2-fuad.tabba@linux.dev>
+Subject: [PATCH v3 03/13] irqchip/gic-v3: Disable GICv4 features in protected KVM mode
+Date: Mon,  2 Nov 2026 13:01:23 +0000
+Message-ID: <20261102130133.3684226-4-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261102130133.3684226-1-fuad.tabba@linux.dev>
 References: <20261102130133.3684226-1-fuad.tabba@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_050146_607115_FB1A6DB0 
-X-CRM114-Status: GOOD (  22.34  )
+X-CRM114-CacheID: sfid-20261102_050157_637166_B50A86C2 
+X-CRM114-Status: GOOD (  17.00  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,175 +97,108 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Mostafa Saleh <smostafa@google.com>
+From: Bartłomiej Grzesik <bgrzesik@google.com>
 
-Add __pkvm_host_donate_hyp_mmio() so IOMMU drivers in the hypervisor can
-take ownership of the IOMMU MMIO. The range is mapped in the hypervisor
-private range and annotated as owned by the hypervisor in the host
-stage-2, so host accesses fault and further donations of the same range
-are refused. MMIO has no struct hyp_page, so the annotation is the only
-state, and a dedicated function is simpler than teaching the memory
-donation path about MMIO. Donation is only allowed before the host is
-de-privileged, which is when the hypervisor IOMMU drivers initialise.
+Later patches have the protected KVM hypervisor take the ITS from the
+host and check each command the host queues. They don't emulate the
+vLPI commands, as VMAPP's VPT_base, for one, is a host-chosen address
+the ITS and the redistributors write to.
 
-Make kvm_pgtable_stage2_unmap() leave invalid counted PTEs (annotations)
-in place. host_stage2_unmap_dev_all() unmaps all non-memory ranges to
-recycle page-table pages under memory pressure, and would otherwise drop
-the annotation and let the host fault the MMIO back in. No caller depends
-on the old behaviour: host_stage2_unmap_dev_all() only covers non-memory
-ranges, where no annotation existed until now, and the guest unmap paths
-check that the PTE is valid first. Returning an error for counted PTEs
-instead is not an option, as a non-zero visitor return stops the walk,
-which would abort recycling at the first hypervisor-owned MMIO page and
-inject an abort into the host for an unrelated address.
+Clear has_vlpis and has_rvpeid at redistributor probe in protected mode,
+so the host never issues a vLPI command, and print that GICv4 is off.
+The host loses GICv4 direct injection for its non-protected guests,
+which is off unless kvm-arm.vgic_v4_enable is set, and can't restore a
+guest saved with GICD_TYPER2.nASSGIcap set.
 
-Link: https://lore.kernel.org/r/20261015200903.2735565-2-smostafa@google.com
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
-[Fuad: pass kvm_pgtable_get_leaf() the walk flags ee26443f3dd70 added;
- drop __pkvm_hyp_donate_host_mmio(), which this series doesn't call]
+The test is kvm_get_mode(), as the redistributors are probed before the
+cpucaps are final. It lives in irq-gic-common.h as
+gic_is_protected_kvm(), so that the ITS driver can use it too and
+linux/kvm_host.h stays out of the rest of irqchip.
+
+Signed-off-by: Bartłomiej Grzesik <bgrzesik@google.com>
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
+ Documentation/admin-guide/kernel-parameters.txt |  8 +++++---
+ drivers/irqchip/irq-gic-common.h                | 13 +++++++++++++
+ drivers/irqchip/irq-gic-v3.c                    |  8 ++++++++
+ 3 files changed, 26 insertions(+), 3 deletions(-)
 
-Notes:
-    Changes since v2: the version from Mostafa's SMMUv3 v9, which maps
-    the MMIO in the hypervisor's private range rather than at
-    __hyp_va().
-
- arch/arm64/include/asm/kvm_pgtable.h          |  2 +
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  5 ++
- arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 62 ++++++++++++++++++-
- arch/arm64/kvm/hyp/pgtable.c                  |  8 +--
- 4 files changed, 70 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 1c9c57cd6ae40..1a3f6e851c94f 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -721,6 +721,8 @@ int kvm_pgtable_stage2_annotate(struct kvm_pgtable *pgt, u64 addr, u64 size,
-  * freed. Unmapping a cacheable page will ensure that it is clean to the PoC if
-  * FWB is not supported by the CPU.
-  *
-+ * Invalid counted PTEs (annotations) are left in place.
-+ *
-  * Return: 0 on success, negative error code on failure.
-  */
- int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-index ec85a95471207..16e5864ab7f08 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-@@ -36,6 +36,11 @@ int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
- int __pkvm_guest_unshare_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
- int __pkvm_host_unshare_hyp(u64 pfn);
- int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
-+/*
-+ * Donate MMIO range to the hypervisor, it will be mapped in the hypervisor's
-+ * private range and unmapped from the host stage-2.
-+ */
-+int __pkvm_host_donate_hyp_mmio(u64 pfn, u64 nr_pages, unsigned long *haddr);
- int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
- int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
- int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index d4c332a918035..a6dacaca77610 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -385,7 +385,11 @@ static int host_stage2_unmap_dev_all(void)
- 	u64 addr = 0;
- 	int i, ret;
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 0b3c140babd94..3e63e44609522 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -3275,8 +3275,9 @@ Kernel parameters
+ 				hardware (with FEAT_NV2).
  
--	/* Unmap all non-memory regions to recycle the pages */
-+	/*
-+	 * Unmap all non-memory regions to recycle the pages.
-+	 * That relies on kvm_pgtable_stage2_unmap() not clearing
-+	 * counted PTEs which include hypervisor MMIO.
-+	 */
- 	for (i = 0; i < hyp_memblock_nr; i++, addr = reg->base + reg->size) {
- 		reg = &hyp_memory[i];
- 		ret = kvm_pgtable_stage2_unmap(pgt, addr, reg->base - addr);
-@@ -1146,6 +1150,62 @@ int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
- 	return ret;
- }
+ 			Defaults to VHE/nVHE based on hardware support. Setting
+-			mode to "protected" will disable kexec and hibernation
+-			for the host. To force nVHE on VHE hardware, add
++			mode to "protected" will disable kexec, hibernation and
++			GICv4 direct LPI injection for the host. To force nVHE
++			on VHE hardware, add
+ 			"arm64_sw.hvhe=0 id_aa64mmfr1.vh=0" to the
+ 			command-line.
+ 			"nested" and "protected" are experimental and should be
+@@ -3296,7 +3297,8 @@ Kernel parameters
  
-+int __pkvm_host_donate_hyp_mmio(u64 pfn, u64 nr_pages, unsigned long *haddr)
+ 	kvm-arm.vgic_v4_enable=
+ 			[KVM,ARM,EARLY] Allow use of GICv4 for direct
+-			injection of LPIs.
++			injection of LPIs. Has no effect when
++			kvm-arm.mode=protected.
+ 
+ 	kvm-arm.wfe_trap_policy=
+ 			[KVM,ARM] Control when to set WFE instruction trap for
+diff --git a/drivers/irqchip/irq-gic-common.h b/drivers/irqchip/irq-gic-common.h
+index 710cab61d9195..87b5c57dec0f1 100644
+--- a/drivers/irqchip/irq-gic-common.h
++++ b/drivers/irqchip/irq-gic-common.h
+@@ -10,6 +10,9 @@
+ #include <linux/irqdomain.h>
+ #include <linux/msi.h>
+ #include <linux/irqchip/arm-gic-common.h>
++#ifdef CONFIG_ARM64
++#include <linux/kvm_host.h>
++#endif
+ 
+ struct gic_quirk {
+ 	const char *desc;
+@@ -29,6 +32,16 @@ void gic_enable_quirks(u32 iidr, const struct gic_quirk *quirks,
+ void gic_enable_of_quirks(const struct device_node *np,
+ 			  const struct gic_quirk *quirks, void *data);
+ 
++#ifdef CONFIG_ARM64
++/* Not is_protected_kvm_enabled(): the GIC probes before the cpucaps are final. */
++static inline bool gic_is_protected_kvm(void)
 +{
-+	u64 phys = hyp_pfn_to_phys(pfn);
-+	u64 size = PAGE_SIZE * nr_pages;
-+	unsigned long addr;
-+	kvm_pte_t pte;
-+	u64 offset;
-+	int ret;
-+
-+	/* Only before de-privilege. */
-+	if (static_branch_unlikely(&kvm_protected_mode_initialized))
-+		return -EPERM;
-+
-+	if (!pfn_range_is_valid(pfn, nr_pages))
-+		return -EINVAL;
-+
-+	host_lock_component();
-+	for (offset = 0; offset < size; offset += PAGE_SIZE) {
-+		if (addr_is_memory(phys + offset)) {
-+			ret = -EINVAL;
-+			goto unlock;
-+		}
-+		ret = kvm_pgtable_get_leaf(&host_mmu.pgt, phys + offset, &pte, NULL, 0);
-+		if (ret)
-+			goto unlock;
-+		if (pte && !kvm_pte_valid(pte)) {
-+			ret = -EPERM;
-+			goto unlock;
-+		}
-+	}
-+
-+	ret = __pkvm_create_private_mapping(phys, size, PAGE_HYP_DEVICE, &addr);
-+	if (ret)
-+		goto unlock;
-+
-+	/*
-+	 * Mark the range as owned by the hypervisor in the host stage-2.
-+	 * The annotation makes host accesses fault, and is retained by
-+	 * host_stage2_unmap_dev_all()
-+	 */
-+	ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
-+			      phys, size, &host_s2_pool,
-+			      KVM_HOST_INVALID_PTE_TYPE_DONATION,
-+			      FIELD_PREP(KVM_HOST_DONATION_PTE_OWNER_MASK, PKVM_ID_HYP));
-+	if (ret) {
-+		hyp_lock_component();
-+		WARN_ON(kvm_pgtable_hyp_unmap(&pkvm_pgtable, addr, size) != size);
-+		hyp_unlock_component();
-+	} else {
-+		*haddr = addr;
-+	}
-+unlock:
-+	host_unlock_component();
-+	return ret;
++	return kvm_get_mode() == KVM_MODE_PROTECTED;
 +}
++#else
++static inline bool gic_is_protected_kvm(void) { return false; }
++#endif
 +
- int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages)
- {
- 	u64 phys = hyp_pfn_to_phys(pfn);
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index 9c83837b184d3..041bd0d522f2c 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -1163,13 +1163,9 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	kvm_pte_t *childp = NULL;
- 	bool need_flush = false;
- 
--	if (!kvm_pte_valid(ctx->old)) {
--		if (stage2_pte_is_counted(ctx->old)) {
--			kvm_clear_pte(ctx->ptep);
--			mm_ops->put_page(ctx->ptep);
--		}
-+	/* Invalid PTEs are left in place, including annotations. */
-+	if (!kvm_pte_valid(ctx->old))
- 		return 0;
--	}
- 
- 	if (kvm_pte_table(ctx->old, ctx->level)) {
- 		childp = kvm_pte_follow(ctx->old, mm_ops);
+ #define RDIST_FLAGS_PROPBASE_NEEDS_FLUSHING    (1 << 0)
+ #define RDIST_FLAGS_RD_TABLES_PREALLOCATED     (1 << 1)
+ #define RDIST_FLAGS_FORCE_NON_SHAREABLE        (1 << 2)
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index 94873646d46fb..30ed17f26a208 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -1123,6 +1123,14 @@ static void gic_update_rdist_properties(void)
+ 	gic_iterate_rdists(__gic_update_rdist_properties);
+ 	if (WARN_ON(gic_data.ppi_nr == UINT_MAX))
+ 		gic_data.ppi_nr = 0;
++
++	/* Protected KVM doesn't emulate the vLPI commands. */
++	if (gic_is_protected_kvm() && gic_data.rdists.has_vlpis) {
++		pr_info("GICv4 features disabled in protected KVM mode\n");
++		gic_data.rdists.has_vlpis = false;
++		gic_data.rdists.has_rvpeid = false;
++	}
++
+ 	pr_info("GICv3 features: %d PPIs%s%s\n",
+ 		gic_data.ppi_nr,
+ 		gic_data.has_rss ? ", RSS" : "",
 -- 
 2.47.3
 
