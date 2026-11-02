@@ -2,125 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50198606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 20:21:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7015606D809
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 20:23:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XDBvlpRr;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ovKE9H5/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t2CDlfn7;
+	dkim=pass (2048-bit key, unprotected) header.d=0leil.net header.i=@0leil.net header.a=rsa-sha256 header.s=20231125 header.b=QpH/Wm8D
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
-	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=L8S/WNv20+oRCfncRZ/tZDNWMqkqP07ca+Q4m2HbqFQ=; b=XDBvlpRrg+/jaMrqvtVUMtcQ8H
-	eAj0cBi89Gp++MV9yVaXDWCjJgcudzP7tgZvJE/tDC883BTfmj8PT8VjmgUXiksbP1+V5hE0aVrog
-	u9VThY/4scCPnPhqJ9b0tuctz0nmRzaqVguGXlo0xYmLRNvukGGxnaY9Tw3YA4zkVnin8cwN+Ht1L
-	/CGwvhSa9bDCpgUKuN4BkUWkn706LBpNY+119jhTUriTaFMNyTawLIwbwZyeFozNpkyKRBNe7FJh+
-	F5T68L0aSs9Wrg6oTPlsfNIal7qXAdmih08sxkKZeW9va9t9qbtKoJ1mntGRVmUugouNWcle3ej+L
-	sO2YdQMQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=2kKJVl9DVcidPFu4iOOYmwpElNttoyoiGTDFs+dVMJo=; b=t2CDlfn7QoIdmf
+	/0AsuFpNkWq+9fwJSt9tIGG9SIYux6B4A+CvSP3EbbcQLOm8iCIotvNJR3S6fA6eYt0SZDWWd+aNr
+	vuhThTmA1B17WySMUa5tCy0yBg2nNZJM5Ow8eC15ZkxqUmmF3pnjSyBltn0ZQ6eo3GCPvSw1Pim66
+	f6yauXUftMx1W2rEY3aNhysiQ/1gzC8mOYFFz3yDBcL+uhzo91SMmQnQUt2j015HjbGOzCntFGwGG
+	zTZ6kK8mLZteURk+bDoL90e5bouADn+I/qUt5tmsQhkJIpQGesYiTZr+PKwyr43RGkbIApQBIbEp9
+	FTfKcr0B90UnXEN5TCfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxxx-000000008RC-2g36;
-	Mon, 02 Nov 2026 19:45:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xNyYY-00000000Iv6-05fl;
+	Mon, 02 Nov 2026 20:23:02 +0000
+Received: from smtp-bc0e.mail.infomaniak.ch ([2001:1600:19:7ff8::bc0e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxxv-000000008Oc-1GtR;
-	Mon, 02 Nov 2026 19:45:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BD5C5444CD;
-	Mon,  2 Nov 2026 19:45:10 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793648710;
-	b=RoE7yxmdxNU2D0/5MptQ2cFt6gW2ZISN+3CFN/iYZcmuHl6T8lfpEwvnX99Pq2fiE8kF
-	 cmKaFbK6wUm6t/80DZWXlJwgPR+5JBFk3pNYSzTkWcAf5htenkNIKe3DVuM/+mOpOZKYM
-	 gODm3X6t2jwmImdlAqRPfM8BtLHkYZdTw0i8LP9o8/CioVolbKeZmqyQvZhyQchjulg75
-	 15W1BeG6c0jnTGWrxBUgO8YA7wseyA8JG6vG8ji0vIionyt2cQ8EI4A3MbHpGeaZuKsnc
-	 eTFbnAEKgYECc8/Wev8EDdn4gYKOmqcTYW9VgCOL49WKEo+TyoyqtOyXxkb7jejeZ3g==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793648710;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=L8S/WNv20+oRCfncRZ/tZDNWMqkqP07ca+Q4m2HbqFQ=;
-	b=qAS8v+RHTip523kr7tOVlOGSmtbtKsYvIqjKWq/IiwzAY10Ugy0PpFgwAMLpRrKaXYTb
-	 KIN4avjqDLoJPLcZPBafRXUpvBorXBibzy19AfojdVM0aiZ6vcfVDPTFmZd3hu1Zw1KSp
-	 eW9T42P1LZSDqBaeJjL3t+jaXZVj9vozvMDIqJM9/wq0KZLuQOy4aPA191akCkwWWjRrX
-	 5lWSQye02qYvzruJJXXRy18YW9ZlgG5GPilMMtFA2I9sfk4EkRuCLMeueU46f+UkkiK1n
-	 qs/2SymlFVlzEv7ffLbgnV8QfmciH5TQ+E8vYtD6aFYSq6Q8DHmW1mDnhCWg/3Dq9vg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 653401F00A21;
-	Mon,  2 Nov 2026 19:45:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793648710;
-	bh=L8S/WNv20+oRCfncRZ/tZDNWMqkqP07ca+Q4m2HbqFQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=ovKE9H5/8bRH+IwqzRkqrTNc32Aig9302FYiLFKN7IGc1HjdgbPSY1yfRJV3W1SXH
-	 UJMRj5sNEqCWquASKLbdrTud4ueQ03fSeOLRI0mc7qDuJ0sRAJVSXm5R1X1jzoWVEU
-	 juVRt4KtNGq/cca4HI0BwUt8Trok6irOg4n4MidJz8i+eSUAmPxSflKXgJ26nhSkU8
-	 rHR0qsX0AUe+3MS65E7Qc3skAvwPUUhzHXNPZ8QVn8oDHbohmY5jz9n+V3Hwjj3954
-	 4WGTpswgrkx7pcRiNJf3HrSfuorkgrYgCjgS7eBhOed3a2733BL/cLrqfJeIgSPN7+
-	 gfC9XYNu+Rv3g==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id DFE3546612;
-	Mon,  2 Nov 2026 19:45:08 +0000 (UTC)
-From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Tue, 03 Nov 2026 03:45:07 +0800
-Subject: [PATCH RFC v3 04/17] dt-bindings: mailbox: add Zhihe A210 AP to
- E902 mailbox
+	id 1xNyYU-00000000IrM-2VcY
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Nov 2026 20:23:01 +0000
+Received: from smtp-4-0000.mail.infomaniak.ch (unknown [IPv6:2001:1600:7:10::a6b])
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4jJNRw27QJz11;
+	Mon,  2 Nov 2026 21:22:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=0leil.net;
+	s=20231125; t=1793650972;
+	bh=2kKJVl9DVcidPFu4iOOYmwpElNttoyoiGTDFs+dVMJo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=QpH/Wm8D/EzZWot2xhnR9ipw9EqwqnRAzXbXg+Nn8g84mWiBKj6thjltCtODKxn+u
+	 HNi79ONsELnm6i1dk8bClBoaR3OMStdIcNjIAqe4adrh/PKWvUlVryOmPp+tXUbbkt
+	 xGaxrbHD5IBf/fGFlAmc7T8QRDg0SsGU8XrjL12sGvuicYcUCfVUfoxkMUwCKKO3G/
+	 oWYW0qu0KGRD5U+Mxs22k+pqLslNFPAYzQetpsT//t7caESYECc+hmkZa6CyWPCzka
+	 xXrt1fRgiUtOdAbhtI2REqhusLDFTbSEmPgJ/eHAGiLR+RZVOFG5LMStvbyYwbF2iH
+	 hYD9tfUY2dLmg==
+Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4jJNRv25g0zrH3;
+	Mon,  2 Nov 2026 21:22:51 +0100 (CET)
+From: Quentin Schulz <foss+kernel@0leil.net>
+Date: Mon, 02 Nov 2026 21:22:42 +0100
+Subject: [PATCH v2 1/3] media: v4l2-common: add V4L2_PIX_FMT_Y10 to
+ v4l2_format_info
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261103-a210-scmi-v3-4-ee6b31580808@iscas.ac.cn>
-References: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
-In-Reply-To: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
-To: Sudeep Holla <sudeep.holla@kernel.org>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>, 
- Jassi Brar <jassisinghbrar@gmail.com>, Linus Walleij <linusw@kernel.org>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
- Bartosz Golaszewski <brgl@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Thomas Gleixner <tglx@kernel.org>, 
- Radu Rendec <radu@rendec.net>, Samuel Holland <samuel.holland@sifive.com>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Anup Patel <anup@brainfault.org>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Drew Fustini <fustini@kernel.org>, 
- Icenowy Zheng <uwu@icenowy.me>, Inochi Amaoto <inochiama@gmail.com>, 
- Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>, 
- Jiaxun Yang <jiaxun.yang@flygoat.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org, 
- linux-serial@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, 
- Han Gao <gaohan@iscas.ac.cn>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793648705; l=3069;
- i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=1bSlRTbJH+ic/kKX/KZWwqkpU0t/w8ZHzrQrtqPAxps=;
- b=Mbtcx9ULN3M5M1BOVXKIfPa7Ysmpnzr8bxJu9gjIiuQ1do9EqmOCy8wBUewlfmylGO/UUQaq/
- l54pph/+wc9CjpX/G9HOZ8YL/V3ckKuglIBcUS/6Ezcani0vj4mFo1y
-X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
- pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
-X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
- auth_id=1262
-X-Original-From: Han Gao <gaohan@iscas.ac.cn>
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261102-v4l-y8-y10-csi-vicap-v2-1-0a4149d96dae@cherry.de>
+References: <20261102-v4l-y8-y10-csi-vicap-v2-0-0a4149d96dae@cherry.de>
+In-Reply-To: <20261102-v4l-y8-y10-csi-vicap-v2-0-0a4149d96dae@cherry.de>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Mehdi Djait <mehdi.djait@linux.intel.com>, 
+ Michael Riesch <michael.riesch@collabora.com>, 
+ Heiko Stuebner <heiko@sntech.de>, Bryan O'Donoghue <bod@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Quentin Schulz <quentin.schulz@cherry.de>
+X-Mailer: b4 0.17-dev
+X-Infomaniak-Routing: alpha
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261102_122258_846321_F53BDDD6 
+X-CRM114-Status: GOOD (  10.04  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,7 +76,6 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: gaohan@iscas.ac.cn
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
@@ -140,99 +85,31 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Han Gao <gaohan@iscas.ac.cn>
+From: Quentin Schulz <quentin.schulz@cherry.de>
 
-The Zhihe A210 has an E902 management core next to its application
-processors. Each side owns a mailbox block and rings the other side by
-writing to its slice of the other side's mailbox.
+Add Y10 format to the v4l2_format_info table.
 
-The application processors ring E902 through their slice of the E902
-mailbox. E902 rings back through the application processor mailbox and
-writes INFO0 or INFO1 there to say which of its two doorbells it rang.
-The doorbells carry no data, and clients such as SCMI keep their
-messages in shared memory.
-
-Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+Co-developed-by: Michael Riesch <michael.riesch@collabora.com>
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
 ---
- .../bindings/mailbox/zhihe,a210-ap-mailbox.yaml    | 67 ++++++++++++++++++++++
- 1 file changed, 67 insertions(+)
+ drivers/media/v4l2-core/v4l2-common.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/mailbox/zhihe,a210-ap-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/zhihe,a210-ap-mailbox.yaml
-new file mode 100644
-index 000000000000..7d7ab1c550a0
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mailbox/zhihe,a210-ap-mailbox.yaml
-@@ -0,0 +1,67 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mailbox/zhihe,a210-ap-mailbox.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Zhihe A210 application processor to E902 mailbox
-+
-+maintainers:
-+  - Han Gao <gaohan@iscas.ac.cn>
-+
-+description: |
-+  The A210 application processors and the E902 always-on core each own a
-+  mailbox. A core raises an interrupt on the other side by writing the
-+  generate register of the other core's mailbox, and can leave a value in one
-+  of the INFO registers there to identify the request. The application
-+  processor side therefore needs its own mailbox, which holds the INFO
-+  registers written by E902 and the interrupt status, clear and mask
-+  registers, and the slice of the E902 mailbox assigned to it.
-+
-+  The E902 firmware keeps both mailboxes clocked and out of reset. Their
-+  clocks and resets are not controlled from the application processors.
-+
-+properties:
-+  compatible:
-+    const: zhihe,a210-ap-mailbox
-+
-+  reg:
-+    items:
-+      - description: Application processor mailbox
-+      - description: Application processor slice of the E902 mailbox
-+
-+  reg-names:
-+    items:
-+      - const: local
-+      - const: remote
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  '#mbox-cells':
-+    const: 1
-+    description:
-+      Doorbell index, 0 or 1. E902 writes INFO0 or INFO1 of the application
-+      processor mailbox to tell which doorbell it rings. Only doorbell 0 can
-+      also be rung by the application processor.
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - '#mbox-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    mailbox@320000 {
-+        compatible = "zhihe,a210-ap-mailbox";
-+        reg = <0x320000 0x2000>, <0x311000 0x1000>;
-+        reg-names = "local", "remote";
-+        interrupts = <336 IRQ_TYPE_LEVEL_HIGH>;
-+        #mbox-cells = <1>;
-+    };
+diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
+index 11ab684024c54..8d5020e3d5e2a 100644
+--- a/drivers/media/v4l2-core/v4l2-common.c
++++ b/drivers/media/v4l2-core/v4l2-common.c
+@@ -333,6 +333,7 @@ const struct v4l2_format_info *v4l2_format_info(u32 format)
+ 		{ .format = V4L2_PIX_FMT_YVU420,  .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 3, .bpp = { 1, 1, 1, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 2 },
+ 		{ .format = V4L2_PIX_FMT_YUV422P, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 3, .bpp = { 1, 1, 1, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 1 },
+ 		{ .format = V4L2_PIX_FMT_GREY,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 1, .bpp = { 1, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_Y10,     .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
+ 		{ .format = V4L2_PIX_FMT_Y12,     .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
+ 
+ 		/* Tiled YUV formats */
 
 -- 
-2.55.0
-
+2.56.0
 
 
