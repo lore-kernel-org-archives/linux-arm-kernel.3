@@ -2,65 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1964F6082BEA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 11:50:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 982CC606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 11:53:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XHAf+hqV;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=hU3C0FQ6
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZKbceFAr;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EQEWA0Ld
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=EHw38eN6k0S5PS2GsJCCIBq6WinXXG92Pz27LCOAbJ4=; b=XHAf+hqVSIIlCy
-	wNwCvRbTIR+eKvoUZ7TF+C68Pgjb0ydgY6GEyB3Khr+br+3rfQSS732jzSq/U/ZrKZT4gZiEGtb0J
-	WqC5EvrX0+QbtOUgoLq5EgIgbJN2Q+Q410KevMQjFJvNVIGIMsrhLlsivi3NcHW4j781g9X8JtwjP
-	gI+k4ARZ9dLb9af8uYS13WFpFYNYyBjLdHvNaaMDAIGWGxnFNVI+Gwr6dZ39oS+ZngZqilRxD07FM
-	Fg1PHx+wG+jlk6cXsjyfKcI4xpDNrm77WXHNKxmvwwX1RqT9iLcXBMRB6/D3RbnhPZyKiTV7KwexZ
-	coBG7xUgy56tUEKvheWQ==;
+	List-Owner; bh=QX4vvRkpVr0B80U59OYR0KCNPvp4g1VB7b3k3yNPpZ4=; b=ZKbceFArZyPpE9
+	SWKeaZHmixCvaQnOBs2mo7IJf0ZIgJ1EvmdaKf90vrHaewcpQblMrZVozonIxf7cML8070wRtdrDM
+	M2L7RtxYSaeDuCDI+EwAAHz6uL0eBIi0Y4UlwuPST3u8j/BEqodGZP2/9cNZ5R81lGK+CUxsbRgdt
+	mrpihRGyi7sBsYVZaZOeEid5eUY+5VR/rEF0AUtmnLV5+ODYrlTbOeqIAEaScxIby8J9I427e0wl8
+	Ny/7E2N6DWRioJCRQcCh7w4OzB0GyOhBCyevKIR3RqHkyst7t6P7ddxq7S7sPi70DH91zRtOYgM/3
+	rHRafWj9EGAcx2EjjLtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOD2G-00000002HNL-1b6k;
-	Tue, 03 Nov 2026 11:50:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOD2D-00000002HM9-1MGx
+	id 1xOD4n-00000002Hh6-16UQ;
+	Tue, 03 Nov 2026 11:53:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOD4l-00000002Hgy-3yK7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 11:50:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 18C8E1691;
-	Tue,  3 Nov 2026 03:50:31 -0800 (PST)
-Received: from [10.211.55.3] (unknown [10.57.89.242])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2185F3F632;
-	Tue,  3 Nov 2026 03:50:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793706634; bh=RNsb2c+IWPbtzdn1kpsrH4bVFNQRQRVMo/MtYmG/t8A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hU3C0FQ6kf3yBRUnF5y2GzAQ8LrgdiyU5Gx73gUkAsW4hZ6XKIZHsa/EXx9rUQU4L
-	 Ds/Gwhdd+2RDxfB3SmEM7faltIBC2vAN930vp2/7miQcAIZbwmbfPqVIBClJ67QUZa
-	 RsGhsAIRcgZP/IP6utP3Ae01c+NKsOOC7NTHG+zI=
-Message-ID: <9fac528e-d7b4-4052-8e50-4f4fae27b95b@arm.com>
-Date: Tue, 3 Nov 2026 11:50:24 +0000
+	Tue, 03 Nov 2026 11:53:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3B3D7600CB;
+	Tue,  3 Nov 2026 11:53:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA6C11F000C1;
+	Tue,  3 Nov 2026 11:53:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793706794;
+	bh=QX4vvRkpVr0B80U59OYR0KCNPvp4g1VB7b3k3yNPpZ4=;
+	h=From:To:In-Reply-To:References:Subject:Date;
+	b=EQEWA0LdkL+WaYQuTgDi2I+F52yCDuKksk7JPbpsk/R0L+yg54REe7AoH5MMYM3Ap
+	 kMAYH3C5cf50p+SarjWctte1bPZrro2QfJ4kydJi0HrcrmIqZfbsLaluco1QzlQCtK
+	 NNbEJ537LLA8sRlESlgKqbxfp/EOenCSI7SU+BQVPNlrK9Pxi8H8G74ylQKjCi638S
+	 suEWo+Ix945UhL/yNsaq64qPhBuxKDWOD6NP5Q4XRby6P/8GFipmaEU1e7A7iC7qSq
+	 W9JEiq2aub/rdA9B5GqQWPECRA6b6ED4OvdJAsZdqIJBrOTIAg7VYW9RxIVFaxHsWI
+	 D9EttiZ0arnIw==
+Received: from traversing.sirena.org.uk (localhost [IPv6:::1])
+	by traversing.sirena.org.uk (Postfix) with ESMTP id 5B780253A5DF;
+	Tue, 03 Nov 2026 11:53:13 +0000 (GMT)
+From: Mark Brown <broonie@kernel.org>
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Patrice Chotard <patrice.chotard@foss.st.com>, Felix Gu <ustc.gu@gmail.com>, 
+ Atsushi Nemoto <atsushi.nemoto@sord.co.jp>, linux-spi@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Jiale Yao <yaojiale02@163.com>
+In-Reply-To: <20261019084443.1824122-1-yaojiale02@163.com>
+References: <20261019084443.1824122-1-yaojiale02@163.com>
+Subject: Re: [PATCH 0/2] spi: handle runtime resume failures
+Message-Id: <179365918672.2186205.4416835232546842511.b4-ty@b4>
+Date: Mon, 02 Nov 2026 22:39:46 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH] arm_mpam: Only program MATCH_PMG when the monitor
- supports it
-To: Ping Li <leeonion.muyu@gmail.com>, james.morse@arm.com
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- reinette.chatre@intel.com, fenghuay@nvidia.com
-References: <912dbaa0-0fc0-46fb-819a-6594538b47cd@arm.com>
- <20261103023742.2624994-1-leeonion.muyu@gmail.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20261103023742.2624994-1-leeonion.muyu@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_035037_495110_C86414EA 
-X-CRM114-Status: GOOD (  13.27  )
-X-Spam-Score: -4.4 (----)
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1504; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=lIzAZG4+GOPocoiDdMsg4lKiIR+1ubBdn9tppcCIBMA=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJentZ8vFpbfsnaPT+/fJ/i+rLa++T8CZyf9Nj6N955O
+ OnCogzBBx2lLAxiXAyyYooscVncL+tLXq/hO7iwDWYOKxPIEAYuTgGYSB8nI8Nu9ZRFHBNLQrd3
+ JEvO1ere9SHpX4bP2k+vFX6Uubz5ofSbkWH5x4V7Pj/9xHH17q7sGXErCpkjC0u2b13wb8Nj3Wt
+ HPsXyAgA=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,44 +82,52 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DATE_IN_PAST_12_24,
+	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
 	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Ping,
+On Mon, 19 Oct 2026 16:44:41 +0800, Jiale Yao wrote:
+> spi: handle runtime resume failures
+> 
+> The STM32 OSPI remove path and the TI QSPI clock setup helper ignore
+> pm_runtime_resume_and_get() failures. A failed runtime resume leaves the
+> controller unavailable, so following register accesses are unsafe and a
+> later runtime PM put can be unmatched.
+> 
+> [...]
 
-On 03/11/2026 02:37, Ping Li wrote:
-> Hi Ben,
-> 
-> Sorry to bother you again. I was looking at how the driver derives
-> mpam_pmg_max, and I think there is a similar blind spot:
-> 
-> mpam_msc_hw_probe() folds every MSC's MPAMF_IDR.PMG_MAX into the
-> global mpam_pmg_max, regardless of whether the MSC has any monitors.
-> 
-> Concretely, on our platform the DSU has no monitors and reports
-> PMG_MAX=1. Our memory controller MSC has monitors and currently
-> reports PMG_MAX=0, but if we later add PMG support and report
-> PMG_MAX=31, the global value would still be clamped to 1 by the DSU,
-> and resctrl would only expose 2 RMIDs per CLOSID instead of 32.
-> 
-> Should the convergence only consider MSCs that have monitors?
+Applied to
 
-No, the PMG_MAX can also indicate the largest propagated and so still
-needs to be taken into account. Rules I_GSHTX and I_BTFZC are relevant here.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.5
+
+Thanks!
+
+[1/2] spi: stm32-ospi: handle runtime resume failure in remove
+      https://git.kernel.org/broonie/spi/c/e359991c180a
+[2/2] spi: ti-qspi: handle setup clock runtime resume failure
+      https://git.kernel.org/broonie/spi/c/b21192833996
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
 Thanks,
-
-Ben
-
-> The PE-side value from MPAMIDR_EL1.PMG_MAX would still apply, as
-> that is the maximum PMG the cores can tag traffic with.
-> 
-> Thanks,
-> Ping
+Mark
 
 
