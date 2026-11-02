@@ -2,70 +2,128 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 337A860850A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:45:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FE8060A262F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:45:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RXntKPmL;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Jz5k6nBm
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=x4JRZF+8;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fJW/ky92
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=3ygiqX61PrFH9HwNeh9XfilPxDP9qCP4o+ydEiPw9Bk=; b=RXntKPmLSaYAO6
-	pY6t8OigXPFheQyqJLxtfojM8cXv/UKCaav0S31lwLW85XrGGaydtLWBd67D4b2r7uPex0IzhpHuc
-	6Id9FpIqABdBnWiGPZoxdAQofy4a6gNVxzKph3YiQVDt4r3YH7AFs41+JmLqhh7wW3YwsuXazc8Vp
-	VCXAT/ltBrGEm6SjtLT7tNL6hvr9+iC9H5zzoL3+zzXjFyRiyzjYtkrELmzC4iOJiJMPJucbIdJM9
-	a3/7EoOYEcG21uAMHCUHrCqpsna0UlEIcW1HegaRGWru3eOxjXn3HbRsiHKE+HpCZIGEaJlQt4GcW
-	m0zui6Q9Tjr0zAUibPEw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=e3wyVq9vmesK47PV94Sx8ujXeiZquP7DA2efEV/rlqQ=; b=x4JRZF+8SKLgJwy1+eeRTLJH7r
+	1j5q7cuZnh9j+XMeU4qTQVA+V7H7VDkVVzi/cH87YXDwJWLwaO4AdPCNRXtLpoT40wxCHt8izKrZq
+	uaBJlD4CRO/6JiR5ZygOA8XpxDZFpt0Ye2QADGjm/uiUBffbitDdPD80ZmhR3W7R5b+1HokVrk6TW
+	zBHtiMydXNeYRZ1Kchqe4bfrEVzLZOE2OXWKpPsVRDmk8GFbokLMht6uYWX+A5IljmzF8Hc6J1Vth
+	Gn6qAxSFq0sDFdHroNbChT2nMzK7JgNwMESLPpSa7DDfIa+ItkyGp1mZFT54QMK6uRFQpr7kFKYVv
+	24CMnn8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxxu-000000008Ne-21xV;
-	Mon, 02 Nov 2026 19:45:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxxs-000000008M8-2DmV
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 19:45:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CF3A3175D;
-	Mon,  2 Nov 2026 11:45:04 -0800 (PST)
-Received: from e133894.cambridge.arm.com (e133894.arm.com [10.2.80.62])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 21A643F673;
-	Mon,  2 Nov 2026 11:45:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793648707; bh=ZuYr6qVTm1wwSQygOFIq7lWk/77FuQwOyMFBHE73dr8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Jz5k6nBm/Xaq84x/5pG9Jfi3QGvXwl4d+Y5Xadru0YNR8EzOD8+0iUUG708It8KxS
-	 wsm0+/5Xv39qyMuk+f2ec0y0lFI6LSwJrnU/m/nRaNiEOu/Xb4doLl/XXXav2RI1rP
-	 puR2xt/SkYk/AdDo5gJ3f7XHc4PlOf7HzZtiXvDI=
-From: Sascha Bischoff <sascha.bischoff@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org
-Cc: maz@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	peter.maydell@linaro.org,
-	lpieralisi@kernel.org,
-	timothy.hayes@arm.com,
-	fuad.tabba@linux.dev
-Subject: [PATCH v2 01/16] KVM: arm64: vgic: Split out common LPI allocation
-Date: Mon,  2 Nov 2026 19:44:39 +0000
-Message-Id: <20261102194454.4086911-2-sascha.bischoff@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261102194454.4086911-1-sascha.bischoff@arm.com>
-References: <20261102194454.4086911-1-sascha.bischoff@arm.com>
+	id 1xNxxx-000000008Rg-3y4W;
+	Mon, 02 Nov 2026 19:45:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNxxv-000000008P9-2UU1;
+	Mon, 02 Nov 2026 19:45:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E9B7044530;
+	Mon,  2 Nov 2026 19:45:10 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1793648710;
+	b=W5mye46dV6eVilcTStENA6pBQHSNwYHfEzlSK7ruTASkeuG8NLDyV/p4TWYaMQpjkFyz
+	 Y9zSfGgqB0NPbW6pVfeErLmmr2kgA5s/E7Xnh+2PyHN1PhOidOLvv44QobU5k6nR/LUXw
+	 fCFy9CWfZhqa+/btl1zSE3tLRGekdKrlsxtRVW44pVD2EsxIAGTh0J7K7zufghjLNMCpR
+	 roUZu197IPHwUZpjtd+lu93PwhXRLrcFFoRjNOyNNBJGW4fz7rMTiAWOTt1aEc4LAjau0
+	 pBvkaDJfusdUb4VcTZAKgREpgZdiD9fRswiWNWCMGTk9HyT3SMFOeKOGB8rLp6hEh2w==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1793648710;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=e3wyVq9vmesK47PV94Sx8ujXeiZquP7DA2efEV/rlqQ=;
+	b=GJ+X+WedL/wGi8GgVKiE2bnGAvRPVfzQjYNEM9XnLshhubN0ewsIkHkiKEpMQoZiNf2t
+	 d4HgLWNNzVkJXLHnoTUBKNbeq1N2bgAIJ/DjV9/PdMY+56XJ6kud9v4zX9/ky7B4kZ/8W
+	 MquPDLNSLNHlsLrivJrQI6pLeOqamzFWUpQUlgrQH3ImmyN6Z9SEY4UqqJ96MqoiygrmX
+	 pd3VmJR4zSmeXItMBHm0kEtLNbPlUv5wMM96wu9K0HcUSA/vT81I+sFcwYFvQabrcS4c4
+	 jH5xxv/TcjwAsOqDgw2AV6UtoLOcMFWJAPE2dJVi7OSXwYEwujmviNPlnmbSiOvN7rg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 52CB21F00A17;
+	Mon,  2 Nov 2026 19:45:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793648710;
+	bh=e3wyVq9vmesK47PV94Sx8ujXeiZquP7DA2efEV/rlqQ=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=fJW/ky92fxwpwbc7VuH44QuN9FXCIeLK7v3Gsw6fwtFCu+mgVJoM0qN3Fhdtc0Iud
+	 fWWD9xv2XzIyLQSIt+Xy2K6QTk8BdrUO/2jhR/MntL/LwytF8msyx6bJrC25P/gANY
+	 yLBwqcWCdy018mCljxld3eK5OZVOJA1hLQmHkXD3RfNSKdVcQTTOzoeIbYAjLfrfSl
+	 IIt484omUMXAltU2VQdJOxl7jntYNM5ftWmhJlqi02Fei5GMfR0JH9K8yShLkFLrtd
+	 LoNoCXDZ2l2cYzk4XuHtvk4c+vEiDM+uMWaSj3IoF4GctB5PeG9+XZ7mZeI7x4FI0k
+	 hBnNXCCNVZqKQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 9DC7D46606;
+	Mon,  2 Nov 2026 19:45:08 +0000 (UTC)
+From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
+Subject: [PATCH RFC v3 00/17] riscv: add initial Zhihe A210 support using
+ SCMI clocks and resets
+Date: Tue, 03 Nov 2026 03:45:03 +0800
+Message-Id: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_114508_663249_AC687182 
-X-CRM114-Status: GOOD (  25.03  )
-X-Spam-Score: -4.4 (----)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22NzQqCQBRGX0XuupGZ8ZdWQdADtA0X451r3kCNu
+ SaF+O6pbVuej8P5ZhAKTALHaIZAEwsP/QrJIQJsXX8nxX5lsNrmRttCOWu0EuxYESa28WjT3OW
+ w+s9ADb/31g2ulzNUv1Fe9YNw3Cqb1rKMQ/jsj5PZ5T/xySititRnJVKZ1b48saCT2GGMPVTLs
+ nwBTHa3R7sAAAA=
+X-Change-ID: 20261027-a210-scmi-ec32fdc246a6
+To: Sudeep Holla <sudeep.holla@kernel.org>, 
+ Cristian Marussi <cristian.marussi@arm.com>, 
+ Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>, 
+ Jassi Brar <jassisinghbrar@gmail.com>, Linus Walleij <linusw@kernel.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+ Bartosz Golaszewski <brgl@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Thomas Gleixner <tglx@kernel.org>, 
+ Radu Rendec <radu@rendec.net>, Samuel Holland <samuel.holland@sifive.com>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Anup Patel <anup@brainfault.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Drew Fustini <fustini@kernel.org>, 
+ Icenowy Zheng <uwu@icenowy.me>, Inochi Amaoto <inochiama@gmail.com>, 
+ Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>, 
+ Jiaxun Yang <jiaxun.yang@flygoat.com>
+Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org, 
+ linux-serial@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, 
+ Han Gao <gaohan@iscas.ac.cn>, Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793648705; l=6929;
+ i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
+ bh=qJnpOKYgSY+CxvvdscVQfHlmE8/VuKqhLVuhLq3Ax30=;
+ b=oL9F7FE3HXj7HVFebcOJhByBbwziul9m3Bk09rFP/ffuYVyXoih5Jxi7YcqKrY0E3qoTot39e
+ ZTGO3GEKrk8CCZE/ASC6Xv2b4p2uCZT4RlEQtgwqQr/6cSlcukdh3QL
+X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
+ pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
+X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
+ auth_id=1262
+X-Original-From: Han Gao <gaohan@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,264 +133,153 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: gaohan@iscas.ac.cn
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-23.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The GICv3 ITS code currently owns vgic_add_lpi(), even though the
-first half of the helper is not ITS specific. It allocates or finds
-the VM-wide vgic_irq object in lpi_xa and initialises the common LPI
-state before the GICv3 ITS code reads the property table and pending
-state.
+This adds initial support for the Zhihe A210 SoC and the Melon Pi V1
+and V2 boards.
 
-GICv5 needs to reuse the same LPI object lifetime and refcounting, but
-without reading the GICv3 property table. Move the allocation and
-xarray insertion path into vgic_alloc_lpi() in vgic.c. Both
-vgic_add_lpi() and the GICv3 ITS wrapper perform an initial lookup,
-then call this helper on a miss. The ITS wrapper continues to load the
-property and pending state, while GICv5 can use the common allocator
-without GICv3 setup.
+The A210 has four C908V and four C920V2 cores, plus an E902 management
+core. The E902 firmware handles clocks, resets, power, the PMIC and
+CPU DVFS, so Linux uses SCMI for clocks and resets. The only new SCMI
+piece is the mailbox to the E902. [2] explains why I picked SCMI over
+RPMI.
 
-Keeping the lookup outside vgic_alloc_lpi() preserves GICv3 behaviour
-when another caller inserts the LPI during allocation: the ITS wrapper
-still performs its setup on the returned LPI. A second lookup inside
-the allocator could instead treat it as already initialised and skip
-that setup.
+The series adds the mailbox, the pin controller, the UARTs and their
+bindings and DTs. On v7.4-rc1 with the riscv defconfig, a Melon Pi V2
+boots to a shell on the serial console with all eight CPUs online.
 
-Initialise LPIs as Group 1 before publishing them in lpi_xa. GICv3
-LPIs are Group 1, and another vCPU can find a new LPI as soon as it is
-published. GICv5 does not use the group field.
+The numbering follows [1], as Bartosz asked, so the RFC [2] is v2 and
+this is v3.
 
-This preserves the intended GICv3 behaviour while making the common
-LPI storage usable by other VGIC users.
+Conor asked about vendor firmware. We are talking to Zhihe about SCMI
+support in their firmware. Until that is settled, mainline needs the
+firmware below, so this is still an RFC.
 
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+The E902 runs a Zephyr based SCMI server [3]. The rest of the boot
+chain is coreboot [4], OpenSBI [5] and EDK2 [6][7]. The full Linux tree
+with the other peripherals is at [8].
+
+[1] https://lore.kernel.org/r/20261022-a210-init-v1-0-5e438f972d24@iscas.ac.cn
+[2] https://lore.kernel.org/r/20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn
+[3] https://github.com/RevySR/zephyr/tree/xuantie/scmi-v3
+[4] https://github.com/revyos/coreboot/tree/a210/scmi-v3
+[5] https://github.com/revyos/opensbi/tree/a210/scmi-v3
+[6] https://github.com/revyos/edk2/tree/a210/scmi-v3
+[7] https://github.com/revyos/ruyiedk2/tree/a210/scmi-v3
+[8] https://github.com/RevySR/linux/tree/a210/scmi-v3
+
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- arch/arm64/kvm/vgic/vgic-its.c | 75 ++++---------------------------
- arch/arm64/kvm/vgic/vgic.c     | 82 ++++++++++++++++++++++++++++++++++
- arch/arm64/kvm/vgic/vgic.h     |  4 ++
- 3 files changed, 95 insertions(+), 66 deletions(-)
+Changes in v3:
+- Rebase on v7.4-rc1, and add zhihe,a210-uart to the list of DW APB
+  UARTs with two resets.
+- arm_scmi: drop the ARM dependency instead of adding RISCV (Michal).
+  Build tested on x86_64 without OF, i386, loongarch64, ppc64le and
+  riscv64 (Sudeep).
+- Move the SCMI clock and reset IDs from dt-bindings to headers next
+  to the DTS, as the firmware assigns them (Conor).
+- mailbox binding: use fixed "local" and "remote" regions and add blank
+  lines between properties (Conor). Drop the clocks, as the firmware
+  keeps the mailboxes running, and call it a mailbox, not a doorbell.
+- mailbox driver: don't request a shared interrupt.
+- pinctrl: rename to pinctrl-zhihe-a210.c and PINCTRL_ZHIHE_A210, drop
+  the 64BIT dependency and a forward declaration, comment the register
+  layout and the ____ placeholder, and round drive strength up (Linus).
+  Don't include mod_devicetable.h (Uwe).
+- pinctrl: drop PERI3. It comes back with the SDIO controller, as pins
+  and function, with the shared mux handled in the driver (Conor).
+- pinctrl: use one function name per kind, like gpio, spi or pwm, and
+  number them only where a pad can pick an instance, as for the UARTs
+  (Conor).
+- pinctrl: use pm_sleep_ptr() instead of #ifdef CONFIG_PM_SLEEP, and
+  don't use dev_err_probe() in resume.
+- defconfig: drop SRAM, the SCMI mailbox transport and the SCMI reset
+  driver. SCMI maps its shared memory itself, and the other two are
+  enabled by default with SCMI. Shorten the NR_UARTS explanation.
+- dts: use 0x1000 regions for uart0 and uart4, like the other UARTs.
+- dts: describe the PLIC M-mode contexts with 11 instead of -1.
+- Spell the vendor name Zhihe everywhere.
+- Add Conor's acks.
+- Link to v2 (sent as RFC): https://patch.msgid.link/20261027-a210-scmi-v1-0-74d58ce85bd8@iscas.ac.cn
 
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index 7e9b265b1f521..34c1c89bfbfe1 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -66,76 +66,19 @@ static int update_lpi_config(struct kvm *kvm, struct vgic_irq *irq,
- 		__ret;							\
- 	})
- 
--/*
-- * Creates a new (reference to a) struct vgic_irq for a given LPI.
-- * If this LPI is already mapped on another ITS, we increase its refcount
-- * and return a pointer to the existing structure.
-- * If this is a "new" LPI, we allocate and initialize a new struct vgic_irq.
-- * This function returns a pointer to the _unlocked_ structure.
-- */
--static struct vgic_irq *vgic_add_lpi(struct kvm *kvm, u32 intid,
--				     struct kvm_vcpu *vcpu)
-+static struct vgic_irq *vgic_its_add_lpi(struct kvm *kvm, u32 intid,
-+					 struct kvm_vcpu *vcpu)
- {
--	struct vgic_dist *dist = &kvm->arch.vgic;
--	struct vgic_irq *irq = vgic_get_irq(kvm, intid), *oldirq;
--	unsigned long flags;
-+	struct vgic_irq *irq;
- 	int ret;
- 
--	/* In this case there is no put, since we keep the reference. */
-+	irq = vgic_get_irq(kvm, intid);
- 	if (irq)
- 		return irq;
- 
--	irq = kzalloc_obj(struct vgic_irq, GFP_KERNEL_ACCOUNT);
--	if (!irq)
--		return ERR_PTR(-ENOMEM);
--
--	ret = xa_reserve_irq(&dist->lpi_xa, intid, GFP_KERNEL_ACCOUNT);
--	if (ret) {
--		kfree(irq);
--		return ERR_PTR(ret);
--	}
--
--	INIT_LIST_HEAD(&irq->ap_list);
--	raw_spin_lock_init(&irq->irq_lock);
--
--	irq->config = VGIC_CONFIG_EDGE;
--	refcount_set(&irq->refcount, 1);
--	irq->intid = intid;
--	irq->target_vcpu = vcpu;
--	irq->group = 1;
--
--	xa_lock_irqsave(&dist->lpi_xa, flags);
--
--	/*
--	 * There could be a race with another vgic_add_lpi(), so we need to
--	 * check that we don't add a second list entry with the same LPI.
--	 */
--	oldirq = xa_load(&dist->lpi_xa, intid);
--	if (vgic_try_get_irq_ref(oldirq)) {
--		/* Someone was faster with adding this LPI, lets use that. */
--		kfree(irq);
--		irq = oldirq;
--	} else {
--		/*
--		 * The entry is either empty or contains a dead LPI (refcount=0)
--		 * from the deferred release path, pending cleanup by
--		 * vgic_release_deleted_lpis(). Evict and free it if present.
--		 */
--		oldirq = __xa_store(&dist->lpi_xa, intid, irq,
--				    GFP_NOWAIT | __GFP_ACCOUNT);
--		ret = xa_err(oldirq);
--		if (ret) {
--			xa_unlock_irqrestore(&dist->lpi_xa, flags);
--			kfree(irq);
--
--			return ERR_PTR(ret);
--		}
--
--		if (oldirq && !WARN_ON_ONCE(refcount_read(&oldirq->refcount)))
--			kfree_rcu(oldirq, rcu);
--	}
--
--	xa_unlock_irqrestore(&dist->lpi_xa, flags);
-+	irq = vgic_alloc_lpi(kvm, intid, vcpu);
-+	if (IS_ERR(irq))
-+		return irq;
- 
- 	/*
- 	 * We "cache" the configuration table entries in our struct vgic_irq's.
-@@ -1133,7 +1076,7 @@ static int vgic_its_cmd_handle_mapi(struct kvm *kvm, struct vgic_its *its,
- 	if (its_is_collection_mapped(collection))
- 		vcpu = collection_to_vcpu(kvm, collection);
- 
--	irq = vgic_add_lpi(kvm, lpi_nr, vcpu);
-+	irq = vgic_its_add_lpi(kvm, lpi_nr, vcpu);
- 	if (!IS_ERR(irq) && !vgic_its_map_lpi(kvm, ite, irq, vcpu))
- 		irq = ERR_PTR(-EEXIST);
- 	if (IS_ERR(irq)) {
-@@ -2269,7 +2212,7 @@ static int vgic_its_restore_ite(struct vgic_its *its, u32 event_id,
- 	if (its_is_collection_mapped(collection))
- 		vcpu = kvm_get_vcpu_by_id(kvm, collection->target_addr);
- 
--	irq = vgic_add_lpi(kvm, lpi_id, vcpu);
-+	irq = vgic_its_add_lpi(kvm, lpi_id, vcpu);
- 	if (IS_ERR(irq)) {
- 		its_free_ite(kvm, ite);
- 		return PTR_ERR(irq);
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index bea848c93a990..d1a1a2cea386e 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -79,6 +79,88 @@ static struct vgic_irq *vgic_get_lpi(struct kvm *kvm, u32 intid)
- 	return irq;
- }
- 
-+/* Allocate an LPI or acquire one inserted by a concurrent caller. */
-+struct vgic_irq *vgic_alloc_lpi(struct kvm *kvm, u32 intid,
-+				struct kvm_vcpu *vcpu)
-+{
-+	struct vgic_dist *dist = &kvm->arch.vgic;
-+	struct vgic_irq *irq, *oldirq;
-+	unsigned long flags;
-+	int ret;
-+
-+	irq = kzalloc_obj(struct vgic_irq, GFP_KERNEL_ACCOUNT);
-+	if (!irq)
-+		return ERR_PTR(-ENOMEM);
-+
-+	ret = xa_reserve_irq(&dist->lpi_xa, intid, GFP_KERNEL_ACCOUNT);
-+	if (ret) {
-+		kfree(irq);
-+		return ERR_PTR(ret);
-+	}
-+
-+	INIT_LIST_HEAD(&irq->ap_list);
-+	raw_spin_lock_init(&irq->irq_lock);
-+
-+	irq->config = VGIC_CONFIG_EDGE;
-+	refcount_set(&irq->refcount, 1);
-+	irq->intid = intid;
-+	irq->target_vcpu = vcpu;
-+	irq->group = 1;
-+
-+	xa_lock_irqsave(&dist->lpi_xa, flags);
-+
-+	/*
-+	 * There could be a race with another vgic_add_lpi(), so we need to
-+	 * check that we don't add a second list entry with the same LPI.
-+	 */
-+	oldirq = xa_load(&dist->lpi_xa, intid);
-+	if (vgic_try_get_irq_ref(oldirq)) {
-+		/* Someone was faster with adding this LPI, lets use that. */
-+		kfree(irq);
-+		irq = oldirq;
-+	} else {
-+		/*
-+		 * The entry is either empty or contains a dead LPI (refcount=0)
-+		 * from the deferred release path, pending cleanup by
-+		 * vgic_release_deleted_lpis(). Evict and free it if present.
-+		 */
-+		oldirq = __xa_store(&dist->lpi_xa, intid, irq,
-+				    GFP_NOWAIT | __GFP_ACCOUNT);
-+		ret = xa_err(oldirq);
-+		if (ret) {
-+			xa_unlock_irqrestore(&dist->lpi_xa, flags);
-+			kfree(irq);
-+
-+			return ERR_PTR(ret);
-+		}
-+
-+		if (oldirq && !WARN_ON_ONCE(refcount_read(&oldirq->refcount)))
-+			kfree_rcu(oldirq, rcu);
-+	}
-+
-+	xa_unlock_irqrestore(&dist->lpi_xa, flags);
-+
-+	return irq;
-+}
-+
-+/*
-+ * Creates a new (reference to a) struct vgic_irq for a given LPI.
-+ * If this LPI already exists, we increase its refcount and return it.
-+ * If this is a "new" LPI, we allocate and initialize a new struct vgic_irq.
-+ * This function returns a pointer to the _unlocked_ structure.
-+ */
-+struct vgic_irq *vgic_add_lpi(struct kvm *kvm, u32 intid,
-+			      struct kvm_vcpu *vcpu)
-+{
-+	struct vgic_irq *irq = vgic_get_irq(kvm, intid);
-+
-+	/* In this case there is no put, since we keep the reference. */
-+	if (irq)
-+		return irq;
-+
-+	return vgic_alloc_lpi(kvm, intid, vcpu);
-+}
-+
- /*
-  * This looks up the virtual interrupt ID to get the corresponding
-  * struct vgic_irq. It also increases the refcount, so any caller is expected
-diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
-index 97fc3bdf520e5..8792953057bb7 100644
---- a/arch/arm64/kvm/vgic/vgic.h
-+++ b/arch/arm64/kvm/vgic/vgic.h
-@@ -280,6 +280,10 @@ vgic_get_mmio_region(struct kvm_vcpu *vcpu, struct vgic_io_device *iodev,
- 		     gpa_t addr, int len);
- struct vgic_irq *vgic_get_irq(struct kvm *kvm, u32 intid);
- struct vgic_irq *vgic_get_vcpu_irq(struct kvm_vcpu *vcpu, u32 intid);
-+struct vgic_irq *vgic_add_lpi(struct kvm *kvm, u32 intid,
-+			      struct kvm_vcpu *vcpu);
-+struct vgic_irq *vgic_alloc_lpi(struct kvm *kvm, u32 intid,
-+				struct kvm_vcpu *vcpu);
- void vgic_put_irq(struct kvm *kvm, struct vgic_irq *irq);
- struct kvm_vcpu *vgic_target_oracle(struct vgic_irq *irq);
- bool vgic_get_phys_line_level(struct vgic_irq *irq);
--- 
-2.34.1
+Changes in v2 (sent as RFC):
+- Replace the native clock and reset drivers with SCMI. Conor pointed
+  out that the clock blocks were not modelled right, and the E902
+  firmware uses those registers too.
+- Add the AP to E902 mailbox driver as the SCMI transport, and allow
+  arm_scmi transports on RISC-V.
+- Add dt-bindings headers for the SCMI clock and reset IDs.
+- Add zhihe,a210-uart with separate APB and serial resets (Philipp).
+- pinctrl: take the pad resets from SCMI, explain the SDIO pad names
+  and the shared SDIO mux bit, and order pin nodes as pins, function,
+  then config (Conor).
+- defconfig: explain why SERIAL_8250_NR_UARTS is 10 (Conor).
+- Link to v1: https://patch.msgid.link/20261022-a210-init-v1-0-5e438f972d24@iscas.ac.cn
+
+---
+Han Gao (9):
+      firmware: arm_scmi: Drop the ARM architecture dependency
+      dt-bindings: mailbox: add Zhihe A210 AP to E902 mailbox
+      mailbox: add Zhihe A210 AP to E902 mailbox driver
+      dt-bindings: timer: add Zhihe A210 CLINT
+      dt-bindings: serial: snps-dw-apb-uart: add Zhihe A210 UART
+      riscv: dts: zhihe: add A210 module memory
+      riscv: dts: zhihe: add Melon Pi V1 and V2
+      riscv: defconfig: enable A210 support
+      MAINTAINERS: add Zhihe A210
+
+Zhiguo Zhu (8):
+      dt-bindings: vendor-prefixes: add Zhihe
+      riscv: add Zhihe A210 support
+      dt-bindings: pinctrl: add Zhihe A210 pin controller
+      pinctrl: zhihe: add A210 support
+      dt-bindings: interrupt-controller: add Zhihe A210 PLIC
+      dt-bindings: riscv: add Melon Pi V1 and V2
+      riscv: dts: zhihe: add A210 core support
+      riscv: dts: zhihe: add A210 UARTs
+
+ .../interrupt-controller/sifive,plic-1.0.0.yaml    |   1 +
+ .../bindings/mailbox/zhihe,a210-ap-mailbox.yaml    |  67 ++
+ .../bindings/pinctrl/zhihe,a210-pinctrl.yaml       | 146 +++
+ Documentation/devicetree/bindings/riscv/zhihe.yaml |  27 +
+ .../bindings/serial/snps-dw-apb-uart.yaml          |   6 +-
+ .../devicetree/bindings/timer/sifive,clint.yaml    |   1 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ MAINTAINERS                                        |  12 +
+ arch/riscv/Kconfig.socs                            |  10 +
+ arch/riscv/boot/dts/Makefile                       |   1 +
+ arch/riscv/boot/dts/zhihe/Makefile                 |   2 +
+ arch/riscv/boot/dts/zhihe/a210-clock.h             |  15 +
+ arch/riscv/boot/dts/zhihe/a210-melonpi-common.dtsi |  55 ++
+ arch/riscv/boot/dts/zhihe/a210-melonpi-v1.dts      |   9 +
+ arch/riscv/boot/dts/zhihe/a210-melonpi-v2.dts      |   9 +
+ arch/riscv/boot/dts/zhihe/a210-reset.h             |  13 +
+ arch/riscv/boot/dts/zhihe/a210-som.dtsi            |  11 +
+ arch/riscv/boot/dts/zhihe/a210.dtsi                | 593 ++++++++++++
+ arch/riscv/configs/defconfig                       |   7 +
+ drivers/firmware/arm_scmi/Kconfig                  |   1 -
+ drivers/mailbox/Kconfig                            |   9 +
+ drivers/mailbox/Makefile                           |   2 +
+ drivers/mailbox/mailbox-a210.c                     | 176 ++++
+ drivers/pinctrl/Kconfig                            |  13 +
+ drivers/pinctrl/Makefile                           |   1 +
+ drivers/pinctrl/pinctrl-zhihe-a210.c               | 996 +++++++++++++++++++++
+ 26 files changed, 2183 insertions(+), 2 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261027-a210-scmi-ec32fdc246a6
+
+Best regards,
+--  
+Han Gao <gaohan@iscas.ac.cn>
+
 
 
