@@ -2,65 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 322E1606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:23:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED2DA606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:27:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wVYD4K3H;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=Bphjrv4f
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1iLIQ4IT;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=TO39YtUd
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=lCfRb7dvzYLRNpL4mVmuKuvbGYc/kVOpnEXSzysG3Dw=; b=wVYD4K3H7F7dvkNysD244Y6o7E
-	By4lNhmBGrTUSWk4gijr9+3QjMheQ/n/75BuW/qm2Vgs6/5wHZrL1MrK0ylEeaEt68D0xUX+sHYr/
-	SNr6dWkpo7AQqQolLXW6VfwtRU1CF5xG/r5rK2rTYlCoiuP8F22+VADxSUq+Dpbo3yHfBXDfv8nlI
-	2GJYFaEt3OPzuX1jtkSxpk/H4Y/4YMVVqog9uotOHuRRqcSA8XS5XGFv1OAd0WZE4ZJfudTXY11b2
-	NjVsu9lGng8712xZniWvV+2uOSWqxeEMe6mZZsmlKEU0Nqi8PkOFmVvJTTLnP5qGK4cGRtXzkCALP
-	SKiS6Zag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=9R7rn27BTvQI3HlJKKfu8p/MBYgn8iEr6X7HO0Xk9Xo=; b=1iLIQ4ITZYzFg0
+	sD2PAjvpG0eRgflJCmZ9sU0NaDLJ5KnO7j84SWSz0JAUFF9mklY2rHTFkQZmBw8BRbQWMRiHzYYCo
+	lA3AWR/ysq2/lCNemjQ4yZIYu2Qgd1xBbth+NVX9y+WwplFTDsLvwOcMDljWxI4ASUNSbnFZtd4Fr
+	VvS1eBuf0gNdM58TAjnraLkV2sFY/xDgORl1J0dAxROAFzzDvgzyxmSwHxQcrNJb1q/029xiy+qSp
+	AXSoJonVMCo+05VLiWKg25J+n/K8+07h1WQh5571hEk6aw0vWv/u/LxE9JiyNIUNyOyGPDvNUeLHW
+	J5L8F6lNA/kGUzNXaN+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxcp-000000005aB-0uuK;
-	Mon, 02 Nov 2026 19:23:23 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxco-000000005Zi-0F9m;
-	Mon, 02 Nov 2026 19:23:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:Message-ID:
-	Subject:To:From:Date:Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=lCfRb7dvzYLRNpL4mVmuKuvbGYc/kVOpnEXSzysG3Dw=; b=Bphjrv4fnqb1OAomlKaoz8NZ0u
-	4F1tv5MGwjZ4/0riuR0Q4x34MoEZ8rmmLBSi6DyZyorUfv/kc2O8La75sWuUs1qyn5qKLQzUHjeIs
-	VYGMJBnGsJMlUqzfXOODP+CefjQaVYYK3F4gLYTiHtRBlxnbLQzBvVRfx4fs3bYBgmwSTS7DjyWRz
-	BxqkJxPpohyYuxqJjgA13xhKrk+NGC/mSSdi7RpouSd9jEq0D8l5DfhudutgLEC5+mHoQRz7Gz1fR
-	Y8shKusMQbw0Ycj/YAsrOeKfOCm7/1F2JRHQhc+T8LejEHnK4TWDVL9zBuE0tgBwOVGkZphnU42s6
-	rBeBr12w==;
-Received: from willy by casper.infradead.org with local (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxcj-000000056Px-1CVj;
-	Mon, 02 Nov 2026 19:23:17 +0000
-Date: Mon, 2 Nov 2026 19:23:16 +0000
-From: Matthew Wilcox <willy@infradead.org>
-To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Devin Wittmayer <lucid_duck@justthetip.ca>,
-	JB Tsai <jb.tsai@mediatek.com>, Xiong <xiong.huang@mediatek.com>,
-	Charlie-cy Wu <charlie-cy.wu@mediatek.corp-partner.google.com>,
-	linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: mt7921e hangs when hardware fails
-Message-ID: <aujjJPq-Qth7UyMp@casper.infradead.org>
+	id 1xNxgt-0000000069r-46UR;
+	Mon, 02 Nov 2026 19:27:35 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNxgs-0000000069C-01z5
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Nov 2026 19:27:35 +0000
+Received: from [10.4.158.9] (unknown [131.107.174.137])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 6549D20B7166;
+	Mon,  2 Nov 2026 11:27:18 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 6549D20B7166
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1793647638;
+	bh=9R7rn27BTvQI3HlJKKfu8p/MBYgn8iEr6X7HO0Xk9Xo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TO39YtUd3Cf/StF0QdPN6j/y4FbKs8B4iukuDInUIKTsVQ1LEzXCfdknb5uZ9yR6g
+	 3ho611vKzzuwp3vFYIg+aRD3vGJGC8lACS0ButV7faA5pYvf3tsTfix5VvL1wLluTa
+	 L28VqbIrKkdSC4GVW4GL5tz22IwvjhYGEzwbQOdg=
+Message-ID: <c87dc2c3-9211-46d2-9301-46a03d4b0ad7@linux.microsoft.com>
+Date: Mon, 2 Nov 2026 11:27:37 -0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/6] arm64: hyperv: Detect Hyper-V via RSI host call in
+ CCA Realms
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: decui@microsoft.com, haiyangz@microsoft.com, mhklinux@outlook.com,
+ wei.liu@kernel.org, arnd@arndb.de, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, lpieralisi@kernel.org, mark.rutland@arm.com,
+ sudeep.holla@kernel.org, thuth@redhat.com, will@kernel.org
+References: <20261031001412.4150488-1-kameroncarr@linux.microsoft.com>
+ <20261031001412.4150488-3-kameroncarr@linux.microsoft.com>
+ <auh-KP-4gFxHtO1z@arm.com>
+Content-Language: en-US
+From: Kameron Carr <kameroncarr@linux.microsoft.com>
+In-Reply-To: <auh-KP-4gFxHtO1z@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=4.0.1
+X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
+	aws-us-west-2-korg-listserv-alma10-1
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261102_112734_073296_FA0FF363 
+X-CRM114-Status: GOOD (  12.58  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,76 +81,39 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
-X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
-	aws-us-west-2-korg-listserv-alma10-1
 
-Something appears to have gone wrong with the mt7921e in my Framework
-laptop, but my attempts to recover are hindered by the driver hanging.
+On 11/2/2026 4:12 AM, Catalin Marinas wrote:
+> On Fri, Oct 30, 2026 at 05:14:08PM -0700, Kameron Carr wrote:
+>> When booting without ACPI, hyperv_detect_via_smccc() detects Hyper-V by
+>> querying the SMCCC vendor hypervisor UID. In an Arm CCA Realm the SMCCC
+>> call is handled by the RMM rather than by the hypervisor, so the
+>> query never reaches Hyper-V and detection fails.
+>>
+>> When running in a Realm, forward ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID
+>> to the host with RSI_HOST_CALL instead, which is how Hyper-V hypercalls
+>> are issued from a Realm.
+>>
+>> This is done in the Hyper-V code rather than in the generic
+>> arm_smccc_hypervisor_has_uuid() because the other users expect different
+>> behavior.
+>>
+>> hyperv_init() is an early_initcall and runs before the secondary CPUs
+>> are brought up, so a single __initdata host call structure is used
+>> without locking.
+>>
+>> ACPI-based detection and non-Realm guests are unaffected.
+>>
+>> Signed-off-by: Kameron Carr <kameroncarr@linux.microsoft.com>
+> 
+> This works for me, thanks. I replied to Dexuan clarifying my objection
+> to v5 do the UUID check generically.
 
-lspci:
+Thank you for your review and suggestions.
+Your clarification makes sense.
 
-aa:00.0 Network controller: MEDIATEK Corp. MT7922 802.11ax PCI Express Wireless Network Adapter
-	Subsystem: MEDIATEK Corp. Device e616
-	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx+
-	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
-	Latency: 0, Cache Line Size: 64 bytes
-	Interrupts: pin B disabled, MSI(X) routed to IRQ 207
-	IOMMU group: 19
-	Region 0: Memory at 6019200000 (64-bit, prefetchable) [size=1M]
-	Region 2: Memory at 98000000 (64-bit, non-prefetchable) [size=32K]
+Is this a "Reviewed-by" or an "Acked-by"?
 
-
-Here's the relevant parts of my dmesg:
-
-[   54.429097] mt7921e 0000:aa:00.0: enabling device (0000 -> 0002)
-[   54.434064] mt7921e 0000:aa:00.0: ASIC revision: 79220010
-[   54.532459] mt7921e 0000:aa:00.0: HW/SW Version: 0x8a108a10, Build Time: 2026
-0724143257a
-[   54.906027] mt7921e 0000:aa:00.0: WM Firmware Version: ____000000, Build Time
-: 20260724143402
-[   56.086928] mt7921e 0000:aa:00.0 wlp170s0: renamed from wlan0
-[164937.892036] mt7921e 0000:aa:00.0: driver own failed
-[164938.942093] mt7921e 0000:aa:00.0: driver own failed
-[164939.995093] mt7921e 0000:aa:00.0: driver own failed
-[164941.272075] mt7921e 0000:aa:00.0: Timeout for driver own
-[164942.316076] mt7921e 0000:aa:00.0: driver own failed
-(...)
-[164962.212360] mt7921e 0000:aa:00.0: chip reset failed
-[164962.212383] wlp170s0: Driver requested disconnection from AP 84:a0:6e:ee:3f:b7
-[164965.388396] mt7921e 0000:aa:00.0: Message 00020001 (seq 4) timeout
-[164968.464445] mt7921e 0000:aa:00.0: Message 00020001 (seq 6) timeout
-
-(hundreds of similar lines)
-
-So I tried to rmmod to see if reloading the module would fix anything.
-Unfortunately, it hung like this:
-
-$ sudo cat /proc/136298/stack
-[<0>] __flush_work+0x315/0x4c0
-[<0>] cancel_work_sync+0x5e/0x80
-[<0>] mt7921_pci_remove+0xb0/0x190 [mt7921e]
-[<0>] pci_device_remove+0x4a/0xb0
-[<0>] device_release_driver_internal+0x19e/0x200
-[<0>] driver_detach+0x48/0x90
-[<0>] bus_remove_driver+0x78/0x110
-[<0>] pci_unregister_driver+0x36/0xe0
-[<0>] __do_sys_delete_module+0x1de/0x350
-[<0>] do_syscall_64+0xe1/0x650
-[<0>] entry_SYSCALL_64_after_hwframe+0x76/0x7e
-
-I think something's wrong with the hardware at this point because lspci
--vvv reported something funny in config space which has disappeared
-after a power cycle.  Unfortunately I didn't record it, nor did I dump
-lspci -xxxx.  I'll do that next time this happens.
-
-My call to action here is that this driver should more gracefully cope
-with hardware that's not responding properly.  Whatever work is being
-waited for in __flush_work needs to timeout (I left it overnight and it
-didn't timeout) or be cancellable.
-
-After a reboot, it's working fine.  I'm going to try stressing the laptop
-to see if it fails again, but wanted to get this report out first.
+-- 
+Regards,
+Kameron
 
