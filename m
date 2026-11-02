@@ -2,73 +2,156 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC29D606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 08:29:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E2D2606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 08:33:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gqaOE8CI;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=F+5WWgPW
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FDTfpIBe;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=sW6+VnRr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=euznYBocIb8kfNgcKlt2GHcUVDSBs2gzY/11E05nVeE=; b=gqaOE8CI75MMtmQg+S0e9AiDna
-	thA9w3cAQlqrwyBGlvMNx6kStwH6QW0iv8DvZV9UVb0OLIvzPdMrIXfC2iF4Ai3EgDsSEFecKPpPJ
-	bbTs6nUhAoqPbkbcSF2nElBBJm4vgsH0UiZKAzzcXIbQyXJuk7Lu+GPyWtL/9sbLkTB2+xUIozJ+I
-	AyurLrkqt/yPfONtT2+gHdN6KkCG0Q1U8ty0HP1oRquUnW3WJiaZ1dflEizfrTBRXkBwvm+HfOvGy
-	2eHNFsfitK+WZ+LW19y4NDGvJr9SW1nzlwUp8xHlYsvd89AFSYDidzGfsKmJkhZvH/pBWX0Ai9oUa
-	Xgl//kkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=InFiA7roXHIiO2p6dcL0lbU+DMk3dk2Xr/NWKR/N3TA=; b=FDTfpIBeEc81Zd
+	IBf/HrHCPyDoW7pVKhRltkv6l64AXGlgUwxMzUsBrU3+yX0+/a3vwijBjXVhs9UG096ZTwa1SmmpM
+	BuOd7oprvLAbPivdp4gAYrmANtbzpEJpiNG1Blg6ViQH71qvU/zZG7E8tbevaC7TPKv52l8iYUj4T
+	e8K4/9vN9Lt3FxYgTqkSaa716RhRARcTk2QICx4369pGcYqOke+aJofgG44WJ3hEirgYn1muqS1bh
+	K6TlBl1T0Lfwnm2vD/Npv4DZfYOCUMbUy3oKLrdgmlbDeWFq2854RPWBiaFRs5uVOzBVEtQJVmmdp
+	jBS5/Tl5TOmFoangb4Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNnQB-0000000Fs3M-3tWg;
-	Mon, 02 Nov 2026 08:29:39 +0000
-Received: from out-174.mta1.migadu.com ([2001:41d0:203:375::ae] helo=mta1.migadu.com)
+	id 1xNnTo-0000000FsPs-26Tv;
+	Mon, 02 Nov 2026 08:33:24 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNnQ9-0000000Fs2O-0Azy
+	id 1xNnTl-0000000FsOu-3utD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 08:29:38 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=y8BgwjagvHGf78IlM6ng3nm9vDTk3b3hu1EyL1SF7ec=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793608174; v=1; x=1794212974;
- b=F+5WWgPWHTgZkLOdWp34fjp8vKNTzLwWGqZ/4900AI/b1FTmGpR1sFpQt8SzIiPVy20OvRLv
- h7fwwNHkpAZeLqoAxkwBPghJibjqFi5yr5vvVF8G2NWNsTRh8Fx/D44CNgsqKctPTHRQgrIphKQ
- IaHcegGiTwV+63OFDSO3Vjy0=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id eddade33f188acbf;
-	Mon, 02 Nov 2026 08:29:34 +0000
-X-Mizu-Trace-ID: eddade33f188acbf
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Hyunwoo Kim <imv4bel@gmail.com>,
-	Eric Auger <eauger@redhat.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v2] KVM: arm64: vgic-its: Update GITS_CTLR.Enabled under its_lock
-Date: Mon,  2 Nov 2026 08:29:33 +0000
-Message-ID: <20261102082933.2673799-1-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.47.3
+	Mon, 02 Nov 2026 08:33:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MfvbuqiVWE98DLNL2ZcXuyD2QoaJaKUb68NqIvMZKdf8/xRjXYwRa5I4/2UrLrxSo9zL78bv5XIfDV4JQyVf30eG7PmvqGDrTrzlR/IaaoklU8ug2bG86Aucl9zVeKLHVsOr0o2UAIAxcNPCr3rPmr0vNSfOLi5SEeD54hHLIHO4IAHB1WfSzk1O3spRFLvm6xzjD2WKhxFJtscZcwUYl6/JuWZnFRTu5afHd9Y1qxf/KPUJWt58RYYL8ZTSF6eu+KyXcGfmInWa6lpzCfUYqlAjeqtkwu4PLFSbqcn0M3oguAEh8iLN3BI6jr2Gzx4A06mrumzLNrj0lmCkBPjrBQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=InFiA7roXHIiO2p6dcL0lbU+DMk3dk2Xr/NWKR/N3TA=;
+ b=RQvK4arFXtpnaHAKzqpSnOgzPhdJRTIpoIZdxdZbIuO/3NG80jy397B2iRiWK/G55mpKkdLJwQKtYX0J5QpPuA225fld5qaP9rofFo3fFJ5rQLITHn3/WNnNpDSt01n6mGbVXJhi8XfBaTSdNCdJiL1cr93whkfK5kCQQLXJYweyUHtwJwckx00ZgXS28lkKm995T2QL/CGziGEVKZrYTfOXexrUHPhy8ZobnapqNOP5OKPqzOj/2RhFZc5Soaw3yzfqszXL7FzP/FEN93LqbPhyDeJsikGT9Ge8L5hxvcJAcTF0bVic6lepwiNFinaxDSvPGG45u6wAHApPdNacMQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=InFiA7roXHIiO2p6dcL0lbU+DMk3dk2Xr/NWKR/N3TA=;
+ b=sW6+VnRrzNFcdXqEXHW9yelHETiEN9uublQG1p5bgDngQ8yF8C6dVuCOF6YkHTj2rfgEmPgljJJYDqqVZzEuRPpMvVLv4oNS56Nkj1t7SeOuUz6B7aYrj2h3gGb+BRpl1oa0xNRm6kqv2IrFl1eVQ0i14Dzqc/Eh3KaiAeNaMXSfRPKqdn++V7R+Jbwhs0WrJMyG8Z1wmFWLCjk92flMhAXmtcUJnAEIjA1c5/AvKAtPR6UmJjRfL7TAcn2mBw8PXwQfknYWPu2Q3rYyRO2nuQFRJujm58O0jm8icfdIIX6vHnH9Km8fOSDz3Xkpw/mLMUdreytTTFbviCPi6nnA9w==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
+ by PH7PR12MB7428.namprd12.prod.outlook.com (2603:10b6:510:203::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Mon, 2 Nov
+ 2026 08:33:13 +0000
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0569.011; Mon, 2 Nov 2026
+ 08:33:12 +0000
+From: Mikko Perttunen <mperttunen@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Russell King <linux@armlinux.org.uk>, Heiko Stuebner <heiko@sntech.de>,
+ Thierry Reding <thierry.reding@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Jonathan Hunter <jonathanh@nvidia.com>,
+ Krishna Reddy <vdumpa@nvidia.com>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Jason Gunthorpe <jgg@ziepe.ca>, linux-tegra@vger.kernel.org
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Yong Wu <yong.wu@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-tegra@vger.kernel.org,
+ Marek Szyprowski <m.szyprowski@samsung.com>
+Subject: Re: [PATCH v3 00/10] Make the 32-bit ARM DMA API work with normal IOMMU DMA
+ default domains (+ Tegra PoC)
+Date: Mon, 02 Nov 2026 17:33:09 +0900
+Message-ID: <8hhoVlFLRDu49GHajB8t6A@nvidia.com>
+In-Reply-To: <6fb3327c-766c-433c-b49d-dc62470d7102@samsung.com>
+References: <CGME20261026092047eucas1p2686ac1a0ce893a16711cf7a137d081ce@eucas1p2.samsung.com>
+ <20261026-b4-arm32-iommu-dma-cookie-v3-0-3901d74b1ff2@nvidia.com>
+ <6fb3327c-766c-433c-b49d-dc62470d7102@samsung.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-ClientProxiedBy: OSTP286CA0047.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:604:217::18) To SJ2PR12MB9161.namprd12.prod.outlook.com
+ (2603:10b6:a03:566::20)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|PH7PR12MB7428:EE_
+X-MS-Office365-Filtering-Correlation-Id: 72583000-3b8b-4595-b5d6-08df38bbeea9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|10070799003|6133799003|22082099003|18002099003|10067099003|56012099006|261009223027099003|921020|261022113327099003|261022105027099003|261022115727099003|261021130227099003|261021135927099003|261021123027099003|261021121427099003|261022075727099003|11063799006|4143699003|261026130827099003|261028144727099003|261026140227099003|261026121527099003;
+X-Microsoft-Antispam-Message-Info: Bx91KJbQ/JbhEkMwfy37ouECPGQIyHriDd339TJ2kiBwc3lf/bxXZ1Ceap3A2IT8W+CIjzQhNKC1AyEkPFnoBE3SORkxjSBAq38hmW7DIcJB0uD5u25eLx2MtrCUi19tib8oOr49So7Mx7NMY/FA/ULQ86+9qC197g0b8FdMI/wYHcGfiAlpMfwD+rCUmbEpgaWr2p/zunFnEYwI9Wtt6E+NbGUTyhKUGJ1ekdx6MpN2mmvvoQzkiiYM4KjjTfGVE4ONLkhDbrXEtPLr+lAE6odhXl21lciK59CcXPbzNwGBZnkCzsudthIUYlCwb2AOUvANl4fyeg//INq7Uvjxjy94C6TRsKdFRw2+pFxiJd/FuAJPEDyxL4FnOeqk8VRS7HaXqO+T0CPvdmct/SwT9NH5NM9PcJxo5LoBzl0xQkKcmh23kBs8ycVUXMuJkcdfHRKAMX7WV1RxcazBllfHKuYMii4QPpFA8tDnAI+86HyrH0m3fZDRQAlRsD5q7fq4U/ZZVlwB4VY8cfFV2JY2ZIRYxaPU+IrqMwJ1QFH4TDUFGCU24QuxqyiISQAIXxTMZ+Fl7GiRwr4V23tnqPXrr2E4d+paS778C/jbZ4t+I02P168QP6jA/jz0/BUsKJ+BXdiRyJWR2SZssUuNeYEjIYgQ3FvDW/NhPySJceuBNR8x9ZZOk334mKp6DGbrIozqLTtIRPCb6CfOn+4SFYtgfg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(10070799003)(6133799003)(22082099003)(18002099003)(10067099003)(56012099006)(261009223027099003)(921020)(261022113327099003)(261022105027099003)(261022115727099003)(261021130227099003)(261021135927099003)(261021123027099003)(261021121427099003)(261022075727099003)(11063799006)(4143699003)(261026130827099003)(261028144727099003)(261026140227099003)(261026121527099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MktlRnArVkZVUUFleFpycTZLaFJ6VW14TGlOMjU1T1JtbE1LeTdVeVI4RU1G?=
+ =?utf-8?B?WTMrdEhsdXFvNVM5MXRsdlh1dCtZa3pVWmlnRWdyenY4eHNCTzQvSXR3VnBR?=
+ =?utf-8?B?VWFvSHMzOEZiV1hGM1ZORzQ1NWVNTWlKYjRSWU1hTkFmUG5DaWVoYWZnSUIv?=
+ =?utf-8?B?VlNma2N1U3UzOXZIYnY3TzBxUkxkMVVHSHRkcTFzUklXMDZxQ0ppbXRxa2pw?=
+ =?utf-8?B?TGZ6OXFZcVU1b2pyaE5Xb1oxTzJyN2tKMnBndFNUdzBRL2w0Z01qU09ZSjBD?=
+ =?utf-8?B?eU04YTkvNEFzSDZJczI3RmcyRng4NlNQeTMyMmNxMWc5Q21tR0VML2hDbjJ0?=
+ =?utf-8?B?NVl5aGlJa2YzbXE3Z3VBdUtsSTdneFlwWWRaOTExeEdRMmUyRzNXUmtWa1FL?=
+ =?utf-8?B?MUJXaUtmNkZ1QVBRNTJIcmx3Y29XcGdWL0N2OXZJQSt1UUlCSHhVUHlmVXZI?=
+ =?utf-8?B?YVRLTnBRenVrWUthWENCWVBFR21XVm9mRVJXVmd0TEdHMGJlYzRiZEVnZ3Yr?=
+ =?utf-8?B?WXdtMkh6YU41K2wzOEx3Q1NxeVNDVm5OVk96ZzRPaTJPbDNkUTdmOHdaVy9u?=
+ =?utf-8?B?Q1E0MlhBelRsR3kzTnl6RHg2SXQwUEdGeUJGbzN6aUkxeWlDMWl2R2FDOXBq?=
+ =?utf-8?B?Q081QWlMMkVzWmdpdlk2V2cxWisvOFV5R0JDY0hVT2RyYjJGN1NOdWx1RmRF?=
+ =?utf-8?B?amttaDhlK0Y5aXR6VlRJbTYyajJvVzBzc1hQWnNncmlRdDQxMGcyN1BSUEZn?=
+ =?utf-8?B?aDFQZlpsSkdjMkFpWU5JVCszNDhYbEtFSjBvQnU3V2dJa3lZOHFCNWRkU0Zx?=
+ =?utf-8?B?dk1LckwvVDV4UFdWSkgxSlQyL2tHdUQ3ZndyYjk4NnQxMmk3dDJzWC9QelYv?=
+ =?utf-8?B?U0JRS0NhV2pjT29BdkFNdTczRlFMTVc1dU52K0pvNzdPL0IzZ1dxMVVXM0xk?=
+ =?utf-8?B?M1lGOU9BaVNRNW5oWGhvVy9Ibk1vbEVkdkdCZWwyWS9KS2YwR0JUUWxKRVNV?=
+ =?utf-8?B?b3gxTnl4L20rTHRjak1MclFpeFBRTis2UVQveTlzTk9peVRONkZCQk5INFRK?=
+ =?utf-8?B?QXpsOXNBS09ZNSsvYUJDOFVuMW9uNU9iYnZ4eUR1WGlxQ2toSEFSNWNhV2ZL?=
+ =?utf-8?B?cWU3SG1MZnNMbVhlYUpLZmRDUXgzRUlxN0pKR2gvamZwUTVEL3FCVzF1SlpH?=
+ =?utf-8?B?Mlc1Yk1iNE41S2x3OE1KVWpsd1Z3Q0dBYVM3ZUd6TUtUODAxNHBVMFA0QWJa?=
+ =?utf-8?B?SWpLRDRtYkVnVzRkaDU1ZkR5U2dZQUNhYVVzRTRpSDRGRytqaXdMMmpMMm01?=
+ =?utf-8?B?bEpCRjF6cy9Ub0pjeiswdGJOWGxoSnI2dDFXVW1qVW9td0RVZ1grN0JxZkY0?=
+ =?utf-8?B?dTB5Y2ZMa2VibkJqR1phNE1CMzFPTkhVOFlFVDZLUnkvK1h1TkVBaVZKOFNh?=
+ =?utf-8?B?b3R4cFc1VVRjOWtGQUk0MllueDg3Y2hwdExBekMxcW5XM21GL2ZNaFFqaUgw?=
+ =?utf-8?B?VC9yQ2MyMXEwdlBKTWxNeU4xTk94dkpmNC9RTWtjdkw2WE5PT05pcUZoNldO?=
+ =?utf-8?B?Q1Z6b3FiRTBqNklWVXlFYTJ6ZzNOMU1SVE5ua0xjK3Z0WGt1VlBHem4rQW4r?=
+ =?utf-8?B?aXdCTlVXR0dteFhIcW9WQmdoV1hvVkRiWUdRVUtMUURWZmxXR2hTOTNqY3lk?=
+ =?utf-8?B?TW5tcTNjWHdIRlBMTk5wU1FCMW9ORkhqeEZoMjBBTGVJclUwTGd4UlNEd0ph?=
+ =?utf-8?B?d1d5K1drbXdZVjBPenpBTjhmSHJIK1F2NFZPdmpONitFNFZEeURjbEJxSS9u?=
+ =?utf-8?B?QnZNdndLQjRsNXlPWE04V1JNaDAyWGV4QmJVSXlUMEVGWDFtajNrdEI5R2NO?=
+ =?utf-8?B?L0JqN3FmbS9nVGNITG1IaEVYdmxzQmNNVjMvaU1RdFRXYkljKzVVcUk0enBI?=
+ =?utf-8?B?WEMwT0FONlpZVFB1MVNCdUVTU1l5ajBSWWlKS2VMRG44Qkthdlg5NXFyVElP?=
+ =?utf-8?B?UUsvNXBWOFUwellid2ZiN21vNHRRS1V6ZU8zWEY5RVl4Sm9yQnlReFJaRmc3?=
+ =?utf-8?B?b0dSTXJsaExXcEc3YVBMc1NQNXF5VVZiSGRicW5mYkhDWGdqWXRKUzBPYWkr?=
+ =?utf-8?B?V3Z1MWI1bmVGUWp4Y3ZjRW1YMWU1cWtuSnA2dGl0Z0w0K0dQb08wV2FyVWZt?=
+ =?utf-8?B?czFCek4yb1hRcUdBeHBSejZxSnpsZ0NNbTd1aWloT2hrY0s5M0ppYmVtM0ti?=
+ =?utf-8?B?T3pLUC80L05nNzBOTUw2dndsMnJDQ1dRaU95Wm1nc0dIc0lYa1MvWWdYMjlV?=
+ =?utf-8?B?OUl4cy9wZnlwUis1dDVQeVBtaTNQNVRUNGl4UEpROEVzWUxRVjB5MU1WVmNF?=
+ =?utf-8?Q?JENAOm1TSz3l/RSiXEZ1mAafuHkPClPUiXoYqLsoIjdME?=
+X-MS-Exchange-AntiSpam-MessageData-1: zP9adxOFezWx/A==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 72583000-3b8b-4595-b5d6-08df38bbeea9
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 08:33:12.6366
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XaGBQE1G+B1cJpxT6O9sOSlbOQSgLp0KNewAbuTDk7lWEpWMGHbuQxdkGIBjXXef/VDaPG37njQ88rfi3UfrqA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7428
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_002937_243236_EF77305B 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20261102_003322_021800_900442BF 
+X-CRM114-Status: GOOD (  42.06  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,86 +163,148 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-A GITS_CTLR write that disables the ITS clears its->enabled and
-invalidates the translation cache under cmd_lock, while an MSI
-injection tests the enable bit and populates the cache under its_lock.
-An injection that passed the test before the disable can cache its
-translation after the invalidation, and the cached path then injects
-the LPI from the disabled ITS on every later MSI for that event.
+On Friday, October 30, 2026 7:36=E2=80=AFPM Marek Szyprowski wrote:
+> On 26.10.2026 10:19, Mikko Perttunen wrote:
+> > Depending on the probe ordering, TegraDRM does not currently probe on
+> > kernels with CONFIG_ARM_DMA_USE_IOMMU enabled, such as with
+> > multi_v7_defconfig. The Tegra SMMU puts several display and 2D/3D
+> > clients into one IOMMU group, and the legacy 32-bit ARM DMA API path
+> > creates one UNMANAGED domain per device and attaches it with
+> > iommu_attach_device(). That only works for one device per group, so
+> > every client after the first fails to attach,
+> > iommu_device_use_default_domain() rejects the group with -EBUSY, and th=
+e
+> > driver goes down with it. tegra_defconfig is currently working by virtu=
+e
+> > of not enabling CONFIG_ARM_DMA_USE_IOMMU.
+> >
+> > Robin suggested [1] that instead of teaching the legacy path about
+> > groups, we should explore modernizing the 32-bit ARM DMA code a bit by
+> > making it use domain cookies and have the core code own the domains, as
+> > is the case on other architectures. Still, ARM's own DMA code is kept t=
+o
+> > support existing drivers and APIs that expect it, and because dma-iommu
+> > is considered too big and unnecessary for 32-bit ARM.
+> >
+> > The series is in four parts:
+> >
+> > - Patches 1-2 are preparation in the IOMMU core:
+> >   1. Add iommu_teardown_dma_ops, counterpart to iommu_setup_dma_ops.
+> >   2. Add cookie type for ARM's DMA domains.
+> > - Patches 3-6 implement the DMA API side on 32-bit ARM:
+> >   3. Split up mapping alloc and init (bitmap alloc) code to separate
+> >      functions.
+> >   4. Implement parallel dma_ops / cookie APIs on ARM side.
+> >   5. Avoid domain allocation when IOMMU core does it.
+> >   6. Check upper DMA range limit during IOVA allocation.
+> > - Patch 7 removes the forced IDENTITY default domain in core IOMMU
+> >   code and adds explicit IDENTITY defaults to a few individual IOMMU
+> >   drivers.
+> > - Patches 8-10 convert Tegra:
+> >   8. Fixes device parameter in calls to dma_get_sgtable.
+> >   9. Allows deferring translation enable until driver handshake for
+> >      selected devices.
+> >   10. Switches to DMA default domain for selected Tegra devices.
+> >
+> > This moves 32-bit ARM devices from the unmanaged IOMMU DMA domain to th=
+e
+> > core-owned default DMA domain except for mtk_iommu_v1, ipmmu-vmsa,
+> > omap-iommu, and msm_iommu. (tegra-smmu also stays on the legacy path
+> > until the last patch in the series.) See commit 7 for further
+> > information. Existing drivers are intended to continue working without
+> > changes.
+> >
+> > Patches 8-10 are provided for demonstration; we can deal with them=20
+> > separately if the rest of the series is accepted.
+> >
+> > Patches 1,2,3,6 are applicable independently.
+> > Patches 4,5 depend on the previous patches.
+> > Patch 7 requires the prior patches to be in place.
+> >
+> > Patches 1-7 only touch drivers/iommu/ and arch/arm/mm/ and associated=20
+> > headers.
+>=20
+>=20
+> I've tested this patchset on ARM 32bit based Exynos boards and it works
+> fine, although I get the following warnings during boot:
+>=20
+> platform 13400000.codec: Adding to iommu group 0
+> iommu: Failed to allocate default IOMMU domain of type 0 for group (null)=
+ - Falling back to IOMMU_DOMAIN_DMA
+> platform 11840000.jpeg-codec: Adding to iommu group 1
+> iommu: Failed to allocate default IOMMU domain of type 0 for group (null)=
+ - Falling back to IOMMU_DOMAIN_DMA
+>=20
+> This looks like an issue in iommu core, which doesn't expect devices with
+> iommu to come up so early.
 
-Take its_lock around the store and the invalidation, so that it
-serializes the store against the test. Nest it under cmd_lock, as the
-command handlers do.
+Excellent, thanks for testing. I'll take a look at the warnings.
 
-Fixes: 86a7dae884f38 ("KVM: arm/arm64: vgic-its: Check the LPI translation cache on MSI injection")
-Reported-by: Hyunwoo Kim <imv4bel@gmail.com>
-Link: https://lore.kernel.org/ah6Lsi4MfKUU6wBR@v4bel/
-Suggested-by: Oliver Upton <oupton@kernel.org>
-Cc: stable@vger.kernel.org
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
+Mikko
 
-Notes:
-    Changes since v1 [1]:
-      - Reworded the commit message.
-      - Rebased on 7.4-rc1.
-    
-    Picking up the fix Marc was worried had stalled [2].
-    
-    The GICR_CTLR.EnableLPIs path has the same window and is left as
-    is. vgic_its_invalidate_all_caches() can't take kvm->lock there (it
-    runs with vcpu->mutex held) or config_lock (the userspace GICR_CTLR
-    route already holds it). Instead, the vgic_target_oracle() check in
-    my LPIs-disabled series [3] keeps an LPI off a redistributor with
-    EnableLPIs clear. The two don't depend on each other.
-    
-    vgic_its_free_collection_list() still leaves the cache alone. A
-    guest reaches it only through a GITS_BASER write, which already
-    drops the cache (8cd92f77ae4f). An ITS reset frees the devices
-    first, which drops it too. That leaves a failed collection-table
-    restore. A VMM gets there with translations cached only by enabling
-    the ITS before the restore, against the documented order. Those
-    translations then keep injecting their LPIs into the old target
-    vCPUs.
-    
-    Based on Linux 7.4-rc1 (6628e7d4c6b25; also applies to kvmarm/fixes
-    79f3724ca8913).
-    
-    [1] https://lore.kernel.org/all/20260917162020.1612577-1-fuad.tabba@linux.dev/
-    [2] https://lore.kernel.org/861pbr6emw.wl-maz@kernel.org/
-    [3] https://lore.kernel.org/all/20261026092802.2636798-1-fuad.tabba@linux.dev/
+>=20
+>=20
+> LLM proposes the following fix for it:
+>=20
+> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+> index 197a8f70c6de..612933306684 100644
+> --- a/drivers/iommu/iommu.c
+> +++ b/drivers/iommu/iommu.c
+> @@ -225,10 +225,8 @@ static const char *iommu_domain_type_str(unsigned in=
+t t)
+>         }
+>  }
+>=20
+> -static int __init iommu_subsys_init(void)
+> +static void __init iommu_init_def_domain_type(void)
+>  {
+> -       struct notifier_block *nb;
+> -
+>         if (!(iommu_cmd_line & IOMMU_CMD_LINE_DMA_API)) {
+>                 if (IS_ENABLED(CONFIG_IOMMU_DEFAULT_PASSTHROUGH))
+>                         iommu_set_default_passthrough(false);
+> @@ -254,6 +252,11 @@ static int __init iommu_subsys_init(void)
+>                         iommu_dma_strict ? "strict" : "lazy",
+>                         (iommu_cmd_line & IOMMU_CMD_LINE_STRICT) ?
+>                                 " (set via kernel command line)" : "");
+> +}
+> +
+> +static int __init iommu_subsys_init(void)
+> +{
+> +       struct notifier_block *nb;
+>=20
+>         nb =3D kzalloc_objs(*nb, ARRAY_SIZE(iommu_buses));
+>         if (!nb)
+> @@ -2939,6 +2942,12 @@ EXPORT_SYMBOL_GPL(report_iommu_fault);
+>=20
+>  static int __init iommu_init(void)
+>  {
+> +       /*
+> +        * Select the default domain type before any IOMMU driver can reg=
+ister
+> +        * and create groups, which may happen before subsys_initcall.
+> +        */
+> +       iommu_init_def_domain_type();
+> +
+>         iommu_group_kset =3D kset_create_and_add("iommu_groups",
+>                                                NULL, kernel_kobj);
+>         BUG_ON(!iommu_group_kset);
+>=20
+> Best regards
+> --=20
+> Marek Szyprowski, PhD
+> Samsung R&D Institute Poland
+>=20
+>=20
 
- arch/arm64/kvm/vgic/vgic-its.c | 3 +++
- 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index 7e9b265b1f521..68e3034e52236 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -1800,9 +1800,12 @@ static void vgic_mmio_write_its_ctlr(struct kvm *kvm, struct vgic_its *its,
- 		 !(its->cbaser & GITS_CBASER_VALID)))
- 		goto out;
- 
-+	/* vgic_its_resolve_lpi() tests the enable bit and caches under its_lock. */
-+	mutex_lock(&its->its_lock);
- 	its->enabled = !!(val & GITS_CTLR_ENABLE);
- 	if (!its->enabled)
- 		vgic_its_invalidate_cache(its);
-+	mutex_unlock(&its->its_lock);
- 
- 	/*
- 	 * Try to process any pending commands. This function bails out early
 
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
--- 
-2.47.3
 
 
