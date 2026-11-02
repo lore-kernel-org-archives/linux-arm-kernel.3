@@ -2,82 +2,108 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32A3E606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:09:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97E8D606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:12:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eYyIAnX0;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Or6+I7EF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=V5+9Lw1k;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f3JNmNZw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
+	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=CZoEVf6F8YCU84CWatPj9epyRoPyWPQUR01ARmr0ePM=; b=eYyIAnX032Ux4HJtBnK09UTCHD
-	e1S2WSO73zQgG8JG3s1lvfOOGoFPCA9ayb+AY41OgwcCE4fnEDM1e4mUlXzzRDzShwOHlnyM+9o2f
-	x84PLmPKDLy9jxCSz6/n+n4PR486JlSfvfkw60opvLNNBWQZG18jvTNcvgZK/DBrqkwo56BUO1sTn
-	LzkSjpVdkB5VwmDYM1GAsElE6oqic4AOV5/NPwAk0rxZjKZ7abtoWaN5FNzbqcVaSROpS8OHfSdw2
-	/ZRRx97T7eMS7Vh5fuNq7OEBTFOOYWxS3AgDVh/GGiduPMcvBBD1o3vHpS1dJiccgUqE1lzOfUDEl
-	d+XxqdaQ==;
+	bh=D/s/xAEdSfZnDwTpORRC9ZOWyUJ6URsuayyvBKPDTOE=; b=V5+9Lw1k5mMhEwna/coqCe6nVL
+	9SSfP0fJcX3tbUZqC8VF7eADBOb9BAsZ9rj7dHMm72E2loYwDqI/+07jiaIOvS0ga059Ier3WYddE
+	AaAQoGOZJUmOmsTV9bSqkUmCQ7Kl1qM/rVtN3tAoQCVlGxhk99U4nUSIXQ3wuw4jcUCsuv2kKU7dN
+	OX7YPX6WdB5AQGXkSCe2mlk5JCzn0sKPRDKcFUwEZVtoOv8WkVUxw6JARO0elxqX6x7V6pSXrjZV+
+	1U597sSluvZ0DbW1f2dLciyrAo1wYz9mnRB6reSR3yiq7HHgZLeqiTqm9lNn3JuGPAosAUWFJZmX5
+	q1AfY1Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsj4-0000000Gj7C-0ckk;
-	Mon, 02 Nov 2026 14:09:30 +0000
+	id 1xNsmL-0000000GjTv-2JcA;
+	Mon, 02 Nov 2026 14:12:53 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsj2-0000000Gj75-1pDd
+	id 1xNsmJ-0000000GjTg-3CVN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 14:09:28 +0000
+	Mon, 02 Nov 2026 14:12:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 354C1421F2;
-	Mon,  2 Nov 2026 14:09:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 151A41F00A16;
-	Mon,  2 Nov 2026 14:09:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7165240892;
+	Mon,  2 Nov 2026 14:12:51 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1793628771;
+	b=eEZAX9Ttz2wwWwo9eHii6lQUxATqUdV24TYpBfMmnMPlg2JwYSozUnOLOm05HdOS9NWb
+	 pxSC9XZ3E4bBjqNS656kYaD2Kb3jLtcMjXKnsvskUmda5WpTyO5UA9FPEyUipj9r00I8z
+	 5SQ7p1o5P07gtm3SWeypM+aWE4hEfkR6THNqRT3BbkKQG6ILMfzRUcW77RW05n/gNwwzQ
+	 VgogA1bNr8m4Iq0oCvUKus2wMSDIPuameJIqyj6wUSTMAsPeOnN5Z3IlNNe116lhQ+Alk
+	 YbCHGhoXn4NVFX+6LrsaAs2nFbnXhXIxNIjTe9Sxz3rfvkte6SLMC6SpX8PSK5ItXsw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1793628771;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+	 Content-Transfer-Encoding;
+	bh=D/s/xAEdSfZnDwTpORRC9ZOWyUJ6URsuayyvBKPDTOE=;
+	b=tf5s65H9m+wD4lmi0yzmLg+AiJLhjfEJcwkALG3emXaLbgxg/GpjLQgCawSmF6r9BBaD
+	 SmDMlBK2kjWKUub9x0FTBl/vkt8mk+g7R1LHUZenxX/gNJYIN1fnLx6dJ6ygvU/H+Pamn
+	 k3KRgJKrdHVSqrROWoMR7HudZev0iPGpwiF+LnU9wbdtpfr8TJMlJ1t3b91S0AIYdU6lY
+	 FVXDGQ63NMgsHLhxbYg/D9x8JIHDwsZZq+SZB8ECXUPF0qAz6Rmi4V2QNo5eKCiG+uRdc
+	 6/5qrzIbR1AA9YbPXKxTeyIAzGnprpySmeNqgWM6kNbnAsqBu0lZDMSSZPs9slsL+og==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id D84BA1F00A16;
+	Mon,  2 Nov 2026 14:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793628568;
-	bh=CZoEVf6F8YCU84CWatPj9epyRoPyWPQUR01ARmr0ePM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Or6+I7EFdsKuZBQJXq9kNEm+ElOS/QCA1+vNT24vSXNWQw82ZplS9esCoI1O9PXNO
-	 kd5WYCxtllLVTJDuL5gSxeQwg3Js2onA3eTwO0oYF7i9tOxzw+3S3MLbTsfpezUtI+
-	 YVbvQBnacOYM4C9ZkzKhqi+SU3lFHlATPMzBuC7Soq1Tz6BIBUf6xmyQcBIQHY/Xm9
-	 u4fbL33PYo/gpsQwX8/FC4WZ4bEnZI66OwrG2oOH8HvD5Eek3mjOToij/lLQ0invVn
-	 d4ZU6gB0NMSwBjzzS70ZDAv3dvL4Q76aFXtgaSdFp93WOZihJlzusgFp2AGcC3cLyh
-	 M1H1YU9Mm6aGQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xNsiz-00000009sMz-3ARh;
-	Mon, 02 Nov 2026 14:09:25 +0000
-Date: Mon, 02 Nov 2026 14:09:25 +0000
-Message-ID: <86fqxj2ulm.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: Ard Biesheuvel <ardb+git@google.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH] KVM: arm64: Don't livelock when AT can't resolve a fault IPA
-In-Reply-To: <auiXMN5td-2QlDkd@willie-the-truck>
-References: <20261102094748.2638468-2-ardb+git@google.com>
-	<auiXMN5td-2QlDkd@willie-the-truck>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	s=k20260515; t=1793628771;
+	bh=D/s/xAEdSfZnDwTpORRC9ZOWyUJ6URsuayyvBKPDTOE=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=f3JNmNZwLkDGwt9N81tnnN+iXXr+Zd/ceba9muRmc/gVSGMF9i2qfuQDTZncTKAVR
+	 IVqv4SHAbxGRERalRrhNgIYA94kgDoqpj8DRMX9hzxks9jdA04jrEAcSEpTf4uLQV6
+	 BSsuOjbaUatyLf4QUADAARPvJWqzHKHbjwyaxD5tGmyoun0NUw01IhyaM70S1iWjkl
+	 TYlmBUXzTv7MpcHKsvHOdzhsCXbQ3JOnz52peSXcp4jSrofDLeepN7QWi9uloYxNkg
+	 NyuKb1w6HojhMaIIERDbCxK1ZdxTjRf+pr7iNrQcrJgjFp9XntcbbeaXmM+ghcs2oS
+	 vATb3iTRFJeyA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 37B3B4653F;
+	Mon,  2 Nov 2026 14:12:50 +0000 (UTC)
+From: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
+Date: Mon, 02 Nov 2026 15:12:47 +0100
+Subject: [PATCH v2] arm64: dts: freescale: lx2160a-nbxv3: fix the TCA9539
+ and 1588 line names
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: will@kernel.org, ardb+git@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, ardb@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261102-for-upstream-nbxv3-dts-line-names-v2-1-58f234e478fb@free.fr>
+X-B4-Tracking: v=1; b=H4sIAF6a6GoC/5WNSw6CMBBAr0K6dgxT8IMr72FYtDCVJtKSGWwwh
+ LtbuYHL9xbvrUqIPYm6FatiSl58DBn0oVDdYMKTwPeZlS71GbFEcJHhPcnMZEYIdkkV9LPAywe
+ CYEYSaCqLGs3J1nWpcmdicn7ZH4828+BljvzZlwl/9p96QkC4dFeizureNO7umOjoWLXbtn0Bv
+ fftTdAAAAA=
+To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Vincent Jardin <vjardin@free.fr>
+Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793628769; l=2803;
+ i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
+ bh=hHUsd9bJRSMGNR0btcyRpbeMGj6quxgOVoYnLHWHvS8=;
+ b=XVxrGbzLj2cVry+PSQYRRhZG1x8x3UrZVxwbTaBtdBhzXNMFdnb2kVkOfErzEd2FTDTgnz4HE
+ yIovGfitqAKBx9UEb24BZjbAVkxYLcdVO+RCqW6EsWheUXFhTFYmLR2
+X-Developer-Key: i=vjardin@free.fr; a=ed25519;
+ pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
+X-Endpoint-Received: by B4 Relay for vjardin@free.fr/20260525 with
+ auth_id=871
+X-Original-From: Vincent Jardin <vjardin@free.fr>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,61 +113,96 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: vjardin@free.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, 02 Nov 2026 13:59:12 +0000,
-Will Deacon <will@kernel.org> wrote:
-> 
-> On Mon, Nov 02, 2026 at 10:47:49AM +0100, Ard Biesheuvel wrote:
-> > From: Ard Biesheuvel <ardb@kernel.org>
+From: Vincent Jardin <vjardin@free.fr>
 
-[...]
+Some gpio-line-names do not properly describe the board.
 
-> > diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> > index e0c55644224c..4ba61b71d511 100644
-> > --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-> > +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> > @@ -843,8 +843,21 @@ static inline bool kvm_hyp_handle_cp15_32(struct kvm_vcpu *vcpu, u64 *exit_code)
-> >  static inline bool kvm_hyp_handle_memory_fault(struct kvm_vcpu *vcpu,
-> >  					       u64 *exit_code)
-> >  {
-> > -	if (!__populate_fault_info(vcpu))
-> > +	if (!__populate_fault_info(vcpu)) {
-> 
-> Presumably we need a barrier (DSB?) here, to ensure that the TLBI happens
-> after the AT instruction?
->
-> > +		/*
-> > +		 * The AT couldn't resolve the IPA, typically because its
-> > +		 * stage-1 walk took a stage-2 fault, such as an Access flag
-> > +		 * fault on an aged page-table page. If the guest still has a
-> > +		 * cached translation for the VA, it won't take that fault
-> > +		 * itself, and would replay the same permission fault forever.
-> > +		 * Drop this VMID's TLB entries on this CPU, so that the replay
-> > +		 * walks the page tables and faults with a valid HPFAR_EL2.
-> > +		 */
-> > +		__tlbi(vmalls12e1);
-> 
-> Can we get away with an ALLE1 here, or do we really need to blow away the
-> whole lot?
+The board CPU's RCW sets EC2_PMUX = 2, which gives two GPIO4 pads to
+the 1588 timer, so they are not GPIOs anymore. Name them using
+lx2160 function with the altfn: prefix this file uses for every pad
+muxed to another function:
 
-ALLE1 blows EL1 translations for all VMIDs, while VMALLS12E1 is
-localised to this VMID. Feels like the latter is the least invasive
-option.
+- GPIO4[14] (ball M3, EC2_TXD1) is TSEC_1588_CLK_OUT, the CPU's 1588
+  clock output to the DPLL's reference input.
+- GPIO4[23] (ball P1, EC2_RX_DV) is TSEC_1588_TRIG_IN1, the CPU's 1588
+  trigger input, driven by the DPLL's 1PPS.
 
-Alternatively, VMALLE1 or even VAE1 should be enough to get rid of the
-S1 TLB.
+The board-ID TCA9539 is a read-only 8 bit register:
+ - P00..P07
+ - a test point
+ - P11..P17 are wired to GND
+There is no 16-bit board ID.
 
-Thanks,
+Only the names are updated: the 1588 timer is already described by
+the CPU's dtsi then the CPU's RCW muxes those at CPU reset.
 
-	M.
+Fixes: 565b6713a460 ("arm64: dts: freescale: add Nodebox v3 CPU Module")
+Signed-off-by: Vincent Jardin <vjardin@free.fr>
+---
+Changes in v2:
+- Better explain changes (Sashiko).
+- Link to v1: https://lore.kernel.org/r/20261101-for-upstream-nbxv3-dts-line-names-v1-1-7c8eecb2da9f@free.fr
+---
+ arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
+diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi
+index 9c5588a75cdd..34e02102c214 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi
++++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi
+@@ -206,9 +206,9 @@ &gpio3 {
+ 		"altfn:ec1-rxd1", "altfn:ec1-rxd0",
+ 		"altfn:ec1-rx-clk", "altfn:ec1-rx-dv",
+ 		"", "",
+-		"ptp-refclk-in",
++		"altfn:tsec1588-clk-out",
+ 		"", "", "", "", "", "", "", "",
+-		"u1700-zl30733-pps-out",
++		"altfn:tsec1588-trig-in1",
+ 		"",
+ 		"ethsw-mdio-en",
+ 		"usb1-oc#",	/* USB1_PWRFAULT and USB2_PWRFAULT pads: one wired-OR net */
+@@ -254,14 +254,14 @@ gpio@74 {
+ 		#gpio-cells = <2>;
+ 		gpio-controller;
+ 		gpio-line-names =
+-			"boardid-0x0001", "boardid-0x0002",
+-			"boardid-0x0004", "boardid-0x0008",
+-			"boardid-0x0010", "boardid-0x0020",
+-			"boardid-0x0040", "boardid-0x0080",
+-			"boardid-0x0100", "boardid-0x0200",
+-			"boardid-0x0400", "boardid-0x0800",
+-			"boardid-0x1000", "boardid-0x2000",
+-			"boardid-0x4000", "boardid-0x8000";
++			"boardid-0x01", "boardid-0x02",
++			"boardid-0x04", "boardid-0x08",
++			"boardid-0x10", "boardid-0x20",
++			"boardid-0x40", "boardid-0x80",
++			"test-mode-tp1500",
++			"gnd-p11", "gnd-p12", "gnd-p13",
++			"gnd-p14", "gnd-p15", "gnd-p16",
++			"gnd-p17";
+ 	};
+ 
+ 	u800: gpio@75 {
+
+---
+base-commit: cbbddb6b08cc9900a87cccaa9b22bbe06aa4f50a
+change-id: 20261101-for-upstream-nbxv3-dts-line-names-93b121a5b440
+
+Best regards,
 -- 
-Without deviation from the norm, progress is not possible.
+Vincent Jardin <vjardin@free.fr>
+
+
 
