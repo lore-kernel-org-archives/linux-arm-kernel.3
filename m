@@ -2,91 +2,122 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8ABB606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 12:21:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 611EB60A260F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 12:21:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=k6/iXWel;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=g0Dkuf/h;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=frpi1aMT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MmWru3aj;
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=anyJ9zVg
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=n9Qb7Zv26gUhtCXZTzB8VxfwAxcPhk4AxUJPcz95PHE=; b=k6/iXWelscGnZGFcMB+6uHjvj2
-	yew+xe6SzpfWOn1BfVKFCuCsLHqh8ilKd0ZgQ5YcHeb6igpk0mKILQY69paUn89hB4ZR/pV9SIkfJ
-	7tQIEvvzh3lWDOQPzQGoiNJh0e0iiQ+S8/SwEPgQ/fPFBIOPzUfRySlYQ+gvSwVrKVs4iEG8NZSOz
-	ggFexAxcU+GtUlh4wpEMqhUevM8GzPDLqAibYq6BWORqhJbgW2bLu89dP9m4I2KJ4oNVZPzQRGJgK
-	RQ9SKkCK4ZMfqaBfZ3kM5CS17Qa+5cjIdSWFKuWwejpVC2wX50J3huFOQx1oXPhqsJCeLtZ/9E/Zu
-	9G80llmg==;
+	bh=mEVijfwQXMGRpkR4jQ7zecnwR3MLBwPWs3hjBzf1iJk=; b=MmWru3ajzWMlnFNqWmaTk0fz+4
+	BBTPVXGr9nDfrg3lNQAvpOH5QivhjmAk3wWyGkCYrV6xdPAPQZZ8PwY1a1I0d/gCWz5YVKIrWGwSs
+	HI6s/iAtiE/1xLqWbGrYSOP9pkOmVYfdw6MJ4coysm5T33tze7+Ugdy03dzHc0DHZ46JjW/W6P/rf
+	PS3hU4Vd9B3jyqpPpjQcGMSeaQxYyYsaH1VwwUMwX+yvqi0iZM/gFiB+QHmyKv95tRUwzc5jmrQj2
+	QWTl6pjpoWDRQSXPOj+Gz0fXZI+14bVy5UTMXt/IAp07Qg0xd3SNgapvIji48QN7NOCBPLYJa0spK
+	RLbtg2+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNr1x-0000000GSFk-49Ae;
-	Mon, 02 Nov 2026 12:20:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xNr2Y-0000000GSOf-1HFw;
+	Mon, 02 Nov 2026 12:21:30 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNr1w-0000000GSFW-3klc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Nov 2026 12:20:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=n9Qb7Zv26gUhtCXZTzB8VxfwAxcPhk4AxUJPcz95PHE=; b=g0Dkuf/hALyAYdof3tMhKGtQD4
-	YfrOaqbPxuLTvoj1x2CqCNm15RUX/IDM54ije+6WIle7LL3T3DVmZiGh9blBC+1sKMD7UujPY6YL5
-	37nrPEayd7mtIYmGRDRL+FIeNQ87kJW5UfRLpo7/3yt6wHRjQHD46aa4Ty9HsKndBUHgLTZl8tH7g
-	JK7I2hU2XzpTnx/Orv6d56jUW0L8v+HZ0CBR5GDSvXU4dg96mF2/Q54DjhZRMASTiZQuq7QkeTGOK
-	YoDh6fFcZfOTylTKEesfS4p1dFxcetfzXJNd/WwqHWhDmAx2cwbSpz1++4D5TRpEaWFq3yLwoL2j8
-	e2OoF63g==;
-Received: from out-120.mta0.migadu.com ([2001:41d0:1004:224b::78] helo=mta0.migadu.com)
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNr1k-00000002Ube-1QCQ
+	id 1xNr2V-0000000GSNR-2g17
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 12:20:46 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=n9Qb7Zv26gUhtCXZTzB8VxfwAxcPhk4AxUJPcz95PHE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793622036; v=1; x=1794226836;
- b=frpi1aMT0grWOz2DbYDK5kmGCLFmpaykVNGiN2WrgYXCLoBU5dUH/2bclxmTXdfuGs7rU/Ra
- BieGWQQYhWKmT0H5/1NhlRj+8EKDcgbXXZxh9AVvQDzV5nncWOlVqgnFEfpYDAE95vt0RYufo3q
- 2Ygcsh/hSqyBMESdnemx8aOg=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 53f9424406099905;
-	Mon, 02 Nov 2026 12:20:32 +0000
-X-Mizu-Trace-ID: 53f9424406099905
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5be3b2f17c1so7408e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 04:20:32 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvBzHf0lc7wj8C95R0JXHnQugDc8mLdVvjzXyliW4+SvL/tmVyQb40TjY1Tf7ZVgQe3n7lONd0/bidrjHiGtQZ41h@lists.infradead.org
-X-Gm-Message-State: APuU4Z8ThFxxCV4YLxd93R49ehLtrBiy6mDWuLUHnBwEkjEdaGJcyKDM
-	/rXhJF9xEgxm8llOHBf9/kWUfVpqRuY418dmC78fR5JffIeAjdkGLui2zWVnOGtrJuRrXexra4i
-	uJXOMc8Wj9WLRUu1qez/ToFXCUtL6qrWvw/x/UBGV
-X-Received: by 2002:a05:6512:67c3:b0:5bf:d238:4671 with SMTP id
- 2adb3069b0e04-5bfd23846eamr373591e87.9.1793622031728; Mon, 02 Nov 2026
- 04:20:31 -0800 (PST)
+	Mon, 02 Nov 2026 12:21:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=K0OPO9c8KdJzBZj1cRLR68Jyoudi+hRDlS8hjrqvQd+I73ezi7MNXNsNUVF0YP7H7wbl6xIcGuwrL0lp8V8MqDX2Gy7eg/I3wBHqdZmI4mj/YVW97niUily1nAqSERY6jiyzl1HYF9/FRUFjjY/MpzHzRgRnXnZrK8JwNhawcbTKH9GWT32g1p7MSnA4216HQ22aA9RRmCr0R9lcZ+cAMjCQCWeGAVsQXcCnH0CHbJazSysEIrbbp4dIFNtZonM6xFd8kPdtwx79+6A7W6Ivv7ygmg5xKqF12nqh4dBuWnFV63nT+eVusw/eaagmFRI/Y+bH9wtUlFV775d/CyAJlw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mEVijfwQXMGRpkR4jQ7zecnwR3MLBwPWs3hjBzf1iJk=;
+ b=L6j6vIEbz3DCJo+JrhfUrPwWXLJ5f9u2uZry9T73L0QFI3azHlN2UiKbKOK9IYRpsz+8dE2mYyqZFAkzLQtKjANRi4cgWy9/rLNNucYQpDvSmfH1ApCfB6eWv2N49X+wRVVQ4XfH4h8Kjt+cB4/jEN1Q8hfCJYHsOjwm7LGiPnT9n0f6kvnX0vYW8MtYhul6eq5iRkderucUlaR3anLWUM2NNo69BgzPk/NC3fkW0EbAfyqCepIz4IDUw9CWqdJqLNNBcKHW8PgxmyjHbS+sCg0Zf51VwCaGnkKjnEU3xvruQAGdL3ecaJAOSqNedtvP49gs9lI4kSUj8qeIWC4Nzw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mEVijfwQXMGRpkR4jQ7zecnwR3MLBwPWs3hjBzf1iJk=;
+ b=anyJ9zVg5bl/BHq73drqxWudEBZ3H6SiKTzgO6iwk7CD3f50EKPxjE1aJhrlWn93/Diu7RcIC/M2Va00YOj6GtLwDbNqKCBZxTWshtbObkz9PRi2PwGGtUdmXxjVsF6wVb7+fRcCUJ2qS2A6KQisWNXRl5Wp9XZIH1NvuQf8dkw=
+Received: from BN9PR03CA0725.namprd03.prod.outlook.com (2603:10b6:408:110::10)
+ by LV9PR12MB9783.namprd12.prod.outlook.com (2603:10b6:408:2e8::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Mon, 2 Nov
+ 2026 12:21:20 +0000
+Received: from BN3PEPF00022BC2.namprd05.prod.outlook.com
+ (2603:10b6:408:110:cafe::67) by BN9PR03CA0725.outlook.office365.com
+ (2603:10b6:408:110::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Mon, 2
+ Nov 2026 12:21:20 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ BN3PEPF00022BC2.mail.protection.outlook.com (10.167.248.213) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.592.5 via Frontend Transport; Mon, 2 Nov 2026 12:21:20 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Mon, 2 Nov
+ 2026 06:21:20 -0600
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Mon, 2 Nov
+ 2026 06:21:19 -0600
+Received: from xhdakumarma40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.53 via Frontend
+ Transport; Mon, 2 Nov 2026 06:21:16 -0600
+From: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
+To: Jonathan Cameron <jic23@kernel.org>, Michal Simek <michal.simek@amd.com>,
+	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>, David Lechner
+	<dlechner@baylibre.com>, =?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+CC: <linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<amitrkcian2002@gmail.com>, Amit Kumar Mahapatra
+	<amit.kumar-mahapatra@amd.com>
+Subject: [PATCH 0/6] iio: adc: versal-sysmon: Add OT alarm, shutdown and thermal zone support
+Date: Mon, 2 Nov 2026 17:51:06 +0530
+Message-ID: <20261102122112.1723130-1-amit.kumar-mahapatra@amd.com>
+X-Mailer: git-send-email 2.44.4
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261102094748.2638468-2-ardb+git@google.com>
-In-Reply-To: <20261102094748.2638468-2-ardb+git@google.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 2 Nov 2026 12:19:55 +0000
-X-Gmail-Original-Message-ID: <CA+EHjTwW9Pg+sMPOY49d9M5WLCM3Opz8ZBL4vBVqk9qJT9q0Nw@mail.gmail.com>
-X-Gm-Features: AclHuK9zQLM777IMz9gaSa4k5VTfHhR4TDeMPA5ad8PHcF0LDzew-mhjZ3P0zAY
-Message-ID: <CA+EHjTwW9Pg+sMPOY49d9M5WLCM3Opz8ZBL4vBVqk9qJT9q0Nw@mail.gmail.com>
-Subject: Re: [PATCH] KVM: arm64: Don't livelock when AT can't resolve a fault IPA
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Ard Biesheuvel <ardb@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF00022BC2:EE_|LV9PR12MB9783:EE_
+X-MS-Office365-Filtering-Correlation-Id: 832816ca-70a8-46a4-15fd-08df38dbcd7b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|23010399003|7416014|1800799024|10067099003|18002099003|56012099006|11063799006|261021121427099003|261026121527099003|261026140227099003|261022105027099003|261009221227099003|261009223027099003|261021123027099003|261028144727099003;
+X-Microsoft-Antispam-Message-Info: /3vGhk4e1M7K5VZgDgpX/DpWE86Dr039o1Yf7p+nGn6Gd6K7X53mUCYR+v2Uh/VTHA+NHvvnemG+b0zPlWIYU+gLzUEbpVzErRhzE4OjXeW6XB7wDMN+PO3Z7PF1IL9N4lM7w9PSRtgncfADJrZiPx9NO7VLsawn6wzvRUTYEr3B1xTlWnKNyZguLZa8k+wg4ZhOVl58kDwjSFiXU5IqsEF8gdqH6I0MOFG7g4W4A/3zPvOV7XQuBzIdIpC9KPuk8gk8RrOCUyG0HQoHkousR1kjWfxh+L1GPa2YPAHM8AfWMH4w/i69kC5RpEo9gpXE646R+CB3kZjA7mYIW62820Wz0Zigydsw5IYt4Ps+1gwSDgQ2XbEMO7AHOza0yQx8eenQu5Ptym7OFC5N1f6yKRNlbmqbzXqONEmraNM7kOYcEZJ8Y6URHAbA+LCTXq8IXfKfhFeQhMumO5GMd04WN7bcKSXsoYcj9oO2+AAlPe7wfGjSYXRmA5/z1NAXBtmzhQYX4RMVirS3a99UjrTx2gowuk3vU1OC/oQalZZnEUOXXObHK7mzpS28ZOmk5xX3Ycl6RhamtiCV5kS3IAjaYnJRsvC3+/4mHo4UODvb68WiMLwsR2JfORVZHNkesVz2wxpafonILxW889yzesPHlhUF+XfYVzV85g6s6QKQB6GgPCZGkDoytpyMDQTatigXiHAOq5ckt8c0lsU5c24C2g==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(23010399003)(7416014)(1800799024)(10067099003)(18002099003)(56012099006)(11063799006)(261021121427099003)(261026121527099003)(261026140227099003)(261022105027099003)(261009221227099003)(261009223027099003)(261021123027099003)(261028144727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: eKMEUzSFcTMKtFR8x7JXZvye4TnWJWGAE9rTlMjb3945+4S00eBfi1RlQ+UbahOV+5KXyFoRb74/WJGSJaO/YIfaf82/tF55bl9OxcuhGOJW9jeJMnXtdFf1m4v2f18J+/2j3FfA/2a7HK3kikdeIijF2xBD04Lq2LQsjvOsyBcokWkihv1oVbLPo2SNfDElZfFxVb1zwSKF50aAYviY8639nrjG9ml4tglW5UWS5OfxlHEVf0i2F7OyJcjSjvgKzK3DhnmotkgkyNB6z6JUTq9tQCWQa/2Sh75s6B9RZM8ChRnV1zYGr91OBKnVKOFQk2QSFW9GLlCJBSmHDxQPlAmNRss9F93KSCpUpNoAX+tXMBwf6fNUyeaw7Z7/gRgsCYJhM+idtge4Fx5sOEhBDMDu9fonIHDlNBsV/nLDFV1NQR6uPMnHR7nREKlI0WKJ
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Nov 2026 12:21:20.5860
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 832816ca-70a8-46a4-15fd-08df38dbcd7b
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF00022BC2.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV9PR12MB9783
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_122043_983072_E7B77652 
-X-CRM114-Status: GOOD (  10.92  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20261102_042127_677349_649C69AC 
+X-CRM114-Status: GOOD (  11.08  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,35 +128,47 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Ard,
+This patch series:
+- Fixes a race between the interrupt teardown and the interrupt handler
+- Validates the temperature hysteresis written by userspace and read
+  from hardware at probe
+- Adds a .shutdown callback so the SysMon alarm interrupts are disabled
+  when the system shuts down or kexecs into another kernel
+- Adds the over-temperature (OT) alarm as an event-only channel labelled
+  "ot", alongside the existing device temperature event
+- Updates the Versal SysMon maintainers: removes Salih Erim, who is no
+  longer with AMD, and adds myself
+- Describes the SysMon in the Versal NET device tree, with a thermal
+  zone on its device temperature
+- Adds thermal zone support for the SysMon using the existing
+  generic-adc-thermal driver
 
-On Mon, 02 Nov 2026 09:47:49 +0000, Ard Biesheuvel <ardb+git@google.com> wrote:
-[...]
-> When a stage-2 permission fault doesn't report its IPA in HPFAR_EL2,
-> __get_fault_info() recovers it with an AT S1E1R/S1E1A on FAR_EL2. If that
-> fails, kvm_hyp_handle_memory_fault() goes straight back to the guest, on
-> the assumption that the replayed access will either succeed or take a
-> fault that the slow path can handle.
-[...]
+Amit Kumar Mahapatra (6):
+  iio: adc: versal-sysmon: fix race in interrupt teardown
+  iio: adc: versal-sysmon: validate temperature hysteresis
+  iio: adc: versal-sysmon: disable interrupts on shutdown
+  iio: adc: versal-sysmon: add over-temperature alarm events
+  arm64: versal-net: Add SysMon and thermal zone
+  MAINTAINERS: update Versal SysMon maintainers
 
-Tested on QEMU (pKVM with protected and non-protected guests, VHE and
-nVHE, and page_fault_test) and on an Apple M4 in nVHE, booting UEFI
-guests with DAMON_STAT on. On the M4 I added a trace event to the new
-branch, and it fired once in 120 boots, on a guest write to the UEFI
-flash (a read-only memslot).
+ MAINTAINERS                                |   2 +-
+ arch/arm64/boot/dts/xilinx/versal-net.dtsi |  29 ++++
+ drivers/iio/adc/versal-sysmon-core.c       | 158 +++++++++++++++++----
+ drivers/iio/adc/versal-sysmon.c            |   6 +
+ drivers/iio/adc/versal-sysmon.h            |  15 +-
+ 5 files changed, 182 insertions(+), 28 deletions(-)
 
-Since a guest can livelock on this, I was wondering if it should be Cc: stable.
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+base-commit: a3b3580713f3ac5a32dc2874ee546828977a1d68
+-- 
+2.34.1
 
-Cheers,
-/fuad
 
