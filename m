@@ -2,107 +2,62 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D45F0606A928
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 17:49:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 595CC606BA5C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 17:55:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kfLYcWM5;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UzbIT5ys
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zXxZZIL3;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IxwSX640
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
-	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=SnX1aA2HT7Cbm61i2TXLxZiThPnfvq1ghiLIHpuO9ZI=; b=kfLYcWM5qTmXJOgg6LBUslcEFO
-	DJnS7rflKLXnrLQpD5yX+9g8JNuSpWHw+cN1gsyI/K1KzqHdMmOgF67I3xHYz2U2otnypco/s9qQc
-	IBxViKTxePDS7Da8fxlNWVdhR1krRRyKhJRzARFbF/ZGqYP9jnyDyTNPla5oNPA5c4ybCMx2oMrp5
-	oHXRrDj2w+4DSb9mGKd6gRM6Mw0hxH0TMbJBNwfZg7keQ7j+XXdbf12YUNnuj6u5c8mW0BmIsyv3t
-	ZuUftTJjG3x0qJhZxRWvOHyb1HfAj7teKWfk2w4sxFc5vBSWkwVkxZApruosCsHx/lP7Kh6ODPyqX
-	Euw9RAwA==;
+	bh=pQrWz1faFiddLliYKRPxrOHyvprHZLzoea8K55JlsvA=; b=zXxZZIL30EF+WkHYr6W/48WRP9
+	FZp98a/OzGw5fzhRpz0NVtN5/sZPVYdZ4vqHsJZuJ4EQFbQoj/dvT9A1ik4fGN9Ujz0eVdTyOoiml
+	5CttRmef6RaaDw2r39KqlTODlnWGfrHvdvs+sRg122kNBGIFs42LxLwAZahprsBjWpounAhR824No
+	7DG97AegkySmJVJ9LkRj9GyDUCHDwoUh21ZAh9jnfNNM4jC4a/UycFwzdf1nUr+NwLaYgQHW6LLQC
+	KPykJEBM4hilQ5oKFsxWP164HdhkBF+ACfYugVaGDuc4DnbtVbXbrkt83ZHMqzeOnSQr9110wqaSv
+	yVpNR19Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNwAJ-0000000HX2P-3SHG;
-	Mon, 02 Nov 2026 17:49:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xNwFS-0000000HXM7-24gz;
+	Mon, 02 Nov 2026 17:55:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNwAI-0000000HX26-1WQk;
-	Mon, 02 Nov 2026 17:49:50 +0000
+	id 1xNwFQ-0000000HXLr-3o1l
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Nov 2026 17:55:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B0D3741684;
-	Mon,  2 Nov 2026 17:49:49 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793641789;
-	b=hMUR1VswI5nhONCsranH5chc0kJdZ9R2CsDHp7W6K6mPBfQBX8wDCeg2K/GP9lHgKAsU
-	 w+A/29sHdEK4CK81UDqbhgIUG3KRFtaUotfR/pm+F3rdEnQdpDPk5qMAsMzISuVpsNhdJ
-	 CKRlimKofCg8b8zaH65HVre9YbDors7CX8OLooivPr0StdY4WQGZDXzgLq+Aj8utPSTdy
-	 uo5KNe46weTaONC5d6p5jvprA0aHuxuRpff2IwezKc7LWQkwpt9TkyEKJMOtffrHDn0li
-	 tld/vnRrXLKxE2rqQ0aMJ9fpdXMeaIkzi5qvFrmw+ZQ2q0Ve5Y8TIyr6sFRekAQAJoQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793641789;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
-	 Content-Transfer-Encoding;
-	bh=SnX1aA2HT7Cbm61i2TXLxZiThPnfvq1ghiLIHpuO9ZI=;
-	b=pJTcmTt3vaqUbLtuNKDbhbM0GIFDflU0TRmPoy0k9uMNVaDZZe42nXZlAudbBPozi7cW
-	 /FIrDZnY5X6PBNUA1zCK6NqxO6rJR9z7tcwsBzkuQyQJ7SFH7nH53l9rM3lbDsCxmcovN
-	 ESEQcFDL+99/iDJJ2Kt9+rb4iB2j2aGzcyJjVYR4cNMALRIiFfiHtwQzEky0WosG2BgRS
-	 nsQAO/7hr7uw9pO/694xIIoX5FYelReG4KINp3Q16PMKZp/tBqDi47XNlDhGWKkKvbVmU
-	 uVaQKcWEPKAmZyE6S6FGMbNN4ZhZ3OwtIfeSjRPaea63Dmkiw09KObz/tUaiWcL2QAw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 28A7E1F00A16;
-	Mon,  2 Nov 2026 17:49:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0EC5E60F0B;
+	Mon,  2 Nov 2026 17:55:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A95311F00A18;
+	Mon,  2 Nov 2026 17:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793641789;
-	bh=SnX1aA2HT7Cbm61i2TXLxZiThPnfvq1ghiLIHpuO9ZI=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=UzbIT5ysOqmaEQwiAabE+RhW7d+yCygIKKGG1+eAcV/83aNtla8e/yZOYlp/EgZNq
-	 3jHuGsmjluldyUKZAWORUN7Narw/Fk4M20ihXjkDcKW2cygEZYElBxlWcVvTdYVpQH
-	 Y1/h6iLnmHx1yA3WIpyVBQkOJAnwiUAt5mUFZEcZ6y6/gVbyFyUr2pI40dJ+lj02Qm
-	 TkFydwIa9etko6aWPxGBkCvwpYKkBidRMqexsPkfYO+v/dja+Q6G35QTJZefGFvg2J
-	 78QTAniDMkBZvqO07xMxJEDBLFm9tREDruvBxrlGj4QYoxQCzAe/hzuQS7xGGErNuT
-	 B8wLo+OL58ABA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id ADB24465BF;
-	Mon,  2 Nov 2026 17:49:48 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Mon, 02 Nov 2026 17:49:46 +0000
-Subject: [PATCH] media: rkisp1: Depend on PM
+	s=k20260515; t=1793642107;
+	bh=pQrWz1faFiddLliYKRPxrOHyvprHZLzoea8K55JlsvA=;
+	h=From:To:Cc:Subject:Date;
+	b=IxwSX6408H/Hh9XMwSjSUDTsMmbsJ8td4vzSrd2svDG55I6Mhggzo+nAaFy2AhBPR
+	 DTDTsoIxwQxSY0v6WyVxTHLIFOypG2Zjo4Dy5PswE1m5HIakzrvXie1gsPy+kvBh7s
+	 iR53zpuyPRXamc5TS8QHBgyjBt89PvLSCaHP8KDAGEjRvsmnX1y+NWgxxytLeCKTcn
+	 tSbwT6ykzso3UD1GwObfo9M+VawWPgxBGLNMsbZXEjvSxEIdSmLlB7ooUGLfxGzbLj
+	 z1S+9YJO5sSdopvAtSPryEHHZJKc7+CHc+jVvpn6wiYn8hthkeT3eq75X2UWEBwyUH
+	 btXnDw99SN8lg==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: SoC Team <soc@lists.linux.dev>,
+	arm-scmi@vger.kernel.org,
+	ALKML <linux-arm-kernel@lists.infradead.org>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Arnd Bergmann <arnd@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [GIT PULL] firmware: arm: Fixes for v7.4
+Date: Mon,  2 Nov 2026 17:54:39 +0000
+Message-ID: <20261102175440.1063545-1-sudeep.holla@kernel.org>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261102-rkisp1-depends-on-pm-v1-1-35a26cb2bbce@iav.lv>
-X-B4-Tracking: v=1; b=H4sIADnN6GoC/x3MQQqEMAxA0atI1gZMHIV6FXGh06hBrKWBQZDe3
- TLLt/j/AZOkYjBUDyT5qekVCqiu4LvPYRNUXwzccE/UMKZDLRJ6iRK84RUwnsjkvPtw65auh5L
- GJKve/+045fwCB8GFrmYAAAA=
-To: Dafna Hirschfeld <dafna@fastmail.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Hans Verkuil <hverkuil@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1497; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=jIOYNEwnZtImPbbvWDWM3rNp8UHpADnjrlqR/x0YeIY=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDFkvzlorGesuDT/htuP9vsfeTXcsb6veX16Rckbs93YWB
- etfZReVOkpZGMS4GGTFFFkmHNK4lbHk6l9/D/MHMHNYmUCGMHBxCsBEIgoYGbruLmbNPF9mf728
- P7yRt8fjsK7pVedP5ca8/84EL5q76gLD/7qbqwve3p9/vZPr5dtJ2csqc0zvHO+qi8zZlHX2SLy
- hDTMA
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,58 +67,100 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-23.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,INCLUDES_PULL_REQUEST,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Igor Velkov <iav@iav.lv>
+Hi ARM SoC Team,
 
-rkisp1_runtime_resume() enables the clocks and lets the interrupt
-handlers run. Without CONFIG_PM it is never called, so rkisp1_probe()
-reads RKISP1_CIF_VI_ID with the clocks disabled and every interrupt
-handler returns IRQ_NONE.
+Please pull !
 
-ARCH_ROCKCHIP and arm64 ARCH_MXC select PM, and no arm32 i.MX has this
-ISP, so only COMPILE_TEST builds lose the driver. rkcif already depends
-on PM.
+I have included one dts file fix in this, hope that is OK. Let me know
+if you prefer to keep DTS separate even for fixes.
 
-Signed-off-by: Igor Velkov <iav@iav.lv>
----
-Split out of the rkvdec CONFIG_PM discussion, as Nicolas asked [1].
-Without PM, olddefconfig on arm64 COMPILE_TEST now drops the driver;
-with PM it builds as before (W=1).
+Regards,
+Sudeep
 
-[1] https://lore.kernel.org/r/8aafdbbf04a0d939c6b4d7d5577d97bb58d1c439.camel@collabora.com
----
- drivers/media/platform/rockchip/rkisp1/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+-->8
+The following changes since commit 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4:
 
-diff --git a/drivers/media/platform/rockchip/rkisp1/Kconfig b/drivers/media/platform/rockchip/rkisp1/Kconfig
-index f53eb1f3f3e7..c825fbacee96 100644
---- a/drivers/media/platform/rockchip/rkisp1/Kconfig
-+++ b/drivers/media/platform/rockchip/rkisp1/Kconfig
-@@ -4,6 +4,7 @@ config VIDEO_ROCKCHIP_ISP1
- 	depends on V4L_PLATFORM_DRIVERS
- 	depends on VIDEO_DEV && OF
- 	depends on ARCH_ROCKCHIP || ARCH_MXC || COMPILE_TEST
-+	depends on PM
- 	select MEDIA_CONTROLLER
- 	select VIDEO_V4L2_SUBDEV_API
- 	select VIDEOBUF2_DMA_CONTIG
+  Linux 7.4-rc1 (2026-11-01 13:26:31 -0800)
 
----
-base-commit: 27285b099fbc5cb2ae3aef20f3bbd7b3c88b3005
-change-id: 20261102-rkisp1-depends-on-pm-219d94239b56
+are available in the Git repository at:
 
-Best regards,
--- 
-Igor Velkov <iav@iav.lv>
+  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/arm-fw-fixes-7.4
 
+for you to fetch changes up to 09fd63fe687ffa2d6594cd31d6fcf5fa7740a63c:
 
+  Merge branches 'for-next/smccc/fixes', 'for-next/scmi/fixes', 'for-next/ffa/fixes' and 'for-next/juno/fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux (2026-11-02 11:33:33 +0000)
+
+----------------------------------------------------------------
+Arm Firmware Interfaces(SCMI/FF-A/SMCCC) fixes for v7.4
+
+SCMI fixes correct protocol-device creation and request tracking in raw
+mode, allow the generic and i.MX pinctrl drivers to share the standard
+SCMI pinctrl device, and avoid creating unused performance-domain
+devices that block cpufreq consumers through fw_devlink ownership. It
+also includes dropping now unnecessary ACPI config guards and several
+robustness fixes: bound i.MX MISC syslog and control responses,
+unregister notification callbacks on event-enable failure, and free
+mailbox state when shared-memory mapping fails.
+
+The FF-A notifier fix distinguishes notification IDs within a hash
+bucket, preventing callback registration and delivery from using a
+colliding ID.
+
+SMCCC and GICv3 fixes restore builds on 32-bit ARM when SMCCC discovery
+is unavailable, while restricting the discovery dependency to arm64
+where the NVIDIA erratum workaround applies.
+
+Finally, correct the Corstone1000-A320 GIC redistributor region size
+for its GICv4 configuration.
+
+----------------------------------------------------------------
+David Cemin (1):
+      firmware: arm_ffa: Compare notify_id when looking up notifier callbacks
+
+Geert Uytterhoeven (2):
+      firmware: arm_scmi: Update ARM_SCMI_HAVE_TRANSPORT rationale
+      firmware: arm_scmi: Fix grammar s/thing/things/
+
+Julian Braha (2):
+      firmware: smccc: Provide stubs for HAVE_ARM_SMCCC_DISCOVERY=n
+      irqchip/gic-v3: Select HAVE_ARM_SMCCC_DISCOVERY only on arm64
+
+Rob Herring (Arm) (1):
+      arm64: dts: arm: corstone1000-a320: Fix GIC redistributor region size
+
+Sudeep Holla (10):
+      firmware: arm_scmi: Avoid protocol devices in exclusive raw mode
+      firmware: arm_scmi: Skip requests for standard protocol devices
+      pinctrl: imx: Match the standard SCMI pinctrl device
+      firmware: arm_scmi: Skip unused performance-domain devices
+      firmware: arm_scmi: Drop redundant ACPI configuration guard
+      firmware: arm_scmi: imx: Track copied syslog words
+      firmware: arm_scmi: imx: Validate MISC control response size
+      firmware: arm_scmi: Unregister notifier on enable failure
+      firmware: arm_scmi: Free mailbox state on mapping failure
+      Merge branches 'for-next/smccc/fixes', 'for-next/scmi/fixes', 'for-next/ffa/fixes' and 'for-next/juno/fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux
+
+ arch/arm64/boot/dts/arm/corstone1000-a320.dtsi     |   2 +-
+ drivers/firmware/arm_ffa/driver.c                  |  11 ++-
+ drivers/firmware/arm_scmi/Kconfig                  |   2 +-
+ drivers/firmware/arm_scmi/bus.c                    | 110 ++++++++++++---------
+ drivers/firmware/arm_scmi/driver.c                 |   4 -
+ drivers/firmware/arm_scmi/notify.c                 |   4 +-
+ drivers/firmware/arm_scmi/transports/Kconfig       |   2 +-
+ drivers/firmware/arm_scmi/transports/mailbox.c     |   7 +-
+ .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    |  18 +++-
+ drivers/irqchip/Kconfig                            |   2 +-
+ drivers/pinctrl/freescale/pinctrl-imx-scmi.c       |   2 +-
+ include/linux/arm-smccc.h                          |   7 ++
+ include/linux/firmware/imx/sm.h                    |   6 ++
+ 13 files changed, 113 insertions(+), 64 deletions(-)
 
