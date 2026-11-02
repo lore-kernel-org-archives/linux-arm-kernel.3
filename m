@@ -2,68 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0D1F606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:13:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02138606A33F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:13:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lLHJU5CW;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VRxTfCma
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sVBJ6duh;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=N3l60SDP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=XPRtcZyPX5uyQlsqBbPqlbi2Hh4PJVsJ6P0BXSRYmAk=; b=lLHJU5CWPjvffwit0H7GhKJA4Y
-	2OeTkfUeGE/QN5hwtduQBfmqx2Rt7Nb4ivg6gdKvXmSGF/IDSNsXtzZdFC+Bwj9foPmqJfJa2Asc8
-	6IzDttoE7POjeIqaTyX2FhQXVx8XLloAOHPnJUHk+3/b4k6cw0Pt4UYAj1B6eRSxcD+Hfu1ilv9XH
-	Z3aNStCYFoGE3u/TVmj3PemjomFj4NS2tL5LMSbDQiS6Oe+xOmTN99qJVX53e8inwtOJW1/LFIpeq
-	HBVW2PktJl045MWj3z9wlA9LsADX6nkJ5XA7zopc5E9SYt1vjArHLEHyQyu+IiW7URaqCKrcgc9Ed
-	XpJng2RQ==;
+	bh=Ua1DOoDM2ycibNdB6MjyfXMQfwPGZxy1wTaNHdPExSE=; b=sVBJ6duhfVjGbEOjzM9iUemKxY
+	nsac/U0EpPR3JlM97jfKhaIagO7JiZyh9e4Xyp1xCKHWvCLtnW4qHhVlGZZDdS3sT0cQXyZkGFp1X
+	DBUnoYGNn0ptVCguEg+xvXT7g0vQHmKTCVbeLvmPBM0IydgA8jAevrFz8a7m0uiRcLKpb49ImyYkR
+	8VRfxn8+5SMllEzUChf2nydshUBMY1Q3WGQZRz8Tz/jZ2JRRRPK6fFWNU57TPA2RWYLX7FaeKKXpd
+	MGeK2eD/v9lyUXwex7VyOGNvdYL/EJN/ETW77CYVVUCH2Tk2LSwo3+u4PQdz7BVXIyXmz4wGPmlGK
+	R6afR1AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsmb-0000000GjYE-3ABV;
-	Mon, 02 Nov 2026 14:13:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNsma-0000000GjXo-1ZmZ
+	id 1xNsn1-0000000Gjel-3ng9;
+	Mon, 02 Nov 2026 14:13:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNsmy-0000000GjdU-28jP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 14:13:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 26CAE402C1;
-	Mon,  2 Nov 2026 14:13:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 415641F00A16;
-	Mon,  2 Nov 2026 14:13:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793628788;
-	bh=XPRtcZyPX5uyQlsqBbPqlbi2Hh4PJVsJ6P0BXSRYmAk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VRxTfCma8suNDbAIew/uqNt2bgj8LgYc15bq9P6bz/YxU+n1N3TEzLZoUbSEpSg13
-	 IHzInqJBrnlrpMl1kZxiMTqGHQu6ltNsXPcGdQ3xqXN7NB2oak6VPWpe9VMHEyKf8C
-	 apXhKvnNNL5EspRWogeyjQXwMm+/nfDupYn7EVytH1qezntwPTyyaLh6GWcK4lqLMe
-	 Z9bTalVJJCwnuoRg8vEfaY6Z4XXUs6bue1se/fw3bNFLiqoT+uoGAX/OZbolSBpY21
-	 byimb68/dgZy+BOFsbKJcdSjrQrv9e8Up8iNKTNSAHkV6FhIMsvbiKy18gLftamcCt
-	 tnm9kXlL55wqg==
-Date: Mon, 2 Nov 2026 15:13:02 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Sascha Bischoff <sascha.bischoff@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
-	Timothy Hayes <timothy.hayes@arm.com>,
+	Mon, 02 Nov 2026 14:13:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43EB31691;
+	Mon,  2 Nov 2026 06:13:26 -0800 (PST)
+Received: from e122027.arm.com (unknown [10.57.58.9])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A554D3F59E;
+	Mon,  2 Nov 2026 06:13:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793628809; bh=c0J8oAMjRRRr84vzXcxPgHvZvqambP7No/QhePqrRBE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=N3l60SDPbFfZ/rOuZxoYhJ8tcOkCD9sP+8uYKl4eoZq/cgrmQrEnoisz5nMtdJLuD
+	 qWSdXM9gtzbElbowMGwonb6XxZqM4kWzYJXehgEmhhYeY30TR0+NZkpilaJfrOo8Bi
+	 7jmItYOE9907P8VlBdZFksu/Z3QQYoEXRV8ARkH8=
+From: Steven Price <steven.price@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 06/10] irqchip/gic-v5: Honour ACPI ITS noncoherent flag
-Message-ID: <auiabr1U4c9C7FwL@red-moon>
-References: <20261102-host_gicv5_fixes-v1-0-743b61626fc5@arm.com>
- <20261102-host_gicv5_fixes-v1-6-743b61626fc5@arm.com>
+	Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: [PATCH 00/11] KVM: arm64: CCA: Prepare Realm memory management
+Date: Mon,  2 Nov 2026 14:12:51 +0000
+Message-ID: <20261102141304.126883-1-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261102-host_gicv5_fixes-v1-6-743b61626fc5@arm.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261102_061332_637609_22086EBD 
+X-CRM114-Status: GOOD (  11.24  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,50 +89,68 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 02, 2026 at 01:32:59PM +0000, Sascha Bischoff wrote:
-> The ACPI ITS probe passes its noncoherent flag to
-> gicv5_its_init_bases(), but the common initializer checks a DT
-> property instead. For an ACPI ITS, this always selects coherent cache
-> settings and skips the cache maintenance required for its tables.
-> 
-> Use the noncoherent argument, which both firmware paths already
-> supply.
-> 
-> Fixes: a97efa5ba5946 ("irqchip/gic-v5: Add ACPI ITS probing")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  drivers/irqchip/irq-gic-v5-its.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
-> index 866c238f08dfe..c5d057f713134 100644
-> --- a/drivers/irqchip/irq-gic-v5-its.c
-> +++ b/drivers/irqchip/irq-gic-v5-its.c
-> @@ -1135,7 +1135,7 @@ static int __init gicv5_its_init_bases(void __iomem *its_base, struct fwnode_han
->  			goto out_free_node;
->  	}
->  
-> -	if (of_property_read_bool(np, "dma-noncoherent")) {
-> +	if (noncoherent) {
+This series adds the memory plumbing for CCA building on the basic
+plumbing[1] that has just been merged.
 
-Bah. This is a very stupid thinko. Apologies.
+These patches add the internal realm VM state and RMM feature checks,
+prepare realm stage-2 setup and teardown, and provide RTT mapping and
+invalidation helpers. Realm memslots are now contrained to the lower
+half of the IPA space, because faults treat the protected and shared
+halves as aliasing. The final patch then connects these helpers to the
+KVM stage-2 MMU operations.
 
-Acked-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+There's also an integration branch[2] that builds on this series and
+includes the realm descriptor creation, REC entry/exit, activation and
+the new uAPI. This series by itself is also available as a git
+branch[3]. However the new code isn't generally active without the full
+integration branch.
 
->  		/*
->  		 * A non-coherent ITS implies that some cache levels cannot be
->  		 * used coherently by the cores and GIC. Our only option is to mark
-> 
-> -- 
-> 2.34.1
-> 
+[1] https://lore.kernel.org/all/20261007073537.2454351-1-suzuki.poulose@arm.com/
+[2] https://gitlab.arm.com/linux-arm/linux-cca
+    branch: cca-host-mm/v1/integration
+[3] https://gitlab.arm.com/linux-arm/linux-cca
+    branch: cca-host-mm/v1/mm
+
+Steven Price (7):
+  KVM: arm64: CCA: Reserve the RMM mode
+  KVM: arm64: CCA: Check for RMI support at KVM init
+  KVM: arm64: CCA: Check for LPA2 support and SHA-256
+  KVM: arm64: CCA: Add basic infrastructure for creating a realm
+  KVM: arm64: CCA: Tear down RTTs
+  KVM: arm64: CCA: Add Realm RTT mapping and invalidation helpers
+  KVM: arm64: CCA: Support runtime faulting of memory
+
+Suzuki K Poulose (4):
+  KVM: arm64: CCA: Introduce Realms
+  KVM: arm64: Handle attributes in stage2_unmap_range
+  KVM: arm64: CCA: Prevent memslot modifications after Realm creation
+  KVM: arm64: CCA: Add Realm stage-2 MMU operations
+
+ arch/arm64/include/asm/kvm_emulate.h   |  29 +
+ arch/arm64/include/asm/kvm_host.h      |  62 +-
+ arch/arm64/include/asm/kvm_rmi.h       | 109 ++++
+ arch/arm64/include/asm/virt.h          |   1 +
+ arch/arm64/kvm/Kconfig                 |   1 +
+ arch/arm64/kvm/Makefile                |   2 +-
+ arch/arm64/kvm/arm.c                   |  33 +-
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h |   2 +-
+ arch/arm64/kvm/hyp/nvhe/switch.c       |   4 +-
+ arch/arm64/kvm/hyp/nvhe/timer-sr.c     |   2 +-
+ arch/arm64/kvm/mmu.c                   | 242 +++++--
+ arch/arm64/kvm/rmi.c                   | 852 +++++++++++++++++++++++++
+ 12 files changed, 1275 insertions(+), 64 deletions(-)
+ create mode 100644 arch/arm64/include/asm/kvm_rmi.h
+ create mode 100644 arch/arm64/kvm/rmi.c
+
+-- 
+2.43.0
+
 
