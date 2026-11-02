@@ -2,125 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D983A606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 20:37:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD2A9606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 20:38:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4i8LoqNi;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DfR132yd
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tQO+p1iv;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rw5WNuao
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
-	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=UsM44Bz2hR0jwZlDUjpk1mrvCsTX73s8ccqm/Jjs4CI=; b=4i8LoqNi4ljGN6UT5nedrUw91q
-	6dT3/oxW8LTWbkKYxT2WFdT8t2+rvf0ur+330EYA+v22iGBpbwiDJdLohL2LOnCzZPKzFOBdlsSN1
-	5JfcZAL1+naocYsOppz1lUEic5WfIUDlSvOLbv+MJfgJV9rW33F+4KZUD3SbfhAxifNt44sfGOHEc
-	kMjlUBOXi6byD6fU9I0I6m8/w+2kAaNgUL9UMryT90I7gERFmJJff+ut7+vHFEH46XbrVBfw3XwSk
-	dxfIo82KYJXD5o96iq9gKHsXpRkBievAgZLWtezOQXA1ZErtocw1gWEWJLL/MzlCX27OBgR/53CqB
-	ZsLLgrrg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=JqOfHGfqq8y0jqDTq9u5axpAxahHuV8gA44EpfAxrF0=; b=tQO+p1ivsGfc8R
+	GuIPb20NXMtYfQCGaUdrZnT8eXvrAo6yio/P/PkJKGI6Qw7nDKr17+ZAd+p1HbEl6tE4HEza9fBxw
+	nJcXAsneOM6sinWlpomnyqc26kyQZiTBwo7/C5gZL4uGGIGYQu2pj1jKmdpZMTWqaVNjvqz2N/nhG
+	z/APhn9X+Zo9XQ05Ux4tOyVMJvIlid4a4fEMJCT3eY1otXIhzBZLhwQwv34sjsxoZWRfipiLWp2j8
+	ZfQzq+emy0jpVH0s+ITTm7Y8rfqqWbJ318yhssaVBipjxaJmu/BTcqDD55d7YCc1uPv+yVb3UA9h+
+	Fu3En1VRZDayzn1b7ptQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxxy-000000008ST-3ZM6;
-	Mon, 02 Nov 2026 19:45:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xNynS-00000000M98-3eQQ;
+	Mon, 02 Nov 2026 20:38:26 +0000
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxxv-000000008Of-2MTf;
-	Mon, 02 Nov 2026 19:45:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C06F560546;
-	Mon,  2 Nov 2026 19:45:10 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793648710;
-	b=iSy78I70IOJYScaOUENQkyhXTm6jG5lPLbf1YCxnafzfUjkRKFbLfO/wWkHx25o8nMIC
-	 memyx3LQD1VYL2gOGxE5exW7A/KuJBQAZ12XBEoXdm62nMxBCGQUqpSUDfTYf0DWdNZeS
-	 5L0S1FcSOXXwMrXErzovOICcuQ3udivo9DiS9Kh7P5SDG5HrWWp5cFdBJSnv9egLF0p3Q
-	 aJbP/fcEUc1/Eh/5t+P2+src/1H9MRzv4coQzJ6JVV55C9vmLUQghZexJuesL8MkdSQBf
-	 HOrN8gJUp7lSVBP7u99pOzX5q68fHpx7VtF9zKNhPyLnsLDrXF4vP+sJd94QvqThmuw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793648710;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=UsM44Bz2hR0jwZlDUjpk1mrvCsTX73s8ccqm/Jjs4CI=;
-	b=wbPelbF7H0+N+IF6hoV6PhI9pB3x4m3ArJvnapdPVukEzB/1cSVN4iPkyWlnfSMIXgcH
-	 sf9U7aN/IfvO9GhNZa/+POkC5pd5gR2TNVknyfs1k4NurwF6g3L1Jwqz4TBJywpQGYAmk
-	 oFc1zA6p0BdZbirVsr0zPGozqcR/HD9PZSNW2WAw2RV9TjtZzfL9ZyWTuCxFPhF42iTZB
-	 bjQtzjXJuiMpTL2PPQXdUh6yt7YMDaD7XNTeVx4k9HHs0ibZ7TEuk8jgWzYNr6X24veQK
-	 u5abZUukJ/se6SnDQZYvQ+O/O9xtHNziW6FW+jzd2nOzGnuHtX8GWGTePVcsnt612eg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 54B3A1F00A1F;
-	Mon,  2 Nov 2026 19:45:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793648710;
-	bh=UsM44Bz2hR0jwZlDUjpk1mrvCsTX73s8ccqm/Jjs4CI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=DfR132ydmb5vPE4KOoRCNZFkjm6C2zbFRvJ9NkcC1qAb81zc0SBf8H1+2JPMdtziy
-	 pkTqsRWqVK/l7uvyjyEQudasTqgKjaXfdtOq/ljhyJHjw7dip49d0OYEK7C5fcPLp4
-	 jJjxOz3pF1w0TlPKftjX9TrOChJ3gePdcvoRrno3YvIMEYDdcQcdHtaI4V1y5y6RdE
-	 aR4Bk3hIB8KiYjYKwqBfbk8IJ+rYLEWmIihB1A4RXdiWFaDJNSUPCRAobvpNGi0jxl
-	 gbubKPo3KZXR2CTJVRDAQl9JHBf3lNDXpigRh03O7OClIwroFxQaYi1+Ts0rHBRmMB
-	 5glZVYrF4yiUg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id B2A3B465D3;
-	Mon,  2 Nov 2026 19:45:08 +0000 (UTC)
-From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Tue, 03 Nov 2026 03:45:04 +0800
-Subject: [PATCH RFC v3 01/17] firmware: arm_scmi: Drop the ARM architecture
- dependency
+	id 1xNynP-00000000M7o-0WuG
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Nov 2026 20:38:24 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-91c8fef5ce2so44349906d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 12:38:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793651901; x=1794256701; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JqOfHGfqq8y0jqDTq9u5axpAxahHuV8gA44EpfAxrF0=;
+        b=rw5WNuaoRSCcD1ONeI61K7hV4fD4cc/2wXFAac+Ox+6HOFF9ZH0DKKN1LfX2YR34eS
+         2HfnM9mbf3td0Rbzv5mo39lJGcVJjjqVTGKLUqD0D/xYxE7m6eMgPt/b0avGfni0Njy+
+         VF/RkawSAJJI99I8n8SuChJ0ctKo4/4eAdgXa6Pzj3ENQU4D80ykAR8kmi10zdIVOmOu
+         dn4USBmkAE1Ipedu2T/xr7Icm7Tmk6KoP4wSTHq/1hYLWwOYNO7Mh9fJhVmuk2Sr42wR
+         /kIrtedHPb7WNngM/MMkmlE80iIqoHBsNyY/RnO3wyFONeE4AqHhdU5k04YsyPGqbnDh
+         q5FA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793651901; x=1794256701;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JqOfHGfqq8y0jqDTq9u5axpAxahHuV8gA44EpfAxrF0=;
+        b=kHBu8j/FmiVqckdBD3U6rKYqQ5nFDLIVYfh/TMMu4Dwn+07CphCPm2LMnvNbSF1ipC
+         cBeLDI8yO6Oq/ogh+2ky4xEOKxGJq3DgXKmImhdapLTdr1SLKLWHfdizrGR2TsT6HE6s
+         ORdaaHH/N/rasy5RTdGWy5X3E7MwXLsf6/izc0DwOhHakDx2741l2umZ5cQ+JF4kVCo4
+         H3x3jMvjASDLMUGi2fBI4O9gV1nGcWEhslPYRBsTBeEAbyXBrv44Pckrn9RHUYd20Vxr
+         hp92O9FDjrunCabmzhEDRNRK6nXLYsn0YDwLsFkWsAq8Zi3VwQlexrMz2IxMP5RDIqt0
+         OpAg==
+X-Forwarded-Encrypted: i=1; AKwUvBxaixar6L+cm3gd+gKRX8x+D/mFx5xq7IN/Z2jGeYx0elhMT7HbvyCwmCMhXvdtOiMBznPtAONW7tjDYKRWCct/@lists.infradead.org
+X-Gm-Message-State: APuU4Z9m67q/b2E9O7ZKhL3WhJoSpcCLhVttBaGhrMkW0URHFXxihBy8
+	tD5ifvbix3bro26Ul9fwtYSfEmMpH/d4RiJ0ErUpzwrspfvtdY+gYfCQ
+X-Gm-Gg: AYBFou3locA02U/s48HalDYTCA0SRAia8/h+SEfFvHDAad5FNijZlCm7KEMoBNZSOew
+	OYDLQnjhyct1VBTaMTQcVFe6x8eWl9tO1CYC40ngTgvTVIHHH3wNI/4NQ8zgv2pn+5p5jJ3DkGk
+	f0UBJOOuVZMqYkHlV+b5rhfQsxbtIqXEwAUZmVx4KkK8m9ZEnaNaQd6I0PaFS40hNEm/aBZobaU
+	ItzWLAdAUc/f8+RkBmes731gCPyBwQI+INsoqBCEjarVHlCCtycAl1EY0tq7SIXoTwGDfI73fKT
+	Cqi36l/WhwETUPaAmlJ5nNeaEW3DuIs0wNd1cf6zE/pyL3Y9LLv/JWGFDrVcftahlwz4cUS72FQ
+	I8vjM6JHhtr5m7Uomj2PYVzxh4YQN/wXVAVxEF3y5UulWINxi3/fdoPRxwuVPeLytlDKE51PAvb
+	J4tT9654H/sox7CN5KjW/0MAMrLcQEltRULkgkMAkmd6YiKlucPjJjkncEpPvE4ZZUfKhAsHAa9
+	kdboUuDAHM7kqL91ZWl7WtGr9M6UtL0OJaQnZkQsZv2AINSZlglWMMqNo+PwlSL/xkKuigtIj6O
+	XQcYWA1NQCpFRIqYgHnqdv8Mlg5uDyklOeeb2/alTKcf/0G40n9xn1k=
+X-Received: by 2002:a05:6214:21e5:b0:91b:5d3a:f136 with SMTP id 6a1803df08f44-91ca4b8303emr172551426d6.53.1793651901295;
+        Mon, 02 Nov 2026 12:38:21 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91ca7f26f1esm100674086d6.13.2026.11.02.12.38.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Nov 2026 12:38:20 -0800 (PST)
+Message-ID: <5bd67c8d-41ee-40e7-ab75-031e1520758f@gmail.com>
+Date: Mon, 2 Nov 2026 12:38:15 -0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261103-a210-scmi-v3-1-ee6b31580808@iscas.ac.cn>
-References: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
-In-Reply-To: <20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn>
-To: Sudeep Holla <sudeep.holla@kernel.org>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>, 
- Jassi Brar <jassisinghbrar@gmail.com>, Linus Walleij <linusw@kernel.org>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
- Bartosz Golaszewski <brgl@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Thomas Gleixner <tglx@kernel.org>, 
- Radu Rendec <radu@rendec.net>, Samuel Holland <samuel.holland@sifive.com>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Anup Patel <anup@brainfault.org>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Drew Fustini <fustini@kernel.org>, 
- Icenowy Zheng <uwu@icenowy.me>, Inochi Amaoto <inochiama@gmail.com>, 
- Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <me@ziyao.cc>, 
- Jiaxun Yang <jiaxun.yang@flygoat.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, linux-clk@vger.kernel.org, 
- linux-serial@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, 
- Han Gao <gaohan@iscas.ac.cn>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793648705; l=1053;
- i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=/i2Hrato1ZaddmWBACOcAsu4rA2pM7/klcdfY2u7RqE=;
- b=twSKt1n9O18ON1twtQeq9bHAwBn2LoDRA9GzybRh7RNj6v2Uld03XL7r+2OKTy+S8evBTnbrt
- dLLzVzpNnkEAQRSfFZMsoejt9+FVb1uF2RGgxFrig8PAyxgPBzVtZUJ
-X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
- pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
-X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
- auth_id=1262
-X-Original-From: Han Gao <gaohan@iscas.ac.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/9] dt-bindings: dma: brcm,bcm2835-dma: Add BCM2711 and
+ BCM2712
+To: Peter Robinson <pbrobinson@gmail.com>, Conor Dooley <conor@kernel.org>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+ dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ bcm-kernel-feedback-list@broadcom.com, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+References: <20261102090713.896324-1-pbrobinson@gmail.com>
+ <20261102090713.896324-2-pbrobinson@gmail.com>
+ <20261102-email-target-d3191584d234@spud>
+ <CALeDE9Ncz=6jo_1VxdCJgSVV+fCTgkUvci-=e4MQYFYo_O9M0Q@mail.gmail.com>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <f.fainelli@gmail.com>
+In-Reply-To: <CALeDE9Ncz=6jo_1VxdCJgSVV+fCTgkUvci-=e4MQYFYo_O9M0Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261102_123823_179806_C22199CC 
+X-CRM114-Status: GOOD (  22.23  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,46 +112,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: gaohan@iscas.ac.cn
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-14.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Han Gao <gaohan@iscas.ac.cn>
+On 11/2/26 12:18, Peter Robinson wrote:
+> On Mon, 2 Nov 2026 at 19:39, Conor Dooley <conor@kernel.org> wrote:
+>>
+>> On Mon, Nov 02, 2026 at 09:06:51AM +0000, Peter Robinson wrote:
+>>> Add compatibles for the BCM2711 40-bit DMA4 channels, which are
+>>> described by a separate node covering channels 11-14, and for the
+>>> BCM2712 DMA controllers. The register address of a node identifies its
+>>> first channel, allowing a controller to be split across nodes.
+>>>
+>>> Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
+>>> Cc: Rob Herring <robh@kernel.org>
+>>> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+>>> Cc: Conor Dooley <conor+dt@kernel.org>
+>>>
+>>> ---
+>>>   .../bindings/dma/brcm,bcm2835-dma.yaml        | 31 +++++++++++++++++--
+>>>   1 file changed, 29 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml b/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
+>>> index c9b9a5490826c..31d97a10a0ea9 100644
+>>> --- a/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
+>>> +++ b/Documentation/devicetree/bindings/dma/brcm,bcm2835-dma.yaml
+>>> @@ -9,18 +9,27 @@ title: BCM2835 DMA controller
+>>>   maintainers:
+>>>     - Nicolas Saenz Julienne <nsaenz@kernel.org>
+>>>
+>>> -description:
+>>> +description: |
+>>>     The BCM2835 DMA controller has 16 channels in total. Only the lower
+>>>     13 channels have an associated IRQ. Some arbitrary channels are used by the
+>>>     VideoCore firmware (1,3,6,7 in the current firmware version). The channels
+>>>     0, 2 and 3 have special functionality and should not be used by the driver.
+>>>
+>>> +  BCM2711 channels 11 to 14 are 40-bit capable DMA4 channels, described by a
+>>> +  separate brcm,bcm2711-dma node. BCM2712 has 40-bit addressing on all
+>>> +  channels, with channels 6 to 11 being DMA4 channels. A controller may be
+>>> +  split across several nodes, the register address identifies the first
+>>> +  channel of a node.
+>>
+>> Uh no, a device should not be split across different nodes. This should
+>> not be needed, why can't your driver handle the upper channels having
+>> different capabilities?
+> 
+> This is the way it's done in the downstream kernel, unfortunately
+> Broadcom doesn't publish the HW details so either they'd need to
+> contribute the support (which they've not done since the RPi4 was
+> available) or I'm not sure what the other options would be. Open to
+> suggestions.
 
-The SCMI core and the mailbox and shared memory transports only use
-generic kernel interfaces. Transports that need architecture support,
-such as SMC, already carry their own dependencies.
+Neither here nor there, IMHO, yes it would be nice if documentation was 
+published (and a customer like Raspberry Pi is probably one of the few 
+that can get the needle to move there).
 
-Drop the ARM and ARM64 dependency so that other architectures can use
-SCMI.
-
-Suggested-by: Michal Simek <michal.simek@amd.com>
-Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
----
- drivers/firmware/arm_scmi/Kconfig | 1 -
- 1 file changed, 1 deletion(-)
-
-diff --git a/drivers/firmware/arm_scmi/Kconfig b/drivers/firmware/arm_scmi/Kconfig
-index 783c24a20e29..b56aed46a387 100644
---- a/drivers/firmware/arm_scmi/Kconfig
-+++ b/drivers/firmware/arm_scmi/Kconfig
-@@ -3,7 +3,6 @@ menu "ARM System Control and Management Interface Protocol"
- 
- config ARM_SCMI_PROTOCOL
- 	tristate "ARM System Control and Management Interface (SCMI) Message Protocol"
--	depends on ARM || ARM64 || COMPILE_TEST
- 	help
- 	  ARM System Control and Management Interface (SCMI) protocol is a
- 	  set of operating system-independent software interfaces that are
-
+You have the bcm2711 and bcm2712 compatible strings which should be 
+enough for you to know which channels are 40-bit capable and which are 
+not, yet keep the same Device Tree node.
 -- 
-2.55.0
-
-
+Florian
 
