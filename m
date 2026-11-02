@@ -2,58 +2,61 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 959AF606D834
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 20:31:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DF4F606D802
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 20:31:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lnGZ0WGi;
-	dkim=pass (2048-bit key, unprotected) header.d=0leil.net header.i=@0leil.net header.a=rsa-sha256 header.s=20231125 header.b=USbkMKoS
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=x4LzWfq2;
+	dkim=pass (2048-bit key, unprotected) header.d=0leil.net header.i=@0leil.net header.a=rsa-sha256 header.s=20231125 header.b=hydPq1D8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=idKzcjTBT+XjUpCOB5lj/EsKFEpg/iNtWZ9TOL8TpKA=; b=lnGZ0WGi6gtNfF
-	qMJfa1XAPk0VFBwniAFq2Dmj3C2iG/emzEE3Oa/I6Z48tT761I3G+qCJbWUaG2N2kXxBBjAYUMxOF
-	ll3QUTTO9NdmIk52Mr/UkhqhNnajRklByq3scP3RSNZM1nby9pmjjKNXqzn8sCmPWaafjKZEUBc2/
-	COZrdpwGQApXfbLwFs/YIK6dwJfe6/87y0qf1X+nvTZnHfgGOswzwBaRpFymIrbhhqJQZgjzl5puh
-	OQr2rxXQQCY3eQrZRSReODDLSiIAUfCCfUpgDOqXtdzi3Iw2/lZId4pJqDTAFOT5NkR6OTQq2AopX
-	dh+2kd1iE4G/XZJ5MJaA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=A3grsg9PFvVcz9pL89ShJ0xeD6pAEsARr5XSaT9G+aA=; b=x4LzWfq2+rs7ImwLzzkw5Yy6WR
+	HyWInEOCjm9GPrBddanyU7XpfU4Sxo9EuXzWIsMN/TszTGWcdoo9pIflJpMON5Tjvd0VD2bEd4LzM
+	s/nwicVKHDACLH4I/N7DfK2QXKbvgmd8lBUx7QHQrvpBm+udmTOEsz0ljsaMRNePNSTIiBbGv2+YS
+	jYnES8YuJ5h1hfV6+nhtjkcbbAFMpnVqBccx8eqS1OKukDimjZXqecG1X4fjMlEUq02+LcvyFJ6sa
+	oPdZwLAePihLqGHgokAsAv3tnev0r+aLwaX79Awck0a44WGzjUAVzFiC/Uw8OxhrZ6MgvV/G4Xf3J
+	e1IbO+Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNygV-00000000KYF-3d5t;
-	Mon, 02 Nov 2026 20:31:15 +0000
-Received: from smtp-bc0b.mail.infomaniak.ch ([2001:1600:19:b8b8::bc0b])
+	id 1xNygY-00000000KZV-2bXj;
+	Mon, 02 Nov 2026 20:31:18 +0000
+Received: from smtp-8faa.mail.infomaniak.ch ([2001:1600:19:38e0::8faa])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNygS-00000000KV6-0xj2
+	id 1xNygS-00000000KUW-0CXn
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 02 Nov 2026 20:31:14 +0000
-Received: from smtp-4-0001.mail.infomaniak.ch (smtp-4-0001.mail.infomaniak.ch [10.7.10.108])
-	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4jJNdV1gpfzqh3;
-	Mon,  2 Nov 2026 21:31:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=0leil.net;
-	s=20231125; t=1793651469;
-	bh=idKzcjTBT+XjUpCOB5lj/EsKFEpg/iNtWZ9TOL8TpKA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=USbkMKoSyvMY7kMIPjV89ErHeiGk0gaAllog+tCec8XEFstxLQxbESQLNWIgkjT4q
-	 NROIurzBKNzjvs6jKfMvttZ1KOwmIpi5cQRC+M6YoNoYFxnCZ/d7TlG2uRprRgbaE2
-	 Jr+UZmnZDxtOsMo5S42m/aNJUsSrBHCEOdacRQYdpIBSV1ftC+1HUB+EtcAYnsgXZF
-	 sqAQBIHbq1ffAL2tDRnmVCI3IDAcflJ4djGbxp9t+SmSxC3fEflzl8MS4uwNt1DFQ/
-	 D+5RM/QzjYJipgPh0cdPL3uYWXSY8n5P5BUjX425NdJJyZk1z+YOIULrbzYW/NfXN0
-	 0piPiaciF6V3g==
-Received: from unknown by smtp-4-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4jJNdT3HLDzb2;
+Received: from smtp-4-0001.mail.infomaniak.ch (unknown [IPv6:2001:1600:7:10::a6c])
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4jJNdT08fhz3Vn;
 	Mon,  2 Nov 2026 21:31:09 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=0leil.net;
+	s=20231125; t=1793651468;
+	bh=A3grsg9PFvVcz9pL89ShJ0xeD6pAEsARr5XSaT9G+aA=;
+	h=From:Subject:Date:To:Cc:From;
+	b=hydPq1D8DbuLmbGmRF8fhT9z+ziYQzpVIyXSrvJmNE8AbD6ryn26vpdGel80xushU
+	 eboJqW55oFb9zvz7+oMpingejD1eb4LiOx7SuqSeErVBFq259/dFEy3+didaHgvvhd
+	 3uM4sPnZQsIN1K7pu206PcHLCB/9S9IDbhx9IhloRXiXVZE7gd3P64n6tX3XfS9ZpA
+	 Q/d7NrESQxQlbwt0PJII9zKvy1zNLNeBAhwS3CKSIlZ3VffLpJrmjYGmW2v9wO96Qf
+	 f0OXjU+RL8J0DzOUT+tMgMkhVIzPY4twdzLyTaqoPNUjChsYE6hca9LEUG1q6IKTEF
+	 OsQ7+Ij0GqW6w==
+Received: from unknown by smtp-4-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4jJNdR72jmz1bS;
+	Mon,  2 Nov 2026 21:31:07 +0100 (CET)
 From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Mon, 02 Nov 2026 21:30:51 +0100
-Subject: [PATCH 2/2] arm64: dts: rockchip: enable OV9281 CAM1 P15 on RK3588
- Jaguar
+Subject: [PATCH 0/2] arm64: dts: rockchip: enable OV9281 CAM0 and CAM1 on
+ RK3588 Jaguar
+Date: Mon, 02 Nov 2026 21:30:49 +0100
+Message-Id: <20261102-jaguar-cam0-cam1-v1-0-c3aafcdab5dd@cherry.de>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261102-jaguar-cam0-cam1-v1-2-c3aafcdab5dd@cherry.de>
-References: <20261102-jaguar-cam0-cam1-v1-0-c3aafcdab5dd@cherry.de>
-In-Reply-To: <20261102-jaguar-cam0-cam1-v1-0-c3aafcdab5dd@cherry.de>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2N2wqDMBBEf0X22UASMEJ/pfRhXVddodZuTCmI/
+ 268vAwcmDmzQmQVjvAoVlD+SZTPlMGVBdCAU89G2szgrQ/OusqM2CdUQ/i2RzjTElnfVaEOASH
+ PZuVO/qfy+bo4pmZkWg7P3VD+pvy13LVt2wEWFiC1iQAAAA==
+X-Change-ID: 20261015-jaguar-cam0-cam1-dcc02f56766a
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
@@ -62,9 +65,9 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 X-Mailer: b4 0.17-dev
 X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_123112_555142_E81AB1D4 
-X-CRM114-Status: GOOD (  14.72  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261102_123112_256654_915850C7 
+X-CRM114-Status: GOOD (  13.99  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,171 +78,123 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-23.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
-
 RK3588 Jaguar has two proprietary camera connectors, P14 and P15. This
 adds support for the only camera module we currently have for this
-connector, on P15.
+connector.
 
 The camera module has a 2-lane OV9281 camera sensor, an IMU, a
 magnetometer and an EEPROM.
 
+We have new camera modules based on an OV13850 that should be coming up
+soon, hence why I made the support into their own separate DTSO instead
+of directly integrating them in the main DTS.
+
+Known issues:
+- lis2mdl driver currently doesn't support being instantiated twice, so
+  only one magnetometer will show up, if the two cameras modules are
+  connected,
+- OV9281 test patterns (no upstream support) returns broken patterns,
+  see discussion on IRC
+  https://libera.catirclogs.org/linux-rockchip/2026-11-02, the image I
+  get without the test pattern *looks* okay to my non-expert eyes. In
+  any case, it's unlikely to be an issue in the Device Tree,
+
+Image capture test:
+  #!/usr/bin/env bash
+
+  set -o pipefail
+  set -eux
+
+  CAM=$1
+  COLORFMT=$2
+  SIZE=$3
+
+  if [ "$COLORFMT" = "GREY" ] || [ "$COLORFMT" = "Y8" ]; then
+  	MEDIACTLFMT="fmt:Y8_1X8/$SIZE field:none colorspace:raw xfer:none"
+  	BITDEPTH=8
+  else
+  	MEDIACTLFMT="fmt:Y10_1X10/$SIZE field:none colorspace:raw xfer:none"
+  	BITDEPTH=10
+  fi
+
+  if [ "$CAM" = "P14" ]; then
+  	MEDIACTL_SENSOR="ov9281 2-0060"
+  	MEDIACTL_RKCIF="rkcif-mipi2"
+  	MEDIACTL_CSIRX="dw-mipi-csi2rx fdd30000.csi"
+  else
+  	MEDIACTL_SENSOR="ov9281 7-0060"
+  	MEDIACTL_RKCIF="rkcif-mipi4"
+  	MEDIACTL_CSIRX="dw-mipi-csi2rx fdd50000.csi"
+  fi
+
+  for dev in /sys/class/video4linux/video*/; do
+  	if [ "$(cat "$dev/name")" != "$MEDIACTL_RKCIF-id0" ]; then
+  		continue
+  	fi
+  
+  	VIDEODEV=$(basename "$dev")
+  	break
+  done
+
+  media-ctl -d 0 --set-v4l2 "'$MEDIACTL_SENSOR':0 [$MEDIACTLFMT]"
+  media-ctl -d 0 --set-v4l2 "'$MEDIACTL_RKCIF':0 [$MEDIACTLFMT]"
+  media-ctl -d 0 --set-v4l2 "'$MEDIACTL_CSIRX':0 [$MEDIACTLFMT]"
+  # Name the file a format YUView can recognize automatically
+  /root/yavta/build/yavta -f"$COLORFMT" -s$SIZE -c1 -n1 /dev/$VIDEODEV -Fframe-#_${SIZE}_${BITDEPTH}b_yuv400.yuv
+
+With yavta[1] and checked with YUView[2] as gstreamer doesn't seem[3] to
+have support for Y10.
+
+Ran:
+ - ./test-cam.sh P14 Y8 1280x800
+ - ./test-cam.sh P15 Y8 1280x800
+ - ./test-cam.sh P14 Y10 1280x800
+ - ./test-cam.sh P15 Y10 1280x800
+
+Pictures look decent to me.
+
+Wrote random data to the EEPROMs and read it back identical.
+
+Moved the cameras, accel and gyro raw sysfs values changed.
+
+Magnetometers tested individually, with small magnet, raw values
+changed.
+
+I've not tested IIO buffers and/or the various interrupts.
+
+[1] https://git.ideasonboard.com/camera/yavta
+[2] https://github.com/IENT/YUView
+[3] https://gitlab.freedesktop.org/gstreamer/gstreamer/-/work_items/3738
+
+Light dependency on
+https://lore.kernel.org/linux-media/20261102-v4l-y8-y10-csi-vicap-v2-0-0a4149d96dae@cherry.de/
+for it to actually work (no impact on binding or device tree).
+
 Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
 ---
- arch/arm64/boot/dts/rockchip/Makefile              |   4 +-
- .../dts/rockchip/rk3588-jaguar-p15-ov9281.dtso     | 112 +++++++++++++++++++++
- 2 files changed, 115 insertions(+), 1 deletion(-)
+Quentin Schulz (2):
+      arm64: dts: rockchip: enable OV9281 CAM0 P14 on RK3588 Jaguar
+      arm64: dts: rockchip: enable OV9281 CAM1 P15 on RK3588 Jaguar
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index cf977e883c374..e89e3123cb719 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -205,6 +205,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-can1-can2-uart4.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-ethernet-switch.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-p14-ov9281.dtbo
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-p15-ov9281.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-pre-ict-tester.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-lubancat-5io.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-mnt-reform2.dtb
-@@ -339,7 +340,8 @@ rk3588-jaguar-can1-can2-uart4-dtbs := rk3588-jaguar.dtb \
- 
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-p14-ov9281-p15-ov9281.dtb
- rk3588-jaguar-p14-ov9281-p15-ov9281-dtbs := rk3588-jaguar.dtb \
--	rk3588-jaguar-p14-ov9281.dtbo
-+	rk3588-jaguar-p14-ov9281.dtbo \
-+	rk3588-jaguar-p15-ov9281.dtbo
- 
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-ethernet-switch.dtb
- rk3588-jaguar-ethernet-switch-dtbs := rk3588-jaguar.dtb \
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar-p15-ov9281.dtso b/arch/arm64/boot/dts/rockchip/rk3588-jaguar-p15-ov9281.dtso
-new file mode 100644
-index 0000000000000..051a5f9a7d4e2
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar-p15-ov9281.dtso
-@@ -0,0 +1,112 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2026 Cherry Embedded Solutions GmbH
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/clock/rockchip,rk3588-cru.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/media/video-interfaces.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+
-+&csi_dphy1 {
-+	status = "okay";
-+};
-+
-+&csi4 {
-+	status = "okay";
-+};
-+
-+&csi4_in {
-+	csi4_input: endpoint {
-+		bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
-+		data-lanes = <1 2>;
-+		link-frequencies = /bits/ 64 <400000000>;
-+		remote-endpoint = <&cam1_output>;
-+	};
-+};
-+
-+&i2c7 {
-+	#address-cells = <1>;
-+	clock-frequency = <400000>;
-+	#size-cells = <0>;
-+
-+	magnetometer@1e {
-+		compatible = "st,lis2mdl";
-+		reg = <0x1e>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <RK_PB0 IRQ_TYPE_EDGE_RISING>;
-+		pinctrl-0 = <&cam1_imu_int3>;
-+		pinctrl-names = "default";
-+		vdd-supply = <&vcc_2v8_imu>;
-+		vddio-supply = <&vcc_1v8_s3>;
-+	};
-+
-+	eeprom@50 {
-+		compatible = "st,24c64", "atmel,24c64";
-+		reg = <0x50>;
-+		pagesize = <32>;
-+		vcc-supply = <&vcc_1v8_s3>;
-+	};
-+
-+	camera@60 {
-+		compatible = "ovti,ov9281";
-+		reg = <0x60>;
-+		assigned-clocks = <&cru CLK_MIPI_CAMARAOUT_M2>;
-+		assigned-clock-rates = <24000000>;
-+		avdd-supply = <&vcc_2v8_cam>;
-+		clocks = <&cru CLK_MIPI_CAMARAOUT_M2>;
-+		dovdd-supply = <&vcc_1v8_s3>;
-+		dvdd-supply = <&cam_vcc_1v2>;
-+		pinctrl-0 = <&cam1_rst &mipim0_camera2_clk>;
-+		pinctrl-names = "default";
-+		reset-gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_HIGH>;
-+
-+		port {
-+			cam1_output: endpoint {
-+				bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
-+				data-lanes = <1 2>;
-+				link-frequencies = /bits/ 64 <400000000>;
-+				remote-endpoint = <&csi4_input>;
-+			};
-+		};
-+	};
-+
-+	imu@6a {
-+		compatible = "st,lsm6dsr";
-+		reg = <0x6a>;
-+		interrupt-parent = <&gpio2>;
-+		interrupts = <RK_PC4 IRQ_TYPE_EDGE_RISING>;
-+		pinctrl-0 = <&csi1_imu_int1>;
-+		pinctrl-names = "default";
-+		vdd-supply = <&vcc_2v8_imu>;
-+		vddio-supply = <&vcc_1v8_s3>;
-+	};
-+};
-+
-+&pinctrl {
-+	cam1_p15 {
-+		cam1_imu_int3: cam1-imu-int3 {
-+			rockchip,pins = <1 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		cam1_rst: cam1-reset {
-+			rockchip,pins = <4 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		csi1_imu_int1: csi1-imu-int1 {
-+			rockchip,pins = <2 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&vicap {
-+	status = "okay";
-+};
-+
-+&vicap_mmu {
-+	status = "okay";
-+};
+ arch/arm64/boot/dts/rockchip/Makefile              |   7 ++
+ .../dts/rockchip/rk3588-jaguar-p14-ov9281.dtso     | 113 +++++++++++++++++++++
+ .../dts/rockchip/rk3588-jaguar-p15-ov9281.dtso     | 112 ++++++++++++++++++++
+ arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts     |  36 ++++++-
+ 4 files changed, 267 insertions(+), 1 deletion(-)
+---
+base-commit: 233ebf31c98e1d7185d12d1ff332f3354f4950f5
+change-id: 20261015-jaguar-cam0-cam1-dcc02f56766a
 
--- 
-2.56.0
+Best regards,
+--  
+Quentin Schulz <quentin.schulz@cherry.de>
 
 
