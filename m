@@ -2,120 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B532A606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 21:19:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B50D606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 21:19:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kMPo1L3h;
-	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=i0Jf44PZ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=s92eyfrG;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=UySI9H2f
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=2RjoLq/kIZomTqqU6zUcn3juKCDy3taGhnxzS/BtlV4=; b=kMPo1L3hkVOCC+
-	/f0imLkRuzuEg8hJvytzZy28OxE0C6wE4BdrMirXAVe9+CqbOkksGYs5lrGA7nTpcIEQ4m5fdWojp
-	DEbZpVWmbOCbxJscIvkYuOGRzSzDp+6/yffOJkLaR56dxfdRj6+wQNmon1jZ/RdmvJyp7Oe1NOgB9
-	Wkk0cZMjht4qCyULPWYPggia0pTvkLSlCK93Y9C8hhBbu9mMePWGkfWQQfMZabROEwp07mbzLamf7
-	IrIh9YfUoHVkNG2Suhm4Q+6JbfxJO1I3g7PpGOIFgmHm2yjqfL4nFGqeR0bsma9GLdovKj9EZEwSc
-	Rh8mMUIuippzOncqbo/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=9tpbLF7GvKR1dLCFLZZGmAAGLb/lQXCuuwOBoPq3W7Q=; b=s92eyfrG1d2/azkG2QLSYiqelK
+	sibKEtN8xoVezudc7XSn/Aal/ysJAYaX0SjZlFn9fxByAtuCwbZtnsfAPRCqJ2ZapE7OxznY0+Eao
+	hSujcpEPZC6Wmz3hW2MXo8hvGoY32Pb/u8V6fxeMhFnGtALQ/Q82WNUPBydPsN4VS8/d/HIBisc9B
+	th1K85WDzz5kCSKdYz1wElcjrMlKuN8cUXpbPum0KTyNOS7fa8U4RIM68Cxvn2V5KE1OtkwJGCq7t
+	OBrRV2ywFQoTDDvfBAmPs8pV0XH+eu2XUApz9diAtJrU0g0uB7ECYilFXycNgRAewDUp26swo1Gl1
+	WOzH1s1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNzQn-00000000SSj-0leL;
-	Mon, 02 Nov 2026 21:19:05 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1xNzR0-00000000SXq-1BtC;
+	Mon, 02 Nov 2026 21:19:18 +0000
+Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNzQk-00000000SRM-41IH
+	id 1xNzQx-00000000SW3-3Ktd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 21:19:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1793654342;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2RjoLq/kIZomTqqU6zUcn3juKCDy3taGhnxzS/BtlV4=;
-	b=i0Jf44PZdXqeaaOqXYppy5uFspv7qLoVjj4uSrCrALyxQ0qgzw/YA8ZJIAxwN6FaSGE+0e
-	SzfYIaLWg/m0euk7jD8UhdGOkVOPLGP+hcjNUDEXkYcSmuUhkH3B6sytVlxxI0E5fy7V21
-	pbD6TUf71x5T5ITg4QZI7cdikLuT6Io=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-133-iA6J7iSqMVKC_mRfeBqt9w-1; Mon, 02 Nov 2026 16:16:44 -0500
-X-MC-Unique: iA6J7iSqMVKC_mRfeBqt9w-1
-X-Mimecast-MFC-AGG-ID: iA6J7iSqMVKC_mRfeBqt9w_1793654203
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4a7417d5cd3so4533595e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 13:16:44 -0800 (PST)
+	Mon, 02 Nov 2026 21:19:17 +0000
+Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-4a214a5f8a1so32827855e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 13:19:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1793654353; x=1794259153; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9tpbLF7GvKR1dLCFLZZGmAAGLb/lQXCuuwOBoPq3W7Q=;
+        b=UySI9H2f2qSKdDXhCDAB4hGNRm+49gNBYzi8tn6ZBy1HlCf6kan8WFdth+RmQvRBjZ
+         945bEsxjubMYEejjvTJ0NQaTJKbp6c4i7EKsQkwz8hVJCOllveDCaAbY+UagmtiME/xC
+         XXDzKU4ZIbyQF+i45jm9Fwiot0k1Aal7giI7BGHS8e3MsqgF8Q5lqP+VYOls6YhdfKe3
+         za0Qrdrmj0oz9Bk1VHYc4MwjzXilcXrafay7wJ5Lwlch7PBC98wNl1624FLxrwhMXM3f
+         c0ohsVCk35YeswpUOCpYTiIUrF0zjme2csMk1V2+fWspkT1HM1Rkb+DRFyagXy5vdFNj
+         DEag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793654203; x=1794259003;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1793654353; x=1794259153;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2RjoLq/kIZomTqqU6zUcn3juKCDy3taGhnxzS/BtlV4=;
-        b=orxMEOYMWhtziuHxG1jje1TKUY7spcdxRi04JmFY9q8wFj9Kgiv8/1vtZvXWDRyRCK
-         nMVRecWiS8Z2YgbwZ8madlLryz53JdZTGa3HldIeOlctiROMshzntRQHXZc4FmtBWitr
-         EfUHsy4QNTaBUAA0gKNe4xYaWxQH4fA4e8O6q6GuS8VhCipCcoI2BqvQaRKDRi3pqSYX
-         C95OOekqHe9UJeJRRoAgbKBObsIve45/hbmhYvM09HbpkpgkQF5VBTgzLsXdDr2IXJC3
-         yFJ22BoPAoPc/8tUCSqN/uZpK1rgvLF8If6Rr8qWwxCV3cLJyjIA+CnehQulJvJLjDef
-         0DcA==
-X-Forwarded-Encrypted: i=1; AKwUvBwkVlyHCIgf4fi4iw7qrwyDbakuOJ79yfP2HADfUIcn/qgJCeV7zFmuv5NNjO9Yej01Jffz7xhBvNfMll9DNejh@lists.infradead.org
-X-Gm-Message-State: AFq9FYJvNQhioZvMyGf9QBfCN9IZSBuio2a/OcOBenCijaJSsh4Bjd+9
-	qP9AX9ZB4o9wzbrHmWVkCD0MZT5ADp9HAXNyurIvNJlWvw8Jg1LcqHYh8s7fe65Ega5x8d18HE3
-	rBu9hIn7zyb3bEXqS3dPzeldvUX7bCINP+P6T0Gd7L3eSn/ogmPdADOCKosy7dqzgv0qM2giYA3
-	7i
-X-Gm-Gg: AYBFou1FMv9Oba9dRrMC5mdFJm3RupM2SrN5321t9qqACf+EblsWfegvGbi0J0pFO4J
-	SDzUTGFopkJ9OYYJ8geHZyCXCQ2csvShzuaWrtS/ZcyGkwXdT3sSBovb/2NDbaEQgEKAuosiSni
-	2jZxNQT+fgoCfHYKBr+W3Mq++/zAhQYd2/7iRr5/TUe2QVUPZyf+dy13xqlctyj7veGewLU4Kbx
-	ZSDRvEG2eUnp/DkrSTPKBtXQPmDteTGhFTWssJsdhSTmm7FqHMLA/CfUlHZFfZ7GJYcB1q0P26q
-	skil9WM2cPqUeSzTcriu7b+esjCZYuK4ny/Qe9GfIkAm0USFNNTFLgyTxTBhgevVM2xZqhHopqN
-	Osu0kaRTU9pw8REblc9ca11v4QIfnsuoZXikhg4QBlC8HhWdIMVKfjV9fLaNN4vkIs2Ifh69BPq
-	nyT39NvOSrODMYsw==
-X-Received: by 2002:a05:600c:c08c:b0:4a2:1a:a115 with SMTP id 5b1f17b1804b1-4ac1209f120mr218821415e9.0.1793654203508;
-        Mon, 02 Nov 2026 13:16:43 -0800 (PST)
-X-Received: by 2002:a05:600c:c08c:b0:4a2:1a:a115 with SMTP id 5b1f17b1804b1-4ac1209f120mr218821095e9.0.1793654203128;
-        Mon, 02 Nov 2026 13:16:43 -0800 (PST)
-Received: from localhost (119.red-83-42-172.dynamicip.rima-tde.net. [83.42.172.119])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b2ab00ff3dsm24999655e9.14.2026.11.02.13.16.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 13:16:42 -0800 (PST)
-From: Enric Balletbo i Serra <eballetb@redhat.com>
-Date: Mon, 02 Nov 2026 22:16:22 +0100
-Subject: [PATCH v2 3/3] clocksource/drivers/nxp-stm: Increase min_delta to
- 20us for PREEMPT_RT
+        bh=9tpbLF7GvKR1dLCFLZZGmAAGLb/lQXCuuwOBoPq3W7Q=;
+        b=vIZgv7TvbywGIrlYKdEAJInydZclo6ah2UVvMp++25aaonBmOXiXAwSp/LWZQ1Xkim
+         LY562UGUTC+aGGtCRt7NdffhDr/1TPpWRpcLYcAFV6BhydVIadmkmQ7hNmwMTKi5Z0TI
+         jrtCq86L2y7rbYzI0+xp/mCBuH/JdMBhTwGZB2ZnZY/ika+s4OQdYs5geiVHhdnpSbq3
+         drLLKY/8KkWHHoy3YKFV5XQm1hcRYJXxgp7mTcdatQu8aOWDRKFgI+aatXsqbut6GsQh
+         q+zmSrvgsVVnRSrl9nJiIUhNarRSKN+5GxXboGXjdOe9cbu/O9CRcKF2qNnZTLAElCd+
+         PrYQ==
+X-Forwarded-Encrypted: i=1; AKwUvBz8KKTYTxbIvixlBldBYvG0WntfVlD11nLHMLKB62NNNS4VSHYA+Jf5zXkjftDW849Ejp6xt8K7QOTw9vQHfOqJ@lists.infradead.org
+X-Gm-Message-State: AFq9FYLY5S4bngnlVNhhMI4iEDs2NsVNpaW+nN7Zgv+pMO6n5jvLXbVj
+	k5ynHVdDRJEL8ssLUnFF1js9uXgcXbwITH9M7Jaci0UnIbfsuxXop5WU0xbLC3bz0+S4D+mjBgb
+	vvqr3krM9Q0TInuo8qci1yQ==
+X-Received: from wmcn23.prod.google.com ([2002:a05:600c:c0d7:b0:4a1:dfb3:2e66])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:8b66:b0:4a3:5a91:5f61 with SMTP id 5b1f17b1804b1-4ac1793f8ddmr270441685e9.14.1793654353111;
+ Mon, 02 Nov 2026 13:19:13 -0800 (PST)
+Date: Mon,  2 Nov 2026 21:19:00 +0000
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Message-Id: <20261102-nxp-stm-fixes-v2-3-8ca2706f30ef@redhat.com>
-References: <20261102-nxp-stm-fixes-v2-0-8ca2706f30ef@redhat.com>
-In-Reply-To: <20261102-nxp-stm-fixes-v2-0-8ca2706f30ef@redhat.com>
-To: Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>
-Cc: linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev, 
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
- NXP S32 Linux Team <s32@nxp.com>, stable@vger.kernel.org, 
- Enric Balletbo i Serra <eballetb@redhat.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793654192; l=1953;
- i=eballetb@redhat.com; s=20261026; h=from:subject:message-id;
- bh=9U7e/e2EyDS47BqXM0Wq4E/IVIq+iDMzJy9Mz8G/8z0=;
- b=I3diUql5Q6GbqX8veSUe45rbF94jf6KgRxB2o4ixEqSLRhaEof0uU+OQxrTWrQXV/bTJ4ErDo
- +5AE3K8aDZ7CcqtoXD4Mb0PjXDAxuRMGD18t/k2lWRpFU20e7nZ+1KK
-X-Developer-Key: i=eballetb@redhat.com; a=ed25519;
- pk=5zh6xuAxTiQwglL2NXQFqWuyRPmCE8T5KPXLbNXhnKI=
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: kPUOpSS2_NxT7KZX6EwjFKvyMmGUa0uj6oxNbEBx4zw_1793654203
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.385.gac671c819a-goog
+Message-ID: <20261102211900.504192-1-vdonnefort@google.com>
+Subject: [PATCH v1] KVM: arm64: Fast path transparent_hugepage_adjust() for
+ non-PMD folios
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, ljs@kernel.org, 
+	ryan.roberts@arm.com, Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_131903_074643_EF22FB59 
-X-CRM114-Status: GOOD (  13.79  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261102_131915_853876_E5BCE290 
+X-CRM114-Status: GOOD (  20.35  )
+X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,59 +91,116 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+X-Spam-Status: No, score=-26.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT,
+	USER_IN_DEF_DKIM_WL autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Under heavy bus contention on PREEMPT_RT kernels, a 2us min_delta is too
-tight and causes ~32-second timer soft lockups.
+transparent_hugepage_adjust() must walk the userspace stage-1 to detect
+if a PMD-level mapping is installed. If it is, then a stage-2 block
+mapping can be installed. Even though this stage-1 walk is most likely
+cache hot (in most cases, the mapping has just been installed), walking
+a page-table is still costly. This walks accounts for ~5% of the
+user_mem_abort() execution time on an Apple M2 big core. This makes a
+fast path interesting.
 
-Increase min_delta from 2us to 20us (~2,660 cycles at 133 MHz). This
-provides sufficient margin under severe bus contention to ensure the
-channel-enable write completes well before the counter reaches the match
-value, resolving the 32-second soft lockup.
+While we can't be sure by solely looking at the folio if the stage-1 is
+a block mapping as userspace has multiple ways to split it, we however
+can infer from its size if the stage-1 mapping is __smaller__ than
+PMD_SIZE. Anonymous memory or memfd faults will always allocate a folio
+big enough for the mapping. The same applies when collapsing into a
+block mapping with khugepaged or MADV_COLLAPSE.
 
-Fixes: cec32ac75827 ("clocksource/drivers/nxp-timer: Add the System Timer Module for the s32gx platforms")
+Add a fast path based on the folio size. Whenever it is too small for a
+PMD_SIZE mapping, bail out early and do not walk the stage-1. This is
+interesting for systems where PMD_SIZE THPs are disabled either at
+build, or at runtime. Systems under heavy memory pressure will also
+benefit from the fast path.
 
-Signed-off-by: Enric Balletbo i Serra <eballetb@redhat.com>
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 ---
- drivers/clocksource/timer-nxp-stm.c | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
+ arch/arm64/kvm/mmu.c | 42 ++++++++++++++++++++++++------------------
+ 1 file changed, 24 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/clocksource/timer-nxp-stm.c b/drivers/clocksource/timer-nxp-stm.c
-index ed7662a4e2bc..a1a0e23d3342 100644
---- a/drivers/clocksource/timer-nxp-stm.c
-+++ b/drivers/clocksource/timer-nxp-stm.c
-@@ -335,14 +335,18 @@ static int nxp_stm_clockevent_starting_cpu(unsigned int cpu)
- 	/*
- 	 * The timings measurement show reading the counter register
- 	 * and writing to the comparator register takes as a maximum
--	 * value 1100 ns at 133MHz rate frequency. The timer must be
--	 * set above this value and to be secure we set the minimum
--	 * value equal to 2000ns, so 2us.
-+	 * value 1100 ns at 133MHz rate frequency. However, under heavy
-+	 * bus contention on PREEMPT_RT, 2us is too tight and can allow
-+	 * the counter to pass the match value before the channel-enable
-+	 * write takes effect, leading to 32s wraparounds.
- 	 *
--	 * minimum ticks = (rate / MICRO) * 2
-+	 * Increase to 20us to guarantee the comparator channel is fully
-+	 * enabled before the match value is reached.
-+	 *
-+	 * minimum ticks = (rate / MICRO) * 20
- 	 */
- 	clockevents_config_and_register(&stm_timer->ced, stm_timer->rate,
--					(stm_timer->rate / MICRO) * 2, 0x7FFFFFFFU);
-+					(stm_timer->rate / MICRO) * 20, 0x7FFFFFFFU);
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 1db10d8d6db7..9d81d908e230 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1553,36 +1553,42 @@ static bool fault_supports_stage2_huge_mapping(const struct kvm_s2_fault_desc *s
+  * Returns the size of the mapping.
+  */
+ static long
+-transparent_hugepage_adjust(const struct kvm_s2_fault_desc *s2fd, kvm_pfn_t *pfnp, gfn_t *gfnp)
++transparent_hugepage_adjust(const struct kvm_s2_fault_desc *s2fd,
++			    const struct kvm_s2_fault_vma_info *s2vi, kvm_pfn_t *pfnp, gfn_t *gfnp)
+ {
+ 	struct kvm *kvm = s2fd->vcpu->kvm;
+-	kvm_pfn_t pfn = *pfnp;
+-	gfn_t gfn = *gfnp;
++	int sz;
  
- 	return 0;
+ 	/*
+ 	 * Make sure the adjustment is done only for THP pages. Also make
+ 	 * sure that the HVA and IPA are sufficiently aligned and that the
+ 	 * block map is contained within the memslot.
+ 	 */
+-	if (fault_supports_stage2_huge_mapping(s2fd, PMD_SIZE)) {
+-		int sz = get_user_mapping_size(kvm, s2fd->hva);
++	if (!fault_supports_stage2_huge_mapping(s2fd, PMD_SIZE))
++		return PAGE_SIZE;
+ 
+-		if (sz < 0)
+-			return sz;
++	/*
++	 * If the allocated folio isn't at least PMD_SIZE, there is no way a
++	 * stage-1 PMD level was installed.
++	 */
++	if (s2vi->page && !folio_test_pmd_mappable(page_folio(s2vi->page)))
++		return PAGE_SIZE;
+ 
+-		if (sz < PMD_SIZE)
+-			return PAGE_SIZE;
++	/*
++	 * Even though the folio size is big enough, the stage-1 mapping might
++	 * have been split. Verify it.
++	 */
++	sz = get_user_mapping_size(kvm, s2fd->hva);
++	if (sz < 0)
++		return sz;
+ 
+-		gfn &= ~(PTRS_PER_PMD - 1);
+-		*gfnp = gfn;
+-		pfn &= ~(PTRS_PER_PMD - 1);
+-		*pfnp = pfn;
++	if (sz < PMD_SIZE)
++		return PAGE_SIZE;
+ 
+-		return PMD_SIZE;
+-	}
++	*gfnp &= ~(PTRS_PER_PMD - 1);
++	*pfnp &= ~(PTRS_PER_PMD - 1);
+ 
+-	/* Use page mapping if we cannot use block mapping. */
+-	return PAGE_SIZE;
++	return PMD_SIZE;
  }
+ 
+ static int get_vma_page_shift(struct vm_area_struct *vma)
+@@ -2186,7 +2192,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+ 		if (perm_fault_granule > PAGE_SIZE) {
+ 			mapping_size = perm_fault_granule;
+ 		} else {
+-			mapping_size = transparent_hugepage_adjust(s2fd, &pfn, &gfn);
++			mapping_size = transparent_hugepage_adjust(s2fd, s2vi, &pfn, &gfn);
+ 			if (mapping_size < 0) {
+ 				ret = mapping_size;
+ 				goto out_unlock;
 
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
 -- 
-2.56.0
+2.56.0.385.gac671c819a-goog
 
 
