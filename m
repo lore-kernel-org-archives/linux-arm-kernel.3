@@ -2,63 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95A23606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 01:06:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1978606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 01:11:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hkA7Mb+3;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=kpbcuKvk
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yQgIyCr6;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=0/4lWtGA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=JKUDQlljLPgonxV2rKN0NfX07KbnvtueI4gyR5OUols=; b=hkA7Mb+3RWfKuc
-	X7tl/2bx/F1f9lxBOt79/A0przMnVBhVjwY1eedBiUeVuHW5fxITlJYazn/UY95BlSnDX5VCkplMz
-	QOVq1pxYEBuJvRlhW5d3mApPpRo7Ck8SdPcUTwwPJpTP1cXnRAT4Fv3GLu6xl+91vdPjFRwENf4Oo
-	2IqPafye9rAKSKAGOAlLOZBQGuLxrlRhpEnoLW+iCKUzT79X65yf37Cpn5fsqxJlk4Lx2M4VBLbgn
-	R0bFcktuUEtLJBBppgD71IkzNozjoJohwsScGjWfVsIK7iar3m1CKuY4LvT7hVwUZNGaSgAA1PvlH
-	UviJo2XXsnST6h6FXh/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=Rcwix2uwEWKi7035aDG+amqfMVRyuFKx2q048RQMB3c=; b=yQgIyCr6rDIiOJaPCvVgWrRaEj
+	7Pna1AXxdSJuklZXdfe1QQoqaSJ0vDp9IgUO32c9BTAw9tRKsVE2w1Ww1hTRD+Q47hlw9L1OhxOld
+	p+ML8YzDqI3g1xU6SG2OQ+TmgzTOgYvFWfcbvvJ2mx2TaL/AGW8C1x+MeNFCLqYftJEkopNaT/slA
+	3b6Pv2nsFZ67s8lZuD0IN2XjtP0Me72ewc574QdA/X025tty1PqKHIF0QUbTufxT9lHykDE5hn67E
+	A+PG/K3VjSAgwk9PLdG+w0A2l6NwXg+MqSsrXhfR6z+UO7GGQvnTTFlJV/bhclXt7GHfy+YvBM+nS
+	lwSeA6Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNgV3-0000000FLEp-2DO2;
-	Mon, 02 Nov 2026 01:06:13 +0000
-Received: from mail-m1020.netease.com ([154.81.10.20])
+	id 1xNgaG-0000000FLc3-0uzc;
+	Mon, 02 Nov 2026 01:11:36 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNgV0-0000000FLEJ-0fay;
-	Mon, 02 Nov 2026 01:06:12 +0000
-Received: from [172.16.12.48] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5318aab9e;
-	Mon, 2 Nov 2026 09:06:05 +0800 (GMT+08:00)
-Message-ID: <41fb1707-9e06-487d-aee9-cf38a1d2e979@rock-chips.com>
-Date: Mon, 2 Nov 2026 09:06:04 +0800
+	id 1xNgaD-0000000FLbG-2IL3;
+	Mon, 02 Nov 2026 01:11:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Rcwix2uwEWKi7035aDG+amqfMVRyuFKx2q048RQMB3c=; b=0/4lWtGAM1ZgkRyu9eUa46Ex7I
+	1F3RO1pfEwk9FGgEG3y40hILMDHAzmjjFloJY/FIlLfa5XzqJra3K8P0QwJZdV24R1d1gClKRe2rC
+	o5WTvX+FTtCngvvbgBKD41qu2nU75HEqU1efGHsXW7G+w0FWHS6gHqgWSzlcg+v8M46o=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xNgZr-00DiR9-NI; Mon, 02 Nov 2026 02:11:11 +0100
+Date: Mon, 2 Nov 2026 02:11:11 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Lucas Tanure <tanure@linux.com>
+Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net, Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/7] dt-bindings: net: amlogic,meson-dwmac: add
+ amlogic,t7-dwmac
+Message-ID: <f8da1842-bdc0-4bf7-8f15-46b57a9eedc9@lunn.ch>
+References: <20261022200640.3101932-1-tanure@linux.com>
+ <20261022200640.3101932-3-tanure@linux.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Rob Herring <robh@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: rockchip: enable SD UHS-I on Firefly-RK3399
-To: Heiko Stuebner <heiko@sntech.de>, Yaozhong Li <yaozhonguwl@gmail.com>
-References: <20260922055011.14972-1-yaozhonguwl@gmail.com>
- <b8221ba4-dccb-42f5-ae77-a6c087fa1d05@rock-chips.com>
- <2120863.kXSN5OTJKJ@phil>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <2120863.kXSN5OTJKJ@phil>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa199cac4a503a4kunm23d3192039e401
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCGE5NVkkaSxgfTkkfGh9MH1YVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=kpbcuKvkBauFWUFHOsqnmSa0bzM6wKwLK3kHzHavFnUaxh8I1QUTRsZEEbgeuWBh1fYttQsfcdUWAS6KlvUdZ4cBVXJ9TRGX819t/BRo40j4Da1Ku+yCW/RZhfVNfceNqK8cWfB1iDvjBn6+NTf6oqApqgKitvUUYUhQrcyrjVY=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=JKUDQlljLPgonxV2rKN0NfX07KbnvtueI4gyR5OUols=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261022200640.3101932-3-tanure@linux.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261101_170610_750608_AFEAE6F6 
-X-CRM114-Status: GOOD (  19.23  )
+X-CRM114-CacheID: sfid-20261101_171133_586656_66BBC991 
+X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,86 +83,33 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-在 2026/11/02 星期一 1:55, Heiko Stuebner 写道:
-> Am Sonntag, 1. November 2026, 17:10:04 Mitteleuropäische Normalzeit schrieb Shawn Lin:
->> 在 2026/09/22 星期二 13:50, Yaozhong Li 写道:
->>> The SD slot on this board stays at 50 MHz with 3.3V signalling. The
->>
->> ...
->>
->>>
->>> I have no schematic for this board. The claim about what LDO4 feeds
->>> rests on the vendor firmware device tree plus the measurements above.
->>>
->>
->> It's easy to find one:
->> https://github.com/armbian/armbian.github.io/blob/main/board-schematics/firefly-rk3399.pdf
->>
->> Too bad it was designed this way! What if sdio-wifi is working on UHS
->> modebut people insert a HighSpeed only sd card?
-> 
-> Hmm, when I read the schematics correctly, all parts of the sdio + wifi
-> supplied by vcc_1v8 (both APIO3_VDD_1V8 and also vddio of the wifi module
-> itself), while vcc_sdio only supplies SDMMC0_VDD?
-> 
+> +        # The PHY adds the 2ns RGMII delays, see ethernet-controller.yaml.
+> +        # The RX delay line of this glue is fine tuning in 200ps steps,
+> +        # added on top of what phy-mode describes. The TX side has no fine
+> +        # tuning: its only step is a quarter of the clock period, the full
+> +        # 2ns at 1Gbit/s, so the TX property is not accepted.
+> +        tx-internal-delay-ps: false
+> +
+> +        rx-internal-delay-ps:
+> +          enum: [200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000,
+> +                 2200, 2400, 2600, 2800, 3000]
 
-Just a quick glance, I was misled by the page 9 where the whole sdmmc0
-was labled as SDIO0, then page 25 lists SDIO0_CMD, etc., for WiFi. :((
+This is good, thanks.
 
+> +
+> +        amlogic,tx-delay-ns: false
+> +        amlogic,rx-delay-ns: false
 
-> 
-> Yaozhong Li: please trim that commit message down a lot, it doesn't
-> have to be novel size please.
-> 
-> 
-> Heiko
-> 
->>
->>> The analysis and the commit message were drafted with the help of an
->>> LLM-based assistant (Claude Code), cross-reviewed with a second one
->>> (OpenAI Codex). The device tree change, the measurements and the final
->>> wording are mine.
->>>
->>>    arch/arm64/boot/dts/rockchip/rk3399-firefly.dts | 3 ++-
->>>    1 file changed, 2 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts b/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts
->>> index 0568dfa..7cabbc1 100644
->>> --- a/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts
->>> +++ b/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts
->>> @@ -777,7 +777,6 @@ &sdio0 {
->>>    
->>>    	/* Power supply */
->>>    	vqmmc-supply = <&vcc1v8_s3>;	/* IO line */
->>> -	vmmc-supply = <&vcc_sdio>;	/* card's power */
->>>    
->>>    	#address-cells = <1>;
->>>    	#size-cells = <0>;
->>> @@ -804,6 +803,8 @@ &sdmmc {
->>>    	max-frequency = <150000000>;
->>>    	pinctrl-names = "default";
->>>    	pinctrl-0 = <&sdmmc_clk &sdmmc_cmd &sdmmc_bus4>;
->>> +	sd-uhs-sdr104;
->>> +	vqmmc-supply = <&vcc_sdio>;
->>>    	status = "okay";
->>>    };
->>>    
->>>
->>> base-commit: 940de590b839f71d6dc846160534bf202401b8b7
->>
->>
-> 
-> 
-> 
-> 
-> 
+Maybe add a comment that these are deprecated in new SoCs favour of
+the standard {rx|tx}-internal-delay-ps properties.
+
+    Andrew
 
 
