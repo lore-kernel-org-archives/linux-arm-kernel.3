@@ -2,88 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2434C606EE89
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B628360850A3
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:55:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oaKELkvp;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kn2AwfZf
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=n9d/q5H2;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GK9NmytC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=HRoIIA2wpujQ0+Dd3LKXeU40GCpk4ukouOoolwO0ux0=; b=oaKELkvp9W6UYX
-	28TPDvKuFFa0DIwIXs9OmDY+PJQkO5Zn4XMWJ5Rgv2q+gQl2gV04EhLxLkDibZd8OuLztUxsfoYVq
-	8TYPqrr/UHIsaUzcfBjVoIUfs2eBq/kj50uSbwWew+0FQg/kk+4F80zVcKOxCK0+93W/xsh50XB4W
-	s0Xz5r5tPeEjmQYn5/2BNQ57lIRljicNqo16qdscox7uVCO9rUWxUA1e3zrBLxkGb/Am8GwEWOa31
-	rbzp5rwThZ19zYUokXmAUz23JG9BqtQCJU/NEEfUpQqZKCDCmSCEFquUzQj+jMpOvNSPlZovRVP4n
-	G7JeRmBMgPr8d+VqD0Lw==;
+	List-Owner; bh=N6NaCr2YqwIe/GreNxQyGPwW88t11Y+r+IlcKQCQW48=; b=n9d/q5H2dvoMft
+	g7nqY/OLJW50GXtqCseRU+UxqakqS9tXiYeIOEq234GPLn6rN4TPN4oZBuWRr+aTmpufsnx8nBFrD
+	VEiFDPGD4poKRuOONpBVrvkV3g62nHOZb6y4VULH7W6HODo65Tj0Q7HFZ96PXYn4IGiEeYmjJ7cwe
+	K/K/mxX3NZFq+Fw9OTWY3H49nJHIBOXJzSfhqGN4pLmfVRjERClOQEN1bxR4oNxg+YyK+ox0dqXql
+	W+f0SooElHAXHS34OvLJASGduUdAZO/4AZDTgxI/pe3fJ2U/GaTSuf+vgHKXdIFaTb93JW9msZJ7N
+	p2eCSXQR81VDYk/C7Yfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNy7v-00000000EJL-3TYP;
+	id 1xNy7v-00000000EIr-2ywu;
 	Mon, 02 Nov 2026 19:55:31 +0000
-Received: from mail-oa1-x29.google.com ([2001:4860:4864:20::29])
+Received: from mail-oa1-x2e.google.com ([2001:4860:4864:20::2e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNy7t-00000000EH4-29IH
+	id 1xNy7s-00000000EGv-3ZVq
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 02 Nov 2026 19:55:30 +0000
-Received: by mail-oa1-x29.google.com with SMTP id 586e51a60fabf-48e2d5a69c4so1988605fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 11:55:29 -0800 (PST)
+Received: by mail-oa1-x2e.google.com with SMTP id 586e51a60fabf-4911df1e196so2172759fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 11:55:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20260707; t=1793649328; x=1794254128; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=HRoIIA2wpujQ0+Dd3LKXeU40GCpk4ukouOoolwO0ux0=;
-        b=kn2AwfZf8W/ig+4Wkfoz0jfv1IcrlPs+TPa2iCykzYmOn6X2qIfyHzHnt6CrzTopQ6
-         TCR76MjwsnXXHs3sNa1qfwqOFIEFtYdmrIlqGAjTtm/zCc0A/v3XYD9pNyE6hepFA3eN
-         vtLAunwTM0WPn/o60TyCFpG97wgOEGlAIETj2JwYnXz2gwq5E1MO8tmDnjgHjm2f1MB0
-         ikvOS9f/zem1b6uOKG03IvwunVBZo3Wcu3DYfSTBdPq5FfkfLXN9ZYIFdisr0nkYVsfE
-         gtikZcSvT2k6Cda0KO1V7OAJwB9WbTn6nCxvcHPklusPtEapItiF3KtwOtQsKmvwB0tn
-         LL8A==
+        bh=N6NaCr2YqwIe/GreNxQyGPwW88t11Y+r+IlcKQCQW48=;
+        b=GK9NmytCcRJ3PNqYYk/sCs+fbDGjgcO9599h5a8L8407uOQzbZymB8jeZpuSBvX1jf
+         IhBHBIFQDNz8DakrRCxXUGpUq8T4CCbxajjkg98btyCbdFF44BBRPxeWKngte9gYJJwh
+         yo4uGc5dFYDv4IcUiLsIPpTV/4YypI9Zkw/jxJeoahoDMBnaP62Ez3YHdHC4xNM6WFyu
+         RouRYj/egtAq+zwxD3GR9KYTHt6AJRSAbp2GS6hfSaJ0mpTIbfYojyvck3+CoImdqLhj
+         qEs4V7VNOkEqrcnwO/3kXiqXKHQNuEQ5CUyA4i3BVh10tNwgIpA8DijCERj99SsZybn4
+         jbFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1793649328; x=1794254128;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=HRoIIA2wpujQ0+Dd3LKXeU40GCpk4ukouOoolwO0ux0=;
-        b=XbBqnfazfPerLxrfsb7mHGoKkvvf4xWVQu0b5MKiDN1OgZ888a0PCaRfrgvozTTgQ3
-         APXSdh60BFRfwbXsShIRr8VmBUnskkKJcZF6OXRks+iT5UaFtllK3nar90Qvd42m7AeN
-         Ek1sKVBt84FS7Orv/Vp8MawmsnvqfB6lhY1/M1kKlbjyH5/G3HMy1OrMMWZpwGGImVAZ
-         5LoIKdkE+Y9UadpgVz+dkEGFDFfIerf2vlQEqzY5EbeAHzZxwvxXfkrvf9Dz0dQ62b1+
-         ERgCPEE8bjOMeo0e8Lhy5vj552eIogI+00+PPFVbhUUFPhbV55SbPLLUPnRUONfx0cv8
-         +Hng==
-X-Forwarded-Encrypted: i=1; AKwUvBxX/95pHEcYlsZ9WSsqlHawmGi4UaW0hkIAQ1YuYmDhb915ivnuz3MB9V42I985YctdXZG84BpDvokzfDfQpyWS@lists.infradead.org
-X-Gm-Message-State: APuU4Z+kgIc6RFJjV/qp27bz9pIAwxB4ohWSjDglDG4xWgw0El2xjOFf
-	PsgZYUQslxr8HD+nO5G9FtAzbNsiM3KnW5ikcLY88b6daBaDYfpBZQ3p
-X-Gm-Gg: AYBFou0I1hK5OPxbgkL7UpGuG10PBI28k+IJ3lkqfq196FMBskpJJJ5IahiEj/WV+SN
-	sPexutHrvLFOlEz2v6d5LwBvJncrgORWvpkblTFmfq+tYmWdRdDzkDaJMPMuVPA0ENjuuZs7aqK
-	0SF4nS77UgWpqeYP0Rh+ofzgVXXHaoWRu+5NyR307bXh2QMKdlBPiGM8IztOX+3pSSMD23KIPAg
-	n+aLssUNdh28w9Jgli6QiLGSrawwwkYxboYNnbQ8jBLHS2xPXlJbkaGr9P0qrKCLNqA2iXMZF7n
-	I0ZY0e8nGFRBtA4G825KkInD8h/PyWIHVRc8yyUW0H+JIlzt+5EJOP9NBubpgE9z1tS9lQ2I/bx
-	mC49TcslEumk9kFDuF6AEaZnD2ZEXtQg8FykNExcAi1RZ2LVrARTUX1qCvml6eymYhsmVuYpeVb
-	V9Mn3qc1t+Ml3NCKRD50mYBorwFEfpseWOzcAtfahXcQfsMl+sWavFATRbX12wiGEGc4+trzpJ9
-	0PUn+8bbZjpLGTN6bmwIY1lOOCwCVQAUPpChhZPrVLa5Vx/wq+FEm+EqX4FF64dFo7jOmZ0WlXD
-	h3znkRgi9tIA9mGHVHX3H9SNj0Cly3+5NNsfVKyXeWv++XqILps03xjMVd8yt/1w47eh0uBXzGN
-	kAk4iNVSZgi0RyLJYtl9Lzwv6M2BgWqxLkqY22Qyi3zuLEjGMHOf4CH90whIG7tTIkzEtVwmSLv
-	kiwVq6Jjxcr5oNJlATczGJ5P+imkp5MGwrrdJaDXtkPlQZNxIGfgM=
-X-Received: by 2002:a05:6871:580e:b0:475:e2e9:4f4a with SMTP id 586e51a60fabf-4a9076b7508mr7711963fac.24.1793649328190;
-        Mon, 02 Nov 2026 11:55:28 -0800 (PST)
+        bh=N6NaCr2YqwIe/GreNxQyGPwW88t11Y+r+IlcKQCQW48=;
+        b=LuLr5LjVaTFWK3ysbFbJVkGeDJpqSUZWrgudH4UUuhXBL8iEmEL9MFgsyLRCMcmC6A
+         UpadEQnQ5mn7giXugve5ReUN5oC5NclJE6wtn4VYlJ43Rk9mwu929ENcj2jpDgm6dPq5
+         gfC04wqxPD0zRHNX/oXZXh3ro3HDhELXtj1gn92Z4gESfjmYRi9LQJcb+mAy0kwLOuNT
+         uKz3jbS7bDAeEN6bXf9EtMCA2MmaGqfZ9Nx6Z2UQdthuiZpYOXYjpBfzewOeXgyXdmkc
+         rozXy/CNnudHXyG05Qa9dCxn1XkS91eElADW6CW0y4wfRrGTqtNb7rJJ/6w07hQfg5nr
+         lb/w==
+X-Forwarded-Encrypted: i=1; AKwUvBxInY+1Smfv2VrbEnAmrghS6MMnx+vx56KI1/iwkmg4ITOF36qo5jo7PCC3f5vKcA4R04f6zcfQcCROk9gYBbjR@lists.infradead.org
+X-Gm-Message-State: AFq9FYKBYgqv/9X2VNV1A4D9d/6V++vhB1+DUXJJRPIsU2HayqgK4PZJ
+	V5Tt8E4YGIgHiHG1ldwdWth7SKg6vRsQfrRWiI65kehuei/Bz6R3anHH
+X-Gm-Gg: AYBFou2rkLgMHqU0XAiBpadjYjOalKyCkM3fFPU843lsadCsvBcccZJ6JDQ8ufRNSab
+	J7nAL8wJo/96nfhAWJX0FpXqYFVrLqauesX/Jhc3ItRlQfy35JWUwkj5GHCZ5TAtLtGsNBfpsry
+	nyGtHLqm9F01CGaC6sNfR1pK0kdC/IXahwd9mRZvZsihIGryDOsFXXabEZ2/TIUzmKV3eeX+Blk
+	QzUXH8BR9wCDikCtYPV/fBrr40krjB14ang7NKrlUrQX2kmP+O/1XdrDfXQgWf9R+zqX5Ram5nL
+	fcEenxBk7A4IyBbn4+Wc7cRszgRjOGVY+3A4qIjL0p7WXrKkd5E6v9NlKV9B11UtQcYnLH2vzvi
+	e0uLmyxEIH0xlSx4im5ILrKGuJK6rLquZIemchDqysdrBnOzCdDBKiqz81F882iBCrljZkmvErz
+	fbEF08lyRm5Hzv7gbsspeXaTYFxWIxqIVX/gCMb3Uc9iaSHljjqYLY2DoclXJwTxXGgepmlxADo
+	p9kWXcvNCxfUy8lAGmiRpq5ABJX9ITP8QcddkiuCG4fmbonKcOYNhKpztncQ6/uhoq+E4pbcaff
+	7jBPZaXlf0K3iuGnf+ZwZOmSv4PDje27LacPj7GF/FrQ7HVdxLTCdrY05hYwKdSKLWuI7lB1YH0
+	G1UFvuXYibN2bLhoiQBh6joxdWv9j+v0DBaBENskeNlgeS7KJCM/2SUMdTBiEzENtB2/9+KE0RB
+	pvrHZdA86pHAHPODxNL0xhITemUAAKTZ46uOx2cQRceRApS69LpZA=
+X-Received: by 2002:a05:6871:e41b:b0:4a6:f610:87eb with SMTP id 586e51a60fabf-4a90729a753mr6897453fac.3.1793649326753;
+        Mon, 02 Nov 2026 11:55:26 -0800 (PST)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4a921353dcfsm7809249fac.0.2026.11.02.11.55.26
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4a921353dcfsm7809249fac.0.2026.11.02.11.55.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 11:55:27 -0800 (PST)
+        Mon, 02 Nov 2026 11:55:26 -0800 (PST)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Mon, 02 Nov 2026 12:55:18 -0700
-Subject: [PATCH v6 3/8] dt-bindings: serial: snps-dw-apb-uart: add
- Allwinner H616
+Date: Mon, 02 Nov 2026 12:55:17 -0700
+Subject: [PATCH v6 2/8] serial: 8250: share the RX trigger conversion
+ helper
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261102-submit-h616-uart-fifo-v1-v6-3-25afcb346b0c@gmail.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261102-submit-h616-uart-fifo-v1-v6-2-25afcb346b0c@gmail.com>
 References: <20261102-submit-h616-uart-fifo-v1-v6-0-25afcb346b0c@gmail.com>
 In-Reply-To: <20261102-submit-h616-uart-fifo-v1-v6-0-25afcb346b0c@gmail.com>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
@@ -96,12 +96,11 @@ To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
  Samuel Holland <samuel@sholland.org>
 Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, James Hilliard <james.hilliard1@gmail.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ linux-sunxi@lists.linux.dev, James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_115529_582145_E3DFA28E 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20261102_115528_896532_F527C132 
+X-CRM114-Status: GOOD (  16.42  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,31 +120,77 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The H616 UART has 256-byte transmit and receive FIFOs, but its DesignWare
-component parameter register does not report the FIFO depth. Its optional
-register layout also differs from the generic DesignWare integration.
+Drivers can supply receive-trigger thresholds through the RX trigger
+callbacks without adding a legacy port type to uart_config[]. Extract the
+threshold search into serial8250_bytes_to_fcr() so those drivers can use
+the same conversion as the generic 8250 implementation.
 
-Add a specific compatible to identify this fixed configuration, retaining
-snps,dw-apb-uart as a fallback.
+Keep the implementation in 8250_port.c and export it in the SERIAL_8250
+namespace. Include the unsupported-table check and preserve the existing
+nearest-lower selection and highest-encoding fallback.
 
+Suggested-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Reviewed-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/tty/serial/8250/8250.h      |  2 ++
+ drivers/tty/serial/8250/8250_port.c | 21 +++++++++++++--------
+ 2 files changed, 15 insertions(+), 8 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-index e2ca126d58ba..fc1289073241 100644
---- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-@@ -60,6 +60,7 @@ properties:
-           - const: renesas,rzn1-uart
-       - items:
-           - enum:
-+              - allwinner,sun50i-h616-uart
-               - anlogic,dr1v90-uart
-               - brcm,bcm11351-dw-apb-uart
-               - brcm,bcm21664-dw-apb-uart
+diff --git a/drivers/tty/serial/8250/8250.h b/drivers/tty/serial/8250/8250.h
+index 21ed9c41b751..1600f2e45d76 100644
+--- a/drivers/tty/serial/8250/8250.h
++++ b/drivers/tty/serial/8250/8250.h
+@@ -73,6 +73,8 @@ struct serial8250_config {
+ 	unsigned int	flags;
+ };
+ 
++int serial8250_bytes_to_fcr(const unsigned char *rxtrig_bytes, unsigned char bytes);
++
+ enum uart_port_type {
+ 	/* Internal 8250 only */
+ 	UART_PORT_AIROHA		= 124,
+diff --git a/drivers/tty/serial/8250/8250_port.c b/drivers/tty/serial/8250/8250_port.c
+index 36b2b0a2c05c..4a25badad3c5 100644
+--- a/drivers/tty/serial/8250/8250_port.c
++++ b/drivers/tty/serial/8250/8250_port.c
+@@ -3015,22 +3015,27 @@ static int fcr_get_rxtrig_bytes(struct uart_8250_port *up)
+ 	return bytes ? bytes : -EOPNOTSUPP;
+ }
+ 
+-static int bytes_to_fcr_rxtrig(struct uart_8250_port *up, unsigned char bytes)
++int serial8250_bytes_to_fcr(const unsigned char *rxtrig_bytes, unsigned char bytes)
+ {
+-	const struct serial8250_config *conf_type = &uart_config[up->port.type];
+-	int i;
+-
+-	if (!conf_type->rxtrig_bytes[UART_FCR_R_TRIG_BITS(UART_FCR_R_TRIG_00)])
++	if (!rxtrig_bytes[UART_FCR_R_TRIG_BITS(UART_FCR_R_TRIG_00)])
+ 		return -EOPNOTSUPP;
+ 
+-	for (i = 1; i < UART_FCR_R_TRIG_MAX_STATE; i++) {
+-		if (bytes < conf_type->rxtrig_bytes[i])
++	for (unsigned int i = 1; i < UART_FCR_R_TRIG_MAX_STATE; i++) {
++		if (bytes < rxtrig_bytes[i])
+ 			/* Use the nearest lower value */
+-			return (--i) << UART_FCR_R_TRIG_SHIFT;
++			return (i - 1) << UART_FCR_R_TRIG_SHIFT;
+ 	}
+ 
+ 	return UART_FCR_R_TRIG_11;
+ }
++EXPORT_SYMBOL_NS_GPL(serial8250_bytes_to_fcr, "SERIAL_8250");
++
++static int bytes_to_fcr_rxtrig(struct uart_8250_port *up, unsigned char bytes)
++{
++	const struct serial8250_config *conf_type = &uart_config[up->port.type];
++
++	return serial8250_bytes_to_fcr(conf_type->rxtrig_bytes, bytes);
++}
+ 
+ static int do_get_rxtrig(struct tty_port *port)
+ {
 
 -- 
 2.53.0
