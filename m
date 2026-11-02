@@ -2,89 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56872606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:31:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 380EF606A33E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 19:39:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=x+dBE7nD;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=a5+Hi2vv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=P4qmCPzq;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e97rt7+f
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=H14UoHzJZ4j9sWPkkPItkFe30w2Dx6yNR7iZmXK0OvI=; b=x+dBE7nDTWUf0yf5Vbg8HK9udW
-	nQT8u37iqd/2hLvIglrbrUUJasy8h1fqeMji0BQejDcd05t859EMYlBjzzZYZ7f3TlTZ6hTZeSI1+
-	XCNpQcJxNHfG/5rgLEVfipWUggriRsNkXlCBte+Jtf71/gyzdjKg76uJKTCCZCUkN6byfipxx0KoA
-	R9pcd/QEDvbgb3y646/f0f5dggyRsQAXS0N/LlSmeCXOgHd29BZ7DRieaz0nbyrYtsNYNs5t6lOFe
-	8r6ZjdRsvWFRhNRgEtEcmCZYqunUboBSOCjCRpdrRFm/2DjcXufncrKNfEOrSQ7qakSQP/ZraU8yY
-	hXp+bt5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=JbMEaLInfJZTikyj6sTbndfICmjNer0efXBtfT3t/z4=; b=P4qmCPzqikjP4E
+	HkKeSht8alT2MZSyJxbcoIP7cMu8x+T4vuruhB5IldU0Fe1GZpTK2opmLu5IHb6vVjuvgZ9do65JZ
+	nj4tJECyXjUptRcVKmSmEXqm1ulCZ93c3hyC4oSekFADR459mUE2GYY9fPwzmAsc+zC89piMIyyf7
+	GWdf18EUiHuTxCK77gDbY9TlxHVfRXPhckeei1Pba+L/cPvP5cDAH4qY9n2IFtWNJ5Kvo+LQIz1eD
+	wD4/Tjsp0/CzOtXt7pJAEGOMzNQOI7B0nDofGw1oMvydzGLneKK+IQseLkyaDQ3z5c8/+fYA3QZ/y
+	FckajyPDZYRPvZLi3boA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxTM-000000004LO-2k6k;
-	Mon, 02 Nov 2026 19:13:37 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1xNxsG-000000007EJ-1voY;
+	Mon, 02 Nov 2026 19:39:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNxTJ-000000004KP-40W9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 19:13:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1793646812;
-	bh=xP35owFT6jj4JxraKPGFthv8LA1p3Dy0waqfZfp5tt8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=a5+Hi2vvGUJ6PyPey/Qtf1f4ReGL3MbNjm3za+boS4zXkUyFmYwTCUv1zk1i4nYot
-	 t3F1Iyxi5bVtXXKIqCihsqKu1v9Kcs/HQBhT+RkpgwHjP+7h0lq8HC+UAGGDTw3+FK
-	 cip9JpqiUySMufgNqVhSUvjuJ5pmJh9pvjaeqO1BWsjaOzBC0fze4TOrWxw/VnaaLY
-	 FxRKJaD+DSKhD7leyT+T79TSSuYRVjva0CBDdLR1JGJfXN6Ks7pKbGBUbBzPiM5U3q
-	 z0Vv8AVHGAw0z9yfBIaRQ97gVsx/ubLgLEnP22w7Ax5Cg85bhk5Ou87BJdtMQI7AsX
-	 HEOeeImTGYQvQ==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3A54D17E07EF;
-	Mon, 02 Nov 2026 20:13:30 +0100 (CET)
-Message-ID: <9e6840bbc983d6c20228876787be3cbbb55bad4f.camel@collabora.com>
-Subject: Re: [PATCH 09/10] staging: media: cedrus: h616: use the 256-bit DDR
- mode
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Jernej Skrabec <jernej.skrabec@gmail.com>, Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Hans Verkuil <hverkuil@kernel.org>
-Cc: Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski
- <paulk@sys-base.io>,  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
-	linux-media@vger.kernel.org, linux-staging@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Date: Mon, 02 Nov 2026 14:13:28 -0500
-In-Reply-To: <20261102170303.1973892-10-jernej.skrabec@gmail.com>
-References: <20261102170303.1973892-1-jernej.skrabec@gmail.com>
-	 <20261102170303.1973892-10-jernej.skrabec@gmail.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-NuyaBCaujCXR5cjPlJON"
-User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
+	id 1xNxsF-000000007Dy-3e6l;
+	Mon, 02 Nov 2026 19:39:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 56F27417BE;
+	Mon,  2 Nov 2026 19:39:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D78F1F00A16;
+	Mon,  2 Nov 2026 19:39:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793648359;
+	bh=JbMEaLInfJZTikyj6sTbndfICmjNer0efXBtfT3t/z4=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=e97rt7+fYVS06nnercX285Pb/2VysLZOY5Ijme2sohfOvFOKVsaY9E+Sj+gwD1ulJ
+	 MwHVa8aF8UjhGdwWt6QruaR9HA5g9wf+vblucB1NXg0ntlaPNV8pCKSbK7EKJZJbhj
+	 zRBjZk+PFYGFAopr5Qy267xd1sfVGJ47cnOoXhlvJ/l/z3cd/9vSaFncABJwO4cnjO
+	 CuNyvBrhvCCa4/+daiTyMDJtQb/QBXebIrXSPGThAUhSZbUAWdFqWPrVyI/W9+6Smt
+	 DVsFgeuwQY7sDdonzE79SifCG6LQ5fO/w1Jd/ABEy3AxivzLCla2acQvpmu2cPOg2F
+	 SCXiL5BaSRCqQ==
+Received: from traversing.sirena.org.uk (localhost [IPv6:::1])
+	by traversing.sirena.org.uk (Postfix) with ESMTP id AAFE323DFF18;
+	Mon, 02 Nov 2026 19:39:16 +0000 (GMT)
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Jun Yan <jerrysteve1101@gmail.com>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org
+In-Reply-To: <20261101080926.267041-1-jerrysteve1101@gmail.com>
+References: <20261101080926.267041-1-jerrysteve1101@gmail.com>
+Subject: Re: [PATCH v3 0/2] ASoC: codecs: Add Everest ES7202 support
+Message-Id: <179362860891.1990291.9978990707739127303.b4-ty@b4>
+Date: Mon, 02 Nov 2026 14:10:08 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_111334_169849_C687A9B8 
-X-CRM114-Status: GOOD (  28.36  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1593; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=57IEY5sLI0R//srJiFo6NAVqvbCrI7pKU9CTHZdofwo=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJePHuyJNJxogH/crU1D3XeKQRMSdjfd0tpc0Gtj68L2
+ ybVs9ULOkpZGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjARW1tGhp4iDlnNYNNJTe6B
+ KQyXPGNkilY2peq+PNW045HB5mUbJjH8LzePqJoYY9eeteDFyua0U0W8fHuPrnrbtfq9BZvMqnR
+ 9RgA=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,161 +82,55 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-12.3 required=3.0 tests=BAYES_00,DATE_IN_PAST_03_06,
+	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+On Sun, 01 Nov 2026 16:09:24 +0800, Jun Yan wrote:
+> ASoC: codecs: Add Everest ES7202 support
+> 
+> This series adds support for the Everest ES7202, a 2-channel PDM
+> analog-to-digital converter controlled over I2C.  Patch 1 adds the DT
+> bindings and patch 2 the ASoC codec driver.
+> 
+> The driver is based on the Rockchip BSP driver, reworked for mainline to
+> use regmap and devm_ helpers, probe the device ID, and report the actual
+> per-step PGA gain.
+> 
+> [...]
 
---=-NuyaBCaujCXR5cjPlJON
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Applied to
 
-Hi,
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-Le lundi 02 novembre 2026 =C3=A0 18:03 +0100, Jernej Skrabec a =C3=A9crit=
-=C2=A0:
-> With the DDR mode in VE_MODE set to 128-bit, which the driver uses on
-> all SoCs, the H616 H.264 engine reads corrupted reference chroma, while
-> luma is fine. H.264 and VP8 P frames come out with bit-exact luma, but
-> with about 22 dB PSNR chroma. H.265 and MPEG-2 are unaffected.
->=20
-> The vendor library selects the DDR mode based on the VE IC version. It
-> uses the 256-bit mode without the 2 MiB reconstruction write mode on
-> the H616, and keeps the 128-bit mode with the 2 MiB reconstruction
-> write mode on older SoCs, like the H6. Doing the same on the H616 makes
-> all codecs bit-exact (tested with BA_MW_D, CABA2_Sony_E,
-> vp80-00-comprehensive-002, AMP_A_Samsung_7 and MEI.stream16).
->=20
-> Make the VE_MODE DDR settings a variant property and add an H616
-> variant, which uses the 256-bit mode. Replace the FIXME about the
-> DDR mode with a description of what the vendor library does.
->=20
-> Fixes: 1f24d4307515 ("staging: media: sunxi: cedrus: add H616 variant")
-> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Thanks!
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+[1/2] dt-bindings: sound: add Everest ES7202
+      https://git.kernel.org/broonie/sound/c/ded65056b6c9
+[2/2] ASoC: codecs: add support for Everest ES7202 PDM ADC
+      https://git.kernel.org/broonie/sound/c/063273b18195
 
-> ---
->  drivers/staging/media/sunxi/cedrus/cedrus.c    | 14 +++++++++++++-
->  drivers/staging/media/sunxi/cedrus/cedrus.h    |  2 ++
->  drivers/staging/media/sunxi/cedrus/cedrus_hw.c | 14 ++++++++++----
->  3 files changed, 25 insertions(+), 5 deletions(-)
->=20
-> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c b/drivers/stagin=
-g/media/sunxi/cedrus/cedrus.c
-> index 756243795de8..2bbc79b44f99 100644
-> --- a/drivers/staging/media/sunxi/cedrus/cedrus.c
-> +++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
-> @@ -27,6 +27,7 @@
->  #include "cedrus_video.h"
->  #include "cedrus_dec.h"
->  #include "cedrus_hw.h"
-> +#include "cedrus_regs.h"
-> =20
->  /*
->   * The hardware decodes whatever picture size the bitstream headers desc=
-ribe.
-> @@ -697,6 +698,17 @@ static const struct cedrus_variant sun50i_h6_cedrus_=
-variant =3D {
->  	.mod_rate	=3D 600000000,
->  };
-> =20
-> +static const struct cedrus_variant sun50i_h616_cedrus_variant =3D {
-> +	.capabilities	=3D CEDRUS_CAPABILITY_UNTILED |
-> +			  CEDRUS_CAPABILITY_MPEG2_DEC |
-> +			  CEDRUS_CAPABILITY_H264_DEC |
-> +			  CEDRUS_CAPABILITY_H265_DEC |
-> +			  CEDRUS_CAPABILITY_H265_10_DEC |
-> +			  CEDRUS_CAPABILITY_VP8_DEC,
-> +	.mod_rate	=3D 600000000,
-> +	.ve_mode_ddr	=3D VE_MODE_DDR_MODE_BW_256,
-> +};
-> +
->  static const struct of_device_id cedrus_dt_match[] =3D {
->  	{
->  		.compatible =3D "allwinner,sun4i-a10-video-engine",
-> @@ -744,7 +756,7 @@ static const struct of_device_id cedrus_dt_match[] =
-=3D {
->  	},
->  	{
->  		.compatible =3D "allwinner,sun50i-h616-video-engine",
-> -		.data =3D &sun50i_h6_cedrus_variant,
-> +		.data =3D &sun50i_h616_cedrus_variant,
->  	},
->  	{ /* sentinel */ }
->  };
-> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.h b/drivers/stagin=
-g/media/sunxi/cedrus/cedrus.h
-> index a523b56a9b8c..d28fe91562d1 100644
-> --- a/drivers/staging/media/sunxi/cedrus/cedrus.h
-> +++ b/drivers/staging/media/sunxi/cedrus/cedrus.h
-> @@ -181,6 +181,7 @@ struct cedrus_dec_ops {
->  struct cedrus_variant {
->  	unsigned int	capabilities;
->  	unsigned int	mod_rate;
-> +	u32		ve_mode_ddr;
->  };
-> =20
->  struct cedrus_dev {
-> @@ -204,6 +205,7 @@ struct cedrus_dev {
->  	struct reset_control	*rstc;
-> =20
->  	unsigned int		capabilities;
-> +	u32			ve_mode_ddr;
-> =20
->  	struct delayed_work	watchdog_work;
->  };
-> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_hw.c b/drivers/sta=
-ging/media/sunxi/cedrus/cedrus_hw.c
-> index 444fb53878d1..b66d855daaf8 100644
-> --- a/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
-> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
-> @@ -36,11 +36,16 @@ int cedrus_engine_enable(struct cedrus_ctx *ctx)
->  	u32 reg =3D 0;
-> =20
->  	/*
-> -	 * FIXME: This is only valid on 32-bits DDR's, we should test
-> -	 * it on the A13/A33.
-> +	 * The DDR mode depends on the SoC. Like the vendor library, use the
-> +	 * 128-bit mode with the 2 MiB reconstruction write mode, unless the
-> +	 * variant says otherwise.
->  	 */
-> -	reg |=3D VE_MODE_REC_WR_MODE_2MB;
-> -	reg |=3D VE_MODE_DDR_MODE_BW_128;
-> +	if (ctx->dev->ve_mode_ddr) {
-> +		reg |=3D ctx->dev->ve_mode_ddr;
-> +	} else {
-> +		reg |=3D VE_MODE_REC_WR_MODE_2MB;
-> +		reg |=3D VE_MODE_DDR_MODE_BW_128;
-> +	}
-> =20
->  	switch (ctx->src_fmt.pixelformat) {
->  	case V4L2_PIX_FMT_MPEG2_SLICE:
-> @@ -254,6 +259,7 @@ int cedrus_hw_probe(struct cedrus_dev *dev)
->  		return -EINVAL;
-> =20
->  	dev->capabilities =3D variant->capabilities;
-> +	dev->ve_mode_ddr =3D variant->ve_mode_ddr;
-> =20
->  	irq_dec =3D platform_get_irq(dev->pdev, 0);
->  	if (irq_dec <=3D 0)
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
---=-NuyaBCaujCXR5cjPlJON
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
------BEGIN PGP SIGNATURE-----
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaujg2QAKCRDZQZRRKWBy
-9NhBAP4kSne6wnIZLhGm2G9czUYCWyZLCP7dbgUBi0e2IA/m4QD7BvUXaIzqwlx3
-CJ+7tQ46/WoK6ZOz3b4azrquy1xRKwc=
-=lAUO
------END PGP SIGNATURE-----
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
---=-NuyaBCaujCXR5cjPlJON--
+Thanks,
+Mark
+
 
