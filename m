@@ -2,96 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40BEC606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 09:33:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A875606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 09:35:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hl2A7uIb;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MmQTxuyH
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2S1Pf2wH;
+	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=DEp92VjK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=eX+gYgE+oCqAhhfCHZGXtaEXZcvdSf5VXn9A/wbFEZ0=; b=hl2A7uIbTm3tcv
-	/h/qv9yeFaVrcubJa4bE+wJZyZpJYuBB/DyoUYwITt7rlCUMBz3g8ASr3gqqip71Jy04Dryt5KB5C
-	UUvDuT6s4pImAPMUyylfAt31EyUS8BFLB6axVmbYpi5JGZinpt6QHppEKLTxgf1zNaeec1ihleuVJ
-	frV0aycDO0tTmxf+kcGpa+MakqZFk1OSMTzxF81YQZnUcWo6o4z5jVw68IloMiv+2ULTjGYFco+bH
-	lafOaRkhgfEYx/g7Rqow9AsfzE2w8whKrC7UzDlPvl24mRp5jKft9Oyg0IWO1PatUrlmqchrzeRiX
-	67AOhm2K3KAuSQJ7cX0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=O6pHhLchO92FoXXuadqrfgLQ+YV6VJFDY3mJAGVLxuo=; b=2S1Pf2wHwfmcHmPSR5ujprocX0
+	hc3kvi8mEwXFUNBGU5qrlgcu4J6JDQcPEBVN2LAy6AS5LCdH1TwM2Wat9kxz3hVADXkxTsNs4Augc
+	5BCH6syVzJS+EObNqLgbg8ZGtOMBJGOF4TW4Cyot3CkgX0tE42cdhv57kI2w2CMP7RseCOx8n2+nK
+	JBx+m7i/1L4ASjQmBXnOXj4PJGP/tfjiVbhLkCWKesM++faawxEAwocJz3mGFYdf6n3StywViBfbE
+	CBAcdnb8arZ8rREmNmAY/O5iUbfvGIwoGwvJT6mXup/fyehn6tIAUaxaNRnrfno1uL+wR29Bynrce
+	UbtTAo8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNoPQ-0000000G1kM-0xvt;
-	Mon, 02 Nov 2026 09:32:56 +0000
-Received: from mail-ed2-x0b.google.com ([2a00:1450:4864:33::b])
+	id 1xNoIH-0000000FzeW-3pXQ;
+	Mon, 02 Nov 2026 09:25:33 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNoPO-0000000G1iQ-25qW
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 09:32:55 +0000
-Received: by mail-ed2-x0b.google.com with SMTP id 4fb4d7f45d1cf-6a5d790cce1so2088186a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 01:32:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793611972; x=1794216772; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=eX+gYgE+oCqAhhfCHZGXtaEXZcvdSf5VXn9A/wbFEZ0=;
-        b=MmQTxuyH6Aa4JLGnllHenkXdstJvWRSdSaSoYFrK4pRbcREaD8AGHRUcwrcTevNLJs
-         ejJLJB7ycrPibTuN5oNMiK7DSqiZu1sl3cJ9tGDQBdHUPcbMx5vRU+eyexBSHO7XSJI7
-         1gMlzOdiTOAwyYjMFKuC/i+VZ+jUZ0E1NCz+2nwF/YTJDwBYUWzE9pydvLOt93OreqKQ
-         ZrBNgyl1fSmFKq2ntZoLpvdPBEI+2nCLKZ6cxGLKKkHfj4ICUuQj3tg6G5+OxS9b9qzK
-         URoXEbkKTs9h6zUE5VWRBp4X2wzZ/39GeFvuE3wBr2AUc5gQG1w2koIDzMxvhXio998e
-         exXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793611972; x=1794216772;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eX+gYgE+oCqAhhfCHZGXtaEXZcvdSf5VXn9A/wbFEZ0=;
-        b=oq/dMLhAEWvw6dIiFGgQlx4KLjev0ISM0H5JgtY6f24YxEVDOBxkITT6RTPQCmwVHj
-         103TC90QEHDpPuG3gFSBuV7vVtocM8hxNpZ/P7hBedt3bcYdREDH9ZMo0nw95mvbrhxd
-         I6/CsSJDnIvjG+EzsEoWhkGA0QzwNh5e1E3VnS84pjKiCYl/nFjhvOm+bLNPDz5Jkg1f
-         G2weGHjWPbXbkotQySGrTdfDt8iDY/ucy01fpCoVCTbSygU3a+CAk8QtbLnNCgD7wZ98
-         79WsJMPNXOA/9Yixz6fwq3O3UZ4jPAo40CKT2Vq0Bd6QySqNsCL1t36P/sQShHjDzQp3
-         RfvQ==
-X-Gm-Message-State: APuU4Z9bD0+DJcABrXp0k7j/uPEQJcPmS6zleMkb7f0GvHkLUpLoN0XX
-	LU6byzPHpanpD+4vWuTf2rf+nnZiSqfmpJPfeF5g2vC7e7SwqF3oMvbh
-X-Gm-Gg: AYBFou1ze8LHQ9tF7cWnKtFBOd5tDtvXXEG11mQVvxWrB2LCWK9lkXvEsQw08iWRv6v
-	DMl+L+Rg4DpMUej/N7c5/Sp6ZYvX9kIJsrMCEgNVnDdevDR1BJpA5+DLeaw5iNKV298IglI4YPR
-	83eg5WB1rXuI2N6XH6q39Gab5C7fc3KYZlciHcaOUW+TY9NoU+cH0/LSDH4R2vuHv+gD1E7wC7Z
-	7oYj1oGgjEfwcMeG4GNCWcQ3tKs7lTFFSNynGZeBXrt3LFjcyVQqiV3rVwmDMwZfqzO35YUHluf
-	yTPdKsQonHObJfw7dO0asZBqcgBV8SEsgIXvvVxiYky1yjZSodNRxWgyCBCSSBm3kXTA7va7dmU
-	e/HUNngrXUCjKWXfJdOgpML293xxUQWOJEUoLYTffsI3cRC1akAgjix6zJRCI09LRttbb4wMt97
-	5/s3U8dKrcxszDJXsCQCTLVQgIemvkZnBfs62GYxx1FA+iuwEjJtvoUMn4wGFEwPy3sUIjRibh2
-	kWT6GesxLiKgEA6sQ5EuQrMPfTDidZn2lYn+jQYdCctYNzE5NC/zmjjhN7ZQ03Da975w7PPO62B
-	RLgytDd6UCeUhTwidad6muQYpfNAxafeKzc+OtS46vEmBr2NTPtJn37JZd/nGZqYIJE6GO1RNNU
-	i9/B89NtVkoyQ+ssyi3pqZKxdUtaCqf9f+TDMW4J0/n4LwqcWV6g9PRTG
-X-Received: by 2002:a05:6402:b26:b0:6b1:ca87:c588 with SMTP id 4fb4d7f45d1cf-6b4d4d74c9bmr4790145a12.37.1793611972469;
-        Mon, 02 Nov 2026 01:32:52 -0800 (PST)
-Received: from thi-server.fritz.box (dslb-092-076-089-226.092.076.pools.vodafone-ip.de. [92.76.89.226])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b4eca0f2a0sm3214273a12.25.2026.11.02.01.32.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 01:32:51 -0800 (PST)
-From: Thilo Zirnstein <thi.zirnstein@gmail.com>
-To: michal.simek@amd.com,
-	andi.shyti@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Thilo Zirnstein <thi.zirnstein@gmail.com>
-Subject: [PATCH v4 2/2] i2c: i2c-xiic: fix waiting/clearing while atomic
-Date: Mon,  2 Nov 2026 10:32:28 +0100
-Message-ID: <20261102093228.2751576-3-thi.zirnstein@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261102093228.2751576-1-thi.zirnstein@gmail.com>
-References: <20261102093228.2751576-1-thi.zirnstein@gmail.com>
+	id 1xNoID-0000000FzWZ-4B5M;
+	Mon, 02 Nov 2026 09:25:30 +0000
+X-UUID: 55298650d69f11f1afed4741b24580c9-20261102
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=O6pHhLchO92FoXXuadqrfgLQ+YV6VJFDY3mJAGVLxuo=;
+	b=DEp92VjKvrBZa4+ZoBtce/nRLX3CKxG22SU8qUCddLgwqTsHSfl5ZeXOjHuLIybO3D823xFaEBYK9mcBCB0qxW1PU2YtZryh97+WfCmhgNOZOAVClSbqt+vCa3JKU83LPstzKLszV5yEDd2GDagTy+UtryYvI1eAd5O9OZMpnkI=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:7c858609-5e85-4385-9ae8-19dfc2211aa6,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:b0318ac,CLOUDID:ecf1a340-45ea-40f0-99fe-3ce442058644,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|102|136|836|865|888|898,TC:-5,Content:0|
+	15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL
+	:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 55298650d69f11f1afed4741b24580c9-20261102
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
+	(envelope-from <santino.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 293040044; Mon, 02 Nov 2026 02:25:24 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Mon, 2 Nov 2026 17:25:21 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Mon, 2 Nov 2026 17:25:21 +0800
+From: santino.wang <santino.wang@mediatek.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<light.chen@mediatek.com>, <Fred-WY.Chen@mediatek.com>,
+	<arnab.layek@mediatek.com>, Santino Wang <santino.wang@mediatek.com>
+Subject: [RFC PATCH 08/11] soc: mediatek: dram-ecc: add the corrected error leaky bucket
+Date: Mon, 2 Nov 2026 17:23:30 +0800
+Message-ID: <20261102092334.138759-9-santino.wang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20261102092334.138759-1-santino.wang@mediatek.com>
+References: <20261102092334.138759-1-santino.wang@mediatek.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_013254_552774_8B490F55 
-X-CRM114-Status: GOOD (  14.11  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261102_012530_082843_997ED355 
+X-CRM114-Status: GOOD (  26.86  )
+X-Spam-Note: SpamAssassin invocation failed
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,84 +88,395 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Use non jiffies based waiting functions,
-if in atomic context.
+From: Santino Wang <santino.wang@mediatek.com>
 
-Suggested-by: Andi Shyti <andi.shyti@kernel.org>
-Signed-off-by: Thilo Zirnstein <thi.zirnstein@gmail.com>
+A page with repeated corrected errors is likely to fail. Count the
+corrected errors per page in a leaky bucket and retire the page with
+memory_failure() when the count reaches a threshold. The bucket decays
+over time, and its threshold, decay interval and the number of tracked
+pages are configurable through sysfs.
+
+Signed-off-by: Santino Wang <santino.wang@mediatek.com>
 ---
- drivers/i2c/busses/i2c-xiic.c | 30 +++++++++++++++++++++++++-----
- 1 file changed, 25 insertions(+), 5 deletions(-)
+ drivers/soc/mediatek/dram-ecc/core/Makefile   |   1 +
+ .../mediatek/dram-ecc/core/ghes_notifier.c    |   2 +
+ .../dram-ecc/core/policy/leaky_bucket.c       | 277 ++++++++++++++++++
+ .../mediatek/dram-ecc/core/policy/policy.c    |   9 +-
+ .../mediatek/dram-ecc/core/policy/policy.h    |   4 +
+ 5 files changed, 292 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/soc/mediatek/dram-ecc/core/policy/leaky_bucket.c
 
-diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
-index e68e17bdf0ba..6bb8d66e8969 100644
---- a/drivers/i2c/busses/i2c-xiic.c
-+++ b/drivers/i2c/busses/i2c-xiic.c
-@@ -237,6 +237,8 @@ static const struct timing_regs timing_reg_values[] = {
- #define XIIC_BB_TIMEOUT_US	1000
- /* timeout waiting for the controller to respond */
- #define XIIC_I2C_TIMEOUT	(msecs_to_jiffies(1000))
-+/* timeout waiting for the controller to respond in micro seconds */
-+#define XIIC_I2C_TIMEOUT_US	1000000
- /* timeout waiting for the controller finish transfers */
- #define XIIC_XFER_TIMEOUT	(msecs_to_jiffies(10000))
- /* timeout waiting for the controller finish transfers in micro seconds */
-@@ -359,16 +361,28 @@ static inline void xiic_irq_clr_en(struct xiic_i2c *i2c, u32 mask)
- 	xiic_irq_en(i2c, mask);
- }
-
-+static int xiic_poll_rx_empty(struct xiic_i2c *i2c)
-+{
-+	if (xiic_getreg8(i2c, XIIC_SR_REG_OFFSET) &
-+	    XIIC_SR_RX_FIFO_EMPTY_MASK)
-+		return 1;
+diff --git a/drivers/soc/mediatek/dram-ecc/core/Makefile b/drivers/soc/mediatek/dram-ecc/core/Makefile
+index d8d878f321d4..7c973831c9ef 100644
+--- a/drivers/soc/mediatek/dram-ecc/core/Makefile
++++ b/drivers/soc/mediatek/dram-ecc/core/Makefile
+@@ -12,6 +12,7 @@ mtk_dram_ecc-y := \
+ 	policy/policy.o \
+ 	policy/containment.o \
+ 	policy/storm_protection.o \
++	policy/leaky_bucket.o \
+ 	policy/address_range.o
+ 
+ CFLAGS_trace.o := -I$(src)
+diff --git a/drivers/soc/mediatek/dram-ecc/core/ghes_notifier.c b/drivers/soc/mediatek/dram-ecc/core/ghes_notifier.c
+index 633bf89e2231..a010ca652e86 100644
+--- a/drivers/soc/mediatek/dram-ecc/core/ghes_notifier.c
++++ b/drivers/soc/mediatek/dram-ecc/core/ghes_notifier.c
+@@ -28,6 +28,7 @@
+ #include "mtk_dram_ecc_event.h"
+ #include "ghes_notifier.h"
+ #include "counters.h"
++#include "policy/policy.h"
+ #include "trace.h"
+ 
+ static ATOMIC_NOTIFIER_HEAD(mtk_dram_ecc_notifier_chain);
+@@ -249,6 +250,7 @@ static int mtk_ghes_vendor_cb(struct notifier_block *nb, unsigned long severity,
+ 		spin_unlock(&addr_lock);
+ 		trace_mtk_dram_ecc_ce(evt.spa, evt.channel, evt.subchannel, evt.rank,
+ 				      evt.bank, evt.row, evt.column);
++		leaky_bucket_hit(evt.spa);
+ 		ret = atomic_notifier_call_chain(&mtk_dram_ecc_notifier_chain,
+ 						 MTK_DRAM_ECC_NOTIFY_CE, &evt);
+ 		if (ret == NOTIFY_BAD)
+diff --git a/drivers/soc/mediatek/dram-ecc/core/policy/leaky_bucket.c b/drivers/soc/mediatek/dram-ecc/core/policy/leaky_bucket.c
+new file mode 100644
+index 000000000000..a51793d53efb
+--- /dev/null
++++ b/drivers/soc/mediatek/dram-ecc/core/policy/leaky_bucket.c
+@@ -0,0 +1,277 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2026 MediaTek Inc.
++ */
++#include <linux/kobject.h>
++#include <linux/sysfs.h>
++#include <linux/string.h>
++#include <linux/hashtable.h>
++#include <linux/slab.h>
++#include <linux/spinlock.h>
++#include <linux/workqueue.h>
++#include <linux/mm.h>
++#include <linux/jiffies.h>
++#include <linux/errno.h>
++#include <linux/printk.h>
 +
-+	xiic_getreg8(i2c, XIIC_DRR_REG_OFFSET);
++#include "../counters.h"
++#include "../mtk_dram_ecc.h"
++#include "../trace.h"
++#include "policy.h"
++
++/* ------------------------------------------------------------------ */
++/* Per-page counter table                                               */
++/* ------------------------------------------------------------------ */
++
++struct lb_entry {
++	struct hlist_node node;
++	u64 pfn;
++	u32 count;
++};
++
++#define LB_HASH_BITS 8   /* 256 buckets */
++
++static DECLARE_HASHTABLE(lb_table, LB_HASH_BITS);
++static DEFINE_SPINLOCK(lb_lock);
++static unsigned int lb_tracked;  /* number of entries currently in table */
++
++/* ------------------------------------------------------------------ */
++/* Decay timer (delayed_work)                                           */
++/* ------------------------------------------------------------------ */
++
++static struct delayed_work lb_decay_work;
++
++static void lb_decay_fn(struct work_struct *work)
++{
++	struct lb_entry *e;
++	struct hlist_node *tmp;
++	unsigned int bkt;
++	bool reschedule = false;
++
++	spin_lock(&lb_lock);
++	hash_for_each_safe(lb_table, bkt, tmp, e, node) {
++		if (e->count > 0)
++			e->count--;
++		if (e->count == 0) {
++			hash_del(&e->node);
++			kfree(e);
++			lb_tracked--;
++		} else {
++			reschedule = true;
++		}
++	}
++	spin_unlock(&lb_lock);
++
++	if (reschedule)
++		schedule_delayed_work(&lb_decay_work,
++				      secs_to_jiffies(mtk_ecc_data.lb_decay_interval_sec));
++}
++
++/* ------------------------------------------------------------------ */
++/* leaky_bucket_hit - called from ghes_notifier.c on every CE event    */
++/* ------------------------------------------------------------------ */
++
++void leaky_bucket_hit(u64 spa)
++{
++	u64 pfn = spa >> PAGE_SHIFT;
++	struct lb_entry *e;
++	bool found = false;
++	bool start_timer = false;
++	bool retired = false;
++	u32 count = 0;
++	int ret;
++
++	spin_lock(&lb_lock);
++
++	hash_for_each_possible(lb_table, e, node, pfn) {
++		if (e->pfn == pfn) {
++			e->count++;
++			count = e->count;
++			found = true;
++			break;
++		}
++	}
++
++	if (!found) {
++		if (lb_tracked < mtk_ecc_data.lb_max_tracked) {
++			e = kzalloc_obj(*e, GFP_ATOMIC);
++			if (e) {
++				e->pfn   = pfn;
++				e->count = 1;
++				count    = 1;
++				hash_add(lb_table, &e->node, pfn);
++				lb_tracked++;
++				/* start timer only when table was empty */
++				if (lb_tracked == 1)
++					start_timer = true;
++			}
++		}
++	}
++
++	spin_unlock(&lb_lock);
++
++	if (start_timer)
++		schedule_delayed_work(&lb_decay_work,
++				      secs_to_jiffies(mtk_ecc_data.lb_decay_interval_sec));
++
++	if (count >= mtk_ecc_data.lb_threshold && mtk_ecc_data.lb_threshold > 0) {
++		ret = memory_failure(pfn, 0);
++		if (ret == 0 || ret == -EHWPOISON) {
++			mtk_dram_ecc_record_retired_page(pfn,
++							 MTK_DRAM_ECC_RETIRE_CE,
++							 ret);
++			retired = true;
++		} else {
++			pr_warn_ratelimited("mtk-dram-ecc: CE page isolation failed: pfn=0x%llx ret=%d\n",
++					    pfn, ret);
++		}
++	}
++
++	trace_mtk_dram_ecc_page_retire(pfn, count, mtk_ecc_data.lb_threshold,
++				       retired);
++}
++
++/* ------------------------------------------------------------------ */
++/* sysfs                                                                */
++/* ------------------------------------------------------------------ */
++
++static struct kobject *leaky_bucket_kobj;
++
++#define MTK_ECC_LB_THRESHOLD_MAX		10000U
++#define MTK_ECC_LB_DECAY_INTERVAL_MAX	86400U
++#define MTK_ECC_LB_MAX_TRACKED_MAX	16U
++
++static ssize_t threshold_show(struct kobject *kobj, struct kobj_attribute *attr,
++			      char *buf)
++{
++	return sysfs_emit(buf, "%u\n", mtk_ecc_data.lb_threshold);
++}
++
++static ssize_t threshold_store(struct kobject *kobj, struct kobj_attribute *attr,
++			       const char *buf, size_t count)
++{
++	u32 val;
++	int ret;
++
++	ret = kstrtou32(buf, 0, &val);
++	if (ret)
++		return ret;
++	if (val == 0)
++		val = MTK_ECC_LB_THRESHOLD_DEFAULT;
++	else if (val > MTK_ECC_LB_THRESHOLD_MAX)
++		return -EINVAL;
++
++	mtk_ecc_data.lb_threshold = val;
++	return count;
++}
++
++static ssize_t decay_interval_sec_show(struct kobject *kobj,
++				       struct kobj_attribute *attr, char *buf)
++{
++	return sysfs_emit(buf, "%u\n", mtk_ecc_data.lb_decay_interval_sec);
++}
++
++static ssize_t decay_interval_sec_store(struct kobject *kobj,
++					struct kobj_attribute *attr,
++					const char *buf, size_t count)
++{
++	u32 val;
++	int ret;
++
++	ret = kstrtou32(buf, 0, &val);
++	if (ret)
++		return ret;
++	if (val == 0)
++		val = MTK_ECC_LB_DECAY_INTERVAL_DEFAULT;
++	else if (val > MTK_ECC_LB_DECAY_INTERVAL_MAX)
++		return -EINVAL;
++
++	mtk_ecc_data.lb_decay_interval_sec = val;
++	return count;
++}
++
++static ssize_t max_tracked_show(struct kobject *kobj,
++				struct kobj_attribute *attr, char *buf)
++{
++	return sysfs_emit(buf, "%u\n", mtk_ecc_data.lb_max_tracked);
++}
++
++static ssize_t max_tracked_store(struct kobject *kobj,
++				 struct kobj_attribute *attr,
++				 const char *buf, size_t count)
++{
++	u32 val;
++	int ret;
++
++	ret = kstrtou32(buf, 0, &val);
++	if (ret)
++		return ret;
++	if (val == 0)
++		val = MTK_ECC_LB_MAX_TRACKED_DEFAULT;
++	else if (val > MTK_ECC_LB_MAX_TRACKED_MAX)
++		return -EINVAL;
++
++	mtk_ecc_data.lb_max_tracked = val;
++	return count;
++}
++
++static struct kobj_attribute threshold_attr =
++	__ATTR(threshold, 0644, threshold_show, threshold_store);
++static struct kobj_attribute decay_interval_sec_attr =
++	__ATTR(decay_interval_sec, 0644, decay_interval_sec_show, decay_interval_sec_store);
++static struct kobj_attribute max_tracked_attr =
++	__ATTR(max_tracked, 0644, max_tracked_show, max_tracked_store);
++
++static struct attribute *attrs[] = {
++	&threshold_attr.attr,
++	&decay_interval_sec_attr.attr,
++	&max_tracked_attr.attr,
++	NULL,
++};
++
++static const struct attribute_group group = {
++	.attrs = attrs,
++};
++
++/* ------------------------------------------------------------------ */
++/* init / exit                                                          */
++/* ------------------------------------------------------------------ */
++
++int leaky_bucket_init(struct kobject *parent)
++{
++	int ret;
++
++	hash_init(lb_table);
++	INIT_DELAYED_WORK(&lb_decay_work, lb_decay_fn);
++
++	leaky_bucket_kobj = kobject_create_and_add("leaky_bucket", parent);
++	if (!leaky_bucket_kobj)
++		return -ENOMEM;
++
++	ret = sysfs_create_group(leaky_bucket_kobj, &group);
++	if (ret) {
++		kobject_put(leaky_bucket_kobj);
++		return ret;
++	}
 +	return 0;
 +}
 +
- static int xiic_clear_rx_fifo(struct xiic_i2c *i2c)
++void leaky_bucket_exit(struct kobject *parent)
++{
++	struct lb_entry *e;
++	struct hlist_node *tmp;
++	unsigned int bkt;
++
++	cancel_delayed_work_sync(&lb_decay_work);
++
++	spin_lock(&lb_lock);
++	hash_for_each_safe(lb_table, bkt, tmp, e, node) {
++		hash_del(&e->node);
++		kfree(e);
++	}
++	lb_tracked = 0;
++	spin_unlock(&lb_lock);
++
++	sysfs_remove_group(leaky_bucket_kobj, &group);
++	kobject_put(leaky_bucket_kobj);
++}
+diff --git a/drivers/soc/mediatek/dram-ecc/core/policy/policy.c b/drivers/soc/mediatek/dram-ecc/core/policy/policy.c
+index ecd0a430de6d..5a4181b8de7d 100644
+--- a/drivers/soc/mediatek/dram-ecc/core/policy/policy.c
++++ b/drivers/soc/mediatek/dram-ecc/core/policy/policy.c
+@@ -26,12 +26,18 @@ int mtk_dram_ecc_policy_init(struct device *dev)
+ 	if (ret)
+ 		goto err_containment;
+ 
+-	ret = address_range_init(policy_kobj);
++	ret = leaky_bucket_init(policy_kobj);
+ 	if (ret)
+ 		goto err_storm;
+ 
++	ret = address_range_init(policy_kobj);
++	if (ret)
++		goto err_leaky_bucket;
++
+ 	return 0;
+ 
++err_leaky_bucket:
++	leaky_bucket_exit(policy_kobj);
+ err_storm:
+ 	storm_protection_exit(policy_kobj);
+ err_containment:
+@@ -44,6 +50,7 @@ int mtk_dram_ecc_policy_init(struct device *dev)
+ void mtk_dram_ecc_policy_exit(struct device *dev)
  {
--	u8 sr;
-+	int rx_empty;
- 	unsigned long timeout;
-
-+	if (i2c->atomic)
-+		return read_poll_timeout_atomic(xiic_poll_rx_empty,
-+				rx_empty, rx_empty, 10, XIIC_I2C_TIMEOUT_US,
-+				0, i2c);
+ 	address_range_exit(policy_kobj);
++	leaky_bucket_exit(policy_kobj);
+ 	storm_protection_exit(policy_kobj);
+ 	containment_exit(policy_kobj);
+ 	kobject_put(policy_kobj);
+diff --git a/drivers/soc/mediatek/dram-ecc/core/policy/policy.h b/drivers/soc/mediatek/dram-ecc/core/policy/policy.h
+index a535e2ce0e6d..c9926cbc11be 100644
+--- a/drivers/soc/mediatek/dram-ecc/core/policy/policy.h
++++ b/drivers/soc/mediatek/dram-ecc/core/policy/policy.h
+@@ -13,6 +13,10 @@ void containment_exit(struct kobject *parent);
+ int storm_protection_init(struct kobject *parent);
+ void storm_protection_exit(struct kobject *parent);
+ 
++int leaky_bucket_init(struct kobject *parent);
++void leaky_bucket_exit(struct kobject *parent);
++void leaky_bucket_hit(u64 spa);
 +
- 	timeout = jiffies + XIIC_I2C_TIMEOUT;
--	for (sr = xiic_getreg8(i2c, XIIC_SR_REG_OFFSET);
--		!(sr & XIIC_SR_RX_FIFO_EMPTY_MASK);
--		sr = xiic_getreg8(i2c, XIIC_SR_REG_OFFSET)) {
--		xiic_getreg8(i2c, XIIC_DRR_REG_OFFSET);
-+	while (!xiic_poll_rx_empty(i2c)) {
- 		if (time_after(jiffies, timeout)) {
- 			dev_err(i2c->dev, "Failed to clear rx fifo\n");
- 			return -ETIMEDOUT;
-@@ -383,6 +397,12 @@ static int xiic_wait_tx_empty(struct xiic_i2c *i2c)
- 	u8 isr;
- 	unsigned long timeout;
-
-+	if (i2c->atomic)
-+		return read_poll_timeout_atomic(xiic_getreg32, isr,
-+				isr & XIIC_INTR_TX_EMPTY_MASK, 10,
-+				XIIC_I2C_TIMEOUT_US, 0, i2c,
-+				XIIC_IISR_OFFSET);
-+
- 	timeout = jiffies + XIIC_I2C_TIMEOUT;
- 	for (isr = xiic_getreg32(i2c, XIIC_IISR_OFFSET);
- 		!(isr & XIIC_INTR_TX_EMPTY_MASK);
---
-2.43.0
+ int address_range_init(struct kobject *parent);
+ void address_range_exit(struct kobject *parent);
+ 
+-- 
+2.45.2
 
 
