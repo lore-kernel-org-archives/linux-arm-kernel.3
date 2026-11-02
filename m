@@ -2,81 +2,137 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12F61606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:05:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85D78606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 13:17:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gLNGcshX;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Pi8L0Zx9
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xiVTOlkX;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=sfc9Pwfc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=dRgm/usAbuijlDtnj0U5S9Y8ViLLfvYyBZ31aRg8NZA=; b=gLNGcshX/fP+Pr
-	KTnGbi+kYTQW8/nENWVdYgneOgE4lZjURWMg9XXliCIbjOS2xAceowX1+R3BRpMagdRGnk87A8mGT
-	1pR7A4ueLDIXJH7SM3ed4m5eGeNAonqcUt0+XywCRrL2bZm7WrsBg3CsWLxZd62NlB5qXKAOr7qDW
-	qhwP5yTXMoxyCqqWTBjRyQFg7mVqAQOvdtJn5rXD7tNYXpqqDK5HPhZ5HMf9xf3IsS0Dbg+XLFDDK
-	NyrfEAkJ/xgGT79QJiwlhc0CUJ0r4cKNourz05WhlbECcR+3JKclgh3bEhg15GnjChY7NJ5tZl/Oc
-	M2Ht9M0fJRs4UKHcl8AA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=Nu0UBnRlzBjlTsD7Xnyon69xqlQ0MnOsBtNCGwjj4wU=; b=xiVTOlkXyhXpmy6vCqqOMRdkQa
+	z6EowGghWLbkFGjOfyP/e0PUOb6q/bsJjYVllmZmoPInmudAgL2ytmKSj5WboYycxooBW7B+LEmEI
+	MAYjOl9A3TBDudpTkbK/+0tYEzI1uq/aI+e7/UR3nQGE/5yltp2w3gEls1seINSaDlOl8BT4hMEw5
+	Xi/YK+nmcvmoVP5yOXt7IUZ35aVgz8DcU5BnzE4+UxURIjsRl0jFkePysszEouFy+Q8TTjuye1+Bs
+	tXIUd4fbuyAelRkcQ37CpFJRYM3mUn/SMFnfGF/WcjWtT5TKjEVJK2amS9osEIPQ9G+mUgKyRhmMT
+	Y3OHlkdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNrge-0000000GYOu-326H;
-	Mon, 02 Nov 2026 13:02:56 +0000
-Received: from out-149.mta1.migadu.com ([2001:41d0:203:375::95] helo=mta1.migadu.com)
+	id 1xNruB-0000000Ga38-2KEJ;
+	Mon, 02 Nov 2026 13:16:55 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNrgZ-0000000GYKv-44dG
+	id 1xNru9-0000000Ga2j-0BZF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 13:02:55 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=Dh2qX6B4YlnltdNGhP+48x/uPJ+F0SjZMijH0FtOc/w=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793624569; v=1; x=1794229369;
- b=Pi8L0Zx9Vpn6sRyrxAS6sS+7LBeAc0u2Nkwz2u1MI5NROjgV09o8ms6ZGuVHqrpmiILcJ5HH
- GRWVng8Y0TZF7oe3xJ4NmgFSCAXr3kbl1ox3aG9CUk5rYnU9rSQDt9I6UzQAhncNlOsny5Q3u6P
- TKvOik8QvJbsnHy+psF63Dek=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 3bfd9e10390866bf;
-	Mon, 02 Nov 2026 13:02:49 +0000
-X-Mizu-Trace-ID: 3bfd9e10390866bf
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Sebastian Ene <sebastianene@google.com>,
-	=?UTF-8?q?Bart=C5=82omiej=20Grzesik?= <bgrzesik@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Vladimir Murzin <vladimir.murzin@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Zenghui Yu <zenghui.yu@linux.dev>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Radu Rendec <radu@rendec.net>,
-	Fuad Tabba <tabba@google.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 10/13] KVM: arm64: Take the ITS tables and restrict GITS_BASER<n>
-Date: Mon,  2 Nov 2026 13:01:30 +0000
-Message-ID: <20261102130133.3684226-11-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261102130133.3684226-1-fuad.tabba@linux.dev>
-References: <20261102130133.3684226-1-fuad.tabba@linux.dev>
+	Mon, 02 Nov 2026 13:16:54 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4afe2d546f9so13081805e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 05:16:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1793625411; x=1794230211; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Nu0UBnRlzBjlTsD7Xnyon69xqlQ0MnOsBtNCGwjj4wU=;
+        b=sfc9PwfcPMGCRadni4YicRCfvjPtdrE3n0P4E3r8bownB8s856fiAMftCTJeycmWRP
+         ZedGn59hVo1UdulaqU5HFPM574z7SC0fXud38/q6yqUqxUJn+RFFd/cRq8tRaktlD6oR
+         lnm4BZa5jAJLhs/4Ae2pB79bF2escF2W4O7OUtwuPCY3gRpdZkIIS3EKqN2R7Hq8GFSl
+         X7yDWgIVjnipWnj6lciXFR3AFtPlhVnh6zHgQwhrUzrsNwuJbfKsbHUulW9g2v5kuxIX
+         c4IQQ8gvmb/evHIRkghDbGXTdEkbGg/Qtr9u3M3tF5zGE3v3/c2lRNZ/9wRTEWgztmJb
+         fX+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793625411; x=1794230211;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Nu0UBnRlzBjlTsD7Xnyon69xqlQ0MnOsBtNCGwjj4wU=;
+        b=PnhTTZrBA+Y7GyIjMvvY6XBsGDQ7TR77yocRialNma98uh2XxZeVFopFzRbzjq5TO6
+         Xe5YRwd5fDbYRoPMYk5TLVSHpM9jHm6ViAfdj+YS+OxQs6mA5mW+IwSkp2HQxXmTaRic
+         7bl7+kw4sl72cVzrXoGPG2qewEjgmqGwawecDK+sgePktsE1uysgWaJgmoV4gqGsh2o4
+         JjMlqwPHocP3GT3+9IGaP4mbuYv0NFrl7nCL5Rt83AHnr/B+eG4Jc0/R3sIPO9N7eBUN
+         TBb9lgtY4tWSooc3s+5oROFzx55HcaROttp+nKnL1mRhGzz805QdWUMmo/ZFFuwb5GrM
+         Rn5A==
+X-Forwarded-Encrypted: i=1; AKwUvBzqz987TSDuO89rrOXRJwc19I1G4TokVl6y6f/3O3wSGkaokZAijjS8UCSlUBiiDZQWY2cVYkvGdU8rMUvmCUit@lists.infradead.org
+X-Gm-Message-State: AFq9FYJlpb/j7UfCx7w17xXCkQ/zuK8Sx9LZ46G15CtH5SpFjEsS30Kz
+	oJeOox/DoSgkNxwygGCN3GIh4OdXBBvD8Hnvfc//o4DWBl8UX3UN11/u2FltlnKwY8A=
+X-Gm-Gg: AYBFou0HlSvR6eJ5iRWzbtR7rFg0JMpDVBc194ZQxuCMkdvhSxiWXjiZp3+rDHXSsvB
+	dfJ+T5gw3iLV/QThjhYvpzRB4IWhIAhb8/Wxp+7H+y4kzgtHZpbWQ/M29bebCQ9neMLL5YF5q4D
+	JAYSKjud7x1zomDuUZdQ8o1iNFNMK65fihnBpKMRing8BZ45VBRV3tCGaaoLlFhW5g7LJiuTjGD
+	PtIh2HFr5B91DqzzKzYoKArvDxl8GbJx0f8EPQFyVXbhnxEmR0Okcmll2YFyZwP58z+VDNOpjWD
+	z9M93Ovb7kNN9vgiwYwoDSLOw06TxoLjSiBlOaisPKSQTRvicG//rSB6uj4bYb+D/LvFiFP4SjL
+	+f0wqpBOL4XKw+FEwfgKMHFem2LC8cBCaTHmqeGnNq04Ck3bzd+f+mWha+tPfiavbKssCw6bmk1
+	27aRNnWpoq5cTEdEEGzrmWHWp/Xk3ieW0Nvtlnh+QeGDDCYokhFLlJfgdu3uelellGD69lM67PO
+	+GPTRZ6deAP+hpjDJjjVSKVrheNXs+EuHvRyqASoDf7dUzvWQ9kC3BrXoEMi7iugR49IpGg4g2U
+	ecKS7Rzep6lqMoZiLARV/tqlYQHN8UPImwgq2jQsbqYrHrnX5kExkaBuUtVhohjYl6lWpriZGYj
+	nfbOFjQ==
+X-Received: by 2002:a05:600c:8b0a:b0:4a1:777b:8a12 with SMTP id 5b1f17b1804b1-4ac1709ae4emr246187665e9.14.1793625410523;
+        Mon, 02 Nov 2026 05:16:50 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:106d:1080:9476:5165:3a16:262? ([2a01:e0a:106d:1080:9476:5165:3a16:262])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4aa7f322c46sm331607645e9.2.2026.11.02.05.16.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Nov 2026 05:16:50 -0800 (PST)
+Message-ID: <fbf54a00-33c6-4b5f-a9d9-3f6c23744ae9@linaro.org>
+Date: Mon, 2 Nov 2026 14:16:49 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v5 3/7] drm/panel: simple: Add Waiken WKS101WX001-WCT
+ panel support
+To: Frank.Li@oss.nxp.com, Marek Vasut <marex@denx.de>,
+ Stefan Agner <stefan@agner.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jessica Zhang <jesszhan0024@gmail.com>,
+ Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Robert Chiras <robert.chiras@nxp.com>,
+ Liu Ying <victor.liu@nxp.com>, Frank Li <Frank.Li@nxp.com>
+References: <20261027-dxl_lcdif-v5-0-3a974e4b94b2@nxp.com>
+ <20261027-dxl_lcdif-v5-3-3a974e4b94b2@nxp.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20261027-dxl_lcdif-v5-3-3a974e4b94b2@nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_050252_316561_EF185ED8 
-X-CRM114-Status: GOOD (  31.55  )
+X-CRM114-CacheID: sfid-20261102_051653_150719_5FEB41C6 
+X-CRM114-Status: GOOD (  20.90  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,495 +143,100 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The ITS writes device and collection entries into the tables
-GITS_BASER<n> points to. At setup the hypervisor takes every such table
-and every level-2 page an indirect device table already points to. That
-includes the vPE table, which the driver allocates whenever the ITS has
-one. With GICv4 off for the host, only the device table gains level-2
-pages after setup.
+On 10/27/26 16:00, Frank.Li@oss.nxp.com wrote:
+> From: Frank Li <Frank.Li@nxp.com>
+> 
+> Add support for the Waiken WKS101WX001-WCT, an industrial-grade 10.1-inch
+> IPS TFT LCD panel with a capacitive touchscreen.
+> 
+> Although the module advertises LVDS support, enabling LVDS operation
+> requires hardware modification, including the removal of several on-board
+> resistors. As there are currently no known users of the LVDS configuration,
+> only the default interface mode is supported.
+> 
+> Acked-by: Liu Ying <victor.liu@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> change in v5
+> - drop "If LVDS..." in commit message (Liu ying).
+> 
+> change in v4
+> - s/LDB/DPI
+> - variable use 101wx001_wct
+> 
+> change in v3
+> - add wct surfix and change to use MEDIA_BUS_FMT_RGB888_1X24
+> - Add information about lvds support plan.
+> 
+> change in v2
+> - update height to 135 from 136 (sashiko)
+> ---
+>   drivers/gpu/drm/panel/panel-simple.c | 31 +++++++++++++++++++++++++++++++
+>   1 file changed, 31 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/panel/panel-simple.c b/drivers/gpu/drm/panel/panel-simple.c
+> index d7dbd7442919b..5ef6a79f0de95 100644
+> --- a/drivers/gpu/drm/panel/panel-simple.c
+> +++ b/drivers/gpu/drm/panel/panel-simple.c
+> @@ -5252,6 +5252,34 @@ static const struct panel_desc vl050_8048nt_c01 = {
+>   	.bus_flags = DRM_BUS_FLAG_DE_HIGH | DRM_BUS_FLAG_PIXDATA_SAMPLE_NEGEDGE,
+>   };
+>   
+> +static const struct drm_display_mode waiken_101wx001_wct_mode = {
+> +	.clock = 71100,
+> +	.hdisplay = 1280,
+> +	.hsync_start = 1280 + 70,
+> +	.hsync_end = 1280 + 70 + 10,
+> +	.htotal = 1280 + 70 + 10 + 80,
+> +	.vdisplay = 800,
+> +	.vsync_start = 800 + 10,
+> +	.vsync_end = 800 + 10 + 3,
+> +	.vtotal = 800 + 10 + 3 + 10,
+> +	.width_mm = 217,
+> +	.height_mm = 135,
+> +	.flags = DRM_MODE_FLAG_NHSYNC | DRM_MODE_FLAG_NVSYNC,
+> +};
+> +
+> +static const struct panel_desc waiken_101wx001_wct_panel = {
+> +	.modes = &waiken_101wx001_wct_mode,
+> +	.num_modes = 1,
+> +	.bpc = 8,
+> +	.size = {
+> +		.width = 217,
+> +		.height = 135,
+> +	},
+> +	.bus_format = MEDIA_BUS_FMT_RGB888_1X24,
+> +	.connector_type = DRM_MODE_CONNECTOR_DPI,
+> +	.bus_flags = DRM_BUS_FLAG_DE_HIGH | DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE,
+> +};
+> +
+>   static const struct drm_display_mode waveshare_28_lcd_mode = {
+>   	.clock = 50000,
+>   	.hdisplay = 480,
+> @@ -6248,6 +6276,9 @@ static const struct of_device_id platform_of_match[] = {
+>   	}, {
+>   		.compatible = "vxt,vl050-8048nt-c01",
+>   		.data = &vl050_8048nt_c01,
+> +	}, {
+> +		.compatible = "waiken,101wx001-wct",
+> +		.data = &waiken_101wx001_wct_panel,
+>   	}, {
+>   		.compatible = "waveshare,2.8inch-panel",
+>   		.data = &waveshare_28_lcd_panel
+> 
 
-From the takeover on, the driver writes new level-1 entries into a copy
-of the device table, which the hypervisor pins. On the first MAPD that
-needs a new entry, the hypervisor publishes the copy's entry if it holds
-only Valid and the address of an aligned level-2 page, and takes and
-zeroes that page. A valid hardware entry never changes, and a MAPD whose
-entry stays invalid is rejected, as the ITS would discard its write. So
-is a MAPD past the end of a flat device table.
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-GITS_BASER<n> writes now go through only to a register that pointed to
-a table at setup, with the ITS disabled and quiescent. The hypervisor
-then writes back the value it read at setup, and an enable aborts unless
-every such register still holds it.
-
-Co-developed-by: Sebastian Ene <sebastianene@google.com>
-Signed-off-by: Sebastian Ene <sebastianene@google.com>
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
-
-Notes:
-    Changes since v2 (v2 patches 07 and 12, and the level-1 half of 08):
-    - The tables come from GITS_BASER<n> as the hypervisor reads them,
-      not from a host-supplied address, value, order and page size
-      (sashiko)
-    - A level-1 entry is write-once: only Valid 0 -> 1 is published (was
-      any Valid flip, the page given back on 1 -> 0)
-    - A published entry is read once and must name an aligned level-2
-      page, which is zeroed, and cleaned for a non-shareable table
-      (sashiko)
-    - Level-2 pages are taken as DIV_ROUND_UP(psz, PAGE_SIZE) kernel
-      pages, where v2's psz >> PAGE_SHIFT was 0 below PAGE_SIZE
-      (sashiko)
-    - Level-1 entries are read and written as __le64 (sashiko)
-    - Page_Size, Size, Entry_Size and the 64K address encoding are
-      decoded per the architecture (v2 didn't fold PA[51:48])
-    - Only the device table has a level-1 copy (was a copy of every
-      table)
-    - A vPE table that GICv4.1 ITSes share is taken once (was a second
-      donation, which fails)
-    - A MAPD whose level-1 entry stays invalid is rejected
-    - A GITS_BASER<n> write stores the value read at setup, whole,
-      rather than the host's value under a mask (sashiko)
-    - A GITS_BASER<n> write to a register that named no table, or while
-      the ITS is enabled or not quiescent, aborts (was a silent drop)
-    - An enable also aborts unless every GITS_BASER<n> that named a
-      table still holds its value
-
- arch/arm64/kvm/hyp/nvhe/its_emulate.c | 252 +++++++++++++++++++++++++-
- drivers/irqchip/irq-gic-v3-its.c      |  28 ++-
- include/linux/irqchip/arm-gic-v3.h    |   3 +-
- 3 files changed, 275 insertions(+), 8 deletions(-)
-
-diff --git a/arch/arm64/kvm/hyp/nvhe/its_emulate.c b/arch/arm64/kvm/hyp/nvhe/its_emulate.c
-index b0181cb3fe9ba..5dd959451f989 100644
---- a/arch/arm64/kvm/hyp/nvhe/its_emulate.c
-+++ b/arch/arm64/kvm/hyp/nvhe/its_emulate.c
-@@ -21,12 +21,27 @@
- #define GITS_CWRITER_RETRY	BIT_ULL(0)
- #define GITS_CREADR_OFFSET	GENMASK_ULL(19, 5)
- #define GITS_CBASER_SIZE	GENMASK_ULL(7, 0)
-+#define GITS_LVL1_ADDRESS	GENMASK_ULL(51, 12)
-+
-+/* A GITS_BASER<n> table, as the register described it at setup. */
-+struct its_table {
-+	/* hw is hyp-owned; l1_copy is the host's level-1 copy, pinned. */
-+	void			*hw;
-+	void			*l1_copy;
-+	u64			baser;
-+	size_t			size;
-+	u32			psz;
-+	u8			esz;
-+	bool			indirect;
-+};
- 
- /* Per-ITS state, in the pages the host donated at setup. */
- struct its_priv {
- 	hyp_spinlock_t		lock;
- 	void __iomem		*base;
- 	u64			cbaser;
-+	struct its_table	tables[GITS_BASER_NR_REGS];
-+	struct its_table	*dev_table;
- 
- 	/* cmdq_hw is hyp-owned; cmdq_copy is the host's copy, pinned. */
- 	void			*cmdq_hw;
-@@ -55,10 +70,75 @@ static int its_pin_host_pages(phys_addr_t pa, u64 nr_pages)
- 	return hyp_pin_shared_mem(va, va + (nr_pages << PAGE_SHIFT));
- }
- 
-+static size_t its_l2_size(struct its_table *t)
-+{
-+	return DIV_ROUND_UP(t->psz, PAGE_SIZE) << PAGE_SHIFT;
-+}
-+
-+/*
-+ * The ITS discards a device table write through an invalid level-1 entry, so
-+ * make the entry for device_id valid from the host's copy. A hardware entry
-+ * only ever goes from invalid to valid.
-+ */
-+static bool its_publish_l1(struct its_priv *its, u32 device_id)
-+{
-+	struct its_table *t = its->dev_table;
-+	size_t l2_size;
-+	u64 idx, entry;
-+	phys_addr_t pa;
-+	__le64 *hw;
-+
-+	/* No device table in memory, so no level-1 entry to publish. */
-+	if (!t)
-+		return true;
-+
-+	if (!t->indirect)
-+		return device_id < t->size / t->esz;
-+
-+	idx = device_id / (t->psz / t->esz);
-+	if (idx >= t->size / GITS_LVL1_ENTRY_SIZE)
-+		return false;
-+
-+	hw = t->hw;
-+	if (le64_to_cpu(hw[idx]) & GITS_BASER_VALID)
-+		return true;
-+
-+	/* The host can change its copy: read the entry once. */
-+	entry = le64_to_cpu(READ_ONCE(((__le64 *)t->l1_copy)[idx]));
-+
-+	l2_size = its_l2_size(t);
-+	pa = entry & GITS_LVL1_ADDRESS;
-+	if (entry != (pa | GITS_BASER_VALID) || !IS_ALIGNED(pa, l2_size))
-+		return false;
-+	if (__pkvm_host_donate_hyp(PHYS_PFN(pa), l2_size >> PAGE_SHIFT))
-+		return false;
-+
-+	/* Using a new level-2 table that isn't all zeros is UNPREDICTABLE (IHI 0069H.b 5.2.1). */
-+	memset(hyp_phys_to_virt(pa), 0, l2_size);
-+	if (!(t->baser & GITS_BASER_SHAREABILITY_MASK))
-+		gic_flush_dcache_to_poc(hyp_phys_to_virt(pa), l2_size);
-+	/* Zero the page before the entry is valid: the ITS can walk it at any time. */
-+	dma_wmb();
-+	hw[idx] = cpu_to_le64(entry);
-+	if (!(t->baser & GITS_BASER_SHAREABILITY_MASK))
-+		gic_flush_dcache_to_poc(&hw[idx], sizeof(*hw));
-+	/* Visible to the ITS before the command that relies on it is queued. */
-+	dsb(sy);
-+	return true;
-+}
-+
-+static bool its_mapd(struct its_priv *its, struct its_cmd_block *cmd)
-+{
-+	u32 device_id = its_cmd_get_deviceid(cmd->raw_cmd);
-+
-+	return its_publish_l1(its, device_id);
-+}
-+
- static bool its_process_cmd(struct its_priv *its, struct its_cmd_block *cmd)
- {
- 	switch (its_cmd_get_command(cmd->raw_cmd)) {
- 	case GITS_CMD_MAPD:
-+		return its_mapd(its, cmd);
- 	case GITS_CMD_MAPC:
- 	case GITS_CMD_MAPTI:
- 	case GITS_CMD_MAPI:
-@@ -137,10 +217,26 @@ static bool its_cwriter_write(struct its_priv *its, u64 val)
- 	return !rejected;
- }
- 
--/* A reset clears GITS_CBASER.Valid, and an enable with it clear is UNPREDICTABLE. */
-+/*
-+ * A reset clears the Valid bits of GITS_CBASER and GITS_BASER<n>, and an enable
-+ * with GITS_CBASER's or the device table's clear is UNPREDICTABLE.
-+ */
- static bool its_bases_intact(struct its_priv *its)
- {
--	return readq_relaxed(its->base + GITS_CBASER) == its->cbaser;
-+	unsigned int n;
-+
-+	if (readq_relaxed(its->base + GITS_CBASER) != its->cbaser)
-+		return false;
-+
-+	for (n = 0; n < GITS_BASER_NR_REGS; n++) {
-+		u64 baser = its->tables[n].baser;
-+
-+		if ((baser & GITS_BASER_VALID) &&
-+		    readq_relaxed(its->base + GITS_BASER + n * sizeof(u64)) != baser)
-+			return false;
-+	}
-+
-+	return true;
- }
- 
- static bool its_ctlr_write(struct its_priv *its, u64 val)
-@@ -184,6 +280,21 @@ static bool its_cbaser_write(struct its_priv *its)
- 	return true;
- }
- 
-+static bool its_baser_write(struct its_priv *its, unsigned int index)
-+{
-+	u64 baser = its->tables[index].baser;
-+
-+	if (!its_disabled_quiescent(its))
-+		return false;
-+
-+	/* Refuse a table the hypervisor didn't take: the driver never restores one. */
-+	if (!(baser & GITS_BASER_VALID))
-+		return false;
-+
-+	writeq_relaxed(baser, its->base + GITS_BASER + index * sizeof(u64));
-+	return true;
-+}
-+
- static bool its_emulate(struct its_priv *its, u64 offset, bool write, u64 *val, u8 size)
- {
- 	if (write) {
-@@ -196,10 +307,8 @@ static bool its_emulate(struct its_priv *its, u64 offset, bool write, u64 *val,
- 			/* The driver writes the low word; the high word is RES0. */
- 			return its_cwriter_write(its, *val);
- 		case GITS_BASER ... GITS_BASER + (GITS_BASER_NR_REGS - 1) * sizeof(u64):
--			if (size != sizeof(u64))
--				return false;
--			writeq_relaxed(*val, its->base + offset);
--			return true;
-+			return size == sizeof(u64) &&
-+			       its_baser_write(its, (offset - GITS_BASER) / sizeof(u64));
- 		default:
- 			return false;
- 		}
-@@ -263,6 +372,133 @@ static int its_take_cmdq(struct its_priv *its, phys_addr_t copy_pa)
- 	return 0;
- }
- 
-+static u32 its_baser_psz(u64 baser)
-+{
-+	switch (FIELD_GET(GITS_BASER_PAGE_SIZE_MASK, baser)) {
-+	case GIC_PAGE_SIZE_4K:
-+		return SZ_4K;
-+	case GIC_PAGE_SIZE_16K:
-+		return SZ_16K;
-+	default:
-+		/* 0b11 is reserved and treated as 64K. */
-+		return SZ_64K;
-+	}
-+}
-+
-+static phys_addr_t its_baser_pa(u64 baser, u32 psz)
-+{
-+	/* With 64K pages, bits [15:12] of the register hold PA[51:48]. */
-+	if (psz == SZ_64K)
-+		return GITS_BASER_ADDR_48_to_52(baser);
-+
-+	return baser & GENMASK_ULL(47, 12);
-+}
-+
-+static int its_take_level2(struct its_table *t, u64 nr_entries)
-+{
-+	u64 l2_pages = its_l2_size(t) >> PAGE_SHIFT;
-+	__le64 *table = t->hw;
-+	u64 i, entry;
-+	int ret;
-+
-+	for (i = 0; i < nr_entries; i++) {
-+		entry = le64_to_cpu(table[i]);
-+		if (!(entry & GITS_BASER_VALID))
-+			continue;
-+
-+		ret = __pkvm_host_donate_hyp(PHYS_PFN(entry & GITS_LVL1_ADDRESS), l2_pages);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int its_take_table(struct its_table *t, phys_addr_t copy_pa)
-+{
-+	u64 baser = t->baser, nr_pages;
-+	phys_addr_t pa;
-+	int ret;
-+
-+	t->psz = its_baser_psz(baser);
-+	t->esz = GITS_BASER_ENTRY_SIZE(baser);
-+	t->size = GITS_BASER_NR_PAGES(baser) * t->psz;
-+	t->indirect = baser & GITS_BASER_INDIRECT;
-+	pa = its_baser_pa(baser, t->psz);
-+	nr_pages = DIV_ROUND_UP(t->size, PAGE_SIZE);
-+
-+	ret = __pkvm_host_donate_hyp(PHYS_PFN(pa), nr_pages);
-+	if (ret)
-+		return ret;
-+	t->hw = hyp_phys_to_virt(pa);
-+
-+	if (!t->indirect)
-+		return 0;
-+
-+	if (copy_pa) {
-+		ret = its_pin_host_pages(copy_pa, nr_pages);
-+		if (ret)
-+			return ret;
-+		t->l1_copy = hyp_phys_to_virt(copy_pa);
-+	}
-+
-+	return its_take_level2(t, t->size / GITS_LVL1_ENTRY_SIZE);
-+}
-+
-+/* GICv4.1 ITSes with a common affinity share one vPE table (GITS_TYPER.SVPET). */
-+static bool its_vpe_table_taken(u64 baser)
-+{
-+	unsigned int i, n;
-+
-+	for (i = 0; i < num_protected_reg; i++) {
-+		struct its_priv *its = pkvm_protected_regs[i].priv;
-+
-+		if (!its)
-+			continue;
-+
-+		for (n = 0; n < GITS_BASER_NR_REGS; n++) {
-+			if (its->tables[n].hw && its->tables[n].baser == baser)
-+				return true;
-+		}
-+	}
-+
-+	return false;
-+}
-+
-+static int its_take_tables(struct its_priv *its, struct its_pkvm_desc *desc)
-+{
-+	unsigned int n;
-+	int ret;
-+
-+	for (n = 0; n < GITS_BASER_NR_REGS; n++) {
-+		struct its_table *t = &its->tables[n];
-+		phys_addr_t copy_pa = 0;
-+
-+		t->baser = readq_relaxed(its->base + GITS_BASER + n * sizeof(u64));
-+		if (!(t->baser & GITS_BASER_VALID))
-+			continue;
-+
-+		switch (GITS_BASER_TYPE(t->baser)) {
-+		case GITS_BASER_TYPE_DEVICE:
-+			/* The driver publishes level-1 entries through its copy. */
-+			copy_pa = desc->dev_l1_copy_pa;
-+			its->dev_table = t;
-+			break;
-+		case GITS_BASER_TYPE_VCPU:
-+			/* Taken: writing it while the ITS is enabled is UNPREDICTABLE (5.2.1). */
-+			if (its_vpe_table_taken(t->baser))
-+				continue;
-+			break;
-+		}
-+
-+		ret = its_take_table(t, copy_pa);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
- int pkvm_its_emulate_setup(phys_addr_t its_base, phys_addr_t desc_pa,
- 			   size_t desc_size)
- {
-@@ -304,6 +540,10 @@ int pkvm_its_emulate_setup(phys_addr_t its_base, phys_addr_t desc_pa,
- 	if (ret)
- 		return ret;
- 
-+	ret = its_take_tables(its, desc);
-+	if (ret)
-+		return ret;
-+
- 	WARN_ON(__pkvm_hyp_donate_host(PHYS_PFN(desc_pa), desc_pages));
- 	/* Published by stop_machine()'s exit: no host CPU traps until then. */
- 	region->priv = its;
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 298e4ca1b0759..cc89691f43cb4 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -5247,11 +5247,14 @@ static int __init its_compute_its_list_map(struct its_node *its)
- 
- /*
-  * Protected KVM: from the takeover on, the driver writes commands into a copy
-- * of the command queue, and the hypervisor checks each before the ITS sees it.
-+ * of the command queue and level-1 entries into a copy of the device table,
-+ * and the hypervisor checks each before the ITS sees it.
-  */
- struct its_pkvm_state {
- 	void			*priv;
- 	void			*cmdq;
-+	struct its_baser	*dev_baser;
-+	void			*dev_l1;
- 	struct its_pkvm_desc	*desc;
- 	size_t			desc_size;
- };
-@@ -5265,6 +5268,7 @@ static DEFINE_MUTEX(its_pkvm_lock);
- static int __init its_pkvm_alloc_copies(struct its_node *its,
- 					struct its_pkvm_state *st)
- {
-+	struct its_baser *baser = its_get_baser(its, GITS_BASER_TYPE_DEVICE);
- 	struct page *page;
- 
- 	page = its_alloc_pages_node(its->numa_node, GFP_KERNEL, ITS_PKVM_PRIV_ORDER);
-@@ -5278,6 +5282,15 @@ static int __init its_pkvm_alloc_copies(struct its_node *its,
- 		return -ENOMEM;
- 	st->cmdq = page_address(page);
- 
-+	if (!baser || !(baser->val & GITS_BASER_INDIRECT))
-+		return 0;
-+
-+	page = its_alloc_pages_node(its->numa_node, GFP_KERNEL | __GFP_ZERO, baser->order);
-+	if (!page)
-+		return -ENOMEM;
-+	st->dev_baser = baser;
-+	st->dev_l1 = page_address(page);
-+
- 	return 0;
- }
- 
-@@ -5315,6 +5328,8 @@ static int __init its_pkvm_prepare_one(struct its_node *its)
- 	desc->priv_pa = virt_to_phys(st->priv);
- 	desc->priv_pages = 1 << ITS_PKVM_PRIV_ORDER;
- 	desc->cmdq_copy_pa = virt_to_phys(st->cmdq);
-+	if (st->dev_l1)
-+		desc->dev_l1_copy_pa = virt_to_phys(st->dev_l1);
- 
- 	i = 0;
- 	list_for_each_entry(dev, &its->its_device_list, entry) {
-@@ -5333,6 +5348,9 @@ static int __init its_pkvm_hand_over(struct its_node *its,
- {
- 	struct its_pkvm_state *st = its->pkvm;
- 
-+	if (st->dev_l1)
-+		memcpy(st->dev_l1, st->dev_baser->base, PAGE_ORDER_TO_SIZE(st->dev_baser->order));
-+
- 	return setup(its->phys_base, st->desc, st->desc_size);
- }
- 
-@@ -5344,6 +5362,12 @@ static void __init its_pkvm_switch(struct its_node *its)
- 	its->cmd_base = st->cmdq;
- 	st->cmdq = NULL;
- 	st->priv = NULL;
-+
-+	/* val keeps naming the hardware table, which the hypervisor now owns. */
-+	if (st->dev_l1) {
-+		st->dev_baser->base = st->dev_l1;
-+		st->dev_l1 = NULL;
-+	}
- }
- 
- static void __init its_pkvm_finish_one(struct its_node *its)
-@@ -5354,6 +5378,8 @@ static void __init its_pkvm_finish_one(struct its_node *its)
- 		its_free_pages(st->priv, ITS_PKVM_PRIV_ORDER);
- 	if (st->cmdq)
- 		its_free_pages(st->cmdq, get_order(ITS_CMD_QUEUE_SZ));
-+	if (st->dev_l1)
-+		its_free_pages(st->dev_l1, st->dev_baser->order);
- 
- 	if (st->desc)
- 		its_free_pages(st->desc, get_order(st->desc_size));
-diff --git a/include/linux/irqchip/arm-gic-v3.h b/include/linux/irqchip/arm-gic-v3.h
-index a708e188898ef..64c594c23bd46 100644
---- a/include/linux/irqchip/arm-gic-v3.h
-+++ b/include/linux/irqchip/arm-gic-v3.h
-@@ -689,12 +689,13 @@ struct its_pkvm_device {
- /*
-  * What the host hands the hypervisor at setup: pages for its per-ITS state,
-  * and the memory it cannot discover from the ITS itself. Physical addresses,
-- * page-aligned.
-+ * page-aligned; dev_l1_copy_pa is set when the device table is indirect.
-  */
- struct its_pkvm_desc {
- 	u64			priv_pa;
- 	u64			priv_pages;
- 	u64			cmdq_copy_pa;
-+	u64			dev_l1_copy_pa;
- 	u32			nr_devices;
- 	struct its_pkvm_device	devices[];
- };
--- 
-2.47.3
-
+Thanks,
+Neil
 
