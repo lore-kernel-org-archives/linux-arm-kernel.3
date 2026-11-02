@@ -2,77 +2,78 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 094DF606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 09:41:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9428F606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 09:43:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KAKrLno0;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NAk6wFia
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iKr4r0oN;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=m2xj551U
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=EzjmXrkDzsq1ea6V54eY/ckSO21R5zXaobZj8IyNVuU=; b=KAKrLno0pxEd/AM4qc45yKKDjW
-	LNFMPq4mFkeOE/EI0G8nYdrbw8dKvwWh6tKwoiOrqSNjOnZC2ARW1V7vDEA9Vq21VDSnwlbvbZAVA
-	DYB7jL2THG0CbKYgkQL9h8mNTMTgXGoDXZz2ay+tXHjRLtxHdkj6li4PPM9agNEBvZbaLvKtkyyLJ
-	jvLrIowhJgnumfYW7yPZvgCWtHXfYX5TvQQ5oTFO//eC/jSAetStlEUrSP4fgA+i+v7MMO0Pm2NYd
-	DXB4LmYZhivPDYarssbM5ywPcRPiBxc8RUZqjLegdaUFJP1anWPLU+ed+Pt+aR9D10OGVIEq3Sugu
-	0Lgp9xtQ==;
+	bh=7WhTA0Y8V6vZp2rorlhZwrgj9nL0x892/MR/HRLGhZE=; b=iKr4r0oNGQ5CGk6m/jRvM/cib5
+	6C+038H77cIMaPWnYtwcn/EQFWTNxm7xnK3HTHeRG5hQWRqpH6g1TMvg5PpkQ9ZV0rYBLPYsrKXbQ
+	AJpaKDY3Qni0WR+QNucCyJXqDYrCvFWRFcRuzU2XymFvkj8JyOMhfAcEOQrbWN5zl3YmlllGehwgY
+	Po22c0nDn9IlCC6isiJm8B5xZP/dglp87oRMTd7LNisW6WmWNAVT+gP+tvgDQlte7793RK0Am+Hvm
+	NDrJsP5hz7TlVJlXlP7nV/g4awCcDrNrLaTRHpYhwIayp8ragAUd1yjM0tBtShle370Adxk/KCQ4G
+	7et4ZrFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNoWs-0000000G2ug-3S1n;
-	Mon, 02 Nov 2026 09:40:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xNoZH-0000000G3CK-12Dz;
+	Mon, 02 Nov 2026 09:43:07 +0000
+Received: from out-64.mta1.migadu.com ([2001:41d0:203:375::40] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNoWr-0000000G2uN-1xPZ
+	id 1xNoZE-0000000G3BJ-1K1Y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 09:40:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A7F7043D4C;
-	Mon,  2 Nov 2026 09:40:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33F591F000C1;
-	Mon,  2 Nov 2026 09:40:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793612436;
-	bh=EzjmXrkDzsq1ea6V54eY/ckSO21R5zXaobZj8IyNVuU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NAk6wFiaQgBVuToA+AZR5hxbuFmP7Yqd4fmisg6yPTwpVv4E0gYqzHB40XSwU2+Vw
-	 PBbZGi19uXHQ28XWxNU32kYBdcQYi54zKDvc2d8pAyOed6tZnbVNb7MGry8RGSrmyX
-	 MPJ3lW6tH62zVSFv86ZGKiHRrWrkcCEz24YKIANpJRHOHAI7juMKcLLW56dFPQ3sgw
-	 ktb54aU6BUy6YxDO6F02RcyqTRvgXzzYniYC9Mn7mFWRKvf2GIKGdYUcdEB9b8HOi4
-	 XNeYUZlxLxWIzpyLg2ZevqB8pPA6/PXbvv2/2pruHYoZr1vizO9FUUKIp6xhOlSSEV
-	 wNEsZF+qtUnAg==
-Date: Mon, 2 Nov 2026 10:40:22 +0100
-From: Bartosz Golaszewski <brgl@kernel.org>
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Souvik Chakravarty <Souvik.Chakravarty@arm.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	John Stultz <john.stultz@linaro.org>, Moritz Fischer <moritz.fischer@ettus.com>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
-	Christian Loehle <christian.loehle@arm.com>, Lee Jones <lee@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
-	Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>, Abel Vesa <abelvesa@kernel.org>, 
-	Sudeep Holla <sudeep.holla@kernel.org>, Andy Yan <andyshrk@163.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, 
-	Andre Draszik <andre.draszik@linaro.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	Srinivas Kandagatla <srini@kernel.org>
-Subject: Re: [PATCH v27 05/10] dt-bindings: arm: Document reboot mode magic
-Message-ID: <fmik4cb4dltd7uivkdiyxrjsvi6xrsy3ivecx4nnwr5cvyadnd@xzofyqlmjwqf>
-References: <20261029-arm-psci-system_reset2-vendor-reboots-v27-0-fa4b3ff1359b@oss.qualcomm.com>
- <20261029-arm-psci-system_reset2-vendor-reboots-v27-5-fa4b3ff1359b@oss.qualcomm.com>
+	Mon, 02 Nov 2026 09:43:06 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=R0ifyYqy3IXOuNSpfX4Jz2GTYZxqEkqpRu+RTCJxyeU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1793612582; v=1; x=1794217382;
+ b=m2xj551UgRrE81oHG0d+QSgJ41Q680vBa4Qe8kLQXs+tvXbOvpVoO46ep050VOzEMOPNYOgq
+ N4iM2QojHe9tL/bziYIjXTK6/FZl3W5JLJCB8zWL3g0PwBPWleIrTJ2Fq4TKvOela7xzJ9G9y6S
+ JMH1wz1fi2blq6ybBFfImBG0=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id a430f5fa2618615b;
+	Mon, 02 Nov 2026 09:43:02 +0000
+X-Mizu-Trace-ID: a430f5fa2618615b
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5be58ad9600so10153e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 01:43:01 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AKwUvBzhpS6InvTDnPpZSTyjkOZBuOdodGYYR8PIAJ2Az9GriHC6hcYrYU5513QbgCyy/P/rdth8NzackstsTAgG9LLj@lists.infradead.org
+X-Gm-Message-State: APuU4Z/+gY1JMciLcPcb8v3nJSy35RKFkpGK7rU13HMsDZVuCvDHS3P5
+	kRjKoaa0asme6jflZXHGzj1P+LcISq+gTpk+6COjn5EaQcco3i2L2AN0JFvpx1qQck4ztjJA2fA
+	mAP8hLJhbWO7t6b/e1PFyzFr0aZG7tbu/vPiKmmWC
+X-Received: by 2002:a05:6512:3353:b0:5b4:74e2:4171 with SMTP id
+ 2adb3069b0e04-5bfd13fc8d8mr558803e87.4.1793612581038; Mon, 02 Nov 2026
+ 01:43:01 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261029-arm-psci-system_reset2-vendor-reboots-v27-5-fa4b3ff1359b@oss.qualcomm.com>
+References: <20261102075843.2556018-1-fuad.tabba@linux.dev>
+ <20261102075843.2556018-2-fuad.tabba@linux.dev> <07d0afa8-1b9a-4991-a419-9840cf629d57@arm.com>
+In-Reply-To: <07d0afa8-1b9a-4991-a419-9840cf629d57@arm.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Mon, 2 Nov 2026 09:42:24 +0000
+X-Gmail-Original-Message-ID: <CA+EHjTwNSxBa8-_0Q6zmgqW0RGyVhpUU3xnFg3-sqqmsdL4s8A@mail.gmail.com>
+X-Gm-Features: AclHuK8-iGCZpGhNLfgi22ISGBTFMIXgkMtlm2Ix60vIMu408Jz2-z6XjUn9gQI
+Message-ID: <CA+EHjTwNSxBa8-_0Q6zmgqW0RGyVhpUU3xnFg3-sqqmsdL4s8A@mail.gmail.com>
+Subject: Re: [PATCH v4 1/2] KVM: arm64: Clear the VM's feature bitmap when
+ kvm_setup_vcpu() fails
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Will Deacon <will@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, Jack Thomson <jackabt@amazon.com>, 
+	Congkai Tan <congkai@amazon.com>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261102_014304_516416_69A64F19 
+X-CRM114-Status: GOOD (  15.77  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,19 +86,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 29, 2026 at 02:30:59PM +0530, Shivendra Pratap wrote:
-> Add bindings to describe vendor-specific reboot modes. Values here
-> correspond to valid parameters to vendor-specific reset types in PSCI
-> SYSTEM_RESET2 call.
-> 
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-> ---
+Hi Suzuki,
 
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+On Mon, 02 Nov 2026 09:24:15 +0000, Suzuki K Poulose
+<suzuki.poulose@arm.com> wrote:
+[...]
+> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+[...]
+> > @@ -1856,8 +1856,13 @@ static int __kvm_vcpu_set_target(struct kvm_vcpu *vcpu,
+> >          bitmap_copy(kvm->arch.vcpu_features, &features, KVM_VCPU_MAX_FEATURES);
+> >
+> >          ret = kvm_setup_vcpu(vcpu);
+> > -        if (ret)
+> > +        if (ret) {
+> > +                /* Clear the bitmap if setup fails on the first vCPU to be initialized. */
+> > +                if (!test_bit(KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED, &kvm->arch.flags))
+>
+> Is this check necessary ? We go into kvm_setup_vcpu() only if the bit is
+> cleared and we do this under the config_lock mutex. The flag is only set
+> after we have finished the kvm_setup_vcpu() successfully, later down.
+
+It is. An INIT on a second vCPU with the same features also calls
+kvm_setup_vcpu(), with the flag already set, and
+kvm_vcpu_init_nested() can return -ENOMEM there.
+
+Thanks,
+/fuad
 
