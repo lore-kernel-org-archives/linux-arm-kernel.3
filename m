@@ -2,91 +2,123 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BCAA607B454
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:54:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64F6D606A599
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:55:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=k/0scAPB;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=NtQSE6Hg
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wfLo+m55;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XSx9nHvF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=3nu4A7upnl5Om0m7LZNGnD5TdTBPU65hBgFN+c/tzUc=; b=k/0scAPBhGyrHE
-	tyKpLn6r+qVMxfl32bedazfD4g1lfQFvfHTFA4CzJ83pSdslouvYgao+1WxldhwkKok2+wBE4lmKJ
-	jRFChDhNujr6EHU9xg8JobxN8d/LYksvOcYPEEuq+DIwCg/wwlWBWluOtinFUNJmcRRGdmjAzMIxy
-	Jle7Z9V7/lsUwEW4/dW7LPNwIrpweNyXRouhhwDx9QO95btLWfNUuZJe4ZsDKavxD5P1hc4YvN09y
-	vBVHsH7L6ey1z9LAa1+CWCwf6oHyVOq6Haulr/O/tkKnd/lRW0v91J1G/FjY9stLwX+zR1zWT6x0p
-	bcvMiQ0NT7Lv5PQIezKg==;
+	List-Owner; bh=heI/9Sdv9DP55tAOBIpE1yV9BQS049ybJ+Xgfo8fNy4=; b=wfLo+m55HSnCA/
+	rNs7khX5lR7INV7LIZZ85Iv34zFTDEAYrgoVVVKOT8bRNhIxJh3BOQ1cYmJPXQ8EEs8wpypH3p++E
+	m77NfmeNJQFCqxHR3F99V94ZnpBLcak9+wtDilOQmpKmKQo96misLX9DulaZcUU4ykWv7fyYPj359
+	JzKx1GU8HcDETBRQvP7+BeJQ/NCJEa7Ph7T+woGkMRlKXwiwp8zIZnkxPR2KqsiIYlVoYXaEyxxct
+	WUhGVcYkPSqKSJr8r/oVf21NSe3zf1ouswBtxaLQtjiT602667apvY+XEJmNhpIyfcNa6W68/Y11P
+	reWzafE6KhWrz/ewqeOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNtQe-0000000GvYH-0iUV;
-	Mon, 02 Nov 2026 14:54:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNtQY-0000000GvW1-33oy
+	id 1xNtRe-0000000Gvmb-1Ng5;
+	Mon, 02 Nov 2026 14:55:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xNtRc-0000000GvmS-3WKd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 14:54:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7E35B1576;
-	Mon,  2 Nov 2026 06:54:22 -0800 (PST)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E92D63F871;
-	Mon,  2 Nov 2026 06:54:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793631265; bh=pe+eF55ZtCt9EK50Q3JeMHIuu3r98fGvy4S7dN+6afo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=NtQSE6Hg4NZPFXQ1EiNFOU1PmKa4H+Hf6xPJvfcB7KdwuZLbI457GZl+8mrCNBtNo
-	 2PyrOqZhuMSPZNmfOZxZdtkgpZkjgebncw8Do9WE4zg2AeHLkFeYCskOC/ovLTR/p3
-	 5sUzDS++27WFhdVSSUC8oDy0ouhPtxEMyn5zal3U=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Tian Zheng <zhengtian10@huawei.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	maz@kernel.org,
-	oupton@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	corbet@lwn.net,
-	pbonzini@redhat.com,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	yangjinqian1@huawei.com,
-	caijian11@h-partners.com,
-	liuyonglong@huawei.com,
-	tangchengchang@huawei.com,
-	yezhenyu2@huawei.com,
-	yubihong@huawei.com,
-	linuxarm@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	fuad.tabba@linux.dev,
-	mark.rutland@arm.com,
-	seanjc@google.com,
-	rdunlap@infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	skhan@linuxfoundation.org
-Subject: Re: [PATCH v5 11/15] KVM: arm64: Reserve dirty ring space for the HDBSS buffer
-Date: Mon,  2 Nov 2026 14:54:19 +0000
-Message-ID: <auikG0clmr19sAjh@LeoBrasDK>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20260929103655.85107-12-zhengtian10@huawei.com>
-References: <20260929103655.85107-1-zhengtian10@huawei.com> <20260929103655.85107-12-zhengtian10@huawei.com>
+	Mon, 02 Nov 2026 14:55:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 898A640B0C;
+	Mon,  2 Nov 2026 14:55:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 557041F00A1A;
+	Mon,  2 Nov 2026 14:55:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793631332;
+	bh=heI/9Sdv9DP55tAOBIpE1yV9BQS049ybJ+Xgfo8fNy4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=XSx9nHvFQfngNju4DjkSqrS3ANJ0GDdI8vjOquvlsX0I/Y5lbvt4YaWQ2WZSvq+Jq
+	 8cwloydf2MMB0f5Bd+1Bv/s4iSFIlE+8xUaViPZsrnTx3Kd7JIJWJdEdDcEG7eh8uQ
+	 yitziUb4tMKsD2/2kGmQrrmnIFvPrDgb4YuLa2rk1ZLvSOmBrHXFl8O5J6k6cqSLGo
+	 BeUzge4h5Zq+zjx0jJJAhRk7f4eWHQdvKglU1tUbK87qyfvGMPNWcxGl0FDtZDQRpj
+	 dKE9l/8i+xEBkoE2R7fXnmuXPTjyldAEELAp6R4xMfElO2xTfUu7MdZUKzpoVnGzlt
+	 n57uLFJuVbRKw==
+Message-ID: <e8add933-e918-40c9-afa7-d66fd589bb9d@kernel.org>
+Date: Mon, 2 Nov 2026 15:55:15 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_065426_825852_7D59C472 
-X-CRM114-Status: GOOD (  19.13  )
-X-Spam-Score: -4.4 (----)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: Enable PINCTRL_S32G2
+To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chester Lin <chester62515@gmail.com>,
+ Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+ Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+ Jacky Bai <ping.bai@nxp.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Srinivas Kandagatla <srini@kernel.org>, Alberto Ruiz <aruizrui@redhat.com>,
+ Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org,
+ Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ NXP S32 Linux Team <s32@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Vincent Guittot <vincent.guittot@linaro.org>
+References: <20261102141635.3768024-1-khristineandreea.barbulescu@oss.nxp.com>
+ <2026110233-unlocked-outclass-9584@gregkh>
+ <1cb65dfc-78a7-4cdb-bb39-c40b980b2504@oss.nxp.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <1cb65dfc-78a7-4cdb-bb39-c40b980b2504@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,55 +129,77 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Sep 29, 2026 at 06:36:51PM +0800, Tian Zheng wrote:
-> The dirty ring reserves room for CPU-side dirty buffers via
-> kvm_cpu_dirty_log_size(). Report the HDBSS buffer entry count
-> through it, so a full buffer flush always fits in the ring.
-> 
-> Pin the HDBSS buffer size to PAGE_SIZE when dirty-ring is enabled,
-> via kvm_arch_dirty_ring_size_updated(): a larger buffer only
-> shrinks the soft_limit and forces more frequent userspace drains.
-> 
-> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
-> ---
->  arch/arm64/kvm/arm.c | 8 ++++++++
->  arch/arm64/kvm/mmu.c | 8 ++++++++
->  2 files changed, 16 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 9d7bdece149a..5a7046acb62e 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -215,6 +215,14 @@ static int kvm_arm_default_max_vcpus(void)
->  	return vgic_present ? kvm_vgic_get_max_vcpus() : KVM_MAX_VCPUS;
->  }
-> 
-> +void kvm_arch_dirty_ring_size_updated(struct kvm *kvm)
-> +{
-> +	if (!system_supports_hdbss())
-> +		return;
-> +
-> +	kvm->arch.hdbss_buffer_size = KVM_ARM_HDBSS_DEFAULT_SIZE;
-> +}
-> +
+On 02/11/2026 15:49, Khristine Andreea Barbulescu wrote:
+> On 11/2/2026 4:24 PM, Greg Kroah-Hartman wrote:
+>> On Mon, Nov 02, 2026 at 03:16:35PM +0100, Khristine Andreea Barbulescu wrote:
+>>> Enable the NXP S32G2 pin controller driver in the arm64 defconfig so it
+>>> no longer requires a manual "make menuconfig" step. The symbol selects
+>>> PINCTRL_S32CC, pulling in the common S32 pin controller support used
+>>> across the S32G family.
 
-On the same subject as a previous patch:
-I don't think this is the best approach, on top of adding a new weak 
-function to take care.
+Well, my standard request - why would we want it? You need to list the
+upstream board(s) needing it. We do not develop defconfig for downstream.
 
-Maybe during the dirty-ring allocation, on vcpu creation, we could take 
-into account the requested dirty-ring size, and just allocate the HDBSS 
-buffer taking that into account. That would make it simpler, don't you 
-agree?
 
-Thanks!
-Leo
+Also, odd CC-list, really random.
+
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC (and consider --no-git-fallback argument, so you will
+not CC people just because they made one commit years ago). It might
+happen, that command when run on an older kernel, gives you outdated
+entries. Therefore please be sure you base your patches on recent Linux
+kernel.
+
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
+
+>>>
+>>> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+>>> ---
+>>>  arch/arm64/configs/defconfig | 1 +
+>>>  1 file changed, 1 insertion(+)
+>>>
+>>> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+>>> index 7b4985b29b21..545a2b7db8a5 100644
+>>> --- a/arch/arm64/configs/defconfig
+>>> +++ b/arch/arm64/configs/defconfig
+>>> @@ -704,6 +704,7 @@ CONFIG_PINCTRL_BCM2712=y
+>>>  CONFIG_PINCTRL_SKY1=y
+>>>  CONFIG_PINCTRL_IMX_SCMI=y
+>>>  CONFIG_PINCTRL_IMX91=y
+>>> +CONFIG_PINCTRL_S32G2=y
+>>
+>> Why?  Shouldn't the normal platform-specific defconfig work for this
+>> instead?  what defines the arm64 defconfig to require this now for all
+>> arm74 platforms?
+>>
+>> thanks,
+>>
+>> greg k-h
+> 
+> Hello Greg,
+> 
+> ARCH_S32 is already enabled in the arm64 defconfig, but the supported
+> S32G boards also depend on this pin controller for their pin muxing.
+> Without it, some peripherals never finish probing, so a defconfig kernel
+> cannot boot to rootfs on these boards.
+
+Greg has valid point, you did not really address it. Explain why it
+should be user-selectable choice in the first place.
+
+
+Best regards,
+Krzysztof
 
