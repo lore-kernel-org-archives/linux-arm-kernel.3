@@ -2,123 +2,105 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64F6D606A599
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:55:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C88D606FB5A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Nov 2026 14:58:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wfLo+m55;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XSx9nHvF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UXWFq+Tt;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uMyxYTlw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=heI/9Sdv9DP55tAOBIpE1yV9BQS049ybJ+Xgfo8fNy4=; b=wfLo+m55HSnCA/
-	rNs7khX5lR7INV7LIZZ85Iv34zFTDEAYrgoVVVKOT8bRNhIxJh3BOQ1cYmJPXQ8EEs8wpypH3p++E
-	m77NfmeNJQFCqxHR3F99V94ZnpBLcak9+wtDilOQmpKmKQo96misLX9DulaZcUU4ykWv7fyYPj359
-	JzKx1GU8HcDETBRQvP7+BeJQ/NCJEa7Ph7T+woGkMRlKXwiwp8zIZnkxPR2KqsiIYlVoYXaEyxxct
-	WUhGVcYkPSqKSJr8r/oVf21NSe3zf1ouswBtxaLQtjiT602667apvY+XEJmNhpIyfcNa6W68/Y11P
-	reWzafE6KhWrz/ewqeOA==;
+	List-Owner; bh=RjJ2Hwu3lUOd6ON7ncjs7o5wy86KpEGCg7RvieuPzxo=; b=UXWFq+Tt9fg08d
+	x0O5DuA+CPUyprIxXWPbkx99fWONW6gcKQpg10PrQ8EXtZ5qbw9dlrtkvH0pRkoCgMttYoQ9MtJkF
+	IFh2+FVvnKiMTVX4NLJ36nvk31iwwqKx7RdgKsjP6Vl9/m4FfT71HHtIVinStXns09RCY/gWWQE2A
+	fzmndXlR8yqobZ5Q8LCofh58wXqeAsYj9wgZc2ruB28Qcur2HX8SEjV5BILhVkfCep6P8m2OPzaPi
+	IGNjk56ysen10qDaCOVHpTVaLcece7GHCO7gF5OK8WL8VVu19JL1REQ9QV670P3aXhE52+PDmXnvG
+	LjASn5LbpqlQAZkdMbEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNtRe-0000000Gvmb-1Ng5;
-	Mon, 02 Nov 2026 14:55:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xNtUM-0000000Gw3A-48bc;
+	Mon, 02 Nov 2026 14:58:22 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xNtRc-0000000GvmS-3WKd
+	id 1xNtUK-0000000Gw2m-3cwN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Nov 2026 14:55:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 898A640B0C;
-	Mon,  2 Nov 2026 14:55:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 557041F00A1A;
-	Mon,  2 Nov 2026 14:55:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793631332;
-	bh=heI/9Sdv9DP55tAOBIpE1yV9BQS049ybJ+Xgfo8fNy4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=XSx9nHvFQfngNju4DjkSqrS3ANJ0GDdI8vjOquvlsX0I/Y5lbvt4YaWQ2WZSvq+Jq
-	 8cwloydf2MMB0f5Bd+1Bv/s4iSFIlE+8xUaViPZsrnTx3Kd7JIJWJdEdDcEG7eh8uQ
-	 yitziUb4tMKsD2/2kGmQrrmnIFvPrDgb4YuLa2rk1ZLvSOmBrHXFl8O5J6k6cqSLGo
-	 BeUzge4h5Zq+zjx0jJJAhRk7f4eWHQdvKglU1tUbK87qyfvGMPNWcxGl0FDtZDQRpj
-	 dKE9l/8i+xEBkoE2R7fXnmuXPTjyldAEELAp6R4xMfElO2xTfUu7MdZUKzpoVnGzlt
-	 n57uLFJuVbRKw==
-Message-ID: <e8add933-e918-40c9-afa7-d66fd589bb9d@kernel.org>
-Date: Mon, 2 Nov 2026 15:55:15 +0100
+	Mon, 02 Nov 2026 14:58:22 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4a214af2076so23819665e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 06:58:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793631499; x=1794236299; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=RjJ2Hwu3lUOd6ON7ncjs7o5wy86KpEGCg7RvieuPzxo=;
+        b=uMyxYTlwyaSKLwoO1mOcg+4f+6yj+MUhnWT9jrMdQql0+b9j4qw9n3b5HbEU+CLafD
+         gE972H4sxnVUxTDgpOF5z20kJrjzOsZLFvgh7er20mZjVTyLBmO5toSGDFC3e0hCcvKX
+         qahRH34MP2HXd5t5Xe6pcpyl6dDqDxbAlSnylI77x7YY9SMvoaEOR9ZniHITza6fQndh
+         bZDyDXW9DDVUi/cQF5lwwf088oFgwHhobXDyb9g0rngH1dTESe5siNATYbXhdnj3D6Pn
+         ITsFARuVUEulPyPGJIdtkjOtdvofAxgugvwSZ2BnGSDrwXYmjyx+l9y+S1bnfCopXLxF
+         SmQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793631499; x=1794236299;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RjJ2Hwu3lUOd6ON7ncjs7o5wy86KpEGCg7RvieuPzxo=;
+        b=VVQAFc+V8hxo4pSdb3KpB/n538IJHUgnhkIVVyxwmTApfD79rDnKKFAFBjunmrMiyX
+         rfZ94cMwgEU8MNSsScupLPITaA4Axm6+zhE5+d1HCHZZi2/oxSta4PVMydGFigVd5Pou
+         OLXmYjJOQN5OfI9wR5ywisquOO6vi/UjxW1qOJhHM11u+Sf5Yh3YRik4FlBBFKNMWEmr
+         DZYwECmMcMWbE6g42Nl8QQPseTIqAkCQoDpnSW5KQwIZILtXwWG57EeJSxl5DJhHn06S
+         7RRN0cB6Tgns4FXmaifQcPfJcuZ0+e09BqxGR7ui7irwFBqJexvAW/wfWU/PBOnN2d5Z
+         /IaA==
+X-Forwarded-Encrypted: i=1; AKwUvBye6O7dNLkDWCCivFmitZnRgi7yCkaRWu0HJ6N4i3ga95Y5h3Wl9AIXjjeyY1ZZRFuK10GWxUU2uDSLwsuBSgq+@lists.infradead.org
+X-Gm-Message-State: AFq9FYJVtV/8c6qdRpoinq3T4DIgUVAyvC7dTtl+YSxWMhV+AaqaAeDD
+	tzgFCDmzlBIfEi1eIQblm9o2/TvGfypGglG4xVK/pij1+npUmDEHXubD
+X-Gm-Gg: AYBFou02YUV7WT3qN0F/OaT72G4lBs4YfqvZnv3G3VyVnBY+GwTvHoq192ULwn5Lsg9
+	wVgI/Kgg4+xbuPIkCPCO0GfTd09xRytqjnZFHiQfDWMDqTTDTcCANIjB57EQcs8YgyfYdXO9a/l
+	JiM4D2iaRBXARwfCnxit+KXyMy9EdJhn0ooM35jArlCZqvcTkp4fg6KMy5dgiHcG4tVGDrMNfym
+	ezANRGkyLGq3H2QcUqr2xx13yQhQAbM7T1HaO65b6RZ00I0pvCBsnh/HGgjdVBE01AfJDrpi01o
+	w5F7UzIf5JD371SKYTORYufjZEo4QrOV243ekWiwHe32Jt/ZBXsp8Y8uJrnTftyB61SZW0ooMnF
+	Iz+QmTHTr0leWfO5sXOicGagjIA42xf5uh0aqWvJYETdjIn26FsuaYNRL+dcoDPR0rqWb39h8ND
+	21YKDtmiL3wwcD4HnQppqkH6wIfkPz5DFG/Zp/JL1O86jqw8ZYwekV0JzstgjXSZJE+SYw4VkQ6
+	MIia4LkrkeN2VLCLxuCdOkNt4vUz3gI8R4TBo6ZGN+LF0ZOgpRn03NJu65xQYaNazpyBz0Oc4cY
+	CLcHj90wA/7qOtpnHW90PfuNqwW60YM1tYCCrQLEv43/+qYcZqFgoVqtHRmaZVSJ
+X-Received: by 2002:a05:600c:4585:b0:4a7:8fe8:130c with SMTP id 5b1f17b1804b1-4ac1889d5a1mr230617865e9.28.1793631498658;
+        Mon, 02 Nov 2026 06:58:18 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4ac0b4df257sm164791725e9.4.2026.11.02.06.58.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Nov 2026 06:58:18 -0800 (PST)
+Date: Mon, 2 Nov 2026 14:58:16 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: saeed bishara <saeed.bishara.os@gmail.com>
+Cc: Demian Shulhan <demyansh@gmail.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Mark Rutland
+ <mark.rutland@arm.com>, Eric Biggers <ebiggers@kernel.org>, Andrew Morton
+ <akpm@linux-foundation.org>, Marco Elver <elver@google.com>, Ard Biesheuvel
+ <ardb@kernel.org>, Robin Murphy <robin.murphy@arm.com>, David Gow
+ <davidgow@google.com>, Brendan Higgins <brendan.higgins@linux.dev>, Nathan
+ Chancellor <nathan@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kunit-dev@googlegroups.com,
+ netdev@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH 0/2] arm64: csum: Add fused copy and Internet checksum
+Message-ID: <20261102145816.00a06c47@pumpkin>
+In-Reply-To: <CAHfVqdX4AmqXs_oD5OCjU8R5ts=98=RmgCmJ3D5gLyk=Xtrfkw@mail.gmail.com>
+References: <20260927131838.6774-1-demyansh@gmail.com>
+	<20260927184414.6c0c8867@pumpkin>
+	<CAOLeWCt+yFs29yWg6DrRH42HD9ConLgTEbW=wMKtEoTW5ROHvw@mail.gmail.com>
+	<CAHfVqdX4AmqXs_oD5OCjU8R5ts=98=RmgCmJ3D5gLyk=Xtrfkw@mail.gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: Enable PINCTRL_S32G2
-To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chester Lin <chester62515@gmail.com>,
- Matthias Brugger <mbrugger@suse.com>,
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
- Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>,
- Jacky Bai <ping.bai@nxp.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Srinivas Kandagatla <srini@kernel.org>, Alberto Ruiz <aruizrui@redhat.com>,
- Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org,
- Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- NXP S32 Linux Team <s32@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Vincent Guittot <vincent.guittot@linaro.org>
-References: <20261102141635.3768024-1-khristineandreea.barbulescu@oss.nxp.com>
- <2026110233-unlocked-outclass-9584@gregkh>
- <1cb65dfc-78a7-4cdb-bb39-c40b980b2504@oss.nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <1cb65dfc-78a7-4cdb-bb39-c40b980b2504@oss.nxp.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261102_065820_955261_D5383A74 
+X-CRM114-Status: GOOD (  22.93  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,77 +111,117 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-4.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_2 autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 02/11/2026 15:49, Khristine Andreea Barbulescu wrote:
-> On 11/2/2026 4:24 PM, Greg Kroah-Hartman wrote:
->> On Mon, Nov 02, 2026 at 03:16:35PM +0100, Khristine Andreea Barbulescu wrote:
->>> Enable the NXP S32G2 pin controller driver in the arm64 defconfig so it
->>> no longer requires a manual "make menuconfig" step. The symbol selects
->>> PINCTRL_S32CC, pulling in the common S32 pin controller support used
->>> across the S32G family.
+On Mon, 2 Nov 2026 13:44:37 +0200
+saeed bishara <saeed.bishara.os@gmail.com> wrote:
 
-Well, my standard request - why would we want it? You need to list the
-upstream board(s) needing it. We do not develop defconfig for downstream.
+> On Sun, Nov 1, 2026 at 3:34=E2=80=AFPM Demian Shulhan <demyansh@gmail.com=
+> wrote:
+> >
+> > I would prefer to keep only the scalar version of the fused copy+csum.
+> > It reads the data once instead of twice, and on real Armv9 hardware it
+> > cuts end-to-end cycles/byte for bulk TCP over WireGuard by 3-12%
+> > depending on the core (+6-8% throughput). It uses only general-purpose
+> > registers, so there is no FPSIMD state to save and it is safe in any
+> > context.
+> >
+> > If you are OK with the scalar path, I can send v2 with NEON dropped,
+> > the scalar path only, and the KUnit fix for the x86 zero-length case
+> > Jakub reported.
+> > =20
+> The scalar path seems like generic C code and not restricted to arm64,
+> curious how that performs against existing (e.g. x86) assembly
 
+The x86 asm version manages to do more than one 'add with carry' every
+clock. That needs the massive out-of-order execution unit and the ability
+to have multiple independent 'flags' registers live at the same time.
+The generic C do_csum() (I just looked at lib/checksum.c) is horrid
+There are three dependent alu operations per iteration.
 
-Also, odd CC-list, really random.
+It is likely that the pipelineable:
+u64 sum64_a(unsigned char *buf, unsigned long count)
+{
+    u64 val, sum =3D 0, carry =3D 0;
 
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC (and consider --no-git-fallback argument, so you will
-not CC people just because they made one commit years ago). It might
-happen, that command when run on an older kernel, gives you outdated
-entries. Therefore please be sure you base your patches on recent Linux
-kernel.
+    buf +=3D count;
+    count =3D -count;
+    do {
+        val =3D *(u64 *)(buf + count);
+        sum +=3D val;
+        carry +=3D sum < val;
+    } while ((count +=3D 8));
 
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
+    sum +=3D carry;
+    sum +=3D sum < carry;
+    return sum;
+}
+or:
+u64 sum64_b(unsigned char *buf, unsigned long count)
+{
+    u64 val, sum =3D 0, carry =3D 0;
+    unsigned char *end =3D buf + count;
 
->>>
->>> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
->>> ---
->>>  arch/arm64/configs/defconfig | 1 +
->>>  1 file changed, 1 insertion(+)
->>>
->>> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
->>> index 7b4985b29b21..545a2b7db8a5 100644
->>> --- a/arch/arm64/configs/defconfig
->>> +++ b/arch/arm64/configs/defconfig
->>> @@ -704,6 +704,7 @@ CONFIG_PINCTRL_BCM2712=y
->>>  CONFIG_PINCTRL_SKY1=y
->>>  CONFIG_PINCTRL_IMX_SCMI=y
->>>  CONFIG_PINCTRL_IMX91=y
->>> +CONFIG_PINCTRL_S32G2=y
->>
->> Why?  Shouldn't the normal platform-specific defconfig work for this
->> instead?  what defines the arm64 defconfig to require this now for all
->> arm74 platforms?
->>
->> thanks,
->>
->> greg k-h
-> 
-> Hello Greg,
-> 
-> ARCH_S32 is already enabled in the arm64 defconfig, but the supported
-> S32G boards also depend on this pin controller for their pin muxing.
-> Without it, some peripherals never finish probing, so a defconfig kernel
-> cannot boot to rootfs on these boards.
+    do {
+        val =3D *(u64 *)(buf);
+        sum +=3D val;
+        carry +=3D sum < val;
+    } while ((buf +=3D 8) !=3D end);
 
-Greg has valid point, you did not really address it. Explain why it
-should be user-selectable choice in the first place.
+    sum +=3D carry;
+    sum +=3D sum < carry;
+    return sum;
+}
 
+will generate 'pretty good' code https://godbolt.org/z/K9ob6d8vv.
+The first needs 'reg+reg' addressing, the second better for mips-like
+cpu that have 'compare and branch' rather than a flags register.
 
-Best regards,
-Krzysztof
+gcc and clang seem to make a reasonable job of compiling those
+(provided buf isn't u64 *).
+Today it left the 'negative offset from end' loop alone,
+but it has a nasty habit of pessimising it.
+For x86-64 gcc is generating:
+.L4:
+        addq    (%rdi,%rdx), %rax
+        adcq    $0, %rcx
+        addq    $8, %rdx
+        jne     .L4
+
+I think a zen5 would execute that at one iteration per clock.
+Intel cpu can only execute two clock loops - so it needs unrolling once.
+If you unroll it once (with separate sum/carry variables) there
+is a moderate chance of it running faster than 'one word per clock'
+(two words/clock is probably wishful thinking, zen5 can do 6 add/clock
+but some timings I've done imply that memory addressing can use and alu
+add).
+
+For slower cpu (especially in-order ones with memory read delays)
+you may need interleave the code, eg giving the loop:
+    val0 =3D *(u64 *)buf;
+    do {
+        val1 =3D *(u64 *)(buf + 8);
+        sum0 +=3D val0;
+        carry0 +=3D sum0 < val0;
+        val0 =3D *(u64 *)(buf + 16);
+        sum1 +=3D val1;
+        carry1 +=3D sum1 < val1;
+    } while ((buf +=3D 16) !=3D end);
+
+I didn't try those loops when I was timing the cksum code a few
+years back.
+
+They have the big advantage of a small loop stride.
+
+David
+
+> optimized implementation.
+> saeed
+
 
