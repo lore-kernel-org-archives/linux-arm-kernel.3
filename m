@@ -2,126 +2,78 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB981606EEB4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 15:08:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72A25606FCFA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 15:09:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lSHH0Qxq;
-	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=PZEM6k+K
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yhpzlgh0;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ka8mU0zm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=h2RX86/Rq0AYMdjirmxoC74rPEC6xO5dfRvSVTm5GFU=; b=lSHH0QxqGenVWl
-	Mw+PfZskbMc5hMxKJ4I/oxYkcSE9tYnyKZGeyZ3enn7dC1Yr3OirzxlqeEMcAu/BCTEZ0u9FgX/60
-	ZZd9StJJo4AIaDrtJKkthjLEi3mWtmY6p+92A16raZFXD91f9EGrZ9qJ1KztR4MiSQ18QnWdda8CV
-	yrCszV7Li+RSjtJr9hZRU2NYrkxz/ccH96HFtdtyMgl6+Zt88RgzFkt12EZg10eAJT/ymhHBWva51
-	JcHPJpvjsMkXM42edlUPtK27fkoGxL+qy6lpJo3lPRdN2Xsvd6EdxMcSkD4HsLuNDAw5z0qGwVhgN
-	IC4uC0frXQDgmZboUcZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=04sRIO3MjeYbz6CJp5GZCOCBS65b5l82fPhVgQ5j8Ig=; b=yhpzlgh0mRnj+oQ1uJOoco42o4
+	jFej6ZRIA/rSe9gIncyxHaaKG/Dk7mfUbRhAuscb1+zDHq3qDUOxCAr+j+GGfi8nov/4nJa0RcDsr
+	pgbzpZ7nHZB1UAvBsEP9n1M6R1NmK+qXhqPn8eyQmQPkRSJJubtIPVjzisELhMpEo9TZfO0ueyFGG
+	gNuSbrvGBc5kGAy1KP6sdYrM+De5ZX/vVdeE+karjJ4ZO746ZpaAuocizcNKvjKrVGi7FxrmdRp1r
+	ubFCY9uwgYw6fv4gpz+YS/jItXhKtAh1hix37GvL7YbAh7LiDQmfViBhLweGeW0OWNVH+zjZQPazz
+	ZZoIldHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOG83-00000002qzQ-1lwH;
-	Tue, 03 Nov 2026 15:08:51 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1xOG8T-00000002r6x-2RsP;
+	Tue, 03 Nov 2026 15:09:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOG80-00000002qxC-2OTA
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 15:08:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=va3/tiQFUhQhljf6uZJUo2mrl+tt1LbKQb6HGG1nTNzjBUIyX0gSR9i1J/k2Dh0i6FvRX17ingyV/yw/ML7GGZHW5RgMgznt3WDxf0yE2NsTIouOzw6GgWtDD4VljrxzSfizOxAJp+vK4eUtO3o337Ib0xvi5oQ7xQbVGr/TPTNevZqvL850fNymWNRVyOc1ozMeLJRU796aH6zWhIm/mb87r9JFO4BE7PNLJ2VnZM/UuVMwTcWX3CG4+6ns5I8bgZgw8kFtN4nzusDscJ0v/r/6SNyLYgBKwW4LJ8WvLn7dHsXXfNHSXQWq86SS8d9P+wrsm4t27I8J3Ym225BYPA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=h2RX86/Rq0AYMdjirmxoC74rPEC6xO5dfRvSVTm5GFU=;
- b=hMoyY8QB9Z2qUIDcOzjNdTWd5uzqCn/akwnGxU6vgXW8vMw5VaAdl0psBTCtzcnUseoEQ2ftoxn/ug7MhC+yjvoGGS7i8Nc5eSQklxcKu5c0Ws2RPYU/e3zz2vtQe/WtLGr4M4BIRP2jW06hNbHe20sJRpODN+dVDAcoHWoIp9HBI3mQH94puVpaFHhBBYDjtEqy/igxqjcCn5umWova37bjO9y8yKSlxRPMxJHjtCt9lZU5jDFFr2ihALO1ucZpRAOgTFENUfcdyS0zzJwAicOPbCg18gTbLoG7dSCviNxKQhQgh+iEHtwjy+S28qeVMaTG9teKVsjQ0fXzuzcMPQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=posteo.net smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=h2RX86/Rq0AYMdjirmxoC74rPEC6xO5dfRvSVTm5GFU=;
- b=PZEM6k+KBdZZl66jCuLMV841rjtRmbAG6eZWl9v20OMIoF6I8EMbooGtYQQulCeZNpRIDEQm7ATC+uV6yHGOugsP+PzTHgI1jM5E9l6I/x3g6lfOg9dLcbncN/+4u+f7FLhdLp8jIyMJFtOGbRi6pDf4ss0SVbPzIoph++/o7FIefgwSYATNCIBkDYnwFXZ7P0oj4b6m0Hla2SCwDUe8WowSHb9uUx7T3Bavuni71Sz2u9YIOEhkFA5s9oZFaRBjemJeMaK0t/Wy0kFx67RkPzWLOH0f5ygSQYIWD+gsE11LsmERfYmlgEHu+SvrXH4ancLRLcErAK5bh+JjOeOyKw==
-Received: from AS9PR05CA0116.eurprd05.prod.outlook.com (2603:10a6:20b:498::10)
- by AS1PR10MB5747.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:47e::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Tue, 3 Nov 2026
- 15:08:44 +0000
-Received: from AMS1EPF00000097.eurprd02.prod.outlook.com
- (2603:10a6:20b:498:cafe::71) by AS9PR05CA0116.outlook.office365.com
- (2603:10a6:20b:498::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.8 via Frontend Transport; Tue, 3
- Nov 2026 15:08:43 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- AMS1EPF00000097.mail.protection.outlook.com (10.167.242.68) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.592.5 via Frontend Transport; Tue, 3 Nov 2026 15:08:43 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 3 Nov
- 2026 16:09:20 +0100
-Received: from [10.48.86.101] (10.48.86.101) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 3 Nov
- 2026 16:08:35 +0100
-Message-ID: <10bc732a-e36b-4067-ac97-1e8ac15ba1f9@foss.st.com>
-Date: Tue, 3 Nov 2026 16:08:33 +0100
+	id 1xOG8S-00000002r6N-0ibx;
+	Tue, 03 Nov 2026 15:09:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B2BBD436A3;
+	Tue,  3 Nov 2026 15:09:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 351961F000C1;
+	Tue,  3 Nov 2026 15:09:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793718555;
+	bh=04sRIO3MjeYbz6CJp5GZCOCBS65b5l82fPhVgQ5j8Ig=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ka8mU0zmAxKLwL2fFpD9CSalT3tGxn8R2vJaJEvx62sO5knzmnr8o+jvl3A4PXUYQ
+	 Dxf4yVxdNUJRaSMFUbZXUszVhxd0knfdDWS6zjzIFpMB5n4bUVioUR8MiiThYK+RXG
+	 oLntR6Y938oN1l2HEEGZwVORgG5aTsGwv/MxrYlWW+xz+HzsxFHbe8bsiksmJN+Eeg
+	 st24vgn2YKrHIvg0UlZHV1ThyeHHuIY6Xm64crEiMYg8cxKwttwDLZNXlk3pCT3Gzq
+	 wy9AdFSWAhMox5u4djhZqr3O3sxbk/vCdfLhvYIRh52/cce/Q/j73nK2lIrQ1r3h0O
+	 ape4Kv2DAzHkg==
+Date: Tue, 3 Nov 2026 15:09:07 +0000
+From: Lee Jones <lee@kernel.org>
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Macpaul Lin <macpaul.lin@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Linus Walleij <linusw@kernel.org>,
+	Val Packett <val@packett.cool>, Fabien Parent <parent.f@gmail.com>,
+	Akari Tsuyukusa <akkun11.open@gmail.com>,
+	Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org, mfd@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v11 4/9] mfd: mt6397: Use MFD_CELL_* to describe
+ sub-devices
+Message-ID: <179310028255.2808517.13933580516140278450@kernel.org>
+References: <20261021105109.199886-1-l.scorcia@gmail.com>
+ <20261021105109.199886-5-l.scorcia@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] mmc: mmci: stm32: do not use NEGEDGE in HS200 mode
-To: <mateusz.nowicki@posteo.net>
-CC: Ulf Hansson <ulfh@kernel.org>, <linux-mmc@vger.kernel.org>, Russell King
-	<linux@armlinux.org.uk>, Linus Walleij <linusw@kernel.org>, Yann Gautier
-	<yann.gautier@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<stable@vger.kernel.org>
-References: <20261031120700.42576-1-mateusz.nowicki@posteo.net>
- <20261031120700.42576-3-mateusz.nowicki@posteo.net>
- <a5fff7cd-686a-4fef-b9f7-87e19b870fa9@foss.st.com>
- <f9358cbe526c22c6a8fcbdde814820e3@posteo.net>
-Content-Language: en-US
-From: Christophe KERELLO <christophe.kerello@foss.st.com>
-In-Reply-To: <f9358cbe526c22c6a8fcbdde814820e3@posteo.net>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS1EPF00000097:EE_|AS1PR10MB5747:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0908601a-5475-49c0-afe3-08df39bc5a1d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|7416014|376014|1800799024|23010399003|3023799007|6133799003|10067099003|18002099003|22082099003|261102123227099003|56012099006|11063799006|4143699003|261022105027099003|261026121527099003|261022075727099003|261026140227099003|261028144727099003|261021121427099003|261021123027099003;
-X-Microsoft-Antispam-Message-Info: w8QI4t3mVex1VP/hzd63P2PmLvrk2TzOaQvFVJGm8t3SKQgqUYsOnWWAM5URvmyyz8In89RQu5KC1F3hfp6ES8x6JKJi7M7errXdOf9UG8ABOtvJjYrpU9ScjaHwE/4JVbLQPP4sLeFf87ulJJT/pDHk8s+qGpQCAGPiEVmsugULonQWtJ+kBW0sUR3hp30x6YVbT698jZOb6jWp5XZOV9p84dLGc5+vv9STJ6MosHSCDabtMDGJU1nN2CnVuOG3OnzbF7DhTsUyx5Q7RUc9grRukdroQ2K9x3DMIQRVqx0w/0F7sMFJ6dtFCR/OQChUaQKzU/cJ4wsu839FMbH9NdV4GFbkisQIqSYSpaFsSuVH+l3M/Fkf899v12FK7pZ4B6FTuTKwkQ1neXLwf48lanu9lnDHZenTWvK2GCD1LNPxCetMRwfdiJ255og2OFJNUFXT0/6R8euKWE7rUFVOQDlHpGFaxSZd/hI8DIKOBJF3f9YjOLToK4fFI+oZvHju59bTFVkFRWrJgZjgAOFqPzO9tXtoHsGlUJ9QjvkJIU+5KaNZr13Y6AxQwgT3zI9shwYd1BHGLubu+9nmZhfluz7QMY2zzJNEdoupaO+hbetqT8nagYzF+lkSeQ2OmT2KDG+LvJ4pD0veZ5eO8Fd3hjenPKlrjo2x8CrxxnueWg0uzR7pzbrqzOhRAUEbQKqsii5df4z/mxeLdjPF3GRYBw==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(7416014)(376014)(1800799024)(23010399003)(3023799007)(6133799003)(10067099003)(18002099003)(22082099003)(261102123227099003)(56012099006)(11063799006)(4143699003)(261022105027099003)(261026121527099003)(261022075727099003)(261026140227099003)(261028144727099003)(261021121427099003)(261021123027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: XS0AL6yw6D9+Sb9T14IJ8ryV5WU5JXRwZoRqQFh2nbsXiXoohRop8c8/dtV09DnPa7I8oLbI95SHbIiZEekTJSPz0ZdrIT8p9b4DxA/M7GWQT0NsAErR5sUZK7erdecakp4C4/JdnvxrTZL1Us4X0z0HuVJKhLHnAwx3/1SArczxXBLgcT6Rj8iLXxY2Xd6xwegH+KdKf2qZTkseH9d553GzgE0V9n7ybfMZt6YNd6ARt+YSVf5KdTjnFj5e7Uo4glG7n2pa2hM6ow3ffC737rvNWLPpfoMc00W0NNZMpcL+FzVQS05PaoYGX8uVwVFb9yWD7BuARS3zp5+8H36RL50wjhRyCMzU1HClm99bMOz6+kNL63+7Rk4kBOjcxGQtho4YJQsTAnuysqRhZ+DCkrWYSA2upQMFt+ZIYgjnHcbrXydPmE9En0s2YMEYxkfQ
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 15:08:43.7610
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0908601a-5475-49c0-afe3-08df39bc5a1d
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000097.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR10MB5747
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_070848_723204_C619E039 
-X-CRM114-Status: GOOD (  28.35  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261021105109.199886-5-l.scorcia@gmail.com>
+X-AI-Review-Draft: <20261021105109.199886-5-l.scorcia@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,82 +84,270 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hello Mateusz,
+On Wed, 21 Oct 2026, Luca Leonardo Scorcia wrote:
 
-On 11/3/26 12:40, mateusz.nowicki@posteo.net wrote:
-> Hello Christophe,
+> Use the MFD_CELL_* macros to describe sub-devices. No functional changes.
 >
->> No, it is not what it is written in the RM. If clkdiv is equal to 0, 
->> NEGEDGE has no effect.
->> NEGEDGE has an effect only when clkdiv > 0, so it can be used with 
->> HS200.
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  drivers/mfd/mt6397-core.c | 207 ++++++++++++--------------------------
+>  1 file changed, 67 insertions(+), 140 deletions(-)
 >
-> You're right, thanks for the correction. I read the NA in table 268 as
-> "not allowed in HS200", but it is only there because CLKDIV is 0 in that
-> configuration. I'll drop this patch.
+> diff --git a/drivers/mfd/mt6397-core.c b/drivers/mfd/mt6397-core.c
+> index 9ec951996588..3e08179002fa 100644
+> --- a/drivers/mfd/mt6397-core.c
+> +++ b/drivers/mfd/mt6397-core.c
+> @@ -124,165 +124,92 @@ static const struct resource mt6323_pwrc_resources[] = {
+>  };
 >
->> On ST downstream Linux Kernel, you can find following patch not 
->> already upstream:
->> mmc: mmci: stm32: use the delay block above 100 MHz on stm32mp25 SoC 
->> (Commit ca3b1cf)
->> By applying previous downstream patch + patch 3 of this patchset + 
->> using  original slew rate that was upstream on
->> this board (slew rate set to 2 for the clock IO, 1 for the others 
->> IOs), HS200 should run on a ST MP25 DK board at 100 MHz.
->
-> Thanks for the pointer, that was the missing piece. I went back to the
-> DK and tested it with the SDMMC2 kernel clock at 200 MHz, so HS200 runs
-> at 100 MHz like in mainline. Without ca3b1cf every write test failed,
-> no matter whether NEGEDGE was set or which pin group I used. With
-> ca3b1cf all runs were clean, with pins_a as well as with pins_b. I also
-> checked 150 MHz (no divider, delay block in use), and it works with
-> both pin groups too.
->
-> So NEGEDGE was never the problem, it was the delay block running at
-> 100 MHz. I'll include ca3b1cf and 01d3cac in v2, with you as the author.
+>  static const struct mfd_cell mt6323_devs[] = {
+> -	{
+> -		.name = "mt6323-auxadc",
+> -		.of_compatible = "mediatek,mt6323-auxadc",
+> -	}, {
+> -		.name = "mt6323-efuse",
+> -		.of_compatible = "mediatek,mt6323-efuse",
+> -	}, {
+> -		.name = "mt6323-rtc",
+> -		.num_resources = ARRAY_SIZE(mt6323_rtc_resources),
+> -		.resources = mt6323_rtc_resources,
+> -		.of_compatible = "mediatek,mt6323-rtc",
+> -	}, {
+> -		.name = "mt6323-regulator",
+> -		.of_compatible = "mediatek,mt6323-regulator"
+> -	}, {
+> -		.name = "mt6323-led",
+> -		.of_compatible = "mediatek,mt6323-led"
+> -	}, {
+> -		.name = "mt6323-keys",
+> -		.num_resources = ARRAY_SIZE(mt6323_keys_resources),
+> -		.resources = mt6323_keys_resources,
+> -		.of_compatible = "mediatek,mt6323-keys"
+> -	}, {
+> -		.name = "mt6323-pwrc",
+> -		.num_resources = ARRAY_SIZE(mt6323_pwrc_resources),
+> -		.resources = mt6323_pwrc_resources,
+> -		.of_compatible = "mediatek,mt6323-pwrc"
+> -	},
+> +	MFD_CELL_OF("mt6323-auxadc", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6323-auxadc"),
+> +	MFD_CELL_OF("mt6323-efuse", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6323-efuse"),
+> +	MFD_CELL_OF("mt6323-rtc", mt6323_rtc_resources, NULL, 0, 0,
+> +		    "mediatek,mt6323-rtc"),
+> +	MFD_CELL_OF("mt6323-regulator", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6323-regulator"),
+> +	MFD_CELL_OF("mt6323-led", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6323-led"),
+> +	MFD_CELL_OF("mt6323-keys", mt6323_keys_resources, NULL, 0, 0,
+> +		    "mediatek,mt6323-keys"),
+> +	MFD_CELL_OF("mt6323-pwrc", mt6323_pwrc_resources, NULL, 0, 0,
 
-Thank you very much for confirming that everything works correctly in 
-both configurations.
-I let you submit these two patches upstream; while the commit titles and 
-messages can be adjusted,
-we simply ask that you retain the original author information as well as 
-the "Signed-off-by" line
-when the patches originate from the ST downstream branch. Thank you in 
-advance.
+Nit: This is non-blocking, but if you have to respin, please use the
+100-char limit to keep these on single lines where possible. Same for
+all the others below.
 
+> +		    "mediatek,mt6323-pwrc"),
+>  };
 >
-> One more thing about the pins. I added the pins_b groups (faster slew
-> rate) to the DK device tree in 7.4 because pins_a seemed to corrupt data
-> in HS200 at 100 MHz. Looking at it now, that was the same delay block
-> issue. Would you like me to send a patch that switches the DK back to
-> pins_a and drops pins_b?
+>  static const struct mfd_cell mt6328_devs[] = {
+> -	{
+> -		.name = "mt6328-regulator",
+> -		.of_compatible = "mediatek,mt6328-regulator"
+> -	}, {
+> -		.name = "mt6328-keys",
+> -		.num_resources = ARRAY_SIZE(mt6328_keys_resources),
+> -		.resources = mt6328_keys_resources,
+> -		.of_compatible = "mediatek,mt6328-keys"
+> -	},
+> +	MFD_CELL_OF("mt6328-regulator", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6328-regulator"),
+> +	MFD_CELL_OF("mt6328-keys", mt6328_keys_resources, NULL, 0, 0,
+> +		    "mediatek,mt6328-keys"),
+>  };
+>
+>  static const struct mfd_cell mt6357_devs[] = {
+> -	{
+> -		.name = "mt6359-auxadc",
+> -		.of_compatible = "mediatek,mt6357-auxadc"
+> -	}, {
+> -		.name = "mt6357-regulator",
+> -	}, {
+> -		.name = "mt6357-rtc",
+> -		.num_resources = ARRAY_SIZE(mt6357_rtc_resources),
+> -		.resources = mt6357_rtc_resources,
+> -		.of_compatible = "mediatek,mt6357-rtc",
+> -	}, {
+> -		.name = "mt6357-sound",
+> -		.of_compatible = "mediatek,mt6357-sound"
+> -	}, {
+> -		.name = "mt6357-keys",
+> -		.num_resources = ARRAY_SIZE(mt6357_keys_resources),
+> -		.resources = mt6357_keys_resources,
+> -		.of_compatible = "mediatek,mt6357-keys"
+> -	},
+> +	MFD_CELL_OF("mt6359-auxadc", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6357-auxadc"),
+> +	MFD_CELL_NAME("mt6357-regulator"),
+> +	MFD_CELL_OF("mt6357-rtc", mt6357_rtc_resources, NULL, 0, 0,
+> +		    "mediatek,mt6357-rtc"),
+> +	MFD_CELL_OF("mt6357-sound", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6357-sound"),
+> +	MFD_CELL_OF("mt6357-keys", mt6357_keys_resources, NULL, 0, 0,
+> +		    "mediatek,mt6357-keys"),
+>  };
+>
+>  /* MT6331 is always used in combination with MT6332 */
+>  static const struct mfd_cell mt6331_mt6332_devs[] = {
+> -	{
+> -		.name = "mt6331-rtc",
+> -		.num_resources = ARRAY_SIZE(mt6331_rtc_resources),
+> -		.resources = mt6331_rtc_resources,
+> -		.of_compatible = "mediatek,mt6331-rtc",
+> -	}, {
+> -		.name = "mt6331-regulator",
+> -		.of_compatible = "mediatek,mt6331-regulator"
+> -	}, {
+> -		.name = "mt6332-regulator",
+> -		.of_compatible = "mediatek,mt6332-regulator"
+> -	}, {
+> -		.name = "mt6331-keys",
+> -		.num_resources = ARRAY_SIZE(mt6331_keys_resources),
+> -		.resources = mt6331_keys_resources,
+> -		.of_compatible = "mediatek,mt6331-keys"
+> -	},
+> +	MFD_CELL_OF("mt6331-rtc", mt6331_rtc_resources, NULL, 0, 0,
+> +		    "mediatek,mt6331-rtc"),
+> +	MFD_CELL_OF("mt6331-regulator", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6331-regulator"),
+> +	MFD_CELL_OF("mt6332-regulator", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6332-regulator"),
+> +	MFD_CELL_OF("mt6331-keys", mt6331_keys_resources, NULL, 0, 0,
+> +		    "mediatek,mt6331-keys"),
+>  };
+>
+>  static const struct mfd_cell mt6358_devs[] = {
+> -	{
+> -		.name = "mt6359-auxadc",
+> -		.of_compatible = "mediatek,mt6358-auxadc"
+> -	}, {
+> -		.name = "mt6358-regulator",
+> -		.of_compatible = "mediatek,mt6358-regulator"
+> -	}, {
+> -		.name = "mt6358-rtc",
+> -		.num_resources = ARRAY_SIZE(mt6358_rtc_resources),
+> -		.resources = mt6358_rtc_resources,
+> -		.of_compatible = "mediatek,mt6358-rtc",
+> -	}, {
+> -		.name = "mt6358-sound",
+> -		.of_compatible = "mediatek,mt6358-sound"
+> -	}, {
+> -		.name = "mt6358-keys",
+> -		.num_resources = ARRAY_SIZE(mt6358_keys_resources),
+> -		.resources = mt6358_keys_resources,
+> -		.of_compatible = "mediatek,mt6358-keys"
+> -	},
+> +	MFD_CELL_OF("mt6359-auxadc", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6358-auxadc"),
+> +	MFD_CELL_OF("mt6358-regulator", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6358-regulator"),
+> +	MFD_CELL_OF("mt6358-rtc", mt6358_rtc_resources, NULL, 0, 0,
+> +		    "mediatek,mt6358-rtc"),
+> +	MFD_CELL_OF("mt6358-sound", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6358-sound"),
+> +	MFD_CELL_OF("mt6358-keys", mt6358_keys_resources, NULL, 0, 0,
+> +		    "mediatek,mt6358-keys"),
+>  };
+>
+>  static const struct mfd_cell mt6359_devs[] = {
+> -	{
+> -		.name = "mt6359-auxadc",
+> -		.of_compatible = "mediatek,mt6359-auxadc"
+> -	},
+> -	{ .name = "mt6359-regulator", },
+> -	{
+> -		.name = "mt6359-rtc",
+> -		.num_resources = ARRAY_SIZE(mt6358_rtc_resources),
+> -		.resources = mt6358_rtc_resources,
+> -		.of_compatible = "mediatek,mt6358-rtc",
+> -	},
+> -	{ .name = "mt6359-sound", },
+> -	{
+> -		.name = "mt6359-keys",
+> -		.num_resources = ARRAY_SIZE(mt6359_keys_resources),
+> -		.resources = mt6359_keys_resources,
+> -		.of_compatible = "mediatek,mt6359-keys"
+> -	},
+> -	{
+> -		.name = "mt6359-accdet",
+> -		.of_compatible = "mediatek,mt6359-accdet",
+> -		.num_resources = ARRAY_SIZE(mt6359_accdet_resources),
+> -		.resources = mt6359_accdet_resources,
+> -	},
+> +	MFD_CELL_OF("mt6359-auxadc", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6359-auxadc"),
+> +	MFD_CELL_NAME("mt6359-regulator"),
+> +	MFD_CELL_OF("mt6359-rtc", mt6358_rtc_resources, NULL, 0, 0,
+> +		    "mediatek,mt6358-rtc"),
+> +	MFD_CELL_NAME("mt6359-sound"),
+> +	MFD_CELL_OF("mt6359-keys", mt6359_keys_resources, NULL, 0, 0,
+> +		    "mediatek,mt6359-keys"),
+> +	MFD_CELL_OF("mt6359-accdet", mt6359_accdet_resources, NULL, 0, 0,
+> +		    "mediatek,mt6359-accdet"),
+>  };
+>
+>  static const struct mfd_cell mt6397_devs[] = {
+> -	{
+> -		.name = "mt6397-rtc",
+> -		.num_resources = ARRAY_SIZE(mt6397_rtc_resources),
+> -		.resources = mt6397_rtc_resources,
+> -		.of_compatible = "mediatek,mt6397-rtc",
+> -	}, {
+> -		.name = "mt6397-regulator",
+> -		.of_compatible = "mediatek,mt6397-regulator",
+> -	}, {
+> -		.name = "mt6397-codec",
+> -		.of_compatible = "mediatek,mt6397-codec",
+> -	}, {
+> -		.name = "mt6397-clk",
+> -		.of_compatible = "mediatek,mt6397-clk",
+> -	}, {
+> -		.name = "mt6397-pinctrl",
+> -		.of_compatible = "mediatek,mt6397-pinctrl",
+> -	}, {
+> -		.name = "mt6397-keys",
+> -		.num_resources = ARRAY_SIZE(mt6397_keys_resources),
+> -		.resources = mt6397_keys_resources,
+> -		.of_compatible = "mediatek,mt6397-keys"
+> -	}
+> +	MFD_CELL_OF("mt6397-rtc", mt6397_rtc_resources, NULL, 0, 0,
+> +		    "mediatek,mt6397-rtc"),
+> +	MFD_CELL_OF("mt6397-regulator", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6397-regulator"),
+> +	MFD_CELL_OF("mt6397-codec", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6397-codec"),
+> +	MFD_CELL_OF("mt6397-clk", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6397-clk"),
+> +	MFD_CELL_OF("mt6397-pinctrl", NULL, NULL, 0, 0,
+> +		    "mediatek,mt6397-pinctrl"),
+> +	MFD_CELL_OF("mt6397-keys", mt6397_keys_resources, NULL, 0, 0,
+> +		    "mediatek,mt6397-keys"),
+>  };
+>
+>  struct chip_data {
+> -- 
+> 2.43.0
+>
 
-Yes, using pins_a on the DK board is preferable to using pins_b.
-This helps avoid overshoots on the SDMMC clock signal, which would 
-otherwise occur with faster input/output (I/O) pins.
-These overshoots can interfere with other functional blocks, such as the 
-USB; therefore, it is better to use I/O pins
-that provide a "smoother" signal. Since pins_b is not being used, it is 
-best to remove the pins_b configurations for SDMMC2.
-
-Regards,
-Christophe Kerello.
-
->
->> This patch breaks also MP13 SoC that is supporting HS200.
->
-> Understood, sorry about that.
->
-> Regards,
-> Mateusz
->
-
+-- 
+Lee Jones
 
