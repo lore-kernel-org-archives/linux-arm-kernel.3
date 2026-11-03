@@ -2,79 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2040E606B115
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:29:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF0176070A94
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:33:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2g+qabg/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=slxZdVYq;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=DC37WiHz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=XnVUOlkYR8zo0VkJWoSV5NbLPA4v4KJWJQ3QpBwthkQ=; b=2g+qabg/j+xvkHxvyljBBXzIO7
-	xo8f40bNalUvzbzlyypyoMS/3jpsyn53LTh3WDuIr/9V6Oxowej1g2S/7xscQGm+xLfE+QmvPBoo/
-	2qVG+lHquPDdVeVJAhkPDki94xS/O47xVAjpbIw/rGQihCeWToDrF8yYvF2IAqIt7jcxhYIZOOxQs
-	Oq9Endo7tkqYZXFvIWzgquqeTmBn6hHh6aEsFmOm0UmQNgixW6PcLvENb3p1zDzCqx0S0FEDB7I0G
-	xkAeRuGhiCChIHwUSczzg9KzEuiJAMZnxGHCCPPVADD+iwpy71sKz31BvqjRc0kepWKr9bbuYz7Wm
-	4vkJRBnA==;
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=wBNc4avhNN0n0Gv7VSN9193egWKEyPpWG737SB8hd3o=; b=slxZdVYqGbO3xl
+	waXE+IW/EgsRwDes94AUKmnHnfKR2C+5VkG+wjFkA6n+smibwMnBcN4z0YwxH96SVr8KTFnrbkfEm
+	8UA4WT3UG48dnZ1ZjXN71GcbYkK8vqNXzyjHTTVKlr4hQP6TYJrrI/X8zhwBbkj5B9dBQDJF7/8XB
+	3hhr0/KSwlzHQ1IwN7Cvbw4Kc3voY1itp+swgIcA0XYEZa+yqP9PIWWM/TUFY8lfoQOGGWFGWtdP8
+	HT4liity1Vnd2ap9uz/9MYXIjweaJlPoW+3P0z6h1RtrEQsm3Betgi1HcWWFd542S034JEHiAN7AW
+	MjGvctKEqBbeo68s1OKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBlT-000000020GD-0tH8;
-	Tue, 03 Nov 2026 10:29:15 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBlO-0000000209Z-2vBw
+	id 1xOBpT-000000021GJ-2OAB;
+	Tue, 03 Nov 2026 10:33:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOBpQ-000000021Fx-2Bdr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 10:29:13 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowACnt5hxt+lqU6o7AA--.2763S2;
-	Tue, 03 Nov 2026 18:29:05 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH RESEND] net: stmmac: drop the runtime PM reference on probe failure
-Date: Tue,  3 Nov 2026 10:29:14 +0000
-Message-Id: <20261103102914.1341121-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Tue, 03 Nov 2026 10:33:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4671216A3;
+	Tue,  3 Nov 2026 02:33:16 -0800 (PST)
+Received: from [10.57.66.79] (unknown [10.57.66.79])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5C3DF3F628;
+	Tue,  3 Nov 2026 02:33:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793701999; bh=Y8BZ8HPRzZJYJfTFa6tYxvyqBuREExmvZcd5oIjel6k=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=DC37WiHz0kXrRHtIVvhB0UhiCM9YQp0mNZIgwg3r4GbdAFccnTEmr3SDxKkIbumS/
+	 h3+p4TE2Lgvc0G7H9YgWOpm5c4Qjo9pDa3QsU8smaqigGgZO1QI/LDFr3FNrckjlj8
+	 wn3bkoRjM+ypCHuvwQTKvleMu6ws+SWX3hdFir44=
+Message-ID: <b191c40e-8e2b-4c1a-8604-d75cb47bd194@arm.com>
+Date: Tue, 3 Nov 2026 10:33:15 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] KVM: arm64: Move stage-2 teardown into kvm_vm_s2_ops
+Content-Language: en-GB
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Steffen Eiden <seiden@linux.ibm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Raghavendra Rao Ananta <rananta@google.com>, Fuad Tabba <tabba@google.com>
+References: <20261103084742.1302597-1-fuad.tabba@linux.dev>
+ <20261103084742.1302597-4-fuad.tabba@linux.dev>
+ <29e7d214-b7b0-403a-a40f-dbc5b6951e22@arm.com>
+In-Reply-To: <29e7d214-b7b0-403a-a40f-dbc5b6951e22@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowACnt5hxt+lqU6o7AA--.2763S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7WryDJr17Wr1xGr4UJrWrKrg_yoW8uFWxpr
-	48Zay09ry7Xr1Iga1DAr4qvFy5GrWSy393CrykG34Sga1rCryaqFySqFWjv3ZFkFZ5ZF13
-	tw4UAw17Za1vy3DanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9a14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jw0_WrylYx0Ex4A2jsIE14v26F4UJVW0owAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
-	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
-	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26ryj6F
-	1UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVWU
-	JVWUCwCI42IY6I8E87Iv67AKxVWxJVW8Jr1lIxAIcVC2z280aVCY1x0267AKxVWxJr0_Gc
-	JvcSsGvfC2KfnxnUUI43ZEXa7VUUJUUUUUUUU==
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRMAA2rpnIByNwACsB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_022911_123105_539A0841 
-X-CRM114-Status: GOOD (  12.35  )
-X-Spam-Score: -0.9 (/)
+X-CRM114-CacheID: sfid-20261103_023320_656418_5A349DD1 
+X-CRM114-Status: GOOD (  18.38  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,67 +76,143 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-__stmmac_dvr_probe() takes a runtime PM reference with
-pm_runtime_get_noresume() and enables runtime PM before registering the
-MDIO bus.  The reference is only dropped on the success path, so a
-failure of the MDIO, PCS, phylink, devlink or netdev registration leaves
-the usage counter elevated.  The device is never bound in that case, so
-stmmac_dvr_remove() never runs to release it.
+On 03/11/2026 09:37, Suzuki K Poulose wrote:
+> Hi Fuad
+> 
+> On 03/11/2026 08:47, Fuad Tabba wrote:
+>> Replace kvm_stage2_destroy()'s is_protected_kvm_enabled() and
+>> KVM_PGT_FN() dispatch with a vm_stage2_destroy hook in kvm_vm_s2_ops,
+>> like the other stage-2 operations. Both pKVM flavors share
+>> pkvm_stage2_destroy(). Like kvm_vm_stage2_destroy(), it takes the range
+>> from kvm_phys_size().
+>>
+>> No functional change intended.
+> 
+> Someone beat you on this (well almost) ;-)
+> 
+> https://lore.kernel.org/all/4304d0c7-2220-4add-9c71-e6dc6b4fbc11@arm.com
+> 
+> 
+>>
+>> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+>> ---
+>>   arch/arm64/include/asm/kvm_host.h |  2 ++
+>>   arch/arm64/kvm/mmu.c              | 24 +++++++++++++-----------
+>>   2 files changed, 15 insertions(+), 11 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/ 
+>> asm/kvm_host.h
+>> index 97332ffcb1300..b36779bafae9b 100644
+>> --- a/arch/arm64/include/asm/kvm_host.h
+>> +++ b/arch/arm64/include/asm/kvm_host.h
+>> @@ -233,6 +233,7 @@ struct kvm_vcpu_ops {
+>>   struct kvm_gfn_range;
+>>   struct kvm_s2_fault_desc;
+>> +struct kvm_pgtable;
+>>   struct kvm_vm_s2_ops {
+>>       bool (*vm_age_gfn)(struct kvm *kvm, struct kvm_gfn_range *range);
+>> @@ -243,6 +244,7 @@ struct kvm_vm_s2_ops {
+>>       void (*vm_stage2_unmap_range)(struct kvm_s2_mmu *mmu,
+>>                         phys_addr_t start, u64 size,
+>>                         bool may_block);
+>> +    void (*vm_stage2_destroy)(struct kvm_pgtable *pgt);
+>>       int (*vm_mem_abort)(const struct kvm_s2_fault_desc *s2fd);
+>>   };
+>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>> index 10b425a0141be..9df3c80a5acd1 100644
+>> --- a/arch/arm64/kvm/mmu.c
+>> +++ b/arch/arm64/kvm/mmu.c
+>> @@ -1029,17 +1029,16 @@ static void stage2_destroy_range(struct 
+>> kvm_pgtable *pgt, phys_addr_t addr,
+>>       } while (addr = next, addr != end);
+>>   }
+>> -static void kvm_stage2_destroy(struct kvm_pgtable *pgt)
+>> +static void kvm_vm_stage2_destroy(struct kvm_pgtable *pgt)
+>>   {
+>> -    unsigned int ia_bits = VTCR_EL2_IPA(pgt->mmu->vtcr);
+>> +    stage2_destroy_range(pgt, 0, kvm_phys_size(pgt->mmu));
 
-Drop the reference and disable runtime PM again on the common error path.
-Only disable runtime PM if this driver enabled it, because PCI devices
-already have it enabled by the PCI core.
+Also, now that stage2_destroy_range is only called for normal KVM,
+could we fold that in here ?
 
-Fixes: 5ec55823438e ("net: stmmac: add clocks management for gmac driver")
-Cc: stable@vger.kernel.org
-Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+Cheers
+Suzuki
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 049d85b3e25f..eebf1975f40f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -7974,6 +7974,7 @@ static int __stmmac_dvr_probe(struct device *device,
- 	struct net_device *ndev = NULL;
- 	struct stmmac_priv *priv;
- 	int i, ret = 0;
-+	bool pm_enabled = false;
- 	u8 rxq;
- 
- 	if (!plat_dat->dma_cfg || !plat_dat->dma_cfg->pbl) {
-@@ -8223,8 +8224,10 @@ static int __stmmac_dvr_probe(struct device *device,
- 
- 	pm_runtime_get_noresume(device);
- 	pm_runtime_set_active(device);
--	if (!pm_runtime_enabled(device))
-+	if (!pm_runtime_enabled(device)) {
- 		pm_runtime_enable(device);
-+		pm_enabled = true;
-+	}
- 
- 	ret = stmmac_mdio_register(ndev);
- 	if (ret < 0) {
-@@ -8278,6 +8281,9 @@ static int __stmmac_dvr_probe(struct device *device,
- error_pcs_setup:
- 	stmmac_mdio_unregister(ndev);
- error_mdio_register:
-+	if (pm_enabled)
-+		pm_runtime_disable(device);
-+	pm_runtime_put_noidle(device);
- 	stmmac_napi_del(ndev);
- error_hw_init:
- 	destroy_workqueue(priv->wq);
--- 
-2.34.1
+
+>> +    kvm_pgtable_stage2_destroy_pgd(pgt);
+>> +}
+>> -    /* pKVM walks its mapping tree, not the IPA space, and 
+>> reschedules per mapping */
+>> -    if (is_protected_kvm_enabled())
+>> -        pkvm_pgtable_stage2_destroy_range(pgt, 0, BIT(ia_bits));
+>> -    else
+>> -        stage2_destroy_range(pgt, 0, BIT(ia_bits));
+>> -
+>> -    KVM_PGT_FN(kvm_pgtable_stage2_destroy_pgd)(pgt);
+>> +static void pkvm_stage2_destroy(struct kvm_pgtable *pgt)
+>> +{
+>> +    pkvm_pgtable_stage2_destroy_range(pgt, 0, kvm_phys_size(pgt->mmu));
+>> +    pkvm_pgtable_stage2_destroy_pgd(pgt);
+>>   }
+>>   /**
+>> @@ -1126,7 +1125,7 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct 
+>> kvm_s2_mmu *mmu, unsigned long t
+>>       return 0;
+>>   out_destroy_pgtable:
+>> -    kvm_stage2_destroy(pgt);
+>> +    kvm->arch.vm_s2_ops->vm_stage2_destroy(pgt);
+> 
+> minor nit: should we retain the kvm_stage2_destroy() to dispatch the 
+> callback ?
+> 
+> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> 
+> Cheers
+> Suzuki
+> 
+> 
+>>       mmu->pgt = NULL;
+>>   out_free_pgtable:
+>>       kfree(pgt);
+>> @@ -1246,7 +1245,7 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+>>       write_unlock(&kvm->mmu_lock);
+>>       if (pgt) {
+>> -        kvm_stage2_destroy(pgt);
+>> +        kvm->arch.vm_s2_ops->vm_stage2_destroy(pgt);
+>>           kfree(pgt);
+>>       }
+>> @@ -3152,6 +3151,7 @@ static const struct kvm_vm_s2_ops 
+>> protected_pkvm_vm_s2_ops = {
+>>       .vm_age_gfn            = no_age_gfn,
+>>       .vm_test_age_gfn        = no_age_gfn,
+>>       .vm_stage2_unmap_range        = no_stage2_unmap_range,
+>> +    .vm_stage2_destroy        = pkvm_stage2_destroy,
+>>       .vm_mem_abort            = protected_pkvm_mem_abort,
+>>   };
+>> @@ -3161,6 +3161,7 @@ static const struct kvm_vm_s2_ops pkvm_vm_s2_ops 
+>> = {
+>>       .vm_age_gfn            = pkvm_age_gfn,
+>>       .vm_test_age_gfn        = pkvm_test_age_gfn,
+>>       .vm_stage2_unmap_range        = pkvm_stage2_unmap_range,
+>> +    .vm_stage2_destroy        = pkvm_stage2_destroy,
+>>       .vm_mem_abort            = kvm_vm_mem_abort,
+>>   };
+>> @@ -3170,6 +3171,7 @@ static const struct kvm_vm_s2_ops 
+>> kvm_default_vm_s2_ops = {
+>>       .vm_age_gfn            = kvm_vm_age_gfn,
+>>       .vm_test_age_gfn        = kvm_vm_test_age_gfn,
+>>       .vm_stage2_unmap_range        = kvm_vm_stage2_unmap_range,
+>> +    .vm_stage2_destroy        = kvm_vm_stage2_destroy,
+>>       .vm_mem_abort            = kvm_vm_mem_abort,
+>>   };
+> 
 
 
