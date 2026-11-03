@@ -2,82 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EBC2606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 04:22:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6110606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 04:26:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=asNfdXa5;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=R0WAjBPd
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Da7t47Pp;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=F6NYyGD5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=7hpI2iCSGoz71vPjJKjpaH2lhKVzdhV0IEDs+PYjGYI=; b=asNfdXa5HvMiPnDg1gtpRWeEDF
-	s70D3++IY/2a0YWucAsXP5Wq+YIJ+dyyQ429KKFVu9GZ6GA5nKpJsCx7pwIJ8FdF7Z7kB9zN74Qje
-	RmWoDlFY2f4JcfjqDmAwMKApnBR3tacPczZ1DjJhbfOwG4pqKO8y82wdqGYgl/AFIAPleOZ9RzcU0
-	7AzaLOln9lBrAQ/f7cvZEL+DUAb0Jegb33nEEj10pA82hfZSYm+esiu2RqX8mNWhAOJJB6S7J5a1x
-	D7o3/i5y2AqMBJH4BiJHDhlsqK7/eceEWguRit9iudT2x5CxP4hUqkyHKrJI/c5wc+qWeX08DQPNB
-	iYCBVtzw==;
+	bh=PGfNJvt0jz4lC2WFoydgyKQ9YHvmNk2PJYm3FO57IiU=; b=Da7t47PpYiIqUdIH892Y2Po7b2
+	qjfO8msOo7qxBfUF2wM5UtJA2oPIWK5ls124nEQxkU56EUHZCCgO5dxkWyIZu1KFR/9HVNd/mNPdt
+	gBorhUYbSR0byUhoMgopQ1op1VO9CzFaumDWWuob2nwXQhpnOva3QMh99TB86araUED1W90kUtvpH
+	GG5X52TYTGNb3zlV5GPHO4uAG9u8N8/c/dV5vpDTTOpLJiLehTU/siOv9/24+uLBgVV2/c4tfouW8
+	OLzLMJc+ybanjYyozeWj558JBcfoccI0v4M6p+If8I5cZ4Z8/jxUXzg52BI7MI6MXpHFeKdiSq7pI
+	/7eQpXhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO61n-00000000zwG-41Uk;
-	Tue, 03 Nov 2026 04:21:52 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1xO66M-000000012cg-49gn;
+	Tue, 03 Nov 2026 04:26:29 +0000
+Received: from mail-dy1-x1345.google.com ([2607:f8b0:4864:20::1345])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO61c-00000000zut-3w0e
+	id 1xO66A-000000012b0-1BJ4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 04:21:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793679694; x=1825215694;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=e/FUd/e/mAYT7IeYzGgwu4zSfKt4EcJEQsjr//9wYN8=;
-  b=R0WAjBPdTEUY6GAYiaJXbG3tPxSuDfJJS0Zgf8sWKnaTet26ViWS3J+i
-   9yvq36OwwI695NcxOf91ey3lwKbQBW2pVN1wIyb/xoWL+y4hsBiE4k89x
-   7a3lE0IBrxS8irWD4Ecp11r04Y9+Fc3nqvtFDhTKMbVR5eBpKKcuCPBsb
-   m8KMw+QLUDd/34pg/7RPJkZCD3Mrk81zjMlhE54m5UMXqWKO844F21nPL
-   rFqw9uRS6HZaor6K4Uzhiwjer7HPw95PXKkQvd2mgO0jkM/Y21Bfxe4OF
-   L2y9T+b+ELRARUGOGzUpVJewPuTDb7PcwNQN1Gvgu2pgMxPB0YcqADYvO
-   w==;
-X-CSE-ConnectionGUID: qZlZusvbQKGguZaLQNLx0w==
-X-CSE-MsgGUID: 4ySDNP5HRIWWqv/GvOQrcA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11954"; a="2495162"
-X-IronPort-AV: E=Sophos;i="6.27,192,1787036400"; 
-   d="scan'208";a="2495162"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Nov 2026 20:21:23 -0800
-X-CSE-ConnectionGUID: JaDX/0xDSXe4TwWItdmlvQ==
-X-CSE-MsgGUID: C6+kcDqrTNGoQJ5+2a7VTw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,192,1787036400"; 
-   d="scan'208";a="6633917"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa009.fm.intel.com with ESMTP; 02 Nov 2026 20:21:19 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xO61L-00000000iI4-2oC3;
-	Tue, 03 Nov 2026 04:21:15 +0000
-Date: Tue, 3 Nov 2026 12:20:52 +0800
-From: kernel test robot <lkp@intel.com>
-To: Andre Przywara <andre.przywara@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: Re: [PATCH v5 RESEND 5/6] firmware: smccc: lfa: Register DT interrupt
-Message-ID: <202611031233.vQxtNp7l-lkp@intel.com>
-References: <20261102165421.3651202-6-andre.przywara@arm.com>
+	Tue, 03 Nov 2026 04:26:18 +0000
+Received: by mail-dy1-x1345.google.com with SMTP id 5a478bee46e88-36637676140so5143378eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 20:26:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1793679973; x=1794284773; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=PGfNJvt0jz4lC2WFoydgyKQ9YHvmNk2PJYm3FO57IiU=;
+        b=F6NYyGD5ECGJtGsQpIhG8rwZfGVTIGcqtL9iN+6SypEa96sNpIO0bem4Z9uERPVy3Q
+         +surFJb+0QUyD2Nsxi7z3wsgqa7Q1d8sVxx3mOziRjFcwzy5AZVKMTbeuKRnZlI8xzcC
+         YbM0uRw7BvdJ8Un+gZzV0qJUBPXdlmDa4kboUbRuSRvF3glFiQjQHRut8Cxho4bPYEK1
+         G5VECiiwzg8C/gNsxpgot72dAC9I49327FlFE+k9XOqV4JTDhPuKsqQm9pk9N2sgftZq
+         FibQIT+MtHF5u9EiPQkskb4cbV2cUoxGgyCi8GAHhpKKzvVdOrVbz0241cFXXE4arcvr
+         4AyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793679973; x=1794284773;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PGfNJvt0jz4lC2WFoydgyKQ9YHvmNk2PJYm3FO57IiU=;
+        b=CJJ+EhjLDrF3+dGTcOIG1rg7a+z3sIU+5xSP64Z6nKHYp468Ey6D0+NQ52Av5LQbEr
+         +vZdO99Uq2RfLidFqoOvpv7BXvY4RwA+ytQKJFSsOs+BefKiwY1rqBYYJLuZ1O6lfNtJ
+         n26JjjvQyYsKyYIiC1SMZ0K/81PHwcGiRGgFIebojikbjWqYUMY/Sx2qQwNcssQzm0oI
+         ZS1uzAGlyjUfBytytZYkY/DyEU/PJ4drY9oh3BJzhXYQuQQH9CaiHKQEggbysJY+qClj
+         MLgBqYhC9yr/dV/m4Q89Cm6sez4vdC9sgtg4tZvO4dpKgYCXJXUd+6ZStWcDIxgfyvav
+         iIMQ==
+X-Forwarded-Encrypted: i=1; AKwUvBx4xqDqhKOPzk5LoapQqjt0l67paBBcas8Co7u1W3eftWDSlUavxaYcfqp2ywbVMbXoq/M3kAyu4AcmT/8uOI5W@lists.infradead.org
+X-Gm-Message-State: AFq9FYK/VZ9TShd0+PPQuqHSoAS6xjOu3cglKWc6B076jOngSgfrFa4j
+	u2gXmYJ5FWNG/MtfCC1w0lk3Wu8ZLEqMNL7QerqjjhsgildypZV6oa+iACnU3wVaDJv0kMZ17Cz
+	DDVop4Iz+/bVMChe7FZC5hgoZKtEm16WZQg==
+X-Received: from dybb7.prod.google.com ([2002:a05:693c:6087:b0:35d:1771:4816])
+ (user=vamshigajjela job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:7300:c01c:10b0:36a:50ec:db3f with SMTP id 5a478bee46e88-36a50ecdd21mr16735703eec.7.1793679972480;
+ Mon, 02 Nov 2026 20:26:12 -0800 (PST)
+Date: Tue,  3 Nov 2026 09:56:04 +0530
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261102165421.3651202-6-andre.przywara@arm.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.385.gac671c819a-goog
+Message-ID: <20261103042608.387626-1-vamshigajjela@google.com>
+Subject: [PATCH 0/3] spmi: Add SmartDV SPMI controller driver and bindings
+From: vamshi gajjela <vamshigajjela@google.com>
+To: Stephen Boyd <sboyd@kernel.org>, Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, Peter Griffin <peter.griffin@linaro.org>, 
+	"=?UTF-8?q?Andr=C3=A9=20Draszik?=" <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+	Jim Wylder <jwylder@google.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Vamshi Gajjela <vamshigajjela@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_202133_077800_54D1EAAF 
-X-CRM114-Status: GOOD (  18.07  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261102_202614_519033_DEC7614D 
+X-CRM114-Status: GOOD (  11.30  )
+X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,85 +90,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Conor Dooley <conor+dt@kernel.org>, vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, oe-kbuild-all@lists.linux.dev, Nirmoy Das <nirmoyd@nvidia.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+X-Spam-Status: No, score=-21.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT,USER_IN_DEF_DKIM_WL
 	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Andre,
+From: Vamshi Gajjela <vamshigajjela@google.com>
 
-kernel test robot noticed the following build warnings:
+This series adds Device Tree bindings and a controller driver for the
+SmartDV IP Solutions MIPI System Power Management Interface (SPMI) master
+controller ("smartdv,spmi").
 
-[auto build test WARNING on robh/for-next]
-[also build test WARNING on arm64/for-next/core linus/master next-20261030]
-[cannot apply to arm/for-next arm/fixes clk/clk-next kvmarm/next rockchip/for-next soc/for-next nferre-at91/at91-next shawnguo/for-next v7.3]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+This IP is integrated in Google Tensor SoCs starting with the G5
+generation (codename: laguna, canonically written as "lga",
+"google,lga-spmi") to communicate with on-board Power Management ICs
+(PMICs).
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Andre-Przywara/dt-bindings-arm-Add-Live-Firmware-Activation/20261102-175415
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20261102165421.3651202-6-andre.przywara%40arm.com
-patch subject: [PATCH v5 RESEND 5/6] firmware: smccc: lfa: Register DT interrupt
-config: arm64-randconfig-1000-20261103 (https://download.01.org/0day-ci/archive/20261103/202611031233.vQxtNp7l-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 13.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261103/202611031233.vQxtNp7l-lkp@intel.com/reproduce)
+The controller supports MIPI SPMI v1.0 and v2.0 non-data bus commands
+(RESET, SLEEP, SHUTDOWN, WAKEUP), register read/write, extended register
+read/write, and extended register read/write long transfers up to 16 bytes.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611031233.vQxtNp7l-lkp@intel.com/
+Patch 1/3 adds the "smartdv" vendor prefix to vendor-prefixes.yaml.
+Patch 2/3 documents the Device Tree bindings for the SmartDV SPMI
+controller ("smartdv,spmi" and "google,lga-spmi").
+Patch 3/3 adds the spmi-smartdv controller driver.
 
-All warnings (new ones prefixed by >>):
+Vamshi Gajjela (3):
+  dt-bindings: vendor-prefixes: Add smartdv
+  dt-bindings: spmi: Add SmartDV SPMI controller
+  spmi: Add SmartDV SPMI controller driver
 
-   drivers/firmware/smccc/lfa_fw.c: In function 'lfa_register_dt':
-   drivers/firmware/smccc/lfa_fw.c:939:16: error: implicit declaration of function 'devm_request_threaded_irq'; did you mean 'devm_request_region'? [-Werror=implicit-function-declaration]
-     939 |         return devm_request_threaded_irq(dev, lfa_irq, NULL,
-         |                ^~~~~~~~~~~~~~~~~~~~~~~~~
-         |                devm_request_region
-   drivers/firmware/smccc/lfa_fw.c:940:66: error: 'IRQF_COND_ONESHOT' undeclared (first use in this function)
-     940 |                                          lfa_irq_handler_thread, IRQF_COND_ONESHOT,
-         |                                                                  ^~~~~~~~~~~~~~~~~
-   drivers/firmware/smccc/lfa_fw.c:940:66: note: each undeclared identifier is reported only once for each function it appears in
-   drivers/firmware/smccc/lfa_fw.c: In function 'lfa_smccc_remove':
-   drivers/firmware/smccc/lfa_fw.c:1034:9: error: implicit declaration of function 'devm_free_irq'; did you mean 'devm_free_pages'? [-Werror=implicit-function-declaration]
-    1034 |         devm_free_irq(&sdev->dev, lfa_irq, NULL);
-         |         ^~~~~~~~~~~~~
-         |         devm_free_pages
-   drivers/firmware/smccc/lfa_fw.c: In function 'lfa_register_dt':
->> drivers/firmware/smccc/lfa_fw.c:942:1: warning: control reaches end of non-void function [-Wreturn-type]
-     942 | }
-         | ^
-   cc1: some warnings being treated as errors
+ .../bindings/spmi/smartdv,spmi.yaml           | 126 +++++
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ MAINTAINERS                                   |   7 +
+ drivers/spmi/Kconfig                          |  10 +
+ drivers/spmi/Makefile                         |   1 +
+ drivers/spmi/spmi-smartdv.c                   | 525 ++++++++++++++++++
+ 6 files changed, 671 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/spmi/smartdv,spmi.yaml
+ create mode 100644 drivers/spmi/spmi-smartdv.c
 
+-- 
+2.56.0.317.g454f8302e1-goog
 
-vim +942 drivers/firmware/smccc/lfa_fw.c
-
-   925	
-   926	static int lfa_register_dt(struct device *dev)
-   927	{
-   928		struct device_node *np;
-   929	
-   930		np = of_find_compatible_node(NULL, NULL, "arm,lfa");
-   931		if (!np)
-   932			return -ENODEV;
-   933	
-   934		lfa_irq = irq_of_parse_and_map(np, 0);
-   935		of_node_put(np);
-   936		if (!lfa_irq)
-   937			return -ENODEV;
-   938	
-   939		return devm_request_threaded_irq(dev, lfa_irq, NULL,
-   940						 lfa_irq_handler_thread, IRQF_COND_ONESHOT,
-   941						 NULL, NULL);
- > 942	}
-   943	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
