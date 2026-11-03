@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F7936073797
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:34:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8609A606FAFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:35:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HUMC1RFY;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BhvtAJHZ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nUqO4wCb;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bWTqbUNX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
@@ -14,50 +14,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=; b=HUMC1RFYXE+S8fDIPfuf0TgRMI
-	DDB6EOasTEoGO/E0SDzik+yK71F398tH69fg48PbLxWbNx8NVb1U6e6BZkP+IzWkg3ZS7JlEOy9R6
-	LtCCiRhkLlxlL2RMAkkB524axcRZR/iWGmoboUGuejQR5W1avhENIYzrRcQnK/UnBF403k/kvcptr
-	wQVHnLFqozpZ85YP1CdVUUWMHLUVMdxlX7De9/j57ya+Xjjl6lCXRf+gvrf36luHNNe268iACpEBt
-	WoLHzWvY8TVhf0rtYXWo/hDpihWLVEX2PGez/+W8zEs0B9HC0ca8tFsvjQbXE7dO1VFKEKocBj0bz
-	c3md6nPQ==;
+	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=; b=nUqO4wCbmuwpIwv5DHrQlAcR50
+	vV3ZGO7gHxzfzp5C1wR4zOvG3DVji9LPWXH2bV0ACaiopwk83g+FXpqi0+T838BNmTkMU1mFySUcd
+	VJReumRJ3N8s16OKgy5GGz3b4eETuWHpW4aG9VI5ZN3sC56LL2QIKwCZ7QtupYIOE1d0gl+1Pzbt5
+	LxGDZTTaWIAFnjR/6xv9reyENPW8tpt1972Lgy9OSUG1osbEm1Gw4Zt1VrqDahme4zY3cC86h+ISd
+	/Qf09kZy0sV2BC8DPQ7eJmBUi19H8G8sjbkrltLdaLiHxcUt9iq4V0rvDhbTcHqgn2p2LUNSJNSzh
+	T4PBBvgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBqq-000000021YW-1HRH;
-	Tue, 03 Nov 2026 10:34:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xOBqz-000000021dr-2KNa;
+	Tue, 03 Nov 2026 10:34:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBqp-000000021Xi-0WwW
+	id 1xOBqy-000000021dU-0j3w
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 10:34:47 +0000
+	Tue, 03 Nov 2026 10:34:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DDB3341457;
-	Tue,  3 Nov 2026 10:34:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 261111F00919;
-	Tue,  3 Nov 2026 10:34:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8B2C641A39;
+	Tue,  3 Nov 2026 10:34:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFFA01F00A15;
+	Tue,  3 Nov 2026 10:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793702086;
+	s=k20260515; t=1793702095;
 	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=BhvtAJHZeYQIMg97ZMZ/UsiRQ/bfdXmMDtCZNSyzlKIAt2+2fc8GsEdEhW/yJB8Pe
-	 li5XTil64wZr/Eppw2rPf/vvg4EPGqFpg7yxRu6rNLggmbKWWclCXqMN/LBNAbMf6e
-	 657PgJfORhVLFmM9w4EMUr/oEn641LakT49XalDvCBUAmkTXD77sPU/dheQ91sygG0
-	 KIui+33YoCt7Co0GnGrRRr1E+UnaNdRdUbxO5U5QCzwi2k7kd+CliqZ6qMPrvFh2rs
-	 lvvYVtYEbu0uZtowLCWZYXwUJC0XC0g4z32Lbl94yKZaNI0oeakua7lGrOzbqsCJdg
-	 U1IbtCZ3/wceg==
+	b=bWTqbUNXtlq87uBXFvuxGVqBzCszxbq4IsgJQCNluWxJ7q8nseJC5XnT4yKNQrKkw
+	 eH97iAr08WQ+7Mmi8MAy4mWZsAu2EitHj1NJQ8SaqK5TTo/EaXGDc8A/96lNBlb6ml
+	 nFtXfMKPnvX6znfI40Ak+biIHmZ26IR/0hc8z6DCfkDpUAUcvL8y1EFZ2ztcdSUN4p
+	 0iRaF1j7bTYXfj6Mr9kon0s9h1wdOouYI/VJIf9S1FfA6EyG2CZQ9iOlS9xGZGi2AN
+	 dfUGoqARv5XGAePYkdA5zSRIbmhq083j9MpyTPgZ4l0a+OeeDaIdd7p+6qoA+AdLB2
+	 JkJCYl0BkHfnA==
 From: netdev-bot+sinfo@kernel.org
 To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: Daniel Machon <daniel.machon@microchip.com>, UNGLinuxDriver@microchip.com,
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
  Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
  Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>,
- Steen Hegelund <Steen.Hegelund@microchip.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  stable@vger.kernel.org
-Subject: Re: [PATCH] net: lan969x: fix page pool leak when RX DMA allocation fails
-Date: Tue, 03 Nov 2026 10:34:45 +0000
-Message-ID: <179370208572.488859.13061346366607399328@kernel.org>
-In-Reply-To: <20261103102854.1340615-1-vulab@iscas.ac.cn>
-References: <20261103102854.1340615-1-vulab@iscas.ac.cn>
+Subject: Re: [PATCH] net: stmmac: drop the runtime PM reference on probe failure
+Date: Tue, 03 Nov 2026 10:34:54 +0000
+Message-ID: <179370209427.488859.7301348378104655949@kernel.org>
+In-Reply-To: <20261103102858.1340765-1-vulab@iscas.ac.cn>
+References: <20261103102858.1340765-1-vulab@iscas.ac.cn>
 Auto-Submitted: auto-generated
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
