@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB843606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 22:48:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14646606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 22:51:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ATE0VXFE;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=rHGjeSwI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ysLlB9nC;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=e8agXrda
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
@@ -14,29 +14,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=7V+9u/mBqZmqOYGdyoT/7+oFKZYRr17cEQ3cVzZJ9rw=; b=ATE0VXFEhRt2u0eR+Aah2bTr/8
-	uSC4eyuZ9RRlZZNsvCV1C+kWkckULhnCpz3BKhGGA810b3VuiAnU0c90LJiPZQYDBi8+zvhsS7efE
-	Q9gn/zcxj0WfIDOerOAu9abQbc8Ap7VE0soyX7NPYexdI6z8uMX05h/OXYymNwYuOo/hftfNVwQJw
-	XRX0Org2LI1xSdBy9WNAPBFMabxjR5/5Ex6HuR/ZKa+4d/T8Rs/AdKkPL0CBFwJb9AC5jUPVHfHxR
-	JjvBLpYoZ9zTcGirD8hqWXeyvT3wTL4dWfsTGbDswI7G3KfHtqamRcA3aAeJu5hRu1pTsApRyS8dq
-	dgcy2LQw==;
+	bh=o7HXQPomhFEfrYFjVcsrdsok+Tx5KNS+/so3Un5/lrc=; b=ysLlB9nCQORxCzrw3XvMwjG8x7
+	N93VP2Zm0r/fBW3GH2Bm91vg1gdvNUPyj7YWLgUBqRCdxo9iJ1ROuQYtvxsnKTgqRHpDm8oTMDWIM
+	HM2Rg2KVLAsWuXP1FNDlwUuGiJBlM6uMQfMA8ot0kVj8snUSAKCEvFws6k3ftGlstEiGCGh/PPeK+
+	44GWr1/0ZZkyBvn3Am3eN4h1ichgW+tVXPK0QPQ8toth0FVOnAM68WPtjoTG3dqxDKGJ6whT4njJc
+	N4gZPLhjBVcoVK0rQJq6ZR9FzjYvuI6CmNRP2W32Ot+NsE1J1SNrx4E83DyzQ6DwKNY9J4KVLXWfC
+	AFSfwmdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xONIZ-00000003tRb-3YXJ;
-	Tue, 03 Nov 2026 22:48:11 +0000
+	id 1xONLj-00000003ts2-2S4r;
+	Tue, 03 Nov 2026 22:51:27 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xONIX-00000003tQx-0mi0;
-	Tue, 03 Nov 2026 22:48:10 +0000
+	id 1xONLh-00000003trM-1Obc;
+	Tue, 03 Nov 2026 22:51:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=7V+9u/mBqZmqOYGdyoT/7+oFKZYRr17cEQ3cVzZJ9rw=; b=rHGjeSwIvdld7UkcYoi40YgoyZ
-	JaIclCu/NOQLtcHJRaQCNk9QsExRXWMq1vaCRnKz+KWW093oQYAlSKpj/DmIm5ItQuSsg82BJUFGn
-	ACBj6WsyIi7jBos+IFDv+UnbMEbCFu+5K8v4mkNiMg6q3OWp5YbsRxXBm+VoKy5h6PU/+6+WrUENm
-	t8vlML31g3CXxZ4CSZRyjIB31nvF6aZ061bEidRTd10EzM1VKq0JQ2mz1Fft++mOvIAuhpGCqiBUz
-	YRNoIls6dJOwJHvUxF+i06VArQYpjgXoR2rA4sdGawNegoCqkqG88HDBdQnPAwHmKwBhARvFNg3nw
-	ZxClQfcw==;
+	bh=o7HXQPomhFEfrYFjVcsrdsok+Tx5KNS+/so3Un5/lrc=; b=e8agXrdauKRx9EGxkmib/g9VuU
+	mDkazXkDbRhtV8JTfmGehKVWbki2agxMfivjwj3H4Z7DrWaQ87OgZlnjv96V405f70UM8mEHiCoEK
+	TLd4STOnPAShQ8B5UpqgNF77zT0/kgRPw/bgf1mBJTSHL5/ItZgiw07vjqZMz8ri84ErO7Sqn5uY8
+	BjeUx54xkn3O/6fjaNdEbOCVTI2mJDProM+XKVHiSN1FuQdZXYUhw8KhN0mtqJkPCyJOTIMjnsun+
+	Ct9vIUE/vopzPCY8Sep1G/z0WMU8T4JLlqhKjt5CTs/Lcr32soSSG4RSYht1Z/bG5OHaAT0LNrfFx
+	R/xopxBA==;
 From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
 To: tomeu@tomeuvizoso.net, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
@@ -53,8 +53,8 @@ Cc: royalnet026@gmail.com, abel.vesa@oss.qualcomm.com,
  Jiaxing Hu <gahing@gahingwoo.com>
 Subject: Re: [PATCH v15 03/15] accel/rocket: wait for a running IRQ handler before
  resetting a core
-Date: Tue, 03 Nov 2026 23:47:32 +0100
-Message-ID: <3654048.cLl3JjQhRp@diego>
+Date: Tue, 03 Nov 2026 23:50:58 +0100
+Message-ID: <3311623.TQGk6oTFT5@diego>
 In-Reply-To: <20261101082307.151957-4-gahing@gahingwoo.com>
 References: <20261101082307.151957-1-gahing@gahingwoo.com>
  <20261101082307.151957-4-gahing@gahingwoo.com>
@@ -63,8 +63,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_144809_403554_DD6E2543 
-X-CRM114-Status: GOOD (  37.68  )
+X-CRM114-CacheID: sfid-20261103_145125_394860_A8A583EC 
+X-CRM114-Status: GOOD (  18.40  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -133,83 +133,13 @@ hed_job *bad)
 > -	 * Remaining interrupts have been handled, but we might still have
 > -	 * stuck jobs. Let's make sure the PM counters stay balanced by
 > -	 * manually calling pm_runtime_put_noidle().
-> +	 * Mask the block before waiting. hw_submit() arms INTERRUPT_MASK on
-> +	 * every submit and only the hardirq clears it, so on an ordinary
-> +	 * timeout it is still live and a completion can arrive after the sync
-> +	 * returns. The next submit re-arms it, so nothing is lost here.
-> +	 *
-> +	 * Only when the device is already awake, though. This function holds no
-> +	 * runtime PM reference of its own: the only one in the window belongs =
-to
-> +	 * in_flight_job, and the completion path may have put it and cleared t=
-he
-> +	 * pointer before the timeout worker got here. drm_sched_stop() above c=
-an
-> +	 * block for a long time, and it drops every pending job's credits, so
-> +	 * rocket_job_is_idle() is true and nothing keeps the core resumed. On
-> +	 * this hardware a register access with the domain down takes an async
-> +	 * SError, so a reset must not be the thing that causes one.
-> +	 *
-> +	 * Only a positive answer will do. pm_runtime_get_if_active() tests
-> +	 * power.disable_depth before power.runtime_status, so -EINVAL MASKS a
-> +	 * suspended device rather than excluding one: pm_runtime_force_suspend=
-(),
-> +	 * which is this driver's own system suspend callback, disables runtime=
- PM
-> +	 * first and turns the clocks off second, and rocket_core_fini() suspen=
-ds
-> +	 * the core and disables before it cancels the timeout worker. Both lea=
-ve
-> +	 * the domain down with -EINVAL on offer.
-> +	 *
-> +	 * The cost is the other half of that ambiguity. A core that is still up
-> +	 * with runtime PM disabled (pm_runtime_force_suspend() before its
-> +	 * callback has run, or CONFIG_PM=3Dn under COMPILE_TEST) is left unmas=
-ked,
-> +	 * because writing to it would mean writing to the half that is down as
-> +	 * well.
-> +	 *
-> +	 * Clear the raw status along with the mask, the way the completion path
-> +	 * does. Masking alone leaves the DPU bit latched until
-> +	 * rocket_core_reset(), and the hardirq decides on raw status alone, so=
- a
-> +	 * fault from the IOMMU that shares this line would wake the thread aga=
-in
-> +	 * and what the comment below asserts would stop being true.
-> +	 *
-> +	 * UNDER job_lock, because rocket_job_hw_submit() arms this same
-> +	 * register and always runs under that lock. reset.pending is set here
-> +	 * without the lock and read there with it, so a submit that has already
-> +	 * passed its check can re-arm the mask after this clears it, and then
-> +	 * the synchronize_irq() below fences a handler that is no longer the
-> +	 * one that matters: the block is left running a task with its
-> +	 * interrupt live. rocket_job_handle_irq() avoids the same race on
-> +	 * OPERATION_ENABLE by making its completion writes under this lock.
-> +	 *
-> +	 * pm_runtime_get_if_active() does not invoke a callback -- it only
-> +	 * takes a reference on an already-active device -- and
-> +	 * pm_runtime_put_autosuspend() is asynchronous, so neither can re-enter
-> +	 * this driver's runtime PM callbacks while the lock is held.
 
-This can be way short please, the wall of text is very hard to read.
+Also, why are you changing the original comment here?
+The new wording below, does say essentially the same and you're changing
+it again the next patch.
 
-> +	 */
-> +	scoped_guard(mutex, &core->job_lock) {
-> +		if (pm_runtime_get_if_active(core->dev) > 0) {
-> +			rocket_pc_writel(core, INTERRUPT_MASK, 0x0);
-> +			rocket_pc_writel(core, INTERRUPT_CLEAR, 0x1ffff);
-> +			pm_runtime_put_autosuspend(core->dev);
-> +		}
-> +	}
-> +
-> +	/*
-> +	 * drm_sched_stop() returns without waiting for a threaded handler that
-> +	 * is already running, so wait for one here. This has to stay outside
-> +	 * job_lock: the handler takes that lock, so waiting for it while
-> +	 * holding it would deadlock instead of fencing anything.
-> +	 */
-> +	synchronize_irq(core->irq);
-> +
+[...]
+
 > +	/*
 > +	 * No handler is running now, but we might still have stuck jobs. Let's
 > +	 * make sure the PM counters stay balanced by manually calling
