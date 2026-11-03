@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A210606A338
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 19:33:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35C0B606A32D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 19:33:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sT3tReKd;
-	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=eVjoFf9n
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jjMkZ2CC;
+	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=X+qTqHi6
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
@@ -14,47 +14,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=iLoDvYYdW8eYBCuIX6o2n7MweRnzToA5C7UsFYQe97s=; b=sT3tReKdkrvSV3JpnkTuZUs/ni
-	7d+pNpCFSZYAw+8BWYEXUuCNY2HydGtLHLF6inEzVVVlVwsjdaQte/ypaUut+iv4myfQfpuM72IgF
-	Is4+aXkmksRzezMq0EnkC/lzC5pLJmfd+1NaBgDLwjhiMCCKj1jNvutqJGJZsTAcwnT+xcEZYZ0Ud
-	xun9jxUn9HWQlLn0wQklZO4NgDhW5IZ8lCFZtq5ZDy2nWUjTBniQX2MdyZiyQzvfOnR37QqxdaVug
-	53G5rh+W67cUSqT3jNGiZlnLQkMImC12EYu+gIR0lVigokIuS6yvQKw4myuyNEI1athM4zV2OzzPX
-	RSbqyAdg==;
+	bh=qEmYCkPXDtF9hobALFV6QXuRhofx2fxJSYASJMiIobw=; b=jjMkZ2CCi79Seea4k33Q72qz6v
+	7EjwsitPgTNEMVjlwXOwhVu57uUQAXqOPh1W0YA5quOl/tdteirCzAOdTqQ8KPOJWbWobvUy4L/Yy
+	rOR/Q4dfbkCOEeZgHdMnTA9+t0GV8KcWGzylaSePLtgv9VbhlbFJ5nGBc74IULWguA1+HkFuy2WmT
+	DdMiiB3Xdk8AMZYmjWnp2Rjcq5+M8VNKHQ/smHW/dMIDLT8uAb1Yh0bi8K+IXZ8UifwfxVuuyPSW1
+	lpnMyJq4rhONXCs9fu9OFhsTVo2DRngVWhwJWWOLp70WpCUdl7KVQIv2q3iCPhb7qxBNTwzOUDLnx
+	d65clrrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOKFf-00000003X7h-2Cs3;
-	Tue, 03 Nov 2026 19:32:59 +0000
+	id 1xOKFi-00000003X9C-2lh1;
+	Tue, 03 Nov 2026 19:33:02 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOKFa-00000003X5l-2MGr
+	id 1xOKFe-00000003X6k-17ER
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 19:32:55 +0000
+	Tue, 03 Nov 2026 19:32:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1793734373;
+	s=mimecast20190719; t=1793734377;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=iLoDvYYdW8eYBCuIX6o2n7MweRnzToA5C7UsFYQe97s=;
-	b=eVjoFf9nolrqTvqe6/bn2n8ioCUHFQwkvb43SZKs+TlarCiDdl+b9+Fj4aZaJ9dZWZGklZ
-	0Xk+XPyrVI7LNi5TLzgdvwagKaI176jBYUvmsNK0B/26EIRk0GT9WH1ITbptkP07eLzTGc
-	RSBbcEUMm0isfEQpTUpL+kYCsY/zelc=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	bh=qEmYCkPXDtF9hobALFV6QXuRhofx2fxJSYASJMiIobw=;
+	b=X+qTqHi6ZIpWK8fwJpA3M2YzVKXF70aXLPL0Go8QG6dek1heVfhUPxSjcyS9fpeSLLRodg
+	f4dQDmDLdISpEUuJKIKit55vtuNu/f/o1Xu8i9xI/7O5jG5ybTAqyDepDoPLAGArSbtY3F
+	MsAsdDGo2aDgMrzXTBgx/zovMGzRvk8=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-400-BL3dVhfFPqqbVS0DqelroA-1; Tue,
- 03 Nov 2026 14:32:49 -0500
-X-MC-Unique: BL3dVhfFPqqbVS0DqelroA-1
-X-Mimecast-MFC-AGG-ID: BL3dVhfFPqqbVS0DqelroA_1793734367
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-586-gXfGBPJrNy2kjCo_cvKisw-1; Tue,
+ 03 Nov 2026 14:32:53 -0500
+X-MC-Unique: gXfGBPJrNy2kjCo_cvKisw-1
+X-Mimecast-MFC-AGG-ID: gXfGBPJrNy2kjCo_cvKisw_1793734371
 Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 33D701800659;
-	Tue,  3 Nov 2026 19:32:47 +0000 (UTC)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EA97E195604F;
+	Tue,  3 Nov 2026 19:32:50 +0000 (UTC)
 Received: from loberman-thinkpadp16gen3.redhat.corp (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A7BD31800347;
-	Tue,  3 Nov 2026 19:32:43 +0000 (UTC)
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3E19A1800347;
+	Tue,  3 Nov 2026 19:32:48 +0000 (UTC)
 From: Laurence Oberman <loberman@redhat.com>
 To: linux-scsi@vger.kernel.org,
 	"Martin K . Petersen" <mkp@kernel.org>
@@ -74,23 +74,23 @@ Cc: "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
 	fsuba@redhat.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] scsi: core: Fix target reap_ref leak in scsi_get_pseudo_sdev()
-Date: Tue,  3 Nov 2026 14:32:34 -0500
-Message-ID: <20261103193235.1564898-2-loberman@redhat.com>
+Subject: [PATCH] scsi: scsi_debug: Wait for async target cleanup on module exit
+Date: Tue,  3 Nov 2026 14:32:35 -0500
+Message-ID: <20261103193235.1564898-3-loberman@redhat.com>
 In-Reply-To: <20261103193235.1564898-1-loberman@redhat.com>
 References: <8e4ba1820a7c56867bf7fff07bd52ff3f79573a1.camel@redhat.com>
  <20261103193235.1564898-1-loberman@redhat.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-X-Mimecast-MFC-PROC-ID: _iZ4w-WkSve6rlXNKEK7rg9fATN6Jde2stTwIj4fkjI_1793734367
+X-Mimecast-MFC-PROC-ID: nEXJkal6_g8l0hIZAHtPBh4QE-DPYFRutuLpiqIcpZU_1793734371
 X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 8bit
 content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_113254_829877_328F7A94 
-X-CRM114-Status: GOOD (  15.21  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261103_113258_381356_F32CA4F5 
+X-CRM114-Status: GOOD (  12.56  )
+X-Spam-Score: 0.5 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,58 +109,68 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-scsi_alloc_target() returns a target holding the initial reap_ref from
-kref_init(). The scan paths drop that reference with scsi_target_reap()
-once they are done with the target; the device allocated under it holds
-its own reap_ref, taken in scsi_sysfs_device_initialize() and dropped
-by __scsi_remove_device().
+sdebug_target_destroy() is called with the host lock held, so it defers
+removal of the per-target debugfs directory to
+sdebug_tartget_cleanup_async() on sdebug_async_domain.
+scsi_debug_exit() removes the hosts and then removes
+sdebug_debugfs_root without waiting for that work. The recursive
+removal of the root frees the per-target dentries, and a cleanup that
+runs afterwards calls debugfs_remove() on a stale dentry:
 
-scsi_get_pseudo_sdev() only drops the initial reference on the failure
-path. On success the pseudo target is left with an extra reap_ref, so
-when scsi_forget_host() removes the pseudo device the count only drops
-to one and the target is never destroyed: ->target_destroy() is not
-called, and the scsi_target, the LLD's per-target data and the
-reference the target holds on the host's gendev are leaked.
+  BUG: KASAN: slab-use-after-free in _raw_spin_lock+0x2d/0x40
+  Workqueue: async async_run_entry_fn
+  Call Trace:
+   kasan_report+0x92/0xc0
+   _raw_spin_lock+0x2d/0x40
+   lockref_get+0x9/0x40
+   __simple_recursive_removal+0x35/0x570
+   debugfs_remove+0x40/0x60
+   sdebug_tartget_cleanup_async+0x43/0x60 [scsi_debug]
+   async_run_entry_fn+0x96/0x520
+   process_one_work+0x925/0x1910
+   worker_thread+0x567/0xcc0
+   kthread+0x355/0x450
+  Allocated by task 150:
+   __d_alloc+0x34/0x9e0
+   d_alloc+0x44/0x1d0
+   ...
+   debugfs_create_dir+0x18/0x3d0
+   sdebug_target_alloc
+   scsi_alloc_target+0x7c7/0xa70
 
-With scsi_debug (nr_reserved_cmds = 1) this is visible as one target
-per host, at id max_id, for which ->target_alloc() is called but
-->target_destroy() never is.
+followed by a NULL inode dereference in down_write() from
+__simple_recursive_removal(). CKI hit this running blktests throtl/001
+on arm64. The cleanup can also run after the module text has been
+freed.
 
-Drop the initial reap_ref unconditionally, as the scan paths do. The
-pseudo target is then destroyed when the pseudo device is removed.
+Commit b402a0dce64a ("scsi: scsi_debug: Fix create target debugfs
+failure") drains sdebug_async_domain before creating a target. Do the
+same in scsi_debug_exit() just before removing the debugfs root, after
+the driver has been unregistered so that no host can still be bound and
+queue further cleanup work.
 
-Fixes: d630fbf6fc8c ("scsi: core: Support allocating a pseudo SCSI device")
+Fixes: f084fe52c640 ("scsi: scsi_debug: Add debugfs interface to fail target reset")
+Reported-by: Catalin Marinas <catalin.marinas@arm.com>
+Closes: https://lore.kernel.org/r/auja2VnJTp-ijxqu@arm.com
+Reported-by: CKI Project <cki-project@redhat.com>
+Closes: https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:3017229113
 Signed-off-by: Laurence Oberman <loberman@redhat.com>
 ---
- drivers/scsi/scsi_scan.c | 15 ++++++++-------
- 1 file changed, 8 insertions(+), 7 deletions(-)
+ drivers/scsi/scsi_debug.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/scsi/scsi_scan.c b/drivers/scsi/scsi_scan.c
-index 8aae12fd38f3..9ed52724f97c 100644
---- a/drivers/scsi/scsi_scan.c
-+++ b/drivers/scsi/scsi_scan.c
-@@ -2154,14 +2154,15 @@ struct scsi_device *scsi_get_pseudo_sdev(struct Scsi_Host *shost)
- 		goto out;
+diff --git a/drivers/scsi/scsi_debug.c b/drivers/scsi/scsi_debug.c
+index a922c8318a2f..deaed8b3e6c4 100644
+--- a/drivers/scsi/scsi_debug.c
++++ b/drivers/scsi/scsi_debug.c
+@@ -9053,6 +9053,8 @@ static void __exit scsi_debug_exit(void)
  
- 	sdev = scsi_alloc_sdev(starget, U64_MAX, NULL);
--	if (!sdev) {
--		scsi_target_reap(starget);
--		goto put_target;
--	}
--
--	sdev->borken = 0;
-+	if (sdev)
-+		sdev->borken = 0;
- 
--put_target:
-+	/*
-+	 * Drop the reap_ref taken by scsi_alloc_target(). If the pseudo device
-+	 * was allocated it holds its own reap_ref, which __scsi_remove_device()
-+	 * drops, so the target is destroyed when the pseudo device is removed.
-+	 */
-+	scsi_target_reap(starget);
- 	/* See also the get_device(dev) call in scsi_alloc_target(). */
- 	put_device(&starget->dev);
+ 	sdebug_erase_all_stores(false);
+ 	xa_destroy(per_store_ap);
++	/* Wait for deferred per-target debugfs cleanup before removing the root */
++	async_synchronize_full_domain(&sdebug_async_domain);
+ 	debugfs_remove(sdebug_debugfs_root);
+ }
  
 -- 
 2.56.0
