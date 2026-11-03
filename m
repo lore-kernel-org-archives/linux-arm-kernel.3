@@ -2,69 +2,91 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CFAD606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:31:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05451606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:38:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TXCoECx1;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=f8acjVyi
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pm6ck3Eh;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Zk7AtSP7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=mf9JVkCLwRxWPLrxaj3FzU/TGDnGM5kYKZYNlKzxksM=; b=TXCoECx1UaZxl5
-	YtCR0IcHsbD2570nLdzKVSmFEb4VVpYvIjjrU12u9JhoLcvFyQQ+Y48DUwLmPt+MQfqlNbtLNT0g1
-	HcyEmGTNv06Yca2wrIVX8UDX1u77oCbGW4TmbHRktBur8pgV5hE605nuF2345giHDCy8O1PUuU5cc
-	zkw8a9d9z9RlD5KtUiiePOBzgiZGp9nGvogb2RNapLyDI9+TR9vjHf80Dq10CoXfqLNZEfmLdAlZY
-	K+HiejHAlfqeZqNmsr3iEFvtkkBCDygByfhs3sT6Y4Nbye2MeL59JG2bTzrOiLOyMXN+45cr7NJxk
-	qLqPC1Fe9x/RnCQPmBuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=wsT4r2HhyLvk9SHRJUai7dkY2xdDTk8tWuwT4vKDd3Q=; b=pm6ck3EhpZnKWW+tgT2c0IO1MK
+	FOqbgpDc+IPTZoF2ncsrDRKl1gCtuxSZqlTukpKSxAL0j7A6y2e6ltcYKgJvofkJnWjAwnIAzhNFC
+	jN0j86iNxyNh+QWnABe1OyAwjTP5R3Zzi4cU/rCSaccUrKNCF2ptwEsT4oTk6+aC4tckXSF5i9yS7
+	lRA6LssZJbG9TkJKPeful9k5tLw1SjOyqhYJD8pfSqIe244Q5rwF56olKBOlCcpAMals45UimeaZp
+	d/NLZSzG1wahylhVYtua4DVUmpxqrbO7uzYtSLkdLsFFvzp8ge2b0ZnEs9PdpUrqpHFOoGKsYzYbL
+	GaByb7DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOIcV-00000003KqB-2yMB;
-	Tue, 03 Nov 2026 17:48:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOIcS-00000003Kpk-2nSd
+	id 1xOJP7-00000003SE7-12E4;
+	Tue, 03 Nov 2026 18:38:41 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOJP4-00000003SCn-1oXw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 17:48:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D80D41595;
-	Tue,  3 Nov 2026 09:48:19 -0800 (PST)
-Received: from [10.211.55.3] (unknown [10.57.89.242])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 42D093FA32;
-	Tue,  3 Nov 2026 09:48:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793728102; bh=vaCQ/2L0/fMVdYR2RKY5kjdcqk1pSk5EfL4D0OKx3ts=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=f8acjVyioUA89Cqjgqw3CUI9m7xifXp8trNfDFQD/7XkaJDEHPXIWlc6Di3Qr5xuL
-	 cV4Jw3RQ8vmHxwME9Hh+2ySyT6ovXwHOP1iP552NJjzNA2Pe5FcPYiMK46/19L9LnI
-	 tQHMNLh85P39+CMo/1z9PuKTp1ccaNbe0pCFjrQ4=
-Message-ID: <9400d7a6-3d00-474d-bf1d-6db1a08c16fb@arm.com>
-Date: Tue, 3 Nov 2026 17:48:19 +0000
+	Tue, 03 Nov 2026 18:38:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1793731114;
+	bh=HeofyCXbsIbhGQR411TrT8um27wJJMDztfyXIZKyIYo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=Zk7AtSP7NQ5DS7BQq1qbYzLtbq663Mxsy/ZWlE747xYCt7ZMPDeAtrn4lAc2+7SSv
+	 N3Zhn/VwIiSm2tgyHeA0kYTfCNP+3r/53RlAutFVqazeYrPWJhCQ6u/KfNTdbUvXkY
+	 gSS3yeRWcASCO0Bqx8NvruvZlcpA3EtQAwhCZb+4gMu107fSvlWvLGrMQq4fr1DjwO
+	 1z3/Gq8V3MEr6GVvBlgwCzRttCDatgARziBgBbIHvKxxg1zadZFv+oQ+riBmD4vxFj
+	 KckvspcZpnTXF863tBxuWYZzqzEjsgI0MRXwNcuhXjSYBJ1+6Xu5v/8Y/bQmGdQmpg
+	 FOsknmoeX688Q==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B66B717E0DA7;
+	Tue, 03 Nov 2026 19:38:32 +0100 (CET)
+Message-ID: <56f2cb86f57bb6dc6903eabdaacdd73d47dddc57.camel@collabora.com>
+Subject: Re: [PATCH 02/10] staging: media: cedrus: reject too large
+ H.264/HEVC SPS
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Jernej =?UTF-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>, Mauro
+ Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil <hverkuil@kernel.org>
+Cc: Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski
+ <paulk@sys-base.io>,  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	linux-media@vger.kernel.org, linux-staging@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Date: Tue, 03 Nov 2026 13:38:30 -0500
+In-Reply-To: <P3FCc6YrSeexw_Zto5zS4g@gmail.com>
+References: <20261102170303.1973892-1-jernej.skrabec@gmail.com>
+	 <20261102170303.1973892-3-jernej.skrabec@gmail.com>
+	 <0cecac8706862ea7410be0553d942539f0d53c06.camel@collabora.com>
+	 <P3FCc6YrSeexw_Zto5zS4g@gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-qrDlG8q9KarF8F22u61t"
+User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [RFC PATCH v2 01/10] arm_mpam: resctrl: Use find_component() when
- allocating a domain
-From: Ben Horgan <ben.horgan@arm.com>
-To: Reinette Chatre <reinette.chatre@intel.com>, james.morse@arm.com,
- Dave.Martin@arm.com, fenghuay@nvidia.com
-Cc: tony.luck@intel.com, yu.c.chen@intel.com, babu.moger@amd.com,
- fustini@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, patches@lists.linux.dev
-References: <cover.1792443633.git.reinette.chatre@intel.com>
- <94ddff51b91f4a51965baf0384c2368e292c1a8c.1792443633.git.reinette.chatre@intel.com>
- <308b326e-9fc8-4d49-9c85-c3b9cb9288f3@arm.com>
-Content-Language: en-US
-In-Reply-To: <308b326e-9fc8-4d49-9c85-c3b9cb9288f3@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_094824_747348_BD843D6F 
-X-CRM114-Status: UNSURE (   7.14  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261103_103838_673354_DC922863 
+X-CRM114-Status: GOOD (  36.60  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,28 +97,227 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Reinette,
 
-On 03/11/2026 15:01, Ben Horgan wrote:
-> Hi Reinette,
-> 
-> The change seems good but I think the commit message can be cut down at bit.
+--=-qrDlG8q9KarF8F22u61t
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-It looks like this patch also has the plus of addressing this sashiko
-report:
-https://sashiko.dev/#/bug/linux-9a564d61-b4d8-400d-b4b9-cd5f20729468
+Le mardi 03 novembre 2026 =C3=A0 19:02 +0100, Jernej =C5=A0krabec a =C3=A9c=
+rit=C2=A0:
+> Dne ponedeljek, 2. november 2026 ob 19:44:38 Srednjeevropski standardni =
+=C4=8Das je Nicolas Dufresne napisal(a):
+> > Le lundi 02 novembre 2026 =C3=A0 18:02 +0100, Jernej Skrabec a =C3=A9cr=
+it :
+> > > The hardware decodes whatever picture size the SPS describes. An SPS
+> > > beyond CEDRUS_MAX_WIDTH/HEIGHT, or beyond the capture buffers once th=
+ey
+> > > are allocated, makes the hardware overrun memory and hang. On H616, t=
+he
+> > > JCT-VC PICSIZE_A..D streams (1056x8440, 8440x1056, 528x4216 and
+> > > 4216x528) leave the hardware wedged, so that every following job time=
+s
+> > > out until reboot.
+> > >=20
+> > > Validate the SPS picture size in try_ctrl. Move the size limits to
+> > > cedrus_video.h for that.
+> > >=20
+> > > Fixes: 6eb9b758e307 ("media: cedrus: Add H264 decoding support")
+> > > Fixes: 86caab29da78 ("media: cedrus: Add HEVC/H.265 decoding support"=
+)
+> > > Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+> > > ---
+> > >  drivers/staging/media/sunxi/cedrus/cedrus.c   | 40 +++++++++++++++++=
++-
+> > >  .../staging/media/sunxi/cedrus/cedrus_video.c |  5 ---
+> > >  .../staging/media/sunxi/cedrus/cedrus_video.h |  5 +++
+> > >  3 files changed, 44 insertions(+), 6 deletions(-)
+> > >=20
+> > > diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c b/drivers/st=
+aging/media/sunxi/cedrus/cedrus.c
+> > > index c3331b4f3f02..45deebddb630 100644
+> > > --- a/drivers/staging/media/sunxi/cedrus/cedrus.c
+> > > +++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
+> > > @@ -28,10 +28,38 @@
+> > >  #include "cedrus_dec.h"
+> > >  #include "cedrus_hw.h"
+> > > =20
+> > > +/*
+> > > + * The hardware decodes whatever picture size the bitstream headers =
+describe.
+> > > + * Reject sizes beyond the hardware limits, or beyond the capture bu=
+ffers once
+> > > + * they are allocated, instead of letting the hardware overrun memor=
+y and hang.
+> > > + */
+> > > +static int cedrus_check_pic_size(struct cedrus_ctx *ctx, u32 width, =
+u32 height)
+> > > +{
+> > > +	struct vb2_queue *vq;
+> > > +
+> > > +	if (width > CEDRUS_MAX_WIDTH || height > CEDRUS_MAX_HEIGHT)
+> > > +		return -EINVAL;
+> > > +
+> > > +	/*
+> > > +	 * The hardware decodes whole 16x16 macroblocks, and all capture
+> > > +	 * formats pad the buffers to at least 16 pixels in both directions=
+.
+> > > +	 */
+> > > +	vq =3D v4l2_m2m_get_vq(ctx->fh.m2m_ctx, V4L2_BUF_TYPE_VIDEO_CAPTURE=
+);
+> > > +	if (vb2_is_busy(vq) &&
+> > > +	    (width > ALIGN(ctx->src_fmt.width, 16) ||
+> > > +	     height > ALIGN(ctx->src_fmt.height, 16)))
+> > > +		return -EINVAL;
+> >=20
+> > If my memory is correct, Hans rejected this kind of construct in try_ct=
+rl,
+> > because if you are only doing try() it shouldn't fail like this. Instea=
+d we can
+> > validate in the real s_ctrl, but I believe the downside is that it make=
+s the
+> > error asynchronous when a request is used (perhaps that's actually want=
+ed ?)
+>=20
+> You're right. This is not the best place to check size, since it can be
+> bypassed as sashiko bot find out.
+>=20
+> My suggestion for v2 is to split this to two stages. Max width and height
+> check stays here, whereas buffer size check is moved to setup() callback.
+> Failing there it will mark buffer with V4L2_BUF_FLAG_ERROR.
 
-Thanks,
+Agreed. I just looked quikcly at the Sashiko report, and it underline the f=
+act
+that you can't rely on getting an S_CTR in the first place.
 
-Ben
+Though, thinking about it, to be completely strict (keeping everything on s=
+ync
+all the time like the spec states), since SPS change comes first, we should
+reset both fmt from S_CTRL when not streaming, and always match the SPS fro=
+m
+TRY_FMT later on. Later SPS update at runtime would have to fit allocated
+buffers (since we don't do SRC_CH in stateless), and probably fit the forma=
+t
+(since you can't reset the format while running).
 
+If what I'm thinking is correct, we are up to patching all the drivers, sin=
+ce
+none are strictly correct today :-(
 
+Nicolas
+
+>=20
+> What do you think?
+>=20
+> Best regards,
+> Jernej
+>=20
+> >=20
+> > Nicolas
+> >=20
+> > > +
+> > > +	return 0;
+> > > +}
+> > > +
+> > >  static int cedrus_try_ctrl(struct v4l2_ctrl *ctrl)
+> > >  {
+> > > +	struct cedrus_ctx *ctx =3D container_of(ctrl->handler, struct cedru=
+s_ctx, hdl);
+> > > +
+> > >  	if (ctrl->id =3D=3D V4L2_CID_STATELESS_H264_SPS) {
+> > >  		const struct v4l2_ctrl_h264_sps *sps =3D ctrl->p_new.p_h264_sps;
+> > > +		u32 height;
+> > > =20
+> > >  		if (sps->chroma_format_idc !=3D 1)
+> > >  			/* Only 4:2:0 is supported */
+> > > @@ -42,9 +70,15 @@ static int cedrus_try_ctrl(struct v4l2_ctrl *ctrl)
+> > >  		if (sps->bit_depth_luma_minus8 !=3D 0)
+> > >  			/* Only 8-bit is supported */
+> > >  			return -EINVAL;
+> > > +		height =3D (sps->pic_height_in_map_units_minus1 + 1) * 16;
+> > > +		if (!(sps->flags & V4L2_H264_SPS_FLAG_FRAME_MBS_ONLY))
+> > > +			height *=3D 2;
+> > > +		if (cedrus_check_pic_size(ctx,
+> > > +					  (sps->pic_width_in_mbs_minus1 + 1) * 16,
+> > > +					  height))
+> > > +			return -EINVAL;
+> > >  	} else if (ctrl->id =3D=3D V4L2_CID_STATELESS_HEVC_SPS) {
+> > >  		const struct v4l2_ctrl_hevc_sps *sps =3D ctrl->p_new.p_hevc_sps;
+> > > -		struct cedrus_ctx *ctx =3D container_of(ctrl->handler, struct cedr=
+us_ctx, hdl);
+> > >  		unsigned int bit_depth, max_depth;
+> > >  		struct vb2_queue *vq;
+> > > =20
+> > > @@ -52,6 +86,10 @@ static int cedrus_try_ctrl(struct v4l2_ctrl *ctrl)
+> > >  			/* Only 4:2:0 is supported */
+> > >  			return -EINVAL;
+> > > =20
+> > > +		if (cedrus_check_pic_size(ctx, sps->pic_width_in_luma_samples,
+> > > +					  sps->pic_height_in_luma_samples))
+> > > +			return -EINVAL;
+> > > +
+> > >  		bit_depth =3D max(sps->bit_depth_luma_minus8,
+> > >  				sps->bit_depth_chroma_minus8) + 8;
+> > > =20
+> > > diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_video.c b/driv=
+ers/staging/media/sunxi/cedrus/cedrus_video.c
+> > > index adc7f255d7cf..2521315abdb7 100644
+> > > --- a/drivers/staging/media/sunxi/cedrus/cedrus_video.c
+> > > +++ b/drivers/staging/media/sunxi/cedrus/cedrus_video.c
+> > > @@ -29,11 +29,6 @@
+> > >  #define CEDRUS_DECODE_SRC	BIT(0)
+> > >  #define CEDRUS_DECODE_DST	BIT(1)
+> > > =20
+> > > -#define CEDRUS_MIN_WIDTH	16U
+> > > -#define CEDRUS_MIN_HEIGHT	16U
+> > > -#define CEDRUS_MAX_WIDTH	4096U
+> > > -#define CEDRUS_MAX_HEIGHT	2304U
+> > > -
+> > >  static struct cedrus_format cedrus_formats[] =3D {
+> > >  	{
+> > >  		.pixelformat	=3D V4L2_PIX_FMT_MPEG2_SLICE,
+> > > diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_video.h b/driv=
+ers/staging/media/sunxi/cedrus/cedrus_video.h
+> > > index 8e1afc16a6a1..367e52158f01 100644
+> > > --- a/drivers/staging/media/sunxi/cedrus/cedrus_video.h
+> > > +++ b/drivers/staging/media/sunxi/cedrus/cedrus_video.h
+> > > @@ -22,6 +22,11 @@ struct cedrus_format {
+> > >  	unsigned int	capabilities;
+> > >  };
+> > > =20
+> > > +#define CEDRUS_MIN_WIDTH	16U
+> > > +#define CEDRUS_MIN_HEIGHT	16U
+> > > +#define CEDRUS_MAX_WIDTH	4096U
+> > > +#define CEDRUS_MAX_HEIGHT	2304U
+> > > +
+> > >  extern const struct v4l2_ioctl_ops cedrus_ioctl_ops;
+> > > =20
+> > >  int cedrus_queue_init(void *priv, struct vb2_queue *src_vq,
+> >=20
+>=20
+>=20
+>=20
+>=20
+
+--=-qrDlG8q9KarF8F22u61t
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCauoqJgAKCRDZQZRRKWBy
+9MW7AP4hn5lfIe9xIT3at5ZT+I1pZuICZVWeK1MZ8IsIE5Z0hAD/ah6XlNteGw1r
+2H9nQXM4TVlESJiecgtLuIKdMSDp2gE=
+=bNmk
+-----END PGP SIGNATURE-----
+
+--=-qrDlG8q9KarF8F22u61t--
 
