@@ -2,144 +2,91 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2200606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:49:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90DE4606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:52:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KgQxSoXh;
-	dkim=pass (2048-bit key, unprotected) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=fvclDBt8
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ezzRcPF4;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=QIRj7/NH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=gZOM3Lc0bVWMBjTHBnWLKucS3KUPQN4gjQNABudBe20=; b=KgQxSoXhXyJ19nTPYm6EX1lyaY
-	Fo8b/XOfz2jxp7AyOHzEK/o2rvBNf5Kc1NUcHBm1223J5mrUe2Efo7NqI3hNjaUsesp3xskeremMZ
-	vlBlXIrjokkHaDj7JXOuEhg2IY+YG05iBb0XcFgUAii5wq46Vzj1BMDHh2jurnyM93EPBqPFjgylA
-	TnJMUgdltX1SKMUTe6C3Zr0K2jBEqSEVYnXVLAbhsnMcbRAIlAqgkEBvKtVvYcUVaKUkP3fy+X7gA
-	rAprjnTeyYXUA07c4ZG8WVkzMwoR/zBIUgYRX7mfEcjcED49RFwVuvWpPbacjnIo9Oou4w34I6J/2
-	30wBRW0Q==;
+	bh=midAk/DARCqHylN7ToGJq8rif/JIOF4akNHrI/YCiYw=; b=ezzRcPF4ixbFi9ACnZdncCYFAM
+	h6AgrGGrKtMZSbUqhUijivmfqNESKVaKX+Wj+Yidmn7Mmiz4GqSBiC8bMQ4GO0ycihYKADN64knI2
+	kabia41wOSDv+HDlMWMXS+6MOUSCd/dn61axDrrUQYRvk4XHK6YxHMK2oIOkmkZ+QXx8YXL0d8TNG
+	WNnEkWZAZv66oOsIkDwhsLrRXJjgJc8mXAO3adV8qo7oF95ld8Pv4HEO5FCzX+2k26vBAHyOUJEPK
+	XhLQJmpU+jsux0OAk3qKckVrBtf6soc08MgZkZ2eLKoPjmwarsgOeIVsg0LCUT0KfUg5nOyR+oe5c
+	GJosBANw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOJZB-00000003THr-2KiH;
-	Tue, 03 Nov 2026 18:49:05 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1xOJbx-00000003TZA-1amO;
+	Tue, 03 Nov 2026 18:51:57 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOJZ7-00000003TGp-48uY
+	id 1xOJbu-00000003TYo-1VLW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 18:49:03 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-3ab752f6244so4751996a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 10:49:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1793731741; x=1794336541; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gZOM3Lc0bVWMBjTHBnWLKucS3KUPQN4gjQNABudBe20=;
-        b=fvclDBt85p+edK2vJu0FEtM08JPqR1+QDc832Sz3RAu+muh7PiYu91XHvtEMROCYhh
-         +2NVem+ItrYwlNVcuBwlFsqlcxmQuvJIYrlDh/i5XCZ7wUmRpYkVaRXzFLZytk21iBEM
-         SV31t7+suxrZFn5iCq4A711SoGBVAKHC7gI4tM3dzkVuawlmwixuZdgQeq4IkDo08bMS
-         k5KICiWumfvIupcCDVYnfWU8BF1HdxP3pXa3gyzwjfE20f9Dd3TmsI82tbFsJpUIni0o
-         Gp8i6HmDS07bKigD81Sm+OgUNnPlpmKCsnNNd/0dIz+YKNof3fWX7KHREmjHkxKxsjOm
-         WdmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793731741; x=1794336541;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=gZOM3Lc0bVWMBjTHBnWLKucS3KUPQN4gjQNABudBe20=;
-        b=fapsgaFGrMyFrLmhabai10Urz85cRYkKbZ1mGXpKuFVcPYrkcCm2ljSx1kzTHWjnwh
-         KvUgWApEDk/loGFj7wGGLjJQbYHibaBzrCP3BhyXV2wJaWgtJf+DmFANCwgAvlySn3gV
-         4rpwnv8LQI+ZZidYOdJX7sGj/pRwA6cV9mOAhxeaHUD8in0XOtVb/2tESoUHbm1v+cSs
-         Z8wR/1VejIeLYLGA96javwm3KVRIaR2ITcyLXQ/DljaY6gw/lV2gW7rI2KH6rS3k1SDX
-         GCRS5ZZLKw2JLQZDiuThVisENZ547H/cYRi29VuE385fFi0vNRgG6ln4lf0zMRo1SaXp
-         n8kw==
-X-Forwarded-Encrypted: i=1; AKwUvBzQSN3RPRWiSo5YBTQ9WnHINoKKeePYerT93Uol1Aael4XdNdzMCthDAUvqVtWKnQPPOrabLN3QzkPdImbTIFa2@lists.infradead.org
-X-Gm-Message-State: APuU4Z+wWGyBlb5GTzHmXPqlX7gzuMS88dRfhE0Z/SIZ4u7ZkXRsOdZc
-	6+yxZOmeYy4HMdscWwkEDvLKKO4etyfbKyyNnNpPWDXKjo4oel34iZF6tQzRZRzrwlk=
-X-Gm-Gg: AYBFou1GDjqBALx83dXuggemXNGs8haqOT3zoo6ouBrITszTrv01EXn9HuWpmWBFyGf
-	/v+iRK4FWv3sVmcKIqqNPTtd6mzthbg5vnHYUwEZkKDB1m4VjdikEZ04iIpVKVRRsnCdIX6vsCi
-	JdpitP1SmbGpd+PFHrLR7Rb5r5DSRojd1CVnq9dG3BOmBpEENmUL6W1wLTPt3EQXxPqvW9rW5ZI
-	J2GQI26OmRJt6mqEYwhbTziWulJQJ3J7z+L9C3bAepu62wpLLlhdWwPfH6C0JJQG2yXrSqVIiMU
-	DXFSbqvx0B9aNcPM4Dn0lOBMe73MEBPrVAvV8bg5FXcfy47mCA72+kP5P8nN9jeXnFZADlSrH5y
-	O6U7LjzlY9+0qWFkOVzUeyHqp2L2ziqnlqVYsJ9p/srpC5vCSOEIZP6YLyKFwCC9QjnwJ/Zcvwi
-	esed+1U7e5eg08xNU7j+v2H+ZY/JcwUCkSAaysNXFkQcssd1Fg9AY9VglnaT2vCOglR6br6v5px
-	iN/OrofIcsInhZSvw9wwWEGjytIylzPRm+VI45X3miDrPPAZ/y4qRCzD6zsrfAPmSX14nfyd/gx
-	K61XpuVDGCL5hq7SPPucNwPVtCluQg3NpGTK5VlPzA==
-X-Received: by 2002:a17:90b:1d03:b0:3a8:49f2:8ddb with SMTP id 98e67ed59e1d1-3ae8984de33mr11985967a91.60.1793731740597;
-        Tue, 03 Nov 2026 10:49:00 -0800 (PST)
-Received: from localhost ([2a03:2880:2ff:49::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0944bd88bsm210133a91.12.2026.11.03.10.48.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Nov 2026 10:49:00 -0800 (PST)
-Date: Tue, 3 Nov 2026 10:48:59 -0800
-From: Joe Damato <joe@dama.to>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Stephan Gerhold <stephan@gerhold.net>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Frank Li <Frank.Li@nxp.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Li Youhong <liyouhong@kylinos.cn>, Arnd Bergmann <arnd@arndb.de>,
-	bui duc phuc <phucduc.bui@gmail.com>,
-	Yicong Hui <yiconghui@gmail.com>, Simon Horman <horms@kernel.org>,
-	"open list:NETWORKING DRIVERS" <netdev@vger.kernel.org>,
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>,
-	imx@lists.linux.dev, vkoul@kernel.org
-Subject: Re: [PATCH] net: dma: use dmaengine_desc_set_callback()
-Message-ID: <auosm8mCULyafyny@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>, Frank Li <Frank.li@oss.nxp.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Stephan Gerhold <stephan@gerhold.net>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Frank Li <Frank.Li@nxp.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Li Youhong <liyouhong@kylinos.cn>, Arnd Bergmann <arnd@arndb.de>,
-	bui duc phuc <phucduc.bui@gmail.com>,
-	Yicong Hui <yiconghui@gmail.com>, Simon Horman <horms@kernel.org>,
-	"open list:NETWORKING DRIVERS" <netdev@vger.kernel.org>,
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>,
-	imx@lists.linux.dev, vkoul@kernel.org
-References: <20261102191922.4044912-1-Frank.Li@oss.nxp.com>
- <aukcoWLVvSorX5a9@devvm20253.cco0.facebook.com>
- <aun4W3dvmfWRDFeQ@SMW015318>
+	Tue, 03 Nov 2026 18:51:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1793731910;
+	bh=g4IxkDEMxXRUA4XtODSZ0Gcq9LsGsoHyYZFXVG5uJag=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=QIRj7/NHxK/vLoeGe2exa22vbbxWSBeVnGgcH7Qe+chnEpEwaNHIshSim+WxBieGf
+	 7dPiTxREdIbv8GkitvCEb3jf7ky2jZ9pJFhuJ9wOrdj6OIbkyCkhU1guqZsC4T2MFx
+	 iEy5/80FmlGwXQ9xqrcb8lYmhhRwdXVksdh3xFDkjFG0zMpg880KyVhaOF3GS5fEBE
+	 1lZYE6cByeQTjXF4QxXVzvTDVdwq400NmxMraB16ZIrPJAlkJ+/ayHpeQx3c6yMR+0
+	 VZqJ6oDoTX8AAaRkMjFPr56P8KUM3ZIeoRcjzCHl5CAEm+tsnNkNqG2meY5yfoEtcy
+	 TK66beyRslKFA==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 51BEE17E0CE8;
+	Tue, 03 Nov 2026 19:51:49 +0100 (CET)
+Message-ID: <5520799bbd58327a2fd3926e989735e02af64602.camel@collabora.com>
+Subject: Re: [PATCH 04/10] staging: media: cedrus: mpeg2: use the field
+ height for field pictures
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Jernej =?UTF-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>, Mauro
+ Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil <hverkuil@kernel.org>
+Cc: Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski
+ <paulk@sys-base.io>,  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	linux-media@vger.kernel.org, linux-staging@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Date: Tue, 03 Nov 2026 13:51:47 -0500
+In-Reply-To: <vCPa4waZQ6-kwYC7OOX3Kg@gmail.com>
+References: <20261102170303.1973892-1-jernej.skrabec@gmail.com>
+	 <20261102170303.1973892-5-jernej.skrabec@gmail.com>
+	 <cd5780876274ab5aa73739f890a32ceacf2e793b.camel@collabora.com>
+	 <vCPa4waZQ6-kwYC7OOX3Kg@gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-AZu15zRcZ1tXd1TZOkqW"
+User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aun4W3dvmfWRDFeQ@SMW015318>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_104902_256231_3BCFA872 
-X-CRM114-Status: GOOD (  27.22  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261103_105154_579635_B7700A12 
+X-CRM114-Status: GOOD (  30.66  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,76 +97,151 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Nov 03, 2026 at 09:06:03AM -0600, Frank Li wrote:
-> On Mon, Nov 02, 2026 at 03:28:33PM -0800, Joe Damato wrote:
-> > On Mon, Nov 02, 2026 at 02:19:16PM -0500, Frank.Li@oss.nxp.com wrote:
-> > > From: Frank Li <Frank.Li@nxp.com>
-> > >
-> > > Replace open-coded assignments to callback and callback_param fields
-> > > of struct dma_async_tx_descriptor with calls to the
-> > > dmaengine_desc_set_callback() helper across net drivers.
-> > >
-> > > No functional change intended. Prepare to make struct
-> > > dma_async_tx_descriptor private to the DMA engine.
-> > >
-> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+
+--=-AZu15zRcZ1tXd1TZOkqW
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Le mardi 03 novembre 2026 =C3=A0 19:12 +0100, Jernej =C5=A0krabec a =C3=A9c=
+rit=C2=A0:
+> Dne ponedeljek, 2. november 2026 ob 19:56:52 Srednjeevropski standardni =
+=C4=8Das je Nicolas Dufresne napisal(a):
+> > Le lundi 02 novembre 2026 =C3=A0 18:02 +0100, Jernej Skrabec a =C3=A9cr=
+it :
+> > > A field picture covers only half of the macroblock rows of a frame, b=
+ut
+> > > the driver programs the coded and the boundary size of the whole fram=
+e
+> > > for it, as for a frame picture.
+> > >=20
+> > > Program the height of a field for field pictures, like the vendor
+> > > library does.
+> > >=20
+> > > Fixes: 50e761516f2b ("media: platform: Add Cedrus VPU decoder driver"=
+)
+> > > Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 > > > ---
-> > >  drivers/net/ethernet/allwinner/sun4i-emac.c       |  3 +--
-> > >  drivers/net/ethernet/micrel/ks8842.c              |  6 ++----
-> > >  drivers/net/ethernet/xilinx/xilinx_axienet_main.c |  6 ++----
-> > >  drivers/net/wwan/qcom_bam_dmux.c                  | 10 ++++------
-> > >  4 files changed, 9 insertions(+), 16 deletions(-)
-> >
-> > [...]
-> >
-> > > diff --git a/drivers/net/wwan/qcom_bam_dmux.c b/drivers/net/wwan/qcom_bam_dmux.c
-> > > index cc6ace8d64371..1479f8362e04e 100644
-> > > --- a/drivers/net/wwan/qcom_bam_dmux.c
-> > > +++ b/drivers/net/wwan/qcom_bam_dmux.c
-> > > @@ -195,9 +195,8 @@ static bool bam_dmux_skb_dma_submit_tx(struct bam_dmux_skb_dma *skb_dma)
-> > >  		return false;
-> > >  	}
-> > >
-> > > -	desc->callback = bam_dmux_tx_callback;
-> > > -	desc->callback_param = skb_dma;
-> > > -	desc->cookie = dmaengine_submit(desc);
-> > > +	dmaengine_desc_set_callback(desc, bam_dmux_tx_callback, NULL, skb_dma);
-> > > +	dmaengine_submit(desc);
-> > >  	return true;
-> > >  }
-> > >
-> > > @@ -477,9 +476,8 @@ static bool bam_dmux_skb_dma_submit_rx(struct bam_dmux_skb_dma *skb_dma)
-> > >  		return false;
-> > >  	}
-> > >
-> > > -	desc->callback = bam_dmux_rx_callback;
-> > > -	desc->callback_param = skb_dma;
-> > > -	desc->cookie = dmaengine_submit(desc);
-> > > +	dmaengine_desc_set_callback(desc, bam_dmux_rx_callback, NULL, skb_dma);
-> > > +	dmaengine_submit(desc);
-> >
-> > I noticed in the above that the return value of dmaengine_submit is discarded
-> > instead of stored.
-> >
-> > Is that intentional? I suppose it might be because AFAICT cookie is never
-> > used and the commit message says "no functional change intended".
-> 
-> dma_cookie_assign() already set desc->cookie in dmaengine_submit(). Of couse
-> it is not obvious. Do you need me update commit message to descript it.
+> > >  drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c | 13 +++++++++++--
+> > >  1 file changed, 11 insertions(+), 2 deletions(-)
+> > >=20
+> > > diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c b/driv=
+ers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
+> > > index 10e98f08aafc..ca66a3c6b830 100644
+> > > --- a/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
+> > > +++ b/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
+> > > @@ -58,6 +58,7 @@ static int cedrus_mpeg2_setup(struct cedrus_ctx *ct=
+x, struct cedrus_run *run)
+> > >  	struct vb2_queue *vq;
+> > >  	const u8 *matrix;
+> > >  	unsigned int i;
+> > > +	bool field;
+> > >  	u32 reg;
+> > > =20
+> > >  	seq =3D run->mpeg2.sequence;
+> > > @@ -108,13 +109,21 @@ static int cedrus_mpeg2_setup(struct cedrus_ctx=
+ *ctx, struct cedrus_run *run)
+> > > =20
+> > >  	/* Set frame dimensions. */
+> > > =20
+> > > +	/*
+> > > +	 * Field pictures cover half of the frame's macroblock rows; the
+> > > +	 * vendor library halves both the coded and the boundary height.
+> > > +	 */
+> > > +	field =3D pic->picture_structure !=3D V4L2_MPEG2_PIC_FRAME;
+> > > +
+> > >  	reg =3D VE_DEC_MPEG_PICCODEDSIZE_WIDTH(seq->horizontal_size);
+> > > -	reg |=3D VE_DEC_MPEG_PICCODEDSIZE_HEIGHT(seq->vertical_size);
+> > > +	reg |=3D VE_DEC_MPEG_PICCODEDSIZE_HEIGHT(field ?
+> > > +			ALIGN(seq->vertical_size, 32) / 2 : seq->vertical_size);
+> > > =20
+> > >  	cedrus_write(dev, VE_DEC_MPEG_PICCODEDSIZE, reg);
+> > > =20
+> > >  	reg =3D VE_DEC_MPEG_PICBOUNDSIZE_WIDTH(ctx->src_fmt.width);
+> > > -	reg |=3D VE_DEC_MPEG_PICBOUNDSIZE_HEIGHT(ctx->src_fmt.height);
+> > > +	reg |=3D VE_DEC_MPEG_PICBOUNDSIZE_HEIGHT(field ? ctx->src_fmt.heigh=
+t / 2 :
+> > > +						   ctx->src_fmt.height);
+> >=20
+> > I'm not entirely sure, but I see:
+> >=20
+> > 	fsize->stepwise.step_height =3D 1;
+>=20
+> Where? I don't see this in Cedrus.
 
-Ah, I see it now. In the tx_submit callback it looks like dma drivers set the
-cookie.
+In the framesize enumeration, it returns a contiguous dimension set, with a=
+ step
+of 1, which then requires no special treatment. Other drivers uses:
 
-So removing it here really is a no-op since it was getting set, as you said,
-during submit.
+  struct v4l2_frmsize_stepwise frmsize
 
-My mistake. I don't think it's worth respinning just to fix the commit
-message just because I didn't dig deep enough :)
+in a static per PIX_FMT configuration and helpers in try_fmt. Perhaps worth
+reminding the following:
+
+https://docs.kernel.org/userspace-api/media/v4l/dev-stateless-decoder.html#=
+initialization
+width, height
+    *coded* width and height parsed from the stream.
+
+Since the dimension is coded, its quite unlikely Cedrus is correct. Most de=
+coder
+don't have postprocessor or croper, this is why stateless is like this. The
+display dimension would be something set through S_SELECTION if this was ne=
+eded
+to crop (e.g. Hantro could support that, but currently don't, and the PP ne=
+eds
+16 pixels alignment both directions).
+
+>=20
+> >=20
+> > But I don't think interlaced video can have odd height in the first pla=
+ce. But
+> > it also have an implication here as you are not rounding up to a multip=
+le of 2.
+> > Not sure what is the proper fix, but I have this impression something i=
+s
+> > missing.
+>=20
+> Odd height shouldn't exist in practice, but I'll use
+> DIV_ROUND_UP(ctx->src_fmt.height, 2) in v2 if you agree.
+
+I guess it makes it "safe", but perhaps feed the todo?
+
+>=20
+> Best regards,
+> Jernej
+>=20
+> >=20
+> > Nicolas
+> >=20
+> > > =20
+> > >  	cedrus_write(dev, VE_DEC_MPEG_PICBOUNDSIZE, reg);
+> > > =20
+> >=20
+>=20
+>=20
+>=20
+>=20
+
+--=-AZu15zRcZ1tXd1TZOkqW
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCauotQwAKCRDZQZRRKWBy
+9DtXAP9zZmyQzLA4WCwgH+H/kjPGtrs4F0y7kvIl/xaSrjBk1AEAnNNR7aCDg7FQ
+0h9lvSCzxwmrCo2kVaoTgcAWp0Hm3gw=
+=ZWdk
+-----END PGP SIGNATURE-----
+
+--=-AZu15zRcZ1tXd1TZOkqW--
 
