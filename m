@@ -2,72 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03CC0606D81E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:19:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B33E1606D80D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:20:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NASVT9FE;
-	dkim=pass (2048-bit key, unprotected) header.d=0leil.net header.i=@0leil.net header.a=rsa-sha256 header.s=20231125 header.b=DsXd0tFD
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wjybo46z;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H5g8y4HA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=MOf4jGoNjklui20b3tjGfAb5reyk40611yCdNTmL8YM=; b=NASVT9FE5riHtRfCwWeur9TyL8
-	qtaXm2DE4E9Ss4/VypPUSR/EBfwyvFYVD23xhlBWIlnjSoD0HHlb/XDifA4B53VVqcNS0bIQQre3t
-	AfLnLX8HYOzbexBDVvCAGGOQMpG1vX9/iCN1dTVoTHy3SYkeSfhcJnh+mNTzd/ZyRd/NrDjtGNOMV
-	+PCW7c0Q1FcDKV0WwaHbMsrFVjue+f/5fmLzvDlqfWEtynfYqBEw4qgLTnxz5C4u0+iUVlYBRmCoz
-	1Zy7IEZW4utzGp4kVl/Ger5bgQ2U4uanQeK3nuK+K7qNzW110qnHGOEL4pzeDFZ2yiO+Xhl4gU6HZ
-	lky8fhiQ==;
+	bh=FPwk+Obv3JX7khvwqPN/UuLuPSKvZ6g9lKWJcYLlWQk=; b=wjybo46zai9JMnZnVvg/tpm+Vy
+	v9vKefElsfZAS8lfNPQvN5yhMQzaI9zDWSn6WqYJLazwR2xi7W1/CsIAUpPBU9IUSbGt+WMeT9nNp
+	yweqo73GdF4TOXzZrql/7Mv0wYlcYSSCrwkau3khOnmBZYxiCdQa10pxQwyn9XV0eKOKVRM/II+xI
+	n9Bukdb03baT3KPgmSFAJP9EOtpkFFtcP3OFUadu/PRUzTVlPPJCo8x/Kvp4CQntYelpSx2Ipa8qu
+	hHPcWzySugYfjDPE+yjb1XGjQuYp3WYMULhwCNVj2x9+RcKZaGhJwDLMc0mYHwWbzNwedoneRFgCi
+	CWIQvdVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOJ6G-00000003Omx-0Wbf;
-	Tue, 03 Nov 2026 18:19:12 +0000
-Received: from smtp-42ac.mail.infomaniak.ch ([2001:1600:19:5550::42ac])
+	id 1xOJ7s-00000003PAw-3MN7;
+	Tue, 03 Nov 2026 18:20:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOJ6D-00000003OlH-2noj
+	id 1xOJ7r-00000003PAW-2xuU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 18:19:11 +0000
-Received: from smtp-4-0000.mail.infomaniak.ch (smtp-4-0000.mail.infomaniak.ch [10.7.10.107])
-	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4jJxff6CMBz2nD;
-	Tue,  3 Nov 2026 19:19:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=0leil.net;
-	s=20231125; t=1793729946;
-	bh=MOf4jGoNjklui20b3tjGfAb5reyk40611yCdNTmL8YM=;
-	h=From:Date:Subject:To:Cc:From;
-	b=DsXd0tFDLTDRXX3RSqyLlcB1kW3IhvNccFTPnIAI9MNsLSqO9qNP0Vs4mUtBu/E5x
-	 fv/PF2FeyeNnamovPYIvlSII91vhuXpDLPSw8/XrlQ0MyTUd6pDcAFcX47FpKUX3p7
-	 fr+Sl/a5D+vQXNBQxC3OXLqKsvTWXcvNdKP9kpIbTA2IFW/3zPR7CFtZHUy+miu04S
-	 HPayaCPNIuz2g8Puj9gFKsi9Fu4qncciMG79Fuf7XCBpUgBsXP0Q/6XS98XwD49Wku
-	 /cyKq7brUT4mXjalsDI+jCHPRvXgq+XwEx9nAdpjxQuP8CCE0+1BOAT2M9PzG5Nhie
-	 0a6/TJtBedWQw==
-Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4jJxfd4ttrzfD0;
-	Tue,  3 Nov 2026 19:19:05 +0100 (CET)
-From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Tue, 03 Nov 2026 19:18:58 +0100
-Subject: [PATCH] arm64: dts: rockchip: support camera module on Haikou
- Video Demo on RK3399 Puma
+	Tue, 03 Nov 2026 18:20:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id F030B6022B;
+	Tue,  3 Nov 2026 18:20:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33EF71F000C1;
+	Tue,  3 Nov 2026 18:20:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793730050;
+	bh=FPwk+Obv3JX7khvwqPN/UuLuPSKvZ6g9lKWJcYLlWQk=;
+	h=From:Subject:Date:To:Cc;
+	b=H5g8y4HAdMcsyMgO7MOqQ7BuM7LXnzIK+xJ3SWXbf7IAmivibRHPYgmSiUZ243K3o
+	 xuWunLgtOHqbrBnOvLZbfi128Hd2EqEGcsBWaZKMUaop6dKuKjVS2YZmtRELp7IXYl
+	 h1DGNIlHCuXUtyihEW3rpzB7JWXvLE8xMbchZD2EiWSPEZZcceQ5rXTV/7IkNSvNmF
+	 od7d8WVYID0QNkeqoC0ubXbh6Ide9beDyteguOycx9bUBjjIcANmN65D9INpW/sTft
+	 eX9PPc26rBBh/MPvac7EftUKHdd/s6M7sPg5bQg6N7ikd14uDW+Ie3Yis9JU2NE26u
+	 Eno1+FFFIK8kA==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH v9 0/3] KVM: selftests: arm64: Improve diagnostics from
+ set_id_regs
+Date: Tue, 03 Nov 2026 18:19:20 +0000
+Message-Id: <20261103-kvm-arm64-set-id-regs-aarch64-v9-0-ab32bc79fa9c@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261103-rk3399-puma-haikou-video-demo-cam-v1-1-9a49d97839b5@cherry.de>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXNQQ7CIBBG4as0s3aSUhIiXsW4oPBrx4bSgDQmT
- e8u6vLbvLdTQRYUunQ7ZWxSJC0N6tSRn9zyAEtopqEfjFK95jxrbS2vNTqenMyp8iYBiQNiYu8
- ih7MZYbR1VoFaZ824y/v3uN7+LnV8wr++YTqOD1jo+mCFAAAA
-X-Change-ID: 20261103-rk3399-puma-haikou-video-demo-cam-d86be639a91e
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Quentin Schulz <quentin.schulz@cherry.de>
+X-B4-Tracking: v=1; b=H4sIAKkl6moC/4XPz07DMAwG8FeZcibIdvN3J94DcUhSZ6vGOpROF
+ Wjau5NOoIJ6yPH7LP1s38TEZeBJ7Hc3UXgepuEy1uCfdiIdw3hgOfQ1CwLSCOTkaT7LUM5GyYm
+ vdSgLHyYZQknH2nGM1nrjFWAS1fgonIfPh//6VvNxmK6X8vVYN+PS/sgdNOQZJUhvMkNPEa3jl
+ xOXkd+fL+UgFnqmlUNULY4qZyxlQpUVxrzhupUj9C2uq1zMQVnFqSN0G079cgYQTItTlUuWs9I
+ aQ47dhtMr16FtcbpywUCm6LVhog1nVs62nzWVs6TI2awzwvZZu3IesMXZhYtgdITYBx82nPvDU
+ fM6VzntQohMiXJI/7j7/f4Nq5c/dvQCAAA=
+X-Change-ID: 20251028-kvm-arm64-set-id-regs-aarch64-ebb77969401c
+To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, 
+ Oliver Upton <oupton@kernel.org>
+Cc: Ben Horgan <ben.horgan@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 X-Mailer: b4 0.17-dev
-X-Infomaniak-Routing: alpha
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_101909_864753_2CA84769 
-X-CRM114-Status: GOOD (  13.88  )
-X-Spam-Score: -2.1 (--)
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2800; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=4ky2ZC0HdjDT4ejqM8lZ1oDOfp+5HqQ3XaDMShmtQSc=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJeqf5b/ddyypdmNuNDU6bLP3ELdL7t9ux9kmWocKLp+
+ r2sX3Yd6ShlYRDjYpAVU2SJy+J+WV/yeg3fwYVtMHNYmUCGMHBxCsBEGB4x/M+65vjVp6jt04RJ
+ c97bTN424Ye/xP+gp2nCaaq/NPWTfscw/E+s+lVn97I7KWzdNcdVxz/aaMp/fZ64xPZX/w6Hc93
+ ijMwA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,133 +87,78 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-23.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
+While debugging issues related to aarch64 only systems I ran into
+speedbumps due to the lack of detail in the results reported when the
+guest register read and reset value preservation tests were run, they
+generated an immediately fatal assert without indicating which register
+was being tested. Update these tests to non-fatally report a standard
+kselftest result per register, making it much easier to see what the
+problem being reported is.
 
-The Haikou Video Demo adapter has a proprietary connector for a camera
-module which has an OV5675 camera sensor and a companion DW9714 focus
-lens driver.
+A similar issue exists with the validation of the individual bitfields
+in registers due to the use of immediately fatal asserts. Update those
+asserts to be standard kselftest reports.
 
-This adds support for the camera module on RK3399 Puma module fitted on
-a Haikou devkit with the Haikou Video Demo adapter.
-
-Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
-Camera only works once the ov5675 driver is adapted[1] to work with
-24MHz MCLK. With the similar work done for RK3588 Tiger[2], we now have
-all our modules supporting the same set of features when used in
-conjunction with Haikou Video Demo.
+Changes in v9:
+- Rebase onto v7.4-rc1.
+- Link to v8: https://patch.msgid.link/20260929-kvm-arm64-set-id-regs-aarch64-v8-0-58aabe2c2fac@kernel.org
 
-Same request as made in [2], please only merge this once the OV5675
-series[1] is merged.
+Changes in v8:
+- Convert another assert.
+- Link to v7: https://patch.msgid.link/20260901-kvm-arm64-set-id-regs-aarch64-v7-0-7b065b0bda9a@kernel.org
 
-[1] https://lore.kernel.org/linux-media/20261026101646.2450051-1-heiko@sntech.de/
-[2] https://lore.kernel.org/linux-rockchip/20261026102027.2451025-1-heiko@sntech.de/
----
- .../rockchip/rk3399-puma-haikou-video-demo.dtso    | 55 ++++++++++++++++++++++
- 1 file changed, 55 insertions(+)
+Changes in v7:
+- Rebase onto v7.3-rc1.
+- Link to v6: https://patch.msgid.link/20260719-kvm-arm64-set-id-regs-aarch64-v6-0-724287f5f108@kernel.org
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso
-index 141a921a06e47..6c28e7e60ef28 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso
-@@ -16,6 +16,7 @@
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/leds/common.h>
-+#include <dt-bindings/media/video-interface-devices.h>
- #include <dt-bindings/pinctrl/rockchip.h>
- 
- &{/} {
-@@ -100,6 +101,12 @@ &i2c1 {
- 	/* OV5675, GT911, DW9714 are limited to 400KHz */
- 	clock-frequency = <400000>;
- 
-+	focus: focus@c {
-+		compatible = "dongwoon,dw9714";
-+		reg = <0xc>;
-+		vcc-supply = <&cam_afvdd_2v8>;
-+	};
-+
- 	touchscreen@14 {
- 		compatible = "goodix,gt911";
- 		reg = <0x14>;
-@@ -122,6 +129,50 @@ pca9670: gpio@27 {
- 		pinctrl-names = "default";
- 		reset-gpios = <&gpio4 RK_PD6 GPIO_ACTIVE_LOW>;
- 	};
-+
-+	camera@36 {
-+		compatible = "ovti,ov5675";
-+		reg = <0x36>;
-+		assigned-clocks = <&cru SCLK_CIF_OUT>;
-+		assigned-clock-rates = <24000000>;
-+		clocks = <&cru SCLK_CIF_OUT>;
-+		avdd-supply = <&cam_avdd_2v8>;
-+		dvdd-supply = <&cam_dvdd_1v2>;
-+		dovdd-supply = <&cam_dovdd_1v8>;
-+		lens-focus = <&focus>;
-+		orientation = <MEDIA_ORIENTATION_FRONT>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&cif_clkouta>;
-+		reset-gpios = <&pca9670 6 GPIO_ACTIVE_LOW>;
-+		rotation = <180>;
-+
-+		port {
-+			cam_output: endpoint {
-+				data-lanes = <1 2>;
-+				link-frequencies = /bits/ 64 <450000000>;
-+				remote-endpoint = <&mipi_in_cam>;
-+			};
-+		};
-+	};
-+};
-+
-+&isp1 {
-+	status = "okay";
-+
-+	ports {
-+		port@0 {
-+			mipi_in_cam: endpoint@0 {
-+				reg = <0>;
-+				data-lanes = <1 2>;
-+				link-frequencies = /bits/ 64 <450000000>;
-+				remote-endpoint = <&cam_output>;
-+			};
-+		};
-+	};
-+};
-+
-+&isp1_mmu {
-+	status = "okay";
- };
- 
- &mipi_dsi {
-@@ -145,6 +196,10 @@ mipi_in_panel: endpoint {
- 	};
- };
- 
-+&mipi_dsi1 {
-+	status = "okay";
-+};
-+
- &mipi_out {
- 	mipi_out_panel: endpoint {
- 		remote-endpoint = <&mipi_in_panel>;
+Changes in v6:
+- Rebase onto v7.2-rc3.
+- Drop changes to handling of aarch32 related registers on 64 bit only
+  systems, an in kernel solution is preferred for those.
+- Use a define to count the non-test_regs registers.
+- Link to v5: https://patch.msgid.link/20260317-kvm-arm64-set-id-regs-aarch64-v5-0-a60f2b956e22@kernel.org
+
+Changes in v5:
+- Rebase onto v7.0-rc1.
+- Link to v4: https://patch.msgid.link/20260106-kvm-arm64-set-id-regs-aarch64-v4-0-c7ef4551afb3@kernel.org
+
+Changes in v4:
+- Correct check for 32 bit ID registers.
+- Link to v3: https://patch.msgid.link/20251219-kvm-arm64-set-id-regs-aarch64-v3-0-bfa474ec3218@kernel.org
+
+Changes in v3:
+- Rebase onto v6.19-rc1.
+- Link to v2: https://patch.msgid.link/20251114-kvm-arm64-set-id-regs-aarch64-v2-0-672f214f41bf@kernel.org
+
+Changes in v2:
+- Add a fix for spurious failures with 64 bit only guests.
+- Link to v1: https://patch.msgid.link/20251030-kvm-arm64-set-id-regs-aarch64-v1-0-96fe0d2b178e@kernel.org
 
 ---
-base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
-change-id: 20261103-rk3399-puma-haikou-video-demo-cam-d86be639a91e
+Mark Brown (3):
+      KVM: selftests: arm64: Report set_id_reg reads of test registers as tests
+      KVM: selftests: arm64: Report register reset tests individually
+      KVM: selftests: arm64: Make set_id_regs bitfield validity checks non-fatal
+
+ tools/testing/selftests/kvm/arm64/set_id_regs.c | 130 ++++++++++++++++++------
+ 1 file changed, 98 insertions(+), 32 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-kernelci
+change-id: 20251028-kvm-arm64-set-id-regs-aarch64-ebb77969401c
 
 Best regards,
 --  
-Quentin Schulz <quentin.schulz@cherry.de>
+Mark Brown <broonie@kernel.org>
 
 
