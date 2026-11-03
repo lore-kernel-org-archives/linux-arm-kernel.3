@@ -2,50 +2,50 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F072606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 07:05:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 867B7606A32E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 07:07:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fWJH6MVB;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=VxCSHYV8
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yzB4WQUs;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=qkfKMdYn
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=m69S8GAWIcolCD174TtHbNXT0/7WGT8M9Xze/Z33az0=; b=fWJH6MVBaGEG/G
-	PkUZo+rGBV87wpXvnOA7oFLcFPQgUCRtPRFpTrng2jOfYfg2Mdf/sU7178tvCVNWU9LCJCX5Bzq5P
-	wleZrfCJadIYdjy/qF9QVSQoCgNUt1NA8vdO952m7ZI5zzMdjjZtIvtSW0VMx7L5Q5Kv/Omj7LWd4
-	Fg+HrrMgpcmcFPuQlFUZefObA/iCwi7RwKVy9v4pL5bn6NCiOazApkMb05cd0Rjpw/gZrFr1IpQGi
-	1Phu+LPxYxDhjiHmCMx37EJGJ96nO2xUgwVL7AK6hOuhkxIYJAPsA555qxyjIfEylJ2n1qx0/9G85
-	QL/fYl/SWy0vvFTg2sGw==;
+	List-Owner; bh=2tQek1qiZL4Js2GpnQFztu1faM+c6GSagpIcxNr7m9g=; b=yzB4WQUsv4TJ8Z
+	C0Pa+jrNbs/ZvanP+VamdcHVsMzfK0iBJzHhIV2/ArRYLjvRbLthjQBmwFOL3Cx41h7MEOyprtd7h
+	oqbwNeSWPvSomj/CpU8lZoY58rw5sQ1+7MQNFm7+H7GahG8uM/xzBU2BYbvfw5URfxl6SH3zwgg5w
+	KSiFdAu85X54k4v0KjmPN5BDeELVhsEUeI7Rba0qqGfNOi25yOytDSy7hKNmpB4fefSPQgBwUPIK7
+	6cWbYDWMJ3pQXAgfFm9YtPkhe0kREqLBYxRjt95/Efji4bsGjyKfvpXymEkEUeYAJK6y47tnp3ePR
+	aamO0szSLQCxlDTbbvoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO8aY-00000001Idw-003g;
-	Tue, 03 Nov 2026 07:05:47 +0000
+	id 1xO8cN-00000001Iv6-266j;
+	Tue, 03 Nov 2026 07:07:39 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO8aU-00000001Ibw-3kYb
+	id 1xO8cK-00000001Ium-3PH3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 07:05:44 +0000
-Received: from [192.168.1.10] (unknown [52.172.102.187])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 8270820B7166;
-	Mon,  2 Nov 2026 23:05:23 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 8270820B7166
+	Tue, 03 Nov 2026 07:07:37 +0000
+Received: from [192.168.1.10] (unknown [4.194.122.136])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 7A57D20B7166;
+	Mon,  2 Nov 2026 23:07:17 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7A57D20B7166
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1793689527;
-	bh=m69S8GAWIcolCD174TtHbNXT0/7WGT8M9Xze/Z33az0=;
+	s=default; t=1793689640;
+	bh=2tQek1qiZL4Js2GpnQFztu1faM+c6GSagpIcxNr7m9g=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VxCSHYV8nnK+RVLEmx1wYoQ0JQRZ7nt6eUUV/sT+JrBhNIu8xGoz49bXXGtOAzb1T
-	 8Alkg+E/z33YXdffv+a7t2ZAZ4/bwL980Usv5j9mcAs4YZckkFdy/E9ohKhKbyBO13
-	 XI7mI6i/ZfvTnsX5+ZknoCZeh7zU1n9qc5IVNKe4=
-Message-ID: <561328cc-0c0f-43b7-ad7e-a362e183f295@linux.microsoft.com>
-Date: Tue, 3 Nov 2026 12:35:35 +0530
+	b=qkfKMdYn8BRvJp96+mIGOJodjPZo3QsLvaXaw0dXTIn9JjgXjWi0M9nKW9YQUP/7E
+	 BT/KjK7OBsK18zBgSiniHBuKfANsYwwSLjbiZFjokV2R/o5Apl8vwyLVrS6i1gWmEM
+	 0htMk9PnxumShIpq8GGOgt1lmI9EHfFxyVZoHOwQ=
+Message-ID: <4f330292-0fda-472b-8302-75ed5f6725eb@linux.microsoft.com>
+Date: Tue, 3 Nov 2026 12:37:29 +0530
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/6] iio: adc: versal-sysmon: fix race in interrupt
- teardown
+Subject: Re: [PATCH 3/6] iio: adc: versal-sysmon: disable interrupts on
+ shutdown
 To: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
  Jonathan Cameron <jic23@kernel.org>, Michal Simek <michal.simek@amd.com>,
  Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
@@ -57,10 +57,10 @@ Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  amitrkcian2002@gmail.com
 References: <20261102122112.1723130-1-amit.kumar-mahapatra@amd.com>
- <20261102122112.1723130-2-amit.kumar-mahapatra@amd.com>
+ <20261102122112.1723130-4-amit.kumar-mahapatra@amd.com>
 Content-Language: en-US
 From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-In-Reply-To: <20261102122112.1723130-2-amit.kumar-mahapatra@amd.com>
+In-Reply-To: <20261102122112.1723130-4-amit.kumar-mahapatra@amd.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
@@ -71,8 +71,8 @@ X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_230542_965640_92F0F560 
-X-CRM114-Status: GOOD (  20.91  )
+X-CRM114-CacheID: sfid-20261102_230736_904335_248ED42A 
+X-CRM114-Status: GOOD (  29.56  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,74 +88,102 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Hi Amit,
 
 On 02-11-2026 17:51, Amit Kumar Mahapatra wrote:
-> sysmon_disable_interrupts() masks all interrupts, clears masked_temp and
-> cancels the unmask worker, but leaves the interrupt handler live. A
-> worker that is already running can re-enable an alarm through IER after
-> the mask write. If that alarm fires, the handler queues the worker again
-> after cancel_delayed_work_sync() has returned. On unbind this action runs
-> before devm releases the IRQ, so the queued work can run after the
-> devm-allocated iio_dev that embeds it has been freed.
+> Interrupt teardown is registered with devm_add_action_or_reset(), so
+> sysmon_disable_interrupts() runs when the driver is unbound but not when
+> the system shuts down: device_shutdown() invokes only the driver's
+> .shutdown callback, which this driver does not implement.
 > 
-> Disable the IRQ first so that no handler is running or can start, then
-> clear masked_temp and cancel the worker, and mask all interrupts last,
-> once nothing is left that can unmask them. Record the IRQ number for
-> this.
+> The device is therefore left with its alarm interrupts enabled in
+> hardware once Linux has stopped servicing them.
 > 
-> Fixes: c7f7eb10638f ("iio: adc: versal-sysmon: add threshold event support")
+> Add a .shutdown callback performing the same teardown, so the device is
+> quiesced before control is handed on. The helper lives in the core
+> module, so it is exported for the platform front-end. It skips a
+> device described without an interrupt, which never set up interrupt
+> handling.
+> 
+> Disabling the interrupts at shutdown is safe to have and not a must have
+> requirement for shutdown.
+> 
 > Signed-off-by: Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
 > ---
->   drivers/iio/adc/versal-sysmon-core.c | 5 ++++-
->   drivers/iio/adc/versal-sysmon.h      | 2 ++
->   2 files changed, 6 insertions(+), 1 deletion(-)
+>   drivers/iio/adc/versal-sysmon-core.c | 19 +++++++++++++++++++
+>   drivers/iio/adc/versal-sysmon.c      |  6 ++++++
+>   drivers/iio/adc/versal-sysmon.h      |  1 +
+>   3 files changed, 26 insertions(+)
 > 
 > diff --git a/drivers/iio/adc/versal-sysmon-core.c b/drivers/iio/adc/versal-sysmon-core.c
-> index 1b55d343982e..6b9a58e19831 100644
+> index 6595d07038c1..d39aaba9a8b6 100644
 > --- a/drivers/iio/adc/versal-sysmon-core.c
 > +++ b/drivers/iio/adc/versal-sysmon-core.c
-> @@ -781,12 +781,14 @@ static void sysmon_disable_interrupts(void *data)
->   {
->   	struct sysmon *sysmon = data;
+> @@ -1000,6 +1000,8 @@ int devm_versal_sysmon_core_probe(struct device *dev, struct regmap *regmap)
+>   	if (!indio_dev)
+>   		return -ENOMEM;
 >   
-> -	regmap_write(sysmon->regmap, SYSMON_IDR, SYSMON_INTR_ALL_MASK);
-> +	disable_irq(sysmon->irq);
->   
->   	scoped_guard(spinlock_irq, &sysmon->irq_lock)
->   		sysmon->masked_temp = 0;
->   
->   	cancel_delayed_work_sync(&sysmon->sysmon_unmask_work);
+> +	dev_set_drvdata(dev, indio_dev);
 > +
-> +	regmap_write(sysmon->regmap, SYSMON_IDR, SYSMON_INTR_ALL_MASK);
+>   	sysmon = iio_priv(indio_dev);
+>   	sysmon->regmap = regmap;
+>   	sysmon->temp_oversampling = 1;
+> @@ -1050,6 +1052,23 @@ int devm_versal_sysmon_core_probe(struct device *dev, struct regmap *regmap)
+>   }
+>   EXPORT_SYMBOL_NS_GPL(devm_versal_sysmon_core_probe, "VERSAL_SYSMON");
+>   
+> +/**
+> + * versal_sysmon_shutdown() - Disable SysMon interrupts on system shutdown
+> + * @dev: SysMon device
+> + *
+> + * Interrupt teardown is a devm action, which runs on driver unbind but not
+> + * on system shutdown, so disable the interrupts here as well.
+> + */
+> +void versal_sysmon_shutdown(struct device *dev)
+> +{
+> +	struct iio_dev *indio_dev = dev_get_drvdata(dev);
+> +	struct sysmon *sysmon = iio_priv(indio_dev);
+> +
+> +	if (sysmon->irq > 0)
+> +		sysmon_disable_interrupts(sysmon);
+> +}
+> +EXPORT_SYMBOL_NS_GPL(versal_sysmon_shutdown, "VERSAL_SYSMON");
+> +
+>   MODULE_LICENSE("GPL");
+>   MODULE_DESCRIPTION("AMD Versal SysMon Core Driver");
+>   MODULE_AUTHOR("Salih Erim <salih.erim@amd.com>");
+> diff --git a/drivers/iio/adc/versal-sysmon.c b/drivers/iio/adc/versal-sysmon.c
+> index 529d0486c9f9..4d5e3d14cf15 100644
+> --- a/drivers/iio/adc/versal-sysmon.c
+> +++ b/drivers/iio/adc/versal-sysmon.c
+> @@ -71,6 +71,11 @@ static int sysmon_platform_probe(struct platform_device *pdev)
+>   	return devm_versal_sysmon_core_probe(dev, regmap);
 >   }
 >   
->   static int sysmon_init_interrupt(struct sysmon *sysmon,
-> @@ -807,6 +809,7 @@ static int sysmon_init_interrupt(struct sysmon *sysmon,
->   	if (ret)
->   		return ret;
->   	sysmon->temp_mask = imr & SYSMON_TEMP_INTR_MASK;
-> +	sysmon->irq = irq;
+> +static void sysmon_platform_shutdown(struct platform_device *pdev)
+> +{
+> +	versal_sysmon_shutdown(&pdev->dev);
+> +}
+> +
+>   static const struct of_device_id sysmon_of_match_table[] = {
+>   	{ .compatible = "xlnx,versal-sysmon" },
+>   	{ }
+> @@ -79,6 +84,7 @@ MODULE_DEVICE_TABLE(of, sysmon_of_match_table);
 >   
->   	ret = devm_request_irq(dev, irq, sysmon_iio_irq, 0, "sysmon-irq", indio_dev);
->   	if (ret)
+>   static struct platform_driver sysmon_platform_driver = {
+>   	.probe = sysmon_platform_probe,
+> +	.shutdown = sysmon_platform_shutdown,
+>   	.driver = {
+>   		.name = "versal-sysmon",
+>   		.of_match_table = sysmon_of_match_table,
 > diff --git a/drivers/iio/adc/versal-sysmon.h b/drivers/iio/adc/versal-sysmon.h
-> index bb9a75bf71c0..701ef9b56263 100644
+> index a1ac3289719c..a21dacc13471 100644
 > --- a/drivers/iio/adc/versal-sysmon.h
 > +++ b/drivers/iio/adc/versal-sysmon.h
-> @@ -85,6 +85,7 @@ struct regmap;
->    * @regmap: register map for hardware access
->    * @lock: protects read-modify-write sequences on threshold registers
->    *        and cached state that spans multiple regmap calls
-> + * @irq: interrupt number, 0 when events are not supported
->    * @irq_lock: protects interrupt mask register updates (MMIO path only)
->    * @masked_temp: currently masked temperature alarm bits
->    * @temp_mask: temperature interrupt configuration mask
-> @@ -101,6 +102,7 @@ struct sysmon {
->   	 * that spans multiple regmap calls.
->   	 */
->   	struct mutex lock;
-> +	int irq;
->   	/*
->   	 * Protects interrupt mask register updates.  Only used on the
->   	 * MMIO path (fast_io regmap); I2C has no IRQ and never reaches
+> @@ -122,5 +122,6 @@ struct sysmon {
+>   };
+>   
+>   int devm_versal_sysmon_core_probe(struct device *dev, struct regmap *regmap);
+> +void versal_sysmon_shutdown(struct device *dev);
+>   
+>   #endif /* _VERSAL_SYSMON_H_ */
 
 Change looks good to me.
 
