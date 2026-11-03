@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D9636070AA1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:15:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F3EE606BFB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:15:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PKJEmths;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=La+wt0O4
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ub+67DF+;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SbfLVqRc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
@@ -14,72 +14,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=82BvmWOY3UHYSQatbXCiejLma5rEulIN7cYz5EX3x0I=; b=PKJEmthsuHLfosif1XXd1talaT
-	pmQdU1WSp9QSJOdEvAIeJ7BkZXMTiYJTkQAeaSQAr7pEHNBTfdDkJD3ooRv0IAsDvhMvXs5AjJl0J
-	MalzlKF3r20aUOmZ3b2uhHq0KubCEbRNH7nQH8nr822GXEsm6wKzTNiNvDsNzkxvooeMmo/z2t69I
-	TLKoqIhO6Ot4avQii/HFk49naxUqKQFgukq1+Xy7x3zowutn6g2p09BrZjuImEKJ573CI8GMdNlqq
-	nKDIPNquL/fitCWsknHWLhysJ/PGNSal7LhHEMXTOCLnbjGR8WjCTgml8tS8pnu+bNlMaJ0IJAOkF
-	LowsOPnw==;
+	bh=Fgba86xwfdZqqRHiaO5L5Vm2/4yrwcvPZGNzBFrMW20=; b=ub+67DF+unc6grXgW60puF4bp1
+	0u6vPoHsA79tVXqCHpJNInYCUrdSu/URKzyTezSNbnNI7Nn1qYLIbJDdaEAiks8fMLqHuNUQw99dO
+	+TKMJGXDal3F8Ua2N5fhdxQjQXOFxZ+zUqyqq3gqWtgPD+oI+OXby3tVJsdqhmJ2lT9FRuBMz37qk
+	4nmoOO6dKBktiFLHS7md0D+ZUebxLlnNNzMH1rLPT79SoUyEhHAQD4bpNYMy2oFbq4fs/N9hrIujL
+	SNa05HnOet2bTHZjtCi53jpKQaWacb/dq8CrBD5xW6pklfbozv2fgkl8B86Gxe4gU7Tdc47oep6ZV
+	MdlDN2PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBXk-00000001vSe-3LZ2;
-	Tue, 03 Nov 2026 10:15:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xOBXl-00000001vVU-3zQL;
+	Tue, 03 Nov 2026 10:15:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBXY-00000001vDV-2wrg
+	id 1xOBXY-00000001vDW-3be7
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 03 Nov 2026 10:14:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 763C743F7C;
+	by sea.source.kernel.org (Postfix) with ESMTP id 9645243C9E;
 	Tue,  3 Nov 2026 10:14:52 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1793700892;
-	b=PS2iwRo6sf+SWiw7/VDelacHBZcKb3tXW2UA58/NUJiqdRv8TBliLvmRvWMdpGCt0GwR
-	 +czSNCO0STVjOesBPc0msmNbIMjZS5uwUzcLag2XabUFMcyTP/xv6FB5Ub4R8CfLzrVHL
-	 TMVVzj3NJRTtsAORdx2/rvALg2HGC9lX1fs0OyXwG4ZCsZxlA1Y/m9F2XqjS16m5JG5lU
-	 zTNv5s33Zc6Am+s81RuADIdVV5eC62B+MwrXkpSHEtH5Ldx0LM7D4tFEo93WcUGxcd9D+
-	 Gp8IP28meeBTVHM9rAlmKW7c8POFMj0rB5PJA6Woydnc57f2/2w89VsQKNedgHxIm+g==
+	b=3YipTnSjcXyT35fYY4XMJ/l4PxXyW1xSeohm6HTD1nOhxMKAlmNJqepNz3ofX15Elwyt
+	 I1pJ/2zk5qFYfAbMfs3baSD/aY0xhZvnaAXihdLdtodGto+wwao9VbnrwsXHBLZIVewVf
+	 J3SZ1fPW5/NWg/ddpcmBl0/mWdVDyXHIpKN6iBDbgBfHy/qq7wXlvR+K8wZVk1b+IcxOB
+	 Oywyu54+KukDxPbpwjVZ7eoiIBVZsgQCZFgovocn96KdXeA0EYpT59snEYHfGUsZEHUx1
+	 WbOueD9WLLbJMtvw55FmJ44bZZTOV958BORBhaxLKyWMA3xPNJ4pe0M+h0li0w3eWrA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
 	c=relaxed/relaxed; t=1793700892;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=82BvmWOY3UHYSQatbXCiejLma5rEulIN7cYz5EX3x0I=;
-	b=Sy/kPYW25WXgw8ZLj2KDw7cbvTLeColNmCRfUMIhFkonKEJUsUElZuAeU3Rd/t/M1D3G
-	 8hdgD2JJn/zVevi1hUAD8Mtwa64iB+UW/j7AKu9CJaCAZiFcE3k7UNyB5RKiFC2M5KHxQ
-	 asBlzC7Jif056eejFUDMCJ/eXEK9JBNtB5Yo71fiy2Qf+2uLld/K0s52iBJwg7WCrlwgx
-	 ap9EtkXF5LeU7Hae5ayACgRUOWrAnvLoyaUbTZGXBFvU0JnmrH/X7x/9+Y90K89oSnjmp
-	 UCDQe2ic+84G9Q1PK3ohyqyZkPfb+/KaZiUGIZtG/V2liwJjMJcmiMZJ7pU1TQxWCkg==
+	bh=Fgba86xwfdZqqRHiaO5L5Vm2/4yrwcvPZGNzBFrMW20=;
+	b=dkjSZpiahhqeXfigZvfGDh7fyACltTFf+jJh0Dcg/VXWNd23ne024dBHKeTf4GF2EUWz
+	 1/sNzq0GoOcGUaP0iNA5teoS+WhqNKqokIRzwEDzCq9k4oL2oTT+AQiDyjuyVImv6lO2S
+	 c8K7UlJdW/y6hoAqXkeuUNRAHHznz6YGyud6Ly1Diu4j3YTTh9YG5gMZ1/637yTUWl0gN
+	 fSlqR1ezSpE4o56kEE4WbfitTHKfC2D3K05VBAhGDMnjQVpWcLiSJ4R8ZYLV9S5pgzp9j
+	 4HabftMHJGFhLC66lqC9fgMXoBICZkqonLnn6r6IALRqJko5CSzVdbA9jwny3Xupf/Q==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 0320E1F00A29;
+	by smtp.kernel.org (Postfix) with ESMTPS id 1DB2C1F00A22;
 	Tue,  3 Nov 2026 10:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1793700892;
-	bh=82BvmWOY3UHYSQatbXCiejLma5rEulIN7cYz5EX3x0I=;
+	bh=Fgba86xwfdZqqRHiaO5L5Vm2/4yrwcvPZGNzBFrMW20=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=La+wt0O4grbU+kfOx4qaeZwiq7H4TeH15xpP6nYzn5/jz9LSjzTqKIwKuHQAT2wnA
-	 zDxl0mKSGBMAXc2O0dDOi+6ED6ZtuVJ2wfogolPbe/YCpsdDiT+7+PwF2dBmvIRFYt
-	 fkrqsLUmiE3E3VGbuUsg0Wlu7jwuBZ7IV2bGyQRpizbXXCHliCDayR4XftrErZx7OV
-	 /uXu4QYxjxB5tuasJqidkicX3ZbXz1sGlZycfQ5awm5vsEEO4OB9AwiOSkSoIF0N/Z
-	 Brci6FfgzEIITBzR57BwT6CGFQIFy/143GuHmxzUJrYDy5igz1y5slMnWr38GaGBHJ
-	 Q3uEeX/FizEaw==
+	b=SbfLVqRcJ+1Vn4fFE2+i4Lbh6POTJz4qq7m3BxSwYm5qOvKh1PayyfkqXTKr1enef
+	 b85cFVBzyq48vdx0l0f7J8k6ityXl5vHeCO3NK5SV2MqicdpJcMufc4EgiW+oKI7tl
+	 4ZtQx52rqaHpj0lMT3/hA0H8pJ/lzCvvWNUVVIG/a+2AX5RGxwniTdrvcAfQX3ttEa
+	 RLO+c1PJDdKPpQZAjnNB/ddkMAwvLjRgYeheu+TCr7v7UMsKwh6U92rMJENOMb1tVZ
+	 Onj2g7Omt/aCXGub2z5Bnggx+5NqT+IdFz93y6Hw093cRD5i1mqfuOUBXPGPY+4jKK
+	 UYhTYn1uYFfVQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 0F477468B9;
+	by lkml.kernel.org (Postfix) with ESMTP id 1D053468BD;
 	Tue,  3 Nov 2026 10:14:48 +0000 (UTC)
 From: Myria Sarvay via B4 Relay <devnull+myrialsarvay.gmail.com@kernel.org>
-Date: Tue, 03 Nov 2026 21:14:45 +1100
-Subject: [PATCH 10/13] arm64: dts: apple: t8122: Add PMU Device Nodes
+Date: Tue, 03 Nov 2026 21:14:46 +1100
+Subject: [PATCH 11/13] arm64: dts: apple: t604x: Add PMU Device Nodes
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261103-m3-plus-pmu-events-v1-10-a8eb6c1139fe@gmail.com>
+Message-Id: <20261103-m3-plus-pmu-events-v1-11-a8eb6c1139fe@gmail.com>
 References: <20261103-m3-plus-pmu-events-v1-0-a8eb6c1139fe@gmail.com>
 In-Reply-To: <20261103-m3-plus-pmu-events-v1-0-a8eb6c1139fe@gmail.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
@@ -92,13 +92,13 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
  asahi@lists.linux.dev, Yuvan Shen <yuvanshen09@gmail.com>, 
  Myria Sarvay <myrialsarvay@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=849;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=852;
  i=myrialsarvay@gmail.com; h=from:subject:message-id;
- bh=rNa2BkUs4YYaDGXSrrZeznuk/MnM9Ng1trURn1MGr4U=;
- b=owJ4nJvAy8zAJRbk4iixYu2/l4yn1ZIYsl5uEb16urq0R9FsThrb09xdr40Xu/WpFJstOdzOp
- lvWtudNuW5HKQuDGBeDrJgii75pmvZktoZLpctct8DMYWUCGcLAxSkAEwl5zfBX+O3Lz38XXelm
- Pm+XKvxsLWPDjNk+Kzi5zxg6SJ488/xLL8P/TEureyEhnVIt4k9es8aUWD/j2LWc/e/11Z4Omz/
- NN7/KDgCApkwq
+ bh=82FeCkY2XmEN6t3vU4Vm+A64GuN208WcUOTCqWVFzu0=;
+ b=owJ4nJvAy8zAJRbk4iixYu2/l4yn1ZIYsl5uEZU74nbdTu92eseNXkWGSfqiDSuWvjI7vOL04
+ +vJkmd9j1h2lLIwiHExyIopsuibpmlPZmu4VLrMdQvMHFYmkCEMXJwCMJF+I4b/7ip+59j7rmn0
+ XHC6l1O15O2NjW166+xSDJcckNg6q1WKneGf6c7vDWWGL0OlGHVMud/OPH/Zn+F/zrJnLfeMmtd
+ ZrP/DAQBaZktP
 X-Developer-Key: i=myrialsarvay@gmail.com; a=openpgp;
  fpr=2F35662B930680D275A645B452444118A8ADFEE9
 X-Endpoint-Received: by B4 Relay for myrialsarvay@gmail.com/default with
@@ -126,31 +126,31 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Myria Sarvay <myrialsarvay@gmail.com>
 
-Adds the PMU nodes to all t8122 devices.
+Adds the PMU nodes to all t604x devices.
 
 Signed-off-by: Myria Sarvay <myrialsarvay@gmail.com>
 ---
- arch/arm64/boot/dts/apple/t8122.dtsi | 12 ++++++++++++
+ arch/arm64/boot/dts/apple/t6041.dtsi | 12 ++++++++++++
  1 file changed, 12 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/apple/t8122.dtsi b/arch/arm64/boot/dts/apple/t8122.dtsi
-index 959ddf36efa1..c9e81a6cc9b7 100644
---- a/arch/arm64/boot/dts/apple/t8122.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8122.dtsi
-@@ -180,6 +180,18 @@ l2_cache_1: l2-cache-1 {
+diff --git a/arch/arm64/boot/dts/apple/t6041.dtsi b/arch/arm64/boot/dts/apple/t6041.dtsi
+index 9110d05c896d..2c72972d1219 100644
+--- a/arch/arm64/boot/dts/apple/t6041.dtsi
++++ b/arch/arm64/boot/dts/apple/t6041.dtsi
+@@ -314,6 +314,18 @@ l2_cache_2: l2-cache-2 {
  		};
  	};
  
 +	pmu-e {
-+		compatible = "apple,sawtooth-pmu";
++		compatible = "apple,brava-e-pmu";
 +		interrupt-parent = <&aic>;
-+		interrupts = <AIC_FIQ AIC_CPU_PMU_E IRQ_TYPE_LEVEL_HIGH>;
++		interrupts = <AIC_FIQ 0 AIC_CPU_PMU_E IRQ_TYPE_LEVEL_HIGH>;
 +	};
 +
 +	pmu-p {
-+		compatible = "apple,everest-pmu";
++		compatible = "apple,brava-p-pmu";
 +		interrupt-parent = <&aic>;
-+		interrupts = <AIC_FIQ AIC_CPU_PMU_P IRQ_TYPE_LEVEL_HIGH>;
++		interrupts = <AIC_FIQ 0 AIC_CPU_PMU_P IRQ_TYPE_LEVEL_HIGH>;
 +	};
 +
  	soc {
