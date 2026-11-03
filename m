@@ -2,66 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2C51606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 17:39:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 385F9606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 17:42:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=O2VeN/5k;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aa6MOMUB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z91Nrg64;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MWm7cxrA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=iV25/DxKsnhun2yvINfOyLlr7WgOgBvCKI0Z9NP64MY=; b=O2VeN/5kQ+hwfg
-	rqLnhebT0PAiSU6/u0vTloIE5/xnMl9EK5RHtKXa2LwcRv5dDRfbXIxbJvjeZFbur3AQncW2qKnCC
-	MwjrzPcSxlUzHT1QmIDYdmXqDjJQK/eefQwSldDz4wgAGJwcItS3S9MTsDcMXrZn1Jeohlk9sM2kt
-	G+SEhcVhfxupgwy6RKnTCevu+u/qNEFtI3wgQ8f8Xs7gAze97WP19EdWSnAwGOBjYXACWfiL8m1os
-	odf3kISwINiKBv81/0dWOv8/QUmFiCBnEy9soohUJntEvh8LEJWqySbrnZF/jobSvzHqJRY+Zhf8O
-	cs9Wcrk2tUEZw207GDlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=JNql26aG9tHWF88Mct64KKU+7DOWTgodN+wsEguXuiY=; b=Z91Nrg641eHv4Ii4TI7dCcP0BP
+	vysL00K+v9vGwOCZl4P+QTUK+FbSBfn02r6sLUAzYQ1n842ih3ZWoggMDsJkcZ6qoJpAkzUjS/031
+	PW2aZsOGYjVECJ3E9BS4sQjGfvGrn3wM1H6Zmo47PvTbAngf9Q1IYrPoz+RDnB3xvblmYZHlFDnxS
+	qdKPXSPIYrKR7n5JBm0D7Gpfq1+ymZzNdxb/bV9m9NKwwR36/yOJUUwiW2B/ynhBUm2YQOFZny1cJ
+	BXuY59kgPucA9pF9SYNpB4c3HXWKMltMFOK6/mND0GtIZT6utV6EvDBA9YcECHDXhO9P3oFllpL9q
+	xKHn36rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOITm-00000003K6z-1lQn;
-	Tue, 03 Nov 2026 17:39:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xOIWI-00000003KUk-3vcD;
+	Tue, 03 Nov 2026 17:42:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOITj-00000003K5R-1t0d
+	id 1xOIWG-00000003KUa-47eR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 17:39:23 +0000
+	Tue, 03 Nov 2026 17:42:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BBE5F6061B;
-	Tue,  3 Nov 2026 17:39:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D272F1F00A18;
-	Tue,  3 Nov 2026 17:39:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4F38643073;
+	Tue,  3 Nov 2026 17:42:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AF8A1F000C1;
+	Tue,  3 Nov 2026 17:41:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793727562;
-	bh=iV25/DxKsnhun2yvINfOyLlr7WgOgBvCKI0Z9NP64MY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=aa6MOMUBf7iSGSrxcNlAfcSxSSBoSw+ekqQszz/BLj2hawXhy3YxCAMvLGLC+CD2z
-	 YgH4eqs7q3y73yMW4JczrzA5kswETdXlN1D+mrva48LdPm7a8bP+7PacOo1Q5tH8BV
-	 n3xvgm8xIxPdRkxHu6LhBU2MpVURqMYar/cm4OtrATpP1LBppqEEXMuwVz+Y5h/9w3
-	 ACJE7ClLvBnnpI1fys0HkbrIKU+ZaQnwycgbsFw3oy25rPzNgoBgOOnzLoE6pApPIf
-	 moIhlnr9brm4IvbOaRDfh6aZNMMGHSdFZK7ftx5QAMHKPcDuguwwZXg/KlrYJ/P7OV
-	 A0oLi1Waq+5BA==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Jamie Nguyen <jamien@nvidia.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Dat Mach <dmach@nvidia.com>
-Subject: [PATCH 2/2] ACPI: FFH: Support FF-A direct request 2 calls
-Date: Tue,  3 Nov 2026 17:39:07 +0000
-Message-ID: <20261103173907.1996118-3-sudeep.holla@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261103173907.1996118-1-sudeep.holla@kernel.org>
-References: <20261103173907.1996118-1-sudeep.holla@kernel.org>
+	s=k20260515; t=1793727720;
+	bh=JNql26aG9tHWF88Mct64KKU+7DOWTgodN+wsEguXuiY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=MWm7cxrASKpB82B9begYNRYvlW6WNShcwrpSAcwcPupfHMU+fsYi4GDbhnP0Z2kS3
+	 rpCNuls25k5rOPDCzi0bnszkzNXFg1nt7TDt/xWmsYLAKE/fc5MKPdnz1yH7UTEuNr
+	 BW8q2TEtZYgz75uRFBVWq/7CjalRhs3ISrt6PbC3C9rr3wx6jqL3dtS8L0iVBPSYJ2
+	 pfL95dsASBDnzvwCnrApknamKqlG/izJnO9Xb1/ve5oMzK2lJW3MaamOHJ4Fuqyyab
+	 QDrQvmQzef+cgkPO5/uMZW84ymDI0xopWD9zpTVBWz654z9fcO455nGrIO5GmxJ29o
+	 CiyRmJfUPB9KQ==
+Subject: Re: [PATCH net] net: stmmac: keep est_lock across PTP clock adjustment
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo.bianconi@oss.qualcomm.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ richardcochran@gmail.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Date: Tue, 03 Nov 2026 17:41:58 +0000
+Message-ID: <179372771896.488856.1466229272637573919@kernel.org>
+In-Reply-To: <20261102-stmmac-ptp-est-lock-v1-1-76fbc0cb230d@oss.qualcomm.com>
+References: <20261102-stmmac-ptp-est-lock-v1-1-76fbc0cb230d@oss.qualcomm.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,291 +71,142 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Arm Functional Fixed Hardware specification v1.3 defines FFH
-OperationRegion offset 2 for issuing FFA_MSG_SEND_DIRECT_REQ2 calls.
-The arm64 FFH handler currently supports only generic 32-bit and 64-bit
-SMCCC calls, so it cannot implement this standardized interface.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Add a standalone FF-A path using the existing SMCCC conduit. Negotiate
-FF-A v1.2, discover the sender endpoint with FFA_ID_GET, and use either
-the receiver supplied by firmware or resolve a unique receiver from the
-service UUID with FFA_PARTITION_INFO_GET_REGS.
+Critical: 0 · High: 0 · Medium: 1 (1) · Low: 0
 
-Convert the ACPI ToUUID representation to the FF-A register encoding,
-construct the direct request, resume interrupted or yielded calls with
-FFA_RUN, and return the defined FFH status codes to AML.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Register-based partition discovery avoids RX/TX buffer ownership and
-keeps the FFH implementation independent of the Arm FF-A transport
-driver.
+- [Medium] This patch closes the EST-vs-clock-step window only in
+  stmmac_adjust_time(), which serves adjtime/ADJ_SETOFFSET.
 
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
----
- drivers/acpi/arm64/ffh.c | 227 +++++++++++++++++++++++++++++++++++++++
- 1 file changed, 227 insertions(+)
+Pre-existing issues:
+- [Medium] stmmac_adjust_time() discards the return value of every step
+  in its disable/step/re-base sequence and always returns 0.
 
-diff --git a/drivers/acpi/arm64/ffh.c b/drivers/acpi/arm64/ffh.c
-index 04380bab193d..3f8cecc8ab22 100644
---- a/drivers/acpi/arm64/ffh.c
-+++ b/drivers/acpi/arm64/ffh.c
-@@ -1,7 +1,22 @@
- // SPDX-License-Identifier: GPL-2.0-only
- #include <linux/acpi.h>
-+#include <linux/arm_ffa.h>
- #include <linux/arm-smccc.h>
-+#include <linux/delay.h>
-+#include <linux/mutex.h>
- #include <linux/slab.h>
-+#include <linux/unaligned.h>
-+
-+#define FFH_FFA_CALL_FAILED		1
-+#define FFH_FFA_SUCCESS			0
-+#define FFH_FFA_NOT_SUPPORTED		-1
-+#define FFH_FFA_INVALID_PARAMETERS	-2
-+#define FFH_FFA_OUT_OF_MEMORY		-3
-+#define FFH_FFA_UNSPECIFIED_ERROR	-4
-+
-+#define FFH_FFA_MIN_LEN			(5 * sizeof(u64))
-+#define FFH_FFA_MAX_LEN			(18 * sizeof(u64))
-+#define FFH_FFA_UUID_OFFSET		(2 * sizeof(u64))
- 
- /*
-  * Implements ARM64 specific callbacks to support ACPI FFH Operation Region as
-@@ -19,6 +34,216 @@ struct acpi_ffh_data {
- 				struct arm_smccc_1_2_regs *res);
- };
- 
-+static DEFINE_MUTEX(acpi_ffh_ffa_lock);
-+static bool acpi_ffh_ffa_version_negotiated;
-+static bool acpi_ffh_ffa_initialized;
-+static u16 acpi_ffh_ffa_sender_id;
-+
-+static void acpi_ffh_ffa_invoke(struct acpi_ffh_data *ffh_ctxt,
-+				const struct arm_smccc_1_2_regs *args,
-+				struct arm_smccc_1_2_regs *res)
-+{
-+	ffh_ctxt->invoke_ffh64_fn(args, res);
-+}
-+
-+static int acpi_ffh_ffa_features(struct acpi_ffh_data *ffh_ctxt, u32 fid)
-+{
-+	struct arm_smccc_1_2_regs args = {
-+		.a0 = FFA_FEATURES,
-+		.a1 = fid,
-+	};
-+	struct arm_smccc_1_2_regs res;
-+
-+	acpi_ffh_ffa_invoke(ffh_ctxt, &args, &res);
-+	if (res.a0 == FFA_ERROR) {
-+		if ((s32)res.a2 == FFA_RET_NOT_SUPPORTED)
-+			return -EOPNOTSUPP;
-+		return -EINVAL;
-+	}
-+
-+	return res.a0 == FFA_SUCCESS ? 0 : -EIO;
-+}
-+
-+static int acpi_ffh_ffa_init(struct acpi_ffh_data *ffh_ctxt)
-+{
-+	struct arm_smccc_1_2_regs args = { }, res;
-+	u32 version;
-+	int ret = 0;
-+
-+	mutex_lock(&acpi_ffh_ffa_lock);
-+	if (acpi_ffh_ffa_initialized)
-+		goto out;
-+
-+	if (!acpi_ffh_ffa_version_negotiated) {
-+		args.a0 = FFA_VERSION;
-+		args.a1 = FFA_VERSION_1_2;
-+		acpi_ffh_ffa_invoke(ffh_ctxt, &args, &res);
-+		version = res.a0;
-+		if ((s32)version == SMCCC_RET_NOT_SUPPORTED ||
-+		    FFA_MAJOR_VERSION(version) != 1 ||
-+		    version < FFA_VERSION_1_2) {
-+			ret = -EOPNOTSUPP;
-+			goto out;
-+		}
-+		acpi_ffh_ffa_version_negotiated = true;
-+	}
-+
-+	ret = acpi_ffh_ffa_features(ffh_ctxt, FFA_MSG_SEND_DIRECT_REQ2);
-+	if (ret)
-+		goto out;
-+
-+	ret = acpi_ffh_ffa_features(ffh_ctxt, FFA_MSG_SEND_DIRECT_RESP2);
-+	if (ret)
-+		goto out;
-+
-+	ret = acpi_ffh_ffa_features(ffh_ctxt, FFA_PARTITION_INFO_GET_REGS);
-+	if (ret)
-+		goto out;
-+
-+	args = (struct arm_smccc_1_2_regs) { .a0 = FFA_ID_GET };
-+	acpi_ffh_ffa_invoke(ffh_ctxt, &args, &res);
-+	if (res.a0 == FFA_ERROR) {
-+		ret = (s32)res.a2 == FFA_RET_NOT_SUPPORTED ?
-+		      -EOPNOTSUPP : -EIO;
-+		goto out;
-+	}
-+	if (res.a0 != FFA_SUCCESS) {
-+		ret = -EIO;
-+		goto out;
-+	}
-+
-+	acpi_ffh_ffa_sender_id = (u16)res.a2;
-+	acpi_ffh_ffa_initialized = true;
-+out:
-+	mutex_unlock(&acpi_ffh_ffa_lock);
-+	return ret;
-+}
-+
-+static void acpi_ffh_ffa_uuid_convert(const u8 *guid, u8 *uuid)
-+{
-+	/* ACPI ToUUID uses GUID byte order while FF-A uses UUID byte order. */
-+	uuid[0] = guid[3];
-+	uuid[1] = guid[2];
-+	uuid[2] = guid[1];
-+	uuid[3] = guid[0];
-+	uuid[4] = guid[5];
-+	uuid[5] = guid[4];
-+	uuid[6] = guid[7];
-+	uuid[7] = guid[6];
-+	memcpy(uuid + 8, guid + 8, UUID_SIZE - 8);
-+}
-+
-+static int acpi_ffh_ffa_receiver_id(struct acpi_ffh_data *ffh_ctxt,
-+				    u64 uuid_lo, u64 uuid_hi, u16 *receiver_id)
-+{
-+	struct arm_smccc_1_2_regs args = {
-+		.a0 = FFA_PARTITION_INFO_GET_REGS,
-+		.a1 = uuid_lo,
-+		.a2 = uuid_hi,
-+	};
-+	struct arm_smccc_1_2_regs res;
-+	u32 properties;
-+
-+	acpi_ffh_ffa_invoke(ffh_ctxt, &args, &res);
-+	if (res.a0 != FFA_FN64_SUCCESS)
-+		return -EINVAL;
-+
-+	if (FIELD_GET(FFA_PART_INFO_LAST_IDX_MASK, res.a2) ||
-+	    FIELD_GET(FFA_PART_INFO_CUR_IDX_MASK, res.a2) ||
-+	    FIELD_GET(FFA_PART_INFO_DESC_SIZE_MASK, res.a2) <
-+		    FFA_PART_INFO_MIN_DESC_SIZE)
-+		return -EINVAL;
-+
-+	properties = FIELD_GET(FFA_PART_INFO_PROPS_MASK, res.a3);
-+	if (!(properties & FFA_PARTITION_DIRECT_REQ2_RECV))
-+		return -EINVAL;
-+
-+	*receiver_id = FIELD_GET(FFA_PART_INFO_ID_MASK, res.a3);
-+	return 0;
-+}
-+
-+static int acpi_ffh_ffa_status(int error)
-+{
-+	switch (error) {
-+	case -EOPNOTSUPP:
-+		return FFH_FFA_NOT_SUPPORTED;
-+	case -EINVAL:
-+		return FFH_FFA_INVALID_PARAMETERS;
-+	case -ENOMEM:
-+		return FFH_FFA_OUT_OF_MEMORY;
-+	default:
-+		return FFH_FFA_UNSPECIFIED_ERROR;
-+	}
-+}
-+
-+static int acpi_ffh_ffa_direct_req2(acpi_integer *value,
-+				    struct acpi_ffh_data *ffh_ctxt)
-+{
-+	struct arm_smccc_1_2_regs args = { }, res;
-+	u64 *buf = (u64 *)value;
-+	u64 uuid_lo, uuid_hi;
-+	u16 receiver_id = (u16)buf[1];
-+	uuid_t uuid;
-+	size_t len = ffh_ctxt->info.length;
-+	int ret;
-+
-+	if (len < FFH_FFA_MIN_LEN || len > FFH_FFA_MAX_LEN ||
-+	    !IS_ALIGNED(len - 4 * sizeof(u64), sizeof(u64))) {
-+		buf[0] = FFH_FFA_INVALID_PARAMETERS;
-+		return AE_OK;
-+	}
-+
-+	acpi_ffh_ffa_uuid_convert((u8 *)value + FFH_FFA_UUID_OFFSET, uuid.b);
-+	if (uuid_is_null(&uuid)) {
-+		buf[0] = FFH_FFA_INVALID_PARAMETERS;
-+		return AE_OK;
-+	}
-+
-+	ret = acpi_ffh_ffa_init(ffh_ctxt);
-+	if (ret) {
-+		buf[0] = acpi_ffh_ffa_status(ret);
-+		return AE_OK;
-+	}
-+
-+	uuid_lo = get_unaligned_le64(uuid.b);
-+	uuid_hi = get_unaligned_le64(uuid.b + sizeof(uuid_lo));
-+	if (!receiver_id) {
-+		ret = acpi_ffh_ffa_receiver_id(ffh_ctxt, uuid_lo, uuid_hi,
-+					       &receiver_id);
-+		if (ret) {
-+			buf[0] = FFH_FFA_INVALID_PARAMETERS;
-+			return AE_OK;
-+		}
-+	}
-+
-+	args.a0 = FFA_MSG_SEND_DIRECT_REQ2;
-+	args.a1 = ffa_pack_target_info(acpi_ffh_ffa_sender_id, receiver_id);
-+	args.a2 = uuid_lo;
-+	args.a3 = uuid_hi;
-+	memcpy(&args.a4, &buf[4], len - 4 * sizeof(u64));
-+
-+	acpi_ffh_ffa_invoke(ffh_ctxt, &args, &res);
-+	while (res.a0 == FFA_INTERRUPT || res.a0 == FFA_YIELD) {
-+		if (res.a0 == FFA_YIELD)
-+			fsleep(1000);
-+
-+		args = (struct arm_smccc_1_2_regs) {
-+			.a0 = FFA_RUN,
-+			.a1 = res.a1,
-+		};
-+		acpi_ffh_ffa_invoke(ffh_ctxt, &args, &res);
-+	}
-+
-+	memcpy(buf, &res, len);
-+	if (res.a0 == FFA_MSG_SEND_DIRECT_RESP2 || res.a0 == FFA_SUCCESS ||
-+	    res.a0 == FFA_FN64_SUCCESS)
-+		buf[0] = FFH_FFA_SUCCESS;
-+	else
-+		buf[0] = FFH_FFA_CALL_FAILED;
-+
-+	return AE_OK;
-+}
-+
- int acpi_ffh_address_space_arch_setup(void *handler_ctxt, void **region_ctxt)
- {
- 	enum arm_smccc_conduit conduit;
-@@ -99,6 +324,8 @@ int acpi_ffh_address_space_arch_handler(acpi_integer *value, void *region_contex
- 			ffh_ctxt->invoke_ffh64_fn(r, r);
- 			memcpy(value, r, ffh_ctxt->info.length);
- 		}
-+	} else if (ffh_ctxt->info.offset == 2) {
-+		ret = acpi_ffh_ffa_direct_req2(value, ffh_ctxt);
- 	} else {
- 		ret = AE_ERROR;
- 	}
+--
+
+net: stmmac: keep est_lock across PTP clock adjustment
+
+Before this patch, stmmac_adjust_time() dropped priv->est_lock while it
+stepped the PTP clock. A concurrent tc_taprio_configure() could then
+program EST with a base time taken from the clock before the step. The
+patch keeps est_lock held across the whole disable/step/reprogram
+sequence.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+> index a37405534bebf..6ad6c2f52a0d2 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+> @@ -73,14 +73,12 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
+>  	if (priv->est && priv->est->enable)
+>  		stmmac_est_configure(priv, priv, priv->est,
+>  				     priv->plat->clk_ptp_rate, false);
+
+[Severity: Medium]
+This isn't a bug introduced by this patch, but stmmac_adjust_time()
+ignores the return value of all three steps in this sequence and always
+returns 0.
+
+The disable call above can fail before EST_EEST is cleared.
+est_configure() returns early on a zero ptp_rate or on an est_write()
+SRWO poll timeout, and both returns come before the EST_CONTROL write:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_est.c:est_configure() {
+	if (!ptp_rate) {
+		netdev_warn(priv->dev, "Invalid PTP rate");
+		return -EINVAL;
+	}
+
+	ret |= est_write(est_addr, EST_BTR_LOW, cfg->btr[0], false);
+	...
+	if (ret)
+		return ret;
+	...
+	else
+		ctrl &= ~EST_EEST;
+
+	writel(ctrl, est_addr + EST_CONTROL);
+	...
+}
+
+In that case, is the clock stepped with the old schedule still armed?
+
+stmmac_adjust_systime() can return -ETIMEDOUT if PTP_TCR_TSUPDT never
+clears. Even then, the code recomputes the base time and re-enables EST.
+
+If __stmmac_setup_est() fails, it logs "failed to re-configure EST" and
+the error is dropped. EST_EEST and EST_INT_EN can then stay cleared while
+priv->est->enable stays true.
+
+In all three cases, ptp_clock_adjtime() reports success to userspace.
+
+Commit 23d96de472f7 says that the third case is intentional: "On a
+failed re-apply the open and resume callers abort, while
+stmmac_adjust_time() keeps the offload configured." Should the disable
+and adjust_systime failures still be propagated, though?
+
+> -	mutex_unlock(&priv->est_lock);
+>
+>  	write_lock_irqsave(&priv->ptp_lock, flags);
+>  	stmmac_adjust_systime(priv, priv->ptpaddr, sec, nsec, neg_adj, xmac);
+>  	write_unlock_irqrestore(&priv->ptp_lock, flags);
+>
+>  	/* Calculate new basetime and re-configured EST after PTP time adjust. */
+> -	mutex_lock(&priv->est_lock);
+>  	if (priv->est && priv->est->enable)
+>  		__stmmac_setup_est(priv);
+>  	mutex_unlock(&priv->est_lock);
+
+[Severity: Medium]
+This closes the window for adjtime, but what about the settime64 path?
+The commit message says:
+
+  Keep est_lock held for the whole disable/step/reprogram sequence so no
+  other EST user can program the block while the clock is being stepped.
+
+stmmac_set_time() also steps the PHC, but it only takes ptp_lock:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c:stmmac_set_time() {
+	...
+	write_lock_irqsave(&priv->ptp_lock, flags);
+	stmmac_init_systime(priv, priv->ptpaddr, ts->tv_sec, ts->tv_nsec);
+	write_unlock_irqrestore(&priv->ptp_lock, flags);
+
+	return 0;
+}
+
+It never takes est_lock, never disables EST before the step and never
+calls __stmmac_setup_est() afterwards.
+
+tc_taprio_configure() holds est_lock, reads the clock with gettimex64(),
+computes priv->est->btr[] with stmmac_calc_tas_basetime(), and then calls
+stmmac_est_configure(..., true). A concurrent
+clock_settime()->ptp_clock_settime()->stmmac_set_time() is not excluded
+by est_lock, so it can step the clock between that read and the
+programming.
+
+Doesn't that leave the same stale base time race open through settime64?
+
+There is a second effect. A taprio schedule installed before a
+clock_settime() is never re-based, so it keeps its old base time until
+taprio is reconfigured.
+
+Should stmmac_set_time() use the same disable/step/__stmmac_setup_est()
+sequence under est_lock? Should the commit message mention this path?
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261102-stmmac-ptp-est-lock-v1-1-76fbc0cb230d%40oss.qualcomm.com
 
