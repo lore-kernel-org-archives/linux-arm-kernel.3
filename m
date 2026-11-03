@@ -2,70 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2E04606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 20:34:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7FDD606D805
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 20:37:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ntZswwTo;
-	dkim=pass (1024-bit key, unprotected) header.d=rnplus.nl header.i=@rnplus.nl header.a=rsa-sha256 header.s=dkim header.b=NR9fwCpe
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3FSLQiCK;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=WIwAUoRY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=gviGI+/aVfXi8KK0fmiJUHN9/SwDPBwhZYFY667FLqg=; b=ntZswwToV8w8f2
-	4P5ngQID3oo5UnI43Ba15u+VAF7o+3dcBEAOtsvVjJ20SKHababdAxrHpuJQB/rSkjrl1FcMIGore
-	j6vlnmTcklt4deTyA5fgdOu7d6NosN8OS5TEHHocIQxguOFbavYssv+EiLPCXpbq2OvVwTgN4FAZ1
-	uu963VE690dp+n3TN2jVg0NIqyatynxZXOuXtZAoSRunal7JNDo4xgN8KROtoc0CJQ77tdvPy1rAG
-	Os0NOYcAVQr+wWmgNyOGrb4iCjIQD1Tik1pZFlhSa0xw2b34PgVFwpbL0LEj7xqaptsAx7hiAn1Hc
-	YUiBe15n2VwFn6X+Vh0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=vWPeCnUz1sDUCuvHzgsNmQLP6HqKKH7oPoJSrsTWm8A=; b=3FSLQiCKTENUPO4TD0sVcZtsXV
+	lCAi8UTdt3gzky0wOKyXUa9IkzjP0JoRwcZcYrpf5TOecwdMR1f/yfDfH0KKY5MiUayWdtmY34Qxx
+	xhxfXQQes5mgM2JaRvutFztJ1/Xe7UUxKAxSFUFglKEfKK/OOZu0oSTZiwBX6e4wBZnd6yHtFD3HT
+	hc5F1g8g7x8YnE/j1t9EkwSdSY1k3NKfnPuWqeB/+YSzYUFBT3W8sjhEvYpcpH/BXoxW1l3T3vJ+g
+	PIRA8ok+egfdObpCXG3SDR+NR+42N5v/Pyz/2btX3fYwfePSsGVdSCsWCkdRWQq/mEYwPqPKeg3zX
+	mywGnxrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOLCe-00000003cvN-00MD;
-	Tue, 03 Nov 2026 20:33:56 +0000
-Received: from mail.rnplus.nl ([178.251.25.70])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOLCX-00000003csA-2kL3
+	id 1xOLG6-00000003dXq-085U;
+	Tue, 03 Nov 2026 20:37:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOLG1-00000003dXS-2Hse
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 20:33:52 +0000
-Received: from localhost (unknown [127.0.0.1])
-	by mail.rnplus.nl (Postfix) with ESMTP id 400EF379778
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Nov 2026 20:33:46 +0000 (UTC)
-X-Virus-Scanned: amavisd-new at rnplus.nl
-Received: from mail.rnplus.nl ([127.0.0.1])
-	by localhost (mail.rnplus.nl [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id Q5ixoScuTxmM for <linux-arm-kernel@lists.infradead.org>;
-	Tue,  3 Nov 2026 21:33:46 +0100 (CET)
-Received: from E595 (unknown [185.10.157.158])
-	by mail.rnplus.nl (Postfix) with ESMTPSA id 56C7B379779;
-	Tue,  3 Nov 2026 21:33:41 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=rnplus.nl; s=dkim;
-	t=1793738022; bh=2wkTu59kSxoO15eMfM57RBq7UEe0GI/tQEudoKg9A2A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=NR9fwCpe44g4hkPId3bcDP97wwZb0KOba59eFPlHCMMc6PnTI+zQGQ6k8SSGQYqlv
-	 2AmPdVB2LW9JAwDeMnffsnch0krk/qIwu8L9RhH+iYD9Sm4Gn4jdnlU/3M0Bbx8zXm
-	 q+SojoJuIcYda3h6l1Dakp3uZvKCI8lXrdak7V2g=
-From: Renze Nicolai <renze@rnplus.nl>
-To: Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Renze Nicolai <renze@rnplus.nl>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/4] ARM: dts: aspeed: x570d4u: Fix fan tach channel assignments
-Date: Tue,  3 Nov 2026 21:33:03 +0100
-Message-ID: <20261103203308.54789-3-renze@rnplus.nl>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261103203308.54789-1-renze@rnplus.nl>
-References: <20261103203308.54789-1-renze@rnplus.nl>
+	Tue, 03 Nov 2026 20:37:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 277021595;
+	Tue,  3 Nov 2026 12:37:19 -0800 (PST)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 900353F628;
+	Tue,  3 Nov 2026 12:37:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793738242; bh=XNxs1q7RvEvtnhfmFbzH+UCtgdjM+7kwwuvH4wf38QM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WIwAUoRYbdxoJrZAO4JhML2zcaHQrSFnQStEcdCxEEz3QsJYEAS3Xx5mxpTwxHrq8
+	 H/qwyh5aWqxrCkV+u4L9w3gADSoY9lDcJYkgeA4mwUXTEUcF38b216uxNICrkSVxH2
+	 6STMjkgsZkkQlNJ2J+tLf5WMqhwcZMK+FlhL4hCM=
+Date: Tue, 3 Nov 2026 20:37:07 +0000
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Sascha Bischoff <sascha.bischoff@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, 
+	lpieralisi@kernel.org, timothy.hayes@arm.com, fuad.tabba@linux.dev
+Subject: Re: [PATCH v2 03/16] KVM: arm64: gic-v5: Share CoreSight ID register
+ emulation
+Message-ID: <4lhdtngikzekvcvhkd4zknnnqdh7a3mih7i72smfzwsnnjcmfh@ri2clwyj4nqm>
+References: <20261102194454.4086911-1-sascha.bischoff@arm.com>
+ <20261102194454.4086911-4-sascha.bischoff@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261102194454.4086911-4-sascha.bischoff@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_123350_054788_A8178F4C 
-X-CRM114-Status: GOOD (  11.30  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261103_123725_684808_D2F80B34 
+X-CRM114-Status: GOOD (  19.99  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,55 +72,136 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The tachometer channel numbers for FAN4, FAN5 and FAN6 did not match
-the board's actual PWM wiring, causing incorrect fan speed readings.
-FAN6 is wired to PWM5 and FAN5 is wired to PWM6 (not PWM6/PWM5
-respectively as previously assigned), and FAN4's tach channel was
-off by one.
+On Mon, Nov 02, 2026 at 07:44:41PM +0000, Sascha Bischoff wrote:
+> The GICv5 IRS and ITS expose the same CoreSight identification register
+> block. Move the register-value switch into a shared helper and describe
+> the contiguous ID register range with one register-region descriptor.
+> 
+> This keeps the IRS behaviour unchanged while giving the ITS MMIO
+> emulation a helper it can reuse when it is added in the following commit.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  arch/arm64/kvm/vgic/vgic-irs-v5.c  | 75 +++---------------------------
+>  arch/arm64/kvm/vgic/vgic-v5.c      | 34 ++++++++++++++
+>  arch/arm64/kvm/vgic/vgic.h         |  1 +
+>  include/linux/irqchip/arm-gic-v5.h |  2 +
+>  4 files changed, 44 insertions(+), 68 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-irs-v5.c b/arch/arm64/kvm/vgic/vgic-irs-v5.c
+> index 8d0ad74ebc64a..d0ebed2e1663b 100644
+> --- a/arch/arm64/kvm/vgic/vgic-irs-v5.c
+> +++ b/arch/arm64/kvm/vgic/vgic-irs-v5.c
+> @@ -520,38 +520,9 @@ static void vgic_v5_mmio_write_irs_ist(struct kvm_vcpu *vcpu, gpa_t addr,
+>  static unsigned long vgic_v5_coresight_read(struct kvm_vcpu *vcpu,
+>  					    gpa_t addr, unsigned int len)
+>  {
+> -	const size_t offset = addr & (SZ_64K - 1);
+> +	u32 offset = addr & (SZ_64K - 1);
 
-Signed-off-by: Renze Nicolai <renze@rnplus.nl>
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x570d4u.dts | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+nit: I think we can keep the const here?
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x570d4u.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x570d4u.dts
-index 7d27833b761d..6e7e3e7ec101 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x570d4u.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x570d4u.dts
-@@ -320,19 +320,19 @@ fan@2 {
- 	fan@3 {
- 		/* FAN4 (6-pin) */
- 		reg = <0x03>;
--		aspeed,fan-tach-ch = /bits/ 8 <0x04 0x0b>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x03 0x0b>;
- 	};
- 
- 	fan@4 {
--		/* FAN6 (6-pin) */
-+		/* FAN6 (6-pin), wired to PWM5 */
- 		reg = <0x04>;
--		aspeed,fan-tach-ch = /bits/ 8 <0x06 0x0d>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x05 0x0d>;
- 	};
- 
- 	fan@5 {
--		/* FAN5 (6-pin) */
-+		/* FAN5 (6-pin), wired to PWM6 */
- 		reg = <0x05>;
--		aspeed,fan-tach-ch = /bits/ 8 <0x05 0x0c>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x04 0x0c>;
- 	};
- };
- 
--- 
-2.56.0
+>  
+> -	switch (offset) {
+> -	case GICV5_CORESIGHT_DEVARCH:
+> -		return GICV5_CORESIGHT_DEVARCH_VAL;
+> -	case GICV5_CORESIGHT_PIDR4:
+> -		return GICV5_CORESIGHT_PIDR4_JEP106_CONT;
+> -	case GICV5_CORESIGHT_PIDR5:
+> -		return GICV5_CORESIGHT_PIDR5_RES0;
+> -	case GICV5_CORESIGHT_PIDR6:
+> -		return GICV5_CORESIGHT_PIDR6_RES0;
+> -	case GICV5_CORESIGHT_PIDR7:
+> -		return GICV5_CORESIGHT_PIDR7_RES0;
+> -	case GICV5_CORESIGHT_PIDR0:
+> -		return GICV5_CORESIGHT_PIDR0_PART_0;
+> -	case GICV5_CORESIGHT_PIDR1:
+> -		return GICV5_CORESIGHT_PIDR1_DES_0_PART_1;
+> -	case GICV5_CORESIGHT_PIDR2:
+> -		return GICV5_CORESIGHT_PIDR2_DES_1;
+> -	case GICV5_CORESIGHT_PIDR3:
+> -		return GICV5_CORESIGHT_PIDR3_REVAND_CMOD;
+> -	case GICV5_CORESIGHT_CIDR0:
+> -		return GICV5_CORESIGHT_CIDR0_VAL;
+> -	case GICV5_CORESIGHT_CIDR1:
+> -		return GICV5_CORESIGHT_CIDR1_VAL;
+> -	case GICV5_CORESIGHT_CIDR2:
+> -		return GICV5_CORESIGHT_CIDR2_VAL;
+> -	case GICV5_CORESIGHT_CIDR3:
+> -		return GICV5_CORESIGHT_CIDR3_VAL;
+> -	default:
+> -		return 0;
+> -	}
+> +	return vgic_v5_handle_guest_coresight_idreg_read(offset);
+>  }
+>  
+>  static unsigned long vgic_v5_mmio_uaccess_read_irs_status(struct kvm_vcpu *vcpu,
+> @@ -903,45 +874,13 @@ static const struct vgic_register_region vgic_v5_irs_registers[] = {
+>  				  vgic_mmio_read_raz, vgic_mmio_write_wi, 8,
+>  				  VGIC_ACCESS_64bit | VGIC_ACCESS_32bit),
+>  
+> -	/* CoreSight identification registers */
+> +	/* Split the ranges so KVM_HAS_DEVICE_ATTR only reports actual registers. */
 
+Would "Split the CoreSight range into two to account for the gap
+between DEVARCH and PIDR/CIDR registers." be clearer?
+
+Thanks,
+Wei-Lin Chang
+
+>  	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_DEVARCH,
+> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+> -				  VGIC_ACCESS_32bit),
+> +				  vgic_v5_coresight_read, vgic_mmio_write_wi,
+> +				  4, VGIC_ACCESS_32bit),
+>  	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR4,
+> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+> -				  VGIC_ACCESS_32bit),
+> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR5,
+> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+> -				  VGIC_ACCESS_32bit),
+> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR6,
+> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+> -				  VGIC_ACCESS_32bit),
+> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR7,
+> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+> -				  VGIC_ACCESS_32bit),
+> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR0,
+> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+> -				  VGIC_ACCESS_32bit),
+> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR1,
+> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+> -				  VGIC_ACCESS_32bit),
+> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR2,
+> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+> -				  VGIC_ACCESS_32bit),
+> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR3,
+> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+> -				  VGIC_ACCESS_32bit),
+> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_CIDR0,
+> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+> -				  VGIC_ACCESS_32bit),
+> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_CIDR1,
+> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+> -				  VGIC_ACCESS_32bit),
+> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_CIDR2,
+> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+> -				  VGIC_ACCESS_32bit),
+> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_CIDR3,
+> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
+> +				  vgic_v5_coresight_read, vgic_mmio_write_wi,
+> +				  GICV5_CORESIGHT_PIDR_CIDR_SIZE,
+>  				  VGIC_ACCESS_32bit),
+>  };
+>  
+
+[...]
 
