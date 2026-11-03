@@ -2,47 +2,47 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B179606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 23:42:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAE1D606D811
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 23:45:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HwTrdO3L;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bYupiRwf
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cM+bhMDq;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=abwuEZ86
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=RLfbVHWPETTb3o8HlMj+HxgwepLgdhKx1KwHT8pQtec=; b=HwTrdO3LSHdfqO
-	CQmzWePyRFWIJqLVthpXGkv2QpyX+YzpHf6uOaewqy+wZUZUrMlm/2EbMXpkLTwTkjbuhOr1Hz5VP
-	abwB63X+79V4JbnmPIPHFo0L+kGfXZmsQRYU18KMqxRkE1mi4inUfdLGLiHwzVvckP6gb5egvlYsY
-	1yn/nEuVW3qTmZy3890yHlRu+OBBqB9JMNU8E7Mp9ofJqOEaEhKikTJFZLjQD9mMdadibPJ47vKKg
-	qTHKZrIbJmGK2P6J+3e/NOo9x5dqyNHRG+KqS6mnu5kjMIqPU8etJWUcbAmPjvdLcZVAZ+z+xP+aN
-	jgvrIv1a12ldPEG79RMw==;
+	List-Owner; bh=ffOZbXiokqRRn62lI+LM5DVMQ4ebjZs01vfcvrIqkzk=; b=cM+bhMDqwBJnEi
+	49RhkBIdmcDbrKLVOI/Ce8ANFW3IkLiOEWy2t/AYmszWeMBfkXgHrYngnJ9IitXGQDf6nmmaBrPz+
+	EY9LWrTvYZ6uBsZu+JopgxeDceI7p4gBYKsyR44L6Uc6Fp0qi72uHW0z8VuivMTt6XBcRMzpWLNRA
+	cljs31e673pvQzOIlVWmSL4SsNEm5AMLgE8gGIhKfuHtiRqJCJ1vZZEm0ZBYt4xLbZ/0dYgsxkPoc
+	CHL/u9BeaJBYN5Cp5MWrpau1JwPp5BDZ6Mpnf3z7sMgz27qexiyN6GcRLkX18kFjrMIf6ZoXCjwcW
+	zRKiQuaS6yKFRv8UFrkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOO9Q-00000003xiO-1mef;
-	Tue, 03 Nov 2026 23:42:48 +0000
+	id 1xOOCJ-00000003xy0-3yGu;
+	Tue, 03 Nov 2026 23:45:47 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOO9O-00000003xiF-0naD;
-	Tue, 03 Nov 2026 23:42:46 +0000
+	id 1xOOCI-00000003xxq-3uEj;
+	Tue, 03 Nov 2026 23:45:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7A28142DD0;
-	Tue,  3 Nov 2026 23:42:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 137351F00919;
-	Tue,  3 Nov 2026 23:42:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9AD0644464;
+	Tue,  3 Nov 2026 23:45:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A3801F00A20;
+	Tue,  3 Nov 2026 23:45:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793749365;
-	bh=RLfbVHWPETTb3o8HlMj+HxgwepLgdhKx1KwHT8pQtec=;
+	s=k20260515; t=1793749546;
+	bh=ffOZbXiokqRRn62lI+LM5DVMQ4ebjZs01vfcvrIqkzk=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=bYupiRwfmK2OTY4lnJPjOJ4JTaoY6XpvLrbIsLCs6hYMbIH3TcpTcEiFSVlDV0eFV
-	 WQf0cJnjSevfXPfjuKkCoj3Lqg4jZm2gRNSiQK27suv6r3Mslf15jwlC7fQXNbh72f
-	 cDHsc/PPj+ZLdMfnb5HhUFxxDUCPW1gou9GXj4r1xn7089R6u+zOe7NhgmKQXmlsOf
-	 Vgehv+BaVp59DQ+HqE5m3b+6i4zQZ88ddiKtOg+Jk8Veo2+vLnSiHkRjxNAcs3pm9x
-	 r5rf1ceA+4pSHc9tV1afPPP+M+8t9b2H11ft/qBFPa2/qhh0pxIrFd9zLBQQ6adUMA
-	 PDnRlb6dAKFTQ==
-Date: Tue, 3 Nov 2026 23:42:37 +0000
+	b=abwuEZ86/Q5MY4byRpLDXJtZ+aRudH7OXv2RtUDFlnigSkC5jBHCuLP6oXQzt6zaY
+	 1sRfDAb+rN1DZI+H80vjdVReYug2PBzH1YjXWZ2kAtDYYEP/Ro4V9zFd3nAADZFBvD
+	 GQeeAICaaP0t/I50Pepxfh3is06k/q6R9p++Pv/9Ge+iGYZh76kwY0v5wMBXQlBuB6
+	 1+fDQTOEkAjtU/iNo69D48xU7FUzBzoCivtxF3hdbyfFGlBkqQWxi3kGx947RSXxgX
+	 xqTZTMKKsDWiDlbdZz+Bi58IxTTycdj7R7Kni0sHTdLqThlWJgKCu04bVcDP6yDfbI
+	 J8JF23/suI7oA==
+Date: Tue, 3 Nov 2026 23:45:40 +0000
 From: Jonathan Cameron <jic23@kernel.org>
 To: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
 Cc: rva333@protonmail.com, David Lechner <dlechner@baylibre.com>, Nuno
@@ -52,12 +52,12 @@ Cc: rva333@protonmail.com, David Lechner <dlechner@baylibre.com>, Nuno
  A. Prado" <nfraprado@collabora.com>, Chen-Yu Tsai <wenst@chromium.org>,
  linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 1/3] iio: adc: mt6359-auxadc: correct channel types to
- IIO_VOLTAGE
-Message-ID: <20261103234237.0dbbe924@jic23-hlaptop>
-In-Reply-To: <20261103-6768-6358-fixes-v1-1-2a868a33152b@protonmail.com>
+Subject: Re: [PATCH 2/3] iio: adc: mt6359-auxadc: mask conversion ready bit
+ in mt6358_read_imp
+Message-ID: <20261103234540.46cc8c1b@jic23-hlaptop>
+In-Reply-To: <20261103-6768-6358-fixes-v1-2-2a868a33152b@protonmail.com>
 References: <20261103-6768-6358-fixes-v1-0-2a868a33152b@protonmail.com>
-	<20261103-6768-6358-fixes-v1-1-2a868a33152b@protonmail.com>
+	<20261103-6768-6358-fixes-v1-2-2a868a33152b@protonmail.com>
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
@@ -81,174 +81,47 @@ X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, 03 Nov 2026 18:32:07 +0200
+On Tue, 03 Nov 2026 18:32:08 +0200
 Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org> wrote:
 
 > From: Roman Vivchar <rva333@protonmail.com>
 > 
-> All mt6357, mt6358, mt6359 and mt6363 declare their channel types as
-> voltage, resistance and temperature. This is wrong, since the PMIC
-> doesn't include any built-in conversion block. It simply measures
-> voltage, while consumers are supposed to convert these readings to
-> the actual temperature or resistance using efuse calibration.
-Hi Roman,
+> In mt6358_read_imp() the raw ADC value is returned directly without
+> masking out ready bit, resulting in incorrect battery voltage reporting.
 
-Useful to have an example of the consumer that is doing this.
+Can you add where the ready bit is.  That might help someone
+looking at wrong values and wondering if this is what is causing them.
 
-> 
-> Correct all channel types to IIO_VOLTAGE.
-> 
-> Fixes: 3587914bf61d ("iio: adc: Add support for MediaTek MT6357/8/9 Auxiliary ADC")
-> Fixes: d6f49313272b ("iio: adc: mt6359: Add support for MediaTek MT6363 PMIC AUXADC")
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
-
-This one makes me very nervous, not because it is wrong but rather
-because there may be a bunch of userspace relying on these wrong
-channel types.   
-
-It is horrible but I think we can't touch that :(  What we can do is
-put the right interface in place as well. Thankfully it looks like
-the channel index is independent of the channel type so we can duplicate
-the wrong channels with voltage ones + some comments to make sure this
-doesn't propagate to any new supported devices.
-
-AngeloGioacchino, why did you go with the different channel types?
-
-If we do decide to go ahead with this approach, are there other channels
-that are validly using the channel type for non voltage? If not change
-the macro to drop the parameter.
-
-Thanks,
+This one is pretty glaring as bugs go (given I think this means the
+top bit is set?) so any reason it wasn't obvious to anyone testing
+this device?
 
 Jonathan
 
 
-
+> 
+> Apply the mask to strip the ready bit, matching the behavior in
+> mt6359_auxadc_read_adc() function.
+> 
+> Fixes: 3587914bf61d ("iio: adc: Add support for MediaTek MT6357/8/9 Auxiliary ADC")
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 > ---
->  drivers/iio/adc/mt6359-auxadc.c | 78 ++++++++++++++++++++---------------------
->  1 file changed, 39 insertions(+), 39 deletions(-)
+>  drivers/iio/adc/mt6359-auxadc.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
 > diff --git a/drivers/iio/adc/mt6359-auxadc.c b/drivers/iio/adc/mt6359-auxadc.c
-> index 88b0e26309e5..951d236f972b 100644
+> index 951d236f972b..09432d0974cf 100644
 > --- a/drivers/iio/adc/mt6359-auxadc.c
 > +++ b/drivers/iio/adc/mt6359-auxadc.c
-> @@ -205,18 +205,18 @@ struct mtk_pmic_auxadc_info {
->  }
+> @@ -502,7 +502,7 @@ static int mt6358_read_imp(struct mt6359_auxadc *adc_dev,
+>  	mt6358_stop_imp_conv(adc_dev);
 >  
->  static const struct iio_chan_spec mt6357_auxadc_channels[] = {
-> -	MTK_PMIC_IIO_CHAN(MT6357, bat_adc, BATADC, 0, 15, IIO_RESISTANCE),
-> -	MTK_PMIC_IIO_CHAN(MT6357, isense, ISENSE, 1, 12, IIO_CURRENT),
-> -	MTK_PMIC_IIO_CHAN(MT6357, cdt_v, VCDT, 2, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6357, batt_temp, BAT_TEMP, 3, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6357, chip_temp, CHIP_TEMP, 4, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6357, acc_det, ACCDET, 5, 12, IIO_RESISTANCE),
-> +	MTK_PMIC_IIO_CHAN(MT6357, bat_adc, BATADC, 0, 15, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6357, isense, ISENSE, 1, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6357, cdt_v, VCDT, 2, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6357, batt_temp, BAT_TEMP, 3, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6357, chip_temp, CHIP_TEMP, 4, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6357, acc_det, ACCDET, 5, 12, IIO_VOLTAGE),
->  	MTK_PMIC_IIO_CHAN(MT6357, dcxo_v, VDCXO, 6, 12, IIO_VOLTAGE),
-> -	MTK_PMIC_IIO_CHAN(MT6357, tsx_temp, TSX_TEMP, 7, 15, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6357, hp_ofs_cal, HPOFS_CAL, 9, 15, IIO_RESISTANCE),
-> -	MTK_PMIC_IIO_CHAN(MT6357, dcxo_temp, DCXO_TEMP, 36, 15, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6357, vcore_temp, VCORE_TEMP, 40, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6357, vproc_temp, VPROC_TEMP, 41, 12, IIO_TEMP),
-> +	MTK_PMIC_IIO_CHAN(MT6357, tsx_temp, TSX_TEMP, 7, 15, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6357, hp_ofs_cal, HPOFS_CAL, 9, 15, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6357, dcxo_temp, DCXO_TEMP, 36, 15, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6357, vcore_temp, VCORE_TEMP, 40, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6357, vproc_temp, VPROC_TEMP, 41, 12, IIO_VOLTAGE),
-If this is all of the channels (I haven't checked) you should drop
-the ability to configure the channel type from the macro... 
-However, see discussion at the top.
-
+>  	if (vbat)
+> -		*vbat = val_v;
+> +		*vbat = val_v & GENMASK(chan->scan_type.realbits - 1, 0);
+>  	if (ibat)
+>  		*ibat = 0;
 >  
->  	/* Battery impedance channels */
->  	MTK_PMIC_IIO_CHAN(MT6357, batt_v, VBAT, 0, 15, IIO_VOLTAGE),
-> @@ -251,19 +251,19 @@ static const u16 mt6357_auxadc_regs[] = {
->  };
->  
->  static const struct iio_chan_spec mt6358_auxadc_channels[] = {
-> -	MTK_PMIC_IIO_CHAN(MT6358, bat_adc, BATADC, 0, 15, IIO_RESISTANCE),
-> -	MTK_PMIC_IIO_CHAN(MT6358, cdt_v, VCDT, 2, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6358, batt_temp, BAT_TEMP, 3, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6358, chip_temp, CHIP_TEMP, 4, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6358, acc_det, ACCDET, 5, 12, IIO_RESISTANCE),
-> +	MTK_PMIC_IIO_CHAN(MT6358, bat_adc, BATADC, 0, 15, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6358, cdt_v, VCDT, 2, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6358, batt_temp, BAT_TEMP, 3, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6358, chip_temp, CHIP_TEMP, 4, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6358, acc_det, ACCDET, 5, 12, IIO_VOLTAGE),
->  	MTK_PMIC_IIO_CHAN(MT6358, dcxo_v, VDCXO, 6, 12, IIO_VOLTAGE),
-> -	MTK_PMIC_IIO_CHAN(MT6358, tsx_temp, TSX_TEMP, 7, 15, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6358, hp_ofs_cal, HPOFS_CAL, 9, 15, IIO_RESISTANCE),
-> -	MTK_PMIC_IIO_CHAN(MT6358, dcxo_temp, DCXO_TEMP, 10, 15, IIO_TEMP),
-> +	MTK_PMIC_IIO_CHAN(MT6358, tsx_temp, TSX_TEMP, 7, 15, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6358, hp_ofs_cal, HPOFS_CAL, 9, 15, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6358, dcxo_temp, DCXO_TEMP, 10, 15, IIO_VOLTAGE),
->  	MTK_PMIC_IIO_CHAN(MT6358, bif_v, VBIF, 11, 12, IIO_VOLTAGE),
-> -	MTK_PMIC_IIO_CHAN(MT6358, vcore_temp, VCORE_TEMP, 38, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6358, vproc_temp, VPROC_TEMP, 39, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6358, vgpu_temp, VGPU_TEMP, 40, 12, IIO_TEMP),
-> +	MTK_PMIC_IIO_CHAN(MT6358, vcore_temp, VCORE_TEMP, 38, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6358, vproc_temp, VPROC_TEMP, 39, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6358, vgpu_temp, VGPU_TEMP, 40, 12, IIO_VOLTAGE),
->  
->  	/* Battery impedance channels */
->  	MTK_PMIC_IIO_CHAN(MT6358, batt_v, VBAT, 0, 15, IIO_VOLTAGE),
-> @@ -299,18 +299,18 @@ static const u16 mt6358_auxadc_regs[] = {
->  };
->  
->  static const struct iio_chan_spec mt6359_auxadc_channels[] = {
-> -	MTK_PMIC_IIO_CHAN(MT6359, bat_adc, BATADC, 0, 15, IIO_RESISTANCE),
-> -	MTK_PMIC_IIO_CHAN(MT6359, batt_temp, BAT_TEMP, 3, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6359, chip_temp, CHIP_TEMP, 4, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6359, acc_det, ACCDET, 5, 12, IIO_RESISTANCE),
-> +	MTK_PMIC_IIO_CHAN(MT6359, bat_adc, BATADC, 0, 15, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6359, batt_temp, BAT_TEMP, 3, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6359, chip_temp, CHIP_TEMP, 4, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6359, acc_det, ACCDET, 5, 12, IIO_VOLTAGE),
->  	MTK_PMIC_IIO_CHAN(MT6359, dcxo_v, VDCXO, 6, 12, IIO_VOLTAGE),
-> -	MTK_PMIC_IIO_CHAN(MT6359, tsx_temp, TSX_TEMP, 7, 15, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6359, hp_ofs_cal, HPOFS_CAL, 9, 15, IIO_RESISTANCE),
-> -	MTK_PMIC_IIO_CHAN(MT6359, dcxo_temp, DCXO_TEMP, 10, 15, IIO_TEMP),
-> +	MTK_PMIC_IIO_CHAN(MT6359, tsx_temp, TSX_TEMP, 7, 15, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6359, hp_ofs_cal, HPOFS_CAL, 9, 15, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6359, dcxo_temp, DCXO_TEMP, 10, 15, IIO_VOLTAGE),
->  	MTK_PMIC_IIO_CHAN(MT6359, bif_v, VBIF, 11, 12, IIO_VOLTAGE),
-> -	MTK_PMIC_IIO_CHAN(MT6359, vcore_temp, VCORE_TEMP, 30, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6359, vproc_temp, VPROC_TEMP, 31, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6359, vgpu_temp, VGPU_TEMP, 32, 12, IIO_TEMP),
-> +	MTK_PMIC_IIO_CHAN(MT6359, vcore_temp, VCORE_TEMP, 30, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6359, vproc_temp, VPROC_TEMP, 31, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6359, vgpu_temp, VGPU_TEMP, 32, 12, IIO_VOLTAGE),
->  
->  	/* Battery impedance channels */
->  	MTK_PMIC_IIO_CHAN(MT6359, batt_v, VBAT, 0, 15, IIO_VOLTAGE),
-> @@ -349,15 +349,15 @@ static const u16 mt6359_auxadc_regs[] = {
->  };
->  
->  static const struct iio_chan_spec mt6363_auxadc_channels[] = {
-> -	MTK_PMIC_IIO_CHAN(MT6363, bat_adc, BATADC, 0, 15, IIO_RESISTANCE),
-> -	MTK_PMIC_IIO_CHAN(MT6363, cdt_v, VCDT, 2, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6363, batt_temp, BAT_TEMP, 3, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6363, chip_temp, CHIP_TEMP, 4, 12, IIO_TEMP),
-> +	MTK_PMIC_IIO_CHAN(MT6363, bat_adc, BATADC, 0, 15, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6363, cdt_v, VCDT, 2, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6363, batt_temp, BAT_TEMP, 3, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6363, chip_temp, CHIP_TEMP, 4, 12, IIO_VOLTAGE),
->  	MTK_PMIC_IIO_CHAN(MT6363, sys_sns_v, VSYSSNS, 6, 15, IIO_VOLTAGE),
->  	MTK_PMIC_IIO_CHAN(MT6363, tref_v, VTREF, 11, 12, IIO_VOLTAGE),
-> -	MTK_PMIC_IIO_CHAN(MT6363, vcore_temp, VCORE_TEMP, 38, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6363, vproc_temp, VPROC_TEMP, 39, 12, IIO_TEMP),
-> -	MTK_PMIC_IIO_CHAN(MT6363, vgpu_temp, VGPU_TEMP, 40, 12, IIO_TEMP),
-> +	MTK_PMIC_IIO_CHAN(MT6363, vcore_temp, VCORE_TEMP, 38, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6363, vproc_temp, VPROC_TEMP, 39, 12, IIO_VOLTAGE),
-> +	MTK_PMIC_IIO_CHAN(MT6363, vgpu_temp, VGPU_TEMP, 40, 12, IIO_VOLTAGE),
->  
->  	/* For VIN, ADC12 holds the result depending on which GPIO was activated */
->  	MTK_PMIC_IIO_CHAN(MT6363, in1_v, VIN1, 45, 15, IIO_VOLTAGE),
 > 
 
 
