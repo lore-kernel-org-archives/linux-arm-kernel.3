@@ -2,90 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D02460A5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:14:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C1C960A6F45
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:15:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=d0HJUuGk;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P9lmu3hB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HPDsXbxj;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CvW5N8R8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
+	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=M0JkceVfwO3LS/QIKaOJlicT3A1Tg45AAM0ivl3Rd0M=; b=d0HJUuGkYYNVOENEniJROeFZUV
-	MuGi4egyDGc+dAyMIFBRUXIzWUtYYRq5X5WpmETdYsyFTITzvQZ1Dc98UWxq29X8S7F6X+s1E5PQ3
-	sY3zg4aS/rnJ/NJryMt/vmXIVE6sjFq+4mArbxuMLKbJ3ETeEglfhTz4ayq4T7wA90HWx+cPoxG4R
-	zTYgpSMaTkG+FDM93toRIIQhfF+PzQ0HilouvJSMY45VUpdvAlbkIA57nuneWJihzCqinB+vdnQdM
-	6glkUg12E8G9TGSaJLqJRWyJo/9GZhYKgC8BCYHgU/TMIdheNGtttZTY9pVsLK3lLaFxKotae5IDK
-	9cmJVx8Q==;
+	bh=1roqBbIak5VHBopkuBjXyP6vvZ/gKcXngvv3D+lgPI4=; b=HPDsXbxj04xZEWWN0RE0LtrcRp
+	znvTAU/eJGlyGRLYKAJVIKyybvb41vUASqZJiEbCWFzfzA0CbZCMnCiTN2x7ja1SezcYmeEmDHOd7
+	U5bSRzSIhNp3FV61+7RsQsG2uVr7cDsPZ19WUekQ1W3+tL/M4e1IJsOkrYtreVCY6wfqS8QDH93fS
+	xd09hkhIsUrjQ792KvxTuFARFpM12EhBnhoVA3NAfr5fakNlGQGvHXvuKeg2gPjQpDL2kaVamyWTQ
+	6eswORwXB30TET4dFNmG7gVM30vzcdbdW6VgyL3m2aO3ZilUUieeePXuMY7DOeVPK+3ntho+8G8m4
+	5t0fETBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBXW-00000001vBb-3Gju;
-	Tue, 03 Nov 2026 10:14:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOBXb-00000001vGb-0ed1;
+	Tue, 03 Nov 2026 10:14:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBXV-00000001vB1-2iWa
+	id 1xOBXX-00000001vC6-0XzL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 10:14:49 +0000
+	Tue, 03 Nov 2026 10:14:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0301C43898;
-	Tue,  3 Nov 2026 10:14:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DC04C43957;
+	Tue,  3 Nov 2026 10:14:50 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793700888;
-	b=htRVTrAgXhOgEPjz/sK6Go/9NcotKpgkuda0aG2kugpkvq9mdXGinEwsNBSeu54HShgh
-	 6t9tjWKeXJT6y7HRr+Y48MJcVKnHH8gzvUync2iqFYKX//rBifrN1gzbNnpK++BvVz7b1
-	 qqMqKVj4RhotIV8aEK6eShTJybeRdBWhXbSOHNlZ9TP+ai40+QPp+T4Qyh2MP3i9ZYxMY
-	 rrVRNJ61Emgpl+a1NpWY+xMIpXEuGfQnsLjpB8boJ199Tz2d37jiAX8WLFiLeRtTyjU2D
-	 GTYe0D8mhS7rAucqcLU76fkYd7gQ01eMJFKFaaZa2LadMcos/BcDizlKo9QdV38KDAA==
+	t=1793700890;
+	b=aWT+2fTfb6rSyDp8hqxkU37bzf4dU0GAZml/Rhbd9pfZegz2zqHNNAsP7lYrjMgzye7n
+	 MSHJx7rk5NH9ai83NCsApH6rCYx4T/ABFtiR8yEUqiwar5AovXeGJn0vEYZQaaCNqkU/9
+	 3ke2cGXo9xYo7t7g6MTLpmvTmDDqrEQCwxGNyAYSM94k9LYCCvXZXd1vyrGmoNs7rDkqZ
+	 zICbLwYX+79TMnszrX7uDhnZ1tGBr0fCNs3CdgtLtEBXk67h4WXtsAI0N19RPImA/49TX
+	 oY7Dy1gF9ooSnC0ghkSli5P79xaFGuvXiQkAUZTvARr1yk3cpIpxzSx0gtbnMgSTmmw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793700888;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=M0JkceVfwO3LS/QIKaOJlicT3A1Tg45AAM0ivl3Rd0M=;
-	b=SKGs8OEPQgsEvgeo9GYgoTm6XLPjVeZRD0hCWxjxOLT/QhRISbPb6rUB9gQS99n6L/hF
-	 Bfpo9W03RQRd971Rze8zzd7EmOz5sl1/Vw9Ur8ugj8ywNLh3VWBEXMS58hpjopSHercRB
-	 ymXDQUzGbk+2uv8jifR5LJiUpkR6m4zOfre3DY8FHak5u9OU7nPp2PHF+qjFd+a1bOV1M
-	 w0wj02NxbwYuD/LAWBe3fYBMnwUtx7VOW/C6ggGcJzxaEyw7R9pVE8XBIvY7U7DXSapxA
-	 igZa+nhXtcJWlmQlILkJSG/Dz4BcWfzoy7Mwfyqwq+zHftDaWi2zGtiz8C3PugsxSZA==
+	c=relaxed/relaxed; t=1793700890;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=1roqBbIak5VHBopkuBjXyP6vvZ/gKcXngvv3D+lgPI4=;
+	b=02CKluIsx9GuHIWZe81hEdJd3zRDOzz9VulzgqRYXrfvoDweqNorAcMfjCdGj5RaSqSL
+	 ulonULmSaKBCNiIgDEPPvtw8YXmR1cgmXmQi1khIUmFW42nHKX0fX2CqLg2ax6ggm8UsO
+	 QnIZ+D3xg0QL3A0sCVROG2F9jhzETgqDz2tv6wSO9ywQ0FQAWMQjWqrbCi0uHSM54lCNf
+	 JBfo3UQncZLbdQ4ayhyAwA/kj56ImLDa796Jjsl4CC3JG2K4V3Gog+wTN8nCQTilX8s6Y
+	 706TJ3vDevNw9fYYut+t7VJRKu9duCzHt862A5oNafCzsIdoMP4KKGHZAeO2hlqtgXw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 285B11F00A18;
-	Tue,  3 Nov 2026 10:14:48 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 7C3001F00A1C;
+	Tue,  3 Nov 2026 10:14:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793700888;
-	bh=M0JkceVfwO3LS/QIKaOJlicT3A1Tg45AAM0ivl3Rd0M=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=P9lmu3hBVo6DC7Nt7SXgOcfsn6vzsOnL0t+dkXpGupLM2K9PicmHzaVnIrGWcyobg
-	 Zx32a62SNhvRjr6BMyJzH1DrnLT2oGKj3mZKBRYwcNmIvOjXroPq56123mwsX7KlFR
-	 bSgYPfyjlnPsaj8V4JcVoYgm7wxhuI+vUI3ru/fTRf7H0q1tnI3IPXTOdSfBbpXXI6
-	 uAh9f3ZHL3jZfUBY/SkpoO6hkCVGsF38VTdg1CvGwVs1Ij3pPL2XUEWbp9Ix5Bptuq
-	 HKidtpdKw6rjNAF05FAqUPPzdTUnTQbWVCMkhWAZQQCT1n+fW904k/qjSWWYg6XRqD
-	 sVM4EAEJHuwxw==
+	s=k20260515; t=1793700890;
+	bh=1roqBbIak5VHBopkuBjXyP6vvZ/gKcXngvv3D+lgPI4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=CvW5N8R8AvnO6UMiOdlXxmdqCmZTc8DnG3iXw+FB1bJUV20gUBVMo1W+p/+zyLNOs
+	 ngTTubzl/yivfhesbqf2eoneUpI35dRkGPoQ9SoiEH1bkWRUQkQBiTBlZS5AMxrPdI
+	 oNjwqMf6XXwBe/A2GQh5QjOU/dKjfBu9jlVikUrUNlD+r9Qo0DxMRUYygkdWATe5Fl
+	 wh/nfh3bitmJohD4132CbSM+s3Wb/DKOox9XaCVoZJlSqOI4kwAJDNIhmXrk5Row1M
+	 h3OfO0Kun4ked4eU+T4y2SrEwyZhjmhYCffBDgkhJiALHSSStqP2RJXt6GlOW+tHmh
+	 BV1zZYpVtqkOA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 72A7546895;
+	by lkml.kernel.org (Postfix) with ESMTP id B9FA0468A5;
 	Tue,  3 Nov 2026 10:14:47 +0000 (UTC)
 From: Myria Sarvay via B4 Relay <devnull+myrialsarvay.gmail.com@kernel.org>
-Subject: [PATCH 00/13] drivers/perf: apple_m1: Add M3/M4/A18 Pro Support
-Date: Tue, 03 Nov 2026 21:14:35 +1100
-Message-Id: <20261103-m3-plus-pmu-events-v1-0-a8eb6c1139fe@gmail.com>
+Date: Tue, 03 Nov 2026 21:14:40 +1100
+Subject: [PATCH 05/13] drivers/perf: apple_m1: Use macros for
+ per-implementation init functions
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2NWw6CMBQFt0L6bZO+ad2K4aOPq9ZYwD6ICWHvo
- vg5yZw5KyqQIxR07laUYYklTuMO9NQhf7fjDXAMOyNGmCKGGZw4np+t4Dk1DAuMtWAQhBLrhKB
- con04Z7jG9y96GQ4uzT3A12/pb2R4tf2tHhpytgD2U0qxnjvrnWEyWGF0r6AXThPlfRDa9pLqw
- ALnSoMMaNi2DwaYU23CAAAA
-X-Change-ID: 20260929-m3-plus-pmu-events-e4010ab44135
+Message-Id: <20261103-m3-plus-pmu-events-v1-5-a8eb6c1139fe@gmail.com>
+References: <20261103-m3-plus-pmu-events-v1-0-a8eb6c1139fe@gmail.com>
+In-Reply-To: <20261103-m3-plus-pmu-events-v1-0-a8eb6c1139fe@gmail.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>, 
@@ -94,20 +91,21 @@ To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  asahi@lists.linux.dev, Yuvan Shen <yuvanshen09@gmail.com>, 
- Myria Sarvay <myrialsarvay@gmail.com>, Nick Chan <towinchenmi@gmail.com>
+ Myria Sarvay <myrialsarvay@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2375;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4754;
  i=myrialsarvay@gmail.com; h=from:subject:message-id;
- bh=sBJetOAUcs63xW7bNzY0oakU4G0NRaHuxPFAqWDArRM=;
- b=owJ4nJvAy8zAJRbk4iixYu2/l4yn1ZIYsl5uET52a55/klOs9oXDF5qf2wV9WX5qpv+asleL3
- aZMZTloadPbUcrCIMbFICumyKJvmqY9ma3hUuky1y0wc1iZQIYwcHEKwEQCNzP8r670vBTLtyVN
- 3XHPpJ9TxHakH68IW/2tvNnpsp9BnwjLRkaG873dGrdOWK1kO9A58Urb2f4Xn+5efD7/et1bjdQ
- DaRcWMgEAU69Pcw==
+ bh=Xf+Ed/oAri86Vq9SpKX25Hm7YiUp82G8Mq/Z76SJGJE=;
+ b=owJ4nJvAy8zAJRbk4iixYu2/l4yn1ZIYsl5uERGYY5X6t0J5xhu7i2If/fP3fo3yVbA1brhx4
+ 90NjWc1P493lLIwiHExyIopsuibpmlPZmu4VLrMdQvMHFYmkCEMXJwCMJGJiowMj8KuRj55YVrR
+ fbNXyvizxJuQmOlzRM5lvD5/fwZPg82ZFYwMG2tZ6k3/uZ893/VqyuebQU5PTpxvDdhtK+tzavm
+ cIFFnBgBJxU3A
 X-Developer-Key: i=myrialsarvay@gmail.com; a=openpgp;
  fpr=2F35662B930680D275A645B452444118A8ADFEE9
 X-Endpoint-Received: by B4 Relay for myrialsarvay@gmail.com/default with
  auth_id=1027
 X-Original-From: Myria Sarvay <myrialsarvay@gmail.com>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,56 +125,126 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This series adds support for the CPU PMU in the new M3, M4 and A18 SoCs
-presed in apple devices. These PMUs have new encodings for events, along
-with larger codes for these events. All of these events are as Apple
-describes them in the various kpep files found under /usr/share/kpep on
-macOS 27. More events may exist, but we have no idea of their affinity,
-or what they actually count, so we don't include them here.
+From: Myria Sarvay <myrialsarvay@gmail.com>
 
-These patches have been tested on my own M2 (t8133-j413) and M3
-(t6031-j514c) devices, as well as by Yuvan on their M4 (t8132-j713)
-device.
+6 generations of apple silicon, with at least 2 init functions for each
+lead to at least 12 init functions. Template them with macros to save
+boilterplate code.
 
-If possible, the device tree changes should probably go through
-apple-soc, as this is where the recently picked up M4 Pro/Max dts are.
-
-Tested-by: Yuvan Shen <yuvanshen09@gmail.com> # on t8132-j713
 Signed-off-by: Myria Sarvay <myrialsarvay@gmail.com>
 ---
-Myria Sarvay (12):
-      dt-bindings: arm: pmu: Add Apple M3/M4/A18 Pro SoC CPU PMU compatibles
-      drivers/perf: apple_m1: Remove unused variables
-      drivers/perf: apple_m1: Support per-implementation event size
-      drivers/perf: apple_m1: Use macros for per-implementation init functions
-      drivers/perf: apple_m1: Add Apple M3 Series Support
-      drivers/perf: apple_m1: Add Apple M4 Series Support
-      drivers/perf: apple_m1: Add Apple A18 Support
-      arm64: dts: apple: t603x: Add PMU Device Nodes
-      arm64: dts: apple: t8122: Add PMU Device Nodes
-      arm64: dts: apple: t604x: Add PMU Device Nodes
-      arm64: dts: apple: t8132: Add PMU Device Nodes
-      arm64: dts: apple: t8140: Add PMU Device Nodes
+ drivers/perf/apple_m1_cpu_pmu.c | 91 ++++++++++++++---------------------------
+ 1 file changed, 30 insertions(+), 61 deletions(-)
 
-Nick Chan (1):
-      drivers/perf: apple_m1: Support per-implementation event tables
+diff --git a/drivers/perf/apple_m1_cpu_pmu.c b/drivers/perf/apple_m1_cpu_pmu.c
+index a14864263bf1..e7e9b51ffadc 100644
+--- a/drivers/perf/apple_m1_cpu_pmu.c
++++ b/drivers/perf/apple_m1_cpu_pmu.c
+@@ -653,71 +653,40 @@ static int apple_pmu_init(struct arm_pmu *cpu_pmu)
+ }
+ 
+ /* Device driver gunk */
+-static int m1_pmu_ice_init(struct arm_pmu *cpu_pmu)
+-{
+-	cpu_pmu->name = "apple_icestorm_pmu";
+-	cpu_pmu->enable		  = m1_pmu_enable_event;
+-	cpu_pmu->get_event_idx	  = m1_pmu_get_event_idx;
+-	cpu_pmu->map_event	  = m1_pmu_map_event;
+-	cpu_pmu->set_event_filter = m1_pmu_set_event_filter;
+-
+-	cpu_pmu->map_pmuv3_event  = m1_pmu_map_pmuv3_event;
+-
+-	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
+-	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_FORMATS] = &m1_pmu_format_attr_group;
+-	return apple_pmu_init(cpu_pmu);
+-}
+-
+-static int m1_pmu_fire_init(struct arm_pmu *cpu_pmu)
+-{
+-	cpu_pmu->name = "apple_firestorm_pmu";
+-	cpu_pmu->enable		  = m1_pmu_enable_event;
+-	cpu_pmu->get_event_idx	  = m1_pmu_get_event_idx;
+-	cpu_pmu->map_event	  = m1_pmu_map_event;
+-	cpu_pmu->set_event_filter = m1_pmu_set_event_filter;
+-
+-	cpu_pmu->map_pmuv3_event  = m1_pmu_map_pmuv3_event;
+-
+-	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
+-	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_FORMATS] = &m1_pmu_format_attr_group;
+-	return apple_pmu_init(cpu_pmu);
+-}
+-
+-static int m2_pmu_avalanche_init(struct arm_pmu *cpu_pmu)
+-{
+-	cpu_pmu->name = "apple_avalanche_pmu";
+-	cpu_pmu->enable		  = m1_pmu_enable_event;
+-	cpu_pmu->get_event_idx	  = m1_pmu_get_event_idx;
+-	cpu_pmu->map_event	  = m2_pmu_map_event;
+-	cpu_pmu->set_event_filter = m1_pmu_set_event_filter;
+-
+-	cpu_pmu->map_pmuv3_event  = m1_pmu_map_pmuv3_event;
+-
+-	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
+-	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_FORMATS] = &m1_pmu_format_attr_group;
+-	return apple_pmu_init(cpu_pmu);
+-}
+-
+-static int m2_pmu_blizzard_init(struct arm_pmu *cpu_pmu)
+-{
+-	cpu_pmu->name = "apple_blizzard_pmu";
+-	cpu_pmu->enable		  = m1_pmu_enable_event;
+-	cpu_pmu->get_event_idx	  = m1_pmu_get_event_idx;
+-	cpu_pmu->map_event	  = m2_pmu_map_event;
+-	cpu_pmu->set_event_filter = m1_pmu_set_event_filter;
+-
+-	cpu_pmu->map_pmuv3_event  = m1_pmu_map_pmuv3_event;
+-
+-	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
+-	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_FORMATS] = &m1_pmu_format_attr_group;
+-	return apple_pmu_init(cpu_pmu);
+-}
++#define APPLE_PMU_INIT(gen, family)								\
++static int gen ## _pmu_ ## family ## _init(struct arm_pmu *cpu_pmu)				\
++{												\
++	cpu_pmu->name			= "apple_" #family "_pmu";				\
++	cpu_pmu->enable			= gen ## _pmu_enable_event;				\
++	cpu_pmu->get_event_idx		= gen ## _pmu_get_event_idx;				\
++	cpu_pmu->map_event		= gen ## _pmu_map_event;				\
++	cpu_pmu->set_event_filter	= gen ## _pmu_set_event_filter;				\
++												\
++	cpu_pmu->map_pmuv3_event	= gen ## _pmu_map_pmuv3_event;				\
++												\
++	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &gen ## _pmu_events_attr_group;	\
++	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_FORMATS] = &gen ## _pmu_format_attr_group;	\
++	return apple_pmu_init(cpu_pmu);								\
++}
++
++#define m2_pmu_enable_event		m1_pmu_enable_event
++#define m2_pmu_get_event_idx		m1_pmu_get_event_idx
++#define m2_pmu_set_event_filter		m1_pmu_set_event_filter
++#define m2_pmu_map_pmuv3_event		m1_pmu_map_pmuv3_event
++#define m2_pmu_init_pmceid		m1_pmu_init_pmceid
++#define m2_pmu_events_attr_group	m1_pmu_events_attr_group
++#define m2_pmu_format_attr_group	m1_pmu_format_attr_group
++
++APPLE_PMU_INIT(m1, icestorm)
++APPLE_PMU_INIT(m1, firestorm)
++APPLE_PMU_INIT(m2, avalanche)
++APPLE_PMU_INIT(m2, blizzard)
+ 
+ static const struct of_device_id m1_pmu_of_device_ids[] = {
+ 	{ .compatible = "apple,avalanche-pmu",	.data = m2_pmu_avalanche_init, },
+ 	{ .compatible = "apple,blizzard-pmu",	.data = m2_pmu_blizzard_init, },
+-	{ .compatible = "apple,icestorm-pmu",	.data = m1_pmu_ice_init, },
+-	{ .compatible = "apple,firestorm-pmu",	.data = m1_pmu_fire_init, },
++	{ .compatible = "apple,icestorm-pmu",	.data = m1_pmu_icestorm_init, },
++	{ .compatible = "apple,firestorm-pmu",	.data = m1_pmu_firestorm_init, },
+ 	{ },
+ };
+ MODULE_DEVICE_TABLE(of, m1_pmu_of_device_ids);
 
- Documentation/devicetree/bindings/arm/pmu.yaml |   8 +
- arch/arm64/boot/dts/apple/t6030.dtsi           |  12 +
- arch/arm64/boot/dts/apple/t6031-base.dtsi      |  12 +
- arch/arm64/boot/dts/apple/t6041.dtsi           |  12 +
- arch/arm64/boot/dts/apple/t8122.dtsi           |  12 +
- arch/arm64/boot/dts/apple/t8132.dtsi           |  12 +
- arch/arm64/boot/dts/apple/t8140.dtsi           |  12 +
- drivers/perf/apple_m1_cpu_pmu.c                | 664 ++++++++++++++++++++++---
- 8 files changed, 662 insertions(+), 82 deletions(-)
----
-base-commit: acb925da49876e74b806ccd48a7518d2d3368e5d
-change-id: 20260929-m3-plus-pmu-events-e4010ab44135
-
-Best regards,
---  
-Myria Sarvay <myrialsarvay@gmail.com>
+-- 
+2.56.0
 
 
 
