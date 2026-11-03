@@ -2,11 +2,12 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72A25606FCFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 15:09:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F62A606B255
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 15:09:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yhpzlgh0;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ka8mU0zm
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CoPr2aKj;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=VsvtV3m1;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=e3fKuhhn
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,66 +15,137 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=04sRIO3MjeYbz6CJp5GZCOCBS65b5l82fPhVgQ5j8Ig=; b=yhpzlgh0mRnj+oQ1uJOoco42o4
-	jFej6ZRIA/rSe9gIncyxHaaKG/Dk7mfUbRhAuscb1+zDHq3qDUOxCAr+j+GGfi8nov/4nJa0RcDsr
-	pgbzpZ7nHZB1UAvBsEP9n1M6R1NmK+qXhqPn8eyQmQPkRSJJubtIPVjzisELhMpEo9TZfO0ueyFGG
-	gNuSbrvGBc5kGAy1KP6sdYrM+De5ZX/vVdeE+karjJ4ZO746ZpaAuocizcNKvjKrVGi7FxrmdRp1r
-	ubFCY9uwgYw6fv4gpz+YS/jItXhKtAh1hix37GvL7YbAh7LiDQmfViBhLweGeW0OWNVH+zjZQPazz
-	ZZoIldHw==;
+	bh=WtnaI/rE8dqZ2TDAvhFl2l1GKkkDIiG6JUx0pMWVYEM=; b=CoPr2aKj7jpaNWat0pbbdj/u7L
+	PdDpgAkMy7ncCWiyoMoPwEgwfdMVcYWRAbLKcziobjGZ/BchncnXyMOyTIDzqy4J2yw7tAWZf8aUD
+	DkvjU694SuPsUScIRQxOGr9XF5tasxv4HS8MEM/s+LlwxVdbqhpxjsLSbeYYP6THEIEudIX3wxD3C
+	/SNmxFne13Y3ECGgEQgxHQyzbDTt9hza8LvqHkTSd8TmjosXc11QGVp8lQWyWTWj/4ZV6DeZgr5LE
+	xNhSk+uitqwXeWJ4otdQO9NoWNKJM6QMrVejvj9CfId7pgQw9Z2A/uzHRLqXWGiYS1frzFWHWwu/9
+	Y3h0FdpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOG8T-00000002r6x-2RsP;
-	Tue, 03 Nov 2026 15:09:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xOG8k-00000002rFZ-11zK;
+	Tue, 03 Nov 2026 15:09:34 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOG8S-00000002r6N-0ibx;
-	Tue, 03 Nov 2026 15:09:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B2BBD436A3;
-	Tue,  3 Nov 2026 15:09:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 351961F000C1;
-	Tue,  3 Nov 2026 15:09:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793718555;
-	bh=04sRIO3MjeYbz6CJp5GZCOCBS65b5l82fPhVgQ5j8Ig=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ka8mU0zmAxKLwL2fFpD9CSalT3tGxn8R2vJaJEvx62sO5knzmnr8o+jvl3A4PXUYQ
-	 Dxf4yVxdNUJRaSMFUbZXUszVhxd0knfdDWS6zjzIFpMB5n4bUVioUR8MiiThYK+RXG
-	 oLntR6Y938oN1l2HEEGZwVORgG5aTsGwv/MxrYlWW+xz+HzsxFHbe8bsiksmJN+Eeg
-	 st24vgn2YKrHIvg0UlZHV1ThyeHHuIY6Xm64crEiMYg8cxKwttwDLZNXlk3pCT3Gzq
-	 wy9AdFSWAhMox5u4djhZqr3O3sxbk/vCdfLhvYIRh52/cce/Q/j73nK2lIrQ1r3h0O
-	 ape4Kv2DAzHkg==
-Date: Tue, 3 Nov 2026 15:09:07 +0000
-From: Lee Jones <lee@kernel.org>
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Val Packett <val@packett.cool>, Fabien Parent <parent.f@gmail.com>,
-	Akari Tsuyukusa <akkun11.open@gmail.com>,
-	Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, mfd@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v11 4/9] mfd: mt6397: Use MFD_CELL_* to describe
- sub-devices
-Message-ID: <179310028255.2808517.13933580516140278450@kernel.org>
-References: <20261021105109.199886-1-l.scorcia@gmail.com>
- <20261021105109.199886-5-l.scorcia@gmail.com>
+	id 1xOG8f-00000002rDD-1WHh
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Nov 2026 15:09:32 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A3EA3qZ3048795
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 3 Nov 2026 15:09:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=WtnaI/rE8dqZ2TDAvhFl2l1G
+	KkkDIiG6JUx0pMWVYEM=; b=VsvtV3m10nlkXZ186rhLO4fXxZ39IP3M8PkirN5C
+	J539yVBBCInCy9QYSttMftMfkEaL6QsjEsnb9/RDBHV92d40CjDJz7ih50M4rz8o
+	TK2naZkOM0fmNGNCiBnvZ3wRMdLSkzSmptMtt7GQt6dO/VxnuA9pUe6KgTrW7kzh
+	R0d1lIJc1kdjdYm0Z9MTvTJI+WCuCG7Lu0i39aNLYcshkGP4zZOaSiofyfAU+ybR
+	mqXdhY7DSz2hhRhMCNgSJaE1dxgY0LiHa3O5GAB1picCaLZawKfF18DSsV0305HE
+	OV7cY0xmf588y2vhyX17iBh70D09IrgOB5m8maqWexiMSw==
+Received: from mail-vs1-f71.google.com (mail-vs1-f71.google.com [209.85.217.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hq4v5k9h2-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 15:09:28 +0000 (GMT)
+Received: by mail-vs1-f71.google.com with SMTP id ada2fe7eead31-7cc4149b885so3369500137.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 07:09:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1793718567; x=1794323367; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WtnaI/rE8dqZ2TDAvhFl2l1GKkkDIiG6JUx0pMWVYEM=;
+        b=e3fKuhhnOJOzzlXpayawx4vdv2vwX05r1fc4alOlcI5k7YDwcW5D+Yj5cYQA7e7gq9
+         3fiS0LrRay5rQUdojmA2PdpcLDJOwEFPEpKy9yIguC61YcB2LT675RwhIujLdi818xQp
+         NRO2hgPOCadad6FQPMc8VqAL+X3w6MSg7TBbnsMecvTT7PfWHDLNRAaTOfqxnuTyAJnh
+         u6pW4tOSsoBXioneNFZwnTMEmpbmNAOHu5CyFT4Xm53zD5usgeuf/MOKGe4mY27QlUC4
+         D7s03SUfegXbBs2FG1LXbIqC0bAzFP+OpCNvgn0bSVRutU4zbNCL9CEQlRLDD2qkLOks
+         m9Lg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793718567; x=1794323367;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WtnaI/rE8dqZ2TDAvhFl2l1GKkkDIiG6JUx0pMWVYEM=;
+        b=wWQcOv68tFWzFkTtOe+DYlYIXqa6Pyzoz6BjzPe7I24eNBpr1vjf5zvAoRdjwuO+nR
+         u09QEAr4ukdybL3/DW+zsEGjRvSvKqGbcyBZ9F9xBLUdeZxAJWxZXXCMwHjYEBok7rZH
+         0E9i1zfeXtkmgF7OnUkxZLMzn9/KBobakDgSu95SvdD31W9lhxWz+lfGUkGi3XxA8W/s
+         q15UQale0UoYUAf/iEcY3njlRaG/D5LpeRgX7qT5OOkjDK8zeBn5AiUPfG9pzSM8q3qm
+         h2ajoGAOKU3K4pGPSCZ7ja5Xtwxu04abLXzip8lwwC1OLKNEg//aM3AEnXd1db1Wzr3E
+         AwHA==
+X-Forwarded-Encrypted: i=1; AKwUvBzocmZrOwUjpLegnLHkcaO6YOJ62eTo58nXVWEWfZhtIPIQTKW7h4NzNvV06MIdSWaXBWGvI3uQNBPVb0Q3Vx0t@lists.infradead.org
+X-Gm-Message-State: APuU4Z8rhQg+AAJds9gJzinjdVeYx5rQPdDDLApy9enYNipLk+EvqjeO
+	oCUYe2kt2gg1M2MJn9khx283SMzExeAvyygED3HjDONnqJf3IHo5lMSyC1LDjblRSEooRDfbT9S
+	P0sI+CZ8k4QyK/LI3dlBkGgm/KyRaZE+rF//JeQiTxDyWicC+FsEkHVvAtOeqRruUB3MzMZTHO4
+	RJHg==
+X-Gm-Gg: AYBFou1aOUbPGXkgEWf/Afbt4Gkqf9iZX5FDqNxU30OaGn5w/50RO/nMMUQbUnurggk
+	32BNVS3Q3fne/ZH5/xANFJFSynR/TvrKkCZoCImS/kvLLJBosRH2ZaUVDpng3Tqq06uqc7JMnTa
+	HA1VOufRQAPeSUzXQmVRL+O2+P8CY1/DnoqKYSbfuQIjL1ofWD4JNebqOf9mgzMQIVTBMeujdDX
+	pWnofmrTW4O2peyii3twVnvyt7HLn9yV/bY0HvWz4lMv16VKW3XodeiMrt+9FJzMlCq/5kuru5N
+	MWz0w4It/PMhly/uf5BiZ79C/NxakQj7YB5IKq+bQvDzEfL+a7pKadA2K1+2egduRDjPwJ3Yryr
+	V9GkkFUbWG91tGnyMh+1kQCVqxJo3tT95+SOwyB6Z/kO4Rpc2jqUAFpvnCBwc8w==
+X-Received: by 2002:a05:6102:f0e:b0:7cc:9d59:9b6e with SMTP id ada2fe7eead31-7d07261530emr5713657137.13.1793718567326;
+        Tue, 03 Nov 2026 07:09:27 -0800 (PST)
+X-Received: by 2002:a05:6102:f0e:b0:7cc:9d59:9b6e with SMTP id ada2fe7eead31-7d07261530emr5713641137.13.1793718566728;
+        Tue, 03 Nov 2026 07:09:26 -0800 (PST)
+Received: from localhost ([93.66.104.131])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4abeb77af8csm465070355e9.1.2026.11.03.07.09.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Nov 2026 07:09:24 -0800 (PST)
+Date: Tue, 3 Nov 2026 16:09:22 +0100
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+        davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+        Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Russell King <linux@armlinux.org.uk>, thomas.petazzoni@bootlin.com,
+        Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
+        netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next] net: stmmac: selftests: Add missing endianness
+ conversions
+Message-ID: <aun5IpJsYPwrnBYB@lore-desk>
+References: <20261103122249.951523-1-maxime.chevallier@bootlin.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="IxJjiVHShnjx8PxM"
 Content-Disposition: inline
-In-Reply-To: <20261021105109.199886-5-l.scorcia@gmail.com>
-X-AI-Review-Draft: <20261021105109.199886-5-l.scorcia@gmail.com>
+In-Reply-To: <20261103122249.951523-1-maxime.chevallier@bootlin.com>
+X-Proofpoint-ORIG-GUID: gukenS4mq8BpOIfHS4GzOgcEuqiA0ypg
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAzMDA2MCBTYWx0ZWRfX0GSRy/BfoZ+f
+ ep76SCf4x3jY9oS5O//FSX4n1nK4mN2PZg9BdzCUyXFsA0kJi6ImOSigmdqMt/hvmM60+pI0tbA
+ ujDdeD3m5+fWGRCQFiASCxXlU58sGy5czYtLkDT4ottOaI/6K7d+KlsFvB2cEUHHm24yDnw25S0
+ 8vfigPyETNW4GJHNrxRh7ut37dTasczy1YCF/uhJuRpqJpIvVa3hp6TvFK6x1LmBHtCLUmrKTu7
+ 7ydN4fJ6V83/LI8lrQFrb5FaHT1Ev9n47IZcjFWxGJevtN8UZaKjV4M3BeR4PljOLg31zJNBgjb
+ afm/kpZPh+WySjFUtTKPsqSxGnVHWF8j8oKHzUngOklkxutysFbeb26xSKWQ/p76X/oirpNPs+m
+ 4MCBmWki3BTHr3prSeBimK+ipbb3UY+6o5cvPRyd0bvxMi/834jauYP35R9FEtlR4NjmCiTajLL
+ ksPykWSiR7dzjqYeL1w==
+X-Proofpoint-GUID: gukenS4mq8BpOIfHS4GzOgcEuqiA0ypg
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAzMDA2MCBTYWx0ZWRfX4xB/vjDCNxG/
+ JeFFRNStOZJCjcMR4xd7ssAQ05EgQXd0YbHtCKWb/EZRU87Y1AzNuFBXZgiYt3tlOdlPeerZbPp
+ qRCkvfvjLwUUwLWwkUWyaTb0GCsuYCY=
+X-Authority-Analysis: v=2.4 cv=NeZzRGD4 c=1 sm=1 tr=0 ts=6ae9f928 cx=c_pps
+ a=P2rfLEam3zuxRRdjJWA2cw==:117 a=cAAIdyqZgEis9HJxay2Blw==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=VwQbUJbxAAAA:8
+ a=QyXUC8HyAAAA:8 a=P-IC7800AAAA:8 a=EUspDBNiAAAA:8 a=HEzXNubd1cMG4gQdFsAA:9
+ a=CjuIK1q_8ugA:10 a=HiAPeVrv790yWpiQFZ0A:9 a=ODZdjJIeia2B_SHc_B0f:22
+ a=d3PnA9EDa4IxuAV0gXij:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-03_03,2026-11-03_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 lowpriorityscore=0 malwarescore=0 phishscore=0 priorityscore=1501
+ adultscore=0 suspectscore=0 clxscore=1015 spamscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610300000 definitions=main-2611030060
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261103_070929_410141_A1932DA2 
+X-CRM114-Status: GOOD (  24.18  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,267 +159,95 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, 21 Oct 2026, Luca Leonardo Scorcia wrote:
+--IxJjiVHShnjx8PxM
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> Use the MFD_CELL_* macros to describe sub-devices. No functional changes.
->
-> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> The kbuild bot found some endianness issues in the stmmac ethtool
+> selftests [1] let's address these.
+>=20
+> In practice these missing conversions didn't cause any issue, as the
+> masks / values on which the conversions were missing were either always
+> 0 or ~0, so skipping the byte swaps lead to the same value being passed
+> anyway.
+>=20
+> [1]: https://lore.kernel.org/oe-kbuild-all/202611010511.Mk620DTd-lkp@inte=
+l.com/
+>=20
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Reviewed-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+
 > ---
->  drivers/mfd/mt6397-core.c | 207 ++++++++++++--------------------------
->  1 file changed, 67 insertions(+), 140 deletions(-)
->
-> diff --git a/drivers/mfd/mt6397-core.c b/drivers/mfd/mt6397-core.c
-> index 9ec951996588..3e08179002fa 100644
-> --- a/drivers/mfd/mt6397-core.c
-> +++ b/drivers/mfd/mt6397-core.c
-> @@ -124,165 +124,92 @@ static const struct resource mt6323_pwrc_resources[] = {
->  };
->
->  static const struct mfd_cell mt6323_devs[] = {
-> -	{
-> -		.name = "mt6323-auxadc",
-> -		.of_compatible = "mediatek,mt6323-auxadc",
-> -	}, {
-> -		.name = "mt6323-efuse",
-> -		.of_compatible = "mediatek,mt6323-efuse",
-> -	}, {
-> -		.name = "mt6323-rtc",
-> -		.num_resources = ARRAY_SIZE(mt6323_rtc_resources),
-> -		.resources = mt6323_rtc_resources,
-> -		.of_compatible = "mediatek,mt6323-rtc",
-> -	}, {
-> -		.name = "mt6323-regulator",
-> -		.of_compatible = "mediatek,mt6323-regulator"
-> -	}, {
-> -		.name = "mt6323-led",
-> -		.of_compatible = "mediatek,mt6323-led"
-> -	}, {
-> -		.name = "mt6323-keys",
-> -		.num_resources = ARRAY_SIZE(mt6323_keys_resources),
-> -		.resources = mt6323_keys_resources,
-> -		.of_compatible = "mediatek,mt6323-keys"
-> -	}, {
-> -		.name = "mt6323-pwrc",
-> -		.num_resources = ARRAY_SIZE(mt6323_pwrc_resources),
-> -		.resources = mt6323_pwrc_resources,
-> -		.of_compatible = "mediatek,mt6323-pwrc"
-> -	},
-> +	MFD_CELL_OF("mt6323-auxadc", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6323-auxadc"),
-> +	MFD_CELL_OF("mt6323-efuse", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6323-efuse"),
-> +	MFD_CELL_OF("mt6323-rtc", mt6323_rtc_resources, NULL, 0, 0,
-> +		    "mediatek,mt6323-rtc"),
-> +	MFD_CELL_OF("mt6323-regulator", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6323-regulator"),
-> +	MFD_CELL_OF("mt6323-led", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6323-led"),
-> +	MFD_CELL_OF("mt6323-keys", mt6323_keys_resources, NULL, 0, 0,
-> +		    "mediatek,mt6323-keys"),
-> +	MFD_CELL_OF("mt6323-pwrc", mt6323_pwrc_resources, NULL, 0, 0,
+> This isn't worth sending to net, I've dropped the Fixes / Reported-by /
+> Closes tags, let me know if I should add'em back.
+>=20
+> There are more of these endianness warnings in other places, but they
+> require a bit more attention. This'll be addressed at a later point, I
+> don't think we have many big-endian stmmac setups anyways.
+>=20
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c | 10 +++++-----
+>  1 file changed, 5 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/dri=
+vers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+> index 40811df8f2b7..df696e2c1528 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+> @@ -1216,7 +1216,7 @@ static int stmmac_test_rxp(struct stmmac_priv *priv)
+>  	sel->offshift =3D 0;
+>  	sel->keys[0].off =3D 6;
+>  	sel->keys[0].val =3D htonl(0xdeadbeef);
+> -	sel->keys[0].mask =3D ~0x0;
+> +	sel->keys[0].mask =3D htonl(~0x0);
+> =20
+>  	ret =3D stmmac_tc_setup_cls_u32(priv, priv, &cls_u32);
+>  	if (ret)
+> @@ -1463,8 +1463,8 @@ static int __stmmac_test_l3filt(struct stmmac_priv =
+*priv, u32 dst, u32 src,
+> =20
+>  	key.src =3D htonl(src);
+>  	key.dst =3D htonl(dst);
+> -	mask.src =3D src_mask;
+> -	mask.dst =3D dst_mask;
+> +	mask.src =3D htonl(src_mask);
+> +	mask.dst =3D htonl(dst_mask);
+> =20
+>  	cls->rule =3D rule;
+> =20
+> @@ -1594,8 +1594,8 @@ static int __stmmac_test_l4filt(struct stmmac_priv =
+*priv, u32 dst, u32 src,
+>  	keys.key.dst =3D htons(dst);
+>  	/* Match the full IP proto field */
+>  	masks.bmask.ip_proto =3D 0xff;
+> -	masks.mask.src =3D src_mask;
+> -	masks.mask.dst =3D dst_mask;
+> +	masks.mask.src =3D htons(src_mask);
+> +	masks.mask.dst =3D htons(dst_mask);
+> =20
+>  	cls->rule =3D rule;
+> =20
+> --=20
+> 2.56.0
+>=20
+>=20
 
-Nit: This is non-blocking, but if you have to respin, please use the
-100-char limit to keep these on single lines where possible. Same for
-all the others below.
+--IxJjiVHShnjx8PxM
+Content-Type: application/pgp-signature; name=signature.asc
 
-> +		    "mediatek,mt6323-pwrc"),
->  };
->
->  static const struct mfd_cell mt6328_devs[] = {
-> -	{
-> -		.name = "mt6328-regulator",
-> -		.of_compatible = "mediatek,mt6328-regulator"
-> -	}, {
-> -		.name = "mt6328-keys",
-> -		.num_resources = ARRAY_SIZE(mt6328_keys_resources),
-> -		.resources = mt6328_keys_resources,
-> -		.of_compatible = "mediatek,mt6328-keys"
-> -	},
-> +	MFD_CELL_OF("mt6328-regulator", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6328-regulator"),
-> +	MFD_CELL_OF("mt6328-keys", mt6328_keys_resources, NULL, 0, 0,
-> +		    "mediatek,mt6328-keys"),
->  };
->
->  static const struct mfd_cell mt6357_devs[] = {
-> -	{
-> -		.name = "mt6359-auxadc",
-> -		.of_compatible = "mediatek,mt6357-auxadc"
-> -	}, {
-> -		.name = "mt6357-regulator",
-> -	}, {
-> -		.name = "mt6357-rtc",
-> -		.num_resources = ARRAY_SIZE(mt6357_rtc_resources),
-> -		.resources = mt6357_rtc_resources,
-> -		.of_compatible = "mediatek,mt6357-rtc",
-> -	}, {
-> -		.name = "mt6357-sound",
-> -		.of_compatible = "mediatek,mt6357-sound"
-> -	}, {
-> -		.name = "mt6357-keys",
-> -		.num_resources = ARRAY_SIZE(mt6357_keys_resources),
-> -		.resources = mt6357_keys_resources,
-> -		.of_compatible = "mediatek,mt6357-keys"
-> -	},
-> +	MFD_CELL_OF("mt6359-auxadc", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6357-auxadc"),
-> +	MFD_CELL_NAME("mt6357-regulator"),
-> +	MFD_CELL_OF("mt6357-rtc", mt6357_rtc_resources, NULL, 0, 0,
-> +		    "mediatek,mt6357-rtc"),
-> +	MFD_CELL_OF("mt6357-sound", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6357-sound"),
-> +	MFD_CELL_OF("mt6357-keys", mt6357_keys_resources, NULL, 0, 0,
-> +		    "mediatek,mt6357-keys"),
->  };
->
->  /* MT6331 is always used in combination with MT6332 */
->  static const struct mfd_cell mt6331_mt6332_devs[] = {
-> -	{
-> -		.name = "mt6331-rtc",
-> -		.num_resources = ARRAY_SIZE(mt6331_rtc_resources),
-> -		.resources = mt6331_rtc_resources,
-> -		.of_compatible = "mediatek,mt6331-rtc",
-> -	}, {
-> -		.name = "mt6331-regulator",
-> -		.of_compatible = "mediatek,mt6331-regulator"
-> -	}, {
-> -		.name = "mt6332-regulator",
-> -		.of_compatible = "mediatek,mt6332-regulator"
-> -	}, {
-> -		.name = "mt6331-keys",
-> -		.num_resources = ARRAY_SIZE(mt6331_keys_resources),
-> -		.resources = mt6331_keys_resources,
-> -		.of_compatible = "mediatek,mt6331-keys"
-> -	},
-> +	MFD_CELL_OF("mt6331-rtc", mt6331_rtc_resources, NULL, 0, 0,
-> +		    "mediatek,mt6331-rtc"),
-> +	MFD_CELL_OF("mt6331-regulator", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6331-regulator"),
-> +	MFD_CELL_OF("mt6332-regulator", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6332-regulator"),
-> +	MFD_CELL_OF("mt6331-keys", mt6331_keys_resources, NULL, 0, 0,
-> +		    "mediatek,mt6331-keys"),
->  };
->
->  static const struct mfd_cell mt6358_devs[] = {
-> -	{
-> -		.name = "mt6359-auxadc",
-> -		.of_compatible = "mediatek,mt6358-auxadc"
-> -	}, {
-> -		.name = "mt6358-regulator",
-> -		.of_compatible = "mediatek,mt6358-regulator"
-> -	}, {
-> -		.name = "mt6358-rtc",
-> -		.num_resources = ARRAY_SIZE(mt6358_rtc_resources),
-> -		.resources = mt6358_rtc_resources,
-> -		.of_compatible = "mediatek,mt6358-rtc",
-> -	}, {
-> -		.name = "mt6358-sound",
-> -		.of_compatible = "mediatek,mt6358-sound"
-> -	}, {
-> -		.name = "mt6358-keys",
-> -		.num_resources = ARRAY_SIZE(mt6358_keys_resources),
-> -		.resources = mt6358_keys_resources,
-> -		.of_compatible = "mediatek,mt6358-keys"
-> -	},
-> +	MFD_CELL_OF("mt6359-auxadc", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6358-auxadc"),
-> +	MFD_CELL_OF("mt6358-regulator", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6358-regulator"),
-> +	MFD_CELL_OF("mt6358-rtc", mt6358_rtc_resources, NULL, 0, 0,
-> +		    "mediatek,mt6358-rtc"),
-> +	MFD_CELL_OF("mt6358-sound", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6358-sound"),
-> +	MFD_CELL_OF("mt6358-keys", mt6358_keys_resources, NULL, 0, 0,
-> +		    "mediatek,mt6358-keys"),
->  };
->
->  static const struct mfd_cell mt6359_devs[] = {
-> -	{
-> -		.name = "mt6359-auxadc",
-> -		.of_compatible = "mediatek,mt6359-auxadc"
-> -	},
-> -	{ .name = "mt6359-regulator", },
-> -	{
-> -		.name = "mt6359-rtc",
-> -		.num_resources = ARRAY_SIZE(mt6358_rtc_resources),
-> -		.resources = mt6358_rtc_resources,
-> -		.of_compatible = "mediatek,mt6358-rtc",
-> -	},
-> -	{ .name = "mt6359-sound", },
-> -	{
-> -		.name = "mt6359-keys",
-> -		.num_resources = ARRAY_SIZE(mt6359_keys_resources),
-> -		.resources = mt6359_keys_resources,
-> -		.of_compatible = "mediatek,mt6359-keys"
-> -	},
-> -	{
-> -		.name = "mt6359-accdet",
-> -		.of_compatible = "mediatek,mt6359-accdet",
-> -		.num_resources = ARRAY_SIZE(mt6359_accdet_resources),
-> -		.resources = mt6359_accdet_resources,
-> -	},
-> +	MFD_CELL_OF("mt6359-auxadc", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6359-auxadc"),
-> +	MFD_CELL_NAME("mt6359-regulator"),
-> +	MFD_CELL_OF("mt6359-rtc", mt6358_rtc_resources, NULL, 0, 0,
-> +		    "mediatek,mt6358-rtc"),
-> +	MFD_CELL_NAME("mt6359-sound"),
-> +	MFD_CELL_OF("mt6359-keys", mt6359_keys_resources, NULL, 0, 0,
-> +		    "mediatek,mt6359-keys"),
-> +	MFD_CELL_OF("mt6359-accdet", mt6359_accdet_resources, NULL, 0, 0,
-> +		    "mediatek,mt6359-accdet"),
->  };
->
->  static const struct mfd_cell mt6397_devs[] = {
-> -	{
-> -		.name = "mt6397-rtc",
-> -		.num_resources = ARRAY_SIZE(mt6397_rtc_resources),
-> -		.resources = mt6397_rtc_resources,
-> -		.of_compatible = "mediatek,mt6397-rtc",
-> -	}, {
-> -		.name = "mt6397-regulator",
-> -		.of_compatible = "mediatek,mt6397-regulator",
-> -	}, {
-> -		.name = "mt6397-codec",
-> -		.of_compatible = "mediatek,mt6397-codec",
-> -	}, {
-> -		.name = "mt6397-clk",
-> -		.of_compatible = "mediatek,mt6397-clk",
-> -	}, {
-> -		.name = "mt6397-pinctrl",
-> -		.of_compatible = "mediatek,mt6397-pinctrl",
-> -	}, {
-> -		.name = "mt6397-keys",
-> -		.num_resources = ARRAY_SIZE(mt6397_keys_resources),
-> -		.resources = mt6397_keys_resources,
-> -		.of_compatible = "mediatek,mt6397-keys"
-> -	}
-> +	MFD_CELL_OF("mt6397-rtc", mt6397_rtc_resources, NULL, 0, 0,
-> +		    "mediatek,mt6397-rtc"),
-> +	MFD_CELL_OF("mt6397-regulator", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6397-regulator"),
-> +	MFD_CELL_OF("mt6397-codec", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6397-codec"),
-> +	MFD_CELL_OF("mt6397-clk", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6397-clk"),
-> +	MFD_CELL_OF("mt6397-pinctrl", NULL, NULL, 0, 0,
-> +		    "mediatek,mt6397-pinctrl"),
-> +	MFD_CELL_OF("mt6397-keys", mt6397_keys_resources, NULL, 0, 0,
-> +		    "mediatek,mt6397-keys"),
->  };
->
->  struct chip_data {
-> -- 
-> 2.43.0
->
+-----BEGIN PGP SIGNATURE-----
 
--- 
-Lee Jones
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaun5IgAKCRA6cBh0uS2t
+rEreAP9RquFj7WKKDysqBVQoJ6e0dVIsW1UM/4cQsoIBq2aelwD/T9/Pdxsxz96+
+bqDDg/n0YBnH3cZXcJCfxoB/tOAA1g0=
+=hOaE
+-----END PGP SIGNATURE-----
+
+--IxJjiVHShnjx8PxM--
 
