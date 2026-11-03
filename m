@@ -2,108 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93143606A339
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 02:07:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3047E606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 02:22:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FHU8QoD3;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=D9+PG6YQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eNrwSHBy;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TCHdwEWB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=mnCMgi1Mjc7rqcgOPGVHBPcSRGGmUVFCpLTaHePthjU=; b=FHU8QoD3e+gcb0234547CQz3oD
-	gyLMcDVA7rc+Hg5nGDYBQRK4S5po771wb/u2EZK74TqtmaBNjoAM/5Y6Z8yGxyYbaVZa1i9xyk+uY
-	zp3On9G6RRw8R3FuYmVoc3ROzzedO+Xrmid1YMLhN6bJoQDMfgoHrUP6XF5BqOQ1GtweM7gkFO0aD
-	WNz+wNB0iJD0V/auIM4vcxgTY16fjeETFpOM0Z9D0DIdiLeRSzsNp6ICmV4xYtaId+nbuw6VI64Y+
-	CUlaqTtX0YKU+J9oRc1zRuGSnIXQNk2hSbOeuoLVTTmEI8bLzpGGP2WsMVQ54GYY80Ae2jEwzPT62
-	lUl7R+9A==;
+	bh=r7CZHsFtToEeDraAns18SBV26Wozlx1z/SodGdtdGHQ=; b=eNrwSHBycPr6dZ1FNiJ4TbcZdH
+	ZDWAeH68kwxx0DsRAFcT3J3SZfwINeCY+sM0vCvhDfm9pmFmduLENGxIJkAN5ywYSn4vBp3+nG0Sq
+	vNPfGqCzwq1aFPk1nj0AbwcJ4TzLkd9XJ0H41HSMeeStu+JA/XJKVqBocEwDColNFpUja1otECyF3
+	h7N8cpq/WTx55hfw7+UdT87gKf+ClBQ9Nej/BTktg0KkypFzRmCl+VdGAxI9i1W8E/X3tAuXtR+18
+	YQItYDMBL/0EnvsHE+l9P97zE7S2K2f9J5LgHn9XQeWBMaKcJPHnroFo6jGFdxVYZi4x7aDuCmWp2
+	Cn3u9aFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO3wF-00000000r0i-152f;
-	Tue, 03 Nov 2026 02:07:51 +0000
-Received: from mail-dl1-x1234.google.com ([2607:f8b0:4864:20::1234])
+	id 1xO4AE-00000000rr5-1uc5;
+	Tue, 03 Nov 2026 02:22:18 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO3wC-00000000qyn-0yNT
+	id 1xO4AB-00000000rqf-0UNI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 02:07:49 +0000
-Received: by mail-dl1-x1234.google.com with SMTP id a92af1059eb24-1ae18eb9ad0so3650138c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 18:07:47 -0800 (PST)
+	Tue, 03 Nov 2026 02:22:16 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-3ae1b34e0d2so107912a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 18:22:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1793671667; x=1794276467; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mnCMgi1Mjc7rqcgOPGVHBPcSRGGmUVFCpLTaHePthjU=;
-        b=D9+PG6YQHbxKrfJ2IIGBXG/ZAjnoVP7B6BrF7kE+bZnFQMYNAwKtJ9Wx8ngOyTOvaH
-         Djhp90e2CRUqZsd50j3QX4Ej02DwTgya8U2GqQBgjgIdeZtwWjFhtIq9AeG7KVdfyLYc
-         auAYJq+DJbwgf6ZsaWl6HlDc5/lyYY2vCreLk=
+        d=gmail.com; s=20260707; t=1793672534; x=1794277334; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=r7CZHsFtToEeDraAns18SBV26Wozlx1z/SodGdtdGHQ=;
+        b=TCHdwEWB50Y4LGwQ1OKWHA9lZDCRQa9e1g6lxnxYpqlTF5SlrhywZEqKPCAtOH5tPJ
+         O7HZ8lH6QRl01zjLKUVZw7lrheJNLtM2nvn9xOrfJH458hVpM4vtulj8Y5DGk0Xr4iMz
+         twZgkRS5YKuIRY2GLeqe5Lw4o31QFiCnAL075egWskcvFCABseaFiQvM007LMFPrYH7h
+         cZ1EcmppQ82hdXAdbaa7VOAgwpfQJZ+IVQ7BKTj4AE6lQvSJJwPHfmjD2W1IfElzBzC8
+         fYcmQZzBEHYQWy9CMh3PuT2hwOLkNNWpOiQkJI2a3KajjR8bOvY8H1kPxzgdWTnEsxvh
+         gPWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793671667; x=1794276467;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mnCMgi1Mjc7rqcgOPGVHBPcSRGGmUVFCpLTaHePthjU=;
-        b=wmW0Bt4LX14LyYpUVMDSQLddBpJFGkaZVCC5Hp4xv/TOptAuLdAkv7rXPWiiGpg48o
-         GMan6Ni0IFb+6oZrU2lAwF3pW4iZfqG5VKObXjxhQxWU3hjNmfAT0vm/ZbjFGJ9UaYIO
-         3kKh0FFo56DAEvnJrAjLUOwex2QqxV/IL1Mc7JMPubG7X03nhBsyZL+VmaVwJwosI6e7
-         mTm4RxWhGUTKYydY/+DKDAlCKaaqHcSV/71CztM13+V/nb1b/c2EbcP8TRNPi2HSLMiq
-         kGHUZa9IZ78PgA+YVOFo3tekkwGbsfK+sEU78hE2PDb+ACpgIc+9bn8EIIq4ViTdaSLA
-         qdCw==
-X-Forwarded-Encrypted: i=1; AKwUvBw79a+aG8IZLCS9oK6522AsBXdvE+6NBHsy5XSiswKFMoG68jnv5idZfARgRxzHTZDuOGwmNjQ4wO0B/6JVXPpv@lists.infradead.org
-X-Gm-Message-State: AFq9FYJ3aFoI0k/eB0Kqm1WpgOpS2wG5z6RGT+Ug9dY9pFou48JtCtgO
-	aa9jDy8eL2Zs5M0LqFF7XBxzy+BYa+j30OPKEx7sOWcMq9fwsCJ9LNfWCder7ABoTw==
-X-Gm-Gg: AYBFou1gdJHPPb4FGB0/NRm2u1YofAc5mJQJo7nszWY4ctCh1i2XQ7B3DKVGrBM5KQ/
-	Vggvl9GlUD4LOKawfzE89rESKlnNK+MPZbJlvns71XtCYRSwHMIzJ2e+1tI32UQu9q9CJmgLI8T
-	lv54m7zwbiZdKkM4aGA0NlyCfKQqEe3AIEGrHRngPhixMMCLpsEnfrwKLTa/alcRW7JWM/pQcVP
-	YgTHcFZEroDEbUUDBtx6RfiqWLqhlAMuiroHR2fOtyCMH0ZMwKaShkzoVeAJeYwbnDgAV/0pBuf
-	7E2QtZ7qbal6xgsBYsuBi/cVWLxZQX3QeCn1CymJ51EeqVIRLzfEtwWWKAMbaw0AMKO22lQahEX
-	xfK+g+xDI7zwluvhJx/o/mz8y4U7MBvoVJaMFlB9JslQ3bbmBQPEYrt/EEHnxpsDs0LVnMV1TmT
-	HSpK6eV1S/WDEnxa+XZ/RROyFqiy/plcJI9Gpu97OaxuUxeTInsaPMjRnElQTvt4eJosBmxDNvu
-	wgNiU5qQuBqTM/O9RQv2887/cQieYP4uwPHQRUF7KLVBE3WrcDLPJiIqx5zX1zugImdhyFGJfcH
-	weNLLtxNMPMDsHvDPr8e72Lsbc9NnMjaBi6c5n4DqVQwak/brc2e3FKwUwRhONfBZpM=
-X-Received: by 2002:a05:7022:f105:b0:168:e942:4e62 with SMTP id a92af1059eb24-1ac601d2f3amr14793852c88.40.1793671667220;
-        Mon, 02 Nov 2026 18:07:47 -0800 (PST)
-Received: from localhost ([2a00:79e0:2e7c:8:c57d:c93d:3543:aab5])
-        by smtp.gmail.com with UTF8SMTPSA id a92af1059eb24-1b23b847348sm4090158c88.4.2026.11.02.18.07.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Nov 2026 18:07:46 -0800 (PST)
-Date: Mon, 2 Nov 2026 18:07:44 -0800
-From: Brian Norris <briannorris@chromium.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	devicetree@vger.kernel.org,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Radu Rendec <radu@rendec.net>,
+        d=1e100.net; s=20260707; t=1793672534; x=1794277334;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=r7CZHsFtToEeDraAns18SBV26Wozlx1z/SodGdtdGHQ=;
+        b=W7zHvDe+d7yeThJCf3fnaqq0RBBnbuOHV15ZuthBgWKyi0cyTLpX310kvXGK40rGOg
+         9CtSuxXakxMt4MCm8Zsk1eFzUEZmY/uq5yJ7o9N8JXMDP/1N/z4gXfWwGn5Rvj0tnHyX
+         wDlDRBDXljLFLLgC6aFaBncFkvlSuH7Zy4dOAIJ8qklTJEE2FRIAIiu0QgtTT5zi7Kk6
+         rCzCFGJstdF60U+GdlWj1F79kW3w6AtVl9lQEnEpxfNXDnxW/pJVqWJZWLygjIxw6uyA
+         5OMa+Uz8Lk/5lYHQeOdXDPW0CEnZOhIogG8e5jrQnjzqeVYZ6c8JiuPHRnZPvkC/apyP
+         tz7w==
+X-Forwarded-Encrypted: i=1; AKwUvBxlBiOkb4BpdpFsAKN9mv40Qp2+KtCR1KyZ9krk1nPc+xQpGaePTc8p96WGGSQdM++o2EpJo6cAf4jQoy4o3ksc@lists.infradead.org
+X-Gm-Message-State: APuU4Z/1mvoTiesIlickl24qGRDjV9mTG3yjSPbVSm525zTelHYBVrVt
+	RPMzCzp+SQ8aNxa0/id0cx29d2KXhX6YDDoedHO6Xq+/uGiu9vzSfAls
+X-Gm-Gg: AYBFou0YiVB4y5tI9be8/gT9Y2kjdHSUV7hJwhHmMQcBtvJ/bdqy7r74jarCPtUF4Wb
+	lPlHxzVsclo2pRacAfrWb0vM4fwt7NiesG9fffDTgfFkUks/i/JmwhpNtGQdW2Nf3r5Cb42DKpw
+	mclWy5DX5lGQ94MuI+/iWBgeW5RlAjnbraagZs3O8OZ8NZeVMrl5qslPZnn4FZH/2ONttfzXLau
+	Kinhp4zEnvStXfPSyAlUSZW012Os0az5S7Z+eVi//YEvdnfiZj9PoUXKRwfyHW1PSdp0olF7/gQ
+	iKAlSRfgZo0zqFrM/wZtBVpcgYueas8Y0IgNHoAkXm7opznyNn6WPrHINy7X8qREYFEsjS+Jj9e
+	iU96pE3ygG/2dkcQRQRI+QYv2WXt9+c6/rKVfiKWqCg/lug0pUhc0UVT7vXXBvGa8nO+kAQzDTQ
+	SMq3VeFUQmkQIveHtTW3tcFREPPklae4upXRW3xf3xOdE1QaXSdMHeiouqb7DwqfZtMgCLhF/Yg
+	5j/4q1/fbd6NjCAq+e5/JJqqfCuOXhX0MRCz9lA6kstdkTLc6ReQt6AO1RlzpezBr9Mzqlv4Q/m
+	fSH+UErQW4ixLB6lsKIiMF8eAqoIyPwSGEzex6gcKqSk2JaGEEi/bvgy9B6Cj2sjxZPYvNYE6KY
+	RPqXwbgJNTjKkd+E=
+X-Received: by 2002:a17:90b:55ce:b0:3ae:3f20:7058 with SMTP id 98e67ed59e1d1-3ae897bafd5mr6113235a91.36.1793672533832;
+        Mon, 02 Nov 2026 18:22:13 -0800 (PST)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b07c7dea24sm1570124a91.5.2026.11.02.18.22.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Nov 2026 18:22:13 -0800 (PST)
+From: Shan-Chun Hung <shanchun1218@gmail.com>
+To: ychuang3@nuvoton.com,
+	schung@nuvoton.com,
+	vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	kees@kernel.org,
+	gustavoars@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Mariano Marciello <mmarciello@google.com>,
-	Douglas Anderson <dianders@chromium.org>, linux-clk@vger.kernel.org,
-	Jakub =?utf-8?B?R8WCb3dhY2tp?= <jglow@google.com>
-Subject: Re: [PATCH 3/9] soc: google: Add CPM over MailBox Array driver
-Message-ID: <aulB8F6hc1eDvyfj@google.com>
-References: <20261026214359.3122870-1-briannorris@chromium.org>
- <20261026144346.3.I7bc547c83b7bf677a62670099f481a91ac737073@changeid>
- <20261028-literate-pony-of-valor-3209fb@quoll>
+	dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Cc: Shan-Chun Hung <shanchun1218@gmail.com>
+Subject: [PATCH 0/2] dmaengine: ma35d1-pdma: Add MA35D1 PDMA driver
+Date: Tue,  3 Nov 2026 10:22:00 +0800
+Message-Id: <20261103022202.2139674-1-shanchun1218@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261028-literate-pony-of-valor-3209fb@quoll>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_180748_275428_66E4E4BC 
-X-CRM114-Status: GOOD (  14.30  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261102_182215_158032_266FB85F 
+X-CRM114-Status: GOOD (  10.90  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,29 +110,44 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Oct 28, 2026 at 02:27:05PM +0100, Krzysztof Kozlowski wrote:
-> On Mon, Oct 26, 2026 at 02:43:41PM -0700, Brian Norris wrote:
-> > --- /dev/null
-> > +++ b/drivers/soc/google/Kconfig
-> > @@ -0,0 +1,13 @@
-> > +# SPDX-License-Identifier: GPL-2.0-only
-> > +
-> > +config GOOGLE_CPM_MBA
-> > +	tristate "Google Tensor CPM MailBox Array Interface"
-> > +	depends on ARCH_GOOGLE || COMPILE_TEST
-> > +	depends on MAILBOX
-> 
-> Can it be compile tested without mailbox?
+This series adds the PDMA controller driver and DT binding for the
+Nuvoton MA35D1 SoC.
 
-I don't think so. mbox_request_channel() and friends do not have stub
-implementations for the non-CONFIG_MAILBOX case.
+The driver supports memcpy, slave scatter-gather and cyclic transfers,
+and a per-channel timeout configured through
+dma_slave_config.peripheral_config. The timeout is needed by the
+MA35D1 UART driver, to be submitted separately.
 
-Brian
+Tested on the MA35D1 SOM board with Linux v7.4-rc1, using local
+(not yet submitted) QSPI and UART patches that use this PDMA driver.
+
+Signed-off-by: Shan-Chun Hung <shanchun1218@gmail.com>
+
+Shan-Chun Hung (2):
+  dt-bindings: dma: nuvoton,ma35d1-pdma: Document MA35D1 PDMA controller
+  dmaengine: ma35d1-pdma: Add MA35D1 PDMA driver
+
+ .../bindings/dma/nuvoton,ma35d1-pdma.yaml     |  72 ++
+ drivers/dma/Kconfig                           |  12 +
+ drivers/dma/Makefile                          |   1 +
+ drivers/dma/ma35d1-pdma.c                     | 780 ++++++++++++++++++
+ include/dt-bindings/dma/ma35d1-pdma.h         | 113 +++
+ include/linux/dma/ma35d1-pdma.h               |  24 +
+ 6 files changed, 1002 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/dma/nuvoton,ma35d1-pdma.yaml
+ create mode 100644 drivers/dma/ma35d1-pdma.c
+ create mode 100644 include/dt-bindings/dma/ma35d1-pdma.h
+ create mode 100644 include/linux/dma/ma35d1-pdma.h
+
+--
+2.25.1
+
 
