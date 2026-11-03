@@ -2,103 +2,144 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13526606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:48:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2200606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:49:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ssNfZz6W;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TDLgu3tp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KgQxSoXh;
+	dkim=pass (2048-bit key, unprotected) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=fvclDBt8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Ub0WZcvYrfsAg+1QngeRQr7bchPe1sdav2r3oWVP5WQ=; b=ssNfZz6WZQyAbd
-	T3T+9kYoKhKA/z4H5dK5jejALyqqSS+zPp3UOKdd6heRl5IrtgUyml0yCr+/ui68xjFPRGHxccm0j
-	pS4OyxhuB4S7+bki2IpHKihuzB8TCd/0eJBW2fqRoNDzoU+Hu/9r90F3e6vtyjY36Us9CB69TIYkh
-	i6YYnKhgFlrBzbkqURd7qET+RXD/Xs+WgOtbNmuATKG4He6LtQ5MyGlhnbTJjPkjNmokxlYAsm9zk
-	A8X2TWiNSpC9BGxOn2NtihItkgxM84Ukjm1kX3juzW2sVSVH+iHThbHp3Mhu2wkT6Midj7CziA3Zl
-	m7SA+8XOaFN42uU2/+GA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=gZOM3Lc0bVWMBjTHBnWLKucS3KUPQN4gjQNABudBe20=; b=KgQxSoXhXyJ19nTPYm6EX1lyaY
+	Fo8b/XOfz2jxp7AyOHzEK/o2rvBNf5Kc1NUcHBm1223J5mrUe2Efo7NqI3hNjaUsesp3xskeremMZ
+	vlBlXIrjokkHaDj7JXOuEhg2IY+YG05iBb0XcFgUAii5wq46Vzj1BMDHh2jurnyM93EPBqPFjgylA
+	TnJMUgdltX1SKMUTe6C3Zr0K2jBEqSEVYnXVLAbhsnMcbRAIlAqgkEBvKtVvYcUVaKUkP3fy+X7gA
+	rAprjnTeyYXUA07c4ZG8WVkzMwoR/zBIUgYRX7mfEcjcED49RFwVuvWpPbacjnIo9Oou4w34I6J/2
+	30wBRW0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOJHh-00000003QzH-1Paf;
-	Tue, 03 Nov 2026 18:31:01 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1xOJZB-00000003THr-2KiH;
+	Tue, 03 Nov 2026 18:49:05 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOJHd-00000003Qv2-39Lg
+	id 1xOJZ7-00000003TGp-48uY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 18:30:58 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a2167bd087so38597775e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 10:30:57 -0800 (PST)
+	Tue, 03 Nov 2026 18:49:03 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-3ab752f6244so4751996a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 10:49:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793730656; x=1794335456; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ub0WZcvYrfsAg+1QngeRQr7bchPe1sdav2r3oWVP5WQ=;
-        b=TDLgu3tpqIJiAHui+Ok134MOL6rKHi6GrSBtYPdDK6yCwT+YWqWMU83J8IGsATtyj/
-         hPYnw8amMOvTbA60ETH/32jPAw6m6BU1V63IwaVQ46wfbivhn76EeW4KwKSTyfjhG53h
-         VPMO2sFGgmk0yQofJQYOYhpzJSXvYF/7aBkX9YDV5tKUhePacNh7KdrY5KFvZjKxjMXj
-         52notL/sr28yeob7UiEfLe+fuHszjWIO2PY5RCtvydavNdX5q+dRCwjtA9vCptWbjTuJ
-         ZM75TW3rXZTRS9AGd3wOpFlvJEcALiaquplHatU+kL06ti7giFKigTehCC1wMKH5UZ/K
-         h4rw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793730656; x=1794335456;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1793731741; x=1794336541; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ub0WZcvYrfsAg+1QngeRQr7bchPe1sdav2r3oWVP5WQ=;
-        b=V7ldHwUdYtfH5KHXjGlRi0/ubhrxJ0Ym9/Zf+Dkks7E+eMSgb0HJv/Ubmad7qvXC0E
-         4YxNk49E9Bwq/HbdiXncwaJXaaVkyr/SyxjkgeIO5GLuz8Ga7D6BCacV9IFzd9OgjibO
-         Y9cB+vH3rpwu41Vv8xuoJizpx85viwtgCLHytuE2g5f/cfiIa74dQaSqw4GhZ++eBOG/
-         iFLlHfnfBAXEqXIf9WJ+7Krc6qg+Bs2IBkmEm8CojvzXkEsMz7sSTly5aPDUD/cbfpOh
-         OjVD44/PQcfzm0qwGfhdY8YJBotIgAiiVkMTyDPk9f+2AU5kG6R0TwHUy/OWBhBvulan
-         T+ag==
-X-Forwarded-Encrypted: i=1; AKwUvBy/AXGiUK9P1E35xY2/2U10+tSwMh4qb+a6TvkqxE8AluSMZmLYZ/VXMm6Ih15h0Txh1W1+A/7oqbXppQcDJ8w2@lists.infradead.org
-X-Gm-Message-State: APuU4Z/ilWcATiII767qVqfHK5USCiTHU0fsGgQZxcpbumRuh8z8ArmQ
-	abfF+DcjquxW6I0BoZDayNqL8taRNXoORU2vq3kfCvxMCPzdFehbSact
-X-Gm-Gg: AYBFou1va9UHJ6ze2Q8PZCKDt8J/0yIElOMWrBTLriIGyZEQavS/X2SdWw4AMpsIgMg
-	YqsOvrML+2X4g+L40ahxEf96N80yOURaewJ6UMq04K1OMRyZ3c5/hmNbnvwZFUagZXCLE5I481m
-	dUsy+KWpspTmPD1g2q1yBlIt2389b9lZvc9LQGUB0KQjpfl0IKFZ8sL+WBmUVLjgxHSAT0XpzMY
-	yQGpfbIotMKHToRUKQmbqe63iP0/W0VbUMXLpoC0eirD4MfQDxk32SNguczHeUjBxAEyOnJYLPW
-	rid5OleN+/+//vTi5McNWLDOwpWzzL8q7psBgVC0EKfD3ms20nzxIPkZxJ1NoMewClIccaX2LUc
-	vJsdUAOF1WscAouegMwYf38aY/TZSv77mYScrPN4R1VJU1K8LTRxf4/kcgq2liqgBLZbumzA8SO
-	/+3MaAlwwvwVoEC66MItKMmIh8rVezFSexkLjHc25qKrzR8jgLq0t+2xIjg0CrINM4hLMRU3Gu0
-	OV5KVagDB1lUTBFKVQ82eqVZ53Dwyp1c3QZv5qEr+kMJD4vzb3bqmQjrlGw+NRWT1ilVnU4BcRb
-	eUATF07tEpW35XZJ5s2NOPQgKrNahap3gceNaZL9gGcmY+Ho1qdN4p2ps9K3F5WI16DfE/SL3VU
-	a9IirJfFzYq7Yr7LIBUd2fbw7yrbqfhWXhMWFSw44n2/vcUbOFmF9mo+pnSz+C+1CsoCyK5V4gw
-	8em1QUqaptnvJkdQSz7VSurAoPh38gsAT4SK9aVoqsTnqH/lWWjIomTF9NukvwrkVnUrpQJCiaz
-	y7dXAP+6GlT//eeam3kX5ydT9s3pmDFxRhqdeZXnnoUdvgsmw==
-X-Received: by 2002:a05:600c:4e14:b0:4a5:a5ca:de1d with SMTP id 5b1f17b1804b1-4ac187a80bfmr329609245e9.30.1793730655752;
-        Tue, 03 Nov 2026 10:30:55 -0800 (PST)
-Received: from jernej-laptop (194-152-27-116.dynamic.telemach.net. [194.152.27.116])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b2ab00ff3dsm146339785e9.14.2026.11.03.10.30.54
+        bh=gZOM3Lc0bVWMBjTHBnWLKucS3KUPQN4gjQNABudBe20=;
+        b=fvclDBt85p+edK2vJu0FEtM08JPqR1+QDc832Sz3RAu+muh7PiYu91XHvtEMROCYhh
+         +2NVem+ItrYwlNVcuBwlFsqlcxmQuvJIYrlDh/i5XCZ7wUmRpYkVaRXzFLZytk21iBEM
+         SV31t7+suxrZFn5iCq4A711SoGBVAKHC7gI4tM3dzkVuawlmwixuZdgQeq4IkDo08bMS
+         k5KICiWumfvIupcCDVYnfWU8BF1HdxP3pXa3gyzwjfE20f9Dd3TmsI82tbFsJpUIni0o
+         Gp8i6HmDS07bKigD81Sm+OgUNnPlpmKCsnNNd/0dIz+YKNof3fWX7KHREmjHkxKxsjOm
+         WdmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793731741; x=1794336541;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=gZOM3Lc0bVWMBjTHBnWLKucS3KUPQN4gjQNABudBe20=;
+        b=fapsgaFGrMyFrLmhabai10Urz85cRYkKbZ1mGXpKuFVcPYrkcCm2ljSx1kzTHWjnwh
+         KvUgWApEDk/loGFj7wGGLjJQbYHibaBzrCP3BhyXV2wJaWgtJf+DmFANCwgAvlySn3gV
+         4rpwnv8LQI+ZZidYOdJX7sGj/pRwA6cV9mOAhxeaHUD8in0XOtVb/2tESoUHbm1v+cSs
+         Z8wR/1VejIeLYLGA96javwm3KVRIaR2ITcyLXQ/DljaY6gw/lV2gW7rI2KH6rS3k1SDX
+         GCRS5ZZLKw2JLQZDiuThVisENZ547H/cYRi29VuE385fFi0vNRgG6ln4lf0zMRo1SaXp
+         n8kw==
+X-Forwarded-Encrypted: i=1; AKwUvBzQSN3RPRWiSo5YBTQ9WnHINoKKeePYerT93Uol1Aael4XdNdzMCthDAUvqVtWKnQPPOrabLN3QzkPdImbTIFa2@lists.infradead.org
+X-Gm-Message-State: APuU4Z+wWGyBlb5GTzHmXPqlX7gzuMS88dRfhE0Z/SIZ4u7ZkXRsOdZc
+	6+yxZOmeYy4HMdscWwkEDvLKKO4etyfbKyyNnNpPWDXKjo4oel34iZF6tQzRZRzrwlk=
+X-Gm-Gg: AYBFou1GDjqBALx83dXuggemXNGs8haqOT3zoo6ouBrITszTrv01EXn9HuWpmWBFyGf
+	/v+iRK4FWv3sVmcKIqqNPTtd6mzthbg5vnHYUwEZkKDB1m4VjdikEZ04iIpVKVRRsnCdIX6vsCi
+	JdpitP1SmbGpd+PFHrLR7Rb5r5DSRojd1CVnq9dG3BOmBpEENmUL6W1wLTPt3EQXxPqvW9rW5ZI
+	J2GQI26OmRJt6mqEYwhbTziWulJQJ3J7z+L9C3bAepu62wpLLlhdWwPfH6C0JJQG2yXrSqVIiMU
+	DXFSbqvx0B9aNcPM4Dn0lOBMe73MEBPrVAvV8bg5FXcfy47mCA72+kP5P8nN9jeXnFZADlSrH5y
+	O6U7LjzlY9+0qWFkOVzUeyHqp2L2ziqnlqVYsJ9p/srpC5vCSOEIZP6YLyKFwCC9QjnwJ/Zcvwi
+	esed+1U7e5eg08xNU7j+v2H+ZY/JcwUCkSAaysNXFkQcssd1Fg9AY9VglnaT2vCOglR6br6v5px
+	iN/OrofIcsInhZSvw9wwWEGjytIylzPRm+VI45X3miDrPPAZ/y4qRCzD6zsrfAPmSX14nfyd/gx
+	K61XpuVDGCL5hq7SPPucNwPVtCluQg3NpGTK5VlPzA==
+X-Received: by 2002:a17:90b:1d03:b0:3a8:49f2:8ddb with SMTP id 98e67ed59e1d1-3ae8984de33mr11985967a91.60.1793731740597;
+        Tue, 03 Nov 2026 10:49:00 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:49::])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0944bd88bsm210133a91.12.2026.11.03.10.48.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Nov 2026 10:30:55 -0800 (PST)
-From: Jernej Skrabec <jernej.skrabec@gmail.com>
-To: Ulf Hansson <ulfh@kernel.org>
-Cc: Chen-Yu Tsai <wens@kernel.org>,
+        Tue, 03 Nov 2026 10:49:00 -0800 (PST)
+Date: Tue, 3 Nov 2026 10:48:59 -0800
+From: Joe Damato <joe@dama.to>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
 	Samuel Holland <samuel@sholland.org>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Stephan Gerhold <stephan@gerhold.net>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Frank Li <Frank.Li@nxp.com>,
 	Andre Przywara <andre.przywara@arm.com>,
-	Anfernee Cao <anferneemelokc5@gmail.com>,
-	linux-mmc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH 4/4] mmc: sunxi: Distinguish CRC and timeout errors
-Date: Tue,  3 Nov 2026 19:30:30 +0100
-Message-ID: <20261103183030.81078-5-jernej.skrabec@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261103183030.81078-1-jernej.skrabec@gmail.com>
-References: <20261103183030.81078-1-jernej.skrabec@gmail.com>
+	Li Youhong <liyouhong@kylinos.cn>, Arnd Bergmann <arnd@arndb.de>,
+	bui duc phuc <phucduc.bui@gmail.com>,
+	Yicong Hui <yiconghui@gmail.com>, Simon Horman <horms@kernel.org>,
+	"open list:NETWORKING DRIVERS" <netdev@vger.kernel.org>,
+	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>,
+	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>,
+	imx@lists.linux.dev, vkoul@kernel.org
+Subject: Re: [PATCH] net: dma: use dmaengine_desc_set_callback()
+Message-ID: <auosm8mCULyafyny@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>, Frank Li <Frank.li@oss.nxp.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Stephan Gerhold <stephan@gerhold.net>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Frank Li <Frank.Li@nxp.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Li Youhong <liyouhong@kylinos.cn>, Arnd Bergmann <arnd@arndb.de>,
+	bui duc phuc <phucduc.bui@gmail.com>,
+	Yicong Hui <yiconghui@gmail.com>, Simon Horman <horms@kernel.org>,
+	"open list:NETWORKING DRIVERS" <netdev@vger.kernel.org>,
+	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>,
+	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>,
+	imx@lists.linux.dev, vkoul@kernel.org
+References: <20261102191922.4044912-1-Frank.Li@oss.nxp.com>
+ <aukcoWLVvSorX5a9@devvm20253.cco0.facebook.com>
+ <aun4W3dvmfWRDFeQ@SMW015318>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aun4W3dvmfWRDFeQ@SMW015318>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_103057_804736_F7EDB0EC 
-X-CRM114-Status: GOOD (  17.12  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261103_104902_256231_3BCFA872 
+X-CRM114-Status: GOOD (  27.22  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,70 +150,76 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The driver reports every command and data error as -ETIMEDOUT. The MMC
-core however relies on -EILSEQ to recognize CRC errors, which mean
-that the sampling point drifted, and flags the host for retuning when
-it sees one. With every error reported as a timeout, retuning is never
-triggered.
+On Tue, Nov 03, 2026 at 09:06:03AM -0600, Frank Li wrote:
+> On Mon, Nov 02, 2026 at 03:28:33PM -0800, Joe Damato wrote:
+> > On Mon, Nov 02, 2026 at 02:19:16PM -0500, Frank.Li@oss.nxp.com wrote:
+> > > From: Frank Li <Frank.Li@nxp.com>
+> > >
+> > > Replace open-coded assignments to callback and callback_param fields
+> > > of struct dma_async_tx_descriptor with calls to the
+> > > dmaengine_desc_set_callback() helper across net drivers.
+> > >
+> > > No functional change intended. Prepare to make struct
+> > > dma_async_tx_descriptor private to the DMA engine.
+> > >
+> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > ---
+> > >  drivers/net/ethernet/allwinner/sun4i-emac.c       |  3 +--
+> > >  drivers/net/ethernet/micrel/ks8842.c              |  6 ++----
+> > >  drivers/net/ethernet/xilinx/xilinx_axienet_main.c |  6 ++----
+> > >  drivers/net/wwan/qcom_bam_dmux.c                  | 10 ++++------
+> > >  4 files changed, 9 insertions(+), 16 deletions(-)
+> >
+> > [...]
+> >
+> > > diff --git a/drivers/net/wwan/qcom_bam_dmux.c b/drivers/net/wwan/qcom_bam_dmux.c
+> > > index cc6ace8d64371..1479f8362e04e 100644
+> > > --- a/drivers/net/wwan/qcom_bam_dmux.c
+> > > +++ b/drivers/net/wwan/qcom_bam_dmux.c
+> > > @@ -195,9 +195,8 @@ static bool bam_dmux_skb_dma_submit_tx(struct bam_dmux_skb_dma *skb_dma)
+> > >  		return false;
+> > >  	}
+> > >
+> > > -	desc->callback = bam_dmux_tx_callback;
+> > > -	desc->callback_param = skb_dma;
+> > > -	desc->cookie = dmaengine_submit(desc);
+> > > +	dmaengine_desc_set_callback(desc, bam_dmux_tx_callback, NULL, skb_dma);
+> > > +	dmaengine_submit(desc);
+> > >  	return true;
+> > >  }
+> > >
+> > > @@ -477,9 +476,8 @@ static bool bam_dmux_skb_dma_submit_rx(struct bam_dmux_skb_dma *skb_dma)
+> > >  		return false;
+> > >  	}
+> > >
+> > > -	desc->callback = bam_dmux_rx_callback;
+> > > -	desc->callback_param = skb_dma;
+> > > -	desc->cookie = dmaengine_submit(desc);
+> > > +	dmaengine_desc_set_callback(desc, bam_dmux_rx_callback, NULL, skb_dma);
+> > > +	dmaengine_submit(desc);
+> >
+> > I noticed in the above that the return value of dmaengine_submit is discarded
+> > instead of stored.
+> >
+> > Is that intentional? I suppose it might be because AFAICT cookie is never
+> > used and the commit message says "no functional change intended".
+> 
+> dma_cookie_assign() already set desc->cookie in dmaengine_submit(). Of couse
+> it is not obvious. Do you need me update commit message to descript it.
 
-Report response and data CRC, start bit and end bit errors as -EILSEQ
-and keep reporting timeouts as -ETIMEDOUT, attributed to the command or
-data phase that actually failed. Report any other error as -EIO.
+Ah, I see it now. In the tx_submit callback it looks like dma drivers set the
+cookie.
 
-Currently supported SoCs don't implement tuning, so this doesn't change
-much for them, but it is needed for the upcoming A523 delay-chain
-tuning support.
+So removing it here really is a no-op since it was getting set, as you said,
+during submit.
 
-Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
----
- drivers/mmc/host/sunxi-mmc.c | 20 ++++++++++++++++++--
- 1 file changed, 18 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/mmc/host/sunxi-mmc.c b/drivers/mmc/host/sunxi-mmc.c
-index b875ef4c2b79..eb1b7883a715 100644
---- a/drivers/mmc/host/sunxi-mmc.c
-+++ b/drivers/mmc/host/sunxi-mmc.c
-@@ -537,13 +537,29 @@ static irqreturn_t sunxi_mmc_finalize_request(struct sunxi_mmc_host *host)
- 
- 	if (host->int_sum & SDXC_INTERRUPT_ERROR_BIT) {
- 		sunxi_mmc_dump_errinfo(host);
--		mrq->cmd->error = -ETIMEDOUT;
-+
-+		if (host->int_sum &
-+		    (SDXC_RESP_ERROR | SDXC_RESP_CRC_ERROR))
-+			mrq->cmd->error = -EILSEQ;
-+		else if (host->int_sum & SDXC_RESP_TIMEOUT)
-+			mrq->cmd->error = -ETIMEDOUT;
- 
- 		if (data) {
--			data->error = -ETIMEDOUT;
-+			if (host->int_sum &
-+			    (SDXC_DATA_CRC_ERROR | SDXC_START_BIT_ERROR |
-+			     SDXC_END_BIT_ERROR))
-+				data->error = -EILSEQ;
-+			else if (host->int_sum &
-+				 (SDXC_DATA_TIMEOUT | SDXC_FIFO_RUN_ERROR |
-+				  SDXC_HARD_WARE_LOCKED))
-+				data->error = -ETIMEDOUT;
-+
- 			host->manual_stop_mrq = mrq;
- 		}
- 
-+		if (!mrq->cmd->error && (!data || !data->error))
-+			mrq->cmd->error = -EIO;
-+
- 		if (mrq->stop)
- 			mrq->stop->error = -ETIMEDOUT;
- 	} else {
--- 
-2.43.0
-
+My mistake. I don't think it's worth respinning just to fix the commit
+message just because I didn't dig deep enough :)
 
