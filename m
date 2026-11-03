@@ -2,10 +2,10 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1249060711E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:46:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D84D2606C5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:46:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4+7LMLFc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FGxkfoaz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -13,27 +13,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Vn0ekuWO/ga1SaCxyNkLXRmdtaeixsyy2PPN3PzgmIc=; b=4+7LMLFc7W7ocRo/kThjJ0zVm7
-	QnKQJ8zaDDfzhhCl7i//S2VRUGw6sI7OHfZ5g3lrFrKaa8gBCi3V5XsMuzh+b8VHs0fty50bntzdU
-	JUhpx1bjC4xz4RW8LTWgrsM28wVWt2947/YLwfw3fn08sWU5NpDpYHn31FY9ZdmK4u1l3fA1Kar/n
-	5WaumVfJNP92QWxEduuyv9GEMurtlsxrOYPfCwsevGl+2PwNq3HaScmAE8QyzRQdlGajJpd04MsPI
-	IMLINHG2G+qsGfQR31+HwFdeGbMRO2TUjeCzxRQ3nx8/LGuBW54Re17uxEbLrRKic0a0pR867RDdB
-	i+JqW3tQ==;
+	bh=CnTGAzsEPJVKC2tZ84EFt0Wg+eAK2QZrF0H1p9wbIEA=; b=FGxkfoazBE0yUa4dbNyBKX5BOH
+	CEUcObQl2n16oHWqo0ZIqsNS9QyYD1m4XAmF7wcB8FDZ/yxhyyUI/u59KbrZTB8U2RJg09m012n3O
+	JJpzHIhd4Bp69JaiBCZO8GoIISSJCa6stZMLKFNUM0RMpLxfobv4jXEjbaPd+3wx94LHOHpfozx5Z
+	53iCi0kVkUQIJOmmXUIotMZRvllSv5CqKX2fjoCd2WKll/uKTRQ89mw2NCswuy5LqNr5otzJs7UnL
+	Yx0TYMSFu61JXqSpEwlb0FGsVY1MAQdtCeMDx9qQdFs0pNHkDh1o+SMmrbdKwO/62ViGhvn3BZOvB
+	K/gGlUSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOC1Z-000000024Fx-3adc;
-	Tue, 03 Nov 2026 10:45:53 +0000
+	id 1xOC1f-000000024M9-0RTx;
+	Tue, 03 Nov 2026 10:45:59 +0000
 Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOC1W-000000024Az-2qnh;
-	Tue, 03 Nov 2026 10:45:52 +0000
+	id 1xOC1c-000000024IE-2OPb;
+	Tue, 03 Nov 2026 10:45:57 +0000
 Received: from local
 	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
 	 (Exim 4.100.1)
 	(envelope-from <daniel@makrotopia.org>)
-	id 1xOC1P-0000000032b-41fq;
-	Tue, 03 Nov 2026 10:45:44 +0000
-Date: Tue, 3 Nov 2026 10:45:41 +0000
+	id 1xOC1V-0000000032l-3BX5;
+	Tue, 03 Nov 2026 10:45:49 +0000
+Date: Tue, 3 Nov 2026 10:45:47 +0000
 From: Daniel Golle <daniel@makrotopia.org>
 To: Mehdi Djait <mehdi.djait@linux.intel.com>,
 	Michael Riesch <michael.riesch@collabora.com>,
@@ -44,9 +44,8 @@ To: Mehdi Djait <mehdi.djait@linux.intel.com>,
 	Sakari Ailus <sakari.ailus@linux.intel.com>,
 	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH 4/6] media: rockchip: rkcif: restart the MIPI DMA when it
- slips
-Message-ID: <4d98fcb8e77fb75dc55944d92635c02634ff165d.1793702189.git.daniel@makrotopia.org>
+Subject: [PATCH 5/6] media: rockchip: rkcif: raise the MIPI DMA write priority
+Message-ID: <38f62ccfaf96bca1c79755cf393f89c6177fdd15.1793702189.git.daniel@makrotopia.org>
 References: <cover.1793702189.git.daniel@makrotopia.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
@@ -54,8 +53,8 @@ Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <cover.1793702189.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_024550_872292_E1F3AEE5 
-X-CRM114-Status: GOOD (  26.23  )
+X-CRM114-CacheID: sfid-20261103_024556_611849_D6DA2120 
+X-CRM114-Status: GOOD (  13.73  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,292 +73,60 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The MIPI DMA ends a frame after the configured number of lines and the
-sensor frame start does not reset that count. A line dropped on the
-CSI-2 link, which the receiver reports as a frame boundary or sequence
-error, therefore leaves every later buffer composed of the tail of one
-frame and the head of the next, with the Bayer phase flipped when the
-offset is odd. Observed on an RV1126 with an IMX415 after a night of
-streaming, reproducible on demand by shortening the D-PHY settle time.
+The MIPI control register holds the DDR urgency controls of the write
+FIFO: a pressure level and a hurry level, each with its enable, and the
+FIFO water line above which they apply. The driver sets only the water
+line enable bit.
 
-Enable the frame start interrupts and read the line counter there: it
-is zero in the vertical blanking while the DMA is in step and holds the
-offset otherwise. Disabling and re-enabling the capture only pauses the
-counter, so once a second frame confirms the offset the stream is
-restarted through the existing stop and start paths, and the runtime
-suspend in between resets the block. With other streams keeping the
-block powered the restart is skipped and a warning given once; the
-restarts are counted in debugfs next to the error counters.
+Program the values the vendor driver uses, pressure and hurry at level
+three from a quarter-full FIFO, so that the capture raises its priority
+on the memory bus as the FIFO fills. The bit layout is the same on the
+RK3568, RV1126 and RK3588.
 
-Fixes: 1f2353f5a1af ("media: rockchip: rkcif: add support for rk3568 vicap mipi capture")
 Assisted-by: LLM
 Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 ---
- .../rockchip/rkcif/rkcif-capture-mipi.c       | 53 +++++++++++++++
- .../platform/rockchip/rkcif/rkcif-common.h    |  8 +++
- .../platform/rockchip/rkcif/rkcif-stream.c    | 64 +++++++++++++++++++
- .../platform/rockchip/rkcif/rkcif-stream.h    |  2 +
- 4 files changed, 127 insertions(+)
+ .../rockchip/rkcif/rkcif-capture-mipi.c       | 20 ++++++++++++-------
+ 1 file changed, 13 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
-index af0134e6c4c67..0cef1cc35eedd 100644
+index 0cef1cc35eedd..a00fe64a1a9d4 100644
 --- a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
 +++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
-@@ -43,10 +43,17 @@
+@@ -37,7 +37,12 @@
+ #define RK3588_MIPI_CTRL0_CROP_EN     BIT(4)
+ #define RK3588_MIPI_CTRL0_PARSE(type) ((type) << 1)
+ 
+-#define RK3588_MIPI_CTRL_CAP_EN       BIT(0)
++#define RKCIF_MIPI_CTRL_PRESS_VALUE(x) ((x) << 13)
++#define RKCIF_MIPI_CTRL_PRESS_ENABLE BIT(12)
++#define RKCIF_MIPI_CTRL_HURRY_VALUE(x) ((x) << 5)
++#define RKCIF_MIPI_CTRL_HURRY_ENABLE BIT(4)
++#define RKCIF_MIPI_CTRL_WATER_LINE_25 (0x2 << 1)
++#define RKCIF_MIPI_CTRL_WATER_LINE_ENABLE BIT(0)
+ 
+ #define RKCIF_MIPI_CTRL0_DT_ID(id)    ((id) << 10)
  #define RKCIF_MIPI_CTRL0_VC_ID(id)    ((id) << 8)
- #define RKCIF_MIPI_CTRL0_CAP_EN	      BIT(0)
+@@ -891,12 +896,13 @@ static int rkcif_mipi_start_streaming(struct rkcif_stream *stream)
+ 	rkcif_mipi_stream_write(stream, RKCIF_MIPI_CTRL1, ctrl1);
+ 	rkcif_mipi_stream_write(stream, RKCIF_MIPI_CTRL0, ctrl0);
  
-+#define RKCIF_MIPI_INT_FRAME0_START(id) BIT((id) * 2 + 0)
-+#define RKCIF_MIPI_INT_FRAME1_START(id) BIT((id) * 2 + 1)
- #define RKCIF_MIPI_INT_FRAME0_END(id) BIT(8 + (id) * 2 + 0)
- #define RKCIF_MIPI_INT_FRAME1_END(id) BIT(8 + (id) * 2 + 1)
- #define RKCIF_MIPI_INT_ALL_END GENMASK(15, 8)
+-	/*
+-	 * TODO: This bit has a different meaning on the RK3568, but it is
+-	 * set there by default anyway. While correct, this is not exactly
+-	 * nice and shall be reworked during the next refactoring.
+-	 */
+-	rkcif_mipi_write(interface, RKCIF_MIPI_CTRL, RK3588_MIPI_CTRL_CAP_EN);
++	rkcif_mipi_write(interface, RKCIF_MIPI_CTRL,
++			 RKCIF_MIPI_CTRL_PRESS_VALUE(3) |
++				 RKCIF_MIPI_CTRL_PRESS_ENABLE |
++				 RKCIF_MIPI_CTRL_HURRY_VALUE(3) |
++				 RKCIF_MIPI_CTRL_HURRY_ENABLE |
++				 RKCIF_MIPI_CTRL_WATER_LINE_25 |
++				 RKCIF_MIPI_CTRL_WATER_LINE_ENABLE);
  
-+#define RKCIF_MIPI_LINE_CNT_MASK GENMASK(13, 0)
-+
-+/* a slipped frame boundary persists, so a second frame confirms it */
-+#define RKCIF_MIPI_MISALIGNED_FRAMES 2
-+
- #define RK3568_MIPI_INT_DMA_Y_FIFO_OVERFLOW BIT(16)
- #define RK3568_MIPI_INT_DMA_UV_FIFO_OVERFLOW BIT(17)
- #define RK3568_MIPI_INT_CONFIG_FIFO_OVERFLOW BIT(18)
-@@ -782,6 +789,41 @@ static void rkcif_mipi_debugfs_init(struct rkcif_interface *interface)
- 		debugfs_create_ulong(match_data->errors[i].name, 0444,
- 				     interface->debugfs_dir,
- 				     &interface->error_count[i]);
-+	debugfs_create_ulong("restarts", 0444, interface->debugfs_dir,
-+			     &interface->restarts);
-+}
-+
-+static u32 rkcif_mipi_line_cnt(struct rkcif_stream *stream)
-+{
-+	unsigned int index = RKCIF_MIPI_LINE_CNT_ID0_1 + stream->id / 2;
-+	u32 val = rkcif_mipi_read(stream->interface, index);
-+
-+	return (val >> (stream->id % 2 * 16)) & RKCIF_MIPI_LINE_CNT_MASK;
-+}
-+
-+/* the DMA frame boundary is a line count that only a block reset resyncs */
-+static void rkcif_mipi_check_alignment(struct rkcif_stream *stream)
-+{
-+	u32 line;
-+
-+	if (!stream->streaming || stream->stopping || stream->restart_pending ||
-+	    stream->realign_disabled)
-+		return;
-+
-+	line = rkcif_mipi_line_cnt(stream);
-+	if (!line) {
-+		stream->misaligned_frames = 0;
-+		return;
-+	}
-+
-+	if (++stream->misaligned_frames < RKCIF_MIPI_MISALIGNED_FRAMES)
-+		return;
-+
-+	stream->misaligned_frames = 0;
-+	dev_warn(stream->rkcif->dev,
-+		 "%s: frame starts at line %u, restarting the capture\n",
-+		 stream->vdev.name, line);
-+	rkcif_stream_restart(stream);
- }
- 
- static void rkcif_mipi_queue_buffer(struct rkcif_stream *stream,
-@@ -825,6 +867,8 @@ static int rkcif_mipi_start_streaming(struct rkcif_stream *stream)
- 
- 	ctrl1 = RKCIF_XY_COORD(width, height);
- 
-+	int_mask |= RKCIF_MIPI_INT_FRAME0_START(stream->id);
-+	int_mask |= RKCIF_MIPI_INT_FRAME1_START(stream->id);
- 	int_mask |= RKCIF_MIPI_INT_FRAME0_END(stream->id);
- 	int_mask |= RKCIF_MIPI_INT_FRAME1_END(stream->id);
- 	int_mask |= rkcif_mipi_error_mask(interface);
-@@ -865,6 +909,8 @@ static void rkcif_mipi_stop_streaming(struct rkcif_stream *stream)
- 
- 	rkcif_mipi_stream_write(stream, RKCIF_MIPI_CTRL0, 0);
- 
-+	int_mask |= RKCIF_MIPI_INT_FRAME0_START(stream->id);
-+	int_mask |= RKCIF_MIPI_INT_FRAME1_START(stream->id);
- 	int_mask |= RKCIF_MIPI_INT_FRAME0_END(stream->id);
- 	int_mask |= RKCIF_MIPI_INT_FRAME1_END(stream->id);
- 
-@@ -929,6 +975,10 @@ irqreturn_t rkcif_mipi_isr(int irq, void *ctx)
- 		for (unsigned int j = 0; j < interface->streams_num; j++) {
- 			struct rkcif_stream *stream = &interface->streams[j];
- 
-+			if (intstat & RKCIF_MIPI_INT_FRAME0_START(stream->id) ||
-+			    intstat & RKCIF_MIPI_INT_FRAME1_START(stream->id))
-+				rkcif_mipi_check_alignment(stream);
-+
- 			if (intstat & RKCIF_MIPI_INT_FRAME0_END(stream->id) ||
- 			    intstat & RKCIF_MIPI_INT_FRAME1_END(stream->id)) {
- 				ret = IRQ_HANDLED;
-@@ -939,6 +989,9 @@ irqreturn_t rkcif_mipi_isr(int irq, void *ctx)
- 					continue;
- 				}
- 
-+				if (stream->restart_pending)
-+					continue;
-+
- 				rkcif_stream_pingpong(stream);
- 			}
- 		}
-diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-common.h b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
-index 13708435dd432..1efc74d488d40 100644
---- a/drivers/media/platform/rockchip/rkcif/rkcif-common.h
-+++ b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
-@@ -14,6 +14,7 @@
- #include <linux/clk.h>
- #include <linux/mutex.h>
- #include <linux/regmap.h>
-+#include <linux/workqueue.h>
- 
- #include <media/media-device.h>
- #include <media/media-entity.h>
-@@ -158,6 +159,12 @@ struct rkcif_stream {
- 	bool stopping;
- 	wait_queue_head_t wq_stopped;
- 
-+	bool streaming;
-+	bool restart_pending;
-+	bool realign_disabled;
-+	unsigned int misaligned_frames;
-+	struct work_struct restart_work;
-+
- 	/* queue of available buffers plus spinlock that protects it */
- 	spinlock_t driver_queue_lock;
- 	struct list_head driver_queue;
-@@ -201,6 +208,7 @@ struct rkcif_interface {
- 
- 	struct dentry *debugfs_dir;
- 	unsigned long error_count[RKCIF_MIPI_ERRORS_MAX];
-+	unsigned long restarts;
- 
- 	/* interrupt enable and status are shared by the streams of a block */
- 	spinlock_t irq_lock;
-diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-index 3130d420ad559..de847873d5ff4 100644
---- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-+++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-@@ -248,6 +248,60 @@ static void rkcif_stream_queue_buffer(struct vb2_buffer *vb)
- 	rkcif_stream_push_buffer(stream, buffer);
- }
- 
-+static void rkcif_stream_restart_work(struct work_struct *work)
-+{
-+	struct rkcif_stream *stream =
-+		container_of(work, struct rkcif_stream, restart_work);
-+	struct rkcif_device *rkcif = stream->rkcif;
-+	u64 mask = BIT_ULL(stream->id);
-+	int ret;
-+
-+	mutex_lock(&stream->vlock);
-+	if (!stream->streaming || !stream->restart_pending)
-+		goto out;
-+
-+	v4l2_subdev_disable_streams(&stream->interface->sd, RKCIF_IF_PAD_SRC,
-+				    mask);
-+	stream->stop_streaming(stream);
-+
-+	/* the runtime suspend resets the block and with it the line counter */
-+	pm_runtime_put_sync(rkcif->dev);
-+	if (!pm_runtime_suspended(rkcif->dev)) {
-+		stream->realign_disabled = true;
-+		dev_warn(rkcif->dev,
-+			 "%s: cannot reset the block while other streams run\n",
-+			 stream->vdev.name);
-+	}
-+	ret = pm_runtime_resume_and_get(rkcif->dev);
-+	if (ret < 0) {
-+		pm_runtime_get_noresume(rkcif->dev);
-+		dev_err(rkcif->dev, "failed to resume for the restart: %d\n",
-+			ret);
-+		goto out;
-+	}
-+
-+	stream->frame_phase = 0;
-+	stream->queue_buffer(stream, 0);
-+	stream->queue_buffer(stream, 1);
-+	ret = stream->start_streaming(stream);
-+	if (!ret)
-+		ret = v4l2_subdev_enable_streams(&stream->interface->sd,
-+						 RKCIF_IF_PAD_SRC, mask);
-+	if (ret)
-+		dev_err(rkcif->dev, "failed to restart the capture: %d\n", ret);
-+	stream->interface->restarts++;
-+
-+out:
-+	stream->restart_pending = false;
-+	mutex_unlock(&stream->vlock);
-+}
-+
-+void rkcif_stream_restart(struct rkcif_stream *stream)
-+{
-+	stream->restart_pending = true;
-+	schedule_work(&stream->restart_work);
-+}
-+
- static int rkcif_stream_start_streaming(struct vb2_queue *queue,
- 					unsigned int count)
- {
-@@ -258,6 +312,9 @@ static int rkcif_stream_start_streaming(struct vb2_queue *queue,
- 
- 	stream->frame_idx = 0;
- 	stream->frame_phase = 0;
-+	stream->misaligned_frames = 0;
-+	stream->realign_disabled = false;
-+	stream->restart_pending = false;
- 
- 	ret = video_device_pipeline_start(&stream->vdev, &stream->pipeline);
- 	if (ret) {
-@@ -287,6 +344,8 @@ static int rkcif_stream_start_streaming(struct vb2_queue *queue,
- 	if (ret < 0)
- 		goto err_stop_stream;
- 
-+	stream->streaming = true;
-+
  	return 0;
- 
- err_stop_stream:
-@@ -308,6 +367,9 @@ static void rkcif_stream_stop_streaming(struct vb2_queue *queue)
- 	u64 mask;
- 	int ret;
- 
-+	stream->streaming = false;
-+	stream->restart_pending = false;
-+
- 	mask = BIT_ULL(stream->id);
- 	v4l2_subdev_disable_streams(&stream->interface->sd, RKCIF_IF_PAD_SRC,
- 				    mask);
-@@ -540,6 +602,7 @@ int rkcif_stream_register(struct rkcif_device *rkcif,
- 	spin_lock_init(&stream->driver_queue_lock);
- 
- 	init_waitqueue_head(&stream->wq_stopped);
-+	INIT_WORK(&stream->restart_work, rkcif_stream_restart_work);
- 
- 	mutex_init(&stream->vlock);
- 
-@@ -611,6 +674,7 @@ int rkcif_stream_register(struct rkcif_device *rkcif,
- 
- void rkcif_stream_unregister(struct rkcif_stream *stream)
- {
-+	cancel_work_sync(&stream->restart_work);
- 	video_unregister_device(&stream->vdev);
- 	media_entity_cleanup(&stream->vdev.entity);
  }
-diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.h b/drivers/media/platform/rockchip/rkcif/rkcif-stream.h
-index 590faf5d1a87a..61347179818f2 100644
---- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.h
-+++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.h
-@@ -20,6 +20,8 @@
- 
- void rkcif_stream_pingpong(struct rkcif_stream *stream);
- 
-+void rkcif_stream_restart(struct rkcif_stream *stream);
-+
- int rkcif_stream_register(struct rkcif_device *rkcif,
- 			  struct rkcif_stream *stream);
- 
 -- 
 2.56.0
 
