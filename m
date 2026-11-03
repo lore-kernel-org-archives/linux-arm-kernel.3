@@ -2,10 +2,10 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBBA860777A7
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCCB160777A9
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:29:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=l1uGWpPT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aNz0DugM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
@@ -13,24 +13,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=jqrLKz9LrRsFxqXYepb2D+Y6GF21YYOQi1/zUhtLyRg=; b=l1uGWpPThRrYK9VINpdDf0/LWE
-	+hI8PcV3wcU4yK4e3+yNH/2KgV8kCGubckvNhv1bH9mtRUTdhsY1NDZ0x5/IWUA2sF74oAgH+CJeH
-	bPZ7LV47hcUgwqxKPwOwBOEXV3/oHLd3T2Xbazll3+499a5vrvJpymSUgfiBgcesJK3/O2mC8lTSG
-	4LmAkM5ANCuzBlLWOif38TYrjuWoPTc92lZN7Hu3sI9Obui4tNAcvAdzWGFgcSPrYh4wXsy6drFUi
-	FNliI5UmjxWEI+ugOI59ITYnq61/pwHk0a5PlVR5PHwuksZp8Nlj4HdxRPynLfsoP5SipEARP9coH
-	hl+7N2gg==;
+	bh=XnVUOlkYR8zo0VkJWoSV5NbLPA4v4KJWJQ3QpBwthkQ=; b=aNz0DugMpndwSe13C+nx3Q+hsP
+	xJkdyq1q4uZKB7us5/H4jBRL13Pg13HYUK2SKNYJbp/UMUlaUG2l8PnibsnnsVh122JGm2PelFEh0
+	yV/YOyqJnRsYwPaaNppnTtN+gZ4sg/kbQf/3PtYEwimFtHRosM5N7me29xXAm9T5/AA0WCqwQ1EBI
+	Tj3HzCMtNeRE89ccK7oIBwykwU8oznf7RryyECuZc98FJrHjKANIsaSSl8Ei2QcJIwsMepmQyRfvX
+	3z2TUdA0fBRbpBHMuZ5uCHF/Hm3DsVFPQnQ8NhUbsGkvBLJlfl6fMBdL6JES3o9HtpfV4kfVpP5LF
+	9ZftLjHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBlC-00000001zwO-1glQ;
+	id 1xOBlC-00000001zxE-2qb8;
 	Tue, 03 Nov 2026 10:28:58 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBl7-00000001ztI-3XdJ
+	id 1xOBl8-00000001ztT-1Zi5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 10:28:55 +0000
+	Tue, 03 Nov 2026 10:28:56 +0000
 Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowAC3wZJgt+lqsak7AA--.3028S2;
-	Tue, 03 Nov 2026 18:28:48 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowAA3QpNht+lquak7AA--.3082S2;
+	Tue, 03 Nov 2026 18:28:49 +0800 (CST)
 From: Wentao Liang <vulab@iscas.ac.cn>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -46,17 +46,17 @@ Cc: netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Wentao Liang <vulab@iscas.ac.cn>,
 	stable@vger.kernel.org
-Subject: [PATCH] net: stmmac: free RX resources when TX allocation fails
-Date: Tue,  3 Nov 2026 10:28:57 +0000
-Message-Id: <20261103102857.1340748-1-vulab@iscas.ac.cn>
+Subject: [PATCH] net: stmmac: drop the runtime PM reference on probe failure
+Date: Tue,  3 Nov 2026 10:28:58 +0000
+Message-Id: <20261103102858.1340765-1-vulab@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAC3wZJgt+lqsak7AA--.3028S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7uw4DZr13ZF4UJr43Zr43KFg_yoW8XryUpw
-	s3ZayUKr9Fqr4fJw4DJw109Fy3uaySyr4UWa1xZa1fWF43uryjgr1aqrWUXF1UJFW8ZF1a
-	vr4qk3W3CF1DA3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: rQCowAA3QpNht+lquak7AA--.3082S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7WryDJr17Wr1xGr4UJrWrKrg_yoW8uFWxpr
+	48Zay09ry7Xr1Iga1DAr4qvFy5GrWSy393CrykG34Sga1rCryaqFySqFWjv3ZFkFZ5ZF13
+	tw4UAw17Za1vy3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUU9a14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
@@ -70,11 +70,10 @@ X-Coremail-Antispam: 1UD129KBjvJXoW7uw4DZr13ZF4UJr43Zr43KFg_yoW8XryUpw
 	yUMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVWU
 	JVWUCwCI42IY6I8E87Iv67AKxVWxJVW8Jr1lIxAIcVC2z280aVCY1x0267AKxVWxJr0_Gc
 	JvcSsGvfC2KfnxnUUI43ZEXa7VU8jQ6JUUUUU==
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAMAA2rpnOFxBAAAsH
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAQAA2rpnOFxCQAAsN
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_022854_366205_66C2542A 
-X-CRM114-Status: UNSURE (   9.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261103_022854_892983_0BE6DEB9 
+X-CRM114-Status: GOOD (  12.35  )
 X-Spam-Score: -0.9 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,39 +92,59 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-alloc_dma_rx_desc_resources() unwinds the RX queues when the RX
-allocation itself fails, and alloc_dma_tx_desc_resources() unwinds the
-TX queues when the TX allocation fails.  But when the RX allocation
-succeeds and the TX allocation then fails, the RX queues that were
-already set up are left behind.  stmmac_setup_dma_desc() only frees the
-dma_conf on this path, so the RX DMA rings, page pools and socket
-buffers are leaked.
+__stmmac_dvr_probe() takes a runtime PM reference with
+pm_runtime_get_noresume() and enables runtime PM before registering the
+MDIO bus.  The reference is only dropped on the success path, so a
+failure of the MDIO, PCS, phylink, devlink or netdev registration leaves
+the usage counter elevated.  The device is never bound in that case, so
+stmmac_dvr_remove() never runs to release it.
 
-Release the RX queues from alloc_dma_desc_resources() when the TX
-allocation fails, before the caller drops the partially populated
-dma_conf.
+Drop the reference and disable runtime PM again on the common error path.
+Only disable runtime PM if this driver enabled it, because PCI devices
+already have it enabled by the PCI core.
 
-Fixes: ba39b344e924 ("net: ethernet: stmicro: stmmac: generate stmmac dma conf before open")
+Fixes: 5ec55823438e ("net: stmmac: add clocks management for gmac driver")
 Cc: stable@vger.kernel.org
 Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
 Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 9ded31150fbe..049d85b3e25f 100644
+index 049d85b3e25f..eebf1975f40f 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2446,6 +2446,8 @@ static int alloc_dma_desc_resources(struct stmmac_priv *priv,
- 		return ret;
+@@ -7974,6 +7974,7 @@ static int __stmmac_dvr_probe(struct device *device,
+ 	struct net_device *ndev = NULL;
+ 	struct stmmac_priv *priv;
+ 	int i, ret = 0;
++	bool pm_enabled = false;
+ 	u8 rxq;
  
- 	ret = alloc_dma_tx_desc_resources(priv, dma_conf);
-+	if (ret)
-+		free_dma_rx_desc_resources(priv, dma_conf);
+ 	if (!plat_dat->dma_cfg || !plat_dat->dma_cfg->pbl) {
+@@ -8223,8 +8224,10 @@ static int __stmmac_dvr_probe(struct device *device,
  
- 	return ret;
- }
+ 	pm_runtime_get_noresume(device);
+ 	pm_runtime_set_active(device);
+-	if (!pm_runtime_enabled(device))
++	if (!pm_runtime_enabled(device)) {
+ 		pm_runtime_enable(device);
++		pm_enabled = true;
++	}
+ 
+ 	ret = stmmac_mdio_register(ndev);
+ 	if (ret < 0) {
+@@ -8278,6 +8281,9 @@ static int __stmmac_dvr_probe(struct device *device,
+ error_pcs_setup:
+ 	stmmac_mdio_unregister(ndev);
+ error_mdio_register:
++	if (pm_enabled)
++		pm_runtime_disable(device);
++	pm_runtime_put_noidle(device);
+ 	stmmac_napi_del(ndev);
+ error_hw_init:
+ 	destroy_workqueue(priv->wq);
 -- 
 2.34.1
 
