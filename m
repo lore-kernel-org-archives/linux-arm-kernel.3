@@ -2,84 +2,98 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B043E606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 08:23:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9041A606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 08:25:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=i6RmvnlD;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fSwwEMS8
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4iLTnxWY;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=DZpwFKBK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=13JW4Jg1dgguEj52L1u0IsGyjIw3tDUJ2h7ClviJyY8=; b=i6RmvnlDGhfqThdU1Kg38X+4YD
-	lV/371XAvRnVrKkQ+CwSyteEBQUGrUiIcMiKYkiQxXJ90tcU+xk4xc9s+EcREx5/x617TML+sTjne
-	mXuzLowtJWEDkzxlHLLl0/rJOLfF6ss/1iNM1QmcTU4CqM36Z3rJADG7zOfbphHBTw9jZvGT8Z1Zn
-	QZpJMl+Em9HMIidFpFWKvhrcnIBw0ttS6M4KmMtPId0F3b6cb7B3FG25mnPXeklJyyrW/keYCogPr
-	/5CF5I8+uO0wfaqxuYyf0cYloimMn3bXJS4hmECHJyLRn+DqNt/k39CAtWbqDTOULDs5oosx6dXn+
-	1Bq/zEdA==;
+	bh=C/3oiEJrrgISDj6VHltYxSNS0bTbSGPe28QqrXWzDyw=; b=4iLTnxWYBn8TS8o0DFYMpdvzXo
+	z0BA0bwEOjDPlVXPZqjiwcCdwqbgjXUspHZSJyU7mpd3wBRi4cJnLUEPDFjx+NK0V+1M5FPzavHeL
+	bv9u2oTwUDUvmzw53wxiG8ljrjojGNTaxAMiB/6+Un/o68k2o8MRHHbB49By9vF2SdfD0qF4O2Fwi
+	zHc+uGv75TKhknSuoBY3afWQ72lzRoKt3qCfpMpRXnFN29QP0QkOPZNnNiXuvVwczdtaJYaw82Gay
+	h420EuTjzq7rjKf76JeQr8S3G4R8QKc/Y3LT3AK7W2JQKr5u3yqPIvQvBSZbstdHs4U+MudZQKXdV
+	ihAQ19OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9nA-00000001Wl3-3xd2;
-	Tue, 03 Nov 2026 08:22:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xO9pY-00000001X0s-1GIG;
+	Tue, 03 Nov 2026 08:25:20 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9n9-00000001Wkd-2fOF
+	id 1xO9pV-00000001X0N-3T64
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 08:22:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B5070600CB;
-	Tue,  3 Nov 2026 08:22:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 634931F00919;
-	Tue,  3 Nov 2026 08:22:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793694170;
-	bh=13JW4Jg1dgguEj52L1u0IsGyjIw3tDUJ2h7ClviJyY8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=fSwwEMS8pmYxYNewqxpreRAZUTtGEezumjUaaQfeWPeliuCX1y4K4Lvv7BUhRO27R
-	 Nn8UgjSY/gr417JvHxxnjQS9+CoEsWXO/IhyZvx0iZXjawwMgS2UjUEzkHKkdIpL0u
-	 orG1VzSyyVj+SZUUH0Bc4kWTQh24Ap7Nhbwrlf38lDXfFxmzDtE+EURHCEm55pCTzv
-	 c5FYXuyMk6c7juSyVfc8UJBtUruPoHsXOwI+vGe2seSZJrtl3PFt75aVux4fpIE7sE
-	 PICibbKPcNRBYX/3y5EzN1GpbTRKHXVmTg2CDQu0Bbp8M+kmUfBc31TYYMfJJTQh2u
-	 G0a7j2yo/+YRg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xO9n6-0000000AKdK-0bgT;
-	Tue, 03 Nov 2026 08:22:48 +0000
-Date: Tue, 03 Nov 2026 08:22:47 +0000
-Message-ID: <867biu2ujs.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: oupton@kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	kernel-team@android.com,
-	fuad.tabba@linux.dev,
-	ljs@kernel.org,
-	ryan.roberts@arm.com
-Subject: Re: [PATCH v1] KVM: arm64: Fast path transparent_hugepage_adjust() for non-PMD folios
-In-Reply-To: <20261102211900.504192-1-vdonnefort@google.com>
-References: <20261102211900.504192-1-vdonnefort@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	Tue, 03 Nov 2026 08:25:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793694318; x=1825230318;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=UnGE9ewV3SGTBwGzdYg4KybWaWjSn9+eL7CYGNT63s8=;
+  b=DZpwFKBKlAv6S3OCGiaVWxmlbxFy+Ofn/rl4lXyfA0Amjmoadr69neVG
+   OsjClXEHJW/kXV2z7UK6nyMsT8Nvo+jaxw/+2wT31SULwZ3JJS+kDVCXW
+   8y3y51ivAXe+Of6KgFGZQmgP6x47blYp1zJt3xH6kk7ENHiqx92DsjOZW
+   kRRR/9/2IwdL/PPQ9e6X5NIv39wpXlFc1PHaxmou5eex97764ki6XeJKc
+   +XrRGSohACnsWGbZTrQxPnEXOi8mfa4u5uuPRlloVsDQrVHDbEfspPYbJ
+   pOkXwU3YLjMvODkbSf2tcEM3IDSkUCLswPsNgvFlRAvDNeRW0+8SWjbt9
+   w==;
+X-CSE-ConnectionGUID: mBWhWUz+TVuc/Cyw7Nhq2Q==
+X-CSE-MsgGUID: wbuO2cQvRv2dQexTOAj3pQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11954"; a="2287626"
+X-IronPort-AV: E=Sophos;i="6.27,192,1787036400"; 
+   d="scan'208";a="2287626"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 00:25:17 -0800
+X-CSE-ConnectionGUID: ZHqYrjrJRoCXZA6PU6ZdQg==
+X-CSE-MsgGUID: jrcaaq4rQHOdXmodazj03A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,192,1787036400"; 
+   d="scan'208";a="6740307"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa007.fm.intel.com with ESMTP; 03 Nov 2026 00:25:12 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xO9pN-00000000iUO-0oT5;
+	Tue, 03 Nov 2026 08:25:09 +0000
+Date: Tue, 3 Nov 2026 16:24:48 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Frank Li <Frank.Li@nxp.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Laxman Dewangan <ldewangan@nvidia.com>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: oe-kbuild-all@lists.linux.dev,
+	Larisa IIeana Grigore <larisa.grigore@nxp.com>, imx@lists.linux.dev,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, linux-tegra@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v3 6/7] dmaengine: fsl-edma: support per-channel DT child
+ nodes
+Message-ID: <202611031650.EONIRpF4-lkp@intel.com>
+References: <20261102-edma-iommu-v3-v3-6-9d0e62a954eb@Example.Com>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: vdonnefort@google.com, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, fuad.tabba@linux.dev, ljs@kernel.org, ryan.roberts@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261102-edma-iommu-v3-v3-6-9d0e62a954eb@Example.Com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261103_002517_905667_180A4E54 
+X-CRM114-Status: GOOD (  10.04  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,44 +104,37 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, 02 Nov 2026 21:19:00 +0000,
-Vincent Donnefort <vdonnefort@google.com> wrote:
-> 
-> transparent_hugepage_adjust() must walk the userspace stage-1 to detect
-> if a PMD-level mapping is installed. If it is, then a stage-2 block
-> mapping can be installed. Even though this stage-1 walk is most likely
-> cache hot (in most cases, the mapping has just been installed), walking
-> a page-table is still costly. This walks accounts for ~5% of the
-> user_mem_abort() execution time on an Apple M2 big core. This makes a
-> fast path interesting.
+Hi Peng,
 
-This raises a few questions:
+kernel test robot noticed the following build errors:
 
-- Isn't this a "fast fail" rather than a fast path? You don't make the
-  S1 walk faster, but you instead avoid cases where it would have
-  returned an level-3 size.
+[auto build test ERROR on 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4]
 
-  If anything, you make transparent_hugepage_adjust() slower for the
-  case that succeeds. I don't think this invalidates the approach, but
-  it feels that the commit message is just wrong.
+url:    https://github.com/intel-lab-lkp/linux/commits/Peng-Fan-OSS/dmaengine-fsl-edma-unregister-channels-before-vchan-cleanup/20261102-144955
+base:   6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+patch link:    https://lore.kernel.org/r/20261102-edma-iommu-v3-v3-6-9d0e62a954eb%40Example.Com
+patch subject: [PATCH v3 6/7] dmaengine: fsl-edma: support per-channel DT child nodes
+config: i386-allmodconfig (https://download.01.org/0day-ci/archive/20261103/202611031650.EONIRpF4-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261103/202611031650.EONIRpF4-lkp@intel.com/reproduce)
 
-- How do you measure this? 5% feels like a huge amount for something
-  that should be 3 loads. Isn't this more an indication that the page
-  table walker is overly complicated because it was designed for
-  something else? In any case, It'd be good to verify your findings,
-  so please provide a minimal reproducer.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611031650.EONIRpF4-lkp@intel.com/
 
-Thanks,
+All errors (new ones prefixed by >>, old ones prefixed by <<):
 
-	M.
+>> ERROR: modpost: drivers/dma/fsl-edma.ko: symbol '__udivdi3' undefined!
 
--- 
-Without deviation from the norm, progress is not possible.
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
