@@ -2,75 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3457B606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 20:25:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 456BA606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 20:34:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hVCyFm3l
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=g+TJVbVe;
+	dkim=pass (1024-bit key, unprotected) header.d=rnplus.nl header.i=@rnplus.nl header.a=rsa-sha256 header.s=dkim header.b=Jsn76HXz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=hywMFMGWC22FCsnfeYWHg5SybWSfpDHUd/LvoxS7oLY=; b=hVCyFm3lXALpcQGviz8gHE/TLV
-	AdLaq2A6gZPvwizB6+m+nnkS1YGz8popxmpCyr8lgy8dvrhS4K6028gayVpzIegJlIWMcXW0SNL0j
-	qUBZtOXHugqW1/4Fp+Vb/8HQnvflE1PqsXePxERDLEtPr3vJD/Ygb1KsjYijS78h/9q5qzKxbOKoA
-	sG5cPUMLhL3EIfTiHMJG4/rm2KMCHn+3naGP6rWJsvzj2ZWn9gA2DK/1gCRqtSkd9KTnd188wgQ6X
-	4eVRCymN6Wkecu4XYMBE41YeIhU7zILMVukW7SgW2x3RcsWIEhOl33TK4fKohn4KzpFaU52T6LYam
-	N60YySOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=IpTAQdRgdhCJhb1hvxDKWghah7aGv6NZyMkxYCZ92Rs=; b=g+TJVbVe9OiQ8U
+	aoGQa3epyILYJBGS2b89Pz6rIzCv2YN7S7kgy5kDXTYaclUVrJz8riSoJSPvVNtEIV2V9g0lZv/GB
+	1tRDqYLAS3A8ODc6cAqjeehO4P1U7YLmtlXGeDxdHA069rMVvnaaq3Gk2ilOquJrszeAtYD1Bi4S7
+	Fwd/UubFTpOBivqVxB68ydmP/1zlevM+uMItzGEb27QuFJ8aDAGj5d1U7kMWX6X2QgChiwuSVmJjD
+	P8VRbxl1lbXW4ymQTobEk4Kn0ERPZ45jB8SCvBP7vQqQF8lO7xGY3Ae+BjzRVv1WzIeVvqK29lMj+
+	HRwJHxdgbZJ3tUQLc+cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOL4e-00000003cNx-3BLU;
-	Tue, 03 Nov 2026 20:25:40 +0000
-Received: from angie.orcam.me.uk ([2001:4190:8020::34])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOL4b-00000003cNL-0dO3
+	id 1xOLCd-00000003cv0-3dLH;
+	Tue, 03 Nov 2026 20:33:55 +0000
+Received: from mail.rnplus.nl ([178.251.25.70])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOLCY-00000003csD-40p0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 20:25:38 +0000
-Received: by angie.orcam.me.uk (Postfix, from userid 500)
-	id 38B0092009E; Tue,  3 Nov 2026 21:25:31 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by angie.orcam.me.uk (Postfix) with ESMTP id 321B692009B;
-	Tue,  3 Nov 2026 20:25:31 +0000 (GMT)
-Date: Tue, 3 Nov 2026 20:25:31 +0000 (GMT)
-From: "Maciej W. Rozycki" <macro@orcam.me.uk>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-    James Hilliard <james.hilliard1@gmail.com>
-cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-    Jiri Slaby <jirislaby@kernel.org>, Raul E Rangel <rrangel@chromium.org>, 
-    =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-    Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-    Tony Lindgren <tony@atomide.com>, 
-    Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-    Richard Genoud <richard.genoud@bootlin.com>, 
-    Nicolas Ferre <nicolas.ferre@microchip.com>, 
-    Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-    Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-    Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
-    =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-    Sascha Hauer <s.hauer@pengutronix.de>, 
-    Pengutronix Kernel Team <kernel@pengutronix.de>, 
-    Fabio Estevam <festevam@gmail.com>, Timur Tabi <timur@kernel.org>, 
-    Peter Ujfalusi <peter.ujfalusi@ti.com>, 
-    Vignesh Raghavendra <vigneshr@ti.com>, 
-    Patrice Chotard <patrice.chotard@foss.st.com>, 
-    linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-    linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH v9 2/8] serial: serialize asynchronous write wakeups with
- the port lock
-In-Reply-To: <auoUlkzXsl9WJG8B@ashevche-desk.local>
-Message-ID: <alpine.DEB.2.21.2611031947260.15685@angie.orcam.me.uk>
-References: <20261102-submit-serial-8250-dma-cancel-v1-v9-0-9159caade148@gmail.com> <20261102-submit-serial-8250-dma-cancel-v1-v9-2-9159caade148@gmail.com> <auoUlkzXsl9WJG8B@ashevche-desk.local>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+	Tue, 03 Nov 2026 20:33:52 +0000
+Received: from localhost (unknown [127.0.0.1])
+	by mail.rnplus.nl (Postfix) with ESMTP id 9745C379793
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Nov 2026 20:33:47 +0000 (UTC)
+X-Virus-Scanned: amavisd-new at rnplus.nl
+Received: from mail.rnplus.nl ([127.0.0.1])
+	by localhost (mail.rnplus.nl [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id w05HoLeerQNK for <linux-arm-kernel@lists.infradead.org>;
+	Tue,  3 Nov 2026 21:33:47 +0100 (CET)
+Received: from E595 (unknown [185.10.157.158])
+	by mail.rnplus.nl (Postfix) with ESMTPSA id A6BC737977F;
+	Tue,  3 Nov 2026 21:33:43 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=rnplus.nl; s=dkim;
+	t=1793738024; bh=a4vWSx9rLNvabRu3vIDBn7/4YymkwBrYWvlKnKwfxas=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Jsn76HXzv4eFOOwgUbSQIOLIMAQKaYgXoVJs1tbb10Zi16awRA0nzypxAAuD7oPf5
+	 ErykmkbQDhlSf/z/v3DVS7gRqu0J7U3IRopvcx7d9Rmlkm3cXH5s5Of3IlzeiAKXBS
+	 LxB5ravxMejTgXwNveef187G1bdaVUpEVvS2l94Y=
+From: Renze Nicolai <renze@rnplus.nl>
+To: Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Renze Nicolai <renze@rnplus.nl>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 4/4] ARM: dts: aspeed: x570d4u: Add some GPIO line names
+Date: Tue,  3 Nov 2026 21:33:05 +0100
+Message-ID: <20261103203308.54789-5-renze@rnplus.nl>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261103203308.54789-1-renze@rnplus.nl>
+References: <20261103203308.54789-1-renze@rnplus.nl>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_122537_356919_683EA6AC 
-X-CRM114-Status: GOOD (  15.19  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261103_123351_133820_74DA0B47 
+X-CRM114-Status: GOOD (  10.92  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,50 +76,56 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, 3 Nov 2026, Andy Shevchenko wrote:
+Several GPIO lines used on the board had no gpio-line-names entry.
+Name the NMI button and control lines (GPIOA2/A3), the BIOS flash
+chip-select and LPC reset outputs (GPIOJ1/J3), and the hard
+power-off control line (GPIOAB3).
 
-> > +static unsigned long sccnxp_handle_events(struct sccnxp_port *s)
-> >  {
-> 
-> > -	int i;
-> > +	unsigned int i;
-> 
-> This change seems unrelated to the patch. Again, slow down and READ what AI
-> produces before sending, please!
+Signed-off-by: Renze Nicolai <renze@rnplus.nl>
+---
+ arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x570d4u.dts | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
- Indeed.  FWIW I've thrown v8 at hardware I look after, that is:
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x570d4u.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x570d4u.dts
+index fca14320829e..0089845a6f0b 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x570d4u.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x570d4u.dts
+@@ -79,7 +79,7 @@ iio-hwmon {
+ &gpio {
+ 	status = "okay";
+ 	gpio-line-names =
+-	/*  A */ "input-locatorled-n", "", "", "", "", "", "", "",
++	/*  A */ "input-locatorled-n", "", "button-nmi-n", "control-nmi-n", "", "", "", "",
+ 	/*  B */ "input-bios-post-cmplt-n", "", "", "", "", "", "", "",
+ 	/*  C */ "", "", "", "", "", "", "control-locatorbutton-n", "",
+ 	/*  D */ "button-power-n", "control-power-n", "button-reset-n",
+@@ -92,7 +92,7 @@ &gpio {
+ 	/*  H */ "", "", "", "", "input-mfg-mode-n", "",
+ 		 "led-heartbeat-n", "input-case-open-n",
+ 	/*  I */ "", "", "", "", "", "", "", "",
+-	/*  J */ "output-bmc-ready-n", "", "", "", "", "", "", "",
++	/*  J */ "output-bmc-ready-n", "output-bios-cs-n", "", "output-lpc-reset", "", "", "", "",
+ 	/*  K */ "", "", "", "", "", "", "", "",
+ 	/*  L */ "", "", "", "", "", "", "", "",
+ 	/*  M */ "", "", "", "", "", "", "", "",
+@@ -114,7 +114,7 @@ &gpio {
+ 		 "", "",
+ 	/* AA */ "input-cpu1-thermtrip-latch-n", "",
+ 		 "input-cpu1-prochot-n", "", "", "", "", "",
+-	/* AB */ "", "input-power-good", "", "", "", "", "", "",
++	/* AB */ "", "input-power-good", "", "control-hard-power-off", "", "", "", "",
+ 	/* AC */ "", "", "", "", "", "", "", "";
+ };
+ 
+-- 
+2.56.0
 
- drivers/tty/serial/dz.c            |  9 ++--
- drivers/tty/serial/sb1250-duart.c  | 25 ++++++----
- drivers/tty/serial/zs.c            | 94 ++++++++++++++++++++++++++++----------
- drivers/tty/serial/zs.h            |  3 ++
-
-and that has caused no observable regressions in my simple verification as 
-direct terminal lines, both in the line mode and with ncurses.
-
- I have no leased-line modem hardware to put this under stress with all 
-the signalling; I could see, and probably should, whether I can set up a 
-SLIP connection with a direct serial link and see how it performs, but 
-it'd take me more time than I can afford right now, especially as I'm 
-locally short of one PSU for the systems in question that is waiting for 
-parts to arrive for repair, and swapping the one working unit between 
-systems is quite involving (ones in the lab won't run SLIP owing to the 
-firmware limitation of the console servers they're wired to).
-
- But I didn't have a chance to reply before v9 has been posted with more 
-updates, so I'll wait for things to settle before reviewing the changes in 
-detail.
-
- Please consider this a NAK for the drivers listed above until the final 
-version of the patch has been posted and I've had a chance to verify it.
-
-  Maciej
 
