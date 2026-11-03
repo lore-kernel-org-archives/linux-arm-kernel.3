@@ -2,75 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F89D606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 06:29:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B4C6606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 06:35:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TZLTOkfm
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SArMxiDe;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=C5cyDqhH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=6/6xUUOjwtL1FwuXpKSTtDVBiayCB2HCPjgP1T7L0+g=; b=TZLTOkfm4XRIXdz3cqCXevDUwp
-	JPm7XYy1ETsq/F/o1izDQh5vkN9gczzhtTADlOR3SL5wCliziRLH2wIkf57xiImq8HPBMyI8IbGsa
-	Xsl8F07mPpQ5VEU/FJUrLYpQQVLfKSsRL3nUtUGrC8SdKMcOrOmgdmskSUPF0Zot/nI0fiY9nEzuk
-	eQhimTH1dOxXzrmvjd9T7+xxmui5F0/U330IPGLSs3f9PXAqbODaUn6+19ad+9WVLXLm0B9hLPEYt
-	ezkTWuD6EF6MGHkzEsN/XrnMOkbB/HCBS28RHOQTniWD+0B2+I82VC5BemSqfxVLKAfE9BXLxzU76
-	Lc1yBoOA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=4dMx8oyOcsvpKZmeDA9XB9ac9xFIUPa8LzVWlB1uze0=; b=SArMxiDer29IDe
+	K3TO3Kjlop5rLAzkONl2fZ1LX2hn+icfqc+q9cFDnA+Yr2FkVo/lDBVekz7zWNKdO24iJ/0n3To/D
+	DVHhSQ8LDJ9Z6FdvsZ9Z2lQKO2TwUqJtBcG8BN427IUQ39FEx1blBFTVG9wSibVseyLxJrSoDw6si
+	N9hw8UyrNbP3dmOfk6lZLH2EKlSPrugvqRTY4VPGQIwW3N0fcTsP333epKs+gC0+WCYLUWVVEmvjK
+	Yhg7xTw7FGLptvbhSd/up8zSAQtcw/J52kp4XZcfskiOKx9gHdMS/xm3VIyxQC9v8Jmar+ODNwhta
+	HVKRZfaaLenDCiMm2mIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO81k-00000001FQO-0eZi;
-	Tue, 03 Nov 2026 06:29:48 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO81h-00000001FPp-24cF
+	id 1xO87O-00000001Fub-0pL4;
+	Tue, 03 Nov 2026 06:35:38 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xO87I-00000001Fu6-2w1u
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 06:29:47 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowACXoZJNf+lqD145AA--.419S2;
-	Tue, 03 Nov 2026 14:29:33 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: clabbe@baylibre.com,
-	herbert@gondor.apana.org.au
-Cc: davem@davemloft.net,
-	linusw@kernel.org,
-	kaloz@kernel.org,
-	linux-crypto@vger.kernel.org,
+	Tue, 03 Nov 2026 06:35:36 +0000
+Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 2C2A520B7166;
+	Mon,  2 Nov 2026 22:35:16 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 2C2A520B7166
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1793687716;
+	bh=4dMx8oyOcsvpKZmeDA9XB9ac9xFIUPa8LzVWlB1uze0=;
+	h=From:To:Subject:Date:In-Reply-To:References:From;
+	b=C5cyDqhHIsCzTiuaHaq1svaWIigxtCUNFwtyf3xrRWLVfHaPzEuC+kkRVWp4/b4hX
+	 U9tpDMG1ocmExkay0nGn+XuYmo9Lf74YcXSQdJ5SADB409yr9l9X/VGQnUm8ecn/rI
+	 fm0s96BJYEu85+5MNVjg6ExXjFQkkrOXzGZIgOoE=
+From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+To: ptsm@linux.microsoft.com,
+	tgopinath@linux.microsoft.com,
+	ssengar@linux.microsoft.com,
+	srivatsa@csail.mit.edu,
+	michal.simek@amd.com,
+	rajan.vaja@xilinx.com,
+	tejas.patel@xilinx.com,
+	abhyuday.godhasara@xilinx.com,
+	gregkh@linuxfoundation.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] crypto: ixp4xx - Free the fallback cipher if context initialization fails
-Date: Tue,  3 Nov 2026 06:29:42 +0000
-Message-Id: <20261103062942.1021598-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 2/2] soc: xilinx: Fix event manager CPU hotplug state cleanup
+Date: Mon,  2 Nov 2026 22:35:15 -0800
+Message-ID: <20261103063515.679043-1-ptsm@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.7
+In-Reply-To: <20261103062051.676519-1-ptsm@linux.microsoft.com>
+References: <20261103062051.676519-1-ptsm@linux.microsoft.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowACXoZJNf+lqD145AA--.419S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Cw17Gw43Wr43tw1kAFW7CFg_yoW8CF4rpF
-	WrCrWkKrWDJF17Ca4xJFWrCFyfJ3yrAayakw48G340kFn3urZ5GFW2yr4jkrZ5JFyrGFyx
-	AF4vvryUJwnrXaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1q6rW5McIj6I8E87Iv67AKxVW8Jr0_Cr1UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
-	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
-	nIWIevJa73UjIFyTuYvjfUogAwDUUUU
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRUAA2rpWfV5NwAAs+
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
+X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
+	aws-us-west-2-korg-listserv-alma10-1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_222945_928090_371C953B 
-X-CRM114-Status: GOOD (  11.10  )
-X-Spam-Score: -0.9 (/)
+X-CRM114-CacheID: sfid-20261102_223532_770773_A8041AB8 
+X-CRM114-Status: GOOD (  12.23  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,56 +81,76 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
-X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
-	aws-us-west-2-korg-listserv-alma10-1
 
-init_tfm_ablk() allocates a fallback skcipher before calling init_tfm().
-If allocating either security association context fails, init_tfm()
-returns an error and the fallback is left allocated. The crypto core
-does not call the algorithm exit callback after a failed initialization,
-so exit_tfm_ablk() cannot release it.
+On driver removal, the event manager removes the CPUHP_AP_ONLINE_DYN
+CPU hotplug state instead of the its actual state. This can leave the
+event manager callbacks dangling. Use the actual CPU hotplug state
+during driver removal.
 
-Free the fallback cipher when init_tfm() fails. The security association
-contexts are already unwound by init_tfm().
+Hotplug registration failures are also ignored, allowing probe to
+succeed without the callbacks needed to enable event interrupts on
+CPUs brought online later.
 
-Fixes: dfb098d692ea ("crypto: ixp4xx - fallback when having more than one SG")
-Cc: stable@vger.kernel.org
-Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+Fixes: c7fdb2404f66 ("drivers: soc: xilinx: add xilinx event management driver")
+Signed-off-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
 ---
- drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ drivers/soc/xilinx/xlnx_event_manager.c | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c b/drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c
-index 33e8e887a415..6af50a01c96f 100644
---- a/drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c
-+++ b/drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c
-@@ -635,6 +635,7 @@ static int init_tfm_ablk(struct crypto_skcipher *tfm)
- 	struct crypto_tfm *ctfm = crypto_skcipher_tfm(tfm);
- 	struct ixp_ctx *ctx = crypto_tfm_ctx(ctfm);
- 	const char *name = crypto_tfm_alg_name(ctfm);
-+	int ret;
+diff --git a/drivers/soc/xilinx/xlnx_event_manager.c b/drivers/soc/xilinx/xlnx_event_manager.c
+index f733dc42b3b1..2d8bfeab4190 100644
+--- a/drivers/soc/xilinx/xlnx_event_manager.c
++++ b/drivers/soc/xilinx/xlnx_event_manager.c
+@@ -24,6 +24,7 @@ static DEFINE_PER_CPU_READ_MOSTLY(int, dummy_cpu_number);
  
- 	ctx->fallback_tfm = crypto_alloc_skcipher(name, 0, CRYPTO_ALG_NEED_FALLBACK);
- 	if (IS_ERR(ctx->fallback_tfm)) {
-@@ -649,7 +650,11 @@ static int init_tfm_ablk(struct crypto_skcipher *tfm)
- 		 );
+ static int virq_sgi;
+ static int event_manager_availability = -EACCES;
++static enum cpuhp_state hp_state;
  
- 	crypto_skcipher_set_reqsize(tfm, sizeof(struct ablk_ctx) + crypto_skcipher_reqsize(ctx->fallback_tfm));
--	return init_tfm(crypto_skcipher_tfm(tfm));
-+	ret = init_tfm(crypto_skcipher_tfm(tfm));
-+	if (ret)
-+		crypto_free_skcipher(ctx->fallback_tfm);
-+
-+	return ret;
- }
+ /* SGI number used for Event management driver */
+ #define XLNX_EVENT_SGI_NUM	(15)
+@@ -625,8 +626,6 @@ static int xlnx_event_init_sgi(struct platform_device *pdev)
  
- static int init_tfm_aead(struct crypto_aead *tfm)
+ static void xlnx_event_cleanup_sgi(struct platform_device *pdev)
+ {
+-	cpuhp_remove_state(CPUHP_AP_ONLINE_DYN);
+-
+ 	on_each_cpu(xlnx_disable_percpu_irq, NULL, 1);
+ 
+ 	irq_clear_status_flags(virq_sgi, IRQ_PER_CPU);
+@@ -660,8 +659,13 @@ static int xlnx_event_manager_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	/* Setup function for the CPU hot-plug cases */
+-	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "soc/event:starting",
+-			  xlnx_event_cpuhp_start, xlnx_event_cpuhp_down);
++	hp_state = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
++			"soc/event:starting", xlnx_event_cpuhp_start,
++			xlnx_event_cpuhp_down);
++	if (hp_state < 0) {
++		xlnx_event_cleanup_sgi(pdev);
++		return hp_state;
++	}
+ 
+ 	ret = zynqmp_pm_register_sgi(sgi_num, 0);
+ 	if (ret) {
+@@ -670,6 +674,7 @@ static int xlnx_event_manager_probe(struct platform_device *pdev)
+ 		else
+ 			dev_err(&pdev->dev, "SGI %d registration failed, err %d\n", sgi_num, ret);
+ 
++		cpuhp_remove_state(hp_state);
+ 		xlnx_event_cleanup_sgi(pdev);
+ 		return ret;
+ 	}
+@@ -704,6 +709,7 @@ static void xlnx_event_manager_remove(struct platform_device *pdev)
+ 	if (ret)
+ 		dev_err(&pdev->dev, "SGI unregistration over TF-A failed with %d\n", ret);
+ 
++	cpuhp_remove_state(hp_state);
+ 	xlnx_event_cleanup_sgi(pdev);
+ 
+ 	event_manager_availability = -EACCES;
 -- 
-2.34.1
+2.49.0
 
 
