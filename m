@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5ECF66072C9B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:27:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C86560736F8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:27:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RvLbZcC5;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AgGIuc3i
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kO0JYihr;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LnGkaKwm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,52 +14,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=vF8xG9Wg0/iR0LYUbbIhgD9MY7+21+7qiT7sQpnMXI8=; b=RvLbZcC5wCJTZ+khw03duLX8wI
-	WyrGvZXA9XPjUtuCRTegPFRaSaHiVdEcv9NHeBR0omj4lhQM3e4avyRAhprDbzYbuwxW4xPqET35h
-	fF+D3qO3Yz7kYeWkbmx3H8zwjUDlG/7d332VVSXm47vLT5p8JlPmF00acJZVs1D2qnzGCzRMriYRx
-	HGqipa63BIdiEeXitmSXSwozk0Gf7w19oXoIIuOnGhgSc69C8GJ+zuLTt4drWIZ45x/UnIky3eH8t
-	rxhKRqSBgDjbsjSJN1D5iRf1RyrTtjw622XPnhsV5cT5BEQ0KDHkxnh6uVBsZne3N/jrnjrRNNt4v
-	78YswcNw==;
+	bh=wGJCpB30C0eoXg6rT049KGsaSsKMI6A0wimQvcJwM14=; b=kO0JYihrQ2u8Bv3K8AulESa5bi
+	Ber68rAMHkfOTrctCE21WFAHqT0lCRaPqEcqYa9i42J8WI3lW0c9/9XR1jKxuqwm/SUezfR67VBwd
+	gMgE0u3r1FXwH1+AgdWVo3tHMpXN2LJG8zvnCEBEhe0XDTGurke3QaGQENAoECISINnUor6ub8Yc6
+	h4gigGAWYkgDyWjjhKyuxgEKrzyq+FVA1hxFgDh1LQ9erPHKK8iwCP/Sfx+6wYp48O58rI/bOHAwf
+	TjVX/MxSEksOF+cIMjXXtWH8kL1/TigloCKTMqrzogSqaMqKQDH6RJrsjqmNSH57BFJbMFN1WvzQv
+	XKmE+hcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBjG-00000001ysn-1gnT;
-	Tue, 03 Nov 2026 10:26:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xOBjS-00000001yzE-2aAz;
+	Tue, 03 Nov 2026 10:27:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBjF-00000001ys7-1tpu
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 10:26:58 +0000
+	id 1xOBjO-00000001ywk-15qe;
+	Tue, 03 Nov 2026 10:27:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC63A60098;
-	Tue,  3 Nov 2026 10:26:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B98A1F00919;
-	Tue,  3 Nov 2026 10:26:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B19B560098;
+	Tue,  3 Nov 2026 10:27:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F80E1F00A02;
+	Tue,  3 Nov 2026 10:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793701616;
-	bh=vF8xG9Wg0/iR0LYUbbIhgD9MY7+21+7qiT7sQpnMXI8=;
+	s=k20260515; t=1793701625;
+	bh=wGJCpB30C0eoXg6rT049KGsaSsKMI6A0wimQvcJwM14=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AgGIuc3i/+pEZMq8Ko91aA5O3SOhC42Fu/wTLmdPjmQWZKruH/btztx6oYySW/I1E
-	 dPqizGAIInK3ymc/fa7u93E38cbR93+Z6Ar7k1Yas2EE44BW46sESs8AzjtvodKU7p
-	 TfBqBXMjj12KDWMnYZQF8IgIQAnj3BGQPUZCnwAweYmWpwd+FNHC9DsiS3Ou4Q5dms
-	 AayCEZnMuqJbcWWmhEB+y6MJok5KTbnFfuilA96pwxF0bDaYOyibDJdyvfMnq/TCM2
-	 v5CLb0WmpgrufPTbYiGDLWP2/gdDh3lb1BTzDZw+CNp9KqkYZ2VOg9+t75Eua3PP7I
-	 GdKWemYdsJeZQ==
-Date: Tue, 3 Nov 2026 11:26:54 +0100
+	b=LnGkaKwmU2Pgj6dYUxKTioOxMCmTkev14EfBkt2mMQyiPJYAGSkiXfFFx+20EIQP3
+	 3cC46g/CkFt9dMpAh16Tm7+DVu7UOoY6SyopUw9YN9GFbcojCfIjRr5GeBUD5NueGK
+	 t5tVzvYLFrSYO6DAKEchif8wL+kkauU/IPbFGSm37EWjhJNHDzqo4d0qGlxfXwFhmj
+	 jFwoplUEgxFnsJmzt0tVHo9QVN4J6BqGSt2ELcQXQ32//TD/8WH2gxPlEnDqK7nz9f
+	 eZwvmjZKKiIj7H2klj8Oj4B3y/wTZjOEZOffDIgSDjdsSQ+MIdgEV3k2QGTPBuSY9l
+	 hMWrPOP+TV9gg==
+Date: Tue, 3 Nov 2026 11:27:02 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: Peter Griffin <peter.griffin@linaro.org>, linux-media@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] media: exynos4-is: Free control handler if fimc-lite
- subdev init fails
-Message-ID: <20261103-macho-determined-woodlouse-b1ba77@quoll>
-References: <20261103094617.1289377-1-vulab@iscas.ac.cn>
+Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-media@vger.kernel.org, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Bin Liu <bin.liu@mediatek.com>, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] media: mtk-jpeg: Release the decoder device on job
+ completion
+Message-ID: <20261103-refined-lorikeet-from-ganymede-ede5ad@quoll>
+References: <20261103094612.1289250-1-vulab@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261103094617.1289377-1-vulab@iscas.ac.cn>
+In-Reply-To: <20261103094612.1289250-1-vulab@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,30 +73,32 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 
-On Tue, 03 Nov 2026 09:46:17 +0000, Wentao Liang wrote:
-> fimc_lite_create_capture_subdev() initializes fimc->ctrl_handler and adds
-> a control to it. If the control cannot be created, handler->error is set
-> and the function returns after cleaning up the media entity only. The
-> control handler still owns the memory allocated for its buckets and for
-> any control created before the failure, and fimc_lite_probe() does not
-> call fimc_lite_unregister_capture_subdev() on this error, so that memory
-> is leaked.
+On Tue, 03 Nov 2026 09:46:12 +0000, Wentao Liang wrote:
+> mtk_jpegdec_worker() resumes the component device represented by
+> comp_jpeg[hw_id]->dev.  When the job completes,
+> mtk_jpegdec_hw_irq_handler() drops a reference to the master device
+> ctx->jpeg->dev instead of the component device.  The component's usage
+> counter is never decremented, so the component and its power domain stay
+> powered, while the master's usage counter is decremented without a
+> matching reference.
 > 
-> Free the control handler before returning the error.
+> Release jpeg->dev, the component device that was resumed, and disable
+> the clock before dropping the reference as the timeout work already
+> does.
 > 
-> Fixes: 4af813108b88 ("[media] s5p-fimc: Add support for Exynos4x12 FIMC-LITE")
+> Fixes: 0fa49df4222f ("media: mtk-jpegdec: support jpegdec multi-hardware")
 > Cc: stable@vger.kernel.org
 > Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
 > Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 > ---
->  drivers/media/platform/samsung/exynos4-is/fimc-lite.c | 1 +
->  1 file changed, 1 insertion(+)
+>  drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
 > 
 
 
