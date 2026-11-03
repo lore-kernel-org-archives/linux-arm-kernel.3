@@ -2,72 +2,132 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FD74606B26B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 15:19:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60DA2606D2EE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 15:19:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Q7B8j0Ep;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=GPAvbxyR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JQNJrbVp;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=o6MuNIEc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=3kh7cB3NHbVZeYBD16GLVXEHt7xKsgZXCvb8wD4xq6U=; b=Q7B8j0EpHSE1nq
-	dXOFVj3lfrxLuIMhUW8MzMIiNBpY83p9EErLpEkEYxiZI/VqRGcjZU36Zf4dJbL5F36UIh2GtwsPf
-	FfkqvKEW/y6VqsLOFxY46B9LXvi6uGKfWHiWBk1ze487Xga39J4Cz8BAD+qK02tfPMdWtRpsSWb5X
-	rGjMuS//D972E3VLVP5JS59dnNkcodZe6wWW+nA3NwXjuDqvW5jIND9KF6UqQ83qqGRibc2J8npar
-	ckHCfVqVQaNZUpJ1BPhcQr1MVlcaJb+kCpVI8jJLnb5bpXoRoNYi6te1rb+GXSvaCcsgD3RSd8rfl
-	y9vaaMtLQ35EcZzJtWhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=xD1MitQ/D4Vo4PVLmkGOjTmPz8zSeneDpQm7lh8UnF0=; b=JQNJrbVpnwQk+5l3jcXB+l8sw4
+	b7Jxp+FHvR8lmWe7KrQ0l309ga7PxKFszJyrELwJkc+W1UFiFJ+n61a6QccSRLtHp9hJOE9mcZA1F
+	/i7ocAb7wo2cMEPgCCGi4w1+wCu0csvygJVVkPDvK/w/A2BTcRjbDgOMIxge2czzoiz718mahrNTM
+	b4QZWDZ10lNNKmL846Y+xWjBXdbqnMxwhOQc+kWdt2VdCleETFiU4PyRgS97potzVqVBIVaYbpmNo
+	+0OpHgNlv+GlkFgIh+IdncWjERDqL94cFbvP1xs/r0YhClPK2IhlhX7dKciink7VCRfZVUVXm9cjl
+	vrKPgjrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOGI8-00000002vi8-2i2V;
-	Tue, 03 Nov 2026 15:19:16 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOGHs-00000002vME-3IVt
+	id 1xOGI9-00000002vk3-3jC9;
+	Tue, 03 Nov 2026 15:19:17 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOGHs-00000002vJE-0v77
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 15:19:03 +0000
-Received: from [192.168.1.10] (unknown [52.172.102.219])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 3AAFA20B716A;
-	Tue,  3 Nov 2026 07:18:42 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 3AAFA20B716A
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1793719125;
-	bh=3kh7cB3NHbVZeYBD16GLVXEHt7xKsgZXCvb8wD4xq6U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GPAvbxyRx5KMdL21dUAPyjAMQvakEHkEWbhIhNMkfJ+t9n4u+njR1F1n+oCwMdES6
-	 Szy9TTXdtMVKUR9lFhw+6zPlOlWdihIgVGnKH76VNsQDHB9e3Gh+mIpwdrMsU7LPMp
-	 o2YjC25D42bAt4zZIgAALlWagf53QtziL+T8UFg4=
-Message-ID: <192a8868-d73a-4f05-9207-b8cea8eaa7fc@linux.microsoft.com>
-Date: Tue, 3 Nov 2026 20:48:55 +0530
+	Tue, 03 Nov 2026 15:19:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=efgms1/Iwr/UFjVk521X+wKUJR+KtJPsglTut6jnkgNDVllzaahOW5zTMZi+LiBvZvszPg3PFSC1RtK8KSKfxlwj2AQ/1+Bmg/Wqj6A4an5KwFoq74xi6iWkylveVrjO97GXwmhTxmXbi30dmX+7F2Jj/x5GtcN4UhbCg2PocLY334GRxclAGX8OGkMGD7z+rDxG1BmY+G6slrpDO2N0YYpQa3phIMePRAgpkdR5YAo4P1qZpo9y1Ipe09axwj4oc2/wKyoc98+pVGnJBUO7XQwmecwhO7hsfe+A5YfUStXM/qc8X3nokoNG8kd9vnWq5mHX9X2/dyhSOUHsLLH1gg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xD1MitQ/D4Vo4PVLmkGOjTmPz8zSeneDpQm7lh8UnF0=;
+ b=l2j8EKSbAKVg+wtMXt8nQLIrsVBiyhqomgVLpxCpVw07j6SaRFFawXMEN0YUCzevLG2NO+a1ZI8N4RGTu8mCmClZUdiwUJD9Z5tGZkH2b7Tvo8k2NvNE5lYIvVHK3chzBplz2xWopoA2udEhJ045u2pfRYDB2K6XXZjdEwPH3V60is/dg1yNw5EvmyO5F6NXIThGYcAutNgcQk+2r4W1vFgIvBnJIIXbsYX5vBpuYDR6K2rygA9UDhx9V7bLDU/YnI3ri4UgCeVJAuWxaTEK8v2ahxPLTdkGpyYwmN40mONHa93iMUScsiCp4xqKjGtPxTsmOGA0RPW8wurdSGzcXw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xD1MitQ/D4Vo4PVLmkGOjTmPz8zSeneDpQm7lh8UnF0=;
+ b=o6MuNIEcYt/5FHMDOXxFniKEyCk05g/+H7gExn2cXtqLdEmJ7d0QJCAf11ipW3Av4hFv3G8thc8XhVBmdRWTOs/edhRf7epbv6EiYpvnflgNkvg/InkFzsk7ijM8B6yrmXxqXQZpjJxInyl4vwC4hzPtBE/zXHJN/X/xUYa5Qlv9pGtCZpxJxbB6DlTD+dtMGRjwe7RVOj92GHDfw55PZ+q7+4rrvxHFP7rfi10eN0RNYplUHgwSHbBFt4gD93GOd4AsV/YVzPGt3j8uiotyBRsiUwFr6uGvPjYlmBMhs6r5F5EkMwv1X2CQNS2b9uWc/5VTknwGQX/0eNW0+CNvGw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by PA6PR04MB11808.eurprd04.prod.outlook.com (2603:10a6:102:523::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Tue, 3 Nov
+ 2026 15:18:53 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0592.007; Tue, 3 Nov 2026
+ 15:18:51 +0000
+Date: Tue, 3 Nov 2026 09:18:43 -0600
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Li Ximo <lixicaicai@gmail.com>
+Cc: Sinan Kaya <okaya@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>, dmaengine@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Wang Haoran <haoranwangsec@gmail.com>
+Subject: Re: [PATCH v2] dmaengine: qcom: hidma: fix memory corruption when
+ active list is empty
+Message-ID: <aun7UyTzIOyJjUbL@SMW015318>
+References: <20261103083214.1682930-1-lixicaicai@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261103083214.1682930-1-lixicaicai@gmail.com>
+X-ClientProxiedBy: DS1PR03CA0021.namprd03.prod.outlook.com
+ (2603:10b6:8:233::8) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] soc: xilinx: Fix event manager CPU hotplug state
- cleanup
-To: Jay Buddhabhatti <jbuddhab@amd.com>
-Cc: gregkh@linuxfoundation.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, michal.simek@amd.com, srivatsa@csail.mit.edu,
- ssengar@linux.microsoft.com, tgopinath@linux.microsoft.com
-References: <20261103063515.679043-1-ptsm@linux.microsoft.com>
- <8986493a-cc47-4ad2-a142-764d4069c146@amd.com>
-Content-Language: en-US
-From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-In-Reply-To: <8986493a-cc47-4ad2-a142-764d4069c146@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
-X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
-	aws-us-west-2-korg-listserv-alma10-1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|PA6PR04MB11808:EE_
+X-MS-Office365-Filtering-Correlation-Id: a6c7ff3c-b5e6-45f8-e5f4-08df39bdc3e0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|366016|1800799024|376014|261021121427099003|261021123027099003|261022105027099003|261009223027099003|261028144727099003|261026121527099003|261026140227099003|11063799006|10067099003|56012099006|22082099003|261102123227099003|18002099003;
+X-Microsoft-Antispam-Message-Info: nHbkl3DxfSuLvgv6Pgypbad3tImUt4k6Vy4tXwl73dB8wYONIn0JQTKdVQSmid4tyExhfN2i/R4wOXJxPhLfJkOKmDKxh9mdQR3GtW5ocPZDktY3pRlYikw5hXgNXS1XYBJZYxkgjXGh42sX0zByupzphVgeLLS9icvqzChsxESXdFPtsOn/Gw4VZ3jRWCm2MqAWG/r1sN5tNvSNWOEOI8js4m22p05cJu7JppuGly76/XA61KhIG94zZrHMEdRk7px4HnIWBhyZEHaL2xpTJpp9HNfQOof9qSIZ1tOdKm+rndOIdoyFLt+NIK9BVCKfBcolcuc3aDgJfILbTW3ttNci6dMs39YhcBzBllh5gBgWcKtQNwo9lOpcKEiNceSZXJq5k6o4HLN5Wo7Bzyuuf0mdh2b5BwMubBRRcQ9ULjbb8OLu3Asx9AZPjjscuDXF+Nt+55dFx1GGZxkPN/vAIJa74sOVtsp/74iaJmGKceiPiHzSAu1i6C9foJnl57Lc689S8r7nw4C3EgsWxNKl+Id2VrQeezsrU0bLoI9yeio80POHuVGQQCYmTMuBzP4IfYlKddnn1X3OdwkDzHfOhY8pvwX/BplXvmm8ven4kFzjdJ2CxcQvKRcTgj0XCfow
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(366016)(1800799024)(376014)(261021121427099003)(261021123027099003)(261022105027099003)(261009223027099003)(261028144727099003)(261026121527099003)(261026140227099003)(11063799006)(10067099003)(56012099006)(22082099003)(261102123227099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?o0xaREhcI8ZelhTsCqA5Fgln7lXY6ghPyotxT+HdVv3T4QFByKzEcgjPcl5c?=
+ =?us-ascii?Q?HWhE16/cd+md2m6eXx3ueNS3+nUcpGSU92S3y6aeM3IeNCzzUvFYB+3437+W?=
+ =?us-ascii?Q?WZD/aGKymoJog44eROP9UQ1LizRt8XdI472Xu/soXLaTEENQCgocX2aEbg0r?=
+ =?us-ascii?Q?jwWVo73Odj3wSIlNoAS6r7p2JJkoiQL48psczeXjRkesme+54m9FnU02AP4y?=
+ =?us-ascii?Q?1uh1EQjcXZdvc0P9PDCGdMGzOg5B2odga23BFCFNblfin2awigwNGUHKqc3H?=
+ =?us-ascii?Q?yzERc9FdMTvgmtGFwBR6WeNF+u8G6STqsh8AHn9P73MauOAO6UcYCyJeCQ8P?=
+ =?us-ascii?Q?mJJsTzV/hB5Z+AICi8abrT9Hj/Q6uNhGB5wWoyhPD88mohWv1J3MzsoYrpBe?=
+ =?us-ascii?Q?v0KWinuAwpgpPUuWwm/L568lEn4uVYiPw6ACgJMPMUb0JxoGYBM7TjTSYCk+?=
+ =?us-ascii?Q?F6c7vUGZSiT6Vv6ssFMLLWfCZRxFpgEvkQCIvD/sp98Hf5B910dvGB6Mu88I?=
+ =?us-ascii?Q?xVkOugUnn58bVOS1HG6AZakb0l4uZw11L4HTaeZAFMxLD6I1i7sssK+rb78x?=
+ =?us-ascii?Q?6UvoKDlZMG0rAnR5SnJ3tpqtTdnkeyMpm6WqrIWGDGYTiMVtfrLgJ++KLnhq?=
+ =?us-ascii?Q?0J4kbqj5glWPfiFkLlbNAix+9vEbyPnR9bDnAQb+TlTON5p2P3aG2zOkNxol?=
+ =?us-ascii?Q?IzeCaq1Qkh7o7oO1yNdYLMf+8+GcY6VhSkPqtm3tQJkYEJkUCvH1DN4ULIRv?=
+ =?us-ascii?Q?qGUGt9IjOE5yfSQdjfFlB4xHOhPGBOPGP8SZar2AtTZy2cv7RUmGMqy9Y7/U?=
+ =?us-ascii?Q?dpo2wg+n808Kxifflv/VwBwbIzCAThkbx4fOwwJQZc9V2GLMawzgN9jRLisV?=
+ =?us-ascii?Q?jcKlOYLsitG1BLlx+F4rXazk28IQqPjlK4nmfIxYWajfwFkAHgsMnMh5aUeL?=
+ =?us-ascii?Q?Ye9hC6bbB7W1s3PHUbp/U/KxE54Dzxg+y6BbBx0cbwdN3t/en8z5kg2xRXpb?=
+ =?us-ascii?Q?PT3MNW/SxOw+aw8KxHw6Vwt76rMfN0huvDrlORQHQtoYiiGgvtCvIYTRRr7U?=
+ =?us-ascii?Q?kW1+WbccZCVTrJc2771i0JcZd1lrvQsyPy1wtcpywAv8HnW3uUTyp/xiOX5a?=
+ =?us-ascii?Q?br3YaeROTI9TUgMz3DrmWaplKqV9uak5IXjRgDLYDMyHS6IXd9BesTE75w3Z?=
+ =?us-ascii?Q?IrpP12HOYl5uMjsytFYswQShLFAMWv5dz3HzJEG9PmhL4yr5/GklmFPeeSoc?=
+ =?us-ascii?Q?TBEbGrkEG0+UCuwKz3Qwv4HlliveM5a8SufugVrpgO3cwIssBx19oS6Y6ytt?=
+ =?us-ascii?Q?2N+OrIAx7BG9mFD1mccAzJvahctg8KC554UoLq5uCQA1vwJ8IeulVdiKq47k?=
+ =?us-ascii?Q?uCpjUofhl2VEb5UNHvd4Ikkngt9/1JlSyCczTZf3G3qefduS+bUC6jbThSeK?=
+ =?us-ascii?Q?oSm0r/7L+FOAvaU/Q/1DhEVWjchO4xniHJcQEsODERvTrWDUFV6x1XnErHnP?=
+ =?us-ascii?Q?RX49MTb0UWsZTh6NYmvSz+iLOGyUAY3OjUxTbmc2TNr8g3JC/1PXEioPk+V/?=
+ =?us-ascii?Q?Xu+llai5pn8ZEoYKKbYvLlGf2N6jQ00Tmw4nlkDSzsx+UkLmwPvuKlE9cfYS?=
+ =?us-ascii?Q?8vefMAVKJTJaVggK1C3nXLbn1dtzcet4KY9GJYUAjdf7XHnKj0z5JgCnljIO?=
+ =?us-ascii?Q?XkEUjE8+Vvxwkiatn4c2k/1yPA3C+ubEf2XYXDSPmC6mEE80k2RaDkSQw59q?=
+ =?us-ascii?Q?IXs2U6ySNJDa8+neJ69sgZtgDwCnZhSbFb3FKWRF6rSCMeZK9n+s?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a6c7ff3c-b5e6-45f8-e5f4-08df39bdc3e0
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 15:18:50.9648
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: RDJegh+TjyIDay6LKWHvn188G8wB+fYgFBwI+KaO8yjpUPxftnoLa3FVoLZH9JpVqzKMJGkhkmOaKZQ6dbeAVBjE9nsRferNSR0+Ed2G7w2aZN1BRyfaF99SgQ7DXggj
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR04MB11808
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_071902_244188_E833EF2A 
-X-CRM114-Status: GOOD (  15.60  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261103_071902_312351_F01EB688 
+X-CRM114-Status: GOOD (  19.77  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,59 +138,67 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
+	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Jay,
+On Tue, Nov 03, 2026 at 04:32:14PM +0800, Li Ximo wrote:
+> From: Wang Haoran <haoranwangsec@gmail.com>
+>
+> list_first_entry() does not check if the list is empty. When mchan->active
+> is empty it returns a bogus pointer, which causes memory corruption.
+>
+> Use list_first_entry_or_null() instead.
+>
+> This issue was found by static analysis.
+>
+> Reported-by: Wang Haoran <haoranwangsec@gmail.com>
+> Reported-by: Li Ximo <lixicaicai@gmail.com>
+> Signed-off-by: Wang Haoran <haoranwangsec@gmail.com>
+> ---
 
-On 03-11-2026 17:56, Jay Buddhabhatti wrote:
-> Hi Prasanna,
-> 
-> On Mon, Nov 02, 2026 at 10:35:15PM -0800, Prasanna Kumar T S M wrote:
->  > On driver removal, the event manager removes the CPUHP_AP_ONLINE_DYN
->  > CPU hotplug state instead of the its actual state. This can leave the
->  > event manager callbacks dangling. Use the actual CPU hotplug state
->  > during driver removal.
->  >
->  > Hotplug registration failures are also ignored, allowing probe to
->  > succeed without the callbacks needed to enable event interrupts on
->  > CPUs brought online later.
->  >
->  > Fixes: c7fdb2404f66 ("drivers: soc: xilinx: add xilinx event 
-> management driver")
->  > Signed-off-by: Prasanna Kumar T S M ptsm@linux.microsoft.com
-> 
-> This looks good to me.
-> 
-> A couple of small nits:
-> 
-> - "instead of the its actual state" -> "instead of its actual state"
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Thanks for catching this.
-
-> - Minor alignment on the cpuhp_setup_state() continuation lines;
->    checkpatch --strict complains.
->      CHECK: Alignment should match open parenthesis
->      #49: FILE: drivers/soc/xilinx/xlnx_event_manager.c:663:
->      +       hp_state = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
->      +                       "soc/event:starting", xlnx_event_cpuhp_start,
-> 
->      total: 0 errors, 0 warnings, 1 checks, 44 lines checked
-
-I missed this.
-
-I think the issues are minor. Is it possible to fix this while merging 
-the patch?
-
-> 
-> Worth Cc: stable@vger.kernel.org as well, given the Fixes tag.
-
-Do I need to send v2 to address this?
-
-> 
-> Reviewed-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-> 
-> Thanks,
-> Jay
-
-Thanks,
-Prasanna Kumar
+> v1: https://lore.kernel.org/r/20261023073154.744365-1-lixicaicai@gmail.com
+> v2: rewrite the commit message in simpler words as suggested by Frank
+> Li; no code change.
+>
+>  drivers/dma/qcom/hidma.c | 12 +++++++-----
+>  1 file changed, 7 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/dma/qcom/hidma.c b/drivers/dma/qcom/hidma.c
+> index c939635be..925c912e0 100644
+> --- a/drivers/dma/qcom/hidma.c
+> +++ b/drivers/dma/qcom/hidma.c
+> @@ -176,8 +176,9 @@ static void hidma_callback(void *data)
+>  		queued = true;
+>
+>  		/* calculate the next running descriptor */
+> -		mchan->running = list_first_entry(&mchan->active,
+> -						  struct hidma_desc, node);
+> +		mchan->running = list_first_entry_or_null(&mchan->active,
+> +							  struct hidma_desc,
+> +							  node);
+>  	}
+>  	spin_unlock_irqrestore(&mchan->lock, irqflags);
+>
+> @@ -238,9 +239,10 @@ static void hidma_issue_pending(struct dma_chan *dmach)
+>  	}
+>
+>  	if (!mchan->running) {
+> -		struct hidma_desc *desc = list_first_entry(&mchan->active,
+> -							   struct hidma_desc,
+> -							   node);
+> +		struct hidma_desc *desc;
+> +
+> +		desc = list_first_entry_or_null(&mchan->active,
+> +						struct hidma_desc, node);
+>  		mchan->running = desc;
+>  	}
+>  	spin_unlock_irqrestore(&mchan->lock, flags);
+> --
+> 2.30.2
 
