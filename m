@@ -2,143 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8EC7606D815
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 02:06:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35161606D839
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 02:06:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ivlWzwNA;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=AisgGJAy
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aFA+nrnH;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Szw5iKY3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=t5pTCfUuYhoWGHznkKdjfHFIvH0PZ+st2aFQRFV38Ps=; b=ivlWzwNAWRIpEL
-	fzDDjIWS4uyd9IPqybvseUln771FREc4P447njVyVLZUX6hrRMc6KlI3Ok5MT8R7TLRhDZhh6dQ6N
-	6705RhiGDOtKtz3kMBSkW0R+/EMiZeDnnRqEkSPuHbkTTyViNBb9ckqKMfdGPaDzPUXbZz0bRgnQk
-	CLHsiSm1e/VPmzHa8uP/KYuTMCZ1oi8WI3sFU7Q9hVTAGP5ylJqwAuKy/CzSujbbk3BaKIrW38qUy
-	6hDLSpskyzboI326KOknlyTukjmV7FcN5FvlY1UMaGos1ydEkf58adI83TLvm5JN2lfqro2gK/5+B
-	w/f+I9CaX5zWcAtaejiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=7edVmlDXqBmOKChW+ZBxMZA1iVKu3C6UNjM+2ZNf5wM=; b=aFA+nrnHDX5GIufSdOKAXKl8eO
+	R8CEswi0oi/9fQtyCPLuswJb6kSVv8RBzq8LBr/g9EyI3eCyos1dAXV3QAE0DUH0oRUi6ajVNuyPt
+	11o8m96s5MiNoxiiKKAGsNBzJQX3WCCHonyPKLeaC+JHONJFS8zg40PzFrRh42k+w5Y1cg0CdcT3+
+	+aLxQYLaGYLjK4fAP0ldrOxdVs7f26Wi4PqTh/2w2szsLSeqkMbNlgP5Ja+t6c978e4LtUxAme+5U
+	buXrcREOuNAI+5yolSOqK1pYZgOZVKN/lZ3g9C7ebWnI3mcVxxIj0zWbTBmVJf1SewM/AFoNnr3OK
+	XxymAvuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO3v0-00000000q8f-1VpW;
-	Tue, 03 Nov 2026 02:06:34 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1xO3v8-00000000qIb-3xb8;
+	Tue, 03 Nov 2026 02:06:42 +0000
+Received: from mail-dy1-x1331.google.com ([2607:f8b0:4864:20::1331])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO3uy-00000000q3U-0ucd
+	id 1xO3v6-00000000qEa-0WlD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 02:06:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sGHliZU8HlMSHGi4VJpJgEOvq0ftYL3bdQC/eVhnzn2/UBRVMT4dsxCXxkY4/EK3lgnLBFmFdRsdso6JuknpIfbq+tmK3575Ipu8KVPMhkxXLH7NhA+KBYn5ywr1EGx+ZthToDXzNVi+Fv6OYCFUYMZQ/fka37TQJdEymADZwe93BhnJwfdmjz7h9/a4+F0yFOKGBTmDVR9z/os/1bY8dEW/cC3BQwZCI+3EsMWj95wIh5f2GwMZhb55EqX2TubUQj4zAiPxrmNFp3HAv3HeFr451b6PCzEJ9R3XkQsicO2B/ww2nsBmo2BVONlbyeujEB+QLrGI4a26fjDhsoi9rw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=t5pTCfUuYhoWGHznkKdjfHFIvH0PZ+st2aFQRFV38Ps=;
- b=VKP7IYmZC2DmJtcbQdlqzwe4eTL4uYMO1zaAXB1Gw9owCOSiQo5KekIoUkB9QLYV4IkhZg4WXgcX8mHpIK0tj/3F1d0g/cFGm2pOqx6IvaWW9zv90p/goWF1Dbl2TJsHAkzE4KVP2RD0tnPG6aT2iEgMih9JC9tYCUkG5kLcZH+5uJtNKr55SD/KW+AVtPR/84bOmHgEw1Sb/ru7q7d8SunSL9VOZwvtgRtAgt/BRpFbC2612S+SrRN7qX1sEIZ99BJR2w65QmwXvX51LqxJpkANYuuQXyoga5wR5zCEdk8hk7LDvrAAGiUluvLEevJHzzkjJis8VNUrnL+RgLuGRA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=t5pTCfUuYhoWGHznkKdjfHFIvH0PZ+st2aFQRFV38Ps=;
- b=AisgGJAya86TSeCQcvnzEWJ+hKWBXaIWVn3zSApM5smOxwR63w8uAqQ0dRTARqO6h/cDTT7IQtALx05LPfk/rJRsiWUnXkyF2ONZxkvLwK0ktt7swL/fAI/dn4Fd/ymyIG/QRPoFULC9ihR0PNQm0QICwuyrp/4prAIpQCROSoD1ti0N04aslT0v4lExPMzxCkZmVZTygS4vnHuyT6rE6X8DPd6y1d/aHyx6ug8KBx/BV6Dnji9WBk1gNl2MiDHZI6nNcFnkKkpRMzHWty/teP5kjzJkdd4RqfCuJgwe00+vWlFL3YglqN4PeFK24REL46QMF1lFk3GEh3MDZn8dfg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from VE1PR04MB7216.eurprd04.prod.outlook.com (2603:10a6:800:1b0::22)
- by AM7PR04MB7094.eurprd04.prod.outlook.com (2603:10a6:20b:11f::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Tue, 3 Nov
- 2026 02:06:27 +0000
-Received: from VE1PR04MB7216.eurprd04.prod.outlook.com
- ([fe80::a9a5:cf83:dbe8:1f74]) by VE1PR04MB7216.eurprd04.prod.outlook.com
- ([fe80::a9a5:cf83:dbe8:1f74%6]) with mapi id 15.21.0569.011; Tue, 3 Nov 2026
- 02:06:27 +0000
-From: wei.fang@oss.nxp.com
-To: xiaoning.wang@nxp.com,
-	andrew@lunn.ch,
-	olteanv@gmail.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	richardcochran@gmail.com,
-	linusw@kernel.org
-Cc: wei.fang@nxp.com,
-	imx@lists.linux.dev,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v6 net-next 6/9] net: dsa: netc: check return value of ntmp_ipft_delete_entry()
-Date: Tue,  3 Nov 2026 10:10:21 +0800
-Message-Id: <20261103021024.3121936-7-wei.fang@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261103021024.3121936-1-wei.fang@oss.nxp.com>
-References: <20261103021024.3121936-1-wei.fang@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0050.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::12) To VE1PR04MB7216.eurprd04.prod.outlook.com
- (2603:10a6:800:1b0::22)
+	Tue, 03 Nov 2026 02:06:41 +0000
+Received: by mail-dy1-x1331.google.com with SMTP id 5a478bee46e88-353804b591eso6476256eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 18:06:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1793671599; x=1794276399; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=7edVmlDXqBmOKChW+ZBxMZA1iVKu3C6UNjM+2ZNf5wM=;
+        b=Szw5iKY3MCg/UYj3OLodtfrFpqNegez3Kfuj42RuG4Pmmf0ZSHbRY0Jg+1o6Mmbxlr
+         JP6lIPutAIPlAKLHzCjkn09lvzYcPik/jSJ7GcpC8c20QjM8Plpg9YecjUIxXdVVf54z
+         Epg1ooA4cQUm2flKvUyYQ3ejp6kgBAmWfV6rg=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793671599; x=1794276399;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7edVmlDXqBmOKChW+ZBxMZA1iVKu3C6UNjM+2ZNf5wM=;
+        b=CDHr3FDWNviBiCgoQy9KdkGW8aU1g5F9sTqQi2LAuYTBYHsgrsVSsR9uVtgSxt0LfG
+         zBo53s2UsxVx2j/eYsoa/mfszhBbRURS1G3SzJ5pvTu+HfgV2rXWNWjZtCUa7Rzy1tZP
+         gBtPnY3h9cgkCNhCe9Fpn5nP4Yg/BhS/xvxu2QQdqIkrAOj1hLrUNTzprxknSLWNiy2X
+         Z4s5R09vDsD9XK6uaBouaEx85dYEc44pcitvOLSgGhfHZud5hGYli9Tpt6J9YkUywukX
+         Spj1Ywf8lfGhzyyldDepaf3cStRUMu6fPcgnQOCGYHQYPFSDXv4IkVRaJ1muqhgaahrP
+         /aBw==
+X-Forwarded-Encrypted: i=1; AKwUvBz5sw8KvZwU/vwh2v0GWLcm2KYiT7lxBLnf3I19yjzxMm2inokBT3mmVRMcNChWc6StpP7Dq+KkqvI/zkCJpJiP@lists.infradead.org
+X-Gm-Message-State: AFq9FYIclFlCLVbLUxQR++gi30LR2ujsjeD0Fx7iVZpgLr0W77HRUPYv
+	267OfCU5ujJ2HpVEBcE1odzqyvWagcsV3EvEF0d1IudhUJAMuHuiE6rifcjHzpHZhQ==
+X-Gm-Gg: AYBFou0L8/6rZRgTzaUi8zjwXmf00MxodnD9/XrxljGtnlncOl8a0vJYo9oYezkVpTU
+	FoLnX2bmF0JdnSTBTZQ+gLeJkSxXkWxkEFWkutb2zIrcMpx/S/1PgoPOH+JXv6gZa5p50lpO4ri
+	Odk76eNhCFBJVPFT6k03BpH4+w7XMItDYN3dbHLoB3BsGe0/2HvhsOsGb038JYfUHdMuNYMr6RY
+	/FMY90lRFRI2Qhs6XeCU7bOLpvqNTlO0ttl95N5zsmztSj41eNcip9oou3pVa+BpuHzw0UNhSkf
+	kAuZ0zrfeSRBkC8gPfdFT/MFcmO8i1R7UcpE3Zq90IGZ4dAXMKRQp07RYK0O2fDYiypVYhK/H8f
+	PdH/QzCuLFZOH85/HeH5xaFVz4ZcA3EE66hjN7VpGxcXlvS8vLGIYm+fCbaJhcGa/E+v/nD1yT6
+	TIQFPOtRMvTrXHTItmEbSRyxteWwAsYR+DkWTivkmd0ygUHMpVvpu5kvKPK75iF5IrCnq/6g+tM
+	qlf3k4ZOnu41r0zL/fblELnWokluRq4yVGYg+UCYxblo86urQo+nL3Yu/TeXbL8DGzo0GqUrqlU
+	SUQrhmU+TDPxYkdNFaMalBE4U0327rc1kxw5Y5LjZHFJGtyk+XdPZPJh8x2gZT2Q91c=
+X-Received: by 2002:a05:7023:a56:20b0:1b2:3742:828e with SMTP id a92af1059eb24-1b23742830emr3971156c88.3.1793671599060;
+        Mon, 02 Nov 2026 18:06:39 -0800 (PST)
+Received: from localhost ([2a00:79e0:2e7c:8:c57d:c93d:3543:aab5])
+        by smtp.gmail.com with UTF8SMTPSA id a92af1059eb24-1ac19f4a04esm37837284c88.15.2026.11.02.18.06.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Nov 2026 18:06:38 -0800 (PST)
+Date: Mon, 2 Nov 2026 18:06:36 -0800
+From: Brian Norris <briannorris@chromium.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Thomas Gleixner <tglx@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	devicetree@vger.kernel.org,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Radu Rendec <radu@rendec.net>,
+	linux-arm-kernel@lists.infradead.org,
+	Mariano Marciello <mmarciello@google.com>,
+	Douglas Anderson <dianders@chromium.org>, linux-clk@vger.kernel.org,
+	Jakub =?utf-8?B?R8WCb3dhY2tp?= <jglow@google.com>
+Subject: Re: [PATCH 0/9] google: Add support for Laguna CPM
+Message-ID: <aulBrFWi54E6a7Br@google.com>
+References: <20261026214359.3122870-1-briannorris@chromium.org>
+ <20261028-armored-glistening-cheetah-6f3070@quoll>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VE1PR04MB7216:EE_|AM7PR04MB7094:EE_
-X-MS-Office365-Filtering-Correlation-Id: ec0e80e3-cfad-4eb6-2784-08df394f118d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|7416014|376014|19092799006|921020|261021123027099003|11063799006|56012099006|261009223027099003|261028144727099003|261026140227099003|261022075727099003|261026121527099003|261021121427099003|261022105027099003|10067099003|18002099003|22082099003|261102123227099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: TIyQrTv+SYZRlWrRkdav4NgYyRZ0hxqao6yiB+w2AbCJ+j5yvnRj/AfO8SNmicX0nHNcwA0DOuTHi00YnbkDibpWvo7I0ZoK2iV9V5P5nP0FWEK2UkSynroM33WhCekn3RnTTMSeC6MDceS+k96yusC8oEXgaG1d4guRsc1haQRPuXbzc8eb6uIKKmYpbjIZCo+up4K7lP3UwEFxZvzv9rQGxhWk6vguyGwHK1yY4toYBvfGMOKeMfgdAw6uxqKizk/rFzgHU4XIW6JP73ysyU+Qrfc5y/+YkCJdkOz6YS8zTc/pCDhznwUPuISx9qSz6MNuQ3BCBx0pvXKBm4XMgt0aueN+Nara3y2kcjeadwWcPKFspyV/bxdCwTY1u5wt7FX+22kg5mN8fRWCMv8MyxNGVxeMWt2F/Kkth0oAiDd8f6/ubL3h1690BN4FDU4rtoYsZfrUldzwOHHtRZppCEd1MSeqnVJQQffBY08bMpews5K3xxtRo6yUYibpqiQfp6oVBsh1hUHdocsDENOgkRV/sTQgXbz/ezQ/7d1+L7OdCCEogkk6KYVjvAn3IpzkXVgJQNBids71NRurbD66ub09XJDjusGI49ykWVSZ3YY7upDBLsh3c4zi0Kuq55jFs3HdSOGFcXtzOKNeKb0YDYoC/jqPT2QNcpv7oyDCw6ReVh73zhbbi7WfiIaanSxiLXZVIJtdYB3W5pPBfVLVMg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VE1PR04MB7216.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(7416014)(376014)(19092799006)(921020)(261021123027099003)(11063799006)(56012099006)(261009223027099003)(261028144727099003)(261026140227099003)(261022075727099003)(261026121527099003)(261021121427099003)(261022105027099003)(10067099003)(18002099003)(22082099003)(261102123227099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?syTdQkv2fQpvtuSUu0eJkWfqTNHtVRLdxf2+OA+dvNKn6y3DxaBcfSXCa6fB?=
- =?us-ascii?Q?EWwwiOLQmFn2/4dx2mw702zogtU8Os6yIqifjEw1TlvTyEjsPxCC6naYIt/P?=
- =?us-ascii?Q?wfx7u8Lpe988NIbkh0A0CdmMHsF5UKoSrnFj+5Q1YHli8W2t9fg12OSFE4XU?=
- =?us-ascii?Q?qE0b3roRVtQpfhc+rEMceB0k9z3OAgBd+6IjMxJTtUXCR043x3I+1yQhKjqj?=
- =?us-ascii?Q?1zJQwQwwrvjGjxBhPID7cIbx5wApgTlM9LwkvwbLku1Kj0M/bAq82pNVJiNd?=
- =?us-ascii?Q?gIioJm8hnv+km6ehd11ISfxg5OQXmijcEAFnbCRoEtP49mDfaeLtyZTUoJY1?=
- =?us-ascii?Q?rjzjtb2kEzFWoilbltOLs28N4iR/VowmVs9kEsKPqsUYOL3bQnIX9nz4wRP0?=
- =?us-ascii?Q?BkbSW9LFq8GY06XY2w7KoXDedxMsOSBkJ6Qxnrx9F1xsMTFGgq5b/j39rZe5?=
- =?us-ascii?Q?hIMTHf+gCKMW2ck5KWCHiSWqg4BdyryO3eLQVTG0apYUZX7dKts5t5MoAKHQ?=
- =?us-ascii?Q?PZgOY3m38knDSleiyVzVkLca4ngaJ4y7NUFJmVw3E2y51SnaK0PVQwMBB8et?=
- =?us-ascii?Q?LelA6rDuzhOEqiOVF2RUKvs7fOAgeGjLFJ1HBFyseNzI8IYmpGf4x2olGKpw?=
- =?us-ascii?Q?zb1z4IjW7TAl5truQmTCBwl1KkwLYl4qnmm81DVI/EeeLkBF2MevKICv9mk3?=
- =?us-ascii?Q?hiAkaqoyOn8dxXdby0cairWUwoyZ0kqT5/Smbnil1LV4pSo1I8zWYQVzdag/?=
- =?us-ascii?Q?sF297SJaKJ/o/sMZ6Ufp4rKvk5M9ugsyIKDnP6J+GlZhUs17RZwuhUGgIHXf?=
- =?us-ascii?Q?0zAy7ghVZGp5a7o3kiRtQiYmEWvCMDl7U6GP5ELRhppjjr1bqZeovtHjQ85p?=
- =?us-ascii?Q?IHahBi06nMSpxqpedAHNCjFvkH/o5SuWgk8arQjnuPelioovhHGujP6/HFHq?=
- =?us-ascii?Q?Hh4g8355PuWYjc1MhaW9B8v5LHLNvMIlntq/mWfge51701eAYIdJPAGXP+Gr?=
- =?us-ascii?Q?lBvWW1FFMckEbJVNqQPPe85ot+Zx7e+0XmECPo1XnWvxDA290V98iMGlr+H2?=
- =?us-ascii?Q?S5goUY3GdwFcOrV0MBb6zt5yWJeggtrXFb/I03Wg2RU+c191h2DEZ49MJttT?=
- =?us-ascii?Q?oHCMnYkyOP+ywCzgmT9QsRFRGt8CgVoO/58SCbbITc96nxG3F6oE2gJZzJEe?=
- =?us-ascii?Q?6MKjDv17Ecr5ZzzLdvBmlWfJPyZ4Qyns6m3owJaE7WGNj6ySHPCOp7YyY3vR?=
- =?us-ascii?Q?Ms9XbQFyD55sposr2Cti7KbDeZ3IoO0bVrWcUL5KD0LxDy6lt0sUT8i+bH2q?=
- =?us-ascii?Q?MYXtqUFozO8Oy4iqLwBhwp1rjZDGLcR8uEpOXagWkJXjMmYLuU1CuLnLqbZg?=
- =?us-ascii?Q?EbGd2AXWDQUz5854iSpK2r81ZWXqLUMwwVsAg9YtTAFqs30QlaR0XbgLCX1p?=
- =?us-ascii?Q?IpTmgd+On27pM0aViToFWfrsGP4LEyfE9DoVMKnJPnrdZLL/qapM9dfM9Bby?=
- =?us-ascii?Q?0aqP7xA9UjtP82QWSn5JO26bRHqk6v3ciG+QijRak62yPYKBdg4FMCQaCPI3?=
- =?us-ascii?Q?6geMsWJ4BRdl8TqeJ+GYt1+DoHXIkDe7lKYf74JhueIc+bA3Cq5+32h9yNMB?=
- =?us-ascii?Q?29/WLU1FKWAM+dLqjfWDcshDN+SoxyHtunyseIJjeByF48HZ12akQ//KftwZ?=
- =?us-ascii?Q?KPjfJWNVPZAdbYNlBgJhaX2Bmanmq4avPrWbz81ASlASd30dX21th6Ot0dg6?=
- =?us-ascii?Q?zI0gYRoNLY9tAHQefV8Jmdpb86991qQyyQsSn1aKn4HkrlD5ODDp?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ec0e80e3-cfad-4eb6-2784-08df394f118d
-X-MS-Exchange-CrossTenant-AuthSource: VE1PR04MB7216.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 02:06:27.0661
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TMbgYOPiisx8kV4PsgTUBJat12HTbtDiOL82MslFTVMqBLKKtQkpQFpC0nN2PS6jlkl0Wko9ROt78M5Vt3SzZwUWIsfFsSH25Ha9wbtVY+snW3U9l05pIB9PPnvsnFcd
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7094
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261028-armored-glistening-cheetah-6f3070@quoll>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_180632_465236_2B1220AF 
-X-CRM114-Status: GOOD (  30.98  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20261102_180640_221889_07270DF0 
+X-CRM114-Status: GOOD (  14.47  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,223 +113,45 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Wei Fang <wei.fang@nxp.com>
+On Wed, Oct 28, 2026 at 02:24:35PM +0100, Krzysztof Kozlowski wrote:
+> Either you expect review or not. RFC means no.
 
-The driver ignored the return value of ntmp_ipft_delete_entry(), so a
-failed deletion left the IPFT entry untracked and impossible to clean
-up later. IPFT is going to serve more features, such as trapping PTP
-packets and flow policing, so make the deletion path robust to prepare
-for these future uses.
+OK, PATCH.
 
-To this end, propagate the error to the callers and update the driver
-state only after the entry has really been deleted, so that the
-software state always stays consistent with the hardware.
+> If that's patch, then at
+> the top level of cover letter, as the most important thing, you explain
+> the dependency and merging proposal of this.
 
-Once the deletion can fail, the order in which a rule is replaced also
-needs to change. Since IPFT does not support in-place updates to the
-KEYE element, replacing an existing rule requires deleting the old
-entry and then adding the new one. Keeping the previous add-then-delete
-order means that if the delete fails, a port would have to track two or
-more stale host flood rules, which needlessly complicates the driver.
-So switch to a delete-then-add order instead. This order is not
-perfect: between the delete and the add there is a brief window in
-which packets that would have matched the rule find no match and are
-dropped. The window is very short and its impact is acceptable, so this
-is a deliberate trade-off in favour of simpler software.
+OK, I'll try to move it up. To be fair though, every change that has any
+dependency is clearly noted in its below-the-fold notes.
 
-Another issue is that if adding a new rule fails, host flooding will be
-disabled indefinitely. However, there is no good way to fully resolve
-this, because port_set_host_flood() returns void and the upper layer is
-not aware of the error. So if this corner case does occur, log an error
-to help users find out why host flooding is not working.
+> You combined here like 5
+> different subsystens...
 
-Note that, a delete failure has never been observed in practice and
-is highly unlikely to happen, so this patch is an improvement over the
-previous approach rather than a fix for an issue seen in the field.
+What do you recommend here? I believe the general principles of DT
+binding development suggest there should be a single binding doc for
+describing the "Central Power Manager" (and the services it supports).
+CPM supports functionality covered by many subsystems.
 
-Signed-off-by: Wei Fang <wei.fang@nxp.com>
----
- drivers/net/dsa/netc/netc_main.c | 91 +++++++++++++++++++++-----------
- 1 file changed, 60 insertions(+), 31 deletions(-)
+While in theory, bindings can be written without corresponding software
+support (drivers), in practice it usually works out better to develop
+them together, to prove that the binding describes the hardware/firmware
+sufficiently.
 
-diff --git a/drivers/net/dsa/netc/netc_main.c b/drivers/net/dsa/netc/netc_main.c
-index c946a2b2674e..be37e29cd650 100644
---- a/drivers/net/dsa/netc/netc_main.c
-+++ b/drivers/net/dsa/netc/netc_main.c
-@@ -1820,14 +1820,8 @@ static int netc_port_add_host_flood_rule(struct netc_port *np,
- 	u32 cfg;
- 	int err;
- 
--	if (!uc && !mc) {
--		/* Disable ingress port filter table lookup */
--		netc_port_wr(np, NETC_PIPFCR, 0);
--		np->uc = false;
--		np->mc = false;
--
-+	if (!uc && !mc)
- 		return 0;
--	}
- 
- 	host_flood = kzalloc_obj(*host_flood);
- 	if (!host_flood)
-@@ -1875,32 +1869,37 @@ static int netc_port_add_host_flood_rule(struct netc_port *np,
- 	return err;
- }
- 
--static void netc_port_remove_host_flood(struct netc_port *np, u32 entry_id)
-+static int netc_port_remove_host_flood(struct netc_port *np)
- {
- 	struct netc_switch *priv = np->switch_priv;
--	bool disable_host_flood = false;
-+	u32 entry_id = np->ipft_hf_eid;
-+	int err;
- 
- 	if (entry_id == NTMP_NULL_ENTRY_ID)
--		return;
-+		return 0;
- 
--	if (np->ipft_hf_eid == entry_id)
--		disable_host_flood = true;
-+	/* The command BD ring is always enabled here, with the ring
-+	 * enabled, the hardware completes a command well within 1 ms,
-+	 * so -ETIMEDOUT cannot happen here. Any error therefore means
-+	 * that the entry has not been deleted, so keep tracking it.
-+	 */
-+	err = ntmp_ipft_delete_entry(&priv->ntmp, entry_id);
-+	if (err)
-+		return err;
- 
--	ntmp_ipft_delete_entry(&priv->ntmp, entry_id);
-+	np->ipft_hf_eid = NTMP_NULL_ENTRY_ID;
-+	np->uc = false;
-+	np->mc = false;
-+	netc_port_wr(np, NETC_PIPFCR, 0);
- 
--	if (disable_host_flood) {
--		np->ipft_hf_eid = NTMP_NULL_ENTRY_ID;
--		np->uc = false;
--		np->mc = false;
--		netc_port_wr(np, NETC_PIPFCR, 0);
--	}
-+	return 0;
- }
- 
- static void netc_port_set_host_flood(struct dsa_switch *ds, int port,
- 				     bool uc, bool mc)
- {
- 	struct netc_port *np = NETC_PORT(ds, port);
--	u32 old_entry_id;
-+	int retry_num = 0;
- 
- 	/* Do not add host flood rule to ingress port filter table when
- 	 * the port has joined a bridge. Otherwise, the ingress frames
-@@ -1908,7 +1907,12 @@ static void netc_port_set_host_flood(struct dsa_switch *ds, int port,
- 	 * will be redirected directly to the CPU port.
- 	 */
- 	if (dsa_port_bridge_dev_get(np->dp)) {
--		netc_port_remove_host_flood(np, np->ipft_hf_eid);
-+		if (!netc_port_remove_host_flood(np))
-+			return;
-+
-+		dev_err(ds->dev,
-+			"Failed to delete host flood rule on bridge port %d\n",
-+			port);
- 
- 		return;
- 	}
-@@ -1917,19 +1921,33 @@ static void netc_port_set_host_flood(struct dsa_switch *ds, int port,
- 		return;
- 
- 	/* IPFT does not support in-place updates to the KEYE element,
--	 * we need to add a new entry and then delete the old one. So
--	 * save the old entry ID first.
-+	 * we need to delete the old one and then add the new rule. If
-+	 * the deletion fails, return immediately.
- 	 */
--	old_entry_id = np->ipft_hf_eid;
--
--	if (netc_port_add_host_flood_rule(np, uc, mc)) {
--		dev_err(ds->dev, "Failed to add host flood rule on port %d\n",
-+	if (netc_port_remove_host_flood(np)) {
-+		dev_err(ds->dev,
-+			"Failed to delete old host flood rule on port %d\n",
- 			port);
-+
- 		return;
- 	}
- 
--	/* Remove the old host flood entry */
--	netc_port_remove_host_flood(np, old_entry_id);
-+	/* Restoring the previous configuration is pointless because
-+	 * .port_set_host_flood() returns void, so the upper layer cannot
-+	 * detect the error and the RX flags have changed. Furthermore, we
-+	 * cannot guarantee that we can successfully restore the previous
-+	 * state.
-+	 */
-+retry:
-+	if (netc_port_add_host_flood_rule(np, uc, mc)) {
-+		if (retry_num++ < 2) {
-+			usleep_range(100, 110);
-+			goto retry;
-+		}
-+
-+		dev_err(ds->dev,
-+			"Failed to add host flood rule on port %d\n", port);
-+	}
- }
- 
- static int netc_single_vlan_aware_bridge(struct dsa_switch *ds,
-@@ -2094,6 +2112,8 @@ static int netc_port_bridge_join(struct dsa_switch *ds, int port,
- 	struct netc_port *np = NETC_PORT(ds, port);
- 	struct netc_switch *priv = ds->priv;
- 	u16 vlan_unaware_pvid;
-+	bool uc = np->uc;
-+	bool mc = np->mc;
- 	int err;
- 
- 	if (!bridge.num) {
-@@ -2105,6 +2125,12 @@ static int netc_port_bridge_join(struct dsa_switch *ds, int port,
- 	if (err)
- 		return err;
- 
-+	err = netc_port_remove_host_flood(np);
-+	if (err) {
-+		NL_SET_ERR_MSG_MOD(extack, "Failed to delete host flood rule");
-+		return err;
-+	}
-+
- 	netc_port_set_mlo(np, MLO_NOT_OVERRIDE);
- 
- 	if (br_vlan_enabled(bridge.dev))
-@@ -2118,8 +2144,6 @@ static int netc_port_bridge_join(struct dsa_switch *ds, int port,
- 	netc_port_set_pvid(np, vlan_unaware_pvid);
- 
- out:
--	netc_port_remove_host_flood(np, np->ipft_hf_eid);
--
- 	if (atomic_inc_return(&priv->br_cnt) == 1)
- 		schedule_delayed_work(&priv->fdbt_ageing_work,
- 				      READ_ONCE(priv->fdbt_ageing_delay));
-@@ -2129,6 +2153,11 @@ static int netc_port_bridge_join(struct dsa_switch *ds, int port,
- disable_mlo:
- 	netc_port_set_mlo(np, MLO_DISABLE);
- 
-+	if (netc_port_add_host_flood_rule(np, uc, mc))
-+		dev_err(ds->dev,
-+			"Failed to restore host flood rule on port %d\n",
-+			port);
-+
- 	return err;
- }
- 
--- 
-2.34.1
+And even if the binding goes separately, I don't think I can 100% split
+the driver support by subsystem, as they all require the same underlying
+CPM helpers, and those helpers don't have much meaning without their
+clients. So some multi-subsystem work is still necessary IMO.
 
+So I don't really see how I can address your complaint. But I'm open to
+your ideas.
+
+Brian
 
