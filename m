@@ -2,84 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 773D66083620
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F1456083616
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 14:51:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UxrVMNw+;
-	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=KTQ8EfaO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vbCNiviJ;
+	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=AKxvzUaM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=X265BLa7eap+hC6jsG4UHQiCMMg6MiP11gMxTREeoPs=; b=UxrVMNw+N4n2gt
-	7ut3r6Uxc6vHYDqlH2OhU+7tkhFFLM6TTLwh56qoX7w6xe+AAkQwFr3yS4lGtY4E/XaAUb0V3QccA
-	VGeJdL/beBGpubehDfK3WBGVM+RPdnQRUxYCapPV2GhZNJsG2wfqAh3/QHZ+FluFrqwioeacw6jQn
-	a9eLdkDmGixE8T3KooXuTERmnq/8zaVMBZZkAML817axrhZCLpaxQczKk72wFKcA8sILFUsUrtYTB
-	GTWTYrTJv5u+XTqtou1quKFIbaxvArgr+0ew+o/B4e0gzh0FV+tZn+bsEOgV+GqmQR2LnHlry2UQy
-	i48Mg8fw5ZOKnEiJ5ZcA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=8CEWkT7YqUsdXweSEdsC/4Zt6jRvvN21t2iGWXTpN6Y=; b=vbCNiviJ+6Rs279M85l1VGRk0g
+	5pUgRKvFjdBtktxkNYDGq1Ff5L3/4gBLP1swWbHgVcCD3BojJ7N4lAmtsS2asNBo0G9Fs0uhiFz4o
+	ZalRElrVAyoDpTivy++v6wetuztZc6X+Bcn5ucMaPzeXwR0ckH/49pmyoaHdeXI8p7q5jJzKev5Ms
+	zNgC/73R9QB+5oZvt2Vd5FYoPYBxpNlq+kwEM0Httvuros5K71IC2GV+Qx8ezlco8RfUDKDBw0Z0O
+	Z8vkbLqIg+kOsQAdRzFSjVsHPPgHw4CvywevVnTSEB40bzm3ah+HHa9XXC3OG20ClnIvnvxZVuhgw
+	tIDsH9fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOFrI-00000002mdX-1Fjn;
-	Tue, 03 Nov 2026 14:51:32 +0000
+	id 1xOFrH-00000002md9-49nx;
+	Tue, 03 Nov 2026 14:51:31 +0000
 Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOFrF-00000002mb3-1Igd;
-	Tue, 03 Nov 2026 14:51:31 +0000
+	id 1xOFrF-00000002may-1IQF;
+	Tue, 03 Nov 2026 14:51:30 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
 	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id CC94C2006C0;
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 85DFE20282F;
 	Tue, 03 Nov 2026 15:51:22 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	s=20260414; t=1793717482;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=X265BLa7eap+hC6jsG4UHQiCMMg6MiP11gMxTREeoPs=;
-	b=KTQ8EfaO3t7b2IgeSfu5l3QnKcGQy4ryDP5+ng+pa2rWScrDG6/6MBLrlnWEYfK+7tuX15
-	hInYzlXAP+MMzkqCAWDc65fYwqiiQTz/pHRh790R3wjhS9Jrv8lBLsc9Pfk69GYTWV9B3b
-	pAUeHIiZnIMKqCabTFkH9v/P9WrFCWbu4czjJFB+cfcqI0CTGJ+18oO3J82+b0jlaViCtM
-	laLYNJUSh8ZKaFJm86nracSclUnNnQiHVUA3l2qkYn8vbr10YGuFs374RVrHgFCxhj+CBa
-	rvYEyJJRXwk9CS0+8HtfUXPJ/4mFk69E21U7wpkHRZ3YB5DtAVfc36u5u5I+hw==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=8CEWkT7YqUsdXweSEdsC/4Zt6jRvvN21t2iGWXTpN6Y=;
+	b=AKxvzUaMon+g0eGzCnebblLH0CQcxu8Mo/fFmm8bfgtmnb02+x1Vy5RY1vosc/Dw6PLVz0
+	iRKifvYEPlj5/s7iWFg1uVg/oUekVa6FeN8gSMs2n7hniuC8liZ/LCHiE1Wayt8dKd+xC/
+	0HWs26UU6iYCS/AuSEj8Craj6vU+On1yXrQ0YBdoPrSO4fA8n9o8nX4Fc4/3f9hHBDNBDf
+	8+cZj+HpHZHxmGBd8cISMMjBkY2RFlLvZupD3w7qL8BQC845KA4iQLM0RGwfABSaMyZ6J5
+	n7gODCunrVoOj24Xg23eiZo6dtn6YfFYG4eNG16MN0XA4aesJAR+xn89xIT2lw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	s=20260414; t=1793717482;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=X265BLa7eap+hC6jsG4UHQiCMMg6MiP11gMxTREeoPs=;
-	b=Tgd5xSbvuorrusawlOCVf2vWZhJO+EKNfDFPkYXFOOHmXzHIGRcA45Fmhk+ThNIbNksNjA
-	A91DKpluqC9SnCkxmccRNAKD+/5DdNWICvVnH0fyuYH+A8QkrdD2CcaRCKgkQ/XQMJBgVJ
-	FpN0CKPDMIysededJzCiJTrbzPJ1KRN/K6rGq3qcnERtPA1WOcjbQTi7MiYPYTOIfDZlrG
-	1P3URSCDOpbzmz8HxWlOivZZZsy1a6mNXuxIefJfYe8U9I6OeaTYbaa8dbqShyh4qwddlR
-	26EWxffH39r0vaE/RznclXqjMkqJoVvhpn6UgJYOIOJZCeaatZu9oLUOm+dT4g==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=8CEWkT7YqUsdXweSEdsC/4Zt6jRvvN21t2iGWXTpN6Y=;
+	b=J1YgoWoR056rCWe9m7gmbluw3/CwDa8OIITK8tjGD2eFfT7dUXhwOEyeIzKBDBbiVb10qu
+	LXbERBF3J09rvwzzJrcRwU3I+6y7pxSysu2RCSgU/MmBjduzbNSuaeqUApW9iUtA9P1CYe
+	a7EEvwH3mCR/3DMV6uqGyE0iyxRODSLcNpDxJPUY4hod4qkj3ZgaeZYpGjfenWIUybOUQs
+	1HRNdsOa0DOm/sRcF7/WyZGp0XupTHtswpxzFMfpM9VET3UYEICYB8hfasa/Zv7ElBAnEw
+	2ykIAIkl2V+d1zgGBxaHKCG0HtPZ4ceq9mgR4HWFgtFRwjXH7gKnymwshWYhJQ==
 ARC-Authentication-Results: i=1;
 	ORIGINATING;
 	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
 ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793717482; a=rsa-sha256;
 	cv=none;
-	b=Qb/VfYJCjyGdaSPc095QlqNrSm852yMQ5xYaQEJwSpP3vDGxqq/qr9gtYIVENa4jUiZJa4
-	glXbtJ/zD2WNC0HL08qar+we/sRm4GpEj0zJBMdnW77thsTsxr+bZKqOG1tTZZGuWK1KYD
-	25O9RaX4EcfXGpo9ROT7PjtAsdA0Ao5sx6BZUF1eYS2Qzb76eQglTaLQbFE3M4KgDPWT1G
-	BaEyXy1cyAvW3HJPm627bDbxh/6LYkxbShDiF4rOk1lLUFWpUHkV7V3w74z4tz+qQHzuAm
-	b9HUljpA5IlQXJYKWixPG1bu+QnVJaflBiZ4EDEoq4F/uMA7rCFQJEhN3eHwEA==
+	b=FlBlrPWLFpbVGtVUDlo+TNRTijjaKFBomt6Ys7PgXV8sXb/txPBFgyoAcFHzNBCb2O89lZ
+	Wi+mJiMIQVCmECccsrtmnvXai0v73WrvlemN2YdULLu8ZZ/cjONxI3GMTIST/HTnwlml0+
+	ougMKkF+V0D3D4fJTCNUMcFmU9/3GFRpLNq4rV/OD0gOyyKTwsuueAy1ckCSDjxgJF4V2B
+	aWBR65LqU8FwHC/+T+tato3U1QfM9PtfLAoUCvLnAeBiaBLXnNyPb8VkfpuaHYDmHXdh5d
+	2BOyqE56pn2OjATD86azrqrGYzQnNR8Ll03qkn96TMoGLWfC5m3eLJwCNgJMNg==
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <p.zabel@pengutronix.de>)
-	id 1xOFr8-002SzQ-2I;
+	id 1xOFr8-002SzQ-1V;
 	Tue, 03 Nov 2026 15:51:22 +0100
 From: Philipp Zabel <p.zabel@pengutronix.de>
-Date: Tue, 03 Nov 2026 15:51:23 +0100
-Subject: [PATCH 3/8] reset: k210: Use regmap_test_bits in k210_rst_status
+Subject: [PATCH 0/8] reset: Use regmap_test_bits to simplify status
+ callbacks
+Date: Tue, 03 Nov 2026 15:51:20 +0100
+Message-Id: <20261103-reset-regmap-test-bits-v1-0-1b33607a76b0@pengutronix.de>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261103-reset-regmap-test-bits-v1-3-1b33607a76b0@pengutronix.de>
-References: <20261103-reset-regmap-test-bits-v1-0-1b33607a76b0@pengutronix.de>
-In-Reply-To: <20261103-reset-regmap-test-bits-v1-0-1b33607a76b0@pengutronix.de>
+X-B4-Tracking: v=1; b=H4sIAOj06WoC/yXMwQrCMBCE4Vcpe3YhidJWX0U8JHHarmAt2VWE0
+ nc36mXgO8y/kqIIlE7NSgUvUXnMFX7XUJ7iPILlWk3BhdZ7t+cChdUd73FhgxonMWXf5RRSPPY
+ HN1A9LwWDvH/h8+VvfaYbsn1rtG0fG+lJgXoAAAA=
+X-Change-ID: 20261103-reset-regmap-test-bits-17cb2ba9840f
 To: Damien Le Moal <dlemoal@kernel.org>, 
  Conor Dooley <conor.dooley@microchip.com>, 
  Valentina Fernandez <valentina.fernandezalanis@microchip.com>, 
@@ -92,8 +94,8 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  Philipp Zabel <p.zabel@pengutronix.de>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_065129_540293_5D65ADD9 
-X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-CacheID: sfid-20261103_065129_542790_2A09A87E 
+X-CRM114-Status: UNSURE (   5.16  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -114,36 +116,37 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Simplify k210_rst_status() by using regmap_test_bits().
-Now returns 1 if asserted for all bits.
+A lot of the regmap reset controller drivers open-code a variant
+of regmap_test_bits() in their status callback function. Simplify
+them by calling regmap_test_bits() instead.
 
 Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
 ---
- drivers/reset/reset-k210.c | 8 +-------
- 1 file changed, 1 insertion(+), 7 deletions(-)
+Philipp Zabel (8):
+      reset: a10sr: Use regmap_test_bits in a10sr_reset_status
+      reset: reset-intel-gw: Use regmap_reset_bits in intel_reset_status
+      reset: k210: Use regmap_test_bits in k210_rst_status
+      reset: lantiq: Use regmap_test_bits in lantiq_rcu_reset_status
+      reset: mpfs: Use regmap_test_bits in mpfs_status
+      reset: rzv2h-usb2phy: Use regmap_test_bits in rzv2h_usbphy_reset_status
+      reset: zynq: Use regmap_test_bits in zynq_reset_status
+      reset: tn48m: Use regmap_test_bits in tn48m_control_status
 
-diff --git a/drivers/reset/reset-k210.c b/drivers/reset/reset-k210.c
-index e77e4cca377d..58ad8be18741 100644
---- a/drivers/reset/reset-k210.c
-+++ b/drivers/reset/reset-k210.c
-@@ -59,14 +59,8 @@ static int k210_rst_status(struct reset_controller_dev *rcdev,
- 			   unsigned long id)
- {
- 	struct k210_rst *ksr = to_k210_rst(rcdev);
--	u32 reg, bit = BIT(id);
--	int ret;
- 
--	ret = regmap_read(ksr->map, K210_SYSCTL_PERI_RESET, &reg);
--	if (ret)
--		return ret;
--
--	return reg & bit;
-+	return regmap_test_bits(ksr->map, K210_SYSCTL_PERI_RESET, BIT(id));
- }
- 
- static int k210_rst_xlate(struct reset_controller_dev *rcdev,
+ drivers/reset/reset-a10sr.c         | 8 +-------
+ drivers/reset/reset-intel-gw.c      | 9 ++-------
+ drivers/reset/reset-k210.c          | 8 +-------
+ drivers/reset/reset-lantiq.c        | 8 +-------
+ drivers/reset/reset-mpfs.c          | 9 +--------
+ drivers/reset/reset-rzv2h-usb2phy.c | 6 ++----
+ drivers/reset/reset-tn48m.c         | 8 ++------
+ drivers/reset/reset-zynq.c          | 8 +-------
+ 8 files changed, 11 insertions(+), 53 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261103-reset-regmap-test-bits-17cb2ba9840f
 
--- 
-2.47.3
+Best regards,
+--  
+Philipp Zabel <p.zabel@pengutronix.de>
 
 
