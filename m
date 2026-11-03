@@ -2,77 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78232606C694
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 08:35:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89548606FA84
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 08:35:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XeUk8BJ5;
-	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=KMTg2zad
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HTPLvye2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=o3LJ0Hj1WCiPYc9EufOE1mRGFeHL/H8/8bQjlcMAaT0=; b=XeUk8BJ5REApJG
-	u6keqjIGTvr7JVN9TYxAdylzhnFMkRLN/w19EJG6Mx96Vhh9ZJa315CC34iAV+04rrOmZzklgePLc
-	qtL31UpZsZ11a/3/h+L7zurL2QkYFXJqf7uneV9W+NCdXgQM0EgsYvyMBLh+uHFtCSrJFrvHBszmW
-	rKbTpVSr//LtBY3vHQdhbNW7R14H6xDi/0St21zzq55h1PMplylrHUhQJ+lYk4916ypeXxKiiF0YA
-	O8tIaGA2lbF1tUAOpH7j/7pnEQsCOKjvdznJuHu/JqhLGHdMCvLuTP6FHSGZgmyIrJbqBQe1Cb3U+
-	yhLmKj1qJ/vkTZmOUnuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=/++6gQgv4rDBRyHw0HFXknbo6zEY8ME7pabSVyOedNw=; b=HTPLvye2/QtKS+8uokUjKTezsO
+	pa4C70QwOb7ivqhqljncHzhuD/eTFt7CgHbt2f/Leeqi/i6UisU/Xb4u312u2Tl1e8LZQhO9ohnXH
+	MOGvgCEdjGe/snZCtmKoWqBo3RQUis9CpCBSoO1mBR0kvpB9HCLt0HarIbcBQDZTzJt4D4KwwhU8o
+	DJhDE31o04C5VkbaKLVxZY9R/rulFwjNC9nGuhwVEfVvdikH6yv4PrtR9yWXT/lPu3PBzqDWph7uL
+	FSunVAjINeQE+7QlkOAFRxas52YuidHFIaN7RAvzBSNDyYu+k7hLX/3494ADdp/WXZp0lPdlmgc24
+	CcmhTbsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9u6-00000001Xdd-2uas;
-	Tue, 03 Nov 2026 08:30:02 +0000
-Received: from esa2.hc555-34.eu.iphmx.com ([23.90.104.147])
+	id 1xO9zN-00000001ZaE-3D0t;
+	Tue, 03 Nov 2026 08:35:29 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9tw-00000001XXy-1bnk
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 08:29:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1793694599; x=1825230599;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=EHNvnomPYWJp5Iwb8XgCJS4byDJYYpzu7MQG1ZHfDDs=;
-  b=KMTg2zad6MZ7+jaud3pPbYoHhb56C+UIQAI+cqG2kOT4+PhjlpcHBac4
-   1Lu8kY+X6SL/qlrJJizQlkbtfZGrPQJNfq1UE5OZ6LxBwF5tKmLc/jWy0
-   rtOZc5kbpZujtG/R6tnp4rPwhtKyiS+l314oGvqhtwu8jfCuPEwvdbIsI
-   yQn/yzQGwVbpXZ7YkQjRIGXpGrmKKu+vWmse3oy3GzMwqK+qhlF6kxUa2
-   yoAjuhtl2/ZXeGEL9aWrybrIMlMO1QXtKcH1KyQP+UFzc0K+Ukv5D4t8B
-   HeQe6fX6z5J3TG9beJJPez9WRnohvhzQjQdtdBPOmNV0hQI+lUxIVz3Ri
-   w==;
-X-CSE-ConnectionGUID: /jxLnuPQSRiIqrKHd133PA==
-X-CSE-MsgGUID: BVqUZLkCSqyJdxJRwbUgDg==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces03_data.me-corp.lan) ([146.255.191.134])
-  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 10:29:55 +0200
-X-CSE-ConnectionGUID: yzbgF8sjTtuqhosP4VXsfQ==
-X-CSE-MsgGUID: PhbRgaCpRbupdCDZWfycYA==
-Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.2])
-  by ces03_data.me-corp.lan with SMTP; 03 Nov 2026 10:37:33 +0200
-Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Tue, 03 Nov 2026 10:29:46 +0200
-From: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
-Date: Tue, 03 Nov 2026 10:29:37 +0200
-Subject: [PATCH 1/8] i2c: nomadik: optimize struct layout, change unsigned
- char into u8
+	id 1xO9zL-00000001ZZh-0T1r;
+	Tue, 03 Nov 2026 08:35:28 +0000
+Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
+	by APP-03 (Coremail) with SMTP id rQCowAC3wJHMnOlqqII6AA--.1383S2;
+	Tue, 03 Nov 2026 16:35:24 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: tiffany.lin@mediatek.com,
+	andrew-ct.chen@mediatek.com,
+	yunfei.dong@mediatek.com
+Cc: mchehab@kernel.org,
+	linux-media@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] media: mediatek: vcodec: Free encoder controls when setup fails
+Date: Tue,  3 Nov 2026 08:35:33 +0000
+Message-Id: <20261103083533.1176842-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261103-i2c-nomadik-fixes-v1-1-655c6af2cb70@mobileye.com>
-References: <20261103-i2c-nomadik-fixes-v1-0-655c6af2cb70@mobileye.com>
-In-Reply-To: <20261103-i2c-nomadik-fixes-v1-0-655c6af2cb70@mobileye.com>
-To: Linus Walleij <linusw@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
- srinidhi kasagar <srinidhi.kasagar@stericsson.com>, 
- Ben Dooks <ben-linux@fluff.org>, Andrea Gallo <andrea.gallo@stericsson.com>
-Cc: linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Dmitry Guzman <Dmitry.Guzman@mobileye.com>
-X-Mailer: b4 0.16.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowAC3wJHMnOlqqII6AA--.1383S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7WFy3Ar1kXr43Xr48Jw45Awb_yoW8Cr18pF
+	yxKrW2ya4UJFs0vF48Aa18ua4YkFWfWryxGan0v34xA3sxXr4xXryIva4fZFZ7GrWDKa45
+	XrnFv34xWr4jvFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jw0_WrylYx0Ex4A2jsIE14v26F4UJVW0owAm72CE4IkC6x0Yz7v_Jr
+	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
+	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
+	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
+	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r
+	4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_
+	JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYx
+	BIdaVFxhVjvjDU0xZFpf9x0JjU-B_UUUUU=
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAMAA2rpWwr-jAAAst
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_002952_723424_E7C0575F 
-X-CRM114-Status: GOOD (  13.41  )
-X-Spam-Score: -4.0 (----)
+X-CRM114-CacheID: sfid-20261103_003527_675738_3E2DC37D 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.9 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,74 +84,49 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Change type of `tft` and `rft` fields of `nmk_i2c_dev` structure from
-`unsigned char` to `u8` and `buffer` field of `i2c_nmk_client` structure
-from `unsigned char *` to `u8 *`.
+mtk_vcodec_enc_ctrls_setup() can fail after creating some controls. On
+that error, fops_vcodec_open() jumps past the control handler cleanup and
+frees the context, leaking the handler's controls and allocation.
 
-Put two bool variables `xfer_done` and `has_32b_bus` and two u8 variables
-`tft` and `rft` together in order to reduce struct size wasted for padding.
+Use the same control handler cleanup as the later m2m context creation
+failure, and remove the now-unused label. No m2m context is released on
+this path because its initialization has not been attempted yet.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
+Fixes: 4e855a6efa54 ("[media] vcodec: mediatek: Add Mediatek V4L2 Video Encoder Driver")
+Cc: stable@vger.kernel.org
+Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 ---
- drivers/i2c/busses/i2c-nomadik.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ .../platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c      | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/drivers/i2c/busses/i2c-nomadik.c b/drivers/i2c/busses/i2c-nomadik.c
-index c3878670da9c..45b4815b0945 100644
---- a/drivers/i2c/busses/i2c-nomadik.c
-+++ b/drivers/i2c/busses/i2c-nomadik.c
-@@ -170,7 +170,7 @@ enum i2c_operating_mode {
- struct i2c_nmk_client {
- 	unsigned short		slave_adr;
- 	unsigned long		count;
--	unsigned char		*buffer;
-+	u8			*buffer;
- 	unsigned long		xfer_bytes;
- 	enum i2c_operation	operation;
- };
-@@ -187,13 +187,13 @@ struct i2c_nmk_client {
-  * @clk_freq: clock frequency for the operation mode
-  * @tft: Tx FIFO Threshold in bytes
-  * @rft: Rx FIFO Threshold in bytes
-+ * @xfer_done: xfer done boolean.
-+ * @has_32b_bus: controller is on a bus that only supports 32-bit accesses.
-  * @timeout_usecs: Slave response timeout
-  * @sm: speed mode
-  * @stop: stop condition.
-  * @xfer_wq: xfer done wait queue.
-- * @xfer_done: xfer done boolean.
-  * @result: controller propogated result.
-- * @has_32b_bus: controller is on a bus that only supports 32-bit accesses.
-  */
- struct nmk_i2c_dev {
- 	struct i2c_vendor_data		*vendor;
-@@ -204,15 +204,15 @@ struct nmk_i2c_dev {
- 	struct clk			*clk;
- 	struct i2c_nmk_client		cli;
- 	u32				clk_freq;
--	unsigned char			tft;
--	unsigned char			rft;
-+	u8				tft;
-+	u8				rft;
-+	bool				xfer_done;
-+	bool				has_32b_bus;
- 	u32				timeout_usecs;
- 	enum i2c_freq_mode		sm;
- 	int				stop;
- 	struct wait_queue_head		xfer_wq;
--	bool				xfer_done;
- 	int				result;
--	bool				has_32b_bus;
- };
- 
- /* controller's abort causes */
-
+diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+index 4e4541b2fc8e..dd47feea6acd 100644
+--- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
++++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+@@ -140,7 +140,7 @@ static int fops_vcodec_open(struct file *file)
+ 	ret = mtk_vcodec_enc_ctrls_setup(ctx);
+ 	if (ret) {
+ 		mtk_v4l2_venc_err(ctx, "Failed to setup controls() (%d)", ret);
+-		goto err_ctrls_setup;
++		goto err_m2m_ctx_init;
+ 	}
+ 	ctx->m2m_ctx = v4l2_m2m_ctx_init(dev->m2m_dev_enc, ctx,
+ 					 &mtk_vcodec_enc_queue_init);
+@@ -191,7 +191,6 @@ static int fops_vcodec_open(struct file *file)
+ 	v4l2_m2m_ctx_release(ctx->m2m_ctx);
+ err_m2m_ctx_init:
+ 	v4l2_ctrl_handler_free(&ctx->ctrl_hdl);
+-err_ctrls_setup:
+ 	v4l2_fh_del(&ctx->fh, file);
+ 	v4l2_fh_exit(&ctx->fh);
+ 	kfree(ctx);
 -- 
-2.43.0
+2.34.1
 
 
