@@ -2,74 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C7D360A2603
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 08:33:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB388606A948
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 08:33:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dJohO2G1;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=izuVT1y3
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rOUl9ujt;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=VAGUGW6Z
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=dfUT22bku5FLHKqPn9/1kA2CO+HAUQbPG++n30nYh30=; b=dJohO2G134/0tWIBG2jNppqeqy
-	iInYVOqoIP76MrTnj+WiAMaTf4eO3oG9Rh/xg3PYMkPAgxj66aadQK+saNbzxkyx7PmSLtBlc1wPA
-	WvV35IbrGA9BmL48Abmme6e3a4KDZWFMehY1/20jOO8+It3oylt6G8onplvf7CI7EI7GLHi9tOHfy
-	JVjRJ8BuU1hLH6OoQbHFEwhHstqHLNliEXnD/8jTakQWx+95LltMEU3pBY2KYxzBKq7hDz6X6PsiC
-	BCOcrSpH50XLMATexPOchy3Pu8SyX/svXjXbq0LKQ0SetSdgKcB9SAr9s2bKoQZ+qD1TfT61VbIAk
-	KG/Yd99A==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=XvjTZ7Fkh7YhTLnNMHtgICr7hgWUxrshozbF4pg48H8=; b=rOUl9ujt160LYf
+	Y0IzgAOQ5dyDZDUmEMEsuW3sAyAJkxROjeENT0HbXhwBWvhwp7v21XVk0Itvb987edr8NSuThTuq+
+	xBDucqozJJVIQE/1VfoDi8EGwuUTN26TyItpEegixIztQ6ShZLH4TDZWzo130KBTUFQWFDxkIeLpx
+	vsQgnOk7geT2eu/DGvLFPSxHmzeNVfPnloBeHx4nWfV1eoCCFyk+qiSAk+gAHD/vVYHFNLIdSXTu3
+	GTbWxQp1Wa5ExP9jnjwuMryYC5EMRTj+VDq6JwafQ+xoxlo6GPOPrwf6629bks688T+oXwSdJrUH8
+	XrtXSPinf+4uNAZYZLQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9xk-00000001Z0U-0C6O;
-	Tue, 03 Nov 2026 08:33:48 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1xO9xl-00000001Z2f-2A0B;
+	Tue, 03 Nov 2026 08:33:49 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9xg-00000001Yyt-2jU8
+	id 1xO9xi-00000001Yzg-30N4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 08:33:46 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-3ae691283ecso232882a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 00:33:44 -0800 (PST)
+	Tue, 03 Nov 2026 08:33:48 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-cd3310348d2so206528a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 00:33:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1793694824; x=1794299624; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dfUT22bku5FLHKqPn9/1kA2CO+HAUQbPG++n30nYh30=;
-        b=izuVT1y3ykaCJjq9E8oPIjwVeHZ0nsNNlsJq7r5jhu1WKenxU9wDQ1K4DcknxAmFM5
-         xppo8ihaI09k0pEuN6vaEfsF+K6zlwImbieQIjjk+Jg7XBSj7ItRj9yo6BdKKQpvGUax
-         dk9HSTv9G/zUsqBz/zJqhnYOoXtrYFWDBhFk0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793694824; x=1794299624;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=chromium.org; s=google; t=1793694826; x=1794299626; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=dfUT22bku5FLHKqPn9/1kA2CO+HAUQbPG++n30nYh30=;
-        b=k6+GHcqjcpPRkTpftJ4Ky60OheK6GgLNLYelQqo4uBRCscGUMmQ14SRw/RkKxrUt+4
-         VIPWymigIH+KQ7IFhQgXtmrqZCpJemKx1Otw/8eadEZElWBCQUkHPKYy1k8sdQVCpxTK
-         bwnAYVUguEl18M3A7kNRmuPq2GT+SxVhoIg0XN0OU6dS4zlXltN24rxhusYCzceNGNvH
-         8zZxaQKTdFsSyZ/2OTz0MM6L/+Nt2lN/PMe5qI8Jbl1Jsw1td854mbMJkDnPN6WCGWys
-         G4S1vYp+7F26AWrM5dk/TNNQjq3/TGQpt3QU9QSuU3T8BwsVrhYyNKd2KiCYgNyowIyj
-         abGA==
-X-Forwarded-Encrypted: i=1; AKwUvByLH2gMvgSAdJIxjVnTWKEIv94+xPTJXS+bKziXjWvqTcPawgs2SOcO/p1ufa2tUSMHPhv4W4d2NrY57FaIwByw@lists.infradead.org
-X-Gm-Message-State: APuU4Z/N76BffiPcjB5RMZfuIz6YAMEA0RdIoF+Y5BGoZOzEY4SdnUU1
-	/D5k/GmyzM7aokWJ7yrQ3V879tYyrGb7a1qVDUBpkR1YH81NarGea+rqgiRbKEihaA==
-X-Gm-Gg: AYBFou0fKm736h+SerDHSK9Wp+bqaa99sftA2+pVzez+V4n/3sHjgAt9odLIlr3pSsr
-	vuDJIfVkBu0CdNBnZ2ty8xmi6txFF9pG4PDKKcpGlvrDwfSQRrjw9F2GRu5/Shu4XllUObYGgAW
-	MgAVAXz4+PRGYOvwAA5fhW1oWfoYtRpTHjx9ogREvtsZiFTsjqLwatlJcMrZHs3GuPRHzcatEuV
-	2cWlrKaAJHsbKUg6+YKB5+v/LcOOTDpznbwSO5BL6488nSBNYq+wn1uYajUfnBFE9txDwWetxWY
-	HNfq/L6bx2Qw7roRTe8ZIiaQ2JfSmXWjMkBqet1aZyfNJsIIpVVb88hift8ASHvdR/ljgysv+Cz
-	283L9DIG/OQfgKtwiYeR6Bc0B+cy1DY6pxroZuLWnOyrg9Pv/Uri7wUEn7c1KGkrsS4akUWPD/j
-	duKVtHlpneu4DXmm9X9ZStbZwgzK++D9pi7wmN9r8V+1QpLnXpj+pm509SS8QkYTaLeL8GPYSY2
-	KYS3UJVPmbExwq+5NDI+52lzhPRdUuPQ/tFELtMFTq6ANPPoSDufBU7KNP7nZ0Gz7jgnGfFivlN
-	R1pbkvlOsNJ+7CxNaMsSLzXB4pvEMTilfHm22sm/zbguJ3ySe1mgvKB+xy+WlaXap8IMcrXVmus
-	dI5mvDM0b75STGg==
-X-Received: by 2002:a17:90b:1b0d:b0:3ac:36c7:c144 with SMTP id 98e67ed59e1d1-3ae89776936mr6781818a91.28.1793694823651;
-        Tue, 03 Nov 2026 00:33:43 -0800 (PST)
+        bh=XvjTZ7Fkh7YhTLnNMHtgICr7hgWUxrshozbF4pg48H8=;
+        b=VAGUGW6ZxHBt5891nQxD9nLsYDs0rj8d0PpFw0QIx5fXG+20WaBh//ROp3HhnVk92L
+         HChDWKilYYRYOjrYwJVjkHHl+hg5D7Hiyk47F3Lfwt6o/4dxKNVkKxnJtS0cvPWq28a7
+         MZGHY/24PAA8tiYOoW+oXIl4CDTYrk3zaIJiA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793694826; x=1794299626;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=XvjTZ7Fkh7YhTLnNMHtgICr7hgWUxrshozbF4pg48H8=;
+        b=Tyw1y4jY2n7QScmoSSYUAd2E3tm4snQ/+r4wC1xGA0fUp9EOAIOV2yXLTHrRX8Zied
+         A6Ujr0XmeMqlv+vTacX0rMNMGH8arvW1wlQCdNuUl+DWQUm5uCgHEjpdkmE8hj7FCoup
+         Upr615kjbohIZ+vaxhGbcmLRh1pDgl32u6+i1nYP/zKiHb6QfHk11jeKDLeKs54BRyJg
+         fY6PQ3dGPFbRlnyUkaitK+wB9/THvM//7KQBE7nhNNAjS7DWm0kIYeqO5MvIMu/uIMlU
+         E/L1qt9ZQA85xX2gHUrPmfYvLc6yWTYCS9nkUp8A8XiQzPrU3HZggUQrt41SlMhlhhnA
+         YvLA==
+X-Forwarded-Encrypted: i=1; AKwUvBxr8WpWds7N9esm8tede4hE2FtYh9Ju9NgYRdrgKCxHuCCJmMZiHTdnU1JIfqliIMMtua6hO5rRn8t60UXZpk5B@lists.infradead.org
+X-Gm-Message-State: APuU4Z/J6C9J5UiqFV6A+af5gHjLTOJdcSsZGJImnoHyjKcrw/zRDfNF
+	Kv6GdYmhGnPymLIKW8GQc/rzJjAdv+iqIW4xT53KQtPNJMEJLXihStd9akGkWERpUg==
+X-Gm-Gg: AYBFou1Babihhvn94ms4DnK169bMiZUIfe30VEl4XK9bpgw+Yb3TLAtwJRwBVbAe74G
+	pmOh9Ks/xmrTaDaXOh5UawoomOHfIoP9HCqjIiJDPTLScxweV8Zdjb/aZ1xPuGVxGpV+jEwOamh
+	tVQ7VyblgNGVBnm4OOXQF7LfOdwLHwm29bqDULSXIEtzaXi2keBiZVigg7lqQBHSezAN7BPgs6M
+	QKwd7tOsWh1U9npx9Ik2eRbuvCxsTWpFtrLDu9lPLynDduDenbg9/S3jXaA3uT+ZriL1NlI3YQB
+	5DjqfoY20S8j6Ejvv+S7ni42B77LaOzpapquSrN0xo6+ixXVIlPHOOL0REuU3XGpBVcmUhOOzd+
+	L0owOgrUYHlwAZpmpy6rhCAqIMT1agoBdlOmwYc6BKTPLy3/Ga7/Th6kLOb81sKhdiwH+IxpCZG
+	ZlqfaathfdJGE/BebWoLG7XY3ftjZQ1PdNjccdeEpmq0aZ0BfRpZBfNZYWYcu4AkxaNwVfytA95
+	cT3z4h4NoS53yCGyg5gPh+IIJ9/A/9XQbnDoPU5zOidwANgPkm/U9gUl3kDR969g/QbCM+/GxhB
+	djWdr4fKWDxPmqM/B3Wb2yRe7iNX3kEdC4KmRvdymrZOnmQ97Q0Sn0/KnLiEE+15isodyp9s4b5
+	dGxPcGgU5tVUv
+X-Received: by 2002:a17:90b:528d:b0:3a0:eec6:b065 with SMTP id 98e67ed59e1d1-3ae896d8027mr6639826a91.13.1793694825657;
+        Tue, 03 Nov 2026 00:33:45 -0800 (PST)
 Received: from wenst-7875.tpe.corp.google.com ([2a00:79e0:203d:7:dea6:6326:4502:bb8b])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b07c8329afsm3192790a91.8.2026.11.03.00.33.41
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b07c8329afsm3192790a91.8.2026.11.03.00.33.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Nov 2026 00:33:43 -0800 (PST)
+        Tue, 03 Nov 2026 00:33:45 -0800 (PST)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
@@ -77,17 +77,18 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org
-Subject: [PATCH 0/2] arm64: dts: mediatek: mt8390-genio-common: USB fixes
-Date: Tue,  3 Nov 2026 16:33:31 +0800
-Message-ID: <20261103083335.2944847-1-wenst@chromium.org>
+Subject: [PATCH 1/2] arm64: dts: mediatek: mt8390-genio-common: Fix type C port mode and connection
+Date: Tue,  3 Nov 2026 16:33:32 +0800
+Message-ID: <20261103083335.2944847-2-wenst@chromium.org>
 X-Mailer: git-send-email 2.56.0.385.gac671c819a-goog
+In-Reply-To: <20261103083335.2944847-1-wenst@chromium.org>
+References: <20261103083335.2944847-1-wenst@chromium.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_003344_722535_93E8DAEC 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261103_003346_776737_CC172345 
+X-CRM114-Status: GOOD (  17.38  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,41 +100,132 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
+The USB controller complex ssusb1 and xhci1 operate in host mode only,
+as it is immediately connected to a USB hub. The user manual has a block
+diagram showing this, and a USB usage table showing port 1 as "host
+only".
 
-Here are a couple fixes that came out of the MTK XHCI binding fix [1].
+Change the controller's operating mode to "host", and drop the USB role
+switch property. Fix the USB type C port data line connections to go
+through the USB hub, as shown in the block diagram. Change the data-role
+on the type C port to "host".
 
-Patch 1 corrects the USB type C operating mode (host mode only) and
-graph connections.
+Fixes: 1afaeca17238 ("arm64: dts: mediatek: mt8390-genio-700: Add USB, TypeC Controller, MUX")
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+Compile tested only.
 
-Patch 2 moves the pin mux for the USB hub supply enable pin to the
-regulator.
+Unfortunately I don't have a board or the schematics to check which of
+the USB hub downstream ports the type C port is connected to.
 
-I don't have the actual board to test this on. The changes were only
-compile tested.
+Also, the order of the USB hubs might be reversed. In my previous
+experience, port 1 on the XHCI is SuperSpeed, and port 2 is HighSpeed.
+---
+ .../dts/mediatek/mt8390-genio-common.dtsi     | 43 ++++++++++++-------
+ 1 file changed, 28 insertions(+), 15 deletions(-)
 
-
-ChenYu
-
-[1] https://lore.kernel.org/all/20260916075745.3549953-11-wenst@chromium.org/
-
-Chen-Yu Tsai (2):
-  arm64: dts: mediatek: mt8390-genio-common: Fix type C port mode and
-    connection
-  arm64: dts: mediatek: mt8390-genio-common: Split out USB hub enable
-    pin mux
-
- .../dts/mediatek/mt8390-genio-common.dtsi     | 57 ++++++++++++-------
- 1 file changed, 37 insertions(+), 20 deletions(-)
-
+diff --git a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
+index 669eaec662f3..821dbf9d3fc5 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
+@@ -512,7 +512,7 @@ rt1715@4e {
+ 		connector {
+ 			compatible = "usb-c-connector";
+ 			label = "USB-C";
+-			data-role = "dual";
++			data-role = "host";
+ 			op-sink-microwatt = <10000000>;
+ 			power-role = "dual";
+ 			try-power-role  = "sink";
+@@ -539,14 +539,14 @@ ports {
+ 				port@0 {
+ 					reg = <0>;
+ 					typec_con_hs: endpoint {
+-						remote-endpoint = <&mtu3_hs1_role_sw>;
++						remote-endpoint = <&usb_2_0_p2>;
+ 					};
+ 				};
+ 
+ 				port@1 {
+ 					reg = <1>;
+ 					typec_con_ss: endpoint {
+-						remote-endpoint = <&xhci_ss_ep>;
++						remote-endpoint = <&usb_3_0_p2>;
+ 					};
+ 				};
+ 
+@@ -1528,19 +1528,12 @@ &xhci0 {
+ };
+ 
+ &ssusb1 {
+-	dr_mode = "otg";
+-	usb-role-switch;
++	dr_mode = "host";
+ 	wakeup-source;
+ 	vusb33-supply = <&mt6359_vusb_ldo_reg>;
+ 	pinctrl-0 = <&usb1_default_pins>;
+ 	pinctrl-names = "default";
+ 	status = "okay";
+-
+-	port {
+-		mtu3_hs1_role_sw: endpoint {
+-			remote-endpoint = <&typec_con_hs>;
+-		};
+-	};
+ };
+ 
+ &xhci1 {
+@@ -1555,6 +1548,19 @@ hub_2_0: hub@1 {
+ 		peer-hub = <&hub_3_0>;
+ 		reset-gpios = <&pio 7 GPIO_ACTIVE_HIGH>;
+ 		vdd-supply = <&usb_hub_fixed_3v3>;
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@2 {
++				reg = <2>;
++
++				usb_2_0_p2: endpoint {
++					remote-endpoint = <&typec_con_hs>;
++				};
++			};
++		};
+ 	};
+ 
+ 	hub_3_0: hub@2 {
+@@ -1563,11 +1569,18 @@ hub_3_0: hub@2 {
+ 		peer-hub = <&hub_2_0>;
+ 		reset-gpios = <&pio 7 GPIO_ACTIVE_HIGH>;
+ 		vdd-supply = <&usb_hub_fixed_3v3>;
+-	};
+ 
+-	port {
+-		xhci_ss_ep: endpoint {
+-			remote-endpoint = <&typec_con_ss>;
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@2 {
++				reg = <2>;
++
++				usb_3_0_p2: endpoint {
++					remote-endpoint = <&typec_con_ss>;
++				};
++			};
+ 		};
+ 	};
+ };
 -- 
 2.56.0.385.gac671c819a-goog
 
