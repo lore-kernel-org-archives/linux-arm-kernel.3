@@ -2,109 +2,106 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCC69606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 22:39:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3B7D606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 22:39:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VBaPOEvz;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EqFKs/n1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=y+GutL69;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qPR1Iezx
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=7Y4hWEy3KCqBGcgLZyC88t/BtG1nVv31oLpGNCBZoVw=; b=VBaPOEvzGATYkM
-	I/v6k8zhLR5YzxVtfo1n65n3gi94PVmaombFC8DFKjIGOPhs+CJ/GGnXfW/PDapC0xs5UQJVMBQt7
-	S13OZskBgsgRuHgCnXMKVenZlHb5Fm1hn4+eVE+sB85XN2PdsSTcxuOkvtYJTxZvL4W1+qiqaTv2V
-	SrRKK/L3xYFdzDXIyC3lJDFci3tH6uTjrUxa3y3QeZl6tYn9AH1NU65ng2tseOA0GGKbOh9EcG0Hh
-	Zmyy8B2THHZISfmDqZAEoV8r9nOJDSFxbGXov4JErmQ064T63/pYYdCovVI7hskn209cTbM+byx+q
-	BoGU1G6/H338LRSGJOxQ==;
+	List-Owner; bh=9v6fhE64vJST/e4wIKc/qZZ4G1qcfWVja1/2g7y5JFA=; b=y+GutL69YvvvqD
+	aa+xoqiAoCNe/lXmL/+gvxc7ujUc0rafFQlUB3X23ajY9YfPHgNYs3zajZa5q1cpIIgxkgBnlUGr3
+	dg8Tn94YmkbLQQ065Z1xlwWjBFg4w6MogLm7Ep00TJRagO4pay8CjCNePnIze1ZZyvclNJE1OeDcn
+	jZZG159guAEGsYKYfl4xRiycOonIv3GQeibHYXy91CP0LgJ6wAsJ+D7VJXJYY+239S363zMepcPCQ
+	v15S9+7Kt/n+yE7arHQDA/WxI1Vau+j6ZG3sSzfamGd0zGoqQx4dyV4ET4c03JBKf69hJhxO99K4K
+	R/xMTkZUxqsbT+9YmC3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xON9Z-00000003rzi-48au;
-	Tue, 03 Nov 2026 22:38:54 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1xOMEp-00000003jTf-27ay;
+	Tue, 03 Nov 2026 21:40:15 +0000
+Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xON9X-00000003rz0-0IX5
+	id 1xOMEk-00000003jOr-1cSX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 22:38:52 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so15198575e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 14:38:49 -0800 (PST)
+	Tue, 03 Nov 2026 21:40:11 +0000
+Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-8451a619da7so18352a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 13:40:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793745529; x=1794350329; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=7Y4hWEy3KCqBGcgLZyC88t/BtG1nVv31oLpGNCBZoVw=;
-        b=EqFKs/n19/3/hdRzYZLHXlnPkRscy2WQn2KO/PJdX/y5ughnAHRUQkZDk6Y6MDaH6V
-         bD4lqSB6X6DNONhLMawLKUi7w7JYDz0IHFCQ5ao/EzmgY9Zh6Ct7TcnSz19oSLdWdzvC
-         ztmRIX1ys6nHeyYZLmnhqwDVIn+ZjrmTLa3XRTDx7G6qF17luyGfo2at+azayZTks0Hc
-         RdDPivGokYDVFaJ3NOhiIgqjSB2qkRE69Xk7+QnPMzMVLnx/WiuSC8BkzXmfcmqcnINV
-         6sN2bCfgiTAV6ZoKz/XNoKoXVbJ+xx653uS+UUJYBbx1JlCzXGQ7m65QxhUfT2hglics
-         nqtA==
+        d=gmail.com; s=20260707; t=1793742009; x=1794346809; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9v6fhE64vJST/e4wIKc/qZZ4G1qcfWVja1/2g7y5JFA=;
+        b=qPR1IezxPa4BCgNwpN9tNOB0FjjisYuVpubTPN4Kdzefo4EaXQtgVEq/Qrgu9KNY7C
+         NnmBxTUcSPb5A2VQbjv1r/SlqUHVcoM4Dpx6xGkyw5ql7ZaE3cYL9fKvIJgOk/Cy+pTE
+         e3ZTWHJ1Z43VabDcj1/Q/xvCDEJti4EutjatWZxv47bPeMnJ/lP0H5XlAwzDJSvLXgAp
+         rGuzhN+RTPqAuxedeqtdJo3vu46xOYl5C/olZa1UkbKhIcPYmIRNOqZy0Dxu552yxzE9
+         52wYJWuRrrzAshCCZL63h4+OEH5In1NYV/hv5b5/NLTL6nmjqfQt/k1tE++z8cqA2nA2
+         rpKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793745529; x=1794350329;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1793742009; x=1794346809;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=7Y4hWEy3KCqBGcgLZyC88t/BtG1nVv31oLpGNCBZoVw=;
-        b=qnSAwuHqxQkv3fvDEu9M1AhDeIOWR3JU+j2mAu79PuKXJgbhLnr2LwTDIMGZUwimFT
-         L67S25olcN/tUc8GjPCiNcHrhLmQqVHLuZtVtq7eFcYb8BRfEqQm7MRBUd3fTFci/sxl
-         +D4RbtH8702IL9qrvzIU/rjF7I/Tve7Qv7SJO4VqnvFK8Cje3tCBy1N9wBuVxRnVFIBj
-         HIkYF35kYZixji7A5ZAOuomvvimNy+b7WOgDfM85r31tXzh1XRCLLhKkU38x7uPTJ1+s
-         CPixEv7/xAPLsJLmsU5wE22+eZC13Vm6/onQ8if6rlHHWsHEgHd6StSd/GjPiNdoDaES
-         /XaA==
-X-Forwarded-Encrypted: i=1; AKwUvByOx9D67W4716Sbc8l6esQ0KCI1kxucADCr5adr7FA3P+CmGFr6WsEoZFkj6kR2HK7h94a/T1bRXYtvjWpEKf/f@lists.infradead.org
-X-Gm-Message-State: APuU4Z9OK/1YLVpxOS+e8bLULNPs5CKDrLeoLCltrONhDT2uGi72gIQC
-	xMGxKXsWDyU1ifOXm2sWguB29ZFG9JyC5mTarxu4Voqy/KDT3U9/8CT2
-X-Gm-Gg: AYBFou3GHkClL1mgPwsvPf5K7yBJvmH0oF/K3zYUuml4w7vOnYJzYKUY6vCDrS7r5/S
-	W8kxxe3hu/BmKTNg99UOKvCMkrrP5N4kaZ6I0A2GvjMnwaUprJraU9kYWsn+x4paIQ07YeY+6AV
-	tFNPg/BliDUIRCr0fP7LMoM2gC2pCsuSQe/AnC+Ta0zJW0EDbhuy3e2ql8u0bQ4GUVZ0UUq2L9Z
-	vFCwvGGGnTMwn+pZh6N6ARdHoYU17BoKENpEVd9tV1rfRUeMQJ+tFFCHWrygtHPtEmEr4eIOpgQ
-	Es3Vz7DzFW236I9u8Jn5TR/UKAyUcborfh5E/RfGioAlTm/ffz3Rl1NGKySr4qrlUYDx6cpEms7
-	KFSmcoijcPxrQgtLf19xggWEQ8kRmRTEEOGBY0lUXG4FdYbcr6b6iWeIAdJh9BXSTdWJ/HYr/WE
-	xvax6QiyVMX7cTFG/i+90Mr1oQB6L88SbIQHe/mIp7q3C7zHJZ1e2PcHUfLpjJDAhPKxsUEFk6r
-	crSAYjUkbUXHYdCscyO1ljW7DKseThuGxa5cVG/IJBagNtX2Z6d9PhZhWjMowMBcZw50uVCjrgb
-	LF0rPZLtp7CvFK0as72ZIaArpybFwV7e9boDo7b5EzBBKVJ8qMFXkQm9LrajuKjBSi7CBvLAj2S
-	+tuhjK8/AwA==
-X-Received: by 2002:a05:600c:6555:b0:4a1:d45a:3ae9 with SMTP id 5b1f17b1804b1-4aa8b05fa4bmr341420665e9.15.1793745528451;
-        Tue, 03 Nov 2026 14:38:48 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48fea18104bsm467832f8f.6.2026.11.03.14.38.47
+        bh=9v6fhE64vJST/e4wIKc/qZZ4G1qcfWVja1/2g7y5JFA=;
+        b=MbKljfRKDSrylyLf3mMQMc/3skE1LAwKp1FqXnNKJZRfpOZmr/vZJe6YqDKU6yZfjT
+         iu2QtyQRw5k2Bj4ztDIXTnrqLym0VDKJePCENQzf2nx0EaOz/ORlwhsU1lEbspsI4cf9
+         pRG0ZVjtKkj1igWdq89cOgxjT4oNfX19YrdtireUig8Qp9AYDHcHKvGP0xtZTcHQ0rEu
+         hR1TiE0warYtC5Lfj0kLCNYtx2XStOwBDg0UJv2sh7EvseSe0yP2i5qf/WE321C/92GB
+         H/sq7EN/+eLUS691Q+/3RBh/HkGL1vScGSIHT5PeAovETpOzAYWTO4IvEMqB+tV9skfv
+         PeiA==
+X-Forwarded-Encrypted: i=1; AKwUvBxgsq8+IS3DCRjn3swocJPYpKh8Q1CRCtyD3/A12YxtzW6vVZYSLhugm/CflGrUZDTPEmpK4dpTYuu8UgnLQnPs@lists.infradead.org
+X-Gm-Message-State: APuU4Z/oMX4VYMsr6hC780BLnY7pV5nu+D8BmZFUovXD/czEJvTa1kJS
+	WTIbZ7G+8rb2DDTLtz0oI/nAeUfZjCMiDR/NJD9+EWfl3ZT9WDW+08k2
+X-Gm-Gg: AYBFou2r2fdJoSS06+kE1eZT7bUzTJZnayeUYlXgfWkcRdfIB3E2BpacwJ+u023/u0F
+	N/EfMkAh//pPcxKRtgIlLCfTy9gnMRYkPmO/YvwwUCO84uVoldB+LgcLU9bh4n67n17uUYJ1Uin
+	sHDXofiA5ctbcklx3QnPUubdc7wr8nTm2VdchXsit8Tjw2q2DEFny6zC3CqOfuKqWPtkEv4BVyd
+	NWBO7MVbcmB/cPYIuB9Vfva1x4/Yjz5XlIR02i/OlornqVZoMQ9bpy4kantzpKFz61a3u6e1BU7
+	K6Pe6SbsNXH5AKXOqKI0iEh17sqFAKOWjGIIxpcGsppuzIylgcMgKOhnhzKhr3rEmMyWXwr2t1h
+	FMmOW5liKT5ClWgGCxXz+s9KoFA2GPRp7WjBfCMwIHW8OfZOnsnxjEQvesyjRC2j0AWP6qgEQrZ
+	9HEhJcO1M0olH3IBsUgFpo876JKhPCXJWH5W/UbRpvYwhcgVMeA6zfwwd8k1xx8EGCOiXQ9SQck
+	8MfVDN6QxnS79cjmmsKEy1VbEXB09aIpQzXh5VDS18cWZS8V+JS+Mse2NcvPFbp6vf+SWXNJijm
+	EiB0sl+unaeR7OG0IsrkXQIKjbohBhe/+ahQpi3F+kUgAiTyQFchyYEcwKc9gOjVGgcsnuqNOgw
+	9WoDI5S4lrxQTgGTWpuWEDbRONWKgK/MdGfz9Jm5OzEnDUx504dWS0ugc0AF+H4ZUqalhmgM29D
+	XrNEZRGS9r4zws75m/NHpqdnfDlz6O8jsvxwvOfSGx3JIfre/yOzkK7w==
+X-Received: by 2002:a05:6808:1715:b0:55c:836:5950 with SMTP id 5614622812f47-5640de0af62mr9879107b6e.27.1793742009246;
+        Tue, 03 Nov 2026 13:40:09 -0800 (PST)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-567a9f9115csm27060b6e.11.2026.11.03.13.40.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Nov 2026 14:38:48 -0800 (PST)
-Date: Tue, 3 Nov 2026 22:38:46 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Demian Shulhan <demyansh@gmail.com>
-Cc: saeed bishara <saeed.bishara.os@gmail.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Eric Biggers <ebiggers@kernel.org>, Andrew Morton
- <akpm@linux-foundation.org>, Marco Elver <elver@google.com>, Ard Biesheuvel
- <ardb@kernel.org>, Robin Murphy <robin.murphy@arm.com>, David Gow
- <davidgow@google.com>, Brendan Higgins <brendan.higgins@linux.dev>, Nathan
- Chancellor <nathan@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, kunit-dev@googlegroups.com,
- netdev@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH 0/2] arm64: csum: Add fused copy and Internet checksum
-Message-ID: <20261103223846.5e6a1dfc@pumpkin>
-In-Reply-To: <CAOLeWCviRtGMhGJQx3HHFQOze439576PQqr4tmvjGkMMfYfcog@mail.gmail.com>
-References: <20260927131838.6774-1-demyansh@gmail.com>
-	<20260927184414.6c0c8867@pumpkin>
-	<CAOLeWCt+yFs29yWg6DrRH42HD9ConLgTEbW=wMKtEoTW5ROHvw@mail.gmail.com>
-	<CAHfVqdX4AmqXs_oD5OCjU8R5ts=98=RmgCmJ3D5gLyk=Xtrfkw@mail.gmail.com>
-	<CAOLeWCu4NiedyXmoLwwnTvJitRwgg6PQq9LApO=k36ktN3-XWA@mail.gmail.com>
-	<20261102161426.2403d308@pumpkin>
-	<CAOLeWCviRtGMhGJQx3HHFQOze439576PQqr4tmvjGkMMfYfcog@mail.gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        Tue, 03 Nov 2026 13:40:08 -0800 (PST)
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Tue, 03 Nov 2026 14:39:57 -0700
+Subject: [PATCH v7 04/12] serial: 8250: expose RX trigger controls for
+ custom callbacks
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261103-submit-h616-uart-fifo-v1-v7-4-c9e248d685c1@gmail.com>
+References: <20261103-submit-h616-uart-fifo-v1-v7-0-c9e248d685c1@gmail.com>
+In-Reply-To: <20261103-submit-h616-uart-fifo-v1-v7-0-c9e248d685c1@gmail.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>
+Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_143851_139090_843F5E9C 
-X-CRM114-Status: GOOD (  34.76  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261103_134010_435319_1F266BCC 
+X-CRM114-Status: GOOD (  14.14  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,125 +112,45 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_2 autolearn=no
-	autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, 3 Nov 2026 16:47:29 +0100
-Demian Shulhan <demyansh@gmail.com> wrote:
+The rx_trig_bytes attribute dispatches to a port's get_rxtrig and
+set_rxtrig callbacks when present, but the attribute group is registered
+only when the port type has a static receive-trigger table.
 
-> > .L4:
-> >         ldr     x1, [x0, x4]
-> >         adds    x2, x2, x1
-> >         cinc    x3, x3, cs      # adc $0,%rxx on x86
-> >         adds    x4, x4, 8
-> >         bne     .L4 =20
-> Agreed, that is a nice loop for the sum-only case, one dependent op on
-> the sum chain and no builtin needed.
-> For the copy case I tried the same form on x86 (Zen 3, GCC 15, Clang
-> 19-22, -O2) with a store added, against csum-copy_64.S, as posted it ran
-> at 0.85x of the asm with GCC and 0.73-0.76x with Clang (which rewrites
-> it into setb/adc), and ~0.8x unrolled 2x/4x - a bit slower than the
-> posted 4-accumulator loop (0.88-0.95x).
+Allow a port that supplies both callbacks to expose the attribute without
+a static table. This lets integrations such as Octeon provide their
+FIFO-relative thresholds through callbacks while retaining their existing
+port type. Require both callbacks because the attribute is read/write;
+ports with a static table continue to use the existing fallback handlers.
 
-I just added *(u64 *)(dest + count) =3D val to one of my loops.
-gcc just replaces the 'add from memory' with mov/mov/add.
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+ drivers/tty/serial/8250/8250_port.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-I'm now confused though, I seem to be getting different output from earlier.
-With -Os (which I didn't think I was passing) clang is refusing to do the
-'offset from end of buffer' loop.
-With -O2 it bloats everything by unrolling 4 times and adding lots of
-extra instructions.
-(AFAICT the optimiser has a completely incorrect cpu model.)
+diff --git a/drivers/tty/serial/8250/8250_port.c b/drivers/tty/serial/8250/8250_port.c
+index 73bc9e7ab703..d87e2b852c3c 100644
+--- a/drivers/tty/serial/8250/8250_port.c
++++ b/drivers/tty/serial/8250/8250_port.c
+@@ -3152,7 +3152,8 @@ static void register_dev_spec_attr_grp(struct uart_8250_port *up)
+ {
+ 	const struct serial8250_config *conf_type = &uart_config[up->port.type];
+ 
+-	if (conf_type->rxtrig_bytes[0])
++	if (conf_type->rxtrig_bytes[0] ||
++	    (up->port.get_rxtrig && up->port.set_rxtrig))
+ 		up->port.attr_group = &serial8250_dev_attr_group;
+ }
+ 
 
-If the compiler doesn't generate the expected code it is all pointless.
-The xor parity code loop had to be in the asm block to stop the compiler
-changing it to a much slower form.
-
-For the checksum code I have managed to work out how many bytes/clock
-the code was generating and getting it to (reasonably) match the expected
-values.
-But you have to use relatively short buffers to avoid D-cache effects.
-
-David
-
->=20
-> =D0=BF=D0=BD, 2 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE 17:=
-14 David Laight <david.laight.linux@gmail.com> =D0=BF=D0=B8=D1=88=D0=B5:
->=20
->=20
-> >
-> > On Mon, 2 Nov 2026 16:14:06 +0100
-> > Demian Shulhan <demyansh@gmail.com> wrote:
-> > =20
-> > > > The scalar path seems like generic C code and not restricted to arm=
-64,
-> > > > curious how that performs against existing (e.g. x86) assembly
-> > > > optimized implementation. =20
-> > > Depends. I think __builtin_addcll() is needed to get roughly the same
-> > > performance as the asm version. In my tests GCC on arm64 turns it
-> > > into adds + cset instead of adcs like on x86.
-> > > But I will look at it, thanks! =20
-> >
-> > The C version I posted earlier has the loop:
-> >     buf +=3D count;
-> >     count =3D -count;
-> >     sum =3D carry =3D 0;
-> >     do {
-> >         val =3D *(u64 *)(buf + count);
-> >         sum +=3D val;
-> >         carry +=3D sum < val;
-> >     } while ((count +=3D 8));
-> >
-> > for aarch64 you get:
-> > .L4:
-> >         ldr     x1, [x0, x4]
-> >         adds    x2, x2, x1
-> >         cinc    x3, x3, cs      # adc $0,%rxx on x86
-> >         adds    x4, x4, 8
-> >         bne     .L4
-> >
-> > I suspect that is close to optimal - especially for fast cpu with
-> > out of order execution.
-> >
-> > https://godbolt.org/z/eso79K7Wq
-> >
-> > David
-> > =20
-> > >
-> > > =D0=BF=D0=BD, 2 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE=
- 12:44 saeed bishara <saeed.bishara.os@gmail.com> =D0=BF=D0=B8=D1=88=D0=B5:=
- =20
-> > > >
-> > > > On Sun, Nov 1, 2026 at 3:34=E2=80=AFPM Demian Shulhan <demyansh@gma=
-il.com> wrote: =20
-> > > > >
-> > > > > I would prefer to keep only the scalar version of the fused copy+=
-csum.
-> > > > > It reads the data once instead of twice, and on real Armv9 hardwa=
-re it
-> > > > > cuts end-to-end cycles/byte for bulk TCP over WireGuard by 3-12%
-> > > > > depending on the core (+6-8% throughput). It uses only general-pu=
-rpose
-> > > > > registers, so there is no FPSIMD state to save and it is safe in =
-any
-> > > > > context.
-> > > > >
-> > > > > If you are OK with the scalar path, I can send v2 with NEON dropp=
-ed,
-> > > > > the scalar path only, and the KUnit fix for the x86 zero-length c=
-ase
-> > > > > Jakub reported.
-> > > > > =20
-> > > > The scalar path seems like generic C code and not restricted to arm=
-64,
-> > > > curious how that performs against existing (e.g. x86) assembly
-> > > > optimized implementation.
-> > > > saeed =20
-> > =20
+-- 
+2.53.0
 
 
