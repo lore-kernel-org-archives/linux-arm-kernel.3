@@ -2,78 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3443E60A260D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A23560850B5
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 13:06:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VhGQj1m6;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QBbfLRUi
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kXiF7C4Y;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ANpPfrIH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=vCbJtWSQWA+dOppoLln3XQQI8iTRF07B0RxyzIkvfdc=; b=VhGQj1m6lbhD8P
-	E/UQjC9N5Bkh2TO4eFCIYIti6r/W4E22kXkkGWAtEms/9C45iG/5xog1AR7/WJqBRN/ByKqqfFCf0
-	dVdvVfXGF20ZjbasS7mScppDe2fCoC2BcNCgidyY7Nznpmx5GZaV/6aTNwezvGU0z7pPRR8t/P5zm
-	omqE/DF/tf3yhQlh1Kse/UbW/f41yzMFUfm9wJqump/uRMyKA9JSxULCUjPscpKTl5RoPWUJvjRQW
-	WSpdhHVDUxoMZL1cFbMIQz9djL1ahtOp2MYUdobreljlVOLcTZrv3kcudj+in0lfzENmKbD4SaG2M
-	dlNmR+K6mfkWZTpTshsQ==;
+	List-Owner; bh=PnFjXjJFl+0s212g4Biiqwpc+pB9dQcS8Fb86q6L9HY=; b=kXiF7C4YO+k7f1
+	uM530RlJBWv4BtaLS7a2MfKlS72dCwKbrC6dG7QsjlbGH1T/K6gbSMTUePAseDyAO8KSyFcnwq5ww
+	gCvK3HWoD9O0qWJ+CyoW6uQ0RyhAkMkiPqMVjNkodoE4ABZtZ3b+IguzyL74YIbXjevLlcFLK4XfN
+	QdmN2A+dWVO+5JHn62zEpEwKaaAvzLUfrAPwir43QWseD54mcjOtHnfwMWE8dQmG4LxBRK/WuTFqX
+	RVnCBCqIRFGV3oW9mA3xl1y4KOkoUyTDQJF06LDIcvfqAQqrdf0TZboaj0/YyAhph06/OJG5f9Nmd
+	ztuZh5SzAuEMCXVVBcUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOEDc-00000002T8p-08fS;
-	Tue, 03 Nov 2026 13:06:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xOEDY-00000002T1Y-2uV0;
+	Tue, 03 Nov 2026 13:06:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOEDW-00000002SxZ-2rGu
+	id 1xOEDV-00000002SwX-0QP5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 13:06:22 +0000
+	Tue, 03 Nov 2026 13:06:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 716FF43F63;
-	Tue,  3 Nov 2026 13:06:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50E851F00A27;
-	Tue,  3 Nov 2026 13:06:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 72CA7608F7;
+	Tue,  3 Nov 2026 13:06:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4035D1F00A27;
+	Tue,  3 Nov 2026 13:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793711182;
-	bh=vCbJtWSQWA+dOppoLln3XQQI8iTRF07B0RxyzIkvfdc=;
+	s=k20260515; t=1793711180;
+	bh=PnFjXjJFl+0s212g4Biiqwpc+pB9dQcS8Fb86q6L9HY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=QBbfLRUiPpiCX6Fgou3CvHgZue94Mcmz5/yGZPxQwvZlXGb/5yhGuBKNC8FB4xvwZ
-	 JL8SF1aFcUvfyulmDMwjCP2erGQpbn53D2cU8Yl80yS3FPdp+M3/XJ6xPnxEtxzz8h
-	 gM+jbu8sK5xGqcOn0+7hzQ4ylcHb45bjcy6o9NmwLv0cnd1ygqP3Sc9PqBUsCJxqnD
-	 tbsDK1V0TojW9vS43YezrF6i3peXHhwymukFNBDcLuh2Y0LC1NTyM0g2mlIsR8+f5S
-	 3skV73lZgAa/gQKm2LvzH5XRlVuqx8s6DFsy0kJ8w8YGn/CNhU9gr+2DVsGWHA8kRa
-	 fqnCmlLDKgyig==
+	b=ANpPfrIHCAge/uSyxNnFgZxKhSto2HW0O7QLNo0Qv/8kxySUPqBrBR+fOpXwENvy5
+	 oTGBzxQ3jG44qtd+IA8z7Mu3/Sc8fHJR08dno0XjmCj1c4QgAaGzZ9J0v4SvYrDvnd
+	 y7OJUQiSGidZjlzCW1zTgr38fIdSNbupFOPo4MCYQGHGKW69bu5HZrKPE0Xu9Wi/+a
+	 hXV/u6beCI8TlPJ5ZyPzTo7MC/3Ss+0qS58DEURhZ/dmTxHAiXzkga/qSQRgS5+rat
+	 gHFUfLq7NPEsOhLTFrf9xfbaKPl4/dr5qbMTbZQ/4lep5kVuQ2YVRPiexA2mAfgcrp
+	 NpD7TDGrZkwwQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1xOEDU-0000000ATWs-2dNj;
-	Tue, 03 Nov 2026 13:06:20 +0000
+	id 1xOEDS-0000000ATWs-2689;
+	Tue, 03 Nov 2026 13:06:18 +0000
 From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
+To: Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: nd <nd@arm.com>,
-	oupton@kernel.org,
-	fuad.tabba@linux.dev,
-	Joey Gouly <Joey.Gouly@arm.com>,
-	seiden@linux.ibm.com,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	yuzenghui@huawei.com,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: Re: [PATCH] KVM: arm64: vgic: Serialise CTRL_INIT against vCPU creation
-Date: Tue,  3 Nov 2026 13:05:42 +0000
-Message-ID: <179371111236.2844725.3353773125671356763.b4-ty@b4>
+	Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	Zhou Wang <wangzhou1@hisilicon.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/5] KVM: arm64: Support FEAT_LS64_ACCDATA in guests
+Date: Tue,  3 Nov 2026 13:05:34 +0000
+Message-ID: <179371111281.2844725.13648407938600355335.b4-ty@b4>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260904174419.76057-1-sascha.bischoff@arm.com>
-References: <20260904174419.76057-1-sascha.bischoff@arm.com>
+In-Reply-To: <20261025075138.2919734-1-fuad.tabba@linux.dev>
+References: <20261025075138.2919734-1-fuad.tabba@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Sascha.Bischoff@arm.com, nd@arm.com, oupton@kernel.org, fuad.tabba@linux.dev, Joey.Gouly@arm.com, seiden@linux.ibm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, sashiko-bot@kernel.org
+X-SA-Exim-Rcpt-To: oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, fuad.tabba@linux.dev, catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, seiden@linux.ibm.com, mark.rutland@arm.com, yangyicong@hisilicon.com, wangzhou1@hisilicon.com, arnd@arndb.de, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -93,25 +97,29 @@ X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, 04 Sep 2026 17:44:20 +0000, Sascha Bischoff wrote:
-> vgic_init() compares created_vcpus with online_vcpus to detect a vCPU
-> being created. However, CTRL_INIT only holds config_lock, while
-> admission of new vCPUs and updates to created_vcpus are protected by
-> kvm->lock.
-> 
-> A concurrent KVM_CREATE_VCPU can therefore increment created_vcpus
-> after vgic_init() checks the counters, then block on config_lock before
-> publishing the new vCPU. For a GICv4 VM, vgic_v4_init() consequently
-> sizes its vPE array using a stale online_vcpus value, leaving no vPE
-> entry for the new vCPU once its creation completes. The upcoming GICv5
-> IRS support would hit the same issue when sizing its doorbell domain.
+On Sun, 25 Oct 2026 07:51:33 +0000, Fuad Tabba wrote:
+> Changes since v1 [1]:
+>   - Support FEAT_LS64_ACCDATA in guests instead of capping
+>     ID_AA64ISAR1_EL1.LS64 at LS64_V. A saved VM keeps its level, so
+>     restore no longer has to accept older kernels' levels, and v1's
+>     set_id_regs patch goes. (Marc)
+>   - Add an arm64.nols64 option. (Marc)
+>   - Retitled the series to match.
 > 
 > [...]
 
 Applied to fixes, thanks!
 
-[1/1] KVM: arm64: vgic: Serialise CTRL_INIT against vCPU creation
-      commit: 5f54835d94db2e896ec27415b9de2e81cb56009a
+[1/5] arm64: Add override for ID_AA64ISAR1_EL1.LS64
+      commit: 699edee85fb9f4403b5bc939f3f84374f841b33b
+[2/5] KVM: arm64: Add ACCDATA_EL1 to the sysreg array
+      commit: 8b5bcf2e799c24906b813f4a63081e68721a026b
+[3/5] KVM: arm64: Add context-switch of ACCDATA_EL1
+      commit: c122ea1564b41326d8c09c64005d38ec2fa6dd8f
+[4/5] KVM: arm64: Enable ST64BV0 for guests with FEAT_LS64_ACCDATA
+      commit: e2412d6a90a4b39e3fc464eeab8637a7f4eccc10
+[5/5] KVM: arm64: selftests: Add ACCDATA_EL1 to get-reg-list
+      commit: b7bb9e9425dd7772cba9ac4392e982f541cccfac
 
 Cheers,
 
