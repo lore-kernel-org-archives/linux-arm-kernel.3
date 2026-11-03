@@ -2,87 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D727D606A33D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 16:26:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5904B606A338
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 16:28:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=y+GaGUKc;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XY3qZadr
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=plheaSNr;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hIOwi2+K
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=NsCA1FKYyEC6+lnEUbeQgCTjVtjYpHvweOvN+u1DACA=; b=y+GaGUKcxeKCruHAVE7O15EKtv
-	vzW3C2DqPS36m4CO41C/X80+zHyGrjEPduKMVmNEMPNBoXbWqOalwAjY7a7UYcoTni+98AYV1s9Nt
-	lfHrTw4LVABlIggVN3UM7QNgU1tXM5+0S1BL0fZWkLTF0efBnlVcZr1i6YPeAmXkzXWU5fyhDzZVY
-	7VEk42lgFCSWiKMdBSiq+LoFvjrxNn2jj0cn562SWgWNv7ZVnnOP9Aj90wSa/eRE5I5SwtYGr57Wu
-	CTpFWwBeOd0r49/s5CUc0nAac7edQzyyzicrflU+LAxSRawjXFjgnL4NsJs82EuxylMxspy3iiDGX
-	qo/xdmhg==;
+	bh=iPFbuhVhE1g4yui1cmP0KhQNdE0EYgL9kQOJwYevAeY=; b=plheaSNr6zz8jpC7sZL7kfK8es
+	pko6bwCCvq6qtUhkchztx4aZZcaDXoeeaDQAvr/2lZKA0M3EPm8KkvCj1pdw3IQnNJoo7evmlcRgn
+	c/jZJ1J1zNp2iKFqe14nAbdSD7p5BUsKZuWju9RqVjtXeKHfnHlcp1BYV7ZF6qjaeuvkvGvhJ8ObE
+	9tsWQay6Q39kw+PCjIR7BHBngcK+79deCmsdhuZ4m+aZOis3I2Cy6EGq/XHWNr1650+zymlnF4NdF
+	uRyT+9oBSXHjwyBX/qHonxDrALZOtyyZPnHKPU6J1lFl4Dr4HIqRqS6k2Tag0ghkdNETowQySswl2
+	IytdKswA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOHKo-0000000376Z-1HeT;
-	Tue, 03 Nov 2026 16:26:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xOHN8-000000037i5-0PMP;
+	Tue, 03 Nov 2026 16:28:30 +0000
+Received: from out-122.mta1.migadu.com ([95.215.58.122] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOHKn-0000000375w-0YED
+	id 1xOHN0-000000037gL-2qxt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 16:26:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8CC1A41AAF;
-	Tue,  3 Nov 2026 16:26:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A5D01F000C1;
-	Tue,  3 Nov 2026 16:26:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793723164;
-	bh=NsCA1FKYyEC6+lnEUbeQgCTjVtjYpHvweOvN+u1DACA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=XY3qZadr11uiBhM392hBYJVR/qMO5gtXMq34UYO9nzjQRrjMi2jN0lLN+tvdAdDqV
-	 qEYTO6RPoEhwC8zH498eSdFxnB8CAmzPxjl6JMF8JpLIz0FL7c7vn6OnH/RTiTS17S
-	 GL4OKQgLmBTs3mo2ED1tQPK02BP/NsjgaXJBhB/KkVzeVOoZ0F7htqU3HPMrZFrXca
-	 +GVm1bbT1kdEp0wEAcPCEU3JskHw4XrRsB02MwMFD9yhfjDmZF5qCScUi9elTKQUa0
-	 /uKDShFLGe5WMWmCWxwcY40uFAmBdSahCE1QU+RSQjelSR7aiA/A+3YZFsiCUVDjo5
-	 UAuIGSq6ZLr+w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xOHKk-0000000AaH5-1VOP;
-	Tue, 03 Nov 2026 16:26:02 +0000
-Date: Tue, 03 Nov 2026 16:26:01 +0000
-Message-ID: <865wyd3mqu.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Vincent Donnefort <vdonnefort@google.com>,
-	Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>
-Subject: Re: [PATCH 1/3] KVM: arm64: Don't walk the whole IPA space when destroying a pKVM stage-2
-In-Reply-To: <CA+EHjTwCPHp_odMPJAJ8pfPtymtU5ia_RrH30DavFeiZqvhVAQ@mail.gmail.com>
-References: <20261103084742.1302597-1-fuad.tabba@linux.dev>
-	<20261103084742.1302597-2-fuad.tabba@linux.dev>
-	<aun1NJNtnOeSL4oc@google.com>
-	<CA+EHjTwCPHp_odMPJAJ8pfPtymtU5ia_RrH30DavFeiZqvhVAQ@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	Tue, 03 Nov 2026 16:28:28 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=CUR3VrnT7Ns3nP5+yfIqfY8w9gLzlAPh5PghOBj2uBY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1793723300; v=1; x=1794328100;
+ b=hIOwi2+KAJbWUSFAc6vd2q4RYWYPQ+ypTVXy8BrX+VyxusZDuRc7cfwt2M0la3oiXta8rT/X
+ sxAZfSGUcZmHXs8XgxObdAmWKTVHgNyJYQ6JEEalnxdUavB0vasxd/nAiWMHQeWDIybRhCHEEjf
+ xD0Lm+5wIcrCcHT/P7W7we8w=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 7823085f6cd776c4;
+	Tue, 03 Nov 2026 16:28:20 +0000
+X-Mizu-Trace-ID: 7823085f6cd776c4
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5bcbb378fc9so8697e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 08:28:16 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AKwUvBxBANPuCgnNsc3RyKdP7TVsEjQL+cwaZWSG1NvNk5UFapXLHDgybhh/lWx1eSUoBOShOMqUzRekE/1GswFM1sGQ@lists.infradead.org
+X-Gm-Message-State: APuU4Z+P/YsZSZZtUTUrbK/mbhdgQTYH2SqHVkOnsaGUtDfpuOWphmzg
+	8Dxy1DJ7MkGVlH6J52RNAhP5Rl/91YH3mhz5OhnaTwOvaAoL+ojvknCybQfVjvbkCwLr7duQy34
+	wYoMpOZXXf00Aaz/gGRPgsIHSXsFDNwhPD3Khbt6B
+X-Received: by 2002:a05:6512:3e0f:b0:5bf:d226:862e with SMTP id
+ 2adb3069b0e04-5bfefdaa5bamr205874e87.2.1793723295372; Tue, 03 Nov 2026
+ 08:28:15 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, vdonnefort@google.com, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, rananta@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+References: <20261103084742.1302597-1-fuad.tabba@linux.dev>
+ <20261103084742.1302597-2-fuad.tabba@linux.dev> <aun1NJNtnOeSL4oc@google.com>
+ <CA+EHjTwCPHp_odMPJAJ8pfPtymtU5ia_RrH30DavFeiZqvhVAQ@mail.gmail.com> <865wyd3mqu.wl-maz@kernel.org>
+In-Reply-To: <865wyd3mqu.wl-maz@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 3 Nov 2026 16:27:39 +0000
+X-Gmail-Original-Message-ID: <CA+EHjTxfQ5P+Q9jrGxr6A4CjtewetFE9apskj061iJQbtwAsyQ@mail.gmail.com>
+X-Gm-Features: AclHuK9bqtJuUq_-qqIlTFI2gjtDBN-F09-mdn7cW-n-Iv21GT3fzkXnYFOU20Q
+Message-ID: <CA+EHjTxfQ5P+Q9jrGxr6A4CjtewetFE9apskj061iJQbtwAsyQ@mail.gmail.com>
+Subject: Re: [PATCH 1/3] KVM: arm64: Don't walk the whole IPA space when
+ destroying a pKVM stage-2
+To: Marc Zyngier <maz@kernel.org>
+Cc: Vincent Donnefort <vdonnefort@google.com>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Raghavendra Rao Ananta <rananta@google.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261103_082825_670071_CC2C1FD5 
+X-CRM114-Status: GOOD (  11.92  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,45 +93,28 @@ X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, 03 Nov 2026 16:15:03 +0000,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> Hi Vincent,
-> 
-> On Tue, 03 Nov 2026 14:52:36 +0000, Vincent Donnefort
-> <vdonnefort@google.com> wrote:
-> [...]
-> > > Walk the mapping tree once instead, and reschedule after passing each
-> > > mapping to the reclaim or unshare helper. The unshare helper can't
-> > > reschedule itself, as the map and unmap paths call it under the
-> > > mmu_lock. A failed unshare now leaves only its own mapping behind, not
-> > > the rest of its chunk.
-> >
-> > Not a problem now, but don't we make the device assignment story harder?
-> 
-> I don't think so. In Android, the host doesn't track the MMIO of a
-> device assigned to a protected guest. The hypervisor maps it into the
-> guest, and gives it back to the host in __pkvm_start_teardown_vm(),
-> before the host reclaims anything. So the walk this patch changes
-> shouldn't reach it.
-> 
-> >
+On Tue, 3 Nov 2026 at 16:26, Marc Zyngier <maz@kernel.org> wrote:
+[...]
+> > > > Fixes: 4ddfab5436b69 ("KVM: arm64: Reschedule as needed when destroying the stage-2 page-tables")
 > > >
-> > > Fixes: 4ddfab5436b69 ("KVM: arm64: Reschedule as needed when destroying the stage-2 page-tables")
+> > > Isn't it an optimisation?
 > >
-> > Isn't it an optimisation?
-> 
-> No, it fixes a regression: 4ddfab5436b6 replaced a single walk of the
-> mapping tree with the 2^27 lookups, as described in the commit
-> message.
+> > No, it fixes a regression: 4ddfab5436b6 replaced a single walk of the
+> > mapping tree with the 2^27 lookups, as described in the commit
+> > message.
+>
+> But that's a configuration that simply does not exist in HW.
+>
+> Therefore this isn't a fix, this is an opportunistic optimisation that
+> may or may not become useful. So not a fix, no backporting.
 
-But that's a configuration that simply does not exist in HW.
+I'll drop the tag then.
 
-Therefore this isn't a fix, this is an opportunistic optimisation that
-may or may not become useful. So not a fix, no backporting.
+Cheers,
+/fuad
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
