@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33F9C6070AA7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:26:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BD5A6072C92
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:27:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OP/cZRMA;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZlJLy8eM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IeTyt/xC;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cm4ZB0H6
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,52 +14,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=rIlYC4RGaBYFb8msoJbR+EejQjSODQYfHSJuVWGfL3U=; b=OP/cZRMAYgSLPYGyZ28zVtYgcj
-	TnwkR8vr8X/3vEqmk60YVIFXj1CngPNkSpqPVpq3lFGW4B2PJf1tCTTmmkdfWKpQ54ndaQyOCM/gW
-	Blg5id1yy5gko/t1k1IBYpuj5zq0+kq9yLgJvrY++aq1EjwKqOcqe9ThTO3xy3+SpSULaL4lwq2OT
-	9lBMPLJsUGuNgZu3qpz9XDP5GS2MMTL2Iy9vV/dP3aYAPY/O4gKWawffjOCk+H+IwT+43mv6VSs0a
-	Aj97SrGxgU1NH9VsDDpCfH1yToBgJT803L+jn2r1OW+rjVz+mbvIqBjebFNqYIafOaeXG6Ipdu78h
-	aHyzXrPA==;
+	bh=RcMnyr+QZreXmLDunbGYb1afaYzZsEF958MXJawqWo4=; b=IeTyt/xCLUm/uZX3rKWrXEMWWL
+	Pu4XQJ++Lg4/3GuuDzM+Ck3+zbQHNkofMz3WfqEYS4FCgVHv8Od2vrzk5wx593C72qSJ4OgK/+3+X
+	xNQpf6BZbzloUqk5n3Zc40PtWLs9sJT2G5VigR2/C5tQKkoht7rdCRzumS5UaoAy9jFoaCcOZiJxW
+	rtzyOcPC6xu8Qf5NHsgjoseU+LAGyj2gQh6xz7bzQ69bYJY2vZJFyQ/syjUyLgt5mnx1OR+VvfSpy
+	zQ8i1t2zWc9ujQVnAYUtDw8az44STbTZt5S3gAeeN7WnTYTItj+7CemmISPO9T5PzqAn7t1lQ3H8q
+	D2Axgyog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBip-00000001yiu-1AtE;
-	Tue, 03 Nov 2026 10:26:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOBjJ-00000001yuH-24vK;
+	Tue, 03 Nov 2026 10:27:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBin-00000001yhu-1PJL
+	id 1xOBjI-00000001ytX-0pTp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 10:26:29 +0000
+	Tue, 03 Nov 2026 10:27:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1D4234187A;
-	Tue,  3 Nov 2026 10:26:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C2FC1F00919;
-	Tue,  3 Nov 2026 10:26:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CA73F41F9D;
+	Tue,  3 Nov 2026 10:26:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24A3F1F00A02;
+	Tue,  3 Nov 2026 10:26:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793701589;
-	bh=rIlYC4RGaBYFb8msoJbR+EejQjSODQYfHSJuVWGfL3U=;
+	s=k20260515; t=1793701619;
+	bh=RcMnyr+QZreXmLDunbGYb1afaYzZsEF958MXJawqWo4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZlJLy8eM6LcgBzKjbZG6s94R+zcLzCqKvHAN+PzsR+gn5D69ZF1XwfBbzG9kmOHly
-	 rkx6cHR0QurRoj5qxtYCZDjTPCVdFiKLa01IqHlDkYLlr0U6emnYFh1GkgOwkl29Vf
-	 YYcYd9z0J20m/jOXF0V9o1yjzCvDA0fSiC7iGZ/He6apFFFoRwKWRlbyCgBq0abnTp
-	 f6y+/FVq6ZnicYtpiyoYDHka1LPwP7926QpyWYlq3w3LKz22OexFpMCWiSEjxxe4w5
-	 vIP5CzZfUWwj2Bc8IevU2OltJSpdiTFr9MuhLrcjcioMzEtUmPafbDpcUmwutDArHk
-	 GYSgoUkqgNTnA==
-Date: Tue, 3 Nov 2026 11:26:26 +0100
+	b=cm4ZB0H6xvIjRkLwWHZrUWyyBc0FJ+PTttq5RDfq4yuewGn7EE9KyGRoxJ328hYYc
+	 Gsad/KkeMKRTb5dAEUjv9LCFoMi/OZpjQELOYLvTywguTspaAM/oWotQ/LPFYIHfYQ
+	 u32u705QUwmxzD6pNADK2gs3V7lclzEJtmvwHn2IgikCJMBNVnHEBnd4vbiN1G5p+2
+	 V+Q4H36KfhsLUyVnfN3S8PcaN8cjd0VO+D8NpQuXdr1tj5rlPtU7V76UYWBhjSolkL
+	 GAQSI7BiUnh0GlMVVFs5HBevmkHmNnVfuc0QAMeI0RH7YBQYKtsWz0WejFlgDekFDY
+	 whZj99QsP/3vg==
+Date: Tue, 3 Nov 2026 11:26:57 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: Samuel Holland <samuel@sholland.org>, stable@vger.kernel.org, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, Vincent Mailhol <mailhol@kernel.org>, 
-	Marc Kleine-Budde <mkl@pengutronix.de>, linux-can@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH] can: sun4i_can: Use devm_clk_get() for the CAN clock
-Message-ID: <20261103-competent-tactful-condor-50b96c@quoll>
-References: <20261103100520.1309743-1-vulab@iscas.ac.cn>
+Cc: linux-kernel@vger.kernel.org, Peter Griffin <peter.griffin@linaro.org>, 
+	Sylwester Nawrocki <s.nawrocki@samsung.com>, linux-media@vger.kernel.org, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH] media: exynos4-is: Free control handler if ISP subdev
+ init fails
+Message-ID: <20261103-sandy-giraffe-of-coffee-b4ab6f@quoll>
+References: <20261103094616.1289357-1-vulab@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261103100520.1309743-1-vulab@iscas.ac.cn>
+In-Reply-To: <20261103094616.1289357-1-vulab@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,21 +79,24 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 
-On Tue, 03 Nov 2026 10:05:20 +0000, Wentao Liang wrote:
-> sun4ican_probe() obtains the CAN clock with of_clk_get(), but neither
-> the probe error paths nor sun4ican_remove() ever call clk_put(), so the
-> clock reference is leaked both when probing fails and when the driver is
-> unbound.
+On Tue, 03 Nov 2026 09:46:16 +0000, Wentao Liang wrote:
+> fimc_isp_subdev_create() initializes isp->ctrls.handler and creates a
+> number of standard controls. If any of them cannot be created,
+> handler->error is set and the function returns after cleaning up the
+> media entity only. The control handler still owns the memory allocated
+> for its buckets and for the controls created before the failure, and
+> neither fimc_isp_subdev_destroy() nor the caller's cleanup runs on this
+> error path, so that memory is leaked.
 > 
-> Use devm_clk_get() so that the reference is released with the device.
+> Free the control handler before returning the error.
 > 
-> Fixes: 0738eff14d81 ("can: Allwinner A10/A20 CAN Controller support - Kernel module")
+> Fixes: 9a761e436843 ("[media] exynos4-is: Add Exynos4x12 FIMC-IS driver")
 > Cc: stable@vger.kernel.org
 > Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
 > Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 > ---
->  drivers/net/can/sun4i_can.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
+>  drivers/media/platform/samsung/exynos4-is/fimc-isp.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
 
 
