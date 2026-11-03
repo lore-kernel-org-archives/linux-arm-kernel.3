@@ -2,52 +2,55 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72EC2606D802
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72B21606D801
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 07:41:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UaeW2VwD;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=uyhcxzty
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=o84+X7ot;
+	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=lgn6uwU9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=frMHu3ArlvkBOnWP/keZoceUz9LRRAU7jpoSl2mvnaY=; b=UaeW2VwDM/ei5O
-	gOatAIOqrFOnDr2pEPJblWq4beL5gXOxeQXmHU2TDhlYi9BnXT3Cp1VRTJxpz+WJG+JpIBVtQPV37
-	E1NGNNa+iitriZCbEZUizXoBKKUOAMKWH9fF2YGN2VRTBQe75CflWOKM3J1DkcTRrkMqsUnLAaG8p
-	atjpGE4P4A7H3RZyRGFoUgGmJcVU4xaMXMBAnbrHRe/xk5AF00UWnkWIOtzjo5QZtYpZxfbqnBssg
-	2Fhy8JIh4L1biMG3XEv0fSS+yynJ3irXZG2HvmPNuNr3lzB85m9Jmzjc2ONwD6l/GMYYjk+8kly8O
-	pRtAYuPKdTrM6Ptuy5FA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=ZVNZDjoh7iEovmI+SV652RvivUvdRsZqCQa3UYckedg=; b=o84+X7otMMQNJzFPIH7fAcT4ml
+	NGp6AwG8y6ZfxkwCqOny5lMG8D1Frf8Ag/9MLyH/O2Gfj4OloR8JwkdrfLnDiPLslHMIN6EfAEwcw
+	ChMMImfAxB2I8H7Ruec2HlWkUR3smBBwWemsH05522H6YB1XSqyuLJFLBt9adF4HHf+msGenvLEeb
+	f9D6cXYbRUsGRbaJR3R5uzzBoBs9gU0SXpexTZfmEXXsvi6cxwmswH7kfAKHaOGiHDDLAgQBdqasR
+	Uk6eQ++RQKKblB2oEOEsHltYNV4SHLnsl4QBOORhubgrUAOINM26ziudyQkc/ClIc/iAqHTz3Rhsa
+	cRTHarcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO98z-00000001MRs-1dvo;
-	Tue, 03 Nov 2026 07:41:21 +0000
+	id 1xO98y-00000001MQq-37cd;
+	Tue, 03 Nov 2026 07:41:20 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO98q-00000001MBs-1yvk;
+	id 1xO98q-00000001MBC-27PH;
 	Tue, 03 Nov 2026 07:41:15 +0000
 Received: from [127.0.1.1] (chfd-03-b2-v4wan-176392-cust229.vm15.cable.virginm.net [82.19.20.230])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 32DD7B2D;
-	Tue,  3 Nov 2026 08:38:51 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A1769227;
+	Tue,  3 Nov 2026 08:38:50 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
 	s=mail; t=1793691531;
-	bh=2iD2OpFFxVgyeniQYanpyS5ujA1TBGPZtPUEu8qYJlk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=uyhcxztyCOqtev49qyfmS+zxtgG8LC+w1bGCxNwDBgvV37iDXwvEpL9BClKKWQWf5
-	 9JoZiqmk+yuEy5OChiJJZrXFVS6GrtyK/aXKVKg2mgwoTDv78kx7fVgE7HKJZSaadA
-	 RL9T5VYoee3mXTYWnq9qiU4oL31Y1xp3BaIneFVM=
+	bh=cZXV5vLnxLdKb4vQSlAx6ZHA1oNubbZDSy4w+DSK1kk=;
+	h=From:Subject:Date:To:Cc:From;
+	b=lgn6uwU9KTwObvd2O1t6ukfk8RYQCG/2+qINcNGHJLlrWLlo+QiGK95ClBI/oJQNb
+	 jAdpU3TRVzfWzFl/6qfSVppKfkKZjTyEwce2bUyc+TndfgeDLY3SWrgUVo0kGZE21n
+	 XHtkK+MFZofu5JW669uyK+ql8uEof19MTHwNkmr0=
 From: Daniel Scally <dan.scally@ideasonboard.com>
-Date: Tue, 03 Nov 2026 07:40:37 +0000
-Subject: [PATCH 01/16] media: videobuf2: Set start_streaming_called after
- it's called
+Subject: [PATCH 00/16] Allow a running stream to survive suspend and resume
+ in rkisp1
+Date: Tue, 03 Nov 2026 07:40:36 +0000
+Message-Id: <20261103-rkisp1-suspend-and-resume-v1-0-08f863b6fdc5@ideasonboard.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261103-rkisp1-suspend-and-resume-v1-1-08f863b6fdc5@ideasonboard.com>
-References: <20261103-rkisp1-suspend-and-resume-v1-0-08f863b6fdc5@ideasonboard.com>
-In-Reply-To: <20261103-rkisp1-suspend-and-resume-v1-0-08f863b6fdc5@ideasonboard.com>
+X-B4-Tracking: v=1; b=H4sIAPSP6WoC/x2MQQrDIBAAvxL23AW1xdp8peQgdW2XECO7WAKSv
+ 1d6mMMcZjooCZPCPHUQ+rLyXobYywSvTyxvQk7DwRnnrXEBZWWtFrVppZIwDoS0bYT3dMvXEOI
+ jegujr0KZj//7uZznDzjBC5VrAAAA
+X-Change-ID: 20261028-rkisp1-suspend-and-resume-7d4f388a9a61
 To: Tomasz Figa <tfiga@chromium.org>, 
  Marek Szyprowski <m.szyprowski@samsung.com>, 
  Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -59,26 +62,26 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, 
  Daniel Scally <dan.scally@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1516;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3338;
  i=dan.scally@ideasonboard.com; h=from:subject:message-id;
- bh=2iD2OpFFxVgyeniQYanpyS5ujA1TBGPZtPUEu8qYJlk=;
- b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBq6ZAOqeOuK8zS6V3SewhBjDn2A5tdxBAowBqhw
- ZTTb0SYn7uJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaumQDgAKCRDISVd6bEV1
- Ms4UD/43vAH9nzPwZLX/ijN6oVIEIckGROVUrtaYS945uE6wswPQAVGtVX0viRtIxa5mpy3sqDK
- 0BF9M4qrO7MHjvGVZXr6ckltne0F+qhCm06/uyVRWZLKe4ftg0YWbWUfX1wKUepakVIAzFP1LWi
- M9ZoSuu61fD97Y8Fpb5241j2yL8v+VDKJjCW8ZgZVn8hGU6YSiUxbhKMVVPJ2Usdugwx52/P/2k
- +5OsgcbNpkzWOZ/Dm1pcUZQneynvtpzY6wEXBzg/F6kW2WO6UCas/4PQuzlnoYaUWiKey9ZPZtt
- LxEH/a6UHNX8rPN5S0KZ0lHknYuB/tmgbJYHCNuAT0pzjosLfcVJqtLmNrssjjjuo7qlv2SNk4E
- 2SPrMCCRKOiFc+HiJREX+LgNxthgYXKpsTRDp1CursKRo+FJdNsS8xoznumF73y7fksGtb2iLOU
- ivlqNru/MhV0l+/07LeMWxu1gpy953ukxELRlJmh82jUK61BIPJ8Q+yH+EYPWe/NF/6zV3Qo7yz
- OoG0Q3jiabix+m7d/FLbjUwWCpLPhxS/JhVg0XPUUT6bI7suQQXELtvm7gaUT4dXr//9cylFIiZ
- Hym0AZEilzBFgxyXuAEBMlrMxbm/UTG2vbR8NxyR13EM4PM6uAfUpW4IpnPndtKKVgCdL6/mWpX
- wuW7vM39SHREB7A==
+ bh=cZXV5vLnxLdKb4vQSlAx6ZHA1oNubbZDSy4w+DSK1kk=;
+ b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBq6ZAIrm8UgVSaf6LuS8UPpkgwHczn3Ou36Bs71
+ XaJa+Jz/9OJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaumQCAAKCRDISVd6bEV1
+ MqDwD/9HWXIJWcrHNfZJhhBU14rpT5KCRARDoa+PjuKgc78NtQUgdhIuPwgp7NIhKgYUTHkH0PX
+ UqtUwwUC+r43h4CmOLM1J7U5uTO7MxAJhEfnGWi5XJwUg8/YqIXOQIWUCDHw0Y2JKsaOuVO0zFR
+ 2UKuHQxBKqXJuDnapnN3KWSQsYR5LaCdy1l3GMK0Ov9eL9jMMSSipIAQskKkU48cnSY2ctBMW7h
+ GbmpcFksihxmDKZxOjJDYkElEr08+rNk/TQRcEXFpH5iksZLbtFrGh6C0X8atpa0dCTb8A4Hh4f
+ BWl4oR0ttzhretwa2Rw39DxFc88+hInB+ke04EKmwESUE9ZtUmHc4WKxxjWBYUNvpc4mwopalHQ
+ 4ZaJavq9OEFLNhWL1Lz5gir4DU2WhBbBnMoMO3NsvR0+fpHlGd9ePEf42/cXUu7z8cv2ba1Vdot
+ WNqsS9cI2ddU/qIfaqZyrgvVlSDMe3cIrHaXGdgc8n5dl115XnlApJNfkmIoiDOuRCFSfwZo7G3
+ WmF7I4zWcDNH87zc+tFCMt4NNIF3SyEZUpc6WW5Pe3ZDL4fDPe6ibGmq7aAFLPlAExpPh/NDmod
+ aCq9sqxlUFRiAtwOL3od7CRU9JQTrKq4swkz5+JpcObWH5KRO9xeJVV50mPOZ1R1jk9dPaBeIoH
+ XdCvaIPlET289vQ==
 X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
  fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_234112_664899_4A135E78 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20261102_234112_707785_1920532D 
+X-CRM114-Status: GOOD (  15.52  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,44 +101,73 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Currently videobuf2 sets start_streaming_called immediately before it
-actually calls that operation in the queue's driver. We want to be
-able to check in a runtime_resume callback whether a queue is already
-streaming or not, but most .start_streaming() operations will call
-pm_runtime_resume() themselves to guarantee that the hardware is
-active. Setting start_streaming_called before it is actually called
-therefore means we can't use vb2_start_streaming_called() to make
-that check.
+Hello all
 
-Instead, set start_streaming_called = 1 after actually calling the
-operation, and only if it's successful.
+At the moment a stream that's running from the rkisp1 when the device
+is suspended to RAM or disk is dead when the device is resumed. This
+series is an attempt to make the stream survive that event so that if
+it was running before the device is suspended, it will continue
+running once it is resumed. 
+
+To acheieve that this series:
+
+1. Creates device links between the notifer and subdevices in v4l2
+   async. This is to ensure that the Power Management .suspend() and
+   .resume() operations happen in the right order. I think this is a
+   universally applicable change so it's in core rather than the
+   driver specific .bound() callbacks.
+2. Updates the rkisp1 driver to cleanly stop stream across the pipe
+   line on .suspend() and resume it (assuming it was running before
+   the device was suspended) on .resume()
+3. Updates the rkisp1 driver to store and re-apply the last of the
+   params buffers on resume.
+
+There's also a change to videobuf2 core without which I found it more
+complicated to do the "was a stream running" check. There are also a
+number of commits that do some tidying and preparatory work to make
+the later commits cleaner.
+
+Thanks
+Dan
 
 Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
 ---
- drivers/media/common/videobuf2/videobuf2-core.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+Daniel Scally (16):
+      media: videobuf2: Set start_streaming_called after it's called
+      media: v4l2-device: Add struct v4l2_device.flags
+      media: v4l2-async: Add devlinks between notifier and async subdevices
+      media: rkisp1: Drop an unnecessary variable
+      media: rkisp1: Store the current params buffer
+      media: rkisp1: Modernise the locking
+      media: rkisp1: Power down after subdev initialisation
+      media: rkisp1: Switch to calling .enable/disable_streams() in CSI subdev
+      media: rkisp1: Switch to calling .enable/disable_streams() in ISP subdev
+      media: rkisp1: Call .enable_streams() / .disable_streams()
+      media: rkisp1: Switch resizer subdevice to .enable/disable_streams()
+      media: rkisp1: Switch ISP subdevice to .enable/disable_streams()
+      media: rkisp1: Control ISP streams from resizer ops
+      media: rkisp1: Disable resizer stream before capture device
+      media: rkisp1: Expose startup and shutdown functions
+      media: rkisp1: Allow a live stream to suspend and resume
 
-diff --git a/drivers/media/common/videobuf2/videobuf2-core.c b/drivers/media/common/videobuf2/videobuf2-core.c
-index b0a6084f175733ddd0d8d399538f949266c8966d..cb4b5e818553a8007d000147843778e72d3753e7 100644
---- a/drivers/media/common/videobuf2/videobuf2-core.c
-+++ b/drivers/media/common/videobuf2/videobuf2-core.c
-@@ -1779,11 +1779,12 @@ static int vb2_start_streaming(struct vb2_queue *q)
- 		__enqueue_in_driver(vb);
- 
- 	/* Tell the driver to start streaming */
--	q->start_streaming_called = 1;
- 	ret = call_qop(q, start_streaming, q,
- 		       atomic_read(&q->owned_by_drv_count));
--	if (!ret)
-+	if (!ret) {
-+		q->start_streaming_called = 1;
- 		return 0;
-+	}
- 
- 	q->start_streaming_called = 0;
- 
+ drivers/media/common/videobuf2/videobuf2-core.c    |   5 +-
+ .../platform/rockchip/rkisp1/rkisp1-capture.c      | 134 +++++++++------------
+ .../media/platform/rockchip/rkisp1/rkisp1-common.h |  26 +++-
+ .../media/platform/rockchip/rkisp1/rkisp1-csi.c    |  24 ++--
+ .../media/platform/rockchip/rkisp1/rkisp1-dev.c    |  51 ++++++--
+ .../media/platform/rockchip/rkisp1/rkisp1-isp.c    |  88 +++++++-------
+ .../media/platform/rockchip/rkisp1/rkisp1-params.c | 111 +++++++++--------
+ .../platform/rockchip/rkisp1/rkisp1-resizer.c      |  78 +++++++-----
+ .../media/platform/rockchip/rkisp1/rkisp1-stats.c  |  33 +++--
+ drivers/media/v4l2-core/v4l2-async.c               | 107 ++++++++++++++++
+ include/media/v4l2-device.h                        |   7 ++
+ 11 files changed, 421 insertions(+), 243 deletions(-)
+---
+base-commit: 00178eda305a332f302882849ff7374d4169be8b
+change-id: 20261028-rkisp1-suspend-and-resume-7d4f388a9a61
 
+Best regards,
 -- 
-2.43.0
+Daniel Scally <dan.scally@ideasonboard.com>
 
 
