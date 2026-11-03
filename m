@@ -2,88 +2,129 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60821606D81B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 09:49:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBB7B606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 09:49:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Wt0BFdoU;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GV++1Djw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rcOq7a+t;
+	dkim=pass (2048-bit key, unprotected) header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm1 header.b=YmV6RvIl;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=dc7YS7E4
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:From:Subject:Cc:To:
+	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=cgwH7+eb4DO1f1hZBo5/HU3TXgqaVoeCZLybivmvUJo=; b=Wt0BFdoUvtoPzK1juXaCVWoMRx
-	QlXQGkzCBQXPKmyueY+qHFUEekbgfJbjPp1eIEYVvWGswYmB3yCSIk6iXcXdQE0kSzxdNRe2sKqyA
-	WY5MZqVNPdTa++VbaBpfI/auES1dGooHv688VsVXUbzpoLoyQaejeWCBjKtfYFZ80WPw48nZXcDGs
-	vK49Fxdk0uDYyNwh9EtO9K+oB+RhJJzcF8cU2lZQOur5SynY2Uc0ze06LVejC/34J4C9L2d1duRrv
-	m7xD7Ecsv961Cf6lPsyh4wXxANw5yXaE7CHTbDTH46wsrz8+SdTYZmD4FfyKq4N7I5a+vgXmpNWPv
-	oqFUl2PQ==;
+	bh=OG7G7PorkiRlIdo4/3T/y2XzMFds8zQXDfkhHN9H58Q=; b=rcOq7a+tlBgFMaTKnlSjYe4cg7
+	emAFWSD47jS4FQfWrSv7BPnT2hV8EkGfXWqYKHZbYui21BXkCvckcH0lJeLwGVGxlVT3pUFjw5NUi
+	AOINwaJLadlj/bXk1RUgGzJ6ZcjBH8RFLnMN31WpAqcBe+a8C/4cIG/zcLY4QdIsH0ECO6FFZMBsy
+	GvdOvcTbqLlptFHbviDQ79hdA98OyAv2gq+IyJeBKcvzBvxOeWT+cgZwKO3jZ2qGLPKpvpzaN5VzT
+	AmEKBqF+Qv8OVT8NN9WljM0Qjl2YBMReZjcyK3Rh4AXRZFzTxts4cu7eh8OP5AsCnSzNs9KxXhGhx
+	2NjUP3jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOB8Y-00000001oXV-1he0;
-	Tue, 03 Nov 2026 09:49:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xOB8f-00000001obI-28zc;
+	Tue, 03 Nov 2026 09:49:09 +0000
+Received: from fhigh-b3-smtp.messagingengine.com ([202.12.124.154])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOB8X-00000001oXD-2CCA;
-	Tue, 03 Nov 2026 09:49:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9BC37605CB;
-	Tue,  3 Nov 2026 09:49:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A74261F000C1;
-	Tue,  3 Nov 2026 09:48:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793699340;
-	bh=cgwH7+eb4DO1f1hZBo5/HU3TXgqaVoeCZLybivmvUJo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GV++1DjwxRqBZTgtqKQjH8FDRWWNjQ0UExyz4D4wPRG6CXHgHqlai8IgSZ5/B9AVO
-	 fyr6sYpt+ugUguBnTwfa9EONvXK3lfiCOo8fFL2gesEHkb4WUZGfvT6fCfMJNsI31Z
-	 Vw/EI3JAg4jrRuPcmYktzzSqUrEL7bUe5ETL5f1c0mbZHI+qxZizlD4FmPKJbOX8x8
-	 UcFo7Cvy49IASUxO9wd2cXytT8/WMCHJsvvJP/mjOG1ZnH5zkongCwU5jFXzRP2W/i
-	 UHtO33zaLptW2P5/6tQLOOQzYQ1+oU9XS++2xZHKEc1aCasgMoti+lnda5b6BltK8l
-	 casrwkwEvaa2g==
-Date: Tue, 3 Nov 2026 11:48:43 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Breno Leitao <leitao@debian.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Miaohe Lin <linmiaohe@huawei.com>,
-	Naoya Horiguchi <nao.horiguchi@gmail.com>,
-	Oscar Salvador <osalvador@suse.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	kas@kernel.org, kexec@lists.infradead.org,
-	Brendan Jackman <brendan.jackman@linux.dev>,
-	Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>,
-	shakeel.butt@linux.dev, linux-efi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	linux-cxl@vger.kernel.org, driver-core@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, rmikey@meta.com,
-	riel@surriel.com, harry@kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH v6 3/7] mm/memory-failure: add hwpoison_boot_page() to
- flag an inherited frame
-Message-ID: <aumt-4kfGGtoXuh-@kernel.org>
-References: <20261016-hwpoison-kho-v6-0-f304255147da@debian.org>
- <20261016-hwpoison-kho-v6-3-f304255147da@debian.org>
+	id 1xOB8d-00000001oZg-2BL1
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Nov 2026 09:49:08 +0000
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 539D47A016E
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Nov 2026 04:49:06 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-03.internal (MEProxy); Tue, 03 Nov 2026 04:49:06 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1793699345;
+	 x=1793785745; bh=OG7G7PorkiRlIdo4/3T/y2XzMFds8zQXDfkhHN9H58Q=; b=
+	YmV6RvIlPYeodh59rkbGI5zqJRCYlOa7gMl0n9WZXPGF8bld9Ui+8PNS+fXrtvhf
+	3Q04AU4OPyuOwAmuEPkTEeLZ/4EkGevbsf+juEFiXbTfZLRHbc5EnQTtifVM8rLH
+	PXbjhCTZRwLQSvHHZ3ROuyL5J3xkDimv9Xwp2hDzM/onfotvSBcEc+Bq7q0ccPCy
+	TcclLdfayPIs44bZ1TfJjkmVPNQEDcpCZCvCrz8wi//XOu5ZejDmSlwqVy6cO5Nr
+	RmHyXV3ZJGD6cCepWl/yJ1EswFnOVJiNlQRUht3iguxqNkU4BUZVs1juDE6+M4QK
+	3EadjNls3DjUScjCYNHIew==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1793699345; x=
+	1793785745; bh=OG7G7PorkiRlIdo4/3T/y2XzMFds8zQXDfkhHN9H58Q=; b=d
+	c7YS7E4H+TBEtgldCTpv22V9t48KUldRdHrTmscixOKvYNUaCigHs3KZ2Uq01e1/
+	XnstUaFPFQKZw81hLvXK37HOBN85EkI86PhPvlhQ15KMO0xbyptPwPs/gybdEDG1
+	kKnhgXVL2eGXWvzq8VO58DzlHJ0d/vWL7Yt9rKYH9r4QXTh900bgI6SHdMauGwXZ
+	IgLc4QjS2MOPtNiDjwgdEB8EWAwGLglAuRoqUbn2NNmxoYImSL7svsA0Jip0QgYG
+	dkCyFcEeu4efLY/DyH3g3ZXJopEyE+5uBBiLFty0wMmaKIeU9g6UOPRUP7GzTUSE
+	l8v4cNafxyG1rqQoS+j9Q==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-08;
+	repo=github.com/dkim2wg/interop; date=2026-10-28; sw=lmtpprox;
+	action=sign d=flapping.org a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1793699345; d=flapping.org;
+	mf=PHRvbW9AZmxhcHBpbmcub3JnPg==;
+	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
+	s=fm1:rsa-sha256:Y9/mnH1KhMFn/UR0oZyRast0xHftbxm+2SBSvrfYIdQ0Ipt
+	dprhYNqIcuQdV1caJZiBvLYRcsVnb1zja+0MvOX2OXJLcxhg52STqFRiS6vXn7+r
+	xdJG8TEgsjXIoFGFeQiJ2hqzzIqNDlcMa0fofyjEAI3ATV3JKe/oFne4sHGbHvJx
+	eAV1cKebOzdQ9DGUlWgDt8WgJ1fCYURBCm9P6i2M9Tce4Uaa6nLqX2hjhsGrx3WQ
+	vkhOQLsiB6yWwMx2pyXZ5K4RukvlHM2DxE6UyvKHeAdxBwb/4aWjN1ymnT40ZarH
+	tunCzxrXbuNdJ4qhCHOnokfOecnfflJ4WxZ3+gQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-08;
+	repo=github.com/dkim2wg/interop; date=2026-10-28; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:KFEYeJSeqaQvdhSfOiFj3pESt9ROi+/kLsY54sLVMnQ=:A69AET1Hnmc2CppcAFFTir5bItDWu7qWG+xCGZtT8N8=;
+X-ME-Sender: <xms:EK7panJYqIeXKlzyb6RoVeAgS3geUr915EtAV6OD-2UYHkbvHh_uxQ>
+    <xme:EK7pagKyYa1o55Q3frqsugecORLznxWZCW4-92hD4s0OqcBTONOdR3fHC0EKwgzGu
+    q8VP1wTjlcv6F8hSu2ySvIv_7WzsTUCu_EfUZpXUip0r1VeXDMw1mGa>
+X-ME-Received: <xmr:EK7pagley4nv7EFzEUeN3saxq8aXmmzmPxNYSJbz1OZ9wPHV3VJXkMksh8zvrXxt-DcHawFTE5u75CxYQoEOTWUA>
+X-ME-Proxy-Cause: dmFkZTGoAdnMZpSzRxjqGakBDdmQBjBOFDndVX07QMFZZzrUmDy5sPPmTzyIX+5y2ejCSm
+    k29jl5O6VozixDzDldi3Dxucr92wBgwkB7AFKK+oJRd1vvaGeznaUxq/Ge83a4h0bDAIID
+    LUXb3jKBN+Dyids7eIDdNJ69zI3GAppKgn2TPI+407ytDKj+HrZ6k7r3kqSIkVD7ZSeT/X
+    4TRTGrSmr5eXXMnSSE6VCvLeaJSQu9hXBTna8wz8ToUeLLIxgGKeJ5go0kqwiibYNlqYpu
+    womEK5z3VLYxCyk3zpnVdd1on5EzmFysqm7Uq0a2dQZjDhSoYG9+wjubq8XEj6WoKrvFGv
+    Cp9M/YhHv//3rjPbK/K+DMm5MRq8aLjx+9xCSZuhzKjFWhsuPOscy4By1Uu06h/cpDYHAd
+    fbWc4buaUhPxaWVYqi/VZ4XEKEOVj+WxKVsfjKdLPYWTAMQlK7PtCY2+YNcFZp66k7ulJy
+    0LAt9U1k9w73KjUQvgoVRzyBouELenbH0/sTcp8SQD6XB8NZ9dPX6isKJ/3OtZgMyxB1BS
+    EQUxpo+pk+ceBmBolZBLZTTC2p5B/SFrudk15CTxcMQLTljaA3Mr/H+lq8Ed4b4E77cnwU
+    8sZ6nWtYMVptckoZ9Vz10p2LepBv8U0/K81szq1wR3FmJP0neGYTxuWSIVLg
+X-ME-Proxy: <xmx:EK7pamJjHbUZv5oF3g4dFGL0JiI6jyTvKj9DYg7SPHHJGC4BmmVTSg>
+    <xmx:EK7parWzXTUrbuO0iPy1sCGhUEJni6dZNS9khgzOBwxGpcTEMfkX0g>
+    <xmx:EK7parOa7YBXhVg7ITjmD0t_zI_z2kBY-ztTWrpAatQCYTt-kEfLmw>
+    <xmx:EK7panm39Ep6Gs_hlyKss_7Ms9mC_01o7eDgxoJqRgqH9Tudi_mzYw>
+    <xmx:Ea7pasn1Ec0ISS5__DG-weNW_Qzj96UHVwyc8HeYKvup-V9lQsJQp7I7>
+Feedback-ID: i51fe4b43:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 3 Nov 2026 04:49:00 -0500 (EST)
+Date: Tue, 03 Nov 2026 18:48:57 +0900 (JST)
+Message-Id: <20261103.184857.703333269279645088.tomo@flapping.org>
+To: miguel.ojeda.sandonis@gmail.com
+Cc: tomo@flapping.org, linux@armlinux.org.uk, ojeda@kernel.org,
+ ardb@kernel.org, chrisi.schrefl@gmail.com,
+ linux-arm-kernel@lists.infradead.org, a.hindborg@kernel.org,
+ acourbot@nvidia.com, aliceryhl@google.com, bjorn3_gh@protonmail.com,
+ boqun@kernel.org, dakr@kernel.org, daniel.almeida@collabora.com,
+ gary@garyguo.net, lossin@kernel.org, tamird@kernel.org, tmgross@umich.edu,
+ work@onurozkan.dev, rust-for-linux@vger.kernel.org,
+ fujita.tomonori@gmail.com, guptarud@gmail.com
+Subject: Re: [PATCH v1] ARM: rust: Generate unwind tables for Rust code
+ with ARM_UNWIND
+From: FUJITA Tomonori <tomo@flapping.org>
+In-Reply-To: <CANiq72=Mb7Vn9O0baOJFRf68UiZoxK0RjdXBFLw_hCHcqCkZ_g@mail.gmail.com>
+References: <20261009124124.1176706-1-tomo@flapping.org>
+	<20261103.182511.1470121559944018656.tomo@flapping.org>
+	<CANiq72=Mb7Vn9O0baOJFRf68UiZoxK0RjdXBFLw_hCHcqCkZ_g@mail.gmail.com>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261016-hwpoison-kho-v6-3-f304255147da@debian.org>
+Mime-Version: 1.0
+Content-Type: Text/Plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261103_014907_620214_5992717D 
+X-CRM114-Status: GOOD (  10.50  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,97 +135,25 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 16, 2026 at 05:15:43AM -0700, Breno Leitao wrote:
-> A kernel that kexecs inherits the frames its predecessor found
-> hardware-poisoned. It has to carry them as PG_hwpoison in its own memmap,
-> so that everything that already understands the flag covers them,
-> including the kexec segment placement check.
-> 
-> Add a helper that sets the flag and counts the frame in
-> num_poisoned_pages. It runs while the memmap is initialised, before
-> memory_dev_init() has run. memblk_nr_poison_inc() divides by
-> sections_per_block, which memory_dev_init() sets, so the helper
-> increments num_poisoned_pages itself instead of calling
-> num_poisoned_pages_inc().
-> 
-> An inherited frame is a hardware failure like any other, so the helper
-> sets hw_memory_failure. Without it, unpoison_memory() accepts the frame,
-> clears the flag and drops the last reference, which frees a frame that
-> is still bad.
-> 
-> The helper also counts the frame as managed, as a frame that fails at
-> run time stays counted. Memory offlining subtracts every frame of the
-> block that is not PageOffline, so a frame that was never counted leaves
-> the managed page count too low after an offline.
-> 
-> The per-node memory failure statistics are not updated. This kernel
-> handled no failure, it only inherited one.
-> 
-> Signed-off-by: Breno Leitao <leitao@debian.org>
-> ---
->  mm/internal.h       | 5 +++++
->  mm/memory-failure.c | 8 ++++++++
->  2 files changed, 13 insertions(+)
-> 
-> diff --git a/mm/internal.h b/mm/internal.h
-> index da14c56fb24e11..4bd3bbce86e0ad 100644
-> --- a/mm/internal.h
-> +++ b/mm/internal.h
-> @@ -1169,6 +1169,7 @@ void SetPageHWPoisonTakenOff(struct page *page);
->  void ClearPageHWPoisonTakenOff(struct page *page);
->  bool take_page_off_buddy(struct page *page);
->  bool put_page_back_buddy(struct page *page);
-> +void __init hwpoison_boot_page(struct page *page);
->  struct task_struct *task_early_kill(struct task_struct *tsk, int force_early);
->  void add_to_kill_ksm(struct task_struct *tsk, const struct page *p,
->  		     struct vm_area_struct *vma, struct list_head *to_kill,
-> @@ -1181,6 +1182,10 @@ static inline int unmap_poisoned_folio(struct folio *folio, unsigned long pfn, b
->  {
->  	return -EBUSY;
->  }
-> +
-> +static inline void hwpoison_boot_page(struct page *page)
-> +{
-> +}
->  #endif
+On Tue, 3 Nov 2026 10:34:59 +0100
+Miguel Ojeda <miguel.ojeda.sandonis@gmail.com> wrote:
 
-We've been splitting internal.h to smaller headers, maybe it's time to add
-"memory-faulure.h"?
-  
->  extern unsigned long  __must_check vm_mmap_pgoff(struct file *, unsigned long,
-> diff --git a/mm/memory-failure.c b/mm/memory-failure.c
-> index a2ca8df501caee..d0d6b184ee469f 100644
-> --- a/mm/memory-failure.c
-> +++ b/mm/memory-failure.c
-> @@ -96,6 +96,14 @@ void num_poisoned_pages_sub(unsigned long pfn, long i)
->  		memblk_nr_poison_sub(pfn, i);
->  }
->  
-> +void __init hwpoison_boot_page(struct page *page)
-> +{
-> +	SetPageHWPoison(page);
-> +	atomic_long_inc(&num_poisoned_pages);
-> +	hw_memory_failure = true;
-> +	adjust_managed_page_count(page, 1);
-> +}
-> +
->  /*
->   * Return the first or the last hardware-poisoned online page in [start,
->   * start + size), or PHYS_ADDR_MAX if the range is clean.
+> On Tue, Nov 3, 2026 at 10:25 AM FUJITA Tomonori <tomo@flapping.org> wrote:
+>>
+>> Gentle ping. The patch still applies cleanly on top of v7.4-rc1.
+>>
+>> Which tree should this go through?
 > 
-> -- 
-> 2.53.0-Meta
-> 
+> I guess arm's ideally, but I am happy to take it with their OK (do you
+> want this Cc: stable@?)
 
--- 
-Sincerely yours,
-Mike.
+I don't think it needs Cc: stable. It only affects the backtrace in an
+Oops or a WARNING, not how the kernel runs.
 
