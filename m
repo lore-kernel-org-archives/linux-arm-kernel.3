@@ -2,65 +2,154 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD8F8606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 09:43:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5795A606D810
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 09:46:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Y/7/hore;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VB2YJGf6
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=DVig/siB;
+	dkim=pass (2048-bit key, unprotected) header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=ODqXYTHC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Ax+Y1NYJ7G+p3oM+b1SjSykoPY3EvHvOyGpyknFiIuU=; b=Y/7/horeqYIY2UdxHyt1pZq73K
-	Rytu4kfWHMrI54YNcwtsAAsVvOowCXALwGMiGWImpMw1S3oqJalBkBDaOgq6KhbspN916+ifjtQEY
-	Twh4dNSJJlAVtPZAxCaV68P64U9iJBrfBElt6g44yMhWIlsYHwKeOkPB6FgjPztyucsO2VbKBtcxt
-	n5AKgjPrM2kPESSPB0pPiMnlrO3BP5veQtUoqBf3xtw8QQ9m1xivuIL/mokHiU9vQ04NGq/2TwwRy
-	HYSJbGaH6dXaHoPdYuFbApCrwa7QswdkBku6rGngcZOU0HAkMJESoeddBn5OEjny7C4zkgcsT13CW
-	LkAWjbhw==;
+	bh=1pkedbSPImBF3RB8Y8aTp4GtNrReIWN/JTYaP4eTwN4=; b=DVig/siBTdF+hCQWMSNYtrVolS
+	C7TOWfZ/IGznRBeyPIGIvDVX0v6OEWKSfi1myz6o/HPo4LesVWu85MFu6SUg9A+E2YaH72bbIEv0d
+	yIIkB53GoRIXKDUOsV5try0LwBxxE85m+lHzXoJY5RsFvkvlNDPGhxM6MhknXM9AxGPw/s5rgzGgO
+	Uq6aQTTFSqCVPrxV7xTRkaNvy7Jls+2vcVMrvdWnAQ+M2EMJNumk+8fgJWqDhWSYgTNAi3G/T+zu+
+	H63cwe2GDvNnDQGMn2X7jzX3JwxGHhHMTZu/DaTfu/2onkz9wJrsCf+w1MrsLzCwHruzEcHM0392S
+	TusF6p/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOB2y-00000001mx1-2NRH;
-	Tue, 03 Nov 2026 09:43:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xOB5h-00000001ndd-2djH;
+	Tue, 03 Nov 2026 09:46:05 +0000
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOB2x-00000001mwj-3Ka2
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 09:43:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 45BCA410A8;
-	Tue,  3 Nov 2026 09:43:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A7E71F000C1;
-	Tue,  3 Nov 2026 09:43:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793698995;
-	bh=Ax+Y1NYJ7G+p3oM+b1SjSykoPY3EvHvOyGpyknFiIuU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=VB2YJGf6qTqPTT2o1HMhTrsJ1ggNEmsUspWeULkwX39iyMgek3DLLLcNMIdCtakZN
-	 XP/S56xZo0yC3yRCBTTQWRb4QzGrR7c7Hbpy5ygVo65+UA7Z6pAcPnxIObdaxTar2+
-	 c+k61U8oa/6OBp10g812TMh6x2JQFtQxvBk9+iBeBVwt7/xo9XenP2fNnWU3uvDkFh
-	 6PYvH8ImiFTiMscwKX4YJgVQwAjWrK+2NSRv8uvUhfkYvptnsn+Bjw48Cdv+bpAdUW
-	 JWdFfmlJ398b3HrqKsQGvcSMV7yGSi0cSUzWoC317d851Kc4nbO4m5SaMfL5MVm4Tl
-	 YpZyeh04NGDlw==
-Subject: Re: [PATCH] net: ti: icssg-prueth-sr1: Fix device_node refcount leak
- in prueth_probe()
-From: netdev-bot+sashiko@kernel.org
-To: laixiangwu@cmss.chinamobile.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, danishanwar@ti.com, rogerq@kernel.org,
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Tue, 03 Nov 2026 09:43:14 +0000
-Message-ID: <179369899417.488856.4974450054291603730@kernel.org>
-In-Reply-To: <20261030085851.2019-1-laixiangwu@cmss.chinamobile.com>
-References: <20261030085851.2019-1-laixiangwu@cmss.chinamobile.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
+	id 1xOB5f-00000001ncL-19O0;
+	Tue, 03 Nov 2026 09:46:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PnuxprRIygwinJTsgW0TMPgejOeTbUS+Ncj3iLPKSOQGiw5EefALBtUEbzsT/mPQAnxRZRpLwZmU12X1ui+Cw1mNnLDCzVQrRDEAjDqQUAaYmzLpuRN2tkcGpo9uszHVEWwwRBDWITRYxcNYaSEHkAL2eElCgONcMVJF1HdKOjhcpUz7xgGseyoJ7YtVGgu+NvlGcOIGIQZ7AHDS86TM11Rb2zabHUl9LhjHlNCH+qXA0vBlfffrxTHJ4RZzMzNmtRakNfi4t/PsE6Fga05vZ6JYZur1Odb8MQy4J0wwguiKHR2EzW9eCiCpCj4GvTXMgHmxvJcWbWBxhClTrjBwiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1pkedbSPImBF3RB8Y8aTp4GtNrReIWN/JTYaP4eTwN4=;
+ b=kJsXUFeKfEpB/IGSOv6TIlnGXUpWgn8hirQHp4F3wRj9vL5u++bzPk0EQXsp9mhH+g1zFw1JpHW54fmL6RQVNOU+MesrW/zDW4KHweGedVQ315gRD0JSfewhXZjxFOptUkPETZ/2caHBVpZCfJrLd/ce4fEPGAloPQIAdqaM6/8ieSFYCqVqcVhrhnrc4bTmcx/V3djj3vByejL5qBUQkPYtbOo7WnPouKVFD+47V989qPdq2kPxDBGojHDFV7pxGo0WIx0A2e/rM5e57pt0n2OADAK3z1QvqkcTrYLV+vvqezBUp8JJxSg8URhDTd3xSNsRFDlw/akkriBiQEONJw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1pkedbSPImBF3RB8Y8aTp4GtNrReIWN/JTYaP4eTwN4=;
+ b=ODqXYTHCTmD0uP8GWYl6QbvQG2e3gelR4XBsPIUclLf46u4IdarADZL7wPbk8fb1Zk1zsx0knAD/iDHCFIMXPKYQKuaIFqAhj58lLPwFDdc5K77RuB78urnK71Ng49Gyf4c2YptaeJE0hek13KC40306StMFTMyslQ7DU6rqTKimQmUUAwUyguYJPWojALyJGdTCofBZNEq0X/ZxXUYOn43VM4f7JTzTIuSn7+wvLdEg/Apky9umdSuI3O1oae2CsDnYzbL0dLOe3YyS1RBCwAdk3j5l7akcSr0a3H6SkzYu0A5jfgOI4I3BTxR2TRUFysDq7pSFbCjM4kQYQekAnQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
+ by SEYPR03MB8580.apcprd03.prod.outlook.com (2603:1096:101:207::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Tue, 3 Nov
+ 2026 09:45:56 +0000
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::e1e:5c95:a889:828e]) by KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::e1e:5c95:a889:828e%4]) with mapi id 15.21.0569.011; Tue, 3 Nov 2026
+ 09:45:56 +0000
+Message-ID: <48b333a3-ef88-4739-a087-3ed9d8ec60a4@amlogic.com>
+Date: Tue, 3 Nov 2026 17:45:40 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/4] cpufreq: add an Amlogic speed-bin driver
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Christian Hewitt <christianshewitt@gmail.com>,
+ Viresh Kumar <viresh.kumar@linaro.org>, Jerome Brunet
+ <jbrunet@baylibre.com>, christian.koever-draxl@student.uibk.ac.at,
+ neil.armstrong@linaro.org, sboyd@kernel.org, bmasney+clk@redhat.com,
+ khilman@baylibre.com, rafael@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, linux-kernel@vger.kernel.org,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, =?UTF-8?Q?Christian_Stefan_K=C3=B6v=C3=A9r-Drax?=
+ =?UTF-8?Q?l?= <ckoever@outlook.de>
+References: <20261025192219.209137-1-christian.koever-draxl@student.uibk.ac.at>
+ <20261025192219.209137-5-christian.koever-draxl@student.uibk.ac.at>
+ <at7lXEqds7ukoR2V@vireshk-B250M-D3H>
+ <1jbj8gkff1.fsf@starbuckisacylon.baylibre.com>
+ <at8WfX_G0tfTlFrm@vireshk-B250M-D3H>
+ <9556e959-daf3-4c85-8794-9613e7e7a9ae@gmail.com>
+ <A45EC676-5B14-4932-A4CF-87ED3B71108D@gmail.com>
+ <4a51e879-708c-49dc-a08a-3f64eeec8bbf@amlogic.com>
+ <CAFBinCBkJJeRPKLFBA9KYjwXMxFjow_NOtvFoKRQdxD=rOPW3w@mail.gmail.com>
+From: Chuan Liu <chuan.liu@amlogic.com>
+In-Reply-To: <CAFBinCBkJJeRPKLFBA9KYjwXMxFjow_NOtvFoKRQdxD=rOPW3w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: TP0P295CA0002.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:910:2::15) To KL1PR03MB5778.apcprd03.prod.outlook.com
+ (2603:1096:820:6d::13)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|SEYPR03MB8580:EE_
+X-MS-Office365-Filtering-Correlation-Id: c111d39e-1e7e-4659-641d-08df398f4203
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|6133799003|10067099003|261102123227099003|22082099003|18002099003|56012099006|11063799006|4143699003|261022075727099003|261026121527099003|261026140227099003|261021121427099003|261022105027099003|261009223027099003|261028144727099003|261009221227099003|261021123027099003;
+X-Microsoft-Antispam-Message-Info: D+y5+H9rNT5e9wHUS8YvJ2m0mZs1n7Uc83XKajEt7Oa4XueXB6DtODb8wGpPa3P8xe+c7UPyYwnKxNb1Qu9prlBd5qzRUkX85iOKQR+6taFyskJZ36DfoPiNH+WpbL3mCPyk4g48HfSPtJ8BPlS6S+NpZo5yiqM2E6kRdoubD6C5EugB6W0CVRQ44Vi9TMj3FOgngIHwcUtErdMVn4h4AbhFo9j/wCmUXQt/KK7Y13fTwEMwd20Cq3Yl2Y1L7lR0uhrm8JWHfciZFphegQZK72PTJ3oGD02obLQRevXn1P/gWmLDFZ6UB9GP7XifNuRfSG7mutRgRH+PzK5TKrndjkQg5V5hgEUCJNdxWWR0N8nUY+7iVVdNOKsvg8r3uW3w6HDK+7+sWZQg18YmmMo9hvD8sz+fQ06T7GNVQ0hbKWz917ihNh8yVYcplQesX5haQyAd1UlNdW1VQPE5xiPE37GHpDvtZCwqSN6xv2Zjic4WiKDQ658Rz6xb8ZJXJ739ibxs8+01Tn3ts2u5OLchmSFGZbUPepnGWLmslNGLwnNjF7Ni0oK7BdYbCXxWbkc+l3nC3v09Td7RkJKxDZy8gwClfpW+XKMRs6hr4Pb5aDW2GRZKAHhDCazM5tBmPz2G4NkHGvVHSuyuGvN9OYv12aUaUDQodVjAPYCVYZJWaXI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(6133799003)(10067099003)(261102123227099003)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003)(261022075727099003)(261026121527099003)(261026140227099003)(261021121427099003)(261022105027099003)(261009223027099003)(261028144727099003)(261009221227099003)(261021123027099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eHc3dDRWNjJNWWF1UWNqcm53bEU5bVJRNXhPdEFaRmdaWkMwY0w2aWZzb0hO?=
+ =?utf-8?B?STl6UWl0c0R3NHFCcXFyWGZtT2c1Y2Y1T216UkMxYTNjVzFCUXMwM0w0MXBY?=
+ =?utf-8?B?WGlPS0FlaTRxc3U1SHlnMTNNNERac1ZvUmNHVlU3RS96SUZQNXg2SVpqcGo1?=
+ =?utf-8?B?cXc3ZDF3N2l4aVkrZkVCNHJnOUc0MnRhdFlQV1FyRTRHMVdCQkYzaU01SGo0?=
+ =?utf-8?B?QzdnYWhBT2Y2RlNCMzA0dE1ZSm15Vi9ldENMYzlPcmJKT3pUOGNvcy9reVdh?=
+ =?utf-8?B?ZjFnb0pMWGcyS3lUWDhUQXprU3VvM3hBQ2REa1I4SlVpUmhNZEVOSDN4Mk5N?=
+ =?utf-8?B?TXdmUGlSOUxROGV5MVY4LzdQMnc2dklwMENGRmg3VzNjaHNGdDFQbi9lTklD?=
+ =?utf-8?B?RUljQjBEMjJzN1N2N3BJT1ZHY21TSWJTRUgzMmxPcXA1TGdtUVMzSWtWb0g5?=
+ =?utf-8?B?dDNNelhxaUdEbjRXNFFBUnZKSERLVzJTandwbGt1M3k4dUtMQWhZUldSNXBI?=
+ =?utf-8?B?UDY0dWVIYnB1SGNCcGVSYWlaZlN1SnN3RVpHbkh2MHFjbUdkUnhvM3ViMkQx?=
+ =?utf-8?B?ZFZZdHZBYXhFdm5GZnJNODRaRFlKV0RLRFFudHpFZFJQak1QSml3MzExMkto?=
+ =?utf-8?B?U0c0Q3QvNmg4OS9ZTEw0aC81SjdOd2JrWCs5azd6dUJXZ3lBMThZVXQxNDZa?=
+ =?utf-8?B?NFJRdHZ5dmgvL1RhM2IyaHkrTHBmQ0QvV2pxUkRjTnE2ckhRWE4zYmU0ZTl1?=
+ =?utf-8?B?cVNaMUtRYU9QUThWaldNVDBWbnFQd2hQY2hCcHNRUkZSa0NzdEhpdDgydVgx?=
+ =?utf-8?B?NWtFQk1WbDV2ZGM5SkhSdHFlNmF0RzM1UjlJMHRmRXhNNjZZOEp6ckxpOGJM?=
+ =?utf-8?B?SHJ5Zmora2xjVEZmYjlIczZIdG1ONTJwM1VsYlJEL2l3dnpRekZTWUd3TUM1?=
+ =?utf-8?B?Y1dMcmYrQmM2aXBFVDBjdkNVSlpEcCtkRFdwSGhBWGNZZkovZXB4YUMyT29i?=
+ =?utf-8?B?VzZHd1BVeUtaWXVXcmVkb3BBQUJXS2Y4aWZPbHZMcmxjeldTMGMvT0ovS2pr?=
+ =?utf-8?B?cVIvMVArcWZlV0VzZmdYMXE2dmR2Q1loaWNwNkdtMUNHVC90ZHlnamxBUHh4?=
+ =?utf-8?B?OU92TDdUMWFCS2Z6MlI2blhnL2UxekxMc1Y4ZmhySHpRbytNVENNVHVCdElY?=
+ =?utf-8?B?Y2pMT2xPZjFGSTlLTGdUMHg3NkZFcXhsYXFvTm9LdXVwMVFUNnM4dEE5N0Er?=
+ =?utf-8?B?RGdwQTQxQUMzMkVJc2tzY3VBdnZYelptRXFaekY5djhvR3lxL3BaQnpkMU5G?=
+ =?utf-8?B?UlJUNUdvNVlOd3BkSWNJVTlJN1BtY2ZnMVplL1pxeEZIZm9palNtY24rM2Zs?=
+ =?utf-8?B?clkyU2tOQW14RFhuVUFkVmlkeDNTOW1sNmV4bTdhSWVTZDNSejdIdWtQWWwz?=
+ =?utf-8?B?YWl3V1dlMzlHUFdOd1pjYVZFRWxyVmMrTmRrTzU5SHMxanBobHF4d090YlJv?=
+ =?utf-8?B?TFQ0QjBLZU1FTlZDZFROcHIzVWhxUnpyY0Vxd0NHMEFuY2pJWm0zZjAxcC9r?=
+ =?utf-8?B?RjhwM1JyTE51Vjc1cW1ZeGdRSVpDTHNwcGd5c0hTV1BCME9Yck05dncwSTZp?=
+ =?utf-8?B?ckIyWEVjQVR4QU41SjhMSU9LUVhmZm8xaG9WcE9OdmtaSVdDbnExMEU4MkxQ?=
+ =?utf-8?B?K1RpTEVZVzB2SjI0SmxJdTBjMmNqcHVvOFRRbVBlcWxsWXd0SmNLQTZsQ1dK?=
+ =?utf-8?B?eitrTUc5KzNSTW1CdTNUYUU4L2N2K3VGWTBIMXJHcXlVSnBXR0g3bS9WYjdI?=
+ =?utf-8?B?WHpBRmJjcHFDWXFvbGp6Y2laajlkSGNOdjJINGlFTGZEajFNQldSbGV0UVFh?=
+ =?utf-8?B?Q2VYaENESTlraUdZTGk5SlNBMUQ0eG43VldYZjY2ZEkxL3IwWlBzOVpTdzlR?=
+ =?utf-8?B?SkRhb2p5R1h0RStMVmtDWWhvU2tVOTJ5M2FhYUlVa0hSa1VmL2w1VXJ2dFVP?=
+ =?utf-8?B?VjJPTkk1aDA5Q0RTb2JuUXd6VHJVbDQ0Z0FQUTE4MWFsYXpqbGtoVUN6aE5Y?=
+ =?utf-8?B?enpRN0Z5WkZjSVN5OVRCcUEzOFdjKzVMYmFXVldtL2w2eVg2aGpNSXNiQUVI?=
+ =?utf-8?B?clNhSzlGV3JiVzFrenZ1UHBlcC9uaGJuU0VUd0tUZlpFRHpDbkY4bmJZbFI1?=
+ =?utf-8?B?aXFLT3VtYW5lN3FIdFFzakpZWURjVGhoWTJJcm0zbVFKSmdWMHlQWUhKaUtJ?=
+ =?utf-8?B?Q1RmTCtocTVKK2haOHIyZlBYSGdtdUdHSzZuS0MzbFUyTVY0ekR0UDltUFBR?=
+ =?utf-8?B?VTBEQU92Y2VFV0ZFaGs2WTFKMU5UYnRtSkovVy95Mjc0K2FtTk9Zdz09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c111d39e-1e7e-4659-641d-08df398f4203
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 09:45:56.2365
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: q30Qc4FjoBmWmHb7Vc2o4SP8OEor8l1xgL76iQf7tUlmvZpSkuO/SjBiShDLDu3H8nFoOExItQJv02N0IJbJHw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB8580
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261103_014603_461134_02DA1427 
+X-CRM114-Status: GOOD (  31.90  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,104 +160,185 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-9.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	NORMAL_HTTP_TO_IP,NUMERIC_HTTP_ADDR,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Hi Martin,
+     Thank you for joining this discussion. :)
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+I have re-examined the capabilities provided by pm_opp and cpufreq-dt, 
+and it seems that we may also be able to adapt A9 fairly well based on 
+the amlogic-cpufreq.c here. So we have no objections to the driver 
+implementation in amlogic-cpufreq.c here.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+I was most worried about before was that cpufreq-dt might not fully 
+handle the complicated clock and supply adjustment logic between 
+multiple clusters, which would have required adding a separate 
+cpufreq_driver. But it now looks like this can be solved by adding the 
+corresponding config_clks() and config_regulators() callbacks in 
+dev_pm_opp_set_config().
 
-- [Medium] The same leak is still present in the sister ICSSG driver.
+On 11/2/2026 6:51 AM, Martin Blumenstingl wrote:
+> [ EXTERNAL EMAIL ]
+> 
+> Hi Chuan,
+> 
+> On Thu, Oct 29, 2026 at 6:30 AM Chuan Liu <chuan.liu@amlogic.com> wrote:
+> [...]
+>> Regarding the concern I mentioned above about supporting a unified
+>> cpufreq driver across S4, C3, T7, ..., A9, let me explain it in more detail:
+>>      - These SoCs fall into several hardware architecture categories, and
+>> I'm wondering whether we could take all of them into consideration and
+>> implement them in a single amlogic-cpufreq.c, for example:
+> I think the main question here is: how much code is shared between
+> various SoC generations.
 
---
+In my view, the main difference lies in the code that handles the shared 
+and coupled resources; the rest should not differ much.
 
-net: ti: icssg-prueth-sr1: Fix device_node refcount leak in prueth_probe()
+> 
+>>        * S4/C3: 1 * cluster
+>>        * T7: 2 * clusters
+>>        * S7/S7D/S6: 1 * cluster + DSU
+>>        * A9: 2 * clusters + DSU (the 2 clusters share one DSU)
+>>      - For different hardware architectures, the resources that the
+>> cpufreq driver has to manage also differ and are coupled with each
+>> other, for example:
+>>        * S7/S7D/S6: the CPUs and the DSU share a single power rail, and
+>> the DSU frequency scales proportionally with the CPU frequency
+>> (typically dsu_clk = cpu_clk * 80%)
+>>        * A9: the resources that A9 needs to manage are relatively more
+>> complicated ...
+>>      - Optimizing the cpufreq transition latency:
+>>        * Clock latency: for most S4/C3/T7 customers, the released bl31.bin
+>> only supports configuring the CPU clock through SMCs with discrete clock
+>> rates. Frequent set_rate()/set_parent() calls in the kernel would result
+>> in a relatively large clock latency, and would cause the sugov thread to
+>> consume too much CPU time, hurting scheduling performance.
+> We also support a few more SoC generations upstream:
+> - Meson8/8b/8m2 (32-bit ARM Cortex-A5/A9) where we need to reparent
+> the CPU clock to XTAL for stable operating during clock changes (which
+> should go into a cpufreq driver that implements target_intermediate).
+> There's no secure monitor or firmware involved for CPU clocks.
 
-In the SR1.0 driver, prueth_probe() returned -ENODEV directly when the
-"ti,mii-g-rt" or "ti,mii-rt" syscon regmap lookup failed. That return
-leaked the eth0_node/eth1_node references taken with of_node_get(). The
-patch sends both error paths to the existing put_cores label instead.
+BTW, could we put the CPU clock handling logic in the clock driver like 
+G12A does (though, of course, handling it in the cpufreq driver might 
+minimize the coupling between the clock and cpufreq drivers)? That way 
+we could fully reuse the existing cpufreq-dt?
 
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
-> index b8115ca47082f..ef1dc32ff8b46 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
-> @@ -963,13 +963,15 @@ static int prueth_probe(struct platform_device *pdev)
->  	prueth->miig_rt = syscon_regmap_lookup_by_phandle(np, "ti,mii-g-rt");
->  	if (IS_ERR(prueth->miig_rt)) {
->  		dev_err(dev, "couldn't get ti,mii-g-rt syscon regmap\n");
-> -		return -ENODEV;
-> +		ret = -ENODEV;
-> +		goto put_cores;
->  	}
->
->  	prueth->mii_rt = syscon_regmap_lookup_by_phandle(np, "ti,mii-rt");
->  	if (IS_ERR(prueth->mii_rt)) {
->  		dev_err(dev, "couldn't get ti,mii-rt syscon regmap\n");
-> -		return -ENODEV;
-> +		ret = -ENODEV;
-> +		goto put_cores;
->  	}
+> - GXBB/GXL/GXM use SCPI firmware CPU clock control so to my knowledge
+> we're good with what we have (meaning: no custom cpufreq driver
+> needed)
+> - G12A single cluster, no DSU: needs a cpufreq driver that implements
+> target_intermediate (currently it's managed on clock driver side in
+> kernel space, no firmware involved)
+> - G12B multi cluster, no DSU: needs a cpufreq driver that implements
+> target_intermediate (currently it's managed on clock driver side in
+> kernel space, no firmware involved)
 
-[Severity: Medium]
-The SR1 change looks correct. Does the sister driver still leak the
-port@0/port@1 device_node references the same way?
+The cpufreq-related resources on the SoCs mentioned above are relatively 
+clean: each cluster has only one independent clock and supply of its 
+own, and these SoCs also do not support voltage selection based on chip 
+binning.
 
-prueth_probe() in drivers/net/ethernet/ti/icssg/icssg_prueth.c parses the
-ports the same way. It calls of_node_get(eth_node) for each port and stores
-the results in prueth->eth_node[]. It still returns directly on both syscon
-lookup failures:
+> - SM1 single cluster and DSU: needs a cpufreq driver that implements
+> target_intermediate (currently it's managed on clock driver side in
+> kernel space, no firmware involved)
 
-drivers/net/ethernet/ti/icssg/icssg_prueth.c:prueth_probe() {
-    ...
-	prueth->miig_rt = syscon_regmap_lookup_by_phandle(np, "ti,mii-g-rt");
-	if (IS_ERR(prueth->miig_rt)) {
-		dev_err(dev, "couldn't get ti,mii-g-rt syscon regmap\n");
-		return -ENODEV;
-	}
+Compared with the SoCs above, the difference for SM1 is that it needs to 
+additionally manage a DSU clock. In this case, the clock-related 
+handling can be added in dev_pm_opp_set_config() in amlogic-cpufreq.c 
+(by implementing clk_names and config_clks in struct dev_pm_opp_config).
 
-	prueth->mii_rt = syscon_regmap_lookup_by_phandle(np, "ti,mii-rt");
-	if (IS_ERR(prueth->mii_rt)) {
-		dev_err(dev, "couldn't get ti,mii-rt syscon regmap\n");
-		return -ENODEV;
-	}
-    ...
-put_cores:
-	if (eth0_node || eth1_node) {
-		prueth_put_cores(prueth, ICSS_SLICE0);
-		of_node_put(eth0_node);
-    ...
-}
+> 
+> [...]
+>> The amlogic-cpufreq.c as implemented here can indeed cover the case of a
+>> single cluster with no shared resources, such as S4/C3/T7. However, for
+>> the upcoming SoCs where multiple clusters share resources, it may not be
+>> sufficient to cover: for example, on S7/S7D/S6 the CPUs and the DSU
+>> share one regulator; on A9 the two clusters share the dsu_clk, and the
+>> sharing relationships among cpu_reg, cpu_sram_reg, dsu_reg and
+>> dsu_sram_reg are even more complicated. For such cases, extending the
+>> current amlogic-cpufreq.c would be rather difficult, so we would like to
+>> make an overall evaluation.
+> I think you're making a good point why it's fine to have multiple
+> cpufreq drivers for Amlogic SoCs.
+> My suggestion instead is to name the driver in this series
+> amlogic-s4-cpufreq (or similar). From what I understand C3 support
+> (maybe also T7?) can be easily added to the same driver.
+> For the 32-bit SoCs I'm planning to implement amlogic-meson8-cpufreq.
+> I don't know how relevant DSU is on SM1,
 
-Both returns skip put_cores, which is the only place eth0_node and
-eth1_node get released.
+On SM1 (as well as other SoCs that contain a DSU), adjusting the CPU 
+clock requires dynamically adjusting the DSU frequency as well. To 
+balance performance and power consumption, in typical scenarios the CPU 
+& DSU frequency mapping satisfies:
+   - cpu_clk <= 1 GHz (the clock sources of both cpu_clk and dsu_clk 
+come from fixed_pll, and sys_pll can be turned off to save power): 
+dsu_clk = cpu_clk
+   - 1 GHz < cpu_clk <= 1.2 GHz (the clock source of cpu_clk comes from 
+sys_pll): dsu_clk = 1 GHz
+   - cpu_clk > 1.2 GHz (the clock sources of cpu_clk and dsu_clk come 
+from their own sys_pll respectively): dsu_clk = cpu_clk * 80%
 
-The same ret = -ENODEV; goto put_cores; change should work there without
-modification:
+> depending on how tricky it is
+> support may either go into amlogic-meson8-cpufreq or (a new)
+> amlogic-meson-g12a-cpufreq.
+> And for the newer SoCs like S7/S7D/S6/A9/... I trust your instinct on
+> whether they should be in one driver or multiple.
 
-  - prueth is allocated with devm_kzalloc().
-  - prueth_put_cores() NULL-checks the core handles.
-  - of_node_put(NULL) is a no-op.
+To summarize, the characteristics of the above SoCs can roughly be 
+grouped as follows:
+   a) SoCs up to G12B: 1 * clock + 1 * supply
+   b) SM1: DSU clock handling added on top of a)
+   c) S4/C3/T7: voltage selection based on chip binning added on top of a)
+   d) S7/S7D/S6: have both the characteristics of b) and c)
+   e) A9: has these additional features on top of d):
+     - Handling the DSU clock shared by the 2 clusters
+     - cluster0 and the DSU share one supply
+     - The cpu_reg-sram_reg and dsu_reg-dsu_sram_reg voltage scaling 
+must guarantee Step-by-Step Voltage Tracking (one can refer to 
+mtk_cpufreq_voltage_tracking() in mediatek-cpufreq.c)
 
-Valid DTs can reach this path. The ti,icssg-prueth.yaml binding does not
-list "ti,mii-rt" under required, so an AM64x/AM65x SR2.0 DT without that
-phandle would leak these references on every probe attempt.
+All in all, it looks like we can currently support all Amlogic SoCs in a 
+single amlogic-cpufreq.c? Then, for the specific characteristics of 
+different SoCs, we can differentiate them through the "compatible" 
+property and add the corresponding drvdata for each.
 
-The SR2 driver would need a different Fixes: tag, so could this be sent as
-a separate companion patch rather than folded into this one?
+I'll also try to support S7/A9 with representative differences based on 
+this patch.
+
+> 
+>> We have done a lot of optimization on these issues from both the
+>> hardware and software sides, and we would like the cpufreq driver we
+>> submit upstream to cover these optimizations as much as possible. For
+>> example, the bl31.bin for S4/C3/T7 has already been released, and
+>> updating bl31.bin may cause extra trouble for customers, so we would
+>> also like to balance this and see how to minimize the impact.
+> I agree. I my opinion it would be best to allow the OS (in this case:
+> Linux) to manage clocks so (closed source) firmware binary blob
+> updates cannot cause any trouble.
+
+Since clocks such as cpu_clk are the most fundamental guarantee for the 
+system to run, in order to prevent userspace from arbitrarily modifying 
+registers and causing the system to hang, we restrict these registers so 
+that they can only be read/written in a secure environment (e.g. TEE).
+
+Regarding the closed-source firmware binary issue, we are also actively 
+exploring more flexible ways to avoid this kind of trouble.
+
+> 
+> 
+> Best regards,
+> Martin
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261030085851.2019-1-laixiangwu%40cmss.chinamobile.com
+Best regards,
+Chuan
+
 
