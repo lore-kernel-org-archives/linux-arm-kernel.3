@@ -2,79 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2205606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 13:06:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AEA66085097
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 13:06:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eaJikQgH;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=atr+m2FA
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nYI7jmGm;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G1IFRfsM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=fQtvAH2sPMwT9/4es6pBdDYQq3km/ja6qrg1DCjQiSQ=; b=eaJikQgHRbEBz8
-	ene89Wb2VUEPy+62pV9VzI4DKtfhgCuEinVlgLUA/ngqfuznzMpzGehKHbwByEYXSCkjFz7RrtQnb
-	MBvAvFUO2ZOM/Kn0J+ZhmhG5UJLPy/Apd7pwJbW6J4Z7nNztOqI6Rr5gbWa71TpcxW3IQl+cfGYID
-	UQQ8XdysB6WoCmsz/thpJD1blH3TjSpYL76YkAbfLyGJ5bBZHE8xjisHwXyE6qnAi0ZBaIvdTaAxa
-	uMnAlQ+4X+8S/5fuUe6PXU6psb+ywxOxjBAJTSRk0osyyQYiI/KqwKvRWBjutKdpPjpzAjKkB5RqC
-	/ShQFHi15cCQDjo0HOqg==;
+	List-Owner; bh=tWxPJzZwEoBsVUWyHIoViN5NlrycE+BNkSoICL6D6cY=; b=nYI7jmGmMuqpKC
+	mf46tv1+4NJjHbVR08ENTCiNTT+aYt7GoyrEQKylrtlYJDRYBfSgjuO/zz0pr2pRpvCs9si4oN0Js
+	yH5VkL4GYVLPFUMA6SBiuJUbvD9PehJs+zjBvA1vAB5TfR5FJyWfAtHwIoEH9A/ykLgdRUk5tPKeG
+	grik/pvaYeoqF52RobOy6l7iRqlgCCf035X+tNVtXN5zA1jrnFzFnOpDR2JtSL/UfnI5F0MHGiZHT
+	ky6n9HcyIU2U9ahXEjUGzPjZoh5RQjzH7/kOdDc8N5mGJiHtT/i5u565AXNSyf2XMYJw0g7ySCwB6
+	eJ3PeR3LkRG3TNl9hQEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOEDX-00000002Sya-2Zcb;
+	id 1xOEDX-00000002Sy0-1cP3;
 	Tue, 03 Nov 2026 13:06:23 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOEDT-00000002SvU-3fJb
+	id 1xOEDT-00000002SvT-3fGD
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 03 Nov 2026 13:06:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4C9C443486;
+	by sea.source.kernel.org (Postfix) with ESMTP id 4996042A58;
 	Tue,  3 Nov 2026 13:06:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CDBC1F00A16;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 298B21F00A02;
 	Tue,  3 Nov 2026 13:06:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1793711179;
-	bh=fQtvAH2sPMwT9/4es6pBdDYQq3km/ja6qrg1DCjQiSQ=;
+	bh=tWxPJzZwEoBsVUWyHIoViN5NlrycE+BNkSoICL6D6cY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=atr+m2FAPDD64iZ0XyyXQ84HIDyCT15hGJd8UDkIosZFda0Asq5FLv1zhEnVoMf/h
-	 amTA7w2QlkPTjPAg4yHenT11i68/8G20FDF4ET+TZF+UpnqsMdxh6HlDOFGU4qDsCb
-	 xMiNOJ3ZGWFrBLo0VXwcr2QukT9zTexv57RsfOwV6HG+fp0o0chH2sJGodmgT3SFCO
-	 yqaM7pHwkWJ6NccTMuAJZb94E9/4wGUq5uljxMN/G9P14VH7PuLd+iGFTpInewdRQY
-	 +PCw24EUs0DAWRwuHgSIGnOKuGJ+cd3wTgtvzocJCTGOviUGQqMSXizqokFYEDhY4U
-	 6bSHbcT8+Zu4g==
+	b=G1IFRfsMsfNhwvUPIp3LCRqhl4kH/da+XzUX45vDSJ0J0prTPqYKv2B2oSD9Tc5aN
+	 o9B0atx6oVZLwSdoEl65Ec6NdGRB3Vg1j5Q8MvieJR2BIY3NQ0KSlwizrEX5ClSVdz
+	 bjZJqTLNIVAJuhKlVW+70aQZBXK8cmeVnj6FG9H8KsOIyYX+k33fSbyG5asVexm+K+
+	 WFE+gjZmXeMHygR2ULEOapK3S3ZT/eDFG0hgKhE7Y0tuSANS5/1WJOC75eebzHBUbY
+	 bbRyfpW0PAQ6mJ59O5iMKwGYeQ8TI2eliUM9OCayKHUiiyk9elWlUVZ9CcpBvK+3IN
+	 pzjtyoPZOlKjQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1xOEDR-0000000ATWs-0m1K;
+	id 1xOEDQ-0000000ATWs-3vOV;
 	Tue, 03 Nov 2026 13:06:17 +0000
 From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
+To: Thomas Gleixner <tglx@kernel.org>,
+	Colton Lewis <coltonlewis@google.com>
+Cc: Radu Rendec <radu@rendec.net>,
+	Oliver Upton <oupton@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] KVM: arm64: vgic-its: LPI pending-state fixes for DISCARD and CLEAR
-Date: Tue,  3 Nov 2026 13:05:29 +0000
-Message-ID: <179371111242.2844725.6486225294847802157.b4-ty@b4>
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Raghavendra Rao Ananta <rananta@google.com>
+Subject: Re: [PATCH v2] irqchip/gic-v4: Use a separate lockdep class for vPE doorbell IRQs
+Date: Tue,  3 Nov 2026 13:05:28 +0000
+Message-ID: <179371111254.2844725.1319552424303810824.b4-ty@b4>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261028173319.1807811-1-fuad.tabba@linux.dev>
-References: <20261028173319.1807811-1-fuad.tabba@linux.dev>
+In-Reply-To: <20261027180610.2840837-1-coltonlewis@google.com>
+References: <20261027180610.2840837-1-coltonlewis@google.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, fuad.tabba@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, seiden@linux.ibm.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, andre.przywara@arm.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Rcpt-To: tglx@kernel.org, coltonlewis@google.com, radu@rendec.net, oupton@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, rananta@google.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -94,22 +89,20 @@ X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, 28 Oct 2026 17:33:17 +0000, Fuad Tabba wrote:
-> Two follow-ups to my DISCARD fix [1], for LPI pending state that KVM
-> keeps after the guest has removed it. Hopefully in time for the next
-> fixes pull.
-> 
-> The first closes a window in that fix in which the guest can still take
-> the LPI it discarded.
+On Tue, 27 Oct 2026 18:06:09 +0000, Colton Lewis wrote:
+> By default, init_desc() assigns the shared irq_desc_lock_class lockdep
+> key to desc->lock for every struct irq_desc. Device drivers that
+> register an IRQ affinity notifier establish a lock dependency chain of
+> &irq_desc_lock_class --> &pool->lock --> &p->pi_lock --> &rq->__lock
+> when irq_set_affinity_locked() calls schedule_work() while holding
+> desc->lock.
 > 
 > [...]
 
 Applied to fixes, thanks!
 
-[1/2] KVM: arm64: vgic-its: Clear an unqueued LPI before dropping its lock
-      commit: e1024ed9c3823fbc4b1e65f351088f0bf999b887
-[2/2] KVM: arm64: vgic-its: Remove the pending state of a cleared LPI
-      commit: 147ce65112bc7255d5e2d3b12aaa23dc9ce44371
+[1/1] irqchip/gic-v4: Use a separate lockdep class for vPE doorbell IRQs
+      commit: 7100185bdc1162eb2eca1dd20a036314e27f1561
 
 Cheers,
 
