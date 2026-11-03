@@ -2,50 +2,51 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 934AD6085096
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 11:36:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17D9E60850AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 11:36:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FiXGYOpY;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=SyyZKvzP
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lq8cFC7O;
+	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=PA7HwPP7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=rDuqHtQlXZSgFfeq7ZSWioePY3kvEDc7zoYDaD/9pHI=; b=FiXGYOpY4WNrPv
-	YN+1Cv1BBPBSYir56ZuzfuRZyZWraNDZ4D13bk8rhOhi053VUACA+pBgUMz/pgL9sDtswcx1PyFBR
-	TdWymB/P+PZxtpSUblClMxsvqkzMhpK5qpr5MH01DKXIfav/KjaUuEhFIVqK3CgHuUoofpz7dlCzr
-	EUiLZ5WGlAXzPDksNnn6fHevD6qnulEnq92/e0KHjxPuKo3saMbBfkCly8ZH3kj2I7sEN2mHI5bIK
-	8rYxtCMqboIUzTqHkW8YGr9hWIQNgjTNt2apX7DG8ZMeDFzQnOu2WMUb46coOqpEpU4L6IRJYfCOL
-	AHsgiUFf4VFedDXamJRg==;
+	List-Owner; bh=c1MqLsdZLfJXru7WWFpoL/bAGrI6oga7tiCox+Jwpew=; b=lq8cFC7OgT8rVb
+	P+jU75idsDl3rFQjI9RvmwpN6aQby8lc8v1/geUsUKGZrVtnpeAW9E0yRIav6EdFmTfG5OfYjGg0s
+	OL/U7whxKu5eOtHS2SSR4gUt/1NIAf3INqGsOf4xghDqxKYhpX71V/gZ18vovfJPMcnuNZZoPHZtV
+	sMgjYLwkgJ+WfCE9nS3TM0z60IZOuPtwF26s2EbElYswxNRpZhB6jbaI9Ll1Hf2pb8LQ1G5DEFcvb
+	0hJMqPCq2g483VWRcgpscWWYmbkv8qQwozveeT3Smx4L6rKMxf7r8fBQHelk7KyG4ZriWH2q5KZ/c
+	14l1ShPKkUzg9kvfYQ1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOCoT-00000002Cqe-0umI;
-	Tue, 03 Nov 2026 11:36:25 +0000
+	id 1xOCoU-00000002CvH-1LG7;
+	Tue, 03 Nov 2026 11:36:26 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOCoD-00000002CTt-27Ho
+	id 1xOCoG-00000002CZE-3WxP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 11:36:13 +0000
+	Tue, 03 Nov 2026 11:36:20 +0000
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 180FC287E;
-	Tue,  3 Nov 2026 12:33:50 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7D1221F37;
+	Tue,  3 Nov 2026 12:33:53 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1793705631;
-	bh=F/L5+gkuDrSZcJ30dAJHYqalbmfLemsHzfUp8D8sZNE=;
+	s=mail; t=1793705634;
+	bh=PqS2ruK7frGkC0TCq9Vxb5F4GJ8X3qRXVBnADO5zlCY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=SyyZKvzPLK4g5G2Km6cPeZvp8WkIb+iN2bz2BvYSXFlO3AKNECX3yJnCpsa70Aaz5
-	 5/p50Q7jPbCebwKvMBk0+BEUaC+mI/tH5bE3c9K+7N/x9M+kPUO7GPgfjI7gTSnbfG
-	 8ev48aytWw2tIvKWSN9Hu36ZTaAMjwZ/mZAbHnb8=
+	b=PA7HwPP713o5ZrPurkqsJc7F7kx+HyLJpiph+MSzeV7Elf08n4ilzQ7mfsnSpk8to
+	 8F3/rTNRNvqpi3IXLM9Z3i/ouuzA1fkqEB47AYRVsq/XrNgxNDAGxc0I07V+hgTw+Z
+	 M3lNfVfNTz7GNMRxdLSwItNPL6D4ZOCJSm4jYErQ=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Tue, 03 Nov 2026 13:34:30 +0200
-Subject: [PATCH v5 10/15] drm/tidss: oldi: Fix cleanup on a failed init
+Date: Tue, 03 Nov 2026 13:34:33 +0200
+Subject: [PATCH v5 13/15] drm/tidss: Add support for AM62P display
+ subsystem
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261103-beagley-ai-display-v5-10-f1c8d0e52bb4@ideasonboard.com>
+Message-Id: <20261103-beagley-ai-display-v5-13-f1c8d0e52bb4@ideasonboard.com>
 References: <20261103-beagley-ai-display-v5-0-f1c8d0e52bb4@ideasonboard.com>
 In-Reply-To: <20261103-beagley-ai-display-v5-0-f1c8d0e52bb4@ideasonboard.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -61,27 +62,26 @@ Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=892;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1532;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=F/L5+gkuDrSZcJ30dAJHYqalbmfLemsHzfUp8D8sZNE=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBq6ccZw4IlyT81hqKavStnM561Q2fWsO615iqL0
- I6H4lEeLUmJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaunHGQAKCRD6PaqMvJYe
- 9TcSEACY5+Vp+/E3NpI4r2/xf8ktIe5+uxKMnOZ0b0eCB2ArI6ZP4F6SJ8vJP9aAE10xJf+sJub
- N6UaSa5KtGT/09zMndU1fhNbswi3rXCF49+TyZoYF0ERbeUL/uTCChE9ICeepYjgkc6lAKFkYDK
- yh6Fjt62jidNWKt+u92kkpBAZ+XGmFNFktmNRbdiPWhbzrp8eTQ8FdhKeKArAymYRmU8oxq5WV3
- 5sYA7Dh4tGVcIZQiPk/uetF+UWOF5mDcVw6EdX2cfPC2USSGTv+hMxSN5w+IjYx4HrQq2yizH9D
- 4l/k+SbJp1pqJE+6Ayr0kCYv6oQAuCc6XOmhV4IFPa7fIUU+8OI2TXum+T0gA9rQMMGmVMINuei
- Kx7q0/Thoy9oKifj4PLEXUDGJc2R6o3XQV2IL9b5zTDxC14jPWXTm1kE4o7/LHxzrhvtBT4iUGU
- slkskC+y+olOzTFvuqLZvpqFC6YxhP0OrV7kl71Bsdit4i8vjXdEO8yV+LLm9eM0O4Z8I9leGmW
- Cp+dg7qMz3JkRlbM65Pn3dZROW2h3NZLASflwroP8kJUqxHl0ft/yqE25Ug3AC0BOLLRQPk/FWp
- byqPWvJPbdeXRpkrabKTY1JnPl4h1DoxzSHC/ZrruYzD1biPIdKm1oEKd88NhQqzlzGR4Z4Ohgy
- shiQtBds35Gdvpw==
+ bh=nQs3IwWopJPpCONI45Cyuco5UVYrRBdHvpe+bDQ95yk=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBq6cca65axinlSiBbteoGzJR3wpLtcFhjJWSwnD
+ RuFNAUm4S2JAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaunHGgAKCRD6PaqMvJYe
+ 9cBYD/47Pn1bCaMx0NbtKo1mrQGgueUJmrlI4qYyUVbp7dgQvEMnquROrMzH9ZQnDh7A5vprGE0
+ MCIpdbfSwJLWoYbXvIpgIqdysZducF9YL+u39rhRWiSznOCC5rbc5feqf/tYXfr08pC2f2BH6AL
+ dzaI6aATY/2/1T/TWwv9PxxAdZl62/sZUfC2pnCuOqddkQyECmkQ+Chs5XDR4uPjpapR8x93CYj
+ N5eTmitx4gRp6n8vpvbWtdwV0EEHpKBSbRzn7jqiLxW31dPZ6EWtDTo1o3MnWvOvrELQKC60FjW
+ 8f7A6bBDsG7thJ48zfzMOe6TWXA8C4Tdmmm3lNkYNVDoQEnKJmg6c3/qDOnwl/jQp7twcGwkUeO
+ suks5rTINlcfUwv0m+3mjmm9wHtK1pm7Ccmbybc+iB6+H/c2Hr7OKuiPLmcOAMO9Z7LUSNXg/C8
+ 0Q4OkoOrfjXaWDrR9zCSqE9CZHrhIZm9fbnT+LP0KxERrZD0M1JR7f/5DZnJrgpH7ggDfM9t6a5
+ Co5aNfs2fmZHr5W+oxejKY4HrOp1JE4G8uVBf5PGaLRgguIxO4hilqE3ziqJivdJFlf98noBAoj
+ 9AxtHzm5QOrjiqy7imDWoWocsv+1IJeL+4glwDesBDM9Rea/RXAUBa3mC4F1PgA4uVbTDWd/ZAl
+ Us9VmOIagxPTB3w==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_033609_714739_6E7F463B 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261103_033613_362093_7C1609EB 
+X-CRM114-Status: GOOD (  12.50  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,30 +101,39 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-tidss_oldi_init() registers a bridge for each OLDI TX in turn. If a later
-OLDI TX fails, the bridges registered for the earlier ones are not
-removed.
+From: Swamil Jain <s-jain1@ti.com>
 
-Fix this by calling tidss_oldi_deinit() in the error path.
+The DSS controller on TI's AM62P SoC features two instances of the TI
+DSS. Each DSS instance supports two video ports, similar to the DSS
+controller found on the TI AM62X SoC. This allows three independent
+video streams to be supported: OLDI, DPI, and DSI.
 
-Fixes: 7246e0929945 ("drm/tidss: Add OLDI bridge support")
-Reviewed-by: Aradhya Bhatia <aradhya.bhatia@linux.dev>
+Since the DSS instances on AM62P are architecturally similar to those
+on the AM62X DSS controller, the existing dispc_am625_feats
+configuration can be reused for the AM62P DSS support.
+
+This commit adds the necessary device tree compatibility entry for
+"ti,am62p-dss" in the tidss driver, pointing to dispc_am625_feats,
+thereby enabling DSS support on AM62P devices.
+
+Signed-off-by: Swamil Jain <s-jain1@ti.com>
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
- drivers/gpu/drm/tidss/tidss_oldi.c | 1 +
+ drivers/gpu/drm/tidss/tidss_drv.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/tidss/tidss_oldi.c b/drivers/gpu/drm/tidss/tidss_oldi.c
-index 506507e83112..7344d86e1f13 100644
---- a/drivers/gpu/drm/tidss/tidss_oldi.c
-+++ b/drivers/gpu/drm/tidss/tidss_oldi.c
-@@ -638,5 +638,6 @@ int tidss_oldi_init(struct tidss_device *tidss)
- err_put_node:
- 	of_node_put(child);
- 	of_node_put(oldi_parent);
-+	tidss_oldi_deinit(tidss);
- 	return ret;
- }
+diff --git a/drivers/gpu/drm/tidss/tidss_drv.c b/drivers/gpu/drm/tidss/tidss_drv.c
+index 7e7f2ba6ae82..86b7596ab628 100644
+--- a/drivers/gpu/drm/tidss/tidss_drv.c
++++ b/drivers/gpu/drm/tidss/tidss_drv.c
+@@ -240,6 +240,7 @@ static const struct of_device_id tidss_of_table[] = {
+ 	{ .compatible = "ti,am625-dss", .data = &dispc_am625_feats, },
+ 	{ .compatible = "ti,am62a7-dss", .data = &dispc_am625_feats, },
+ 	{ .compatible = "ti,am62l-dss", .data = &dispc_am62l_feats, },
++	{ .compatible = "ti,am62p-dss", .data = &dispc_am625_feats, },
+ 	{ .compatible = "ti,am65x-dss", .data = &dispc_am65x_feats, },
+ 	{ .compatible = "ti,j721e-dss", .data = &dispc_j721e_feats, },
+ 	{ }
 
 -- 
 2.43.0
