@@ -2,79 +2,96 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A795E606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 21:20:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5248606A336
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 21:30:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=urCEeYX6;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DhGTW+B/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=L9ByFCTt;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M7IOfJvX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=JE6RFDaW5iJIlTyYoNr0dPdQqfpRddHdFnlHhfF7/Q0=; b=urCEeYX6ZuMDqrbQSmIy0NsY1+
-	QA8kDPT8QMPYLuVR+UaeNQ6lNOEQMAFz0UjU9hASC4IE+n9nNkQmFdpb0vYAgf9sD0tfENiO+n/xy
-	SK9MJm/Vw9e7UjuBrVA6LMl7HvRMm4a8NuYUtDf26kfnrNFueGlAC+gzyklDE/VYvVIbkoupbVyeg
-	4O88BJ5gv5zYDaHGXM4eZJhBuHp4dy/S2tcA9u8dn7AD5jHJ2yixqZ1BPMrl7cMBoyF8Jm5lmaxBE
-	y11e6efzm/vmUvm5wFa5u2TTz6nzpazRJkU5KX0qvigipiymFZvaiko+kEEOs2Qkxzyrr0a3b9OGC
-	mcEUNr8A==;
+	bh=hSCaaw++8I656zFNy7LQRd8ABGr7mMB4uT74hb/cMaA=; b=L9ByFCTttZvmDI4S8HIs8VInqE
+	5EJyflXM2wJvekTN8kH4O4vzvBpG5epRcZMdS0Y9ErbbMD2tostHbMTaVR5T9klg6+XLypCrKaZFl
+	yWZo1Et+ftNP8B9zMUve6Esc6nECXeUL7aHgcY7iblzpWTTbTymCM1GJ4O4kI2yiG2QB8EWfpnXtJ
+	2H9kyCmplkDTEP2gvr108V0goD9aqV3cM2OP0nA4gqq84U9tHf1fJlSPfRJiMt/WzGALN/EIqCCEw
+	ry/99AUQ8F0sliVXgBWsdBTiyv1mi3G+F/zn6GZThhKUxe2y/bsVYEJFUPMHmT4Z7svJuvghfg3vJ
+	FEFgNPbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOLvc-00000003gCz-0voO;
-	Tue, 03 Nov 2026 21:20:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xOM57-00000003hJU-1DKF;
+	Tue, 03 Nov 2026 21:30:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOLva-00000003gCt-3e1L
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 21:20:22 +0000
+	id 1xOM56-00000003hJE-0AhU;
+	Tue, 03 Nov 2026 21:30:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1DE69608FA;
-	Tue,  3 Nov 2026 21:20:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E6921F00919;
-	Tue,  3 Nov 2026 21:20:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7834243C63;
+	Tue,  3 Nov 2026 21:30:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D5071F000C1;
+	Tue,  3 Nov 2026 21:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793740820;
-	bh=JE6RFDaW5iJIlTyYoNr0dPdQqfpRddHdFnlHhfF7/Q0=;
-	h=From:Date:Subject:To:Cc;
-	b=DhGTW+B/P+yFX4vqQgWvO8IVvSjn6KQ+ZzMdmgBc662BxpH7qQMDimpSgutf0XPPx
-	 fKRpVApM438sTSUNZWX5ZLC1P4UbbpDhg/n/bzxl6zVITBTYjXQcmzTe7xEbrrHic2
-	 q5pukV5U53rK6C62SDmZhYL5kejLGAjc3Sh9iAe7xkMU9ac6Sew/ylPy+NWyFyS3iz
-	 yzagEp9qs4QoJpm93TndQpbx/jO4cmg4ocUuZL6Sx+KP8h/11JIls1h8XnUNokdyz8
-	 I6tFsz8ODSgqsy1eLIS1myjynahDXlzBcUK8tHXEZWFPD0GmZhlZr7lqB2yJiVCvoy
-	 KCwo/78iaqBKA==
-From: Eugen Hristev <ehristev@kernel.org>
-Date: Tue, 03 Nov 2026 23:20:12 +0200
-Subject: [PATCH v2] PCI: iproc-msi: Removed potentially endless loop
- handling MSI events
+	s=k20260515; t=1793741411;
+	bh=hSCaaw++8I656zFNy7LQRd8ABGr7mMB4uT74hb/cMaA=;
+	h=From:To:Cc:Subject:Date;
+	b=M7IOfJvX4tS+cjxfv8hnjjn4ahQi/zSlCAzZpqOgV5iftbC/NJ4KlHvuPE0DJA+c+
+	 MTjlkr/LW9q203SjetCZ8ymojJw1xErc2I/C00BOgA97La+kkxFTeF/pstxISoVrDY
+	 aiMQhaNQXI9SLKqHJ8lLe5yWcxRmSBCsZnkUb8ySJwl8bLUo6yWTpU92W4YFYsQE+r
+	 R0lI9CalC2dBG5yOkxJhvOz4wNb6eXUweZz3xXJ9jut1Ny1P/GPSo+kop5W/WviWZM
+	 VE1n9S//CUEqIrm3cKlGQm6MgvaJrMIYLGmyxxFH1VEQrILd7I5MDI/hDSx4Q+GcYB
+	 oJ/WyJL+KuUnQ==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Aaron Kling <webgeek1234@gmail.com>,
+	Ajay Kishore <akisho@codeaurora.org>,
+	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.com>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Hao Chang <ot_chhao.chang@mediatek.com>,
+	"H. Nikolaus Schaller" <hns@goldelico.com>,
+	James Tai <james.tai@realtek.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Linus Walleij <linusw@kernel.org>,
+	linux-arm-msm@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-realtek-soc@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	Paul Boddie <paul@boddie.org.uk>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Qingliang Li <qingliang.li@mediatek.com>,
+	Rob Herring <robh@kernel.org>,
+	"Ryder.Lee" <ryder.lee@mediatek.com>,
+	Sam Shih <sam.shih@mediatek.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Sean Wang <sean.wang@kernel.org>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Tzuyi Chang <tychang@realtek.com>,
+	Yu-Chun Lin <eleanor.lin@realtek.com>,
+	zhouyanjie@wanyeetech.com
+Subject: [PATCH 00/10] pinctrl: Fix out-of-bounds accesses, divide-by-zero, and error handling
+Date: Tue,  3 Nov 2026 21:29:05 +0000
+Message-ID: <20261103213002.1673560-1-lee@kernel.org>
+X-Mailer: git-send-email 2.56.0.385.gac671c819a-goog
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Message-Id: <20261103-iproc-irq-v2-1-dc7223df35fc@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAtQ6moC/22NQQ6CMBAAv0L2bA2tAakn/2E4lLqFVUNxi42G9
- O8WvHqcZDKzQEAmDHAqFmCMFMiPGdSuADuYsUdB18ygSlXLUtaCJvZWED+FtlVjHR60rBrI/sT
- o6L21Lu2Pw6u7oZ3XwGoMFGbPn20W5er960YppMDOGFeqo1Maz3fkER97zz20KaUvYGwa87UAA
- AA=
-X-Change-ID: 20261016-iproc-irq-9c58cfe39158
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Ray Jui <rjui@broadcom.com>, 
- Scott Branden <sbranden@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Eugen Hristev <ehristev@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5460; i=ehristev@kernel.org;
- h=from:subject:message-id; bh=pAhFkgivPGa8+WZMgqY+OKupz5W/lxtX/1KCdlqX2/E=;
- b=owGbwMvMwCXWkjcnuXne3fmMp9WSGLJeBfAd2Lbwau9e9zfcQcfOrZ9psPrNka1nhJw3HU1L+
- rnhQI/Yio5SFgYxLgZZMUWWapN/tcL9O9xPulqqwMxhZQIZwsDFKQAT2X+RkWHyP+bSM1znXrDF
- b/HjqrVlrBZlvW9aO3tp9cTDJ9W+ljAzMjS2rWDepMbxQdbLPCYquSDSw33JlrcBJYXXz7xpnuw
- ixwEA
-X-Developer-Key: i=ehristev@kernel.org; a=openpgp;
- fpr=AB184498D27A77B65D7852C81EB31E020EAC2FC8
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,154 +102,84 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The iProc MSI chained handler rereads the event queue tail after each
-batch and keeps processing until the queue is empty. A continuously fed
-queue can therefore keep the CPU in the handler indefinitely, starving
-other interrupts and causing RCU stalls under heavy Ethernet traffic.
+These issues were reported by Sashiko.
 
-To fix this scenario, remove the loop that keeps reading the head and
-the tail until there are no more pending events. Read the head and tail
-only once and process only the events recorded in that snapshot.
-Update the head before returning. Events arriving during processing
-remain queued for a subsequent parent interrupt, allowing other handlers
-to run without imposing an arbitrary event limit.
-
-Discovered while testing it with an Ethernet NIC, when too many MSI
-interrupts come in, CPU might get starved:
-
-Connecting to host 192.168.30.1, port 5201
-[  5] local 192.168.30.2 port 52586 connected to 192.168.30.1 port 5201
-[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
-[  5]   0.00-1.00   sec   240 MBytes  2.01 Gbits/sec    2    334 KBytes
-[  5]   1.00-2.00   sec  63.2 MBytes   531 Mbits/sec    1   1.41 KBytes
-[  5]   2.00-3.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-[  5]   3.00-4.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-[  5]   4.00-5.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-[  5]   5.00-6.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-[  5]   6.00-7.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-[  5]   7.00-8.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-[  5]   8.00-9.00   sec  0.00 Bytes  0.00 bits/sec    0   1.41 KBytes
-[  177.568497] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-[  177.568913] rcu:     0-...!: (1 GPs behind) idle=28ac/1/0x4000000000000002 softirq=28922/28930 fqs=1
-[  177.569457] rcu:     (detected by 1, t=5256 jiffies, g=21629, q=819 ncpus=4)
-[  177.569870] Sending NMI from CPU 1 to CPUs 0:
-
-With this one loop approach, IRQ handler will complete and continue
-to serve MSI events on the next handler invocation.
-
-Signed-off-by: Eugen Hristev <ehristev@kernel.org>
----
-Changes in v2:
-- Changed as per suggestion from Mani: removed the budget and completely
-removed the do/while(true) loop
-- Link to v1: https://patch.msgid.link/20261016-iproc-irq-v1-1-ebaaf027f29e@kernel.org
-
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Krzysztof Wilczyński <kwilczynski@kernel.org>
-To: Manivannan Sadhasivam <mani@kernel.org>
-To: Rob Herring <robh@kernel.org>
-To: Bjorn Helgaas <bhelgaas@google.com>
-To: Ray Jui <rjui@broadcom.com>
-To: Scott Branden <sbranden@broadcom.com>
-To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: linux-pci@vger.kernel.org
+Cc: Aaron Kling <webgeek1234@gmail.com>
+Cc: Ajay Kishore <akisho@codeaurora.org>
+Cc: "Andreas Färber" <afaerber@suse.com>
+Cc: Andreas Kemnade <andreas@kemnade.info>
+Cc: Andre Przywara <andre.przywara@arm.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>
+Cc: Chen-Yu Tsai <wens@kernel.org>
+Cc: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Daniel Golle <daniel@makrotopia.org>
+Cc: Hao Chang <ot_chhao.chang@mediatek.com>
+Cc: "H. Nikolaus Schaller" <hns@goldelico.com>
+Cc: James Tai <james.tai@realtek.com>
+Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: Jonathan Hunter <jonathanh@nvidia.com>
+Cc: Linus Walleij <linusw@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
----
- drivers/pci/controller/pcie-iproc-msi.c | 61 ++++++++++++++++-----------------
- 1 file changed, 29 insertions(+), 32 deletions(-)
+Cc: linux-arm-msm@vger.kernel.org
+Cc: linux-gpio@vger.kernel.org
+Cc: linux-mediatek@lists.infradead.org
+Cc: linux-mips@vger.kernel.org
+Cc: linux-realtek-soc@lists.infradead.org
+Cc: linux-sunxi@lists.linux.dev
+Cc: linux-tegra@vger.kernel.org
+Cc: Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Paul Boddie <paul@boddie.org.uk>
+Cc: Paul Cercueil <paul@crapouillou.net>
+Cc: Qingliang Li <qingliang.li@mediatek.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: "Ryder.Lee" <ryder.lee@mediatek.com>
+Cc: Sam Shih <sam.shih@mediatek.com>
+Cc: Samuel Holland <samuel@sholland.org>
+Cc: Sean Wang <sean.wang@kernel.org>
+Cc: Thierry Reding <thierry.reding@kernel.org>
+Cc: Tzuyi Chang <tychang@realtek.com>
+Cc: Yu-Chun Lin <eleanor.lin@realtek.com>
+Cc: zhouyanjie@wanyeetech.com
 
-diff --git a/drivers/pci/controller/pcie-iproc-msi.c b/drivers/pci/controller/pcie-iproc-msi.c
-index 9ba242ab9596..86753ae75ed3 100644
---- a/drivers/pci/controller/pcie-iproc-msi.c
-+++ b/drivers/pci/controller/pcie-iproc-msi.c
-@@ -344,42 +344,39 @@ static void iproc_msi_handler(struct irq_desc *desc)
- 	 * data is guaranteed to be in the event queue memory before the tail
- 	 * pointer is updated by the iProc MSI core.
- 	 */
--	head = iproc_msi_read_reg(msi, IPROC_MSI_EQ_HEAD,
--				  eq) & IPROC_MSI_EQ_MASK;
--	do {
--		tail = iproc_msi_read_reg(msi, IPROC_MSI_EQ_TAIL,
--					  eq) & IPROC_MSI_EQ_MASK;
-+	head = iproc_msi_read_reg(msi, IPROC_MSI_EQ_HEAD, eq) &
-+				  IPROC_MSI_EQ_MASK;
-+	tail = iproc_msi_read_reg(msi, IPROC_MSI_EQ_TAIL, eq) &
-+				  IPROC_MSI_EQ_MASK;
- 
--		/*
--		 * Figure out total number of events (MSI data) to be
--		 * processed.
--		 */
--		nr_events = (tail < head) ?
--			(EQ_LEN - (head - tail)) : (tail - head);
--		if (!nr_events)
--			break;
--
--		/* process all outstanding events */
--		while (nr_events--) {
--			hwirq = decode_msi_hwirq(msi, eq, head);
--			generic_handle_domain_irq(msi->inner_domain, hwirq);
--
--			head++;
--			head %= EQ_LEN;
--		}
-+	/*
-+	 * Figure out total number of events (MSI data) to be
-+	 * processed.
-+	 */
-+	nr_events = (tail < head) ? (EQ_LEN - (head - tail)) : (tail - head);
-+	if (!nr_events)
-+		goto iproc_msi_handler_out;
- 
--		/*
--		 * Now all outstanding events have been processed.  Update the
--		 * head pointer.
--		 */
--		iproc_msi_write_reg(msi, IPROC_MSI_EQ_HEAD, eq, head);
-+	/* process all outstanding events */
-+	while (nr_events--) {
-+		hwirq = decode_msi_hwirq(msi, eq, head);
-+		generic_handle_domain_irq(msi->inner_domain, hwirq);
- 
--		/*
--		 * Now go read the tail pointer again to see if there are new
--		 * outstanding events that came in during the above window.
--		 */
--	} while (true);
-+		head++;
-+		head %= EQ_LEN;
-+	}
- 
-+	/*
-+	 * Now all outstanding events have been processed.  Update the
-+	 * head pointer.
-+	 */
-+	iproc_msi_write_reg(msi, IPROC_MSI_EQ_HEAD, eq, head);
-+
-+	/*
-+	 * The tail pointer will be reread on the next interrupt to process
-+	 * any new events that arrived while handling this batch.
-+	 */
-+iproc_msi_handler_out:
- 	chained_irq_exit(chip, desc);
- }
- 
+Lee Jones (10):
+  pinctrl: sunxi: Fix out-of-bounds irq_bank index when first bank has
+    no IRQs
+  pinctrl: tegra186: Fix out-of-bounds register bank index for AON drive
+    groups
+  pinctrl: ingenic: Fix element type of x1600_sfc_funcs array
+  pinctrl: mediatek: mt7981: Add missing entries to mt7981_ant_sel_funcs
+  pinctrl: realtek: Prevent out-of-bounds access in
+    rtd_pinctrl_find_config()
+  pinctrl: realtek: Fix bit shift when configuring RTD_HIGH_VIL
+  pinctrl: realtek: Initialise omitted offset fields to NA in config
+    macros
+  pinctrl: mediatek: Clean up partially initialised hw->eint on error
+  pinctrl: mediatek: Prevent divide-by-zero for pins with fixed drive
+    strength
+  pinctrl: qcom: Check qcom_scm_io_readl() return value in
+    msm_gpio_irq_set_type()
 
----
-base-commit: b810335a0699d1810683796b0e3ffe8827ddfe6c
-change-id: 20261016-iproc-irq-9c58cfe39158
+ drivers/pinctrl/mediatek/pinctrl-mt7981.c     |   2 +-
+ .../pinctrl/mediatek/pinctrl-mtk-common-v2.c  |  24 ++++-
+ drivers/pinctrl/pinctrl-ingenic.c             |   2 +-
+ drivers/pinctrl/qcom/pinctrl-msm.c            |  10 +-
+ drivers/pinctrl/realtek/pinctrl-rtd.c         |   5 +-
+ drivers/pinctrl/realtek/pinctrl-rtd.h         |   5 +
+ drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c      |  11 +-
+ drivers/pinctrl/tegra/pinctrl-tegra186.c      | 102 +++++++++---------
+ 8 files changed, 93 insertions(+), 68 deletions(-)
 
-Best regards,
---  
-Eugen Hristev <ehristev@kernel.org>
+-- 
+2.56.0.385.gac671c819a-goog
 
 
