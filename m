@@ -2,95 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35C0B606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 19:33:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 493D0606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 19:36:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jjMkZ2CC;
-	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=X+qTqHi6
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UBYYW6Ms;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=lhndge+D
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=qEmYCkPXDtF9hobALFV6QXuRhofx2fxJSYASJMiIobw=; b=jjMkZ2CCi79Seea4k33Q72qz6v
-	7EjwsitPgTNEMVjlwXOwhVu57uUQAXqOPh1W0YA5quOl/tdteirCzAOdTqQ8KPOJWbWobvUy4L/Yy
-	rOR/Q4dfbkCOEeZgHdMnTA9+t0GV8KcWGzylaSePLtgv9VbhlbFJ5nGBc74IULWguA1+HkFuy2WmT
-	DdMiiB3Xdk8AMZYmjWnp2Rjcq5+M8VNKHQ/smHW/dMIDLT8uAb1Yh0bi8K+IXZ8UifwfxVuuyPSW1
-	lpnMyJq4rhONXCs9fu9OFhsTVo2DRngVWhwJWWOLp70WpCUdl7KVQIv2q3iCPhb7qxBNTwzOUDLnx
-	d65clrrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=7GCadaz+EjyUtDNGp4iFFF8gzxEfhR5CHvprcMIc3D4=; b=UBYYW6MsWWLGvu
+	ck+RUh/H9u+awn+MGh3fO85AD7+FespvJOyKxIvfo6Y11n3D2TxXFBTBjuLWtJFdHvTEMk7pvLkXV
+	OhdmsWUCRvCjaPPg/s33C5dtvZGE1EXiMKVqB92TgLdb/LCt3QLpRFsn5ZNvcXJKlYcLvrjYTIfyF
+	7Rl3/nSOgI67s7+nBNQgUMcKVba+jVeoqpj9SP9f5FRANanjdssOThgrMEWtXHPNuBDfXvAKL9RvH
+	SZU7eGhhs4okEBwBJTZsO9Im1Qh1wOVwn8F1L8hCR1B7kM50wW1g64W0FBOGktrAxFAEoHBXHn+5x
+	ccJ3C0+yuUIXhiZVZ46g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOKFi-00000003X9C-2lh1;
-	Tue, 03 Nov 2026 19:33:02 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1xOKIs-00000003XR3-0XV1;
+	Tue, 03 Nov 2026 19:36:18 +0000
+Received: from out-104.mta1.migadu.com ([95.215.58.104] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOKFe-00000003X6k-17ER
+	id 1xOKIo-00000003XQk-0Klf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 19:32:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1793734377;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qEmYCkPXDtF9hobALFV6QXuRhofx2fxJSYASJMiIobw=;
-	b=X+qTqHi6ZIpWK8fwJpA3M2YzVKXF70aXLPL0Go8QG6dek1heVfhUPxSjcyS9fpeSLLRodg
-	f4dQDmDLdISpEUuJKIKit55vtuNu/f/o1Xu8i9xI/7O5jG5ybTAqyDepDoPLAGArSbtY3F
-	MsAsdDGo2aDgMrzXTBgx/zovMGzRvk8=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-586-gXfGBPJrNy2kjCo_cvKisw-1; Tue,
- 03 Nov 2026 14:32:53 -0500
-X-MC-Unique: gXfGBPJrNy2kjCo_cvKisw-1
-X-Mimecast-MFC-AGG-ID: gXfGBPJrNy2kjCo_cvKisw_1793734371
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EA97E195604F;
-	Tue,  3 Nov 2026 19:32:50 +0000 (UTC)
-Received: from loberman-thinkpadp16gen3.redhat.corp (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3E19A1800347;
-	Tue,  3 Nov 2026 19:32:48 +0000 (UTC)
-From: Laurence Oberman <loberman@redhat.com>
-To: linux-scsi@vger.kernel.org,
-	"Martin K . Petersen" <mkp@kernel.org>
-Cc: "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Hannes Reinecke <hare@suse.de>,
-	Bart Van Assche <bvanassche@acm.org>,
-	Wenchao Hao <haowenchao22@gmail.com>,
-	Wenchao Hao <haowenchao2@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Ming Lei <tom.leiming@gmail.com>,
-	Will Deacon <will@kernel.org>,
-	cki-project@redhat.com,
-	jmoyer@redhat.com,
-	bgoncalv@redhat.com,
-	mpatalan@redhat.com,
-	ftjahjad@redhat.com,
-	fsuba@redhat.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] scsi: scsi_debug: Wait for async target cleanup on module exit
-Date: Tue,  3 Nov 2026 14:32:35 -0500
-Message-ID: <20261103193235.1564898-3-loberman@redhat.com>
-In-Reply-To: <20261103193235.1564898-1-loberman@redhat.com>
-References: <8e4ba1820a7c56867bf7fff07bd52ff3f79573a1.camel@redhat.com>
- <20261103193235.1564898-1-loberman@redhat.com>
+	Tue, 03 Nov 2026 19:36:16 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=G7KaqzRmIMer3j1Th54NKYLobcV9sl8HLgmBiZenzwA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1793734568; v=1; x=1794339368;
+ b=lhndge+DqYs3tfg/liaOv0xoCfapCh2cKEU1ZfrmN3kfCnD2H25OyajNLYl6Y2YIixcy+CFM
+ J5zW/ZvG3noyAIIdcRXjV6YKbZ8ozYN0O4sfFZefPbvXJos0RcnqypU9FrwVUOYZ9QXkyp1CgAg
+ CwWL1oRRPT034jP1rOkZs6KQ=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id a12960df4dbf8237;
+	Tue, 03 Nov 2026 19:36:08 +0000
+X-Mizu-Trace-ID: a12960df4dbf8237
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <08e5c832-ec20-4510-b540-d81f3d9b178f@linux.dev>
+Date: Tue, 3 Nov 2026 19:36:03 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-X-Mimecast-MFC-PROC-ID: nEXJkal6_g8l0hIZAHtPBh4QE-DPYFRutuLpiqIcpZU_1793734371
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 06/15] drm/tidss: Use the AM625 features for AM62A7
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Swamil Jain <s-jain1@ti.com>, Devarsh Thakkar <devarsht@ti.com>,
+ Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20261103-beagley-ai-display-v5-0-f1c8d0e52bb4@ideasonboard.com>
+ <20261103-beagley-ai-display-v5-6-f1c8d0e52bb4@ideasonboard.com>
+Content-Language: en-US
+From: Aradhya Bhatia <aradhya.bhatia@linux.dev>
+In-Reply-To: <20261103-beagley-ai-display-v5-6-f1c8d0e52bb4@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_113258_381356_F32CA4F5 
-X-CRM114-Status: GOOD (  12.56  )
-X-Spam-Score: 0.5 (/)
+X-CRM114-CacheID: sfid-20261103_113614_354931_305A106C 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,78 +80,31 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-sdebug_target_destroy() is called with the host lock held, so it defers
-removal of the per-target debugfs directory to
-sdebug_tartget_cleanup_async() on sdebug_async_domain.
-scsi_debug_exit() removes the hosts and then removes
-sdebug_debugfs_root without waiting for that work. The recursive
-removal of the root frees the per-target dentries, and a cleanup that
-runs afterwards calls debugfs_remove() on a stale dentry:
 
-  BUG: KASAN: slab-use-after-free in _raw_spin_lock+0x2d/0x40
-  Workqueue: async async_run_entry_fn
-  Call Trace:
-   kasan_report+0x92/0xc0
-   _raw_spin_lock+0x2d/0x40
-   lockref_get+0x9/0x40
-   __simple_recursive_removal+0x35/0x570
-   debugfs_remove+0x40/0x60
-   sdebug_tartget_cleanup_async+0x43/0x60 [scsi_debug]
-   async_run_entry_fn+0x96/0x520
-   process_one_work+0x925/0x1910
-   worker_thread+0x567/0xcc0
-   kthread+0x355/0x450
-  Allocated by task 150:
-   __d_alloc+0x34/0x9e0
-   d_alloc+0x44/0x1d0
-   ...
-   debugfs_create_dir+0x18/0x3d0
-   sdebug_target_alloc
-   scsi_alloc_target+0x7c7/0xa70
 
-followed by a NULL inode dereference in down_write() from
-__simple_recursive_removal(). CKI hit this running blktests throtl/001
-on arm64. The cleanup can also run after the module text has been
-freed.
+On 03/11/26 11:34, Tomi Valkeinen wrote:
+> With the recent cleanups, the data in dispc_am62a7_feats is identical to
+> dispc_am625_feats, except the subrevision, and the only place where we
+> have a difference of behavior wrt. the subrevision is in a debug print.
+> 
+> Drop the dispc_am62a7_feats and use dispc_am625_feats for AM62A7. The
+> debug print will print a few extra OLDI status bits for AM62A7, which
+> are not relevant as AM62A7 doesn't have OLDI, but that is harmless.
+> 
+> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 
-Commit b402a0dce64a ("scsi: scsi_debug: Fix create target debugfs
-failure") drains sdebug_async_domain before creating a target. Do the
-same in scsi_debug_exit() just before removing the debugfs root, after
-the driver has been unregistered so that no host can still be bound and
-queue further cleanup work.
+Reviewed-by: Aradhya Bhatia <aradhya.bhatia@linux.dev>
 
-Fixes: f084fe52c640 ("scsi: scsi_debug: Add debugfs interface to fail target reset")
-Reported-by: Catalin Marinas <catalin.marinas@arm.com>
-Closes: https://lore.kernel.org/r/auja2VnJTp-ijxqu@arm.com
-Reported-by: CKI Project <cki-project@redhat.com>
-Closes: https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:3017229113
-Signed-off-by: Laurence Oberman <loberman@redhat.com>
----
- drivers/scsi/scsi_debug.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/scsi/scsi_debug.c b/drivers/scsi/scsi_debug.c
-index a922c8318a2f..deaed8b3e6c4 100644
---- a/drivers/scsi/scsi_debug.c
-+++ b/drivers/scsi/scsi_debug.c
-@@ -9053,6 +9053,8 @@ static void __exit scsi_debug_exit(void)
- 
- 	sdebug_erase_all_stores(false);
- 	xa_destroy(per_store_ap);
-+	/* Wait for deferred per-target debugfs cleanup before removing the root */
-+	async_synchronize_full_domain(&sdebug_async_domain);
- 	debugfs_remove(sdebug_debugfs_root);
- }
- 
 -- 
-2.56.0
+Regards
+Aradhya
 
 
