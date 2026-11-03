@@ -2,91 +2,122 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1720606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 12:49:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E7FB606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 12:51:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t/NdyGu7;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=nxGW8aHx
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kqTMDEW4;
+	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=MTNax6Xv
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=DvLrEwFnnOMt3PTsnR8P7yQJiGzTT/5N3IGwtm50AhM=; b=t/NdyGu7geW4BTdZF/vCeLU+La
-	t+4IKROEvV56s4xFbmMR4c0PQSHzR1mL856hdOVZklv9rKqdFhPpoQ+9wnGWQKJ9hO4/uR8OIjA46
-	6e6ZTMS/tfL2zO++576LG2IGR62jnKsqEPJ4FZNz7cJ76tGMnZwrD//AAbAd+ye30WWcMd8N0T2ZK
-	V2ZvOlZarpq/RzrIgW/gfxkO65tuIw9pDvwCpAcrehwBaoi/NJ+qDYZPCvKlEUO1B7DLm2opoSW9T
-	yyWhJVuXdQUnoY3XHlKfjiwF/fpSPEMlj1vyP88jdZprnB+UVxY7zgk/elezJGQ2pXoJko66b5e3P
-	uzfWufsA==;
+	bh=yjWPbrpdgv4x8QEFFoIe1nVcCeRKRwD21w/gAfBuOic=; b=kqTMDEW4lk3tKzbSBgadBZ3SwA
+	FOFukGTGeMak9mIshITM52PIiyHFrVx66z6UF7yNbtE8ZF9WFzzvw1VB1hS0AcbvK+aiJXUpHIIEn
+	vhiyCJizCDkW3Mxl9KZwbIGPF5zYMRsmZop/BlZoUv6QhgduGVbCL5c8GU6v020i2IEFWs+wWva77
+	NP7gGC4A73bC1othlLNBnXGZelC2hcqRvY+9VUY+yCSTxvzEKgDUoASlyyb2r8VZa/PtJWodBu+S0
+	3aIKzn5/ih6YLT7ImsWLSHFJ7dTW/UR7JJmhG60+VK6wy9fw+z/4DY8QRZWaE/oYSTzvQs4LFWf88
+	xMYPtH7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xODwY-00000002Pjk-1Oo6;
-	Tue, 03 Nov 2026 12:48:50 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1xODz4-00000002Q5L-3Kew;
+	Tue, 03 Nov 2026 12:51:26 +0000
+Received: from mail-northeuropeazon11012057.outbound.protection.outlook.com ([52.101.66.57] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xODwW-00000002PjF-1zCE;
-	Tue, 03 Nov 2026 12:48:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793710128; x=1825246128;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=szLErHR8O0Xef4JCXJ3dLezPIj9VfgU7oaY9Ib/XukA=;
-  b=nxGW8aHx6p4oMDKo3mXSMPH2jTnoai/AhnCsZ9Kj/a3EYxd/gufgD+qL
-   KireKyiulbCReB5Z831+MkFv+tnYO+Uu49un/eMWsMicv6bYVb2AcEIha
-   lnRccYZfzkvXSgNqU+9kkXJw7xaCVZ8mIwkO42JHRGvbKP8SVurJiDJXM
-   2yUCmmZrNXLzBPlZxzrZEq5Gv9a3dbxED+Gv6x7S/eSdmGZW1Wtvr6Tea
-   9GO9RqeK2MnmxD6DcmgfJTF5NLBqKp7vsW6U13OXbSy4aPt4uEWHtgg/u
-   1v54wl3C8VdJIakXmaSHpxeorsjwdiQkg2FnoWcJM33UuY6ekvRwcD3kf
-   w==;
-X-CSE-ConnectionGUID: eyhbV29ASXyZjKHP5PqbIg==
-X-CSE-MsgGUID: BrpytEcuRVqKY1icfrSkpw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11954"; a="2523719"
-X-IronPort-AV: E=Sophos;i="6.27,193,1787036400"; 
-   d="scan'208";a="2523719"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 04:48:45 -0800
-X-CSE-ConnectionGUID: W54yryuwSc6+vAc5NpYeHw==
-X-CSE-MsgGUID: Oha4hgXqS9Kbdg4gTOflHQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,193,1787036400"; 
-   d="scan'208";a="6953453"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa010.fm.intel.com with ESMTP; 03 Nov 2026 04:48:43 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1001)
-	id 21F9A99; Tue, 03 Nov 2026 13:48:42 +0100 (CET)
-Date: Tue, 3 Nov 2026 13:48:42 +0100
-From: "mika.westerberg@linux.intel.com" <mika.westerberg@linux.intel.com>
-To: Chunfeng Yun =?utf-8?B?KOS6keaYpeWzsCk=?= <Chunfeng.Yun@mediatek.com>
-Cc: "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"westeri@kernel.org" <westeri@kernel.org>,
-	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"YehezkelShB@gmail.com" <YehezkelShB@gmail.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"andreas.noever@gmail.com" <andreas.noever@gmail.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH 4/4] thunderbolt: prevent pcie tunnel activation/teardown
- warnings
-Message-ID: <20261103124842.GA158991@black.igk.intel.com>
-References: <20261030082539.1208733-1-chunfeng.yun@mediatek.com>
- <20261030082539.1208733-5-chunfeng.yun@mediatek.com>
- <20261030085628.GS158991@black.igk.intel.com>
- <82f1a3227685b241938ccb500b97d1e73212bf36.camel@mediatek.com>
+	id 1xODyz-00000002Q3X-3d1H
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Nov 2026 12:51:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vKtjC/vDWAdft73sLbozLu2JNBsI71wFiYtnai+MV0XvZKkC1SfbGH9OeoFlRu2wAnLKRwyOnbuXBxTdBxj+0iLj/cmX9cf4TyQ/1cOr6iRnAvsY6cGqK9+PELSQ1U1TvWEv1NWxiFFvjySgr0CtSTYp/CFHuyqTl2BR6HO4XkF1xusFGjcmx9tZqSMu3ECNSrSObklc1RBP2ZVgEKeppJZroL4MqywolgOTWgBFbfjODP88mYdYr7kkyoZCgQsRWZbE1GBbwhqrSLgwyYv02VPySjofrTdELQecT8hTacUTWwoT6Fio+evdkxWhOPhpwxb2C1rw0oAVC5HWG8BfhQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yjWPbrpdgv4x8QEFFoIe1nVcCeRKRwD21w/gAfBuOic=;
+ b=AUGJwCqCulTvS72Y54Ytvhl60mhBG6w0HfMNmkk+UktDXJ5QCiyMokRRBOffIuk1QxClUqlAf0BL/t67Pvtic+MRKNBr8ByWRIi5qgSCYM6+vDfIZ34tJvctVTj5QtadkTIb/V/QpWKS0ei8f5sTkjdTSgsd405QjN+tL0CMaIXnw5QN+0jP2Jw1Q/J2trNIa4MIELnMwtqEr4fojJSyEz+5xR9GFZGT8jOgPFK8aJ51SGAEbfYg1pRAQEVGXR9z7no5mdJ2zRuDMHByurnCnlUq4DgLoHfMObIMBWXj13gHXJVcwS9LU95lLGZ4UwXZpOMltM0S3UboP9wXL1kV3A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yjWPbrpdgv4x8QEFFoIe1nVcCeRKRwD21w/gAfBuOic=;
+ b=MTNax6XvhGZ/R7J9i0aWNRI96D5N5v4d6EGNz17jOB8lA/G3XkSaMJuOQMiGSthDxScTg6+WA1bS1p0GJstMuadkcCP2+8NHPDCrvkPsDImLuRjjJA0ObhhXxCQ7kV1588CdIMFh7Iv5n0dXk6YC7Ep/a7pEXzqs5wpxM9GxHlO05yrzVU7N0W9bm6WY1+7Wm1Ao2DL+fCUz1wWPGDLr6co/ffqyCxsk+pkd6FIVIZkHRb0pld5I0cVbPoR9jPYehmX5JD+jm4GPMmV57HrmBJ1oN7A5WjQTjFEeofn/7/HYbCp5yyE8D9OgYtJ6Zekx5Rj8einSF1XHGPOlepKszA==
+Received: from AS9PR06CA0079.eurprd06.prod.outlook.com (2603:10a6:20b:464::13)
+ by DU4PR10MB8759.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:569::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Tue, 3 Nov 2026
+ 12:51:14 +0000
+Received: from DB1PEPF000509F5.eurprd02.prod.outlook.com
+ (2603:10a6:20b:464:cafe::8e) by AS9PR06CA0079.outlook.office365.com
+ (2603:10a6:20b:464::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.8 via Frontend Transport; Tue, 3
+ Nov 2026 12:51:14 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DB1PEPF000509F5.mail.protection.outlook.com (10.167.242.151) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.592.5 via Frontend Transport; Tue, 3 Nov 2026 12:51:13 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 3 Nov
+ 2026 13:51:58 +0100
+Received: from gnbcxd0016.gnb.st.com (10.130.77.119) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 3 Nov
+ 2026 13:51:13 +0100
+Date: Tue, 3 Nov 2026 13:51:07 +0100
+From: Alain Volmat <alain.volmat@foss.st.com>
+To: David Carlier <devnexen@gmail.com>
+CC: Hugues Fruchet <hugues.fruchet@foss.st.com>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Alexandre
+ Torgue" <alexandre.torgue@foss.st.com>, <linux-media@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] media: stm32: dcmipp: pixelproc: Round up the compose
+ lower bound
+Message-ID: <aunYu3XpKWjx20AS@gnbcxd0016.gnb.st.com>
+References: <20261018032011.207050-1-devnexen@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <82f1a3227685b241938ccb500b97d1e73212bf36.camel@mediatek.com>
+In-Reply-To: <20261018032011.207050-1-devnexen@gmail.com>
+X-Disclaimer: ce message est personnel / this message is private
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509F5:EE_|DU4PR10MB8759:EE_
+X-MS-Office365-Filtering-Correlation-Id: 33bae05e-0997-4fbf-8a88-08df39a924d5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|23010399003|1800799024|10067099003|18002099003|22082099003|261102123227099003|56012099006|11063799006|261026140227099003|261028144727099003|261026121527099003|261009223027099003|261022105027099003|261021123027099003|260925022911599003|261021121427099003|260925021311599003|260925021911599003;
+X-Microsoft-Antispam-Message-Info: nwkNEdX0Fp4+XUSM4GUs9DQH+TiE0Z2+7nVsdcEiDRW9zge8OKHSyQHW9ZbmKB3oUYyJGbh4w6dr0dB5aExfyAauY3Q/ra7t5Nq/sHm/NNvOpCFXc+HE8P1BsSxjqi2mUilkzyMGMjWumq6mr/G3O4RroD4EbmBGKhu8IpcxA6e3/l6t5h+wCMiDMyJ+ZTeqepBzu6crKHfzM44Ctr+cEx2sPrywMtQt/V65neX2MllQHsvn4bTEW955dr1JqFuNoFfwB2Hd4FMCdVF7gSlRKaloiA64sDytPCL4DB5VgkmkGTyXchBQ06fzGXeJO24gnz6rRDrVGn5DY8wbtZnjC93dsgE3oVN9XoaR2HUkNwvx40/mlVldllx8T6dus0XqT+AS+6HXO/mOnqiLGN3beaQGEq6o4nRrPAz64zlmxIxaPF2a44Q1+migtTylDzNdz0qh7Q2IXpZPAx0zJyGEowONfb4oZqR9soXstnEoAi392ye58xKZRpiELZCyufImiBBZy8RW/6X8zt5t31iuEPJchACCMaPwL73GznjUeW907yN6NDTq6cIDEugej0zhXcItSL+3D0IF91nth/g54YA5tiw6rwwYi3ktQ12C9tVquPiK5lJJ1m3x+oB/AKr8GB1I5LvcTdvSnqvjhgt27DlGk+LUSuVxCyEnBjn742TLbpUqEMcQb0b6EFH1cEHW6/6NAimY0eg2s1nm2+g38Q==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(23010399003)(1800799024)(10067099003)(18002099003)(22082099003)(261102123227099003)(56012099006)(11063799006)(261026140227099003)(261028144727099003)(261026121527099003)(261009223027099003)(261022105027099003)(261021123027099003)(260925022911599003)(261021121427099003)(260925021311599003)(260925021911599003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Dw5rUz4WV2ux0aJG4we023Zz8aiOoMj5UK9qMbZfbamU3A6Ka0NL5eU8Zy4AobBA04ZDRgbDTcCOkTl1JYA67R/FQuDxHfY+zFEu2ak5xRxWRd3FNgaqvKrchYTZjTtJDObsh38To2X6XnHQPfcZ3hq1Z6VHgPLLZ1u4/sIjkGljjqqlf+Mdy1uqWe3eiMp010f2K+GgpmLAzrfXlQuH6ghiE+Rg93nIyrIaqnAQGuKGnEX35eBXbYeMXOK2iXHHXu3Oq53rpLoOAa0Pqouil+KJNTwEUeK45o9/Fmzmoi3AO5B8tZ5j1ogYYX6vI9/54q76ncF77/DUNax895/kAZmKSsOvrAMlakXuWtGpa8NMzBH5zxdkx5wT5OSICjOWKBgMaw2BSIPniaUsI8HcjDIrvJqMgobD5PGUPLQpSKqh8b07GEMuHOhtVrXccddq
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 12:51:13.8975
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 33bae05e-0997-4fbf-8a88-08df39a924d5
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F5.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR10MB8759
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_044848_589850_2AE55819 
-X-CRM114-Status: GOOD (  16.16  )
-X-Spam-Score: -4.2 (----)
+X-CRM114-CacheID: sfid-20261103_045123_315570_40A2D1B9 
+X-CRM114-Status: GOOD (  16.42  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,90 +128,53 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,T_PDS_OTHER_BAD_TLD
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
+Hi David,
 
-On Tue, Nov 03, 2026 at 08:33:51AM +0000, Chunfeng Yun (云春峰) wrote:
-> On Fri, 2026-10-30 at 09:56 +0100, Mika Westerberg wrote:
-> > On Fri, Oct 30, 2026 at 04:25:39PM +0800, Chunfeng Yun wrote:
-> > > When usb4 enter sleep mode, echo 1 to authorized of sysfile,
-> > > will wakeup usb4 driver, but fail to create pcie tunnel, cause
-> > > the warning due to a race condition between switch disconnect
-> > 
-> > It's router
-> will modify it.
-> 
-> > 
-> > > during resume and user authorization
-> [  278.831186] usb4_hi NVDA8100:00: 0:1: is unplugged (state: 7),
-> retrying...
-> [  278.943031] usb4_hi NVDA8100:00: 0:1: failed to reach state
-> TB_PORT_UP. Ignoring port...
-> [  278.951125] usb4_hi NVDA8100:00: 0:1: lost during suspend,
-> disconnecting
-> [  278.957819] usb4_hi NVDA8100:00: 0:4 <-> 1:16 (USB3): deactivating
-> [  278.964794] usb4_hi NVDA8100:00: deactivating USB3 Down path from
-> 0:4 to 1:16
-> [  278.972737] usb4_hi NVDA8100:00: deactivating USB3 Up path from 1:16
-> to 0:4
-> [  278.980504] usb4_hi NVDA8100:00: 0: TMU: mode change off -> bi-
-> directional, HiFi requested
-> [  278.991265] usb4_hi NVDA8100:00: 0: TMU: mode set to: bi-
-> directional, HiFi
-> [  278.999511] usb4_hi NVDA8100:00: 0:1: total credits changed 66 -> 66
-> [  279.006408] usb4_hi NVDA8100:00: 1: link width set to symmetric,
-> dual lanes
-> [  279.013763] usb4_hi NVDA8100:00: 0:7 <-> 1:9 (PCI): activating
-> [  279.019587] usb4_hi NVDA8100:00: activating PCIe Down path from 0:7
-> to 1:9
-> [  279.026468] usb4_hi NVDA8100:00: 1:1: Writing hop 1
-> [  279.031335] usb4_hi NVDA8100:00: 1:1:  In HopID: 8 => Out port: 9
-> Out HopID: 8
-> [  279.038546] usb4_hi NVDA8100:00: 1:1:   Weight: 1 Priority: 3
-> Credits: 32 Drop: 0 PM: 0
-> [  279.046536] usb4_hi NVDA8100:00: 1:1:    Counter enabled: 0 Counter
-> index: 2047
-> [  279.053834] usb4_hi NVDA8100:00: 1:1:   Flow Control (In/Eg): 1/0
-> Shared Buffer (In/Eg): 0/0
-> [  279.062259] usb4_hi NVDA8100:00: 1:1:   Unknown1: 0x0 Unknown2: 0x0
-> Unknown3: 0x0
-> [  279.069730] ------------[ cut here ]------------
-> [  279.074335] usb4_hi NVDA8100:00: PCIe Down path activation failed
-> [  279.080426] WARNING: CPU: 5 PID: 2433 at
-> drivers/thunderbolt/path.c:587 tb_path_activate+0x1a4/0x5b0
-> ...
-> [  279.220285] Call trace:
-> [  279.222722]  tb_path_activate+0x1a4/0x5b0 (P)
-> [  279.227068]  tb_tunnel_activate+0x140/0x498
-> [  279.231241]  tb_tunnel_pci+0x180/0x490
-> [  279.234980]  tb_domain_approve_switch+0x74/0xb0
-> [  279.239500]  authorized_store+0x214/0x270
-> [  279.243498]  dev_attr_store+0x20/0x70
-> ...
-> [  279.288888] ---[ end trace 0000000000000000 ]---
-> [  279.293497] usb4_hi NVDA8100:00: 0:7 <-> 1:9 (PCI): activation
-> failed
-> 
-> 
-> root cause:
-> 
-> The warning were caused by a race condition between switch disconnect
-> during resume and user authorization:
-> 
->    1. While the system was in runtime suspend, userspace executed:
-> 
->        echo 1 > /sys/bus/thunderbolt/devices/0-1/authorized
->    2. Writing to this sysfs attribute woke up the USB4 controller
-> (nhi_runtime_resume).
->    3. During resume, the downstream port 0:1 failed to complete link
-> training within the timeout and was declared lost:
+thanks for the patch.
 
-Okay we get the warning but the bigger problem here is that why the link
-does not come up anymore? Unless you unplugged the router as well.
+On Sun, Oct 18, 2026 at 04:20:11AM +0100, David Carlier wrote:
+> The minimum compose size is crop / 64, rounded down. A 17 pixel compose
+> on an 1100 pixel crop then needs four decimation steps, which overflows
+> the 2-bit HDEC and VDEC fields in PxDCCR. Round the minimum up instead.
+> 
+> Fixes: 239cf9e5fda1 ("media: stm32: dcmipp: pixelproc: addition of dcmipp-pixelproc subdev")
+> Signed-off-by: David Carlier <devnexen@gmail.com>
+> ---
+>  .../media/platform/st/stm32/stm32-dcmipp/dcmipp-pixelproc.c   | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-pixelproc.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-pixelproc.c
+> index 7d8e5f0863bf..9055682481de 100644
+> --- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-pixelproc.c
+> +++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-pixelproc.c
+> @@ -597,10 +597,10 @@ static int dcmipp_pixelproc_set_selection(struct v4l2_subdev *sd,
+>  		s->r.top = 0;
+>  		s->r.left = 0;
+>  		s->r.width = clamp_t(u32, s->r.width,
+> -				     crop->width / DCMIPP_MAX_DOWNSCALE_RATIO,
+> +				     DIV_ROUND_UP(crop->width, DCMIPP_MAX_DOWNSCALE_RATIO),
+>  				     crop->width);
+>  		s->r.height = clamp_t(u32, s->r.height,
+> -				      crop->height / DCMIPP_MAX_DOWNSCALE_RATIO,
+> +				      DIV_ROUND_UP(crop->height, DCMIPP_MAX_DOWNSCALE_RATIO),
+>  				      crop->height);
+>  		v4l2_rect_set_min_size(&s->r, &min_rect);
+>  		*compose = s->r;
+
+Acked-by: Alain Volmat <alain.volmat@foss.st.com>
+
+Regards,
+Alain
+
+> -- 
+> 2.55.0
+> 
 
