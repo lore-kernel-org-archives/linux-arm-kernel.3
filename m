@@ -2,66 +2,93 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7FDD606D805
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 20:37:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14249606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 20:53:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3FSLQiCK;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=WIwAUoRY
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WzfvcJeH;
+	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=UEgqWmYc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=vWPeCnUz1sDUCuvHzgsNmQLP6HqKKH7oPoJSrsTWm8A=; b=3FSLQiCKTENUPO4TD0sVcZtsXV
-	lCAi8UTdt3gzky0wOKyXUa9IkzjP0JoRwcZcYrpf5TOecwdMR1f/yfDfH0KKY5MiUayWdtmY34Qxx
-	xhxfXQQes5mgM2JaRvutFztJ1/Xe7UUxKAxSFUFglKEfKK/OOZu0oSTZiwBX6e4wBZnd6yHtFD3HT
-	hc5F1g8g7x8YnE/j1t9EkwSdSY1k3NKfnPuWqeB/+YSzYUFBT3W8sjhEvYpcpH/BXoxW1l3T3vJ+g
-	PIRA8ok+egfdObpCXG3SDR+NR+42N5v/Pyz/2btX3fYwfePSsGVdSCsWCkdRWQq/mEYwPqPKeg3zX
-	mywGnxrA==;
+	bh=qEmYCkPXDtF9hobALFV6QXuRhofx2fxJSYASJMiIobw=; b=WzfvcJeHenSj3yCm7N5qRcCIJ0
+	rWOi5+elul/v+kGFNbO1R+VmN29vWILSznc8sQbg1HSaDieE7cDlB+TZ/JkZJCTLtpHXrVGlrIDxw
+	uQF3Zguh/jlrc1Ubpj+dRUOt3TgetG121svQXr3jtMqsb3vY7Pn3W70pDTRXX0WsNZMEAE6J8Cifa
+	u+JdfVsLANNE5Chqlww0xQIVjmTPEyVKp8rxFmdVen/tATAUNFeCLi30MWXRYCj4TuPU79OooBRD2
+	ia2R/F7Pqje4AYQmMHOP2MnbDC6T6kLj2/dgm0gh3zeqWFUJC/P24Y0YwmyzBlRGPwmkc0NyZ9CD0
+	jCebPGMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOLG6-00000003dXq-085U;
-	Tue, 03 Nov 2026 20:37:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOLG1-00000003dXS-2Hse
+	id 1xOLVG-00000003e4O-223s;
+	Tue, 03 Nov 2026 20:53:10 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOLVD-00000003e3u-0ICX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 20:37:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 277021595;
-	Tue,  3 Nov 2026 12:37:19 -0800 (PST)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 900353F628;
-	Tue,  3 Nov 2026 12:37:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793738242; bh=XNxs1q7RvEvtnhfmFbzH+UCtgdjM+7kwwuvH4wf38QM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WIwAUoRYbdxoJrZAO4JhML2zcaHQrSFnQStEcdCxEEz3QsJYEAS3Xx5mxpTwxHrq8
-	 H/qwyh5aWqxrCkV+u4L9w3gADSoY9lDcJYkgeA4mwUXTEUcF38b216uxNICrkSVxH2
-	 6STMjkgsZkkQlNJ2J+tLf5WMqhwcZMK+FlhL4hCM=
-Date: Tue, 3 Nov 2026 20:37:07 +0000
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Sascha Bischoff <sascha.bischoff@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, 
-	lpieralisi@kernel.org, timothy.hayes@arm.com, fuad.tabba@linux.dev
-Subject: Re: [PATCH v2 03/16] KVM: arm64: gic-v5: Share CoreSight ID register
- emulation
-Message-ID: <4lhdtngikzekvcvhkd4zknnnqdh7a3mih7i72smfzwsnnjcmfh@ri2clwyj4nqm>
-References: <20261102194454.4086911-1-sascha.bischoff@arm.com>
- <20261102194454.4086911-4-sascha.bischoff@arm.com>
+	Tue, 03 Nov 2026 20:53:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1793739185;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=qEmYCkPXDtF9hobALFV6QXuRhofx2fxJSYASJMiIobw=;
+	b=UEgqWmYcs0WG5sXWTDvngmJCmfZdmMrsETFRqiEhKx6bnxSEH6VL4STG1MdKZdfGf8XiMb
+	X2WYgjl3+qCMdJpyD07GyEwDs0QjgUpGYrfVRDc97c68REBmmF1C0sLZmyfUiklyKDXqFN
+	rZMX7AeP0zVv5KzkwxIQ/q/M53NKdQ4=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-118-HjnHRM6hPr23HX-1lG6F3A-1; Tue,
+ 03 Nov 2026 15:53:02 -0500
+X-MC-Unique: HjnHRM6hPr23HX-1lG6F3A-1
+X-Mimecast-MFC-AGG-ID: HjnHRM6hPr23HX-1lG6F3A_1793739180
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 17DB61800677;
+	Tue,  3 Nov 2026 20:53:00 +0000 (UTC)
+Received: from loberman-thinkpadp16gen3.redhat.corp (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 835BE1800347;
+	Tue,  3 Nov 2026 20:52:56 +0000 (UTC)
+From: Laurence Oberman <loberman@redhat.com>
+To: linux-scsi@vger.kernel.org,
+	"Martin K . Petersen" <mkp@kernel.org>
+Cc: "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Hannes Reinecke <hare@suse.de>,
+	Bart Van Assche <bvanassche@acm.org>,
+	Wenchao Hao <haowenchao22@gmail.com>,
+	Wenchao Hao <haowenchao2@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	cki-project@redhat.com,
+	jmoyer@redhat.com,
+	bgoncalv@redhat.com,
+	mpatalan@redhat.com,
+	ftjahjad@redhat.com,
+	fsuba@redhat.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 2/2] scsi: scsi_debug: Wait for async target cleanup on module exit
+Date: Tue,  3 Nov 2026 15:52:53 -0500
+Message-ID: <20261103205253.1632907-1-loberman@redhat.com>
+In-Reply-To: <20261103193235.1564898-1-loberman@redhat.com>
+References: <20261103193235.1564898-1-loberman@redhat.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261102194454.4086911-4-sascha.bischoff@arm.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+X-Mimecast-MFC-PROC-ID: 3INyRekWSO7POyPZj3zSRC98ioIr7Hd2872SnuGZoLc_1793739180
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_123725_684808_D2F80B34 
-X-CRM114-Status: GOOD (  19.99  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261103_125307_182621_E66C2979 
+X-CRM114-Status: GOOD (  12.68  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,128 +107,70 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 02, 2026 at 07:44:41PM +0000, Sascha Bischoff wrote:
-> The GICv5 IRS and ITS expose the same CoreSight identification register
-> block. Move the register-value switch into a shared helper and describe
-> the contiguous ID register range with one register-region descriptor.
-> 
-> This keeps the IRS behaviour unchanged while giving the ITS MMIO
-> emulation a helper it can reuse when it is added in the following commit.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/vgic/vgic-irs-v5.c  | 75 +++---------------------------
->  arch/arm64/kvm/vgic/vgic-v5.c      | 34 ++++++++++++++
->  arch/arm64/kvm/vgic/vgic.h         |  1 +
->  include/linux/irqchip/arm-gic-v5.h |  2 +
->  4 files changed, 44 insertions(+), 68 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-irs-v5.c b/arch/arm64/kvm/vgic/vgic-irs-v5.c
-> index 8d0ad74ebc64a..d0ebed2e1663b 100644
-> --- a/arch/arm64/kvm/vgic/vgic-irs-v5.c
-> +++ b/arch/arm64/kvm/vgic/vgic-irs-v5.c
-> @@ -520,38 +520,9 @@ static void vgic_v5_mmio_write_irs_ist(struct kvm_vcpu *vcpu, gpa_t addr,
->  static unsigned long vgic_v5_coresight_read(struct kvm_vcpu *vcpu,
->  					    gpa_t addr, unsigned int len)
->  {
-> -	const size_t offset = addr & (SZ_64K - 1);
-> +	u32 offset = addr & (SZ_64K - 1);
+sdebug_target_destroy() is called with the host lock held, so it defers
+removal of the per-target debugfs directory to
+sdebug_tartget_cleanup_async() on sdebug_async_domain.
+scsi_debug_exit() removes the hosts and then removes
+sdebug_debugfs_root without waiting for that work. The recursive
+removal of the root frees the per-target dentries, and a cleanup that
+runs afterwards calls debugfs_remove() on a stale dentry:
 
-nit: I think we can keep the const here?
+  BUG: KASAN: slab-use-after-free in _raw_spin_lock+0x2d/0x40
+  Workqueue: async async_run_entry_fn
+  Call Trace:
+   kasan_report+0x92/0xc0
+   _raw_spin_lock+0x2d/0x40
+   lockref_get+0x9/0x40
+   __simple_recursive_removal+0x35/0x570
+   debugfs_remove+0x40/0x60
+   sdebug_tartget_cleanup_async+0x43/0x60 [scsi_debug]
+   async_run_entry_fn+0x96/0x520
+   process_one_work+0x925/0x1910
+   worker_thread+0x567/0xcc0
+   kthread+0x355/0x450
+  Allocated by task 150:
+   __d_alloc+0x34/0x9e0
+   d_alloc+0x44/0x1d0
+   ...
+   debugfs_create_dir+0x18/0x3d0
+   sdebug_target_alloc
+   scsi_alloc_target+0x7c7/0xa70
 
->  
-> -	switch (offset) {
-> -	case GICV5_CORESIGHT_DEVARCH:
-> -		return GICV5_CORESIGHT_DEVARCH_VAL;
-> -	case GICV5_CORESIGHT_PIDR4:
-> -		return GICV5_CORESIGHT_PIDR4_JEP106_CONT;
-> -	case GICV5_CORESIGHT_PIDR5:
-> -		return GICV5_CORESIGHT_PIDR5_RES0;
-> -	case GICV5_CORESIGHT_PIDR6:
-> -		return GICV5_CORESIGHT_PIDR6_RES0;
-> -	case GICV5_CORESIGHT_PIDR7:
-> -		return GICV5_CORESIGHT_PIDR7_RES0;
-> -	case GICV5_CORESIGHT_PIDR0:
-> -		return GICV5_CORESIGHT_PIDR0_PART_0;
-> -	case GICV5_CORESIGHT_PIDR1:
-> -		return GICV5_CORESIGHT_PIDR1_DES_0_PART_1;
-> -	case GICV5_CORESIGHT_PIDR2:
-> -		return GICV5_CORESIGHT_PIDR2_DES_1;
-> -	case GICV5_CORESIGHT_PIDR3:
-> -		return GICV5_CORESIGHT_PIDR3_REVAND_CMOD;
-> -	case GICV5_CORESIGHT_CIDR0:
-> -		return GICV5_CORESIGHT_CIDR0_VAL;
-> -	case GICV5_CORESIGHT_CIDR1:
-> -		return GICV5_CORESIGHT_CIDR1_VAL;
-> -	case GICV5_CORESIGHT_CIDR2:
-> -		return GICV5_CORESIGHT_CIDR2_VAL;
-> -	case GICV5_CORESIGHT_CIDR3:
-> -		return GICV5_CORESIGHT_CIDR3_VAL;
-> -	default:
-> -		return 0;
-> -	}
-> +	return vgic_v5_handle_guest_coresight_idreg_read(offset);
->  }
->  
->  static unsigned long vgic_v5_mmio_uaccess_read_irs_status(struct kvm_vcpu *vcpu,
-> @@ -903,45 +874,13 @@ static const struct vgic_register_region vgic_v5_irs_registers[] = {
->  				  vgic_mmio_read_raz, vgic_mmio_write_wi, 8,
->  				  VGIC_ACCESS_64bit | VGIC_ACCESS_32bit),
->  
-> -	/* CoreSight identification registers */
-> +	/* Split the ranges so KVM_HAS_DEVICE_ATTR only reports actual registers. */
+followed by a NULL inode dereference in down_write() from
+__simple_recursive_removal(). CKI hit this running blktests throtl/001
+on arm64. The cleanup can also run after the module text has been
+freed.
 
-Would "Split the CoreSight range into two to account for the gap
-between DEVARCH and PIDR/CIDR registers." be clearer?
+Commit b402a0dce64a ("scsi: scsi_debug: Fix create target debugfs
+failure") drains sdebug_async_domain before creating a target. Do the
+same in scsi_debug_exit() just before removing the debugfs root, after
+the driver has been unregistered so that no host can still be bound and
+queue further cleanup work.
 
-Thanks,
-Wei-Lin Chang
+Fixes: f084fe52c640 ("scsi: scsi_debug: Add debugfs interface to fail target reset")
+Reported-by: Catalin Marinas <catalin.marinas@arm.com>
+Closes: https://lore.kernel.org/r/auja2VnJTp-ijxqu@arm.com
+Reported-by: CKI Project <cki-project@redhat.com>
+Closes: https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:3017229113
+Signed-off-by: Laurence Oberman <loberman@redhat.com>
+---
+ drivers/scsi/scsi_debug.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
->  	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_DEVARCH,
-> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-> -				  VGIC_ACCESS_32bit),
-> +				  vgic_v5_coresight_read, vgic_mmio_write_wi,
-> +				  4, VGIC_ACCESS_32bit),
->  	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR4,
-> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-> -				  VGIC_ACCESS_32bit),
-> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR5,
-> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-> -				  VGIC_ACCESS_32bit),
-> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR6,
-> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-> -				  VGIC_ACCESS_32bit),
-> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR7,
-> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-> -				  VGIC_ACCESS_32bit),
-> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR0,
-> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-> -				  VGIC_ACCESS_32bit),
-> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR1,
-> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-> -				  VGIC_ACCESS_32bit),
-> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR2,
-> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-> -				  VGIC_ACCESS_32bit),
-> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_PIDR3,
-> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-> -				  VGIC_ACCESS_32bit),
-> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_CIDR0,
-> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-> -				  VGIC_ACCESS_32bit),
-> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_CIDR1,
-> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-> -				  VGIC_ACCESS_32bit),
-> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_CIDR2,
-> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-> -				  VGIC_ACCESS_32bit),
-> -	REGISTER_DESC_WITH_LENGTH(GICV5_CORESIGHT_CIDR3,
-> -				  vgic_v5_coresight_read, vgic_mmio_write_wi, 4,
-> +				  vgic_v5_coresight_read, vgic_mmio_write_wi,
-> +				  GICV5_CORESIGHT_PIDR_CIDR_SIZE,
->  				  VGIC_ACCESS_32bit),
->  };
->  
+diff --git a/drivers/scsi/scsi_debug.c b/drivers/scsi/scsi_debug.c
+index a922c8318a2f..deaed8b3e6c4 100644
+--- a/drivers/scsi/scsi_debug.c
++++ b/drivers/scsi/scsi_debug.c
+@@ -9053,6 +9053,8 @@ static void __exit scsi_debug_exit(void)
+ 
+ 	sdebug_erase_all_stores(false);
+ 	xa_destroy(per_store_ap);
++	/* Wait for deferred per-target debugfs cleanup before removing the root */
++	async_synchronize_full_domain(&sdebug_async_domain);
+ 	debugfs_remove(sdebug_debugfs_root);
+ }
+ 
+-- 
+2.56.0
 
-[...]
 
