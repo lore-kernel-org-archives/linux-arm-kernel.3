@@ -2,149 +2,91 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C104606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 12:41:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1720606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 12:49:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ku3IytQ1;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=zUaLjWZJ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t/NdyGu7;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=nxGW8aHx
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=RQl3hqohQ/Z/sRPHduciY8J4ZvVSVl35Zc9E3tyencc=; b=Ku3IytQ1GVuW9nlJTepo115zt3
-	R72b07RhMdqI/vxs8TQZ0WLK3U0kXfBUlVeIBD1HLy0CX/ARh33Bt5S+qPAeUFSlE962Fp/v/LPLB
-	jDguKwPvE0TUDGgBm3MlQffQzyyDtz6UPHKzQFdyjGG2fzNcOaUh6SIAKgHPTjJXeVz7rASWA/GcH
-	ya6434v9+uqS4FRDqTQcceRontgS/Iqru7aYcLn/81Jk/JzQfXmezSb+T/YqC9TDsPAn45vQGOnru
-	QK1psxywSmZiwrDiTB/8xMvaQaYDMDAIZJR+1x2pTbWe9d0ixq/SoPgVq4e/5KHjJqtYMAc3Vc3PJ
-	yK9uzEJQ==;
+	bh=DvLrEwFnnOMt3PTsnR8P7yQJiGzTT/5N3IGwtm50AhM=; b=t/NdyGu7geW4BTdZF/vCeLU+La
+	t+4IKROEvV56s4xFbmMR4c0PQSHzR1mL856hdOVZklv9rKqdFhPpoQ+9wnGWQKJ9hO4/uR8OIjA46
+	6e6ZTMS/tfL2zO++576LG2IGR62jnKsqEPJ4FZNz7cJ76tGMnZwrD//AAbAd+ye30WWcMd8N0T2ZK
+	V2ZvOlZarpq/RzrIgW/gfxkO65tuIw9pDvwCpAcrehwBaoi/NJ+qDYZPCvKlEUO1B7DLm2opoSW9T
+	yyWhJVuXdQUnoY3XHlKfjiwF/fpSPEMlj1vyP88jdZprnB+UVxY7zgk/elezJGQ2pXoJko66b5e3P
+	uzfWufsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xODp5-00000002P9W-2sR5;
-	Tue, 03 Nov 2026 12:41:07 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1xODwY-00000002Pjk-1Oo6;
+	Tue, 03 Nov 2026 12:48:50 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xODp3-00000002P8g-2DYj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 12:41:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CLqMoftDiHe9hhKXBkiw2Zj2sJ3YLpLLwesTDU53O+4H3auu7u+SfFzCJVwB+UgwWZVZdNGOUW/tllyhXlL11cQtpLS6embd4ISbj+7T66h5J/O1rW+AwmFBZ1DF2uosSb4xRnVV3/dchvt+VpS8iKwP4sxaCbw+90s2TPwJbHN6MIA68sIBy0hmUdCieH2LStJygiW7vel9LM834ncibiryfkWB2moq7MPJKy/EKEDe3NagHARnjxDZsFiKnVJ5nW3WC03qG4Sdm3Pr46IdCr6vWUvrPzVr6U+xydVkeFn/BguDpvhe6fghsgxZ5h/Uf19npq23KivUy3RgYLlg2Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RQl3hqohQ/Z/sRPHduciY8J4ZvVSVl35Zc9E3tyencc=;
- b=vjOPkJJpIL/n14ztZ8Iwz/5KTpaO8PDHofvIh6zqdcEk4EhVqYrM/5nSNw9p3ks0R18JeOEU+87iCBfoIHjQe7YOaFaXQey+zGiIn8uvoYAxHHKNG/biwQg+xKh/3bwmnC4jsbikVHai7AeTAY86PG7+TOK5hllXaswktg90/wF3ACAyPSnPXj2nPxWMgykCu4reEwrzEhz1LNXUkAuLHWQy0k+1wFQXQzbvtx97FWXvHv+Ycuq1yiMsfFXJfgDfsIr28WJxhZDPYrTz7tEFXHUPS/4cJJihJolKDbG5sxSXvEkdpCr/OXsygo58QK0MaDxTcFkHUXbmyzUl2JwppA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RQl3hqohQ/Z/sRPHduciY8J4ZvVSVl35Zc9E3tyencc=;
- b=zUaLjWZJpHDTa4QL5CUyKxl/oyOyRggGTnRCqKTC7RFf7lh5Ua4aiFSupk///E8PCe66cRN1eV8qPG9/7UZZBaM4Yzrd82T2u2PYB04bO5cvJeODyBrjhRFGNIO+VA5TZFzykpt4efucj77Y6aq5Pk6sElgwRZxVn2SU9qsLY1s=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SN7PR12MB8147.namprd12.prod.outlook.com (2603:10b6:806:32e::5)
- by MW4PR12MB7468.namprd12.prod.outlook.com (2603:10b6:303:212::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Tue, 3 Nov 2026
- 12:40:56 +0000
-Received: from SN7PR12MB8147.namprd12.prod.outlook.com
- ([fe80::3923:c1a4:778b:56f2]) by SN7PR12MB8147.namprd12.prod.outlook.com
- ([fe80::3923:c1a4:778b:56f2%3]) with mapi id 15.21.0592.007; Tue, 3 Nov 2026
- 12:40:56 +0000
-Message-ID: <797e993c-f477-4777-9485-5a9b89aeea7b@amd.com>
-Date: Tue, 3 Nov 2026 18:10:44 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 1/8] dt-bindings: net: add Xilinx TSN Endpoint
- Ethernet MAC
-To: Rob Herring <robh@kernel.org>, netdev-bot+sashiko@kernel.org
-Cc: srinivas.neeli@amd.com, nagadheeraj.rottela@amd.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, kuba@kernel.org,
- pabeni@redhat.com, krzk+dt@kernel.org, conor+dt@kernel.org,
- richardcochran@gmail.com, michal.simek@amd.com, bigeasy@linutronix.de,
- clrkwllms@kernel.org, rostedt@goodmis.org, edumazet@kernel.org,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rt-devel@lists.linux.dev, neelisrinivas18@gmail.com, git@amd.com
-References: <20261016-patches_v2_external-v3-1-e33d3960ca1e@amd.com>
- <179249749105.3135.3116293825083161439@kernel.org>
- <20261021031657.GA3867774-robh@kernel.org>
-Content-Language: en-US
-From: "Neeli, Srinivas" <srneeli@amd.com>
-In-Reply-To: <20261021031657.GA3867774-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA5PR01CA0166.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1cf::7) To SN7PR12MB8147.namprd12.prod.outlook.com
- (2603:10b6:806:32e::5)
+	id 1xODwW-00000002PjF-1zCE;
+	Tue, 03 Nov 2026 12:48:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793710128; x=1825246128;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=szLErHR8O0Xef4JCXJ3dLezPIj9VfgU7oaY9Ib/XukA=;
+  b=nxGW8aHx6p4oMDKo3mXSMPH2jTnoai/AhnCsZ9Kj/a3EYxd/gufgD+qL
+   KireKyiulbCReB5Z831+MkFv+tnYO+Uu49un/eMWsMicv6bYVb2AcEIha
+   lnRccYZfzkvXSgNqU+9kkXJw7xaCVZ8mIwkO42JHRGvbKP8SVurJiDJXM
+   2yUCmmZrNXLzBPlZxzrZEq5Gv9a3dbxED+Gv6x7S/eSdmGZW1Wtvr6Tea
+   9GO9RqeK2MnmxD6DcmgfJTF5NLBqKp7vsW6U13OXbSy4aPt4uEWHtgg/u
+   1v54wl3C8VdJIakXmaSHpxeorsjwdiQkg2FnoWcJM33UuY6ekvRwcD3kf
+   w==;
+X-CSE-ConnectionGUID: eyhbV29ASXyZjKHP5PqbIg==
+X-CSE-MsgGUID: BrpytEcuRVqKY1icfrSkpw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11954"; a="2523719"
+X-IronPort-AV: E=Sophos;i="6.27,193,1787036400"; 
+   d="scan'208";a="2523719"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 04:48:45 -0800
+X-CSE-ConnectionGUID: W54yryuwSc6+vAc5NpYeHw==
+X-CSE-MsgGUID: Oha4hgXqS9Kbdg4gTOflHQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,193,1787036400"; 
+   d="scan'208";a="6953453"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa010.fm.intel.com with ESMTP; 03 Nov 2026 04:48:43 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1001)
+	id 21F9A99; Tue, 03 Nov 2026 13:48:42 +0100 (CET)
+Date: Tue, 3 Nov 2026 13:48:42 +0100
+From: "mika.westerberg@linux.intel.com" <mika.westerberg@linux.intel.com>
+To: Chunfeng Yun =?utf-8?B?KOS6keaYpeWzsCk=?= <Chunfeng.Yun@mediatek.com>
+Cc: "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"westeri@kernel.org" <westeri@kernel.org>,
+	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"YehezkelShB@gmail.com" <YehezkelShB@gmail.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"andreas.noever@gmail.com" <andreas.noever@gmail.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH 4/4] thunderbolt: prevent pcie tunnel activation/teardown
+ warnings
+Message-ID: <20261103124842.GA158991@black.igk.intel.com>
+References: <20261030082539.1208733-1-chunfeng.yun@mediatek.com>
+ <20261030082539.1208733-5-chunfeng.yun@mediatek.com>
+ <20261030085628.GS158991@black.igk.intel.com>
+ <82f1a3227685b241938ccb500b97d1e73212bf36.camel@mediatek.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN7PR12MB8147:EE_|MW4PR12MB7468:EE_
-X-MS-Office365-Filtering-Correlation-Id: f33a8ebb-ff59-46d8-9239-08df39a7b46c
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|6133799003|22082099003|18002099003|3023799007|10067099003|261102123227099003|11063799006|4143699003|261021121427099003|261026140227099003|261022105027099003|56012099006|261026121527099003|261022075727099003|261009223027099003|261028144727099003;
-X-Microsoft-Antispam-Message-Info: S6oO+0ya1mz+M5Gr6Rjh7OmVSyfrxP+ivbwndFq1FdM/0jEbdWk4bEnzLG4hf8Bo/6DMiIUXVaOBmibcZHa1UWF1rv0fD7PPJ6LeO0B9hbMWr+JvQ+YJ1HQkMuxbsDf39Ty7mMfKV2ryZNGSWhXytzw/z6Fx2BJw4VNvPOmx8FI0DKw+AhVrB551FC0ZuwHXpFMgSEgFVOvki4GrdEmOQVagSqPRml1kEXOLmq9dq4W2PCaHVDlh+VCraIe2nRuL2wuek+n1dPZ08IUD5blURMATLVjbQZ3bkwvhtC/ySdMRYEtYXxVzZt1WvSiJsnit9x7l6a+UijtkePLtlMJXZ2qSOtBw/9wtwMriOmVKf/EdzYH0QbkVlJd8T7jM5vfGcrgrO6zhiVmHPtTyKK0PtrnmZqXoTaaVPXjqYOKv25hi5QrkSmzR6y1L4qJLFiNrA1CPeGCKGC4vT1MKeL/S5bzWoNX3SbWBIYfnYH2jKEnwe3sU+0NlWaTw0+x/Ij7b++pMrTlbA19WD7QcQWYdHzD4r5YxuYqBeMNcWwNSlcAO2MjrRN4RNnY1ZnV9enLEIOcNpQnzRjeYVjdSUfz05KMHCk1R6nYD6D3CEHwdKR2B1UaaGuEGqKZ/I88+qUJd
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR12MB8147.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(6133799003)(22082099003)(18002099003)(3023799007)(10067099003)(261102123227099003)(11063799006)(4143699003)(261021121427099003)(261026140227099003)(261022105027099003)(56012099006)(261026121527099003)(261022075727099003)(261009223027099003)(261028144727099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a2UvK3NUUWJ0bUF2L0hsTGI1dVR2YkVWcmpvaFJIY2VkSkFPZ0xNai9obHdp?=
- =?utf-8?B?a3diVE9IRWRwV2RnSGRqRkM0bHNQNkxFVTBJMUFxLzBXcHptVXBVcWQ4b09M?=
- =?utf-8?B?OURDSjhXR0pIdktIWTVzYldta0lHOVRENStSS1lqckFTVGZZbzNBb3NSS3U5?=
- =?utf-8?B?ZnRFR2FPR2lMaWdKYVV5ZE9IeVpkZG85eEUzVXcxZWFOSjB0RGlHeVc0MmpC?=
- =?utf-8?B?cmUwR0VyclQ1ck5icHZRWTUxaGVkNnJMSy9TL2lMSGxIOXZ2THdNQ3c5VGlx?=
- =?utf-8?B?M3ptUzgzb0tRZjFlNW5DakxOdjh6UHdMZDNLWWlZOUMzVjRDVmp0cFNzTkhs?=
- =?utf-8?B?aVdrVnlRVE03RmRna09TYTdnQXdQVTVaWkNRTlJZeC9XWnNvVjdoamNiMmxT?=
- =?utf-8?B?ZkMyRlhqZm1TbnJubGZER3BmRFJ3dFovQVRET0REc3RYRUdpSkZKblhpbnM4?=
- =?utf-8?B?Kys2Z29EMStTb3VZd2NTbU1qRWtpZHhZWVZJYmlaUlBGemdsQWdBSnZodUs3?=
- =?utf-8?B?VDhiWHN2SGNBdDM1N3Bwb3FNam1rbE9uZzFYWE5JVURVNnRudEczRmdPbytR?=
- =?utf-8?B?TEkwNnR2QmZvaEI0MFpSeFFwMkRwcTFwM0dQOWtnZzlta1BLTU1zNU8rRmlX?=
- =?utf-8?B?Sm9rcmZDYUU0R2pXMTRndnVHZE1vQ2oxVEpCbFVjV3ZFVkdsVCt4QU5KOU15?=
- =?utf-8?B?eitESjdCT2ozL0V4MUc0UHdQWWhGQkFid3FMRE1OUHBITUJLSG5WSDFRRTdH?=
- =?utf-8?B?MmpOMjVrYTFTWndaaTEzaXQxSi94OTY5YzA1eEh4QTdlM3dwOXdSZmIzbzhX?=
- =?utf-8?B?SjRrU0MwaHJOZit3RGdjMno5YmJVTnlRcGpnZFlPVjBJb2thN2RWUVlUUW9B?=
- =?utf-8?B?Wk54V1RkUUVUSm9JOXZ1WG1NcDBQeTBlT1k2bE1TWDFvRTZISXd1K0NLays2?=
- =?utf-8?B?TFdkYysrbmtQWHNoZHhnSlFhYWFjc25MazRITHZpWTNoemh4UGdycnhiMExp?=
- =?utf-8?B?L2V5K0dkYTdzZmZVUmhyS2lzbGhXM3gvblFSd0lCVy8ydjJlTEttcUhFUlpq?=
- =?utf-8?B?YUI0ejdBY2JLN01udkNSWmovTzN1MDJOU1o5NTVtajFlaEtneEViT0VMM3g1?=
- =?utf-8?B?NVRGL0FFcW1idnNTY2wwRFgwSXU3cmRSZ2plb2ZvczcxRStSOXVLby8zZ2Uy?=
- =?utf-8?B?M2ZvbWNLT3V5RnloOUV5bWgzOVFFb1o4ODQxVGtNWkhmNWxWbVllMFA2OTlL?=
- =?utf-8?B?dHJ5OCtQV3JYQTdKdVYyNG44Y3lYWlNSdW5UN21VZ0lMNytCbjcyNHh5b2Jz?=
- =?utf-8?B?V2QvWmNzYWJUNG9DMk80bjFaelRNRE9nWXMzUHJycG40NC9kN1E1MUt1anNS?=
- =?utf-8?B?anRTcE5uOVZaWXk5V2YwV1BhV0IrZ09pb0owMTdzdWdNdm9icUcwRHFIWk1s?=
- =?utf-8?B?T0daUERwL2RaTmdFdlQyd09QTzVrOFpIYlBqYnZRV2lNNTJCb2dVdWlxN0Zx?=
- =?utf-8?B?dGhrRldybjczcjAyQmhXR3FGZWU3ZXVBaUs4cE9KTEZaTGpXaTg4SHRYNVpN?=
- =?utf-8?B?VGJQUmdDdTUzUnhyV1VXWUgvZnJ6SGRhMTY5QjczcUlzQnpqNWtpOHBLelgz?=
- =?utf-8?B?T0VETXBZdGJhS3hSU3FSQjI5R1pzbWVua3pWaGtZYnl2MTRjN21kL3dhUW14?=
- =?utf-8?B?akhEaG5Tc1hqRkJuMFRaYjMwUkJXb2RKaHgyelZ3TkhYeEFuWnpWOTlHWkNn?=
- =?utf-8?B?NXloSWRhZFpZMmp4L2tUcHhUVzE5aXVWb25WZmhuK2hjUnJpY29XRjNpeUF4?=
- =?utf-8?B?SlEzVnVIdElTMVBDMEhmekVTTExPb0xsTm9USEp1Mzl5V3RNMDJiUFd4VE1i?=
- =?utf-8?B?ZklXd1JQcnFnQjB2ZDgvQnI5M2pTdTllUVdOYnFRb1o0Z1Q4SlF2N0p3bFZN?=
- =?utf-8?B?YTJLUUhoMXk2L05oZ0YvV0tscVdjcWFiNWlMRmtvKzFzUmxoRWVNSFBkOUhu?=
- =?utf-8?B?bk1QV3MvRGp2Z0pFa2wwem1kWEhCYmVoSm1RUFo5ajR5UnFIL1JVQXRUcmtY?=
- =?utf-8?B?bXRmOGJWYmVWMkY2WURyNG11SFJNaGJjeHo0MzhlQ3RGUWpBSkdDajh2cGtS?=
- =?utf-8?B?NnEzcjkrVGxlRjZ0Wm81MHRTRFh3dVRWc1VTZms4dlZRVFhRV3ZUMUc2Qjh1?=
- =?utf-8?B?MGtEYW5Ja1RhVG4xUFJRSDErc1U3UHdQWmVuQUlzWFRiZnpKUzdEeG1MWlVU?=
- =?utf-8?B?bWh6clJZZEVsZDRVREIvYmVkQTVqeGExR3c4UE5nckV5cVo1TGNzSWowVTM1?=
- =?utf-8?Q?qaZTx/cfIfxGauKPUD?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f33a8ebb-ff59-46d8-9239-08df39a7b46c
-X-MS-Exchange-CrossTenant-AuthSource: SN7PR12MB8147.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 12:40:56.0502
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: x+/cvT1xtftGoEE49y/PJ3O1lDiWCunU5zxHTs3ong/AWPKpr8Ns1TEG7O73w+v4
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7468
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <82f1a3227685b241938ccb500b97d1e73212bf36.camel@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_044105_652045_9523E082 
-X-CRM114-Status: GOOD (  22.06  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261103_044848_589850_2AE55819 
+X-CRM114-Status: GOOD (  16.16  )
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,200 +97,90 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Rob,
+Hi,
 
-On 10/21/2026 8:46 AM, Rob Herring wrote:
-> On Tue, Oct 20, 2026 at 11:58:11AM +0000, netdev-bot+sashiko@kernel.org wrote:
->> Thank you for your contribution! Sashiko AI review found more severe
->> issue(s) in other patches of this series. This mail is only an FYI, in case
->> you want to address the nit picks below when you respin.
->>
->> Low priority / nit picks for your consideration:
->>
->> - [Low] In Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-
->>    ethernet-mac.yaml, the ethernet@ node's dma-names (lines 81-96) does…
->> - [Low] Concern: tx-queues-config only enforces a lower bound tied to
->>    xlnx,num-priorities, and the rest of the checking is left to a driver…
->> - [Low] The child compatibles in
->>    Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-…
->>
->> --
->>
->> dt-bindings: net: add Xilinx TSN Endpoint Ethernet MAC
->>
->> This adds a YAML binding for the Xilinx TSN Endpoint Ethernet MAC IP in
->> its Bridged Endpoint configuration. The wrapper node owns the shared
->> clocks and xlnx,num-priorities. It has two children: an xlnx,tsn-ep-mac
->> endpoint that holds the DMA channels, and an xlnx,tsn-switch three-port
->> switch with its MDIO buses and ports.
->>
->>> diff --git a/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
->>> new file mode 100644
->>> index 0000000000000..bca834120b3b1
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
->>> @@ -0,0 +1,491 @@
->> [ ... ]
->>
->>> +properties:
->>> +  compatible:
->>> +    const: xlnx,tsn-endpoint-ethernet-mac-3.0
->> [ ... ]
->>
->>> +patternProperties:
->>> +  "^ethernet@[0-9a-f]+$":
->>> +    type: object
->>> +    $ref: /schemas/net/ethernet-controller.yaml#
->>> +    unevaluatedProperties: false
->>> +    description:
->>> +      Endpoint MAC sub-node. Provides the host-side data path through the
->>> +      DMA channels described by its dmas / dma-names.
->>> +    properties:
->>> +      compatible:
->>> +        const: xlnx,tsn-ep-mac
->> [Severity: Low]
->> The wrapper compatible is versioned (xlnx,tsn-endpoint-ethernet-mac-3.0).
->> The child compatibles here and on the switch node (xlnx,tsn-switch) are
->> generic and carry no version.
->>
->> writing-bindings.rst asks for specific compatibles, with no device-family
->> names. For sub-blocks of a bigger device, it asks for device-based
->> compatibles.
->>
->> If a later IP revision, or the planned Endpoint-only variant, changes the
->> endpoint or switch register layout, how would these child nodes be told
->> apart? The endpoint driver later in the series matches only on
->> "xlnx,tsn-ep-mac" in xlnx_tsn_ep_of_match.
->>
->> Should the child compatibles be tied to the device or version, the same
->> way the wrapper compatible is?
-> It's fine. Being specific is less important given there's a specific
-> parent compatible.
->
->> [ ... ]
->>
->>> +      dma-names:
->>> +        minItems: 2
->>> +        maxItems: 16
->>> +        items:
->>> +          pattern: "^(tx|rx)_chan[0-7]$"
->>> +        allOf:
->>> +          - contains:
->>> +              pattern: "^tx_chan[0-7]$"
->>> +          - contains:
->>> +              pattern: "^rx_chan[0-7]$"
->>> +        description: |
->>> +          Names matching the entries in 'dmas', one per DMA channel and in
->>> +          the same order. TX channel names use "tx_chan<N>" and RX channel
->>> +          names use "rx_chan<N>", where N is 0..7. At least one TX and one RX
->>> +          channel are required. Example: "tx_chan0", "tx_chan1", ...,
->>> +          "rx_chan0", "rx_chan1", ....
->> [Severity: Low]
->> The description says the names are "one per DMA channel". The v3
->> changelog says "Cap TX at 8 and RX at 8 channels". Does the schema
->> enforce either of these?
->>
->> Without uniqueItems: true, dt_binding_check appears to accept a 16-entry
->> list of fifteen "tx_chan0" plus one "rx_chan0". It also appears to accept
->> "tx_chan0".."tx_chan7", then "tx_chan0".."tx_chan6", then "rx_chan0".
->>
->> dtschema doesn't add uniqueness to -names properties by itself. For
->> example, renesas,drif.yaml lists "rx", "rx", while renesas,sdhi.yaml sets
->> uniqueItems: true on its clock-names.
->>
->> Could uniqueItems: true be added here? The pattern only allows eight
->> names per direction, so that would also enforce the 8 TX / 8 RX limit.
->>
->> Later in the series, ep_count_dma_channels() rejects duplicate TX and RX
->> names at probe time. So the runtime result is a DT that passes schema
->> validation and then fails probe.
-> IIRC, dma-names is the exception here. So yes, you should add
-> 'uniqueItems: true'.
+On Tue, Nov 03, 2026 at 08:33:51AM +0000, Chunfeng Yun (云春峰) wrote:
+> On Fri, 2026-10-30 at 09:56 +0100, Mika Westerberg wrote:
+> > On Fri, Oct 30, 2026 at 04:25:39PM +0800, Chunfeng Yun wrote:
+> > > When usb4 enter sleep mode, echo 1 to authorized of sysfile,
+> > > will wakeup usb4 driver, but fail to create pcie tunnel, cause
+> > > the warning due to a race condition between switch disconnect
+> > 
+> > It's router
+> will modify it.
+> 
+> > 
+> > > during resume and user authorization
+> [  278.831186] usb4_hi NVDA8100:00: 0:1: is unplugged (state: 7),
+> retrying...
+> [  278.943031] usb4_hi NVDA8100:00: 0:1: failed to reach state
+> TB_PORT_UP. Ignoring port...
+> [  278.951125] usb4_hi NVDA8100:00: 0:1: lost during suspend,
+> disconnecting
+> [  278.957819] usb4_hi NVDA8100:00: 0:4 <-> 1:16 (USB3): deactivating
+> [  278.964794] usb4_hi NVDA8100:00: deactivating USB3 Down path from
+> 0:4 to 1:16
+> [  278.972737] usb4_hi NVDA8100:00: deactivating USB3 Up path from 1:16
+> to 0:4
+> [  278.980504] usb4_hi NVDA8100:00: 0: TMU: mode change off -> bi-
+> directional, HiFi requested
+> [  278.991265] usb4_hi NVDA8100:00: 0: TMU: mode set to: bi-
+> directional, HiFi
+> [  278.999511] usb4_hi NVDA8100:00: 0:1: total credits changed 66 -> 66
+> [  279.006408] usb4_hi NVDA8100:00: 1: link width set to symmetric,
+> dual lanes
+> [  279.013763] usb4_hi NVDA8100:00: 0:7 <-> 1:9 (PCI): activating
+> [  279.019587] usb4_hi NVDA8100:00: activating PCIe Down path from 0:7
+> to 1:9
+> [  279.026468] usb4_hi NVDA8100:00: 1:1: Writing hop 1
+> [  279.031335] usb4_hi NVDA8100:00: 1:1:  In HopID: 8 => Out port: 9
+> Out HopID: 8
+> [  279.038546] usb4_hi NVDA8100:00: 1:1:   Weight: 1 Priority: 3
+> Credits: 32 Drop: 0 PM: 0
+> [  279.046536] usb4_hi NVDA8100:00: 1:1:    Counter enabled: 0 Counter
+> index: 2047
+> [  279.053834] usb4_hi NVDA8100:00: 1:1:   Flow Control (In/Eg): 1/0
+> Shared Buffer (In/Eg): 0/0
+> [  279.062259] usb4_hi NVDA8100:00: 1:1:   Unknown1: 0x0 Unknown2: 0x0
+> Unknown3: 0x0
+> [  279.069730] ------------[ cut here ]------------
+> [  279.074335] usb4_hi NVDA8100:00: PCIe Down path activation failed
+> [  279.080426] WARNING: CPU: 5 PID: 2433 at
+> drivers/thunderbolt/path.c:587 tb_path_activate+0x1a4/0x5b0
+> ...
+> [  279.220285] Call trace:
+> [  279.222722]  tb_path_activate+0x1a4/0x5b0 (P)
+> [  279.227068]  tb_tunnel_activate+0x140/0x498
+> [  279.231241]  tb_tunnel_pci+0x180/0x490
+> [  279.234980]  tb_domain_approve_switch+0x74/0xb0
+> [  279.239500]  authorized_store+0x214/0x270
+> [  279.243498]  dev_attr_store+0x20/0x70
+> ...
+> [  279.288888] ---[ end trace 0000000000000000 ]---
+> [  279.293497] usb4_hi NVDA8100:00: 0:7 <-> 1:9 (PCI): activation
+> failed
+> 
+> 
+> root cause:
+> 
+> The warning were caused by a race condition between switch disconnect
+> during resume and user authorization:
+> 
+>    1. While the system was in runtime suspend, userspace executed:
+> 
+>        echo 1 > /sys/bus/thunderbolt/devices/0-1/authorized
+>    2. Writing to this sysfs attribute woke up the USB4 controller
+> (nhi_runtime_resume).
+>    3. During resume, the downstream port 0:1 failed to complete link
+> training within the timeout and was declared lost:
 
-   I tried to add uniqueItems: true under dma-names and I observed the below
-   error:
-
-       xlnx,tsn-endpoint-ethernet-mac.yaml: patternProperties:^ethernet@...:
-       properties:dma-names: Additional properties are not allowed
-       ('uniqueItems' was unexpected)
-         from schema $id: 
-http://devicetree.org/meta-schemas/string-array.yaml#
-
-   As per my understanding the core DT schema already has uniqueItems: true
-   for dma-names:
-
-https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/dma/dma.yaml
-
-   I also tried to reproduce the negative test scenarios reported by
-   netdev-bot using:
-
-     make dt_binding_check DT_CHECKER_FLAGS=-m \
-  DT_SCHEMA_FILES=Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
-
-     With DT_CHECKER_FLAGS=-m I can reproduce the reported errors. 
-Without it
-     those negative scenarios pass. As per my understanding netdev-bot ran
-     without DT_CHECKER_FLAGS, which is why it reported these cases as
-     accepted. As all the scenarios are rejected once DT_CHECKER_FLAGS is
-     passed, I am ignoring the warning and keeping the binding unchanged.
->
->> [ ... ]
->>
->>> +        patternProperties:
->>> +          "^queue[0-7]$":
->>> +            type: object
->>> +            additionalProperties: false
->> [ ... ]
->>
->>> +        required:
->>> +          - queue0
->>> +          - queue1
->> [ ... ]
->>
->>> +allOf:
->>> +  - if:
->>> +      properties:
->>> +        xlnx,num-priorities:
->>> +          const: 3
->>> +    then:
->>> +      patternProperties:
->>> +        "^ethernet@[0-9a-f]+$":
->>> +          properties:
->>> +            tx-queues-config:
->>> +              required:
->>> +                - queue0
->>> +                - queue1
->>> +                - queue2
->> [Severity: Low]
->> With xlnx,num-priorities = <2>, can a tx-queues-config that contains
->> queue0 through queue7 still pass dt_binding_check?
->>
->> The ^queue[0-7]$ pattern accepts every index from 0 to 7. The if/then
->> blocks for num-priorities 3..8 only add entries to required. So the
->> schema has a lower bound tied to xlnx,num-priorities, but no upper bound.
->>
->> Later in the series, ep_parse_tx_queue_config() rejects queueN with
->> N >= num_tx_queues at probe time, so only schema validation is affected.
->>
->> Could each if/then block also set queueK: false for K >= N, so the
->> schema rejects these nodes too?
-Understood. I will address the upper bound check in the next version.
-
-Thanks
-Neeli Srinivas
-
-pw-bot: cr
-
-> Shrug. Sounds too complicated.
->
-> Rob
-
+Okay we get the warning but the bigger problem here is that why the link
+does not come up anymore? Unless you unplugged the router as well.
 
