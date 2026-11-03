@@ -2,10 +2,10 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B74A260777A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:29:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD2F36077793
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:29:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=y7cN0fqA
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CVqNClSf
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
@@ -13,51 +13,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=+rMQRp29lqH7BqJxA2OZZYuZF6Au1HYKbj5cMX1rxtg=; b=y7cN0fqAbwh/4q3QB201ZR9PZG
-	18Ar/J2NZPZVQE70gtbNW697H4KkN21N7ZXQYF4/D5CPi2DnyacbnJX9s1azSTM9aon8qe93WiRRD
-	eqsru26j3e8n7Fe2/Web0KvgxGxUS51MfPkymiJpxn7yaWrG57HgxrQaNYbWlCpbtHJTXPkZ7tyj+
-	fV2mTgLNsAPEZLvXyWEDzFi0FWpVYEz20jNpKbpQhGC5FDtpZ7UoUJtOybZ5ka2fnKyAv9DH2kWA0
-	Lp2I1VHWjmYYFtsP74g2d4+jRVn9Few9Zr2P+wpzkniXa0S253NJJWeuWj1HuQsCva+pPyEx6+BFG
-	3WnNNCUg==;
+	bh=SH6pWyjcaIWCi7EaeIAaLCITGwbCLBmKt3Bf613xvM8=; b=CVqNClSfNVA9P/gUPfJANlt/Ru
+	5iJq5oKcV8ypa4P/VS0sb+/9AWJBsIpbHzDJXHy0lmtViIGZmPmBR8EPSoQBzkAriZ7olUaHy/Uyt
+	njQ7dIh9SW1pNThOtsgfVrXSzsaPf/fSe0XOiyNe9sdESm6Va7wafJZtUu8aQH2VvhXcDlg47vHhf
+	dFzqmtUL+J5qzeztObUZ04RXHrfATgkmh+IwPfUSZIkTRIjx1M3GG/eUh7BjDbt2s3qsHudYnw6pH
+	uNBs1FaSNUOHIXDDjuyqRzxhQ8UssGf/R9FIaR+FcWWQJWUJPVYLLiYPMXIZ/DJuRynTIkWp4bTt4
+	fk4ws8SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBlC-00000001zwj-2DNH;
-	Tue, 03 Nov 2026 10:28:58 +0000
+	id 1xOBl9-00000001zuU-1Cwb;
+	Tue, 03 Nov 2026 10:28:55 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBl7-00000001zsr-0XqO
+	id 1xOBl2-00000001zrS-1gJc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 10:28:55 +0000
+	Tue, 03 Nov 2026 10:28:49 +0000
 Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowACHkpNft+lqqak7AA--.3162S2;
-	Tue, 03 Nov 2026 18:28:47 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowAAHF5hdt+lql6k7AA--.3080S2;
+	Tue, 03 Nov 2026 18:28:45 +0800 (CST)
 From: Wentao Liang <vulab@iscas.ac.cn>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+To: Daniel Machon <daniel.machon@microchip.com>,
+	UNGLinuxDriver@microchip.com,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
+	Steen Hegelund <Steen.Hegelund@microchip.com>
 Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Wentao Liang <vulab@iscas.ac.cn>,
 	stable@vger.kernel.org
-Subject: [PATCH] net: stmmac: release MDIO node if bus data allocation fails
-Date: Tue,  3 Nov 2026 10:28:56 +0000
-Message-Id: <20261103102856.1340705-1-vulab@iscas.ac.cn>
+Subject: [PATCH] net: lan969x: fix page pool leak when RX DMA allocation fails
+Date: Tue,  3 Nov 2026 10:28:54 +0000
+Message-Id: <20261103102854.1340615-1-vulab@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowACHkpNft+lqqak7AA--.3162S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Cw4DuF1kWw43Aw1rtryfXrb_yoW8Gw4fp3
-	9rCa9Fyr95Grnrtw4kJw40vFy5CayayrWUGa1Iqanavan8GFyaqr1aqrWjvasrGrWDW3W3
-	tr109r47ZF1DAwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9a14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+X-CM-TRANSID: rQCowAAHF5hdt+lql6k7AA--.3080S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJryUArWkuw4rXry8XF15twb_yoW8Xr45pF
+	W5K34vk39Fgr43J3WUGrs7A34Uta1FgrWDWF97C3Z5u34rGr45Cr1UAa43Xr1UJrWxGF4S
+	yF40ywn5CFnrC37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9I14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
 	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
@@ -66,15 +65,14 @@ X-Coremail-Antispam: 1UD129KBjvJXoW7Cw4DuF1kWw43Aw1rtryfXrb_yoW8Gw4fp3
 	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
 	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
 	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
-	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r4j6r
-	yUMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVWU
-	JVWUCwCI42IY6I8E87Iv67AKxVWxJVW8Jr1lIxAIcVC2z280aVCY1x0267AKxVWxJr0_Gc
-	JvcSsGvfC2KfnxnUUI43ZEXa7VU8jQ6JUUUUU==
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAQAA2rpnOFxAgAAsG
+	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r
+	4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
+	6r1xMIIF0xvEx4A2jsIE14v26F4j6r4UJwCI42IY6I8E87Iv6xkF7I0E14v26F4UJVW0ob
+	IYCTnIWIevJa73UjIFyTuYvjfU7nmRUUUUU
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAIAA2rpnOFw-QAAs+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_022854_366210_B9600996 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261103_022848_820790_D5A73D19 
+X-CRM114-Status: GOOD (  10.95  )
 X-Spam-Score: -0.9 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,38 +91,39 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-stmmac_mdio_setup() looks up the MDIO device tree node and stores it in
-plat->mdio_node before allocating plat->mdio_bus_data. If that allocation
-fails, the function returns -ENOMEM without dropping the node reference.
+lan969x_fdma_rx_alloc() creates the RX page pool and then allocates the
+FDMA coherent memory. If fdma_alloc_coherent() fails, the function
+returns without destroying the page pool.
 
-The caller jumps to error_put_phy on this error, which only releases
-plat->phy_node and never reaches error_put_mdio, so the reference taken
-for the MDIO node is lost. Drop it before returning.
+The failure propagates out of lan969x_fdma_init(), and
+sparx5_frame_io_init() then marks the FDMA IRQ as unavailable, so
+lan969x_fdma_deinit() is never called on teardown and the page pool is
+never released. Destroy it before returning the error.
 
-Fixes: 1a981c0586c0 ("net: stmmac: Make MDIO bus reset optional")
+Fixes: d84ad2c0d80c ("net: lan969x: add FDMA implementation")
 Cc: stable@vger.kernel.org
 Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
 Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 4 +++-
+ drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c | 4 +++-
  1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index 3ea16d618215..36f31bad11ca 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -355,8 +355,10 @@ static int stmmac_mdio_setup(struct plat_stmmacenet_data *plat,
- 		plat->mdio_bus_data = devm_kzalloc(dev,
- 						   sizeof(*plat->mdio_bus_data),
- 						   GFP_KERNEL);
--		if (!plat->mdio_bus_data)
-+		if (!plat->mdio_bus_data) {
-+			of_node_put(plat->mdio_node);
- 			return -ENOMEM;
-+		}
+diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
+index 053d125eda65..bc293ba1707d 100644
+--- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
++++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
+@@ -169,8 +169,10 @@ static int lan969x_fdma_rx_alloc(struct sparx5 *sparx5)
+ 		return PTR_ERR(rx->page_pool);
  
- 		plat->mdio_bus_data->needs_reset = true;
- 	}
+ 	err = fdma_alloc_coherent(sparx5->dev, fdma);
+-	if (err)
++	if (err) {
++		page_pool_destroy(rx->page_pool);
+ 		return err;
++	}
+ 
+ 	fdma_dcbs_init(fdma,
+ 		       FDMA_DCB_INFO_DATAL(fdma->db_size),
 -- 
 2.34.1
 
