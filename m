@@ -2,94 +2,99 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0F1E606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 13:23:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AADA606EEA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 13:26:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=P3GW6fHx;
-	dkim=pass (2048-bit key, unprotected) header.d=ffroot-co-za.20260707.gappssmtp.com header.i=@ffroot-co-za.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=MSrXLDdL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=H3BfpgR6;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MM26Ib2t
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=LYqgeXyiX8XVMyFZcD47JEncntf0/UCmpJA/xWCOZns=; b=P3GW6fHxdt7dxILaj6ruuPvQYz
-	gfk/1EwsoAiXq3pNDG8DtgflS1wI9r8TREuC0Pd7NTJ6uEcza/vc6gIO+ZNgcUYwr4VH28Od+810M
-	dhTGT1VrLl+fAsXL+v9yuAd14Z/I96EyGN1sBXKEaTl0oQb6myBH3MfcLeaeASs7K2Nu0SEcUYOWY
-	KpNBHa1xelVgyCk+3wHTwtqwRoKitwbkCxk8/qc/ycSRO18WPmQ0uraGaKcjTZSpLJr3b3DXxmg4x
-	48tnAOLxXESUlCTx6ND7Zz2JfrVsouzhKzOxZ9TD9M7Yy1mHmBvJMY3auqElWIQg92IxtryYr9HFJ
-	EAmhzb2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=iyxcrfJd2R6utTsQVGbm2c3rEERhlQ+yqDUDF6loNwA=; b=H3BfpgR6zQLJUX
+	aVWWdlO43TriOdMHiPSnBYAIu58M9qYLETY0TZNQrgJju0s51NyGp9+k4/gzUJHaAtixsgQhcUxPV
+	QSUWVnpGxilijHN3LL8/7C0csOowr/shhUYYIMtS4N/HgJKkK6VJjFSKvhOksrzNBMLHafnS7is29
+	u2Q7QkNPFWWoyoWYDy3PUSl4MCTXGupj3h5A+gwCe8Chdd0Lh4wt9R/viG79yk6+vWI8/0h73/YM6
+	T1id1HmGds8Vus94d3tOg9o4koJBg3Fs9WQhZx8ASpn2ohuLDMxy9uiV6o9xKJ1WEIn/4w2WJqGyp
+	BjcdHSQCx42sMErHMpfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOEUS-00000002XUy-3VJl;
-	Tue, 03 Nov 2026 13:23:52 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1xOEWd-00000002XjQ-0Kzr;
+	Tue, 03 Nov 2026 13:26:07 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOEUM-00000002XTR-3jpW
+	id 1xOEWa-00000002Xi1-3ZaN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 13:23:50 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4a60f9474c4so42443285e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 05:23:45 -0800 (PST)
+	Tue, 03 Nov 2026 13:26:06 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-48afcd7ba9bso2426829f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 05:26:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ffroot-co-za.20260707.gappssmtp.com; s=20260707; t=1793712224; x=1794317024; darn=lists.infradead.org;
-        h=content-type:mime-version:message-id:date:user-agent:references
-         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=LYqgeXyiX8XVMyFZcD47JEncntf0/UCmpJA/xWCOZns=;
-        b=MSrXLDdL4ZkxiOzoguD6GKyS69seAqvKy0xTrDYPswY4WkAQbb6PDJNsi4sOKpb247
-         xgRbtOe64BekFcWqeUAOZ8064WpmhF6ftwg+3u+1AB6+XQ8mqEWp10So6ip6hDCDXJNd
-         Qfg8O2l2FplKRbhL0LoVmoeGD8NGgyQIITu6BdQ6i2hg8I8x69GFhWZCtosVrJnRn5HW
-         SvUIU4qXRAKPC7sIJdRUXBldCIfEU0FYsg5ILD/PjZHnGA0OULrzz2ZwYlds7nGTCrMI
-         jSIv4UoDTSanbbuWQBRouOdGl43bxthhKKYgmcgkohzlNm3JXHnmI/toFb7XBH5MMVIG
-         zzKw==
+        d=gmail.com; s=20260707; t=1793712361; x=1794317161; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=iyxcrfJd2R6utTsQVGbm2c3rEERhlQ+yqDUDF6loNwA=;
+        b=MM26Ib2tlSB2fnBKGlMgKuAqGKsuwuYIUo9hBxuF4QPrgg/ZKsHcT2y4BVDGutgVzw
+         Xe4QkZBbrtBI3UBrNIPzebRSFpFU89uIQ/1QB2hPBJ9BEB2yA2OvKQ+4AWiJ32QjP8Tz
+         qEqN0KeGwWAaW0ofpb9TxtAp2pwYq16v1lhkPKa6QO79pGAcqUCQj+d1fHwfyn0Ynf2s
+         yxTxshMYat88gzasrpHmrN+xqg10XNU4ZpprwP05NbUkW0Ss0iHAZVoqayxgIVX6NJVh
+         ZGeP4qy02Y7oQb/kxzC+LyF6detLJu17WOk/tvVB8arZnZpm73MJoc5InGAXvusBXCtG
+         wOdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793712224; x=1794317024;
-        h=content-type:mime-version:message-id:date:user-agent:references
-         :in-reply-to:subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=LYqgeXyiX8XVMyFZcD47JEncntf0/UCmpJA/xWCOZns=;
-        b=eyHekOD/Ia3zgJv164AaAQjvTqgfcEU1tx6g63FAintZfGpYWythW4t8rjBsETjhvn
-         RF/8s2jEacU2+v8sfOf+O5l1gIEzYglTJK9SC28yGMkyZ3pwahDqYbhB1z0+pDP61fBh
-         U8jqs/U53YcmtKMRcivubWEyq5Nv8zoo+iSZGh44KgIDcWUgrqOo86DFP6Yw2M6aE13a
-         ZJBAMVVdjIOTvKXQuluR4M7Dob6Qjl4TEsD4+b9IJpXQw8sCl+fHJV+JxyqKmFMSqcie
-         Y5qWzZzIWgGiN+oWEMGn2SoOUOnwCztoxcFrOa29RG5JmvDB/6B+uFj9dhHb26mV394p
-         NIEg==
-X-Gm-Message-State: APuU4Z+aSo5XFdgYaHovIcuZBPg4me/rd4H6zfAmCNo07Q+PPoIYVXC8
-	fyiVq0bOeKZCXFd5AGqPEBYPi0pgiKk1oPi4sGjkFs60yNV5xFeDE4Y4EqhEzWBiJ50=
-X-Gm-Gg: AYBFou2J9+P6D7W5Ay/RZLt7v6biTBG0D7pVYoqJ0R4a5/JrwnSJESNbAH9F+m+WgtF
-	1e9/mXXb5YoYGKLGc91egd5muMSBabkzr8R7fb2MwVVy/iCBShoYNR4We2m21iwZdjrLNH4+uDj
-	iH4hnqJmP1oIa35gSVOJBnrhk1dvwFdymq+ebiDZCoFobQx/W0cWbq3iwz7Y456vm+oiZT4uiKL
-	YQJgAaaWZ+k8DfGpPXaz55YCi42Zq0LjbPLU118udpw0ASa76T0ROAwbNjuW1ogNmELfTVcxeZe
-	FsYqd0ThLB/KempKyirXwJKeYz1GtJMSx5qSqvbE26vRNx84vW8+euatSWa+EKLmlsPHDIgnyOc
-	elX3Oq/tBpt68iu2ZFp9a20e1xJEEzuM2xLHHaurxzzTh9SokoRVe8WEO52XjeyW3a4DAFy/46G
-	AsbGDDsJ43un0DtM0JaeLo4PxJbfTLqWLixLQminU1B+ESgfAAwBWiXX+hueEbASly9RNLbmKQb
-	dk3j7wCaIwuN3X0sIoR7AUmagL0aVljYokPgqnnoNTkn+4PLdvdaFGIh6iQfyPSRMO0231Nn6FY
-	Ii6FziSAVlWYzjKseq/Khhud1tpzTOWayFhM6iZB4CDT6D+V2FIxjIEEVw==
-X-Received: by 2002:a05:600c:e547:10b0:4ad:5e09:ae43 with SMTP id 5b1f17b1804b1-4ad5e09ae61mr139983985e9.29.1793712224232;
-        Tue, 03 Nov 2026 05:23:44 -0800 (PST)
-Received: from andrew.office ([192.145.132.58])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4ad414e298bsm163615055e9.2.2026.11.03.05.23.41
+        d=1e100.net; s=20260707; t=1793712361; x=1794317161;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=iyxcrfJd2R6utTsQVGbm2c3rEERhlQ+yqDUDF6loNwA=;
+        b=lleykE3PNPVaVRyvfXVrL9nJSiT4fTGWM9hLt4Y/jjlKuE/2eKz3tOPWGrZvgwC3xw
+         8q265+IvAvSF5aFgcrIQk/7PFvy04HbEqsqWJbPhUiXuqGRVoLWvB7C5jx0ki4udtZ5a
+         9frSoTV7pa8MwePXzVYWWlQcVmng09TlVFY0vMS0ElO5xh/BPF8gpln/3UxOgtIiQN79
+         xTd1AasZvMYvR7pIH5g9OkzzMjWqslamxelQpqrdEMoEGIduprI7MVrGPqkXKWL1Tn3R
+         yLJEiySIRdiEUaTsbtT26cIhEbPJqNw37s7PqcC4Ju6tpZeyNnSizW0wXObUx+Ci15oZ
+         PdtA==
+X-Forwarded-Encrypted: i=1; AKwUvBwX7TeiER3rMohJpYRIBSl/T2vn+l9txfmvSut97IfVIY+jF7lCLODX9GguFuE2SmMNJhHuTdd4kiXmnfh0qBP4@lists.infradead.org
+X-Gm-Message-State: APuU4Z8oCbjbBGK4Hrc4vkoMhB2cMmiMrX5gLS1/IuRdmYsqlntzVcs2
+	d1tMasYxhorK2l7C+b0pTyjB4G6z4QwU217ySPfRSVPfac6wBvI9hI/l
+X-Gm-Gg: AYBFou0v5Bue6ZDkDQIQy124DxS0Ecoh8yEhZNSpI14nPm8yOH25g9QM2bdiF6bbzc/
+	qfREibY7JmAly2xmoyRbNP5F6RCT/xBlTyL5X/9Mb9QQIsM939YpTTdb21SYUvO10mxZHOaLZMQ
+	Ng08xYMBClh+Dn/6xtAdneHMlho8ZDtWgchG02SE0Bbd4nctij5Oda0po4yW8c7pbklzRk4VrV1
+	tAWy7U4QvaLjb50WO3keNAallB1q/iEYft9ieVXdpWWFaHWwvns7XcDqH0e3lZpS46iAp2iZCaR
+	q/POn4n6Flq4TF7b5Ax2U0LwXQSSChN/P4o2cxCB+nBb3pEk4yOLWcmWk2kjfp2soAMbW5W42Rw
+	i2UD9UQOhm2k7wzbqE2XA4PpSLDePzaQMxDp2cA9v4ydfwtlUMoL5luzBSqyTSjRZw5+3ehqot7
+	F431J8h/tYBkGdhPqT8Y4B/jXitBwCIABf96adRvfst25Eq4v6pVrUHkFVe9GfexXJhB/c/6Uba
+	73GmycIuXwpK/cm3y4h7egzWzfBbjU6w2SpUEg3bYzUpLhP6QgtM63w+x6h7omzXgX53D8oWcLB
+	JHoSMrKDvNpznMj1BxskMD0Gc5gLh9HHDK6GGOhUuIjjNMU2KPQW3f7jXfR4qSTL1u5km53udXJ
+	OPF0=
+X-Received: by 2002:a05:600c:46d2:b0:4a1:d537:1c8d with SMTP id 5b1f17b1804b1-4ac187a6a38mr302145995e9.19.1793712361435;
+        Tue, 03 Nov 2026 05:26:01 -0800 (PST)
+Received: from kreach.multipass (nat44-21-238.net.ruhr-uni-bochum.de. [134.147.21.238])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b2a82cebc1sm84725725e9.1.2026.11.03.05.26.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Nov 2026 05:23:43 -0800 (PST)
-From: Andrew Gaylard <ag@ffroot.co.za>
-To: linux-arm-kernel@lists.infradead.org
-Cc: devicetree@vger.kernel.org,  qinjian@cqplus1.com,  robh@kernel.org,
-  krzk+dt@kernel.org,  conor+dt@kernel.org,  linux@armlinux.org.uk,
- soc@lists.linux.dev, arnd@arndb.de
-Subject: Re: [PATCH v5 0/6] arm: sunplus: add Tibbo LTPP3G2 board support
-In-Reply-To: <20260924164922.117236-1-ag@ffroot.co.za> (Andrew Gaylard's
-	message of "Thu, 24 Sep 2026 18:49:16 +0200")
-References: <20260924164922.117236-1-ag@ffroot.co.za>
-User-Agent: mu4e 1.12.14; emacs 30.2
-Date: Tue, 03 Nov 2026 15:23:39 +0200
-Message-ID: <sa6mrrqhwv8.fsf@andrew.office>
+        Tue, 03 Nov 2026 05:26:00 -0800 (PST)
+From: Jude Gyimah <jude.gyimah87@gmail.com>
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com,
+	heiko@sntech.de
+Cc: linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jude Gyimah <jude.gyimah87@gmail.com>
+Subject: [PATCH 1/5] ASoC: rockchip_i2s: select REGMAP_MMIO
+Date: Tue,  3 Nov 2026 14:25:33 +0100
+Message-ID: <20261103132537.3717496-2-jude.gyimah87@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261103132537.3717496-1-jude.gyimah87@gmail.com>
+References: <20261103132537.3717496-1-jude.gyimah87@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_052347_273125_70E41692 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20261103_052604_916247_9FE4737B 
+X-CRM114-Status: GOOD (  13.43  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,35 +106,52 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Andrew Gaylard <ag@ffroot.co.za> writes:
+rockchip_i2s calls __devm_regmap_init_mmio_clk, which
+drivers/base/regmap/regmap-mmio.c provides under REGMAP_MMIO.
 
-> The Tibbo LTPP3G2 is a board based on the Sunplus SP7021 SoC:
-> https://tibbo.com/store/tps/ltpp3g2.html
-> It is the platform that underpins Tibbo's industrial IoT products.
->
-> This series adds board support to linux-next:
+  rockchip_i2s.c:(.text+0x418): undefined reference to
+    `__devm_regmap_init_mmio_clk'
 
-Hi all,
+The driver can be built into vmlinux while REGMAP_MMIO is a module, in
+which case the symbol is not there at link time.
 
-Ping?
+Select rather than depend on: REGMAP_MMIO has no prompt of its own and is
+only ever enabled by a select, so a depends on would leave
+SND_SOC_ROCKCHIP_I2S unselectable.
 
-v5 was posted on 24 September.  Patches 1 and 2 are DT binding changes
-and have been ack'd (thanks Conor).  I haven't heard anything from the
-SP7021 maintainer; mails to qinjian@cqplus1.com bounce.
+Reproduced on v7.3, x86_64, with CONFIG_SND_SOC_ROCKCHIP_I2S=y and
+CONFIG_REGMAP_MMIO=m.
 
-The SP7021 platform entry in MAINTAINERS has no git tree, so I am not
-sure how this series should be routed. Could the SoC maintainers advise
-whether they can take it directly, or who should pick it up? 
+Found with kreach, a static check that compares what Kconfig allows
+against the symbols the compiled objects actually reference.
 
-It still applies cleanly to v7.4-rc1.
+Fixes: 4495c89fcf26 ("ASoC: add driver for Rockchip RK3xxx I2S controller")
+Signed-off-by: Jude Gyimah <jude.gyimah87@gmail.com>
+---
+ sound/soc/rockchip/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-Thanks,
-Andrew
+diff --git a/sound/soc/rockchip/Kconfig b/sound/soc/rockchip/Kconfig
+index 391ce2225fde..d7ec1fbe17a5 100644
+--- a/sound/soc/rockchip/Kconfig
++++ b/sound/soc/rockchip/Kconfig
+@@ -5,6 +5,7 @@ menu "Rockchip"
+ 
+ config SND_SOC_ROCKCHIP_I2S
+ 	tristate "Rockchip I2S Device Driver"
++	select REGMAP_MMIO
+ 	select SND_SOC_GENERIC_DMAENGINE_PCM
+ 	help
+ 	  Say Y or M if you want to add support for I2S driver for
+-- 
+2.43.0
+
 
