@@ -2,10 +2,10 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7ABFD606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 09:46:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 785206083609
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 09:46:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IEzRmRxn
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=26rVwBXd
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
@@ -13,45 +13,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=g9BfrTwOVq3RO38kAJOz1W2BpOwCmLhuBLRld4KZ9w8=; b=IEzRmRxnWBh12ifBY338j3HXyj
-	JxOopQsVsfuP/VbL3VK6GslnCN3vvQYB/xGbeG81GUsNRtyqqAH2TD2lXyF8I/k8MzhbN4wPCJBHj
-	ajk26RN3tBd7xnVwboPBTl+BKyd6IE1jSoPcQHYXDHLrIyAV5Nvl8vqA3Vi7T0rZNvJig2BwTNbWX
-	k1vZSqtvNlPrhHlwUXNvjM8kLoTyF/6JTs3VOUr3caMRlssjJjuhmtLcJRnWcxu6wlMVd8nyjhP5r
-	NQua2fwjf4mKWw2gR0jsUA53GnKVkFpfWPMcEqTcHJJRFZUxHiUkLhrdzQrCpICJ2FvmyM/gxwEwV
-	BCrkj8eA==;
+	bh=Ot6CzOZAn1GOQoPIqCwwJChn4IeZFkB52U4Nrf4WrVU=; b=26rVwBXdJiWklInWl2vlVNwa5m
+	I9GUINsddoXOI14NsSc5y6usvklJ0nklmMlzoQibMqxxGRPrfcYT0HnpvTTiX/kIk3AuBAUTYYAcH
+	MocgsKf0pQ8dPXRpvAzhWgHv2WZE0NP4uz++hhjXhEC4F9G4EzC1sbo/adnRKKHEXMIE5CrqwVKcF
+	Sd+NoeE6QZuExa2ojJWOvjGD3sdTob3z5t4Twx8mnVMYg4X5XmPYlkxdXlL38oijTt6e6g+Mf2KQm
+	RcnQOQ9aaAUaZ+KGSFBkanEFNCSQmuG5gF8AgNbiRljtu7r3+Rsa4tQdgmffBVsPcM4Ci4uWKArk3
+	UMDP/dLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOB5n-00000001niv-14aC;
-	Tue, 03 Nov 2026 09:46:11 +0000
+	id 1xOB5r-00000001noY-2HhR;
+	Tue, 03 Nov 2026 09:46:15 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOB5j-00000001nda-0CrN;
-	Tue, 03 Nov 2026 09:46:09 +0000
+	id 1xOB5m-00000001ngP-1Gfy
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Nov 2026 09:46:11 +0000
 Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowADn9ZZcrelqpU47AA--.2317S2;
-	Tue, 03 Nov 2026 17:46:04 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowAC3xZZfrelqzk47AA--.2329S2;
+	Tue, 03 Nov 2026 17:46:07 +0800 (CST)
 From: Wentao Liang <vulab@iscas.ac.cn>
-To: Bin Liu <bin.liu@mediatek.com>,
+To: Sylwester Nawrocki <s.nawrocki@samsung.com>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
 Cc: linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	Wentao Liang <vulab@iscas.ac.cn>,
 	stable@vger.kernel.org
-Subject: [PATCH] media: mtk-jpeg: Release the encoder device on job completion
-Date: Tue,  3 Nov 2026 09:46:13 +0000
-Message-Id: <20261103094613.1289270-1-vulab@iscas.ac.cn>
+Subject: [PATCH] media: exynos4-is: Free control handler if ISP subdev init fails
+Date: Tue,  3 Nov 2026 09:46:16 +0000
+Message-Id: <20261103094616.1289357-1-vulab@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowADn9ZZcrelqpU47AA--.2317S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7uFyfJryUWr47ZF4rXry5Arb_yoW8WFW3pF
-	W5K39IkrWUGr42qay8Gw4UZFyYkrZ3ArW5Gryxu34xZ34fJ3WfGryjka4IqFWxArWI9a4D
-	Jw1UtayxCF4jkFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: rQCowAC3xZZfrelqzk47AA--.2329S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Ww4xCFyDGF4DKFWUKrWDtwb_yoW8GrWkpr
+	s7X3s7ArZ8GF1Uta1UAw1a9FW3C3WfWFWDWrZ7u348Zws0qFn3A34xGa1ruFnxAr18Z3W3
+	XF10qFy3CF4Yvr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
@@ -65,10 +67,11 @@ X-Coremail-Antispam: 1UD129KBjvJXoW7uFyfJryUWr47ZF4rXry5Arb_yoW8WFW3pF
 	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
 	CwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcS
 	sGvfC2KfnxnUUI43ZEXa7VU8jQ6JUUUUU==
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgcAA2rpnIRROQAAsx
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwIAA2rpnO5OKgABsS
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_014607_933630_501BCB70 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20261103_014610_770296_AC167138 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.9 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,45 +86,40 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
-	version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-mtk_jpegenc_worker() resumes the component device represented by
-comp_jpeg[hw_id]->dev.  When the job completes,
-mtk_jpegenc_hw_irq_handler() drops a reference to the master device
-ctx->jpeg->dev instead of the component device.  The component's usage
-counter is never decremented, so the component and its power domain stay
-powered, while the master's usage counter is decremented without a
-matching reference.
+fimc_isp_subdev_create() initializes isp->ctrls.handler and creates a
+number of standard controls. If any of them cannot be created,
+handler->error is set and the function returns after cleaning up the
+media entity only. The control handler still owns the memory allocated
+for its buckets and for the controls created before the failure, and
+neither fimc_isp_subdev_destroy() nor the caller's cleanup runs on this
+error path, so that memory is leaked.
 
-Release jpeg->dev, the component device that was resumed, and disable
-the clock before dropping the reference as the timeout work already
-does.
+Free the control handler before returning the error.
 
-Fixes: 934e8bccac95 ("mtk-jpegenc: support jpegenc multi-hardware")
+Fixes: 9a761e436843 ("[media] exynos4-is: Add Exynos4x12 FIMC-IS driver")
 Cc: stable@vger.kernel.org
 Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
 Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 ---
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/media/platform/samsung/exynos4-is/fimc-isp.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-index b312a15d707b..266bfff604db 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-@@ -303,8 +303,8 @@ static irqreturn_t mtk_jpegenc_hw_irq_handler(int irq, void *priv)
- 	buf_state = VB2_BUF_STATE_DONE;
- 	v4l2_m2m_buf_done(src_buf, buf_state);
- 	mtk_jpegenc_put_buf(jpeg);
--	pm_runtime_put(ctx->jpeg->dev);
- 	clk_disable_unprepare(jpeg->venc_clk.clks->clk);
-+	pm_runtime_put(jpeg->dev);
+diff --git a/drivers/media/platform/samsung/exynos4-is/fimc-isp.c b/drivers/media/platform/samsung/exynos4-is/fimc-isp.c
+index a0a9093081dd..7790541a2a7a 100644
+--- a/drivers/media/platform/samsung/exynos4-is/fimc-isp.c
++++ b/drivers/media/platform/samsung/exynos4-is/fimc-isp.c
+@@ -761,6 +761,7 @@ int fimc_isp_subdev_create(struct fimc_isp *isp)
  
- 	jpeg->hw_state = MTK_JPEG_HW_IDLE;
- 	wake_up(&master_jpeg->hw_wq);
+ 	if (handler->error) {
+ 		media_entity_cleanup(&sd->entity);
++		v4l2_ctrl_handler_free(handler);
+ 		return handler->error;
+ 	}
+ 
 -- 
 2.34.1
 
