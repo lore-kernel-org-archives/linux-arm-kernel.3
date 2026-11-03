@@ -2,102 +2,144 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 287B1606A337
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:31:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7957E606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:31:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kEws6jye;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MvyzUk0f
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=13uC3CMr;
+	dkim=pass (1024-bit key, unprotected) header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=FFnqvgHk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=xrBttNfHIp1ZblNkZtgms9+zlx0LAPZlPGiQYyXduk4=; b=kEws6jye9gxdZo
-	xTsyCtot1AxK7l36D3S80zQfW1uIVF3OOr8RKWg6QXh6sokec8skw7lcL9Dnr3K7tZMz6rO3zQgD0
-	7LSQ7ZHtg9BBBkeYTHIWI22I3iBdxBcqeg0+ouvOmUjNXd/ltMbmRDGR4dn1NLrjAK6GP1Y7rPUaS
-	NVX5UZxyhAOhExj32iisrkDi65eEKc8r1tp+dYvD42EWYVpbKl5TMwvbliWNmPWzt3JMpkmRySMf6
-	7K05Rjo9abYTO9wEd5DGGcODUf0naMRGR02vyvaSI5Q2DSVEgbMrcW5/2tY81XupR7B6kW1HhlGsd
-	2ScLD5sEn+wYze0tpzfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=8peqm2HSFR4zGLLwd9ssjAivGBEEepONaNHw6ZvoQYw=; b=13uC3CMru7PAtX4KSSUtg9jYlb
+	3AeW6966neIXrfHEGBwH2EQcAiDtg1RlUD9zqRDuisnZOt+bzSE5JZwY+pbY7KGeKMc1Nbv8QwN3h
+	Sg4a/HpspGQ0upY9ZphOkE95wV4aPr1vbtHnuI+JokrpLIoMr9O+xPMAvHcEY4NI+/BIeo+CYKu/K
+	KXKvYu3QWya8l5Vqi7WCDMJulCnxqizX9TwnxA0zYciIROH17zgoB6GFpOmnHgj92ZoeZiRDUdWi5
+	N7htU8jUjcsJL8ZGQ4EwObIdQL6gGKG/7QqcG2BV8J9mRZh+r+mnK3fB50MMLe45VUZGFC5RxnXnr
+	Riz4r+2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOJHe-00000003Qwb-4BTd;
-	Tue, 03 Nov 2026 18:30:59 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1xOIl5-00000003LX1-07Fv;
+	Tue, 03 Nov 2026 17:57:19 +0000
+Received: from mail-japanwestazlp170100003.outbound.protection.outlook.com ([2a01:111:f403:c407::3] helo=OS0P286CU011.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOJHb-00000003Qtn-0ZRN
+	id 1xOIl1-00000003LWQ-1lut
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 18:30:56 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4a208d93758so48074645e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 10:30:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793730653; x=1794335453; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xrBttNfHIp1ZblNkZtgms9+zlx0LAPZlPGiQYyXduk4=;
-        b=MvyzUk0fllrBbNBeyRtZB8OS1ueOqjyHFIfhbZ5W3Ywwp6mV0JDzjNuZWHKOsK33gs
-         JgkIs2O2QeYdPDcsGwTqkR9NS26EUO8ZxvtpWQodNLJsTamDYA4W3q5yXPJBe7gXd9XL
-         W8GMgr08tKahrc9YhnlmRt3Bb5qRrHMt26d35EvhxBqhBGBngmo1VGs6yhhZUKi8+EM4
-         NuaFet3G65bOzxGa/tzlRnCpIYnDdOZDMA/VoYoxdWa7kNRFH4j6yu++VtWeSNFBHRvN
-         Gms2c/+aSjDbUddIb5UDp1CcZSl01U4HStQHEmrg9l9eK24Z7XOQy8GWcEpcUNYy2MkG
-         XMWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793730653; x=1794335453;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xrBttNfHIp1ZblNkZtgms9+zlx0LAPZlPGiQYyXduk4=;
-        b=xq2r968ymLREO0mQLYIeGWN81gOWaibDRu194wOSzEAqxDRD27kPkQETdgZQRAZf/w
-         nYQWnaRlYUqBva6qKUt69jY5Te1athcuTfF3K3w2BpbAM20jgmxFhvFLRh3DNQEgW5D/
-         KxDjy46nSM3vYVvMJbcWge3VqeKDLRibUN2lxh3BVVzawb1FkAJqSWbBJmm90FgrG9J8
-         cdIA65x+FvUqeXznhzD1C1QHGqeujO9DsCWsAzW20PhDPgjsYNn+z+Ky2P7CrGJpTeyV
-         8eoNE8qQ4+gIDum9Flz2hKLC6Q8NXNHHGsgSdNi0s7SgcRZ/5gbIdE0yuvKpZiz+myM8
-         iXHA==
-X-Forwarded-Encrypted: i=1; AKwUvBy7jBAQDx6U4F9ws633tBpoBHlsLtWMfvYTYBgVK9O9oc2rnYphUCa+B1F+zs07BtUYhmjQ3J0SYgjzxeVJPPr7@lists.infradead.org
-X-Gm-Message-State: APuU4Z/jv2MStGDWWnSNymRrhre0r1lEr9TIB4V6WynjinnA0qrT7Iax
-	bdvNkr5uTlmo8M0xS8jqq9t7yeiBsvFCwA++00qp3V7BiGbLiVdJaicR
-X-Gm-Gg: AYBFou1ZRCbYMNlzi7E77JXaEG5wXCR0CQt+ourBAw6nYW90vnLEOtmUuBPR7ks9dzW
-	4HX1oemqSoqesHQH/bXiZsPReMRlcA4MojO5gYyJGXMTC+l+NeIa7btLxDOdIjQZTUCJnK1ry2J
-	D65k+DissjBXgJGzVUK8Dn4lE3XqqmBcqu2CIuCLLod3hRx4jVfXJpUakPnsdFRnBTUbdH5Cf+3
-	Iva8Kndaf0ndvB8koH5hkEI5bQEa5W0goPWo8oUTJJq3wiTNKnkMy5pMFOHGqyOIDXUPQDUKYek
-	JVn9jXndYPaEx5u5prSm8omACuC9lzkR1PaF0iOk1xvcGm840ZWvwzO8p5j7o+5sd0ubP3n04ei
-	elKjlNuDsM3WYAaDspL1v/NG+vEAc55o1C+CQq4v1x7MUplojv5L0NCRBlRBHk+vU/Z34ynhoe+
-	z3fDiM9WC4+M/c4UK3dq8/O6INnQWExVPBCCYf+vAapMVvYLMwrjcD6uLApQFfcIT8LMn7PK6D2
-	RkiIOIvVOcdhggVoHA9Tw7iJRfvZ63rSqaWzGeHaVafLX//GQz7O8PioaACQoGH21ilVkPoWQPS
-	B6t+7WnrlBnYggRER8L5Ue3+ZnbdQXw6znzvhgwD2iIBMkbkDkjZEsAN9+2NsTL0MWyBeuMmSRc
-	TO+eytZd/K5sWcKr7JjNxFYi9QTFb9D4M/yaxFKa+W46MZHa4x0zPjhunaGK0c5/r7mjtDA183Q
-	nfwngTurk7cq8HKQ6qDB1HJYVpSNVjiKa8IwjZFzcwFQ+ajeb7VRLmoWKgRfJDDJ9qefRRI3xQO
-	8lWs0zY/zhnH620hJDI+S2h4EpOZ73Upa7t6bmVNJfLLPxj1w==
-X-Received: by 2002:a05:600c:638f:b0:4a2:c2b:a91b with SMTP id 5b1f17b1804b1-4ac17d168a6mr314385885e9.10.1793730653132;
-        Tue, 03 Nov 2026 10:30:53 -0800 (PST)
-Received: from jernej-laptop (194-152-27-116.dynamic.telemach.net. [194.152.27.116])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b2ab00ff3dsm146339785e9.14.2026.11.03.10.30.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Nov 2026 10:30:52 -0800 (PST)
-From: Jernej Skrabec <jernej.skrabec@gmail.com>
-To: Ulf Hansson <ulfh@kernel.org>
-Cc: Chen-Yu Tsai <wens@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Anfernee Cao <anferneemelokc5@gmail.com>,
-	linux-mmc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH 2/4] mmc: sunxi: Set the IDMA DMA mask
-Date: Tue,  3 Nov 2026 19:30:28 +0100
-Message-ID: <20261103183030.81078-3-jernej.skrabec@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261103183030.81078-1-jernej.skrabec@gmail.com>
-References: <20261103183030.81078-1-jernej.skrabec@gmail.com>
+	Tue, 03 Nov 2026 17:57:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RRMcphuG8/71wZCjKM6rsLIsldntwvDmpB4xcKN9M9+Wg08kjX0qV6m37zoCqoBab9u7EkyaPwMVYt1dwCsCx5FTsRce4jglhq9ZpFLAa4IX0ivUNUUAhiJdIFgkmNFISUVKbGXSHEdJXxZym48g8ul6MX1rRsL71+dKr47e1l1JBQWbBlZw75K82YYKmLa+dkoZ/71a+m1k0qnWssY4x8jRGOyRUjRydIZb6WCmUH0JidjENMPtMPm9iPwe65O9OG8GfWQ6lR4Aw+k2vecBPwiVAorCPHrgmucqCxz3hY1dSYcFZE6CoB+vjQLIZ46c32HXN9osxgR4gRbbYBexwQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8peqm2HSFR4zGLLwd9ssjAivGBEEepONaNHw6ZvoQYw=;
+ b=U0Oz6DgIJLpVbcrZoeKbuQQeqeAUOM6EasCsav/2i0l1o7D5yOjNOKYVwCbhpXDiPKl8PPvtkSW/pV7NEbBXPrygDTYPDPTmXE18fqlKlbPHTU8MhBSmFw4jgm435ML4YcW6BTXNskWadfiGm66HP+tE0rBwS/HvJNt4gSb5ZAW6q+yNFndEtyFwKTBMQ5RCtKEyhM60WDddvzSNNPHZcwRtmxAUDUozRnafcseHLh4M+i2x1XdLToeitS0xiKJP2qFHKIAgM5QzEANtpe0Ut/0KykcYA+b+oexEp89TsJcVjxenBfOpjOLodVqTmsqmw5ujhmXKrAnvyQmVGY5QRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8peqm2HSFR4zGLLwd9ssjAivGBEEepONaNHw6ZvoQYw=;
+ b=FFnqvgHk5QMYOrK+VHtblZQzk5U/9tL0bIos/GblJG2cEbpVQnSMpUAc7UMQVGvwuIDukjUvdnEKrNEuoMkvs985lHIsCOd0bW6II1oASjAjhJze3ceHXNiwE9ILbBdgMb4TB6rCgS1x0Zc3d7zhF/+olFMB0/4ucYmiccBcdxM=
+Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com (2603:1096:400:3d0::7)
+ by OSOPR01MB17964.jpnprd01.prod.outlook.com (2603:1096:604:47a::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Tue, 3 Nov 2026
+ 17:57:03 +0000
+Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com
+ ([fe80::87d1:4928:d55:97de]) by TY3PR01MB11346.jpnprd01.prod.outlook.com
+ ([fe80::87d1:4928:d55:97de%6]) with mapi id 15.21.0592.007; Tue, 3 Nov 2026
+ 17:57:03 +0000
+From: Biju Das <biju.das.jz@bp.renesas.com>
+To: Prabhakar <prabhakar.csengg@gmail.com>, Geert Uytterhoeven
+	<geert+renesas@glider.be>, "magnus.damm" <magnus.damm@gmail.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>
+CC: "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"dmaengine@vger.kernel.org" <dmaengine@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Prabhakar
+	<prabhakar.csengg+renesas@gmail.com>, Fabrizio Castro
+	<fabrizio.castro.jz@renesas.com>, Prabhakar Mahadev Lad
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: RE: [RFC PATCH 0/3] soc: renesas: Add address extension support for
+ RZ/V2H
+Thread-Topic: [RFC PATCH 0/3] soc: renesas: Add address extension support for
+ RZ/V2H
+Thread-Index: AQHdQJKoDfwPpT6tL06OdyzUT7k3x7cc9gcA
+Date: Tue, 3 Nov 2026 17:57:03 +0000
+Message-ID: <TY3PR01MB113468E6E7CABC5A0487A352A86692@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+References: <20260909193640.8069-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20260909193640.8069-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY3PR01MB11346:EE_|OSOPR01MB17964:EE_
+x-ms-office365-filtering-correlation-id: adbba5af-f940-442a-8d2d-08df39d3ddfe
+x-ld-processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|366016|38070700021|56012099006|261022105027099003|5023799004|11063799006|261009223027099003|261009223327099003|261009221727099003|261009220027099003|261021121427099003|261009221227099003|261028144727099003|261102123227099003|261022113327099003|261022075727099003|261021123027099003|261022115727099003|261026121527099003|261026140227099003|10067099003|18002099003|22082099003|3023799007;
+x-microsoft-antispam-message-info: 02I9iWkreFIzLwJX7iS9KYLycoYXCrgFkhI66xLTVw0s0P0YFEzrnXbLyPomhw3t0nCespfSZHLA7dtgwB5zeO4yMSd9PsWg36oC+HBod4invzL/rJ6DLPndcmBm9bmJFMUedErSAXjBU04EOCnlhuC0GS124gAKrhhcXn0LxrlQunPEwlKjTrpUrkL61FbR3x+Ar+9RTeJhQapjOXjnXwJAVqZpyHVU7N+ozTClffFvlggHVW110nNZC+Sph3LYEGVxtDUxhCpBPrgMtu1pX/6q4pRf+wVLVr9izm6B69jY0yauhohwoPom96yOlIZ8rcXwVwMNczyCir8YOtgaUh12cZOuvZdLRsptcec22K2iti2RIOT/ft7n79f+HHwMq21v6FeRKyhr04ISFCYMStiqASiSDZ7/1qhstWTNacCFJlc6Du3JewGbMdw3viyCDh+/JLKNxlndjz8pzSw6d1wBjleXg++Q/iiryx4at9x+c7AVGMR2CWVe1oTA8R2Cjyqv96fcMWJkLyTHu5h6peg0xOKCZDkbUj2vfmqE+IjsHfFHqt9Ul2o/mWZzmHGjGtw6ygXVxf9aTXqCPs241Qr4cPAEehxyU00/f4YkeP6HftAYuV4xWRw4VHWYyl8GE4+cE4lqwN2QRCHGL5JxRCokm62MztYlMtcZ0KEmGWA=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11346.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(366016)(38070700021)(56012099006)(261022105027099003)(5023799004)(11063799006)(261009223027099003)(261009223327099003)(261009221727099003)(261009220027099003)(261021121427099003)(261009221227099003)(261028144727099003)(261102123227099003)(261022113327099003)(261022075727099003)(261021123027099003)(261022115727099003)(261026121527099003)(261026140227099003)(10067099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?KneqTfF5MsH6VpwGBhW2sseABjnsx2zCNEZiGVcmTBcliCZleS6pVUAqAcqi?=
+ =?us-ascii?Q?Z89jB0XdkcTbtpq85dDMtd/UZbrQXoNu0Blf8oeQVNufWUeUZcw3G+5196n/?=
+ =?us-ascii?Q?JPCm5fVa0GOpyRWZ4VdnFonlDSa6AzUNRry0CyKcaq/70sr3VlaEQs2kXaXV?=
+ =?us-ascii?Q?Y8wH10bulcKBSWEKqAm5rEfC/PXtK4ImFfHekF72l3/BUeqRMtJ8lCog6+EM?=
+ =?us-ascii?Q?jhJHE9t+eqKQW4wRfcNZWmDfyLq+HX+Z4cq5optGRJ8IpM/xQQkIldVVSkHS?=
+ =?us-ascii?Q?Zj2TVgiyTgXyFPv//wKO/cxuT/XeCRqBGiz4TNLeKclSdEX36a5Jjs+CJPrz?=
+ =?us-ascii?Q?7YvOjhGGrPlZhj5TH/0D+D3mn7B202pVnXQ6ssKgdzvKISwp9oWvZIcntlyC?=
+ =?us-ascii?Q?ZDIulsxW1HmP8DeeIBgXoPO1eF74na/6SKN/UpQtmxrUK6EIMGEoDw7tXtaN?=
+ =?us-ascii?Q?WgHuxHjrGGniBZQZcFElXye1qKq8SdZiGEyZoYvei/Oo3MtqJeXbyzlA3fuN?=
+ =?us-ascii?Q?S/xBHAgRSeqeRjBpG7459ZM8GtTcfu9EGtk7A7Ss3f7IWl6/Oy+GqFki9NEm?=
+ =?us-ascii?Q?XllaLVCOjkCVPvGwnVM5X19USPO2dOb1FCCG4DPxS/4N3ChvASRX4IN0a+ri?=
+ =?us-ascii?Q?55i0kOA6iJ/e7VkAuxlemImzY5I+GEBi49vHog+ED4i8aMAey3SilzsmVyt3?=
+ =?us-ascii?Q?YGFMMOnYtG4WqOgXcTIq/ocA2YcqNrr8XEXsxHLE0a3cmuURwCMedi63yxbB?=
+ =?us-ascii?Q?Wg4vhUHre4SRqrfmirTRDDwOJf40WHEwaRUnjUIu0HDzgEH+sV7p1D1pw7yu?=
+ =?us-ascii?Q?FoKn+AwJgOeVckL4ifyJDW8QEN0PuBbHITMuwF5Al5RMjVQ9v6cs/U45fT5N?=
+ =?us-ascii?Q?klssba4o0EmLvSXUV8izgNIU5JVJcR+Jn+N5KwA2danjiAuDURqRQpZsKsEY?=
+ =?us-ascii?Q?Frt4hu9qkHmc6crvKEzKI3/lc2mvlYQGWyvr18iXkqzliPkTWizLegmsf+cy?=
+ =?us-ascii?Q?apryHomrX8n16M3hssda9Gqzq5MR4XtbiuQPK1eljwKbblIQXVbrf1Or1Atz?=
+ =?us-ascii?Q?nGLgBZedVUo0lgi/0dhmsc5SbJkB1YmvMdJH/bH2CBGLFBU88It/E5hHGHIP?=
+ =?us-ascii?Q?l5GBmIPvzi1sPCPUacQhabFm5VKy5/kB+og5Y5G3RJ8vHEKjRuyEOIOJrjmk?=
+ =?us-ascii?Q?YV1PGjlasJlC1YyeDUM7bR46a1qHxR3nia+SfZ8znMHSa+geV186eGLuzrPz?=
+ =?us-ascii?Q?UOUzikyof3aZrTWOsGKDfeMEW/jlLaGJb3AlRG9tzvXjXHfFWFxSA2wETPLH?=
+ =?us-ascii?Q?3ybohI9j/cQD4hmji6FQsGzytcXS8M6HzQMO+tt1pQSvbDM1St+VJJs2cU44?=
+ =?us-ascii?Q?e2CC8ivAuuJH+DVXnLDULaLPyNQOkkEeCU4t6lq+Od4gmr+zgTF+7vSD5wxd?=
+ =?us-ascii?Q?mO0UCzvkgnyoagy0r3CbLfBNfoyRT3QkZOhZuUwHvCzxwOMKr6UKGfvlhCvP?=
+ =?us-ascii?Q?0nZqTrmmypBa7S3XhIhIrGwgNrotA0K0E2he4FCC3/ZS0qb3eqGvFM1PjkYP?=
+ =?us-ascii?Q?nvBJY1J/9SwgkzeqfWe+yD34bEqpXrdNDSox78LTQbEemmXCDQ6JgiljzDk9?=
+ =?us-ascii?Q?RQMw8SXEdihTlOfeBJ3mkT6ybdvgJtc+dTE1L3AY1Yntk72w+wjYv8n9Whbb?=
+ =?us-ascii?Q?eLxtCUZX+PqNA8yZuCo7dxzKRdj+5qIlxxuz32mhoQeuHkq8vdpTR6ytKLMR?=
+ =?us-ascii?Q?7V+6PllORA=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11346.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: adbba5af-f940-442a-8d2d-08df39d3ddfe
+X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Nov 2026 17:57:03.5118
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: UeRcTX/1bLwokLXOHwA7qh4n760F65HigoOPv2eWt8TmtmtsNjiryLIdCPvHgbDMk7JKBIWFsQB7fEZit8aeoOPNB2EAwIpqeZeT3OgzhtA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSOPR01MB17964
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_103055_188043_8A9AAF63 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20261103_095715_616176_116E5D83 
+X-CRM114-Status: GOOD (  24.99  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,46 +151,241 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Controllers with a non-zero idma_des_shift (D1, A100 and H616) store
-buffer and descriptor addresses shifted right by two, so they can
-address 34 bits of physical memory. The driver never sets a DMA mask,
-so the default 32-bit mask applies. On boards with DRAM above 4 GiB,
-like H616 boards with 4 GiB of DRAM starting at 0x40000000, every
-buffer above that limit is needlessly bounced through SWIOTLB.
+Hi All,
 
-Set the DMA mask to the range the controller can address. For the
-other controllers, it stays at 32 bits.
+> -----Original Message-----
+> From: Prabhakar <prabhakar.csengg@gmail.com>
+> Sent: 09 September 2026 20:37
+> Subject: [RFC PATCH 0/3] soc: renesas: Add address extension support for =
+RZ/V2H
+>=20
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>=20
+> Hi all,
+>=20
+> This series adds support for the SYS_AOF (Address Offset Function) addres=
+s extension mechanism on RZ/V2H,
+> and enables it for the SDHI internal DMAC so SD/eMMC DMA buffers are no l=
+onger confined to the low 4 GiB
+> of physical memory.
+>=20
+> Background
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>=20
+> RZ/V2H contains bus masters (SDHI, USB, GBETH, VCD, DSI, LCDC, ISP, DMAC,=
+ ...) that can only generate a
+> 32-bit address on their own bus. The SYS controller's SYS_AOFn registers =
+let bits [31:30] of the address
+> such a master issues select one of four independently configurable 6-bit =
+fields; the selected field
+> supplies the corresponding upper bits ([34:30] or [35:30]) actually drive=
+n onto the AXI interconnect,
+> with bits [29:0] passed straight through. This splits each master's nativ=
+e 4 GiB space into four
+> relocatable 1 GiB windows, letting it reach a 35-bit (DDR0/DDR1) or 36-bi=
+t (+PCIe0/
+> PCIe1) physical address space. See RZ/V2H Group Hardware User's Manual, F=
+igure 1.7-2 and Sections 1.7.3.2
+> and 4.3.3.2.88-90, reproduced here in text form:
+>=20
+>                      +--------------------+
+>                      |       Master       |
+>                      |  32-bit address    |
+>                      |      [31:0]        |
+>                      +----------+---------+
+>                                 |
+>               +-----------------+-------------------+
+>               | bits [31:30]                        | bits [29:0]
+>               | select field                        | passed through
+>               v                                     |
+>     +---------------------------------+             |
+>     |         SYS_AOFn register       |             |
+>     |  +------+------+------+------+  |             |
+>     |  | Reg3 | Reg2 | Reg1 | Reg0 |  |             |
+>     |  |  11  |  10  |  01  |  00  |  |             |
+>     |  +--+---+--+---+--+---+--+---+  |             |
+>     +-----|------|------|------|------+             |
+>           +------+------+------+ supplies           |
+>                      |    [35:30] or [34:30]        |
+>                      v                              v
+>               +-------------------------------------+
+>               |          AXI interconnect           |
+>               |        35- or 36-bit address        |
+>               +--------------------+----------------+
+>                                    |
+>                                    v
+>      +-----------------------------------------------------+
+>      |               Physical address space                |
+>      |  F_FFFF_FFFFh +-----------------------------------+ |
+>      |               |          PCIe1 - 23 GiB           | |
+>      |  A_4000_0000h +-----------------------------------+ |
+>      |               |          PCIe0 - 24 GiB           | |
+>      |  4_4000_0000h +-----------------------------------+ |
+>      |               |           DDR1 - 8 GiB            | |
+>      |  2_4000_0000h +-----------------------------------+ |
+>      |               |           DDR0 - 8 GiB            | |
+>      |  0_4000_0000h +-----------------------------------+ |
+>      |               |  SRAM, peripheral, xSPI - 1 GiB   | |
+>      |  0_0000_0000h +-----------------------------------+ |
+>      +-----------------------------------------------------+
+>=20
+>      Four 1 GiB windows, each independently redirectable to
+>      any 1 GiB-aligned target above; 35-bit-limited masters
+>      must keep bit [5] of every field clear (1.7.3.2.1).
+>=20
+> In case the image isnt formatted correctly please refer the link
+> https://raw.githubusercontent.com/prabhakarlad/img/refs/heads/main/Screen=
+shot%202026-08-12%20162004.png
+>=20
+> Without this, SDHI (and other masters in the same category) are limited t=
+o buffers in the low 4 GiB.
+>=20
+> Approach
+> =3D=3D=3D=3D=3D=3D=3D=3D
+>=20
+> Rather than hardcoding SYS_AOFn programming per board, this series derive=
+s it from the devicetree dma-
+> ranges property already used to describe DMA address translation:
+>=20
+>  - Patch 1 adds generic AOF parsing/programming infrastructure to
+>    the rz-sysc driver. Each SoC lists its AOF-capable masters as
+>    (MMIO base, SYS_AOFn index, address width) tuples; at probe time,
+>    the driver walks "simple-bus" wrapper nodes carrying a dma-ranges
+>    property, matches the wrapped device against that table by MMIO
+>    base, and programs the corresponding SYS_AOFn fields directly
+>    from the dma-ranges translation. Devices with status =3D "disabled"
+>    are skipped. Malformed or out-of-range entries (misaligned,
+>    exceeding the master's own 4 GiB space, or requiring bit [5] on a
+>    35-bit-limited master) are rejected.
+>=20
+>  - Patch 2 moves the SDHI nodes in r9a09g057.dtsi into per-instance
+>    simple-bus wrapper nodes with a default, no-op (DDR0-targeting)
+>    dma-ranges -- no functional change for boards that don't further
+>    override it.
+>=20
+>  - Patch 3 demonstrates a non-default window on the RZ/V2H EVK:
+>    SDHI1's dma-ranges is pointed at an 8-12 GiB DDR1 window, backed
+>    by a restricted-dma-pool reserved-memory region so buffers handed
+>    to SDHI1 are guaranteed to physically land inside the range the
+>    programmed SYS_AOF17 fields can actually reach.
+>=20
+> Boards that do not override an SDHI instance's dma-ranges see no function=
+al change: the default wrapper
+> mapping added in patch 3 is an identity remap onto DDR0's native address.
+>=20
+> Trade-offs
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>=20
+> - Attaching a restricted-dma-pool to a device makes every DMA transfer fo=
+r that device bounce
+> unconditionally (is_swiotlb_force_bounce()), regardless of whether the bu=
+ffer's physical address would
+> otherwise have been directly usable.
+> - Each master will require a restricted-dma-pool.
+>=20
+> Testing
+> =3D=3D=3D=3D=3D=3D=3D
+>=20
+> Tested on the RZ/V2H EVK (r9a09g057h44-rzv2h-evk) with SDHI1 remapped to =
+an 8-12 GiB DDR1 window, running
+> repeated large-file dd read/write and mmc_test against an SD card, with n=
+o functional errors observed.
+> While running mmc_test a loss of ~4% was seen for read/write tests as the=
+ mmc_test module allocated the
+> memory using GFP_DMA flag.
+>=20
+> This series does not yet cover the remaining AOF-capable masters (USB, GB=
+ETH, VCD/DSI/LCDC/ISP, DMAC
+> channels).
+>=20
+> Request for feedback
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> The ~4% loss above comes from restricted-dma-pool's unconditional bounce =
+policy
+> (is_swiotlb_force_bounce()): every SDHI transfer is copied through the po=
+ol, even when the source
+> buffer's physical address would already have been usable without any copy=
+ at all.
+> This is a direct consequence of using restricted-dma-pool as the correctn=
+ess mechanism for a device whose
+> real addressing constraint doesn't map onto the flat dma_mask/dma-ranges =
+model the generic DMA layer
+> otherwise assumes.
+>=20
+> Before optimizing this further, I'd like inputs on whether restricted-dma=
+-pool is the right tool here.
+> Suggestions and pointers to prior art for similar SoC address-extension/a=
+perture hardware would be very
+> welcome.
 
-Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
----
- drivers/mmc/host/sunxi-mmc.c | 5 +++++
- 1 file changed, 5 insertions(+)
+On RZ/G3E, I haven't used restricted-dma-pool.
 
-diff --git a/drivers/mmc/host/sunxi-mmc.c b/drivers/mmc/host/sunxi-mmc.c
-index 9744b6b860ac..479420071c2d 100644
---- a/drivers/mmc/host/sunxi-mmc.c
-+++ b/drivers/mmc/host/sunxi-mmc.c
-@@ -1385,6 +1385,11 @@ static int sunxi_mmc_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
-+	ret = dma_set_mask_and_coherent(&pdev->dev,
-+					DMA_BIT_MASK(32 + host->cfg->idma_des_shift));
-+	if (ret)
-+		goto error_disable_mmc;
-+
- 	host->sg_cpu = dma_alloc_coherent(&pdev->dev, PAGE_SIZE,
- 					  &host->sg_dma, GFP_KERNEL);
- 	if (!host->sg_cpu)
--- 
-2.43.0
+With u-boot configuring
+
+mw 0x10430540 0x03020104
+mw 0x10430544 0x03020104
+mw 0x10430548 0x03020104
+
+and with the DTS change below, I see performance improvement on eMMC/SDHI i=
+nterface on RZ/G3E.
+This avoids swiotlb during DMA transfer as all memory is DMA capable.
+
++       sdhi_bus: sdhi-bus {
++               compatible =3D "simple-bus";
++               #address-cells =3D <2>;
++               #size-cells =3D <2>;
++               ranges;
++               dma-ranges =3D <0x0 0x48000000  0x0 0x48000000  0x0 0xb8000=
+000>,
++                    <0x0 0x00000000  0x1 0x00000000  0x0 0x40000000>;
+
+then
+
+cat /sys/block/mmcblk0/queue/max_hw_sectors_kb
+4194303
+
+This results in performance boost with mmc_test
+
+eMMC (HS200 Mode)
+
+Read: 182 MB/s vs 138 MB/s(without address extension)
+Write : 135 MB/s vs 58 MB/s
+
+SDR104:
+
+Read: 95 MB/s vs 88 MB/s
+Write: 88 MB/s vs 40 MB/se
+
+Cheers,
+Biju
+
+>=20
+> Thanks for reviewing.
+>=20
+> Cheers,
+> Prabhakar
+>=20
+> Lad Prabhakar (3):
+>   soc: renesas: rz-sysc: Configure AOF registers from dma-ranges
+>   arm64: dts: renesas: r9a09g057: Move SDHI nodes into bus nodes
+>   arm64: dts: renesas: r9a09g057h44-rzv2h-evk: Move SDHI1 dma range from
+>     8-12 GiB
+>=20
+>  arch/arm64/boot/dts/renesas/r9a09g057.dtsi    | 123 +++++++++++-------
+>  .../dts/renesas/r9a09g057h44-rzv2h-evk.dts    |  16 +++
+>  drivers/soc/renesas/r9a09g057-sys.c           |   9 ++
+>  drivers/soc/renesas/rz-sysc.c                 | 118 +++++++++++++++++
+>  drivers/soc/renesas/rz-sysc.h                 |  22 ++++
+>  5 files changed, 240 insertions(+), 48 deletions(-)
+>=20
+> --
+> 2.55.0
 
 
