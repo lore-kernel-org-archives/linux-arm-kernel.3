@@ -2,71 +2,142 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E95A0606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:17:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BFBAD606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:18:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LNP5iY2W;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S1ESHr/U
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Y993ER4Y;
+	dkim=pass (1024-bit key, unprotected) header.d=cherry.de header.i=@cherry.de header.a=rsa-sha256 header.s=selector1 header.b=Xy+N7pPu
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ymJ1AjpTqeoWk/tTVM3gBUqx7BiYza0Z6w25PBMyBko=; b=LNP5iY2W8aWmo+C9wHAmMqrhoI
-	xBOFJyYCMOLoOXu6E5QZBAh3BpX1oW2x67WeQXa/uVvMWIW5PHrBXpXmcYDDuvfWC2ZNbJ9eQQX57
-	PL/oMOampqTJ3fjHqUS5pe0VtN1CpqFMrVeVDoaa/XcBdEaPu1YwInZWncRZO8SgI70cCYLYGUVyJ
-	SDe7W6EUU9//6NiNEjByYRayOxB8L9wd1/8jyh3C2pU4bw502xB3rTC6Q/kh8smEtG3ItDjcifLbN
-	gHoSXtxum1jixPLldXWuPpf2lHRSgDPeZdNhogfASJEmojfG3LIm8+a0k+lN9MmlLXsGG8lskSoWe
-	6G7qJHIw==;
+	bh=/GljYGNCx8+r+gCX42gzem/N3NbngRMs4l24rHuV3uU=; b=Y993ER4Yjjk6jUK+kl2ifQNf9H
+	yy0aU05IxAnrbE8zslikaMXVu4BqVTSg8fMYSEvjanMYOL24s9H+/OkcO+ZCbpfpDtWQXvTLQhHdH
+	OJ8mrhZllC1JGdnZIHeO/sHWuU7AOCfCdczR1CX5pE2w+S5bkCJKr40skrHuMTFJegw/AZQJX3J8h
+	i9DLH9oMhxrh6qWX6S+FPZz7LZWyxg3DjehfnsbRjSuhuxZH5ellzMrP2VEGyShRUFpC8O3Y2oo67
+	gNlbtjJbDBgzsCyFfIba5sz0e0LNqNP9xngwIhLeox+Eekr6/Unlt5wXFmBDAD5nEzr6ktupCzwUe
+	bPdVaQEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOJ4B-00000003O9j-3fJQ;
-	Tue, 03 Nov 2026 18:17:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOJ55-00000003OOw-2OG3;
+	Tue, 03 Nov 2026 18:17:59 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOJ4A-00000003O90-1oIf
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 18:17:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 256A143D82;
-	Tue,  3 Nov 2026 18:17:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A5111F00A16;
-	Tue,  3 Nov 2026 18:16:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793729822;
-	bh=ymJ1AjpTqeoWk/tTVM3gBUqx7BiYza0Z6w25PBMyBko=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=S1ESHr/Uz7Crzr04SE1CSjEBSQFyo8EMtKRsHlnrdMc4atm4Dyia4o3cid5UpQQT7
-	 nh4PWcVdi5h8SIYnqLRq1kpNHN52rxFSbAKb6JjeoFxJfdHI0ejb/LjA8u8DZvH+HM
-	 Xb//jaIhBXkQBj4E/81e0teGNJkCwfGYBdxIxpGgtivdwnfy1vaAJfVe7/uonX3Dul
-	 PUAhRAanqr/CZNJdHfVo56V6tzYAvw/w+TMKZfYhSZ/ydq2V20Yn1YjLeWh/1xJvml
-	 olw8Ekfg8xCIF9jpEk2jNknpfTL1vrGVdy2hrJqf14kobOAo1e1b40ZHNkd/lLbCb4
-	 N7fxu0IuW1Emw==
-Date: Tue, 3 Nov 2026 18:16:57 +0000
-From: Conor Dooley <conor@kernel.org>
-To: vamshi gajjela <vamshigajjela@google.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Jim Wylder <jwylder@google.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] dt-bindings: spmi: Add SmartDV SPMI controller
-Message-ID: <20261103-handiwork-replace-25efd6b3d8be@spud>
-References: <20261103042608.387626-1-vamshigajjela@google.com>
- <20261103042608.387626-3-vamshigajjela@google.com>
+	id 1xOJ52-00000003OMv-15zQ;
+	Tue, 03 Nov 2026 18:17:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OdahW3vnm4F2MYmKJd4U78hiqaIcWjffAGeh5Rz0Uf9nfPMQCp2HzC8B6ilNEGapp2F3qKWtdUieg/HW0lW8UNzXv1VgtYL6gnFRALHRpe0JtbaxktHfci7mU81xErA4zwIJKIJIXCkY+w4SIAzF9FrEdwwGeB8FRt+GBCq5jDXD2wwh+VJphNRJMnUDiBJvfEKt0Yonkzk0MbUCxNo0H1/9kSCKJZeR3/8Em0HDBEU7bbfk+BErLkzSgVF65lUFY1MKh1MG9A5vj7ehSuKEfacYl96Fs4mnhSq9PzdHuxsGoD8/N9iZXJv6yCGEF/0BQU88lTIXKC359GMAk9Warg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/GljYGNCx8+r+gCX42gzem/N3NbngRMs4l24rHuV3uU=;
+ b=XWlisScb44uG5H9TWWP+1Uz3zoypLmLjJ4W1IL/EdzJ/e4IwkwYkv2oNg5OForadvayCMSO6IP28CVxl902p+u5ox0KafZA8nlNrftpDZx2e5WGaG9bP6pE6F/avzcRaeqISOApFXbAVRVwbEmdGYyvI6X5H508VlrZrMpy+mAWiJcdOWTIX1ETiADFZekNMfivs+pLbGvLdURbYpimrdGHn674WFJNE0C2b92irdhBbAGs4aVpKLtcEwNABNv849XH8/3FgA4p3i+kyblXE9gRsnt0//wzuCxG7yR+6hR2PcciJfnPZ65aaywMGveHX9C9lf3NP2Z2xDBb6vEsVYw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/GljYGNCx8+r+gCX42gzem/N3NbngRMs4l24rHuV3uU=;
+ b=Xy+N7pPuLKcUieahe9DL/kNIY+0ju0S4mwuAUZVUUzT9VmcZLeUSyAW+b+tp4NIgpVHgvwavNqwl9pDbaO2Xw1l3iWiQWODyEOKKRW+AlmpdRNgapdlS7qZ8Lb4iRgGnedkZJ1cwRAbG2wnLBP72Z4FvnshEOuCFgs5SuZJ0VkY=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from PA3PR04MB11153.eurprd04.prod.outlook.com (2603:10a6:102:4ab::7)
+ by PA4PR04MB7520.eurprd04.prod.outlook.com (2603:10a6:102:e9::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Tue, 3 Nov
+ 2026 18:17:49 +0000
+Received: from PA3PR04MB11153.eurprd04.prod.outlook.com
+ ([fe80::6b02:c0eb:95a4:3c3d]) by PA3PR04MB11153.eurprd04.prod.outlook.com
+ ([fe80::6b02:c0eb:95a4:3c3d%5]) with mapi id 15.21.0569.011; Tue, 3 Nov 2026
+ 18:17:48 +0000
+Message-ID: <ce82814e-c1a9-433b-9dd2-fbb84801545d@cherry.de>
+Date: Tue, 3 Nov 2026 19:17:47 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: rockchip: enable camera on tiger-haikou
+ video-demo adapter
+From: Quentin Schulz <quentin.schulz@cherry.de>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20261026102027.2451025-1-heiko@sntech.de>
+ <1aa42d0a-5632-4ae3-85ff-2bf5e332b2f8@cherry.de>
+Content-Language: en-US
+In-Reply-To: <1aa42d0a-5632-4ae3-85ff-2bf5e332b2f8@cherry.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: VI1PR06CA0085.eurprd06.prod.outlook.com
+ (2603:10a6:803:8c::14) To PA3PR04MB11153.eurprd04.prod.outlook.com
+ (2603:10a6:102:4ab::7)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="BUQBIV/8nLJh11WY"
-Content-Disposition: inline
-In-Reply-To: <20261103042608.387626-3-vamshigajjela@google.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA3PR04MB11153:EE_|PA4PR04MB7520:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7960f24e-8325-4a38-43d0-08df39d6c41b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|376014|22082099003|261102123227099003|18002099003|56012099006|11063799006|10067099003|261021121427099003|4143699003|3023799007;
+X-Microsoft-Antispam-Message-Info: +xq2hgOO63jv/meUpXaU0zVFevMjQM1hUw6yREWap+q2TkHmOauHXdeVD3+bhMhtcZu0RbtyygPW3KmOZ35f2aLaxvX2RcwveqzPfIRqA+4cGhznc6TsHGO0nfYIFYeBtC0SgrgtZRAylRf7wi8FVo9uU1fUYqBP4WHXqB60zzbZ7FFjeYLAz8JID1Q/PjgMZE1D7RtImCfhMFIKBDVYIMoU4GtJfCI8ulUkUBweNTZqgKKceIECMClZxu3JzCtc1m6lFcunYQ35lv3mdUtQLQl1rG5u9kI9z2tJTht6UROl8XuSJdWo8FShaEsftO7n8dtKmQaDXPyiPmwWS4DShLtyDlkuf8MfPsVGVe4qN4b0m7OvS4RRHSe3Xwt2BhmNNpLeQPszGzB5vk/Uf2EnZA2D4ah+sEHJLRQsFObiT0GDPxv6VyfyGhULipkIXCygSgyKKeWznNy7OGdKsc9a402hUO/2kd+AUFHYVMPLAjdBZrLCdpCkqRzO3RSC8iEr2wOesFZn48NsoLAlvuSWaZK/F3OKD5jfGYXe637SwqHjbHNQalbSKcFh5ao6nmrAYoorS7FfzdhKAn/Y0cjb2usuOBkI2iEc3XWyMlwDOcqMYYg+rC/4Ie2APG2IFhI8cgUdYWzqFI5dxO33KgdehsGav+9LCvPmy3P+kUVh6io=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA3PR04MB11153.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(376014)(22082099003)(261102123227099003)(18002099003)(56012099006)(11063799006)(10067099003)(261021121427099003)(4143699003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bUV2bE14R21OV2pEQTJGbTlMRXFUcDRhYUpVTjZDSlBwNzZpUWlFMXhwS21J?=
+ =?utf-8?B?VEYwaVJrYndqL0hWZVJyQnBpQnp1Y2JlamJ2aWgwRzFTZ0NhMlVFbXM3VXZw?=
+ =?utf-8?B?VmVsbGxLeGlNSS9oYjVXWnJpSzcrL0d3SVVDVGtuY1dzMSt3aXlFOTdiTklW?=
+ =?utf-8?B?RDhxb1E1UVVuS2NZODdrVlg4WmJQZkhWRXp6QTFiUytWdzlhYkpIY2QrRWVk?=
+ =?utf-8?B?QmdxeUtmMlFvZ0MxL3FkTXd0a3NleVRZSVFqVjkweU5LNHZvZ0RNZ1Rka3FY?=
+ =?utf-8?B?ZEU2dmtYWEIwaHBDV21FbzZmY3hDUlN4a0NINEowQlpmUE4xWGQ2NEJUSldB?=
+ =?utf-8?B?UWE3MU5BRTJWanFwR3I2bDM1U2xVMjlKdXFtczdCbjFyTmlUMHNBdVBpZ3gx?=
+ =?utf-8?B?SXdobTNiazFWNHRaVXk1RjNtdVBwU1NDaEozMUVFYllMTDNyTkJiQlI1ckdy?=
+ =?utf-8?B?OUQvWkUyamFQNmpSS2plTlZTalo1Vks2bFRIa3dYVU1VdGlnZHRqSE1JQ3lH?=
+ =?utf-8?B?d1RPRlExMk5MeFNUMWZNMTcxbjBvd1BzcE83ajN0UHhYNUJCMGVoK0tsWFNi?=
+ =?utf-8?B?aElCaVIyenBBd29qTm95dHFyeUMyb2c3Wko5azJGT1lBQ2xGZG9kSC9OYU9r?=
+ =?utf-8?B?MWlzY2lxcWtMRFlzSzhVUHFkeS9FV0JKUFI4ekJhNE5JYkFKUkZlTGVNbGZI?=
+ =?utf-8?B?dHhJMjIxb1ZMRDR2U2lheWxrYWNBc1ZvRzZEN0dLeTN6QnlsR2g3eFVJL0Uy?=
+ =?utf-8?B?ZmpkcllLaDI5MDF1NFFDZ3htdTdzLzRsRFEwVnRaWHdUcVRCZ2FBRERmSVUz?=
+ =?utf-8?B?bFhYa2IrUEZZOXdITG1jVDdvaUJTdmd3bXhQS1NCT0gzd1dqaHNUN0ZmMkdn?=
+ =?utf-8?B?UWttY2E4UVYwWXNKbC9jbzBYMlhjT3MvWEowZlI1eU5STnFhalBjMlFDRk90?=
+ =?utf-8?B?UGYra3RIYmVMbTlpaW9qcWg0Uk1aSWV3QlBYa3Z6dW1tcTIxTnRTcGpsbWVK?=
+ =?utf-8?B?cmN6b2gvYXZXd1pYMTBIbitoRTRDdWJBK2hSYmthdFg4NmEvdExsT2JGRTB4?=
+ =?utf-8?B?NmQ0MlVDUnhIM2tSWTRmOWRLZHhHY3MxQU8wUHI3MFdpdGhmYXdsVkQ1N3BL?=
+ =?utf-8?B?aHdaanczeHhIU00zVytQYUUzcDBrYmZKcXBLczlyU2REVW1nQWZ5TnpRRTNQ?=
+ =?utf-8?B?WHBHbFNEMEthaThwSHRGQnVEbG1NZkRScGN3SXdDc3U5NWxPRENvRUV0YlBT?=
+ =?utf-8?B?Tm5VWFRKZlRCYmtLVGE2UDZsTFBCRnlYejBsVDI3VVhzWE5vN1RXaXNyZWwz?=
+ =?utf-8?B?Ulo1WjZJa1ZxVEg1b2xIQkNtUldBRDh2c2YvWWFtc0paMkYySlUrUjRZUThw?=
+ =?utf-8?B?aEhoRUVyMjVFb0NtRVkvcUVDamtpby80czNuMjd3bjVsbDRMZ0dqNG9HVWd0?=
+ =?utf-8?B?UzA0VVdvajZSZGd6T0dtcnB3RVJ2OE40UllLRzdrQkVHK3JhV0pFQnY2RTVp?=
+ =?utf-8?B?TFlIZkpPWU5USVQ5a1hIRU1GaExsbXo1WkhnRDdnZ1E5VVBQbDdrRWdTeFZU?=
+ =?utf-8?B?TUV5Q2NUNFh5dWFPcy85NS94NkZkdEtxWEw0Q2tPbGo0NGFwM2FwR1RzZGoy?=
+ =?utf-8?B?d2hWditLL0ltZGs2ak9NQnZjdE9GOWd2T3R0SWdqYWxRRmM3T0RnQlJSMWk5?=
+ =?utf-8?B?bHVOZTZBNXZFb1RIbGNXYTA3Qnl6Wi80RWhhM2E5Z3I5bkpPeFZTOXZDZU91?=
+ =?utf-8?B?eU5NUVBVQzF2TlJndUIwVmxHVzhQaVVIMzBBbGNvbEQ4VWtncklMM2htaGNs?=
+ =?utf-8?B?Ly85TjNGMkRxdlFqckVoSVh5LzdBK1pWRlNlaWE4OXF2MGdLWHZGclhXckx3?=
+ =?utf-8?B?QU5aSzhYcDdva1lSM3VaQzNSMDhxaW40VjEyMzF6ZzNnVUtEanA5TkpVUnhY?=
+ =?utf-8?B?V1pJZ3kvdHpPb250L0FibzNmRG8raDcvNGI0a0prbUpLay9XVDZHZlM4eHQ5?=
+ =?utf-8?B?aFY1R21EYktHWk9TcGN6ck9xRFliS25tdUpSaDZjQU1VTEtTckU0UnArQ2xI?=
+ =?utf-8?B?Nk1QWXdlRGlSWXp0NEFpelJmRXBtVHZkOXYyWnBpWGtrVVZoUHFtdmttTFRL?=
+ =?utf-8?B?L1p6UHM0NWhiOXBJN1dxL1BGejUzTG1OWkVqL1dNbUNibTYySmY2cnpaQ09m?=
+ =?utf-8?B?Yk9vMTZzVkFhckwrcWtWZmo4SER3dThXWXpreUJrR1paWGNFNHMxV3IzbElu?=
+ =?utf-8?B?cVJOVFhsMW1TUWZ1RmJTSVRzNnY2TDc3djZLeCs1elZhNkIyKzNkc3Bnc1Uw?=
+ =?utf-8?B?VjlyQlpVSmxCaVJ0VjNwcDhicUZrcHVMbDhOU3dEdjNRTStCSkVnZz09?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7960f24e-8325-4a38-43d0-08df39d6c41b
+X-MS-Exchange-CrossTenant-AuthSource: PA3PR04MB11153.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 18:17:48.7631
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mz97YT8JWbaJrmE1wcSVwYMoJCbhKwUmIXIlISEzTV5EONH4uFjDlXlvw9rQ2wWWBqL2E1XI/w94zNQTO3bwbaRSetAMoRCNeKs/DAom24Q=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7520
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261103_101756_311424_2AA30632 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,260 +148,36 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-20.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---BUQBIV/8nLJh11WY
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Nov 03, 2026 at 09:56:06AM +0530, vamshi gajjela wrote:
-> From: Vamshi Gajjela <vamshigajjela@google.com>
->=20
-> Document the device tree bindings for the SmartDV IP Solutions MIPI SPMI
-> master controller ("smartdv,spmi").
->=20
-> This controller IP is integrated in Google Tensor SoCs starting with the
-> G5 generation (codename: laguna, canonically written as "lga"), so add
-> "google,lga-spmi" with a fallback to "smartdv,spmi".
->=20
-> Signed-off-by: Vamshi Gajjela <vamshigajjela@google.com>
-> ---
->  .../bindings/spmi/smartdv,spmi.yaml           | 126 ++++++++++++++++++
->  MAINTAINERS                                   |   6 +
->  2 files changed, 132 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/spmi/smartdv,spmi.y=
-aml
->=20
-> diff --git a/Documentation/devicetree/bindings/spmi/smartdv,spmi.yaml b/D=
-ocumentation/devicetree/bindings/spmi/smartdv,spmi.yaml
-> new file mode 100644
-> index 000000000000..e0512e60d932
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/spmi/smartdv,spmi.yaml
-> @@ -0,0 +1,126 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/spmi/smartdv,spmi.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: SmartDV IP Solutions SPMI Controller
-> +
-> +maintainers:
-> +  - Vamshi Gajjela <vamshigajjela@google.com>
-> +
-> +description:
-> +  SmartDV IP Solutions MIPI System Power Management Interface (SPMI) mas=
-ter
-> +  controller supporting MIPI SPMI Specification versions 1.0 and 2.0.
-> +
-> +allOf:
-> +  - $ref: spmi.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - const: google,lga-spmi
-
-> +          - const: smartdv,spmi
-> +      - const: smartdv,spmi
-
-I hate compatibles for purchasable IP like this, particularly when
-unversioned as they maybe become effectively useless when a new revision
-releases. The standalone smartdv,spmi compatible has to go at least,
-soc-specific compatibles are mandatory.
-
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    description:
-> +      Core clock to the controller from which SPMI SCL is derived. Optio=
-nal if
-> +      the controller uses a free-running clock and clock-frequency is sp=
-ecified.
-> +    maxItems: 1
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  clock-frequency:
-> +    description:
-> +      Input core clock frequency in Hz when the controller uses a free-r=
-unning
-> +      clock not described in clocks.
-> +
-> +  smartdv,master-arb-enable:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [0, 1]
-> +    default: 0
-> +    description:
-> +      Enable master bus arbitration phase (0 =3D disable, 1 =3D enable).
-
-What aspect of board design governs the decision here?
-Why can it not be determined from the soc specific compatible?
-
-> +
-> +  smartdv,master-id:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 0
-> +    maximum: 3
-> +    default: 0
-> +    description:
-> +      Master ID for the controller on the SPMI bus.
-
-What aspect of board design governs the decision here?
-Why can it not be determined from the soc specific compatible?
 
 
-> +
-> +  smartdv,spmi-version:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [0, 1]
-> +    default: 0
-> +    description:
-> +      MIPI SPMI specification version used for transfers (0 for MIPI SPM=
-I v1.0,
-> +      1 for MIPI SPMI v2.0).
+On 11/3/26 5:50 PM, Quentin Schulz wrote:
+> Hi Heiko,
+> 
+> On 10/26/26 11:20 AM, Heiko Stuebner wrote:
+[...]
+>> +        pinctrl-names = "default";
+>> +        pinctrl-0 = <&mipim1_camera3_clk>;
+>> +        reset-gpios = <&pca9670 6 GPIO_ACTIVE_LOW>;
+>> +        rotation = <180>;
+>> +
+>> +        port {
+>> +            cam_output: endpoint {
+> 
+> issue: missing bus-type?
+> 
 
-What aspect of board design governs the decision here?
-Why can it not be determined from the soc specific compatible?
+Nevermind, it seems that it only matters from the CSI controller 
+perspective seeing the two other Rockchip Device Trees with this 
+property set.
 
-
-> +
-> +  smartdv,arb-retry-limit:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 0
-> +    maximum: 255
-> +    default: 32
-> +    description:
-> +      Maximum number of times the master retries a command when losing b=
-us
-> +      arbitration.
-
-What aspect of board design governs the decision here?
-Why can it not be determined from the soc specific compatible?
-
-
-> +
-> +  smartdv,prescaler:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 0
-> +    maximum: 255
-> +    default: 0
-> +    description:
-> +      Clock divider value to generate SPMI SCL from the input core clock=
-=2E Writing
-> +      1 divides the system clock by 2; more generally, a non-zero value n
-> +      divides the system clock by 2 * n.
-
-What aspect of board design governs the decision here?
-Why can it not be determined from the soc specific compatible?
-
-
-> +
-> +  smartdv,read-latency:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 0
-> +    maximum: 255
-> +    default: 32
-> +    description:
-> +      Number of SPMI SCL clock cycles to pause during bus turnaround on =
-read
-> +      commands to allow the target device to fetch data.
-
-What aspect of board design governs the decision here?
-Why can it not be determined from the soc specific compatible?
-
-
-> +
-> +  smartdv,arb-scl-delay:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 0
-> +    maximum: 3
-> +    default: 0
-> +    description:
-> +      Delay between arbitration and Sequence Start Condition (SSC) when =
-the
-> +      controller is the Bus Owner Master (BOM).
-
-What aspect of board design governs the decision here?
-Why can it not be determined from the soc specific compatible?
-
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-
-I find it hard to believe that this is the set of required properties.
-
-pw-bot: changes-requested
-
-Thanks,
-Conor.
-
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/spmi/spmi.h>
-> +
-> +    spmi@14853000 {
-> +        compatible =3D "google,lga-spmi", "smartdv,spmi";
-> +        reg =3D <0x14853000 0x100>;
-> +        #address-cells =3D <2>;
-> +        #size-cells =3D <0>;
-> +        clock-frequency =3D <19200000>;
-> +        smartdv,master-arb-enable =3D <1>;
-> +        smartdv,spmi-version =3D <1>;
-> +
-> +        pmic@f {
-> +            reg =3D <0xf SPMI_USID>;
-> +        };
-> +    };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index eaeb60c1e1c2..f44c597c2075 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -25243,6 +25243,12 @@ T:	git https://github.com/cschaufler/smack-next.=
-git
->  F:	Documentation/admin-guide/LSM/Smack.rst
->  F:	security/smack/
-> =20
-> +SMARTDV SPMI CONTROLLER DRIVER
-> +M:	Vamshi Gajjela <vamshigajjela@google.com>
-> +L:	linux-kernel@vger.kernel.org
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/spmi/smartdv,spmi.yaml
-> +
->  SMBDIRECT (RDMA Stream Transport with Read/Write-Offload, MS-SMBD)
->  M:	Steve French <smfrench@gmail.com>
->  M:	Steve French <sfrench@samba.org>
-> --=20
-> 2.56.0.317.g454f8302e1-goog
->=20
-
---BUQBIV/8nLJh11WY
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCauolGAAKCRB4tDGHoIJi
-0gOcAQDsQ1S81lNbFKF+hbL7KWP92uZOOw4o1Kdv7epFP9KMzQD/VxhoccS0MiqW
-z/2WV3krNOEzJP2OVv/r/nAYohN85ww=
-=aTCw
------END PGP SIGNATURE-----
-
---BUQBIV/8nLJh11WY--
+Cheers,
+Quentin
 
