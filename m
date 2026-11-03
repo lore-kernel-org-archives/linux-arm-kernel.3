@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C510606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 11:46:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5BA3606A32F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 11:47:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NZCpAdVh;
-	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=XBPDSV6U
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=m3DXvwSO;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fLGOiZwJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,119 +14,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=rQNgYgRzwbgahGLohNvZBfs82BLnKvw2G9BPFntd+2Y=; b=NZCpAdVhOnJwsAvBqKjsTwldyB
-	ASfI5j2NtNRS8NcVv49A9qi/ja2eZoLY/PlpFl9GV3vm/MP2nlOUsQpe8MAiXe//t2LEa7EhmkebV
-	kQkFy4S/lGH/4nX1xlNdenX64vmtHMjA1R8rakPYVaEmyoKpF4zp4SZQd13XP8xc8di1YJna8aDG4
-	4SPIPx0pcWZCn5eumlEKTH+9nz3e292F1LBwpnuAi3K7iNxwZEPJp328QUY0v0Zk0elOpbajex4Kg
-	XgBapKAOV643jvKl62UPP/YWJP04ikeSk8cwB5kAQ0w61Due9Fd0GgbSlXnveNvS1bLo0gkMzmHcE
-	wLsi8kiA==;
+	bh=oyJaOsgyVg7i7yxpvVvv++9mxwF1nRekeAVvZqUnvdY=; b=m3DXvwSOGBFX8OowGWiiWzCLj+
+	C9YVtFpZIjjj0ENH6oZ0dWzQK8TX3Fv9wmLlUsqjP+opNNpOTu2V+1IlNo7y0h8UgDZX2UKxCQNhi
+	qcaBbvCMl9/tM3Ff1/2sHTZkt0iLEYvkR04jfES21O+C6UP+++/dqEjt4/rkweUkIAoMTgvkbGlj/
+	Ksm4Dkktl4bu1Pg/2qmo6Q1JZQ/3IMEjYwZMc6rXAVKgMYcHuLMIRKs8MK23QX7X3duTgxvImlt/a
+	wgdiPM3+IBkvt5Fe3+5t52UcluQHIBXPeEWlP1aSglOwXLvnu2gI5lloiYJ1setHptF8Bk7AFRTVE
+	AzXguD0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOCy9-00000002FuU-19yk;
-	Tue, 03 Nov 2026 11:46:25 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1xOCyr-00000002GFh-37Qz;
+	Tue, 03 Nov 2026 11:47:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOCy6-00000002FsQ-1uKG;
-	Tue, 03 Nov 2026 11:46:23 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A3AEnqC4045893;
-	Tue, 3 Nov 2026 11:45:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=rQNgYgRzwbgahGLohNvZBfs82BLnKv
-	w2G9BPFntd+2Y=; b=XBPDSV6U1ByAfT/2HXWiYPBImtoE06l1RsLvOPr+Mg1Wdg
-	5bb7Q4UvH0mEeFRj51IZNVX9NifoIpA9L056gpcpDJYHk5VjyO/RQmX944rPTcqT
-	lza8DMAA2sFbSnKXHJIeLKs+Q8G1+3X9B+dEQMrLtkOkjp4pNJTbzJPAiDcZXVUE
-	p6Db6wAKv27p8hT6TDeMeXOr4Vk2Xpp7upRB50EYJzqoLgx5W9PMpVDKF0KnA/eX
-	bnd0mHKF4Ty7FsZMzKSxZD1WU4h6XYV6jH6M4KptIOxivjveMfPtf8UA4FEmQ1NM
-	hLDM5ogor5Zfi+YhNntcsukL5xZcXKcEJ/fYDveQ==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4hn80snd8h-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 03 Nov 2026 11:45:57 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6A3AK5Iq2350043;
-	Tue, 3 Nov 2026 11:45:56 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4hqbqk8stp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 03 Nov 2026 11:45:56 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6A3BjoS127460120
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 3 Nov 2026 11:45:50 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 770852004D;
-	Tue,  3 Nov 2026 11:45:50 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9A1B320040;
-	Tue,  3 Nov 2026 11:45:49 +0000 (GMT)
-Received: from osiris (unknown [9.111.24.158])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue,  3 Nov 2026 11:45:49 +0000 (GMT)
-Date: Tue, 3 Nov 2026 12:45:48 +0100
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
-        Huacai Chen <chenhuacai@kernel.org>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Paolo Bonzini <pbonzini@redhat.com>, Fuad Tabba <fuad.tabba@linux.dev>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>, Nicholas Piggin <npiggin@gmail.com>,
-        Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        kvm@vger.kernel.org, loongarch@lists.linux.dev,
-        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Stefan Teodorescu <fane@google.com>
-Subject: Re: [PATCH 1/7] KVM: s390: Drop unused and unreachable
- kvm_arch_vcpu_should_kick()
-Message-ID: <20261103114548.119911-B-seiden@linux.ibm.com>
-References: <20261028190259.1819571-1-seanjc@google.com>
- <20261028190259.1819571-2-seanjc@google.com>
- <20261102153228.240804-H-seiden@linux.ibm.com>
- <auitiPKnFueBJzPA@google.com>
+	id 1xOCyp-00000002GEn-2qdL
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Nov 2026 11:47:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B8E4A60008;
+	Tue,  3 Nov 2026 11:47:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CA531F000C1;
+	Tue,  3 Nov 2026 11:47:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793706426;
+	bh=oyJaOsgyVg7i7yxpvVvv++9mxwF1nRekeAVvZqUnvdY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fLGOiZwJtsEitAbzUlKFcW5d9p7XkcaPwIxaI3jXZAAG7Fdh6jLMYwRVNfWbfjkSO
+	 5HWjNfrN495p1IEvlw5iXNsjfkVexPbHeC6diREKCVqL5nIT97WFhpdB2ATv+JSJbN
+	 CM84WjJeHHpSRvq569RAhulh7iHiLdVT+yBz6NtpLWkXtANRKIsVIOzqaB3cBMIuYS
+	 RRFLDq92c++Kje+nSPx4pd8Dr7kkbbxo4ge15MSqGTV3wLH8RIFm2kzwPFT2o9UJ9L
+	 VEceCvgQzL4+NQHSjqJtRaV+UUD47eMKlhXJSFoRN7ejpCqubU2MxAVQbTmlmsPswi
+	 fDmef2zvh7YvA==
+Date: Tue, 3 Nov 2026 12:47:02 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Linus Walleij <linusw@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Stefan Agner <stefan@agner.ch>, Dong Aisheng <aisheng.dong@nxp.com>, 
+	Jacky Bai <ping.bai@nxp.com>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v2 06/11] MAINTAINERS: Update i.MX GPIO entry
+Message-ID: <20261103-essential-uber-snail-ff3be7@quoll>
+References: <20261103-gpio-vf610-fixes-v2-0-7c71fb36e184@nxp.com>
+ <20261103-gpio-vf610-fixes-v2-6-7c71fb36e184@nxp.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <auitiPKnFueBJzPA@google.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: pVpgdP1XGIbnstN6hf1_H30Mry2kEc8w
-X-Proofpoint-ORIG-GUID: l9khr2_nw7GEkBcFn3H6-NSEwUfuIP0C
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAzMDA0NiBTYWx0ZWRfX1XmGS9lHsUL0
- R/pqFn7OS4O6sIvO6xkJJLw7ub5XYBJJ8rT4n7ytkLsrM+nXxJ8ALAk6IZ7cxaLgxzx/sz6YekU
- QUQNLzCc+AcEIzFSIIId4SI+3jZ4xWcemIVFHv+lYM846eTlTDBy/sVfsO3lwE4suzbkGudS2Kb
- gxPBGGgvMaIVdytp/A39MMoe5QDoT7CkGj5SGrkaqTAe4eTeD+SzsmTdUt/UyjY9TJC3JseqnJa
- QEo75BJzfvgqw3u+U+2wRBpyO7uPflzaZ5caj2HokpnoTurGkxzXBgpUXpjVDxTHjuBmXjI8rPa
- vxWDAmBlV9AhIXjL/sn+6LcGLT5sIIA/1vfGnxBH9hGUn2tSE9JXdCrUFdxql4RE+ZLXgJZ4H1I
- Kt9BEBx2jKRF/wavIUPm0bKdaAiukt/xqjNHAoSCxYurQjxD+KTis8S/8SmPNJktwNxtQkMBgIp
- 7SZvF2lkFSgtvQ77a7g==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAzMDA0NiBTYWx0ZWRfX8KXTgj3ZDXIb
- rszJKiaYCEhjwddi22AWOUixDabzaYbTZeZqW4OyLHY9z/7j8facbJ5/xv2IRGOBpQn4thL/pQY
- S1fxrlzI0e+Xs7MM8Gx7oKdd53KSVec=
-X-Authority-Analysis: v=2.4 cv=FIqOVOos c=1 sm=1 tr=0 ts=6ae9c975 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=14yfDfNcGX1pIiSJYtUA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-03_02,2026-11-02_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 malwarescore=0 impostorscore=0 spamscore=0 lowpriorityscore=0
- bulkscore=0 suspectscore=0 clxscore=1015 priorityscore=1501 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610300000 definitions=main-2611030046
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_034622_501999_A616F7BB 
-X-CRM114-Status: GOOD (  17.59  )
-X-Spam-Score: -2.6 (--)
+In-Reply-To: <20261103-gpio-vf610-fixes-v2-6-7c71fb36e184@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,30 +75,24 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 02, 2026 at 07:34:32AM -0800, Sean Christopherson wrote:
-> On Mon, Nov 02, 2026, Steffen Eiden wrote:
-> > On Wed, Oct 28, 2026 at 12:02:53PM -0700, Sean Christopherson wrote:
-> > > Drop s390's kvm_arch_vcpu_should_kick() stub as the one and only call site
-> > > is wrapped with "#ifndef CONFIG_S390".
-> > 
-> > In the somehow near future I'll remove those #ifdefs and use the kick
-> > stuff for kvm_arm64. The native s390 KVM then must at least keep an
-> > (unused) symbol at hand. It seems that the compiler could not optimize
-> > those calls away. So let's keep it there so I do not have to re-add it
-> > soon.
+On Tue, Nov 03, 2026 at 07:44:10AM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
 > 
-> Please read the rest of the series.  kvm_arch_vcpu_should_kick() goes away
-> entirely.
+> Update i.MX GPIO entry to include VF610 GPIO driver and dt-binding.
 
-Sorry for that. This patch just jumped to my attention and I had no time
-yet to read the rest. 
+Here and in subject - pointless "Update". Everything is update. If
+people were using such syntax, then entire `git log --oneline` would be
+useful.
 
-	Steffen
+
+Best regards,
+Krzysztof
+
 
