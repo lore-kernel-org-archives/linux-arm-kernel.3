@@ -2,44 +2,44 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92247606A80A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:52:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65091606A806
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:52:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dYn4NPTf;
-	dkim=pass (2048-bit key, unprotected) header.d=dolcini.it header.i=@dolcini.it header.a=rsa-sha256 header.s=default header.b=efdoLNPc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UGekLk/r;
+	dkim=pass (2048-bit key, unprotected) header.d=dolcini.it header.i=@dolcini.it header.a=rsa-sha256 header.s=default header.b=WDrYc66A
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=OzgwCIwWShDidCYfodpLoLuz6ukZj6iJTfhH6QPwT0w=; b=dYn4NPTfk8pGSq
-	aTw8NtBHs3C0l6+keLNLRQRL1Ibc7Igis0BLDsfyQTwISzNorvp8ZLVIyU81NbgUhxAw0cCrXe7nT
-	57vn9MhKmQH34MTLFEtsHPDidTvZz0IBU5z1bDCsb/TSYEOVwoWeWXXwc7o20364JOFqu6CD5zOGm
-	gT8O18VvUSHYHOiqUF/9aH3gdgLwZvztg0yA7wLTEIkbCxcBcuKVRyUS/hvh/mmLwuE0Q4Ur676sK
-	93pvjf8bMgPiwvVwrYx5knqvMUo4kJkwRTI6o0VsSz7DCJ6uWasp5fgMYvNEep+AylMysDNMMbGj0
-	8XHc2KujweY6HyGpxb7Q==;
+	List-Owner; bh=lSYxGlKMkILq2NR4SXar7B/zYY/ERjmDJOLLXYuvtu8=; b=UGekLk/r3SySQv
+	TbhnQcoyjP9GZcGUvQmMIFvLqnJT03UvtnC/xQBtFIBFbfwtuy/diwolv2l9mXeYmmimNE5Wg4YZw
+	YzkKjZ4tNOAfeRd1orPTXLGEavVcg3+TTWRG9b0tNBIbN0C0N9ur+Qn+T4HWm3zZYrLkvg6TdZo5m
+	hu00ChShE4FNtOHv774457S478BhoWYovNXcF5+OLlaQQAUIf8A6ie2IV8oFA0rNvvoRdBCpmEGmo
+	RL+EbtNXWhnjpC1cdIDcZcuVmRJe40YgRJKWpVAcg++ESYVllrbSLAQVh1zXircQ/gkaGDR6k+F5z
+	f7O9rQntEHFmkMjVPOzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOC7U-000000025Uo-1InG;
-	Tue, 03 Nov 2026 10:52:00 +0000
+	id 1xOC7W-000000025Vk-3Nc6;
+	Tue, 03 Nov 2026 10:52:02 +0000
 Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOC7N-000000025SF-0eDY
+	id 1xOC7N-000000025Sc-0eIy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 10:51:59 +0000
+	Tue, 03 Nov 2026 10:52:00 +0000
 Received: from francesco-nb.corp.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
-	by mail11.truemail.it (Postfix) with ESMTPA id DF7831FAA9;
-	Tue,  3 Nov 2026 11:51:46 +0100 (CET)
+	by mail11.truemail.it (Postfix) with ESMTPA id B25491FA74;
+	Tue,  3 Nov 2026 11:51:47 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1793703107;
-	bh=OzgwCIwWShDidCYfodpLoLuz6ukZj6iJTfhH6QPwT0w=; h=From:To:Subject;
-	b=efdoLNPcZBo4NMSB2+g7SpKiBeH0lYrSSJiQQzNhF8psrpli0fY/hRlxHRKdzzQB3
-	 TjouP1s6yZzHdJZU+KK6vZUOQ1SCiwFyZ0ggXHd4PGnOwrGU+SIljHkrk5H8seMHD5
-	 1w7L9Ja1yNjmsag9iawQpklWnJvbhT3DRf7+OL6TaQGqZ7VRvC4Wv5Awpm7sBG9nEV
-	 DWTDAF7LuNrI9QURL0tf+JEYGyXcZ6/Zt78N975t1rBcUIEAkl8MC83Y3rgeYD4zX0
-	 tnS2Hyg/SQO1jfA0nZ2IcclKnz/8kOQApiKy1EGtH7wDLFPrmGtSA/hLgI2xJDrP8q
-	 NHOEFTm5K153g==
+	s=default; t=1793703108;
+	bh=lSYxGlKMkILq2NR4SXar7B/zYY/ERjmDJOLLXYuvtu8=; h=From:To:Subject;
+	b=WDrYc66APuiKiP4SutL3XR/T+oJdoVzh0VX9T/e60G6gKbyv9iiNZeguSD2hcI3PV
+	 Bxx0zVj+qRrTglV3oaaBd9+rULGrm+zgd3TNGZw5jRedN1sbI9XPbag5UX5m/RyTy+
+	 /T70GYh4dNRSfQUxk9BP3UmMbvB1FGcdAiH1Bg+R0tkPk6LQZ9f4C4FV5SCmhfl68A
+	 PJz8mepuwp1vHCX2c7Q1sNuJKI424LZN5gi6q0AsvVxLPEo6ddIgOOGj9r/CZZg5Ki
+	 vdJzsPaTZIj5kKfuddMMJXC2Pt7aXwtvh7Zp7DkbQy4fIM9V4lVzViVbzk1orveVJS
+	 zJFop8Tv2NEBQ==
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>,
@@ -51,9 +51,9 @@ Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 1/2] arm64: dts: ti: k3-am69-aquila-dev: Keep DP_PWR always enabled
-Date: Tue,  3 Nov 2026 11:51:35 +0100
-Message-ID: <20261103105137.2393416-2-francesco@dolcini.it>
+Subject: [PATCH v1 2/2] arm64: dts: ti: k3-am69-aquila-clover: Keep DP_PWR always enabled
+Date: Tue,  3 Nov 2026 11:51:36 +0100
+Message-ID: <20261103105137.2393416-3-francesco@dolcini.it>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261103105137.2393416-1-francesco@dolcini.it>
 References: <20261103105137.2393416-1-francesco@dolcini.it>
@@ -61,8 +61,9 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_025154_235960_2F173277 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20261103_025154_244394_F50280B1 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,17 +90,17 @@ adapters, which do not work without it. Keep it always enabled, and mark
 it boot-on so that the firmware, e.g. U-Boot, enables it at boot,
 whether or not a display driver is available.
 
-Fixes: 39ac6623b1d8 ("arm64: dts: ti: Add Aquila AM69 Support")
+Fixes: 9f748a6177e1 ("arm64: dts: ti: am69-aquila: Add Clover")
 Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 ---
- arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts | 2 ++
+ arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts b/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts
-index d3677c2c2547..5afd7b806265 100644
---- a/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts
-@@ -35,6 +35,8 @@ reg_3v3_dp: regulator-3v3-dp {
+diff --git a/arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts b/arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts
+index 3e2377160d82..552a1a792342 100644
+--- a/arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts
++++ b/arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts
+@@ -28,6 +28,8 @@ reg_3v3_dp: regulator-3v3-dp {
  		/* Aquila GPIO_21_DP (AQUILA B57) */
  		gpio = <&main_gpio0 21 GPIO_ACTIVE_HIGH>;
  		enable-active-high;
