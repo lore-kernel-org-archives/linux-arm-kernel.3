@@ -2,49 +2,50 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45D22606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 07:41:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA349606D807
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 07:41:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YJ+2pGOl;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=J5ekpD88
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=S4ZnkAwq;
+	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=GNCY00i6
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=eqpZJ52pkPZrW5B1bxd0itvKgWCZxZxGsa/4zk4A2z8=; b=YJ+2pGOlTijyXH
-	O+G2oKRB0NO36aXkTy4UWjJzLNmaNo0ONA9TM/zMEFmthrHm0bEYqIDVeOnpR1ZUDtns+cMsNagof
-	2/tsaUm655E2Bukkv77hEQUaQ/7gA44MFy1qQUV8hst86h/M2cyHuNUXYjyr/h5CQv3uMGNh5Wg1Q
-	/u2XrZd7iRgn6ZCOzwTom19qNC5Vy6aSqLqHQlpErfteFr+tvUJ01Bx+XpC7+iG4bfqyUNdScFEgn
-	cxdZjrAxN5H3USxHlo3ATckYfnvtJGGwj4o8/GbPBXfNo8K6fmVLiCdvV1US77xupkMbaWTMVP72f
-	Hr5/N2TdkeH1pjro3Apg==;
+	List-Owner; bh=unrXYpRM04ZDnuSzMCxmVlS1hxiwU0LvVlULs3HYgng=; b=S4ZnkAwqz5RydD
+	Ljf5Vk+hRbQVUJZAqWRiW+FXaGL/KaKYrkSD17zN7C13kR70wWrod+tT3KlY6JLsn88UU5zuYoKkc
+	Npwpz38385I4dCa3AAyrMg2Z5YAhN2okEnPg3f6N8PwyqoxbC/agEarBKBu0LgqgA4rNE+bRMEKb4
+	EC0i+DvA8WbxzBmIdlU3UAdgMKq76TWTq50H7YGHZvHRL4ZVxtrM85gS6KjmyQubWAaXXfc0zDFRW
+	p2wqhRk9KHgH7vdAVlyaX9cHHle4YDpvlsfnt6qHF14m9bpcZTmnsbULCBeHOJWq8Yd6TTGOSiCGP
+	Q6KzowGZ3aFHgDG3oXNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO99A-00000001Mf0-2eMl;
-	Tue, 03 Nov 2026 07:41:32 +0000
+	id 1xO99R-00000001N2l-2dZR;
+	Tue, 03 Nov 2026 07:41:49 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO98r-00000001MDN-2TIS;
-	Tue, 03 Nov 2026 07:41:19 +0000
+	id 1xO98v-00000001MKN-1vq7;
+	Tue, 03 Nov 2026 07:41:34 +0000
 Received: from [127.0.1.1] (chfd-03-b2-v4wan-176392-cust229.vm15.cable.virginm.net [82.19.20.230])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D0AEA1F37;
-	Tue,  3 Nov 2026 08:38:52 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C5CE32805;
+	Tue,  3 Nov 2026 08:38:54 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1793691533;
-	bh=A3tGFsusSxF/lC02GjPb9mcb4lL56x5SgpIzfd51HX0=;
+	s=mail; t=1793691535;
+	bh=6Q9ze18PqHn248ojyQQszGM7rBEuyTl31r061SKya5g=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=J5ekpD88sVnXAI2L28dZyqO44AJEKn+x+DPq0lzDovDYu/d1ciRONqS1M4foKzaXk
-	 k30TK9pydUFS26qZUo+d65KW86zim0HTTwDzi94Ttn87YcMiR6poi1M2W/YyHVsWRC
-	 n12z6basY+iuiAT/O15lfVblqpETM3E5EMRGcR6U=
+	b=GNCY00i6tFBKpRHwoaElC/BNx/mHQcHLatcF5sA2somBrLB3U5PUfx7KhBYozzf8G
+	 KTwXTjITFhe2DsAxT0wjQqllEP2Q4nJXABMxre+jXtREEtG4RVHBaDNuhsvFnEsGK8
+	 OTfQ2xg3O99JsIfd4lbozFIM/S6A5WfJUIs2BHsE=
 From: Daniel Scally <dan.scally@ideasonboard.com>
-Date: Tue, 03 Nov 2026 07:40:40 +0000
-Subject: [PATCH 04/16] media: rkisp1: Drop an unnecessary variable
+Date: Tue, 03 Nov 2026 07:40:43 +0000
+Subject: [PATCH 07/16] media: rkisp1: Power down after subdev
+ initialisation
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261103-rkisp1-suspend-and-resume-v1-4-08f863b6fdc5@ideasonboard.com>
+Message-Id: <20261103-rkisp1-suspend-and-resume-v1-7-08f863b6fdc5@ideasonboard.com>
 References: <20261103-rkisp1-suspend-and-resume-v1-0-08f863b6fdc5@ideasonboard.com>
 In-Reply-To: <20261103-rkisp1-suspend-and-resume-v1-0-08f863b6fdc5@ideasonboard.com>
 To: Tomasz Figa <tfiga@chromium.org>, 
@@ -58,26 +59,26 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, 
  Daniel Scally <dan.scally@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1795;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1424;
  i=dan.scally@ideasonboard.com; h=from:subject:message-id;
- bh=A3tGFsusSxF/lC02GjPb9mcb4lL56x5SgpIzfd51HX0=;
- b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBq6ZAPm3fTSJWKLjK2iwdRC4HL6/eda4Z7gWi7K
- DiFP3ylD9iJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaumQDwAKCRDISVd6bEV1
- MnYsD/9rhvHyJLljgsAa7t8l1ma07g0r2OkV+Sbz3j2PMJFTZFNSLX8Z1065lPI3W3wN3TNNmjt
- 7U8cQVoyixp7c2hudxfY9bftBBSlfyOWf+duzkdguawVoGD3I/KMZ9I8pvpgXvOslHfZtwseAfh
- bH/h2vXmdFCAMB6adF4wYKRu2LnkVGV+4xRRAXukY9AMc7G8INPk3zWPMKel9UMXx/lL8+LocrC
- 3gPVWwkmiKmlDJmfSVdnybRRMshflorCCaQz/3OSZTZz6kHZe3FGU718T3xVu12HsNSnPNUY2JT
- 1XxGIVxjjWIlqGZvxgJAPkl0jVlfRPmuoMI5QL/feJsia7B9m5Y6mGTywiw4Ig94t/OrP3Y5lZv
- isLyJluwdEYOFlVpccvo9UmvkFIY/aMNUAyLK4LOa112gq48jLxzCM4qI7Iw8bALoi6z26ZLyPx
- mxXkkUy2qWGNsKcPsXXUj22MRhoSENXXTW9GBYvLQwgLddt05/592UNa5zMpzY8pkNyy6u7nzXD
- G6nK9v2nI+AWTi72eAWCKaiz85xn3F2mJWFgKIFWzanu+ePrg/W8TfU89PoSdCarriVeMjzIjBp
- HrpuzzSEiunF0xfOUdQG/m6RWcptJ21WHSN4ixhX53NbwHUq1QyJ9a5x7+HzxU0P0GPU/6XCW8f
- wAzUJ2VLvsXIXOA==
+ bh=6Q9ze18PqHn248ojyQQszGM7rBEuyTl31r061SKya5g=;
+ b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBq6ZAQsEz30yISu/ty86JMYqKVlaIhSKowTjLKq
+ OxO/5Dl/76JAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaumQEAAKCRDISVd6bEV1
+ MpqdD/9UIlQ0Z1KWJ43DKnhvwdh7TZAdi75TJBQH+hMli4XVXFcUVl7u7haiDn+RqH0A7ad2lEa
+ LNlqYpyMbuvYPRP8t3iB5ARzaA+yDO/PyjfPDKCWIXpfdFUcCR9mzrVY/fp1cugpZPld5l6FqGY
+ 29m1M+G54/6DBBLB/I2p+sYAHe1epUDm8L1FQRrXjBr1ADFqnldp7RMSiW1GMwEQHwwI9VNybt8
+ min/iFAXJiVFdhJmIu0MPWtpX7UbAk3aqn/RJaKupr4gtga4YTBpF6vPNOkIZAoR2Uysi9X9lHz
+ Q6wFTMoJyf9vV2CvXDbfcCouNYihS0HZTEk9GUyJBqoz0j722OStMOXFTTipqnjhtUzmFwnNCse
+ e23s99jMkvKw+VryxqWIZwP4PZfxOBHRotiakMRRqr2DiqThuk2q8xfY/FozGdAF8oLrMG9a2IR
+ TPYJwW26+SCC1pLk6o1v+G/mLzd3P8FIs7ONTUFBZDPQ97aL9R1/vk4XwOc2VGG4eIMD0UdXl0p
+ cPPVAIyNGpUCAHCbUp82eY6HPesoT5+NqMQCw2Idy9NkPXrpl2gJiF4IZsAvt/rpy8IjxK+zIzq
+ s+3mWHksUWvvaTDG9lsvVULcs0B/2X0NoqnQCvJms0AF5QjWRXrEmEBxzb9g+YMhwWVqCEMB6G4
+ KszVl8mCjDQrK1g==
 X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
  fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_234115_249923_222D6D67 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20261102_234119_962966_1CF98598 
+X-CRM114-Status: GOOD (  11.99  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,49 +98,43 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The source_pad variable in rkisp1_subdev_notifier_bound() is not
-needed, and dropping it will make an upcoming change involving error
-handling in this function more simple; drop it.
+We will shortly need to reference the ISP's subdevice in the PM
+.runtime_suspend() callback - make sure we don't call it until
+after the subdevice has been registered.
 
 Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
 ---
- drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c | 13 ++++++-------
- 1 file changed, 6 insertions(+), 7 deletions(-)
+ drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-index f90e01301943c73963744929570d0e6ba4e3fd2b..2efbe6140da71a51077d7d4aa2352ef95497ebe2 100644
+index 2efbe6140da71a51077d7d4aa2352ef95497ebe2..9f1d0f72ee9bf4364c696d9fdd8febea80d2bcde 100644
 --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
 +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-@@ -132,23 +132,22 @@ static int rkisp1_subdev_notifier_bound(struct v4l2_async_notifier *notifier,
- 		container_of(notifier, struct rkisp1_device, notifier);
- 	struct rkisp1_sensor_async *s_asd =
- 		container_of(asc, struct rkisp1_sensor_async, asd);
--	int source_pad;
- 	int ret;
+@@ -729,11 +729,6 @@ static int rkisp1_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto err_pm_runtime_disable;
  
- 	s_asd->sd = sd;
+-	cif_id = rkisp1_read(rkisp1, RKISP1_CIF_VI_ID);
+-	dev_dbg(rkisp1->dev, "CIF_ID 0x%08x\n", cif_id);
+-
+-	pm_runtime_put(&pdev->dev);
+-
+ 	rkisp1->media_dev.hw_revision = info->isp_ver;
+ 	strscpy(rkisp1->media_dev.model, RKISP1_DRIVER_NAME,
+ 		sizeof(rkisp1->media_dev.model));
+@@ -770,6 +765,11 @@ static int rkisp1_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto err_unreg_entities;
  
--	source_pad = media_entity_get_fwnode_pad(&sd->entity, s_asd->source_ep,
--						 MEDIA_PAD_FL_SOURCE);
--	if (source_pad < 0) {
-+	ret = media_entity_get_fwnode_pad(&sd->entity, s_asd->source_ep,
-+					  MEDIA_PAD_FL_SOURCE);
-+	if (ret < 0) {
- 		dev_err(rkisp1->dev, "failed to find source pad for %s\n",
- 			sd->name);
--		return source_pad;
-+		return ret;
- 	}
++	cif_id = rkisp1_read(rkisp1, RKISP1_CIF_VI_ID);
++	dev_dbg(rkisp1->dev, "CIF_ID 0x%08x\n", cif_id);
++
++	pm_runtime_put(&pdev->dev);
++
+ 	rkisp1_debug_init(rkisp1);
  
- 	if (s_asd->port == 0)
--		return rkisp1_csi_link_sensor(rkisp1, sd, s_asd, source_pad);
-+		return rkisp1_csi_link_sensor(rkisp1, sd, s_asd, ret);
- 
--	ret = media_create_pad_link(&sd->entity, source_pad,
-+	ret = media_create_pad_link(&sd->entity, ret,
- 				    &rkisp1->isp.sd.entity,
- 				    RKISP1_ISP_PAD_SINK_VIDEO,
- 				    !s_asd->index ? MEDIA_LNK_FL_ENABLED : 0);
+ 	return 0;
 
 -- 
 2.43.0
