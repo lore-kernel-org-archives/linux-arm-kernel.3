@@ -2,83 +2,122 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6006A606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 07:42:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2FDA606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 07:43:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=i8DcyZxg;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=fLsxZiZM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FDYtbGbt;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LEplm5NO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=jb9k7NJwiGOsLAwtgqFgWnrDEmjdfphexebrynwYSD0=; b=i8DcyZxgdAyfAU
-	tmkHiYCUKz3QDjT71tPmpHVK/dSSIrexUrqdP2qFwi1/Og0rnMrkyNNel3yYKrarCfSEuOAQsgend
-	9Hh1dxH/MLtIcisjkhu4K2DASsM42B6fsGfMDIG8WBSbUSW2u8BmSadXTD/zNNBd/W4e9w03+HVL0
-	QSLbMQNGrKhrmFf1ktGs/p3RLyy0QOh9FNJczEbDydhigFM+zhMsRKC7ZsyIkSW15fAJSfpM2+/pw
-	6K1NZIrKpxwsWqv3T9EsRfUKLicDVM4d7nAuVrZyY7HPy9fLBC2udpMe5uIsbcwU/EJkHuLVHkHb7
-	bxHSAeBQ3RQKzylxgWJA==;
+	List-Owner; bh=sgKBfMXdyH3JiV8S086KL7jIltq3tXtvUnKZO5GkGUc=; b=FDYtbGbtWohN5N
+	F5icHz6WLhX0OUJfouABYhSSCasWyo2H/yCwO+vrUigaPAYMNooH23JtUpmvDnyDBAGiBmGMpjaca
+	XaAY5mW0z29VEZe1IFN/0sO0eqCzK526iRRHklq4VpQPtukj3Hr/dhVi8k71WXIHkWFs25j4gcNJi
+	SeLhVqP12cdL+76Ox0H1d/aJv+DNWd6obtmq3eKqZiLblgl/0eBOKhN+Lfck7oN4G2wp9twzVZY0Q
+	ELLFgseMtCmdUy0mJ4r7dQJ4IQwPcsu0ZpZoisQTTwaiuVMVMg0gT/GNKJuyvEZK0NopiTs0zWVq0
+	XkXK+kHj15UvmuZnrNMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9A9-00000001O4b-3JDs;
-	Tue, 03 Nov 2026 07:42:34 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xO9AM-00000001OGD-2iHB;
+	Tue, 03 Nov 2026 07:42:46 +0000
+Received: from mail-pj1-f42.google.com ([209.85.216.42])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO993-00000001MVS-1Jzh;
-	Tue, 03 Nov 2026 07:41:48 +0000
-Received: from [127.0.1.1] (chfd-03-b2-v4wan-176392-cust229.vm15.cable.virginm.net [82.19.20.230])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 63FC15211;
-	Tue,  3 Nov 2026 08:38:59 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1793691539;
-	bh=DouAP44a/xjibckQCvicq+7yx5PPwPBXllkSkwoGU2o=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=fLsxZiZMpxrLkQsmwLZcMdTJa1BISAYiyNJXJgJ2X51UsdJEOEy8+kwk/6j5Aeb3m
-	 I4peTF0otNxB0EbeKSJG5cSFlq3xFcknQ/Jk+Hk+US72Y0mJGJtP51gvoGWXloJe9G
-	 nA5l9dQtHiS2nrEYcV9H6jTMUcuTrxGJb9uLKDNQ=
-From: Daniel Scally <dan.scally@ideasonboard.com>
-Date: Tue, 03 Nov 2026 07:40:51 +0000
-Subject: [PATCH 15/16] media: rkisp1: Expose startup and shutdown functions
+	id 1xO99H-00000001MoA-0eST
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Nov 2026 07:42:05 +0000
+Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3ab98332238so2060534a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 23:41:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793691698; x=1794296498; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sgKBfMXdyH3JiV8S086KL7jIltq3tXtvUnKZO5GkGUc=;
+        b=LEplm5NOICyyKa1FhT6gML4+NlOG8rP4skM1GCXYtpD3FpcxW36cPpNw7OzXIHnJUQ
+         X++yZjCoy0IN5lUuE1FSL9VuCfjmgZaI5vrnRnFu3nXVC0Koec/b0jiSddbFacGxYr6t
+         b0n8btiEDfoxFNKmrF/TqEIp+mtbIiF0lPpITNH+YWdNYty5xCvt/fUebUBBopXam/np
+         XSJi/2bcpp2oIERDh5LLcnH65zrBTsG/VotDnWR6ZDz2Px91XrqCrCc9xHnl04YvvJVH
+         uMYLZei1w+yUCdjLBD7E0/+qoCryLR/3yLxeE+5T13U3mHloUFe09I+GWSCYQFSj9g9h
+         ic5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793691698; x=1794296498;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sgKBfMXdyH3JiV8S086KL7jIltq3tXtvUnKZO5GkGUc=;
+        b=p2ryBSTOahSJZpkOFkIDRa6JMGnql/SDPGeKfqujSoZPiJkYZ+AgLOMPA3s7gHYsa5
+         8gCUUzbyKryQW7sYYUj7JN7DKIMVF/5D4756tht25g99q3aMAwsq1F4Y+zMISY7VDxN6
+         M8mjyKmCTVJursgvq94/5pKUlzkesKBDQPio8EQHpm3Q3YfG4eEMFF0RsxeOvIKgZ4Vq
+         IG0ESQeK9cdaGnPxvGmKqZjpv/fOdnYm4FUI1qwY1fCEIvKPK7dzbfbFB5iBE8YPb6qQ
+         4VI9P1JHRSCTk1080eH/ePMzl6IWeW6kyo59cbGHnwlEZs2seg68yKHSTCqbF5oRQ8L+
+         EXow==
+X-Forwarded-Encrypted: i=1; AKwUvBzvg0MxXOQuBA/b/N3Sy74SpFFuT1ts5QjD1daHgkpUFazQwoMgJygJ4hYC9eE6D3vc1LPHt+6P+vtbJo4JHjPU@lists.infradead.org
+X-Gm-Message-State: APuU4Z+0Tr+QE9wP6sUQWj5uxzAOGRZ2S6ki6T33bhyqU7v0t4WECH2R
+	t5Lja95pdfdU6poyGicGxgAzYfWroLbiX0rGc3W8gqc/CF5RmQo4B7Gz
+X-Gm-Gg: AYBFou2TLwPpS42A3rwQ/MsckBKo1IYPKGpQQvgnUfgKf3DfB4uUL8F2Qirdhpzq+6o
+	g2GhhH2b8L7yKqiC0bDJxWZIt2dF5pat2k+9efTTd2bMFzUdPYFl4N4uQKJTM4RFcfjvXbLGnDm
+	fnUNvoaV7c1flIlt+6FML6WBxRddJYOPRJdjvKB1IYHMDPjzWgYTo8JzUhkDDxZztf9J7qfuvqT
+	UJ3tikAJu65eq2PgumaXSSuoUPTtLGqPixEn7E1w7+VVdSFl23VeUcrrHkXBir2Quj+oXYRkddv
+	zdQYML7CtpxsFnYvcxwV/71CX8jeTHqoeIbRgo/q3exWkgjDp7nV3/hubmX/6EkHaZ3lXfGqbTh
+	AhGLI+b7Y4R4SEnts9vO8xN9Ws7y+4WZjp+6wK1JAYhXWq8lZ5BOhKOu4jH/8XaMOmXSxP33vBL
+	l9pR1A8ULtfGc5u3rRIhEnxoSdzk7Y4hqiRDbUjixvsucIepxKhYfKxRHSTWYFqJ1zxuFAih+44
+	GwImXca73HRdSDlqyoKzACa0+PclHwYO3nKhUAp/uS7ycaPOfW6+pj4rV+XDjomrhsIDlardeae
+	DNd13+Dm2O13n4390OqwU3MIhsVWCHr9TSVszf++69gD0Hc3z/Mv4IZ7ULCqys1F+gfrdce/qXK
+	KsDSZ6sYmhMQj9jw67VSU1XcdDMGr21OowYf1eG5HJjSp5gqEL3T/6wXZl5RYNV5nWGGOnFqCke
+	G7cK4=
+X-Received: by 2002:a17:90b:2ccf:b0:3a4:6e84:e7d8 with SMTP id 98e67ed59e1d1-3ae897a8b33mr10316524a91.54.1793691697979;
+        Mon, 02 Nov 2026 23:41:37 -0800 (PST)
+Received: from [192.168.2.34] ([2403:581e:d87e:0:739f:50a5:e171:f133])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b07c903d0dsm2956769a91.12.2026.11.02.23.41.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Nov 2026 23:41:37 -0800 (PST)
+From: James Calligeros <jcalligeros99@gmail.com>
+Date: Tue, 03 Nov 2026 17:39:58 +1000
+Subject: [PATCH v4 10/22] arm64: dts: apple: t8103-jxxx: Add regulators for
+ CS42L83 power supply
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261103-rkisp1-suspend-and-resume-v1-15-08f863b6fdc5@ideasonboard.com>
-References: <20261103-rkisp1-suspend-and-resume-v1-0-08f863b6fdc5@ideasonboard.com>
-In-Reply-To: <20261103-rkisp1-suspend-and-resume-v1-0-08f863b6fdc5@ideasonboard.com>
-To: Tomasz Figa <tfiga@chromium.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Dafna Hirschfeld <dafna@fastmail.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, 
- Daniel Scally <dan.scally@ideasonboard.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6524;
- i=dan.scally@ideasonboard.com; h=from:subject:message-id;
- bh=DouAP44a/xjibckQCvicq+7yx5PPwPBXllkSkwoGU2o=;
- b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBq6ZARpgUmCDOM+khdRQ/VsWiwUjbzVfmKaYkSG
- 2UPUGM6n42JAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaumQEQAKCRDISVd6bEV1
- MrFSD/oCYZ2DCfv1gx/oCLCKsyMHwLZ9w4U7O6MCYkI5QKCicPOKfpx6glxCSIa0UsvI2/RRSlG
- f5UNkd2NAZ78ujD3QmAamjmaWZpPj7U89pZ9eJ06fxrkPyb1Pke9gY6xHu8Wgah0Jcn2y6gHWfB
- F6s5/E+SMOu3lZcV/05FQIcHgGLBslok72+r4s3YEJwoPTfoPq/FM6wOAOmyZKfwhi+PcOG3kkO
- X5wdGHUaNP6lEJ7Q9kOEdJi2P1PgsBim/t8saL02AHLVvL2s1/BDdylAEdc3+m+89lX5S+jEHMH
- Yode3QMwxe2/mfz05P62WrUGaDuwDYqkoBXSbHWelKHIhRQfxjwI8bY1MmChFOcZm/F/XpiL7ZG
- qSedP9YmLqpRLrxehRpNVe7OGZDTc+jNaIGLhx7RGMgRcDVfVu/2HYJsQXLiWXbyLv7W9ZvrjgV
- rlPawwMwjIoMKImW6Z55fgofNAhrZi/dnWF/iutQicPNkTEPURotpn/c/J+n3YlTUhFj1azuMfT
- 2sIw3m62xGvZ9r6IgKY6bOcBE7QUpCj+VbmAHv+4ynwd5a6vgr+bqDLvcf+tbCHTjUyD6t9n/QC
- 84m5ZeLEF4zmWXCPclwpQyX+H8O3m7wjS29p7l4tkDLP7t3z7MVfFuNKgcjs+lP3DvHgcBGZots
- Xy4ee5GaaC9pMTg==
-X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
- fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
+Message-Id: <20261103-macaudio-v4-10-637484efe46d@gmail.com>
+References: <20261103-macaudio-v4-0-637484efe46d@gmail.com>
+In-Reply-To: <20261103-macaudio-v4-0-637484efe46d@gmail.com>
+To: David Rhodes <david.rhodes@cirrus.com>, 
+ Richard Fitzgerald <rf@opensource.cirrus.com>, 
+ =?utf-8?q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ James Calligeros <jcalligeros99@gmail.com>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, 
+ Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>, 
+ Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>
+Cc: asahi@lists.linux.dev, linux-sound@vger.kernel.org, 
+ patches@opensource.cirrus.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1835;
+ i=jcalligeros99@gmail.com; h=from:subject:message-id;
+ bh=91sg/4nKfvF74lrnGKYqCKgThTSUHsOM+GGCNFkYSqs=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDFkv+88JbPI72Su8M+7Bbd0Zf+xbV7Nr6FclxD/dnnT9V
+ n7MU+kXHRNZGMS4GCzFFFk2NAl5zDZiu9kvUrkXZg4rE8gQaZEGBiBgYeDLTcwrNdIx0jPVNtQz
+ NNIx1jFi4OIUgKmOesbwz/IYh5nksXNOV/8cU2vXil8j0SZjyleck+IU2sYVW3tenuG/yxuJtQf
+ /2BkYBE01uGa7Zk4Hl963N2flDnT7cRpfC9jBAAA=
+X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
+ fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_234131_805783_1622D89E 
-X-CRM114-Status: GOOD (  14.97  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261102_234142_903246_B93A9B4D 
+X-CRM114-Status: GOOD (  12.98  )
+X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,164 +128,72 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Expose the startup and shutdown functions throughout the module so
-that they can be called from different source files to the one that
-they are defined in - this is in preparation for the runtime resume
-and suspend operations being updated to accommodate hibernation and
-suspension with an active stream.
+The CS42L83 codec found on M1 series Apple Silicon Macs gets its voltages
+from fixed regulators managed by the platform. Add these to the template
+Devicetree so that they can be referenced on the relevant devices.
 
-Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+We do not (officially) know how the power is delivered to the chip
+(voltage rail names, commoned pins, physical regulators, etc.) so
+the regulators expressed here are just stand-ins.
+
+Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 ---
- .../media/platform/rockchip/rkisp1/rkisp1-capture.c  | 14 ++++++++++----
- .../media/platform/rockchip/rkisp1/rkisp1-common.h   |  9 +++++++++
- .../media/platform/rockchip/rkisp1/rkisp1-params.c   |  9 +++++++--
- .../media/platform/rockchip/rkisp1/rkisp1-stats.c    | 20 +++++++++++---------
- 4 files changed, 37 insertions(+), 15 deletions(-)
+ arch/arm64/boot/dts/apple/t8103-jxxx.dtsi | 32 +++++++++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
-index 3204f5afe3bbf1a5de88d57b50a120e716b1345b..3e199814a50f4042624393ee28bbf3b6485e5844 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
-@@ -953,8 +953,8 @@ static int rkisp1_vb2_buf_prepare(struct vb2_buffer *vb)
- 	return 0;
- }
- 
--static void rkisp1_return_all_buffers(struct rkisp1_capture *cap,
--				      enum vb2_buffer_state state)
-+void rkisp1_return_all_buffers(struct rkisp1_capture *cap,
-+			       enum vb2_buffer_state state)
- {
- 	struct rkisp1_buffer *buf;
- 
-@@ -1061,7 +1061,7 @@ static void rkisp1_cap_stream_disable(struct rkisp1_capture *cap)
-  * rkisp1_pipeline_stream_enable() and disable the DMA engine.
-  * Should be called before video_device_pipeline_stop()
-  */
--static void rkisp1_pipeline_stream_disable(struct rkisp1_capture *cap)
-+void rkisp1_pipeline_stream_disable(struct rkisp1_capture *cap)
- 	__must_hold(&cap->rkisp1->stream_lock)
- {
- 	struct rkisp1_device *rkisp1 = cap->rkisp1;
-@@ -1077,7 +1077,7 @@ static void rkisp1_pipeline_stream_disable(struct rkisp1_capture *cap)
-  * Enable the DMA Engine and call s_stream(true) through the pipeline.
-  * Should be called after video_device_pipeline_start()
-  */
--static int rkisp1_pipeline_stream_enable(struct rkisp1_capture *cap)
-+int rkisp1_pipeline_stream_enable(struct rkisp1_capture *cap)
- 	__must_hold(&cap->rkisp1->stream_lock)
- {
- 	struct rkisp1_device *rkisp1 = cap->rkisp1;
-@@ -1173,6 +1173,12 @@ rkisp1_vb2_start_streaming(struct vb2_queue *queue, unsigned int count)
- 	return ret;
- }
- 
-+bool rkisp1_vb2_is_streaming(struct rkisp1_capture *cap)
-+{
-+	return vb2_is_streaming(&cap->vnode.buf_queue) &&
-+	       vb2_start_streaming_called(&cap->vnode.buf_queue);
-+}
+diff --git a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
+index 686fb1dd215d..34694902c945 100644
+--- a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
++++ b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
+@@ -38,6 +38,38 @@ memory@800000000 {
+ 		device_type = "memory";
+ 		reg = <0x8 0 0x2 0>; /* To be filled by loader */
+ 	};
 +
- static const struct vb2_ops rkisp1_vb2_ops = {
- 	.queue_setup = rkisp1_vb2_queue_setup,
- 	.buf_init = rkisp1_vb2_buf_init,
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-index 90942b22df313d83d9722cc550f01758cda9fa27..8f379a783da1fa97a330a7ec547354eb936cfadd 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-@@ -691,6 +691,15 @@ void rkisp1_stats_unregister(struct rkisp1_device *rkisp1);
- int rkisp1_params_register(struct rkisp1_device *rkisp1);
- void rkisp1_params_unregister(struct rkisp1_device *rkisp1);
- 
-+/* suspend / resume handling helpers */
-+bool rkisp1_vb2_is_streaming(struct rkisp1_capture *cap);
-+void rkisp1_stats_vb2_return_all_buffers(struct rkisp1_stats *stats);
-+void rkisp1_params_vb2_return_buffers(struct rkisp1_params *params);
-+void rkisp1_return_all_buffers(struct rkisp1_capture *cap,
-+			       enum vb2_buffer_state state);
-+int rkisp1_pipeline_stream_enable(struct rkisp1_capture *cap);
-+void rkisp1_pipeline_stream_disable(struct rkisp1_capture *cap);
++	/*
++	 * The CS42L83 found on all T8103 boards requires VA, VCP, VCP_FILT,
++	 * VL, VD and VP regulators. We don't (officially) know how power
++	 * gets to the codec, so these fixed regulators are stand-ins.
++	 */
++	jack_va_reg: regulator-codec-va {
++		compatible = "regulator-fixed";
++		regulator-name = "jack-va";
++	};
 +
- #if IS_ENABLED(CONFIG_DEBUG_FS)
- void rkisp1_debug_init(struct rkisp1_device *rkisp1);
- void rkisp1_debug_cleanup(struct rkisp1_device *rkisp1);
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-index cc42b5afbf65a9a992323c40cff1a6fe2d8b61e4..1f08b57e616159a389411e13f9217c4f4fcddd57 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-@@ -2761,9 +2761,8 @@ static int rkisp1_params_vb2_buf_prepare(struct vb2_buffer *vb)
- 	return 0;
- }
- 
--static void rkisp1_params_vb2_stop_streaming(struct vb2_queue *vq)
-+void rkisp1_params_vb2_return_buffers(struct rkisp1_params *params)
- {
--	struct rkisp1_params *params = vq->drv_priv;
- 	struct rkisp1_params_buffer *buf;
- 	LIST_HEAD(tmp_list);
- 
-@@ -2778,7 +2777,13 @@ static void rkisp1_params_vb2_stop_streaming(struct vb2_queue *vq)
- 
- 	list_for_each_entry(buf, &tmp_list, queue)
- 		vb2_buffer_done(&buf->vb.vb2_buf, VB2_BUF_STATE_ERROR);
-+}
++	/* CS42L83 VCP and VCP_FILT */
++	jack_vcp_reg: regulator-codec-vcp {
++		compatible = "regulator-fixed";
++		regulator-name = "jack-vcp";
++	};
 +
-+static void rkisp1_params_vb2_stop_streaming(struct vb2_queue *vq)
-+{
-+	struct rkisp1_params *params = vq->drv_priv;
- 
-+	rkisp1_params_vb2_return_buffers(params);
- 	params->enabled_blocks = 0;
- }
- 
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-stats.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-stats.c
-index fba95a1786be0d6782829a5604d41893dda8e826..c476310b401b39c3bf1784fcc6b521421192877f 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-stats.c
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-stats.c
-@@ -128,23 +128,25 @@ static int rkisp1_stats_vb2_buf_prepare(struct vb2_buffer *vb)
- 	return 0;
- }
- 
--static void rkisp1_stats_vb2_stop_streaming(struct vb2_queue *vq)
-+void rkisp1_stats_vb2_return_all_buffers(struct rkisp1_stats *stats)
- {
--	struct rkisp1_stats *stats = vq->drv_priv;
--	struct rkisp1_buffer *buf;
--	unsigned int i;
-+	struct rkisp1_buffer *buf, *tmp;
- 
- 	guard(spinlock_irq)(&stats->lock);
--	for (i = 0; i < RKISP1_ISP_STATS_REQ_BUFS_MAX; i++) {
--		if (list_empty(&stats->stat))
--			break;
--		buf = list_first_entry(&stats->stat,
--				       struct rkisp1_buffer, queue);
++	jack_vl_reg: regulator-codec-vl {
++		compatible = "regulator-fixed";
++		regulator-name = "jack-vl";
++	};
 +
-+	list_for_each_entry_safe(buf, tmp, &stats->stat, queue) {
- 		list_del(&buf->queue);
- 		vb2_buffer_done(&buf->vb.vb2_buf, VB2_BUF_STATE_ERROR);
- 	}
- }
++	/* VD_FILT */
++	jack_vd_reg: regulator-codec-vd {
++		compatible = "regulator-fixed";
++		regulator-name = "jack-vd";
++	};
++
++	jack_vp_reg: regulator-codec-vp {
++		compatible = "regulator-fixed";
++		regulator-name = "jack-vp";
++	};
+ };
  
-+static void rkisp1_stats_vb2_stop_streaming(struct vb2_queue *vq)
-+{
-+	struct rkisp1_stats *stats = vq->drv_priv;
-+
-+	rkisp1_stats_vb2_return_all_buffers(stats);
-+}
-+
- static const struct vb2_ops rkisp1_stats_vb2_ops = {
- 	.queue_setup = rkisp1_stats_vb2_queue_setup,
- 	.buf_queue = rkisp1_stats_vb2_buf_queue,
+ &serial0 {
 
 -- 
-2.43.0
+2.56.0
 
 
