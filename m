@@ -2,98 +2,84 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05F49606A331
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 07:52:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D210606A338
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 08:00:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=els7i+Ru;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=b0PiXaYU;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=g9pEbMPu
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GsLjITzt;
+	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=sKjh+tBJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=5L5sdhRfatV21sxlJx2tqPPxjJ3hrMEhqV+2z8gv72Q=; b=els7i+Ru3BEUbper0T89OPYIAd
-	dZ8d7L0pHGK9w0ivgC9QvE9TAMhgAQfmIlPlNYj74LBAsNKUksfnkCTbzHy9RfZZzMheEddgfqCvO
-	xN8uvjpB1qp0Lz4RmuU7gTfhVliKmKAxSdBnpn+Tgs1m5sBYOAUl8mxzn3vTUJVeT0+sGmh/4eKFK
-	81ZB59l6vOih5edYXo6JBornm0byNuYNP6I7HbVMJDdQNi0w7CA75ob5Pps8ONgcBZ2VycrGnEICZ
-	Y6yRkK8g20PsDJv+qjkzh9X8hLZ/AgVyiLi8EY+HMpDwKxGGU3ct6ULM+rTAxCF8dNi/mPDARfezW
-	58WLM4WQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=xNFKXoOVsmsKy+sB+7ysMJUwVLtyKRyR+8DLggWM008=; b=GsLjITztQSTDqW
+	z9dC2+xpXK+hfukDoL77r4J/8vFf8uOzZPjO21X3Ik+clDjykOxXfwJs0I1NPH4oGygZ33InkV73c
+	lsR9/Nq+jPe9VQdu1efh3aSbnToMNvIBoct2xSF+Pt2RgfoONsSa+PC7IKxNk5DveaY4qW4VrJMQn
+	976xrHu7VLhz0YamZ8gnQBqYP+0JyKc1WEdCb2dvjOdUs//HkqC4pHTExt+15GLlM7mLBnwc7W4SZ
+	c/+cziVSNJwLzV5KFgBJs3Wgp8unReNOCSaB/hhkPzguTnW+nfwB/tcUZKvgS1c+f8ZOXXf6JKihV
+	fghid6lorkPgbCGTtk/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9JB-00000001Rvo-2gnP;
-	Tue, 03 Nov 2026 07:51:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xO99f-00000001NFF-3fvm;
+	Tue, 03 Nov 2026 07:42:04 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9J7-00000001RvM-0S9R
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 03 Nov 2026 07:51:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=5L5sdhRfatV21sxlJx2tqPPxjJ3hrMEhqV+2z8gv72Q=; b=b0PiXaYUMhWt7ehWQdSHCotvU/
-	lapU5UteTNMwfiw+8qIcNnYuXkv35jxgHnhz6qfJmy+Dlka+ts2hJVtTiDXyuZY1uGVDHA7m8hryD
-	ityUTtM8SQhWDn29Llip0ZHObJpYg+/N6pnkOhk4oNBsqEu/pXP8WWsQI436eLbyAfTVa2Spz15QB
-	PZAlq2lKBhWKctjnfvQBsw1QA4t4R5ZWcA+O3cp6AnSgoitV/M24ZQmV6WFJGMcr2/P2kVk2ahJ14
-	nolHakBN4st12TzFhrdC2T64PlYySd0cdVa0LylmZtfXhLqXDIuaFZtgz8Wv9ZugCjeKyYYqb4E+k
-	DxVMX2ZA==;
-Received: from mgamail.intel.com ([192.198.163.13])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9J2-000000008Tr-06td
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 07:51:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793692304; x=1825228304;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=fVNsNTiaA1qZgb+DUccDK6uxEDilJ7lFPO2KRwu5EoU=;
-  b=g9pEbMPuERD3ZONQDOj6fOEspdj6IIhow8oLvxxGAq6iSy0cRPpasJ0B
-   TIOykNc7CeVymhDmNTqRqVvscCmoy/0Iv/tfOve+wMd6sK3DSnORJuP4a
-   9l9W5e81AUHt/4ODOYj2pr7moSND7tZjz5BKG1fYG7ZpGOq2Y/qu+/fo4
-   X7US9YbVAHMKWEkvd6SJJcw+vTIpJb7Ya01QciBShk2+rpskH330fk31c
-   rfle+flSmn/6paJRBnRLBQlsVNyCPMdVfP8qRuldkivvUtzcUVY+BFGCN
-   DFBS+rz7ZuPWIIUzJSSLYMmIWPByHpa3ekqow2/QK6VDSJuktTYr6dgqb
-   A==;
-X-CSE-ConnectionGUID: UyWQbUr2QRWiorvjyjknXA==
-X-CSE-MsgGUID: MKIK8ICsQKqFvKTS8xWzOA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11954"; a="2400395"
-X-IronPort-AV: E=Sophos;i="6.27,192,1787036400"; 
-   d="scan'208";a="2400395"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Nov 2026 23:51:11 -0800
-X-CSE-ConnectionGUID: wPLKXj1STemxGPMaybf1pQ==
-X-CSE-MsgGUID: map9A/dmR/ipEGHfwwjJAQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,192,1787036400"; 
-   d="scan'208";a="6467703"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa005.fm.intel.com with ESMTP; 02 Nov 2026 23:51:07 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xO9IN-00000000iT4-3PEW;
-	Tue, 03 Nov 2026 07:51:03 +0000
-Date: Tue, 3 Nov 2026 15:50:10 +0800
-From: kernel test robot <lkp@intel.com>
-To: Andre Przywara <andre.przywara@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: Re: [PATCH v5 RESEND 5/6] firmware: smccc: lfa: Register DT interrupt
-Message-ID: <202611031517.aikxJm6o-lkp@intel.com>
-References: <20261102165421.3651202-6-andre.przywara@arm.com>
+	id 1xO98v-00000001MKg-2OjG;
+	Tue, 03 Nov 2026 07:41:34 +0000
+Received: from [127.0.1.1] (chfd-03-b2-v4wan-176392-cust229.vm15.cable.virginm.net [82.19.20.230])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 72F7F287E;
+	Tue,  3 Nov 2026 08:38:55 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1793691535;
+	bh=XDiOl4SIg1voG8HN0me3SLmpR1aSvPqTIfej/UlGQyE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=sKjh+tBJWA0vDVKk6i0poxP4JJ/fk7NYesmhOzfVBX2JOBDmPvWHUgHsJqkXvAV76
+	 r4Ayc+2wuui1/9geuVP7Lry5TSot9GNYqKZWS7Qoqc3YMghm+RYcIlETDPzHNytcTT
+	 gzvTPdBEjfaQiDcuKu+yW5Qv24F1bI+d4CoAXP2o=
+From: Daniel Scally <dan.scally@ideasonboard.com>
+Date: Tue, 03 Nov 2026 07:40:44 +0000
+Subject: [PATCH 08/16] media: rkisp1: Switch to calling
+ .enable/disable_streams() in CSI subdev
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261102165421.3651202-6-andre.przywara@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261103-rkisp1-suspend-and-resume-v1-8-08f863b6fdc5@ideasonboard.com>
+References: <20261103-rkisp1-suspend-and-resume-v1-0-08f863b6fdc5@ideasonboard.com>
+In-Reply-To: <20261103-rkisp1-suspend-and-resume-v1-0-08f863b6fdc5@ideasonboard.com>
+To: Tomasz Figa <tfiga@chromium.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Dafna Hirschfeld <dafna@fastmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Daniel Scally <dan.scally@ideasonboard.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3040;
+ i=dan.scally@ideasonboard.com; h=from:subject:message-id;
+ bh=XDiOl4SIg1voG8HN0me3SLmpR1aSvPqTIfej/UlGQyE=;
+ b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBq6ZAQAd6xd3iNRylSmYnCTrRc6PElOb8mpiKJZ
+ UP4fctOU12JAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaumQEAAKCRDISVd6bEV1
+ MkxaD/94XgAuMBNtuFVwDl1wJphjJj3DwOZwEws2YKsYxwK8k6OfWF+Kk2NzZMM0fGeDmsM2z84
+ nmXe3J+iXZ5EqX88Wgz/sbvnna0sHx09TDrdhRAIEd72YzgY5MPU0pZi+2xxIBjxKAlRI84/VKI
+ tHxFFTFiCtlQ0KrNFNwUKQ8UuUbwRUSnHF94D4aQ44eVSzDi1wdUv5kkKKMhFyL1cufaLYkkQM7
+ qNy6+voPWFh+oeGMZUOEFzQGkap6is2aVqKm3KjlLYaJ6t3JN3QPvbjgbRR3pWkUFFnnrJh7EBl
+ RcJGQSfvcspVgu+u2VNyFtWgkuknMjpG8sel9/KEiby530r5S/4Q3owIkuYPZKhnDCrCR7S1x5K
+ K15Z3ZuCPOzUnsJexDoGMlvUc6dtqSt1C+tpkXAM2q4MjKn8QgpMPvm/Gv6O99B1rtHcjiRX4BP
+ FY7iFt0p3bKDctRwYeJXnzXjsO5FF+bltqyWOW8TQZXv/mGA66anluNrY9DAs+eOs6jjBHnqkQc
+ VAUJyn9DkaMLsdqblEqDwMqYXqLBa3D8gHROLMxxyg8rxVNw3U8K6tJJu6LxOcCliUTmoEV4+k9
+ /OTnhRX7U0JrCql8/Kq9wPobd/xecvYrZDnuNlXdAb7nKsOSklCwKdH3u7txFasuyJ6ZyCT84XM
+ uAkH90R27ay8FpQ==
+X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
+ fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_075144_428734_2930BD01 
-X-CRM114-Status: GOOD (  21.11  )
-X-Spam-Score: -2.5 (--)
+X-CRM114-CacheID: sfid-20261102_234119_993177_3C3B8624 
+X-CRM114-Status: GOOD (  14.67  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,182 +89,104 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Conor Dooley <conor+dt@kernel.org>, vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, oe-kbuild-all@lists.linux.dev, Nirmoy Das <nirmoyd@nvidia.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Andre,
+Switch to calling .enable_streams() and .disable_streams() for the
+downstream subdevice in the rkisp1 csi subdevice's .s_stream()
+operation.
 
-kernel test robot noticed the following build errors:
+Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+---
+ .../media/platform/rockchip/rkisp1/rkisp1-common.h |  2 +-
+ .../media/platform/rockchip/rkisp1/rkisp1-csi.c    | 24 +++++++++++-----------
+ 2 files changed, 13 insertions(+), 13 deletions(-)
 
-[auto build test ERROR on robh/for-next]
-[also build test ERROR on arm64/for-next/core linus/master next-20261030]
-[cannot apply to arm/for-next arm/fixes clk/clk-next kvmarm/next rockchip/for-next soc/for-next nferre-at91/at91-next shawnguo/for-next v7.3]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+index 6a017a2077f6fdef3a3fd0998f182baa19bfc5b6..357a6bd8db7da4c881e4cba5b5f54e40fd21c38c 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+@@ -209,7 +209,7 @@ struct rkisp1_csi {
+ 	bool is_dphy_errctrl_disabled;
+ 	struct v4l2_subdev sd;
+ 	struct media_pad pads[RKISP1_CSI_PAD_NUM];
+-	struct v4l2_subdev *source;
++	struct media_pad *source;
+ };
+ 
+ /*
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
+index 9fa8a0407c90ec5e379a78da32315a0abf406ea4..1fd122f95f8ad0d6c34384ef647da0a3a57c811b 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
+@@ -355,32 +355,34 @@ static int rkisp1_csi_s_stream(struct v4l2_subdev *sd, int enable)
+ 	struct rkisp1_sensor_async *source_asd;
+ 	struct v4l2_async_connection *asc;
+ 	struct v4l2_subdev_state *sd_state;
+-	struct media_pad *source_pad;
+-	struct v4l2_subdev *source;
++	struct v4l2_subdev *source_sd;
+ 	int ret;
+ 
+ 	if (!enable) {
+-		v4l2_subdev_call(csi->source, video, s_stream, false);
++		source_sd = media_entity_to_v4l2_subdev(csi->source->entity);
++		if (!source_sd)
++			return -EPIPE;
+ 
++		v4l2_subdev_disable_streams(source_sd, csi->source->index, BIT(0));
+ 		rkisp1_csi_stop(csi);
+ 
+ 		return 0;
+ 	}
+ 
+-	source_pad = media_entity_remote_source_pad_unique(&sd->entity);
+-	if (IS_ERR(source_pad)) {
++	csi->source = media_entity_remote_source_pad_unique(&sd->entity);
++	if (IS_ERR(csi->source)) {
+ 		dev_dbg(rkisp1->dev, "Failed to get source for CSI: %pe\n",
+-			source_pad);
++			csi->source);
+ 		return -EPIPE;
+ 	}
+ 
+-	source = media_entity_to_v4l2_subdev(source_pad->entity);
+-	if (!source) {
++	source_sd = media_entity_to_v4l2_subdev(csi->source->entity);
++	if (!source_sd) {
+ 		/* This should really not happen, so is not worth a message. */
+ 		return -EPIPE;
+ 	}
+ 
+-	asc = v4l2_async_connection_unique(source);
++	asc = v4l2_async_connection_unique(source_sd);
+ 	if (!asc)
+ 		return -EPIPE;
+ 
+@@ -397,14 +399,12 @@ static int rkisp1_csi_s_stream(struct v4l2_subdev *sd, int enable)
+ 	if (ret)
+ 		return ret;
+ 
+-	ret = v4l2_subdev_call(source, video, s_stream, true);
++	ret = v4l2_subdev_enable_streams(source_sd, csi->source->index, BIT(0));
+ 	if (ret) {
+ 		rkisp1_csi_stop(csi);
+ 		return ret;
+ 	}
+ 
+-	csi->source = source;
+-
+ 	return 0;
+ }
+ 
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Andre-Przywara/dt-bindings-arm-Add-Live-Firmware-Activation/20261102-175415
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20261102165421.3651202-6-andre.przywara%40arm.com
-patch subject: [PATCH v5 RESEND 5/6] firmware: smccc: lfa: Register DT interrupt
-config: arm64-randconfig-1000-20261103 (https://download.01.org/0day-ci/archive/20261103/202611031517.aikxJm6o-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 13.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261103/202611031517.aikxJm6o-lkp@intel.com/reproduce)
+-- 
+2.43.0
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611031517.aikxJm6o-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/firmware/smccc/lfa_fw.c: In function 'lfa_register_dt':
->> drivers/firmware/smccc/lfa_fw.c:939:16: error: implicit declaration of function 'devm_request_threaded_irq'; did you mean 'devm_request_region'? [-Werror=implicit-function-declaration]
-     939 |         return devm_request_threaded_irq(dev, lfa_irq, NULL,
-         |                ^~~~~~~~~~~~~~~~~~~~~~~~~
-         |                devm_request_region
->> drivers/firmware/smccc/lfa_fw.c:940:66: error: 'IRQF_COND_ONESHOT' undeclared (first use in this function)
-     940 |                                          lfa_irq_handler_thread, IRQF_COND_ONESHOT,
-         |                                                                  ^~~~~~~~~~~~~~~~~
-   drivers/firmware/smccc/lfa_fw.c:940:66: note: each undeclared identifier is reported only once for each function it appears in
-   drivers/firmware/smccc/lfa_fw.c: In function 'lfa_smccc_remove':
->> drivers/firmware/smccc/lfa_fw.c:1034:9: error: implicit declaration of function 'devm_free_irq'; did you mean 'devm_free_pages'? [-Werror=implicit-function-declaration]
-    1034 |         devm_free_irq(&sdev->dev, lfa_irq, NULL);
-         |         ^~~~~~~~~~~~~
-         |         devm_free_pages
-   drivers/firmware/smccc/lfa_fw.c: In function 'lfa_register_dt':
-   drivers/firmware/smccc/lfa_fw.c:942:1: warning: control reaches end of non-void function [-Wreturn-type]
-     942 | }
-         | ^
-   cc1: some warnings being treated as errors
-
-
-vim +939 drivers/firmware/smccc/lfa_fw.c
-
-   925	
-   926	static int lfa_register_dt(struct device *dev)
-   927	{
-   928		struct device_node *np;
-   929	
-   930		np = of_find_compatible_node(NULL, NULL, "arm,lfa");
-   931		if (!np)
-   932			return -ENODEV;
-   933	
-   934		lfa_irq = irq_of_parse_and_map(np, 0);
-   935		of_node_put(np);
-   936		if (!lfa_irq)
-   937			return -ENODEV;
-   938	
- > 939		return devm_request_threaded_irq(dev, lfa_irq, NULL,
- > 940						 lfa_irq_handler_thread, IRQF_COND_ONESHOT,
-   941						 NULL, NULL);
-   942	}
-   943	
-   944	static bool lfa_smccc_has_all_functions(void)
-   945	{
-   946		struct arm_smccc_1_2_regs regs = { 0 }, res;
-   947		u32 fn_id;
-   948	
-   949		regs.a0 = ARM_SMCCC_LFA_FEATURES;
-   950	
-   951		for (fn_id = ARM_SMCCC_LFA_GET_INFO;
-   952		     fn_id <= ARM_SMCCC_LFA_CANCEL;
-   953		     fn_id++) {
-   954			regs.a1 = fn_id;
-   955			arm_smccc_1_2_invoke(&regs, &res);
-   956			if (res.a0)
-   957				return false;
-   958		}
-   959	
-   960		return true;
-   961	}
-   962	
-   963	static int lfa_smccc_probe(struct arm_smccc_device *sdev)
-   964	{
-   965		struct arm_smccc_1_2_regs regs = { 0 };
-   966		int err;
-   967	
-   968		/* The LFA spec requires SMCCC v1.2 or higher. */
-   969		if (arm_smccc_get_version() < ARM_SMCCC_VERSION_1_2)
-   970			return -EOPNOTSUPP;
-   971	
-   972		regs.a0 = ARM_SMCCC_LFA_VERSION;
-   973		arm_smccc_1_2_invoke(&regs, &regs);
-   974		if ((s32)regs.a0 == LFA_NOT_SUPPORTED)
-   975			return -ENODEV;
-   976	
-   977		if (!lfa_smccc_has_all_functions())
-   978			return -EOPNOTSUPP;
-   979	
-   980		pr_info("Live Firmware Activation: detected v%d.%d\n",
-   981			upper_16_bits(regs.a0), lower_16_bits(regs.a0));
-   982	
-   983		fw_comps_update_wq = alloc_workqueue("fw_comps_update_wq",
-   984						     WQ_UNBOUND | WQ_MEM_RECLAIM, 1);
-   985		if (!fw_comps_update_wq) {
-   986			pr_err("Live Firmware Activation: Failed to allocate workqueue.\n");
-   987			return -ENOMEM;
-   988		}
-   989		INIT_WORK(&fw_comps_update_work, remove_invalid_fw_components);
-   990	
-   991		init_component_default_attrs();
-   992		lfa_kset = kset_create_and_add("lfa", NULL, firmware_kobj);
-   993		if (!lfa_kset) {
-   994			destroy_workqueue(fw_comps_update_wq);
-   995			return -ENOMEM;
-   996		}
-   997	
-   998		init_rwsem(&smc_lock);
-   999	
-  1000		err = update_fw_components_tree();
-  1001		if (err != 0) {
-  1002			kset_unregister(lfa_kset);
-  1003			destroy_workqueue(fw_comps_update_wq);
-  1004			return err;
-  1005		}
-  1006	
-  1007		if (!acpi_disabled) {
-  1008			err = lfa_register_acpi(&sdev->dev);
-  1009			if (!err)
-  1010				pr_info("registered LFA ACPI notification\n");
-  1011		} else {
-  1012			err = lfa_register_dt(&sdev->dev);
-  1013			if (!err)
-  1014				pr_info("registered LFA DT notification interrupt\n");
-  1015		}
-  1016	
-  1017		/*
-  1018		 * An ACPI notification or an interrupt are optional, but we must
-  1019		 * handle errors that occurred during their setup.
-  1020		 */
-  1021		if (err != -ENODEV) {
-  1022			kset_unregister(lfa_kset);
-  1023			destroy_workqueue(fw_comps_update_wq);
-  1024			return err;
-  1025		}
-  1026	
-  1027		return 0;
-  1028	}
-  1029	
-  1030	static void lfa_smccc_remove(struct arm_smccc_device *sdev)
-  1031	{
-  1032		if (!acpi_disabled)
-  1033			lfa_remove_acpi(&sdev->dev);
-> 1034		devm_free_irq(&sdev->dev, lfa_irq, NULL);
-  1035		clean_fw_components_tree();
-  1036		flush_workqueue(fw_comps_update_wq);
-  1037		destroy_workqueue(fw_comps_update_wq);
-  1038		kset_unregister(lfa_kset);
-  1039	}
-  1040	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
