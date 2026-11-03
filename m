@@ -2,134 +2,84 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5BFF606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 15:26:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1883E606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 15:27:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Pd/FSVfg;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=tpNq81T4
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=e2D8yrRZ;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=w9d2uCJG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=JDNrsBzQqCyzW0919/qDlxO2f9EkdQbznhXR4gEl/QM=; b=Pd/FSVfgjCD7jd73eOp9b0jbwd
-	ClECG5FB/sL/KBWmLQTMzzaiLhaixbDto75BF43+OWB/OtRhKMvo3eW2COTUostApD17eQy34hES2
-	oBO6khaD/LRgbCcPNO7ADjaGZYallD+GsFmIzzGfysOi3T9ZpGn0dHQa6WVmDX1mP19slZvDAfaFL
-	z4HOB8nXnB6tuyVAi5UIf7OqN62Txyflzr8QpZVNU99DyQ4qyyUBZgRnKkN6JMdDyJPytPyWSv0KO
-	F3ziRT2tVXaJMhoQhFae1zjzDy5wfc/sIEFjwwc27vX01co0ELjzJMBO9RCfT3BWQ6W0/SVhJgZqR
-	T2IKbJXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=LAwEtERmohTe0gcgYdg8DRctC7b4UhWjXXjRQv+Gso4=; b=e2D8yrRZ71kFMR
+	Z5vW3uB0PWLESy3I0kDhtb847u62ZD4v0AwcsRaDmEYGlF1UuBiirwkzJUJIa8S+iX7szyNH71q/J
+	v+RCYc8i2litR/j5x7/WFSuaY6bCjx038KQxjDAyGlL/dEGB66BNbWbjxpQ3Lh47q7G9GngBqGsGZ
+	YndO+X1DmeAU0/dIx71gtMbHktQYzLobVD/LtnlmsCSR/NACGLDfxG9CpJAmomiZm4z0I6xgzqWBS
+	vmQ1Awg1+xXWiYKIZab+z/uIjMexBj022y73mwhMSh556n90TwUnLvdU9RHyN6xwdGxWDw0q+uIWL
+	xRV1p+JdDwPSi7uXXecQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOGPJ-00000002xV3-3CRH;
-	Tue, 03 Nov 2026 15:26:41 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1xOGQM-00000002xpf-0C6x;
+	Tue, 03 Nov 2026 15:27:46 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOGPF-00000002xSL-1iEh
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 15:26:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UH4QZS14EUTmH6nOME8VI/OLbvS+M/YQxGh7lfyM7jiLOlAETBYdv9wcJbDriRRBg2oXKNMBXSXX0Vu3xVQDqOaU+rx/dEryugnfdgiGTjYvrvVwf7c+i3yUjYxCGQ8saxZ3LCwAdLINMaAXe+UgbWhJV+Rh+rHM51QsAPrVp597w7ch9AUXJZlyI3YUYKJuVb/BPEfYKro9NZfrPrIrlphkgBqd8xNEMJ434ickBp6+Kt+CEGG4o7YGyHknhkukdf1zOff85K7kPfgE3yaIKCubrmol+8aMp+V+0xkCzumkrlmezW20zQZHpmTw6tudDOVsJe2ZRR9YtHSlSzwVVA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JDNrsBzQqCyzW0919/qDlxO2f9EkdQbznhXR4gEl/QM=;
- b=I0XtN7oQVSbByN4ttFKOjnOMhxJyKK3l8oxkyeHlMk/aJcI6ofRINyyxQlxMa2z98PHi8OJgkgpIE4MtsQVSrqsdw0nJHsoQI55bMbq5iWmnEwjhKL9Vld3euYF9C/fpebfwzQ9GOXOWIHygxsdOIgnEIUXmYHC16VpSpWmnIO+rWqx/MtHoutRcCEz0SU9Kwdj1h+55HsU+AjP35Om2/txGxOXZ2ELM0gZF55hTYyLQoI58NOGVRyTutmzfoT6GwRCfMoCFHy7aXw4FGeywfLpZ++KiO+Dy/IogVKy2SaF7Mpt+hZYypo4P2oOIgJ0cq0JxOeL1m4TW9BqBIqiNyw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JDNrsBzQqCyzW0919/qDlxO2f9EkdQbznhXR4gEl/QM=;
- b=tpNq81T43XKT8qtoqqW5/eiUntsa5uDzhG77URadPXq7DEE61ZkIIDM29TyLwWieBoaNsXN0OUZixAg9T16gZRubkKIX0WfpW4TZF+2W3XMvWpd8qsytld+blcC13mWHaCKpibu3ksY9pafR52qWaZm0dEwBBuc7WCxpJ7L5BbVyAxRRFm+KWxRVZZtr0wYMnxl3QbcU/BYkwfF+XwcqQyV4ztrzs8lnboOAQzuAe43n+Sm8bLERSMV0c8207XaM73lxrl1skcGbRV/Yg3hfC7JPzbBfWomF3cSDEVxL0EenjfQO1d0cfsYdxfyaqjQGzaQPsjpalTQAld+sGby7SQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by DB9PR04MB9354.eurprd04.prod.outlook.com (2603:10a6:10:36c::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Tue, 3 Nov
- 2026 15:26:32 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0592.007; Tue, 3 Nov 2026
- 15:26:32 +0000
-Date: Tue, 3 Nov 2026 09:26:22 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Chancel Liu <chancel.liu@oss.nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/4] dt-bindings: connector: Add fsl,aud-io-slot
- binding
-Message-ID: <aun9Hj1Ypc_xSYtL@SMW015318>
-References: <20261103070433.2307145-1-chancel.liu@oss.nxp.com>
- <20261103070433.2307145-2-chancel.liu@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261103070433.2307145-2-chancel.liu@oss.nxp.com>
-X-ClientProxiedBy: PH3PEPF0000409C.namprd05.prod.outlook.com
- (2603:10b6:518:1::48) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	id 1xOGQH-00000002xng-1z4d;
+	Tue, 03 Nov 2026 15:27:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=LAwEtERmohTe0gcgYdg8DRctC7b4UhWjXXjRQv+Gso4=; b=w9d2uCJGfN9U1oYi8t2na1b7jd
+	0+t+dIndUkjUy/ShDMVBFHwoR6yoBYhicS6+lFpwf0SbzMQzVds/7MRk5LuTgEZvY7pAPx7Yzooey
+	WVGrI7ourwQrhXbf5IIpxMIIxKzJPmIzjSfsqnuarfzLKtZGRmHxdSw5wMn5jy4TIg54WCIo+HtTy
+	/+F7fNSWhx9nk/kxZ7P4L/xHn2SzBS97Mk4B8xLKUNWX+RlIuvvWiSqRJRkKSn/hhVIx7kOKT2uU0
+	N3MRdik6InzA7gA1A0Czmi6xZ9VizQ+F3FW8SSVXGR/rorIJxO4GI//tqdHxaUwChij93Z8Y7JC9/
+	veXBUOMg==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Sandy Huang <hjc@rock-chips.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Robert Foss <rfoss@kernel.org>,
+	Andy Yan <andyshrk@163.com>,
+	Damon Ding <damon.ding@rock-chips.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Dave Jones <s.dave.jones@gmail.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org
+Subject: Re: (subset) [PATCH v4 0/6] Add eDP support for RK3568
+Date: Tue,  3 Nov 2026 16:26:51 +0100
+Message-ID: <179371960186.385442.10929129839786622618.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261030064905.2248999-1-damon.ding@rock-chips.com>
+References: <20261030064905.2248999-1-damon.ding@rock-chips.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|DB9PR04MB9354:EE_
-X-MS-Office365-Filtering-Correlation-Id: 78d39792-8d0b-4fe1-add3-08df39bed6a9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|366016|7416014|376014|1800799024|261021121427099003|261022105027099003|261009223027099003|261026121527099003|261026140227099003|261028144727099003|11063799006|4143699003|22082099003|18002099003|261102123227099003|6133799003|56012099006|10067099003|3023799007;
-X-Microsoft-Antispam-Message-Info: Ns/g7UevWG/KouBkeyEsnlxmHkr8RvPcuXfBM+cN+E2uL7OQ3pNj4G+y0fF8nNDFmtfZD21Eb6KNrf/IzOniOslUN+V4Du/VGMroAi33N0Kl6AIihmGrT0JCPE4iOBGbXV5KOPUrv509vbhEa08qpB0yF81H/7baF3f1OTsUPd9Vy8p3Gz6JrsG41ZiqSLr9U2j0oYlMXwB0PrMn3kDTvsSUf/HqUj0RfXZ01WbhKAellM6epJgzFVu6I7p+D6hyYpDQGQI/x9LE1rDM96jIM9pBKM7/j35a9R4EiEhxRbXa+5QJd4bsz8+KOfTB+qlYMdIDOLp32gek0yrNdMVCvPOW4XyADj/T2tUGRZRpx1r4NzgUWjZ2sTlZ/XIN2fAY0EvR5bdKk2OySDmsp1vpW8m40qLPwgN5u3s/DtYz3Cm/5MvWD9k39NrP9Nq3aMuoXh4T0j69Ctb0UcJU+/fi1RTM4CirNBF/RDWVXp+Hluh9S83AulOugy1+1BNIB5VOb4/sqJpEC67cFH/V+2F97gH1ZKHq3+mXX7RPak57CxQaht6I5/z1xJWIUjxQlhmbaBZs88g5XvlQcRQzzZecNHCc3cx/nFiZiYdbmQa068gNzWxS+M0CDNeu3JJwunTc
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(366016)(7416014)(376014)(1800799024)(261021121427099003)(261022105027099003)(261009223027099003)(261026121527099003)(261026140227099003)(261028144727099003)(11063799006)(4143699003)(22082099003)(18002099003)(261102123227099003)(6133799003)(56012099006)(10067099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rZdbvgEuWM6/QAtvNyiEpX5Jd8zBqY0TKIhivoHEBJynEZQoCq98W1uVthX9?=
- =?us-ascii?Q?UiDAWf1okgw4U236cjoBddpa43eie+vVj8eLZrURA42a/lIp7GFm8Ejv7gmn?=
- =?us-ascii?Q?ew2wiOcsB/LD8owCtMmWhD5TEY5/pFyw3QSvMV2bW3cEgdpwvKsH9gUvYY0W?=
- =?us-ascii?Q?Ib91RgDD5+wzwnSdhWdhn37uaUs94ljptYOiQpLRL9LD+11Z98Fq2dtv+kMe?=
- =?us-ascii?Q?qEqTTHfd1qInxj7WVY77SxhyrRKMVW1FZzNh1zYo2z0AdcMcnVly1c6z3PBf?=
- =?us-ascii?Q?fDSyHi5yJMC9XJ4TfmFrJo/MgNo67xTAJUJ12Z1dv4O2zW81mFPI6P6qmxDM?=
- =?us-ascii?Q?zqGijbfC4+PP9TpwYqjv4s6ArCEwnEZI4bSFQfSpD67A/TXN46z4TNfP7dww?=
- =?us-ascii?Q?xk0zKroggz3Kc7GNQSKGFI3RvbPwT9eBqog6jIjgG7KT2GQ2sS6WPELgaRyi?=
- =?us-ascii?Q?ly6rBFZLdfMuiHO1aes4QLbK8a7nArBPNsi7BVhy6ZNWgjT3ComaujPl3jY8?=
- =?us-ascii?Q?VMibzxckEjET+v0JoyHu3jpZb2pJLGfZY2vOySXih1R0ubLU991Sg1MfXLIi?=
- =?us-ascii?Q?mDnSnjeRH2FrlZvzxebt8t45aKqnDNY/lX0pb4WnF/N3MJe4h7kWaZm975zC?=
- =?us-ascii?Q?PIGWbSTJVIk4nU5riAgSYTKKhDQ/uCGXW83tCNOMoivAxfAR039QJhFZhn6/?=
- =?us-ascii?Q?O8ZcMFxN0A+hC/3xIsPg8RtsWjjdM9rBprcJD92W0buCmTY5cNvHq9Wdz/1Q?=
- =?us-ascii?Q?egB9bmoIMS3vmvPw8F02nVan5XE9UCEY2+cnfu8vyQL5ZwhCRSW+1h4nm9kl?=
- =?us-ascii?Q?LczBWuQhVa2rBjD4u+mBkID3kW1MOFImQ0PXDC6yFQojLfbwMFMsVbIGz3Fb?=
- =?us-ascii?Q?KOoTPE2Yh1ZkmsLTht+yojWtCSiF/139Ty5Scd6KgL6DBK5AWdXuDR9M61V7?=
- =?us-ascii?Q?0/yEl/DTSxt2GakSokA0Ydt7YFMElLPXGbObW6HrGGRG8DbkhyHba59VUK3z?=
- =?us-ascii?Q?nX3K0qRg+YhOyx+ygV+IJoeKyuz/F0tyTDDvlI0R6g7pU//bfgP94H+e9wT2?=
- =?us-ascii?Q?aUCczWov+PAJ4+D+xXMn5yc/+g1evPTgYgXEMaHHWqQgCcRh3+Mwa+yQGLEG?=
- =?us-ascii?Q?aooWoRgqgZi2QMcwgDMdFM8tZGN3iVjBmjVvoLLXAOXNYTlgzUF5YFIEbm00?=
- =?us-ascii?Q?i/M7g/9FRK30FWBQcWu5NmBnTMh5VXZRL83FS1ic4UOHJTt3QvRbsdG9ooh/?=
- =?us-ascii?Q?ZgFKnUxKZnRQrt356eSEs1nGQzK87QzwrC7SrZq0fO1WOEdFYVDdpYOxWz/w?=
- =?us-ascii?Q?gMglquiVplGcncXp6vE4WGa0deL0ChjkIeHX5X4P7N565vblPy8voqvEzBgi?=
- =?us-ascii?Q?uLwKxKyZFsA/ps+gkxoXyU9ca5yJkhKh6XXuDbvaH+s4AZucCCOzCDMY0cXT?=
- =?us-ascii?Q?asqvnpc5SIkTvcysdyq3XSAVUDW9KUFrZHiuJANRbXAE3De6SevqprkmsqMZ?=
- =?us-ascii?Q?yJ8Rp1Enfra9MWd7SJ/45FLgyEL2qIfQUfAx0qPJud4LUowY1Q985ApHl8xf?=
- =?us-ascii?Q?G/0czNrWKgX7eecBY2pXHguEPrXEQupdR4iXtiPD76pwqQIr0Bf80EUJH5sS?=
- =?us-ascii?Q?+GdxKNK8XAtPs7DxRbe3Qxh7f3BSj9Ey8CvxhCobn1te2ACUVOGtNMZII+AD?=
- =?us-ascii?Q?qjUt4mL4hXrr4iqtUGBq3Pffmlj/e4Bq9XfeIMMYJVl9Sx+iOOqf4ZeXDGa5?=
- =?us-ascii?Q?/z0y5AXjLeiEfvAkNWJtv8DGJmFjPiNRfJrFfuwONlPNyGVbLJcm?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 78d39792-8d0b-4fe1-add3-08df39bed6a9
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 15:26:32.0157
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +cZJTEkJV6rMTEfoPdSIdVNZWNog3bi6qIVaH9wDnv15aOub6xqEkSWjFgjozU+ZtnNAEgCySb7Waln/j8d0DqO2in+15yX+x9g9hZ19HS8woNjSPnf7LknYbM9dOgfI
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9354
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_072637_455823_CCD23618 
-X-CRM114-Status: GOOD (  22.58  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20261103_072741_569762_A973FD6C 
+X-CRM114-Status: GOOD (  11.42  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,164 +90,37 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Nov 03, 2026 at 04:04:30PM +0900, Chancel Liu wrote:
-> From: Chancel Liu <chancel.liu@nxp.com>
->
-> The NXP AUD-IO slot represents a physically present I/O connector on
-> the base board. It acts as a nexus that exposes a constrained set of
-> I/O resources, such as GPIOs, clocks and interrupts, through fixed
-> electrical wiring. All actual hardware providers reside on the base
-> board. The connector node only defines index-based mappings to those
-> providers.
->
-> This connector type is present on i.MX95 19x19 EVK and i.MX952 EVK,
-> where it is used to attach the IMX-AUD-IO audio expansion card[1]. The
-> same add-on board can be reused across different base boards that carry
-> this connector.
->
-> [1]https://www.nxp.com/part/IMX-AUD-IO
->
-> Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
-> ---
->  .../bindings/connector/fsl,aud-io-slot.yaml   | 106 ++++++++++++++++++
->  1 file changed, 106 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/connector/fsl,aud-io-slot.yaml
->
-> diff --git a/Documentation/devicetree/bindings/connector/fsl,aud-io-slot.yaml b/Documentation/devicetree/bindings/connector/fsl,aud-io-slot.yaml
-> new file mode 100644
-> index 000000000000..fc3896d0fafa
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/connector/fsl,aud-io-slot.yaml
-> @@ -0,0 +1,106 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/connector/fsl,aud-io-slot.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: NXP AUD-IO Slot
-> +
-> +maintainers:
-> +  - Frank Li <Frank.Li@nxp.com>
-> +  - Chancel Liu <chancel.liu@nxp.com>
-> +
-> +description:
-> +  The NXP AUD-IO slot represents a physically present I/O connector on
-> +  the base board. It acts as a nexus that exposes a constrained set of
-> +  I/O resources, such as GPIOs, clocks and interrupts, through fixed
-> +  electrical wiring. All actual hardware providers reside on the base
-> +  board. The connector node only defines index-based mappings to those
-> +  providers. This connector type is present on i.MX95 19x19 EVK and
-> +  i.MX952 EVK, where it is used to attach the IMX-AUD-IO expansion card.
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - fsl,imx952-evk-aud-io
-> +          - const: fsl,imx95-19x19-evk-aud-io
-> +      - const: fsl,imx95-19x19-evk-aud-io
-> +
-> +  gpio-controller: true
 
-I remember Rob said needn't gpio-controller if gpio-map exist
+On Fri, 30 Oct 2026 14:48:59 +0800, Damon Ding wrote:
+> PATCH 1 is to document the "rockchip,rk3568-edp" compatible in the
+>         Rockchip Analogix DP binding.
+> PATCH 2 is to add the binding for the RK3568 eDP PHY with NaNeng IP block.
+> PATCH 3 is to add the RK3568 support for the Analogix DP bridge driver.
+> PATCH 4 is to add the driver for the Rockchip eDP Transmitter PHY with
+>         NaNeng IP block.
+> PATCH 5 is to add the RK3568 support for the Rockchip Analogix DP driver.
+> PATCH 6 is to add the eDP controller and eDP PHY nodes for the RK3568
+>         SoCs.
+> 
+> [...]
 
-> +
-> +  '#gpio-cells':
-> +    const: 2
-> +
-> +  gpio-map:
-> +    minItems: 1
-> +    maxItems: 3
-> +
-> +  gpio-map-mask:
-> +    items:
-> +      - const: 0xf
-> +      - const: 0x0
-> +
-> +  gpio-map-pass-thru:
-> +    items:
-> +      - const: 0x0
-> +      - const: 0x1
+Applied, thanks!
 
-I think you should pass thru whole u32 0xffffffff in case GPIO add
-new flags in future.
+[1/6] dt-bindings: display: rockchip: analogix-dp: Add support for RK3568
+      commit: 00e97ec0a614a0a2ee7792160bfa6bde0b6a8aa3
+[3/6] drm/bridge: analogix_dp: Add support for RK3568
+      commit: 05ebb8bf006df13e330e82d4f42cc225ca5ceb0d
+[5/6] drm/rockchip: analogix_dp: Add support for RK3568
+      commit: 2ebbeea89df4dae6a7d8a2a9b2d698d893beb283
 
-> +
-> +  '#clock-cells':
-> +    const: 1
-> +
-> +  clock-map:
-> +    minItems: 1
-> +    maxItems: 2
-> +
-> +  '#address-cells':
-> +    const: 0
-
-There are not child node, why need #address-cells?
-
-> +
-> +  interrupt-controller: true
-> +
-> +  '#interrupt-cells':
-> +    const: 2
-> +
-> +  interrupt-map:
-> +    minItems: 1
-> +    maxItems: 2
-> +
-> +  interrupt-map-mask:
-> +    items:
-> +      - const: 0xf
-> +      - const: 0x0
-> +
-> +allOf:
-> +  - $ref: /schemas/gpio/gpio-nexus-node.yaml#
-> +  - $ref: /schemas/clock/clock-nexus-node.yaml#
-> +
-> +required:
-> +  - compatible
-> +  - gpio-controller
-> +  - '#gpio-cells'
-> +  - gpio-map
-> +  - gpio-map-mask
-> +  - gpio-map-pass-thru
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    connector {
-> +      compatible = "fsl,imx95-19x19-evk-aud-io";
-> +      gpio-controller;
-> +      #gpio-cells = <2>;
-> +      gpio-map = <0 0 &gpio1 8 1>;
-> +      gpio-map-mask = <0xf 0x0>;
-> +      gpio-map-pass-thru = <0x0 0x1>;
-> +      #clock-cells = <1>;
-> +      clock-map = <0 &clk 1>;
-> +      #address-cells = <0>;
-> +      interrupt-controller;
-> +      #interrupt-cells = <2>;
-> +      interrupt-map-mask = <0xf 0x0>;
-> +      interrupt-map = <0 0 &gpio2 27 IRQ_TYPE_LEVEL_LOW>;
-                                                          ^  missed count?
-
-Frank
-
-> +    };
-> --
-> 2.50.1
->
->
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
