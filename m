@@ -2,102 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C865606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 11:28:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30B4D606A338
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 11:34:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yi7vFzPW;
-	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=f0RBJ50l
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kJKTsrZr;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=g5xkyovj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=jAHMstR0tHPZUqjtg+eClm/7Ws23/FN7WMsd8yxYEA4=; b=yi7vFzPWW8irklQ/3bJgXdgj33
-	YgvM67pNpe+7ioD2aF7XyKWv0Yn9sOV1oe5yL2afP+xvnd9mEk4idw4oxM3x9L2rp0oi/c+AIxfuX
-	V0FvqfiaJeVIP8fbYbkTsk6tAi5dUYjOQRSnzBqe/kAn4jwE7nCfEZtiLfcY4qbDQeoD2RZ95e8wU
-	b00EEghcf7z2y0kEbWsINkXraO7olzXh7EYxRVkOoAE///YdT8IDZCMf0TPssOkF7KJzkzQneKaUv
-	ntJkNWG6OqlWFbRI94vM/KgY9Au9Ep9LMjcylFkM0+tD7SLgHVj+aODnefUcXoJY4PI5C6Xm3IkBt
-	StR5nu9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=4xnWshvkJ23X4uQ2FNxs2Hb9pWWi1vEC6ZBhkv3P+GA=; b=kJKTsrZrW+ULfq
+	83/HOXyTRggYqmPS990H3nUAq95hQbJDWsGrkfLrmslHapIdofjTJM9fsLJv2C+H7canNNAza91Ug
+	nVmI9p3H8xZZqJhOS4P1ddmP0v4W69Re02oO2AAondd/05x7ctKwp+2FlVU2ZH+z67tqJIOJNQHyr
+	JEmCzXgOYzbNJ4KFVzFYFEAZhNrH04anteVZSptCS+q/e7hYvPKqKAOly/JmMMCblq+rtRqRooaiZ
+	Z6dLtRgYTEJoT1InavS5eypiSxW8/uXyrlCrWiVXLthFDhggFEuovmrf1zCmspxKEQdop9j2urX9O
+	jiVAc8aeH3rcAkA9Ow3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOCgS-00000002BZq-44Fw;
-	Tue, 03 Nov 2026 11:28:08 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOCgQ-00000002BZN-0III
+	id 1xOCmW-00000002C5d-2oGY;
+	Tue, 03 Nov 2026 11:34:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOCmU-00000002C5H-19W5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 11:28:07 +0000
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 3485D202833;
-	Tue, 03 Nov 2026 12:28:04 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1793705284;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jAHMstR0tHPZUqjtg+eClm/7Ws23/FN7WMsd8yxYEA4=;
-	b=f0RBJ50l+Y92to4q+l/Wp8U1hp2vdKq7qJXpVWneTGkAxoWM0bzhJ12X7ezKmf2rkUgFAS
-	nNjKPdCo/5/yU75BMc9kFxx/6lWwuRMcBWhsnvQBbXa+7TMYpR58bR56h4UDHeX/r0ChzL
-	z9odDSL1pnM18gK7XDWJwQbkgsED4BtuFF8pKZYnNvfY82Bdd1w5SAGiVul4R4YQmYHHOi
-	p+1J88RiuBq27yVHk+m1rwEdE9PASl52Y8aYZtWMxnOuwcdm0qH5voI11+eyPQF9ApC8An
-	YtqeAoB5Gi1/Pxl06HgYXiJdRFMB3GSg1daWHUyhVXLCXAGGkc3MQVldp0uu4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1793705284;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jAHMstR0tHPZUqjtg+eClm/7Ws23/FN7WMsd8yxYEA4=;
-	b=LT8z8RaYwFk+KE+wPVsMzV3MrNcD3+QAEaLLkf1iUINNh3UOZe4xvcIOMWRUa7uJ2Qn6RA
-	HKwol4eTnsL7Kx89TchSU0l2aKfWfgfosHCuTowBfVl9pn7ZSjB8BLBmDYNDMbLQPKEbCh
-	RaRwAG6Vak+oJ9+DTV309xseY3lBTF/TZvMMN2rIo/5UwrpyFZdtKhETdVz5J1+5wdB/N2
-	8FtZY5cfoEX4h6+5fmY3QhdE5jbJlE9jnoZDWYXcXAVWj+gF/40ws+oPyF95atWiEpZaXR
-	JSL4xU2tZxAW2I+1Kp40UBKAhpEOYLp6Vu2aIebVv71BNM+oScwJrRIQVKTIag==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793705284; a=rsa-sha256;
-	cv=none;
-	b=SHa28VfmxAbFkRDwoM20WdRbQG5BTxFtFUTPCp3GMJUdxITYofK1FrdzcOH8k+MwO4UPg5
-	vtvIIHuPkU36Wzdy4aL7C4rqvBhbRQDsHGyHswX+mftW0q0Dwrma/A+bUBTtgo98/pExJn
-	NZu271ySI8JoL+ZCLItwt520mCeXfB6vdSRWxXgE2JhS1v9nI483qjQlCczmVa68P27cD6
-	rf/WpxhmWmw5KN/vTW/ho/nXcO8YnjFdabrOtyc7f72rG34m5wM8niyGE1O7+1O/K3Bv6b
-	puYyCtkKX15CaCaTquEBgBhy+C5eca1JeHMLdMzgKZvENiVN0+SSeRt399lFrQ==
-Message-ID: <340843f896db387a7c3ff4d6a06ef7c2155d1f98.camel@pengutronix.de>
-Subject: Re: [PATCH v2 4/7] reset: Add BCMBCA block resets through the PMB
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Linus Walleij <linusw@kernel.org>, Lee Jones <lee@kernel.org>, Rob
- Herring	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley	 <conor+dt@kernel.org>, William Zhang <william.zhang@broadcom.com>,
- Anand Gore	 <anand.gore@broadcom.com>, Kursad Oney
- <kursad.oney@broadcom.com>, Florian Fainelli
- <florian.fainelli@broadcom.com>, =?UTF-8?Q?Rafa=C5=82_Mi=C5=82ecki?=
- <rafal@milecki.pl>,  Broadcom internal kernel review list	
- <bcm-kernel-feedback-list@broadcom.com>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet
- <jbrunet+clk@baylibre.com>, Guenter Roeck	 <linux@roeck-us.net>, Jonathan
- Corbet <corbet@lwn.net>, Randy Dunlap	 <rdunlap@infradead.org>, Benjamin
- Larsson <benjamin.larsson@genexis.eu>
-Cc: mfd@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	linux-hwmon@vger.kernel.org
-Date: Tue, 03 Nov 2026 12:28:04 +0100
-In-Reply-To: <20261101-xg6846b-bcmbca-xrdp-reset-v2-4-455fe9eed5ee@kernel.org>
-References: <20261101-xg6846b-bcmbca-xrdp-reset-v2-0-455fe9eed5ee@kernel.org>
-	 <20261101-xg6846b-bcmbca-xrdp-reset-v2-4-455fe9eed5ee@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Tue, 03 Nov 2026 11:34:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 22ECD1576;
+	Tue,  3 Nov 2026 03:34:18 -0800 (PST)
+Received: from [10.57.66.79] (unknown [10.57.66.79])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8E34F3F632;
+	Tue,  3 Nov 2026 03:34:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793705661; bh=0p3wlH/rwVwhxafDQrx620E3G8yCsQDvQ9Ac/BAG9Sg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=g5xkyovj6W2BqpiT6Huz0m7ftEkJvssMhm98c2Y3k2mFhb6f/JUQ+ideMdVXxe9Ss
+	 a8/fHKP1uEj9zgUpPL1AVoM0OoN+lO7ZRh3qDANYbfFSSKBCAWTFU3m3YaVGVuelRt
+	 AFG3MPqvgSrzzY8NJhS821dIIZ5gclJ4GahvDhUo=
+Message-ID: <1869576e-f2e3-476f-9c1b-6a196d975ec5@arm.com>
+Date: Tue, 3 Nov 2026 11:34:16 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/11] KVM: arm64: CCA: Introduce Realms
+Content-Language: en-GB
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+References: <20261102141304.126883-1-steven.price@arm.com>
+ <20261102141304.126883-3-steven.price@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20261102141304.126883-3-steven.price@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_032806_525014_4FBF4585 
-X-CRM114-Status: GOOD (  34.14  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261103_033422_418508_7EB6D4AA 
+X-CRM114-Status: GOOD (  47.50  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,375 +82,507 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On So, 2026-11-01 at 23:14 +0100, Linus Walleij wrote:
-> Support BCM6846 XRDP and PVTMON resets through the Processor Monitor
-> Bus (PMB) of the third generation Power Management Controller (PMC3).
->=20
-> The sequence is hardware-tested in the XG6846B OpenWrt port.
->=20
-> Power-cycle resets for USB2, WAN, PERIPH, MEMC, BIU and BIU PLL were
-> considered but left out. These belong in power-domain and platform
-> power-management abstractions, which can coordinate affected users.
->=20
-> Signed-off-by: Linus Walleij <linusw@kernel.org>
+Hi Steven
+
+On 02/11/2026 14:12, Steven Price wrote:
+> From: Suzuki K Poulose <suzuki.poulose@arm.com>
+> 
+> Add foundational work for supporting Realms.
+>   - Add a new VM flavor.
+>   - At KVM init, check if the KVM can support Realms (though not functional
+>     yet) and will be advertised by static key kvm_rmi_is_available. This
+>     will be turned on in a later patch, once we have all the bits and
+>     pieces ready. For now check if we are blessed with KVM_MODE_RMM.
+>   - Add realm specific tracking in kvm_arch. Since Realm and protected pKVM
+>     states are mutually exclusive, move them into a union.
+
+I think this patch could stop with the above items.
+
+>   - Also adjust the memslot preparation checks to reflect the changes.
+> 
+
+This and the VCPU features could be a separate patch or merged with the
+other patches.
+
+> Please note that we cannot create Realm VMs yet. This requires further
+> changes to the UABI and core RMI driver support, which will come later.
+> 
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Steven Price <steven.price@arm.com>
 > ---
->  MAINTAINERS                      |   1 +
->  drivers/reset/Kconfig            |  13 ++
->  drivers/reset/Makefile           |   1 +
->  drivers/reset/reset-bcmbca-pmb.c | 309 +++++++++++++++++++++++++++++++++=
-++++++
->  4 files changed, 324 insertions(+)
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 18e32cc036b5..29ec1c9d617e 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -5452,6 +5452,7 @@ F:	Documentation/devicetree/bindings/mfd/brcm,bcm68=
-46-pmc.yaml
->  F:	Documentation/devicetree/bindings/reset/brcm,bcm6846-pmb-reset.yaml
->  F:	Documentation/devicetree/bindings/soc/bcm/brcm,bcm6846-pmb.yaml
->  F:	drivers/mfd/bcmbca_pmc3_pmb.c
-> +F:	drivers/reset/reset-bcmbca-pmb.c
->  F:	include/dt-bindings/clock/brcm,bcm6846-pmb.h
->  F:	include/dt-bindings/reset/brcm,bcm6846-pmb.h
->  F:	include/linux/mfd/bcmbca-pmb.h
-> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-> index eda9c698a95f..56f7aee6cf1f 100644
-> --- a/drivers/reset/Kconfig
-> +++ b/drivers/reset/Kconfig
-> @@ -49,6 +49,19 @@ config RESET_BCM6345
->  	help
->  	  This enables the reset controller driver for BCM6345 SoCs.
-> =20
-> +config RESET_BCMBCA_PMB
-> +	tristate "Broadcom BCMBCA PMB reset controller"
-> +	depends on ARCH_BCMBCA || COMPILE_TEST
-> +	depends on OF && HAS_IOMEM
-> +	depends on MFD_BCMBCA_PMB
-> +	select REGMAP
-> +	default MFD_BCMBCA_PMB
-> +	help
-> +	  Reset BCMBCA blocks through the Processor Monitor Bus (PMB) of
-> +	  the third generation Power Management Controller (PMC3).
+>   arch/arm64/include/asm/kvm_emulate.h   | 16 +++++++
+>   arch/arm64/include/asm/kvm_host.h      | 57 +++++++++++++++++-------
+>   arch/arm64/include/asm/kvm_rmi.h       | 61 ++++++++++++++++++++++++++
+>   arch/arm64/include/asm/virt.h          |  1 +
+>   arch/arm64/kvm/Makefile                |  2 +-
+>   arch/arm64/kvm/arm.c                   | 24 ++++++++--
+>   arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  2 +-
+>   arch/arm64/kvm/hyp/nvhe/switch.c       |  4 +-
+>   arch/arm64/kvm/hyp/nvhe/timer-sr.c     |  2 +-
+>   arch/arm64/kvm/mmu.c                   | 13 +++---
+>   arch/arm64/kvm/rmi.c                   | 18 ++++++++
+>   11 files changed, 169 insertions(+), 31 deletions(-)
+>   create mode 100644 arch/arm64/include/asm/kvm_rmi.h
+>   create mode 100644 arch/arm64/kvm/rmi.c
+> 
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index 334211b8b2ee..32021bdf2610 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -831,4 +831,20 @@ static inline void kvm_reset_vcpu_psci(struct kvm_vcpu *vcpu,
+>   	vcpu_set_reg(vcpu, 0, reset_state->r0);
+>   }
+>   
+> +static inline enum realm_state kvm_realm_state(struct kvm *kvm)
+> +{
+> +	return READ_ONCE(kvm->arch.realm.state);
+> +}
 > +
-> +	  The module will be called reset-bcmbca-pmb.
+> +static inline void kvm_set_realm_state(struct kvm *kvm,
+> +				       enum realm_state new_state)
+> +{
+> +	WRITE_ONCE(kvm->arch.realm.state, new_state);
+> +}
 > +
->  config RESET_BERLIN
->  	tristate "Berlin Reset Driver"
->  	depends on ARCH_BERLIN || COMPILE_TEST
-> diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-> index 489fafd6bbe3..26c8a73f774f 100644
-> --- a/drivers/reset/Makefile
-> +++ b/drivers/reset/Makefile
-> @@ -11,6 +11,7 @@ obj-$(CONFIG_RESET_ASPEED) +=3D reset-aspeed.o
->  obj-$(CONFIG_RESET_ATH79) +=3D reset-ath79.o
->  obj-$(CONFIG_RESET_AXS10X) +=3D reset-axs10x.o
->  obj-$(CONFIG_RESET_BCM6345) +=3D reset-bcm6345.o
-> +obj-$(CONFIG_RESET_BCMBCA_PMB) +=3D reset-bcmbca-pmb.o
->  obj-$(CONFIG_RESET_BERLIN) +=3D reset-berlin.o
->  obj-$(CONFIG_RESET_BRCMSTB) +=3D reset-brcmstb.o
->  obj-$(CONFIG_RESET_BRCMSTB_RESCAL) +=3D reset-brcmstb-rescal.o
-> diff --git a/drivers/reset/reset-bcmbca-pmb.c b/drivers/reset/reset-bcmbc=
-a-pmb.c
-> new file mode 100644
-> index 000000000000..532398032fa8
-> --- /dev/null
-> +++ b/drivers/reset/reset-bcmbca-pmb.c
-> @@ -0,0 +1,309 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +static inline bool kvm_realm_is_created(struct kvm *kvm)
+> +{
+> +	return kvm_vm_is_realm(kvm) && kvm_realm_state(kvm) != REALM_STATE_NONE;
+> +}
+> +
+
+
+>   #endif /* __ARM64_KVM_EMULATE_H__ */
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index ccd2dc8f73c3..7d0222047ca1 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -29,6 +29,7 @@
+>   #include <asm/kvm.h>
+>   #include <asm/kvm_asm.h>
+>   #include <asm/kvm_hcall.h>
+> +#include <asm/kvm_rmi.h>
+>   #include <asm/vncr_mapping.h>
+>   
+>   #define __KVM_HAVE_ARCH_INTC_INITIALIZED
+> @@ -48,6 +49,13 @@
+>   #define KVM_VCPU_MAX_FEATURES 10
+>   #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
+>   
+
+
+> +#define KVM_REALM_VCPU_VALID_FEATURES			\
+> +	(BIT(KVM_ARM_VCPU_POWER_OFF)		|	\
+> +	 BIT(KVM_ARM_VCPU_PSCI_0_2)		|	\
+> +	 BIT(KVM_ARM_VCPU_PTRAUTH_ADDRESS)	|	\
+> +	 BIT(KVM_ARM_VCPU_SVE)			|	\
+> +	 BIT(KVM_ARM_VCPU_PTRAUTH_GENERIC))
+> +
+
+Please could we move the ^^ to a separate patch ? See more below.
+
+>   #define KVM_REQ_SLEEP \
+>   	KVM_ARCH_REQ_FLAGS(0, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
+>   #define KVM_REQ_IRQ_PENDING		KVM_ARCH_REQ(1)
+> @@ -409,6 +417,7 @@ enum kvm_arm_vm_flavor {
+>   	VM_PKVM,		/* Normal guests on pKVM */
+>   	MARKER(__VM_PROTECTED),
+>   	VM_PROTECTED_PKVM,	/* Protected VM */
+> +	VM_REALM,		/* CCA */
+>   	VM_FLAVOR_MAX
+>   };
+>   
+> @@ -502,11 +511,14 @@ struct kvm_arch {
+>   	/* Count the number of VNCR_EL2 TLBs */
+>   	atomic_t vncr_tlb_count;
+>   
+> -	/*
+> -	 * For an untrusted host VM, 'pkvm.handle' is used to lookup
+> -	 * the associated pKVM instance in the hypervisor.
+> -	 */
+> -	struct kvm_protected_vm pkvm;
+> +	union {
+> +		/*
+> +		 * For an untrusted host VM, 'pkvm.handle' is used to lookup
+> +		 * the associated pKVM instance in the hypervisor.
+> +		 */
+> +		struct kvm_protected_vm pkvm;
+> +		struct realm realm;
+> +	};
+>   
+>   #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
+>   	/* Nested virtualization info */
+> @@ -1572,30 +1584,43 @@ struct kvm *kvm_arch_alloc_vm(void);
+>   
+>   #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+>   
+> -#ifdef __KVM_NVHE_HYPERVISOR__
+> +#define kvm_vm_is_protected(kvm)	((kvm)->arch.vm_flavor >= __VM_PROTECTED)
+>   
+> -#define kvm_vm_is_protected(kvm)			\
+> -	(is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PROTECTED_PKVM))
+> +#ifdef __KVM_NVHE_HYPERVISOR__
+>   /*
+>    * Accessing vcpu->kvm from nVHE hyp stub is tricky, as we need to convert the
+>    * pointer to the hyp VA. With pKVM, the nVHE code runs with the hyp_vcpu,
+> - * which is populated correctly and is gated on is_protected_kvm_enabled().
+> + * which is populated correctly. Always vcpu_is_protected_pkvm(), which is
+> + * gated on is_protected_kvm_enabled().
+> + */
+> +#define vcpu_is_protected(vcpu)		BUILD_BUG_ON(1)
+> +#else
+> +#define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
+> +#endif
+> +
+> +#define kvm_vm_is_protected_pkvm(kvm)					\
+> +	(is_protected_kvm_enabled() && ((kvm)->arch.vm_flavor == VM_PROTECTED_PKVM))
+> +
 > +/*
-> + * BCMBCA block resets through the Processor Monitor Bus (PMB) of the
-> + * third generation Power Management Controller (PMC3).
+> + * Rely on is_protected_kvm_enabled() check in kvm_vm_is_protected_pkvm() to
+> + * make sure the vcpu->kvm is always valid VA in the context
+>    */
+> -#define vcpu_is_protected(vcpu)						\
+> +#define vcpu_is_protected_pkvm(vcpu)					\
+>   	({								\
+>   		struct kvm *__kvm = READ_ONCE((vcpu)->kvm);		\
+>   									\
+> -		(__kvm && kvm_vm_is_protected(__kvm));			\
+> +		(__kvm && kvm_vm_is_protected_pkvm(__kvm));		\
+>   	})
+>   
+> -#else
+> -
+> -#define kvm_vm_is_protected(kvm)	((kvm)->arch.vm_flavor >= __VM_PROTECTED)
+> -#define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
+> +#define kvm_vm_is_realm(kvm)		((kvm)->arch.vm_flavor == VM_REALM)
+> +#define vcpu_is_rec(vcpu)		kvm_vm_is_realm((vcpu)->kvm)
+>   
+>   #define kvm_vm_hyp_is_distrusting(kvm)	((kvm)->arch.vm_flavor >= __VM_DISTRUSTING_HYP)
+>   
+> -#endif	/* __KVM_NVHE_HYPERVISOR__ */
+> +#define kvm_arch_has_private_mem(kvm) kvm_vm_is_realm(kvm)
+> +
+> +int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
+> +bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
+>   
+>   #define kvm_has_mte(kvm)					\
+>   	(system_supports_mte() &&				\
+> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+> new file mode 100644
+> index 000000000000..3194daaacf2b
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/kvm_rmi.h
+> @@ -0,0 +1,61 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2023-2026 ARM Ltd.
 > + */
 > +
-> +#include <linux/bits.h>
-> +#include <linux/delay.h>
-> +#include <linux/mfd/bcmbca-pmb.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/property.h>
-> +#include <linux/regmap.h>
-> +#include <linux/reset-controller.h>
+> +#ifndef __ASM_KVM_RMI_H
+> +#define __ASM_KVM_RMI_H
 > +
-> +#include <dt-bindings/reset/brcm,bcm6846-pmb.h>
-> +
-> +/* BCM6846 BPCM zone control, in PMB words (6846/BPCM.h). */
-
-What does this reference?
-
-> +#define BCM6846_ZONE_CONTROL(zone)	(32 + (zone) * 8)
-> +#define BCM6846_ZONE_DPG_EN		BIT(8)
-> +#define BCM6846_ZONE_POWER_DOWN		BIT(9)
-> +#define BCM6846_ZONE_POWER_UP		BIT(10)
-> +#define BCM6846_ZONE_MEM_POWER		BIT(11)
-> +#define BCM6846_ZONE_RESET		BIT(12)
-> +#define BCM6846_ZONE_POWER_ON		BIT(26)
-> +
-> +struct bcmbca_pmb_reset_block {
-> +	u8 bus;
-> +	u8 device;
-> +	u16 offset; /* PMB word offset of the reset register. */
-> +	u32 mask;
-> +	u32 assert_value;
-> +	u32 deassert_value;
+> +/**
+> + * enum realm_state - State of a Realm
+> + *
+> + * Mirrors the RMM's Realm lifecycle states where they are meaningful to KVM,
+> + * with REALM_STATE_DYING being a KVM-internal state used to prevent further
+> + * requests while teardown is in progress. KVM does not track REALM_SYSTEM_OFF
+> + * or REALM_ZOMBIE separately as they naturally lead to teardown.
+> + */
+> +enum realm_state {
+> +	/**
+> +	 * @REALM_STATE_NONE:
+> +	 *      Realm has not yet been created. rmi_realm_create() has not
+> +	 *      yet been called.
+> +	 */
+> +	REALM_STATE_NONE,
+> +	/**
+> +	 * @REALM_STATE_NEW:
+> +	 *      Realm is under construction, Realm Descriptor has been created,
+> +	 *      but it is not yet activated. Memory may be populated.
+> +	 */
+> +	REALM_STATE_NEW,
+> +	/**
+> +	 * @REALM_STATE_ACTIVE:
+> +	 *      Realm has been created and is eligible for execution with
+> +	 *      rmi_rec_enter(). Memory may no longer be populated with known
+> +	 *	contents.
+> +	 */
+> +	REALM_STATE_ACTIVE,
+> +	/**
+> +	 * @REALM_STATE_DYING:
+> +	 *      Realm is in the process of being destroyed or has already been
+> +	 *      destroyed.
+> +	 */
+> +	REALM_STATE_DYING,
+> +	/**
+> +	 * @REALM_STATE_DEAD:
+> +	 *      Realm has been destroyed.
+> +	 */
+> +	REALM_STATE_DEAD
 > +};
 > +
-> +struct bcmbca_pmb_reset;
-> +
-> +struct bcmbca_pmb_reset_group {
-> +	const char *name;
-> +	int (*reset)(struct bcmbca_pmb_reset *rst,
-> +		     const struct bcmbca_pmb_reset_group *group);
-> +	const struct bcmbca_pmb_reset_block *blocks;
-> +	unsigned int num_blocks;
-> +	/* Minimum reset assertion hold time in microseconds. */
-> +	unsigned int assert_hold_us;
+> +/**
+> + * struct realm - Additional per VM data for a Realm
+> + *
+> + * @state: The lifetime state machine for the realm
+> + */
+> +struct realm {
+> +	enum realm_state state;
 > +};
 > +
-> +struct bcmbca_pmb_reset_variant {
-> +	const struct bcmbca_pmb_reset_group *groups;
-> +	unsigned int num_groups;
-> +};
+> +void kvm_init_rmi(void);
 > +
-> +struct bcmbca_pmb_reset {
-> +	struct reset_controller_dev rcdev;
-> +	const struct bcmbca_pmb_reset_variant *variant;
-> +	struct regmap *regmap;
-> +	/* Serialize complete reset pulses and failure cleanup. */
-> +	struct mutex lock;
-> +};
+> +#endif /* __ASM_KVM_RMI_H */
+> diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
+> index b546703c3ab9..92cec42952f4 100644
+> --- a/arch/arm64/include/asm/virt.h
+> +++ b/arch/arm64/include/asm/virt.h
+> @@ -87,6 +87,7 @@ void __hyp_reset_vectors(void);
+>   bool is_kvm_arm_initialised(void);
+>   
+>   DECLARE_STATIC_KEY_FALSE(kvm_protected_mode_initialized);
+> +DECLARE_STATIC_KEY_FALSE(kvm_rmi_is_available);
+>   
+>   static inline bool is_pkvm_initialized(void)
+>   {
+> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+> index 7aaeeb84e788..66a719ab5b6b 100644
+> --- a/arch/arm64/kvm/Makefile
+> +++ b/arch/arm64/kvm/Makefile
+> @@ -16,7 +16,7 @@ CFLAGS_handle_exit.o += -Wno-override-init
+>   kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
+>   	 inject_fault.o va_layout.o handle_exit.o config.o \
+>   	 guest.o debug.o reset.o sys_regs.o stacktrace.o \
+> -	 vgic-sys-reg-v3.o fpsimd.o pkvm.o \
+> +	 vgic-sys-reg-v3.o fpsimd.o pkvm.o rmi.o \
+>   	 arch_timer.o trng.o vmid.o emulate-nested.o nested.o at.o \
+>   	 vgic/vgic.o vgic/vgic-init.o \
+>   	 vgic/vgic-irqfd.o vgic/vgic-v2.o \
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 157bf4b81202..c8599fed5902 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -42,6 +42,7 @@
+>   #include <asm/kvm_nested.h>
+>   #include <asm/kvm_pkvm.h>
+>   #include <asm/kvm_ptrauth.h>
+> +#include <asm/kvm_rmi.h>
+>   #include <asm/sections.h>
+>   #include <asm/stacktrace/nvhe.h>
+>   
+> @@ -112,6 +113,8 @@ long kvm_get_cap_for_kvm_ioctl(unsigned int ioctl, long *ext)
+>   	return -EINVAL;
+>   }
+>   
+> +DEFINE_STATIC_KEY_FALSE(kvm_rmi_is_available);
 > +
-> +static int bcmbca_pmb_reset_sequence(struct bcmbca_pmb_reset *rst,
-> +				     const struct bcmbca_pmb_reset_group *group);
-> +
-> +static int bcm6846_xrdp_reset(struct bcmbca_pmb_reset *rst,
-> +			      const struct bcmbca_pmb_reset_group *group);
-> +
-> +static const struct bcmbca_pmb_reset_block bcm6846_xrdp_resets[] =3D {
-> +	{
-> +		.bus =3D 1,
-> +		.device =3D 12,
-> +		.offset =3D 5,
-> +		.mask =3D GENMASK(27, 0),
-> +		/* Keep bits 0=E2=80=932 deasserted, matching the vendor sequence. */
-> +		.assert_value =3D GENMASK(2, 0),
-> +		.deassert_value =3D GENMASK(27, 0),
-> +	},
-> +	{
-> +		.bus =3D 1,
-> +		.device =3D 14,
-> +		.offset =3D 5,
-> +		.mask =3D GENMASK(27, 0),
-> +		.deassert_value =3D GENMASK(27, 0),
-> +	},
-> +	{
-> +		.bus =3D 1,
-> +		.device =3D 15,
-> +		.offset =3D 5,
-> +		.mask =3D GENMASK(27, 0),
-> +		.deassert_value =3D GENMASK(27, 0),
-> +	},
-> +	{
-> +		.bus =3D 1,
-> +		.device =3D 16,
-> +		.offset =3D 5,
-> +		.mask =3D GENMASK(27, 0),
-> +		.deassert_value =3D GENMASK(27, 0),
-> +	},
-> +};
-> +
-> +/* Analog acquisition reset, independent of clock and power configuratio=
-n. */
-> +static const struct bcmbca_pmb_reset_block bcm6846_pvtmon_reset =3D {
-> +	.bus =3D 1,
-> +	.device =3D 6,
-> +	.offset =3D 17,
-> +	.mask =3D BIT(0),
-> +	.deassert_value =3D BIT(0),
-> +};
-> +
-> +static const struct bcmbca_pmb_reset_group bcm6846_pmb_reset_groups[] =
-=3D {
-> +	[BCM6846_RESET_XRDP] =3D {
-> +		.name =3D "XRDP",
-> +		.reset =3D bcm6846_xrdp_reset,
-> +		.blocks =3D bcm6846_xrdp_resets,
-> +		.num_blocks =3D ARRAY_SIZE(bcm6846_xrdp_resets),
-> +		.assert_hold_us =3D 10,
-> +	},
-> +	[BCM6846_RESET_PVTMON] =3D {
-> +		.name =3D "PVTMON",
-> +		.reset =3D bcmbca_pmb_reset_sequence,
-> +		.blocks =3D &bcm6846_pvtmon_reset,
-> +		.num_blocks =3D 1,
-> +		.assert_hold_us =3D 1000,
-> +	},
-> +};
-> +
-> +static const struct bcmbca_pmb_reset_variant bcm6846_pmb_variant =3D {
-> +	.groups =3D bcm6846_pmb_reset_groups,
-> +	.num_groups =3D ARRAY_SIZE(bcm6846_pmb_reset_groups),
-> +};
-> +
-> +/* Best effort: never restart a partially reset group. */
-> +static void bcmbca_pmb_reset_cleanup(struct bcmbca_pmb_reset *rst,
-> +				     const struct bcmbca_pmb_reset_group *group)
-> +{
-> +	const struct bcmbca_pmb_reset_block *block;
-> +	unsigned int i;
-> +	int ret;
-> +
-> +	for (i =3D 0; i < group->num_blocks; i++) {
-> +		block =3D &group->blocks[i];
-> +		ret =3D regmap_update_bits(rst->regmap,
-> +					 BCMBCA_PMB_REG(block->bus, block->device, block->offset),
-> +					 block->mask, block->assert_value);
-> +		if (ret)
-> +			dev_err(rst->rcdev.dev,
-> +				"failed to hold PMB bus %u device %u in reset: %d\n",
-> +				block->bus, block->device, ret);
-> +	}
-> +}
-> +
-> +static int bcmbca_pmb_reset_sequence(struct bcmbca_pmb_reset *rst,
-> +				     const struct bcmbca_pmb_reset_group *group)
-> +{
-> +	const struct bcmbca_pmb_reset_block *block;
-> +	enum {
-> +		PASS_ASSERT,
-> +		PASS_DEASSERT,
-> +	} pass;
-> +	unsigned int i;
-> +	int ret;
-> +
-> +	if (!group->num_blocks)
-> +		return -EINVAL;
-> +
-> +	/* Assert every block before releasing any of them. */
-> +	for (pass =3D PASS_ASSERT; pass <=3D PASS_DEASSERT; pass++) {
-> +		for (i =3D 0; i < group->num_blocks; i++) {
-> +			block =3D &group->blocks[i];
-> +			ret =3D regmap_update_bits(rst->regmap,
-> +						 BCMBCA_PMB_REG(block->bus, block->device,
-> +								block->offset), block->mask,
-> +						 pass =3D=3D PASS_DEASSERT ? block->deassert_value :
-> +						 block->assert_value);
-> +			if (ret)
-> +				goto cleanup;
-> +		}
-> +		if (pass =3D=3D PASS_ASSERT && group->assert_hold_us)
-> +			usleep_range(group->assert_hold_us, group->assert_hold_us * 2);
-> +	}
-> +cleanup:
-> +	if (ret) {
-> +		dev_err(rst->rcdev.dev, "%s %s failed at PMB bus %u device %u: %d\n",
-> +			group->name, pass =3D=3D PASS_DEASSERT ? "deassert" : "assert",
-
-This could use str_assert_deassert() from <linux/string_choices.h>.
-
-> +			block->bus, block->device, ret);
-> +		bcmbca_pmb_reset_cleanup(rst, group);
-> +	}
-> +	return ret;
-> +}
-> +
-> +/* The boot loader may power down the Runners before entering Linux. */
-> +static int bcm6846_power_on_zone(struct bcmbca_pmb_reset *rst, u8 device=
-, u8 zone)
-> +{
-> +	unsigned int reg =3D BCMBCA_PMB_REG(1, device, BCM6846_ZONE_CONTROL(zon=
-e));
-> +	u32 value, mask;
-> +	int ret;
-> +
-> +	ret =3D regmap_read(rst->regmap, reg, &value);
-> +	if (ret)
-> +		return ret;
-> +	if ((value & BCM6846_ZONE_POWER_ON) && !(value & BCM6846_ZONE_POWER_DOW=
-N))
-> +		return 0;
-> +
-> +	/* Match PowerOnZone() in the BCM6846 vendor PMC driver. */
-> +	mask =3D BCM6846_ZONE_POWER_DOWN | BCM6846_ZONE_DPG_EN |
-> +	       BCM6846_ZONE_POWER_UP | BCM6846_ZONE_MEM_POWER | BCM6846_ZONE_RE=
-SET;
-> +	ret =3D regmap_write_bits(rst->regmap, reg, mask, mask & ~BCM6846_ZONE_=
-POWER_DOWN);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return regmap_read_poll_timeout(rst->regmap, reg, value,
-> +					value & BCM6846_ZONE_POWER_ON, 10, 10000);
-> +}
-> +
-> +static int bcm6846_xrdp_reset(struct bcmbca_pmb_reset *rst,
-> +			      const struct bcmbca_pmb_reset_group *group)
-> +{
-> +	/* BCM6846 pmc_addr.h: XRDP, three Runners, then WAN (no WAN reset). */
-
-What does this reference?
-
-> +	static const struct {
-> +		u8 device;
-> +		u8 zones;
-> +	} power[] =3D {
-> +		{ 12, 3 }, { 14, 1 }, { 15, 1 }, { 16, 1 }, { 11, 3 },
-> +	};
-> +	unsigned int i, zone;
-> +	int ret;
-> +
-> +	for (i =3D 0; i < ARRAY_SIZE(power); i++) {
-> +		for (zone =3D 0; zone < power[i].zones; zone++) {
-> +			ret =3D bcm6846_power_on_zone(rst, power[i].device, zone);
-> +			if (ret) {
-> +				dev_err(rst->rcdev.dev,
-> +					"XRDP power-up failed at PMB bus 1 device %u zone %u: %d\n",
-> +					power[i].device, zone, ret);
-> +				bcmbca_pmb_reset_cleanup(rst, group);
-> +				return ret;
-> +			}
-> +		}
+>   DECLARE_KVM_HYP_PER_CPU(unsigned long, kvm_hyp_vector);
+>   
+>   DEFINE_PER_CPU(unsigned long, kvm_arm_hyp_stack_base);
+> @@ -1732,10 +1735,19 @@ static unsigned long system_supported_vcpu_features(struct kvm_vcpu *vcpu)
+>   {
+>   	unsigned long features = KVM_VCPU_VALID_FEATURES;
+>   
+> -	if (vcpu->kvm->arch.vm_flavor == VM_PROTECTED_PKVM)
+> +	switch (vcpu->kvm->arch.vm_flavor) {
+> +	case VM_PROTECTED_PKVM:
+>   		kvm_pkvm_vcpu_allowed_features(vcpu->kvm, &features);
+> +		break;
+> +	case VM_REALM:
+> +		features = KVM_REALM_VCPU_VALID_FEATURES;
+> +		break;
+> +	default:
+> +		break;
 > +	}
 
-This doesn't look like it belongs in the reset controller driver.
-Are these power domains?
+This could be a separate patch ?
 
-> +	return bcmbca_pmb_reset_sequence(rst, group);
-> +}
+>   
+> -	if (!cpus_have_final_cap(ARM64_HAS_32BIT_EL1))
+> +	if (vcpu_is_protected(vcpu) ||
+> +	    !cpus_have_final_cap(ARM64_HAS_32BIT_EL1))
+>   		clear_bit(KVM_ARM_VCPU_EL1_32BIT, &features);
+
+We start with the allowed features and 32_BIT_EL1 is already cleared for 
+both protected VMs. So we don't need this change anymore.
+
+>   
+>   	if (!kvm_supports_guest_pmuv3()) {
+> @@ -1751,7 +1763,8 @@ static unsigned long system_supported_vcpu_features(struct kvm_vcpu *vcpu)
+>   		clear_bit(KVM_ARM_VCPU_PTRAUTH_GENERIC, &features);
+>   	}
+>   
+> -	if (!cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
+> +	if (vcpu_is_protected(vcpu) ||
+> +	    !cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
+>   		clear_bit(KVM_ARM_VCPU_HAS_EL2, &features);
+>   
+
+Same as above
+
+>   	return features;
+> @@ -1775,7 +1788,7 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
+>   	if (features & ~system_supported_vcpu_features(vcpu))
+>   		return -EINVAL;
+>   
+> -	/* EL2 implements PSCI 1.1; the host must not dispatch as 0.1. */
+> +	/* Both pKVM and RMM implements PSCI 1.1; the host must not dispatch as 0.1. */
+>   	if (vcpu_is_protected(vcpu) &&
+>   	    !test_bit(KVM_ARM_VCPU_PSCI_0_2, &features))
+
+This too can be a separate patch, where we handle VCPU for Realms
+
+>   		return -EINVAL;
+> @@ -2312,6 +2325,7 @@ static const struct kvm_vcpu_ops *arm64_vcpu_ops[] = {
+>   	KVM_VCPU_OPS(VM_VHE, vhe_vcpu_ops),
+>   	KVM_VCPU_OPS(VM_PKVM, pkvm_vcpu_ops),
+>   	KVM_VCPU_OPS(VM_PROTECTED_PKVM, pkvm_vcpu_ops),
+> +	[VM_REALM] = NULL,
+>   };
+>   
+>   static void kvm_init_vcpu_ops(struct kvm_vcpu *vcpu)
+> @@ -3269,6 +3283,8 @@ static __init int kvm_arm_init(void)
+>   
+>   	in_hyp_mode = is_kernel_in_hyp_mode();
+>   
+> +	kvm_init_rmi();
 > +
-> +static int bcmbca_pmb_reset(struct reset_controller_dev *rcdev, unsigned=
- long id)
+>   	if (cpus_have_final_cap(ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE) ||
+>   	    cpus_have_final_cap(ARM64_WORKAROUND_1508412))
+>   		kvm_info("Guests without required CPU erratum workarounds can deadlock system!\n" \
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> index 0261b2bc681f..ae6ced6d7b9e 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> @@ -84,7 +84,7 @@ pkvm_hyp_vcpu_to_hyp_vm(struct pkvm_hyp_vcpu *hyp_vcpu)
+>   
+>   static inline bool pkvm_hyp_vcpu_is_protected(struct pkvm_hyp_vcpu *hyp_vcpu)
+>   {
+> -	return vcpu_is_protected(&hyp_vcpu->vcpu);
+> +	return vcpu_is_protected_pkvm(&hyp_vcpu->vcpu);
+>   }
+>   
+>   static inline bool pkvm_hyp_vm_is_protected(struct pkvm_hyp_vm *hyp_vm)
+> diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+> index 89fb9dd351ad..6c03f48e6be3 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/switch.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+> @@ -238,7 +238,7 @@ static const exit_handler_fn pvm_exit_handlers[] = {
+>   
+>   static const exit_handler_fn *kvm_get_exit_handler_array(struct kvm_vcpu *vcpu)
+>   {
+> -	if (unlikely(vcpu_is_protected(vcpu)))
+> +	if (unlikely(vcpu_is_protected_pkvm(vcpu)))
+>   		return pvm_exit_handlers;
+>   
+>   	return hyp_exit_handlers;
+> @@ -259,7 +259,7 @@ static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
+>   	 * it.  The check below is based on the one in
+>   	 * kvm_arch_vcpu_ioctl_run().
+>   	 */
+> -	if (unlikely(vcpu_is_protected(vcpu) && vcpu_mode_is_32bit(vcpu))) {
+> +	if (unlikely(vcpu_is_protected_pkvm(vcpu) && vcpu_mode_is_32bit(vcpu))) {
+>   		/*
+>   		 * As we have caught the guest red-handed, decide that it isn't
+>   		 * fit for purpose anymore by making the vcpu invalid. The VMM
+> diff --git a/arch/arm64/kvm/hyp/nvhe/timer-sr.c b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+> index 993065716913..17bd1ff621ab 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+> @@ -48,7 +48,7 @@ void __timer_enable_traps(struct kvm_vcpu *vcpu)
+>   	 * or running a protected VM (we don't offset anything in this case).
+>   	 */
+>   	clr = CNTHCTL_EL1PCEN;
+> -	if (vcpu_is_protected(vcpu) ||
+> +	if (vcpu_is_protected_pkvm(vcpu) ||
+>   	    !timer_get_offset(vcpu_ptimer(vcpu)))
+>   		set |= CNTHCTL_EL1PCTEN;
+>   	else
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 1db10d8d6db7..34ddcb2f094a 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -2814,17 +2814,17 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+>   	hva_t hva, reg_end;
+>   	int ret = 0;
+>   
+> -	if (kvm_vm_is_protected(kvm)) {
+> +	if (kvm_vm_is_protected(kvm) && new &&
+> +	    (new->flags & (KVM_MEM_LOG_DIRTY_PAGES | KVM_MEM_READONLY)))
+> +		return -EPERM;
+> +
+> +	if (kvm->arch.vm_flavor == VM_PROTECTED_PKVM) {
+>   		/* Cannot modify memslots once a pVM has run. */
+>   		if (pkvm_hyp_vm_is_created(kvm) &&
+>   		    (change == KVM_MR_DELETE || change == KVM_MR_MOVE)) {
+>   			return -EPERM;
+>   		}
+>   
+> -		if (new &&
+> -		    new->flags & (KVM_MEM_LOG_DIRTY_PAGES | KVM_MEM_READONLY)) {
+> -			return -EPERM;
+> -		}
+>   	}
+
+May be the above could be a preparatory patch or add the changes common
+for Realm and pVM when we come to do the memslot for Realms ?
+
+>   
+>   	if (change != KVM_MR_CREATE && change != KVM_MR_MOVE &&
+> @@ -3158,13 +3158,14 @@ static const struct kvm_vm_s2_ops kvm_default_vm_s2_ops = {
+>   };
+>   
+>   #define KVM_VM_S2_OPS(flavor, ops)		\
+> -		[(flavor)] = &(ops)
+> +		[flavor] = &(ops)
+
+Spurious, unwanted change. Please drop this ^^
+
+>   
+>   static const struct kvm_vm_s2_ops *arm64_vm_s2_ops[] = {
+>   	KVM_VM_S2_OPS(VM_VHE, kvm_default_vm_s2_ops),
+>   	KVM_VM_S2_OPS(VM_NVHE, kvm_default_vm_s2_ops),
+>   	KVM_VM_S2_OPS(VM_PKVM, pkvm_vm_s2_ops),
+>   	KVM_VM_S2_OPS(VM_PROTECTED_PKVM, protected_pkvm_vm_s2_ops),
+> +	[VM_REALM] = NULL,
+>   };
+>   
+>   static int kvm_vm_init_vm_s2_ops(struct kvm *kvm)
+> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+> new file mode 100644
+> index 000000000000..5ecc8b349869
+> --- /dev/null
+> +++ b/arch/arm64/kvm/rmi.c
+> @@ -0,0 +1,18 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2023-2026 ARM Ltd.
+> + */
+> +
+> +#include <linux/kvm_host.h>
+> +
+> +#include <asm/virt.h>
+> +
+> +void kvm_init_rmi(void)
 > +{
-> +	struct bcmbca_pmb_reset *rst =3D container_of(rcdev, struct bcmbca_pmb_=
-reset, rcdev);
-> +	const struct bcmbca_pmb_reset_group *group;
-> +	int ret;
+> +	if (kvm_get_mode() != KVM_MODE_RMM)
+> +		return;
+
+Even this could be delayed to the end ? and this can be an empty stub 
+for now.
 > +
-> +	if (id >=3D rst->variant->num_groups)
-> +		return -EINVAL;
-> +	group =3D &rst->variant->groups[id];
-> +	if (!group->reset)
-> +		return -EINVAL;
+> +	/* TODO: Check if the RMI is available */
 > +
-> +	mutex_lock(&rst->lock);
-> +	ret =3D group->reset(rst, group);
-> +	mutex_unlock(&rst->lock);
-> +	return ret;
+> +	/* Future patch will enable static branch kvm_rmi_is_available */
 
-	guard(mutex)(&rst->lock);
-	return group->reset(rst, group);
+Suzuki
 
-
-regards
-Philipp
 
