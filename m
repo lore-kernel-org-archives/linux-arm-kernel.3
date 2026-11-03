@@ -2,67 +2,159 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAE1D606D811
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 23:45:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63247606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 23:54:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cM+bhMDq;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=abwuEZ86
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wNNtGVZU;
+	dkim=pass (1024-bit key, unprotected) header.d=renesas.com header.i=@renesas.com header.a=rsa-sha256 header.s=selector1 header.b=IlxFFahJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=ffOZbXiokqRRn62lI+LM5DVMQ4ebjZs01vfcvrIqkzk=; b=cM+bhMDqwBJnEi
-	49RhkBIdmcDbrKLVOI/Ce8ANFW3IkLiOEWy2t/AYmszWeMBfkXgHrYngnJ9IitXGQDf6nmmaBrPz+
-	EY9LWrTvYZ6uBsZu+JopgxeDceI7p4gBYKsyR44L6Uc6Fp0qi72uHW0z8VuivMTt6XBcRMzpWLNRA
-	cljs31e673pvQzOIlVWmSL4SsNEm5AMLgE8gGIhKfuHtiRqJCJ1vZZEm0ZBYt4xLbZ/0dYgsxkPoc
-	CHL/u9BeaJBYN5Cp5MWrpau1JwPp5BDZ6Mpnf3z7sMgz27qexiyN6GcRLkX18kFjrMIf6ZoXCjwcW
-	zRKiQuaS6yKFRv8UFrkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Type:References:In-Reply-To:Subject:Cc:To:From:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=nX80z1l6oUMRrfePQs074KTjVnoEZIh6/eoNAzQTRDs=; b=wNNtGVZUCdmOeMeshHyvdtGAGX
+	6eokoUGmcTD4gabVdFYLZETq9mobfvyShWQ281e3uTUe/AjR22DclFS8dBljCD1PjVKuntVliJavR
+	FJKpr1S0ejnJVroxw9glFqNagqAjPDMxDkjW6W/8d1zxipZGFQSYlPtWtXzXsarNhv28RsnMb/xsW
+	OibkSTAPexYzIdpuLRExj36fykaFRWcbv6bmYph3ejpYL9JAPua8JT/J0TKlf6bNaRTEJUxKUPS5Y
+	3QtPI57Oy1kvTD368OtviaQJFOs1Il5QSsXCG1mu8vi+b9L3g2Y7FCvj8DYRAtxRjl2pu7iaNjR7H
+	BXwHE9YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOOCJ-00000003xy0-3yGu;
-	Tue, 03 Nov 2026 23:45:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xOOKC-00000003yUS-03sK;
+	Tue, 03 Nov 2026 23:53:56 +0000
+Received: from mail-japaneastazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c405::2] helo=TYVP286CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOOCI-00000003xxq-3uEj;
-	Tue, 03 Nov 2026 23:45:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9AD0644464;
-	Tue,  3 Nov 2026 23:45:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A3801F00A20;
-	Tue,  3 Nov 2026 23:45:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793749546;
-	bh=ffOZbXiokqRRn62lI+LM5DVMQ4ebjZs01vfcvrIqkzk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=abwuEZ86/Q5MY4byRpLDXJtZ+aRudH7OXv2RtUDFlnigSkC5jBHCuLP6oXQzt6zaY
-	 1sRfDAb+rN1DZI+H80vjdVReYug2PBzH1YjXWZ2kAtDYYEP/Ro4V9zFd3nAADZFBvD
-	 GQeeAICaaP0t/I50Pepxfh3is06k/q6R9p++Pv/9Ge+iGYZh76kwY0v5wMBXQlBuB6
-	 1+fDQTOEkAjtU/iNo69D48xU7FUzBzoCivtxF3hdbyfFGlBkqQWxi3kGx947RSXxgX
-	 xqTZTMKKsDWiDlbdZz+Bi58IxTTycdj7R7Kni0sHTdLqThlWJgKCu04bVcDP6yDfbI
-	 J8JF23/suI7oA==
-Date: Tue, 3 Nov 2026 23:45:40 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Cc: rva333@protonmail.com, David Lechner <dlechner@baylibre.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, "=?UTF-8?B?TsOtY29sYXM=?= F. R.
- A. Prado" <nfraprado@collabora.com>, Chen-Yu Tsai <wenst@chromium.org>,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 2/3] iio: adc: mt6359-auxadc: mask conversion ready bit
- in mt6358_read_imp
-Message-ID: <20261103234540.46cc8c1b@jic23-hlaptop>
-In-Reply-To: <20261103-6768-6358-fixes-v1-2-2a868a33152b@protonmail.com>
-References: <20261103-6768-6358-fixes-v1-0-2a868a33152b@protonmail.com>
-	<20261103-6768-6358-fixes-v1-2-2a868a33152b@protonmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	id 1xOOK9-00000003yU0-0QK0
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Nov 2026 23:53:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CZklXvAZdnokOG9ci6Wq1gmpZ45DMUT2nSvnxrUIdVPrBIVeeECaP91/7eMBjimFOCT8y9m4jCHTevOQmONEm7m3wzolpDWmdXGS6cxYxvibvzKAPceQ3lpjy4Je8YezK+id11ig4AFeh/pgm9/PAm2ReEEcMVXQ3bEBLsaIpLQP3o0c2rrthY5GZvg96nYmsMNyy23I4z7v6ua4PScNIpegYnWYF8bijHkx52yG4Bx1SMzp9R0NTI7PMMXN8cNWsmaWJkyRxHq94/jotlBFK/u3tq97lXFffgPwZh+ir2nBnebynWqVTaQjY4RF+YBiQ1xMqWc+Rf50zJjrCkehZw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nX80z1l6oUMRrfePQs074KTjVnoEZIh6/eoNAzQTRDs=;
+ b=wAu4XJ3FPzj0Xii109Oatx4G1fW8IrQi3lbgdJ8q/mQ+u4/L/Nww2rJL8GjZ7o0AEqwgk2n1EBKUEmxs44MjE1dxhYHmITj7+ZioeteDaBMVnLsjqizpDu/GHSLka5h7DlsmJtix5jehowuHeAGaIva/PjBGKVtCsHGTgLKaaA4HjMgPsMXojnNdwG5AVudCzNgQyBO71Wj7S5KsxpOEUB9vUzKoUBdLzc/MKLf0wEagpvZO55NQIOslAgDzwaSTgfUQVV1vPCRt67d1akVW5Qw59P/lORnmvy4quxJg8grV0vuSPvwBbMOVij4VGeVIecvdrKC+mlmnH1+svuaPQw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
+ dkim=pass header.d=renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nX80z1l6oUMRrfePQs074KTjVnoEZIh6/eoNAzQTRDs=;
+ b=IlxFFahJRV+NqVk3IsdlkQ82uVhEa1NIwjzHxFAZvOzfuW8mssrTZKNGEErhmNhBrVYQ6foiIPZKTJynL+qaeuiJdCkjDnkaEbju9+u4wWlJewhsAL6dNcLu4O3GBRhhtHNbYuZs3V6+lIi7rtMRyM4lvXrzwMwnUWUocX+Bl4E=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=renesas.com;
+Received: from TYYPR01MB15175.jpnprd01.prod.outlook.com (2603:1096:405:27d::8)
+ by TYCPR01MB18334.jpnprd01.prod.outlook.com (2603:1096:405:3ed::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Tue, 3 Nov 2026
+ 23:53:41 +0000
+Received: from TYYPR01MB15175.jpnprd01.prod.outlook.com
+ ([fe80::9bfd:a110:68f1:134d]) by TYYPR01MB15175.jpnprd01.prod.outlook.com
+ ([fe80::9bfd:a110:68f1:134d%3]) with mapi id 15.21.0569.011; Tue, 3 Nov 2026
+ 23:53:41 +0000
+Message-ID: <87y0b9320s.wl-kuninori.morimoto.gx@renesas.com>
+From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+To: Frank.Li@oss.nxp.com
+Cc: Lars-Peter Clausen <lars@metafoo.de>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Xiubo Li <Xiubo.Lee@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Nicolin Chen <nicoleotsuka@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>,
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Kexin Sun <kexinsun@smail.nju.edu.cn>,
+	Frank Li <Frank.Li@nxp.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Tianchu Chen <flynnnchen@tencent.com>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	bui duc phuc <phucduc.bui@gmail.com>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	linux-sound@vger.kernel.org (open list:SOUND),
+	linux-kernel@vger.kernel.org (open list),
+	linuxppc-dev@lists.ozlabs.org (open list:FREESCALE SOC SOUND DRIVERS),
+	linux-renesas-soc@vger.kernel.org (open list:RENESAS R-CAR & FSI AUDIO (ASoC) DRIVERS),
+	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
+	imx@lists.linux.dev,
+	vkoul@kernel.org
+Subject: Re: [PATCH 1/1] ASoC/sound: use dmaengine_desc_set_callback()
+In-Reply-To: <20261102180915.3981805-1-Frank.Li@oss.nxp.com>
+References: <20261102180915.3981805-1-Frank.Li@oss.nxp.com>
+User-Agent: Wanderlust/2.15.9 Emacs/30.2 Mule/6.0
+Content-Type: text/plain; charset=US-ASCII
+Date: Tue, 3 Nov 2026 23:53:40 +0000
+X-ClientProxiedBy: OS7PR01CA0033.jpnprd01.prod.outlook.com
+ (2603:1096:604:257::18) To TYYPR01MB15175.jpnprd01.prod.outlook.com
+ (2603:1096:405:27d::8)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYYPR01MB15175:EE_|TYCPR01MB18334:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4223f1e7-c029-4356-4dbf-08df3a05afdf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|52116014|7416014|376014|38350700014|11063799006|56012099006|261009223027099003|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: aJmDod4h5rvdbXxxt9DpBE3vBb6on6smk2a5Gurm2WeVbwciEfjLPTkuVIu8i9swqFbg8kNFsyqZWmSFmSlwwF63kkWWW9qXkaJIxYFOneemNXs7uFllaGFxWE85bjvUPH84Xqqhs9YevnI+rx+GfJEqvfcbi2A30lfnLnxPkrhOjjrH6wYlFgPVDlSsfbPKS9Wdn0yuzzzIkJP0GzSZX2ZTVCxn68CgA4Ud9wicKCbpGkxr2/Plg6oSC6aYn92ne+Z4rQWqSsBUu88+XC9VYGtcGg1KzhctOYcEocVsPECSCVXGzQbM1SfLYOtEARHOEIJX9aW4+soljni9jZRL8pGwrSMm/+Gt2IcVgMnkXb6yPcSJCpb4j68pckx7VIDrW40n46PbRPpvPKqHDi9zL6t2QG8ghCAcTqYZOFzTQuWlemwenHTBuwbHOIBT1JOhlZ17WkfJinDWU2xIqgbUqxV+r2a/498BlBZHoDflPS2L6fUfkCtemSHSwRlxSn1Asyr9V+eqdjrr2g4Iw3dta01wutGVL8fD8vrekJyOc6DMO0BkMWHJuTd/uuTMWyzq4X9xuaO6R38teMY3ZXk7qsDoJx7tYaCdwX7Oy+2FnS80JibdmxfGcePjhWpbOqdz4c/vtik4QjoNXItmsGs8Pnxf6zSsXbfP8a9GPUfg/LEwQJVJ/mHN6AAMbigzg/HQFtwZOJMYpRTxr/gs0IaZ1VbyFerYzbCvg++6J9a/C6Q=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYYPR01MB15175.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(52116014)(7416014)(376014)(38350700014)(11063799006)(56012099006)(261009223027099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?0hu4O+BSxUIhm/8pYiKx3LEikF1g3RxEbtrWhWteb+qkeS1Bi0jr3zST9ufY?=
+ =?us-ascii?Q?n7uD/xCLy1YixKAZfgaPkkvQK5bT8YzO4OsJXooq22XUlbj897aTwd0unOEQ?=
+ =?us-ascii?Q?AmAERuHPZsJrJO3rmNBzrP0nujE1JXDS8EHM0cunMNHILoz+Q4QVzV+SKQGi?=
+ =?us-ascii?Q?zXXn0NpgLzjg3hNZgRACFBEU9lXJ2wDy2JHwyOPxZlImLMzFSOtWsz0FcT7n?=
+ =?us-ascii?Q?Ntd52lojNYT99qkuUZwdAt+mnrTvmdsP/Giv+I3LFCIyELyBADBn2ZR7tkUN?=
+ =?us-ascii?Q?KeERs8qw1QiEqD40+mKoBw13zrqjIIQe31YGf9TevtAH3UBw9ySXs0MhB2nc?=
+ =?us-ascii?Q?0/yLD3NlZPK8J7XiPOVvE7Ia2+pQDApnr1zpUCHVIjLRM1fj7Tzoms47cEHq?=
+ =?us-ascii?Q?cdww3BC+b9t+8P+Kr3O9jtGcBQu4xjQVCB9KXSJriyL1kdnBLD1GrxkFajQ4?=
+ =?us-ascii?Q?8NCtzpLgYKD5pdT0RYyhY6M84BKlwRGMsbKCoLkwCmLlsFR6BmWRLOI1yRxA?=
+ =?us-ascii?Q?tFq9deAK1U192d+Ua5dd+mX+pscHCR1a15MSOvw8WEjc0rM7FJ3jSS01qz2G?=
+ =?us-ascii?Q?3esdAOaSfmswgX99DgU4kxMgYD/sSSNF+Sn9FnDy8Q5cInb6jiGd8PvREnNY?=
+ =?us-ascii?Q?XSBCHFIfjUUVnkt0wOBhT0Dd/5e8KD5pBV6w9Fezm5LPsbSNDGqUOU/ZWl0d?=
+ =?us-ascii?Q?ApGAY39jUhtkQ9CEMFoKDi01CONbXDL1iJ+pA7IRrErQGaRPZki+bcsCMwoT?=
+ =?us-ascii?Q?m365h1ZA6erSDfY7PD3d0lUWcAPfT1+dcXscGynFHBjgzY27qXc+yL8QLeMR?=
+ =?us-ascii?Q?UUwhWzL1FTskL8B9fbWl64sGf0OdlzQ36e+VaUzslrKbYfT5PPfq+UNdl+aR?=
+ =?us-ascii?Q?gLGPwgVMsOwJnygwI7AZXQBP5lvD/s8QFZuKOozSuKSPfFFNgbTJdOKn75Ty?=
+ =?us-ascii?Q?ILbV2zAAvvmBTewhsrGS6EA0jCiDJbY7JxTbkWluvyCixgvRTI79BIt0d0Bh?=
+ =?us-ascii?Q?kml6we94yKQfkJto7J4atyPIwmaGfOBxXURxpc4xz5d7Ox8xPBNLjE2QzVKr?=
+ =?us-ascii?Q?mvTuNfU0KUTdmqdQ33NCC+wKNPTqi6q6naIS1tX5464NUlqjRdulnYpAgZxQ?=
+ =?us-ascii?Q?hATuDJmb4lt7PeR45FcfWU8IvAiONMtY5tfkxlY4lvaJWlW2fYCVP9nkAysB?=
+ =?us-ascii?Q?WLXOkVUVl6TGgEw4xhTmobAB9DZ/RjycM8QkxOMIQ3VQnzr8fzGrQowJhVfh?=
+ =?us-ascii?Q?kY4ODdpo0SYbsj3QKzprDU9J/Tl5fedljzZ6kH6z12stPlYsGZbB5bIHGXxg?=
+ =?us-ascii?Q?WF3PiTKtJF8PegyJpegKvv4T0eyEa8kw2YPfqO9G9YZw1PwxdO7K8LF2/ePw?=
+ =?us-ascii?Q?OnMBJtDtpCsXKmOFEIRy5qeSF55kTkMbf5DAN/qXxP1XknhiTaSi18PEvxbq?=
+ =?us-ascii?Q?gb3DIJBkcAOuN/z5IHdwBivAi0FwDyhPF139GnHoW9SinPUfdH2Ygc3HkLka?=
+ =?us-ascii?Q?IoGHHfJNwB4EWsqyj02qH5of/BDZ4dQo+0nrpghnaot33RX1zmzHrwbGGeqA?=
+ =?us-ascii?Q?5CY06On0+dCKkJjgAru+qqpJPeDbqiDBe8EhnjUs9WVSMahf+rrywz8QDbpX?=
+ =?us-ascii?Q?FXtqxac5w8JUrQ2cfVwqyE4tDAj1neRBGYehFODznt3aDtAPzmzdJ/FT/MO3?=
+ =?us-ascii?Q?IZo6IuMhlvo4sNjrXMOTGUKPwzeNEFaORfbTtiHcTfsyYe4n03SJaRvQIDNu?=
+ =?us-ascii?Q?qOb5Yw+ghNblllGZ9YE3HfzHCw+Xhsg=3D?=
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4223f1e7-c029-4356-4dbf-08df3a05afdf
+X-MS-Exchange-CrossTenant-AuthSource: TYYPR01MB15175.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 23:53:41.1132
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HJ5rbMIXgxtb2klT4zrE7gBX/FSPSn1lpkXP7iJDuouE9TGkLOE14o0v3pJ83Fe88wruINh7ZZPyMtN+gMMFmd5bbN2jVJJt+L4mgMz3z8RLki7td8BNU2lAE9VheYmd
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB18334
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261103_155353_161789_89917821 
+X-CRM114-Status: UNSURE (   7.58  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,55 +165,32 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_2
-	autolearn=unavailable autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, 03 Nov 2026 18:32:08 +0200
-Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org> wrote:
 
-> From: Roman Vivchar <rva333@protonmail.com>
+Hi
+
+> Replace open-coded assignments to callback and callback_param fields
+> of struct dma_async_tx_descriptor with calls to the
+> dmaengine_desc_set_callback() helper across sound drivers.
 > 
-> In mt6358_read_imp() the raw ADC value is returned directly without
-> masking out ready bit, resulting in incorrect battery voltage reporting.
-
-Can you add where the ready bit is.  That might help someone
-looking at wrong values and wondering if this is what is causing them.
-
-This one is pretty glaring as bugs go (given I think this means the
-top bit is set?) so any reason it wasn't obvious to anyone testing
-this device?
-
-Jonathan
-
-
+> No functional change intended. Prepare to make struct
+> dma_async_tx_descriptor private to the DMA engine.
 > 
-> Apply the mask to strip the ready bit, matching the behavior in
-> mt6359_auxadc_read_adc() function.
-> 
-> Fixes: 3587914bf61d ("iio: adc: Add support for MediaTek MT6357/8/9 Auxiliary ADC")
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  drivers/iio/adc/mt6359-auxadc.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/iio/adc/mt6359-auxadc.c b/drivers/iio/adc/mt6359-auxadc.c
-> index 951d236f972b..09432d0974cf 100644
-> --- a/drivers/iio/adc/mt6359-auxadc.c
-> +++ b/drivers/iio/adc/mt6359-auxadc.c
-> @@ -502,7 +502,7 @@ static int mt6358_read_imp(struct mt6359_auxadc *adc_dev,
->  	mt6358_stop_imp_conv(adc_dev);
->  
->  	if (vbat)
-> -		*vbat = val_v;
-> +		*vbat = val_v & GENMASK(chan->scan_type.realbits - 1, 0);
->  	if (ibat)
->  		*ibat = 0;
->  
-> 
 
+For Renesas part
+Acked-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+
+Thank you for your help !!
+
+Best regards
+---
+Kuninori Morimoto
 
