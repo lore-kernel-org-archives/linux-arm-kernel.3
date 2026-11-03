@@ -2,118 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BA7E606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 16:11:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CAAC606A331
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 16:13:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yduh6NW9;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=KojVzX90
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cdMVWQ4Z;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zns8vp4j
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Content-Transfer-Encoding:Message-ID:Date:References:In-Reply-To:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=acYk1wdTfJFTPT2zxMP3Y5i0dH0kUe7R3DKFdNTib58=; b=yduh6NW9sf/twA
-	nohGknfZYED0Zq7GYNB98b+Sa1MUpXMHW+RkKsGGF76dswWkuhuv2V3si2dPWTy3OpGXQaicDstHv
-	Si5p2e8hJnkRiQutJ7iyaVOmwwSr3hLnr9f4Dfity3OFUvjrGc0cqZPTPC3dB+lqJoW9lhILr8Oic
-	LeOjfGCr+59RD/rlSi4yY3ZGzG0XshxlsxEY4uInj9MWICKtOTF+tiETKTDR/n2sBjrqnQ716QifR
-	cTsCrbRpLc3DGuZD8LMypGV3I2DEwtU8DyPpm8Ghxzy6DhRGxWmJqS+5t61MSorg/tLHBr6JsUvaj
-	WbILwXqDkYU6ke9PCHRw==;
+	List-Owner; bh=AJyyri76gw2tPYp+4QxyP3AtyJ37KOovjfoziur4IoA=; b=cdMVWQ4ZBJB0k3
+	PTvN888lmz/8s2AjTasZHbYQZo2skbFFrhuZy9sbGcCrcB5vxTapq87kQt2offAEbfoi87bJWrSzr
+	nvQpJpCIvy19E4QwnimwgepaUZozCpDsyijnVdx7ZKYhWOAzSlwuSt6xwmvjg7QLl1b/rJ/ocgbVP
+	6K31zzQJa1VYQV8iw0llkI8BoLQ6n8DgzStn5hwuzTpb4EY87oR5kwc2rY26seHn3woC6s6qpnNOf
+	PFxU9RYuDoDW/l/zNb/eCDw3PmmPVPAH3eyHzSYyQN4WVU/nsfeT/fkWRZVbQtU2FVd/TBNfaR9pV
+	gN6uB2gleOsezE/nGpGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOH6k-000000034am-1xZb;
-	Tue, 03 Nov 2026 16:11:34 +0000
-Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
+	id 1xOH8y-000000035JK-2QUF;
+	Tue, 03 Nov 2026 16:13:52 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOH6Y-000000034Rn-1F8b
+	id 1xOH8w-000000035Ip-3qei
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 16:11:28 +0000
-Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-48e94879f02so1272580fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 08:11:22 -0800 (PST)
+	Tue, 03 Nov 2026 16:13:52 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-48e20ed3b9dso3844661f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 08:13:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1793722281; x=1794327081; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=acYk1wdTfJFTPT2zxMP3Y5i0dH0kUe7R3DKFdNTib58=;
-        b=KojVzX906vk8UP5rjL9CZ4jQdIso0EXwfwkXH4lnBQZYq/uC745Zc9Bx9+pCY/ZtYV
-         eIP/84nFRwVQISORUMDiBbh15B5D7F4Vf/SvOV1+l4FD3kNe65wRkcaUQ+e0/M41kghj
-         LTw5J6g7cvl8r0KcGI+DTM5yNb2S/xvaBcA/4=
+        d=gmail.com; s=20260707; t=1793722428; x=1794327228; darn=lists.infradead.org;
+        h=content-type:mime-version:content-transfer-encoding:message-id:date
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=AJyyri76gw2tPYp+4QxyP3AtyJ37KOovjfoziur4IoA=;
+        b=zns8vp4jH6EBQchcH5jrvpikT+MQJaOnVOqTT+Lzgqwr6Ak271KBr0PpQd1wr8vwYj
+         99gBPm2wln2Ka+tAH7RUQ/ISn6eUIKuWhf66+u6Vn+xUxoWZs8PoIkKtjGcvz0fCKu+q
+         heHYrIlhF5AI4DLP3rou8liqLrtyj8oyhOCdWpLthmmMPSLaNQXb0mWaoOq7wdE365O0
+         lwZkidLTbNMp+CzhqWqDNKmAEzq2Wg+imq2E/BfsZWbY+QVVoar46cnP1F+BPe9+/bR0
+         1ucctJlBlEwh1+8HlosTAkzV0eCDAXznqFufvo8REv8i76zajijA9vO1sPs8gVI2HVt3
+         NzNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793722281; x=1794327081;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1793722428; x=1794327228;
+        h=content-type:mime-version:content-transfer-encoding:message-id:date
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=acYk1wdTfJFTPT2zxMP3Y5i0dH0kUe7R3DKFdNTib58=;
-        b=b4djeSAx9MPR9xv7m6f96SRFJP+HJXQTE8l41gszgHo6CCKUTFFvHWcleW2vrxadVU
-         KwlBd/1/uGGa4XOAANCIaWON7E4GX+pG7jfhfdbRxTWh3PmNGAy7GvNCJL74i+E4ozJ6
-         YzS3hc8dyq27ou2Vyjx2p1FLxOlQsS+ixETkm3XQuzNzVZTUribFJ3Rwg985pIkjQs3O
-         JdEbZ9d4zeHURswNWwoTnCJ8ClfaxmEqOOwlUaoUqxBNplJfDXBcj4pxDPhArWYRuVvr
-         EZUg5xnB59G02YvO0BFD8P3KF+WNggRV+VrO2S6Lw+4Jh4R8Oy6WZID4ZVUZuVl4blmZ
-         HAsg==
-X-Forwarded-Encrypted: i=1; AKwUvBx4jmPC+5OngtBk9COq2ndZp6dgsah2+3bSV737bKi6XzAU+B1BuTRsghCEW18X87b4vbVgnBiEOms9A4GpV59a@lists.infradead.org
-X-Gm-Message-State: APuU4Z8Yixdk7tgYCDHNmAEZkvUG/OwuyVro0+lgZm2r1DWDFdHIZaZC
-	sD4HFfTwqflFsxHkkyVHb/wMO5nOof5xwoFrcljxHqmJoNOYpuOBv6qm81X4PmjtYw==
-X-Gm-Gg: AYBFou24llf+XwsfM84Z1/DmC5xd8c/lsfHvTRGczIl7AwBnx0wm8FyIYB0QYPnckFz
-	mIfpQDXJVR7j3ldfNurwZOUjKSoMba+Qz66UEtbWIC/bOP+MD+Vify28EIGL43RBoVcoLZ6W0XQ
-	JC6TSlK39A7iV/jP+bFgeLt5L1yj8qPWqSX8K8SaFngYIaMzci6fbQXcT8r5mROFTqNPsULA6Nn
-	VOoNDqz0rvtdX5GTtbiaFydq3qlyEbpinrheEWx/3VGnIcGyJm1J3WUVgQXf6HEik89BYI3C4wG
-	UWRR14ZdNrLoMfVeX/+EsOFk/W6qZRKUpf0Vulu39a3jZ9ZmFXMmoN3WpmV9nYAT174W8qg3t6g
-	PNOWSrr+YMTahuhy5qTqqePTFFUufbER5qnzOEJkqsnjDa0CInWk4jZWc+mWIxNsiHGakPT0Thz
-	FroTv+uZQ8qWdhfM7dEwtAJtsjSNHE9L1VmlC27bmXZOkxiwhXacP/GrSKyqoRm1Z3Er4+JSJ14
-	btHmn3L3oyF6jZaILav620jiamSLw+I1ngQ8gHdLT+p3zToYixZnGgteFceFQMRFJR57joW3bm2
-	/fWhEkOKhNI4112Cdp4EYbVTdMidjz96vf+2Gr2tQnU9iVkcofFH8kBhA774f65iAPA7/B6aviu
-	eriBNCHNb6N4i308=
-X-Received: by 2002:a05:6808:11c6:b0:4f4:b5ba:a241 with SMTP id 5614622812f47-5640dde805amr8598864b6e.39.1793722281085;
-        Tue, 03 Nov 2026 08:11:21 -0800 (PST)
-Received: from rrangel.c.googlers.com.com (194.246.27.34.bc.googleusercontent.com. [34.27.246.194])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-5640fd95dc0sm11688383b6e.6.2026.11.03.08.11.19
+        bh=AJyyri76gw2tPYp+4QxyP3AtyJ37KOovjfoziur4IoA=;
+        b=DyLrXZ9hgAZs4VntNsvhSOxfgxz5WYNisoe6jvsPyUzZAw6nGTudUcCT912V6UAmOF
+         HRv92jb+s6IRYcaHth0b67RxO58Yn/V/Lga7ui+f/9yrJtYe658+qhKvccLF3DNaHwVs
+         IpkpBd1QIci6zFdbJl6qDiYZBMdZvCe787biWqnWoZfrlSF6SiCYKzmZk8GxgD48I++o
+         mCV2AwSheuHAx2X85oR6OmRX+OcGUgcGFLbP9h2MXwksieXLbNz2iYVIT+Fim25D3bbb
+         dc9UumTvidhcJDHurMQb2n3+er2Ydph4yQrP7Q4WFvUVcuxEKyLahmxyNPVUiQj34ipj
+         nZbw==
+X-Forwarded-Encrypted: i=1; AKwUvBwno52hDWfc/gu73CVU30dgwWCIHM+9A8cQ2FL8Iyysm2+64jOIYjkYAajjQCSqKiNnQ0Yj3kfGuza2bE6ZPxJX@lists.infradead.org
+X-Gm-Message-State: APuU4Z/UzULZXiqpxlbMSCHichnS8nZJZqwk0sIjCA/FBotcVcQM92TH
+	9Srbc9EPTE+Kr2BvWbKe7gKgFRGaK2K0nBo6xbmWW4Rjambe1jKpJkCnnBWs2mImGdbP3Y80
+X-Gm-Gg: AYBFou0hdJqji5O2eJ7wXdBuXro+qgPULWl1n8SA8Aprdo3wx0pKfWy7TfIbz96YTUl
+	f3WgUYWJfX7D2+DSTM+M7pCwdMUZQ9T7HMhaZrVeBurOJzGNNftw2WDD1Rw0hd1lHc33hqvH5f4
+	iWDqld3ZTFNh5Z/0vCvEtzqJ7GdTS5fiMdjVjuF5N5l9Ipsa/+MtyEewIgvfcNfE/p889WCNNRK
+	GNfb94zAHpeGncZmfDL63axjCxntvQrrEs51diurhoPEn5s8cW4kH9JC9ZVotCt+W0UyRJNK3M2
+	jEN+bNb5CqwGwWbo9GD9+25nm3o5jVMNFsy8MIx3Hq1U75HRYGsJiw3WE2ro4AVGWzBH5G0ZtUL
+	iD4Arh9FoidAR/U5fAUucFLjni8cdTFHfHaMNTTBN4zngNt1oY06Fh+3nX+y1ddeII5dH8GdG32
+	HzAVO6vtaynicS0KDRARDzD0ZdtawtU2d0M0OywVlfIsbrQwukkVYNQ7QTST5EsIQ08NQzX36Ch
+	2XJDSbRuduAKHEWr1yKzn/VFjrEKLU9n3F5eOXpllLNpJyUP32okHaB6FOx0An85krYxcNZ9fSU
+	ass863zfNXeZC3u8hU+i8GJM+qpo2ZX+96POgdz1dWNWXzOCRSPWJ13YWu6LPEDB2csFi1cqT3K
+	M84QvF3cetdAp0A==
+X-Received: by 2002:a05:600c:19c9:b0:4a1:7c7d:8881 with SMTP id 5b1f17b1804b1-4ac182dcb6fmr306531505e9.13.1793722427449;
+        Tue, 03 Nov 2026 08:13:47 -0800 (PST)
+Received: from [127.0.1.1] (ppp91-78-241-225.pppoe.mtu-net.ru. [91.78.241.225])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71b723bfsm24419506f8f.15.2026.11.03.08.13.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Nov 2026 08:11:20 -0800 (PST)
-From: Raul E Rangel <rrangel@chromium.org>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"Maciej W. Rozycki" <macro@orcam.me.uk>,
-	Timur Tabi <timur@kernel.org>,
-	Peter Ujfalusi <peter.ujfalusi@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH v9 7/8] serial: 8250: retire canceled RX DMA before reusing the receive buffer
-Date: Tue,  3 Nov 2026 09:11:03 -0700
-Message-ID: <20261103161104.2449407-7-rrangel@chromium.org>
-X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
-In-Reply-To: <20261102-submit-serial-8250-dma-cancel-v1-v9-7-9159caade148@gmail.com>
-References: <20261102-submit-serial-8250-dma-cancel-v1-v9-0-9159caade148@gmail.com> <20261102-submit-serial-8250-dma-cancel-v1-v9-7-9159caade148@gmail.com>
+        Tue, 03 Nov 2026 08:13:46 -0800 (PST)
+From: Fil Dunsky <filipp.dunsky@gmail.com>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>,
+ Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org,
+ linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH v3 07/11] watchdog: Add ARM TWD (MPCore private) watchdog driver
+In-Reply-To: <004d4007-d049-4257-97e7-bf7f197ae3a8@roeck-us.net>
+References: <20261013-b4-cs75xx-s2-v3-0-181bb0d23f4c@gmail.com>
+ <20261013-b4-cs75xx-s2-v3-7-181bb0d23f4c@gmail.com>
+ <004d4007-d049-4257-97e7-bf7f197ae3a8@roeck-us.net>
+Date: Wed, 04 Nov 2026 02:13:37 +1000
+Message-ID: <179372241749.1222507.6207957568716226558@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"; format="fixed"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_081123_450420_2AF6306F 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20261103_081350_972053_7C069C71 
+X-CRM114-Status: GOOD (  16.38  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,96 +111,48 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-2.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi James,
+Hi Guenter,
 
-Thanks for v9 — fixing asc_startup() locking in Patch 2/8, waking
-tty->write_wait for drain waiters in Patch 5/8, splitting OMAP RX locking
-and IRQ quiescing into Patches 3/8 and 4/8, and adding rx_pause_wait with
-immediate wakeups from dma_rx_complete() and serial8250_do_shutdown() all
-look good. Waking rx_pause_wait under port->lock cleanly avoids delaying
-normal completion or cancel_work_sync(&dma->rx_flush_work) during shutdown.
+On Mon, Oct 19, 2026 at 06:46:41PM -0700, Guenter Roeck wrote:
+> The issues raised by Sashiko will need to be addressed, or you'll need
+> to explain why they are non-issues.
 
-Two remaining comments on Patch 7/8:
+Thanks for having a look. All three are real and are fixed in the next
+version:
 
-1. Escalating to serial8250_rx_dma_recover() after a bounded pause-stall
-   window on partial RX transfers:
+1. cpus_read_lock() in the clock notifier (lock inversion with CPU
+   hotplug through cpufreq): the driver no longer takes cpus_read_lock()
+   anywhere. The armed state and the rate are published with
+   WRITE_ONCE() and applied with on_each_cpu(); a CPU coming online
+   meanwhile either sees the new values in its hotplug callback or is
+   reached by on_each_cpu().
 
-   The commit message notes:
-   > A provider which never pauses or completes retains RX ownership until
-   > an error or shutdown; a timeout alone cannot establish that discarding
-   > the buffer is safe.
+2. armed set after on_each_cpu() in start, racing with a rate change:
+   the flag is now set first, and the start path and the clock notifier
+   each have a full barrier between their store and their load, so
+   either the watchdog is started with the new rate or the notifier sees
+   it armed and reloads it.
 
-   I completely agree that a timeout alone cannot establish that *reusing*
-   or *freeing* dma->rx_buf is safe while the channel is still running.
-   However, calling serial8250_rx_dma_recover(p) under p->port.lock once
-   the retry budget expires does *not* reuse or free dma->rx_buf without
-   stopping the channel:
+3. Watchdog state lost in a deep idle state: a CPU PM notifier sets the
+   watchdog of the CPU up again on CPU_PM_EXIT/CPU_PM_ENTER_FAILED when
+   the device is active and the watchdog mode bit is gone. It does not
+   reload a watchdog that kept running, so idle exits do not count as
+   pings.
 
-   - Calling serial8250_rx_dma_recover(p) under p->port.lock inside the
-     worker's retry block sets dma->rx_err = true and
-     dma->rx_terminating = true (and keeps RX masked in UART_IER), which
-     causes serial8250_rx_dma_flush_work() to exit the for (;;) loop
-     (retry = false, recover = true) and call
-     dmaengine_terminate_sync(dma->rxchan) outside p->port.lock in process
-     context (8250_dma.c:233-239).
-   - If dmaengine_terminate_sync(dma->rxchan) succeeds (ret == 0), the
-     channel is stopped and its callbacks are drained, so clearing
-     rx_pause_pending/rx_terminating and restoring p->ier safely falls back
-     to PIO ("RX DMA failed, using PIO\n").
-   - If dmaengine_terminate_sync(dma->rxchan) also fails (ret != 0),
-     lines 235-239 already retain dma->rx_buf and return early with RX
-     interrupts masked.
+The earlier Sashiko points (prescaler of a watchdog left running by the
+boot loader, rate changes, resume) were handled in v2 and v3.
 
-   Why does this matter in practice?
-   Look at drivers/dma/tegra186-gpc-dma.c:
-   - Line 1521 unconditionally assigns .device_pause = tegra_dma_device_pause,
-     so dma_get_slave_caps() (drivers/dma/dmaengine.c:614) sets
-     caps.cmd_pause = true and serial8250_request_dma() enables RX DMA.
-   - On Tegra186, tegra186_dma_chip_data sets .hw_support_pause = false
-     (line 1351), so tegra_dma_device_pause() (lines 420-423) unconditionally
-     returns -ENOSYS. (On Tegra194/234/264, tegra_dma_pause() at lines
-     389-414 polls TEGRA_GPCDMA_STATUS_BUSY after setting
-     TEGRA_GPCDMA_CHAN_CSRE_PAUSE for 20 us and returns -ETIMEDOUT if the
-     channel does not pause.)
+As the driver is not specific to the Cortina SoC, the next version will
+be a standalone patch to you and Wim instead of part of the CS75xx
+series. It will be sent after v7.4-rc1.
 
-   When an RX timeout interrupt (UART_IIR_RX_TIMEOUT) fires on a partial
-   transfer (e.g. a few bytes typed at an interactive console or a short
-   command waiting for a reply, count < 4096), hardware transfer completion
-   will never occur while the remote peer is waiting for our response. With
-   an unbounded for (;;) loop:
-   - Those partial bytes in dma->rx_buf are never delivered anyway (even if
-     we wait forever until the user closes the port, serial8250_release_dma()
-     terminates the channel without copying dma->rx_buf).
-   - UART RX remains permanently dead with RLSI/RDI masked and never falls
-     back to PIO.
-   - serial8250_rx_dma_flush_work() holds a runtime PM reference
-     (guard(serial8250_rpm)(p)) for the lifetime of the open port.
-   - On 8250_dw, dw8250_idle_enter() (8250_dw.c:151) sees
-     serial8250_rx_dma_flush(up) == -EAGAIN and silently aborts
-     dw8250_set_divisor() and dw8250_check_lcr(), breaking baud-rate and
-     LCR updates while rx_pause_pending is stuck.
+Fil
 
-   If serial8250_rx_dma_flush_work() escalates to serial8250_rx_dma_recover(p)
-   under p->port.lock once the stall threshold is reached (or immediately when
-   dmaengine_pause() returns -ENOSYS / -EOPNOTSUPP), dmaengine_terminate_sync()
-   safely stops the channel before any buffer state is released and the UART
-   recovers on PIO instead of wedging until close().
-
-2. Minor nit in drivers/tty/serial/8250/8250_omap.c:783-784:
-   In omap_8250_shutdown():
-     WRITE_ONCE(up->dma->rx_pause_wakeup, true);
-     wake_up(&up->dma->rx_pause_wait);
-   8250_omap uses its own synchronous omap_8250_rx_dma_flush() and never
-   schedules rx_flush_work or sleeps on rx_pause_wait, so those two lines
-   in omap_8250_shutdown() can be dropped.
-
-Thanks,
-Raul
 
