@@ -2,182 +2,129 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBB9C606D80F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:14:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2762606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:17:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KfO2AjtN;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fTj64wLe
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tsSQfqro;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AgzvzzuM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=RGRLpeiQDVpgpyNfCTWfzcOPeVa8dACW2J+OlMQhGVk=; b=KfO2AjtNKFTrqXdpWm6D1lH2Du
-	9h/1x7jEY5NKdbDRowO9lu9pcjkceJ50rrqbutP3G4xokgVVDfK+VnTLC6lo4HEQ8UWsZgD4i/VRc
-	gh3rtzmFl8b1QZIfcpwYn4xpOxlBE3JDbSdVKZ3DWYjoybeuNTm6j8+486Qnnlestm1nmNgCstPA4
-	9pmoI8uT11gNswAnPqnxEiuxhtXob9EF2ARNWbXi7cdQL0fXKY2u8mn1nH/QHqfOAGsce3RyNy8be
-	H8rxMi3XNUyQEYp6iwLQFWAtoxVhsq8xl6A2RwzD8+eYCs+TJLmGt5uDGUmu8GDtKsSe3E1l7Ddi+
-	d1O0TYTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=bbvyH8U6X8W+XhLMtftlLqtY3X/eIGXG9T4SZ8xrjfM=; b=tsSQfqrohODcqD
+	Jt8QoayABW8aovXQbZvk2P3lVFNIde96XcJlJNXS+GNYrQwzUl1eevqZ8u1Il9yEgNYIXEh94bgqM
+	86pIdv0TMuREBTDcQK1rUIbjboDbK8j/qyEasMFxJRFDavyaxBj4n0ZLgb63SPb9OL+P6A2xRagqW
+	RTQ/ujAMDZsutp8K80wiN70l5ogSOLzu/Le/HMRcC15QNvpl3DPYeluiFu9oPCvOMr4lJyj75SvYJ
+	KzJSIksGe/CoJ7zHKqtFSqE1E4zwf3QNO7bUJzOiS+rqOkj3kOyDvv1jBf5ltgYqVMUMGAjLVKjC8
+	k4HE4qDlUr/P5klDFRMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOJ1B-00000003NhM-2wLM;
-	Tue, 03 Nov 2026 18:13:58 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1xOJ48-00000003O8I-3Hf8;
+	Tue, 03 Nov 2026 18:17:00 +0000
+Received: from mail-vk1-xa29.google.com ([2607:f8b0:4864:20::a29])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOJ18-00000003NfZ-2HAM
+	id 1xOJ46-00000003O7k-3dzN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 18:13:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793729634; x=1825265634;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=TZQsXYCE0+Kejl4simNQSmLKySW17SGXxEMszVo4ti0=;
-  b=fTj64wLeC+lp/QkqwQh874b1bJvPmmE82w0F+AkgRJudZMMI0Snbn09H
-   zcoZaJzcpHHMlmVS/xMaVNklS71NLOXOcvlxeCmTaFEawvxxGZR8aDPxK
-   h7qrJ+IBQKInFIf6xRd0Pk6WrPmMncmoFtvbPSa66ugbFdUrRRt38rcug
-   vz+is9IKY1O1O/sCK4IO+4pz0O6kAAIuSfCdkjJvyTQEMrWviS+3D9dtN
-   6Zah0VSB1ocUzaZ/PDb4uH1y2mkvCfNYF6gJ1Vu1LVJj0dJ4o9GRrrgdx
-   +Y56FbXszvqgMJudzi/DiSiAii0lKTx5mJkDvuVO2FnteRy3EdPCAc8K3
-   A==;
-X-CSE-ConnectionGUID: 58UhbwRcTDSCDa8DOC1PZg==
-X-CSE-MsgGUID: u7O25DyeTxm2iL4ysfBW2Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11955"; a="2347246"
-X-IronPort-AV: E=Sophos;i="6.27,193,1787036400"; 
-   d="scan'208";a="2347246"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 10:13:52 -0800
-X-CSE-ConnectionGUID: X7LPckgqT2aQeDqx6xCg2g==
-X-CSE-MsgGUID: EcpaJKXXSVWDS3wmTK7h4Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,193,1787036400"; 
-   d="scan'208";a="6490355"
-Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
-  by orviesa002.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 10:13:42 -0800
-Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
- fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 3 Nov 2026 10:13:41 -0800
-Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
- FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Tue, 3 Nov 2026 10:13:41 -0800
-Received: from CY3PR05CU001.outbound.protection.outlook.com (40.93.201.38) by
- edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 3 Nov 2026 10:13:40 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nVCHzjUtDONUeRH2mOm8d75zko65Xcu+QmZt4+Arc6zwlolqR5fejoBg9OH3AeonS8Dt254WjKZwHbEUPfOhVaFq3u6VJKZHkp8ZfkvaQvVrg/lEzbNrwmrD/zL4GHeYSpnJENNJCFhP6QEsZM+91wfe3WuISiLeJcqGeCNg/qMhmQ+iAcAos7OOZtAvXgApumzQkPJQH9/h+GMbJ1XP+CqsKJh2p4ijYvURP9hzTVNGVJQcM9a2JiTBrZ1IT4qq9yIM77rF+mCcXiP6vpCpnDBfUDGUK/jwBkDWh1V1NK6m3QX2zEjZKWnqZpIJJMiqVbuIfGMXa1pNI72fvW/yxA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RGRLpeiQDVpgpyNfCTWfzcOPeVa8dACW2J+OlMQhGVk=;
- b=MhTFALb8x9tUQstifn40q1YpYK92nmRRrjhn+Ij3I0HYZO9DJIMEbOsIGNqyMq2j1sbV01wttuTeV9/HLUx5rT43a7xRaLi2o77nggslwlTZmKEwaOheihf206U+dlIZ4qKDlbDiGO6h8kgP/J+xJ16CWYzOCEGew3/C6UtPXXP1jMruneamLxgsThAQjFM/3rCZDZQNyMcm6+NZiyGum6PzsuSaAM6Hv7TcgETgUsS7JrAEGYZh4131lvJBIUJLM8j0W9SiRBPKXaPQphsS61zvkrbkemTJGCr1e//JBMsevIMVj83mOmgk24lvdE4pc7AIUK7byZy4MNnuhVhBnA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
- by DM6PR11MB4579.namprd11.prod.outlook.com (2603:10b6:5:2ab::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Tue, 3 Nov 2026
- 18:13:38 +0000
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc%6]) with mapi id 15.21.0569.011; Tue, 3 Nov 2026
- 18:13:38 +0000
-Message-ID: <200bd69e-61fd-4680-8e14-338e2d45c266@intel.com>
-Date: Tue, 3 Nov 2026 10:13:36 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 01/10] arm_mpam: resctrl: Use find_component() when
- allocating a domain
-To: Ben Horgan <ben.horgan@arm.com>, <james.morse@arm.com>,
-	<Dave.Martin@arm.com>, <fenghuay@nvidia.com>
-CC: <tony.luck@intel.com>, <yu.c.chen@intel.com>, <babu.moger@amd.com>,
-	<fustini@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>
-References: <cover.1792443633.git.reinette.chatre@intel.com>
- <94ddff51b91f4a51965baf0384c2368e292c1a8c.1792443633.git.reinette.chatre@intel.com>
- <308b326e-9fc8-4d49-9c85-c3b9cb9288f3@arm.com>
- <9400d7a6-3d00-474d-bf1d-6db1a08c16fb@arm.com>
-Content-Language: en-US
-From: Reinette Chatre <reinette.chatre@intel.com>
-In-Reply-To: <9400d7a6-3d00-474d-bf1d-6db1a08c16fb@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR04CA0340.namprd04.prod.outlook.com
- (2603:10b6:303:8a::15) To SJ2PR11MB8370.namprd11.prod.outlook.com
- (2603:10b6:a03:540::20)
+	Tue, 03 Nov 2026 18:17:00 +0000
+Received: by mail-vk1-xa29.google.com with SMTP id 71dfb90a1353d-5eaefe5b523so3453640e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 10:16:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1793729817; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ZyuHs/N+9xr/Sh+KPjbzYZkM5KBe+bUBpG6A4bLDHzMb7PajpSUF2w5gmF1y41yG7T
+         QgZFZC81pkNMyRE4YY/tT6l9FqPlWYpHDySS4OIw2OYWNChlZjNKtmYHYMARmIHKpo4m
+         TUlwjepfFvNEmEpqVz65t/EqBkHac1tmCNcOSKF+/Jax0WB9mIuMZMo82rIx9USKf1M3
+         u3bi+TkJ+PwtK8Uv50hwUO8VJwWrkIJkRMp8Co/1vKAhaJBasG7yhvqCJpnbCsp3ksZf
+         TxQtc9fgQ/0iB/T+eSapIQ9McoLwCy4jyMk3qYGAjM6sdlhdBqlDu+i7su1F9CPUdK6Z
+         VggA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=bbvyH8U6X8W+XhLMtftlLqtY3X/eIGXG9T4SZ8xrjfM=;
+        fh=rfGo+WtpsJfNOwm/7n6v9pnyZz5v49TEEPYK/77vvq8=;
+        b=Al4ema76WF4Ky3EAah60x9XIwO3QAvjJyowxRW53nPZqZlmLDZsEbfyoyxkE8vAZXn
+         VMqp0uNQDU9SRgb5haQIEo+e5zx6FeddBUkLGA/0ZvGSS/nLl6ZJBFUbeB69wdgRlaun
+         xIQ/AOoX2hi2P+OCBWpXL3Tocesosqqyfyy1xq8B6EmRzTVrqAa7Ycr3Jvv3QzyK6xJx
+         0KyuQs3chAQ6hB6obUQm+47o+qMrOd8toESi7tyFMlDE2NfdK6W2C2wFsQ5lUHHioxoy
+         t2Flf73DRbq/YE2a4JmuyXVdxMiH5Xpo+rL28Kl2Bjh1mnPxe1HTqPLURt9C7AYjeyf1
+         gSbg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793729817; x=1794334617; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=bbvyH8U6X8W+XhLMtftlLqtY3X/eIGXG9T4SZ8xrjfM=;
+        b=AgzvzzuMsVzubuhYn2rsl7Qtl94vID87XOmqvdb3YMkL0uDoW6tQ0SCa6HSpYhILKR
+         bbOs5d8PGWecn2l3IQmXA7fX4cqwxBSW8w5P2+Nn5d4xwx007/KjKoR4uhsouXCUWk18
+         VkNb56alDCvv2AH9l2tH2dcgLcx+4zK/fj4DP05jjGBTONdkLZIInQ+f2bdO7Q2C7SuT
+         5VO1a+drOowVIq9mvvCEw9sSgPR0RGIFVvqqWEmPYRYi9RLTzdb6ehgJxWmW3TFeOo+i
+         uG7RwXUIX2TANzINVKDwXiqbRy+Zsr0NYsXFxB3K8INZPVmgYjvTHvb2BNTiFDlL5dDN
+         +4aw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793729817; x=1794334617;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bbvyH8U6X8W+XhLMtftlLqtY3X/eIGXG9T4SZ8xrjfM=;
+        b=dwFPQ9OLI7mjBzdbGJ9nfmM0+ShkN+OowXOLxUKztcq3GWfkCGUcKmrh7r6/RzFKgN
+         L7dN/5msULcMiH2LOIjHLxZDxD5IZtQOw9jEVlKN+5Z2M55ovxzX0fpVbzI5ACBYnp6r
+         LQlYvWngzs9jHkkIIOR7opJXKn9K1EcjHVyK5fPh+Bd2e7/yTN9buZ4ZCCpgbJUcuMs8
+         2kw1IwrAMJdS/B9EssumwgtEbs2CgEqOng+zsIkU6/roTmD8VZfKUcxdr/TYxKx4d2UR
+         Z4elCDHtLNEiljuS2wIP6ZijBWfvilVQ2atJ5TUIWvC6nTeHCTRnlqjVccE0ZrNyXh7S
+         9lyw==
+X-Forwarded-Encrypted: i=1; AKwUvBxPPsc62AT/ucORQS9Pn83P9IfH6i4WLIZMxsgMNJcq/sFenQZ3oJbjUnDAF5vQ5l1k6bI2uZ5ubZ116aSCTyzm@lists.infradead.org
+X-Gm-Message-State: APuU4Z+IAeAwo/X5X6WLkqU5Ibrc/dQcMmu/YjkhPds1BjdGbCRioeeX
+	IFS9rDHlSBruBYA6Xa9Bz0cPIagszdkhn5sKxrildW7WK8CyT+xyk5LoDx+2RQogmHAkGKmsxae
+	CyHz30og9Q51LP6lqdKVUD865pbikqCI=
+X-Gm-Gg: AYBFou1v8Y1o/tir1qIIRCqKmA06nwP08m0sRA0yMQfVQ9bA5oyzy/aGF2GdeA+Vucc
+	VbmO+kJilhbwSb44B5eiKU1bflR2lBY6uJ+Jj1xCJ7SRlfdPf/bilsqtGgxVBB60wFalvWRdU/D
+	NGH2lxTClRxfI6czb+X2APJsrP9qqC2yY1OZ+6ij1nLS/LT8AgOrhiFDvrzGwViwfzfDpn4HaNB
+	AkHEL6wjPGkEyiQfk3w22dGVZKcSvg+K5pIps0TyyOx3cwLbCoyyZwaJvjtNxDglew6Ws4Ovh+A
+	mAu8bT7M5AUtLVGifjJANI8uD+Ve7H41auq8g4rC0iDBp3j4d5nKqz3q1zFga55mCgTLtMbS0yK
+	CBfcaSLisFCGKtHLagSiCKYm+l35NliKyHgnXooRg76fzwWRU0OlT3qpvrg+/iMqqdNhRNHT/pe
+	eavPtmKMXo/c/cPZQphzZkUpNai2cLuCjPvCLKsUUZV0lTtQm7a253Ntw6Ios/n2id01mN7Iiqr
+	CsVr6F3nsrccmWGjGJDF96e6ZGrULdfX9Y7uYBgZN5CvXOsG1A=
+X-Received: by 2002:a05:6122:180a:b0:5ec:5f1b:f725 with SMTP id
+ 71dfb90a1353d-5ec689c4d7fmr6770861e0c.23.1793729817534; Tue, 03 Nov 2026
+ 10:16:57 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|DM6PR11MB4579:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1dd16100-10be-4f8d-b3f1-08df39d62ebf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|366016|4143699003|11063799006|56012099006|261028144727099003|261026121527099003|261009223027099003|261022105027099003|261026140227099003|10067099003|22082099003|18002099003|13003099007;
-X-Microsoft-Antispam-Message-Info: NT5qdVhb0TyFDI0pe2A8Wxr0+7If3LWJJ46MfNjvToHgwCvLf0srRRKzm3hxbj5eVNXS1xaCprX3Slh+HHLmv4CcFq6ned3F2IByCC5OtO6PkS6fTTFub7yL1yPCq6dzhhFEeupz4wF589C89O++Dq9spks8ds1LJInYzdi5YEz3Fw58QQzsEFmfSVgai/F9fJ1xRKtVYwXhvfcPgDZYgvh6RA0hhPLQ+bs7KEEJNy7padLkQnKXEsvmdhnHbRwUGvgSa/LrsWYaidvdoB6wGZT8Cp36kxMchERVCkecIJBgTJ61OxbA/asHm99NmtYMJ+md6oUWua4wEeRm9yrIxFTCAK+GXf+tzLvsTH6/X2n3V45Osfsvi85LJVI1IChyIyehteLo71LTU96JISNiurEfVoH83+s069vrkxRP8L7ln/AwBcEkPyuPCxvsf7orlMysSVEOT9k0scFgd3puot8ZCuW7/Y+kuvk07Z4NYJe4j+4ro4TnWCDB6a5T7Go9PYd/GbzVA1CjKD1SsIAIjt2Caqv8aaCpjwEqWdMvcQ0W1xd0Z8HyltGVhdktd1NzYme4e92iIVR4xIrVyWKqwvTwYeua85Ymu1dJ7awqjUY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(366016)(4143699003)(11063799006)(56012099006)(261028144727099003)(261026121527099003)(261009223027099003)(261022105027099003)(261026140227099003)(10067099003)(22082099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UHJkMWVBamNkdkM4aW55cWt0Y1Y1dEtxM1k5NzU1bnVBVjNOdG84K3V0OUU5?=
- =?utf-8?B?RVhCMjU1Smp6OVIwL2NKeThDaWxvOEQzdFRYVlNmV0R6YkduN0VDRHNoZ09K?=
- =?utf-8?B?cHZySTdzZVNXS3Awbm9zaUx6QUJLSDcxVUMzU25zdHNmS3Q0Z0VzZ1VLejV6?=
- =?utf-8?B?ZFZ6OS8vMm5tRW1QeHhQUFJTTTZiNUV5OGZqd09TQWd4bWhDNXhtUWlEMnAw?=
- =?utf-8?B?b05rZ2tEMGZNSkJqdzBHUmtSdVl4MGVWVmo1cG5JMnliSVVrR0lhcjBWMHBz?=
- =?utf-8?B?dExpamlGNHFVdE1jYUZqSEV2TFNDekdtcFA0VTB3UGMrZnBrR0NiRWhPenVR?=
- =?utf-8?B?Y2RvNjFMVWM2djNiNE4vZ01ka080TUcyVUoybFlWTks1Qk5VSjFKNFd5WDVF?=
- =?utf-8?B?R0wrOCsyZ2xJa2tuRFplY0E5WXlRSHRUS2JZc0FEdHVQRElYYUZoSS9CMVdp?=
- =?utf-8?B?Z3ZYMkVDN0crREdycXlKMm92T0MraXMvRUIzaG8wU09UZ1p2Qkh5aUZ4NENq?=
- =?utf-8?B?U3oveXVPT1VWTEpKbks0YS9QK2QxVkJQVkZiMHBjS2hJZlRoZXNORytrRU9w?=
- =?utf-8?B?VGFpczRDeDFHRjVvdlFZazFjRUJsTm45L2R4UDNBODdTZC9tS3lFTTQzUGh3?=
- =?utf-8?B?WUJMTmd0RFpYOHBQQlN1NHpHVEc2L1VybVEwdy9TOGtvOEo3SC9DWGpMMG5H?=
- =?utf-8?B?aW1PTkQwendNamFpWlNYanNLYW5KdWo5b0pCQTZob2F2R3AwSXZMZEF5c21r?=
- =?utf-8?B?ME0zc0F1RXlFTmo3dE5CV3VhZ3hsclBPWkdEQldCTkFFNzlrOFlEUDN4dDB3?=
- =?utf-8?B?ZTBUOWlWSE9DU1R6NHF3em5zb0h5TW9vcWJrZTFzZ1Nzdk92eEY0MFVDZFd6?=
- =?utf-8?B?RmZNQzkxQ2dYUFBwdFUvb2ZaY3RpdHJibCs1aGw3TTI2SStvTzNTOU94TXNO?=
- =?utf-8?B?Q1FuMTE1L2xEUjRLZFZReUgzYWVRc29wWVhLWUJRUklRVkZVSXMvcmlOT0Va?=
- =?utf-8?B?S1ZmRHFMREsxbWY4VlFFWUpZeWorMGNTUnFienBtRzlBNVFRMmx1aWdmMWV0?=
- =?utf-8?B?ZTh6TjRsVzFsUSs2VExsaXU2cmdMUmJMeURNNTlKbm1vYVBISEdvdzJKTmgw?=
- =?utf-8?B?MHhJUlFkSWdzbFpRQWVNRU90UWpzUHJTVHVGT3dzZDFnV2czSFFCYTEwbmlJ?=
- =?utf-8?B?bVFaVG5qVTJ0UGRvaFQ1WTB6QUJyWURCWmt1SzYxUEJBSGU3SDhJOEZVNWti?=
- =?utf-8?B?S3R5djExbGR3V2NJaStxN25MTGl5QXh3dCs3RGlKRGt3VHc1anU3UXFENlJW?=
- =?utf-8?B?UVRvS0Ixd01VT0VuNDEza2RhWUlGWC9MNU9ybzh0VzE2QkVaNGdFUER3S0ZW?=
- =?utf-8?B?ZnFScldBWnlyVDhRakZoV3NDc1FmalFNRndOWDdlN2pzRmNkTVBTSUs5cGxH?=
- =?utf-8?B?VzA5QXdYdHV0K29Relh5emd2UE1tazgxaHJ1NWVEaDZhRDNiRlViZGw4ZDBK?=
- =?utf-8?B?RVROY3l6SHRvL2tLUUt2UVlMWkZKek5QaWVlLzlZUE55MitFTVZaQmd3eldx?=
- =?utf-8?B?ZEhreXhRNjJ2Qm1jczVabFRaMGNXaUtreGg3cVNHRHNwZHErOUJyRzIrUkg5?=
- =?utf-8?B?MEkzK2ZiZ2JJc2tLeFRXd2kyZHZiU2VjQ3E1aUZhMzZXWndESmxic2wyb3FT?=
- =?utf-8?B?d3NYVEVTUHAzU1FSUkU0c2FNaHdrMkxBcVFRYzcwN3NHa3RvWDhTZnBIRXJy?=
- =?utf-8?B?ek9NaEoxY25XVEtBeHdZT1NQQ0s4ME8wVnZYT0pOQVFyQXdWWmtjNWNNMCtQ?=
- =?utf-8?B?TUI5dk02RUhCTFRHZzYxeUs1bUVQbFQvd1pOZU8xajhVQUJZMFVaMldTcDZv?=
- =?utf-8?B?RVE1VWI1K2pYallNZW15c3Z0bDAyVUJ6c2l0aXRFeHh5YXFtNjZ3S1dnNE00?=
- =?utf-8?B?N2NwSjcxWE9CWTJrSnI3UENnTGhWdGhGbThWTWI2d283RUw0MHA5Nlh3c0RG?=
- =?utf-8?B?aktPbFlDU0FSOUtuOVAyaDBuRjE2Zk9naFJRSkpBQjB4OWNpR3JzNmovTzVo?=
- =?utf-8?B?NWZzcngzT05CK09wR1ZLb1pGekZFYll2bHJscjhuVW15cFdmdDA5Mnl2cjRU?=
- =?utf-8?B?cVZ2TjNCN3ZGb2RZT0hnbjNVQlN4WVFwbDdlS2RqYVZ3RHhJeGJkTVJ5TklY?=
- =?utf-8?B?VkZ0SFVFWU4zOStuS0ZqTk1KUlhtK2JmOVFXS1VkT2FUV1Y2akpqOWdwWlpp?=
- =?utf-8?B?cGhaTk5UeWw3ZlFubDNaNEsrVzlTbFpJV0t2WENWVmhpRGF4VEJZL2VQV2Rp?=
- =?utf-8?B?RzJLMG5zUHU3bTZIZ1lFRVM2QlViWFducCthS0JmWVVjT1V4Z1BoOWEweHRR?=
- =?utf-8?Q?04W2sUnxsrLIQKwY=3D?=
-X-Exchange-RoutingPolicyChecked: bO4owHclYJC0T9EUJyQxiAon6fBNluRHHQRTp5AEtwkrRKFr29T1W242gHnB8XqO3GD5erqQKIqvClar0jptP9ClDZblIwDtmwDdP4sx6AXcKUEHynsTSPdSVSa6LOEWeQLZYJ80kxl7C2KzHAiO6hN8IzR4LzQoQ8+Ah3MdOD5uforWI0lclGMahUsGkF33tzofN6fKmTUDCaOlGmcS24ON3gCS2tX28BUCP9pd+BB9YigB5/5m0HgDcfW2Cw6e8T2Mjtbwh++992zJmK8wyt4vi75G7LNqB8u7r+8qKi3Sxa7oaPUtcFTIu5pFwrBTwif6OdWqbw/uPoHQBaJcvg==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1dd16100-10be-4f8d-b3f1-08df39d62ebf
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 18:13:38.1508
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NU742PV8WSam2RXsUUNSAh5xG/C48Db3kNt4bi6H7AZLMTz7HJBSVtgy6yvzM8+Q79giCBagCsm+NTPSRbWF/GBn/5SgbuXq/YZD/cPQL/Q=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR11MB4579
-X-OriginatorOrg: intel.com
+References: <20261102-submit-serial-8250-dma-cancel-v1-v9-0-9159caade148@gmail.com>
+ <20261102-submit-serial-8250-dma-cancel-v1-v9-7-9159caade148@gmail.com>
+ <auoa8OWBxqaQuKRq@ashevche-desk.local> <CADvTj4rL23q6eO8vjVe9vL1g6B8aoZqsbnThi2QJqkj=9e59sw@mail.gmail.com>
+ <auoit0AkmVeCvXqk@ashevche-desk.local>
+In-Reply-To: <auoit0AkmVeCvXqk@ashevche-desk.local>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Tue, 3 Nov 2026 11:16:46 -0700
+X-Gm-Features: AclHuK8HW-CEs65d3UAbPyCnbzk3fKPiCpsZ9iT1lPWFV_I6MxwKEkb2VsX1bZo
+Message-ID: <CADvTj4rwm5BH8veX9i5_4trvzQFRPbDrAby7sXuEth6H6zJH2A@mail.gmail.com>
+Subject: Re: [PATCH v9 7/8] serial: 8250: retire canceled RX DMA before
+ reusing the receive buffer
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Raul E Rangel <rrangel@chromium.org>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Tony Lindgren <tony@atomide.com>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Richard Genoud <richard.genoud@bootlin.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+	=?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, "Maciej W. Rozycki" <macro@orcam.me.uk>, Timur Tabi <timur@kernel.org>, 
+	Peter Ujfalusi <peter.ujfalusi@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+	Patrice Chotard <patrice.chotard@foss.st.com>, linux-kernel@vger.kernel.org, 
+	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_101354_636007_8AE4F783 
-X-CRM114-Status: GOOD (  11.18  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261103_101658_930418_24211331 
+X-CRM114-Status: GOOD (  26.57  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,37 +135,155 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-2.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Ben,
+On Tue, Nov 3, 2026 at 11:06=E2=80=AFAM Andy Shevchenko
+<andriy.shevchenko@linux.intel.com> wrote:
+>
+> On Tue, Nov 03, 2026 at 10:54:38AM -0700, James Hilliard wrote:
+> > On Tue, Nov 3, 2026 at 10:34=E2=80=AFAM Andy Shevchenko
+> > <andriy.shevchenko@linux.intel.com> wrote:
+> > > On Mon, Nov 02, 2026 at 04:14:34PM -0700, James Hilliard wrote:
+>
+> ...
+>
+> > > > +static void serial8250_rx_dma_flush_work(struct work_struct *work)
+> > > > +{
+> > > > +     struct uart_8250_dma *dma =3D container_of(work, struct uart_=
+8250_dma, rx_flush_work);
+> > > > +     struct uart_8250_port *p =3D dma->port;
+> > > > +     unsigned int delay_us =3D USEC_PER_MSEC;
+> > > > +     ktime_t start =3D ktime_get();
+> > > > +     bool recover, retry, restore_rx;
+> > > > +     bool warned =3D false;
+> > > > +     int ret;
+> > > > +
+> > > > +     guard(serial8250_rpm)(p);
+> > > > +
+> > > > +     for (;;) {
+> > > > +             scoped_guard(uart_port_lock_irqsave, &p->port) {
+> > > > +                     /* Shutdown cancels this work and drains both=
+ DMA channels. */
+> > > > +                     if (dma->shutting_down)
+> > > > +                             return;
+> > > > +                     /* Serialize reset with completion and shutdo=
+wn notifications. */
+> > > > +                     WRITE_ONCE(dma->rx_pause_wakeup, false);
+> > > > +                     retry =3D dma->rx_pause_pending && !dma->rx_t=
+erminating;
+> > > > +                     if (retry) {
+> > > > +                             ret =3D serial8250_rx_dma_try_flush(p=
+);
+> > > > +                             retry =3D dma->rx_pause_pending && !d=
+ma->rx_terminating;
+> > > > +                     }
+> > > > +                     recover =3D dma->rx_err;
+> > > > +             }
+> > > > +             if (!retry)
+> > > > +                     break;
+> > > > +             if (!warned && ktime_ms_delta(ktime_get(), start) >=
+=3D MSEC_PER_SEC) {
+> > > > +                     dev_warn_ratelimited(p->port.dev,
+> > > > +                                          "RX DMA pause stalled: %=
+d; retaining transfer and retrying\n",
+> > > > +                                          ret);
+> > >
+> > > _ratelimited() is a slop of AI without understanding the code. It mak=
+es nonsense
+> > > in combination with warned.
+> >
+> > The two controls have different scopes. warned is local to one invocati=
+on
+> > of the flush worker and prevents repeated warning attempts while that
+> > flush remains stalled. A later flush starts with warned cleared again.
+> >
+> > The rate limit applies across worker invocations and UART ports. It lim=
+its
+> > messages from separate stalls, rather than repeated retries of the same
+> > stall.
+>
+> How? The whole _ratelimited() is nonsense here.
 
-On 11/3/26 9:48 AM, Ben Horgan wrote:
-> On 03/11/2026 15:01, Ben Horgan wrote:
->> Hi Reinette,
->>
->> The change seems good but I think the commit message can be cut down at bit.
+dev_warn_ratelimited() uses a static ratelimit_state at the call site,
+shared by all ports. The intent was to limit warning bursts across ports
+and separate flushes, while warned only covers one flush.
 
-Thank you very much for taking a look and providing the needed changes. Since I
-am unable to test and especially since this involved a locking change I ended up
-with changelogs containing more than the usual reasoning about correctness.
+>
+> > > > +                     warned =3D true;
+> > >
+> > > Altogether NIH _once().
+> >
+> > dev_warn_once() uses a static flag at the call site, shared by all port=
+s.
+> > After the first warning, subsequent stalls would remain silent even aft=
+er
+> > recovery or reopening the port, including stalls on another UART.
+> >
+> > The intended behavior here is at most one warning attempt per prolonged
+> > stall, while keeping later incidents diagnosable and limiting their
+> > aggregate logging rate.
+>
+> Yes, so what the point to use _ratelimited()?
 
-> It looks like this patch also has the plus of addressing this sashiko
-> report:
-> https://sashiko.dev/#/bug/linux-9a564d61-b4d8-400d-b4b9-cd5f20729468
-oh. Would you like this commit to capture this? To do so I can add the following tags:
+It was intended to limit warning bursts across multiple ports and
+separate stalls, while warned prevented repeated messages for one
+stalled flush.
 
-	Fixes: 09e61daf8e96 ("arm_mpam: resctrl: Add boilerplate cpuhp and domain allocation")
-	Reported-by: Sashiko <sashiko-bot@kernel.org>
-	Closes: https://sashiko.dev/#/bug/linux-9a564d61-b4d8-400d-b4b9-cd5f20729468
+I'll use dev_warn() with the per-flush warned flag and one-second
+threshold instead. That keeps one warning per prolonged stall and lets
+each port report its own failure independently.
 
-Reinette
-
-
-
+>
+> > > > +             }
+> > > > +             /* Notifications also cover completion or shutdown be=
+fore sleeping. */
+> > > > +             wait_event_hrtimeout(dma->rx_pause_wait, READ_ONCE(dm=
+a->rx_pause_wakeup),
+> > > > +                                  ns_to_ktime(delay_us * NSEC_PER_=
+USEC));
+> > > > +             delay_us =3D min(delay_us * 2, USEC_PER_SEC);
+> > > > +     }
+> > > > +
+> > > > +     if (recover) {
+> > > > +             ret =3D dmaengine_terminate_sync(dma->rxchan);
+> > > > +             if (ret) {
+> > > > +                     /* Retain ownership and keep RX masked if DMA=
+ cannot be stopped. */
+> > > > +                     dev_err(p->port.dev, "failed to stop RX DMA: =
+%d\n", ret);
+> > > > +                     return;
+> > > > +             }
+> > > > +     } else {
+> > > > +             dmaengine_synchronize(dma->rxchan);
+> > > > +     }
+> > > > +
+> > > > +     scoped_guard(uart_port_lock_irqsave, &p->port) {
+> > > > +             restore_rx =3D recover || dma->rx_pause_pending;
+> > > > +             dma->rx_pause_pending =3D false;
+> > > > +             dma->rx_terminating =3D false;
+> > > > +             dma->rx_running =3D 0;
+> > > > +             if (dma->shutting_down)
+> > > > +                     return;
+> > > > +
+> > > > +             if (!restore_rx)
+> > > > +                     return;
+> > > > +
+> > > > +             /* Apply the current enables, including any interveni=
+ng stop_rx(). */
+> > > > +             serial8250_out_IER(p, p->ier);
+> > > > +     }
+> > > > +     if (recover)
+> > > > +             dev_warn(p->port.dev, "RX DMA failed, using PIO\n");
+> > > >  }
+>
+> --
+> With Best Regards,
+> Andy Shevchenko
+>
+>
 
