@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C86560736F8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:27:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2540760A2609
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:27:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kO0JYihr;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LnGkaKwm
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wbo8XPS1;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kW/9Nqnl
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,52 +14,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=wGJCpB30C0eoXg6rT049KGsaSsKMI6A0wimQvcJwM14=; b=kO0JYihrQ2u8Bv3K8AulESa5bi
-	Ber68rAMHkfOTrctCE21WFAHqT0lCRaPqEcqYa9i42J8WI3lW0c9/9XR1jKxuqwm/SUezfR67VBwd
-	gMgE0u3r1FXwH1+AgdWVo3tHMpXN2LJG8zvnCEBEhe0XDTGurke3QaGQENAoECISINnUor6ub8Yc6
-	h4gigGAWYkgDyWjjhKyuxgEKrzyq+FVA1hxFgDh1LQ9erPHKK8iwCP/Sfx+6wYp48O58rI/bOHAwf
-	TjVX/MxSEksOF+cIMjXXtWH8kL1/TigloCKTMqrzogSqaMqKQDH6RJrsjqmNSH57BFJbMFN1WvzQv
-	XKmE+hcQ==;
+	bh=5JCgmnnBV7ODGkM1qXDPR9WPLQTgtUl6RjPyn6nE4gg=; b=wbo8XPS1g0wz0DHtRgz6okkGTT
+	FVCx3ymFIqwFR88v4q5GzfryxNHg1Mno6Iyiy/B/RZ2bgvbX+ZCR5l1uDziXZmXNYL5uKj2tr1T/B
+	qHjWbedqQm6/P850ubLTtXT8MfibzGLz+VTsLU9QIIDp4X+mNVHdLIZt7HtHjT7g4sRWedEHWSCqX
+	yw70Ytw6A0PSHufMDN+WqnT671EYgmFJn/OU/6ELaXpeLDPbAJS33BuSWFZq0ITS6+UoRFxXf5K3V
+	2xw02EhDcQXVPZuLz/T1Z1Q11Za1NNsrZtRS1F7ypDSjoqcZlfk3MSbpMAhHgkqT8eVahm5qDtuhX
+	pocWn+3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBjS-00000001yzE-2aAz;
-	Tue, 03 Nov 2026 10:27:10 +0000
+	id 1xOBjT-00000001z0L-3TyD;
+	Tue, 03 Nov 2026 10:27:11 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBjO-00000001ywk-15qe;
+	id 1xOBjR-00000001ywq-2hLM;
 	Tue, 03 Nov 2026 10:27:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B19B560098;
-	Tue,  3 Nov 2026 10:27:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F80E1F00A02;
-	Tue,  3 Nov 2026 10:27:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0F0B960611;
+	Tue,  3 Nov 2026 10:27:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 125B91F00919;
+	Tue,  3 Nov 2026 10:27:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793701625;
-	bh=wGJCpB30C0eoXg6rT049KGsaSsKMI6A0wimQvcJwM14=;
+	s=k20260515; t=1793701628;
+	bh=5JCgmnnBV7ODGkM1qXDPR9WPLQTgtUl6RjPyn6nE4gg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LnGkaKwmU2Pgj6dYUxKTioOxMCmTkev14EfBkt2mMQyiPJYAGSkiXfFFx+20EIQP3
-	 3cC46g/CkFt9dMpAh16Tm7+DVu7UOoY6SyopUw9YN9GFbcojCfIjRr5GeBUD5NueGK
-	 t5tVzvYLFrSYO6DAKEchif8wL+kkauU/IPbFGSm37EWjhJNHDzqo4d0qGlxfXwFhmj
-	 jFwoplUEgxFnsJmzt0tVHo9QVN4J6BqGSt2ELcQXQ32//TD/8WH2gxPlEnDqK7nz9f
-	 eZwvmjZKKiIj7H2klj8Oj4B3y/wTZjOEZOffDIgSDjdsSQ+MIdgEV3k2QGTPBuSY9l
-	 hMWrPOP+TV9gg==
-Date: Tue, 3 Nov 2026 11:27:02 +0100
+	b=kW/9NqnlCo3bKlu6H7GShjdIrl2ZuQjd0jl/USYagMnaMCukaur5fPw1Zt0dTzIFF
+	 8N9o/UYYQcuDD5fFf/4Za154D4g/vCE88R7+sUYXSD3oLBcB+1wp2fAfrntRnfwBvK
+	 L3JCWGVm7Ala9fj73wbM46izIadxvYRukOEejFBDlZHQn/831Bl0ZO/yzkzR9rDghh
+	 PY0i6acxuXXa18jod7zvUIyzzq4uqfyG8OKIrn53ucoVhJhFvCMjnWMI+FSiVQVpzn
+	 FCZPq6UgnZdnJPXNCprsweuFmzSZdwghMPJ+HA+eJjaGs+gbwebCsrFKDNIEOAn276
+	 rFyHyzjp20XLA==
+Date: Tue, 3 Nov 2026 11:27:06 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-media@vger.kernel.org, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Bin Liu <bin.liu@mediatek.com>, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] media: mtk-jpeg: Release the decoder device on job
+Cc: linux-mediatek@lists.infradead.org, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-arm-kernel@lists.infradead.org, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, linux-media@vger.kernel.org, stable@vger.kernel.org, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Bin Liu <bin.liu@mediatek.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: mtk-jpeg: Release the encoder device on job
  completion
-Message-ID: <20261103-refined-lorikeet-from-ganymede-ede5ad@quoll>
-References: <20261103094612.1289250-1-vulab@iscas.ac.cn>
+Message-ID: <20261103-accurate-aboriginal-jackrabbit-dc2ddb@quoll>
+References: <20261103094613.1289270-1-vulab@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261103094612.1289250-1-vulab@iscas.ac.cn>
+In-Reply-To: <20261103094613.1289270-1-vulab@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,10 +78,10 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 
-On Tue, 03 Nov 2026 09:46:12 +0000, Wentao Liang wrote:
-> mtk_jpegdec_worker() resumes the component device represented by
+On Tue, 03 Nov 2026 09:46:13 +0000, Wentao Liang wrote:
+> mtk_jpegenc_worker() resumes the component device represented by
 > comp_jpeg[hw_id]->dev.  When the job completes,
-> mtk_jpegdec_hw_irq_handler() drops a reference to the master device
+> mtk_jpegenc_hw_irq_handler() drops a reference to the master device
 > ctx->jpeg->dev instead of the component device.  The component's usage
 > counter is never decremented, so the component and its power domain stay
 > powered, while the master's usage counter is decremented without a
@@ -92,13 +91,13 @@ On Tue, 03 Nov 2026 09:46:12 +0000, Wentao Liang wrote:
 > the clock before dropping the reference as the timeout work already
 > does.
 > 
-> Fixes: 0fa49df4222f ("media: mtk-jpegdec: support jpegdec multi-hardware")
+> Fixes: 934e8bccac95 ("mtk-jpegenc: support jpegenc multi-hardware")
 > Cc: stable@vger.kernel.org
 > Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
 > Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 > ---
->  drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
+>  drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
 
 
