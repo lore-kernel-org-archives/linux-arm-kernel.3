@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8609A606FAFE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:35:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4987E6070AB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:35:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nUqO4wCb;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bWTqbUNX
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eWs5u+Ip;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jsmg4WP/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
@@ -14,36 +14,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=; b=nUqO4wCbmuwpIwv5DHrQlAcR50
-	vV3ZGO7gHxzfzp5C1wR4zOvG3DVji9LPWXH2bV0ACaiopwk83g+FXpqi0+T838BNmTkMU1mFySUcd
-	VJReumRJ3N8s16OKgy5GGz3b4eETuWHpW4aG9VI5ZN3sC56LL2QIKwCZ7QtupYIOE1d0gl+1Pzbt5
-	LxGDZTTaWIAFnjR/6xv9reyENPW8tpt1972Lgy9OSUG1osbEm1Gw4Zt1VrqDahme4zY3cC86h+ISd
-	/Qf09kZy0sV2BC8DPQ7eJmBUi19H8G8sjbkrltLdaLiHxcUt9iq4V0rvDhbTcHqgn2p2LUNSJNSzh
-	T4PBBvgg==;
+	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=; b=eWs5u+IpP2ZjmdZlUz+Pseg7A+
+	KfVNOCTZSxMaA8MvOcIGJBw7wnI9yh0gpUH0rFzvxoTwFVzaAsEQUM9ZyLew20MhpofulncbfUSpb
+	/+29dqlPcQ2aDIyyD0WquyIP3y1JtfO3iIhCd/PQiXLRMpnKD+54LPq2tzDP+rvmd52r9uxfyu3At
+	PAl0Cu9y9DEB8pwnMAClsEPEDnyjQlT1+hY+uH5kekBKaDnwdB70Qro1aXF341qbFyWVnXpPc3Dt+
+	ypoOjwwMWouliENAJ72I7S/ojKjg0eK+aRma0lUW1rDXafn/g7LcQuPEi5nbE5Nc6F/Yi73RURrsX
+	cfEeywUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBqz-000000021dr-2KNa;
-	Tue, 03 Nov 2026 10:34:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOBre-000000021rd-2zmv;
+	Tue, 03 Nov 2026 10:35:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBqy-000000021dU-0j3w
+	id 1xOBrb-000000021qa-14Gs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 10:34:56 +0000
+	Tue, 03 Nov 2026 10:35:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8B2C641A39;
-	Tue,  3 Nov 2026 10:34:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFFA01F00A15;
-	Tue,  3 Nov 2026 10:34:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 08F234037E;
+	Tue,  3 Nov 2026 10:35:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A8FF1F000C1;
+	Tue,  3 Nov 2026 10:35:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793702095;
+	s=k20260515; t=1793702134;
 	bh=URC7r36kokGjXCV5G6Ei8oKV54JoMbconYpCKkPt2AY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=bWTqbUNXtlq87uBXFvuxGVqBzCszxbq4IsgJQCNluWxJ7q8nseJC5XnT4yKNQrKkw
-	 eH97iAr08WQ+7Mmi8MAy4mWZsAu2EitHj1NJQ8SaqK5TTo/EaXGDc8A/96lNBlb6ml
-	 nFtXfMKPnvX6znfI40Ak+biIHmZ26IR/0hc8z6DCfkDpUAUcvL8y1EFZ2ztcdSUN4p
-	 0iRaF1j7bTYXfj6Mr9kon0s9h1wdOouYI/VJIf9S1FfA6EyG2CZQ9iOlS9xGZGi2AN
-	 dfUGoqARv5XGAePYkdA5zSRIbmhq083j9MpyTPgZ4l0a+OeeDaIdd7p+6qoA+AdLB2
-	 JkJCYl0BkHfnA==
+	b=jsmg4WP/B5uhyUjv+KxkkdIc+gbKbRMkVYi0tAiKdUBDclhj7o8sjrOm6EXj+ZDjW
+	 D1fSGaqxFeZVYnQFMViTVGgLs1UcPQdLugiJ7vHNDX4hZ4CNCZ+tcwmV1W0NvbtCA3
+	 7pKieN5/cavMKjvIXzZANJc1frcZLC1ec51/lgV1KdMN+XMlbrmmlLQZ8gkbmO0bsU
+	 voXxInP6KEDTZkvzcYH90F7hxXFqEheNSE8WRoA3ZioRF5bxe+R61G15U9sLa0DvWr
+	 l7yKGMuNXGr1TjHS07cIeUam/ItF7m2ZW2DdjERkkliY078cLNYUpAsvm5mU9Nm5k+
+	 vj3E1HABYVuMg==
 From: netdev-bot+sinfo@kernel.org
 To: Wentao Liang <vulab@iscas.ac.cn>
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -54,11 +54,12 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  stable@vger.kernel.org
-Subject: Re: [PATCH] net: stmmac: drop the runtime PM reference on probe failure
-Date: Tue, 03 Nov 2026 10:34:54 +0000
-Message-ID: <179370209427.488859.7301348378104655949@kernel.org>
-In-Reply-To: <20261103102858.1340765-1-vulab@iscas.ac.cn>
-References: <20261103102858.1340765-1-vulab@iscas.ac.cn>
+Subject: Re: [PATCH RESEND] net: stmmac: drop the runtime PM reference on
+ probe failure
+Date: Tue, 03 Nov 2026 10:35:33 +0000
+Message-ID: <179370213371.488859.11974363299490161840@kernel.org>
+In-Reply-To: <20261103102914.1341121-1-vulab@iscas.ac.cn>
+References: <20261103102914.1341121-1-vulab@iscas.ac.cn>
 Auto-Submitted: auto-generated
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
