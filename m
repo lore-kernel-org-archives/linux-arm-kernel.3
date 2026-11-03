@@ -2,73 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1D4A606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 22:23:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E014A606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 22:23:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Saz95Duv;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=aVz06JwF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=z9S+Gx5C;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=PCEGkfrn
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=XO1aKAZ4c+Vq+VoVRfgfaXaALlLR0DAwRzH6Ig8e8vY=; b=Saz95Duvn6n06Y
-	cRsnoz2tPO8tgCoSUrKHhM7NYKA6DA3H8vtl/PCg0V8LpruCrpLkl3arHs5mcRWLnKXTTcSBWOuQO
-	HU7ReiIBT7JPwSZBOcr7FBgjaBXUdMP1c4APGSzfTECR7JBc5J4l5aB/IzFQn4UOVal3GSl2QTiqG
-	w4KduXZ0MRMHmgNY4bsRAtBuVB6fGq2sQ31X8bs7HaTD8HZnPxUaBbNw3zEc4u7xO8UZ9sOA6fDq1
-	LyjK5GrkMjdunOGPplz0Ivc3ibb6ofDzhqcGm7YQOVcWAQUVTMZMrVQLLwJVsrPdm+OTpID4WWWCJ
-	Yo0ndWBOhkrADBdhldqg==;
+	List-Owner; bh=jbi/k6dB+LyAzak7dxYir2R3Vy4OMdTuQduaHbYugqY=; b=z9S+Gx5CguYjXE
+	Y5Z3gWPNFmwrDeotHp3qCgzo8+DPPPm3ZUpIDEofvHD7UYVfb7Sxme14h+TXsD8//5E5miBYjuoqt
+	0sL5QmMCp8udsj20qus0h/LU1PVD5mjg3DeLywmBaAHQicnaFt93rTxRpLCWJ4M7j3zoqUrU/jKSR
+	58clK2siKbVwnM6fyhp/UxL0Qa+Qk2MxmCaUb5PklbC0VC03UMLv8NecVmhbN3ccce2AzWKoXJ3+E
+	V2vtVTAbl+CmIVGq5fhuIIPrrVbTEovEzLQ1XpQRWt9u0U/iB9TeXI8LlDX1tOUsZKM5F7IB6nSZV
+	MEdR9Af+GyNDVC5T3k1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOMuS-00000003ppY-35Em;
-	Tue, 03 Nov 2026 22:23:16 +0000
-Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
+	id 1xOMuP-00000003pmx-2SoE;
+	Tue, 03 Nov 2026 22:23:13 +0000
+Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOMuO-00000003plu-3jNd
+	id 1xOMuM-00000003pjx-12zR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 22:23:15 +0000
-Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-14fc585291cso116450c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 14:23:12 -0800 (PST)
+	Tue, 03 Nov 2026 22:23:11 +0000
+Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-369f33df08eso42132eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 14:23:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1793744592; x=1794349392; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1793744589; x=1794349389; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=XO1aKAZ4c+Vq+VoVRfgfaXaALlLR0DAwRzH6Ig8e8vY=;
-        b=aVz06JwFZkl3WqQh3EhI/fPVeXYg4AM/I/eVH32bQVFnR9Z2l8N6SAPD+Ep6fmL7CT
-         hdesUYW/9g9Se82VkFeGpoLbwe0qx0WMjYagHEvoiSP2F+zuzNFQIGh3S1XGtZZur1OR
-         XzBpyRSzUnxE0e6eGBPE9d3zDNImvpSLeEQpQ=
+        bh=jbi/k6dB+LyAzak7dxYir2R3Vy4OMdTuQduaHbYugqY=;
+        b=PCEGkfrnU/blQr3fEFW5vtVf/JF1R35oY9IEOQYEzAQ//bTfK3Txz1Los3sLZoOXUo
+         Bn+OdHLZCBFrYtszPPH8ykIgx90Y+RIjl2pUUnqDwKstFsFmOOwdntntyjeOWyI/Bw7d
+         hnBcZRNbqpzVLrKtEiWGhg8wEfC+dY6mc39rw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793744592; x=1794349392;
+        d=1e100.net; s=20260707; t=1793744589; x=1794349389;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XO1aKAZ4c+Vq+VoVRfgfaXaALlLR0DAwRzH6Ig8e8vY=;
-        b=J6tYEq3FdPVGASM0Dfqo2kuXCN1YDS0VyDOkxKJcB+euzzHvW38kgGHcGmtNvNhJW0
-         lVLOFkywIeCuBSipkLgeoslymzW1WOKM408MI47vTddGwr56sXN8C3EOhZWQ9hq9o2lU
-         Dm/o6qpv+gylkqA8HNTpos7dcV1V90gkCmyZT2f7R2/Lgj/+8vEjcL+wgcok6kHR/VYv
-         6MDQ8GB/7n/mcicFOdZlnkTV1qS+UhAQyz1mmd3341Cv40nhxSQNlsR6yEAMHgYHt0ns
-         ed7mqT7lrUEh5ANi2ZF66JjtFrSkI9MtY/Z3snGzomuTbXilVgUaSUSkyTfFS33/ffVP
-         cBWg==
-X-Forwarded-Encrypted: i=1; AKwUvByNpsgdc7p7/FB0SizWlxWfeeNyYK6wutO15mB4gKxqFUp3OApm5VuSf6QkVQhAdhTRPeKEI3g9SihdIpSd0tKm@lists.infradead.org
-X-Gm-Message-State: APuU4Z89fXssTioT4g/lWoXJYBXdg8Nez96uvMSk61md9ZLno+d7Jxev
-	1LNoFnZJymcQ2ZvmGOSlGCvucwpGz62K0qiWAh47ysLsNKBzFpsVF6jmGy5U4vXipg==
-X-Gm-Gg: AYBFou2wAFvVxhE+60m3O0DyFluogfEAAkpWwvXxm0lAnZVtr3IT55uhM5uij1BS92U
-	KP2HdGPicvu8vPhKti+CiUtcdcP/Ez72Gmv6CSwDJqyVeb71AohAfCokpJB50zbfsOTnq9TwiNc
-	FJXhb0aXpMAr8kyCYTatWFAI4kVUFQz7I8P00YUvIAiby2EdpKoLTcYJhgjXlT1JPKQAnqnFvMb
-	W2IRpQv2I+CPf6lThT8plPrw6nl+75AL1JE4kaZMXyi7UynlV362atR2JU/NBsIIkZgQ7kFLxUX
-	tE09+mCFtR5yVLmIC+7RBMDf/+EQdlcoqBSc1ZOavJ1d57FxvJXjn1iaEX7AIzApnv4nWaR2Oq7
-	fFeE2GgXJ5XLgWVFZcelDNr3xQmsL1oyhx6814s9ixcoocbn9rDdsAjAhaU1NKu5i9q+mqewi/z
-	rMkY4qbvjFI3GFP1KCK/CxUObRkIuPYSxPDUQZcwrR2mF20ftXS8rGjt49Ed39aUqIcumLnu/9t
-	l3fSmNG9QFq4RfdqVKg+diJCdmQ1eQwXpqI54DMivg8/gOeDed52JCHodxIgXrNVm7455nayF86
-	ygXO/UUScxtX8JxauLk0phmQuIe7lVUKPQpqQl0CYvLcjFgxtJKMhULDmEnojRRWN99v
-X-Received: by 2002:a05:7022:fc0b:b0:176:2095:1ac4 with SMTP id a92af1059eb24-1ac5cfe584emr17460446c88.18.1793744591842;
-        Tue, 03 Nov 2026 14:23:11 -0800 (PST)
+        bh=jbi/k6dB+LyAzak7dxYir2R3Vy4OMdTuQduaHbYugqY=;
+        b=H9GTwa816z9oJklWscMeq6vu9DS2wneScntgGotJTa4cvQVYBjGEt7mAIbEZMZJv2y
+         x+ZbhzKN5QLnq9GQHSze4mXL4gzFskVbtHdJPHLHRqQ2MHJyNvTmA9NLxNlSOgReH71L
+         5fcqtbavYSxS7xYxlVm6O2Kfd9i47mT8bu4vgmeCtNDLszHxj6EKudMz4wTLhO7ahYpQ
+         q5ButEPNktyHtN3rIQu8XONF/9Ua0qGBAXTYWJlWPIgXoQ5OPTe/TXO2wgvAjkcL6MwL
+         u1+Wg8x+UiIt8ACgRZaFAmYOz7PkvDwca/RgSRZhVrv0oRjXeRjEeb3mU/+EMg9FWvMe
+         xxSg==
+X-Forwarded-Encrypted: i=1; AKwUvBxBVqyRfiXjN1S7k4yAHCbDYtY8PFRVrmNEosMZIkJWP2xAUM+BbheW5WT65Swao/sg9K6RfFV/r+0u/1iPo76E@lists.infradead.org
+X-Gm-Message-State: APuU4Z8aN+2xB8G3K8FUv1bbdwevcgzTbJU4UWxFkvk95akQjG/qlu4s
+	8vmNfvJ/KELV3ktETkT7J0XUzkGkGueQ/YZauJ+uqS/4Y9oXJJaKHvJHWgPLKLytB0CnHI0f9+X
+	e+Y0=
+X-Gm-Gg: AYBFou1NIuRANqh5PmnLwSsQUEb08h0RYAzgGi16+wZJH90/iuDNs9FHOzqR/H2NWGU
+	U7BtZ8dCPMN/qz57/YKo0Oki47DzclyXwzwTMb9zyRtMXgetrcJLQX+TcEDtj11r6S3ZzCfoHl0
+	Reikq0Emv+b2VPV84R8odCn7V8YDhCpfhFqJXgAt8d1yXwaZYwjl5enoTP8msWZbXORrXChwjtO
+	pA1oQ5XAp1Je7D1QYGmBV1WCJGUft3V7d2no548C1MzQqurqfzlMY6M9vAbj/GmvBCplUGMrJyi
+	rUt069hKBNuMcB2lhHjP046E2+jbclJUCrpdRqlJWCLN+s4Ll0mMvsTHbIklOVZB9QB+dOphIzt
+	0JZ/IICGetZpJLKue796kH4HNic147b6pH6m3p2lGBoNgWL4z1Qt+iMYZyKPXW5J3QUlatG+S7E
+	XZ+Ho2psgt3R8LZzFNunuXSUeOE+Uq95Nb9Yv4kfXnuuPjfnoq5ZIGiseOAri8roy8EwdFXCh5K
+	ZCSalvmrkvdJXxddKkzuNsBtB99A/s3AgRLpbKToPPeuCrDl6kQAbcYOLSRV21CyYORbM5d9MU4
+	YFiJhFz5RArsoUoyDmXhBEz40Op34SKdF78kC/tNzswCrpg1vGl/GIDmhdyGOQ5aJULY
+X-Received: by 2002:a05:693c:20c3:10b0:36a:12c4:8bd6 with SMTP id 5a478bee46e88-36a423ea9ccmr21662751eec.22.1793744589175;
+        Tue, 03 Nov 2026 14:23:09 -0800 (PST)
 Received: from localhost ([2a00:79e0:2e7c:8:ab71:b3df:693a:fbf2])
-        by smtp.gmail.com with UTF8SMTPSA id a92af1059eb24-1b245c2d69asm1650085c88.11.2026.11.03.14.23.10
+        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-36ca3958746sm1046926eec.22.2026.11.03.14.23.07
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 03 Nov 2026 14:23:11 -0800 (PST)
+        Tue, 03 Nov 2026 14:23:08 -0800 (PST)
 From: Brian Norris <briannorris@chromium.org>
 To: "Rafael J. Wysocki" <rafael@kernel.org>
 Cc: Fabrice Gasnier <fabrice.gasnier@st.com>,
@@ -84,9 +85,9 @@ Cc: Fabrice Gasnier <fabrice.gasnier@st.com>,
 	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Brian Norris <briannorris@chromium.org>
-Subject: [PATCH v2 4/5] PM: runtime: Add tests for last_busy propagation
-Date: Tue,  3 Nov 2026 14:14:42 -0800
-Message-ID: <20261103141442.v2.4.I8ab8b7f662fe1921c7084a47d554535597cc2702@changeid>
+Subject: [PATCH v2 3/5] PM: runtime: Propagate last_busy from dependent to dependency
+Date: Tue,  3 Nov 2026 14:14:41 -0800
+Message-ID: <20261103141442.v2.3.I40c0bc917fa0b13111251844e9a54feb1d9cd7d2@changeid>
 X-Mailer: git-send-email 2.56.0.398.g882cbad275-goog
 In-Reply-To: <20261103221717.3840215-1-briannorris@chromium.org>
 References: <20261103221717.3840215-1-briannorris@chromium.org>
@@ -94,8 +95,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_142312_942683_7403865C 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20261103_142310_303700_1319D304 
+X-CRM114-Status: GOOD (  20.87  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -115,142 +116,100 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This is a regression test for the problem fixed in "PM: runtime:
-Propagate last_busy from dependent to dependency".
+When a child device suspends, it does not update the last_busy timestamp
+for its parent. If that parent configured autosuspend and didn't
+otherwise maintain its last_busy timestamp, it may now be immediately
+eligible to suspend. This is probably not expected -- the parent should
+wait for its autosuspend delay before suspending.
 
+The effect of this behavior is that a parent device may suspend sooner
+than its autosuspend delay, simply because its usage was accounted by
+its children, and not by direct references to the parent device.
+
+This was noticed in several cases, and some have implemented
+workarounds, such as in commit c537d3457542 ("iio: adc: stm32-adc: fix
+runtime autosuspend delay when slow polling"). At the same time, Ulf
+suggested these problems "should be solved in the runtime PM core" [1].
+
+Instead of working around the problem in drivers, we propagate last_busy
+timestamps from a dependent device to its dependencies any time it may
+allow a dependency to suspend -- i.e., when releasing a refcount for its
+parent or suppliers. We take care to only propagate the timestamp if it
+is larger than the existing busy timestamp.
+
+Note that this works best if the dependent device is using autosuspend
+(and therefore updates its last_busy timestamps appropriately), but even
+for a non-autosuspend child, this is still somewhat useful --
+non-autosuspend devices still automatically update their last_busy every
+time they resume.
+
+Link: https://lore.kernel.org/all/CAPDyKFp=KTf8=zGBSzPYqhjnZpY8xwvjCeM1e-WTKT1QLSxaDA@mail.gmail.com/ [1]
 Signed-off-by: Brian Norris <briannorris@chromium.org>
 ---
+Cc: Ulf Hansson <ulfh@kernel.org>
 
 Changes in v2:
- * Use device_move() instead of manual re-parenting
- * fsleep() instead of msleep()
+ * Update comments to explain when/why rpm_propagate_last_busy()
+   performs the update
 
- drivers/base/power/runtime-test.c | 99 +++++++++++++++++++++++++++++++
- 1 file changed, 99 insertions(+)
+ drivers/base/power/runtime.c | 23 ++++++++++++++++++++++-
+ 1 file changed, 22 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/base/power/runtime-test.c b/drivers/base/power/runtime-test.c
-index 24865ce844fc..00ca3b10543a 100644
---- a/drivers/base/power/runtime-test.c
-+++ b/drivers/base/power/runtime-test.c
-@@ -4,6 +4,7 @@
-  */
- 
- #include <linux/cleanup.h>
-+#include <linux/delay.h>
- #include <linux/pm_runtime.h>
- #include <linux/workqueue.h>
- #include <kunit/device.h>
-@@ -285,6 +286,102 @@ static void pm_runtime_supplier_suspend_test(struct kunit *test)
- 	KUNIT_EXPECT_TRUE(test, pm_runtime_suspended(norpm_supplier));
+diff --git a/drivers/base/power/runtime.c b/drivers/base/power/runtime.c
+index 2a117d6a776f..dd306cbabcd3 100644
+--- a/drivers/base/power/runtime.c
++++ b/drivers/base/power/runtime.c
+@@ -318,6 +318,22 @@ static int rpm_get_suppliers(struct device *dev)
+ 	return 0;
  }
  
-+static void pm_runtime_parent_last_used_test(struct kunit *test)
++/*
++ * Propagate last_busy timestamp from one device to another, typically when a
++ * device (@dev) releases a reference count on a dependency (@target) and might
++ * allow it to (auto)suspend. This can, for example, prevent overactive suspend
++ * when a dependency's usage is primarily driven by one of its dependents.
++ */
++static void rpm_propagate_last_busy(struct device *dev, struct device *target)
 +{
-+	struct device *parent = kunit_device_register(test, DEVICE_NAME "_parent");
-+	struct device *dev = kunit_device_register(test, DEVICE_NAME);
-+	u64 expiry1, expiry2;
++	s64 busy = atomic64_read(&dev->power.last_busy);
++	s64 target_busy = atomic64_read(&target->power.last_busy);
 +
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, dev);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, parent);
-+
-+	KUNIT_ASSERT_EQ(test, 0, device_move(dev, parent, DPM_ORDER_NONE));
-+
-+	pm_runtime_set_active(parent);
-+	pm_runtime_set_active(dev);
-+	pm_runtime_use_autosuspend(parent);
-+	pm_runtime_use_autosuspend(dev);
-+
-+	pm_runtime_set_autosuspend_delay(dev, 0);
-+	/* Effectively infinite delay (prevent finishing autosuspend during this test). */
-+	pm_runtime_set_autosuspend_delay(parent, 200000);
-+
-+	pm_runtime_mark_last_busy(dev);
-+	pm_runtime_mark_last_busy(parent);
-+
-+	pm_runtime_get_noresume(dev);
-+
-+	pm_runtime_enable(parent);
-+	pm_runtime_enable(dev);
-+
-+	expiry1 = pm_runtime_autosuspend_expiration(parent);
-+	KUNIT_EXPECT_NE(test, 0, expiry1);
-+
-+	/* Make absolutely sure the clock advances. */
-+	fsleep(1000);
-+
-+	KUNIT_EXPECT_EQ(test, 0, pm_runtime_put_sync_autosuspend(dev));
-+
-+	KUNIT_EXPECT_TRUE(test, pm_runtime_suspended(dev));
-+
-+	/* Flush, in case any request was pending. */
-+	flush_workqueue(pm_wq);
-+	KUNIT_EXPECT_FALSE(test, pm_runtime_suspended(parent));
-+
-+	expiry2 = pm_runtime_autosuspend_expiration(parent);
-+	KUNIT_EXPECT_NE(test, 0, expiry2);
-+	/* The child's last_busy time should have bumped up the parent's expiration. */
-+	KUNIT_EXPECT_GT(test, expiry2, expiry1);
++	while (target_busy < busy)
++		if (atomic64_try_cmpxchg(&target->power.last_busy, &target_busy, busy))
++			return;
 +}
 +
-+static void pm_runtime_supplier_last_used_test(struct kunit *test)
-+{
-+	struct device *supplier = kunit_device_register(test, DEVICE_NAME "_supplier");
-+	struct device *dev = kunit_device_register(test, DEVICE_NAME);
-+	u64 expiry1, expiry2;
-+
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, dev);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, supplier);
-+
-+	KUNIT_ASSERT_NOT_NULL(test, device_link_add(dev, supplier, DL_FLAG_PM_RUNTIME));
-+
-+	pm_runtime_set_active(supplier);
-+	pm_runtime_set_active(dev);
-+	pm_runtime_use_autosuspend(supplier);
-+	pm_runtime_use_autosuspend(dev);
-+
-+	pm_runtime_set_autosuspend_delay(dev, 0);
-+	/* Effectively infinite delay (prevent finishing autosuspend during this test). */
-+	pm_runtime_set_autosuspend_delay(supplier, 200000);
-+
-+	pm_runtime_mark_last_busy(dev);
-+	pm_runtime_mark_last_busy(supplier);
-+
-+	pm_runtime_get_noresume(dev);
-+
-+	pm_runtime_enable(supplier);
-+	pm_runtime_enable(dev);
-+
-+	expiry1 = pm_runtime_autosuspend_expiration(supplier);
-+	KUNIT_EXPECT_NE(test, 0, expiry1);
-+
-+	/* Make absolutely sure the clock advances. */
-+	fsleep(1000);
-+
-+	KUNIT_EXPECT_EQ(test, 0, pm_runtime_put_sync_autosuspend(dev));
-+
-+	KUNIT_EXPECT_TRUE(test, pm_runtime_suspended(dev));
-+
-+	/* Flush, in case any request was pending. */
-+	flush_workqueue(pm_wq);
-+	KUNIT_EXPECT_FALSE(test, pm_runtime_suspended(supplier));
-+
-+	expiry2 = pm_runtime_autosuspend_expiration(supplier);
-+	KUNIT_EXPECT_NE(test, 0, expiry2);
-+	/* The consumer's last_busy time should have bumped up the supplier's expiration. */
-+	KUNIT_EXPECT_GT(test, expiry2, expiry1);
-+}
-+
- static struct kunit_case pm_runtime_test_cases[] = {
- 	KUNIT_CASE(pm_runtime_depth_test),
- 	KUNIT_CASE(pm_runtime_already_suspended_test),
-@@ -293,6 +390,8 @@ static struct kunit_case pm_runtime_test_cases[] = {
- 	KUNIT_CASE(pm_runtime_error_test),
- 	KUNIT_CASE(pm_runtime_probe_active_test),
- 	KUNIT_CASE(pm_runtime_supplier_suspend_test),
-+	KUNIT_CASE(pm_runtime_parent_last_used_test),
-+	KUNIT_CASE(pm_runtime_supplier_last_used_test),
- 	{}
- };
+ /**
+  * pm_runtime_release_supplier - Drop references to device link's supplier.
+  * @link: Target device link.
+@@ -348,6 +364,7 @@ static void __rpm_put_suppliers(struct device *dev, bool try_to_suspend)
+ 		if (!device_link_test(link, DL_FLAG_PM_RUNTIME))
+ 			continue;
+ 
++		rpm_propagate_last_busy(dev, link->supplier);
+ 		pm_runtime_release_supplier(link);
+ 		if (try_to_suspend)
+ 			pm_request_idle(link->supplier);
+@@ -710,6 +727,8 @@ static int rpm_suspend(struct device *dev, int rpmflags)
+ 
+ 	if (dev->parent) {
+ 		parent = dev->parent;
++		if (!parent->power.ignore_children)
++			rpm_propagate_last_busy(dev, parent);
+ 		atomic_add_unless(&parent->power.child_count, -1, 0);
+ 	}
+ 	wake_up_all(&dev->power.wait_queue);
+@@ -1368,8 +1387,10 @@ int __pm_runtime_set_status(struct device *dev, unsigned int status)
+ 		goto out_set;
+ 
+ 	if (status == RPM_SUSPENDED) {
+-		atomic_add_unless(&parent->power.child_count, -1, 0);
+ 		notify_parent = !parent->power.ignore_children;
++		if (notify_parent)
++			rpm_propagate_last_busy(dev, parent);
++		atomic_add_unless(&parent->power.child_count, -1, 0);
+ 	} else {
+ 		spin_lock_nested(&parent->power.lock, SINGLE_DEPTH_NESTING);
  
 -- 
 2.56.0.398.g882cbad275-goog
