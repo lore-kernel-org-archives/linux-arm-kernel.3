@@ -2,77 +2,77 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3DC2606D802
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 13:26:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40A9E606D814
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 13:26:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ol3m7wUL;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=U8gU7w4a
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uGsw6S7K;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0H+64/ST
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=4tPenR+/9h0LCzZJprU/jbaqrKPBMlOXgrDY4zMH4eg=; b=ol3m7wULRzheSlIMQ/E999DYyR
-	O5Io683+cf21WQ2aVQD1cS5zyjnqd5STlwiBph4ZSKuB7dIbdk53teTJOd41/2qO+OKtIm+N6fK8S
-	894Cx64OHd3pRP4BsFbsliOxrHDvDTjr+VC/yuF15zLcFYSTULGx2c+wVYyCRGQ2Hme+IR3AE2zYx
-	pMS0mpHzDwi7mrnZa7IVKPofmOYC2kW2hX6Rq7EznR3mx0sYLPRJSt0o/hobJBG+lwNRFVCFaPrt0
-	DDnhQBqvmyJmdKvVfvKzcsEwwmiKDCU8EUIaHNkbMd8xszoIf6DgAgxeyx2k8fUVTDk1bMlnHebbh
-	X/Dz/dNQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=m14hYTJ7sImfdrXTR6Vi6PKPRVQE6sf9x/T+B5eWk1U=; b=uGsw6S7Ky1TOdY
+	esVvG9ZWqS7cMW1MIPiRcoIHDTUxaA5oYer2qooVSkVMIGpFNjziaENqkFxUgGa8xRQkKHibo/i3H
+	vhJjytGksgIY0XsHWwYyckIMo6snqfTV340BjDqDUeeUjyrJdRe/84GtN+Ku5OD9bbVFVSkK614Jc
+	UQHzw+pyb1hYP/umoQDMkeEtjjlelXBNs3hjuqyoUnshrLWPmco2iTeWSJrH7dPl9WBAAnKsczJi7
+	/9z1qnb+17i1JTHe1IXs5VrVyWDhPDGYuFMtTXoxjcfO1tLT5lSMDDd8xBhm8fqPCLQanJq3y6kDd
+	5zSD2KXWaLZXDHudbASQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOEWd-00000002Xjk-0iiq;
-	Tue, 03 Nov 2026 13:26:07 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1xOEWe-00000002Xlb-2Aks;
+	Tue, 03 Nov 2026 13:26:08 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOEWa-00000002Xi0-3brc
+	id 1xOEWc-00000002Xi9-1Z02
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 13:26:06 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4a2153c8525so28376345e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 05:26:01 -0800 (PST)
+	Tue, 03 Nov 2026 13:26:07 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4a20a37703bso33261215e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 05:26:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793712360; x=1794317160; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4tPenR+/9h0LCzZJprU/jbaqrKPBMlOXgrDY4zMH4eg=;
-        b=U8gU7w4akXjRYJ96WBEwsmXSvIQzkEk6fz+ZoqST2VfyRcPemqjpJZyQSa4SvZYmGM
-         bCGi9zVuU666kmmPVzMOFc5LAjI6DKOTw2EdDu7f92QFHXwJ1i4ekhR8+Es6Igu2QRyQ
-         L80aPGyfDhDddn/yTYPBDepsQkbp5c1YgbG16n7S4Fw3eJGZCbMq29IYq/oo+r93FYif
-         a4Iz9AAP1btdVrYkhNHOexLnNGwY55F/I6wK5+KdqMo7FtriSfIol54L6uVGjykDJBKz
-         mYYslVbxP3/toFw4bla2levco6gdOlna0z+SyrFoN1sUJxmN4i8pxTDLjMYfnmY7XxpX
-         0F+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793712360; x=1794317160;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1793712364; x=1794317164; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=4tPenR+/9h0LCzZJprU/jbaqrKPBMlOXgrDY4zMH4eg=;
-        b=OKvHhuvMfeBcPT0yd0MEyeX747GeZ6B163bhUDhrTgIQZwQ61MJZucUbLRSZGhQsm5
-         vCq5JOePjnOTyFB9tnhOM7SzZqTZCkonPV4HvYuhLb5Aqvzt0J6gbp8X8ThlLVZevAEe
-         VxuXCAK7pQ11rllNCSJw/6bimjsnzNGBbMtzp9W6u/5xWJ9fpnMKT3vv8uOcb6E+K6zr
-         norJf466bNeBcRWA5SzUEY6isS6IZQGjmDgWxMBz6vthCfeoHR5GpFwuuAeK/Z8kf20m
-         kaIwFUA5C/90fJdaENWg57uh7frdxq6hRJpH6yRG/fz2jMntlVw9m2B5PB0WInSluyJy
-         GIww==
-X-Forwarded-Encrypted: i=1; AKwUvBzVm9loWM6ZA6CekjE2YQuxeqHxrBDFFWh3Slg9+QE/kCJG/ehVP249/5rbH++7xnb8TPJ6LQQYq90dhLicaV+8@lists.infradead.org
-X-Gm-Message-State: APuU4Z/qOFMrqY8JH3mWjSEboDQU5HLNm9x88gCs3l8G58VkDMexjSV7
-	XRMU1MBpkbsG2fU2vP/hA+NYoNf50YSGZwX8g8BfK4TCcPlJ3+4OlOH9
-X-Gm-Gg: AYBFou0JxO5QOz/WpOid1GWqNO4c1JOLGT3bn46fvMoOcTi7H/mvGf79Wc6eXzwchbO
-	QeZeoHk7zMRwWfif7Cu4NV2uNJdJ68IFhYlYSJoBTORqcntNRz1yaDSFQxbeynD+TFLlVQpqxCd
-	dhzjr7n6LwyLUCGutOjQVljKVTa0OqB2UOgCR5MLbKNyfjFT6JoN9xNF450xmLPN0O3tbF/jyt2
-	dhjIAbZV7mAboiGmnwcM4Rsfl8/iIg1NqYxvtW6Hxb8l5Jm1MEG4Dj5R4HhiKdtEO3m/c+GSaH7
-	JWtnBbDHh+MoEhBeX1nTEJf85BGksNjtZcyH+/9J6+mSnu2UZwsyI0/pB2yuDkui8ZYFQpb+s3S
-	Rz+5JA4wC51nWo1yijfaxxBJxi2JS/MscTh5ygXMEzXEF7G13f+BD0VHdS478Ydn8dOOdLjHV8+
-	ct4i05yr+jqP/uq/87kgenenMNqOT+6YB9bpa3pbV4IVvfDt96IgmeK0byZUOLwx8mY+CL0osSs
-	cKeQBp7LamHVW7vYbjwDDHnTSq0sL730Wv1FBAHi3KegwkNm71AnuMFVxxoYBk7jMjHPGCeUfSt
-	UFv26w4xZtir1+rQukStQfSkJzDb/KdeUEUJRySvbWUZXEfnZj8nc3kJjnbHQ7KuDe681kAahQj
-	bInn9ehi/NRlyA6C84IklNfk=
-X-Received: by 2002:a05:600c:a00b:b0:4a7:b304:253e with SMTP id 5b1f17b1804b1-4ac1765d8abmr303491105e9.22.1793712360411;
-        Tue, 03 Nov 2026 05:26:00 -0800 (PST)
+        bh=m14hYTJ7sImfdrXTR6Vi6PKPRVQE6sf9x/T+B5eWk1U=;
+        b=0H+64/STZMyoOxz84zKkkVJxRYuruKeSi6NE2OOJ1o6g0YiGihdPGCUtAtFw7crc5O
+         yeiqVzt0yh70jwt7+5FHEnlTZ1asRXWLtXNAb4wy0g6F8C278F5yQwA5OuHkqExQdsci
+         OOChMFhW8fj1DfE3vk0EmZxbhrCUt59lWJwkD6ijh9RLzDZi1LmkIQAX2gER/XIJL5F2
+         vkP1mvwI27EuRITnuwnhNuRAlXXnCLMS5oJ6LogpPxrzlY2clnMiEQOEeBA/08jPQFo0
+         OGi6UCORLDWFqdDxDi6sy8uNKjN2SlpJSGTCsFkHjPb//XN6uqx8DgLlKJf8ZPW8atq3
+         cRWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793712364; x=1794317164;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=m14hYTJ7sImfdrXTR6Vi6PKPRVQE6sf9x/T+B5eWk1U=;
+        b=URr3/yW3p0vzM3Sb584jsrdSJ2AGeVmaGq9mSHSjEWdRbTiJnAwx2RUrP34lrtO1Kq
+         cmREiaMYA/KKfA0+6AL3fGjFsGICQWDrB0ch4h3EfYhFEZoAqJg+dKuu2wF1ovkvvkwd
+         1No5TNaJb/Up3boJjIapJg7azaBkSx6LMCNdqad1qFhRIOJ3NGMVv2GIsrWpt4diOpAI
+         XlQS0aDHjkkk9Y+0MfhVIfdNwaRkiZbSqdpa1nzdV65CNQnpprNjJYBmha8At+kxv+Jh
+         5YKNYQD1Ok6XXYfb8rS1vG7WxOD6ABNOZkXwjtYYii+KiUPf/1m5tF2pmXltAIJssZvI
+         c2hA==
+X-Forwarded-Encrypted: i=1; AKwUvBxWUKwO/+o7D9dcOsr+uxdtZsb7Fx0JSbnGF+wv/Bb25pMmXVI7t8TSXS8hj6TrO5ZbL9orI9vpeBbap5HIxD2D@lists.infradead.org
+X-Gm-Message-State: APuU4Z9tha8cZ9Qu+zdvqJIcYQkovbPRTbLtB9QlKqHS4tipud8wA45E
+	KZIpzn7QGKuLWjqRG0nDgNNwy0DW+VPWw3TnmcSqTAfkW3wTtD9Nyrvg
+X-Gm-Gg: AYBFou0stPiV+E3h1xLQ5ZVKMlwyezLbC4mEpPgoLWpZRbA3X6w7Pa4WEvdVi1yKH3I
+	CnHhcAGNWladxd/dWZkuWA3rZZ0Lg7oUFFFvKtjVfcy4NYaeJteZfk8cMXLEYUl1bOHHtGDpE7O
+	QzF/JBXuODqYAveXJOJLaJ585fLjO/vItJeRqW1Zon4K+zqxA1IYvp5CbHF/qXgoKtZr8PbIJm+
+	MIEmmQO5osftPbEKmz4RBxo9xpnjxB9S/Ls8KBJLcIb4VUBiE5vKn6+fTMbxUi+7VE9wtJY/vyX
+	zPHqYXkcrFjN3VSYxc2KlcxVrJIzK5luQX8YWkpEUW7Si7YMNXUDiXioHBdpNbAirRg60bFSYCi
+	wRB3ubbWOD4xmulI6bScEp1q86ySNZQTVBmTNqHWEEMRU5VRB5v+Ep4ZqKN84mo708xYNly0a6p
+	IToaVYN1fFAitaSRdY/ktma8w1lOGLbuhCzA3Kc1qd1jqAfxPRpLTcKDDq/PQxiu5EJu80DsAwX
+	AEDdw1YQ0+SA4F4NQrCQVW/Nc9SW6ubmGFGZV4zVsMEwU4jwVOOaY1GJwhvwbkQMv52FhLg1xhl
+	0FCP/VEwh8TNmlnkXuSARmDB5AEI0GJv/trSYqpR065JTNR8+lnctYy2m2ouyu6J57Rzd+amRwq
+	hVw==
+X-Received: by 2002:a05:600c:b8a:b0:4ab:c447:49df with SMTP id 5b1f17b1804b1-4ac182dca8emr289609215e9.23.1793712364145;
+        Tue, 03 Nov 2026 05:26:04 -0800 (PST)
 Received: from kreach.multipass (nat44-21-238.net.ruhr-uni-bochum.de. [134.147.21.238])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b2a82cebc1sm84725725e9.1.2026.11.03.05.25.58
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b2a82cebc1sm84725725e9.1.2026.11.03.05.26.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Nov 2026 05:25:59 -0800 (PST)
+        Tue, 03 Nov 2026 05:26:03 -0800 (PST)
 From: Jude Gyimah <jude.gyimah87@gmail.com>
 To: lgirdwood@gmail.com,
 	broonie@kernel.org,
@@ -83,16 +83,18 @@ Cc: linux-sound@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jude Gyimah <jude.gyimah87@gmail.com>
-Subject: [PATCH 0/5] ASoC: rockchip: fix missing REGMAP_MMIO dependencies
-Date: Tue,  3 Nov 2026 14:25:32 +0100
-Message-ID: <20261103132537.3717496-1-jude.gyimah87@gmail.com>
+Subject: [PATCH 3/5] ASoC: rockchip_pdm: select REGMAP_MMIO
+Date: Tue,  3 Nov 2026 14:25:35 +0100
+Message-ID: <20261103132537.3717496-4-jude.gyimah87@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261103132537.3717496-1-jude.gyimah87@gmail.com>
+References: <20261103132537.3717496-1-jude.gyimah87@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_052604_922815_923DCDC8 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20261103_052606_447421_F5F00E7D 
+X-CRM114-Status: GOOD (  12.64  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,43 +108,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Each of these drivers can be built into vmlinux while the code
-providing a symbol it calls is a module, which fails to link.  The
-same shape in 5 drivers, so they are here as one series.
+rockchip_pdm calls __devm_regmap_init_mmio_clk, which
+drivers/base/regmap/regmap-mmio.c provides under REGMAP_MMIO.
 
-Affected: rockchip_i2s, rockchip_i2s_tdm, rockchip_pdm, rockchip_sai,
-rockchip_spdif.
+  rockchip_pdm.c:(.text+0xef4): undefined reference to
+    `__devm_regmap_init_mmio_clk'
 
-The fix is a select rather than a depends on: the providers have no
-prompt of their own and are only ever enabled by a select, so a
-depends on would leave these drivers unselectable.
+The driver can be built into vmlinux while REGMAP_MMIO is a module, in
+which case the symbol is not there at link time.
 
-Each was reproduced on v7.3, x86_64, by a vmlinux link that failed on
-the named symbol, and each links once the select is added.
+Select rather than depend on: REGMAP_MMIO has no prompt of its own and is
+only ever enabled by a select, so a depends on would leave
+SND_SOC_ROCKCHIP_PDM unselectable.
+
+Reproduced on v7.3, x86_64, with CONFIG_SND_SOC_ROCKCHIP_PDM=y and
+CONFIG_REGMAP_MMIO=m.
 
 Found with kreach, a static check that compares what Kconfig allows
 against the symbols the compiled objects actually reference.
 
-The checker is at https://github.com/JGyimah/kreach, and the
-reproducer configuration for each finding is published with it
-under results/.
+Fixes: fc05a5b22253 ("ASoC: rockchip: add support for pdm controller")
+Signed-off-by: Jude Gyimah <jude.gyimah87@gmail.com>
+---
+ sound/soc/rockchip/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-Jude Gyimah (5):
-  ASoC: rockchip_i2s: select REGMAP_MMIO
-  ASoC: rockchip_i2s_tdm: select REGMAP_MMIO
-  ASoC: rockchip_pdm: select REGMAP_MMIO
-  ASoC: rockchip_sai: select REGMAP_MMIO
-  ASoC: rockchip_spdif: select REGMAP_MMIO
-
- sound/soc/rockchip/Kconfig | 5 +++++
- 1 file changed, 5 insertions(+)
-
+diff --git a/sound/soc/rockchip/Kconfig b/sound/soc/rockchip/Kconfig
+index 0f8ef6868356..e0ded1fa4da5 100644
+--- a/sound/soc/rockchip/Kconfig
++++ b/sound/soc/rockchip/Kconfig
+@@ -25,6 +25,7 @@ config SND_SOC_ROCKCHIP_I2S_TDM
+ 
+ config SND_SOC_ROCKCHIP_PDM
+ 	tristate "Rockchip PDM Controller Driver"
++	select REGMAP_MMIO
+ 	select SND_SOC_GENERIC_DMAENGINE_PCM
+ 	select RATIONAL
+ 	help
 -- 
 2.43.0
 
