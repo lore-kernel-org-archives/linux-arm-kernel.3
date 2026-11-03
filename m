@@ -2,76 +2,98 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 982CC606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 11:53:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 059C0606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 11:55:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZKbceFAr;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EQEWA0Ld
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1yPJ7pzu;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=T/zDPAgz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=QX4vvRkpVr0B80U59OYR0KCNPvp4g1VB7b3k3yNPpZ4=; b=ZKbceFArZyPpE9
-	SWKeaZHmixCvaQnOBs2mo7IJf0ZIgJ1EvmdaKf90vrHaewcpQblMrZVozonIxf7cML8070wRtdrDM
-	M2L7RtxYSaeDuCDI+EwAAHz6uL0eBIi0Y4UlwuPST3u8j/BEqodGZP2/9cNZ5R81lGK+CUxsbRgdt
-	mrpihRGyi7sBsYVZaZOeEid5eUY+5VR/rEF0AUtmnLV5+ODYrlTbOeqIAEaScxIby8J9I427e0wl8
-	Ny/7E2N6DWRioJCRQcCh7w4OzB0GyOhBCyevKIR3RqHkyst7t6P7ddxq7S7sPi70DH91zRtOYgM/3
-	rHRafWj9EGAcx2EjjLtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=HCorhxQxJT3W15/Ol75aTGcFGkkBMt7oxlNw+Tltp1E=; b=1yPJ7pzuT0r77OXNmH37fuAkBC
+	XuEWDbPGi9jBcjfadJUN6TAtdew806t4mfIh6gOTiY0lYlt7lnh3Gefp+h9axpFBbNIgHd7NRfqvL
+	icz3MChtG8nsW7iEvj50oczQ8sSIB9fMPlLjWYOImYc0FNBT037Tm6O04mWslE4D0TR4hADKtYZUf
+	tP77ZOC7wO8IEUHgnBRCXTyTtPb0gvTOji0tdMyAs6AGWocbSF+dx0KNi5rR5Y3oXr13Ay8JEw9l8
+	+oqGkmTzcdvLe7fkSpZebB2TQfHdTrMMWwVqYdqfmlnM3tBaZnW520+/ApOzA535/0t3HTBAYnPz+
+	NC03kTYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOD4n-00000002Hh6-16UQ;
-	Tue, 03 Nov 2026 11:53:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xOD74-00000002IBo-1iwi;
+	Tue, 03 Nov 2026 11:55:38 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOD4l-00000002Hgy-3yK7
+	id 1xOD71-00000002IB3-2esq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 11:53:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3B3D7600CB;
-	Tue,  3 Nov 2026 11:53:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA6C11F000C1;
-	Tue,  3 Nov 2026 11:53:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793706794;
-	bh=QX4vvRkpVr0B80U59OYR0KCNPvp4g1VB7b3k3yNPpZ4=;
-	h=From:To:In-Reply-To:References:Subject:Date;
-	b=EQEWA0LdkL+WaYQuTgDi2I+F52yCDuKksk7JPbpsk/R0L+yg54REe7AoH5MMYM3Ap
-	 kMAYH3C5cf50p+SarjWctte1bPZrro2QfJ4kydJi0HrcrmIqZfbsLaluco1QzlQCtK
-	 NNbEJ537LLA8sRlESlgKqbxfp/EOenCSI7SU+BQVPNlrK9Pxi8H8G74ylQKjCi638S
-	 suEWo+Ix945UhL/yNsaq64qPhBuxKDWOD6NP5Q4XRby6P/8GFipmaEU1e7A7iC7qSq
-	 W9JEiq2aub/rdA9B5GqQWPECRA6b6ED4OvdJAsZdqIJBrOTIAg7VYW9RxIVFaxHsWI
-	 D9EttiZ0arnIw==
-Received: from traversing.sirena.org.uk (localhost [IPv6:::1])
-	by traversing.sirena.org.uk (Postfix) with ESMTP id 5B780253A5DF;
-	Tue, 03 Nov 2026 11:53:13 +0000 (GMT)
-From: Mark Brown <broonie@kernel.org>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Patrice Chotard <patrice.chotard@foss.st.com>, Felix Gu <ustc.gu@gmail.com>, 
- Atsushi Nemoto <atsushi.nemoto@sord.co.jp>, linux-spi@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Jiale Yao <yaojiale02@163.com>
-In-Reply-To: <20261019084443.1824122-1-yaojiale02@163.com>
-References: <20261019084443.1824122-1-yaojiale02@163.com>
-Subject: Re: [PATCH 0/2] spi: handle runtime resume failures
-Message-Id: <179365918672.2186205.4416835232546842511.b4-ty@b4>
-Date: Mon, 02 Nov 2026 22:39:46 +0000
+	Tue, 03 Nov 2026 11:55:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793706935; x=1825242935;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=NRlGTsFdID6TOhr7uHXdva//9pjtlPak/4evBt26tjw=;
+  b=T/zDPAgzuEFD59j2H+Sgu94i7H8U26fZpKFi/mkdTUOyCM8ppp+TE9Uk
+   ggfFDmdQJmH49gQB6KyhdPLznJdP+QU7zXzuJpc940liIvJgbwsb3ny2T
+   TxpxOTkUug8+kpvmxGMtkEB7LTlqfvnljcd+l7YQ72tDpU+STOpcyUT2b
+   j4dupaAr/mSPsjCZJtkgdLgPGL8hpSgL6ZxOg7EY6/VPWORl4EfM55+lc
+   ZMNVY72Tv2BFmqAHiUKLaL1QuH2NyP1A0mlibe5i6TEgenhysisX9+C7Q
+   /V8pMLtCKHcaWoJb+5U9zZVF0QQiC2veL/uyOEppPfXvtdt/ipM/H5Yum
+   g==;
+X-CSE-ConnectionGUID: ZOhM/BGnSa+4Yc9MlhAKRg==
+X-CSE-MsgGUID: KcDp6BBGR2mNZc60TZgH0Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11954"; a="2454761"
+X-IronPort-AV: E=Sophos;i="6.27,193,1787036400"; 
+   d="scan'208";a="2454761"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 03:55:34 -0800
+X-CSE-ConnectionGUID: UXG0LlmJSGON8WP14xs+zg==
+X-CSE-MsgGUID: /usHt9haTsq5iys1QJ0A4g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,193,1787036400"; 
+   d="scan'208";a="6265075"
+Received: from ijarvine-desk1.ger.corp.intel.com (HELO localhost) ([10.245.245.179])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 03:55:25 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Tue, 3 Nov 2026 13:55:20 +0200 (EET)
+To: James Hilliard <james.hilliard1@gmail.com>
+cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+    Jiri Slaby <jirislaby@kernel.org>, Raul E Rangel <rrangel@chromium.org>, 
+    Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+    Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+    Tony Lindgren <tony@atomide.com>, 
+    Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+    Richard Genoud <richard.genoud@bootlin.com>, 
+    Nicolas Ferre <nicolas.ferre@microchip.com>, 
+    Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+    Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+    Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+    =?ISO-8859-15?Q?Pali_Roh=E1r?= <pali@kernel.org>, 
+    Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+    Pengutronix Kernel Team <kernel@pengutronix.de>, 
+    Fabio Estevam <festevam@gmail.com>, 
+    "Maciej W. Rozycki" <macro@orcam.me.uk>, Timur Tabi <timur@kernel.org>, 
+    Peter Ujfalusi <peter.ujfalusi@ti.com>, 
+    Vignesh Raghavendra <vigneshr@ti.com>, 
+    Patrice Chotard <patrice.chotard@foss.st.com>, 
+    LKML <linux-kernel@vger.kernel.org>, 
+    linux-serial <linux-serial@vger.kernel.org>, 
+    linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+    linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH v9 3/8] serial: 8250_omap: serialize RX DMA completion
+ and flushing
+In-Reply-To: <20261102-submit-serial-8250-dma-cancel-v1-v9-3-9159caade148@gmail.com>
+Message-ID: <a95c92c6-afe3-52e3-c320-6d7ccd357965@linux.intel.com>
+References: <20261102-submit-serial-8250-dma-cancel-v1-v9-0-9159caade148@gmail.com> <20261102-submit-serial-8250-dma-cancel-v1-v9-3-9159caade148@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1504; i=broonie@kernel.org;
- h=from:subject:message-id; bh=lIzAZG4+GOPocoiDdMsg4lKiIR+1ubBdn9tppcCIBMA=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJentZ8vFpbfsnaPT+/fJ/i+rLa++T8CZyf9Nj6N955O
- OnCogzBBx2lLAxiXAyyYooscVncL+tLXq/hO7iwDWYOKxPIEAYuTgGYSB8nI8Nu9ZRFHBNLQrd3
- JEvO1ere9SHpX4bP2k+vFX6Uubz5ofSbkWH5x4V7Pj/9xHH17q7sGXErCpkjC0u2b13wb8Nj3Wt
- HPsXyAgA=
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=US-ASCII
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261103_035535_697936_67BD589D 
+X-CRM114-Status: GOOD (  20.94  )
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,52 +104,108 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DATE_IN_PAST_12_24,
-	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, 19 Oct 2026 16:44:41 +0800, Jiale Yao wrote:
-> spi: handle runtime resume failures
+On Mon, 2 Nov 2026, James Hilliard wrote:
+
+> Moving RX DMA locking out of __dma_rx_do_complete() left the DMA
+> completion callback calling it without rx_dma_lock. Shutdown and runtime
+> suspend flush RX under rx_dma_lock but without the port lock, allowing
+> these paths to overlap the callback's buffer accounting and flip-buffer
+> insertion. RX submission and UART interrupt handling also require the
+> port lock.
 > 
-> The STM32 OSPI remove path and the TI QSPI clock setup helper ignore
-> pm_runtime_resume_and_get() failures. A failed runtime resume leaves the
-> controller unavailable, so following register accesses are unsafe and a
-> later runtime PM put can be unmatched.
+> Take rx_dma_lock inside the port lock in the completion callback. Hold
+> the port lock around the shutdown and runtime-suspend flushes, matching
+> the existing interrupt-path lock order. Assert both locks in the common
+> completion helper and the port lock at the flush entry point.
 > 
-> [...]
+> Fixes: 789898416749 ("serial: 8250: 8250_omap: Move locking out from __dma_rx_do_complete()")
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> ---
+>  drivers/tty/serial/8250/8250_omap.c | 18 ++++++++++++++----
+>  1 file changed, 14 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/tty/serial/8250/8250_omap.c b/drivers/tty/serial/8250/8250_omap.c
+> index b6f108d34854..322403cec2de 100644
+> --- a/drivers/tty/serial/8250/8250_omap.c
+> +++ b/drivers/tty/serial/8250/8250_omap.c
+> @@ -771,8 +771,10 @@ static void omap_8250_shutdown(struct uart_port *port)
+>  	guard(serial8250_rpm)(up);
+>  
+>  	flush_work(&priv->qos_work);
+> -	if (up->dma)
+> +	if (up->dma) {
+> +		guard(uart_port_lock_irq)(port);
+>  		omap_8250_rx_dma_flush(up);
+> +	}
+>  
+>  	serial_out(up, UART_OMAP_WER, 0);
+>  	if (priv->habit & UART_HAS_EFR2)
+> @@ -898,7 +900,7 @@ static int omap8250_rs485_config(struct uart_port *port,
+>  #ifdef CONFIG_SERIAL_8250_DMA
+>  static int omap_8250_rx_dma(struct uart_8250_port *p);
+>  
+> -/* Must be called while priv->rx_dma_lock is held */
+> +/* Must be called with the port lock and priv->rx_dma_lock held. */
 
-Applied to
+Nit, following kerneldoc's style, this would start with Context: (you 
+don't need to make it full kerneldoc but it is useful to follow the kernel 
+doc style where possible).
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.5
+>  static void __dma_rx_do_complete(struct uart_8250_port *p)
+>  {
+>  	struct uart_8250_dma    *dma = p->dma;
+> @@ -911,6 +913,9 @@ static void __dma_rx_do_complete(struct uart_8250_port *p)
+>  	int			ret;
+>  	u32			reg;
+>  
+> +	lockdep_assert_held_once(&p->port.lock);
+> +	lockdep_assert_held_once(&priv->rx_dma_lock);
+> +
+>  	if (!dma->rx_running)
+>  		goto out;
+>  
+> @@ -977,7 +982,8 @@ static void __dma_rx_complete(void *param)
+>  	if (dmaengine_tx_status(dma->rxchan, dma->rx_cookie, &state) != DMA_COMPLETE)
+>  		return;
+>  
+> -	__dma_rx_do_complete(p);
+> +	scoped_guard(spinlock, &priv->rx_dma_lock)
+> +		__dma_rx_do_complete(p);
+>  	if (priv->throttled)
+>  		return;
+>  
+> @@ -995,6 +1001,8 @@ static void omap_8250_rx_dma_flush(struct uart_8250_port *p)
+>  	unsigned long		flags;
+>  	int ret;
+>  
+> +	lockdep_assert_held_once(&p->port.lock);
+> +
+>  	spin_lock_irqsave(&priv->rx_dma_lock, flags);
+>  
+>  	if (!dma->rx_running) {
+> @@ -1811,8 +1819,10 @@ static int omap8250_runtime_suspend(struct device *dev)
+>  		}
+>  	}
+>  
+> -	if (up && up->dma && up->dma->rxchan)
+> +	if (up && up->dma && up->dma->rxchan) {
+> +		guard(uart_port_lock_irqsave)(&up->port);
+>  		omap_8250_rx_dma_flush(up);
+> +	}
+>  
+>  	priv->latency = PM_QOS_CPU_LATENCY_DEFAULT_VALUE;
+>  	schedule_work(&priv->qos_work);
+> 
+> 
 
-Thanks!
-
-[1/2] spi: stm32-ospi: handle runtime resume failure in remove
-      https://git.kernel.org/broonie/spi/c/e359991c180a
-[2/2] spi: ti-qspi: handle setup clock runtime resume failure
-      https://git.kernel.org/broonie/spi/c/b21192833996
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+-- 
+ i.
 
 
