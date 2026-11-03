@@ -2,68 +2,139 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1DA4606A32E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 12:51:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B9E4606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 12:53:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uJP/RWaD;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ib3z5+Md
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HOsL6aDn;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=AUQhvntD
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=aYL/i0YuscUEzD0VCErR+Tz3KdHDJR7ZwPlCYlD62po=; b=uJP/RWaDMrSwH73HtRqzlYpqbt
-	vMLfgW7LUA85N0yEY0GqDzUPuGMCfBSX1Yp8CGMVfiBcMkNeG6XUvN1/rRyRhhz+hZdidUs7KKHmT
-	48g9rEMgtQZdgKXmS0Gq8osLBVwAOcXlLu4t7E4CKJT+tHuE3Oo00HPJSfNFd5yn1G2voQKoi2pM2
-	O45PVeFQX4vdKjkcMTE9sTMJyI48MnSGQZLPv211qu9YW/Vqw/gw8IhE2XC1AIrkIzMVynqndKQMj
-	v/b0WN7s1o4mcVZKub3YjoZSjAMFP+JE20LjGP1JK24f5FCgeGM11DZWMDBKZBfB+t2QMMXYyjGE4
-	FMxRk1OA==;
+	bh=gB7e03UGaZ49cCEikrz2d8FRUP002vouLdebNACkA0Y=; b=HOsL6aDn1iuLMO6e1cKSPqzVLm
+	JsyWeB8fgWaJ1uKCLhCp/JOr5OmWNCFI9QAIEgl7IPX/qAbRNPvSYkQkNa+zJF9MHIysCHlpsR1I4
+	PJjHuAKnLvwcg1IC9CU4evWQAKiy85l6wHAxsJ80O9tMgav4QAy+J3DiDfXxdgDaveQucbHzBTmWk
+	x64FVTJkOiVAf/yrFj++vATU0gwGGpgMnX62u9sIMCxZHkqMAbjLK/cvWw56706ips1sb7sgs520m
+	xFEUPZOaOqvqvVUZobLPqKeslBEUHheZ0uFw9nFDrioK0t2xirbXhciS0xw0DSVDWEmf0Mia9/9Gf
+	9yOH8f0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOCNe-000000028rg-07na;
-	Tue, 03 Nov 2026 11:08:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOE0c-00000002QMC-4BzN;
+	Tue, 03 Nov 2026 12:53:03 +0000
+Received: from mail-swedencentralazon11013008.outbound.protection.outlook.com ([52.101.83.8] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOCNd-000000028rP-362K;
-	Tue, 03 Nov 2026 11:08:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7BEBE421F1;
-	Tue,  3 Nov 2026 11:08:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AF051F000C1;
-	Tue,  3 Nov 2026 11:08:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793704121;
-	bh=aYL/i0YuscUEzD0VCErR+Tz3KdHDJR7ZwPlCYlD62po=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ib3z5+MdhkonNdwMiArvyjWg6RnzTYHc2pP/M44kZZ+O5Vr8BoPLiJPCfQFqyxVHW
-	 N1YYjgkSE9RJ5mkBYWF/Wkv2WqEyM8LwFzDLHiZyZXRwW9+lo5WtALZ12TX+bsotmk
-	 VYq5I9K/9tJovZW+Gaef777aWtvI04kR29BgdVYEOhbbEhxZcAYKpr7klaqi+IlgbX
-	 oVMX/g0apanLPeSaSllUbJBAuluobnHJgzD8bgoakxClpdDEdjGc+8oUhyweJURGZj
-	 59hulPiSobqluqW2m8XOZyAG+/hl6V9VWBDKI/B95hDZyuLjpSuLjprzGFeSH5r4V5
-	 lT7XCpm47J4/A==
-Date: Tue, 3 Nov 2026 12:08:38 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Caleb James DeLisle <cjd@cjdns.fr>
-Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com, 
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, chester.a.unal@arinc9.com, daniel@makrotopia.org, 
-	linux@armlinux.org.uk, arinc.unal@arinc9.com, Landen.Chao@mediatek.com, 
-	dqfext@gmail.com, sean.wang@mediatek.com, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, naseefkm@gmail.com, b.larsson@gmx.com
-Subject: Re: [PATCH v4 6/7] dt-bindings: net: dsa: mediatek,mt7530: add
- EcoNet EN751221 switches
-Message-ID: <20261103-soft-lyrical-squid-c5a108@quoll>
-References: <20261029184202.1859843-1-cjd@cjdns.fr>
- <20261029184202.1859843-7-cjd@cjdns.fr>
+	id 1xOE0a-00000002QLG-0hao
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Nov 2026 12:53:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iC2n9XabahahOs1M4H3MHvHO6rWOAl3N8TD+ZqP5cVLKoxMwWAo/MDckxo+E90L/MQacyI3JwXkuiO9NSMnxdLK+GHt5L9+bya1MN1KA6vKbx9LMQXaKVQzKq5JG8rjkrsRP0HFpStMHaN1FR/ng7OtdaNC3KrXW0Zm+J9rGAnVnq/2rfxmjF9KJjMRxhvwto2d5ubGh0rd0jY9QEHTT9jYj9AKZtky4BfuLap+rNsTJrqObX3iNC7mYkJlk0H9mPZxlYrsJMH9JmlhFapM2Bs7GXBRjhxQ2jvok0U0+aRIUObEd4rtx9lblkr9QsAndCuoVTaLPxJTgaMI6ddzX6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gB7e03UGaZ49cCEikrz2d8FRUP002vouLdebNACkA0Y=;
+ b=FrF0wtzNdFhGqW2TnOs3extLOTJrxsz+IayI3UVw4Ifo+qP+8vpLPqPJmKpzk3OqYeGXMku1yKYqYNNBDDHGkIu0u/iRfpnrgFqDJsskz2Gx9BTdEEFIyf83bip/6cDfqaU0+E37wi9k+gMSlpzjn/oQg4OVg1UVFaQIiiooK3ntr7wGcqIlp0Hcurq8opom3KSW0pnFrT8xIuPd7nn6HYCpu+6qN/Coo5vtLv0R7guCHAnoerIJqDI3JKjNx7L9J8A9a8nMCcx3GEWRlENy9YSNWtafj8Q56otZLNPurCJ5yF2dvio4gqEwZqnwNTJWWaIjpNnZjzddcfjw2BG9ng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gB7e03UGaZ49cCEikrz2d8FRUP002vouLdebNACkA0Y=;
+ b=AUQhvntD8pdXQoonQtnfEGczXZm3uUhTDws2Jqse54Tr5B6F7DTG/pmUgqRr6KXOWevE1PiJV7h8gSDmtgOdghBkdeh1ASF980NQPyBwXeFJvw7Jc8twzUtc/Ud0PmGk2tV/dZxZp3h9uZUXbB2MDia1YT92Epxv2AILHC/l8dCspg1c2En8X2E+a7ZY5pna4adlBwqDxMQajYWOsGHlEwyb69KUwy3DONA4AE5LyTc5KBep+nHd9aIyl8tO7/4XviokftxsBqE0RkSowPvSEpmTDj/BgQtF9rZKISPYIpLujwl24T7KYvPba5WfHMgGId0r/xpGUPEqqUio1Huehg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
+ (2603:10a6:150:32b::19) by MRWPR04MB12355.eurprd04.prod.outlook.com
+ (2603:10a6:501:82::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Tue, 3 Nov
+ 2026 12:52:54 +0000
+Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
+ ([fe80::a498:2b5a:cbdb:d6fa]) by GV2PR04MB12318.eurprd04.prod.outlook.com
+ ([fe80::a498:2b5a:cbdb:d6fa%3]) with mapi id 15.21.0569.011; Tue, 3 Nov 2026
+ 12:52:54 +0000
+Date: Tue, 3 Nov 2026 14:52:49 +0200
+From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+To: Francesco Dolcini <francesco.dolcini@toradex.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 0/2] arm64: dts: freescale: imx95-aquila: Keep DP_PWR
+ always enabled
+Message-ID: <aunY8rHDhs-04HmQ@vm>
+References: <20261103105323.2394012-1-francesco@dolcini.it>
+ <aunOT21BZmGkJQ25@vm>
+ <aunUon2a8W0mcele@francesco-nb>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aunUon2a8W0mcele@francesco-nb>
+X-ClientProxiedBy: FR4P281CA0400.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:cf::20) To GV2PR04MB12318.eurprd04.prod.outlook.com
+ (2603:10a6:150:32b::19)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261029184202.1859843-7-cjd@cjdns.fr>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB12318:EE_|MRWPR04MB12355:EE_
+X-MS-Office365-Filtering-Correlation-Id: 96338858-d61d-40ed-0c98-08df39a9605d
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|366016|7416014|376014|1800799024|261022105027099003|11063799006|261026140227099003|261026121527099003|261028144727099003|4143699003|22082099003|56012099006|10067099003|18002099003;
+X-Microsoft-Antispam-Message-Info: L1GwuBPZ0e03p2xVNmRoPw3fFRrsc7hsdF9P44UZqXjACkl+wfWVJzlWJRhkZtw1S0JxLz5Kzc8ykvfj2gKpN3rRoL284gaBLQzP70JFvZv1QyTbY14BJBT8D4oRY5tkVFHVk6NKiUpmHFOYkvmL3j7XzAu9053jt7Gl+4Q/WfLbLhEKBZ5tqoh2Uk0teXURhMHX0hnoZPvSSZ8Mgis2fEljiihb4LCGBe8Uu6UMxB18VUxL9/DpCB8UQFDCP2OgwCbWMZQxlp0uA8Vc5QzwL/b3Mz6d94Rp871xYgOXb4XqvRlKT/fcAwAwLuj6JlnbW3hSC9ZoCg5ye50bBCA6g0pnJkVRF1Nh6ruQINevza8x5612oLbfzNaxCRbwAiip3bH+/39Cj63iz8jPeLNwQewNG8/BGH0t8VAqZw5RoWTeeWesUeCgVTrMUCbAYcrSRJ9DAFqinlTwzWQ+yMg5CusCkRwxQmhv6brgU+fTXRXUV7vKWhXysNmAQEOs9Ppc+NHlIEZnp8J4QbNxV5j7tgbDKjbMJsnm83IHNec2pmO2tgzpyiWpNuJuRjbJ1Hsh9KHlzkdT6PHcaa0bHU+VW7EHpKTYPVDj3odd9vH0gdMarg/SD5Clnxkah5S+6UmGHiAlFsu1lQhFRLjHdiVtVizgRY6ldjoYE3vrRJrugXo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12318.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(366016)(7416014)(376014)(1800799024)(261022105027099003)(11063799006)(261026140227099003)(261026121527099003)(261028144727099003)(4143699003)(22082099003)(56012099006)(10067099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+NhnTOYPu1JaT9BJEUEV9KF7wCo21eraAtoOCJLYVr73J32Sls/sDlLcqdod?=
+ =?us-ascii?Q?DbJiaTejuFPEuiK/BbLhPrz6XedW1AM6GkDeGbbsx1Zu4vLtuB8pGJuwEy8c?=
+ =?us-ascii?Q?Z2k02Z8VIS5CWnItsl+X9HCOh7vjGjihQXZVOJXsM5nWGM48tMEocToBQrhm?=
+ =?us-ascii?Q?SvBDEXI+BpdRba1XmxpcDFO62nTGuRtFSr2kxKuj6oOYwJDDuNQxu6JuPdtQ?=
+ =?us-ascii?Q?6e2KjNEmnebaJq9+SjsYq9mJ4drQh6LMFU0CJBexGd0JkH6G4awxpw7Ue8ag?=
+ =?us-ascii?Q?0xIlu381ZHiO0g6i6xfFT3/ZIbRhVmBB6Mq8EU5kLTNDYFZNMkAc4Kr1qj2m?=
+ =?us-ascii?Q?yakvseezWwpZQQF9TpTdUwOLdSrSqGYE/I0fgQDr4ZELk4X/wlr1B/Dv6iYm?=
+ =?us-ascii?Q?s6nfh3wC7a6iT/pbGy4V4KdDYCzElS/lRC2gFemvtA1iVpC7JeQcVlbjL0kM?=
+ =?us-ascii?Q?UQdUxrPXJggUU8rqVOy/FurcOfsw448Qo9N/JSTlzVL9fvWI9XX3H/Viea/a?=
+ =?us-ascii?Q?t/B1L7DH0V+vTqj7493Eiob/bLMiE9bz7Vasjz+8xGpK5piJUhszgWL10DT4?=
+ =?us-ascii?Q?7PNteTBfCu6fy9DZGKJ42HG7pHfSW+Q8QD1D4fdOP8Rpo1AS7LzlV+N3ET1q?=
+ =?us-ascii?Q?dWo7WPp7oW247b14Q6wlqV7eNFt2TQAO2ywia0Cd7aoks98iCLdFw8LvksxN?=
+ =?us-ascii?Q?ZR6sPBX+0gU41NOlv2td0qEzwDaZ+BfgSg0JOVG1TVOb8SX7TatXiEzmZ+Zr?=
+ =?us-ascii?Q?N1iLKP3s+wUPpXNFlI/HAOjTNVrxiWeOU3KRPJO5ZbZrUPy5xfvAGxWZN4iS?=
+ =?us-ascii?Q?VZISDnTGDElWa4FHloElmXkxMYv4rax6LAKlJosInXtm5HghzTMIYdnllFP1?=
+ =?us-ascii?Q?b0UfmFJsOowcgWCsJT6hWuqfCot1n76xzDoZstpMignk7lD7LFVC1r4CnyEq?=
+ =?us-ascii?Q?NpXEwmi+QTpoWzzBXJW1q/GYbaKAIon7RyQskGFt1tAhinAtNr/Cn8ybYEJ4?=
+ =?us-ascii?Q?WWs1MKLY59u36D/6Z0oWat9EHJTS5dUagLoXnfyc4KBZFXAa3IOKvsfBi0qL?=
+ =?us-ascii?Q?NItF4mXJuH5S+NLzx+iqBdftscXPi2Up8TInzHX6rflFguN2E5vkTVmU37VR?=
+ =?us-ascii?Q?2cFc3YjdqKsTfFO92sDpXd6R5WB4I5Sb+/2wjJNexnKNqicd1s805VvIteip?=
+ =?us-ascii?Q?qTsAQF7weGRfZu8vY9CGGJ6izbxjRVQV9uzMAdCqnICoyiUTaSOrDGZMl9uw?=
+ =?us-ascii?Q?Uj5mPCTf6P7DmlJMh7p81EtOmJgo1hmWt3JlO0uOhateItABUARs6wB98rlp?=
+ =?us-ascii?Q?NoSHYhUd0xnJFnxblEOG3dhSF6kD6ZQcCemwLz5rRUM8g6Exc2mNCkajlgeI?=
+ =?us-ascii?Q?FXJpTGbmBcxGgBPJGHuemSw0E0poYs+MHLJVqnatyzocMNzPqa6EwKThRONU?=
+ =?us-ascii?Q?jiVkhzyi450Fn0USBifHCfkUi2U9dGn/NnpIFsM/NCFgLtifCShf5FdnM4RL?=
+ =?us-ascii?Q?OdtnY2jmSvdCQbVZumpbOCr2AR019GikwRb1zW6nnnJNOvrgqArGEw7lxuvQ?=
+ =?us-ascii?Q?DBOIqJD+zC1bTJBFrj1OruByX0wt6dUHB2BjZvIVICFJsh8dU8WOu343qf4b?=
+ =?us-ascii?Q?B3KBfkV6XUVdTwuvhhSQVEkN3GdESUbsVCbbJreBTIPsCQxurwFCCkhakGVM?=
+ =?us-ascii?Q?xb1Cx2KdsbaKDqwHYcqCrpc5CXJ7qj4B6hZPB7PEfpvXcXjPWRZyDvGiS7hE?=
+ =?us-ascii?Q?o8NI9p4MQjEQEWB5z/bYZcLqPc49HOI=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 96338858-d61d-40ed-0c98-08df39a9605d
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12318.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 12:52:53.9940
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sBREZoRDBDOrbR8tkQO3xRqwVzr4GYMDYTfTBgzKETc8ftdSvxGRBhLzG8NzcIm9upKf/pH5oipANl0zo/PI+w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR04MB12355
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261103_045300_214059_B79ADD8C 
+X-CRM114-Status: GOOD (  15.95  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,72 +145,35 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 29, 2026 at 06:42:01PM +0000, Caleb James DeLisle wrote:
-> The EcoNet EN751221 MIPS SoC integrates an MT7530 switch memory-mapped
-> in the SoC register space. It is similar to the econet,en7528-switch
-> except that ports 0..3 are 10/100 only, port 4 has a gigabit PHY, and
-> port 5 has no PHY, but is in some implementations connected to a
-> downstream MT7530 multi-chip module via a TRGMII link.
+On Tue, Nov 03, 2026 at 01:33:38PM +0100, Francesco Dolcini wrote:
+> On Tue, Nov 03, 2026 at 02:25:02PM +0200, Laurentiu Palcu wrote:
+> > Hi Francesco,
+> > 
+> > On Tue, Nov 03, 2026 at 11:53:14AM +0100, Francesco Dolcini wrote:
+> > > From: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > > 
+> > > DP_PWR on the DisplayPort connector powers active DP cables and
+> > > adapters, which do not work without it. Keep it always enabled, and mark
+> > > it boot-on so that the firmware, e.g. U-Boot, enables it at boot,
+> > 
+> > I believe this "mark it boot-on so that the firmware, e.g. U-Boot,
+> > enables it at boot" sentence is a bit misleading. AFAIK, u-boot does not
 > 
-> The downstream MT7530 is similar to the MT7621 multi-chip module and
-> has all gigabit ports.
+> It's not.
 > 
-> Add the econet,en751221-switch compatible with the same constraints as
-> the other built-in switches and also add the econet,en751221-gswitch
-> multi-chip-module switch whose port 6 is configured as a DSA link port.
-> 
-> Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
-> ---
->  .../bindings/net/dsa/mediatek,mt7530.yaml     | 43 ++++++++++++++++++-
->  1 file changed, 41 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
-> index f98b9113ad12..011c94ef9554 100644
-> --- a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
-> +++ b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
-> @@ -29,6 +29,12 @@ description: |
->    and the switch registers are directly mapped into SoC's memory map rather than
->    using MDIO. The DSA driver currently doesn't support MT7620 variants.
->  
-> +  EcoNet EN751221 SoCs have a memory mapped MT7530 with 3x 10/100 PHYs and 1x
-> +  gigabit PHY. Some EN751221 chips such as EN7513G and EN7526G have a multi-chip
-> +  module implementation of the MT7530 as well as the on-die switch. In these
-> +  packages, the multi-chip module is connected to port 5 of the on-die switch
-> +  via a TRGMII link and allows for 5 gigabit ports.
-> +
->    There is only the standalone version of MT7531.
->  
->    Port 5 on MT7530 supports various configurations:
-> @@ -109,6 +115,14 @@ properties:
->            Built-in switch of the EcoNet EN7528 SoC
->          const: econet,en7528-switch
->  
-> +      - description:
-> +          Built-in switch of EcoNet EN751221 SoC
+> We use OF_UPSTREAM, this is the single DT file that both U-Boot and
+> Linux (and maybe other projects) use.
 
-You can drop, pointless description, repeats the compatible.
+Thanks for clarifying.
 
-> +        const: econet,en751221-switch
-> +
-> +      - description:
-> +          Multi-chip module gigabit MT7530 in EN751221 SoC
-
-Keep it in one line with description. No need to inflate it even more.
-
-> +        const: econet,en751221-gswitch
-
-That's almost the same compatible, which makes me wonder if you describe
-the same device twice. Same device, same compatible.
-
-Best regards,
-Krzysztof
-
+-- 
+Thanks,
+Laurentiu
 
