@@ -2,46 +2,46 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55579606A333
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 21:30:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E932606A330
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 21:31:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eDJAf2/K;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P8TCBl3P
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zpwqJMvk;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E/4FEwyR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=vINjqp9pvya8axfuBwfbY8HnHtZqyY6Mf4sC6k4LGmg=; b=eDJAf2/K5b05hw
-	8cDgZyYH4lnqnmNcYaHQFJ1ue71r4EKRz/QxUSI8mn9cHysPFxMQbofqkHf0UVE21kKTt8ydh6Lil
-	PJfzzoGXyH3gqtQCIYmiDWAr+aDiO/GqNrLvdo18UlGK/iFI3WGLFZ86lrePINg8dNshUj4VyTH19
-	V8iDAQBplINvLH4ZIFOygfEwux5RQsqH/CpXa/Zk1zGtl/olJLxppxzYtCWLnX/e13LfO0qUW/GO6
-	jc4cqV794UXpEA44Ix8wNX3eemwSw4/H3Z/x8uhPXzfREtgJxSNvQeQyXluYoI4Rphz6NI14SkvX3
-	lSm+efXssJHLRG8HIgSg==;
+	List-Owner; bh=2iPUQpArd++dAugymdCYR9QxCbrAkyiSI3kkgK73EZ4=; b=zpwqJMvk7Unif4
+	IfaXxP8igzH9A7UIz7T3BqTQUBbRaj+SefRXqEjSKtosqO3pLMteDVbGI8nepnSLISKfLetLHMlNw
+	OwN9BLNvJLXyeEgugItkzZj3h0MjoktxM3zQHOyY5LGMjvuspKbM8+reuRAjuJdwKjgHhcQ1C76WS
+	PQZ/6qK3cMUea8VHc3lCRQi0Z/ZVdckfh2IABl7owGr+Z5+Y/0ZOgke+b8kDkdhhqdINdfeHLm9kt
+	OZyHN+j8lF5SoiWLLru2Lce/nKJDeKvj2ek3DQGGVzxqjtzPbw5ltJjf4c6AFVy8aTK9vIj8voEaa
+	eotlGZcGvBvAvJq1XzEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOM5l-00000003hhC-18K5;
-	Tue, 03 Nov 2026 21:30:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOM5s-00000003hlo-1wxx;
+	Tue, 03 Nov 2026 21:31:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOM5k-00000003hgW-3Q8B;
-	Tue, 03 Nov 2026 21:30:52 +0000
+	id 1xOM5r-00000003hlP-2pq1;
+	Tue, 03 Nov 2026 21:30:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9262D4028A;
-	Tue,  3 Nov 2026 21:30:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A288D1F000C1;
-	Tue,  3 Nov 2026 21:30:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6E79E41913;
+	Tue,  3 Nov 2026 21:30:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8076D1F000C1;
+	Tue,  3 Nov 2026 21:30:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793741452;
-	bh=vINjqp9pvya8axfuBwfbY8HnHtZqyY6Mf4sC6k4LGmg=;
+	s=k20260515; t=1793741459;
+	bh=2iPUQpArd++dAugymdCYR9QxCbrAkyiSI3kkgK73EZ4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=P8TCBl3Pz2aHOP6xh2Rc3AzoVGQ5WnQltf1OxLL5tXtVIuTDgv84J2srOCYwS6WXr
-	 OiZaqjb8Ovrzws3CEkiULS1Z6Pfe3iNbivm1QQYW8N21bkn3dl4jjmz6N4kR1yWWzx
-	 fJR48SqMzNLFGEOVbBvtIX4Rybu9g4zKBkc0zaaEgh+lmLYeumJjEE2MC+NE0Qye4B
-	 FebYcuGsGHuT+UuA2DAntL9BrxQPyRJ4F6UO1Okb3WjgGECYSVf33b7/ickptYIUJV
-	 4NgfdqxsUyGTxEqx0tT89jZkM0VrCHwn+w1YnG32pWXLbr213yrrdNCeF4ePIh+VRl
-	 LwJ6Q3UeKBqOg==
+	b=E/4FEwyROxGxiyBu8w0XrcG89uXdv+/puOwytwSgG8SZb7kIc53yF8d4xNVamS/u1
+	 ewWSmhdeOv4jBvaeLyt/fxk5VmVBG4yfnAyG7vF9yOWiqIXAgWSnXDLx198oNe2hZ2
+	 VD4biYvQK+Fsv2ltDmRW0FedH+/nTCP+UixjiBrb5qRbp89Bu6C9gWQTu9A6FaVAia
+	 /EPcaDCg3UM7Z6R2ep/280347rxn9C63ZTy8Y2rwIX8aFQIfy2epofN8WOjCJYRZk3
+	 +NSi6afi/H7sN3YeGMEUfVGlphztpgM6FWSLj4hdjM42qdfeMDJxnNyZ1uHiAQFPsp
+	 m0T791mx9lLew==
 From: Lee Jones <lee@kernel.org>
 To: lee@kernel.org,
 	James Tai <james.tai@realtek.com>,
@@ -54,9 +54,9 @@ To: lee@kernel.org,
 	linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: stable@vger.kernel.org
-Subject: [PATCH 06/10] pinctrl: realtek: Fix bit shift when configuring RTD_HIGH_VIL
-Date: Tue,  3 Nov 2026 21:29:11 +0000
-Message-ID: <20261103213002.1673560-7-lee@kernel.org>
+Subject: [PATCH 07/10] pinctrl: realtek: Initialise omitted offset fields to NA in config macros
+Date: Tue,  3 Nov 2026 21:29:12 +0000
+Message-ID: <20261103213002.1673560-8-lee@kernel.org>
 X-Mailer: git-send-email 2.56.0.385.gac671c819a-goog
 In-Reply-To: <20261103213002.1673560-1-lee@kernel.org>
 References: <20261103213002.1673560-1-lee@kernel.org>
@@ -81,35 +81,50 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-In rtd_pconf_parse_conf(), the RTD_HIGH_VIL case prepares mask as
-BIT(hvil_off) for regmap_update_bits(), but sets val = 1 without
-shifting it to hvil_off.  Whenever hvil_off is non-zero,
-regmap_update_bits() masks val with BIT(hvil_off) and clears the high
-VIL bit instead of setting it.
+The Realtek pinctrl driver uses NA (0xffffffff) as the sentinel for
+unsupported pin configuration features.  However, RTK_PIN_CONFIG omits
+input_volt_offset, slew_rate_offset, and hvil_offset, and
+RTK_PIN_CONFIG_V2 omits slew_rate_offset and hvil_offset.  Because C99
+designated initialisers zero-initialise omitted members, those fields
+default to 0 instead of NA, causing rtd_pconf_parse_conf() to treat
+unsupported features as valid at bit offset base_bit + 0 and corrupt
+adjacent register bits.
 
-Set val to BIT(hvil_off) so that the target bit is set as intended.
+Explicitly initialise the omitted offset fields to NA in RTK_PIN_CONFIG
+and RTK_PIN_CONFIG_V2.
 
 Fixes: dcc9334435b0 ("pinctrl: realtek: add support for slew rate, input voltage and high VIL")
-Closes: https://sashiko.dev/#/bug/linux-e7077311-3f30-4b77-844b-1447519d0c84
+Fixes: e309dbd523b8 ("pinctrl: realtek: add rtd1625 pinctrl driver")
+Closes: https://sashiko.dev/#/bug/linux-fbd0bf54-6dba-4652-9418-270b11fb6d8b
 Cc: stable@vger.kernel.org
 Signed-off-by: Lee Jones <lee@kernel.org>
 ---
- drivers/pinctrl/realtek/pinctrl-rtd.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/pinctrl/realtek/pinctrl-rtd.h | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/drivers/pinctrl/realtek/pinctrl-rtd.c b/drivers/pinctrl/realtek/pinctrl-rtd.c
-index 2b877099ec85..72773600303b 100644
---- a/drivers/pinctrl/realtek/pinctrl-rtd.c
-+++ b/drivers/pinctrl/realtek/pinctrl-rtd.c
-@@ -473,7 +473,7 @@ static int rtd_pconf_parse_conf(struct rtd_pinctrl *data,
- 		hvil_off = config_desc->base_bit + config_desc->hvil_offset;
- 		reg_off = config_desc->reg_offset;
- 		mask = BIT(hvil_off);
--		val = 1;
-+		val = BIT(hvil_off);
- 		break;
+diff --git a/drivers/pinctrl/realtek/pinctrl-rtd.h b/drivers/pinctrl/realtek/pinctrl-rtd.h
+index 77c30ea76443..86db54ea3ce8 100644
+--- a/drivers/pinctrl/realtek/pinctrl-rtd.h
++++ b/drivers/pinctrl/realtek/pinctrl-rtd.h
+@@ -96,6 +96,9 @@ struct rtd_pin_reg_list {
+ 		.smt_offset = _smt_off, \
+ 		.power_offset = _pow_off, \
+ 		.curr_type = _curr_type, \
++		.input_volt_offset = NA, \
++		.slew_rate_offset = NA, \
++		.hvil_offset = NA, \
+ 	}
  
- 	case RTD_DRIVE_STRENGTH_P:
+ #define RTK_PIN_CONFIG_V2(_name, _reg_off, _base_bit, _pud_en_off, \
+@@ -112,6 +115,8 @@ struct rtd_pin_reg_list {
+ 		.power_offset = _pow_off, \
+ 		.input_volt_offset = _input_volt_off, \
+ 		.curr_type = _curr_type, \
++		.slew_rate_offset = NA, \
++		.hvil_offset = NA, \
+ 	}
+ 
+ #define RTK_PIN_CONFIG_I2C(_name, _reg_off, _base_bit, _pud_en_off, \
 -- 
 2.56.0.385.gac671c819a-goog
 
