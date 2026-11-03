@@ -2,69 +2,64 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CC5D606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 22:42:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EC85606A332
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 22:44:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZyWZUq5Z;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=dPmpj/Gh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iw321cl7;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aBr6vEao
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=oZCv3BLFiwyhWSLzcKkJNHbX0W0rZqJRdfbk2LsVS0A=; b=ZyWZUq5ZTa50EZynlKrphB/K/1
-	/ghEHTDmaYm6QWXjmZXQh1JcETkQUnrKS7bo9wJzohxD2Zsxe3yk4qZxWHulE4wxAhIcyCUh0bBel
-	vu3EW3n87Qh/i/8/gTvx/ASfJGShxqfzEQFTTnXcZwmQPSWDBkerw3WN+dJIKBULKsRlC7AxewDYG
-	y5eQn/lWvCrqdTNiHF+175rQm5FPB235poFPZR2tsRm4e041KqUg4BYd0d2Ch56m/v5A2AZVCAEVL
-	4sNUjY7kfrx/BDAXJ5Whhr9N4oQ0mHu8lXqznqi+9I1LcGbV0RcxGdhTakGCiZ6iEeR/gYFhVTGyy
-	TpZqIBXQ==;
+	bh=eCpLb2eSBdU7oOnz3uYs19P+wbMVKJaOGnZyAlRZ5JQ=; b=iw321cl7Bhq2gqqCEgf1C9AsYQ
+	+e0L+RohXZ+RTmfDEiCyG+KE/Z4dHNRGOiz9nCD6eewt5/XzU43vg9d49sRBj5n71hiBOtiK6cnFA
+	2KS2FYtXtN8u7uDuE8c5MzKDnrANZiT6tBpLfbzHF4CdYXudxqJiEpk/bsfhRrSjtq3LeQkq+Vt0t
+	ABCrCL+ZAKRgIvWOMCBZhmup8kwOR0VS9N74oCOM3RSm54wJWKvBEY2wMwHuu6QC6niQnYYODRvI0
+	IVe4Hd31rJSIUElQn2fd35gbPnCVqQzvgG7K4346ADNSuG0jXE7Huek2QlL8DspKzoBUaKnHvnesJ
+	SriiU4Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xONDM-00000003siP-45lh;
-	Tue, 03 Nov 2026 22:42:48 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xONEb-00000003ssQ-0gCK;
+	Tue, 03 Nov 2026 22:44:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xONDK-00000003shh-3osa;
-	Tue, 03 Nov 2026 22:42:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=oZCv3BLFiwyhWSLzcKkJNHbX0W0rZqJRdfbk2LsVS0A=; b=dPmpj/GhuifNakB/0LT3M8p6i6
-	7sr/YzfhbS90hVlA/r3eJiIoF2WK0qoCLS3orNC+tgWMikIvDs+MHoz6drDRROpUZb+pmitlEsRZd
-	PXwZgU4Qnyp2dK5DwFUYXEAePs/0TBfHX0BEbR0MuLi7wTDVjQBj5FqL5CrFHwQnoeK4O4goGXljp
-	U1XSBbX+Y2xr7CU/Q7vTgeINEQPIG/ftwufX/zsYbhyn3HwZcRGwKacJRZU/2rZ2S9QxmJU7BHCrh
-	rgiPxVoPS+I4jrjeIl+bvONYjNomvic+0VFURXNS4oJrn0vJ37MY1R+qGmZphUQZgMXGi7jZ+2tao
-	Wuah6C3g==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: tomeu@tomeuvizoso.net, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
- ulfh@kernel.org, p.zabel@pengutronix.de, ogabbay@kernel.org,
- zhangqing@rock-chips.com, Jiaxing Hu <gahing@gahingwoo.com>
-Cc: royalnet026@gmail.com, abel.vesa@oss.qualcomm.com,
- sebastian.reichel@collabora.com, sidong.yang@furiosa.ai,
- u.kleine-koenig@baylibre.com, chaoyi.chen@rock-chips.com,
- diederik@cknow-tech.com, alchark@flipper.net, leonard@lausen.nl,
- jeff.hugo@oss.qualcomm.com, rfoss@kernel.org,
- dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- iommu@lists.linux.dev, linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Jiaxing Hu <gahing@gahingwoo.com>
-Subject: Re: [PATCH v15 01/15] accel/rocket: request the core clocks by name
-Date: Tue, 03 Nov 2026 23:42:19 +0100
-Message-ID: <3188623.WAvfycf1tz@diego>
-In-Reply-To: <20261101082307.151957-2-gahing@gahingwoo.com>
-References: <20261101082307.151957-1-gahing@gahingwoo.com>
- <20261101082307.151957-2-gahing@gahingwoo.com>
+	id 1xONEa-00000003ssD-1rd8;
+	Tue, 03 Nov 2026 22:44:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2054B40BC8;
+	Tue,  3 Nov 2026 22:44:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEBFC1F000C1;
+	Tue,  3 Nov 2026 22:44:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793745844;
+	bh=eCpLb2eSBdU7oOnz3uYs19P+wbMVKJaOGnZyAlRZ5JQ=;
+	h=From:To:Cc:Subject:Date;
+	b=aBr6vEaoSaSIlgo+yE1NlG5IxyzfubHlr6a8X5qUV4/pTRXFKDPZ7nBg+zAMGGqfe
+	 +A/nPSln2hNiF7yICWJb4QNGaY/boYgyl1PoM8WJHw+PmE0Y51jF8Q2mF2zy/5Kopc
+	 wcHFTrwgsQMXjOSfNDytPdObM5Y68mpthtCeZDNyWPr5rQXZhnutZEE9lS02KYswPr
+	 tmOiHV2WlWKwRV0NPmw+mgA6uUtnYP0pEg9YvAVyC34zuIM9XSKG/CY9ZjkVfeQxQY
+	 24JoyvgVtYfqNbjfXDXo4gHNlkNbHXZZWbWupgyjqyaMgVdhmUkzLq5JbEv74E5do2
+	 Kn+nx+B4B83oQ==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: James Tai <james.tai@realtek.com>,
+	Yu-Chun Lin <eleanor.lin@realtek.com>,
+	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-realtek-soc@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: realtek: Add RTD syscon compatibles
+Date: Tue,  3 Nov 2026 16:43:50 -0600
+Message-ID: <20261103224352.862662-1-robh@kernel.org>
+X-Mailer: git-send-email 2.53.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_144246_974089_DAF86AE6 
-X-CRM114-Status: GOOD (  21.13  )
-X-Spam-Score: -2.1 (--)
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,82 +70,177 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Am Sonntag, 1. November 2026, 09:22:53 Mitteleurop=C3=A4ische Normalzeit sc=
-hrieb Jiaxing Hu:
-> From: Igor Paunovic <royalnet026@gmail.com>
->=20
-> rocket_core_init() hands core->clks to devm_clk_bulk_get() without ever
-> setting the .id members. The rocket_core array is allocated with
-> devm_kcalloc() in rocket_device_init(), and rocket_probe() only fills in
-> .rdev, .dev and .index, so all four clk_bulk_data entries are requested
-> with a NULL con_id (unlike core->resets, whose ids are set a few lines
-> above).
->=20
-> clk_get(dev, NULL) ends up in of_clk_get_hw(np, 0, NULL), and
-> of_parse_clkspec() only consults "clock-names" when a name was passed, so
-> the index stays 0 for all four entries. Every entry therefore ends up
-> holding a handle to the *first* clock of the DT "clocks" property, i.e.
-> ACLK_NPUn. Nothing fails: probe succeeds and the driver believes it owns
-> four different clocks.
->=20
-> The consequence is that rocket_device_runtime_resume() prepares and enabl=
-es
-> the AXI clock four times, while hclk, pclk and - most importantly - the N=
-PU
-> compute clock ("npu", SCMI_CLK_NPU on RK3588) are never prepared or enabl=
-ed
-> by this driver at all. The NPU still works only because the Rockchip
-> power-domain driver sets GENPD_FLAG_PM_CLK and its attach_dev() callback
-> walks the device node with of_clk_get() and adds every clock to the pm_clk
-> list, so genpd happens to keep the remaining clocks running. The bug is
-> therefore latent today, but it means the driver holds no reference to the
-> clock that actually feeds the NPU, which stands in the way of any future
-> frequency scaling (OPP/devfreq) work.
->=20
-> Found on an Orange Pi 5 Plus (RK3588) by reading the live clock tree:
-> /sys/kernel/debug/clk/clk_summary shows four "fdab0000.npu" consumer
-> handles on aclk_npu0 (and likewise on aclk_npu1/aclk_npu2 for the other t=
-wo
-> cores), while hclk_npu0, pclk_npu_root and scmi_clk_npu have no
-> "fdab0000.npu" consumer at all - their only consumers are the
-> "npu@fdab0000" handles created by the power-domain driver via of_clk_get(=
-).
->=20
-> Set the ids explicitly, in the order mandated by the binding
-> (Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml):
-> aclk, hclk, npu, pclk. After the change the driver holds one handle per
-> distinct clock and clk_bulk_prepare_enable() covers all four.
->=20
-> Note that this is a user-visible tightening for out-of-tree DTs: the old
-> NULL-id requests resolved by index and succeeded no matter what
-> "clock-names" contained, while the named requests fail probe with -ENOENT
-> when one of the four names is missing. That is the right outcome for
-> in-tree users - the binding requires exactly these four clock-names and
-> rk3588-base.dtsi carries them on all three cores - but a DT that relied on
-> the permissive lookup goes from silently running on the wrong clock handl=
-es
-> to not probing at all, so record the change here where git log will find
-> it.
->=20
-> Fixes: ed98261b4168 ("accel/rocket: Add a new driver for Rockchip's NPU")
-> Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
-> Tested-by: Sidong Yang <sidong.yang@furiosa.ai>
-> Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS, N=
-anoPC-T6 Plus
-> Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> Reviewed-by: Jiaxing Hu <gahing@gahingwoo.com>
-> Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
+"syscon" nodes must have specific compatible strings. Specific
+compatibles were already added to the bindings. Update the DTS files
+with the specific compatibles for the RTD1295, RTD1395 and RTD1619 CRT,
+ISO, SB2, misc and SCPU wrapper syscon blocks.
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ arch/arm64/boot/dts/realtek/rtd129x.dtsi | 11 ++++++-----
+ arch/arm64/boot/dts/realtek/rtd139x.dtsi | 11 ++++++-----
+ arch/arm64/boot/dts/realtek/rtd16xx.dtsi | 11 ++++++-----
+ 3 files changed, 18 insertions(+), 15 deletions(-)
 
-nit: the commit description could be way shorter, for that small change.
-
+diff --git a/arch/arm64/boot/dts/realtek/rtd129x.dtsi b/arch/arm64/boot/dts/realtek/rtd129x.dtsi
+index ba50e292bdbb..a7fb8dde1d60 100644
+--- a/arch/arm64/boot/dts/realtek/rtd129x.dtsi
++++ b/arch/arm64/boot/dts/realtek/rtd129x.dtsi
+@@ -64,7 +64,7 @@ rbus: bus@98000000 {
+ 			ranges = <0x0 0x98000000 0x200000>;
+ 
+ 			crt: syscon@0 {
+-				compatible = "syscon", "simple-mfd";
++				compatible = "realtek,rtd1295-crt", "syscon", "simple-mfd";
+ 				reg = <0x0 0x1800>;
+ 				reg-io-width = <4>;
+ 				#address-cells = <1>;
+@@ -73,7 +73,7 @@ crt: syscon@0 {
+ 			};
+ 
+ 			iso: syscon@7000 {
+-				compatible = "syscon", "simple-mfd";
++				compatible = "realtek,rtd1295-iso", "syscon", "simple-mfd";
+ 				reg = <0x7000 0x1000>;
+ 				reg-io-width = <4>;
+ 				#address-cells = <1>;
+@@ -82,7 +82,7 @@ iso: syscon@7000 {
+ 			};
+ 
+ 			sb2: syscon@1a000 {
+-				compatible = "syscon", "simple-mfd";
++				compatible = "realtek,rtd1295-sb2", "syscon", "simple-mfd";
+ 				reg = <0x1a000 0x1000>;
+ 				reg-io-width = <4>;
+ 				#address-cells = <1>;
+@@ -91,7 +91,7 @@ sb2: syscon@1a000 {
+ 			};
+ 
+ 			misc: syscon@1b000 {
+-				compatible = "syscon", "simple-mfd";
++				compatible = "realtek,rtd1295-misc", "syscon", "simple-mfd";
+ 				reg = <0x1b000 0x1000>;
+ 				reg-io-width = <4>;
+ 				#address-cells = <1>;
+@@ -100,7 +100,8 @@ misc: syscon@1b000 {
+ 			};
+ 
+ 			scpu_wrapper: syscon@1d000 {
+-				compatible = "syscon", "simple-mfd";
++				compatible = "realtek,rtd1295-scpu-wrapper",
++					     "syscon", "simple-mfd";
+ 				reg = <0x1d000 0x2000>;
+ 				reg-io-width = <4>;
+ 				#address-cells = <1>;
+diff --git a/arch/arm64/boot/dts/realtek/rtd139x.dtsi b/arch/arm64/boot/dts/realtek/rtd139x.dtsi
+index e8af39193e75..11113999824c 100644
+--- a/arch/arm64/boot/dts/realtek/rtd139x.dtsi
++++ b/arch/arm64/boot/dts/realtek/rtd139x.dtsi
+@@ -62,7 +62,7 @@ rbus: bus@98000000 {
+ 			ranges = <0x0 0x98000000 0x200000>;
+ 
+ 			crt: syscon@0 {
+-				compatible = "syscon", "simple-mfd";
++				compatible = "realtek,rtd1395-crt", "syscon", "simple-mfd";
+ 				reg = <0x0 0x1000>;
+ 				reg-io-width = <4>;
+ 				#address-cells = <1>;
+@@ -71,7 +71,7 @@ crt: syscon@0 {
+ 			};
+ 
+ 			iso: syscon@7000 {
+-				compatible = "syscon", "simple-mfd";
++				compatible = "realtek,rtd1395-iso", "syscon", "simple-mfd";
+ 				reg = <0x7000 0x1000>;
+ 				reg-io-width = <4>;
+ 				#address-cells = <1>;
+@@ -80,7 +80,7 @@ iso: syscon@7000 {
+ 			};
+ 
+ 			sb2: syscon@1a000 {
+-				compatible = "syscon", "simple-mfd";
++				compatible = "realtek,rtd1395-sb2", "syscon", "simple-mfd";
+ 				reg = <0x1a000 0x1000>;
+ 				reg-io-width = <4>;
+ 				#address-cells = <1>;
+@@ -89,7 +89,7 @@ sb2: syscon@1a000 {
+ 			};
+ 
+ 			misc: syscon@1b000 {
+-				compatible = "syscon", "simple-mfd";
++				compatible = "realtek,rtd1395-misc", "syscon", "simple-mfd";
+ 				reg = <0x1b000 0x1000>;
+ 				reg-io-width = <4>;
+ 				#address-cells = <1>;
+@@ -98,7 +98,8 @@ misc: syscon@1b000 {
+ 			};
+ 
+ 			scpu_wrapper: syscon@1d000 {
+-				compatible = "syscon", "simple-mfd";
++				compatible = "realtek,rtd1395-scpu-wrapper",
++					     "syscon", "simple-mfd";
+ 				reg = <0x1d000 0x2000>;
+ 				reg-io-width = <4>;
+ 				#address-cells = <1>;
+diff --git a/arch/arm64/boot/dts/realtek/rtd16xx.dtsi b/arch/arm64/boot/dts/realtek/rtd16xx.dtsi
+index 43b13d133c32..7f6e7a03f4e9 100644
+--- a/arch/arm64/boot/dts/realtek/rtd16xx.dtsi
++++ b/arch/arm64/boot/dts/realtek/rtd16xx.dtsi
+@@ -143,7 +143,7 @@ rbus: bus@98000000 {
+ 			ranges = <0x0 0x98000000 0x200000>;
+ 
+ 			crt: syscon@0 {
+-				compatible = "syscon", "simple-mfd";
++				compatible = "realtek,rtd1619-crt", "syscon", "simple-mfd";
+ 				reg = <0x0 0x1000>;
+ 				reg-io-width = <4>;
+ 				#address-cells = <1>;
+@@ -152,7 +152,7 @@ crt: syscon@0 {
+ 			};
+ 
+ 			iso: syscon@7000 {
+-				compatible = "syscon", "simple-mfd";
++				compatible = "realtek,rtd1619-iso", "syscon", "simple-mfd";
+ 				reg = <0x7000 0x1000>;
+ 				reg-io-width = <4>;
+ 				#address-cells = <1>;
+@@ -161,7 +161,7 @@ iso: syscon@7000 {
+ 			};
+ 
+ 			sb2: syscon@1a000 {
+-				compatible = "syscon", "simple-mfd";
++				compatible = "realtek,rtd1619-sb2", "syscon", "simple-mfd";
+ 				reg = <0x1a000 0x1000>;
+ 				reg-io-width = <4>;
+ 				#address-cells = <1>;
+@@ -170,7 +170,7 @@ sb2: syscon@1a000 {
+ 			};
+ 
+ 			misc: syscon@1b000 {
+-				compatible = "syscon", "simple-mfd";
++				compatible = "realtek,rtd1619-misc", "syscon", "simple-mfd";
+ 				reg = <0x1b000 0x1000>;
+ 				reg-io-width = <4>;
+ 				#address-cells = <1>;
+@@ -179,7 +179,8 @@ misc: syscon@1b000 {
+ 			};
+ 
+ 			scpu_wrapper: syscon@1d000 {
+-				compatible = "syscon", "simple-mfd";
++				compatible = "realtek,rtd1619-scpu-wrapper",
++					     "syscon", "simple-mfd";
+ 				reg = <0x1d000 0x1000>;
+ 				reg-io-width = <4>;
+ 				#address-cells = <1>;
+-- 
+2.53.0
 
 
