@@ -2,105 +2,155 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10F9E606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 06:12:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2B04606A32F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 06:20:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GHPTOLPo;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jiuVi9kI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PK/xDBSa;
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=j5yCHj1N
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
-	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Y1vJsLmhajtmtrGk3CEdEpHpsAWbMQetVNtaJwsiq4w=; b=GHPTOLPoByil9lGaTJBe51B913
-	E/LcptPy6HsQGggA3f84qFCzmJuKOEksGB3qn+ltQCU9RNfYtK03SLMYhStUkIUGKUmtaCDTv2Tue
-	pOkbcKIvZHfdR6F/o/YI2ZOMeUSIaquQxYPLnz6mG5fj08RpllMB5tE6QEHNwQ9falWwsnaByK2kQ
-	fhHLzMpLnQtokTv5onKFvil5x65KvjEZkp8sVoJsUKwmctZEWqfUTAV+Lqm+0IMKjeAx/JYYyFKTY
-	X7zDXuybC0BaxJ/avY63Jf16RoLqXL3Y0NKY9OedMZJVe5TzWEcmEO9t7o9svI3+2W4WaF8+DNPCO
-	GhGSysFQ==;
+	bh=0BrT+Cse4O5JjOHGQRmccsr+7HQd7LlAZt0gREuIMI8=; b=PK/xDBSa2gWuE5RJ9jxnQvIK/Q
+	c8gHESuDUO+6sGfR9Y8pp9CMJKiWrtEwNDMQAm5GbALKiZE5s58wrE5Q/rrAIbhChcoAzecCxm0D4
+	DPXlYr/aMHdSSYWLGlFrDQyFSYhV3BmMJvSXOaztVx5Mv6BYLhZfkimgWS3AOMNeUtMLojC5VKR39
+	NespNGMa/Jxhw3Z/QxvqC7yXgZO96bK6n1nGMnCHAfDa5usufXRYILr27T1OWXoUE/pWnYm0WdTHL
+	2zH347t1+2tQhIqzxk7W6c3RR7Iry/OHBPpDnrYFTcz7Jfew09Yqxj+7PTZwKQINIcxGiF4NBzf9B
+	KaIK0uDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO7ko-00000001CKj-0BNz;
-	Tue, 03 Nov 2026 06:12:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xO7sr-00000001D0W-2iv2;
+	Tue, 03 Nov 2026 06:20:37 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO7kj-00000001CJW-29wJ;
-	Tue, 03 Nov 2026 06:12:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A7C4A60008;
-	Tue,  3 Nov 2026 06:12:12 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793686332;
-	b=PlZ8Y9DzSVYyhTOS3L7ouyJUi+MGz0dtNkErafGNAlEL/0knMpgng/Rw6P6dutNpkwv4
-	 HfNb8vqfF2flan3ch6cDnlmWSv5Dj2EVrp2EqDYmfWctQZ0oS5gQ0FPp6oNj81fhVVMJo
-	 Qvdk4BTyMofXKZVF1NAONCHmn7FhugOpIJg1daXxD1aOi35ZS+oJYw6cNoN0Es33AXWZc
-	 oAhy0i6doR+yAVPejPaoCJWK8oTM7ctB1mp8eqRxRhvs/cTu4iQa3TNS/EoEbBdtXWREh
-	 NvUipoNPeRN4D1kJGQfIqHnuKV5MIe1k0pqHgjRuvG1Y/jrY4/UpQIilzMuuXGkfmnQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793686332;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
-	 Content-Transfer-Encoding;
-	bh=Y1vJsLmhajtmtrGk3CEdEpHpsAWbMQetVNtaJwsiq4w=;
-	b=fkRTo4XgQ22LOkr0zMSZW/lBkr88gCuiC60YvYPra1HgxuK7EDqi4zJfgOFODZiUXYsf
-	 DkJ+2hsZDJrIk4pTWlgi8hOx3Lt9np1c87ddGDzR3drBKIevh/XQoweWH7BmzyDjowIjD
-	 j80l363qK3O6py25TtVjtrZMnDubUdJPiX8jUkFyGM1vup7gjysf/ZV0u+5f5OECr7WuQ
-	 LHKGhZHAJJe2IznKFj9G0jK7esJGm0XKqVP4sfxB+CX/AENxmPCNEsgiM1pb3wGlukZGr
-	 Pefy6N2gwBgE6zdhEaiSdWbpeWX5EdULZNNs7V4juBLeMwVaq7ktMK6ezGD1bIiXOuQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id E1A3B1F000C1;
-	Tue,  3 Nov 2026 06:12:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793686332;
-	bh=Y1vJsLmhajtmtrGk3CEdEpHpsAWbMQetVNtaJwsiq4w=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=jiuVi9kIa7kbUZeA1VekrmQrLF4/586Mvzg1vh0wY+gG83jf972IWGcmnID6RJbir
-	 VtzX8iLG80PnjC8qKAcl/DPVLbp2+sBg9AcFQZHUO1BTUVbMGfamZC5ReNjysTUZUZ
-	 3l9VTNkqBVzDp6HpyxNuzc4JUXLmFzN5Wljk8utPhK7G/tzrcglCloKJNZOqoaC07g
-	 D295hfwByKp+/kog7LURI/G3aQtIzRQuuZYSxKWKvziL1of0ZfM5cLaoRPSRaIlRUw
-	 gRPOznZZ6wVnQqo/My8H1uOxGs7eewU94KCBhhmcgxU/DBNxvroi914GdM1vw/vnBb
-	 6YjQFr1FbhrcA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 6F259467C4;
-	Tue,  3 Nov 2026 06:12:11 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Tue, 03 Nov 2026 06:12:10 +0000
-Subject: [PATCH] arm64: dts: rockchip: Enable SD UHS-I modes on ROCK Pi 4
+	id 1xO7sn-00000001CzA-1Moh
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Nov 2026 06:20:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=u46+zMZ6bC4pFfh53HqyC+jh/gUpaDRB71kyFudW5BIcsN5wjTj4cCOA9R/OlBKrE2hdlMmML/O6NlZO6kP0xLIsFGhDxRhR8ZyqBtmYN65Jn/GA+JWRj32SblL6XpB3IHRjzFuyEyppGRVtoL897MGPgqVewnY92MEZliZ9aFAJXpGvnyC5tGklR9buOxw0tXfXOS1ik+awzu2W16c2tv9WZpcequKvEjFEF75C4tkJYupl9l1Cf5eH9aGJGpjtIgWPancQL11UNK+LBiEX6HqMcLVVyuYaTShAPATYrQitgwaRhJaeFklD3ezqdq8lTaFvrWSkOEkmFYF3Y0QpGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0BrT+Cse4O5JjOHGQRmccsr+7HQd7LlAZt0gREuIMI8=;
+ b=DVzxrOU9eIG0gYQeBuIkjcnbqQbLfLLbBRUKElS9DMCceKPlmqrDFSAyHRDyxGYKJeA27vNmY5uwai5hBGdcKgwJgKVzrvhK85p+WfGrrjLt5cD00L2337YMDmY48qL1P6oe+ISFoemQ9uFIzId7SKwxJETz7KzE/YfI2FWPxhv7vsquXacI8wsYgFUs5eKPahwLpROpZFhXvSyeg7ujOpsuBvEWMfZlkipHrcezVEYydjSAXpRuyK/lg0YKatEFa6RFITzwCzAORr5QkROMFIVe8fSiOwcfKtDgd1v/Zi2QN7aqzZ/5Dx398lpOqPL/RiP4RuvuoxmjODDh2lxyjg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0BrT+Cse4O5JjOHGQRmccsr+7HQd7LlAZt0gREuIMI8=;
+ b=j5yCHj1NqpAWsc3OV1+gAYin/wv0JtaMiwTl5WxuLcqzd/MHoY8weeh5ci4xnJc3sJMie2SEsG1JYvMMD5iwp4ikFnR/caI6gyQWSpYi3MF6cTnhIUqVoC/VOWcIsvGoXPsZDQUT37ve6fa6n9MG5lUeM88owtR5QG4cHLTDGPYQUVaDocBBBhKmdQSHqlX/zl5FBf4vcnNtrbSuLj+aZ54VqbKrWp3w7c2bnIwHaaLRkBmxZPS/Q+0OW8x1/FGqowhQMLB5kr6/xxVTKs6hGT8PN7iy2cB2BIrHPly4/m27AXNH5WOoYp4DohVbV3ZdDJSybV8OfhsBFZZZm6KB6g==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from MI9PR04MB350878.eurprd04.prod.outlook.com (2603:10a6:290:c0::7)
+ by AM0PR04MB6993.eurprd04.prod.outlook.com (2603:10a6:208:17d::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Tue, 3 Nov 2026
+ 06:20:26 +0000
+Received: from MI9PR04MB350878.eurprd04.prod.outlook.com
+ ([fe80::8537:1cdd:6c49:6151]) by MI9PR04MB350878.eurprd04.prod.outlook.com
+ ([fe80::8537:1cdd:6c49:6151%6]) with mapi id 15.21.0569.011; Tue, 3 Nov 2026
+ 06:20:26 +0000
+From: Liu Ying <victor.liu@nxp.com>
+Subject: [PATCH v9 00/16] drm/imx: dc: Use prefetch engine
+Date: Tue, 03 Nov 2026 14:21:56 +0800
+Message-Id: <20261103-imx8-dc-prefetch-v9-0-3b985e7636e2@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIR96WoC/23Qy27DIBAF0F+JWJdqgGGArvofVRf2AA2LPGRHl
+ qso/14cKQ+nLAd07lzNWYxpKGkUH5uzGNJUxnLY1yG8bQRvu/1PkiXWWWjQFhwYWXazl5HlcUg
+ 5nXgrQftkgGxQTKKy5aPM18iv7zpvy3g6DL/XDZNaXm9h+D9sUhKk88hgciS0+XM/H9/5sBNL1
+ KQfPOhGl0lXbiOFyKFj39s1N888NLipnEFFIPBdjHrN8c4VKGpwrDzm2Bl03Bt+2W6fuHYNbiv
+ HxD0xRQyo1pxunCA0T0eVayI0yWTi3q25u/O6vVXeVd5Bb4EZM9NLef/EDTS4X06H2asuR7TGP
+ PjlcvkDicNgpGcCAAA=
+X-Change-ID: 20250703-imx8-dc-prefetch-028e306591c6
+To: Philipp Zabel <p.zabel@pengutronix.de>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Marek Vasut <marek.vasut@mailbox.org>, 
+ Alexander Stein <alexander.stein@ew.tq-group.com>, 
+ Liu Ying <victor.liu@nxp.com>, 
+ Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.15.2
+X-ClientProxiedBy: SI2PR01CA0002.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::21) To MI9PR04MB350878.eurprd04.prod.outlook.com
+ (2603:10a6:290:c0::7)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261103-rockpi4-sd-uhs-v1-1-fa394d2046e1@iav.lv>
-X-B4-Tracking: v=1; b=H4sIADl76WoC/x3MMQqAMAxA0auUzAZM1QpeRRykRhuEKg2KULy7x
- fEN/2dQTsIKg8mQ+BaVIxZQZcCHOW6MshSDra0jqhtMh99PaVEXvIJix448sV9d30KJzsSrPP9
- wnN73A0g3Bx1gAAAA
-To: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2365; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=az5m2/WqrCJ/+LWcDbyXHuHBZoPgNzj0Wuk5JL5JV+Q=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDFkvq61Wa6jZcBwxnsSReEeXM+R2AMdDY4XN5v1hgZP4W
- TtjJ7zqKGVhEONikBVTZJlwSONWxpKrf/09zB/AzGFlAhnCwMUpABPJ/8vwVyK5nP38C3nbF7cd
- g6OCWgqVjzNzuhZxqF6985JffvP8UEaGZqu9q/eGewl3cCT3PdWeLemz/F192n4lmduCdi93vsl
- iBwA=
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI9PR04MB350878:EE_|AM0PR04MB6993:EE_
+X-MS-Office365-Filtering-Correlation-Id: c5363f64-ee6b-4ac3-cefa-08df39728ce8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|7416014|376014|366016|1800799024|3023799007|10067099003|18002099003|921020|56012099006|5023799004|11063799006|261022105027099003|261022075727099003|261021123027099003|261028144727099003|261102123227099003|261021121427099003|261026121527099003|261026140227099003|261009223027099003;
+X-Microsoft-Antispam-Message-Info: Bk8d23cw5utGJ1JnX/j+KN7ChZAPcmsCPe9pfSaDJurgdeKpJa2RFL7KbpJ1MwWykXaYEV89GKyX3wazMWJXRUQkhXlahSgjXfZNSevtvKCNXUuI0TT+zYRoIhjOyRL9RXLCJWuruVf0IVFNHN3n/kjmHRX+wWsIU1L8rmwRyxsopjKjnlHTjns45bsMnXlpxkuGKQ57AHlEEIGdXD9nstFw3ZaAVaa80eWXmGbZJAQRlej/xrI0wfo/BUoel5ZRPIAImN2msNBgA7Rwrg7o0yxkYv0H/7w/bhoTfXZ7teNO7kXeEvE0Gyiwv1NekxYYWSPKzSfKzbz96YNcmjE70VC6PC3m6WnbwN/70SUhoW0aOYXfvie95pR+ZfEeQe6mPK6CYii8uIdFdVNF0QkUgsQWe8/5IIzcPDxgKi/gQZn3+i0aVJTIIgxde4afvs1mOc5zw2yasTIWNpvx9xfNAv8XfQumTK8cxdOA8dHckD0mqIZdPuaWJJsZH7/wDM9taH4OdhfUBC7Kc5iTyJa8lsPfkVKD55OIJJxR/4PeuXMv//Kz9cbcxPG1mBUwtWTExkeN5bBjvnThHIyKg/2GH1rU1U/AS6ovm6ekPKz44oSItAEc5bjNFqvs6F1toSe5j6ic/IazqLhBANPjihQZ51Bsf0/HlIh/cfEu1mJiIag=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(7416014)(376014)(366016)(1800799024)(3023799007)(10067099003)(18002099003)(921020)(56012099006)(5023799004)(11063799006)(261022105027099003)(261022075727099003)(261021123027099003)(261028144727099003)(261102123227099003)(261021121427099003)(261026121527099003)(261026140227099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UHdpaTFoUmZLZHJDRVBocTlkTmsweTd0MmFCc3ZFcEcyU3lTcmFrRDJmM29p?=
+ =?utf-8?B?RkQzRFNpaHprb0NxdmQrVXVZMGphRnBGOGVVUzhzaXJLaXNqNk0rNjRhQjlj?=
+ =?utf-8?B?Yi9WUmVKK2ZQUkhhY3Z1VHVraE9FdEdmS2xMSDRQVVJqODRuMDZoSE1zNjRH?=
+ =?utf-8?B?Vm9DdkhRSVNJSkMzSG50MzZrclI1bnBPblFRWGtaOWd3TzBBcGxXUWs5dlFi?=
+ =?utf-8?B?bEkzNVkyNjVsOVNCa3hYLzBpNUl2SjFXdjFLb3MzOTY2bDVlWUhPeEs2VGY1?=
+ =?utf-8?B?OXhJSTZ3akhLRFBXUE1kajhPc0NXWmlraE8zaWxKTGRoRGgzWFNWY0Raemhx?=
+ =?utf-8?B?Rm5CTU80UVRJZ0VBK2VmKytiZHFFaW1QM1J5eVBiMjVGVkhZMXBJVUdBNE9m?=
+ =?utf-8?B?SGNoWTFUWlpvWnRxYTdyNEwyTFFOSlpGck9PM1k2cnFTSUJEM2dSa0tJcXlR?=
+ =?utf-8?B?MGYvc0RnV2c2ZEpwSHVYV0ljRlo1UHNzdFd3Z1lQTFU5NEJvdUovMnFQekFI?=
+ =?utf-8?B?WkY0bWZ4clRaT3YrdmxzVXArVjNDajN3WmZkTXJUOTVkdFhyOC9zbTY0aHNI?=
+ =?utf-8?B?WnVsREZlQmNQY1Q4SWJDbXVyNVFPNng5R3dnSi9INEM1QmtLdGtUZjhaM3Rv?=
+ =?utf-8?B?aGExajJ2K3E4eWZzYjFzS083b0VVcEloQU0rRDF3b01jV2d6RDg1a2ZMTnZ6?=
+ =?utf-8?B?eHpsYTJCT0w1Uk80SXpiUHI4d0ZoeGNxZHFTelRYblBSN1pFVnZkMjhyako5?=
+ =?utf-8?B?RlJkS2t2QytRRlpCcWZSVjBlVmk4S1JsQTJwcVYwZHc0SGRNQTNuV1dIeCt0?=
+ =?utf-8?B?YWk3Z1ZtTkZjek1mTmo5bWhPaTd0Yzd6OVNoMWxrMXI4MVRadldyeUQ2OGZh?=
+ =?utf-8?B?ZWp3MzlzT0ZJWEVieGVGaHlRc1VZQnN3VzMyQUdjelFBWm01T2w2OUpnQzBi?=
+ =?utf-8?B?UFlTZVpQMXBNQzBTR24wVGpHb1hhMDJUYnVwMUo4SWRkcWRpN1ExcmJrQmVO?=
+ =?utf-8?B?SWRTOWkvaUwyZ1ZlclE0UzcwK2NsWGIxQXlDZm8vVytPVHJpY2pLZWdIOGJl?=
+ =?utf-8?B?LzdMbkFJSHQrWGZJaklwcEZiWmxyWHJ2VXRGc3JiQmlBRGFsdUZRR3B1em4y?=
+ =?utf-8?B?N3hld0oxTVppdDRpb0d4bnpvR05qR2Q5cXcyN2MyVFltZUFwNVRVdjF3T3NQ?=
+ =?utf-8?B?YVorSENNY2FTVmpYZ3dtVTA2Z3Q5b05VWnovV0s4Y1hJRTZidkk3N0ZGV0li?=
+ =?utf-8?B?bXdnVmM0OEdTeVl0VEhxcVRodTh5KzVzQXJvLzVIUnFZS3lXVEZoQ1hReFhm?=
+ =?utf-8?B?YUw1Z1NRUmoySU9LbHR4ajQvbE1mRFRyVm51ai8vNzMwYU5OazRBUUFoMUFB?=
+ =?utf-8?B?WUFqME5vUGFwT2xJSGtrWTJ6NEhtVndac3doRFJMdm1iYkl3Z2U0ZlMyRXM2?=
+ =?utf-8?B?Vkt0Z1ArV3Q5OUJDTXdxaDl3UUo2TjRhSFZaYUFqMlVYLzdONlVtd0V4c0Vn?=
+ =?utf-8?B?RG1EQ3k5Q25XMno5eEJSeHFBSGV0TlVNRGszbDU3WjNHVi9NanFzTk5aRU4x?=
+ =?utf-8?B?UVJBRGtBRW9WZlZrcUUzZXNteVJGVFlndWw1THNIaWpsb3h1SlVDd1RVWUQ0?=
+ =?utf-8?B?RnFEUzhZcldJMzQ4VFRCZ2NvRVAvMyt2VmI3OHVZSlYwQkduaUlEdkpGSEQw?=
+ =?utf-8?B?bWRjamZqVWxPR1hSSUc0MzhZazhISmFHTmVWb0hxZEV4aEtsUk1wQng1ellh?=
+ =?utf-8?B?R05VaWpEeUx6Z1JXYnE5T2xDUEhXajM5MUJVTG9TdWJUM2F6OXg1OHI3ZDNt?=
+ =?utf-8?B?TWZhdmtYT3BHeEdQc2tGKzJkNUc5SGUycFQzNHc1LzRKbUVOdnBNejllMUJY?=
+ =?utf-8?B?UVpidUJ6R3JSTkp6b0I0OCtuaWRHRngvb09NQ2ZLbS9oT3pJbWtZaTREa2VL?=
+ =?utf-8?B?TTlPejg1bFVBaUk2MHBMUkZGcFVqYnBPdHhXVDlObzZJNTRoZnEyQzFOT3hw?=
+ =?utf-8?B?bkkyWlYybGJmTE5qNVIvSGhDMnNhcG5oOFlPanBCaXJmRjRzTDNoOERhb0FI?=
+ =?utf-8?B?UXNmOHBnVDZkZENMUHNkSmRTd0VVcGV2OUhnS1VxaEM0dnJQVVhHSlBVTTJ0?=
+ =?utf-8?B?a2U3OGFXSFlKd3FHcEtEVGVzMU1YemUxZ0s1bWxWK0RrbjJrTjc2K3pPa3ls?=
+ =?utf-8?B?YnhOd2N1NCsydzFsTEtrbnV5TmtZSDJjcTJFK090YkUxczBPeTVBNWpxU2FK?=
+ =?utf-8?B?V01FTGVVckRlT1liZ0MxTzE3NHpvZnRNSUcyS2d2bXlNOENlaExJRldQQ1FH?=
+ =?utf-8?B?NG13ZlpQakxiTHExTHY2Ly92b2tRMnRsYm9rNVNoRHhmOWk1ekMzUT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c5363f64-ee6b-4ac3-cefa-08df39728ce8
+X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB350878.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 06:20:26.5603
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: a+/L1+YIazIC9xS11D8iM8MdM6DU+GgNp2Nj9ldPIur1Ra3TDjrAr0zuSDaxKmSMe3gYwSZ6uKbFRxhxgTDGIA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6993
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261102_222033_556265_C2772B56 
+X-CRM114-Status: GOOD (  17.00  )
+X-Spam-Score: -1.1 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,7 +160,6 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: iav@iav.lv
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
@@ -120,70 +169,152 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Igor Velkov <iav@iav.lv>
+Hi,
 
-The SD I/O supply vcc_sdio (RK808 LDO4) is pinned at 3.0 V, so the
-card stays in high-speed mode at 50 MHz. Let dw_mmc switch it to 1.8 V
-and enable SDR12 to SDR104.
+This patch series aims to use prefetch engine in imx8-dc KMS driver.
 
-The card supply is not switchable, so after a watchdog reset or a
-panic the card and vcc_sdio are still at 1.8 V. Linux and U-Boot proper
-boot from the card in that state; U-Boot SPL loading from it has to set
-the SD I/O domain from vcc_sdio, as it does on NanoPi 4 since U-Boot
-commit 210ab4f60df8.
+One prefetch engine consists of one DPR Channel(DPRC) and one or two
+Display Prefetch Resolve Gaskets(PRGs).  It prefetches data from
+DDR, resolves data in tile formats if needed and outputs the result
+data to FetchUnit(s).  When one PRG is used, a prefetch engine supports
+processing pixel formats with one planar, e.g., RGB formats.  When two
+are used, pixel formats with two planars are supported, e.g., NV12.
 
-On ROCK Pi 4A with a SanDisk 256 GB U3 card: SDR104 at 148.5 MHz,
-direct read 64-67 MB/s instead of 23.5 MB/s.
+For now, this patch series only supports prefetch engines with one PRG
+because it is enough for XRGB8888 which is the only pixel format
+supported by imx8-dc plane driver.  Two PRGs would be supported by
+future patches.
 
-Signed-off-by: Igor Velkov <iav@iav.lv>
+Patch 1 and 2 add dt-bindings for DPRC and PRG.  They were reviewed
+by Rob[1][2].  I slightly modified the patches' commit message to use
+imperative mood.
+
+Patch 3 fixes invisible plane issue reported by Sashiko AI bot in v6.
+
+Patch 4 fixes runtime PM issue for register accesses in .atomic_update
+and .atomic_disable callbacks in dc-plane.c as reported by Sashiko AI bot
+in v8.
+
+Patch 5 fixes FetchUnit dimensions as related to prefetch engine function.
+
+Patch 6 flags CRTC status in GERNERALPURPOSE register as needed by patch 6.
+
+Patch 7 disables CRTC at boot if needed to support prefetch engine better.
+
+Patch 8 and 9 add PRG and DPRC drivers.
+
+Patch 10 to 15 do preparations before using prefetch engine in imx8-dc KMS
+driver.
+
+Patch 16 uses prefetch engine in imx8-dc KMS driver.
+
+[1] https://lore.kernel.org/lkml/20201207165945.GA430214@robh.at.kernel.org/
+[2] https://lore.kernel.org/lkml/20201207170206.GA434964@robh.at.kernel.org/
+
+Signed-off-by: Liu Ying <victor.liu@nxp.com>
 ---
-Tested on ROCK Pi 4A: v7.3.1 with this change, 3 cold boots in SDR104;
-the Armbian 7.3 kernel with the same change through reboot, panic,
-watchdog reset, s2idle and hibernate, SDR104 each time. Not tested on
-the other boards that include rk3399-rock-pi-4.dtsi (4A+, 4B, 4B+, 4C,
-4SE).
+Changes in v9:
+- Collect Laurentiu's R-b tags.
+- Drop unused function arguments from dc-prg.c and dc-dprc.c.  (Laurentiu)
+- Fix Sashiko AI bot's comments.  See detail changelog in each patch.
+- Link to v8: https://patch.msgid.link/20261030-imx8-dc-prefetch-v8-0-c4f81afd4533@nxp.com
 
-With PCIE_ROCKCHIP_HOST=y and an empty PCIe slot, tuning also needs
-https://lore.kernel.org/r/20261103-rockchip-pcie-async-v1-1-4dcadb94af64@iav.lv
-The SPL side for U-Boot on the SD card:
-https://lore.kernel.org/r/20261103-b4-rock-pi-4-spl-iodomain-v1-1-8dfc34a5e2e2@iav.lv
+Changes in v8:
+- Collect Laurentiu's R-b tags.
+- Collect Alexander's R-b tag.
+- Fix Sashiko AI bot's comments.  See detail changelog in each patch.
+- Fix Alexander's comments.  See detail changelog in each patch.
+- Fix Laurentiu's comments.  See detail changelog in each patch.
+- Trivial tweaks.
+- Link to v7: https://patch.msgid.link/20261026-imx8-dc-prefetch-v7-0-a0b50cc4fc65@nxp.com
+
+Changes in v7:
+- Collect Maxime's A-b tags.
+- Fix Sashiko AI bot's comments.  See detail changelog in each patch.
+- Trivial tweaks.
+- Cc Alexander.
+- Link to v6: https://patch.msgid.link/20260904-imx8-dc-prefetch-v6-0-26643e3f6cb7@nxp.com
+
+Changes in v6:
+- Rebase onto the latest drm-misc-next and resolve conflicts in patch 4&7&13.
+- Include "dc-drv.h" in patch 5&6 to avoid build warnings with C=1.
+- Fix PRG BYPASS programming in patch 5.
+- Link to v5: https://lore.kernel.org/r/20251027-imx8-dc-prefetch-v5-0-4ecb6c6d4941@nxp.com
+
+Changes in v5:
+- Squash MAINTAINERS file update into patch 1&2.  (Krzysztof)
+- Link to v4: https://lore.kernel.org/r/20251016-imx8-dc-prefetch-v4-0-dfda347cb3c5@nxp.com
+
+Changes in v4:
+- Rebase onto the latest drm-misc-next and resolve conflicts in patch 4&10.
+- Sort bits and bitfields in descending order for register PRG_CTRL in patch 6.
+- Cc Marek as stakeholder of the driver due to recent i.MX95 DC patches posted.
+- Link to v3: https://lore.kernel.org/r/20250929-imx8-dc-prefetch-v3-0-c01d0608add2@nxp.com
+
+Changes in v3:
+- Call dc_dprc_enable() only when start == true in patch 7.  (Frank)
+- Collect Frank's R-b tags.
+- Link to v2: https://lore.kernel.org/r/20250923-imx8-dc-prefetch-v2-0-5d69dc9ac8b5@nxp.com
+
+Changes in v2:
+- Rebase the patch series onto next-20250922.
+- Collect Alexander's and Frank's R-b tags.
+- Manage PRG's and DPRC's clocks with bulk interfaces in patch 6&7.  (Frank)
+- Sort variables in probe function in reverse Christmas tree fashion in patch 7.  (Frank)
+- Link to v1: https://lore.kernel.org/r/20250704-imx8-dc-prefetch-v1-0-784c03fd645f@nxp.com
+
 ---
- arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+Liu Ying (16):
+      dt-bindings: display: imx: Add i.MX8qxp/qm PRG binding
+      dt-bindings: display: imx: Add i.MX8qxp/qm DPR channel binding
+      drm/imx: dc-plane: Disable plane when it is invisible
+      drm/imx: dc-kms: Use driver specific .atomic_commit_tail callback
+      drm/imx: dc-fu: Fix dimensions
+      drm/imx: dc: Flag CRTC status in GENERALPURPOSE register
+      drm/imx: dc-crtc: Disable at boot
+      drm/imx: dc: Add PRG support
+      drm/imx: dc: Add DPR channel support
+      drm/imx: dc: Use TCON operation mode
+      drm/imx: dc-ed: Support getting source selection
+      drm/imx: dc-lb: Support getting secondary input selection
+      drm/imx: dc-ed: Drop initial source selection
+      drm/imx: dc-lb: Drop initial primary and secondary input selections
+      drm/imx: dc-fu: Get DPR channel
+      drm/imx: dc: Use prefetch engine
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi
-index 52de4a79e2f4..3de1d14529c1 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi
-@@ -356,7 +356,7 @@ vcc_sdio: LDO_REG4 {
- 				regulator-name = "vcc_sdio";
- 				regulator-always-on;
- 				regulator-boot-on;
--				regulator-min-microvolt = <3000000>;
-+				regulator-min-microvolt = <1800000>;
- 				regulator-max-microvolt = <3000000>;
- 				regulator-state-mem {
- 					regulator-on-in-suspend;
-@@ -696,6 +696,11 @@ &sdmmc {
- 	max-frequency = <150000000>;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&sdmmc_clk &sdmmc_cd &sdmmc_cmd &sdmmc_bus4>;
-+	sd-uhs-sdr12;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	vqmmc-supply = <&vcc_sdio>;
- 	status = "okay";
- };
- 
-
+ .../bindings/display/imx/fsl,imx8qxp-dprc.yaml     | 100 ++++
+ .../bindings/display/imx/fsl,imx8qxp-prg.yaml      |  60 +++
+ MAINTAINERS                                        |   2 +
+ drivers/gpu/drm/imx/dc/Kconfig                     |   1 +
+ drivers/gpu/drm/imx/dc/Makefile                    |   6 +-
+ drivers/gpu/drm/imx/dc/dc-crtc.c                   | 244 +++++++++-
+ drivers/gpu/drm/imx/dc/dc-de.h                     |   2 +
+ drivers/gpu/drm/imx/dc/dc-dprc.c                   | 534 +++++++++++++++++++++
+ drivers/gpu/drm/imx/dc/dc-dprc.h                   |  36 ++
+ drivers/gpu/drm/imx/dc/dc-drv.c                    |  89 ++++
+ drivers/gpu/drm/imx/dc/dc-drv.h                    |  12 +
+ drivers/gpu/drm/imx/dc/dc-ed.c                     |  27 +-
+ drivers/gpu/drm/imx/dc/dc-fg.c                     |  11 +-
+ drivers/gpu/drm/imx/dc/dc-fl.c                     |   7 +-
+ drivers/gpu/drm/imx/dc/dc-fu.c                     |  59 ++-
+ drivers/gpu/drm/imx/dc/dc-fu.h                     |  11 +-
+ drivers/gpu/drm/imx/dc/dc-fw.c                     |   7 +-
+ drivers/gpu/drm/imx/dc/dc-kms.c                    |  25 +
+ drivers/gpu/drm/imx/dc/dc-kms.h                    |   7 +
+ drivers/gpu/drm/imx/dc/dc-lb.c                     |  27 +-
+ drivers/gpu/drm/imx/dc/dc-pe.h                     |   2 +
+ drivers/gpu/drm/imx/dc/dc-plane.c                  | 100 ++--
+ drivers/gpu/drm/imx/dc/dc-prg.c                    | 329 +++++++++++++
+ drivers/gpu/drm/imx/dc/dc-prg.h                    |  38 ++
+ drivers/gpu/drm/imx/dc/dc-tc.c                     | 119 ++++-
+ 25 files changed, 1792 insertions(+), 63 deletions(-)
 ---
-base-commit: 2974b78ee4302390eceb5f5983c00b3d66fc3c78
-change-id: 20261103-rockpi4-sd-uhs-5e61c1ecf674
+base-commit: ea74b623855291e60835c0f7fa7a29673332ad41
+change-id: 20250703-imx8-dc-prefetch-028e306591c6
 
 Best regards,
--- 
-Igor Velkov <iav@iav.lv>
-
+--  
+Regards,
+Liu Ying
 
 
