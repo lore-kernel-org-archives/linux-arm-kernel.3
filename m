@@ -2,68 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DE2C606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 13:56:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72A41606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 13:57:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LmLKTXhV;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PRGVRqwi
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VWpk52ux;
+	dkim=pass (2048-bit key, unprotected) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=qNi5cLVl
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=R+Lz59YAmE39OMTr2JsinbD50rhC0BRWVoCOCQ0iRIk=; b=LmLKTXhVpVs9a2kxfUh9M4sQl6
-	Gir+LSzeOBe9gFCshnUO3Tvk/99NozuuylpP00wNhIeYpFcyMcMywipv+zVbSOmu92Qly2/aK3TYf
-	9r8ZSEmvnEZ6izWQV57MYDJ8eTtiW6AfE0eJ/aLaZr6HmwA4Ul5KfDHe2rSZ+LA08N2/sR0Zvsd/9
-	ARzuVMKHIbr5B4FSyS9HIl+mSnLOpeCFF0jI5oG4zkRALGY6fEE04asYwUlItf+vUz1TBRCbZqWDq
-	O+D9M9byuTKN/87OhRSHHeXMNqtqmt5GPNxiGrK16u7cH33tv3UiDtO1HpDj6muJ7sTtVzI70hArh
-	hD+nAelQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=lcg1wBxiDdcDGgK7Dz3chEfZ6MvrdqS3Jh/+FcQy5Sg=; b=VWpk52uxW15zsc
+	QPFZWCK2Kq1QE1oYmmhR7pDisrafUg94iZfqvXol2+XECTMvjMFa4He65PoFq6jVV3XQEYJqS4Hvm
+	sZZ8uIvRe2QAKWwCJ0+Xcwh/+2Ppxiy33oomrFhlo76hpBrFh73R+Znwh7ycJABfz0Qe/IuNEtRT7
+	DsKMSPW8V+D4O1cxMH6pIjrEvHas8wNAC4AbDo7tQ4E4lwCIAT3OAai6GYZ5DOe2HqTMj70n5qBxq
+	Wu3tG9e82ymstPwmR/YPmfVaeXIQzN1DoAEWo+dqjO6CXxD3RkV5ZDwqOG5xjDvrsNJhOj/MhFY1A
+	hQXHbqmvjq6xMThxqfRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOF0E-00000002enB-1Nvc;
-	Tue, 03 Nov 2026 13:56:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xOF0j-00000002ev8-1ru7;
+	Tue, 03 Nov 2026 13:57:13 +0000
+Received: from mail.tipi-net.de ([2a03:4000:43:185::1])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOF0A-00000002emL-0XvK
+	id 1xOF0g-00000002ete-20UQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 13:56:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2CB8E6061C;
-	Tue,  3 Nov 2026 13:56:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA2751F00919;
-	Tue,  3 Nov 2026 13:56:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793714196;
-	bh=R+Lz59YAmE39OMTr2JsinbD50rhC0BRWVoCOCQ0iRIk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PRGVRqwiv6MTZLxMLY48nxHMWgsFAcHVQqSjW+03fKfFTsD8J7XY+8asguReA4+9l
-	 snQCwXIRcT2lHftHDW+j+YdpQHpcc5srRgKCGzH6x7BSYlcdDB49Kos+3hHbpdzNHk
-	 ASQNL0hGSSQY8OOqCvRS9PE4W/Hqayx/NDf8tVmYbRwktPhqDcX3R1fu7bbqxvp0xj
-	 31mVkymrskroU2Jha52BCjuf0QoIlRgezvjuUqnDqHgkLwSsHxQpe7qjkntoITzsP/
-	 MEwiv1hroVCqQKqyz0xcFcAdk1qJYylCzNHzOedSkkEI8WnvGjfAuAD3gXRsrICO/K
-	 YxYPo/kMew9lw==
-Date: Tue, 3 Nov 2026 13:56:31 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Wei Wang <wvw@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
-	wei.vince.wang@gmail.com
-Subject: Re: [PATCH] arm64: suspend: Save and restore TPIDR2_EL0 across CPU
- suspend
-Message-ID: <8f1ccb65-e4a2-450b-944c-9883ff12bc37@sirena.org.uk>
-References: <20261102234813.1069156-1-wvw@google.com>
+	Tue, 03 Nov 2026 13:57:12 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id ACCC3A036B;
+	Tue, 03 Nov 2026 14:57:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1793714227; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=lcg1wBxiDdcDGgK7Dz3chEfZ6MvrdqS3Jh/+FcQy5Sg=;
+	b=qNi5cLVlSfUYbpjb4RcosnYY/OVuGLypm+UftvZAGws4OFdmSrE/Yb+jZD0LAiU85GuNCE
+	UDlu0Y6FYSNMzT+/VtF2gt9GeYQ7WjmLP09jNyMUQabQ6+bacZN7XOF2qP89N2d8t9jafR
+	5ju20EeK3QXBIaQtixADDhtX+8Uxh9eT2mwtvcHw6UvJm5n5ly/MLVKeIf7kox4BUxW23h
+	PFsSdPVkzA3y6a4Za0O30jl4jpO31Vmz8qJ2Bl3MdAHlsdsytpj3N24IdebuOBQlOJ/hKg
+	0ZhSbqo4tLqsbAMw/s36gfRyvnTupeHhGE/q8+mcWLWPePx6zDMkjLxIHwvsPw==
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6IYMj8soJ5dhvHDN"
-Content-Disposition: inline
-In-Reply-To: <20261102234813.1069156-1-wvw@google.com>
-X-Cookie: Small is beautiful.
+Date: Tue, 03 Nov 2026 14:57:06 +0100
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Russell King <linux@armlinux.org.uk>,
+ thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
+ <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next] net: stmmac: selftests: Add missing endianness
+ conversions
+In-Reply-To: <20261103122249.951523-1-maxime.chevallier@bootlin.com>
+References: <20261103122249.951523-1-maxime.chevallier@bootlin.com>
+Message-ID: <d0629035094621d224bc30fa7fda09ec@tipi-net.de>
+X-Sender: nb@tipi-net.de
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261103_055710_684977_BCC38108 
+X-CRM114-Status: UNSURE (   8.01  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,42 +84,27 @@ X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Hi Maxime
 
---6IYMj8soJ5dhvHDN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On 3.11.2026 13:22, Maxime Chevallier wrote:
+> The kbuild bot found some endianness issues in the stmmac ethtool
+> selftests [1] let's address these.
+> 
+> In practice these missing conversions didn't cause any issue, as the
+> masks / values on which the conversions were missing were either always
+> 0 or ~0, so skipping the byte swaps lead to the same value being passed
+> anyway.
+> 
+> [1]: 
+> https://lore.kernel.org/oe-kbuild-all/202611010511.Mk620DTd-lkp@intel.com/
+> 
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> ---
 
-On Mon, Nov 02, 2026 at 11:48:13PM +0000, Wei Wang wrote:
+> [...]
 
-> On systems with FEAT_SME, TPIDR2_EL0 is part of userspace thread state:
-> the AAPCS64 SME ABI uses it as the ZA lazy-save pointer, and the kernel
-> context-switches it eagerly in tls_thread_switch(). While a task is
-> running, the live register is the only copy of its value.
+Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
 
-Thanks for catching this:
-
-Reviewed-by: Mark Brown <broonie@kernel.org>
-
-but I think we're missing some other registers, I made the same mistake
-for GCS with GCSPR_EL0 and GCSCRE0_EL1 and I'm not seeing where POR_EL0
-is handled either but possibly it's somewhere I didn't spot.  I can look
-into those incrementally once this gets applied (or if you do a v2 and
-roll them in that'd also be great!).
-
---6IYMj8soJ5dhvHDN
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmrp6A8ACgkQJNaLcl1U
-h9Djkwf8CKSaRV2sUPe1CvYTnDySz0g3vSKK7JXAzIRm7/VW/CeVsU7qAR2VxvOQ
-os/IemWfB91LhdGiI+0r7iVCLjU8tgnMmj6w5Yj+KZU15W7QeRxeYYC7orlzQbgK
-Uy/pLapQrvXwIu7ZxyE9BlPAvKyqTe3uHhJVZHyl8sGZ0vTs4+5osA94wsUG+ouk
-Ab9Qa8ycZf10jI8DUDVsWpZyXn704V81m+PfUziecTQp1FRQad8pDLcPcLk1oYf2
-9Bk4ysiIbRYzVzi+5EFH2n6BTpKkw0nsUS6SZv2dxzX/dlmSb20Rd9kyId4WTWYS
-cmkbN8UklQLpeHEZFnpKhyVgOAtQcA==
-=zl37
------END PGP SIGNATURE-----
-
---6IYMj8soJ5dhvHDN--
+Thanks,
+Nicolai
 
