@@ -2,10 +2,10 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAF69606EE9A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 09:46:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB1B16083632
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 09:46:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SZVlo2at
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Za2mTMPh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
@@ -13,62 +13,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=kjNW/BEZIJiWpD0QSBrblYoaP+4qh7Pt18KlmN+Uc64=; b=SZVlo2atNjzn/nam8e+4/tNX52
-	BhWyRFSSOT0nMP2Z8s88hqZRKr5culQvhGMPYlROwrZ+l/3BHFtYO7P6He/MUaHjIrEws+NI2qsP3
-	16uOtOIj4oknRok6ANOPRRM63h15Vagp8mpo6WfQr0+d1Ef1nj29Ibnfpr08Yi4TqjSfI33yYlDcP
-	0N1f8JMFNvdIsqiI5UfrL1YswI39G+y436TPRLxBDQf1I5n54uUUiFPumF8DowONQ4g3kQPDUotrm
-	nfxmPhbtDhvjFoTCDGOoQwS54oPz4InQweOacuQm3Gf8Elh8t7qIn/dkOJqQlkG2Y1tqwmp27O1MC
-	gICv8SHw==;
+	bh=gY7p33z2v7FszyDj0lPlEERYt/49l6YR3NM7eQ0xMIM=; b=Za2mTMPhA9NodvLj6nvHfLc3ME
+	W8YJPOyWl0pSdZdGgH2UFZexLqK1E1kcDUp4F1qNgI26FfUBUL11KlFYaz3qLTtpYiiRtTKC4nqqn
+	SPoWRQiw20ge/AixOGsJKNLnmBWa7unECpO/4QVGDw0eFiSE1e0P+JA50F55em2gA20K4KjMugRer
+	+6TTkVGj7zcNn4gdxndRDjEzl9sRS6RSWegSUbPmdM5xFJjTJGuaU9G4aLyNLflyjBkYlYF5CO66A
+	QZaiCjo0P+TUwIsoKhI3put0wcVkrqHKBG3MNvvA7N4JsC2UqXzCkEPmSYCX602wXjhuFiUb1uptb
+	v2igo+HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOB5n-00000001niF-0O3i;
-	Tue, 03 Nov 2026 09:46:11 +0000
+	id 1xOB5r-00000001not-2mI9;
+	Tue, 03 Nov 2026 09:46:15 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOB5j-00000001nde-1f34;
-	Tue, 03 Nov 2026 09:46:09 +0000
+	id 1xOB5m-00000001nhA-2qJk
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Nov 2026 09:46:12 +0000
 Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowADX4JFbrelqmk47AA--.2367S2;
-	Tue, 03 Nov 2026 17:46:03 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowACXaZpgrelq1U47AA--.64265S2;
+	Tue, 03 Nov 2026 17:46:08 +0800 (CST)
 From: Wentao Liang <vulab@iscas.ac.cn>
-To: Bin Liu <bin.liu@mediatek.com>,
+To: Sylwester Nawrocki <s.nawrocki@samsung.com>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
 Cc: linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	Wentao Liang <vulab@iscas.ac.cn>,
 	stable@vger.kernel.org
-Subject: [PATCH] media: mtk-jpeg: Release the decoder device on job completion
-Date: Tue,  3 Nov 2026 09:46:12 +0000
-Message-Id: <20261103094612.1289250-1-vulab@iscas.ac.cn>
+Subject: [PATCH] media: exynos4-is: Free control handler if fimc-lite subdev init fails
+Date: Tue,  3 Nov 2026 09:46:17 +0000
+Message-Id: <20261103094617.1289377-1-vulab@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowADX4JFbrelqmk47AA--.2367S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7uF1xGF4rCr1kury5AF1kKrg_yoW8tw1Dpr
-	W5K3yjkryUGr4jqF18WF1UZFyYkrZ3JrWY9FW7X34xW39xXF1rtry09a4IqFZ2yrWI9a4D
-	Jr1jqa97CF4jyFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+X-CM-TRANSID: rQCowACXaZpgrelq1U47AA--.64265S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7WFyxGw1fKw4rAw13ZF1DWrg_yoW8GFWUpr
+	4xt3srAFWUGayxta1UA3W29FW3Aw13WrW5WrZru348JrZakFnrA34a93WrZFyDAr1xZasx
+	Zw1UXFW3uF4YvrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r126r1DMcIj6I8E87Iv67AKxVWxJr0_GcWlOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCT
-	nIWIevJa73UjIFyTuYvjfU7TmhDUUUU
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgAAA2rpnIRROAAAs3
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUtVWrXwAv7VC2z280aVAFwI0_Cr1j6rxdMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
+	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
+	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr
+	1lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_
+	JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYx
+	BIdaVFxhVjvjDU0xZFpf9x0JjU-B_UUUUU=
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAMAA2rpnOFO+QAAsF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_014607_933680_0645BE03 
-X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-CacheID: sfid-20261103_014611_169002_CB618D1E 
+X-CRM114-Status: UNSURE (   9.72  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.9 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -84,61 +86,40 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
-	version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-mtk_jpegdec_worker() resumes the component device represented by
-comp_jpeg[hw_id]->dev.  When the job completes,
-mtk_jpegdec_hw_irq_handler() drops a reference to the master device
-ctx->jpeg->dev instead of the component device.  The component's usage
-counter is never decremented, so the component and its power domain stay
-powered, while the master's usage counter is decremented without a
-matching reference.
+fimc_lite_create_capture_subdev() initializes fimc->ctrl_handler and adds
+a control to it. If the control cannot be created, handler->error is set
+and the function returns after cleaning up the media entity only. The
+control handler still owns the memory allocated for its buckets and for
+any control created before the failure, and fimc_lite_probe() does not
+call fimc_lite_unregister_capture_subdev() on this error, so that memory
+is leaked.
 
-Release jpeg->dev, the component device that was resumed, and disable
-the clock before dropping the reference as the timeout work already
-does.
+Free the control handler before returning the error.
 
-Fixes: 0fa49df4222f ("media: mtk-jpegdec: support jpegdec multi-hardware")
+Fixes: 4af813108b88 ("[media] s5p-fimc: Add support for Exynos4x12 FIMC-LITE")
 Cc: stable@vger.kernel.org
 Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
 Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 ---
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ drivers/media/platform/samsung/exynos4-is/fimc-lite.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-index 32372781daf5..017c9b5401c6 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-@@ -547,7 +547,6 @@ static irqreturn_t mtk_jpegdec_hw_irq_handler(int irq, void *priv)
- 	struct vb2_v4l2_buffer *src_buf, *dst_buf;
- 	struct mtk_jpeg_src_buf *jpeg_src_buf;
- 	enum vb2_buffer_state buf_state;
--	struct mtk_jpeg_ctx *ctx;
- 	u32 dec_irq_ret;
- 	u32 irq_status;
- 	int i;
-@@ -557,7 +556,6 @@ static irqreturn_t mtk_jpegdec_hw_irq_handler(int irq, void *priv)
+diff --git a/drivers/media/platform/samsung/exynos4-is/fimc-lite.c b/drivers/media/platform/samsung/exynos4-is/fimc-lite.c
+index 90599c82fd35..103c542a85b0 100644
+--- a/drivers/media/platform/samsung/exynos4-is/fimc-lite.c
++++ b/drivers/media/platform/samsung/exynos4-is/fimc-lite.c
+@@ -1402,6 +1402,7 @@ static int fimc_lite_create_capture_subdev(struct fimc_lite *fimc)
+ 						  NULL);
+ 	if (handler->error) {
+ 		media_entity_cleanup(&sd->entity);
++		v4l2_ctrl_handler_free(handler);
+ 		return handler->error;
+ 	}
  
- 	cancel_delayed_work(&jpeg->job_timeout_work);
- 
--	ctx = jpeg->hw_param.curr_ctx;
- 	src_buf = jpeg->hw_param.src_buffer;
- 	dst_buf = jpeg->hw_param.dst_buffer;
- 	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
-@@ -580,8 +578,8 @@ static irqreturn_t mtk_jpegdec_hw_irq_handler(int irq, void *priv)
- 	buf_state = VB2_BUF_STATE_DONE;
- 	v4l2_m2m_buf_done(src_buf, buf_state);
- 	mtk_jpegdec_put_buf(jpeg);
--	pm_runtime_put(ctx->jpeg->dev);
- 	clk_disable_unprepare(jpeg->jdec_clk.clks->clk);
-+	pm_runtime_put(jpeg->dev);
- 
- 	jpeg->hw_state = MTK_JPEG_HW_IDLE;
- 	wake_up(&master_jpeg->hw_wq);
 -- 
 2.34.1
 
