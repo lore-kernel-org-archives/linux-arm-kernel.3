@@ -2,177 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8EA1606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 05:47:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D936606A331
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 06:00:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MKp/QBGU;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=B9WPCRoH;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=NsBXoBbA
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0wyyY57F;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gap6WM2k
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=CAUzZfGxBOdGVKQARymZnvw9tUEu8Gk9GBeF1+1UKlY=; b=MKp/QBGUjWOe6R
-	LpmSYBxFrVq7U7zBmwvx3RrIlV20Mi6KQGHRpHjYXkrYSY9gEom1UTzpHfUItBWrUsHMa4+rdrQJ3
-	matqpSArdTd7ilyLG/kT++RIJy2D1TjXYy0yRGhvLjDBOPOYlZaiQX7M/gkt+/bf8F2UWrqzNjMzS
-	/AbJEATbWapiwtDF/FjHRmvbL4rc/JxQ2b25ocvN8mYjruoQ41DCtiUfGX26RqLFdmi/1Nnhyd2cp
-	5v2KvKJXSdJ4gtcFFLX+LDkHm9t1aT61t9xvPaRnJUOwKYYwzkli/q+E6b6uHzAiX+8g73zB6kKrC
-	SqPp8ZB4lIoft2BS8r5A==;
+	List-Owner; bh=ngSZ2pqR2sxPQ2bO2CF7a94hWgprN24K+32PDqqmK40=; b=0wyyY57FL3JXAz
+	l/gjvzZyj+4twTrN+wHBWd8r01/WK8cvG9e8e94l02/SxZQK8pBxh6Gxa6ffSrBbz8LiE8MiYhkHA
+	fzNO146zErNCQvdjRShYAmosIT6RioS+dLGEjQNZrg8PNjP8sDXCUmDtfxm7cX0kyIocUApVV++gb
+	ZAkh2AUOjoIi01+4GCrWr+5uYcEYW1YBxfLcwIKLr5armIZUcBIeQ0tgdNwUsFqA1uG+FaR9cMH/q
+	59+OBtJn59pssQEA8e1ziAsQ3qev75TaYPxWTzhS8WGS8U3evV93rstGSRswp5SgoltPqckHPR2iS
+	kI1dKHCftGkOLcFyaLyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO7Mf-000000019h5-1Nkc;
-	Tue, 03 Nov 2026 05:47:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1xO7Yp-00000001Aez-16lT;
+	Tue, 03 Nov 2026 05:59:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO7Mc-000000019gk-0BhQ
+	id 1xO7Yo-00000001Aer-3cBy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 05:47:19 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A33hooG1141665
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 3 Nov 2026 05:47:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	CAUzZfGxBOdGVKQARymZnvw9tUEu8Gk9GBeF1+1UKlY=; b=B9WPCRoHyNWKGB9D
-	L4dsvqEUClvH8NYUkX61OcAYrQ7xjNf8OsnFL8BeS8ivn8fOebHh8j2Gr53ZrKh6
-	6ctTJdl0ZoS4wmHYDLR+/08RvCfJxzW/kPXa0K7cW41jngrpCOWaIY6LQkDQwyJX
-	pc/oqb9Sfa1/hL935YqWfv8iL7ENTA5UNB6XUVuTVOZ4NG1qYy0RYXXAn+i6+JaE
-	dAtNI49uAU+gger0nd4XxtGguv6Heck9tdclAGjAIlIbqcV9UwW5+P+biYRG2YaU
-	pDVTCiB7IXKU61B9PByE9Cd8wuz4R9xucjIUAAdWtJMAiw1U+M7kvVF7/je2dwm/
-	b3H4Hg==
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hq7ycrdg1-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 05:47:16 +0000 (GMT)
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cd67d4bbdffso2941767a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 21:47:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793684835; x=1794289635; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CAUzZfGxBOdGVKQARymZnvw9tUEu8Gk9GBeF1+1UKlY=;
-        b=NsBXoBbADokHz6mcNXr8BuYOjLWnm8nri4nnTPqD1ZDUmcHi3a57TtfMR1IGRJ96tr
-         +7HHEC1rATh0Xn+X4WoSF4yFy1Zdlm6lcVqY897+6g1iSyH3V0TqKMdrdQwtgSBjeB1y
-         4K1NgCkYiv/nYsNxPSIqTWQJrF4YwIYBdEl4XMuf8u0BmRymhV0VPRuEcHcsUKzNA5vJ
-         ElLmbl3N5RoZGtSdhufotlXpd54Ivv00t1gJgNnJT2sCqzGhG9Jm9uTPfITWiy+GYPbO
-         bq9ekpng0ApvNCj1wsJe8iLWbidxtBkaq8WLUK08/0sC0I/aTPba/xNLvn+J8RgBgwYe
-         gCPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793684835; x=1794289635;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=CAUzZfGxBOdGVKQARymZnvw9tUEu8Gk9GBeF1+1UKlY=;
-        b=ObuBjWN+RE/3Ysd+8R60A+g86YfuOWRU4Ci1XuqbwNBJYGHJ2jD9UdwsA1Jljvdl+6
-         eILrgpgC7DPNv1OkyBdu6afOvVUlLG7Qzdl1Rp09iPIcZLLw//iXdWrUgNV/JCJkcDuX
-         JFo+c3BSFIrABN02CNhmUnAK7r9XUnAwEXTNOIFvgU6GkBPTgOxzM0M+YzD4mbi4IxDo
-         ZjpzqhMaatmVNDyuZSp4tA7N/usWE3w1niVrKe1fk0RvXawjIwZFYYbMwQMIqoWIQzql
-         f65ZlsjidIEn+SmqzAx5jMLCGYejaQgH3aZDB/g+FjNpOb2wUAk7tsTc8aRPgH9a6Mvw
-         HVCw==
-X-Forwarded-Encrypted: i=1; AKwUvByRIQs+DjyhZuGpGauVknEmkZ+Xb2RpP6VLtwAsu3MjgeJIDgygbMnbjziyK98goepoczU8rntImdcjsfzfNUZw@lists.infradead.org
-X-Gm-Message-State: APuU4Z+L7C9PdUGzHo2ebsU6H0ZW42ENYcKLNpFI3GrELoOp6Z1G/Kvs
-	iojWJpR9k0a/iEHsN/88uJ+hw4+6Kk6w1+YZDWPDTAxvyt2+TOJyj0VYNB29P4QJrFD35+dXkO2
-	ZFDFoayf87oFQRfyWLIk0FHt3WtAqdE1zm/NqoYZ4D1WYra1yYDsTF4vWEGGa/GxABod7K+InF2
-	xM/A==
-X-Gm-Gg: AYBFou1TRngYG/4fNGXZt06JlYLnPaDhH3sRX/yxKxpPIQwRhwdAq0h8ytXonjCCzmN
-	fCDvdvV9PBRplkVHWcty03S+CK6BC8qmsWnzCAeFElvPk9J06+8W87NWe16RgZ0RlxGwZkDutKH
-	BGY6HY4M/hOhehP+toeRlMLHZqFqg8rQ9DddIJ3Ipa7whsnVVf+HrJbNGfCsEtfdhJsFCoDAbAM
-	iM8tO2/M4i40tSWvPsYxiDWlNusu1Cwg2VL2oKnWlTP9H/9eP6KiDzhHA0c0OrZLFKCWAdoD1tD
-	DjYwz1kYMp30jp0oG0iCqq+6Z0JIIt2YUuRenRaY1OI9o5/E3TmUBI6mMboIZKvfsbY8+f01GjC
-	cZIIrw9u7tGhSyLZXhlAnPb5iQPzDAV7gLASCsaw/1jjEXKAmNdZsi5fMnm1w23GVvnNqL4uRDO
-	kHUF7v
-X-Received: by 2002:a05:6a00:1f0b:b0:899:67fe:3c52 with SMTP id d2e1a72fcca58-8a9be1a4461mr10570075b3a.15.1793684835530;
-        Mon, 02 Nov 2026 21:47:15 -0800 (PST)
-X-Received: by 2002:a05:6a00:1f0b:b0:899:67fe:3c52 with SMTP id d2e1a72fcca58-8a9be1a4461mr10570053b3a.15.1793684835043;
-        Mon, 02 Nov 2026 21:47:15 -0800 (PST)
-Received: from [10.217.219.98] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8aad7801a53sm2896689b3a.2.2026.11.02.21.47.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Nov 2026 21:47:14 -0800 (PST)
-Message-ID: <e44d3e85-8dbf-4ca2-9c88-817f729fcdb8@oss.qualcomm.com>
-Date: Tue, 3 Nov 2026 11:17:03 +0530
+	Tue, 03 Nov 2026 05:59:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1FD2E601EF;
+	Tue,  3 Nov 2026 05:59:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79CC91F000C1;
+	Tue,  3 Nov 2026 05:59:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793685592;
+	bh=ngSZ2pqR2sxPQ2bO2CF7a94hWgprN24K+32PDqqmK40=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=gap6WM2kbcvJLj8N3Kr0C3GGvAOF52jS3O2quUzstowWmW4i/7W/JGMxOLh+vgNMD
+	 a4DDqL2vl/MeciMqeDh3B/4Dbb+8uhYWFwbLwcz3WUCyU1VtxNcMWgGhu/xYr+ZAfA
+	 +WyNkJ6PTa6NbnujZIcc8A/Wit+5nWYViJMKfOj77ezmx4GeO8ShsDRTwqZfhIxJXN
+	 BGkyJatlIgSaGqz/qQkqQ6EeObav4UQGzpaMQU5XWRkPiWH4qbegYLZz7ZENh1T0ow
+	 bCKx0J/yMvhW+yn6b+RThKStPNS5hdjq+oJBDfxqwJ59Q3Ro3eEGobjbRvGzcYU7/4
+	 jwKX8CZf2UD5w==
+From: Sven Peter <sven@kernel.org>
+To: Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yureka Lilian <yureka@cyberchaos.dev>
+Cc: Sven Peter <sven@kernel.org>,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/2] Add Apple SART4 support
+Date: Tue,  3 Nov 2026 06:59:41 +0100
+Message-ID: <179368556096.107891.6027524594611326128.b4-ty@b4>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261018-apple-sartv4-v1-0-1eaa5d63f6a2@cyberchaos.dev>
+References: <20261018-apple-sartv4-v1-0-1eaa5d63f6a2@cyberchaos.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] i2c: use dmaengine_desc_set_callback()
-To: Frank.Li@oss.nxp.com, Codrin Ciubotariu
- <codrin.ciubotariu@microchip.com>,
-        Andi Shyti <andi.shyti@kernel.org>,
-        Nicolas Ferre <nicolas.ferre@microchip.com>,
-        Alexandre Belloni <alexandre.belloni@bootlin.com>,
-        Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-        Dong Aisheng <aisheng.dong@nxp.com>, Frank Li <Frank.Li@nxp.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>,
-        Oleksij Rempel
- <o.rempel@pengutronix.de>,
-        Viken Dadhaniya
- <viken.dadhaniya@oss.qualcomm.com>,
-        Wolfram Sang <wsa+renesas@sang-engineering.com>,
-        Geert Uytterhoeven <geert+renesas@glider.be>,
-        Magnus Damm <magnus.damm@gmail.com>,
-        Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>,
-        Alain Volmat <alain.volmat@foss.st.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Laxman Dewangan <ldewangan@nvidia.com>,
-        Dmitry Osipenko <digetx@gmail.com>,
-        Thierry Reding <thierry.reding@kernel.org>,
-        Jonathan Hunter <jonathanh@nvidia.com>,
-        "open list:MICROCHIP I2C DRIVER" <linux-i2c@vger.kernel.org>,
-        "moderated list:ARM/Microchip (AT91) SoC support"
- <linux-arm-kernel@lists.infradead.org>,
-        open list <linux-kernel@vger.kernel.org>,
-        "open list:FREESCALE IMX LPI2C DRIVER" <imx@lists.linux.dev>,
-        "open list:QUALCOMM I2C QCOM GENI DRIVER" <linux-arm-msm@vger.kernel.org>,
-        "open list:RENESAS R-CAR I2C DRIVERS" <linux-renesas-soc@vger.kernel.org>,
-        "moderated list:ARM/STM32 ARCHITECTURE"
- <linux-stm32@st-md-mailman.stormreply.com>,
-        "open list:TEGRA ARCHITECTURE SUPPORT" <linux-tegra@vger.kernel.org>
-Cc: vkoul@kernel.org
-References: <20261102170004.3852546-1-Frank.Li@oss.nxp.com>
-Content-Language: en-US
-From: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
-In-Reply-To: <20261102170004.3852546-1-Frank.Li@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=V7foQuni c=1 sm=1 tr=0 ts=6ae97564 cx=c_pps
- a=rz3CxIlbcmazkYymdCej/Q==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=8AirrxEcAAAA:8 a=EUspDBNiAAAA:8 a=ibj56h0FkVxt_nO8038A:9 a=QEXdDO2ut3YA:10
- a=bFCP_H2QrGi7Okbo017w:22 a=ST-jHhOKWsTCqRlWije3:22
-X-Proofpoint-ORIG-GUID: UVA6oDUeQ1ETGhEu4XmjdphYoaYyLXrs
-X-Proofpoint-GUID: UVA6oDUeQ1ETGhEu4XmjdphYoaYyLXrs
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTAzMDAyMiBTYWx0ZWRfX3tThmSt2wm7I
- T1COUoH6cVULz/z3lmPHvqtYbBd3tdb7EWQ1uNLJloxbWW4JTQvsV/nCH4Kbys/ao4eCgaW/l6t
- DQfj/iQm7Itnm7JZYTyRex1ZPgJfQutTswoxAx886L7yU/jiuW9hMkU65PmHn9auEYvIIwypY25
- fktfWEFW4JBi8urrHcFr3T0NHJHmFeL3jZ9LaGX6jOkJZg64HWV9L/E9uobUe/Nsjhd66j4uU5Z
- 0H8NeSuqLdfemP5FqzqyVyxHTK5InjuYjD7VSHkadw3XfU1MNu8z1GyaRxKBKhhK9AJqIhGTQGD
- 8zSUAlfh6xhaomeokc112eKKDgeGFyCGYMineufL8tVm1JHQLUg62c+WMLPbdOOyDS6HwpVEIhi
- OWwKjj4Nkq1eTRegZpXAdRFze8u+P5+4s50hspeIxnqmRgXSp1G7QdOWx66oTZk1DTeJWtpfnCy
- zHrFeCWnr7+UP+c4Llw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTAzMDAyMiBTYWx0ZWRfX4ty3p3ulqicx
- qAAacqoEhW37jzjl0BuhBlzLnMOev1Lrc4GkGr7r1utIVRckvYnIoRb6kqwb9gPNbp/oounJ45b
- ZlVbUlPzBcR9PQUelOwL2vIIHxAqP8E=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-03_01,2026-11-02_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 malwarescore=0 spamscore=0 clxscore=1015 bulkscore=0
- adultscore=0 phishscore=0 lowpriorityscore=0 impostorscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610300000 definitions=main-2611030022
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_214718_099285_00E030BB 
-X-CRM114-Status: GOOD (  12.08  )
-X-Spam-Score: -2.8 (--)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,27 +79,33 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+On Sun, 18 Oct 2026 18:38:09 +0200, Yureka Lilian wrote:
+> this patch series adds the dt-bindings and driver changes required to
+> get the new SART4 IOMMU on the Apple Silicon T6050 (M5 Pro/Max) SoCs
+> up and running, which is required to use the internal NVMe.
+> 
+> The dt-bindings and device tree nodes for the ANS2 are omitted here,
+> since the minimal device tree is not ready yet.
+> 
+> [...]
 
+Applied to local tree (apple-soc/drivers-7.5), thanks!
 
-On 11/2/2026 10:30 PM, Frank.Li@oss.nxp.com wrote:
-> From: Frank Li <Frank.Li@nxp.com>
-> 
-> Replace open-coded assignments to callback and callback_param fields
-> of struct dma_async_tx_descriptor with calls to the
-> dmaengine_desc_set_callback() helper across various I2C bus drivers.
-> 
-> No functional change intended. Prepare make to struct
-> dma_async_tx_descriptor private to the DMA engine.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-Reviewed-by: Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>
+[1/2] dt-bindings: iommu: apple,sart: Add apple,t6050-sart compatible
+      https://github.com/AsahiLinux/linux/commit/d276a2b7f437
+[2/2] soc: apple: sart: Add SART4 support
+      https://github.com/AsahiLinux/linux/commit/01098fba87a0
+
+Best regards,
+-- 
+Sven Peter <sven@kernel.org>
+
 
