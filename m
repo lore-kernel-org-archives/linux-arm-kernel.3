@@ -2,151 +2,62 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7726D606F60E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 15:06:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB862606B267
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 15:08:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Bdw5Vay9;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=rEepAPFN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ONPfeWYc;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Yr6YhMmW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=HN7O1arYfTzDppbkwTwbXx2BMRZ0BHXGnmbVS6qakSc=; b=Bdw5Vay9am5+OCrB1VudSm06Sd
-	lM1hBH0rDrtsN6gc9En519/cj5DVvolMG2OmQnHMfU8PSVgv0Errx0kFeYjTJ0xJtMHta9ZaVwvDU
-	ImSAqjIj8Xc9GVyQs0dXchk0kuEZdFy32C+JBuTOL5ipfPYorupsbCz85L/9nBJ49fCxYxET8viGm
-	KEDKbzY+SzdZTft9en023TxX/bpre+0ERf5dOfAfSgmfHyxiGAsKdCnfRrfC8xQaF7+S0Z4KFXL1q
-	lXl/ChKVgu00HnPBkZMjL05k30kb087gWwu941hVMRkO6khZvmHf765+r+gAMauVDugxZaFJyXtXO
-	M5vEr/XA==;
+	bh=T78d35XJuajsWSqCh0SR2r+hq2uCDOlT3TQl7sed1Eg=; b=ONPfeWYcoZtsDODzW2ntdcdCHt
+	uFwgOnMd6mGR5XCaMM26AjOKVbNSzw53EjV4YA3lw+4lhwIoz1IWRdI3+VwBZwVJjxWJiLuZfTWz1
+	gj0PBQ9qfiKFxT6kw1T7ps2pVkyq3ubu7IJ8Yxp9Tquf99a2o+Uni6LC1ht1A9rQqHfcadQj6EZOm
+	lQD/yPrPoPvNx9A3KcU1SpSv5YXZNAexIutBi5DJO3Oj+hm3AsdFnq5lIZxGdWyHECgJH3Ra058k2
+	SFh/YSKpyvaM1Fsz8ufKVxVC9MPPPYryZA+AIhJ20dsYv5bQKI2ZqDzwtyEjn5eN1hgke5jjz0/sO
+	q8zIqcoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOG5h-00000002qdf-0J3l;
-	Tue, 03 Nov 2026 15:06:25 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOG5d-00000002qcV-45jW
+	id 1xOG7z-00000002qxF-20sF;
+	Tue, 03 Nov 2026 15:08:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOG7w-00000002qwl-3HtU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 15:06:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a2aq/lCIU/DJT4rEkiqsDmtOYIhfdxZsRIl8wVTKuPopyvC4WAsaWq6scVV0NhLlxzM1dF7k09VwkpcJEQIMwcP0o97RO6d7z0+O3WuXBPZuGmbzN0Hk7LgrKijxK2HLYt5HNt0IKe2Jqgy3PNnmZwX46+LsMA2CYKtovSvRNNMAHGs5vepkIQHNutGp4h6ayfbsWgEc0kMki3Gxih0LTJa7dT0/9c1+fCSL9fWEI0FFCA8VL0dywcbdb7prOcNxji+omHEVU+7qH2chjDZfeGifCbI6S+QSauH5w8nk2RSNoYSW7sM8X87q7SgjgOEezfQuZckS9VPJ4bdq8Qs3NA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HN7O1arYfTzDppbkwTwbXx2BMRZ0BHXGnmbVS6qakSc=;
- b=zM9Htk1Fq3N9VbW2VYIQz70xvD63TxP34MpuYtXVB9xfwY36GygH13kPL0chzUlD3hrT76gw0oMscuJIzXUnuYfwjG860UXCM5qW6Fask8FlbkjalVEYhhxLb4q5AYAPTiA/vhknLb8eovcqRpS2AYMKn0j+mxzuDU/ot7jytdaRRWI+mPUIB3A/6s1cFELICsv1ODj1N+i9C0FTzTPloTzYesSRj+tM/HqsgIWCyPyb9O9oeU5kGf+nMtFYFVDzl9sLqYRtG0EyqUu3SzsQLXQemfVGwxAOgZmjnH2Pdpn23e3Sn7Wnb4DxIH64h0ks+Qxab1xXzyUbdTouQeZgQg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HN7O1arYfTzDppbkwTwbXx2BMRZ0BHXGnmbVS6qakSc=;
- b=rEepAPFNi1kJX9nPmb0UVPzUvzIF7uDnbr2nqHWlmX1eFhUCMLBVLiuITikl+tikiJVC/rckfM+ROgmOoeWlct8K2RJCczvlWa9DktHFYXMG2x1bDxkX6xiM9GkU1Pwl274sbKCkqMU99fzARN1vVPIFTX2cACZUjXC1nGR5h7xGaNwS+6A6DGUq0k7X7YThNOnzBL+MLo8DofoeCWnM8090wEhJy7J7LSV6LNM9rnaYl09U8yRajoCiXTLba4gvgw3j0yj653lEBXljVAjOPpORi34BdFurF8J2plkPXcOmjuhdz69XWS/l1FiJhqnjFlsZ0fTjX7DGpn0gi/GqYA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by PAXPR04MB8656.eurprd04.prod.outlook.com (2603:10a6:102:21f::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Tue, 3 Nov
- 2026 15:06:15 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0592.007; Tue, 3 Nov 2026
- 15:06:15 +0000
-Date: Tue, 3 Nov 2026 09:06:03 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Joe Damato <joe@dama.to>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Stephan Gerhold <stephan@gerhold.net>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Frank Li <Frank.Li@nxp.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Li Youhong <liyouhong@kylinos.cn>, Arnd Bergmann <arnd@arndb.de>,
-	bui duc phuc <phucduc.bui@gmail.com>,
-	Yicong Hui <yiconghui@gmail.com>, Simon Horman <horms@kernel.org>,
-	"open list:NETWORKING DRIVERS" <netdev@vger.kernel.org>,
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>,
-	imx@lists.linux.dev, vkoul@kernel.org
-Subject: Re: [PATCH] net: dma: use dmaengine_desc_set_callback()
-Message-ID: <aun4W3dvmfWRDFeQ@SMW015318>
-References: <20261102191922.4044912-1-Frank.Li@oss.nxp.com>
- <aukcoWLVvSorX5a9@devvm20253.cco0.facebook.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aukcoWLVvSorX5a9@devvm20253.cco0.facebook.com>
-X-ClientProxiedBy: DM6PR07CA0120.namprd07.prod.outlook.com
- (2603:10b6:5:330::10) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	Tue, 03 Nov 2026 15:08:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 654401595;
+	Tue,  3 Nov 2026 07:08:40 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BBD7B3F673;
+	Tue,  3 Nov 2026 07:08:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793718523; bh=9K8j3RHNpZl6x0R5Vf5Y5d+UFsTPvm4yCBERtbu40zs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Yr6YhMmWqlyf6ZrUzDb5//LGZUKtAumRbIUQdzdJIQv/2YrUiXvSJnNNaaIO3ApKa
+	 xDDDO4R+bOeLEerrt6xuL6/DXLWwXdqnW2hNR6j0Yq9klEonxoRpGL/6hoeVavQ/gw
+	 wNghATfBBV8snGfKZfCE5tLCXLJvdpebXmoB4ci4=
+Date: Tue, 3 Nov 2026 15:08:40 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Zhao Gongyi <zhaogongyi@bytedance.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: mm: validate /dev/mem mmap ranges without overflow
+Message-ID: <aun4-MXVMZNrmvGr@arm.com>
+References: <20261101171030.87343-1-zhaogongyi@bytedance.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|PAXPR04MB8656:EE_
-X-MS-Office365-Filtering-Correlation-Id: b2582fed-19be-4859-bd73-08df39bc0169
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014|19092799006|23010399003|18002099003|22082099003|261102123227099003|56012099006|10067099003|261009223027099003|921020|261022105027099003|261021121427099003|261021123027099003|4143699003|11063799006|261028144727099003|261026121527099003|261026140227099003;
-X-Microsoft-Antispam-Message-Info: I0VJbwpFhHu3pJfLjouEaUT2ShYd/NkglcESgWbz10GvZeOUHEXtdzsO+hPzl4bF/E62DVlHQszFA7HuABvAxGgNTuDyrwvDlVQT7g7wVJ1sXkk66nB3xl3qZ2eqhE2x00O0T1JPQeBG44QNd8mgVXQLhwu4wI5MtlEYOW526RYJ3QEMZ3bI4RnxiGAA0bcw+brAiDnRe4QsKYWn6tIA3FAy+DqlK5jfWp911LzjiHs6HJZQtFeYbwM+e0NHcUedBMepyw0aJdm0ws6O0UVW1nX60ZbLV+Gur8ssbxUPL0ds0fGaAxRLwGkchU5BZYyldq0s9UR2iPU7OjoLNlK/CPwVcU+Dv541WZQvKL8ntS2FYNlnbATG9RMdICKd0cpOYxUYK/gdhkpinjzpWWr4Cul4CNJejw/IPO1X5WwHlcpEYs4ygMMsNcQfkd+Yqs8FcWkuadakcnZp0Uwk8W8JGiqQTyoysJpOIN553s+WQAzTLn5ekOyTAEYjLziLR3xiht7BZVCxeQBEKVK54ih6yXGkOroM2ER2zK8l0w3ckbPxt/1p/J5mMHVeIHXky6+YR2MYelnU9pnq6Gfr+rg//8ox/vlRvPgAQHky5n6pSZj6c97rqGmxO7jW6rD1piTQvJDgdvSIrJvrPujwIMqUcDL3ws8WiP/5r2rov7h+K2eijis3H7U22sIyXWj3LmUHAIm03d2+aMMhuihh828jDg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014)(19092799006)(23010399003)(18002099003)(22082099003)(261102123227099003)(56012099006)(10067099003)(261009223027099003)(921020)(261022105027099003)(261021121427099003)(261021123027099003)(4143699003)(11063799006)(261028144727099003)(261026121527099003)(261026140227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Um67BhoQPH3rutJt0YfVGzVAtrcF7EKlre3rJxMCO7zBupF2vEdTASx731II?=
- =?us-ascii?Q?/6n8NmvyHdDQujpAc6Q8G8nYMaVe4xDE+7/7vEqRehwzIKJAtGWi1tiuiEUE?=
- =?us-ascii?Q?LpRTVnvEaZmIR4pITOW7s8y9S9TThjb6LgHnDx1+0q3z3JVvNnYql4vNRc7g?=
- =?us-ascii?Q?DcJE6xjlJwO3r8+oBHir5OyCtycOamDI8LXEWraXnPVyMDUQk/iBqS+rais6?=
- =?us-ascii?Q?G3yKG8fCV5oARZBLdF9s0H4oBsm58bbdM7HTi2Wgjt3vfAOOz+0HJ0hG/mZL?=
- =?us-ascii?Q?ehcqpMaa1Vf6dWcxxkUAvTClffM1vIYcGySFD2bJV5ABTCLoDZjoCViNYHao?=
- =?us-ascii?Q?XNUMahfvZ9+DtySRwnRAyAFAyewCIT6geXGfA89/4HwbZPQUfUuuMC+LfLlp?=
- =?us-ascii?Q?KpyTldFbGaCZWjrOf6zm/BYcw9bIiOt1DZsnwOrQMrBnECsCqc9HyIu/7ngs?=
- =?us-ascii?Q?9YEkWwHRiVrPV+NGcB47hDgS8OFxUdXmLtFuM95GIefzQnJtNCZzKseCk2qd?=
- =?us-ascii?Q?FpI5okjxjMChqDqxqKsOVNVgQ3FYz+oYp+aVOQJm6aOzbl7V3TIFMqBp5Yc4?=
- =?us-ascii?Q?O2H5+uHbtTGE2Bpxr3so5m6S/KRtSfVVlShnEN4fN4F4i+lYQKUmUzGZqPzx?=
- =?us-ascii?Q?7DBSJEWNKwoHObJ045kyIpE4WBxn6U9Je9UOZaJfWukmGRmwkzI2V8AVUmLf?=
- =?us-ascii?Q?IrOqKBGlPgkyeZQf+5hyFvqMbDoiYBYKWduvMdA3yDnfq3gYyHME0yMl55qX?=
- =?us-ascii?Q?9+sQIJi5l0elFMHuYaBDHp2uICSKOXf7IBdXN072DATrYIIlQzD5UG0LZQWW?=
- =?us-ascii?Q?bzElCXNdNyoYiKrq78Mky5O6T6Dot2ZT53I6GbxU9sEf2/lXarHLTXpTdyyZ?=
- =?us-ascii?Q?/QMMDALf/QKSFZfzH8nTSmzVOzSqbYlaSPDXd1wU/qkPicBmoY+lJqhv/zSV?=
- =?us-ascii?Q?NT402PwoQmRJiCLY51jBfeZNkgbYPPys/WhTUQiaBwgi38416XDGe2D2/Q0C?=
- =?us-ascii?Q?Tk6EIhTjqyCvXZYxkonQFBi1b+lyYpRdABeaAggXFNeOGdBm9dKy49Asf/s+?=
- =?us-ascii?Q?l2B0sYR6j4Wy4Nu0dcAIxRDx3M94aoU0AQ6hsvKTZQc6jZCA1ZgAxThPVWVm?=
- =?us-ascii?Q?/kmSYPPVtfVUGUF+I9HYEUkfw9fnq5N/02AlUVNf+dxuEOPxpAHTXrz+I2II?=
- =?us-ascii?Q?l3XqCGMdx9XAMwdlDtOL8Oi3mn2wxU8sSAblWFH+rA6I+PDGEhU9bnzp59BQ?=
- =?us-ascii?Q?K8B/+ecTh0DDGUnHrAm3Ki6yPaoVqJVRK0KreNuIAZqGFCAFBNS+3FqUfSYR?=
- =?us-ascii?Q?SwL/y0REsxjxbunJ0teiNodqZZz4tqhFS5QJwbz31UJzgRrFhXBAT6O1hErV?=
- =?us-ascii?Q?M6B94h26IDRWbpKMDhmlykd1I7jw9lZt6PKGc4eoyl8PctgGeiE7toAZeY8w?=
- =?us-ascii?Q?ZlQxZxd35OnW/YlRhiVsy+GFQ6hq8W1E/R0d+OjmNxVgrkoVbE9LOnieDZ4d?=
- =?us-ascii?Q?jUpuVvql8EcYQ6WGj7J4ozUjTF858P1MvW1NUo/mafDkWj34MufYq5d5XK/M?=
- =?us-ascii?Q?hgI+XxBLj0/gaYudLcmOGMFrZPRjDf9IJFRz0vl2fumPtS1rcsifrCgu8dV9?=
- =?us-ascii?Q?1a2zbxRpE9Ot6VApdiPGA5qb90y5UPwIxJ43VUKkSQXkIFPcIn9uz3R5w4rH?=
- =?us-ascii?Q?wZ9rdabfrRdFUsTWXFUDrLGudb2ksSs3ZQ8rHNAt/Yw0G80Y0rmWH1SnWKu9?=
- =?us-ascii?Q?m3PeZ3PkKTN2XQMiPaEwxbwoRNkYVjN+WzDEHN4DUiqyjs75wIL6?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b2582fed-19be-4859-bd73-08df39bc0169
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 15:06:15.2085
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SNWTjf2epOZLEnFBr2Z+QE5d+U4pkJ5qNUPmRdQt5EvC+pk5khPVSxMPUM+OfbAAbiCHLO8w3WGdsiHEyEgWdCldRyLOUi8MW7aITROiBprduhZW5c0/TIiVFKiSlM0i
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8656
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261101171030.87343-1-zhaogongyi@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_070622_017435_5D628B63 
-X-CRM114-Status: GOOD (  21.37  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20261103_070844_966889_161C99C6 
+X-CRM114-Status: GOOD (  26.93  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,71 +68,78 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 02, 2026 at 03:28:33PM -0800, Joe Damato wrote:
-> On Mon, Nov 02, 2026 at 02:19:16PM -0500, Frank.Li@oss.nxp.com wrote:
-> > From: Frank Li <Frank.Li@nxp.com>
-> >
-> > Replace open-coded assignments to callback and callback_param fields
-> > of struct dma_async_tx_descriptor with calls to the
-> > dmaengine_desc_set_callback() helper across net drivers.
-> >
-> > No functional change intended. Prepare to make struct
-> > dma_async_tx_descriptor private to the DMA engine.
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> >  drivers/net/ethernet/allwinner/sun4i-emac.c       |  3 +--
-> >  drivers/net/ethernet/micrel/ks8842.c              |  6 ++----
-> >  drivers/net/ethernet/xilinx/xilinx_axienet_main.c |  6 ++----
-> >  drivers/net/wwan/qcom_bam_dmux.c                  | 10 ++++------
-> >  4 files changed, 9 insertions(+), 16 deletions(-)
->
-> [...]
->
-> > diff --git a/drivers/net/wwan/qcom_bam_dmux.c b/drivers/net/wwan/qcom_bam_dmux.c
-> > index cc6ace8d64371..1479f8362e04e 100644
-> > --- a/drivers/net/wwan/qcom_bam_dmux.c
-> > +++ b/drivers/net/wwan/qcom_bam_dmux.c
-> > @@ -195,9 +195,8 @@ static bool bam_dmux_skb_dma_submit_tx(struct bam_dmux_skb_dma *skb_dma)
-> >  		return false;
-> >  	}
-> >
-> > -	desc->callback = bam_dmux_tx_callback;
-> > -	desc->callback_param = skb_dma;
-> > -	desc->cookie = dmaengine_submit(desc);
-> > +	dmaengine_desc_set_callback(desc, bam_dmux_tx_callback, NULL, skb_dma);
-> > +	dmaengine_submit(desc);
-> >  	return true;
-> >  }
-> >
-> > @@ -477,9 +476,8 @@ static bool bam_dmux_skb_dma_submit_rx(struct bam_dmux_skb_dma *skb_dma)
-> >  		return false;
-> >  	}
-> >
-> > -	desc->callback = bam_dmux_rx_callback;
-> > -	desc->callback_param = skb_dma;
-> > -	desc->cookie = dmaengine_submit(desc);
-> > +	dmaengine_desc_set_callback(desc, bam_dmux_rx_callback, NULL, skb_dma);
-> > +	dmaengine_submit(desc);
->
-> I noticed in the above that the return value of dmaengine_submit is discarded
-> instead of stored.
->
-> Is that intentional? I suppose it might be because AFAICT cookie is never
-> used and the commit message says "no functional change intended".
+On Mon, Nov 02, 2026 at 01:10:30AM +0800, Zhao Gongyi wrote:
+> An arm64 syzkaller reproducer creates a FUSE character device with
+> major:minor 1:1, so opening it uses the /dev/mem file operations. It
+> maps one page from offset 0xfffffffffffff000 at user address zero.
+> The next openat() with a NULL pathname triggers a synchronous external
+> abort (SEA, ESR 0x96000010) in strncpy_from_user() via do_getname(),
+> panicking the kernel.
+> 
+> valid_mmap_phys_addr_range() checks the exclusive end by adding the
+> mapping size to the starting address. For this offset, the sum wraps
+> to zero and passes the PHYS_MASK test, allowing an out-of-range PFN to
+> reach remap_pfn_range(). The inclusive-end overflow check in
+> mmap_mem_prepare() does not catch it because the end is ULONG_MAX.
+> 
+> Reject starting PFNs outside PHYS_MASK and compare the inclusive length
+> against the remaining physical range without overflowing. This also
+> allows mappings that end exactly at PHYS_MASK, which the old check
+> incorrectly rejects.
+> 
+> Fixes: 1d18c47c735e ("arm64: MMU fault handling and page table management")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Zhao Gongyi <zhaogongyi@bytedance.com>
+> ---
+> Tested on the base commit with QEMU TCG and 52-bit LPA2:
+> the overflowing one-page mapping changes from success to -EINVAL,
+> while the last valid one- and two-page mappings change from -EINVAL to
+> success. A direct /dev/mem mmap followed by openat(NULL) panics before
+> this change; with the change, mmap fails with -EINVAL and openat()
+> returns -EFAULT.
+> 
+>  arch/arm64/mm/mmap.c | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
+> index 32e0771..d6286bc 100644
+> --- a/arch/arm64/mm/mmap.c
+> +++ b/arch/arm64/mm/mmap.c
+> @@ -61,7 +61,12 @@ int valid_phys_addr_range(phys_addr_t addr, size_t size)
+>   */
+>  int valid_mmap_phys_addr_range(unsigned long pfn, size_t size)
+>  {
+> -	return !(((pfn << PAGE_SHIFT) + size) & ~PHYS_MASK);
+> +	const phys_addr_t max_addr = PHYS_MASK;
+> +
+> +	if (!size || pfn > (max_addr >> PAGE_SHIFT))
+> +		return 0;
+> +
+> +	return size - 1 <= max_addr - (pfn << PAGE_SHIFT);
+>  }
 
-dma_cookie_assign() already set desc->cookie in dmaengine_submit(). Of couse
-it is not obvious. Do you need me update commit message to descript it.
+Can we write this as:
 
-Frank
+int valid_mmap_phys_addr_range(unsigned long pfn, size_t size)
+{
+        phys_addr_t limit = PHYS_MASK + 1;
 
->
-> Reviewed-by: Joe Damato <joe@dama.to>
+        return size <= limit && pfn <= (limit - size) >> PAGE_SHIFT;
+}
+
+It would resemble the generic __access_ok() better where we need to
+check for similar overflow. I find it easier to read.
+
+(happy to make the change when applying)
+
+-- 
+Catalin
 
