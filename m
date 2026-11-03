@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85AB5606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 06:07:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10F9E606A32D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 06:12:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Ho+v1n0S;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O7s1P95g
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GHPTOLPo;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jiuVi9kI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
@@ -14,90 +14,88 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=+LNCQwzF5/rRaERSiZo9WaoUzbx5YYQQRcOrcscm3h0=; b=Ho+v1n0SOjIA3vEoY9Xmem8RsY
-	OgV/tDiF22pGb02/qTTX+BFHjoz6Uq+dOHLtGcaHPsu0DYX8ojWB/Sd83l1r2ZZX/ymQwWlKL4p93
-	CBXErXk9MHkLNUvOTRJdHzkBUBdAfvTDSo2zLC+nStSWSMeoLkr7KfsQrfRuhS2c7AyM+jMWdW9fr
-	jFqhClsZI4DcJZNa/SWXWQ5zqdRGL9l8rsX0vGY30N1uLP/B5tE7zq8ZcXLNgW9YRPxl1fu5GC+fZ
-	+DOPxAJfdZh9SUtrZJpIXzqaBe70Skkhjmt7GvGZE9IdyYbtg7iUnkCcs2n+NdK6QkYFQj9tDlCcV
-	Hlpo6HoA==;
+	bh=Y1vJsLmhajtmtrGk3CEdEpHpsAWbMQetVNtaJwsiq4w=; b=GHPTOLPoByil9lGaTJBe51B913
+	E/LcptPy6HsQGggA3f84qFCzmJuKOEksGB3qn+ltQCU9RNfYtK03SLMYhStUkIUGKUmtaCDTv2Tue
+	pOkbcKIvZHfdR6F/o/YI2ZOMeUSIaquQxYPLnz6mG5fj08RpllMB5tE6QEHNwQ9falWwsnaByK2kQ
+	fhHLzMpLnQtokTv5onKFvil5x65KvjEZkp8sVoJsUKwmctZEWqfUTAV+Lqm+0IMKjeAx/JYYyFKTY
+	X7zDXuybC0BaxJ/avY63Jf16RoLqXL3Y0NKY9OedMZJVe5TzWEcmEO9t7o9svI3+2W4WaF8+DNPCO
+	GhGSysFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO7gL-00000001BeP-1bWE;
-	Tue, 03 Nov 2026 06:07:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xO7ko-00000001CKj-0BNz;
+	Tue, 03 Nov 2026 06:12:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO7gI-00000001BdL-0T00;
-	Tue, 03 Nov 2026 06:07:40 +0000
+	id 1xO7kj-00000001CJW-29wJ;
+	Tue, 03 Nov 2026 06:12:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 34B85600CB;
-	Tue,  3 Nov 2026 06:07:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A7C4A60008;
+	Tue,  3 Nov 2026 06:12:12 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793686056;
-	b=bemL/9DUmWApBh8KWvWUmB8v6Bd5uNtR50i/WChyZSMj8Nn/oYU2gPrjNN7I4NlNFV6b
-	 pdoAOmyvQJOfjsrWzOUGNmUhfjFvMS4UIfQ/sdi/XqTi+ejohkpevV85ul5ae12rkfyfs
-	 q7FaaKj+eGRjkEubYEqBB4slCqCjSG9Q4rstpJBpx2Vw1F3upnnKKn7Eh4tHvyqIWoPJA
-	 ZUUiPJ8371W8RHjPhoBxR0PfGNvvnanbKw1gGJva3ig6Pf4vP4f6PslRMAVAhz5pCpvg5
-	 2tNGd048ZNxGkCIK3qlH8mFuEEuV8d0ltnXa08DBP7cY6zG5gd2/jWTkY3Hig57hPbg==
+	t=1793686332;
+	b=PlZ8Y9DzSVYyhTOS3L7ouyJUi+MGz0dtNkErafGNAlEL/0knMpgng/Rw6P6dutNpkwv4
+	 HfNb8vqfF2flan3ch6cDnlmWSv5Dj2EVrp2EqDYmfWctQZ0oS5gQ0FPp6oNj81fhVVMJo
+	 Qvdk4BTyMofXKZVF1NAONCHmn7FhugOpIJg1daXxD1aOi35ZS+oJYw6cNoN0Es33AXWZc
+	 oAhy0i6doR+yAVPejPaoCJWK8oTM7ctB1mp8eqRxRhvs/cTu4iQa3TNS/EoEbBdtXWREh
+	 NvUipoNPeRN4D1kJGQfIqHnuKV5MIe1k0pqHgjRuvG1Y/jrY4/UpQIilzMuuXGkfmnQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793686056;
+	c=relaxed/relaxed; t=1793686332;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
 	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
 	 Content-Transfer-Encoding;
-	bh=+LNCQwzF5/rRaERSiZo9WaoUzbx5YYQQRcOrcscm3h0=;
-	b=nh+y0r8r/TbTyeQ+76C9/zNon7klXqS4WOgAFAxi525PukS3bhQK5XC8QZwT5SNzMJXJ
-	 5XAUa5I6zyPzhutT7WQpz33se86R4m4mUliWBQsni0Wgpj74tfCrYwU+J1i4cxV2x70va
-	 o63f1RIFRXaTCNWKZq1uVCvwjKYopL6WciCbNy+Ni2mPCyBXjCYEvMrvWF/xJLT8sKytS
-	 ItJGqT9Xda4pihwyYEJsX4M+Aaffejm1JBjPS2jqotJQaYVE4TAVRMwdpjYkcQbg6yzaA
-	 dd8eq5txrx8AlXcodp8dXfT7jKatjYgsjBNwwWP1lWJtG2g0QBjhvRhawcinuNR6fKg==
+	bh=Y1vJsLmhajtmtrGk3CEdEpHpsAWbMQetVNtaJwsiq4w=;
+	b=fkRTo4XgQ22LOkr0zMSZW/lBkr88gCuiC60YvYPra1HgxuK7EDqi4zJfgOFODZiUXYsf
+	 DkJ+2hsZDJrIk4pTWlgi8hOx3Lt9np1c87ddGDzR3drBKIevh/XQoweWH7BmzyDjowIjD
+	 j80l363qK3O6py25TtVjtrZMnDubUdJPiX8jUkFyGM1vup7gjysf/ZV0u+5f5OECr7WuQ
+	 LHKGhZHAJJe2IznKFj9G0jK7esJGm0XKqVP4sfxB+CX/AENxmPCNEsgiM1pb3wGlukZGr
+	 Pefy6N2gwBgE6zdhEaiSdWbpeWX5EdULZNNs7V4juBLeMwVaq7ktMK6ezGD1bIiXOuQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 730891F000C1;
-	Tue,  3 Nov 2026 06:07:36 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id E1A3B1F000C1;
+	Tue,  3 Nov 2026 06:12:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793686056;
-	bh=+LNCQwzF5/rRaERSiZo9WaoUzbx5YYQQRcOrcscm3h0=;
+	s=k20260515; t=1793686332;
+	bh=Y1vJsLmhajtmtrGk3CEdEpHpsAWbMQetVNtaJwsiq4w=;
 	h=From:Date:Subject:To:Cc:Reply-To;
-	b=O7s1P95g7AlAS6fGetJYjjgeNRWAFa3r9xSMaEQSDOg+oEFw2EnOs5nnnhJMxqSnl
-	 DqbQPusu1eHVQOgWKhQnGKj2+nyQ5hBeK1XyywNrc8tc5RC31bfiQAIT5ayYddwuio
-	 e4ZWqAd0dYZInTKdC9cFKcB/gK9gaCVU5ajbLVcZ4OV13OVfJ5xYaGMVtyNKe9aVgL
-	 2Jt/yhy+kmySUGV3B7TLiO0idrzKCVRZBPRGdD192LyH5zy0EyuYY6/YffM0AbK4eN
-	 YoCpdF8kC0tgBc2Oizy02F9tGJdqaB++WXBpEzl8roIMEA0NeVEPprHRYV0xm9k31c
-	 GpbC076Q2eemA==
+	b=jiuVi9kIa7kbUZeA1VekrmQrLF4/586Mvzg1vh0wY+gG83jf972IWGcmnID6RJbir
+	 VtzX8iLG80PnjC8qKAcl/DPVLbp2+sBg9AcFQZHUO1BTUVbMGfamZC5ReNjysTUZUZ
+	 3l9VTNkqBVzDp6HpyxNuzc4JUXLmFzN5Wljk8utPhK7G/tzrcglCloKJNZOqoaC07g
+	 D295hfwByKp+/kog7LURI/G3aQtIzRQuuZYSxKWKvziL1of0ZfM5cLaoRPSRaIlRUw
+	 gRPOznZZ6wVnQqo/My8H1uOxGs7eewU94KCBhhmcgxU/DBNxvroi914GdM1vw/vnBb
+	 6YjQFr1FbhrcA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 03606467C4;
-	Tue,  3 Nov 2026 06:07:36 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 6F259467C4;
+	Tue,  3 Nov 2026 06:12:11 +0000 (UTC)
 From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Tue, 03 Nov 2026 06:07:35 +0000
-Subject: [PATCH] PCI: rockchip-host: Enable async probe by default
+Date: Tue, 03 Nov 2026 06:12:10 +0000
+Subject: [PATCH] arm64: dts: rockchip: Enable SD UHS-I modes on ROCK Pi 4
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261103-rockchip-pcie-async-v1-1-4dcadb94af64@iav.lv>
-X-B4-Tracking: v=1; b=H4sIACZ66WoC/x3MMQqAMAxA0atIZgOmlSpeRRwkRg1CLS2IIr27x
- fEN/7+QJKokGKoXolya9PQFVFfA++w3QV2KwTTGETUW48kH7xowsArO6fGMrWFi2zvrqINShii
- r3v91nHL+AHfeqAhlAAAA
-To: Shawn Lin <shawn.lin@rock-chips.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, linux-pci@vger.kernel.org, 
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
+Message-Id: <20261103-rockpi4-sd-uhs-v1-1-fa394d2046e1@iav.lv>
+X-B4-Tracking: v=1; b=H4sIADl76WoC/x3MMQqAMAxA0auUzAZM1QpeRRykRhuEKg2KULy7x
+ fEN/2dQTsIKg8mQ+BaVIxZQZcCHOW6MshSDra0jqhtMh99PaVEXvIJix448sV9d30KJzsSrPP9
+ wnN73A0g3Bx1gAAAA
+To: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Igor Velkov <iav@iav.lv>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1786; i=iav@iav.lv;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2365; i=iav@iav.lv;
  h=from:subject:message-id;
- bh=ZRf73Oh50c+9BYq7xVYrqoGA7KZ7hc21cjbuWcPTIPw=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDFkvq9Q33dNaILT/C3cxu8LL4tufGK5wVXIbLE/R5cpfP
- Pfm9ft5HaUsDGJcDLJiiiwTDmncylhy9a+/h/kDmDmsTCBDGLg4BWAixo6MDG3aCrO1rvx1qGjM
- eiz3foPj60OBV5WOG39zNSifdVgg+g/D/7LIaF+1uw6CruuWzXr/+8X969VN935HTem6ILzj/b+
- OdD4A
+ bh=az5m2/WqrCJ/+LWcDbyXHuHBZoPgNzj0Wuk5JL5JV+Q=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDFkvq61Wa6jZcBwxnsSReEeXM+R2AMdDY4XN5v1hgZP4W
+ TtjJ7zqKGVhEONikBVTZJlwSONWxpKrf/09zB/AzGFlAhnCwMUpABPJ/8vwVyK5nP38C3nbF7cd
+ g6OCWgqVjzNzuhZxqF6985JffvP8UEaGZqu9q/eGewl3cCT3PdWeLemz/F192n4lmduCdi93vsl
+ iBwA=
 X-Developer-Key: i=iav@iav.lv; a=openpgp;
  fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
 X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
@@ -124,45 +122,64 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Igor Velkov <iav@iav.lv>
 
-The probe waits for the link to come up, and with an empty slot it
-holds the deferred-probe worker for about 0.7 s. On ROCK Pi 4 with
-UHS-I enabled for the SD card, the I/O-domain driver then binds only
-after the card has switched to 1.8 V, and tuning fails ("All phases
-bad!").
+The SD I/O supply vcc_sdio (RK808 LDO4) is pinned at 3.0 V, so the
+card stays in high-speed mode at 50 MHz. Let dw_mmc switch it to 1.8 V
+and enable SDR12 to SDR104.
 
-Probe asynchronously, as commit c0e1eb441b1d ("PCI: qcom: Enable async
-probe by default") does for the Qualcomm host driver. This does not
-order the I/O domain before dw_mmc in general; an explicit dependency
-was proposed in [1] and not merged.
+The card supply is not switchable, so after a watchdog reset or a
+panic the card and vcc_sdio are still at 1.8 V. Linux and U-Boot proper
+boot from the card in that state; U-Boot SPL loading from it has to set
+the SD I/O domain from vcc_sdio, as it does on NanoPi 4 since U-Boot
+commit 210ab4f60df8.
 
-Link: https://lore.kernel.org/all/20230904115816.1237684-1-s.hauer@pengutronix.de/ [1]
+On ROCK Pi 4A with a SanDisk 256 GB U3 card: SDR104 at 148.5 MHz,
+direct read 64-67 MB/s instead of 23.5 MB/s.
+
 Signed-off-by: Igor Velkov <iav@iav.lv>
 ---
-Tested on v7.3.1 with the Armbian rockchip64 config (PCIE_ROCKCHIP_HOST=y):
-- ROCK Pi 4A, empty slot, UHS-I DT change posted separately: SDR104 on
-  3 of 3 cold boots; without this patch tuning fails.
-- Kobol Helios64, JMB585 in the slot: link, SATA and disk reads OK
-  over 3 cold boots and a reboot.
----
- drivers/pci/controller/pcie-rockchip-host.c | 1 +
- 1 file changed, 1 insertion(+)
+Tested on ROCK Pi 4A: v7.3.1 with this change, 3 cold boots in SDR104;
+the Armbian 7.3 kernel with the same change through reboot, panic,
+watchdog reset, s2idle and hibernate, SDR104 each time. Not tested on
+the other boards that include rk3399-rock-pi-4.dtsi (4A+, 4B, 4B+, 4C,
+4SE).
 
-diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
-index 5b071bdc4f90..1e1556e436b8 100644
---- a/drivers/pci/controller/pcie-rockchip-host.c
-+++ b/drivers/pci/controller/pcie-rockchip-host.c
-@@ -1027,6 +1027,7 @@ static struct platform_driver rockchip_pcie_driver = {
- 		.name = "rockchip-pcie",
- 		.of_match_table = rockchip_pcie_of_match,
- 		.pm = &rockchip_pcie_pm_ops,
-+		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
- 	},
- 	.probe = rockchip_pcie_probe,
- 	.remove = rockchip_pcie_remove,
+With PCIE_ROCKCHIP_HOST=y and an empty PCIe slot, tuning also needs
+https://lore.kernel.org/r/20261103-rockchip-pcie-async-v1-1-4dcadb94af64@iav.lv
+The SPL side for U-Boot on the SD card:
+https://lore.kernel.org/r/20261103-b4-rock-pi-4-spl-iodomain-v1-1-8dfc34a5e2e2@iav.lv
+---
+ arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi
+index 52de4a79e2f4..3de1d14529c1 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi
+@@ -356,7 +356,7 @@ vcc_sdio: LDO_REG4 {
+ 				regulator-name = "vcc_sdio";
+ 				regulator-always-on;
+ 				regulator-boot-on;
+-				regulator-min-microvolt = <3000000>;
++				regulator-min-microvolt = <1800000>;
+ 				regulator-max-microvolt = <3000000>;
+ 				regulator-state-mem {
+ 					regulator-on-in-suspend;
+@@ -696,6 +696,11 @@ &sdmmc {
+ 	max-frequency = <150000000>;
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&sdmmc_clk &sdmmc_cd &sdmmc_cmd &sdmmc_bus4>;
++	sd-uhs-sdr12;
++	sd-uhs-sdr25;
++	sd-uhs-sdr50;
++	sd-uhs-sdr104;
++	vqmmc-supply = <&vcc_sdio>;
+ 	status = "okay";
+ };
+ 
 
 ---
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261103-rockchip-pcie-async-42c1c3863617
+base-commit: 2974b78ee4302390eceb5f5983c00b3d66fc3c78
+change-id: 20261103-rockpi4-sd-uhs-5e61c1ecf674
 
 Best regards,
 -- 
