@@ -2,109 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 146AD606D80A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 20:59:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED1F6606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 21:06:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=azOaCtb/;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=NcvufMpD
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hSISnEtm;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aN9dMpw/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=jIOfDT3IwsQpj8TnqlAW1aIsfN94rzEJ/Etbch7OzL0=; b=azOaCtb/z26b9Xl7mEA39qKm/s
-	Hq/UmI34yG8CRpzO/h4LEhVk/rct0+APlElq959qC/kRYhAg/4dWLh+7nDn/+LFsLHmn8EFc5XZU+
-	o3M5BePg7blB9KmeZ03FjSgI45PGj5Lu2nGGEyWMn2MkAEaBn2tQhtft9vQ2/TNAH/NhYjtGGXCQW
-	g0W+mlnA8U5llZm9VTXihQIn3OJsjPrsYPKVbS4itDf1GNzAxdE4EoLvYhYbBm2bbBnhE4xw4xQPy
-	RHlPraRbj0vi/e4DU3Svcx8LMwr3dvuA8As84Buzp0MTjx5fa4J1VjYJs21VGaD0Mz3EGjfxYUdj6
-	WrpacMWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=QI5qU1trTwZm0S8t5gCAWIJ9CPL9O0gAUfA8IjPCltU=; b=hSISnEtmCjyYdn
+	mfJbGLcuM/2EbUhZZNoft9HgHkOLbOKaYq7TfvuYd5MebBoP5PgbwguELKL/ZMNRlMexYXghXUHPe
+	A427GDcCx9cMb5TBNJivTxQsgBHsE7WEQy7IJ0CN3TUorQRvY39DutLR3fNbVm7gs/E9yZn8xUYKB
+	is3IXP4n5xC6xWAzEfzMY17606rQwcCW2bNxONnhoGqkvphM3CYf54vVW6ktWq9H/5Bx+/2ChV4KS
+	slLwUoSaelXgF3eP2e3y7WaGQrLmGL5x+LmvEJ73eddzcXiMm6uaajxfJRVTHsKzEzXw/2dcScRkY
+	7dZYqCYLwIVvykJ6wYOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOLbh-00000003egg-1zqO;
-	Tue, 03 Nov 2026 20:59:49 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1xOLhj-00000003f5Y-14lf;
+	Tue, 03 Nov 2026 21:06:03 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOLbe-00000003eg7-3UbH
+	id 1xOLhe-00000003f2b-1DsD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 20:59:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793739587; x=1825275587;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=Is+02CMo7tmYzfkUqq4Kp6Vj8IvFPcMBCUl7ofrrCyo=;
-  b=NcvufMpDikqG4vu6XUjJSnMawKoID6fkqe51fzAiZnmapIfNvQGtD7U8
-   tqQTmwQhVg71Jz+XKJVf2K0eiINGi+nQaSldNqO8ozVil/DrO9OXr3Vfq
-   DvlGlDyX5L/PY3yWKgMinrfxUTSzuK75H7nq77NYEm7JjJ/W7mqmQnrOg
-   VfFPapRKxBXNNiFIbrIleWYi3qcdKfWH9MNFlPL3VGIt+qtOvn6YmiY72
-   xGwDwHPTVE8bLRUj65JCJOhfwWA6QwXas1ZGsF3//sQE9N/Xe1HeIme7v
-   ZH8zKrO0f6Q5CWMNPaL5w5O8BCjixy/1AR7DG9kUOcxtYnSqiiyT9m40O
-   Q==;
-X-CSE-ConnectionGUID: O3DLMFJRQoGSkrfad1lgow==
-X-CSE-MsgGUID: RR69KjS2SJ+cxMAxtRxyRA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11955"; a="2381053"
-X-IronPort-AV: E=Sophos;i="6.27,193,1787036400"; 
-   d="scan'208";a="2381053"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 12:59:46 -0800
-X-CSE-ConnectionGUID: KwHr3Wc1TcOeCFSLBDwGGg==
-X-CSE-MsgGUID: +8NIkjyITqyhuWdXdCEudQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,193,1787036400"; 
-   d="scan'208";a="6902774"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.108])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 12:59:39 -0800
-Date: Tue, 3 Nov 2026 22:59:37 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Raul E Rangel <rrangel@chromium.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"Maciej W. Rozycki" <macro@orcam.me.uk>,
-	Timur Tabi <timur@kernel.org>,
-	Peter Ujfalusi <peter.ujfalusi@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH v9 7/8] serial: 8250: retire canceled RX DMA before
- reusing the receive buffer
-Message-ID: <aupLOfg4CGMoaW0c@ashevche-desk.local>
-References: <20261102-submit-serial-8250-dma-cancel-v1-v9-0-9159caade148@gmail.com>
- <20261102-submit-serial-8250-dma-cancel-v1-v9-7-9159caade148@gmail.com>
- <auoa8OWBxqaQuKRq@ashevche-desk.local>
- <CADvTj4rL23q6eO8vjVe9vL1g6B8aoZqsbnThi2QJqkj=9e59sw@mail.gmail.com>
- <auoit0AkmVeCvXqk@ashevche-desk.local>
- <CADvTj4rwm5BH8veX9i5_4trvzQFRPbDrAby7sXuEth6H6zJH2A@mail.gmail.com>
+	Tue, 03 Nov 2026 21:05:59 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-48e0d1c095dso13481f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 13:05:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793739956; x=1794344756; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=QI5qU1trTwZm0S8t5gCAWIJ9CPL9O0gAUfA8IjPCltU=;
+        b=aN9dMpw/SnFk7Eu4cY7cXh/zg40JuF1BparjpUdBcsJdqHU63ZsLge/8roHjrj2ZSK
+         uwHPSa9b0+g2uUijskOta6LXkt3wZIRUGiIfRbOZABVZ2eSGcy7w9MpDKySwzmMstpd9
+         8Ki+CzdcVaYewHsj14I75QRgcMyGY8HEfS7nxKKHU+xPbYkAKd6HFnj8r6PYyCdGLCOY
+         xhoYCUnuKlxGWWxVqKxT1yvrCBQRrIco7a2YfoLltg9HCPZUQQ5z/hgEIgZaGvpcJWFl
+         GhfE4kbNimYrlUoczlqkDvNkVziQwuIfR/qzHq7bVMNp/x8TpObOVSSK23NkrVbBDs1d
+         nufg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793739956; x=1794344756;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=QI5qU1trTwZm0S8t5gCAWIJ9CPL9O0gAUfA8IjPCltU=;
+        b=Qqw95dwYttUOzxNZHs5Z/u5wbtaiVUqgvK23KV1gzQVSZRskbXgVA+5xD5PbDvKrEU
+         xv9LMFm40+b+GPEdaESILUgAzU0RMqA5goeCOjlSyD3P2JqVAsgBHrOccD61t2GpvWtQ
+         eHGSnnnjpnBDH9IXPlhJZcl1ZkPiF0vFNZUAf6NAl1ThZoCNZrD1AUDBIa0yNxaZtqB9
+         o6o13Cyyw1FTBUGxNxxtbqaWQeF2r6E+a3HUQ16+o2YdO6MFymXy8/Q4rJfbYTYo0E2y
+         9psPjQ6WaaIOmvGIbtT+mG9yzVhUeh7h8wDOkpc04UiOYCppRiKZAtapM1u1pF5Dy4kO
+         w0yQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwIW8oVu7UhJrcPbCILeRTUL9R2E04MYZzTsjHaknrXbCXfgfoI0PZsEB/4KvouVdM7N+ReTXVlzsCcK8ijU1Yt@lists.infradead.org
+X-Gm-Message-State: APuU4Z8JsjXmJBG7Ol+uBq7IaPGnwWEjZCZgFukSFW4/I7HTUBl1gUHy
+	4+MOGrYapV8aEnFwA/FtGodBVGSIqYPGslEfXEbjzcWRjsu1WpTHsjWM
+X-Gm-Gg: AYBFou0DseX/QfkNceYf1b1TkqKY9rE45jiEY/XenS+abUHLicJG37wuTY+FvNGG80J
+	EtkRj29uprybTcyVUErOc+2HLvpOW/A5AV+T52P3oomWFlZ11n9lrShBwjtRDwS8WuWApW/XR8E
+	6whK8qTLoQG0zYqYalqMdyvjYyVT7vJ1O0CJgyvy/8Q9mS48y2II4slccJgnKfVe5YBdAJOVCaz
+	F1dppzUooinOELKI6zM/YjVBGx+Vkrq9qe2KagKBLryY/4qTPlRYuKtRZsRWfxwl78K6YKBIeLm
+	NHtYX8R4YNLI8adhxeKENA48eWJkLue1iyi/lT4NIZB4icWhmP6JDD4wQ71fhgERfx1NujvVT1z
+	VXjMMvjcTuLtnA2yHmN0BQ/ZLk80M8dFLxgaUh9h7GEGafJWnMBY1vihKz/WPQLfrVB3GwfjxZi
+	r0RRW0GT9XMT5SXv4GnUqe389fg/tM330p660E1UFa36a8KPl7VnwEp34Tpx1A2Q4Ux4y4SCRN1
+	kJ1OXp1QX0kQ1a6cKWfyoadwgsuXMngh5XKXT5hXM0fSUTTECTOk4gp/VGe+0geL3XSWiHF5JEl
+	0ActLvoKZGSekClODcd78bTaiwUoCg2dNFrYIUe0O7rX4kNAsLQRVH5Qe9uEaRJwRS8Wgdb69IF
+	MILf/9wDNPl3PbGKz0E7eSVSKNTJESvzHXg==
+X-Received: by 2002:a05:600c:8b2c:b0:4a7:a5db:a93e with SMTP id 5b1f17b1804b1-4ac150b3dbfmr345625415e9.4.1793739956406;
+        Tue, 03 Nov 2026 13:05:56 -0800 (PST)
+Received: from Ansuel-XPS24.localdomain (93-34-90-148.ip49.fastwebnet.it. [93.34.90.148])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-48fed553441sm41850f8f.43.2026.11.03.13.05.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Nov 2026 13:05:55 -0800 (PST)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Stefan Roese <sr@denx.de>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Christian Marangi <ansuelsmth@gmail.com>
+Subject: [PATCH v3 2/2] i2c: mt7621: limit SCL_STRETCH only to Mediatek SoC
+Date: Tue,  3 Nov 2026 22:05:41 +0100
+Message-ID: <20261103210542.15965-2-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261103210542.15965-1-ansuelsmth@gmail.com>
+References: <20261103210542.15965-1-ansuelsmth@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CADvTj4rwm5BH8veX9i5_4trvzQFRPbDrAby7sXuEth6H6zJH2A@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_125946_930804_0A82014E 
-X-CRM114-Status: GOOD (  31.03  )
-X-Spam-Score: -4.2 (----)
+X-CRM114-CacheID: sfid-20261103_130558_347378_EB349002 
+X-CRM114-Status: GOOD (  18.38  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,145 +110,97 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Nov 03, 2026 at 11:16:46AM -0700, James Hilliard wrote:
-> On Tue, Nov 3, 2026 at 11:06 AM Andy Shevchenko
-> <andriy.shevchenko@linux.intel.com> wrote:
-> > On Tue, Nov 03, 2026 at 10:54:38AM -0700, James Hilliard wrote:
-> > > On Tue, Nov 3, 2026 at 10:34 AM Andy Shevchenko
-> > > <andriy.shevchenko@linux.intel.com> wrote:
-> > > > On Mon, Nov 02, 2026 at 04:14:34PM -0700, James Hilliard wrote:
+The same I2C driver is also used for Airoha SoC with the only difference
+that the i2c_reset should not enable SCL_STRETCH for Airoha SoC.
 
-...
+Introduce a new compatible for Airoha and limit the SCL_STRETCH only to
+Mediatek SoC.
 
-> > > > > +static void serial8250_rx_dma_flush_work(struct work_struct *work)
-> > > > > +{
-> > > > > +     struct uart_8250_dma *dma = container_of(work, struct uart_8250_dma, rx_flush_work);
-> > > > > +     struct uart_8250_port *p = dma->port;
-> > > > > +     unsigned int delay_us = USEC_PER_MSEC;
-> > > > > +     ktime_t start = ktime_get();
-> > > > > +     bool recover, retry, restore_rx;
-> > > > > +     bool warned = false;
-> > > > > +     int ret;
-> > > > > +
-> > > > > +     guard(serial8250_rpm)(p);
-> > > > > +
-> > > > > +     for (;;) {
-> > > > > +             scoped_guard(uart_port_lock_irqsave, &p->port) {
-> > > > > +                     /* Shutdown cancels this work and drains both DMA channels. */
-> > > > > +                     if (dma->shutting_down)
-> > > > > +                             return;
-> > > > > +                     /* Serialize reset with completion and shutdown notifications. */
-> > > > > +                     WRITE_ONCE(dma->rx_pause_wakeup, false);
-> > > > > +                     retry = dma->rx_pause_pending && !dma->rx_terminating;
-> > > > > +                     if (retry) {
-> > > > > +                             ret = serial8250_rx_dma_try_flush(p);
-> > > > > +                             retry = dma->rx_pause_pending && !dma->rx_terminating;
-> > > > > +                     }
-> > > > > +                     recover = dma->rx_err;
-> > > > > +             }
-> > > > > +             if (!retry)
-> > > > > +                     break;
-> > > > > +             if (!warned && ktime_ms_delta(ktime_get(), start) >= MSEC_PER_SEC) {
-> > > > > +                     dev_warn_ratelimited(p->port.dev,
-> > > > > +                                          "RX DMA pause stalled: %d; retaining transfer and retrying\n",
-> > > > > +                                          ret);
-> > > >
-> > > > _ratelimited() is a slop of AI without understanding the code. It makes nonsense
-> > > > in combination with warned.
-> > >
-> > > The two controls have different scopes. warned is local to one invocation
-> > > of the flush worker and prevents repeated warning attempts while that
-> > > flush remains stalled. A later flush starts with warned cleared again.
-> > >
-> > > The rate limit applies across worker invocations and UART ports. It limits
-> > > messages from separate stalls, rather than repeated retries of the same
-> > > stall.
-> >
-> > How? The whole _ratelimited() is nonsense here.
-> 
-> dev_warn_ratelimited() uses a static ratelimit_state at the call site,
-> shared by all ports. The intent was to limit warning bursts across ports
-> and separate flushes, while warned only covers one flush.
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+Changes v2:
+- Use match data for storage
 
-Right and imagine if the two or more devices are trying to printing the same
-message in parallel. What will this give to the user? Something like
+ drivers/i2c/busses/i2c-mt7621.c | 25 ++++++++++++++++++++++---
+ 1 file changed, 22 insertions(+), 3 deletions(-)
 
-	$DEVICE: ...error message...
-	$FUNC: N callbacks suppressed
-
-And one may not know how many devices are affected by this N callbacks that
-suppressed.
-
-> > > > > +                     warned = true;
-> > > >
-> > > > Altogether NIH _once().
-> > >
-> > > dev_warn_once() uses a static flag at the call site, shared by all ports.
-> > > After the first warning, subsequent stalls would remain silent even after
-> > > recovery or reopening the port, including stalls on another UART.
-> > >
-> > > The intended behavior here is at most one warning attempt per prolonged
-> > > stall, while keeping later incidents diagnosable and limiting their
-> > > aggregate logging rate.
-> >
-> > Yes, so what the point to use _ratelimited()?
-> 
-> It was intended to limit warning bursts across multiple ports and
-> separate stalls, while warned prevented repeated messages for one
-> stalled flush.
-> 
-> I'll use dev_warn() with the per-flush warned flag and one-second
-> threshold instead. That keeps one warning per prolonged stall and lets
-> each port report its own failure independently.
-
-This sounds better.
-
-> > > > > +             }
-> > > > > +             /* Notifications also cover completion or shutdown before sleeping. */
-> > > > > +             wait_event_hrtimeout(dma->rx_pause_wait, READ_ONCE(dma->rx_pause_wakeup),
-> > > > > +                                  ns_to_ktime(delay_us * NSEC_PER_USEC));
-> > > > > +             delay_us = min(delay_us * 2, USEC_PER_SEC);
-> > > > > +     }
-> > > > > +
-> > > > > +     if (recover) {
-> > > > > +             ret = dmaengine_terminate_sync(dma->rxchan);
-> > > > > +             if (ret) {
-> > > > > +                     /* Retain ownership and keep RX masked if DMA cannot be stopped. */
-> > > > > +                     dev_err(p->port.dev, "failed to stop RX DMA: %d\n", ret);
-> > > > > +                     return;
-> > > > > +             }
-> > > > > +     } else {
-> > > > > +             dmaengine_synchronize(dma->rxchan);
-> > > > > +     }
-> > > > > +
-> > > > > +     scoped_guard(uart_port_lock_irqsave, &p->port) {
-> > > > > +             restore_rx = recover || dma->rx_pause_pending;
-> > > > > +             dma->rx_pause_pending = false;
-> > > > > +             dma->rx_terminating = false;
-> > > > > +             dma->rx_running = 0;
-> > > > > +             if (dma->shutting_down)
-> > > > > +                     return;
-> > > > > +
-> > > > > +             if (!restore_rx)
-> > > > > +                     return;
-> > > > > +
-> > > > > +             /* Apply the current enables, including any intervening stop_rx(). */
-> > > > > +             serial8250_out_IER(p, p->ier);
-> > > > > +     }
-> > > > > +     if (recover)
-> > > > > +             dev_warn(p->port.dev, "RX DMA failed, using PIO\n");
-> > > > >  }
-
+diff --git a/drivers/i2c/busses/i2c-mt7621.c b/drivers/i2c/busses/i2c-mt7621.c
+index 0a288c998419..fa1f32d4f046 100644
+--- a/drivers/i2c/busses/i2c-mt7621.c
++++ b/drivers/i2c/busses/i2c-mt7621.c
+@@ -57,9 +57,14 @@
+ /* timeout waiting for I2C devices to respond */
+ #define TIMEOUT_MS		1000
+ 
++struct mtk_i2c_data {
++	bool have_scl_stretch;
++};
++
+ struct mtk_i2c {
+ 	void __iomem *base;
+ 	struct device *dev;
++	const struct mtk_i2c_data *data;
+ 	struct i2c_adapter adap;
+ 	u32 bus_freq;
+ 	u32 clk_div;
+@@ -83,6 +88,7 @@ static int mtk_i2c_wait_idle(struct mtk_i2c *i2c)
+ 
+ static void mtk_i2c_reset(struct mtk_i2c *i2c)
+ {
++	u32 reg;
+ 	int ret;
+ 
+ 	ret = device_reset(i2c->adap.dev.parent);
+@@ -93,8 +99,11 @@ static void mtk_i2c_reset(struct mtk_i2c *i2c)
+ 	 * Don't set SM0CTL0_ODRAIN as its bit meaning is inverted. To
+ 	 * configure open-drain mode, this bit needs to be cleared.
+ 	 */
+-	iowrite32(((i2c->clk_div << 16) & SM0CTL0_CLK_DIV_MASK) | SM0CTL0_EN |
+-		  SM0CTL0_SCL_STRETCH, i2c->base + REG_SM0CTL0_REG);
++	reg = ((i2c->clk_div << 16) & SM0CTL0_CLK_DIV_MASK) | SM0CTL0_EN;
++	if (i2c->data->have_scl_stretch)
++		reg |= SM0CTL0_SCL_STRETCH;
++
++	iowrite32(reg, i2c->base + REG_SM0CTL0_REG);
+ 	iowrite32(0, i2c->base + REG_SM0CFG2_REG);
+ }
+ 
+@@ -247,8 +256,17 @@ static const struct i2c_algorithm mtk_i2c_algo = {
+ 	.functionality = mtk_i2c_func,
+ };
+ 
++static const struct mtk_i2c_data i2c_mt7621_data = {
++	.have_scl_stretch = true,
++};
++
++static const struct mtk_i2c_data i2c_an7581_data = {
++	.have_scl_stretch = false,
++};
++
+ static const struct of_device_id i2c_mtk_dt_ids[] = {
+-	{ .compatible = "mediatek,mt7621-i2c" },
++	{ .compatible = "mediatek,mt7621-i2c", .data = &i2c_mt7621_data },
++	{ .compatible = "airoha,an7581-i2c", .data = &i2c_an7581_data },
+ 	{ /* sentinel */ }
+ };
+ 
+@@ -286,6 +304,7 @@ static int mtk_i2c_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	i2c->dev = &pdev->dev;
++	i2c->data = device_get_match_data(&pdev->dev);
+ 
+ 	if (of_property_read_u32(pdev->dev.of_node, "clock-frequency",
+ 				 &i2c->bus_freq))
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.55.0
 
 
