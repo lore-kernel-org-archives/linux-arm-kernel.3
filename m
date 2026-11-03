@@ -2,76 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 501B3606BF97
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:06:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF50D606D81B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 10:07:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BqJAIXO6
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MfLxOR/C;
+	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=T8GHUIeu
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=BtBRNez46TKw4TBESp0cqsBs/EyjJMCNFLl5tvfMv4c=; b=BqJAIXO64PXY/FSgEVzMWxeEaf
-	TJ8wCjb++ZogoEUwrQPTYM5iDulCCeJtk2sZ43nWLkNk1FZy+sfM6UZGlzCTdLXqr9xSGJXu9Hq6Q
-	Yf08B70EkAMiI05sdJzH6pRmQsOHLSlIniPK1dIDku/gjPLp6Re9lpIsg1WdeduB5Jrkw3z9L8j8u
-	zBVBrQvDw7g07sLtaJbBUTg7D+3rp4PaD1M5UUgN2dIOWnnV6xZ3ia68IZKPBsuv1gT0c1sC8tg9n
-	XAl/KzKbtx/322V+9nowqj1Sn5hqaFo5XPjeROgPOyVcV1ivl/i2KX7ctthaHptxDosxl4TUoajZ7
-	enmzy7sA==;
+	bh=yOEv4rlICtm+9MGZIVJit4iJjbb/HbqDxTBh2E0PNYM=; b=MfLxOR/CtyD2KahH3WU8oh4FSp
+	BynBkIc3Ay3YpgA7DVkbIQzOOiaIK4dD61I7zjaQasNMPJlh4jAU505k9g4vzoj/9gEzU/2pqAMGa
+	76M+zSLxbzcrT6mmj5YiyGKlIlUMAHzzpBdFjQU0dzYmNv9RI451Ig4pMHOBqfmp70LNjXriwlAtg
+	lnTuRD0+g33MVOgmaVDW2Oqe3nt13KTLtBqztwQvSzsCCxclH70m+WoGxyFOttnX0uGOgoIOuuevZ
+	n8+v39r8z05eEBDZUIcuiAl4up8NVuIhGsdcWTX4K8FrgyPOiuR/Qnn/Jw7a0UMPV7RuF0g2oSFrK
+	/8X9Y2VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBOy-00000001sTT-10Jo;
-	Tue, 03 Nov 2026 10:06:00 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1xOBQ0-00000001slG-2egw;
+	Tue, 03 Nov 2026 10:07:04 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOBOt-00000001sRa-3nzk;
-	Tue, 03 Nov 2026 10:05:57 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowAAnOJkBsulqf3w7AA--.2834S2;
-	Tue, 03 Nov 2026 18:05:53 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: linux-mtd@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] mtd: rawnand: atmel: Release the HSMC clock on legacy init failure
-Date: Tue,  3 Nov 2026 10:06:02 +0000
-Message-Id: <20261103100602.1310416-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	id 1xOBPu-00000001sjM-0fmD;
+	Tue, 03 Nov 2026 10:07:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=yOEv4rlICtm+9MGZIVJit4iJjbb/HbqDxTBh2E0PNYM=; b=T8GHUIeuwcDQEX7YFBA0dHaPtB
+	2kVj9KSOFPEikB0F9pAaccEJIVjNxbKR3+e0f9oaOThinmGoXpI0EvZVDNwsXfU7AGr9ATQG+ak4X
+	z2dA0u862tnlHdxULQMW9u6wC8/34oIlt51HyBjY2ZPhPEqEQ7F2QlBBCab/c1vclkwgOD+hM7I5Y
+	Apd1Al26l3U1O8FO7cvKq+udwXcUON4wKT7E1OLcFB1DgsHO9juQDwNhoajOQfbR9TQ7vZZE+8K4T
+	LmEzS5pvIZvxQ3GwRaJaAmhojV9r2fEIapcI/uXjfq4sDAf9cLR2RFL0jyHQmO9HjiEpQaLi6OAZZ
+	0upLu0Xg==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1xOBPO-006r0Z-0j;
+	Tue, 03 Nov 2026 10:06:26 +0000
+Date: Tue, 3 Nov 2026 02:06:17 -0800
+From: Breno Leitao <leitao@debian.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Miaohe Lin <linmiaohe@huawei.com>, 
+	Naoya Horiguchi <nao.horiguchi@gmail.com>, Oscar Salvador <osalvador@suse.de>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, kas@kernel.org, 
+	kexec@lists.infradead.org, Brendan Jackman <brendan.jackman@linux.dev>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>, shakeel.butt@linux.dev, 
+	linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-cxl@vger.kernel.org, driver-core@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, rmikey@meta.com, riel@surriel.com, harry@kernel.org, 
+	kernel-team@meta.com
+Subject: Re: [PATCH v6 3/7] mm/memory-failure: add hwpoison_boot_page() to
+ flag an inherited frame
+Message-ID: <aumvVjoHo4KeuyEp@gmail.com>
+References: <20261016-hwpoison-kho-v6-0-f304255147da@debian.org>
+ <20261016-hwpoison-kho-v6-3-f304255147da@debian.org>
+ <aumt-4kfGGtoXuh-@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAAnOJkBsulqf3w7AA--.2834S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxuFy8uFy7GF17Cr1DWF47CFg_yoW5Zw4xpF
-	W2qay7Gw1UXF4fuFsrKa1UJFyFqFZ7KayUCws3Ga42vw1FvryqqF1F9FyFqFW5GFWSvw43
-	Xa17t3WUCFyrAFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9a14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jw0_WrylYx0Ex4A2jsIE14v26F4UJVW0owAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
-	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
-	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r4j6r
-	yUMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAvwI8IcIk0rVWU
-	JVWUCwCI42IY6I8E87Iv67AKxVWxJVW8Jr1lIxAIcVC2z280aVCY1x0267AKxVWxJr0_Gc
-	JvcSsGvfC2KfnxnUUI43ZEXa7VU8jQ6JUUUUU==
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAEAA2rpnOFgzgAAse
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aumt-4kfGGtoXuh-@kernel.org>
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_020556_572697_5D8F2612 
-X-CRM114-Status: UNSURE (   8.13  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.9 (/)
+X-CRM114-CacheID: sfid-20261103_020658_198901_7CAF39CE 
+X-CRM114-Status: GOOD (  10.65  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,127 +91,28 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-When atmel_hsmc_nand_controller_legacy_init() fails after acquiring the
-NFC clock with of_clk_get(), the error paths return without dropping the
-clock reference.  For failures after clk_prepare_enable(), the clock is
-also left enabled.  The caller returns the error without running the
-controller removal path, so the reference and the enable count are both
-leaked.
+On Tue, Nov 03, 2026 at 11:48:43AM +0200, Mike Rapoport wrote:
+> > --- a/mm/internal.h
+> > +++ b/mm/internal.h
+> 
+> We've been splitting internal.h to smaller headers, maybe it's time to add
+> "memory-faulure.h"?
 
-Add error unwinding that disables the clock when it was prepared and
-always puts the reference.
+Ack. I'm happy to move the "mm/memory-failure.c" section out of
+mm/internal.h into a new mm/memory-failure.h, as preparation for this
+patch.
 
-Fixes: f88fc122cc34 ("mtd: nand: Cleanup/rework the atmel_nand driver")
-Cc: stable@vger.kernel.org
-Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/mtd/nand/raw/atmel/nand-controller.c | 26 ++++++++++++--------
- 1 file changed, 16 insertions(+), 10 deletions(-)
+Since this patchset is moving slowly, I'll start the header split in
+parallel as a separate series, and rebase this patchset on top of it
+when I respin. Is it this ok?
 
-diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/nand/raw/atmel/nand-controller.c
-index 0bdbcbb50d94..f798ac7b9c51 100644
---- a/drivers/mtd/nand/raw/atmel/nand-controller.c
-+++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
-@@ -2185,7 +2185,7 @@ atmel_hsmc_nand_controller_legacy_init(struct atmel_hsmc_nand_controller *nc)
- 	if (ret) {
- 		dev_err(dev, "Failed to enable the HSMC clock (err = %d)\n",
- 			ret);
--		goto out;
-+		goto out_put_clk;
- 	}
- 
- 	nc->irq = of_irq_get(nand_np, 0);
-@@ -2194,20 +2194,20 @@ atmel_hsmc_nand_controller_legacy_init(struct atmel_hsmc_nand_controller *nc)
- 		if (ret != -EPROBE_DEFER)
- 			dev_err(dev, "Failed to get IRQ number (err = %d)\n",
- 				ret);
--		goto out;
-+		goto out_disable_clk;
- 	}
- 
- 	ret = of_address_to_resource(nfc_np, 0, &res);
- 	if (ret) {
- 		dev_err(dev, "Invalid or missing NFC IO resource (err = %d)\n",
- 			ret);
--		goto out;
-+		goto out_disable_clk;
- 	}
- 
- 	iomem = devm_ioremap_resource(dev, &res);
- 	if (IS_ERR(iomem)) {
- 		ret = PTR_ERR(iomem);
--		goto out;
-+		goto out_disable_clk;
- 	}
- 
- 	regmap_conf.name = "nfc-io";
-@@ -2217,20 +2217,20 @@ atmel_hsmc_nand_controller_legacy_init(struct atmel_hsmc_nand_controller *nc)
- 		ret = PTR_ERR(nc->io);
- 		dev_err(dev, "Could not create NFC IO regmap (err = %d)\n",
- 			ret);
--		goto out;
-+		goto out_disable_clk;
- 	}
- 
- 	ret = of_address_to_resource(nfc_np, 1, &res);
- 	if (ret) {
- 		dev_err(dev, "Invalid or missing HSMC resource (err = %d)\n",
- 			ret);
--		goto out;
-+		goto out_disable_clk;
- 	}
- 
- 	iomem = devm_ioremap_resource(dev, &res);
- 	if (IS_ERR(iomem)) {
- 		ret = PTR_ERR(iomem);
--		goto out;
-+		goto out_disable_clk;
- 	}
- 
- 	regmap_conf.name = "smc";
-@@ -2240,24 +2240,30 @@ atmel_hsmc_nand_controller_legacy_init(struct atmel_hsmc_nand_controller *nc)
- 		ret = PTR_ERR(nc->base.smc);
- 		dev_err(dev, "Could not create NFC IO regmap (err = %d)\n",
- 			ret);
--		goto out;
-+		goto out_disable_clk;
- 	}
- 
- 	ret = of_address_to_resource(nfc_np, 2, &res);
- 	if (ret) {
- 		dev_err(dev, "Invalid or missing SRAM resource (err = %d)\n",
- 			ret);
--		goto out;
-+		goto out_disable_clk;
- 	}
- 
- 	nc->sram.virt = devm_ioremap_resource(dev, &res);
- 	if (IS_ERR(nc->sram.virt)) {
- 		ret = PTR_ERR(nc->sram.virt);
--		goto out;
-+		goto out_disable_clk;
- 	}
- 
- 	nc->sram.dma = res.start;
- 
-+	goto out;
-+
-+out_disable_clk:
-+	clk_disable_unprepare(nc->clk);
-+out_put_clk:
-+	clk_put(nc->clk);
- out:
- 	of_node_put(nfc_np);
- 
--- 
-2.34.1
-
+Thanks,
+--breno
 
