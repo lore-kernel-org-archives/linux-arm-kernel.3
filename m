@@ -2,108 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7CF5606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:06:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D555C606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:07:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=du/z9SE0;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tUlfXUV/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=F5IHMNcY;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=dZ64qWHN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=/dRBcMfZeipH0bf8lHSiASOZP3cat5iGjHJj/5kyYjE=; b=du/z9SE0vo9pCc+zkUfdZkAQW2
-	FtUMmhLbDKumsiOw6ActWOFQoGAUGIrZrCrCFlmMQs8PfS4+NIbC4b1pvrQhYEwaufXOu4yl2OiPA
-	7pLHAPfHYtdOG4pIMNcg4/cjciZ1zgdko0nKrDZECGPuDJSZ2UOct/0aODR+cFY+vEYVtVKtpGgCP
-	aik1CoZNoykOd7eBKEUh65rfCEMr7MU7QfYuJxNSAZaG0tL1Js3yAPpbWs5AjpDujtrg051DEHsW4
-	mwcgwhyjkIdB9iiQBrUCtzL/y+CvZPgdaMQG9sQwNDwymELEI2lP9UfQSUjX3mP8Fn5o6sEYQcCnb
-	QlP+N3AA==;
+	bh=w5lVWBJjRjA2krxM/KTY4SL80JsSZ9imdxqcG/GS5Zk=; b=F5IHMNcYKDFB/TaP5FIzAqRr6/
+	wyz2W2xIKrfJIoR+xRXfCC+7tuZ66u0rbmYub6CjovKNyQr5eNk/F+tVsyNmdX22CuxMrVKVisY0p
+	lm4GWr1CqrHzhQSxJLR5C4jOqRDQVq4aAfgCHZjj80XCWvmqaxB4vCs7TxtvphQp6guoJqATt7R/w
+	kUp4a/vQGh0XukF9/Gc25nD3NDIySW308l3FaVLI+Yed6fx/b02RaFiFTYJufx4wXjg1Xe7HFYRIe
+	TL2I9Za0+prFEqhyc/C8HUEWy0DLDKBkwzFFmCalndxOYV27fBk1dGO83V2JjS668jhf5Ie7iB4Bx
+	AJge5Jiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOItk-00000003MPS-2uEC;
-	Tue, 03 Nov 2026 18:06:16 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1xOIuS-00000003MZw-3XvK;
+	Tue, 03 Nov 2026 18:07:00 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOIti-00000003MOE-0zbT
+	id 1xOIuP-00000003MYr-2CXS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 18:06:15 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4a5087a5348so36482945e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 10:06:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793729172; x=1794333972; darn=lists.infradead.org;
-        h=content-type:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=/dRBcMfZeipH0bf8lHSiASOZP3cat5iGjHJj/5kyYjE=;
-        b=tUlfXUV/uSYJfSRomVr68bK2RxStHIVNgLGtzygDBPTOPzweBV017BiPWolTTRdaau
-         HC0y4nXHM2gRkr83bzd1bNxRmnYCpUi3JBpTF9YfWlrW8wJ0RB5oD7A2oBNyAaE8o0PF
-         5DybCMio7kcnlU7jsZ3Z2kqsjlKhd3E8mavpnPs1Cq+ceaNQvLvaWAqq1R9Cam12T6G+
-         CE6n++bRkAUXZd9iWbkyvXll+aYp5cJeteaZx2f4SLJPHdf+11TvXTMFayS4SPcwezqK
-         wQx2nnJVCwgUegecvx4zhnT0sQkc2bDnXK8LWai8OQAFZOImw62E5GIsDc64ugxa274O
-         3Xmg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793729172; x=1794333972;
-        h=content-type:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/dRBcMfZeipH0bf8lHSiASOZP3cat5iGjHJj/5kyYjE=;
-        b=dVnIO+rgS60T6Sr2YTEPlsSC8u9ps6vrXk+JSL9g+e3ibNr4PRpziKyRqO9rpvBZkB
-         H+NwstlrozotG5IDRJ5YhVmUCuTVgbTl6/Q2fslNe6ADnN45vj3dhVdQgM4FYK1BRUVY
-         Yp4Zt1caNJlyxCrXpjp8wPclCptz9A7Zuej1HloTybaCWnJTixBcDcsyEcl6R57oH0Oz
-         2sVK2tvvRqq5QW45qutsxghJDpQYvjPlirIjjHPXzbclmj4R5W0mBe/JXNNr5Dt6Mrvp
-         qqCJJiisfQKmP5U+XhQZrE9zHASM/4qCISPCHnR2wF5e0ADuF3KTNAWr6FKCV5uaDCcK
-         lrEg==
-X-Forwarded-Encrypted: i=1; AKwUvBzh/z6o47JfqAKlQply+KfT2IHkhCldgcDoUwhqSVXtO61Wjrkil16wX0PGu7RKBXHGwqoCUwqR4s5BVRPSHUnQ@lists.infradead.org
-X-Gm-Message-State: APuU4Z/v9+5GuJX8ARTPDfObPIvIXrz+MD+T0953c0FMQlmJ8G97jcad
-	HcPjDUGfEyoUouI2l6LoG52lzk1klYViK7IixSgRF4GEveDluGrXSgsd
-X-Gm-Gg: AYBFou3ntRYgyjCvTDnUqUTJft1ciEHShxV1ysZ8UFgkKpYFV6993C/aeymf4/fqcWA
-	fQwOOQbkssvotKeOrN2rQxruXBevlkiYXIZIlWrbQn7Hx/0KNF5TprgwWQdaeekvaBBRkGg2jjG
-	DcXMZeQlb8vZSMJl1vzUKPglgDwhLjPQwYyxixJUKAc2k7MTKzvNnoJsZk/0ka3tVO0yUXap8tk
-	UCVc0g/oMrc4YiDkMH+5zB+Tppf3j6NTbu5XvM/vyQlc+wLiXKof++hKMca+YZfu3DfmT+k8o9W
-	G+6UcI6NRoSw5/DCX98LDKkV3Rqq2Qz1eDKgZPRWL54p9N9yEIIwq0/0rNFqhPKaXzaTQ2qvFpJ
-	EhhYMdh8c3bWSy48TL3DcG26pXZgq0sgaxuxUOZ06fHV8WcClsp4uuaDOTSGJRt8/NT7CWvB1xx
-	A89Z+tPGfDViKTQy3RgdYbSAhx1IS0agIFGwapNoF5qmxpYf9jcWmCOh9FSslH7gQ8SvGd3Kakc
-	xmt7iYM+o/l2+/RMQ4KTwv5CHTQkqwJZoUgIh8KRQl1NyVJi9Fan5kVVvWrI8QNFXMSJFRk4W59
-	uGXW88JIxYzwLKKzCSuOoboqFxNI5jXAv+X5bWfbpMwGgqZ0UWzR2Cl4oO8nxy2RetHlwEIJT4t
-	jn8YUNX0m0r6nVCo+0puXW7njL48C6HTjUpHjbbp4ePcWMEfAFGKa27TtOdPf7PuUj2ob/V3hnS
-	24hyrbCdQcFqrNO+pHsV579YaIHk0nGHYjB4C2OelrQjY0d/clErfkKfLDF9NVRdwslScvAJsBp
-	J9ys7yprhJUULje8+RqGVQCCkwmrYAZuDa7Rz+p9d2RwjWvYjMnay/CoSORM3CwXFxYSrkAKCRx
-	5GfGLTU=
-X-Received: by 2002:a05:600c:6095:b0:4a0:1b21:2628 with SMTP id 5b1f17b1804b1-4ac18b7e1c1mr284061485e9.23.1793729172136;
-        Tue, 03 Nov 2026 10:06:12 -0800 (PST)
-Received: from jernej-laptop.localnet (194-152-27-116.dynamic.telemach.net. [194.152.27.116])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b2afee292bsm82769945e9.4.2026.11.03.10.06.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Nov 2026 10:06:10 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>,
- Hans Verkuil <hverkuil@kernel.org>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski <paulk@sys-base.io>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>,
- linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 03/10] staging: media: cedrus: h264: mark long-term references in
- the frame info
-Date: Tue, 03 Nov 2026 19:06:09 +0100
-Message-ID: <zYI0QcxKSEeu6sHIbu0-3w@gmail.com>
-In-Reply-To: <29e72b15007592f98dd000f5f62a85367c590347.camel@collabora.com>
-References: <20261102170303.1973892-1-jernej.skrabec@gmail.com>
- <20261102170303.1973892-4-jernej.skrabec@gmail.com>
- <29e72b15007592f98dd000f5f62a85367c590347.camel@collabora.com>
+	Tue, 03 Nov 2026 18:06:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793729218; x=1825265218;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=bfpjoi+2x7WliPDN0Q0PNRLL9EnvniyukWyol0qacZo=;
+  b=dZ64qWHN8Fcv2v6a9i2Mou5Yq/74AtEfaFOSv9fZKlObUMNjk9/oDVO1
+   z25/Z1PlnGjKNiUZtQGDCRCSyYED9l+1HeSOsTp/G0PxtfyNjrqbaBv3d
+   BEM+RaJDXtQNEsXqZqgD58qpLS8FH4wyezGhw58E90QqMpl6fiRC2H5+k
+   8zp045CIIETeUWG8XFXqHBFDYbmWPvDO1YQ6tv3IatJO2xtEZU2eKoKL1
+   hr25kXLHzDA+fcn9pFf7MNU2ONpgCea2N2HCPbwkLrql5WYvblrllVBju
+   H7/5dAJKoGgSBGGTKkuyK4rSTs6c1L3Gj+YgKhd3npw2Sq86uT1nJTDOh
+   g==;
+X-CSE-ConnectionGUID: e0yaTGVXSdOfRR8CeROO6Q==
+X-CSE-MsgGUID: 66e7V26tQsS+4ID3Y98bUQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11955"; a="2497321"
+X-IronPort-AV: E=Sophos;i="6.27,193,1787036400"; 
+   d="scan'208";a="2497321"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 10:06:57 -0800
+X-CSE-ConnectionGUID: 0DUEqvTGSyWP84YdvsRCVw==
+X-CSE-MsgGUID: pmuQBEc9QCOEV5T43CA1cw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,193,1787036400"; 
+   d="scan'208";a="6503533"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.108])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 10:06:50 -0800
+Date: Tue, 3 Nov 2026 20:06:47 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Raul E Rangel <rrangel@chromium.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Richard Genoud <richard.genoud@bootlin.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"Maciej W. Rozycki" <macro@orcam.me.uk>,
+	Timur Tabi <timur@kernel.org>,
+	Peter Ujfalusi <peter.ujfalusi@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH v9 7/8] serial: 8250: retire canceled RX DMA before
+ reusing the receive buffer
+Message-ID: <auoit0AkmVeCvXqk@ashevche-desk.local>
+References: <20261102-submit-serial-8250-dma-cancel-v1-v9-0-9159caade148@gmail.com>
+ <20261102-submit-serial-8250-dma-cancel-v1-v9-7-9159caade148@gmail.com>
+ <auoa8OWBxqaQuKRq@ashevche-desk.local>
+ <CADvTj4rL23q6eO8vjVe9vL1g6B8aoZqsbnThi2QJqkj=9e59sw@mail.gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CADvTj4rL23q6eO8vjVe9vL1g6B8aoZqsbnThi2QJqkj=9e59sw@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_100614_311831_35D7B110 
-X-CRM114-Status: GOOD (  25.03  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261103_100657_575473_A97BBAA1 
+X-CRM114-Status: GOOD (  24.80  )
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,130 +113,119 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Dne ponedeljek, 2. november 2026 ob 19:50:44 Srednjeevropski standardni =C4=
-=8Das je Nicolas Dufresne napisal(a):
-> Hi,
->=20
-> Le lundi 02 novembre 2026 =C3=A0 18:02 +0100, Jernej Skrabec a =C3=A9crit=
- :
-> > The frame info of a reference has a reference type for each field, in
-> > bits 1:0 for the top field and 5:4 for the bottom one, which is 1 for a
-> > long-term reference. The driver never sets it, so the hardware handles
-> > long-term references like short-term ones, also where they differ, like
-> > in temporal direct and implicit weighted prediction. The vendor library
-> > sets it.
-> >=20
-> > This fixes MR8_BT_B and MR9_BT_B of the H.264 conformance suite.
-> >=20
-> > Fixes: 6eb9b758e307 ("media: cedrus: Add H264 decoding support")
-> > Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> > ---
-> >  drivers/staging/media/sunxi/cedrus/cedrus_h264.c | 12 +++++++++++-
-> >  drivers/staging/media/sunxi/cedrus/cedrus_regs.h |  8 ++++++++
-> >  2 files changed, 19 insertions(+), 1 deletion(-)
-> >=20
-> > diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_h264.c b/drivers=
-/staging/media/sunxi/cedrus/cedrus_h264.c
-> > index 892193c12b2f..a716955655f7 100644
-> > --- a/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
-> > +++ b/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
-> > @@ -69,13 +69,21 @@ static void cedrus_fill_ref_pic(struct cedrus_ctx *=
-ctx,
-> >  				struct cedrus_buffer *buf,
-> >  				unsigned int top_field_order_cnt,
-> >  				unsigned int bottom_field_order_cnt,
-> > +				bool long_term,
-> >  				struct cedrus_h264_sram_ref_pic *pic)
-> >  {
-> >  	struct vb2_buffer *vbuf =3D &buf->m2m_buf.vb.vb2_buf;
-> > +	u32 frame_info, ref_type;
-> > =20
-> >  	pic->top_field_order_cnt =3D cpu_to_le32(top_field_order_cnt);
-> >  	pic->bottom_field_order_cnt =3D cpu_to_le32(bottom_field_order_cnt);
-> > -	pic->frame_info =3D cpu_to_le32(buf->codec.h264.pic_type << 8);
-> > +
-> > +	ref_type =3D long_term ? VE_H264_FRAME_INFO_REF_TYPE_LONG_TERM :
-> > +			       VE_H264_FRAME_INFO_REF_TYPE_SHORT_TERM;
-> > +	frame_info =3D VE_H264_FRAME_INFO_TOP_REF_TYPE(ref_type) |
-> > +		     VE_H264_FRAME_INFO_BOT_REF_TYPE(ref_type) |
-> > +		     VE_H264_FRAME_INFO_PIC_TYPE(buf->codec.h264.pic_type);
-> > +	pic->frame_info =3D cpu_to_le32(frame_info);
-> > =20
-> >  	pic->luma_ptr =3D cpu_to_le32(cedrus_buf_addr(vbuf, &ctx->dst_fmt, 0)=
-);
-> >  	pic->chroma_ptr =3D cpu_to_le32(cedrus_buf_addr(vbuf, &ctx->dst_fmt, =
-1));
-> > @@ -128,6 +136,7 @@ static int cedrus_write_frame_list(struct cedrus_ct=
-x *ctx,
-> >  		cedrus_fill_ref_pic(ctx, cedrus_buf,
-> >  				    dpb->top_field_order_cnt,
-> >  				    dpb->bottom_field_order_cnt,
-> > +				    dpb->flags & V4L2_H264_DPB_ENTRY_FLAG_LONG_TERM,
-> >  				    &pic_list[position]);
-> >  	}
-> > =20
-> > @@ -174,6 +183,7 @@ static int cedrus_write_frame_list(struct cedrus_ct=
-x *ctx,
-> >  	cedrus_fill_ref_pic(ctx, output_buf,
-> >  			    decode->top_field_order_cnt,
-> >  			    decode->bottom_field_order_cnt,
-> > +			    false,
->=20
-> nit: Not a hard objection, but I really hate boolean parameters. It could=
- be a
-> simple as:
->=20
-> +			    false, /* short term reference */
->=20
-> Or using an enum. My preference being documented here, its yours to decid=
-e.
+On Tue, Nov 03, 2026 at 10:54:38AM -0700, James Hilliard wrote:
+> On Tue, Nov 3, 2026 at 10:34 AM Andy Shevchenko
+> <andriy.shevchenko@linux.intel.com> wrote:
+> > On Mon, Nov 02, 2026 at 04:14:34PM -0700, James Hilliard wrote:
 
-I'll use VE_H264_FRAME_INFO_REF_TYPE_* as parameter. I have to fix sashiko
-issue anyway.
+...
 
-I'll keep your Reviewed-by, unless you object.
+> > > +static void serial8250_rx_dma_flush_work(struct work_struct *work)
+> > > +{
+> > > +     struct uart_8250_dma *dma = container_of(work, struct uart_8250_dma, rx_flush_work);
+> > > +     struct uart_8250_port *p = dma->port;
+> > > +     unsigned int delay_us = USEC_PER_MSEC;
+> > > +     ktime_t start = ktime_get();
+> > > +     bool recover, retry, restore_rx;
+> > > +     bool warned = false;
+> > > +     int ret;
+> > > +
+> > > +     guard(serial8250_rpm)(p);
+> > > +
+> > > +     for (;;) {
+> > > +             scoped_guard(uart_port_lock_irqsave, &p->port) {
+> > > +                     /* Shutdown cancels this work and drains both DMA channels. */
+> > > +                     if (dma->shutting_down)
+> > > +                             return;
+> > > +                     /* Serialize reset with completion and shutdown notifications. */
+> > > +                     WRITE_ONCE(dma->rx_pause_wakeup, false);
+> > > +                     retry = dma->rx_pause_pending && !dma->rx_terminating;
+> > > +                     if (retry) {
+> > > +                             ret = serial8250_rx_dma_try_flush(p);
+> > > +                             retry = dma->rx_pause_pending && !dma->rx_terminating;
+> > > +                     }
+> > > +                     recover = dma->rx_err;
+> > > +             }
+> > > +             if (!retry)
+> > > +                     break;
+> > > +             if (!warned && ktime_ms_delta(ktime_get(), start) >= MSEC_PER_SEC) {
+> > > +                     dev_warn_ratelimited(p->port.dev,
+> > > +                                          "RX DMA pause stalled: %d; retaining transfer and retrying\n",
+> > > +                                          ret);
+> >
+> > _ratelimited() is a slop of AI without understanding the code. It makes nonsense
+> > in combination with warned.
+> 
+> The two controls have different scopes. warned is local to one invocation
+> of the flush worker and prevents repeated warning attempts while that
+> flush remains stalled. A later flush starts with warned cleared again.
+> 
+> The rate limit applies across worker invocations and UART ports. It limits
+> messages from separate stalls, rather than repeated retries of the same
+> stall.
 
-Best regards,
-Jernej
+How? The whole _ratelimited() is nonsense here.
 
->=20
-> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
->=20
-> >  			    &pic_list[position]);
-> > =20
-> >  	cedrus_h264_write_sram(dev, CEDRUS_SRAM_H264_FRAMEBUFFER_LIST,
-> > diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_regs.h b/drivers=
-/staging/media/sunxi/cedrus/cedrus_regs.h
-> > index 05e6cbc548ab..961fe023bb43 100644
-> > --- a/drivers/staging/media/sunxi/cedrus/cedrus_regs.h
-> > +++ b/drivers/staging/media/sunxi/cedrus/cedrus_regs.h
-> > @@ -616,6 +616,14 @@
-> >  #define VE_AVC_SRAM_PORT_OFFSET		0x2e0
-> >  #define VE_AVC_SRAM_PORT_DATA		0x2e4
-> > =20
-> > +/* Frame info word of a frame buffer list entry in the AVC SRAM */
-> > +#define VE_H264_FRAME_INFO_PIC_TYPE(v)		SHIFT_AND_MASK_BITS(v, 9, 8)
-> > +#define VE_H264_FRAME_INFO_BOT_REF_TYPE(v)	SHIFT_AND_MASK_BITS(v, 5, 4)
-> > +#define VE_H264_FRAME_INFO_TOP_REF_TYPE(v)	SHIFT_AND_MASK_BITS(v, 1, 0)
-> > +
-> > +#define VE_H264_FRAME_INFO_REF_TYPE_SHORT_TERM	0
-> > +#define VE_H264_FRAME_INFO_REF_TYPE_LONG_TERM	1
-> > +
-> >  #define VE_VP8_PPS			0x214
-> >  #define VE_VP8_PPS_PIC_TYPE_P_FRAME		BIT(31)
-> >  #define VE_VP8_PPS_LAST_SHARPNESS_LEVEL(v)	SHIFT_AND_MASK_BITS(v, 30, =
-28)
->=20
+> > > +                     warned = true;
+> >
+> > Altogether NIH _once().
+> 
+> dev_warn_once() uses a static flag at the call site, shared by all ports.
+> After the first warning, subsequent stalls would remain silent even after
+> recovery or reopening the port, including stalls on another UART.
+> 
+> The intended behavior here is at most one warning attempt per prolonged
+> stall, while keeping later incidents diagnosable and limiting their
+> aggregate logging rate.
 
+Yes, so what the point to use _ratelimited()?
 
+> > > +             }
+> > > +             /* Notifications also cover completion or shutdown before sleeping. */
+> > > +             wait_event_hrtimeout(dma->rx_pause_wait, READ_ONCE(dma->rx_pause_wakeup),
+> > > +                                  ns_to_ktime(delay_us * NSEC_PER_USEC));
+> > > +             delay_us = min(delay_us * 2, USEC_PER_SEC);
+> > > +     }
+> > > +
+> > > +     if (recover) {
+> > > +             ret = dmaengine_terminate_sync(dma->rxchan);
+> > > +             if (ret) {
+> > > +                     /* Retain ownership and keep RX masked if DMA cannot be stopped. */
+> > > +                     dev_err(p->port.dev, "failed to stop RX DMA: %d\n", ret);
+> > > +                     return;
+> > > +             }
+> > > +     } else {
+> > > +             dmaengine_synchronize(dma->rxchan);
+> > > +     }
+> > > +
+> > > +     scoped_guard(uart_port_lock_irqsave, &p->port) {
+> > > +             restore_rx = recover || dma->rx_pause_pending;
+> > > +             dma->rx_pause_pending = false;
+> > > +             dma->rx_terminating = false;
+> > > +             dma->rx_running = 0;
+> > > +             if (dma->shutting_down)
+> > > +                     return;
+> > > +
+> > > +             if (!restore_rx)
+> > > +                     return;
+> > > +
+> > > +             /* Apply the current enables, including any intervening stop_rx(). */
+> > > +             serial8250_out_IER(p, p->ier);
+> > > +     }
+> > > +     if (recover)
+> > > +             dev_warn(p->port.dev, "RX DMA failed, using PIO\n");
+> > >  }
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
 
