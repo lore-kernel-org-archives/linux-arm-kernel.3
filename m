@@ -2,78 +2,118 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECEB9606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 19:09:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D3C0606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 19:09:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YuO/usrF;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=O5lmUz6q
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Yc8Di3+l;
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=D3pDzPua
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=yRNBCNleXapj6/D9Dy5JVT8U1O3DIrFP6P/UGlFxQWo=; b=YuO/usrFWVSJklJAuBKF3wwdnG
-	ScKy2OWeTquRR9MpHDlUYzjBFAJqQkVeqHskanqa9j+kyAK6Rq1wwkcvy3ktcgfXBF0hVXJamOyT3
-	X6iqKA5FwNp1MIk/eGhH2/gUlzo0P1rbwm53cBN/e4h64r8GFtCFhZonEEc/CzKlcaK+t21GISOFP
-	NcagQfOjb1Al2piBixlzuSkQMmv645QOg7Sc0G6NGLwj7ySysjMfD4WrMkBjfXebEVY6J9yRgahcY
-	SOIXDt4GQp7b6/ajLP3rzs+2HnTEmawTN+YkV3CthQze4z9i4ZKzOR3wMF1kjgctWYWKKxyNoMESx
-	CNYk7IPA==;
+	bh=nAY0mN4ePeDJpvyfjyvP42Hy+cpGroSpFYr9jrHC9X4=; b=Yc8Di3+l9pGQBLeWxfpF5Th0Sm
+	UQ60fk/8XjfvVWS/d0ahogHxaaBxntx+67U3lvrRHcK6OQunSITA36LIaQxOnIa63lE2d8viR460V
+	U1pcElQaaF0YL34p5uZERvfP+2jZrln//JrBM/AnjAKC6guNsrYeNO6wL/heu2VoAzKoFOATL0Gku
+	8kseLbzlfqAl67dTdHVtjREae/tFX2QPEEKZxfg6PoVFHKTxiyrpnmqBDwh1x2Nd/mCD4lZAUMkPP
+	PDk+/iqes1ah2Xyjggdt/nrEhfd1lZi6Gz5ZNiV7iLiEtpcteyskqP5q1Qq18ZJqBGYmTCgcB3g/w
+	4+v3Wr1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOJsO-00000003Uo0-12Wi;
-	Tue, 03 Nov 2026 19:08:56 +0000
-Received: from out-249.mta1.migadu.com ([95.215.58.249] helo=mta1.migadu.com)
+	id 1xOJ50-00000003OMj-11lz;
+	Tue, 03 Nov 2026 18:17:54 +0000
+Received: from mail-westusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c001::5] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOJsL-00000003Umt-1oq6
+	id 1xOJ4x-00000003OLh-0kjm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 19:08:55 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=yRNBCNleXapj6/D9Dy5JVT8U1O3DIrFP6P/UGlFxQWo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793732931; v=1; x=1794337731;
- b=O5lmUz6q5pRfDhZOh1Um3EqlZfU96vwu5sQgvLr40rTo8P8REOp6fgFGfd7M3JAu8T21WLAF
- zyDDHBwSz/w0dxMp/CZvn3vPPRsmf57uXiXNyObPCV/yN1vT7lcT6KHCirBwJjnxQJmQAPVjfm9
- K9uRucXL5sOBZllWf6AZN09M=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 5d3681224415ad66;
-	Tue, 03 Nov 2026 19:08:51 +0000
-X-Mizu-Trace-ID: 5d3681224415ad66
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5bcbb378fc9so1070e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 11:08:46 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvBxGSXKMHfgUdwmqsf1bs6dbXPeX+/ysymfODLXUMPwQ0UQnDw2JB7w4DoWmV4ow3P79fmtuqQWIqsSKvwWjy92i@lists.infradead.org
-X-Gm-Message-State: APuU4Z/W/vE7jTL2D7B1VvnJ9uMvFrs/P4R26abBcR24GfWKB/kyQNBu
-	Qnqu5v1kxvyXmlMSxQR9fiNmT7F1dR502hoinTr1UUpEqo8+Mj7Zh8upIvWnuZlsj1I/zDuYTET
-	qJ4VucwBp1S474gSgS1tUH0pwlmzbeCvo8ScrZlwz
-X-Received: by 2002:a05:6512:6c8:b0:5bf:c9c6:ae92 with SMTP id
- 2adb3069b0e04-5bff406f902mr12922e87.7.1793732925312; Tue, 03 Nov 2026
- 11:08:45 -0800 (PST)
+	Tue, 03 Nov 2026 18:17:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tUZ9QxWZlaLMI7hOCHjsHGZ8z/6v6ZEr5iQgtyd7kj0C5oh6u9ngLPe6wIS7e/5gJt6C8see9C0bTFJSEZrMl9xKXb//Iya7Y0/hbCYHPpnmMA1JiYRLgCEPMZUSx4vWJhLQ92PkIEk9W16Cd1GwiEBEWqpDx8qasU7ikUpKZZ3FiHNTEjwLx8luStJYmpyKAV/D9N+Fp7+gkQorsfNHNumvWxTCk5D+/aYE80kkwNeMKgdjp5Ny0pB0fh/+N4hdLyfxjVsOKE05FyoDpjtjj2iw63dgYuuzCxs/oQTjsy8FDEMDHBg62ARLFGOgnCi8HVVMP9+1bQBaUoZosh9ArQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nAY0mN4ePeDJpvyfjyvP42Hy+cpGroSpFYr9jrHC9X4=;
+ b=HtCi35Jlz6EzxdqIuyfPVQaYV+BENhO76+xisqQLO5TAYYLps3M6OUIRKHdE0BXH+deiYTjF7l7IuVgJfQ1CIYEtSwHuDMCdedyWj5FWgGJNCK4fkjduTXmkoWDu3oE7cQPrjINBhxPWDiuuXFrldZNLBvfTyvEkADc1b+w/4Q9lpKG3sNc2BYbE8SBIm9c5dLesI1Spw6dymEo5a+wsBcp01kn5QniMOtDuaw+wrdUcgIbExKpHpkPEaMcNEoPDcAg4tZkuDR8x/SjXzZa5apBruA5jRCqMv5wGxJuQDSXWgZpNtzIpMdhv5d/xDL464bZB6XWhCFzfuCpeEHgkCw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=linuxfoundation.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nAY0mN4ePeDJpvyfjyvP42Hy+cpGroSpFYr9jrHC9X4=;
+ b=D3pDzPuaiWSEcJ/jLQyOgL9NMwbBG+jNHi4EGVJI6IttReqfS5QB4A4PMvt9yOo1nbQ0WdI1Xx5mlzSTFGxJ2rKh72rTSLajLLn+EDCVBepXQM6OjQe6YDDS/e0Uo6zccjqxeGc2B12puLUI4qDSVepjsyKLiFAEG7XJxU6DG/8=
+Received: from MW4PR03CA0287.namprd03.prod.outlook.com (2603:10b6:303:b5::22)
+ by SN7PR12MB6932.namprd12.prod.outlook.com (2603:10b6:806:260::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Tue, 3 Nov
+ 2026 18:17:40 +0000
+Received: from SJ5PEPF000001EF.namprd05.prod.outlook.com
+ (2603:10b6:303:b5:cafe::a7) by MW4PR03CA0287.outlook.office365.com
+ (2603:10b6:303:b5::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.8 via Frontend Transport; Tue, 3
+ Nov 2026 18:17:40 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ SJ5PEPF000001EF.mail.protection.outlook.com (10.167.242.203) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.592.5 via Frontend Transport; Tue, 3 Nov 2026 18:17:40 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Tue, 3 Nov
+ 2026 12:17:39 -0600
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.53; Tue, 3 Nov
+ 2026 12:17:39 -0600
+Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.53 via Frontend
+ Transport; Tue, 3 Nov 2026 12:17:36 -0600
+From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+To: <gregkh@linuxfoundation.org>, <stern@rowland.harvard.edu>,
+	<michal.simek@amd.com>, <robh@kernel.org>, <saravanak@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <linux-usb@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>, "Radhey
+ Shyam Pandey" <radhey.shyam.pandey@amd.com>
+Subject: [PATCH] usb: host: ehci-xilinx-of: remove the driver
+Date: Tue, 3 Nov 2026 23:47:21 +0530
+Message-ID: <20261103181722.2174208-1-radhey.shyam.pandey@amd.com>
+X-Mailer: git-send-email 2.44.4
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261103084742.1302597-1-fuad.tabba@linux.dev> <auoT0b1LxuDlZOnc@kernel.org>
-In-Reply-To: <auoT0b1LxuDlZOnc@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 3 Nov 2026 19:08:08 +0000
-X-Gmail-Original-Message-ID: <CA+EHjTynpZOE5s4U_Ls4WHdhHqTTo5Vp8YqKxK3EwxBT3O2XVg@mail.gmail.com>
-X-Gm-Features: AclHuK8AbjAuWLo00Tzpop7EQF-bwBMdIvmJij4-h9aVeKs-eFdilzti7zR-K-4
-Message-ID: <CA+EHjTynpZOE5s4U_Ls4WHdhHqTTo5Vp8YqKxK3EwxBT3O2XVg@mail.gmail.com>
-Subject: Re: [PATCH 0/3] KVM: arm64: Stop stage-2 teardown scaling with the
- IPA size
-To: Oliver Upton <oupton@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Raghavendra Rao Ananta <rananta@google.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EF:EE_|SN7PR12MB6932:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4d7e8713-59cc-4a6e-08d6-08df39d6bf3e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700016|23010399003|6133799003|18002099003|261102123227099003|56012099006|10067099003|261009223027099003|261022105027099003|261021121427099003|261021123027099003|261022075727099003|5023799004|11063799006|261026121527099003|261028144727099003|261026140227099003;
+X-Microsoft-Antispam-Message-Info: S1+C1ug7arZ5ZRFAPa/VTnffDVj4OC573K0UD7LUd14B8gXCk6ZZx4xbMEm6I6YqWwF+2sJ2K+bIwXEMbQUjykPDq/57S4bLIP7Jh+/4LTk8ktl0/BQo3L16j9OAzVV5Ni0SAMGBkWbtMkXqVsRMmw/VHV9+oHwX+W5hQv7OcE9BmWkl5A3qnPguypDIvuLsLaO7yhHWf1VR6ZguSfZw79/aKyis2PUQeRFEO4luawF8r4erv5Vvtmr3LL0+kHwkv3Y6QAV/u5O2LbSsaNUOZGKyqPwAj0agDWWmm4UEjYt1stBOJgei9apSRzebi+XI0ukrABVNUy/UkPv1f6rXY62uaOW+QR0qikkvnNrdw1JiqyjaWjJlzT3OiMDBIONme2IBN58NEXmEkWrEHUIi/cdDDJ9QDr91FkZlueSJcht0KEWMhGvA/FdYtAPJFC1Ks+xUtPO2OD5iVKhCMjlNcKsHCcCYC4Lccqt5KYGKg8aYPr5UkJDZoL1x/qGfJCd3gBpqFZ0DeSO01wG598ACgq8+hdNFffZHgLWc3MNf2jsV8WVQJ9GDKxHTTyte0s5472bsyWECRpiK3NVutQ5YdrAaGzLfp8z3GvRTd9o6U15/qKWh38V8UphkgXum3E0XsT4RsnvQxJPUPRKg/5PDeHtUV29rRvGixhAMBlP5VR2bn1xa1Um3+vGV2kNBjBMByAi+vHgoZkBDRg8ebrPg2Q==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700016)(23010399003)(6133799003)(18002099003)(261102123227099003)(56012099006)(10067099003)(261009223027099003)(261022105027099003)(261021121427099003)(261021123027099003)(261022075727099003)(5023799004)(11063799006)(261026121527099003)(261028144727099003)(261026140227099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: cZqTuVA+3z8PecXKncmkm1XjbNnh3dGcG7/bzIm4FbuBynLaRCBUuES606HGv4l4+E6zsqzO0KwXfgh6oRINx76dwO2x3Qw9tehIoOMiTcaUecbXo6EA8kOeR7EU2AAvJlKaJ84GQQ1PxEo/uohAX4qR5Th00HzbtMLuzO1H7otwVnmeFfVlU9xENAgYJAYwPvrB7H5RQENGCnl2ChdpE8S9a+hzZVFNTzf1NBpKfbZydFodBxaJHauBOfI0YVZMz9aIIp3jGKEEQwwy/NRlOC8s7MkuMAHwmqvLRM/vu+OuDQVMSfciyARGF4UL0yF3mw9wy4w4TfKJlsEJfmVozqFbwf2A+SFvTLOV6X+gPpTI3NHNOd8BHiOCbMRbG6Z4SifmdbloqlYhFzEJhxlitXxptJsHpqez00TH8+rxAyRY8BC5H85WsvZ2K6C0BtJt
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 18:17:40.2912
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4d7e8713-59cc-4a6e-08d6-08df39d6bf3e
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001EF.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6932
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_110853_678219_C3B0748D 
-X-CRM114-Status: GOOD (  10.68  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261103_101751_226668_A0638A88 
+X-CRM114-Status: GOOD (  29.32  )
+X-Spam-Score: -2.0 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,32 +124,356 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Oliver,
+The Xilinx XPS USB host controller is legacy soft IP for PPC405 and
+MicroBlaze FPGA designs.
 
-On Tue, 03 Nov 2026 17:03:13 +0000, Oliver Upton <oupton@kernel.org> wrote:
-[...]
-> I don't see why optimized destroy walks for CCA and pKVM is
-> fundamentally incompatible with driving them from a loop that
-> reschedules. Non-preemptible kernels are still very much a thing, I'd
-> rather not undo the fix we took for that exact use case.
->
-> So unless I'm missing something completely obvious, I'd rather that CCA
-> and pKVM do teardowns from that loop.
+This IP core relies on Xilinx Platform Studio (XPS) and the ISE Design
+Suite, both of which were discontinued by Xilinx years ago. Furthermore,
+modern AMD toolchains (Vivado Design Suite and Vitis) provide no support
+for the legacy PLB (Processor Local Bus) architecture used by this core.
+As a result, no new hardware designs can be built using this IP.
 
-In v2, pKVM's teardown will run from that loop.
-kvm_pgtable_stage2_destroy_range() will return where its walk stopped
-(Suzuki's suggestion) and pkvm_pgtable_stage2_destroy_range() where
-the next mapping starts, so stage2_destroy_range() resumes from there.
-That replaces the pKVM path in patch 1 and the lookup in patch 2, and
-I'll drop patch 3 and the Fixes: tags.
+Nothing in the upstream tree carries its "xlnx,xps-usb-host-1.00.a"
+compatible string, no defconfig enables CONFIG_XPS_USB_HCD_XILINX, and
+the compatible was never documented as a binding.
 
-Thanks,
-/fuad
+It is also one of the few remaining users of the deprecated glue model
+where the .c file is #included into ehci-hcd.c rather than built as its
+own object.
+
+Given the complete obsolescence of the supporting hardware development
+tools and the lack of upstream users, remove the dead driver.
+
+Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+---
+ drivers/usb/host/Kconfig          |  11 --
+ drivers/usb/host/ehci-hcd.c       |   7 -
+ drivers/usb/host/ehci-xilinx-of.c | 229 ------------------------------
+ scripts/dtc/dt_to_config          |   8 +-
+ 4 files changed, 2 insertions(+), 253 deletions(-)
+ delete mode 100644 drivers/usb/host/ehci-xilinx-of.c
+
+diff --git a/drivers/usb/host/Kconfig b/drivers/usb/host/Kconfig
+index 05a88969a6a0..471d203b60a5 100644
+--- a/drivers/usb/host/Kconfig
++++ b/drivers/usb/host/Kconfig
+@@ -224,17 +224,6 @@ config USB_EHCI_PORT_SPEED_HOOK
+ 	depends on USB_EHCI_ROOT_HUB_TT
+ 	# Used for hosts with controller-specific port speed reporting
+ 
+-config XPS_USB_HCD_XILINX
+-	bool "Use Xilinx usb host EHCI controller core"
+-	depends on (PPC32 || MICROBLAZE)
+-	select USB_EHCI_BIG_ENDIAN_DESC
+-	select USB_EHCI_BIG_ENDIAN_MMIO
+-	help
+-		Xilinx xps USB host controller core is EHCI compliant and has
+-		transaction translator built-in. It can be configured to either
+-		support both high speed and full speed devices, or high speed
+-		devices only.
+-
+ config USB_EHCI_FSL
+ 	tristate "Support for Freescale on-chip EHCI USB controller"
+ 	select USB_EHCI_ROOT_HUB_TT
+diff --git a/drivers/usb/host/ehci-hcd.c b/drivers/usb/host/ehci-hcd.c
+index 75f780ec3ba0..7842f8a752d7 100644
+--- a/drivers/usb/host/ehci-hcd.c
++++ b/drivers/usb/host/ehci-hcd.c
+@@ -1331,10 +1331,6 @@ MODULE_LICENSE ("GPL");
+ #include "ehci-ppc-of.c"
+ #endif
+ 
+-#ifdef CONFIG_XPS_USB_HCD_XILINX
+-#include "ehci-xilinx-of.c"
+-#endif
+-
+ #ifdef CONFIG_SPARC_LEON
+ #include "ehci-grlib.c"
+ #endif
+@@ -1346,9 +1342,6 @@ static struct platform_driver * const platform_drivers[] = {
+ #ifdef CONFIG_USB_EHCI_HCD_PPC_OF
+ 	&ehci_hcd_ppc_of_driver,
+ #endif
+-#ifdef CONFIG_XPS_USB_HCD_XILINX
+-	&ehci_hcd_xilinx_of_driver,
+-#endif
+ #ifdef CONFIG_SPARC_LEON
+ 	&ehci_grlib_driver,
+ #endif
+diff --git a/drivers/usb/host/ehci-xilinx-of.c b/drivers/usb/host/ehci-xilinx-of.c
+deleted file mode 100644
+index 1d16cfefabd7..000000000000
+--- a/drivers/usb/host/ehci-xilinx-of.c
++++ /dev/null
+@@ -1,229 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0+
+-/*
+- * EHCI HCD (Host Controller Driver) for USB.
+- *
+- * Bus Glue for Xilinx EHCI core on the of_platform bus
+- *
+- * Copyright (c) 2009 Xilinx, Inc.
+- *
+- * Based on "ehci-ppc-of.c" by Valentine Barshak <vbarshak@ru.mvista.com>
+- * and "ehci-ppc-soc.c" by Stefan Roese <sr@denx.de>
+- * and "ohci-ppc-of.c" by Sylvain Munaut <tnt@246tNt.com>
+- */
+-
+-#include <linux/err.h>
+-#include <linux/signal.h>
+-
+-#include <linux/of.h>
+-#include <linux/of_platform.h>
+-#include <linux/of_address.h>
+-#include <linux/of_irq.h>
+-
+-/**
+- * ehci_xilinx_port_handed_over - hand the port out if failed to enable it
+- * @hcd:	Pointer to the usb_hcd device to which the host controller bound
+- * @portnum:Port number to which the device is attached.
+- *
+- * This function is used as a place to tell the user that the Xilinx USB host
+- * controller does support LS devices. And in an HS only configuration, it
+- * does not support FS devices either. It is hoped that this can help a
+- * confused user.
+- *
+- * There are cases when the host controller fails to enable the port due to,
+- * for example, insufficient power that can be supplied to the device from
+- * the USB bus. In those cases, the messages printed here are not helpful.
+- *
+- * Return: Always return 0
+- */
+-static int ehci_xilinx_port_handed_over(struct usb_hcd *hcd, int portnum)
+-{
+-	dev_warn(hcd->self.controller, "port %d cannot be enabled\n", portnum);
+-	if (hcd->has_tt) {
+-		dev_warn(hcd->self.controller,
+-			"Maybe you have connected a low speed device?\n");
+-
+-		dev_warn(hcd->self.controller,
+-			"We do not support low speed devices\n");
+-	} else {
+-		dev_warn(hcd->self.controller,
+-			"Maybe your device is not a high speed device?\n");
+-		dev_warn(hcd->self.controller,
+-			"The USB host controller does not support full speed nor low speed devices\n");
+-		dev_warn(hcd->self.controller,
+-			"You can reconfigure the host controller to have full speed support\n");
+-	}
+-
+-	return 0;
+-}
+-
+-
+-static const struct hc_driver ehci_xilinx_of_hc_driver = {
+-	.description		= hcd_name,
+-	.product_desc		= "OF EHCI",
+-	.hcd_priv_size		= sizeof(struct ehci_hcd),
+-
+-	/*
+-	 * generic hardware linkage
+-	 */
+-	.irq			= ehci_irq,
+-	.flags			= HCD_MEMORY | HCD_DMA | HCD_USB2 | HCD_BH,
+-
+-	/*
+-	 * basic lifecycle operations
+-	 */
+-	.reset			= ehci_setup,
+-	.start			= ehci_run,
+-	.stop			= ehci_stop,
+-	.shutdown		= ehci_shutdown,
+-
+-	/*
+-	 * managing i/o requests and associated device resources
+-	 */
+-	.urb_enqueue		= ehci_urb_enqueue,
+-	.urb_dequeue		= ehci_urb_dequeue,
+-	.endpoint_disable	= ehci_endpoint_disable,
+-	.endpoint_reset		= ehci_endpoint_reset,
+-
+-	/*
+-	 * scheduling support
+-	 */
+-	.get_frame_number	= ehci_get_frame,
+-
+-	/*
+-	 * root hub support
+-	 */
+-	.hub_status_data	= ehci_hub_status_data,
+-	.hub_control		= ehci_hub_control,
+-#ifdef	CONFIG_PM
+-	.bus_suspend		= ehci_bus_suspend,
+-	.bus_resume		= ehci_bus_resume,
+-#endif
+-	.relinquish_port	= NULL,
+-	.port_handed_over	= ehci_xilinx_port_handed_over,
+-
+-	.clear_tt_buffer_complete = ehci_clear_tt_buffer_complete,
+-};
+-
+-/**
+- * ehci_hcd_xilinx_of_probe - Probe method for the USB host controller
+- * @op:		pointer to the platform_device bound to the host controller
+- *
+- * This function requests resources and sets up appropriate properties for the
+- * host controller. Because the Xilinx USB host controller can be configured
+- * as HS only or HS/FS only, it checks the configuration in the device tree
+- * entry, and sets an appropriate value for hcd->has_tt.
+- *
+- * Return: zero on success, negative error code otherwise
+- */
+-static int ehci_hcd_xilinx_of_probe(struct platform_device *op)
+-{
+-	struct device_node *dn = op->dev.of_node;
+-	struct usb_hcd *hcd;
+-	struct ehci_hcd	*ehci;
+-	struct resource res;
+-	int irq;
+-	int rv;
+-	int *value;
+-
+-	if (usb_disabled())
+-		return -ENODEV;
+-
+-	dev_dbg(&op->dev, "initializing XILINX-OF USB Controller\n");
+-
+-	rv = of_address_to_resource(dn, 0, &res);
+-	if (rv)
+-		return rv;
+-
+-	hcd = usb_create_hcd(&ehci_xilinx_of_hc_driver, &op->dev,
+-				"XILINX-OF USB");
+-	if (!hcd)
+-		return -ENOMEM;
+-
+-	hcd->rsrc_start = res.start;
+-	hcd->rsrc_len = resource_size(&res);
+-
+-	irq = irq_of_parse_and_map(dn, 0);
+-	if (!irq) {
+-		dev_err(&op->dev, "%s: irq_of_parse_and_map failed\n",
+-			__FILE__);
+-		rv = -EBUSY;
+-		goto err_irq;
+-	}
+-
+-	hcd->regs = devm_ioremap_resource(&op->dev, &res);
+-	if (IS_ERR(hcd->regs)) {
+-		rv = PTR_ERR(hcd->regs);
+-		goto err_irq;
+-	}
+-
+-	ehci = hcd_to_ehci(hcd);
+-
+-	/* This core always has big-endian register interface and uses
+-	 * big-endian memory descriptors.
+-	 */
+-	ehci->big_endian_mmio = 1;
+-	ehci->big_endian_desc = 1;
+-
+-	/* Check whether the FS support option is selected in the hardware.
+-	 */
+-	value = (int *)of_get_property(dn, "xlnx,support-usb-fs", NULL);
+-	if (value && (*value == 1)) {
+-		ehci_dbg(ehci, "USB host controller supports FS devices\n");
+-		hcd->has_tt = 1;
+-	} else {
+-		ehci_dbg(ehci,
+-			"USB host controller is HS only\n");
+-		hcd->has_tt = 0;
+-	}
+-
+-	/* Debug registers are at the first 0x100 region
+-	 */
+-	ehci->caps = hcd->regs + 0x100;
+-
+-	rv = usb_add_hcd(hcd, irq, 0);
+-	if (rv == 0) {
+-		device_wakeup_enable(hcd->self.controller);
+-		return 0;
+-	}
+-
+-err_irq:
+-	usb_put_hcd(hcd);
+-
+-	return rv;
+-}
+-
+-/**
+- * ehci_hcd_xilinx_of_remove - shutdown hcd and release resources
+- * @op:		pointer to platform_device structure that is to be removed
+- *
+- * Remove the hcd structure, and release resources that has been requested
+- * during probe.
+- *
+- * Return: Always return 0
+- */
+-static void ehci_hcd_xilinx_of_remove(struct platform_device *op)
+-{
+-	struct usb_hcd *hcd = platform_get_drvdata(op);
+-
+-	dev_dbg(&op->dev, "stopping XILINX-OF USB Controller\n");
+-
+-	usb_remove_hcd(hcd);
+-
+-	usb_put_hcd(hcd);
+-}
+-
+-static const struct of_device_id ehci_hcd_xilinx_of_match[] = {
+-		{.compatible = "xlnx,xps-usb-host-1.00.a",},
+-	{},
+-};
+-MODULE_DEVICE_TABLE(of, ehci_hcd_xilinx_of_match);
+-
+-static struct platform_driver ehci_hcd_xilinx_of_driver = {
+-	.probe		= ehci_hcd_xilinx_of_probe,
+-	.remove		= ehci_hcd_xilinx_of_remove,
+-	.shutdown	= usb_hcd_platform_shutdown,
+-	.driver = {
+-		.name = "xilinx-of-ehci",
+-		.of_match_table = ehci_hcd_xilinx_of_match,
+-	},
+-};
+diff --git a/scripts/dtc/dt_to_config b/scripts/dtc/dt_to_config
+index 70d6d5f06bdc..3f9e751a3285 100755
+--- a/scripts/dtc/dt_to_config
++++ b/scripts/dtc/dt_to_config
+@@ -116,13 +116,12 @@ $num_pr_flags = $pr_flag_pos_config_test_fail + 1;
+        'hardcoded_no_driver'                   => ['no_config'],
+ 
+        # drivers/usb/host/ehci-ppc-of.c
+-       # drivers/usb/host/ehci-xilinx-of.c
+-       #  are included from:
++       #  is included from:
+        #    drivers/usb/host/ehci-hcd.c
+        #  thus the search of Makefile for the included .c files is incorrect
+        # ehci-hcd.c wraps the includes with ifdef CONFIG_USB_EHCI_HCD_..._OF
+        #
+-       # similar model for ohci-hcd.c (but no ohci-xilinx-of.c)
++       # similar model for ohci-hcd.c
+        #
+        # similarly, uhci-hcd.c includes uhci-platform.c
+ 
+@@ -131,9 +130,6 @@ $num_pr_flags = $pr_flag_pos_config_test_fail + 1;
+        'drivers/usb/host/ohci-ppc-of.c'        => ['CONFIG_USB_OHCI_HCD',
+                                                    'CONFIG_USB_OHCI_HCD_PPC_OF'],
+ 
+-       'drivers/usb/host/ehci-xilinx-of.c'     => ['CONFIG_USB_EHCI_HCD',
+-                                                   'CONFIG_USB_EHCI_HCD_XILINX'],
+-
+        'drivers/usb/host/uhci-platform.c'      => ['CONFIG_USB_UHCI_HCD',
+                                                    'CONFIG_USB_UHCI_PLATFORM'],
+ 
+-- 
+2.44.4
+
 
