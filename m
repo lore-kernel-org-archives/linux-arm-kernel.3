@@ -2,69 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8BA0606A327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 04:18:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EBC2606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 04:22:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qeSe9zMG;
-	dkim=pass (2048-bit key, unprotected) header.d=codeconstruct.com.au header.i=@codeconstruct.com.au header.a=rsa-sha256 header.s=2022a header.b=a7t79Qzf
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=asNfdXa5;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=R0WAjBPd
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=i5UScEbi5P+SKDxLk2/1WH1m35SDk+R8PVhmVEVHgPs=; b=qeSe9zMGvRrVYFWxH43mPs19nC
-	mB2gkzyjjVF5DD4s+UlhoTLZF/Dbzwdbqo5YIngbxVJuQVxbzAnY+nVgLBeVOIpmxkrfc+5cKFJyQ
-	U6VRVd7+x+LRXlsnBsYgbrSKC/PRSJVdC531DYo73lSHHcU+cVKmLqAG8ZqLa4c89Vh/kLeMVGI8t
-	VHwOf736hGW9qVX2kwgymYs/RVerY6n7xmkjxapDLoAsxxd9VzJZ0kPkEN2nURHzrNK2HNqR77j7l
-	Se5WmebQptI/FZdgvQQ4HYqxGKbY3D41yYOTTz8xqrL/Mu9STImqUnZkJYYG9z7UHVfbO1X4pOede
-	xoZ6V5qw==;
+	bh=7hpI2iCSGoz71vPjJKjpaH2lhKVzdhV0IEDs+PYjGYI=; b=asNfdXa5HvMiPnDg1gtpRWeEDF
+	s70D3++IY/2a0YWucAsXP5Wq+YIJ+dyyQ429KKFVu9GZ6GA5nKpJsCx7pwIJ8FdF7Z7kB9zN74Qje
+	RmWoDlFY2f4JcfjqDmAwMKApnBR3tacPczZ1DjJhbfOwG4pqKO8y82wdqGYgl/AFIAPleOZ9RzcU0
+	7AzaLOln9lBrAQ/f7cvZEL+DUAb0Jegb33nEEj10pA82hfZSYm+esiu2RqX8mNWhAOJJB6S7J5a1x
+	D7o3/i5y2AqMBJH4BiJHDhlsqK7/eceEWguRit9iudT2x5CxP4hUqkyHKrJI/c5wc+qWeX08DQPNB
+	iYCBVtzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO5ya-00000000zjf-2tmz;
-	Tue, 03 Nov 2026 04:18:24 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1xO61n-00000000zwG-41Uk;
+	Tue, 03 Nov 2026 04:21:52 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO5yL-00000000zjA-2P1v
+	id 1xO61c-00000000zut-3w0e
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 04:18:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1793679487;
-	bh=i5UScEbi5P+SKDxLk2/1WH1m35SDk+R8PVhmVEVHgPs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=a7t79QzfSTdOmbUGBi5zuXRXLb9bnKCNXZ7ddcXCve5Iki/BJfETkutBAfN6dIsSa
-	 6hWOY8+mbeiLrGyha8O5lIQ/p7UB+I0Ll4SsJPrg/ujXWKTRaiMCx6dk5CCCYfdKie
-	 TDllu+3oC2+dHpqpaW5IYHSsrjguyDQBTv67x76CrDX576Gaa5lFfNlUUygdF3zoWF
-	 SW2O2ZEUJSZBb14lGttfI5aBk3F8AnH39EyAwqmWdxvjwY2zhhJmgG/PgYI3aQQvgm
-	 Mq+2XnwOg5SN4ix95gbCrxbwfRF44hJavRKXeW53i4kZASS28FOrji5FhIKvW28kFj
-	 /HAhKA+WVXVsw==
-Received: from [192.168.68.117] (unknown [180.150.112.139])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id D92A9648E3;
-	Tue,  3 Nov 2026 12:18:06 +0800 (AWST)
-Message-ID: <bc6e605a8c5bee59ad9bcbce5f4fe775c9c3324e.camel@codeconstruct.com.au>
-Subject: Re: [PATCH] arm64: dts: aspeed: Enlarge AST2700 EVB kernel
- partition to 12 MiB
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Cooper Huang <cooper_huang@aspeedtech.com>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley	 <joel@jms.id.au>, Ryan Chen
- <ryan_chen@aspeedtech.com>, Billy Tsai	 <billy_tsai@aspeedtech.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, Chin-Ting Kuo
-	 <chin-ting_kuo@aspeedtech.com>
-Date: Tue, 03 Nov 2026 14:48:06 +1030
-In-Reply-To: <20261029-ast2700-evb-kernel-part-v1-1-e6f52742c575@aspeedtech.com>
-References: <20261029-ast2700-evb-kernel-part-v1-1-e6f52742c575@aspeedtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Tue, 03 Nov 2026 04:21:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793679694; x=1825215694;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=e/FUd/e/mAYT7IeYzGgwu4zSfKt4EcJEQsjr//9wYN8=;
+  b=R0WAjBPdTEUY6GAYiaJXbG3tPxSuDfJJS0Zgf8sWKnaTet26ViWS3J+i
+   9yvq36OwwI695NcxOf91ey3lwKbQBW2pVN1wIyb/xoWL+y4hsBiE4k89x
+   7a3lE0IBrxS8irWD4Ecp11r04Y9+Fc3nqvtFDhTKMbVR5eBpKKcuCPBsb
+   m8KMw+QLUDd/34pg/7RPJkZCD3Mrk81zjMlhE54m5UMXqWKO844F21nPL
+   rFqw9uRS6HZaor6K4Uzhiwjer7HPw95PXKkQvd2mgO0jkM/Y21Bfxe4OF
+   L2y9T+b+ELRARUGOGzUpVJewPuTDb7PcwNQN1Gvgu2pgMxPB0YcqADYvO
+   w==;
+X-CSE-ConnectionGUID: qZlZusvbQKGguZaLQNLx0w==
+X-CSE-MsgGUID: 4ySDNP5HRIWWqv/GvOQrcA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11954"; a="2495162"
+X-IronPort-AV: E=Sophos;i="6.27,192,1787036400"; 
+   d="scan'208";a="2495162"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Nov 2026 20:21:23 -0800
+X-CSE-ConnectionGUID: JaDX/0xDSXe4TwWItdmlvQ==
+X-CSE-MsgGUID: C6+kcDqrTNGoQJ5+2a7VTw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,192,1787036400"; 
+   d="scan'208";a="6633917"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 02 Nov 2026 20:21:19 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xO61L-00000000iI4-2oC3;
+	Tue, 03 Nov 2026 04:21:15 +0000
+Date: Tue, 3 Nov 2026 12:20:52 +0800
+From: kernel test robot <lkp@intel.com>
+To: Andre Przywara <andre.przywara@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Subject: Re: [PATCH v5 RESEND 5/6] firmware: smccc: lfa: Register DT interrupt
+Message-ID: <202611031233.vQxtNp7l-lkp@intel.com>
+References: <20261102165421.3651202-6-andre.przywara@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261102165421.3651202-6-andre.przywara@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_201822_169605_69FFDCE7 
-X-CRM114-Status: GOOD (  22.76  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261102_202133_077800_54D1EAAF 
+X-CRM114-Status: GOOD (  18.07  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,101 +87,85 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Conor Dooley <conor+dt@kernel.org>, vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, oe-kbuild-all@lists.linux.dev, Nirmoy Das <nirmoyd@nvidia.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-20.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=4.0.1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Cooper,
+Hi Andre,
 
-On Thu, 2026-10-29 at 15:25 +0800, Cooper Huang wrote:
-> From: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
->=20
-> The 128 MiB flash layout of the AST2700 EVB reserves 9 MiB for the
-> kernel FIT image. A FIT image containing an LZMA-compressed kernel,
-> the DTB and an initramfs is already close to that size, leaving little
-> room for the kernel to grow.
->=20
-> Grow the kernel partition to 12 MiB and take the 3 MiB from rofs,
+kernel test robot noticed the following build warnings:
 
-Why 12MiB? Why only take 3MiB?
+[auto build test WARNING on robh/for-next]
+[also build test WARNING on arm64/for-next/core linus/master next-20261030]
+[cannot apply to arm/for-next arm/fixes clk/clk-next kvmarm/next rockchip/for-next soc/for-next nferre-at91/at91-next shawnguo/for-next v7.3]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> which now starts at 0x1020000 and shrinks from 82.875 MiB to
-> 79.875 MiB. rofs still ends at 0x6000000, so the u-boot, u-boot-env
-> and rwfs partitions are unchanged.
->=20
-> This is the same layout used by the OpenBMC images ASPEED provides
-> for the EVB [1],
->=20
+url:    https://github.com/intel-lab-lkp/linux/commits/Andre-Przywara/dt-bindings-arm-Add-Live-Firmware-Activation/20261102-175415
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20261102165421.3651202-6-andre.przywara%40arm.com
+patch subject: [PATCH v5 RESEND 5/6] firmware: smccc: lfa: Register DT interrupt
+config: arm64-randconfig-1000-20261103 (https://download.01.org/0day-ci/archive/20261103/202611031233.vQxtNp7l-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 13.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261103/202611031233.vQxtNp7l-lkp@intel.com/reproduce)
 
-Why was what was sent upstream different to what you were doing
-elsewhere in the software stack? It seems oddly incoherent.=20
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611031233.vQxtNp7l-lkp@intel.com/
 
->  so the rofs partition described by the device tree
-> also matches where those images place the filesystem.
->=20
-> Link: https://github.com/AspeedTech-BMC/openbmc/blob/438e761ed38644b77ba7=
-04c984cb607649bf2724/meta-aspeed-sdk/meta-ast2700-sdk/conf/machine/ast2700-=
-default.conf=C2=A0[1]
-> Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
-> Signed-off-by: Cooper Huang <cooper_huang@aspeedtech.com>
-> ---
-> Notes:
-> - "Already close to that size": with mainline at c339f4010dea
-> =C2=A0 (v7.3-17997), ASPEED's aspeed_g7_defconfig [2] and GCC 13.2, a FIT
+All warnings (new ones prefixed by >>):
 
-A bit of a tangent, but GCC 13.2 is over 3 years old at this point.
-Debian stable ships 14.2. Why such an old compiler?
+   drivers/firmware/smccc/lfa_fw.c: In function 'lfa_register_dt':
+   drivers/firmware/smccc/lfa_fw.c:939:16: error: implicit declaration of function 'devm_request_threaded_irq'; did you mean 'devm_request_region'? [-Werror=implicit-function-declaration]
+     939 |         return devm_request_threaded_irq(dev, lfa_irq, NULL,
+         |                ^~~~~~~~~~~~~~~~~~~~~~~~~
+         |                devm_request_region
+   drivers/firmware/smccc/lfa_fw.c:940:66: error: 'IRQF_COND_ONESHOT' undeclared (first use in this function)
+     940 |                                          lfa_irq_handler_thread, IRQF_COND_ONESHOT,
+         |                                                                  ^~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/lfa_fw.c:940:66: note: each undeclared identifier is reported only once for each function it appears in
+   drivers/firmware/smccc/lfa_fw.c: In function 'lfa_smccc_remove':
+   drivers/firmware/smccc/lfa_fw.c:1034:9: error: implicit declaration of function 'devm_free_irq'; did you mean 'devm_free_pages'? [-Werror=implicit-function-declaration]
+    1034 |         devm_free_irq(&sdev->dev, lfa_irq, NULL);
+         |         ^~~~~~~~~~~~~
+         |         devm_free_pages
+   drivers/firmware/smccc/lfa_fw.c: In function 'lfa_register_dt':
+>> drivers/firmware/smccc/lfa_fw.c:942:1: warning: control reaches end of non-void function [-Wreturn-type]
+     942 | }
+         | ^
+   cc1: some warnings being treated as errors
 
-> =C2=A0 image with the LZMA-compressed kernel, ast2700-evb.dtb and the
-> =C2=A0 OpenBMC phosphor initramfs is about 8.99 MiB, less than 20 KiB
 
-What are your measured sizes for the kernel vs the initramfs?
+vim +942 drivers/firmware/smccc/lfa_fw.c
 
-Is the initramfs content reasonable?
+   925	
+   926	static int lfa_register_dt(struct device *dev)
+   927	{
+   928		struct device_node *np;
+   929	
+   930		np = of_find_compatible_node(NULL, NULL, "arm,lfa");
+   931		if (!np)
+   932			return -ENODEV;
+   933	
+   934		lfa_irq = irq_of_parse_and_map(np, 0);
+   935		of_node_put(np);
+   936		if (!lfa_irq)
+   937			return -ENODEV;
+   938	
+   939		return devm_request_threaded_irq(dev, lfa_irq, NULL,
+   940						 lfa_irq_handler_thread, IRQF_COND_ONESHOT,
+   941						 NULL, NULL);
+ > 942	}
+   943	
 
-Andrew
-
-> =C2=A0 below 9 MiB (the exact size varies by a few KiB between builds).
-> - Upstream OpenBMC's AST2700 machines use the static-norootfs layout
-> =C2=A0 (no rofs) and are unaffected; the rwfs offset does not change.
->=20
-> [2] https://github.com/AspeedTech-BMC/linux/blob/76457d3afe2bd4022ca82dd9=
-eb8fc48b84f0e9ab/arch/arm64/configs/aspeed_g7_defconfig
-> ---
-> =C2=A0arch/arm64/boot/dts/aspeed/aspeed-evb-flash-layout-128.dtsi | 6 +++=
----
-> =C2=A01 file changed, 3 insertions(+), 3 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/aspeed/aspeed-evb-flash-layout-128.dtsi =
-b/arch/arm64/boot/dts/aspeed/aspeed-evb-flash-layout-128.dtsi
-> index b54915f06efd..f54d53077538 100644
-> --- a/arch/arm64/boot/dts/aspeed/aspeed-evb-flash-layout-128.dtsi
-> +++ b/arch/arm64/boot/dts/aspeed/aspeed-evb-flash-layout-128.dtsi
-> @@ -16,12 +16,12 @@ u-boot-env@400000 {
-> =C2=A0	};
-> =C2=A0
-> =C2=A0	kernel@420000 {
-> -		reg =3D <0x420000 0x900000>; // 9MB
-> +		reg =3D <0x420000 0xc00000>; // 12MB
-> =C2=A0		label =3D "kernel";
-> =C2=A0	};
-> =C2=A0
-> -	rofs@d20000 {
-> -		reg =3D <0xd20000 0x52E0000>; // 82.875MB
-> +	rofs@1020000 {
-> +		reg =3D <0x1020000 0x4fe0000>; // 79.875MB
-> =C2=A0		label =3D "rofs";
-> =C2=A0	};
-> =C2=A0
->=20
-> ---
-> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-> change-id: 20261029-ast2700-evb-kernel-part-63b3c998ea6e
->=20
-> Best regards,
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
