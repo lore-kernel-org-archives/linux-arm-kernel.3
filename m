@@ -2,71 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE9D0606A334
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 11:49:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DA0D606D81C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 11:50:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bX92Irrn;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ZTUj3rdm
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tJC0NMIo;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NTzqHn6U
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=DNjdSl7ksOV1yWe4pcrgOgqAzi47y7DqGBV06ofjyH8=; b=bX92IrrneOgZZNRvmnfZA5PEJG
-	hxTiouFiZ2bPTeaaz1/lvMbkuVxq1139yY7BtqNOUXqA8WIZaC+mSoOAY3zD7FrGSozujwgENgFcz
-	A8ZXBjZqlRfXqKAvVjPK3LR1vD/b35r3NP3LWFhQCYh8w4doVIrLlNbG+CnPGYBA++votVLCEKmPB
-	bU9wE4QB8HzB4UHv8/wE6ahTxDVhrHsUQNovi8MC0wfEd1wqdjFr54tM6+2QZtaRe+F8fsXrgeWJ4
-	lGrwP6eG+fW9Y1hAAqf7EIj1Yus48RCv27vyf3LzX3/948lC7blYhS1z4qY8av4XxpFjdZG/ghfl0
-	oxaR/sFw==;
+	bh=21vYI0bQVUl3hCiSLmuD6Wo76ikPKRN+C6h2vCMSb/E=; b=tJC0NMIopN7YsFZehV7eqW3dAK
+	l8Jg7mA9BI/HsNqW8MO3o1j0jIrFi3mj1TdgRZZ2OYeN10IKlPZ9Y3BtvRLgeM5Pa517rYl297cPh
+	1loIKnKqRurKZga1lNaY9x5CkyQXdxDus+VJjCgD/4nyUxP+YvTuelCtWbSTd/KVJ6MXCDqcf513N
+	tPPP+9vFWsv+47FhrENpDGVLT1GhQDXkl2eAbL2Tgf9/JY9MSas1IpMGEbB+qHHLJcKCzBzLCpHDS
+	dBAqCkhTkCmnjAQR8C5ZtirolzZG2/HfQ9cQ3yyT8tBZPTZIcg3DwY5+oyy+x9152irZqnaULVgqj
+	Geb/0KWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOD19-00000002GvR-29sI;
-	Tue, 03 Nov 2026 11:49:31 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xOD1n-00000002HFO-0bs3;
+	Tue, 03 Nov 2026 11:50:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOD16-00000002GtS-24yr
+	id 1xOD1l-00000002HEs-0pX0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 11:49:30 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id BFAA71A1427;
-	Tue,  3 Nov 2026 11:49:26 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8C6146046C;
-	Tue,  3 Nov 2026 11:49:26 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8995110328C5E;
-	Tue,  3 Nov 2026 12:49:24 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1793706566; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=DNjdSl7ksOV1yWe4pcrgOgqAzi47y7DqGBV06ofjyH8=;
-	b=ZTUj3rdmGKpzrXaiM7tUT4VERo1mKsfCR7+hb0Z/3sDO1MVbQGugTbtDEFwF1IhVsCCF/r
-	7zeraggGY8LwdT1WSDkYwF/FU/tJEdRG4QW9x7m6lRh6+SXbox49dRDj0p0cGQwCoSC/Rz
-	zlADQG/3lgW6aI1r8G3iMLY+WFkWS9zBGf8iYZKMMlIGYzB2nvWSvdJ9g94UJ+XkIiqnGT
-	xg3oG1QQnYR+0nsNJ/OmjWKEabMiM7tpR9U6EhmQ78NyangtjR+krGwgrxK/ekvXcVlFDI
-	5dorHib4p/6zvUOD60XtfrlgQ91RoWHGKwz2d339Et8Ihl7X03st2n3e2pCy4A==
-Message-ID: <902f7e15f881583e9069ae1376952964f7bdf96e.camel@bootlin.com>
-Subject: Re: [PATCH] arm64: Kconfig: add CONFIG_CMDLINE_EXTEND
-From: Paul Cercueil <paul.cercueil@bootlin.com>
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland
-	 <mark.rutland@arm.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Tue, 03 Nov 2026 12:49:21 +0100
-In-Reply-To: <aunCuysle9uzTRI1@willie-the-truck>
-References: <20261103084140.7689-1-paul.cercueil@bootlin.com>
-	 <aunCuysle9uzTRI1@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Tue, 03 Nov 2026 11:50:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EC3FF43DA9;
+	Tue,  3 Nov 2026 11:50:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF13B1F00A1E;
+	Tue,  3 Nov 2026 11:50:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793706608;
+	bh=21vYI0bQVUl3hCiSLmuD6Wo76ikPKRN+C6h2vCMSb/E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NTzqHn6UV0XlvZnKXNpull1pI9vC844ALQF1QB7ewEHwqFQiUxyCsX1vR+MKE0t3r
+	 y935niEs67SECOk8icBrppwNaHDapOCSo4lYsI9LV+Jh3Jjn1Fwlw5SFMDjEPHbzYp
+	 fallXfTmScstELEyPZU/q8ctAZXnUDFYs9sHj8qV+GqrKukjw+ot07vYiWCmgQ0bde
+	 /zKZbJeHE3MHwOiOqL7ug13nzBn6nMhZdERc3wzWDlDmpxqSjOakD4fg1zI7oqzmYQ
+	 1DNre6XTfOXizmQ9gtggy3llNS+vRrnNSB9eSeoUwNO/nU0cXwmqZ45F445dV1Ead6
+	 28Saxt+cZEROA==
+Date: Tue, 3 Nov 2026 11:50:03 +0000
+From: Will Deacon <will@kernel.org>
+To: Wei Wang <wvw@google.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	wei.vince.wang@gmail.com
+Subject: Re: [PATCH] arm64: suspend: Save and restore TPIDR2_EL0 across CPU
+ suspend
+Message-ID: <aunKa8uBZJTCzVjd@willie-the-truck>
+References: <20261102234813.1069156-1-wvw@google.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_034928_746798_A8112583 
-X-CRM114-Status: GOOD (  19.84  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261102234813.1069156-1-wvw@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,43 +81,103 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Will,
+On Mon, Nov 02, 2026 at 11:48:13PM +0000, Wei Wang wrote:
+> On systems with FEAT_SME, TPIDR2_EL0 is part of userspace thread state:
+> the AAPCS64 SME ABI uses it as the ZA lazy-save pointer, and the kernel
+> context-switches it eagerly in tls_thread_switch(). While a task is
+> running, the live register is the only copy of its value.
+> 
+> The architecture defines TPIDR2_EL0 as UNKNOWN after a warm reset, so
+> a CPU power-down through PSCI CPU_SUSPEND or SYSTEM_SUSPEND can lose it.
+> cpu_do_suspend() and cpu_do_resume() already preserve TPIDR_EL0 and
+> TPIDRRO_EL0, but not TPIDR2_EL0.
+> 
+> For CPU idle this is harmless: current is the idle task, and the next
+> context switch reloads TPIDR2_EL0 from next->thread.tpidr2_el0. For
+> suspend-to-RAM and hibernation, however, cpu_suspend() runs in the
+> context of the userspace task that wrote /sys/power/state, and that
+> task returns to EL0 with an UNKNOWN TPIDR2_EL0. On hardware where the
+> reset value is non-zero, the next SME ABI lazy-save check in that
+> thread faults. For example, bionic's fork() -> clone() ->
+> __arm_za_disable() -> __arm_tpidr2_save() loads from the garbage
+> pointer:
+> 
+>   # echo mem > /sys/power/state; true
+>   signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0xa3bad11bcaf72e93
+>       x16 a3bad11bcaf72e89
+>   #00 pc ... libc.so (__arm_tpidr2_save+24)
+>   #01 pc ... libc.so (__arm_za_disable+32)
+>   #02 pc ... libc.so (clone+480)
+>   #03 pc ... libc.so (fork+60)
+> 
+> Having firmware zero TPIDR2_EL0 on warm reset avoids the crash. It is
+> not enough on its own, though: a thread that enters the kernel with a
+> lazy save pending (TPIDR2_EL0 pointing at a valid TPIDR2 block) would
+> see TPIDR2_EL0 == 0 on return. It would then wrongly conclude that ZA
+> had been committed and restore stale data from its save buffer. The
+> kernel owns this state and must preserve it.
 
-Le mardi 03 novembre 2026 =C3=A0 11:17 +0000, Will Deacon a =C3=A9crit=C2=
-=A0:
-> On Tue, Nov 03, 2026 at 09:41:40AM +0100, Paul Cercueil wrote:
-> > Other archs have it, and it is supported in arch-independent code, so I
-> > see no reason why it is not provided on Aarch64. Add it there.
-> >=20
-> > Signed-off-by: Paul Cercueil <paul.cercueil@bootlin.com>
-> > ---
-> > =C2=A0arch/arm64/Kconfig | 6 ++++++
-> > =C2=A01 file changed, 6 insertions(+)
-> >=20
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index 1075bc661833..f8542e532b50 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -2551,6 +2551,12 @@ config CMDLINE_FROM_BOOTLOADER
-> > =C2=A0	=C2=A0 the boot loader doesn't provide any, the default kernel c=
-ommand
-> > =C2=A0	=C2=A0 string provided in CMDLINE will be used.
-> > =C2=A0
-> > +config CMDLINE_EXTEND
-> > +	bool "Extend bootloader kernel arguments"
-> > +	help
-> > +	=C2=A0 The command-line arguments provided by the boot loader will be
-> > +	=C2=A0 appended to the default kernel command string.
->=20
-> We previously reverted this in cae118b6acc3 ("arm64: Drop support for
-> CMDLINE_EXTEND") and I think that reasoning still applies. The thing
-> that _has_ changed since then, is that I think bootconfig now has some
-> support for early params, so that's really what people should be using
-> here.
+There's a lot of unnecessary (AI-generated?) detail in here. Please can
+you trim this down a bit? I don't think we care about the firmware part,
+the stuff about idle or the bionic crash. The bottom line is that we're
+not saving/restoring a live EL0 register across suspend/resume.
 
-I didn't know about bootconfig, that looks like exactly what I need, thanks=
-!
+> Save TPIDR2_EL0 in cpu_do_suspend() and restore it in cpu_do_resume()
+> when SME is present. Placing this in proc.S covers both cpu_suspend()
+> and hibernation. The new slot uses ctx_regs[14]; sp moves into what was
+> previously tail padding, so sizeof(struct cpu_suspend_ctx) stays 128
+> bytes. sp is only accessed through the CPU_CTX_SP asm-offset.
+> 
+> Fixes: a9d691585950 ("arm64/sme: Implement support for TPIDR2")
+> Signed-off-by: Wei Wang <wvw@google.com>
+> ---
+>  arch/arm64/include/asm/suspend.h | 2 +-
+>  arch/arm64/mm/proc.S             | 8 ++++++++
+>  2 files changed, 9 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/suspend.h b/arch/arm64/include/asm/suspend.h
+> index eb60c9735553..2cc5fb405769 100644
+> --- a/arch/arm64/include/asm/suspend.h
+> +++ b/arch/arm64/include/asm/suspend.h
+> @@ -2,7 +2,7 @@
+>  #ifndef __ASM_SUSPEND_H
+>  #define __ASM_SUSPEND_H
+>  
+> -#define NR_CTX_REGS 14
+> +#define NR_CTX_REGS 15
+>  #define NR_CALLEE_SAVED_REGS 12
+>  
+>  /*
+> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+> index 7afbece885a3..c7b7fa6491c3 100644
+> --- a/arch/arm64/mm/proc.S
+> +++ b/arch/arm64/mm/proc.S
+> @@ -103,6 +103,10 @@ SYM_FUNC_START(cpu_do_suspend)
+>  alternative_if ARM64_HAS_TCR2
+>  	mrs	x2, REG_TCR2_EL1
+>  	str	x2, [x0, #104]
+> +alternative_else_nop_endif
+> +alternative_if ARM64_SME
+> +	mrs_s	x2, SYS_TPIDR2_EL0
+> +	str	x2, [x0, #112]
+>  alternative_else_nop_endif
+>  	ret
+>  SYM_FUNC_END(cpu_do_suspend)
+> @@ -142,6 +146,10 @@ alternative_if ARM64_HAS_TCR2
+>  	ldr	x2, [x0, #104]
+>  	msr	REG_TCR2_EL1, x2
+>  alternative_else_nop_endif
+> +alternative_if ARM64_SME
+> +	ldr	x2, [x0, #112]
+> +	msr_s	SYS_TPIDR2_EL0, x2
+> +alternative_else_nop_endif
 
-Cheers,
--Paul
+nit: We use msr and REG_* for TCR2, so it would be more consistent to do
+the same for TPIDR2_EL0 if the assembler is happy with it.
+
+Otherwise, looks ok to me:
+
+Acked-by: Will Deacon <will@kernel.org>
+
+Will
 
