@@ -2,138 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D303606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 12:54:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB743606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 12:55:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3NB+9gxv;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=TC5AN08k
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LS68QZto;
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=x2TJVwRr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bT1P7GmItRId3FpV16mQL4w7fSNWMMsdW8Ts6KuiJl4=; b=3NB+9gxvlfbROtx2eUGf2c+m90
-	fQPTy+qCIDYEjhVogqYvwOPesO/WaqogalRjZEkK31/3IkRH2efpIv2tX5Vbxa2Vqs1nEE+Frvwsj
-	uZscyhkXrRZZQVbhhKIxDGn4c6rj47kHDLJEvPJXfkqYxyhi2/lU7ijtvMs6gOt7n4t7NkGFZBx0q
-	SpznpYD3qahCVGyoxBlwPurWnleBLvJTJFVzt+jxn+y+rzgQzWPpu1UK69i9AezmKjX671dfxpHxF
-	p5O4vLH571yRoZltFDCpdlW+dfVcX8gRykdCppQhKmiLAcAidRdaCncM9TKo1OAR3wMhWuve9iNpn
-	YKiiUIHg==;
+	bh=SdD3JViuLyebMZNfF0ybXy7U5RuZHTvrIy6Iv8uugos=; b=LS68QZto8t1bW/4PKM/AuNfYQS
+	e/rlGcD1nihpvGxm5b0y/7sYXamvPiTt3uQJ3byhwpJnO/MI5Ib/yNcLtsCll2y2wDnmq2Gwe49NY
+	YIjJLn5i94ZyTFwqYPO53vQbHhugtAy7vkmOYhwOG9ZoEuuIjvt3b5JT6Q/iC2hkbwNlG+oelTn5e
+	PEiOkuQNQz3PUfiUTrxmRez0o7AXKxpKDwZ9HWIy9pHiwqDJWnwKiulw2HwKnYn/1NXgnu5NzUBrU
+	6EH7O/gah2zcYMaAxoKW65v0KYsVnA93mRqFX4ZDv7Xd0CR8KKZqS85agG/CaSfclg1Isd/s71e3H
+	3VHbim2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOE1X-00000002QZg-0KG8;
-	Tue, 03 Nov 2026 12:53:59 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1xOE2O-00000002Qqh-110D;
+	Tue, 03 Nov 2026 12:54:52 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOE1T-00000002QYL-1L82
+	id 1xOE2K-00000002Qop-0IKp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 12:53:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ekg+/amWb8NXX3cFF9lggFYrUxufA/UD5/Bu+2sByogRSWbm06foki5MblNFZxI1sJU9Vd1EmIHwUdD3QPlC2PI2fQ4VtYC8JQBRUae8uR2ertqvFdnRWj5FDxDX6jm9wg/cg9RBPRer5niJPRDVora4Z8bDUPKjdwgQwYIOfvVZudD/WsE5p9aycuK6F9g4wU3VB/dFqFIxqCOzvTGRHuM4/h33D4vEF7UxgsVQpLlqqpn2OHs45g5iP+7iR6AWlrvrmLPcmlXt9ixDyaveO4M3BMDrTqwWgErRG38a+tV2ldgQa2AlPv1JitwWCTgZmKuM2510OaAwRjSm728i4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bT1P7GmItRId3FpV16mQL4w7fSNWMMsdW8Ts6KuiJl4=;
- b=AcvetmRcjfyyMGjDcz+aMSGSp/KWX60OXyY4Us8q/RU6x8qyRogT89UE7KZEgBji8HYVAXALW7R1bDwrUnfrx450enDCtLZTLQspauWg89/xnoerHoxEA6X52uMyFzTgQteY1Ac2fafEiEXTtVSdUtbzw+HEz/gQL0/WLwTez5gVj77N5kItk84B/ryT/p3mFWoolP5DpewHmZLyvR67HoQBTGpAQnig74BEtiuBDZL78YwXoHPAAp1OVMMUBgT2woWO0lYaeBVpwRP+fsrHqPl+SQMnkxd6ytPjYuA+t85Q1ekxKprO6kYhhqE9oflk/GSFdOaTVM+tQD1jVZVxQw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bT1P7GmItRId3FpV16mQL4w7fSNWMMsdW8Ts6KuiJl4=;
- b=TC5AN08kDN8rN+kGbY+zEObBQm64/AO03svA2PJLfPLTc726OEyzq82k2zfB5GUZEKibnIjY72XMo5fQOWRQSvzptTNNUDqjvultrXRNVr9ONNmq8fNgcp23rFE8uVx0b3vGlievJZGzs8+dXgbRjeTy4Ki3MgsVK+9EpXod6GTYp2A5nXchbrY0G5BwmU7W1VLCk7dNkRGGsK2Dc6IDBfpQP4q+h6D3TGmGwlZ0txL27E1wrrnDrP1+2rz9Profik+eR4u22Itox4UoCBToWd0s6sYmrCqqL8O2rpb7Ygip/Hy3hbEKldDG4vCl/eHWZDf4tG3ojvAc/yCOFoVd+w==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
- (2603:10a6:150:32b::19) by AM9PR04MB8684.eurprd04.prod.outlook.com
- (2603:10a6:20b:43f::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Tue, 3 Nov 2026
- 12:53:49 +0000
-Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
- ([fe80::a498:2b5a:cbdb:d6fa]) by GV2PR04MB12318.eurprd04.prod.outlook.com
- ([fe80::a498:2b5a:cbdb:d6fa%3]) with mapi id 15.21.0569.011; Tue, 3 Nov 2026
- 12:53:49 +0000
-Date: Tue, 3 Nov 2026 14:53:44 +0200
-From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Francesco Dolcini <francesco.dolcini@toradex.com>, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 2/2] arm64: dts: freescale: imx95-aquila-clover: Keep
- DP_PWR always enabled
-Message-ID: <aunZS4GSfuiDnrXG@vm>
-References: <20261103105323.2394012-1-francesco@dolcini.it>
- <20261103105323.2394012-3-francesco@dolcini.it>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261103105323.2394012-3-francesco@dolcini.it>
-X-ClientProxiedBy: AS4P190CA0050.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:20b:656::12) To GV2PR04MB12318.eurprd04.prod.outlook.com
- (2603:10a6:150:32b::19)
+	Tue, 03 Nov 2026 12:54:51 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id C01514E413E5;
+	Tue,  3 Nov 2026 12:54:45 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 608486046C;
+	Tue,  3 Nov 2026 12:54:45 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F2F571032919A;
+	Tue,  3 Nov 2026 13:54:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1793710480; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=SdD3JViuLyebMZNfF0ybXy7U5RuZHTvrIy6Iv8uugos=;
+	b=x2TJVwRrLqBUh/xG8SzQmquVkjJvSBFEpYMJWEwUzpeWWGYBRZw8RWw7QJopMbnQsXYn6/
+	1RV2VulSbNAbqLGTcaOshiHYcwaK6mJytKsVg0bOVQ/EIUawWtA78vfnzkBIX3h035VRix
+	nWgMx0bY8fLUXbJwnFIrMEwn8UessDClXNwkF+JL64woNbJSjgfkqnEJW64LudWEFpul2I
+	h9+8YIHBvcrNa3PJicQnIqx/L3EzlpJjvvz+DclHnsv84PgpcUMJPn9p+PtR/C/Cp/5/Te
+	chdNPagkXPkqd9tzv2GZLrdlh5FSKvWJDLH7wksEru6JxaZHm4/RAtdTXcGKgw==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+	Nicolai Buchwitz <nb@tipi-net.de>,
+	Magnus Leatti <magnusleatti@kernelriot.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	thomas.petazzoni@bootlin.com,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH net v2] net: stmmac: Clear DMA errors for multi-channel interrupts
+Date: Tue,  3 Nov 2026 13:54:28 +0100
+Message-ID: <20261103125430.962715-1-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.56.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB12318:EE_|AM9PR04MB8684:EE_
-X-MS-Office365-Filtering-Correlation-Id: 77b732df-261b-4c2c-6c23-08df39a98157
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|366016|1800799024|23010399003|10067099003|22082099003|18002099003|56012099006|4143699003|11063799006|261022105027099003|261028144727099003|261026121527099003|261026140227099003;
-X-Microsoft-Antispam-Message-Info: TvX9Ri6/bRkobGLNdAzEnbfEqAgdLvdtaGKpWXDYPdTz7fHEAlxm/Xrrmu4UuSvZ4A/LTJ9q/439szlD2mKH8marcXmrDbSAnEUN1FqcHOJfluDyNkiKKwh9tfTRmF/SFYGYY2sN5/asOUj7narmCI84EaUEnQhXUqgaCcHK4oRXHK5W/4YQ+EuqKYrhnJqAygezD+qgaD39oTEGjuO/8omwMzRagDSFz2g8qQBk4yGSt+q+b00i18DfoOt+G8PlTdiAoeSHUhnkdOKJNs+rLLNiBrHm1V6JakvMdqXOK0idmm3l4tfXeRP/fvovd7MxSr2Aa9RrSHhDpSO2PVHfWxcuQ6AqhAiAO7yYp8ofAU1lG4jpeMfPI/niRcWp/peca8AEt5z575hXEzH/g7hl2P4xZcU0W30xVKu1ah4WPeVk1i7OSXEVdgY+ysALQt4YUUhxlsN+JZ3DS3p5jAChRhWbrVo1loYk9X6QLEQhhHfrwjHfEvlN7AHO6L68y0V/xSFshSYOdSivuj9EF0Vt0OITLLpHWeMWwxl0BjxQXfXO2aYODlholwG36WP39SEcNSPp3OMjJFLiDQIQUqFFc/nq6SE/+9Qog7D7dvLxlnaAhV3gzQYsuB3Bj1aA+By5bCTpSWFFBY4xjlfcjDOnxru8H4dk0QioQ3vh0KbtP18=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12318.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(366016)(1800799024)(23010399003)(10067099003)(22082099003)(18002099003)(56012099006)(4143699003)(11063799006)(261022105027099003)(261028144727099003)(261026121527099003)(261026140227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dc1y9gyRJRXMLUH2HS6JP32Abvu5aJcfTH/44+DZDjwi9aOJqO3H/A5sb7Sc?=
- =?us-ascii?Q?XNLarppHr3Aaf54JXUQL/jkYlfOGzdNZGaDT+PnAIsqlVbnocbx6fMbvyoMd?=
- =?us-ascii?Q?OTymVKkTEhfWJ4LqyLABtaSBfceNyOZZJYjTO74Y+X4Wkae3dcIiEZQmrbk0?=
- =?us-ascii?Q?f+Ox9LPZCyEELSl2U5mV7knmFTAv68oruFMfZVFMd2GlxQByBAuAPdheE0Gk?=
- =?us-ascii?Q?w7k/6FGN5WD2n0J296alzvq26U86YC3GdzZgPbbxZL/JbtuhH1X3GFlTHphh?=
- =?us-ascii?Q?4EBJbY8wXCqWPi+V4eXe3boXfGfbQKpSeqH9pAyqf667Qfm96UKcyV8xTXB9?=
- =?us-ascii?Q?/x+KAmnbMFHc3/KDOeFXmPHEv0tOxPxCJbW6QaqUBzjzMZTIHZSBSicf9yiy?=
- =?us-ascii?Q?93X/zUjmTxGyO2ZmaxHzX7GsZdufc4YjUPymjrh8oQ9U0LCrfjIV3XERgkG0?=
- =?us-ascii?Q?KJ25w/9WuUDGyCCvSVHoJqfgkNYumntkxmZVxZGNVzPFQz6umNUNQ4WI1AOC?=
- =?us-ascii?Q?BYif8R+dZwH0rqnrbFeNGsR5Jay0/lH0kg7eytxoMP0lU7Oere0+l0a73Lvt?=
- =?us-ascii?Q?IPxX790mNkfYPN6fKEstYznL6U9EhT1+034fRQyi8ePyAVosGhcjZoIYGqbo?=
- =?us-ascii?Q?diqEf7elZx1Nr0H4CUNJKjMYs16OdKCkG2zraYxhL6BKSFPQm+UfGouNzFGY?=
- =?us-ascii?Q?M9r49Gi/GAnUIgww6zDmBk31Fy8kwv09YYQqso7L8+7UFOrzGW+RJVcAzYQc?=
- =?us-ascii?Q?Dk5WXGYKP6dNQOmuSLPBJgqjPwbXnCKBllcnQwNQfcICrC5vmXMZzGmhhVST?=
- =?us-ascii?Q?T29DYGl/aW43+6V9/a+F237cgg9P5TMo9zOuXXV6d/DReXn8yAKmMp+IHRyD?=
- =?us-ascii?Q?fC0w8fBc2tf30mS8qyTm7i5dRjlK6v1Cd0pz9RY00xLBozPYmdOKZ/Xb+3o4?=
- =?us-ascii?Q?bIHahGefaDoQJaulcG9WPBn5B7whdkUzZEQ2mocltXUvKBx4GFBP62erZ/jO?=
- =?us-ascii?Q?yiPkAFTWEL5ndnObaR0Yxx8KGdjvZiNyFssXlGvOnC8V4W7HyV2N0munyQDB?=
- =?us-ascii?Q?JDPqJyZjLsdxcBMq9gktRlxwvcADxIHxd+HZHUaWdHkGQ2fg58Q7yuS2Z60z?=
- =?us-ascii?Q?MCs6oOULF65R6pl01QIC5269HaSOFqauwHRGqtD/r86HR4XwFQlChLdweaU/?=
- =?us-ascii?Q?IdaGRH0qS6N9YvXpSmEP/oVQbyWJpawtIe/C6axqTkTU5M2iJKeYYulbZeXL?=
- =?us-ascii?Q?s91iMH2Dr2RAM4h8Hr1t5PKraxh7+zAPw2ajZhWgn26g2ZKUXsZTE1M5mXbC?=
- =?us-ascii?Q?lMO7oMaUxSbTyR1pk8a/0AXuIw6Z00wXxJxpoqOLOu2U7weMgr0k0FKHHuQk?=
- =?us-ascii?Q?m7SNvGEv1P9m1n4CgQD0017i//6fLd2qA45GcnKNu/YqtvOj36LYGQrXNQlQ?=
- =?us-ascii?Q?5Zz9pVEKGDbyM6nqvQ5+6OVo0zZPBiw5uMbdBm9uNCm+iZdaoIftOQ81f4pd?=
- =?us-ascii?Q?OVG7rU/33jCyMUZE5hgIxQqMlk8PjF+aKP6+zkpsUKyTYe3icd2t/egCJQHA?=
- =?us-ascii?Q?Cz/nUthZQfPhjj707bXX58Gyjv/QQR77BbtoL5stM9bGWvnQE73rxmt/LI+5?=
- =?us-ascii?Q?2XzJej3r4jj90wnv+gkay4JlUbz2DUMyt75tKJ+/8XI1H1IlJdY1HC2vbJo8?=
- =?us-ascii?Q?hI83gDUUq9K0nh7cUcKsK3ZXi/gsQ3cTi6sbt8fu0+3Vu6DQvFplaHlYuzcp?=
- =?us-ascii?Q?oFFuhA0PRdyZJd5rxXtQFmOJjSdn3UI=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 77b732df-261b-4c2c-6c23-08df39a98157
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12318.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2026 12:53:49.3423
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Uu4uzSJ09xN2XZibOHIQkEE8nkekHCBh/ZeZ1HuQ+GYWq1E7BXZUnu8W8uneMxqmXOmuUAOlxY1ZpDRBP1XmcQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8684
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_045356_523463_BF268CBD 
-X-CRM114-Status: GOOD (  11.55  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20261103_045448_389365_DE400FF6 
+X-CRM114-Status: GOOD (  17.73  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,27 +86,138 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Nov 03, 2026 at 11:53:16AM +0100, Francesco Dolcini wrote:
-> From: Francesco Dolcini <francesco.dolcini@toradex.com>
-> 
-> DP_PWR on the DisplayPort connector powers active DP cables and
-> adapters, which do not work without it. Keep it always enabled, and mark
-> it boot-on so that the firmware, e.g. U-Boot, enables it at boot,
-> whether or not a display driver is available.
-> 
-> Fixes: 3f519121e120 ("arm64: dts: freescale: imx95-aquila: Add Clover carrier board")
-> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+The Multi-MSI interrupt handler doesn't clear the DMA error interrupts,
+and this leads to interrupt storms when one of these interrupts starts
+firing :
 
-Acked-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+ - The RBU (rx buff unav) which triggers under high traffic load
 
+   This triggers easily with iperf3 and small udp packets, and shows
+   when running the netpoll kselftest
+
+ - The RPS (rx process stop) which triggers when we stop the DMA RX.
+
+   This one shows when restarting the RX logic without doing a down/up
+   cycle, like when attaching an XDP program. The XSK kselftests
+   triggers it.
+
+Let's make sure we clear these interrupts for multi-MSI cases, and call
+stmmac_global_err() upon tx_hard_error to avoid possible races with
+other interrupts/napi.
+
+For that introduce an "ERR" DMA dir, as we don't want to touch the
+RI/TI bits when handling these interrupts.
+
+Both of the above storms have been found on dwmac-motorcomm (YT6801),
+and are triggered by the xdp.py, xsk_reconfig.py, xdp_features.py,
+ring_reconfig.py and netpoll_basic kernel selftests.
+
+This seems to only affect dwmac4, there's no multi-msi mode on
+dwmac1000, and on dwxgmac these interrupts are masked as of today.
+
+Fixes: 6ccf12ae111e ("net: stmmac: use interrupt mode INTM=1 for multi-MSI")
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+V2:
+ - Dropped reviews/tested tags as the implementation has substantially
+   changed, sorry :(
+ - Discarded the helper, call directly stmmac_dma_interrupt_status on
+   all chans and use stmmac_global_err() for TX hard errors, following
+   sashiko's review.
+
+ drivers/net/ethernet/stmicro/stmmac/common.h  |  1 +
+ .../net/ethernet/stmicro/stmmac/dwmac4_dma.h  |  5 +++++
+ .../net/ethernet/stmicro/stmmac/dwmac4_lib.c  |  2 ++
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 19 +++++++++++++++++++
+ 4 files changed, 27 insertions(+)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
+index c74bc7c9750e..a972bee66504 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/common.h
++++ b/drivers/net/ethernet/stmicro/stmmac/common.h
+@@ -382,6 +382,7 @@ enum dma_irq_dir {
+ 	DMA_DIR_RX = 0x1,
+ 	DMA_DIR_TX = 0x2,
+ 	DMA_DIR_RXTX = 0x3,
++	DMA_DIR_ERR = 0x4,
+ };
+ 
+ enum request_irq_err {
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
+index 43b036d4e95b..a7caac3c98e6 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
+@@ -173,6 +173,11 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
+ 					 DMA_CHAN_STATUS_TI | \
+ 					 DMA_CHAN_STATUS_MSK_COMMON)
+ 
++#define DMA_CHAN_STATUS_MSK_ERR		(DMA_CHAN_STATUS_AIS | \
++					 DMA_CHAN_STATUS_FBE | \
++					 DMA_CHAN_STATUS_RPS | \
++					 DMA_CHAN_STATUS_RBU)
++
+ int dwmac4_dma_reset(void __iomem *ioaddr);
+ void dwmac4_enable_dma_irq(struct stmmac_priv *priv, void __iomem *ioaddr,
+ 			   u32 chan, bool rx, bool tx);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
+index a0249715fafa..02aa1a3dd1e2 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
+@@ -150,6 +150,8 @@ int dwmac4_dma_interrupt(struct stmmac_priv *priv, void __iomem *ioaddr,
+ 		intr_status &= DMA_CHAN_STATUS_MSK_RX;
+ 	else if (dir == DMA_DIR_TX)
+ 		intr_status &= DMA_CHAN_STATUS_MSK_TX;
++	else if (dir == DMA_DIR_ERR)
++		intr_status &= DMA_CHAN_STATUS_MSK_ERR;
+ 
+ 	/* ABNORMAL interrupts */
+ 	if (unlikely(intr_status & DMA_CHAN_STATUS_AIS)) {
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 7ffed295eb14..6360605ef5ea 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -3145,6 +3145,22 @@ static int stmmac_napi_check(struct stmmac_priv *priv, u32 chan, u32 dir)
+ 	return status;
+ }
+ 
++static void stmmac_dma_err_interrupt(struct stmmac_priv *priv)
++{
++	u8 channels_to_check = max(priv->plat->rx_queues_to_use,
++				   priv->plat->tx_queues_to_use);
++	int status;
++	u8 chan;
++
++	for (chan = 0; chan < channels_to_check; chan++) {
++		status = stmmac_dma_interrupt_status(priv, priv->ioaddr,
++						     &priv->xstats, chan,
++						     DMA_DIR_ERR);
++		if (unlikely(status & tx_hard_error))
++			stmmac_global_err(priv);
++	}
++}
++
+ /**
+  * stmmac_dma_interrupt - DMA ISR
+  * @priv: driver private structure
+@@ -6494,6 +6510,9 @@ static irqreturn_t stmmac_mac_interrupt(int irq, void *dev_id)
+ 	/* To handle Common interrupts */
+ 	stmmac_common_interrupt(priv);
+ 
++	if (priv->plat->core_type == DWMAC_CORE_GMAC4)
++		stmmac_dma_err_interrupt(priv);
++
+ 	return IRQ_HANDLED;
+ }
+ 
 -- 
-Thanks,
-Laurentiu
+2.56.0
+
 
