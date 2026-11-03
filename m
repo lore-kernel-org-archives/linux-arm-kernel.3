@@ -2,69 +2,126 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC827606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 09:25:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83E30606A327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 09:25:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=P6VgrvIw;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K3yrovMq
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=5E4IDT2C;
+	dkim=pass (2048-bit key, unprotected) header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm1 header.b=RUg2LJgH;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=U9ePs+Kb
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:From:Subject:Cc:To:
+	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Y53QIYpD7wjqmJYR8fzWA4+4yo7uKK86RU2Kss38ssY=; b=P6VgrvIwIYSSx1tRx7PF5d9YbW
-	XQnrvuqIh+b6ES+zHCZc+JlveSlCq+otZhMb7wikZ2uBHb2R/h7kgIkzgepvQoElFm5+1I3l2Th1d
-	b8ELLAkd4Y5Oz5fHJ6kkFXoD8hZuSfJmF8t1h3bTfDp7ov1qNUKaqEw26PFwp9XouTKWe9FUtGVGj
-	qIA6UUVihjx6UzwQTgLXVCVdRxINPD1p6uzrycVJgTDCVr4PHDiTdJvZgWQTwTlX+IJ0u3k34AQkM
-	91/tf8CvwYc9hZng+PPbYWuqrg/tbdmqF+SE0WdNEicYQrJn+mwEaEhXj0wojJRMlWQxUnS92M8sN
-	xwswgATg==;
+	bh=jdMyzCVU0g1xc1IZX8XGl1iC+1O6XY6mTzYfr/X7yHo=; b=5E4IDT2C9+70BwqH2rC5Dmos0A
+	OhdGW6cRPxevUyCyVzjKpuEuJG/4UtaSU8Kv4Qlh72HBRQUXruQOPVFbm2jAg5l5SaaLINnTWP+6b
+	A0jEwZUrm/a+PZ2buP85zkinQLahSR6d3SNsefDmsI6VOyoFNxocF+ItOeqq4QkLypA8b7zgLB/VQ
+	+1UxXNW90do5DCBuIm1370NUzG1bAQdf6vy8kS+UD4MWSAIlmBoeW50+6TwUxBK4j+yEdt76WKWf8
+	7Kwx2YpOb32QOpxBR8OSgF6tp8AhJLmabbhHK4V+EmO6Pw4lDYEAxvBwS3KIIhn9JWg0b89qEdUhS
+	/sf+bjEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOAlK-00000001k9T-00Cl;
-	Tue, 03 Nov 2026 09:25:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOAlf-00000001kE1-0x15;
+	Tue, 03 Nov 2026 09:25:23 +0000
+Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOAlI-00000001k8z-1JRH;
-	Tue, 03 Nov 2026 09:25:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 13DE341882;
-	Tue,  3 Nov 2026 09:25:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E21911F000C1;
-	Tue,  3 Nov 2026 09:24:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793697899;
-	bh=Y53QIYpD7wjqmJYR8fzWA4+4yo7uKK86RU2Kss38ssY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=K3yrovMqdy6HhmOPbm4Ti0es2kgNpyacjrgDG2XoZVRiiVLu0G5H2da3S8d05b9/8
-	 F25G+k7Hbws5INlfoVJyodRN8+tqKBgNLv3xBa+p6v3ZjY4D8UNwFiBVhzAW7We/Oo
-	 iInPY9idqDd596i70NbQkSZBL+/tooOLc5y681PjOKaXIog/+gKNpeOagk/tD4jWPB
-	 moTQRizAWIp3QwGwCqxy/DiIlWUwNdR/dC6z0ZYnz3e3LvbfUcmsCH7qkmWX+N2ndV
-	 fT2z2TPd6EXmtl1JAzKEs2ouxyltBOCHOEL5U3B8c1TCOyqGFSnowgZXDcbjVxycrW
-	 54WNB0JVOz8Hg==
-Date: Tue, 3 Nov 2026 10:24:56 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Dom Cobley <popcornmix@gmail.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, Stefan Wahren <wahrenst@gmx.net>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, bcm-kernel-feedback-list@broadcom.com, 
-	linux-perf-users@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v16 1/3] dt-bindings: perf: Add Broadcom Raspberry Pi AXI
- PMU definition
-Message-ID: <20261103-electronic-teal-kraken-5ebcec@quoll>
-References: <20261103041416.2940213-1-irogers@google.com>
- <20261103041416.2940213-2-irogers@google.com>
+	id 1xOAlc-00000001kDB-0PlY
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Nov 2026 09:25:21 +0000
+Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 414147A014E
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Nov 2026 04:25:19 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-11.internal (MEProxy); Tue, 03 Nov 2026 04:25:19 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1793697918;
+	 x=1793784318; bh=jdMyzCVU0g1xc1IZX8XGl1iC+1O6XY6mTzYfr/X7yHo=; b=
+	RUg2LJgHbvPdReDUNGg8sJVu4Di1PaGrxImR6Pm7Dtm1AtpLkPktjFJK4u0lrKEP
+	QBad0xPEE9ywmEpn6THXK1QNk4BVozyjXqoIZDtEJcqcJTbhthgLUTNhKE042C0l
+	yXYw3MtBnqQxGieo8aRmeg0Ll0Oysp0AQ3CJQMO6YBt6kYZDZqFIhlM0sMOfKyRO
+	TY2282MPVvFkNzQCvyrJbl4yp2MMwNgGqu0CqSAh7nikipUmMpTlUt6GCwyZ6D3+
+	At6+LAM11wz7Pig59H51NrOB2DQ51gQ2AQnXhaMKa/CyVcWFO3GZlw7nawWNaGus
+	SeEF8ry6XOcGpIraPGZTqg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1793697918; x=
+	1793784318; bh=jdMyzCVU0g1xc1IZX8XGl1iC+1O6XY6mTzYfr/X7yHo=; b=U
+	9ePs+Kbr7uT7tK2BCmofy++tCV21ZOyFVUyQ2iXmNmPfyzdfQa3PCxi3v7+pz2Cb
+	5ozL6ZJdYzpTLPdU+74EKl+WeySYnN5qrFcRefRrKdkMpKxpXI6gEBrT5gskbJ6F
+	ZTnMyr85o0NMSkrAruF493jkyY4Es4rs7T4g5KBiwm9ldrtTrIeffq4RAmVg1WAd
+	S6uVjQEnX3nUFZGDg24of6j3ScD16dGzVVOjij9o9wy1HIQc91l8pm8rviBltjuQ
+	ciEOFxz4j4Hgs8n20Wsf2mVIK0vtSojFLgCoqofCnaOdqyNZXsfzj5qj9VpZjomo
+	yXnv9ah6+9o1FzO34cNSg==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-08;
+	repo=github.com/dkim2wg/interop; date=2026-10-28; sw=lmtpprox;
+	action=sign d=flapping.org a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1793697918; d=flapping.org;
+	mf=PHRvbW9AZmxhcHBpbmcub3JnPg==;
+	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
+	s=fm1:rsa-sha256:nIznCv1+qMMqB855Iz6k7JTOkdHf20o5nbbPyBJgMBCDf4K
+	NECg65tla0wyzC36k4E6d372TFKLSxihvx+G/jk4/8E7wlH4KM22Ui882BZyUTCD
+	0Q8qnCfcrSxz4m6BD4T9cl35aTTMFlF+0Ba9umMGzB/oOjpCOU0RPlRH/DiCHcmb
+	LfNQYIU9OOTY13Q6GliBh75NfMt8l1L1AaLtq7T0OFMlQ3VW3IxIEqia+E1qSgWR
+	SP4LHjQMtZZdSX2ki1PR7R7YQiPxuRsX/Vh1Mt+L8bclLSHgVdz/oB19iVSiw8Ms
+	FyTgdHONAZCF1C7u6OaW6oq/x1UmOzKANYKmmkA==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-08;
+	repo=github.com/dkim2wg/interop; date=2026-10-28; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:kQaiFmpW+CCHZVU8mF1VMdFReiDJO1//izwUdcwzRZw=:hAj+RXZq/5tljdQQZTHp769c8tXKN1/68aaxqjURzP4=;
+X-ME-Sender: <xms:fajpat0ULehFGUWEGFiGAbOAx7ejEyzEcTK9yFR-19YH-diZ7RclrQ>
+    <xme:fajpasAmo0EYwUThd1Rtu_dxYpPl1h5XmJKRGs4cWX1bUfYDOhqcMH6nmQ_ha_oxP
+    dPOE3_AAp5RT7Gf7MkkbkOwkLny2pMqg_FviGZ7ZXYVuPl9QvVwq6gT>
+X-ME-Received: <xmr:fajpalEJ7tVw28vNe3Z-_5dlXJo4dtfO6cmEFV-lKr7v2p5Ks6llCDRH-hl5C5N9sFuRfPwNVttdAf3bWMhUvO4o>
+X-ME-Proxy-Cause: dmFkZTGEiVf8igopQ8zuuSTyLQpEy3cHYoem8uMXHaEyIuiJYCWd7AuQ55QXsCTstCbnvk
+    rZI2NQbl/7FmxzZ7nlyYuIs/A5jTEwLH0Fk4c3bL23zIITN7QfCAjH4PVPMGVIzjVIXiYn
+    Dqw7FWDGl8/RYv0zXfeDD1gqq9qjetflpPO4ih6hJ1BcA/Jjq3LktjigZFjqFO88rD6g85
+    Oc7ronP5yQBUPWyN+a5V7VRXjclMT2n5vcLgAjQ6vmi8B3ei6dyAJBkKZuT6uN2K65Yl6Z
+    39ja9jFAxgDmFuUqXBmIeiU/tiqqiUWrIznaGYzvpkljDEO5jp3+z9wGRbXnfRXcVQR/kr
+    1uZvKmFPduZ97XOzLnD00dIVxbgEYskUpIyK/Tm1GHEEOv5UoL+yVx74g80nzLn+X9HgCH
+    x4gDrQNMO/Qb9T3UCp50HL6xgHLyLGyaxQMDe+rN57U0XlSyCHyYOTx9H1j4IBjn0J9ow2
+    14JSzDHKbe1jD86QPDiPptHsA+V8Sy0H60RGp2DGpVxdWageA270FD0vOPRup7Wvw1HG6Q
+    a5YoElaX3LL6wTMlahgv3uaVKhIFFjyzV6+VqjxFf76r/APEGO0rA75nsGDm1g+2BG6QhV
+    4VcCb5sfsOLh7H3ZuQLSb5fzcjYD9q8QBzCaI6oyJYayFAHzgxcS5LCNEXmA
+X-ME-Proxy: <xmx:fajpahQbSNw0BFUk7t3Lgv1OoRhHRT661LLKYwXr53Mv3et0vcsQeA>
+    <xmx:fajpasPRZpM3p3VBEFHIDe1JElNMBEcMRH9j8H-dvztmnbkSLVVQ0w>
+    <xmx:fajpaiO6tsFKL3SLAhE6hZuKyGYa_c5QxkT0Akuq1WBtxkNFw8vqiw>
+    <xmx:fajpamGnq7Im-o-UtTCJWQgJEFiRIMr8RnTTAGMQowEVC6mBrN3j5w>
+    <xmx:fqjpanCm2V8zz-Mr2wxqMFaT6g5cx77PBRhPID4A-tfQ-at7d1tG90FK>
+Feedback-ID: i51fe4b43:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 3 Nov 2026 04:25:13 -0500 (EST)
+Date: Tue, 03 Nov 2026 18:25:11 +0900 (JST)
+Message-Id: <20261103.182511.1470121559944018656.tomo@flapping.org>
+To: linux@armlinux.org.uk, ojeda@kernel.org
+Cc: ardb@kernel.org, chrisi.schrefl@gmail.com,
+ linux-arm-kernel@lists.infradead.org, a.hindborg@kernel.org,
+ acourbot@nvidia.com, aliceryhl@google.com, bjorn3_gh@protonmail.com,
+ boqun@kernel.org, dakr@kernel.org, daniel.almeida@collabora.com,
+ gary@garyguo.net, lossin@kernel.org, tamird@kernel.org, tmgross@umich.edu,
+ work@onurozkan.dev, rust-for-linux@vger.kernel.org,
+ fujita.tomonori@gmail.com
+Subject: Re: [PATCH v1] ARM: rust: Generate unwind tables for Rust code
+ with ARM_UNWIND
+From: FUJITA Tomonori <tomo@flapping.org>
+In-Reply-To: <20261009124124.1176706-1-tomo@flapping.org>
+References: <20261009124124.1176706-1-tomo@flapping.org>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261103041416.2940213-2-irogers@google.com>
+Mime-Version: 1.0
+Content-Type: Text/Plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261103_012520_924085_562319E4 
+X-CRM114-Status: GOOD (  15.74  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,82 +132,49 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 02, 2026 at 08:14:14PM -0800, Ian Rogers wrote:
-> Add device tree bindings for the Broadcom Raspberry Pi AXI PMU block
-> found on BCM2835, BCM2711, and BCM2712 SoCs.
-> 
-> Depending on the SoC and security configuration, these PMUs support
-> either direct MMIO access for the System monitor or routing via the
-> Raspberry Pi firmware mailbox IPC for the VideoCore VPU monitor.
+Hi Russell, Miguel,
 
-In such case, where is mboxes property?
+On Fri,  9 Oct 2026 21:41:24 +0900
+FUJITA Tomonori <tomo@flapping.org> wrote:
 
+> From: FUJITA Tomonori <fujita.tomonori@gmail.com>
 > 
-> Co-developed-by: Dom Cobley <popcornmix@gmail.com>
-> Signed-off-by: Dom Cobley <popcornmix@gmail.com>
-> Signed-off-by: Ian Rogers <irogers@google.com>
+> When CONFIG_ARM_UNWIND=y, C code is built with -funwind-tables, but
+> Rust code is built with -Cforce-unwind-tables=n. As a result, the
+> unwinder stops at the first Rust frame.
+> 
+> Pass -Cforce-unwind-tables=y to rustc in that case, as arm64 does.
+> 
+> Fixes: ccb8ce526807 ("ARM: 9441/1: rust: Enable Rust support for ARMv7")
+> Assisted-by: LLM
+> Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
 > ---
->  .../bindings/perf/brcm,bcm2835-axiperf.yaml   | 50 +++++++++++++++++++
->  MAINTAINERS                                   |  7 +++
->  2 files changed, 57 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/perf/brcm,bcm2835-axiperf.yaml
+>  arch/arm/Makefile | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm/Makefile b/arch/arm/Makefile
+> index 573813ef5e77..d59b8daf4f4e 100644
+> --- a/arch/arm/Makefile
+> +++ b/arch/arm/Makefile
+> @@ -117,6 +117,7 @@ endif
+>  
+>  ifeq ($(CONFIG_ARM_UNWIND),y)
+>  CFLAGS_ABI	+=-funwind-tables
+> +KBUILD_RUSTFLAGS += -Cforce-unwind-tables=y
+>  endif
+>  
+>  ifeq ($(CONFIG_CC_IS_CLANG),y)
+> 
+> base-commit: a90ee4305c4a5df72c11b31dacfdc76e00fcf78a
 
-...
+Gentle ping. The patch still applies cleanly on top of v7.4-rc1.
 
-> +description: |
-
-Do not need '|' unless you need to preserve formatting.
-
-> +  The Broadcom BCM2835 series (including BCM2711 and BCM2712) features hardware
-> +  performance monitors on the AXI bus for evaluating memory bandwidth and
-> +  system traffic. Two monitor register blocks are present: the primary monitor
-> +  evaluates the System fabric, while the secondary monitor evaluates the
-> +  VideoCore VPU fabric. This block is distinct from the BCM5301X AXI Trace
-> +  Module.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - brcm,bcm2711-axiperf
-> +      - brcm,bcm2712-axiperf
-> +      - brcm,bcm2835-axiperf
-> +
-> +  reg:
-> +    items:
-> +      - description: System monitor registers
-> +      - description: VPU monitor registers
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    pmu@7e009800 {
-> +        compatible = "brcm,bcm2835-axiperf";
-> +        reg = <0x7e009800 0x100>,
-> +              <0x7ee08000 0x100>;
-> +    };
-> +  - |
-> +    pmu@7c012800 {
-> +        compatible = "brcm,bcm2712-axiperf";
-> +        reg = <0x7c012800 0x100>,
-> +              <0x7ee00000 0x100>;
-> +    };
-
-Drop the second example, redundant. They are the same.
-
-Best regards,
-Krzysztof
-
+Which tree should this go through?
 
