@@ -2,111 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3437606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 08:27:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84FE7606EE8D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 08:30:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=E/az5YDD;
-	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=KuRwqttm
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Sjx3Wka6;
+	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=eJejINim
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=E6pq6ak40PnPg7rzCuFYJAL64PxLZCXIE6ht0rHomGY=; b=E/az5YDDU9qECw
-	whoV5hlOpGj9yirsNx5msRV4VKI78Cpj+ltJM0cf/gUXPp0NhtiG1oYWn7SWNEgL2cbORYZ3arKA2
-	tGF/qrbFcQIIzU3J5DG7YFGuXZfZOy1OK6PI6v2gBgy+2YkfaIv4w2gNqp8LCSSjIDkWkiWf3jlQn
-	4nXekv67hQiH/Sln4BuloVJf5baGl9IOhian6/EWeoA5tsf2w562JY0mPjKnfT904CkM2tugEqW7K
-	o4y4G71iV59Vmn3do4xu0GY4IcCwkHKv2qV/f7pnAvJlTbvQFJvwiA4CFUfHR/Ze+KByDlHCtvS6K
-	9Nv42zWS7M1ARwB1XEog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=/giysDG79yh2AQk/VRr8fH0SzK99quvNSud9CE+SPJw=; b=Sjx3Wka6klZGDgtVLNNGdagi4X
+	mNcIo8/prYQ4m1M/dMDrD1xZO7S/y9plrf4IXWv3DJteP6n7UXLQcMgVVuFO4O5r+Ga/lob7sM+VO
+	XpZcwTQIEmqbCGhi8/dFyOfeQD1+guQX/QUJxlumsvRuTNSjoM24/kBN/RnFPtn8MKRXvTh6J7yvo
+	th8QxaO40ZTz55jncrJjci+O8BkkPSSAwIkf0u2gUz4ntAeujKbTuzAH/lZ7BYcgnEsa3Gg1oLuJU
+	Un/hKPwAHg20lm2xMnvLf7h3GO68sFdLaSLGom3DTL740SQxoSooca3MQv56rSqi+hdK3y0+0H6Z1
+	TADFN0hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9rx-00000001XDq-2IC7;
-	Tue, 03 Nov 2026 08:27:49 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1xO9u0-00000001Xas-2Tsm;
+	Tue, 03 Nov 2026 08:29:56 +0000
+Received: from esa4.hc555-34.eu.iphmx.com ([207.54.77.171])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO9rr-00000001XCh-1URb
+	id 1xO9tv-00000001XXk-18up
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 08:27:46 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-48afcd7ba9bso2183013f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 00:27:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1793694460; x=1794299260; darn=lists.infradead.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=E6pq6ak40PnPg7rzCuFYJAL64PxLZCXIE6ht0rHomGY=;
-        b=KuRwqttmGsJEEbBO9Bb1YIzNmxwWZ9r6dbv79DJ5TRx/uWCgOMRhX50g5/hdY2TSid
-         14yx3yYGpQ8Ut/DuM966N3UrCro0C6OgdoNReIlGML9fIl3WfP2yxFGWrbE5uQGLlnAU
-         m1O6tyYkIjqvNoJlnGh1RBbLbB9Jgoe/iLBMjM2Fy8NcOGOYDUR4QtrsB01DVz4iuSLG
-         gyQCCQxHsGn68n9dFTmH5+PHhQ+QuSZStVg+GwBILXryo/2ZzPCM6F0DpGZIGFSHiL2g
-         vRwn/V22J2HBwHwYT2QITBBETeotZPCgCUCAAHgP//EqjJdlQh4AJAhqCKOlnhhut6fp
-         HZeQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793694460; x=1794299260;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=E6pq6ak40PnPg7rzCuFYJAL64PxLZCXIE6ht0rHomGY=;
-        b=z/4xz1sQFB5GzubsA4fMRpe47GvV00Xa0jz3G5kZqWFkRjGk7aT/9vRHENvJ2JTBAl
-         J+xsryZyETMPylLZGscygzJRoHrsY+dI0OiLm4Fktvt/kNZnw2G/jADksyiETlujq588
-         QebjzNhoXgeldG75QnRq32jLSbKBbmbtny4hgx/do+GDMeG25DEsVm7XF64+/U41DS/b
-         +aUn3Y+0yzEUAbVvbb9zBUHsANGWMBKBRE6kOKj/DQI1D5sfWMHTkWE1yVMDko6SgRLb
-         DR322dRCCQHqvdwk4N6fBznTNBB5Pi7EoyaFbhJaCJmAFGKtqoGS7Xypl1ptB3Yo5wdW
-         UYWA==
-X-Forwarded-Encrypted: i=1; AKwUvByU6JJkYrCDpRfFP5N8/K+mE8wFBu2aeTdRLQngSlq347AHQZH0DSV5CMM33qyMnhhVrZJVCL6HrbSrmTcX/sUq@lists.infradead.org
-X-Gm-Message-State: APuU4Z8/Q9wGLvbQdYexlfbIlJcgN4Xze5zeyvJXFgHlfTH6hfdqwkln
-	e8GGRAIelr3v+udnmZe15RK0ZFurGfDj6P/ZX6pnZga11nve5Owku+55db3FPgY4kdc=
-X-Gm-Gg: AYBFou2zV1hBeaIVNWZgprtS7bWk0mCha0fFoUKqB5rnst9cUJlF5HZlPaTKlp0SXar
-	nEAyEF+Mi/5dg4S1yNgdIxdwXNkck97jyjH8+N++VduT1gGDIpmmlZiPMC3z0Q1doQUBnBZH/wk
-	+qWMNLPwqVpRS7cApiEc5FovpSsSeTXbOWPPnDRhS1JWnegeZwddhg0rvtFDVwgDO+FyJhWayq5
-	j2XWLx2hu8TjlvI4ZEzD3yEP2Ht8ENl4803qg6ZivFaWKWbCjb927JZbyDGjCNCCJv78cQ6jLAc
-	DVWi3JnhO1zIGol1hYQVb1GaI9ZeNLSqxETE60G5f7s2dhbSBuCjb5BRAyE48bpy6V0QYQrKZNE
-	ondn3durT4y6BjpPjPPJHt5DDQmC5ciwmVvojg2G3u8A7nXmdXYz3yKMyCAUMv0BUbFZNdY4t5r
-	CoTRIqrLVbstDcR93W0qK3mE2qD6B2CoVt9tZnx3NW+dqkAaUFg8+edu5n0Lnts9+TYMtiil9/l
-	pyiWpCDlfmfo0s+83/XdtDeZmZs8G+CAK14rWyaqnBdT5BFIUHK4tIUitiWdAePdV3KYahYAhGz
-	B+ipu12j7JWvmDYG65pFl+vRr2I=
-X-Received: by 2002:a5d:6f0b:0:b0:48d:ed30:f863 with SMTP id ffacd0b85a97d-48e6e304aaemr28242503f8f.30.1793694459888;
-        Tue, 03 Nov 2026 00:27:39 -0800 (PST)
-Received: from [127.0.1.1] ([151.61.248.197])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e86a06078sm7666552f8f.54.2026.11.03.00.27.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Nov 2026 00:27:39 -0800 (PST)
+	Tue, 03 Nov 2026 08:29:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
+  t=1793694598; x=1825230598;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=fKIT1odc8juQtbc/yg2Qb9XwR2x9WyUKoI+trK5ZRKs=;
+  b=eJejINimmNjfprN0Jj3OFgiyqojm/u7Fdq1wBHZXncNuDWOqPqrSJQEW
+   iIKuFsy4cmZ4J6ok3DKLXW4mrlrzKfXgC7m5mRg6r7Saz7ttjpkGEvsrh
+   IDY3rVxiTwI5hanbXgblMhUog6L0CtuKr0uKeXdogcMAWWeWiszBswYxh
+   L52ZFa8VpcROT7gyjSPnLvevi8GCuXO1r3cnNZkytZfrZ3ef9gOBw65jz
+   3DqOWnAxF9JQ7as9UWy+BrvGojVnEjFfP276Flys0Lqd+qLk0+SlvURKT
+   qH9p2cvHEpTDiI6Sib6jtF1KQmdn3M2OaYNol3XB4dHwdds2t7T4MgqPq
+   w==;
+X-CSE-ConnectionGUID: C2jOjHXDQAiO7PJ6P3Cq5A==
+X-CSE-MsgGUID: BJ0EBjf4TMy6oZtH87gjSg==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from unknown (HELO ces01_data.me-corp.lan) ([146.255.191.134])
+  by esa4.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 10:29:53 +0200
+X-CSE-ConnectionGUID: xuzxpQYAS9acAy2rIn2kug==
+X-CSE-MsgGUID: wwCpMMWJTsi5DF/Fq5253w==
+Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.2])
+  by ces01_data.me-corp.lan with SMTP; 03 Nov 2026 10:37:46 +0200
+Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Tue, 03 Nov 2026 10:29:44 +0200
+From: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
+Subject: [PATCH 0/8] i2c: nomadik: fix several issues in fault handling,
+ optimize layout
+Date: Tue, 03 Nov 2026 10:29:36 +0200
+Message-Id: <20261103-i2c-nomadik-fixes-v1-0-655c6af2cb70@mobileye.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] ASoC: meson: axg-fifo: request the irq with the clock
- enabled
-From: Valerio Setti <vsetti@baylibre.com>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Sashiko <sashiko-bot@kernel.org>
-In-Reply-To: <20261030-asoc-axg-fifo-irq-clock-v1-1-f8c170ac8b0d@baylibre.com>
-References: <20261030-asoc-axg-fifo-irq-clock-v1-1-f8c170ac8b0d@baylibre.com>
-Date: Tue, 03 Nov 2026 09:27:33 +0100
-Message-Id: <179369445362.97387.1853118570427796429.b4-review@b4>
+X-B4-Tracking: v=1; b=H4sIAHGb6WoC/yXMQQ6CQAyF4auQrm0yrYDEqxgWWKpW4mCmYEwId
+ 2fE5ZeX/y3gmkwdzsUCST/mNsYMOhQgjy7eFa3PBg5cU+AKjQXj+Op6G/BmX3U8HYlJpKYyNJC
+ 7d9J9yNml/dvn61Nl+h3Bum6kkHkHdQAAAA==
+X-Change-ID: 20261025-i2c-nomadik-fixes-73121cc61408
+To: Linus Walleij <linusw@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+ srinidhi kasagar <srinidhi.kasagar@stericsson.com>, 
+ Ben Dooks <ben-linux@fluff.org>, Andrea Gallo <andrea.gallo@stericsson.com>
+Cc: linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=384; i=vsetti@baylibre.com;
- h=from:subject:message-id; bh=w36hV1IUYMxpRRFJ0VIcI3DKJb88rpzFhmqT04FnZko=;
- b=owGbwMvMwCV2z3ty7kUrRgbG02pJDFkvZ303F1f/kVIiF3xAbXN2+m1Do7+9s9VvKp1ZdKF+1
- e4U/gusHaUsDGJcDLJiiiws0+/9LihVe2iccLIAZg4rE8gQBi5OAZjIhDaG/wGCL4X0gr64XVnW
- 4nnGLO0fd4zAeeE/ikezsz4f/fVOVIfhv5uquuzhF+1N62ce/CKqYaxpXFAh8qIu6No+Nr+z96+
- HcQIA
-X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
- fpr=0497DEFB707526E13360C970DE4B936DD13A0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_002743_405481_B9C1E303 
-X-CRM114-Status: UNSURE (   8.53  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261103_002951_759581_1F2D2A21 
+X-CRM114-Status: GOOD (  11.57  )
+X-Spam-Score: -4.0 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,25 +86,61 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-> The fifo irq handler accesses registers which need pclk, but the irq is
-> requested before pclk is enabled on open and freed after it is disabled
-> on close.
-> 
-> Request the irq after enabling pclk and masking the fifo irqs.
-> Free it before disabling pclk.
+This patchset fixes several issues in i2c-nomadik driver.
 
-Looks good to me.
+Patches #1..#5 were previously submitted as a part of a patchset that
+introduces detailed fault reporting feature in i2c-nomadik and
+i2c-designware drivers and i2c-core.
 
-Reviewed-by: Valerio Setti <vsetti@baylibre.com>
+In patch #5, the new structure declaration is moved to different place
+to make it independent of patch #3 (avoid merge conflicts).
 
--- 
-Valerio Setti <vsetti@baylibre.com>
+Patches #6..#8 fix other pre-existing issues found by AI review of that
+patchset.
+
+All patches are mutually independent and may be applied separately.
+
+Patch #1 Optimize struct layout.
+Patch #2 Remove automatic retransfer on failures.
+Patch #3 Fix error codes returned by xfer() callback.
+Patch #4 Avoid excessive prints by replacing dev_err() with dev_dbg() on
+	I2C faults.
+Patch #5 Add quirks that describe hardware limitations of the controller.
+Patch #6 Handle PM runtime errors.
+Patch #7 Fix race condition with IRQ handler.
+Patch #8 Fix possible long busy-wait loop in interrupt handler.
+
+Link to the patch set that patches 1..5 were submitted in:
+
+https://lore.kernel.org/r/20260903-i2c-fault-reporting-v2-0-fedeb91792e6@mobileye.com
+
+Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
+---
+Dmitry Guzman (8):
+      i2c: nomadik: optimize struct layout, change unsigned char into u8
+      i2c: nomadik: do not try to retransmit I2C message series on errors
+      i2c: nomadik: return proper fault codes
+      i2c: nomadik: change print level for fault messages to debug
+      i2c: nomadik: add quirks max_len=2047 and no_zero_len_read
+      i2c: nomadik: handle pm_runtime errors
+      i2c: nomadik: fix race condition with interrupt handler
+      i2c: nomadik: reduce FIFO flush timeout to avoid long interrupt handling
+
+ drivers/i2c/busses/i2c-nomadik.c | 105 +++++++++++++++++++++++----------------
+ 1 file changed, 62 insertions(+), 43 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261025-i2c-nomadik-fixes-73121cc61408
+
+Best regards,
+--  
+Dmitry Guzman <Dmitry.Guzman@mobileye.com>
+
 
