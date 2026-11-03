@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E53D7606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 08:53:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E68DC606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 08:55:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2T1LGcWE;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=B4rTpt+C
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xJoe6wie;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Yoljmo4S
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
@@ -14,81 +14,80 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=cYVEhmFXBYWgKUnLGpmzVsxJ6ulxA2Owk59YswCIlXg=; b=2T1LGcWEsOI5z8WZgZSROTuMZm
-	ZZKEE0Wi/FGnHaVxrAC0y1szEgARKdrJok1UsWX8irTJAQhvDvoR5JbzQZDyTN3/mDBPzTZNgDiFt
-	U5HzRqmq5fHjv9kZNGEJrO7E90vnsUoxKCxkz2J7/HSAwW56FvRnk7OD0YxibT8Owq7bCKviZlEU7
-	V1gujM4o0MZQDJ1+b159w/HDGH9DWH5fHZ8sR2XLpOZ+ME6jd7RX7cysJCzNFRDaQruAhRwv1l9WM
-	MKj7nCWv73G/mhhVUlTXZyiAIkanC7lGaWM0KI5ZF5ypk8E6tzQX/C4ACr6l4zcQn+2z9SejZZH/O
-	FUpIpdgg==;
+	bh=agwTDlVTaDDjvub+/sVTXidA5drfVA/Xuq65aoektFk=; b=xJoe6wieEEl6AjSjF2EEkCMWP1
+	WXsWN73WVyAEjviDjLK/4/tuDPOA0XvpHy9TFd3vOcpCeSldxFJytNEmFnid8OwifrOUiapKWu4Pc
+	w9u4EMp5MhxqqVchnRU3NLm813KY2osOpcYbnZxQ7jBED4bWEfxlVXoZpG58wjOci6YO8cslPig+T
+	0rgq8zby+poX7MiDSy/2f8PVQWMmWQdSUSwegHOOawEi3KW/aFY3PA20FgyFHd4E2bGSBT55yreuo
+	eU+tIXI6/s+njBl9G+MNvzl2hcw2uHo86QHTnU5lJrdCmOhXqNCzPuEE9vl6YT662zVZ7x/Qsixhe
+	AqOup+sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOAH6-00000001dx6-2xLY;
-	Tue, 03 Nov 2026 08:53:49 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1xOAIS-00000001eCe-11Uw;
+	Tue, 03 Nov 2026 08:55:12 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOAH0-00000001dum-1uY2
+	id 1xOAIP-00000001eBX-0N2A
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 08:53:45 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4a2072b9832so2293915e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 00:53:41 -0800 (PST)
+	Tue, 03 Nov 2026 08:55:10 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4a2000d5fb1so26112145e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 00:55:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1793696020; x=1794300820; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1793696107; x=1794300907; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:organization
          :autocrypt:content-language:references:cc:to:subject:reply-to:from
          :user-agent:mime-version:date:message-id:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=cYVEhmFXBYWgKUnLGpmzVsxJ6ulxA2Owk59YswCIlXg=;
-        b=B4rTpt+CUrrv14grfn6G8/KlP32wqI7Gb8oVCzu5U7u9Nri7gso33fRma/8GWKw4lr
-         1b2ZTHMJgJrzC1NimQY7JCnZrIR+BBCpg3hyikHswkZFEeEHpObcVlte4JHp3Ko65pYM
-         Dyg0gXYU1fbEFVyyjb9FIXAHN/heJccuEW6HYAFFG30YSOna90txoRf4vQcGaRVF1j5H
-         uS/1hFxsqveygqVn+OQXtef7CJjcGd3RvOJEtJYecC5Xfyoffm8KPI5Pss86nGUdAByk
-         Oiujtr46doOdTA9be1qpT2ACxp03Zid65Vh7/JctWMvK4eCvxFO+hEkO8i6H5h06KURz
-         Re0Q==
+        bh=agwTDlVTaDDjvub+/sVTXidA5drfVA/Xuq65aoektFk=;
+        b=Yoljmo4Sm4K3FQtu3v7O2wmm8A/2sxgQyJ47vePGJqouhx4Ufp4qr9u4hwx45CMR2z
+         VPeqAMd9b3cKocTbyt+sSBHnJ/czUIFwN+IFPK7qaIzWr9Wwm49faokFq34cUSARISE/
+         eScJoHxZsa9QnwGRv4u4iHkQLuOTjwSDYyGbvxb2kbZEq9lZ31dxvs/jGftQ1GjYGuHJ
+         y1+p1hXvBw3kMiiMX8dRTyuUxTfkKKyx9AZg6BzDN+T0DMOb9+I8JYSoXbeHFztiyUbm
+         h0gXFurtTOEygDGh63a9xTFpvoOVWWwkE7pmueSszs8TTkPkIHLPHn1Dolzwqjp8/JY/
+         1C6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793696020; x=1794300820;
+        d=1e100.net; s=20260707; t=1793696107; x=1794300907;
         h=content-transfer-encoding:content-type:in-reply-to:organization
          :autocrypt:content-language:references:cc:to:subject:reply-to:from
          :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cYVEhmFXBYWgKUnLGpmzVsxJ6ulxA2Owk59YswCIlXg=;
-        b=w3Zgp+DkQhoZg/Qeu/52VB2LRDJ2O6BZWPhpS7ZKrGpGGMLr7/a7XvpxbPpsc6f2XO
-         diezvBiTiGLEBdUa4HmTL3r4PgLiZdj7sPbgs02A2fbSkFyi2vRmvkuvJ9cGnEpI9m2d
-         g3ZgMoHDqQxzkDRURiQzO72rmIT31h9TL3ehOO0DC0SiY+R3ZIQInL8FwRbjHkuZRrYq
-         Bt0g7ZnmKe6uHHeML9xLgZQo2gWFRJZWiLIsyjqsYi1nCdsGmHd7gtciII47F3HHoVs/
-         Yv512yAkUnXO/PN03klG0w2lTvOpbLIopKQzpZw/saxFi/Yp3+MMXTmNOuNo9SE1OdnQ
-         YRCA==
-X-Gm-Message-State: APuU4Z8rOS6d9T6OsXskFFkyQC6HI1w/g1vRd9pjz0lN3Tb8vFTwCkZZ
-	sia1Ky6obDH/bIDnuicMyZYn70fKrHWDhsmtr6nahlAWNaXRbHJzGWoB5fmcAcILfaE=
-X-Gm-Gg: AYBFou0OM9fg1IVGSGm/RDz8eXrzQofFcoEuhe0ZEGNqca6Ts0JPkhIzgmpHkN6xHLX
-	Dbasjle9W3milMMWlPrZmMmy350e6DtLdGGoHkUAqCXbEnuuiyFqu+hb6cflzajR+OFP8AQzag0
-	LVCmWUNHAXZHesHq7VzRrcVB80ZL3+CtkN40A9lyo8MewskHenYEOcte32QogfKXmAicdCZ76rA
-	rpsAwFlUZNfn/EXZ2jpHYgy4osef0NqaqZmyD1v3HGCUPhi+RwbjR3ON+G8IdzZjxMRGrVylSUJ
-	SpG9RqpEas12Hr8VBptzN7+OuKMWtxXlMiSfIGsewoICJ7mhlWJAT3e0ozEePI7MTdrvyiAbqVe
-	23TspfVBXWmYA2LrXKEqFdqKJXaZ5sdQ4waMiJH79Jnny7JbRtyuryNYm5ILBxwldE+hyuf2B4K
-	7uIh+DICkasF+WnDaGhEx/tY6wJuwapFuowYfwMJOGlzVG7KbQ2wA09VeSs74xQO5U7py7fD7gN
-	+EJVrG66sIYpJtQaV/VY9MP13WUvKMLdk04DUeIO9NpZurGtvIeU3PRzBClcO+SkZcvA6NiMeTP
-	PpzC3z/TLQCDhZLW5rhzWZCqxBsxfS50sa9fM9wcXDYwOH8gLh799QWWaAizEhxhmyZTLhBcF0T
-	o8bGob7ykXssjWO4AplvRbe13hhCd
-X-Received: by 2002:a05:600c:2541:b0:4a5:9224:fa10 with SMTP id 5b1f17b1804b1-4aa8b060adcmr301144395e9.18.1793696020400;
-        Tue, 03 Nov 2026 00:53:40 -0800 (PST)
+        bh=agwTDlVTaDDjvub+/sVTXidA5drfVA/Xuq65aoektFk=;
+        b=O5Rmtjl++AtSqfLbyqDlyQKwdiErVPYUhF3cz+zv795kR+h5Gc4fPP4XcNYyWtQzBO
+         dxE4DFo3VfDmliLZCu+KZtRMsvaNpVmI5zSqiBbSDlqIMYKLFl9iyN6/u9PVjsFbZANK
+         ZRFPXYSflM5OHgjESkd7w5YwNZCg52lt+U53zK8k4gP17MtKT3Ec6nqXMLTxsfWB6uOY
+         GHS+cALVb5m69+p3tVp5Mk3EJEtKvYkHRkzhZGhBLUIogGxnbXL4GbofOcBMReOXyvEu
+         uzZShGz/2lKtemHaRaLhi1eflPyHvu6TY964KwKIgWre3Zc84fkYjp1SCAkqRA2oVzwd
+         9Lbw==
+X-Forwarded-Encrypted: i=1; AKwUvByqKCa7DOHip+YU4sfQMARBBoTFaw1u4THnxuixepxJi01hrWg2qzkh7WY8uOFXtmYx3m93tjVnMlL7oIwCSBLB@lists.infradead.org
+X-Gm-Message-State: APuU4Z+A3xLcf6gVXGlhXDXmkZb+X5HHQAe2jg6BR9V9oD8Wt4F+TaBl
+	BKJGl18W22DzRO0vIXgxHd1LpYHkkleSYMBdAzetpUhb1JsuwgVEBkp/r69mX7+x4d8=
+X-Gm-Gg: AYBFou3KDdlkG2wWjSA7aK3P2z5PWv6jtxkwhm5+OIEaCBkg1MVV1f0XXZzBBSdHqg3
+	zdhDb2B87N31VOIuhdzv3nxP9e+1HAaBPNR8N5z2BMbiwOOzc9K2Mcd+k9cSkxOdDlL1CPxgPp1
+	iDQ7PpB8VlDlMGUF0E0hqjzyMtmixMWS7i4YYM3sZlgv+lssC7p1uYFtWT29JKDtKlfyn0rQRzo
+	FTNcP5NxExN3tkhqORyiKwpD7EwhzJYZjARxq0ty4g2F0xoPICpQU2dHkTfIjU14cS+vNGZF1GW
+	F/j7eSTfp2b37uHuFDXKWGp9g4vwZ8rvF8iJNO26Gzbfaqm9pzKeCC/MJY9T2/w7dW9r0WC6K5Z
+	EnNcHzovHLK4G2C9/+8LbM6xbi2uLe6EHshldczEgcvOfvDYXhNhREQ8u0JdfwQ54uz03bn7xpn
+	A+3T7482rpjnydVGbcZA0msq5/nAlm5VKF7g1U5CHvZS91Ptz5niAM9qxR0ld3wAR7vq/t52tEY
+	/XdgWbQAgQrAvacyJqeOCC3Qxtjjag3kD4jJhrJeZHfXIo2+SDDNbQXKNSlwVSNTkd8VFbLQxYm
+	wgLOuDtH1lPwZff78XIVl9ThHgDLnSroguXcufneycQNjfIeD8HclP1wLO1LJuniw0dSy2boELa
+	JqXVUjA1d
+X-Received: by 2002:a05:600c:8119:b0:4a1:cef3:fb3a with SMTP id 5b1f17b1804b1-4ac17a36a28mr255021625e9.9.1793696106916;
+        Tue, 03 Nov 2026 00:55:06 -0800 (PST)
 Received: from ?IPV6:2a01:e0a:106d:1080:95a2:4869:9f46:45f0? ([2a01:e0a:106d:1080:95a2:4869:9f46:45f0])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71b728ddsm23606102f8f.9.2026.11.03.00.53.39
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b2a9bd5d9fsm40122525e9.15.2026.11.03.00.55.06
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 03 Nov 2026 00:53:40 -0800 (PST)
-Message-ID: <2fdcea84-8b95-4ec1-af62-07e1803cb418@linaro.org>
-Date: Tue, 3 Nov 2026 09:53:39 +0100
+        Tue, 03 Nov 2026 00:55:06 -0800 (PST)
+Message-ID: <518cba7c-1aba-492f-ac6a-c5c4fe6da847@linaro.org>
+Date: Tue, 3 Nov 2026 09:55:06 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: neil.armstrong@linaro.org
-Subject: Re: [PATCH re-send] drm/meson: add support for higher bandwidth HDMI
- DTDs
+Subject: Re: [PATCH] arm: dts: meson8m2: add dwmac 3.70a compatible
 To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
  linux-amlogic@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de
-References: <20261102212843.1213021-1-martin.blumenstingl@googlemail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org
+References: <20261101232011.1172410-1-martin.blumenstingl@googlemail.com>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -115,12 +114,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20261102212843.1213021-1-martin.blumenstingl@googlemail.com>
+In-Reply-To: <20261101232011.1172410-1-martin.blumenstingl@googlemail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_005342_515118_39BDB922 
-X-CRM114-Status: GOOD (  23.89  )
+X-CRM114-CacheID: sfid-20261103_005509_145164_E2FE6436 
+X-CRM114-Status: GOOD (  14.78  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -141,63 +140,30 @@ X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 11/2/26 22:28, Martin Blumenstingl wrote:
-> There's a report from a user with a DELL U3415W monitor and a Khadas
-> VIM3 stating that 3440x1440@50Hz works but 3440x1440@60Hz doesn't.
-> edid-decode Detailed Timing Descriptor (DTD) extract of that mode:
->    DTD 1:  3440x1440   59.972616 Hz  43:18    88.819 kHz    319.750000 MHz
->                 Hfront   80 Hsync  32 Hback   48 Hpol P
->                 Vfront   28 Vsync  10 Vback    3 Vpol N
+On 11/2/26 00:20, Martin Blumenstingl wrote:
+> The Meson8m2 DWMAC reports User ID 0x10 and Synopsys ID 0x37,
+> identifying it as a Synopsys DWMAC 3.70a core.
 > 
-> Those high clock rates are currently not supported by the meson_vclk
-> code as it limits the PLL OD (output divider) to a minimum of 2. The
-> formula to calculate the clock internally is (ignoring fractional
-> dividers):
->    319.750MHz * 10 * od = 24MHz * m
+> Add the "snps,dwmac-3.70a" compatible to match meson8b.dtsi.
 > 
-> With od = 2 this results in m = 266, which is outside the supported
-> range of the PLL on G12A SoCs (the driver limits m to 106..247).
-> Using od = 2 results in m = 133, which is supported.
-> 
-> Allow the driver to pick OD = 1 to gain support for modes such as
-> 3440x1440@60Hz.
-> 
-> Link: https://forum.khadas.com/t/can-not-set-display-resolution-to-3440x1440-for-dell-monitor/26271/12
 > Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 > ---
-> Re-send of [0] which seems to have slipped through.
+>   arch/arm/boot/dts/amlogic/meson8m2.dtsi | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> 
-> [0] https://lore.kernel.org/linux-amlogic/20260109204836.790096-1-martin.blumenstingl@googlemail.com/
-> 
-> 
->   drivers/gpu/drm/meson/meson_vclk.c | 6 +++---
->   1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/meson/meson_vclk.c b/drivers/gpu/drm/meson/meson_vclk.c
-> index dfe0c28a0f05..c0be0b7655bf 100644
-> --- a/drivers/gpu/drm/meson/meson_vclk.c
-> +++ b/drivers/gpu/drm/meson/meson_vclk.c
-> @@ -700,8 +700,8 @@ static bool meson_hdmi_pll_find_params(struct meson_drm *priv,
->   				       unsigned int *frac,
->   				       unsigned int *od)
->   {
-> -	/* Cycle from /16 to /2 */
-> -	for (*od = 16 ; *od > 1 ; *od >>= 1) {
-> +	/* Cycle from /16 to /1 */
-> +	for (*od = 16 ; *od > 0 ; *od >>= 1) {
->   		*m = meson_hdmi_pll_get_m(priv, freq * *od);
->   		if (!*m)
->   			continue;
-> @@ -750,7 +750,7 @@ static void meson_hdmi_pll_generic_set(struct meson_drm *priv,
->   		/* OD2 goes to the PHY, and needs to be *10, so keep OD3=1 */
->   		od3 = 1;
->   		if (od < 4) {
-> -			od1 = 2;
-> +			od1 = od;
->   			od2 = 1;
->   		} else {
->   			od2 = od / 4;
+> diff --git a/arch/arm/boot/dts/amlogic/meson8m2.dtsi b/arch/arm/boot/dts/amlogic/meson8m2.dtsi
+> index 6725dd9fd825..cdc47ee1a233 100644
+> --- a/arch/arm/boot/dts/amlogic/meson8m2.dtsi
+> +++ b/arch/arm/boot/dts/amlogic/meson8m2.dtsi
+> @@ -25,7 +25,7 @@ canvas: video-lut@48 {
+>   };
+>   
+>   &ethmac {
+> -	compatible = "amlogic,meson8m2-dwmac", "snps,dwmac";
+> +	compatible = "amlogic,meson8m2-dwmac", "snps,dwmac-3.70a", "snps,dwmac";
+>   	reg = <0xc9410000 0x10000
+>   		0xc1108140 0x8>;
+>   	clocks = <&clkc CLKID_ETH>,
 
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
