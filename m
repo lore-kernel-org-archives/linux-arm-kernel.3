@@ -2,96 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7E42606A332
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 02:37:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF3FB606A335
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 02:57:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0Cs+yQjK;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bJRA0mzY
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=T6vEu8ic
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=KAx1cm6yWne+0gYptOITSpq6g181IgU4YzBAy/lnyOQ=; b=0Cs+yQjKO8VCXN
-	NXEf1T2/hhfgjyQy+JBatkJP+wib5pwxd1TxIUVWxExAGT/KdL53t5pjRbqCXkkJxThLL4Zpim/QW
-	IRwCC7h8rcfwRC56+qRiSVNZR0nfSdEOfR1pbVIFRh49xzEo2D4Ni3xctS87HHdha2g5Urgc8ZzFL
-	JzEX923S8OtHm/91WJlYdly2eU0IPKGlTU7PCxskzBEux6okL7jyRmO7ITtfgsueaGqahJk2agW4a
-	9ETr5XjttwehJ6qWZNf4dhkofbQBtix7MmpG6OpxQLKqlLXtETX3bCqLMs792ZLmbkBOJi/OH3fOU
-	YEOQmIM5J2FJ6C7qVelA==;
+	List-Owner; bh=K/VKNZTnoHlYdA52mhm/Cd/cZKCsJadbDnR229CP3IM=; b=T6vEu8icpYK2t6
+	k3AAYwe1BYWceJFRPln2KioACsXjBCLzKuF+TEcupD34sfb5m2IEtIP5nmUCNuxPbORNnVt6i3+ke
+	kqmmxRDU31fYQNm7xsvUiKri3lA0cc4b3yLCd8J0aF7GVCpGdbVZ+zP5ZdCwZIKak4/vvxFf3C+SS
+	jJOMHTbjlmdG1pMb+4GuNCfuo6T3OD/vNJREPbdxc/bUWtbcGkxXs3mlqDPWR2w7ezQksJBMu6cxE
+	A9hHdtxezgdPXg9JnDfWll6c6NFYXkIMWNAnmLc5ffx4SajmI7Kb1BxhUV9JYwklJGIIeluhdCtD9
+	e+nJkDWYZZKNG2PkZI6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO4PG-00000000t2f-3BgH;
-	Tue, 03 Nov 2026 02:37:50 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO4PD-00000000t2B-49MW
+	id 1xO4iF-00000000uHQ-2pXC;
+	Tue, 03 Nov 2026 02:57:27 +0000
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net ([162.243.164.118])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xO4iB-00000000uGj-16fz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 02:37:49 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2e942864693so20820765ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 18:37:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793673467; x=1794278267; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=KAx1cm6yWne+0gYptOITSpq6g181IgU4YzBAy/lnyOQ=;
-        b=bJRA0mzYKJi7y9K5CijXUeSirrKHqf46HwZADIgKQi3k8Yq8ErTFwDLXN0PhBjQTRf
-         wvXdN7Le1tTBo8OF6mcW9kT/yXP/9wukOZTKZebYfigEcvl+mDHeC/OS9pZmmU94XMVy
-         DSBXJ1XneB1k5FnwXczStJ0MS/JfgBY0XL2LIlw4W7N81l20PefXOQmFsVfm6M40Mywl
-         IBeizKKDa02PnRmyStcJc1IjNkV+UR+9cItMK8kerHXu5FVPBKmxakGyddUrkMA0ZU6u
-         oHC5DJVk+4ox/klB6W2Xsbkfdgzgf7Fv3xH5vH4X7Z8mExt8CqHIj6vTfZewVkGL3rvg
-         KUKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793673467; x=1794278267;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=KAx1cm6yWne+0gYptOITSpq6g181IgU4YzBAy/lnyOQ=;
-        b=g4xgxk3lIRNTG7A2ilBqJMK5FS990cTxkqFM5Be/IO0PrQw+4u0qtkpAQGSJ7mqC9/
-         Qy0jcBIgkmBKgUbrU+n/+ClrC6cKqwdN5z0BWvJmV3cy4BpzUkefhQXkdSIOZAOcCJNS
-         cI+IVDxada4BCjn7odmYXnhjKSHDLDQ8dGdQWuHoadse28WDMbCCSJqB9Hcdkg2+SbNZ
-         WrJ/g0C0d+jYTJ8qt8gSxb/k9B4i/MTIa3+fRbgMbWxZxFvqM0aIYiOy4HJrsAemZGrG
-         YJF0RH6qTSmZ9dOYAlQQC2wwuVjnYpYn04mnPuJNrZqTuRWTPWWbT36OzRqZeVqRxAcL
-         qX5Q==
-X-Forwarded-Encrypted: i=1; AKwUvBzWd7OfWlPwFkcuQx2pPY5O0rWKwT4MZzQEdUAxHK93FkORV+xIglV/xTEESyMf8xqFNiPBmEnYxFhpVXzWb56e@lists.infradead.org
-X-Gm-Message-State: APuU4Z+iEKeev2PAdKpAktoIsUlcJ3p49+LEoh3Bjt8Y83hd5yTN3rSy
-	hbwpWF1A7Yp+ytedGCuZHmVUi75ISJxBGiz6R7ectw+WIv4DWTg4QAQ2
-X-Gm-Gg: AYBFou0oPYyywRmrt+VMDy1Gb+n5FaX+7BzYq6GjF9qvHC07/0sqU+wQ/l/qOgEv5/B
-	YDXLenyMA8dZITSxhufPV2dpwhv7izvZrYLUhvdn3WBzghKunqBrvOQIpvqcczQaoUqHVmi1Lp0
-	S4CPKbC8eZckw4ofzg7hzwVuWToQ5uFI8MzYwJq/7Mmy3ls70/ZrtoFTB4wDJTvq4n+z0WcJCls
-	2rEZowLFv+xXc5Yhpg4gMxUSdeYxP20JWXinTFgKlVt3biM27MXLIPIaVCKLbe1Pd/WXInTPchR
-	7IJk8xfy91BdMW77Dj1i/2cXJGQCpEs7PSXXRtH6ebNLHvbD4V5bCpNKWzeVxvOCKgRQjimAR8L
-	pivgKzcXamou1VWFGllElewbSRQ7AySHVEKHBkQpWgTDIWv+yIACXUCF6dVaF/T1FufOTcOHtEU
-	Jfua2ZRJutxd6If+b7ilMgnmVWs8p1A3KrmTYdx37aY1TNAkC20a3UgvqPs7DNmQK0mmic/fU6k
-	VfDo5RamUcUcElDejlZwrtSLfZkhFRZqt+s313Qv9LWoeY5a1O5VNOrUlwTciVgrD4ASR2nWoev
-	hfeJEm2wHOMMEyiAc/IZQStQlEqYsE6cVw==
-X-Received: by 2002:a17:902:fdad:b0:2e9:4175:3079 with SMTP id d9443c01a7336-2eb3649422bmr128568295ad.21.1793673467085;
-        Mon, 02 Nov 2026 18:37:47 -0800 (PST)
-Received: from server225.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eb39298329sm33189015ad.61.2026.11.02.18.37.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 18:37:45 -0800 (PST)
-From: Ping Li <leeonion.muyu@gmail.com>
-To: ben.horgan@arm.com,
-	james.morse@arm.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	reinette.chatre@intel.com,
-	fenghuay@nvidia.com
-Subject: Re: [PATCH] arm_mpam: Only program MATCH_PMG when the monitor supports it
-Date: Tue,  3 Nov 2026 10:37:42 +0800
-Message-Id: <20261103023742.2624994-1-leeonion.muyu@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <912dbaa0-0fc0-46fb-819a-6594538b47cd@arm.com>
-References: <912dbaa0-0fc0-46fb-819a-6594538b47cd@arm.com>
+	Tue, 03 Nov 2026 02:57:26 +0000
+Received: from prodtpl.icoremail.net (unknown [10.12.1.20])
+	by hzbj-icmmx-6 (Coremail) with UTF8SMTP id AQAAfwC3v1uNTelqASjbAQ--.20994S2;
+	Tue, 03 Nov 2026 10:57:17 +0800 (CST)
+Received: from [10.22.77.56] (unknown [123.150.8.50])
+	by mail (Coremail) with SMTP id AQAAf8DwOXOFTelq9qL0AA--.19487S2;
+	Tue, 03 Nov 2026 10:57:10 +0800 (CST)
+Message-ID: <b49779cf-5132-4539-86c2-e4f806b1675d@phytium.com.cn>
+Date: Tue, 3 Nov 2026 10:57:09 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: PCI: Add linux,pci-domain-reuse property
+To: Krzysztof Kozlowski <krzk@kernel.org>, Will Deacon <will@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Wang Yinfeng <wangyinfeng@phytium.com.cn>, linux-pci@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261102095150.2370959-1-cuichao1753@phytium.com.cn>
+ <20261102095150.2370959-2-cuichao1753@phytium.com.cn>
+ <8112d8ca-2234-490c-a4a2-c3b01adfbc88@kernel.org>
+From: Cui Chao <cuichao1753@phytium.com.cn>
+In-Reply-To: <8112d8ca-2234-490c-a4a2-c3b01adfbc88@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: AQAAf8DwOXOFTelq9qL0AA--.19487S2
+X-CM-SenderInfo: pfxlux1drrlkut6sx5pwlxzhxfrphubq/1tbiAQAHAGrnk0kFEwABsG
+Authentication-Results: hzbj-icmmx-6; spf=neutral smtp.mail=cuichao175
+	3@phytium.com.cn;
+X-Coremail-Antispam: 1Uk129KBjvJXoW7AF48CryrWr1UZw4DXF4xWFg_yoW8XrW8pF
+	WaqryDtFZ8XF10yw4vyw10vFWYkF4kJFW5J3WUGws8A398XF1UXrs29FW5u34UAF18ZrW0
+	vFWqq34kJFZ3ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUj1kv1TuYvTs0mT0YCTnIWj
+	DUYxn0WfASr-VFAU7a7-sFnT9fnUUIcSsGvfJ3UbIYCTnIWIevJa73UjIFyTuYvj4RJUUU
+	UUUUU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_183748_100282_B7F1F202 
-X-CRM114-Status: GOOD (  10.06  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261102_185723_468557_9100FDB0 
+X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.6 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,32 +79,49 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-5.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Ben,
 
-Sorry to bother you again. I was looking at how the driver derives
-mpam_pmg_max, and I think there is a similar blind spot:
+On 11/2/2026 6:00 PM, Krzysztof Kozlowski wrote:
+> On 02/11/2026 10:51, Cui Chao wrote:
+>> Add a new optional boolean property 'linux,pci-domain-reuse' for PCI
+>> host bridges.
+>>
+>> By default, the 'linux,pci-domain' property must be unique across all
+>> host bridges. This property allows a host bridge to explicitly opt-out
+>> of this uniqueness check, permitting multiple host bridges to reuse the
+>> same software domain number.
+> Why isn't this deducible from the compatibles?
+Hi Krzysztof,
 
-mpam_msc_hw_probe() folds every MSC's MPAMF_IDR.PMG_MAX into the
-global mpam_pmg_max, regardless of whether the MSC has any monitors.
+Thanks.
 
-Concretely, on our platform the DSU has no monitors and reports
-PMG_MAX=1. Our memory controller MSC has monitors and currently
-reports PMG_MAX=0, but if we later add PMG support and report
-PMG_MAX=31, the global value would still be clamped to 1 by the DSU,
-and resctrl would only expose 2 RMIDs per CLOSID instead of 32.
+The compatible cannot express this. "pci-host-ecam-generic" only
+describes how configuration space is accessed; it does not describe
+whether two host bridge instances may share one Linux PCI domain.
 
-Should the convergence only consider MSCs that have monitors?
-The PE-side value from MPAMIDR_EL1.PMG_MAX would still apply, as
-that is the maximum PMG the cores can tag traffic with.
+The same compatible is used on systems where every host bridge must
+have a unique domain and on this system where two RCs intentionally
+share a domain with disjoint bus ranges and resource windows.
+Comparing the compatible strings of the nodes therefore cannot
+distinguish our case.
 
-Thanks,
-Ping
+Adding a vendor-specific compatible only to trigger this Linux policy
+would not describe a different hardware programming model either.
+What actually makes reuse valid is the platform-level relationship:
+the bus ranges and resource windows are disjoint.
+
+If you prefer to avoid a new property, I can rework this to derive or
+validate reuse from the non-overlapping bus-range and resource layout
+instead. Would that be the preferred direction?
+
+-- 
+Best regards,
+Cui Chao.
+
 
