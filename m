@@ -2,91 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9765606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:39:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12B0B606A324
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 18:44:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ldtk1sl8;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=WAGisDgc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NRcD+QH6;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=RE4/eDH9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=fMJ5+/syPNsycgszjeQz+Dfq+eBdUioDgcU3E8qF97M=; b=ldtk1sl88/yIkyPjpTvHBdc8qY
-	K9Z15zJThOgjT9zzqCAwfzzIslQjUaJ3VOmDg/V1e3kLpFXgOxBCw3XFt/Jo06DxU/vqtTTM3wJjb
-	J4LC9gVkAwd/UTFATM1gvEQMvVYraw5PNRMYTb3pZcVU5czJKzsZ7eqVumT8kEbYv6z6BzAg+JXvc
-	28jdr1IqQHA2+qhkW13TggZ2yZOC96wLL665Ru8CL9dOU5NsQ2BIlQdgODilS5Qyalnvs4JVGpWT9
-	mU2ve+K9JoPomJvSLrCH8zbZ7I7Uxvd7qg+CUXUxVl5m22QDQcRFQM0Jk581VGphjOEv4sOOGi7fe
-	JNjnGyVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=1A8p6Yw8QB5cZ4R6ZLUTqYya8xg0OkNzmH7mK5ip2II=; b=NRcD+QH61cJt4o
+	+XtbCO6G+REUBVZYa4fJRMzCEFLEfvcf8UlPYBXmZX42N+ymuCOgdzvRnNBkaLqoQAEDvAoncTfX3
+	LUwkgIsAGdhgYE2np3XDZlBv04sVG78kp8FSVoyrVhKYUEft7n3FmfwfgWRhn4KGrhIp6bM9Wzot8
+	ggMiaIKkDxsPgU8IRFUqjP/YvTSM2Wl10XyHjqvAnZLGNLyYwSkY1H4f0f/g62PP+yhYB+DHH007y
+	2qiY5IQzKMkiKiJBU3+MTj68xRnx7P3QcD9HeBb3sZ2guMxKskSKRqyAsWFI6WXkXaPE9+YjqCivz
+	orqzpdXVccVgFcWNwwQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOJPo-00000003SQc-20gZ;
-	Tue, 03 Nov 2026 18:39:24 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOJPm-00000003SPs-1u5T
+	id 1xOJV6-00000003SzY-2wBx;
+	Tue, 03 Nov 2026 18:44:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOJUy-00000003SxF-3fbO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 18:39:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1793731160;
-	bh=SddPWJ3RxZPOXnGWNXHvie9IBIx0aAYAtlCLCEHvlbY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=WAGisDgciIi6wkoaN3ptsY0BHM1UYJ1es6fbh3ONSjiMc60cURniLExL1cBbCZ57M
-	 XriuMufgxmnS4Fnht0OV9eh5LTqksdtPyZzdLpH9RvOmRD73Y6etNTl5g1Vdp+m4YN
-	 nBHXRVGwbhQ8eGESPTdGMWotxbhy1b69sllnGatYXw9UVryD/00J7IGCO5Q66EfHx7
-	 gcc2Ot0cPjB+oFRShok6QCi3NcFv3yGmDmqeq5LsRXZYU3nnRRGrW9P5VS+sum7Sl2
-	 OuUOfBS+6asFL+gRAxW9mClJiS9sgC8kyNULM+STb+UyO+67jJVOBdZN+gAcBZlV+1
-	 walO1nR4xnn8g==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B031317E0DFF;
-	Tue, 03 Nov 2026 19:39:18 +0100 (CET)
-Message-ID: <0ea4459f8f4d9cc274c58c5ab00b4952fce59c35.camel@collabora.com>
-Subject: Re: [PATCH 03/10] staging: media: cedrus: h264: mark long-term
- references in the frame info
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Jernej =?UTF-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>, Mauro
- Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil <hverkuil@kernel.org>
-Cc: Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski
- <paulk@sys-base.io>,  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
-	linux-media@vger.kernel.org, linux-staging@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Date: Tue, 03 Nov 2026 13:39:17 -0500
-In-Reply-To: <zYI0QcxKSEeu6sHIbu0-3w@gmail.com>
-References: <20261102170303.1973892-1-jernej.skrabec@gmail.com>
-	 <20261102170303.1973892-4-jernej.skrabec@gmail.com>
-	 <29e72b15007592f98dd000f5f62a85367c590347.camel@collabora.com>
-	 <zYI0QcxKSEeu6sHIbu0-3w@gmail.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-4o970CQPk1yDQhl/dEtr"
-User-Agent: Evolution 3.60.2 (3.60.2-2.fc44) 
+	Tue, 03 Nov 2026 18:44:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5BD561595;
+	Tue,  3 Nov 2026 10:44:40 -0800 (PST)
+Received: from [10.211.55.3] (unknown [10.57.89.242])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0B333F628;
+	Tue,  3 Nov 2026 10:44:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793731483; bh=uAQW7HvA0v7nIV7mc4N2TG5pPdvVVKtuJnC0ma5RjYo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RE4/eDH9BflLfmG4pGA+XUXDeV9ihXn60ajrcwLY+TgWH82Pbak1ug67AKrnpV94m
+	 zxL9dPNkSuyq/d9D5CRQiQGg4iOo4rD/gyaiTZJp7ObekDaiOHS74Q7bYHkdg1iRUz
+	 WuCWnBi95UKRxA++0Wq2csBpNcihRbP5C2Xu13aY=
+Message-ID: <fa595d08-9b92-4266-acb7-489e1b2277c4@arm.com>
+Date: Tue, 3 Nov 2026 18:44:39 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+User-Agent: Thunderbird Daily
+Subject: Re: [RFC PATCH v2 01/10] arm_mpam: resctrl: Use find_component() when
+ allocating a domain
+To: Reinette Chatre <reinette.chatre@intel.com>, james.morse@arm.com,
+ Dave.Martin@arm.com, fenghuay@nvidia.com
+Cc: tony.luck@intel.com, yu.c.chen@intel.com, babu.moger@amd.com,
+ fustini@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, patches@lists.linux.dev
+References: <cover.1792443633.git.reinette.chatre@intel.com>
+ <94ddff51b91f4a51965baf0384c2368e292c1a8c.1792443633.git.reinette.chatre@intel.com>
+ <308b326e-9fc8-4d49-9c85-c3b9cb9288f3@arm.com>
+ <9400d7a6-3d00-474d-bf1d-6db1a08c16fb@arm.com>
+ <200bd69e-61fd-4680-8e14-338e2d45c266@intel.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <200bd69e-61fd-4680-8e14-338e2d45c266@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_103922_682523_3851C9F2 
-X-CRM114-Status: GOOD (  26.90  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261103_104444_979341_530B7B36 
+X-CRM114-Status: GOOD (  13.86  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,162 +76,47 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Hi Reinette,
 
---=-4o970CQPk1yDQhl/dEtr
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On 03/11/2026 18:13, Reinette Chatre wrote:
+> Hi Ben,
+> 
+> On 11/3/26 9:48 AM, Ben Horgan wrote:
+>> On 03/11/2026 15:01, Ben Horgan wrote:
+>>> Hi Reinette,
+>>>
+>>> The change seems good but I think the commit message can be cut down at bit.
+> 
+> Thank you very much for taking a look and providing the needed changes. Since I
+> am unable to test and especially since this involved a locking change I ended up
+> with changelogs containing more than the usual reasoning about correctness.> >> It looks like this patch also has the plus of addressing this sashiko
+>> report:
+>> https://sashiko.dev/#/bug/linux-9a564d61-b4d8-400d-b4b9-cd5f20729468
+> oh. Would you like this commit to capture this? To do so I can add the following tags:
 
-Le mardi 03 novembre 2026 =C3=A0 19:06 +0100, Jernej =C5=A0krabec a =C3=A9c=
-rit=C2=A0:
-> Dne ponedeljek, 2. november 2026 ob 19:50:44 Srednjeevropski standardni =
-=C4=8Das je Nicolas Dufresne napisal(a):
-> > Hi,
-> >=20
-> > Le lundi 02 novembre 2026 =C3=A0 18:02 +0100, Jernej Skrabec a =C3=A9cr=
-it :
-> > > The frame info of a reference has a reference type for each field, in
-> > > bits 1:0 for the top field and 5:4 for the bottom one, which is 1 for=
- a
-> > > long-term reference. The driver never sets it, so the hardware handle=
-s
-> > > long-term references like short-term ones, also where they differ, li=
-ke
-> > > in temporal direct and implicit weighted prediction. The vendor libra=
-ry
-> > > sets it.
-> > >=20
-> > > This fixes MR8_BT_B and MR9_BT_B of the H.264 conformance suite.
-> > >=20
-> > > Fixes: 6eb9b758e307 ("media: cedrus: Add H264 decoding support")
-> > > Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> > > ---
-> > >  drivers/staging/media/sunxi/cedrus/cedrus_h264.c | 12 +++++++++++-
-> > >  drivers/staging/media/sunxi/cedrus/cedrus_regs.h |  8 ++++++++
-> > >  2 files changed, 19 insertions(+), 1 deletion(-)
-> > >=20
-> > > diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_h264.c b/drive=
-rs/staging/media/sunxi/cedrus/cedrus_h264.c
-> > > index 892193c12b2f..a716955655f7 100644
-> > > --- a/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
-> > > +++ b/drivers/staging/media/sunxi/cedrus/cedrus_h264.c
-> > > @@ -69,13 +69,21 @@ static void cedrus_fill_ref_pic(struct cedrus_ctx=
- *ctx,
-> > >  				struct cedrus_buffer *buf,
-> > >  				unsigned int top_field_order_cnt,
-> > >  				unsigned int bottom_field_order_cnt,
-> > > +				bool long_term,
-> > >  				struct cedrus_h264_sram_ref_pic *pic)
-> > >  {
-> > >  	struct vb2_buffer *vbuf =3D &buf->m2m_buf.vb.vb2_buf;
-> > > +	u32 frame_info, ref_type;
-> > > =20
-> > >  	pic->top_field_order_cnt =3D cpu_to_le32(top_field_order_cnt);
-> > >  	pic->bottom_field_order_cnt =3D cpu_to_le32(bottom_field_order_cnt)=
-;
-> > > -	pic->frame_info =3D cpu_to_le32(buf->codec.h264.pic_type << 8);
-> > > +
-> > > +	ref_type =3D long_term ? VE_H264_FRAME_INFO_REF_TYPE_LONG_TERM :
-> > > +			       VE_H264_FRAME_INFO_REF_TYPE_SHORT_TERM;
-> > > +	frame_info =3D VE_H264_FRAME_INFO_TOP_REF_TYPE(ref_type) |
-> > > +		     VE_H264_FRAME_INFO_BOT_REF_TYPE(ref_type) |
-> > > +		     VE_H264_FRAME_INFO_PIC_TYPE(buf->codec.h264.pic_type);
-> > > +	pic->frame_info =3D cpu_to_le32(frame_info);
-> > > =20
-> > >  	pic->luma_ptr =3D cpu_to_le32(cedrus_buf_addr(vbuf, &ctx->dst_fmt, =
-0));
-> > >  	pic->chroma_ptr =3D cpu_to_le32(cedrus_buf_addr(vbuf, &ctx->dst_fmt=
-, 1));
-> > > @@ -128,6 +136,7 @@ static int cedrus_write_frame_list(struct cedrus_=
-ctx *ctx,
-> > >  		cedrus_fill_ref_pic(ctx, cedrus_buf,
-> > >  				    dpb->top_field_order_cnt,
-> > >  				    dpb->bottom_field_order_cnt,
-> > > +				    dpb->flags & V4L2_H264_DPB_ENTRY_FLAG_LONG_TERM,
-> > >  				    &pic_list[position]);
-> > >  	}
-> > > =20
-> > > @@ -174,6 +183,7 @@ static int cedrus_write_frame_list(struct cedrus_=
-ctx *ctx,
-> > >  	cedrus_fill_ref_pic(ctx, output_buf,
-> > >  			    decode->top_field_order_cnt,
-> > >  			    decode->bottom_field_order_cnt,
-> > > +			    false,
-> >=20
-> > nit: Not a hard objection, but I really hate boolean parameters. It cou=
-ld be a
-> > simple as:
-> >=20
-> > +			    false, /* short term reference */
-> >=20
-> > Or using an enum. My preference being documented here, its yours to dec=
-ide.
->=20
-> I'll use VE_H264_FRAME_INFO_REF_TYPE_* as parameter. I have to fix sashik=
-o
-> issue anyway.
->=20
-> I'll keep your Reviewed-by, unless you object.
+I don't think it counts as a real bug as its only going against the
+cleanup.h guidance and making the code fragile rather than actually
+breaking anything. Good to fix though.
 
-wfm
+Thanks,
 
->=20
-> Best regards,
-> Jernej
->=20
-> >=20
-> > Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> >=20
-> > >  			    &pic_list[position]);
-> > > =20
-> > >  	cedrus_h264_write_sram(dev, CEDRUS_SRAM_H264_FRAMEBUFFER_LIST,
-> > > diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_regs.h b/drive=
-rs/staging/media/sunxi/cedrus/cedrus_regs.h
-> > > index 05e6cbc548ab..961fe023bb43 100644
-> > > --- a/drivers/staging/media/sunxi/cedrus/cedrus_regs.h
-> > > +++ b/drivers/staging/media/sunxi/cedrus/cedrus_regs.h
-> > > @@ -616,6 +616,14 @@
-> > >  #define VE_AVC_SRAM_PORT_OFFSET		0x2e0
-> > >  #define VE_AVC_SRAM_PORT_DATA		0x2e4
-> > > =20
-> > > +/* Frame info word of a frame buffer list entry in the AVC SRAM */
-> > > +#define VE_H264_FRAME_INFO_PIC_TYPE(v)		SHIFT_AND_MASK_BITS(v, 9, 8)
-> > > +#define VE_H264_FRAME_INFO_BOT_REF_TYPE(v)	SHIFT_AND_MASK_BITS(v, 5,=
- 4)
-> > > +#define VE_H264_FRAME_INFO_TOP_REF_TYPE(v)	SHIFT_AND_MASK_BITS(v, 1,=
- 0)
-> > > +
-> > > +#define VE_H264_FRAME_INFO_REF_TYPE_SHORT_TERM	0
-> > > +#define VE_H264_FRAME_INFO_REF_TYPE_LONG_TERM	1
-> > > +
-> > >  #define VE_VP8_PPS			0x214
-> > >  #define VE_VP8_PPS_PIC_TYPE_P_FRAME		BIT(31)
-> > >  #define VE_VP8_PPS_LAST_SHARPNESS_LEVEL(v)	SHIFT_AND_MASK_BITS(v, 30=
-, 28)
-> >=20
->=20
->=20
->=20
+Ben
 
---=-4o970CQPk1yDQhl/dEtr
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+> 
+> 	Fixes: 09e61daf8e96 ("arm_mpam: resctrl: Add boilerplate cpuhp and domain allocation")
+> 	Reported-by: Sashiko <sashiko-bot@kernel.org>
+> 	Closes: https://sashiko.dev/#/bug/linux-9a564d61-b4d8-400d-b4b9-cd5f20729
+> > Reinette
+> 
+> 
+> 
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCauoqVQAKCRDZQZRRKWBy
-9A8TAQD+Ry4FbmqwUPe+CY+SuLTohAJ3Ka3OO+jZx92frXbjMwD9HhnN1J2i6c6E
-vla3dVABSCurWRbXxU3IIzC1ZTRiagY=
-=9Lq8
------END PGP SIGNATURE-----
-
---=-4o970CQPk1yDQhl/dEtr--
 
