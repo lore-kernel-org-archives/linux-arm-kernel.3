@@ -2,84 +2,137 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA349606D807
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3202606D80F
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 07:41:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=S4ZnkAwq;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=GNCY00i6
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qdTF3i1/;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=HOlF8LGk;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gPeIAGjP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=unrXYpRM04ZDnuSzMCxmVlS1hxiwU0LvVlULs3HYgng=; b=S4ZnkAwqz5RydD
-	Ljf5Vk+hRbQVUJZAqWRiW+FXaGL/KaKYrkSD17zN7C13kR70wWrod+tT3KlY6JLsn88UU5zuYoKkc
-	Npwpz38385I4dCa3AAyrMg2Z5YAhN2okEnPg3f6N8PwyqoxbC/agEarBKBu0LgqgA4rNE+bRMEKb4
-	EC0i+DvA8WbxzBmIdlU3UAdgMKq76TWTq50H7YGHZvHRL4ZVxtrM85gS6KjmyQubWAaXXfc0zDFRW
-	p2wqhRk9KHgH7vdAVlyaX9cHHle4YDpvlsfnt6qHF14m9bpcZTmnsbULCBeHOJWq8Yd6TTGOSiCGP
-	Q6KzowGZ3aFHgDG3oXNw==;
+	List-Owner; bh=DkVqZCyEHTkw0fLy5AgelSQiyen6kTUwAZLAvdHj+5g=; b=qdTF3i1/d8eKpl
+	pG8NORXj9nHVF6FG52+8GT4bc6bK46CN8vKhNs5MTuhTSngZFJ9VmqWVWM1OEDTs6amAq8J+E4vAj
+	M5awZFag1T4nUA+yqkQRmUjPzY3gZV+O/mmIPjRjxBIopZu/bPyfYhT0YTButnnf3aL0gM5zD6wNb
+	UiBQt5Rg0V2iKPlUevCA5ZjkdXNn9ZVDQFpdjMRwEu2xQbIPiqJx1bQDQ7RkzUEq1oBKTGaojYjPD
+	omEaXG5kjkOSOgxZv68DnH9NOXZrlg/KSin5U7gotRqXpWQti26PG38xzjfF0H8kAFYL6eXrK160V
+	udrJVU8tckORN2ucIfpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO99R-00000001N2l-2dZR;
-	Tue, 03 Nov 2026 07:41:49 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xO99P-00000001Myo-2xAn;
+	Tue, 03 Nov 2026 07:41:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO98v-00000001MKN-1vq7;
-	Tue, 03 Nov 2026 07:41:34 +0000
-Received: from [127.0.1.1] (chfd-03-b2-v4wan-176392-cust229.vm15.cable.virginm.net [82.19.20.230])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C5CE32805;
-	Tue,  3 Nov 2026 08:38:54 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1793691535;
-	bh=6Q9ze18PqHn248ojyQQszGM7rBEuyTl31r061SKya5g=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=GNCY00i6tFBKpRHwoaElC/BNx/mHQcHLatcF5sA2somBrLB3U5PUfx7KhBYozzf8G
-	 KTwXTjITFhe2DsAxT0wjQqllEP2Q4nJXABMxre+jXtREEtG4RVHBaDNuhsvFnEsGK8
-	 OTfQ2xg3O99JsIfd4lbozFIM/S6A5WfJUIs2BHsE=
-From: Daniel Scally <dan.scally@ideasonboard.com>
-Date: Tue, 03 Nov 2026 07:40:43 +0000
-Subject: [PATCH 07/16] media: rkisp1: Power down after subdev
- initialisation
+	id 1xO993-00000001MXJ-10ql
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 03 Nov 2026 07:41:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=DkVqZCyEHTkw0fLy5AgelSQiyen6kTUwAZLAvdHj+5g=; b=HOlF8LGk+OYKXpaoUfLalzZSgJ
+	ZVEbPjhBDHfYUFdeUHtl8/90t3rDIrULwdLOgBFGnvE+kzr59xu9lnYgvqoJINJAN02Zmczde9i5N
+	XSS1LF0MuAyfLXWtOAgAMLaYhc6cJB9XpkPB5srwdIK1NEQDwXqA3EZP/NntC2lGBPo2XVLhEaDpN
+	elywwMxQ2ENHCv/ED1NXoSsIruJzUK3rPdpZ5qDYoeFRSvocxcjnO6GLC4WyKk9+llyyH2lhM6UQa
+	L+N0kvFIObHtEgy2md7r+k0sP3ONx4V9Tqc0Ok0ZT3ALOSUYM6xnIHXm1JlGqEPzsU3arPLSqYzS9
+	rKd/MlzA==;
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xO990-000000007WS-2PXx
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Nov 2026 07:41:24 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-3ac77270fbfso1866944a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 23:41:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793691679; x=1794296479; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=DkVqZCyEHTkw0fLy5AgelSQiyen6kTUwAZLAvdHj+5g=;
+        b=gPeIAGjPNZkmnuwoVH7TiINTaT44PYQzFxfUehhDivd6AduJojMPmyfrz6urq6MpLB
+         GGYxAXn6U7ykpNP+M+xiSe6Ot7C9rKtDJNa47pdT1T5u2py6k1wzjbrcxjEHrHIrm2EA
+         YLV+JFAa5Wa9hUXLufwFVRL0uEUrSX+cVOEbV/Dlfpx419z7/rQ2akkdlQpTa4zegY4P
+         3h0kOUoE7JFXyaK+Dijj+p2lIG40E5z8bWSCuOXNl91KTCGoJuBmotwZIXPYnhpqZMTp
+         3LbmCB1dp8c0XXx2230PpnjikVQubL3joQKweLdJ0fGbP/FpcUjkVXcikeYputqq5sYh
+         oTCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793691679; x=1794296479;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DkVqZCyEHTkw0fLy5AgelSQiyen6kTUwAZLAvdHj+5g=;
+        b=jHv8EiuptOrbcsBN9DlcQr5q1VP2kpkNrq/xNpS8cvxKyPizQg6EHlD7G2jQHHBigI
+         T2jLINw9XOmpZjaPUlHpd8Rb5BVxWjvnrU8QKwjc/b0LMpONSQhLZtJII5mOjkYiglMb
+         NapW+DTXJybaq2md0LUPb4oHgOhder+OCvMvn5QGFG/QoU349bf7h/cKbkn86NP7rsjk
+         Z5gcinKKJcntQFrJGKT7car3g9TKBsGKJ5861FRaXfaZeFNns4JdbKSKIVc8suD/HSiP
+         YDnbMrkbwuwH+zoTQ+MvbWgXs6BXkOqupxJPL39ZFYGvWlcijkKwXEgUjgXCePn4VNVG
+         aoQQ==
+X-Forwarded-Encrypted: i=1; AKwUvBx5cJKMnlETaWvBBEmoJd5aw5oaEX0rH5Wr6AcPDXB+9h6miWFGg2rGfT6JlU/jr5FflAhCwqNyvm6Unypc4z8V@lists.infradead.org
+X-Gm-Message-State: APuU4Z/ccgN6oYo81V0q0uL+uY5tQfWALEeZBc15lJj48Ded8PohNh/N
+	3hm87ZhxExCeTTsqVEMPhSZXtORbH1NQ0KkAD4HmW6ug3nZDoNdtneEB
+X-Gm-Gg: AYBFou0a8hvXYcM/LvA0lYPLDV9MVjCjf7n+unlEVQzxE5IP7jusf30TEJBY3x3rOrN
+	VLwnm0HUl9s4+9n48NYMolaQdsfpgN/cu8LnLsR07Gklx6Z5Wi6cMu0LtLp/sc36goey0Kh+Pw4
+	6w/a/qJFXfMk91ooLhaqWKIrER0530oXek755cYBSzAdYDMkfDIODKeTKXV7lXn4VeRi6fNQQwu
+	CDRwb7qNIq0Ks+S/enKP5L4O3bgY1aFTt5gvp+bHeVOamVRCreDRafAxBsUeax6D2IOIHND3q6R
+	yYLgcafMq5R2l/cbHIIM5XfYFnfnmLvY4WlDjc6unQmwvZxTw9JqxbQeZjJXhiCKt47GO+PdEfo
+	KXR+OWnG49eW63RAah3JcuVBbF0HA1eDQo9DyU4uJsabjOVksspKJLsA+QbBweB/xwOeR27Bfyi
+	jht+Xjdwlz/JWYfy+NyjGWmbw91Qp0pYdiWPHjSyAxbi7LWCBAEkRLYoXj3yx8pyL08DRYPxzkd
+	//onfupy7grAWTjRx2TTJa0Ral3nmvL1sMejFXBz3cz1VfnjceK0bdzfaktyLvj1nMqW5V5HF7C
+	840g6lmUL2zCloWsZlZXOi9S4i/Bbit4Q/mQLbKAq/cDxaDywqMh3Hst8zkPr9OrXhx+VVgvddr
+	yIMgSvwX0U5kF31DrMieIKpLgZXkaU2pkHJUzA3T/AgKsahadkuQJexNX8ualVkjIVhHDyNZtkr
+	aFvDw=
+X-Received: by 2002:a17:90b:1d0a:b0:3ac:d39d:ee4f with SMTP id 98e67ed59e1d1-3ae897f6e87mr9311929a91.44.1793691679407;
+        Mon, 02 Nov 2026 23:41:19 -0800 (PST)
+Received: from [192.168.2.34] ([2403:581e:d87e:0:739f:50a5:e171:f133])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b07c903d0dsm2956769a91.12.2026.11.02.23.41.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Nov 2026 23:41:19 -0800 (PST)
+From: James Calligeros <jcalligeros99@gmail.com>
+Date: Tue, 03 Nov 2026 17:39:56 +1000
+Subject: [PATCH v4 08/22] ASoC: tas2770: Add compatible for TAS5770L
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261103-rkisp1-suspend-and-resume-v1-7-08f863b6fdc5@ideasonboard.com>
-References: <20261103-rkisp1-suspend-and-resume-v1-0-08f863b6fdc5@ideasonboard.com>
-In-Reply-To: <20261103-rkisp1-suspend-and-resume-v1-0-08f863b6fdc5@ideasonboard.com>
-To: Tomasz Figa <tfiga@chromium.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Dafna Hirschfeld <dafna@fastmail.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, 
- Daniel Scally <dan.scally@ideasonboard.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1424;
- i=dan.scally@ideasonboard.com; h=from:subject:message-id;
- bh=6Q9ze18PqHn248ojyQQszGM7rBEuyTl31r061SKya5g=;
- b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBq6ZAQsEz30yISu/ty86JMYqKVlaIhSKowTjLKq
- OxO/5Dl/76JAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaumQEAAKCRDISVd6bEV1
- MpqdD/9UIlQ0Z1KWJ43DKnhvwdh7TZAdi75TJBQH+hMli4XVXFcUVl7u7haiDn+RqH0A7ad2lEa
- LNlqYpyMbuvYPRP8t3iB5ARzaA+yDO/PyjfPDKCWIXpfdFUcCR9mzrVY/fp1cugpZPld5l6FqGY
- 29m1M+G54/6DBBLB/I2p+sYAHe1epUDm8L1FQRrXjBr1ADFqnldp7RMSiW1GMwEQHwwI9VNybt8
- min/iFAXJiVFdhJmIu0MPWtpX7UbAk3aqn/RJaKupr4gtga4YTBpF6vPNOkIZAoR2Uysi9X9lHz
- Q6wFTMoJyf9vV2CvXDbfcCouNYihS0HZTEk9GUyJBqoz0j722OStMOXFTTipqnjhtUzmFwnNCse
- e23s99jMkvKw+VryxqWIZwP4PZfxOBHRotiakMRRqr2DiqThuk2q8xfY/FozGdAF8oLrMG9a2IR
- TPYJwW26+SCC1pLk6o1v+G/mLzd3P8FIs7ONTUFBZDPQ97aL9R1/vk4XwOc2VGG4eIMD0UdXl0p
- cPPVAIyNGpUCAHCbUp82eY6HPesoT5+NqMQCw2Idy9NkPXrpl2gJiF4IZsAvt/rpy8IjxK+zIzq
- s+3mWHksUWvvaTDG9lsvVULcs0B/2X0NoqnQCvJms0AF5QjWRXrEmEBxzb9g+YMhwWVqCEMB6G4
- KszVl8mCjDQrK1g==
-X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
- fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
+Message-Id: <20261103-macaudio-v4-8-637484efe46d@gmail.com>
+References: <20261103-macaudio-v4-0-637484efe46d@gmail.com>
+In-Reply-To: <20261103-macaudio-v4-0-637484efe46d@gmail.com>
+To: David Rhodes <david.rhodes@cirrus.com>, 
+ Richard Fitzgerald <rf@opensource.cirrus.com>, 
+ =?utf-8?q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ James Calligeros <jcalligeros99@gmail.com>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, 
+ Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>, 
+ Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>
+Cc: asahi@lists.linux.dev, linux-sound@vger.kernel.org, 
+ patches@opensource.cirrus.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=758;
+ i=jcalligeros99@gmail.com; h=from:subject:message-id;
+ bh=69WolvDz8NBwzZIcSNN8FfeWXOxg6F1Zc88rX6gr6IA=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDFkv+8/JT/yQMm+dq82UlFMPTp/2dY06tJip9pvC6e8Tp
+ nCaxhnc75jIwiDGxWAppsiyoUnIY7YR281+kcq9MHNYmUCGSIs0MAABCwNfbmJeqZGOkZ6ptqGe
+ oZGOsY4RAxenAEy1TQbDf5dT0nnf72fPOLBj079/H7k1rpdmX7u6dl1j6XIjR4djR6oYGXqmvg1
+ +8eCK2cYJOaER62doThWo8+3ycjEK+na7YN3RfVwA
+X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
+ fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_234119_962966_1CF98598 
-X-CRM114-Status: GOOD (  11.99  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261103_074122_552872_F24F9557 
+X-CRM114-Status: GOOD (  12.58  )
+X-Spam-Score: 0.1 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,53 +143,36 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-We will shortly need to reference the ISP's subdevice in the PM
-.runtime_suspend() callback - make sure we don't call it until
-after the subdevice has been registered.
+TAS5770L is an Apple-specific variant of TAS2770 found in a number
+of first-generation Apple Silicon Macs. Add a compatible for it.
 
-Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 ---
- drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ sound/soc/codecs/tas2770.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-index 2efbe6140da71a51077d7d4aa2352ef95497ebe2..9f1d0f72ee9bf4364c696d9fdd8febea80d2bcde 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
-@@ -729,11 +729,6 @@ static int rkisp1_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto err_pm_runtime_disable;
- 
--	cif_id = rkisp1_read(rkisp1, RKISP1_CIF_VI_ID);
--	dev_dbg(rkisp1->dev, "CIF_ID 0x%08x\n", cif_id);
--
--	pm_runtime_put(&pdev->dev);
--
- 	rkisp1->media_dev.hw_revision = info->isp_ver;
- 	strscpy(rkisp1->media_dev.model, RKISP1_DRIVER_NAME,
- 		sizeof(rkisp1->media_dev.model));
-@@ -770,6 +765,11 @@ static int rkisp1_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto err_unreg_entities;
- 
-+	cif_id = rkisp1_read(rkisp1, RKISP1_CIF_VI_ID);
-+	dev_dbg(rkisp1->dev, "CIF_ID 0x%08x\n", cif_id);
-+
-+	pm_runtime_put(&pdev->dev);
-+
- 	rkisp1_debug_init(rkisp1);
- 
- 	return 0;
+diff --git a/sound/soc/codecs/tas2770.c b/sound/soc/codecs/tas2770.c
+index 67ff2dd949be..57de75115450 100644
+--- a/sound/soc/codecs/tas2770.c
++++ b/sound/soc/codecs/tas2770.c
+@@ -987,6 +987,7 @@ MODULE_DEVICE_TABLE(i2c, tas2770_i2c_id);
+ #if defined(CONFIG_OF)
+ static const struct of_device_id tas2770_of_match[] = {
+ 	{ .compatible = "ti,tas2770" },
++	{ .compatible = "ti,tas5770l" }, /* Apple variant */
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, tas2770_of_match);
 
 -- 
-2.43.0
+2.56.0
 
 
