@@ -2,121 +2,84 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2054606A335
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 07:41:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7203D606A33C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 07:41:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EblJWMYR;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WPVjnm+c
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2ylTWAaW;
+	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=dbZJrTJI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=AjJneFd6zR9t+WlMczvHbSnCI0cOt38Lz44GPu9SAaQ=; b=EblJWMYRqeiuTR
-	3DdjjFRMtrHxv7hdPFy523OaSoMIaQWrnXGUNqwy45RPezlD9khdwr5DxsKQCfVP8rGinq8ukAy1r
-	pNscTx+TKWFZURKcCz679zTEoYL1IKIDzggbL85qjSO5vAfM1+jWgZ2Ox2ra2OLbFuK+xue1LaS5N
-	lgs8KBFfMWiWc1bgEpJJdk5TVvNifjpP/0+Kwe3+Rr35idWV2xqJ7EFe7UejjG9qSaK338+MY5IBD
-	FEZycv7y5rDSa9fVzAjmByFYpfgJF7l1vDS94TT+WB1vt4Ljk7tPgAbwJt9rIBBCHC/LoAFhy7EBs
-	HyXSyUwHCI5nL4qeGfow==;
+	List-Owner; bh=dGmWGf3sk18wdDPiwQtXXqAqx/6LlKgOLY7+d/ILZ4Y=; b=2ylTWAaWW+uIdN
+	NPRIwHlSawB0fGEQmCy+zBclQlAFrgJU4UzBWOpqCkFJp/mzdZuRqLnic+pfCFVJcsNItl9dSQk5b
+	7JAOjfxibfzqlH48XNMqnWHqajB3Hoxe6Hd0tn9Pnzf0tgWEMWMlsJ4HPjojEtW6Zrsui2lMYVIM0
+	ltKOPtoLbaX2lSpHz5hEMMGHG2jyRU2QELB7dZKZW8fduFPRjnvT2TUZPD3QHpxvShBg4PXx/gBCk
+	CNtKHre3F/fXNgG326TFcD5VkrK7a+/Mc4mO1JcMnwxXMNsz+NVSQ5Ka5STlQkDlL1nZUMvHLP8ax
+	T7MD09B0em+NkOivrLkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO98l-00000001M90-1agx;
-	Tue, 03 Nov 2026 07:41:07 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1xO990-00000001MTg-2f2B;
+	Tue, 03 Nov 2026 07:41:22 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO98h-00000001M5Z-0RIW
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 07:41:06 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2e985106c0cso36148215ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 23:41:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793691662; x=1794296462; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=AjJneFd6zR9t+WlMczvHbSnCI0cOt38Lz44GPu9SAaQ=;
-        b=WPVjnm+cvWRtUjvP2YZCDKw1aYUJo6zw+ia4o3TnQRzgMDnut0pnN+MptPZXlQNwIk
-         5iX2BQkcx3ge39Ej5TXeHU8b+vTnv46yY3g/zjn4xDtB1GzuRlrLmIxu9Vn0fF1nDp3v
-         lqnEo4az0k8XEZHV6EKQ2NjRiMBx0olz9Bd69vgwSK/WrjEs+Pb26l5BOSStluhvtVWA
-         b3PST44rzIsI7iYNbv/j8XsC9Wl2h5TfE/P/Xf53+78GRcPQkgO42x6AnitDiex2Ifo3
-         DsdLEnLudf/R4NKFVV1/ihiYT5fb80Kr4F5urZ6wFdOZwJ6XG/qkZpynT7oyXP0VefuG
-         7nFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793691662; x=1794296462;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=AjJneFd6zR9t+WlMczvHbSnCI0cOt38Lz44GPu9SAaQ=;
-        b=bkEH4FssYQcbvQ90+FSuNhvj8/GZSGFAavI6QyrY1xjyf3YMZ0pk/h2LHFL7SUmEd8
-         +xWW5pf14DTIp3HmDnCw18cMWUOvmG2cCWdqFxD6558Wj5qduYEhVEfFnAAXi1Qhj4zs
-         hmu7aG8dqHWlnWPay/ClrzFFZuQEiolh8YDM4BDkYH7gvF86dzNyZj1CexKdZGlpAL4i
-         qIndMtfxAQuFZ7TrlsynwRtxmqAkQCqZlBgcr3b6EjB/g0cdOSWIRXnsyoVhBEQrikxf
-         7sSdADxVAZcOgl8ON9xH2HHCUB9loXiSNV2ik5LpoIm9xUU7Dzkk45cccY1+3ENGPHOX
-         75Vg==
-X-Forwarded-Encrypted: i=1; AKwUvBx9OqIg/+71a7lzXBkVlzu/X2Zy8OUfL+QIJVCwnpH3OispTaY+l1POC8wQLYJuldq74/6s92drlr9hMq3ziGTP@lists.infradead.org
-X-Gm-Message-State: APuU4Z+N0UIyMD8n//3jYJWs+t/jKlSBlO25FwWzqVYaWM0W5FVasEA/
-	OiwvnNI9M2YwFgNbx1Qhx7xmnmeP7bJX+zg1gqffb9mH2NgEunSf19rf
-X-Gm-Gg: AYBFou11gCBGmgZvUroGh2XAIQ7cfgqcdoc+rpKZW6RMpoXqInjjlg+G3G8Va3yuKA8
-	8yPpvyoCDFy6NQyWsbGTeIXzR/OdsvsL7XuL4AcZeK3bX/e/tD/v6v+3nMXMYdt9ePuPfpP3D/S
-	rHEglHgP2E/u6AZuLnI2FGSiZl76AET3B8HKk8aBPD0QplwowptXuWPoNiUGjdMXVESkS6c2ssi
-	vcHwaZ2lzFvlwl0i1fUzdop41KqraKddshWazSd2s2lFENNM49rIGBrfaxJU72Sk1keET1ffhER
-	Zlh/LC2fx5Ok96nc++UAgKYqm2nCHRbdT0oq/m+cb5Xe0EA9KVAwzgy71zgTM2z+ASUDmZpdbaP
-	5zx4vdJT3nABvgO0SC5ymfRVQ1KFdSMMEk2lCQGURen7NLKVqmibLjc9j73URs+P23m1EtbMw0H
-	Ct0PFAA5La+2q8ChofHgHxLuw519CwduWoTOyIyz5kwbKpkBtTmLZPqtksLtvIt4tWm6kPz9gh5
-	Q0JvSlS6rnoo7DGlamBR7WMpz2BUdUXwBCK8AR+HphqdBBuLCiVhH8rhL1fnEHjI5WDkfgJJDK2
-	eQiTopbR3tRXYoEQsRqiwvQ62obER9kMFWgQ6ECM/f9wEae9laMeMtcCPd2fd72Kd90mEhe3vYM
-	HkGN9uM0emN19nyjEVnmdc2thqOWVSkDPwWxXixj2jqPJvbNLUrn0IrQAWwqpXcW5IeF1Oj1Yd6
-	61E9s=
-X-Received: by 2002:a17:90b:48d0:b0:3ac:80de:44e8 with SMTP id 98e67ed59e1d1-3ae8983c697mr9569540a91.43.1793691662194;
-        Mon, 02 Nov 2026 23:41:02 -0800 (PST)
-Received: from [192.168.2.34] ([2403:581e:d87e:0:739f:50a5:e171:f133])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b07c903d0dsm2956769a91.12.2026.11.02.23.40.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 23:41:01 -0800 (PST)
-From: James Calligeros <jcalligeros99@gmail.com>
-Date: Tue, 03 Nov 2026 17:39:54 +1000
-Subject: [PATCH v4 06/22] ASoC: ops: Introduce 'soc_set_enum_kctl'
+	id 1xO98r-00000001MCc-0VQK;
+	Tue, 03 Nov 2026 07:41:15 +0000
+Received: from [127.0.1.1] (chfd-03-b2-v4wan-176392-cust229.vm15.cable.virginm.net [82.19.20.230])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4B9897E1;
+	Tue,  3 Nov 2026 08:38:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1793691532;
+	bh=FpOG2V9qZc+FAmtb1LE1ngwO1LYVbBSRN9Zl7o78SP0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=dbZJrTJIWUeXHSk723zeXipEO44agmxRmzwxXMPSETGyq+Pr0LGDudOSqnufzkmOb
+	 QGeDqzScmwFg7Fl9G1ciVGnm9Kn0NmT91hB+tEPbNMQghRj+M84h+E+BuuVqM6osFH
+	 OpBAvpuy36RnxtiFxJIMUpH/VF4d+nU0+cpYeo28=
+From: Daniel Scally <dan.scally@ideasonboard.com>
+Date: Tue, 03 Nov 2026 07:40:39 +0000
+Subject: [PATCH 03/16] media: v4l2-async: Add devlinks between notifier and
+ async subdevices
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261103-macaudio-v4-6-637484efe46d@gmail.com>
-References: <20261103-macaudio-v4-0-637484efe46d@gmail.com>
-In-Reply-To: <20261103-macaudio-v4-0-637484efe46d@gmail.com>
-To: David Rhodes <david.rhodes@cirrus.com>, 
- Richard Fitzgerald <rf@opensource.cirrus.com>, 
- =?utf-8?q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- James Calligeros <jcalligeros99@gmail.com>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, 
- Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>, 
- Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>
-Cc: asahi@lists.linux.dev, linux-sound@vger.kernel.org, 
- patches@opensource.cirrus.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3032;
- i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=ZOqi03cyyWOVQz9j7HJ4ZmFw5Ix5rcoCeApwbxKDnBA=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDFkv+8+VbzVZeGCSGtuf7T8lO1l2PZw9+d9pc6Off7xS+
- a//rXq4v2MiC4MYF4OlmCLLhiYhj9lGbDf7RSr3wsxhZQIZIi3SwAAELAx8uYl5pUY6Rnqm2oZ6
- hkY6xjpGDFycAjDVv1YzMuwxlZYSjtp//6Xdd/vzhn+UEiaI2Nl8Foy+FXurk6WcZxvD/9CgyNx
- P55mtvLP3dn/MKNAJ7Dd4zuef8XD7uayGQ/n3eAA=
-X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
- fpr=B08212489B3206D98F1479BDD43632D151F77960
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261103-rkisp1-suspend-and-resume-v1-3-08f863b6fdc5@ideasonboard.com>
+References: <20261103-rkisp1-suspend-and-resume-v1-0-08f863b6fdc5@ideasonboard.com>
+In-Reply-To: <20261103-rkisp1-suspend-and-resume-v1-0-08f863b6fdc5@ideasonboard.com>
+To: Tomasz Figa <tfiga@chromium.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Dafna Hirschfeld <dafna@fastmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Daniel Scally <dan.scally@ideasonboard.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4941;
+ i=dan.scally@ideasonboard.com; h=from:subject:message-id;
+ bh=FpOG2V9qZc+FAmtb1LE1ngwO1LYVbBSRN9Zl7o78SP0=;
+ b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBq6ZAPCc3qpSoGNuPSzTOUZ789ukFFviFMGzu2T
+ cV8ZWh9D6aJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaumQDwAKCRDISVd6bEV1
+ MkkSEACJwm2M3uTX0thWVJEl+Tdm/XXWfRtzvqQoKNBkyTSRYCE48gx3W7K/OW7EufvSSG7+IHr
+ e2FNWACw/cQMN3+IM2KNNTgPaLqzklCFHaLIuccnUpevS1w7lDBdPA7Cx16kBSPjmK3PuzZto0Q
+ XBqj6ks3BCN2GkelOtQIrRR1IGdSOx0GiI5dKpa7Q43zfEQPROkOIoDV3j0mkBUIWZ7vcQHOc1N
+ Lix9O/0hLNmjLBBQMGVxAGUZsxIDqmV351CujnYXJ+uTjQRgvSnR+dqZyKWr8WtyW6JxZwr41sL
+ YBbaWmJOOZiXkN6HWiwZOzjtZYhzwn4ZW1T9vquAEXKeS0fdeMWsNVk9NN1z1jBFuRGuycc59NI
+ Swtg272wYIEy7W82/J/MOWcAVIB45zHGg0OUoNHnd/rK2Q6lWdZbMxNpTQqM3SJJW6ADMDaVYMa
+ qflJI4oIv/U5TNPfK8IPwd0KctedcIau+P8jL04yX/8S/62XCsIB9A7Xuzb+Zy/rbD2k4lOunPf
+ 7OyQCwTiVe6jXcWVDG+fL/LEs6DzGMztGYuylnzGePqulbn5zAjPTz6QmQczyVi/5L/o7vae0aI
+ gCON/SQpW/OHuI30ZLt0C8qFxkwg6x6Vl0KejLvsRPXT06YybcNWW2dAsof7QxldFCx68JHlHc5
+ hypBB5TxbyuFI6g==
+X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
+ fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_234103_294820_53872534 
-X-CRM114-Status: GOOD (  16.99  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261102_234113_351764_F1EADB8A 
+X-CRM114-Status: GOOD (  19.37  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,119 +90,172 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,T_SPF_TEMPERROR,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Martin Povišer <povik+lin@cutebit.org>
+When we suspend devices with a live stream running the ordering of
+the Power Management .suspend() and .resume() callbacks is important.
+We expect that the 'main' driver will stop the stream in its own
+.suspend() and restart it in .resume(), which means that it needs to
+be first to stop and last to start to ensure that the other devices
+in the pipeline are fully available when those callbacks run.
 
-The new function is to be used to set enumerated controls to desired
-values. It is something a machine driver may call in fixup_controls.
+To facilitate this, add device links between the async subdevices and
+their associated notifier immediately before calling .complete(). The
+new V4L2_DEVICE_FL_IS_OUTPUT flag is checked, and in that case the
+consumer and supplier of the device link are reversed.
 
-Signed-off-by: Martin Povišer <povik+lin@cutebit.org>
-Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
+Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
 ---
- include/sound/soc.h |  2 ++
- sound/soc/soc-ops.c | 67 +++++++++++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 69 insertions(+)
+ drivers/media/v4l2-core/v4l2-async.c | 107 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 107 insertions(+)
 
-diff --git a/include/sound/soc.h b/include/sound/soc.h
-index fbef941157ee..c77119f92dd3 100644
---- a/include/sound/soc.h
-+++ b/include/sound/soc.h
-@@ -567,6 +567,8 @@ int snd_soc_limit_volume(struct snd_soc_card *card,
- 	const char *name, int max);
- int snd_soc_ctl_activate(struct snd_soc_card *card,
- 	const char *name, int active);
-+int snd_soc_set_enum_kctl(struct snd_soc_card *card,
-+	const char *name, const char *value);
- int snd_soc_bytes_info(struct snd_kcontrol *kcontrol,
- 		       struct snd_ctl_elem_info *uinfo);
- int snd_soc_bytes_get(struct snd_kcontrol *kcontrol,
-diff --git a/sound/soc/soc-ops.c b/sound/soc/soc-ops.c
-index 1d60e290e40e..1cd7f1caefe4 100644
---- a/sound/soc/soc-ops.c
-+++ b/sound/soc/soc-ops.c
-@@ -505,6 +505,73 @@ int snd_soc_ctl_activate(struct snd_soc_card *card,
+diff --git a/drivers/media/v4l2-core/v4l2-async.c b/drivers/media/v4l2-core/v4l2-async.c
+index 460bf3dbbb88264fa63e3808d323d26861c873f5..7199ea244cba6ff1d1ec159ff8d9533418b541e6 100644
+--- a/drivers/media/v4l2-core/v4l2-async.c
++++ b/drivers/media/v4l2-core/v4l2-async.c
+@@ -273,6 +273,107 @@ v4l2_async_nf_can_complete(struct v4l2_async_notifier *notifier)
+ 	return true;
  }
- EXPORT_SYMBOL_GPL(snd_soc_ctl_activate);
  
-+static int soc_set_enum_kctl(struct snd_kcontrol *kctl, const char *value)
++static void v4l2_async_nf_remove_device_links(struct v4l2_async_notifier *notifier)
 +{
-+	int sel, i, ret;
++	struct v4l2_async_connection *asc;
 +
-+	struct snd_ctl_elem_value *evalue __free(kfree) = kzalloc_obj(*evalue);
-+	if (!evalue)
-+		return -ENOMEM;
++	list_for_each_entry(asc, &notifier->done_list, asc_entry) {
++		struct v4l2_async_notifier *subdev_notifier =
++			v4l2_async_find_subdev_notifier(asc->sd);
++		struct device *consumer, *supplier;
++		struct v4l2_device *v4l2_dev;
 +
-+	struct snd_ctl_elem_info *info __free(kfree) = kzalloc_obj(*info);
-+	if (!info)
-+		return -ENOMEM;
++		v4l2_dev = v4l2_async_nf_find_v4l2_dev(notifier);
 +
-+	info->id = evalue->id = kctl->id;
++		if (v4l2_dev->flags & V4L2_DEVICE_FL_IS_OUTPUT) {
++			consumer = asc->sd->dev;
++			supplier = notifier_dev(notifier);
++		} else {
++			consumer = notifier_dev(notifier);
++			supplier = asc->sd->dev;
++		}
 +
-+	ret = kctl->info(kctl, info);
-+	if (ret < 0)
++		device_link_remove(consumer, supplier);
++
++		if (subdev_notifier)
++			v4l2_async_nf_remove_device_links(notifier);
++	}
++}
++
++static int __v4l2_async_nf_create_device_links(struct v4l2_async_notifier *notifier)
++{
++	struct v4l2_async_connection *asc;
++	struct device_link *link;
++	int ret;
++
++	list_for_each_entry(asc, &notifier->done_list, asc_entry) {
++		struct v4l2_async_notifier *subdev_notifier =
++			v4l2_async_find_subdev_notifier(asc->sd);
++		struct device *consumer, *supplier;
++		struct v4l2_device *v4l2_dev;
++
++		if (asc->match.type != V4L2_ASYNC_MATCH_TYPE_FWNODE)
++			continue;
++
++		/*
++		 * The following two checks shouldn't be possible, but better
++		 * safe than oopsing.
++		 */
++		if (!asc->sd) {
++			dev_err(notifier_dev(notifier),
++				"async connection with null sd\n");
++			return -EINVAL;
++		}
++
++		if (!asc->sd->dev) {
++			dev_err(notifier_dev(notifier),
++				"async connection with null device\n");
++			return -EINVAL;
++		}
++
++		v4l2_dev = v4l2_async_nf_find_v4l2_dev(notifier);
++
++		if (v4l2_dev->flags & V4L2_DEVICE_FL_IS_OUTPUT) {
++			consumer = asc->sd->dev;
++			supplier = notifier_dev(notifier);
++		} else {
++			consumer = notifier_dev(notifier);
++			supplier = asc->sd->dev;
++		}
++
++		link = device_link_add(consumer, supplier, 0);
++		if (!link)
++			return -EINVAL;
++
++		if (subdev_notifier) {
++			ret = __v4l2_async_nf_create_device_links(subdev_notifier);
++			if (ret) {
++				device_link_del(link);
++				return ret;
++			}
++		}
++	}
++
++	return 0;
++}
++
++static int v4l2_async_nf_create_device_links(struct v4l2_async_notifier *notifier)
++{
++	int ret;
++
++	if (!notifier->v4l2_dev) {
++		dev_err(notifier_dev(notifier),
++			"v4l2-async: tried to create devlinks for sub-notifier\n");
++		return -EINVAL;
++	}
++
++	ret = __v4l2_async_nf_create_device_links(notifier);
++	if (ret)
++		v4l2_async_nf_remove_device_links(notifier);
++
++	return ret;
++}
++
+ /*
+  * Complete the master notifier if possible. This is done when all async
+  * sub-devices have been bound; v4l2_device is also available then.
+@@ -281,6 +382,7 @@ static int
+ v4l2_async_nf_try_complete(struct v4l2_async_notifier *notifier)
+ {
+ 	struct v4l2_async_notifier *__notifier = notifier;
++	int ret;
+ 
+ 	/* Quick check whether there are still more sub-devices here. */
+ 	if (!list_empty(&notifier->waiting_list))
+@@ -305,6 +407,10 @@ v4l2_async_nf_try_complete(struct v4l2_async_notifier *notifier)
+ 	if (!v4l2_async_nf_can_complete(notifier))
+ 		return 0;
+ 
++	ret = v4l2_async_nf_create_device_links(notifier);
++	if (ret)
 +		return ret;
 +
-+	if (!kctl->put)
-+		return -EINVAL;
-+
-+	if (info->type != SNDRV_CTL_ELEM_TYPE_ENUMERATED)
-+		return -EINVAL;
-+
-+	for (sel = 0; sel < info->value.enumerated.items; sel++) {
-+		info->value.enumerated.item = sel;
-+		ret = kctl->info(kctl, info);
-+		if (ret < 0)
-+			return ret;
-+
-+		if (!strcmp(value, info->value.enumerated.name))
-+			break;
-+	}
-+
-+	if (sel == info->value.enumerated.items)
-+		return -ENOENT;
-+
-+	for (i = 0; i < info->count; i++)
-+		evalue->value.enumerated.item[i] = sel;
-+
-+	return kctl->put(kctl, evalue);
-+}
-+
-+/**
-+ * snd_soc_set_enum_kctl - Set enumerated control matching a name
-+ *
-+ * @card: where to look for the controls
-+ * @name: name
-+ * @value: string value to set the controls to
-+ *
-+ * Return 0 on success, else error.
-+ */
-+int snd_soc_set_enum_kctl(struct snd_soc_card *card,
-+			  const char *name, const char *value)
-+{
-+	struct snd_kcontrol *kctl;
-+
-+	kctl = snd_soc_card_get_kcontrol(card, name);
-+	if (!kctl) {
-+		dev_dbg(card->dev, "Tried to set unknown control '%s' to '%s'\n", name, value);
-+		return -EINVAL;
-+	}
-+
-+	return soc_set_enum_kctl(kctl, value);
-+}
-+EXPORT_SYMBOL_GPL(snd_soc_set_enum_kctl);
-+
- int snd_soc_bytes_info(struct snd_kcontrol *kcontrol,
- 		       struct snd_ctl_elem_info *uinfo)
- {
+ 	dev_dbg(notifier_dev(__notifier), "v4l2-async: complete\n");
+ 
+ 	return v4l2_async_nf_call_complete(notifier);
+@@ -494,6 +600,7 @@ v4l2_async_nf_unbind_all_subdevs(struct v4l2_async_notifier *notifier)
+ 		if (subdev_notifier)
+ 			v4l2_async_nf_unbind_all_subdevs(subdev_notifier);
+ 
++		device_link_remove(notifier_dev(notifier), asc->sd->dev);
+ 		v4l2_async_unbind_subdev_one(notifier, asc);
+ 	}
+ 
 
 -- 
-2.56.0
+2.43.0
 
 
