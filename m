@@ -2,87 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72B97606A33D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 11:36:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCC3A606A33A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 11:38:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=D1LosQwv;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=GsS+0dvC
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=l1bg0s7U;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XrDManDK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=ScfTwcq9I4Mf8HhdrAkHGB9+lfTwXV0th0eOLvsD448=; b=D1LosQwv5S+ndU
-	F8M9C73asis5in1PHwVw6n39Axtc6xrZHF/btTbEL9Zb4XOpr9UfhrUCA83Ego6SFP9k60WfdMH8y
-	0gnbiEkny3O72TJcqwnD+iIQ2gkTNOEyNdWiPxMUBIZSUL1Xht/OD3zh5SoLgdJfW+DcBqu87SkAv
-	DzfzKy9qmqgI+o+ViH2Xx8oqiPCdsztMAPFqCOGMDunL0NtELsXUEqF8Uw11FOPua2yk+/yB7UUjE
-	Qa98wNqtOQ+n1cHzg4ewV4kUNyhNvkEe0shrk6TX2wW8V+MvHAeKHWV+vJO2KVqyoyuQ5gQSqv8S0
-	08Z32hjnK2jV2W1gxnpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=SM+ZxwXvkDJiP/IazHDrslWlgbwPpcEIJLtAEnj1Euw=; b=l1bg0s7USrp64ODOiPf9QzXCFS
+	eoFAc69wNigLhjnN4GJvaZqTzjvI6SfEeAzuOTj7lS8cJPdJNHpVmA6rqJc0m4ADaklH3zXPEf6pu
+	wJafIuSGoWKvp9ks4doJf0w+AOqo8+NHnjq17jqe7x9NLJLfwNeek6TOYVusfy759BRiFDYLF1ssM
+	GiOnVRN59bM25iO4o2JC8RZNKTqpDeYRGczSmToKGomFEx1e2hTydrRO+33JYkdhlcKraingp+JD1
+	qnUgNgAVglEpEMgDdNLvLf3cwM8dm636Z0DKsrxJkYOJuPAkgzdxghUHqn5qjOFZFitp//WYk/79D
+	NwZ/5zJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOCoc-00000002DDM-325q;
-	Tue, 03 Nov 2026 11:36:34 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xOCqH-00000002E8e-05o5;
+	Tue, 03 Nov 2026 11:38:17 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOCoL-00000002CdE-0wml
+	id 1xOCqE-00000002E7v-3Jqb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 11:36:22 +0000
-Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D91EC4181;
-	Tue,  3 Nov 2026 12:33:55 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1793705636;
-	bh=xoTWdeNEm+I4pj50SHZiPb0ElVYsJaI8KWjVRUcnqxw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=GsS+0dvCBNGYzuplAFMkf+rEIFr2gQBNuJ9UfagQ8P9MaQePDu7M2uI9awHY58ABZ
-	 pCxCmgsPt5sfYYP1cdKjov9Vh+WemwKgUeH4ENtyYWrfQJSWTjadIUWu7k7FwRsMwZ
-	 7zye3pRyNyIQMWiMr4MreIfPfBB9liZR+ksDgnX8=
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Tue, 03 Nov 2026 13:34:35 +0200
-Subject: [PATCH v5 15/15] arm64: dts: ti: beagley-ai: Enable HDMI display
- and audio
+	Tue, 03 Nov 2026 11:38:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793705894; x=1825241894;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=S8pdZwb2Y+CAAH6NyB1ZqP4ocDmydfr0MY9PK+DwCbE=;
+  b=XrDManDKoQrrooE0z2X7MosrX6WI+vA6qACq6IMhC77Se1uitptQvpaC
+   pguq9o0O5KD7tij2/+kel8AI4iarwuB1EZQo3qAJgI92R8WfvWXGoNQed
+   iOmbNduFPPX+lJ1e/WEu6ktHpszybCoq1YofhbTOFtTH1kiLrsIj53mFy
+   Q0KUL//a7j2r9OHRgDuzM1XCh2MIHVNj+F80Ox/3surT1NSRXmivvskFC
+   73cNtGzGqHe+NvRi/AJbEZGnBpBqG+YfH3ruHVoljLbFP5TDdMnGToS6L
+   qIWPwJHRtdSj78cMKTGXskF3YLHZ2VuU0brU/I8WcDuJ6RLinm+9flW35
+   w==;
+X-CSE-ConnectionGUID: 2hmLanoDSfiDQRyCBxYZ1Q==
+X-CSE-MsgGUID: 2DUog3kqSte9ZXM1MF3zCA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11954"; a="2317217"
+X-IronPort-AV: E=Sophos;i="6.27,193,1787036400"; 
+   d="scan'208";a="2317217"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 03:38:14 -0800
+X-CSE-ConnectionGUID: Wxh6HDosTJaT+CYyJsuZ8g==
+X-CSE-MsgGUID: pIfaqHVkSvWewBwafQxGZQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,193,1787036400"; 
+   d="scan'208";a="6735611"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.108])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 03:38:11 -0800
+Date: Tue, 3 Nov 2026 13:38:09 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: =?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clegoffic@baylibre.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Linus Walleij <linusw@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Oleksii Moisieiev <oleksii_moisieiev@epam.com>,
+	Andy Shevchenko <andy@kernel.org>, Dhruva Gole <d-gole@ti.com>,
+	Bartosz Golaszewski <brgl@kernel.org>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 04/11] pinctrl: scmi: report an off setting as not set
+Message-ID: <aunHoe9PfumHp0Gh@ashevche-desk.local>
+References: <20261030-clegoffic-pinctrl-scmi-gpio-v1-0-52d92843ad97@baylibre.com>
+ <20261030-clegoffic-pinctrl-scmi-gpio-v1-4-52d92843ad97@baylibre.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261103-beagley-ai-display-v5-15-f1c8d0e52bb4@ideasonboard.com>
-References: <20261103-beagley-ai-display-v5-0-f1c8d0e52bb4@ideasonboard.com>
-In-Reply-To: <20261103-beagley-ai-display-v5-0-f1c8d0e52bb4@ideasonboard.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
- Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth Menon <nm@ti.com>, 
- Vignesh Raghavendra <vigneshr@ti.com>, Swamil Jain <s-jain1@ti.com>, 
- Devarsh Thakkar <devarsht@ti.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>
-Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Andrew Davis <afd@ti.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7374;
- i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=g7T7xLDJz+T9EUK9a9YSCQo4F1o4IpRfssGuj9B1glE=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBq6ccawll4dP6G63cGqB88Kev9IoG7HH9MFzfBH
- oGW0vM6O2eJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaunHGgAKCRD6PaqMvJYe
- 9bFjD/9Fh7/uZgTdp3Aj8fj4VD2+/dPkpe1gBphFEa/3lfA1gtiPnppjTQOT3HXuS9QwuFOszoI
- QY5ledtdS8z5bXDsImibeuqnvNIx3MBnHQUYneB0i31frSesG5PPRF23BJcLk2l0DIM9cZs8neB
- ZvodImE2SrH2gdYGKMbmF1FC8X3uG5PoAEyLfcIYJIeNGh3OIPRtrQ9ETajaVMts+2Dg9OEqf0P
- iugX4gR69I7H1MarvS26zZp5K7/hAkmRy2XVAclh81D4NLHaDGASydpEpX5WFgH7iLi6RZ/FSTy
- mdS0kxXWTsmwf2Ci6l5s+D0vKSE74YXUBnStl01dcv0Cem/TlbnJmJgPil6UEPUuE/hGfmimOWe
- fzTl6VPw2U9It87pZQNK40Zagi40lK3cXHLlFUaQj/Rh7cS3orhJ/MtdKCWce5d2C4oUy0nOM1c
- +grkCh9GYTpEju4ORjuHFuA1TOzQnkLIQVEWOPiz4vwCdbcLo7AVhHLd2ndtasRCJxrsFoUHwEZ
- Pq4dGrPME9MCSECmoRyneme1TG0DRnQa+h91VRx68XT+d/XPDJX1iGrnRFyhV3ZF1GAaFK1TRbO
- jGOjsC5kWWcJG1d2CEknHrQs85BXw4xd/axIurpbHuWFdlLy18JVrl+thNd9KV73Mbqfy8UXH1x
- kkc+K/Yt/iPXKjQ==
-X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
- fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261030-clegoffic-pinctrl-scmi-gpio-v1-4-52d92843ad97@baylibre.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_033618_252015_A567372F 
-X-CRM114-Status: GOOD (  12.76  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261103_033814_866530_7DC3AB67 
+X-CRM114-Status: GOOD (  12.05  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,255 +93,39 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Andrew Davis <afd@ti.com>
+On Fri, Oct 30, 2026 at 04:58:35PM +0100, Clément Le Goffic wrote:
+> A get of a setting that is on or off, the flags and the pulls, returned
+> 0 as a value, so every one of them showed as set on every pin. Return
+> -EINVAL when the platform answers 0, which is how pinconf reports a
+> setting that is not active.
 
-Enable HDMI support for BeagleY-AI platform. The display controller used is
-TIDSS and the HDMI bridge used is IT66122.
+...
 
-Based on DT by: Robert Nelson <robertcnelson@gmail.com>
+> +static int pinctrl_scmi_map_pinconf_arg_get(enum pin_config_param param,
+> +					    u32 *value)
 
-Signed-off-by: Andrew Davis <afd@ti.com>
-Signed-off-by: Swamil Jain <s-jain1@ti.com>
-[tomi.valkeinen: cosmetic fixes]
-Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
----
- arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts | 180 +++++++++++++++++++++++++
- 1 file changed, 180 insertions(+)
+I would dare to keep it on a single line.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
-index 8b4b3b80a29d..be3f5349345f 100644
---- a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
-@@ -159,6 +159,34 @@ dsi_csi_mux: mux-controller {
- 		/* state = SEL + 2*OE : 0 = DSI0, 1 = CSI1, 2,3 = off */
- 		idle-state = <2>;
- 	};
-+
-+	hdmi0: connector-hdmi {
-+		compatible = "hdmi-connector";
-+		label = "hdmi";
-+		type = "d";
-+		port {
-+			hdmi_connector_in: endpoint {
-+				remote-endpoint = <&it66122_out>;
-+			};
-+		};
-+	};
-+
-+	sound0: sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,name = "it66122 HDMI";
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,bitclock-master = <&hdmi_dailink_master>;
-+		simple-audio-card,frame-master = <&hdmi_dailink_master>;
-+
-+		hdmi_dailink_master: simple-audio-card,cpu {
-+			sound-dai = <&mcasp1>;
-+			system-clock-direction-out;
-+		};
-+
-+		simple-audio-card,codec {
-+			sound-dai = <&it66122>;
-+		};
-+	};
- };
- 
- &main_pmx0 {
-@@ -205,6 +233,13 @@ J722S_IOPAD(0x0240, PIN_INPUT, 7) /* (B24) MMC1_SDCD.GPIO1_48 */
- 		bootph-all;
- 	};
- 
-+	main_i2c1_pins_default: main-i2c1-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x01e8, PIN_INPUT_PULLUP, 0) /* (C24) I2C1_SCL */
-+			J722S_IOPAD(0x01ec, PIN_INPUT_PULLUP, 0) /* (A22) I2C1_SDA */
-+		>;
-+	};
-+
- 	mdio_pins_default: mdio-default-pins {
- 		pinctrl-single,pins = <
- 			J722S_IOPAD(0x0160, PIN_OUTPUT, 0) /* (AC24) MDIO0_MDC */
-@@ -254,6 +289,47 @@ vdd_3v3_sd_pins_default: vdd-3v3-sd-default-pins {
- 			J722S_IOPAD(0x0254, PIN_OUTPUT, 7) /* (E25) USB0_DRVVBUS.GPIO1_50 */
- 		>;
- 	};
-+
-+	dss1_pins_default: dss1-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x0100, PIN_OUTPUT, 0) /* (AB23) VOUT0_VSYNC */
-+			J722S_IOPAD(0x00f8, PIN_OUTPUT, 0) /* (AB24) VOUT0_HSYNC */
-+			J722S_IOPAD(0x0104, PIN_OUTPUT, 0) /* (AC26) VOUT0_PCLK */
-+			J722S_IOPAD(0x00fc, PIN_OUTPUT, 0) /* (AC27) VOUT0_DE */
-+			J722S_IOPAD(0x00b8, PIN_OUTPUT, 0) /* (W27) VOUT0_DATA0 */
-+			J722S_IOPAD(0x00bc, PIN_OUTPUT, 0) /* (W25) VOUT0_DATA1 */
-+			J722S_IOPAD(0x00c0, PIN_OUTPUT, 0) /* (W24) VOUT0_DATA2 */
-+			J722S_IOPAD(0x00c4, PIN_OUTPUT, 0) /* (W23) VOUT0_DATA3 */
-+			J722S_IOPAD(0x00c8, PIN_OUTPUT, 0) /* (W22) VOUT0_DATA4 */
-+			J722S_IOPAD(0x00cc, PIN_OUTPUT, 0) /* (W21) VOUT0_DATA5 */
-+			J722S_IOPAD(0x00d0, PIN_OUTPUT, 0) /* (Y26) VOUT0_DATA6 */
-+			J722S_IOPAD(0x00d4, PIN_OUTPUT, 0) /* (Y27) VOUT0_DATA7 */
-+			J722S_IOPAD(0x00d8, PIN_OUTPUT, 0) /* (AA24) VOUT0_DATA8 */
-+			J722S_IOPAD(0x00dc, PIN_OUTPUT, 0) /* (AA27) VOUT0_DATA9 */
-+			J722S_IOPAD(0x00e0, PIN_OUTPUT, 0) /* (AA25) VOUT0_DATA10 */
-+			J722S_IOPAD(0x00e4, PIN_OUTPUT, 0) /* (AB25) VOUT0_DATA11 */
-+			J722S_IOPAD(0x00e8, PIN_OUTPUT, 0) /* (AA23) VOUT0_DATA12 */
-+			J722S_IOPAD(0x00ec, PIN_OUTPUT, 0) /* (AA22) VOUT0_DATA13 */
-+			J722S_IOPAD(0x00f0, PIN_OUTPUT, 0) /* (AB26) VOUT0_DATA14 */
-+			J722S_IOPAD(0x00f4, PIN_OUTPUT, 0) /* (AB27) VOUT0_DATA15 */
-+			J722S_IOPAD(0x005c, PIN_OUTPUT, 1) /* (AC25) GPMC0_AD8.VOUT0_DATA16 */
-+			J722S_IOPAD(0x0060, PIN_OUTPUT, 1) /* (U26) GPMC0_AD9.VOUT0_DATA17 */
-+			J722S_IOPAD(0x0064, PIN_OUTPUT, 1) /* (V27) GPMC0_AD10.VOUT0_DATA18 */
-+			J722S_IOPAD(0x0068, PIN_OUTPUT, 1) /* (V25) GPMC0_AD11.VOUT0_DATA19 */
-+			J722S_IOPAD(0x006c, PIN_OUTPUT, 1) /* (V26) GPMC0_AD12.VOUT0_DATA20 */
-+			J722S_IOPAD(0x0070, PIN_OUTPUT, 1) /* (V24) GPMC0_AD13.VOUT0_DATA21 */
-+			J722S_IOPAD(0x0074, PIN_OUTPUT, 1) /* (V22) GPMC0_AD14.VOUT0_DATA22 */
-+			J722S_IOPAD(0x0078, PIN_OUTPUT, 1) /* (V23) GPMC0_AD15.VOUT0_DATA23 */
-+		>;
-+	};
-+
-+	main_mcasp1_pins_default: main-mcasp1-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x0090, PIN_INPUT, 2) /* (P27) GPMC0_BE0n_CLE.MCASP1_ACLKX */
-+			J722S_IOPAD(0x0098, PIN_INPUT, 2) /* (V21) GPMC0_WAIT0.MCASP1_AFSX */
-+			J722S_IOPAD(0x008c, PIN_OUTPUT, 2) /* (N23) GPMC0_WEn.MCASP1_AXR0 */
-+		>;
-+	};
- };
- 
- &cpsw3g {
-@@ -334,6 +410,13 @@ J722S_MCU_IOPAD(0x050, PIN_INPUT_PULLUP, 0)	/* (C6) WKUP_I2C1_SDA */
- 		>;
- 		bootph-all;
- 	};
-+
-+	hdmi_gpio_pins_default: hdmi-gpio-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_MCU_IOPAD(0x0038, PIN_INPUT_PULLUP | PIN_DEBOUNCE_CONF6, 7) /* (D8) MCU_MCAN0_RX.MCU_GPIO0_14 HDMI_INTn */
-+			J722S_MCU_IOPAD(0x0034, PIN_OUTPUT_PULLUP, 7) /* (B2) MCU_MCAN0_TX.MCU_GPIO0_13 HDMI_RSTn */
-+		>;
-+	};
- };
- 
- &wkup_uart0 {
-@@ -435,6 +518,54 @@ rtc: rtc@68 {
- 	};
- };
- 
-+&main_i2c1 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_i2c1_pins_default>;
-+	clock-frequency = <400000>;
-+
-+	it66122: bridge-hdmi@4c {
-+		compatible = "ite,it66122";
-+		reg = <0x4c>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&hdmi_gpio_pins_default>;
-+		vcn33-supply = <&vdd_3v3>;
-+		vcn18-supply = <&buck2_reg>;
-+		vrf12-supply = <&ldo2_reg>;
-+		reset-gpios = <&mcu_gpio0 13 GPIO_ACTIVE_LOW>;
-+		interrupt-parent = <&mcu_gpio0>;
-+		interrupts = <14 IRQ_TYPE_EDGE_FALLING>;
-+		#sound-dai-cells = <0>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			/*
-+			 * HDMI can be serviced with 3 potential VPs -
-+			 * (DSS0 VP1 / DSS1 VP0 / DSS1 VP1).
-+			 * For now, we will service it with DSS1 VP0.
-+			 */
-+			port@0 {
-+				reg = <0>;
-+
-+				it66122_in: endpoint {
-+					bus-width = <24>;
-+					remote-endpoint = <&dss1_dpi0_out>;
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+
-+				it66122_out: endpoint {
-+					remote-endpoint = <&hdmi_connector_in>;
-+				};
-+			};
-+		};
-+	};
-+};
-+
- &sdhci1 {
- 	/* SD/MMC */
- 	vmmc-supply = <&vdd_mmc1>;
-@@ -467,4 +598,53 @@ &main_i2c2 {
- 	status = "disabled";
- };
- 
-+&dss1 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&dss1_pins_default>;
-+
-+	clocks = <&k3_clks 232 8>,
-+		 <&k3_clks 232 0>,
-+		 <&k3_clks 232 4>;
-+
-+	assigned-clocks = <&k3_clks 241 0>, /* DSS1-VP0 */
-+			  <&k3_clks 240 0>, /* DSS1-VP1 */
-+			  <&k3_clks 245 0>; /* DPI Output */
-+
-+	assigned-clock-parents = <&k3_clks 241 2>, /* PLL 17 HDMI */
-+				 <&k3_clks 240 1>, /* PLL 18 DSI */
-+				 <&k3_clks 245 2>; /* DSS1-DPI0 */
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* DSS1-VP0: DPI/HDMI Output */
-+		port@0 {
-+			reg = <0>;
-+
-+			dss1_dpi0_out: endpoint {
-+				remote-endpoint = <&it66122_in>;
-+			};
-+		};
-+	};
-+};
-+
-+&mcasp1 {
-+	status = "okay";
-+	#sound-dai-cells = <0>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_mcasp1_pins_default>;
-+	op-mode = <0>; /* MCASP_IIS_MODE */
-+	tdm-slots = <2>;
-+	serial-dir = <  /* 0: INACTIVE, 1: TX, 2: RX */
-+		1 0 0 0
-+		0 0 0 0
-+		0 0 0 0
-+		0 0 0 0
-+	>;
-+	tx-num-evt = <32>;
-+	rx-num-evt = <32>;
-+};
-+
- #include "k3-j722s-ti-ipc-firmware.dtsi"
+> +{
+> +	if (pinctrl_scmi_pinconf_inactive_flag(param, *value))
+> +		return -EINVAL;
+> +
+> +	if (param == PIN_CONFIG_DRIVE_STRENGTH)
+> +		*value /= MILLI;
+
+> +	return 0;
+>  }
 
 -- 
-2.43.0
+With Best Regards,
+Andy Shevchenko
+
 
 
