@@ -2,73 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8B5260A2623
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 09:46:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60821606D81B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 09:49:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pxJTWv67
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Wt0BFdoU;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GV++1Djw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=5ORrJQp6XZsJHZ9OkOSFRHemmd9KzRteKUY04Ks5P+M=; b=pxJTWv675wIzUtxiQulN/7KPx5
-	AW/8VZRxQb4ZrTkhJoF8r76j0IK8lWetCldrH1E9IaMg5Fd92lsPAPtAo79Dfy4fYdZuqBAWo0/0w
-	Sgbxvhbjp7Y/UDnrB96T8n0umidNbLe0pnn8ANJSl/s0eHKlGnTR6fQ28F+cCTpVDsLEfY9xLx2X/
-	N3T2k0fCxvKfmHk3r51WRE3adJp4QazZh4EvM7wct0eV+KDZxF1vclk1BbOIGALw1QNrDgt7RgY6u
-	YxFcExSAZNKrAsn1dgtf2ppnMCO3DLlcUecsY+hfCRK9TEf8cpT1pQ9B0+Gx2s8Dl4OTXWLu8sABo
-	FkqrytIw==;
+	bh=cgwH7+eb4DO1f1hZBo5/HU3TXgqaVoeCZLybivmvUJo=; b=Wt0BFdoUvtoPzK1juXaCVWoMRx
+	QlXQGkzCBQXPKmyueY+qHFUEekbgfJbjPp1eIEYVvWGswYmB3yCSIk6iXcXdQE0kSzxdNRe2sKqyA
+	WY5MZqVNPdTa++VbaBpfI/auES1dGooHv688VsVXUbzpoLoyQaejeWCBjKtfYFZ80WPw48nZXcDGs
+	vK49Fxdk0uDYyNwh9EtO9K+oB+RhJJzcF8cU2lZQOur5SynY2Uc0ze06LVejC/34J4C9L2d1duRrv
+	m7xD7Ecsv961Cf6lPsyh4wXxANw5yXaE7CHTbDTH46wsrz8+SdTYZmD4FfyKq4N7I5a+vgXmpNWPv
+	oqFUl2PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOB5x-00000001nwP-3X8M;
-	Tue, 03 Nov 2026 09:46:21 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1xOB8Y-00000001oXV-1he0;
+	Tue, 03 Nov 2026 09:49:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOB5u-00000001nqW-0UjH
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 09:46:20 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-03 (Coremail) with SMTP id rQCowAAnN5hnrelqMU87AA--.48652S2;
-	Tue, 03 Nov 2026 17:46:15 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] memory: atmel-ebi: release the SMC clock on probe failure
-Date: Tue,  3 Nov 2026 09:46:24 +0000
-Message-Id: <20261103094624.1289547-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	id 1xOB8X-00000001oXD-2CCA;
+	Tue, 03 Nov 2026 09:49:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9BC37605CB;
+	Tue,  3 Nov 2026 09:49:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A74261F000C1;
+	Tue,  3 Nov 2026 09:48:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793699340;
+	bh=cgwH7+eb4DO1f1hZBo5/HU3TXgqaVoeCZLybivmvUJo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GV++1DjwxRqBZTgtqKQjH8FDRWWNjQ0UExyz4D4wPRG6CXHgHqlai8IgSZ5/B9AVO
+	 fyr6sYpt+ugUguBnTwfa9EONvXK3lfiCOo8fFL2gesEHkb4WUZGfvT6fCfMJNsI31Z
+	 Vw/EI3JAg4jrRuPcmYktzzSqUrEL7bUe5ETL5f1c0mbZHI+qxZizlD4FmPKJbOX8x8
+	 UcFo7Cvy49IASUxO9wd2cXytT8/WMCHJsvvJP/mjOG1ZnH5zkongCwU5jFXzRP2W/i
+	 UHtO33zaLptW2P5/6tQLOOQzYQ1+oU9XS++2xZHKEc1aCasgMoti+lnda5b6BltK8l
+	 casrwkwEvaa2g==
+Date: Tue, 3 Nov 2026 11:48:43 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Miaohe Lin <linmiaohe@huawei.com>,
+	Naoya Horiguchi <nao.horiguchi@gmail.com>,
+	Oscar Salvador <osalvador@suse.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	kas@kernel.org, kexec@lists.infradead.org,
+	Brendan Jackman <brendan.jackman@linux.dev>,
+	Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>,
+	shakeel.butt@linux.dev, linux-efi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	linux-cxl@vger.kernel.org, driver-core@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, rmikey@meta.com,
+	riel@surriel.com, harry@kernel.org, kernel-team@meta.com
+Subject: Re: [PATCH v6 3/7] mm/memory-failure: add hwpoison_boot_page() to
+ flag an inherited frame
+Message-ID: <aumt-4kfGGtoXuh-@kernel.org>
+References: <20261016-hwpoison-kho-v6-0-f304255147da@debian.org>
+ <20261016-hwpoison-kho-v6-3-f304255147da@debian.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAAnN5hnrelqMU87AA--.48652S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXr4xXry7Gr45Ww1UJFy5urg_yoW5GryrpF
-	43XFW8Kr48WF1xKanrtF4DZ3WYk3yxtayxCayxCw1v93W5tr98XFyrAFyIqFn5GFWkG3W3
-	Xa1DJFW8ur4UZF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvj14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jw0_WrylYx0Ex4A2jsIE14v26F4UJVW0owAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v2
-	6r126r1DMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrV
-	AFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCI
-	c40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r4j6ryUMIIF0xvE2Ix0cI8IcVCY1x0267
-	AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j
-	6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjfUw_
-	-PUUUUU
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRMAA2rpnIBROgAAst
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_014619_475452_8AA24F17 
-X-CRM114-Status: GOOD (  13.26  )
-X-Spam-Score: -0.9 (/)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261016-hwpoison-kho-v6-3-f304255147da@debian.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,99 +94,97 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-of_clk_get() returns a consumer reference and clk_prepare_enable()
-enables the SMC clock, but the probe error paths after that point
-return without dropping either.  If the regmap lookup, the
-address/size-cells parsing, disabling a child device or
-of_platform_populate() fails, the clock stays enabled and its
-reference is leaked.
+On Fri, Oct 16, 2026 at 05:15:43AM -0700, Breno Leitao wrote:
+> A kernel that kexecs inherits the frames its predecessor found
+> hardware-poisoned. It has to carry them as PG_hwpoison in its own memmap,
+> so that everything that already understands the flag covers them,
+> including the kexec segment placement check.
+> 
+> Add a helper that sets the flag and counts the frame in
+> num_poisoned_pages. It runs while the memmap is initialised, before
+> memory_dev_init() has run. memblk_nr_poison_inc() divides by
+> sections_per_block, which memory_dev_init() sets, so the helper
+> increments num_poisoned_pages itself instead of calling
+> num_poisoned_pages_inc().
+> 
+> An inherited frame is a hardware failure like any other, so the helper
+> sets hw_memory_failure. Without it, unpoison_memory() accepts the frame,
+> clears the flag and drops the last reference, which frees a frame that
+> is still bad.
+> 
+> The helper also counts the frame as managed, as a frame that fails at
+> run time stays counted. Memory offlining subtracts every frame of the
+> block that is not PageOffline, so a frame that was never counted leaves
+> the managed page count too low after an offline.
+> 
+> The per-node memory failure statistics are not updated. This kernel
+> handled no failure, it only inherited one.
+> 
+> Signed-off-by: Breno Leitao <leitao@debian.org>
+> ---
+>  mm/internal.h       | 5 +++++
+>  mm/memory-failure.c | 8 ++++++++
+>  2 files changed, 13 insertions(+)
+> 
+> diff --git a/mm/internal.h b/mm/internal.h
+> index da14c56fb24e11..4bd3bbce86e0ad 100644
+> --- a/mm/internal.h
+> +++ b/mm/internal.h
+> @@ -1169,6 +1169,7 @@ void SetPageHWPoisonTakenOff(struct page *page);
+>  void ClearPageHWPoisonTakenOff(struct page *page);
+>  bool take_page_off_buddy(struct page *page);
+>  bool put_page_back_buddy(struct page *page);
+> +void __init hwpoison_boot_page(struct page *page);
+>  struct task_struct *task_early_kill(struct task_struct *tsk, int force_early);
+>  void add_to_kill_ksm(struct task_struct *tsk, const struct page *p,
+>  		     struct vm_area_struct *vma, struct list_head *to_kill,
+> @@ -1181,6 +1182,10 @@ static inline int unmap_poisoned_folio(struct folio *folio, unsigned long pfn, b
+>  {
+>  	return -EBUSY;
+>  }
+> +
+> +static inline void hwpoison_boot_page(struct page *page)
+> +{
+> +}
+>  #endif
 
-Unwind both on these error paths.  A successful probe still keeps the
-clock enabled for the lifetime of the controller, as before.
+We've been splitting internal.h to smaller headers, maybe it's time to add
+"memory-faulure.h"?
+  
+>  extern unsigned long  __must_check vm_mmap_pgoff(struct file *, unsigned long,
+> diff --git a/mm/memory-failure.c b/mm/memory-failure.c
+> index a2ca8df501caee..d0d6b184ee469f 100644
+> --- a/mm/memory-failure.c
+> +++ b/mm/memory-failure.c
+> @@ -96,6 +96,14 @@ void num_poisoned_pages_sub(unsigned long pfn, long i)
+>  		memblk_nr_poison_sub(pfn, i);
+>  }
+>  
+> +void __init hwpoison_boot_page(struct page *page)
+> +{
+> +	SetPageHWPoison(page);
+> +	atomic_long_inc(&num_poisoned_pages);
+> +	hw_memory_failure = true;
+> +	adjust_managed_page_count(page, 1);
+> +}
+> +
+>  /*
+>   * Return the first or the last hardware-poisoned online page in [start,
+>   * start + size), or PHYS_ADDR_MAX if the range is clean.
+> 
+> -- 
+> 2.53.0-Meta
+> 
 
-Fixes: 87108dc78eb8 ("memory: atmel-ebi: Enable the SMC clock if specified")
-Cc: stable@vger.kernel.org
-Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/memory/atmel-ebi.c | 27 ++++++++++++++++++++-------
- 1 file changed, 20 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/memory/atmel-ebi.c b/drivers/memory/atmel-ebi.c
-index 1e8e8aba2542..f412e53f4199 100644
---- a/drivers/memory/atmel-ebi.c
-+++ b/drivers/memory/atmel-ebi.c
-@@ -562,7 +562,7 @@ static int atmel_ebi_probe(struct platform_device *pdev)
- 	}
- 	ret = clk_prepare_enable(ebi->smc.clk);
- 	if (ret)
--		return ret;
-+		goto err_clk_put;
- 
- 	/*
- 	 * The sama5d3 does not provide an EBICSA register and thus does need
-@@ -572,14 +572,16 @@ static int atmel_ebi_probe(struct platform_device *pdev)
- 		ebi->regmap =
- 			syscon_regmap_lookup_by_phandle(np,
- 							ebi->caps->regmap_name);
--		if (IS_ERR(ebi->regmap))
--			return PTR_ERR(ebi->regmap);
-+		if (IS_ERR(ebi->regmap)) {
-+			ret = PTR_ERR(ebi->regmap);
-+			goto err_clk_disable;
-+		}
- 	}
- 
- 	ret = of_property_read_u32(np, "#address-cells", &val);
- 	if (ret) {
- 		dev_err(dev, "missing #address-cells property\n");
--		return ret;
-+		goto err_clk_disable;
- 	}
- 
- 	reg_cells = val;
-@@ -587,7 +589,7 @@ static int atmel_ebi_probe(struct platform_device *pdev)
- 	ret = of_property_read_u32(np, "#size-cells", &val);
- 	if (ret) {
- 		dev_err(dev, "missing #address-cells property\n");
--		return ret;
-+		goto err_clk_disable;
- 	}
- 
- 	reg_cells += val;
-@@ -603,11 +605,22 @@ static int atmel_ebi_probe(struct platform_device *pdev)
- 
- 			ret = atmel_ebi_dev_disable(ebi, child);
- 			if (ret)
--				return ret;
-+				goto err_clk_disable;
- 		}
- 	}
- 
--	return of_platform_populate(np, NULL, NULL, dev);
-+	ret = of_platform_populate(np, NULL, NULL, dev);
-+	if (ret)
-+		goto err_clk_disable;
-+
-+	return 0;
-+
-+err_clk_disable:
-+	clk_disable_unprepare(ebi->smc.clk);
-+err_clk_put:
-+	clk_put(ebi->smc.clk);
-+
-+	return ret;
- }
- 
- static __maybe_unused int atmel_ebi_resume(struct device *dev)
 -- 
-2.34.1
-
+Sincerely yours,
+Mike.
 
