@@ -2,50 +2,50 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E66B2606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 07:42:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D46E606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 07:42:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uQieH2k4;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=OQACus3l
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vIwiIvc6;
+	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=KK8dLO8v
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=6BX4ptosb3zXCGw5cuO8Zr/LEUNpLY7gLsDERXLD6Bc=; b=uQieH2k4uASHdw
-	elY3NmvhuI6qgaDrxickkuDLBUS1O11Kjk190Q7yxkYclo7UIKHv7/RRqIuY34KEHIt4ijFboxQh7
-	kdpy0dVTnB0xuuPqlObBdqyKuYxGbnjUH2qYv7FPw2sIewx6GaLrYup8HN5HnRn10pBsz9fhd1333
-	2RoSKyYEJ6prOhQ7i/yo8x7arXJuf+BC/YQfwNH/5Szufo6Lr9oKXVaZ1caIER/VnDq++WNhTi5n3
-	VpaxP2mY2ML0qm8c432mB5km7OalPtaF+gfc2pufwqF8lLOQInHI512jGCiNiVhtBaTFIaJbeAOeQ
-	CuXDX2k4pR01mwwDouIg==;
+	List-Owner; bh=IG6vdPo3DLcFU0vZfW2Pl6cWGS5wa13nkbiaPWcPPmo=; b=vIwiIvc6NNgDZi
+	KRLOsnUti3JfCnvIn4kRTNw8kZVQKjlbm29vudTKGYlouXGEGbHQTFKexzI0iL+/9QuJht1CKm5uu
+	g30uwVWWv2hLt2biw0+31nEith1NOjQBW5myoB0wmfjQLuTKlHhTBisbIa3fc0Lz4Koy6oMJIvTwY
+	gWe6OyTySVFTcs32dHSNAbz4cnNu66n73ebwRWuG5uvj1Vghm+j/9mMkM+01t9dOMTEYXifxX2xnl
+	+laJOhd+FrXnTCyirNQacxfhGcTHA3b344hUb2xh1vkwAVhw9K6EK3qPlayUygSjjnFAdhbbu7qSh
+	mRRufp1M4Xxuf/Y06Cuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO99k-00000001NOh-2nmM;
-	Tue, 03 Nov 2026 07:42:08 +0000
+	id 1xO99l-00000001NRz-3SOD;
+	Tue, 03 Nov 2026 07:42:09 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO98v-00000001MKx-2gPr;
+	id 1xO98v-00000001MLF-3KO7;
 	Tue, 03 Nov 2026 07:41:44 +0000
 Received: from [127.0.1.1] (chfd-03-b2-v4wan-176392-cust229.vm15.cable.virginm.net [82.19.20.230])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 11B98422F;
-	Tue,  3 Nov 2026 08:38:56 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 30EC14E46;
+	Tue,  3 Nov 2026 08:38:57 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1793691536;
-	bh=B4IuErsE0ZtmqC7OPc4Onr+D+8JFakQNbHoSSz9bMdo=;
+	s=mail; t=1793691537;
+	bh=GiwNGh07q6PcCBSOAtw5pEqND3yzss/NEdJJz/Zox7Q=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=OQACus3l8pDtEVzHnl8Oo1HuasCGMdP2Le35NQvG201tjHShNEpYlKiJPeiB2tnY4
-	 3V1v3BAmXYFi+xbHAAN0DyZjuoKqN1Z6TpyikFtORz2JKebF2Jv5kJ/KoLxT+viSRM
-	 gEmBqSp82M1BPlAG9U5aXP6gpiu3lC+/8EqRGY/c=
+	b=KK8dLO8vek6tX5nY2ZFiBaz4sxCNTw4TRr+rEi4gAwPkCR3P+THnZEHzH8icZMEjN
+	 0IkQYJ3zmOLBn8dmavCcuuzOpHz0vTOl526CnjOoqsdGuILWEcNfIZHPDgVPt7wHrg
+	 i0T5B7ajA+8HwpQ9q48Er8gnppHaJh6+TbTMb6aE=
 From: Daniel Scally <dan.scally@ideasonboard.com>
-Date: Tue, 03 Nov 2026 07:40:45 +0000
-Subject: [PATCH 09/16] media: rkisp1: Switch to calling
- .enable/disable_streams() in ISP subdev
+Date: Tue, 03 Nov 2026 07:40:47 +0000
+Subject: [PATCH 11/16] media: rkisp1: Switch resizer subdevice to
+ .enable/disable_streams()
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261103-rkisp1-suspend-and-resume-v1-9-08f863b6fdc5@ideasonboard.com>
+Message-Id: <20261103-rkisp1-suspend-and-resume-v1-11-08f863b6fdc5@ideasonboard.com>
 References: <20261103-rkisp1-suspend-and-resume-v1-0-08f863b6fdc5@ideasonboard.com>
 In-Reply-To: <20261103-rkisp1-suspend-and-resume-v1-0-08f863b6fdc5@ideasonboard.com>
 To: Tomasz Figa <tfiga@chromium.org>, 
@@ -59,26 +59,26 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, 
  Daniel Scally <dan.scally@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4090;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3806;
  i=dan.scally@ideasonboard.com; h=from:subject:message-id;
- bh=B4IuErsE0ZtmqC7OPc4Onr+D+8JFakQNbHoSSz9bMdo=;
- b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBq6ZAQtKOXlOoHWmeelfBP04wKkHEooRw8nOOkK
- YwazKRdJuOJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaumQEAAKCRDISVd6bEV1
- Mq9nD/9i1RonCQN7w2YS2xRJxdZTknT6VIgtCLurxREArRzz7TBsq5GqsXqe3j4kzFWOCWOOjZI
- eeKyeO/zdpmfdq3d+mIQB44QyJxkP74PyjI/WUQco2xIqj7ORA5qWJIA+cu3kvuf3x+rbn9qyI7
- o47y8tCSme7YMqNTnriLQ6hKaxdz1DVsblZoFS1smeJKEZunNCVfEV6PZcUsMZ3s8uzgrIe8/bn
- Oz1QoQp+SWC7I3gAsDfLWclkh9vKE0QCg+pwJZ2j4bZHSpke/gbjc/IkXAeHH/k5hO3vkz3LqrO
- 3Yz5Zaw0wLQ8PnStLl68J+ZkxNcZNjAL9w25PpDwYnvpx4iPgCrpwFXiI0Z6QvOr9iG0JXHlbJS
- 3phKBp22qiT5/3Q81WZx+QbQLzBOS8BHhQu91RSORElX3u3zBaba8r0scysWhw8TqWzFXvVZcfj
- nmW7tbB4UinEWo7qHXHrqBGlZHGND2Pa+0+adUzOxhWv03IN5QphpXxx0z1n20wVIhC0XUvj/lD
- zdAdRK4oAuDD0L4Mqe+qiprsfVa0y6oVi/a1K5cjjGykoGcW4jgeTbnezCN5n+NUhvQI5x0TJT7
- BVafX2aUch6YSmi7ds7McDFrUanEb0LJA2tJNUAlBkUXbOMVFvrCT+QuDIqw8dkD6CY+yoQHXta
- f7qeTw/iOoiRNBA==
+ bh=GiwNGh07q6PcCBSOAtw5pEqND3yzss/NEdJJz/Zox7Q=;
+ b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBq6ZAQgzwdy0o9wp4FEg4lwC4z+oCeDkyHxs+R0
+ x1Y2oc/UR+JAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaumQEAAKCRDISVd6bEV1
+ MpbAD/4hvBSncHCCLCJ/zsDCMOUQ3voLmSQB+yCyHAR02jkclW9Y/QArsuKMGol7XEgDoLngEXD
+ X3A9++anbSDlZ0MUxOJGv0+YfqcFK4mcTbrmHQKxG2BKgUYG9mDE/iPcIZvj7HWod4IIUhcf4o0
+ BQEYpv1fiRkgZzXsjCrAqgG0chnUGEzRmkUXdOJDsiQCjnqyeBbBMXEMv4LwQHwMafeU/QnZeYC
+ gTYqVg3jC4kFTmeJX1UO26te04ELEOhwXnmQ+OkKNMds3B43sGa7QGia8aeRF+KXsi2nv2GAyDT
+ urUkLWIjnc5ofScR9PweuNV/cSqTTgvdW0smPPJJala7l7Lu6e0NFPs8V2rm1xYJSosLDxCMdBa
+ GD/rm+cCdPfDRpQn/4psuok/+YDDM3ZIwyb0kQvGEWzaEUGoMZ4sl1eYfnlp9X+3l9+GxAQSUkR
+ PRvmHH45FzWBoThtJzZVd+zTjUw69Nqdweyet5Ijlbf5toiq7vCyLDoAo1W/75kzA16rj8Mp8pV
+ HacQnRcuOIpDKTYJMsud08XyHU3xbExgNp5YLCeHvlVpoMcLf4gS1xliNk4lRgOvrrACBw37b7C
+ M2NUFkH0vuuJH+gSqAaOvbtDalV42ZMBN6fivbVq4rITXNT6hy95MAq0BEKmAMmi1oAsSTqZxHp
+ AXOzY6zFAWZGG5w==
 X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
  fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_234119_927891_57E92A53 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20261102_234120_010080_48CDC3A7 
+X-CRM114-Status: GOOD (  13.27  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,111 +98,108 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Switch to calling .enable_streams() and .disable_streams() for the
-downstream subdevice in the rkisp1 ISP subdevice's .s_stream()
-operation.
+The rkisp1 driver's resizer subdevices currently use the legacy
+.s_stream() operation. Switch to the newer .enable_streams() and
+.disable_streams().
 
 Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
 ---
- .../media/platform/rockchip/rkisp1/rkisp1-common.h |  4 ++--
- .../media/platform/rockchip/rkisp1/rkisp1-isp.c    | 28 ++++++++++++----------
- 2 files changed, 18 insertions(+), 14 deletions(-)
+ .../platform/rockchip/rkisp1/rkisp1-resizer.c      | 62 +++++++++++-----------
+ 1 file changed, 32 insertions(+), 30 deletions(-)
 
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-index 357a6bd8db7da4c881e4cba5b5f54e40fd21c38c..90942b22df313d83d9722cc550f01758cda9fa27 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-@@ -501,7 +501,7 @@ struct rkisp1_debug {
-  * @v4l2_dev:	   v4l2_device variable
-  * @media_dev:	   media_device variable
-  * @notifier:	   a notifier to register on the v4l2-async API to be notified on the sensor
-- * @source:        source subdev in-use, set when starting streaming
-+ * @source:        source media pad in-use, set when starting streaming
-  * @csi:	   internal CSI-2 receiver
-  * @isp:	   ISP sub-device
-  * @resizer_devs:  resizer sub-devices
-@@ -526,7 +526,7 @@ struct rkisp1_device {
- 	struct v4l2_device v4l2_dev;
- 	struct media_device media_dev;
- 	struct v4l2_async_notifier notifier;
--	struct v4l2_subdev *source;
-+	struct media_pad *source;
- 	struct rkisp1_csi csi;
- 	struct rkisp1_isp isp;
- 	struct rkisp1_resizer resizer_devs[2];
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-index 4043a75ca3f0c5e0373b7fb01468cf2ad350de6b..95e9cdccd650b7bcf89dd6cdd42bdf8af2113ced 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-@@ -924,40 +924,44 @@ static int rkisp1_isp_s_stream(struct v4l2_subdev *sd, int enable)
- 	struct rkisp1_isp *isp = to_rkisp1_isp(sd);
- 	struct rkisp1_device *rkisp1 = isp->rkisp1;
- 	struct v4l2_subdev_state *sd_state;
--	struct media_pad *source_pad;
--	struct media_pad *sink_pad;
- 	enum v4l2_mbus_type mbus_type;
-+	struct media_pad *sink_pad;
-+	struct v4l2_subdev *src_sd;
- 	u32 mbus_flags;
- 	int ret;
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-resizer.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-resizer.c
+index 5926917434af441f718b46388860139600af0fe2..ce0b2c68cf826992ed07c453a611a7cab7dfb96a 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-resizer.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-resizer.c
+@@ -615,20 +615,9 @@ static const struct media_entity_operations rkisp1_rsz_media_ops = {
+ 	.link_validate = v4l2_subdev_link_validate,
+ };
  
- 	if (!enable) {
--		v4l2_subdev_call(rkisp1->source, video, s_stream, false);
-+		src_sd = media_entity_to_v4l2_subdev(rkisp1->source->entity);
-+		if (!src_sd)
-+			return -EPIPE;
+-static const struct v4l2_subdev_pad_ops rkisp1_rsz_pad_ops = {
+-	.enum_mbus_code = rkisp1_rsz_enum_mbus_code,
+-	.get_selection = rkisp1_rsz_get_selection,
+-	.set_selection = rkisp1_rsz_set_selection,
+-	.get_fmt = v4l2_subdev_get_fmt,
+-	.set_fmt = rkisp1_rsz_set_fmt,
+-	.link_validate = v4l2_subdev_link_validate_default,
+-};
+-
+-/* ----------------------------------------------------------------------------
+- * Stream operations
+- */
+-
+-static int rkisp1_rsz_s_stream(struct v4l2_subdev *sd, int enable)
++static int rkisp1_rsz_enable_streams(struct v4l2_subdev *sd,
++				     struct v4l2_subdev_state *state, u32 pad,
++				     u64 streams_mask)
+ {
+ 	struct rkisp1_resizer *rsz =
+ 		container_of(sd, struct rkisp1_resizer, sd);
+@@ -636,35 +625,48 @@ static int rkisp1_rsz_s_stream(struct v4l2_subdev *sd, int enable)
+ 	struct rkisp1_capture *other = &rkisp1->capture_devs[rsz->id ^ 1];
+ 	enum rkisp1_shadow_regs_when when = RKISP1_SHADOW_REGS_SYNC;
+ 	bool has_self_path = rkisp1_has_feature(rkisp1, SELF_PATH);
+-	struct v4l2_subdev_state *sd_state;
+-
+-	if (!enable) {
+-		if (rkisp1_has_feature(rkisp1, DUAL_CROP))
+-			rkisp1_dcrop_disable(rsz, RKISP1_SHADOW_REGS_ASYNC);
+-		rkisp1_rsz_disable(rsz, RKISP1_SHADOW_REGS_ASYNC);
+-		return 0;
+-	}
+ 
+ 	if (has_self_path && other->is_streaming)
+ 		when = RKISP1_SHADOW_REGS_ASYNC;
+ 
+-	sd_state = v4l2_subdev_lock_and_get_active_state(sd);
+-
+-	rkisp1_rsz_config(rsz, sd_state, when);
++	rkisp1_rsz_config(rsz, state, when);
+ 	if (rkisp1_has_feature(rkisp1, DUAL_CROP))
+-		rkisp1_dcrop_config(rsz, sd_state);
++		rkisp1_dcrop_config(rsz, state);
+ 
+-	v4l2_subdev_unlock_state(sd_state);
++	return 0;
++}
 +
-+		v4l2_subdev_disable_streams(src_sd, rkisp1->source->index, BIT(0));
- 		rkisp1_isp_stop(isp);
- 		return 0;
- 	}
++static int rkisp1_rsz_disable_streams(struct v4l2_subdev *sd,
++				      struct v4l2_subdev_state *state, u32 pad,
++				      u64 streams_mask)
++{
++	struct rkisp1_resizer *rsz =
++		container_of(sd, struct rkisp1_resizer, sd);
++	struct rkisp1_device *rkisp1 = rsz->rkisp1;
++
++	if (rkisp1_has_feature(rkisp1, DUAL_CROP))
++		rkisp1_dcrop_disable(rsz, RKISP1_SHADOW_REGS_ASYNC);
++	rkisp1_rsz_disable(rsz, RKISP1_SHADOW_REGS_ASYNC);
  
- 	sink_pad = &isp->pads[RKISP1_ISP_PAD_SINK_VIDEO];
--	source_pad = media_pad_remote_pad_unique(sink_pad);
--	if (IS_ERR(source_pad)) {
-+	rkisp1->source = media_pad_remote_pad_unique(sink_pad);
-+	if (IS_ERR(rkisp1->source)) {
- 		dev_dbg(rkisp1->dev, "Failed to get source for ISP: %pe\n",
--			source_pad);
-+			rkisp1->source);
- 		return -EPIPE;
- 	}
+ 	return 0;
+ }
  
--	rkisp1->source = media_entity_to_v4l2_subdev(source_pad->entity);
--	if (!rkisp1->source) {
-+	src_sd = media_entity_to_v4l2_subdev(rkisp1->source->entity);
-+	if (!src_sd) {
- 		/* This should really not happen, so is not worth a message. */
- 		return -EPIPE;
- 	}
+-static const struct v4l2_subdev_video_ops rkisp1_rsz_video_ops = {
+-	.s_stream = rkisp1_rsz_s_stream,
++static const struct v4l2_subdev_pad_ops rkisp1_rsz_pad_ops = {
++	.enum_mbus_code = rkisp1_rsz_enum_mbus_code,
++	.get_selection = rkisp1_rsz_get_selection,
++	.set_selection = rkisp1_rsz_set_selection,
++	.get_fmt = v4l2_subdev_get_fmt,
++	.set_fmt = rkisp1_rsz_set_fmt,
++	.link_validate = v4l2_subdev_link_validate_default,
++	.enable_streams = rkisp1_rsz_enable_streams,
++	.disable_streams = rkisp1_rsz_disable_streams,
+ };
  
--	if (rkisp1->source == &rkisp1->csi.sd) {
-+	if (src_sd == &rkisp1->csi.sd) {
- 		mbus_type = V4L2_MBUS_CSI2_DPHY;
- 		mbus_flags = 0;
- 	} else {
- 		const struct rkisp1_sensor_async *asd;
- 		struct v4l2_async_connection *asc;
++/* ----------------------------------------------------------------------------
++ * Stream operations
++ */
++
+ static const struct v4l2_subdev_ops rkisp1_rsz_ops = {
+-	.video = &rkisp1_rsz_video_ops,
+ 	.pad = &rkisp1_rsz_pad_ops,
+ };
  
--		asc = v4l2_async_connection_unique(rkisp1->source);
-+		asc = v4l2_async_connection_unique(src_sd);
- 		if (!asc)
- 			return -EPIPE;
- 
-@@ -976,11 +980,11 @@ static int rkisp1_isp_s_stream(struct v4l2_subdev *sd, int enable)
- 	if (ret)
- 		goto out_unlock;
- 
--	ret = rkisp1_isp_start(isp, sd_state, source_pad);
-+	ret = rkisp1_isp_start(isp, sd_state, rkisp1->source);
- 	if (ret)
- 		goto out_unlock;
- 
--	ret = v4l2_subdev_call(rkisp1->source, video, s_stream, true);
-+	ret = v4l2_subdev_enable_streams(src_sd, rkisp1->source->index, BIT(0));
- 	if (ret) {
- 		rkisp1_isp_stop(isp);
- 		goto out_unlock;
 
 -- 
 2.43.0
