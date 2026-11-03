@@ -2,75 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB61E606A336
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 04:38:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48BAD606A334
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 04:38:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KsgXgkwX;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=SUFdcEIG
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Wt7VdE/X;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=CeMndGP1
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=jwXE6HVPE3u8H2VoPGvf+65Nm9Ko3QG6ghTmXH3WIyI=; b=KsgXgkwXpyYus8
-	NdWP/GJLjVu0KPjzGIvumcwC342GAVMNn9jVU1cnHWeDgdoO4j6LIxcQLbX/oAxqGHOEJmQ+kPhPK
-	W8BaorO3j38Hq9kL6uvr0szSsrodPM+uwAz4pyY5dW0u0kqhBdlLpN+SPijLSipAvxOnfOfLEEnm6
-	HzG6/6I3dDg1E0Rr3u2ETBm1dQssASIJDxy7n0mDB9hc9vRhuKq8GAHDEoqot0JQyQv+l6wXJjJPs
-	EBqAD0JXU2c8DARmw2SHMzPefR7GVMLPV8597F0+xBj1CpABFbAAXh6Icc9RV1ZmezEXE9EA+eRZ7
-	8lVt9teliLPWmvGGAkLw==;
+	List-Owner; bh=MIuVuN5S3A1ntm2yRRAwtrIs+TTbfraz8EmH2Z12duY=; b=Wt7VdE/XOYPGK/
+	1yATBPLXBj6HjNBkCjwmtTQRepYuts5Snpusc/ZOtBucmtKLvaGzp1cuZEbK8kAmviM+mzbOWF2mj
+	W+YUDfy8qsW2+jks5k+cfshO8WchEVcs1QnT0n1ouy23fAKKCbEw5pteuQl3b4u6wRifjEAIA8b9l
+	TD++3lw+VYnEqSmxO8ZLTBn28MxnN5K+ZFbE8IkNPk21H0UUFqLufu/nqBBUL6sBCqKpkr0AREOPp
+	hPRVple1X+SO20f3KDaZodIQCwSzp4XCtyaPkFi18CaQo4/IrXZwWLZ98egX+3fMyFkJRYwgAjikh
+	JBmcDkxCUQtgkfAr/B7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO6Hd-000000013pu-0Ojq;
-	Tue, 03 Nov 2026 04:38:05 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1xO6Ho-000000013zg-3hVz;
+	Tue, 03 Nov 2026 04:38:16 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO6Ha-000000013mK-16RY
+	id 1xO6Hj-000000013ta-0lID
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 04:38:03 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-3ae7626d14aso1993597a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 20:38:02 -0800 (PST)
+	Tue, 03 Nov 2026 04:38:12 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ea138a3497so23751625ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 20:38:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1793680682; x=1794285482; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1793680690; x=1794285490; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jwXE6HVPE3u8H2VoPGvf+65Nm9Ko3QG6ghTmXH3WIyI=;
-        b=SUFdcEIG9mlsfmP723xCYWA6J/XJz0sJN4cHVZRreTpX6b8t/0F4r1c7l6YAgZdGt+
-         zFrQRA+52Kzn7U2lBCCuKzSsJVZFxR0bE8SVMdZsIhGltN2xJmyomzQ231cddyTLsZGq
-         0XdrYy3nro0TvHAOkOpaFohm4FuxKor2RzQ+0=
+        bh=MIuVuN5S3A1ntm2yRRAwtrIs+TTbfraz8EmH2Z12duY=;
+        b=CeMndGP1WDemGwmVlf3diEZfAThF2vAVLRic/1K3Jt/fwKAGuF/nW4AnCJzNOEENvC
+         BmuTrziVhwOXX67snIBJ9IBgpPWAaLAouKa1rZGTi/FcaRYVrceQa73DBddbIiFagd8w
+         tYWT/x+3Hf2YZ9r1RKKgrR58+EdAeT8izgQmY=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793680682; x=1794285482;
+        d=1e100.net; s=20260707; t=1793680690; x=1794285490;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jwXE6HVPE3u8H2VoPGvf+65Nm9Ko3QG6ghTmXH3WIyI=;
-        b=ZN424yNkoj/2etZ5vC3higuwzy75xy7qDfpk6B53eTcB07M4AnlWgZxfscm/NJK3yO
-         lBjSma7ow4MdaKZOuRqrReeGTlrOh0FLEVtdRDnSveZYLMQQ2LZaDuwGwG8nR64mrS/i
-         n+XSijHWW1rSvUZHCCx529Ht1Rx4wXnvmyArgD5pBXR9+NcVVr//eL6g4EJsMe+bDhie
-         QSmCawGTEomgU/7Bx2Zp0fvFOJGlu2dkP1EjdUQoepMnRm4fm8q8QdhgVvlGUL6CTpXu
-         r2CIOGoeiXTuDSdlXjVGTA4K7eSeB09x17Th37NZBZesos0BT3PK4uyhbuJjj27Ap4TM
-         ASxg==
-X-Forwarded-Encrypted: i=1; AKwUvBzmDwUBtksS4z+cpPeenvcMo+GxCZqX97cSSWIobISU3kfSFvmwl32iG4WGWgQO5uukiX7NUbLvDceEk0bfDmXE@lists.infradead.org
-X-Gm-Message-State: APuU4Z9pZ3Noj+ll/mqMiDgN410g7SoPwnOKXse+C6bjd0MCXofXJVvc
-	jfVn5q7AAIhu91FqXVQ4YKdqltw9SmV9XtfJ/QWNZzXJbIr3v0SEnPeEKECT6qI+DtWXdF54xyg
-	Inlo=
-X-Gm-Gg: AYBFou3PK7bX2f0PtVP9/jn8Xw6SFvnCLqehTK+dOMx+cI7EESXmlrgOB4VnpyaKDw5
-	/Dlx4FqkuWJtxkPhwXscdmskZHmFT2568OyH1Bi1v/o0xbH/e+Dt1NHWqxKMI5O1g8ip3ru3KyS
-	URZDxAjQzGdN7W+io2Ml6qfBWEz+9CX+cqIf8vyRknNsOe8+sbr6C+BT2ktfh+fD8xAxzEjQDAT
-	GstjyuoZXrJWMZC/g/mdp3iiFuWKL/hyPYMLR0nGdxCYRwj21zdhqF/BXqlGmEIieFPqYwK+SfF
-	Hj3xGOA83HqIRQM646CNAfScJ0eXRajKi59FF4Sez25D34RwHGgJ6x4VDh5VZeUI9cIUG+wYXkC
-	ZwsO1jmw7E9CSutI2EYpJfdg76oJ+v/2dv+FUYmSB/UvjTiXwBrpiuQjMjHe0NHkk3Famj7XG7U
-	Lf5+83W0FbixCR61ktzmL00bnS/I06o1Yvwf69OtIU0BQXtPux2rJ5hXENRCUWsngGhpEjAa0t/
-	L6tXK8x47Wv6jJHWjbs51UcIhos260A2LGwCJErQYv4rMDL4rYD7wFHZunqnzakJy4aTmfH8e11
-	L+JL4pPefI7qzVo+boGGUcCTD9Y/ER23fvza+rzXzK3V0ODFViWjklf0Nt0HR5bwz3n9HSLOtxP
-	nheJ0nDzshrRs
-X-Received: by 2002:a17:90b:2fcd:b0:3ac:a7ee:6780 with SMTP id 98e67ed59e1d1-3ae8986606fmr10535707a91.66.1793680681667;
-        Mon, 02 Nov 2026 20:38:01 -0800 (PST)
+        bh=MIuVuN5S3A1ntm2yRRAwtrIs+TTbfraz8EmH2Z12duY=;
+        b=2d3+9vnYtJN8WGhIzJxEbKkM+LlNnZBbuFjg5TRirkXNfkLzRPIdr0kG9xpiSntWuW
+         NDxbJ9OmSC1ivSfiaeox4lUO6vU3t1bj4TOiqx73zcuZyueKU6wNsOPDV7kpFc9OFDNH
+         zV0unuKfyyrz323FkBHNJSdeVqI/DjwSlYtHkzja7Vqg121S/69kGcQPcCUCzutD3Ru/
+         VHeVKxm4s72eJEAjotj8Dl/cqgjyeVrKhufBq1ILQ9Y1P7fJkeWCtdbYbenKDNOlSfGm
+         WhOw/2qUBzZqg+Q3fgn4N4k+c1W2Zsx+LOQN9VoiaA/yHiuzmNz8fnU6m7OpBU+d4bPW
+         0lrQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxutWImIA/ErUh+TZz6mOc0tvW04H3gaN8Z9mKA7qphaQqJzl500MRxYKh3tpErUmJ6T7XHntF9YYI8s554KwUi@lists.infradead.org
+X-Gm-Message-State: APuU4Z/35YCSOEui+Y6smGst5zMsRceTK7yyB+4rjKEAu7TzbhHbsIxu
+	UVqnfFMQacIgY0lPVUzn7hUQtPnkmZGGAeREZMnArx4RfMuwJwvs6TmJZOeBU7riaw==
+X-Gm-Gg: AYBFou3aqfbrGIwijCRN61wlcxfpwY7GXgKs3LqXXdCZaFaY8HHALPHDYPWvOO08bk4
+	VPX5y0wnieYWUI3Ug4oHgoUqfDE18yfbrF9hK7yjpU2/QUkLtkrVY5xXRjBT+HDKrKbBiv26Jaf
+	RawjARgH+oXhGK+hikvAUaYLqM3+EMbM5JXagp+ev+ycdAX+ABCJ6JTCKxTn1JvrN/76kvm4eBA
+	2JdTYI4i1dhWS3WgKOka3/qFyKooW+It9NfVEaVE0pyW5LDJ6axNqjoaM8GWXYAlqQQq+6Gvfql
+	DF+Ykd2SoP3uZ0UQrdJFRO26U3TuIdNJk6krKk5BJ8h+KUbHGawqECwzDIvYlJF5YxN8YFnhfbq
+	rMgu5i0/sjZXElH2yI1x4faTXUnFfgKhUzidGAYXMu0y4QtGeWW2weNaWRWEKkEJ72cGWC6wcdD
+	36kJ369kDBvaHSIubMNS9HlURICvZG974hn8E88nPhcPR/4NF7dTP9BC/Fj1br9l7seQWcx51Y4
+	6DeB+0VC+r0n2L9dB9HMfzs/FMWqSj3hfKtLvzqVGlUhq208oaksgQ7uRAYVTE3edzOTlL3+40G
+	FtLAUUdfiO5wtb+R5ZgvBa4sl88iWAc87Gu0u2XQRlJWXd+1ppbVT1i6xnWDxm+AbFG9zPBmY/Y
+	Nsx6dP1ikLPK3
+X-Received: by 2002:a17:90a:5d17:b0:3ae:898e:a123 with SMTP id 98e67ed59e1d1-3ae898ea1b4mr7369616a91.14.1793680690189;
+        Mon, 02 Nov 2026 20:38:10 -0800 (PST)
 Received: from wenst-7875.tpe.corp.google.com ([2a00:79e0:203d:7:dea6:6326:4502:bb8b])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b07c71c253sm2072761a91.16.2026.11.02.20.37.57
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b07c71c253sm2072761a91.16.2026.11.02.20.38.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 20:38:01 -0800 (PST)
+        Mon, 02 Nov 2026 20:38:09 -0800 (PST)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Mark Brown <broonie@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
@@ -88,9 +87,9 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	linux-input@vger.kernel.org,
 	linux-i2c@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v7 4/8] i2c: of-prober: skip post-power-on delay if powered on sufficiently long
-Date: Tue,  3 Nov 2026 12:37:28 +0800
-Message-ID: <20261103043734.2179858-5-wenst@chromium.org>
+Subject: [PATCH v7 6/8] i2c: of-prober: Defer regulator_disable() on successful probe in simple helper
+Date: Tue,  3 Nov 2026 12:37:30 +0800
+Message-ID: <20261103043734.2179858-7-wenst@chromium.org>
 X-Mailer: git-send-email 2.56.0.385.gac671c819a-goog
 In-Reply-To: <20261103043734.2179858-1-wenst@chromium.org>
 References: <20261103043734.2179858-1-wenst@chromium.org>
@@ -98,8 +97,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_203802_325568_5868C4FF 
-X-CRM114-Status: GOOD (  18.38  )
+X-CRM114-CacheID: sfid-20261102_203811_226142_1A27BB0C 
+X-CRM114-Status: GOOD (  22.45  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,57 +118,92 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On some devices the I2C component is powered from an always-on power
-rail, or the power rail has been left on by either POR defaults or
-the bootloader. By the time the prober probes the device, the device
-most certainly has finished initializing and can respond. There is no
-need for the delay.
+When a I2C component is found, its device node is immediately enabled.
+This triggers device creation and driver binding. The prober will hold
+the regulator enable reference across this part. If the driver probes
+synchronously, then it happens within this window. On the other hand,
+if the driver probes asynchronously, there is a high chance that it
+happens after the prober's cleanup function was called, in which case
+the regulator would have been disabled when the driver's probe function
+is called. This would then require the driver to wait 100 ms for the
+hardware to reinitialize, even if the probe function was just a split
+second late and the regulator was disabled a few milliseconds ago.
 
-In such designs, the system integrators tend to work around the delay
-to avoid the boot time penalty by simply omitting it from the device
-tree and the component prober. This is undesired, as the device tree
-is not fully describing the hardware.
+Recently, some of the drivers for the components that are targeted by the
+I2C OF component prober gained the ability to skip waiting for hardware
+initialization if the regulator was left enabled. This happens when the
+PMIC has them on by default, or if the component prober left them on
+after probing the component.
 
-Switch to the new regulator_enable_and_wait() function that makes sure
-a certain amount of time has passed since the regulator supply was
-actually enabled.
+Tests on the Hana Chromebook showed that if the prober and trackpad
+drivers are both builtin, then the time between the prober enabling the
+device node and the trackpad driver asynchronously probing is between
+5 ms and 30 ms, though sometimes there are outliers exceeding 100 ms.
+
+Wait 100 ms before dropping the enable refcount on our end so that the
+actual driver has the opportunity to catch and increase the refcount on
+their end.
 
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
-Changes since v2:
-- Switched to new regulator_enable_and_wait() API
+Changes since v6:
+- Fixed typo in commit message
+Changes since v5:
+- Only defer regulator disable if a device was found
+Changes since v3:
+- Added commit message section showing average delay needed
 ---
- drivers/i2c/i2c-core-of-prober.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ drivers/i2c/i2c-core-of-prober.c | 19 ++++++++++++++++---
+ 1 file changed, 16 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/i2c/i2c-core-of-prober.c b/drivers/i2c/i2c-core-of-prober.c
-index 6a82b03809d4..f9f3c0ef93ff 100644
+index 97ef58bb4c04..f52ab3f54933 100644
 --- a/drivers/i2c/i2c-core-of-prober.c
 +++ b/drivers/i2c/i2c-core-of-prober.c
-@@ -18,6 +18,7 @@
- #include <linux/regulator/consumer.h>
- #include <linux/slab.h>
- #include <linux/stddef.h>
-+#include <linux/time.h>
- 
- /*
-  * Some devices, such as Google Hana Chromebooks, are produced by multiple
-@@ -226,13 +227,11 @@ static int i2c_of_probe_simple_enable_regulator(struct device *dev, struct i2c_o
- 
- 	dev_dbg(dev, "Enabling regulator supply \"%s\"\n", ctx->opts->supply_name);
- 
--	ret = regulator_enable(ctx->supply);
-+	ret = regulator_enable_and_wait(ctx->supply,
-+					ctx->opts->post_power_on_delay_ms * USEC_PER_MSEC);
- 	if (ret)
- 		return ret;
- 
--	if (ctx->opts->post_power_on_delay_ms)
--		msleep(ctx->opts->post_power_on_delay_ms);
--
+@@ -238,11 +238,23 @@ static int i2c_of_probe_simple_enable_regulator(struct device *dev, struct i2c_o
  	return 0;
  }
  
+-static void i2c_of_probe_simple_disable_regulator(struct device *dev, struct i2c_of_probe_simple_ctx *ctx)
++static void i2c_of_probe_simple_disable_regulator(struct device *dev,
++						  struct i2c_of_probe_simple_ctx *ctx,
++						  bool defer_disable)
+ {
+ 	if (!ctx->supply)
+ 		return;
+ 
++	/*
++	 * Wait a bit of time for async drivers to probe and increase the
++	 * regulator enable count. This allows the drivers to check and
++	 * skip waiting for re-initialization.
++	 */
++	if (defer_disable) {
++		dev_dbg(dev, "Deferring regulator disable\n");
++		msleep(100);
++	}
++
+ 	dev_dbg(dev, "Disabling regulator supply \"%s\"\n", ctx->opts->supply_name);
+ 
+ 	regulator_disable(ctx->supply);
+@@ -359,7 +371,7 @@ int i2c_of_probe_simple_enable(struct device *dev, struct device_node *bus_node,
+ 	return 0;
+ 
+ out_disable_regulator:
+-	i2c_of_probe_simple_disable_regulator(dev, ctx);
++	i2c_of_probe_simple_disable_regulator(dev, ctx, false);
+ out_put_gpiod:
+ 	i2c_of_probe_simple_put_gpiod(ctx);
+ out_put_supply:
+@@ -405,7 +417,8 @@ void i2c_of_probe_simple_cleanup(struct device *dev, void *data, bool device_ena
+ 	i2c_of_probe_simple_disable_gpio(dev, ctx);
+ 	i2c_of_probe_simple_put_gpiod(ctx);
+ 
+-	i2c_of_probe_simple_disable_regulator(dev, ctx);
++	/* defer regulator disable if another device driver could enable it in time */
++	i2c_of_probe_simple_disable_regulator(dev, ctx, device_enabled);
+ 	i2c_of_probe_simple_put_supply(ctx);
+ }
+ EXPORT_SYMBOL_NS_GPL(i2c_of_probe_simple_cleanup, "I2C_OF_PROBER");
 -- 
 2.56.0.385.gac671c819a-goog
 
