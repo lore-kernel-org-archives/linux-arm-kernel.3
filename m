@@ -2,104 +2,100 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F4DC606A324
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 04:38:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9DC9606A332
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Nov 2026 04:47:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z5W5sW+6;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=H2DtWtEP
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MjlTDDEF;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u6k6g9ux
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=wOgLDWMrbGue3Y3ijnkKX9LYoTRtoFaZwaUPNmihNOI=; b=Z5W5sW+6Pr/2wf
-	MAK9/hywCJ7iGMwAOuSfTpxNbJNTzvHlxniaeJQtc0DRIy1YVULbGfl/lJqlgIIH8Vdb0kD+o5HKG
-	kRnZ9vRqeTzeXdoplmZFEhPaSK8mS2X8Rgu3KYVii/cpXXkgFK3TJswbuRpU6FJuVf0fOdHfc/eMW
-	7NZ4YbnB/hEUzOTo5kSXhK2/6cYXshooG1g1GjaayAcJjb2IFWY+PCmVZQqmVktXWETdaMWmF3QXE
-	YVgtLI431QJQy1n7znxtgRMkq06rG5C8Sv0cZTXFWPgEQd2av1IxJzR88nzG1SofzqMCtT5raI9B4
-	ZG21o+NcZYDLNtzqwbmw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=TcyaLHkkCUFFThAgS7XPoF0D4DJks2eSDppGrJXvVV8=; b=MjlTDDEFT5acaa7qk78wRkTC5V
+	jRA8M2oPVM6/FDS+J9gYOxyR66YXc6c6Xh8JNNuZozfAbKAQwfzQcN/ZdrXFy8dp8E/HePH5v6bfP
+	7fmk4JY4BsxFltiG9+nlIvKn/F+bcI73Ynlgo6TsooZFTeSJVX/j9E/UH4z+Rl3A0ceLeHT9HYRBy
+	amtHbN2zrjh1dY1vTC1BWfIYTQkscRtkGeTi3qLZvGUAsca9+lRoBQC+zQZiCF0KMznPH8MD2NmSv
+	aUJ1t9ffpPf6R1v1ScttX8ktBWqMAYFgbU8VTaE0gN2TXVsbup1H0IPTqNTi70HpgjsFJsxSUr2QH
+	AoVe0+IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO6Hv-0000000149S-2qjO;
-	Tue, 03 Nov 2026 04:38:23 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1xO6QX-000000014nm-2buu;
+	Tue, 03 Nov 2026 04:47:17 +0000
+Received: from mail-dy1-x1329.google.com ([2607:f8b0:4864:20::1329])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xO6Hs-0000000143y-0dXu
+	id 1xO6QU-000000014ms-3jxH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Nov 2026 04:38:22 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-cd3310348d2so131206a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 20:38:19 -0800 (PST)
+	Tue, 03 Nov 2026 04:47:16 +0000
+Received: by mail-dy1-x1329.google.com with SMTP id 5a478bee46e88-3514b90bb89so7794372eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Nov 2026 20:47:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1793680699; x=1794285499; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=wOgLDWMrbGue3Y3ijnkKX9LYoTRtoFaZwaUPNmihNOI=;
-        b=H2DtWtEPwfrM9Nf3YO8ZVME2zLsXwVy47fCDdobuHZNkOi5rINBATEV3K7Z7oEPISk
-         L9fA4DKjFxJ5akRZa/g/MLiiLin/T0UQMGaujcaYkpHGqAVcYR0JWgtA6nByEDs5DeVB
-         OSdVyPDPqbD1AEBkSRUwoDkQV7l4PYdIpSNEE=
+        d=gmail.com; s=20260707; t=1793681233; x=1794286033; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TcyaLHkkCUFFThAgS7XPoF0D4DJks2eSDppGrJXvVV8=;
+        b=u6k6g9uxLL517c2hudQaByrA930ah29hIj6MqRYE6PzMWPztufnjxDKhEquSaFpH31
+         6iuZKw9Z5OniXksCTIUnBoiWMq1+osrp2HSaKl2MI+67lYQNZAhrc81aIv97aNwoEavu
+         41724pZrWhsBBQeVUkIp74OHD2n11vnmZDaNoWj5pF+5vll4wx3grd40lGX0NdLxfMwG
+         paqrUKYYYSnhQgYyeyOI0fR70TVwYmeZXNsWzP5narK8gyekeZrrvh/Em9TmRGGfPtkG
+         dsf4E3ZU6Mh+89pgiBdQ2lRISeFePCq4Tr6RQ5pNhaQdK5rntQaHHjUyfbm9TSPlQqvC
+         J7QQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793680699; x=1794285499;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wOgLDWMrbGue3Y3ijnkKX9LYoTRtoFaZwaUPNmihNOI=;
-        b=ZWeU9tJkYBNrDQusx2+y+JGXW6yCE8F1Zom1FpkZCfo27B1AhyLgXjUFpDirxF1jIQ
-         7yU45o3kkutm1zfsbjOqgLLSk99LA0iN5LPLYiGl3JWciTtCvglP8PeiK0MZoFOjKL2m
-         0ZFHxbraTz3D9D15fc+6hkBAkeIzBgrTYNkHTIzUK22j1Gq0rLE5IdoJHopRpiDXE0pO
-         COxXAgP9R8QXNtrrjtB1RDwySz17gnIBQLx4dez1dNq+Q865Z7ipMSoEGaBlHwa56Lm6
-         x29PUywOJdL/pDa8zpjkQk7AIc2DrjfEl9TNdeOEi464L9MzJJ0VGK9jffx20KhuWznf
-         oI8A==
-X-Forwarded-Encrypted: i=1; AKwUvByFtMLbW7TrP3dF90xP92BiEtXwwzxUKDtATcEpVzJL3bpNJJEh9FxrI+KX+QLkdUSiSDfejjFuvVjpElyrNf1j@lists.infradead.org
-X-Gm-Message-State: APuU4Z893NouEBhHBYUb7d2+34/lLOlkqX0L/W9UGng0nVne7bcF1KYh
-	vVcIPkgEUavAKofPm9DbyNxA4s6KxE3jTxms38ZMnxpup+KJ/uz7mBfR3RgZWBhDXw==
-X-Gm-Gg: AYBFou33b1eY+Lu9hW3EfIC6MAsAE9vJ/fsQqCHzSoD+2gqmw1pxfx5WRBsxGjVaNi5
-	4fTLd5z0DGR+29nS+6jC/MKxTq43hXqdFcntbW2aj8+UQ2945c1A1L49rzrtlwRzQDGV1XGHapD
-	jAHSODl2GTlNnqC8lBZeP/fJaV+Rgq7r4QbM2QvTPLNNgRpUBMy69UT/Op5ALBRilHtat42bf4/
-	BJQCigmiQXEVtCY9D0ORWYCI13SfGGgAl8yT2gxGiCMqwt7l6Sv3zAomemoRpa/KQN3wHrpncM/
-	fE56okq3+d9ey84LfCRm8cMkGoESfQvvwosKpLKFz7DmrGsScs9HfBZcaZ64DHWdZLiA/+jW6Xm
-	X9h4T2pnd6KAjEGU0jV62zLbHaP3s5ueMEDOgyZ8uVCo8cmfdMRap/sFG8IdE1cbNuk5a08Xyhl
-	qxFFV6P0NqSkJqi/0yo3W/I+KLeS726G8H/ymYPPJyUzILtxWeihk7uIIEyE5WkQHYdGvHilJJY
-	zESK/JPWVkWR545EsjmRiGpvFF0CeJJ74XvStaP2rilIHZSpCUYel90nPQ9egA25d3ZGqtb8foJ
-	SLu7XgXmQsOvUK5+Q3VwZ28V1PeR00+Uwg6wwWFbbUO/6bN/tpeiH2Ju6StU4uI/RoVwc/JLJx/
-	t9aQp+L6f8U3H1jIm5W0bUCQDlnxQl5PNGA==
-X-Received: by 2002:a17:90b:280c:b0:3a7:a3c8:8f4a with SMTP id 98e67ed59e1d1-3ae8972a6d2mr6631601a91.18.1793680698982;
-        Mon, 02 Nov 2026 20:38:18 -0800 (PST)
-Received: from wenst-7875.tpe.corp.google.com ([2a00:79e0:203d:7:dea6:6326:4502:bb8b])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b07c71c253sm2072761a91.16.2026.11.02.20.38.14
+        d=1e100.net; s=20260707; t=1793681233; x=1794286033;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TcyaLHkkCUFFThAgS7XPoF0D4DJks2eSDppGrJXvVV8=;
+        b=ge+9945FJNmyNMDshZbnWZj578uyMTqNuIOHIUl9eRmUBnI7A9WCgT72PiIXKSh0Rm
+         iZ1Tg66zkfxWSb9kW+49iRs0qdvEmQrIw1jQAeIGwqx7aB3lH7ED8m93UMpOpuHBtVQz
+         5FPKeqHSt4HGTfV7tJFOE94h/BNuQ/3lJ2zicgc3Vfh2rvgZ1ZqpFqOQmNG7yYSp0zpi
+         leDy10DBheqCynt823B88d3AnA7utbccrzBubjkUlwUCYgg3JbQh7jEpC0oLYNwUkW+B
+         DRhdubTG9LrjqWaSjmDZcgh9fS6J5RPYd/kRkHq3Vb5mNPEYI9B9k/MzhJ2LA4ngYMum
+         rlQw==
+X-Forwarded-Encrypted: i=1; AKwUvBxCttOgway/KupkQmXxeR9mk+Mw+2sss+fGOvMT3SSmtCaSUTBoKm6oBJSRkHS8Xr0bBUMzEw7QIrarScAXgZkl@lists.infradead.org
+X-Gm-Message-State: AFq9FYJwSGmCVkLaHyfqHR1q0X3jPSkFgjd3SU2imcq4KuB4if1PyK+Q
+	Qx4sivLNjqWRx+a34AfMsMsQekPMMv2SCmPF7JTF+2eH9veWEHGLHdUu
+X-Gm-Gg: AYBFou1EMODsny8iCk8NyrwYvReAm9650Z0XZMyb0ILp/yA2zBK0X5/AuuHjR5ahd2p
+	eem5CEF6yCWj175TzJ/YqvbpWwZNTwoovZ/rhwbVaaj+bDVVhhL7oH46ccueehsI3kbn7wQPbco
+	D+l2bF2vWiywYeschJdbcb6Bhkmb33GSUT7ZgbQ4rldKDPkyJ23irJabh7WbUIiO7pX+ZMjtnPq
+	9Du2b1ewuIXreJllTwXgjK4pCFptspuZgAM0fqnlhOHi6RNpAkqhOxbvG9n444UMtcRqV30qTx2
+	pwCYDefI13mCRVaI/QaGW+6vdiWnhTf2qdpAwYt63BLnsfytZ/5plQIPUZJbeMVfk60tcxMOS2T
+	6el4iuccwQDniW4GacbSIeExMkMolXlv5kb1i05ozdX8DTLURs6bnDaNM6TTLpGBqtBcludpji5
+	TzDWPaZmdhagarvTIiBjS9CbTYe/km6Yq5YMlNXTEvLodpONE7CudsHej4GDB0SyxlLEG1trQqh
+	rY/ti2f6QIY6v8lIgxs3vJRJWHvnbfTeQ5yirR13ic2gG/NSzLaN8ovZAiG/urZyMsk6fyeYYXm
+	zyIgA5oenbBtR9wruxZEc4vVV7AtXRckzXkgVE47GZB4m79TtI2dbHNoMyMLp3q6AMi/7fNFbfp
+	ka0WJ6o+B3CS/MSt7MhxTdvbgAQeerb8kQMSbfA==
+X-Received: by 2002:a05:7300:7a83:b0:35e:2c6:d46c with SMTP id 5a478bee46e88-36a42362460mr17331914eec.10.1793681233040;
+        Mon, 02 Nov 2026 20:47:13 -0800 (PST)
+Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:98f:6bcd:858b:7a64])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36a42902649sm48385807eec.11.2026.11.02.20.47.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Nov 2026 20:38:18 -0800 (PST)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Mark Brown <broonie@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Jiri Kosina <jikos@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	Benson Leung <bleung@chromium.org>,
-	Tzung-Bi Shih <tzungbi@kernel.org>,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	chrome-platform@lists.linux.dev,
+        Mon, 02 Nov 2026 20:47:12 -0800 (PST)
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Hans de Goede <hansg@kernel.org>,
+	David Heidelberg <david@ixit.cz>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Val Packett <val@packett.cool>,
+	Hendrik Noack <hendrik-noack@gmx.de>,
+	Ferass El Hafidi <funderscore@postmarketos.org>,
+	Sasha Finkelstein <fnkl.kernel@gmail.com>,
+	Jeff LaBundy <jeff@labundy.com>,
 	linux-input@vger.kernel.org,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable+noautosel@kernel.org
-Subject: [PATCH v7 8/8] arm64: dts: mediatek: mt8192-asurada-spherion: Add Synaptics trackpad's supply
-Date: Tue,  3 Nov 2026 12:37:32 +0800
-Message-ID: <20261103043734.2179858-9-wenst@chromium.org>
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/4] Input: touchscreen - parse touchscreen-x-mm and touchscreen-y-mm properties
+Date: Mon,  2 Nov 2026 20:47:03 -0800
+Message-ID: <20261103044708.2461481-1-dmitry.torokhov@gmail.com>
 X-Mailer: git-send-email 2.56.0.385.gac671c819a-goog
-In-Reply-To: <20261103043734.2179858-1-wenst@chromium.org>
-References: <20261103043734.2179858-1-wenst@chromium.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261102_203820_195499_40404EED 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20261102_204714_970498_B5523824 
+X-CRM114-Status: GOOD (  10.88  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,47 +107,48 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The Synaptics trackpad, like the Elan trackpad option, is fed from the
-system 3.3V power rail. Add it to the trackpad device node.
+The common touchscreen device tree binding documents touchscreen-x-mm
+and touchscreen-y-mm to specify the physical dimensions of the touch
+surface, which userspace uses via axis resolution (units/mm) for gesture
+scaling and palm rejection. However, touchscreen_parse_properties() has
+not been parsing these properties.
 
-Also add the correct post-power-on delay, even though in practice it is
-not required. The Synaptics trackpad requires 100ms after power-on (or
-deasserting the reset, whichever comes later) to fully initialize. The
-power is always on and the reset pin is not routed out, so the
-implementation could try skipping the delay.
+This series teaches touchscreen_parse_properties() to read
+touchscreen-x-mm and touchscreen-y-mm and calculate the corresponding X
+and Y axis resolutions from the configured axis ranges, accompanied by
+KUnit tests.
 
-Cc: <stable+noautosel@kernel.org> # Without driver changes only lengthens probe time
-Fixes: 925ebc0cd55c ("arm64: dts: mt8192-asurada-spherion: Add Synaptics trackpad support")
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
-I think this shouldn't be backported, as backporting it without the
-driver enhancements just delays the trackpad probing with no real
-gains.
----
- arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts | 2 ++
- 1 file changed, 2 insertions(+)
+It also updates wacom_w9000 to drop its manual parsing of these
+properties, and adjusts goodix-berlin and apple_z2 to set their fallback
+resolutions before calling touchscreen_parse_properties() so firmware-
+provided dimensions can override the defaults instead of being
+clobbered.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts b/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts
-index 68caf4c58cfe..8adbfc307fca 100644
---- a/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts
-@@ -94,6 +94,8 @@ trackpad@2c {
- 		hid-descr-addr = <0x20>;
- 		interrupts-extended = <&pio 15 IRQ_TYPE_LEVEL_LOW>;
- 		wakeup-source;
-+		vdd-supply = <&pp3300_u>;
-+		post-power-on-delay-ms = <100>;
- 		status = "fail-needs-probe";
- 	};
- };
+Dmitry Torokhov (4):
+  Input: touchscreen - parse touchscreen-x-mm and touchscreen-y-mm
+  Input: wacom_w9000 - rely on touchscreen_parse_properties() for
+    resolution
+  Input: goodix-berlin - set default resolution before parsing
+    properties
+  Input: apple_z2 - set default resolution before parsing properties
+
+ drivers/input/tests/Makefile                  |   1 +
+ drivers/input/tests/touchscreen_test.c        | 209 ++++++++++++++++++
+ drivers/input/touchscreen.c                   |  18 +-
+ drivers/input/touchscreen/apple_z2.c          |   2 +-
+ .../input/touchscreen/goodix_berlin_core.c    |   4 +-
+ drivers/input/touchscreen/wacom_w9000.c       |  10 -
+ 6 files changed, 226 insertions(+), 18 deletions(-)
+ create mode 100644 drivers/input/tests/touchscreen_test.c
+
 -- 
 2.56.0.385.gac671c819a-goog
 
