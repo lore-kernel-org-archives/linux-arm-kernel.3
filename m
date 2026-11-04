@@ -2,101 +2,118 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D562C60A2607
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 18:54:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D20F0606D806
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 18:55:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mb7SU8gN;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vH5jVB4k
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SM2Wxzsq;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mA/QijnL
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=a95SNiiT7dZBSQfEZM84dekyTvPeES9MfG8l19eIfTc=; b=mb7SU8gNdzb5/rHlIjjw+wpTcL
-	7etPRKhQP062ys3yOvBUtBMF2sdFWMsSdSpw8ts7q1OMklDdqeyD/hL/aPWblpB+NYJ8UVpIRRWDZ
-	TPafzGtsAm4Ym1WrlttpB2KRJuIYtzxsFH9Y6AQCkSo4+qDAIGKW9yQ/HKW6XEC+NxUTbzrnjFlCe
-	1ZoIHb5prO2aw1eBEbwQiEj13qr4JN6eyjHXyq/iw/LnSMgFVXl4cDd6nnhCvJCVy50OV1WQFSWa2
-	S7mM1IZPOQ/WFxdBiY48cIU9bpxVimlznsTYgS4WAYn7Km+yrpDHQ8ty4w5vw9arAIblRx99bymzJ
-	T1nAZDkw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=JomHWK70VEVph5MhIX9rA/gqgQnzCIbgLr6yP8EQo1o=; b=SM2WxzsqhGqd+4
+	I4BiWvYJUTcls5V1PGf5Mq2ZBR3Ho6JnbesfhRlInN3nUTcjq3UOCvlTMv94CswjX4Szc0XZiSb7d
+	79wEKNOasuEM1kir+9i4Ga3BI05DgGKHbc25oVi4l6g49vfZab71bV62QLmEhfRdQJ3wsow8AVq6b
+	MNKJ2P21qN0SdU4AZIA2LLBvzRc9bmTDlmMet0B6dfl4xcDNczwHYG2ud+jWkPfdON3rymscxnpIa
+	XZaPoS7Ntvbu9wQiiEQYtQs1wDRx+vwLMyrYE4HDAQsRAS/mY2lDAW9SqH6SfAdv99dA90dIYRzPi
+	SbrZX3Ex9LRkLwW9dOJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOg7y-00000006SgJ-1Qy1;
-	Wed, 04 Nov 2026 18:54:30 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1xOg8h-00000006Srl-26q2;
+	Wed, 04 Nov 2026 18:55:15 +0000
+Received: from mail-ua1-x92a.google.com ([2607:f8b0:4864:20::92a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOg7w-00000006SfS-2UGr
+	id 1xOg8f-00000006SrB-0nIy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 18:54:29 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4a4d7ae1ae9so10938435e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 10:54:28 -0800 (PST)
+	Wed, 04 Nov 2026 18:55:15 +0000
+Received: by mail-ua1-x92a.google.com with SMTP id a1e0cc1a2514c-9903fde8db8so274233241.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 10:55:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1793818512; cv=none;
+        d=google.com; s=arc-20260327;
+        b=es+FDQTbDEXAPoNLYu05ho0rr4kOxFdZfXmk4+h9DX0p/DweF4u8k/khFuLeVHhotU
+         gTcqRktFAM9MNVR29TETfqh0DRICSwK1ttlYVPU4N3gyP4qBOOKr92PGP9MArm3iIJit
+         ERsY62UEy3O/N19pw/eUmdgxJEmd95acg87ODxk4mrPF1TdZ9rkfczAZdEG2jB4s6lNQ
+         XczcT1TEYRZnJkVOKsHLvb/0BwGqyBOyFGGOmEbkHxy9Itmxf01/+8llb4+t+XC+5CI8
+         aHhPeN6Z+pyQb1na8HTfVp9BRQdEe9I/xl5BvUCoA3DiO5n6twngXzel/cx5u1hvhmcf
+         Sq6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=JomHWK70VEVph5MhIX9rA/gqgQnzCIbgLr6yP8EQo1o=;
+        fh=VBMUegzu4B45OAxEkWL4M+lpeFg3i0lfOhq57HYge5w=;
+        b=b+6j220W1LTvUQK690OiPoQQ/kIobv6gJg8mQ1wFLOAxdaCYbzXPxIIGv+X7kypXI7
+         7pPyYsLyrUaMvL10YFrEn1kQs2275n3V7nxI5Bf5+IfWQ/5FP6/zUevT+k0NuQR6Et5R
+         8SS5DSjFUY1Ba31P01MRBzhPRpVyK1OLS60guzO08r+MAgQXF+MQrrcLnxdZl/RHC4R4
+         yO7s1W8iGG/hgKwXvO6XTEI+swdn7i4U1pACFSKffRx6AbGhWuWa4Whltq19EBAU8NN2
+         /aOrsQ9Zy+aZKWVWR9j+qHWSyY98pl19DMBw7mw7C3Cgo0Tsk2YAzE/Bhp8hEgfk/QNO
+         bl0g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793818467; x=1794423267; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=a95SNiiT7dZBSQfEZM84dekyTvPeES9MfG8l19eIfTc=;
-        b=vH5jVB4k4gOdGnN0+VqwYq2gFFaqWz4xI0c0Dj914jnUBZyf8ty0fX/O3F5pB6gEZo
-         ShkEP5mnk48QYpItVfqd3TA2sVF90sliAziHi8U8NGPtNkmh05pE9cIiHiQ4Dxl24nOI
-         49Eu+z3utlCZPiiCe0/auyyDOY8raR2EJ2dnUEYPyc2T6fh6dGjCXQcT00AlaqX7z4w3
-         HKsgIGi45enfkc2iKGheiTa63hMcpNtnFZd1GXT9nM8oiO8Kl5gnVhLdr44Tm6TpaA+Y
-         EvgvZKOaVXOsuAQvkxLL8Cdh+MHDP2em+iykfINwkGkshDlH4QhWnuYbWVOEfklXCMMs
-         V/MA==
+        d=gmail.com; s=20260707; t=1793818512; x=1794423312; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=JomHWK70VEVph5MhIX9rA/gqgQnzCIbgLr6yP8EQo1o=;
+        b=mA/QijnL5/kmEKatavzLsyMiwUuvAXzVBbpnjFPgMdl0DwXijdkfloQ8iE0SCpvCYd
+         F5+jtTR1bktcs2WV1br6t1Vr1IQW7a4O5y44zb78jDW/I3QUKjVurNM6CZi/WGdU8Bg3
+         +FyvOsln1822T4XS/Xe7nSvBUeMo+rL39+NWsLfUK18jiW1hVjUwcjDu+aLqsuXCZDtf
+         +RuqzozyjhcOasgRxMEhxwq6wjol8RKiBpOEqW6S9U0fGCqXpwkLRjpQHeyaOKfuEBVP
+         /hCFNHF0ikT5gtmXjtHy1XW5hvpYREfbCIEiS8qkxsk1ZKu0I1jqMgeRLmP+X2D/o9qp
+         vzyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793818467; x=1794423267;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=a95SNiiT7dZBSQfEZM84dekyTvPeES9MfG8l19eIfTc=;
-        b=dP4StXRLax78KmtXul86OC5UrvzCkuiCXX60+FqqcqvcJLJPQek9II1fUxYYjNkXTW
-         cXvRjPS1iipJT05AZ5f6oETR7ivsLdWS9m1b2SUp7eiXCaEZu6JhzbIxzm8ZRXXl5aF0
-         rKcdEm6i5gyQRpu0qoDUZTIrj5s2jj9/EfZM/rQ5lRafjQV6e1JEFvq/BeWofRaSAmrU
-         tUGJCMpU9ktKwedcYJacCgafvC/jJwmHeBeRGA/XajzUkTWrNWQfk3VOjqS0jDvy/57l
-         rGG+b7ww1UncYnIj1aAhT6vjlLv/b5B9o12VR7lxHA4bxqla6rCH9crXPfgr+7YTeoib
-         7B5A==
-X-Forwarded-Encrypted: i=1; AKwUvBwj42BPVx5sK4E2DCk5OLWNNtcDB1kwY/aCG5kMsZTOHoFeTCW0VyAfmcqu/OYdTv6soevLU8goK6JopkEELgDi@lists.infradead.org
-X-Gm-Message-State: APuU4Z9pwmtdu98UUSAeTrLtsGCJ08vRp/dd89yIzd7OrhImvMOhbgVG
-	wD36r4Ld+d736Oi5Awxmb2b9etib9tQGkR9P2ffO2BVXu/IjQjxyyAQE
-X-Gm-Gg: AYBFou1ueaXfjzS804BcGchnuQLTKZwR/D4Mjb++I3XNPjbBANU8lg1+ijtWc7L4PM8
-	RIC/cVr8I4jtHeB5nAT/Iq6vHZFLZU8ur6sHIm6zNC0OAU1cKtiPiDSog4a+W94f2zoHM/W99/M
-	IWqe9MNe/Okfn3MIdVmlv3e3wiCMgHzZ+ZJtE/taOAd31Qtr8s/vYIvbeCVpIDx1gvrK5+wtGXW
-	NIUqIOs49+v16ns/k3qpJy72MnYBcJKfq0Ww0d2TpkcnnqS8nti6x923IskJ7x7Xkff5yIuvsvt
-	Jmj+tsmuo+UEw+9wMTmsfUPpkTG+Wsld6+4vlWs+JwfTKMeBgOM1hXK7JdaFmN9c4kLaMHPvNo0
-	/GwVv5JLt3Z0xCY7/hm1KsFuFF16PyfyGY3SREGLbEaRg3rBO9jnpp3GWq4puntUuhn3+OkAhYo
-	J5ECyw347DElFr+RNw6+Lmc4O7VPNPrG54V0S8vhYjmm3pXEnsEc/kxREaiblYjDexiAUNWBVV1
-	A30TOJqnARccg8m9J9wO+0Yu8kVFfvV/oCk7eTHQDb2C719QNOe5uoAE5X8OUIPO5vMPU04Rqvw
-	f5Lez2SHntZX6yn1yCnHrj772Ig8JmcyMNwrmnugtr9d9mv4/dIn3G2HaCvG3j7SNawMieBPSKz
-	m7chjWyppZz4B75Q9a7YGYKOVk5X/QTv5jCru9J+xT465cFVICjAIJ/RAADhHFbcYNH2cb9xn+x
-	fC1j3uJv/FPbY+bxCLNxBQFU9oC0wTV2bI3TCav8zk92PheVDgWoo7RFM1iEXNH0kSRGwRg/abN
-	JNHF7Z7l92cmXHwj47CjUFsGL26QgXB2Qlax5jAije7OjT3FiClE3asP/b1sQZLMg==
-X-Received: by 2002:a05:600c:46d1:b0:4ab:cc03:7f60 with SMTP id 5b1f17b1804b1-4ac18993780mr378666935e9.18.1793818466426;
-        Wed, 04 Nov 2026 10:54:26 -0800 (PST)
-Received: from jernej-laptop (APN-122-103-30-gprs.simobil.net. [46.122.103.30])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b56f5e65b0sm4687805e9.11.2026.11.04.10.54.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Nov 2026 10:54:25 -0800 (PST)
-From: Jernej Skrabec <jernej.skrabec@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH] arm64: dts: allwinner: h616: Add CPU cooling map
-Date: Wed,  4 Nov 2026 19:54:21 +0100
-Message-ID: <20261104185421.883883-1-jernej.skrabec@gmail.com>
-X-Mailer: git-send-email 2.56.0
+        d=1e100.net; s=20260707; t=1793818512; x=1794423312;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JomHWK70VEVph5MhIX9rA/gqgQnzCIbgLr6yP8EQo1o=;
+        b=RMU0fz5dBUrJhW6CJgJIox25fQLFxBA7np8D674du/4u5TRAQ3BPWyOqNIMnZmSLB6
+         S6YbmzE8PN+5nNQb+LQtVzaWlaqPFraatzCBOFaF+5Tj9As7p2NzYA0qde/DTkOND1ho
+         o4yj+Cce9uNeM3czS86Fexre7dQcO3/a9GQf79C4sjd849FMgXGylkjKCfj7mrr4DU4E
+         VtjXIkW9f3OYkfUzUW6mCCmsLZ9r8ygANgGhU5Yh7U3twcypXIH2QtU0vphQfMlAZ/iB
+         JHmnFZ+FzjMLOVZDo4xGo+tk48kv4F9VQAPRcW2hNaaTFPgKikjDnk7z0chyXc9KHf2y
+         e5hA==
+X-Forwarded-Encrypted: i=1; AKwUvBybH5BcyVTW1w2cR3B8k4e4DuzUqsPKCJynpS/3H24iFluEO4+ecEtMTz8cSFXG7waiGR8RXSBdYyXTO14aIlMi@lists.infradead.org
+X-Gm-Message-State: APuU4Z9zhBfHfHcSCz+d39k8PB5xiN8G1pKbW/Bx7wgd/bcjrMBgLxVt
+	Eb22bpjxcV/u+/ptqKay+p34buqBPj4AcvC9nfF/sHwRdIllZZ0S/B8kMRsi+pWJMRfgcew4FbY
+	WqW1i9qboa4lRoToJQiw71a/oIz26gng=
+X-Gm-Gg: AYBFou0E96/3g5Kk80nS9ZKVtpvF16zL7BvUgZFpK1VVgL7tPNRl8O74wX0J2jE7+6y
+	ls5UCy2o8c5ytX7USmOaN0AEZVxrp7iok1KxljZclSxtn0dpEkwPYFkQEHmGbBd8jWkAfIrf5Mf
+	WpltOWHy2rdEpG2pgzR7KMWmK5qecDdUTdCfc3SMWNCjwpVoe4jH9xACyj1Ru9AZg7jQ4t6Q9rr
+	GtqLPzAnn1BKHAkklwLE8lCQYS2d2mbl4ElCSmJxz0/HeuP+oGkf99wnWXLDS41FhUnTI8Ye917
+	W8eNnmj+uHgzP+gO0zDAfaWglU4hNh+wRW9NoFjwMQ3vfyLEOgKFe4Y7rWO+glHi2CD1ZcLcIVS
+	kIHjuOP6GnsBNjpvS23YFmTgd+IZPkkewMMHtMmEVgBZiKmlpEv7tGEOciIbto5Wu0SCu/9RgaP
+	5OytYKqk0sQfkmAoDPfrE1EqYsU6P9mSg9pMdx5TB/AIgW4BHtzYM5ZQ0ITQQvktIJNPwU3GYMg
+	Ec6TksftOairhl/CAFqcj4gqyBcLA==
+X-Received: by 2002:a05:6102:3c83:b0:7b3:6079:1900 with SMTP id
+ ada2fe7eead31-7d0726a03bemr6260355137.37.1793818511776; Wed, 04 Nov 2026
+ 10:55:11 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261104-submit-stmmac-vlan-prio-v1-v2-1-6cfc71e636ad@gmail.com> <179381842538.488859.11490770653999769834@kernel.org>
+In-Reply-To: <179381842538.488859.11490770653999769834@kernel.org>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Wed, 4 Nov 2026 11:55:00 -0700
+X-Gm-Features: AclHuK--X9CuBUmjc3vuMAmJzOpEI1xjQqSDf0syF668uw7WASBz7nJRNkp7F_4
+Message-ID: <CADvTj4rwKjHXgxUR3XPob0_78POnTin_uaBUnm-9r7JyCfNAXw@mail.gmail.com>
+Subject: Re: [PATCH net v2] net: stmmac: rebuild VLAN priority steering when
+ filters change
+To: netdev-bot+sinfo@kernel.org
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Piotr Wejman <piotrwejman90@gmail.com>, Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_105428_646536_890D8AF9 
-X-CRM114-Status: GOOD (  11.25  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261104_105513_235918_A057E6F7 
+X-CRM114-Status: GOOD (  19.81  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,48 +124,35 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-2.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The CPU thermal zone has passive trip points, but no cooling map, so
-nothing throttles the CPUs and only the critical trip point ever acts,
-by shutting the system down. Throttle the CPUs above the 70 C trip
-point.
+On Wed, Nov 4, 2026 at 11:53=E2=80=AFAM <netdev-bot+sinfo@kernel.org> wrote=
+:
+>
+> Hi!
+>
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>
+>  - What hardware the change was tested on. For driver fixes please
+>    mention the device (and if relevant firmware version) used for
+>    testing, or say that the change was not tested on real hardware.
 
-Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
----
- arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+As the commit message states:
+No hardware testing was performed.
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-index c6b3a3f8359a..e4e0b999473e 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-@@ -1105,6 +1105,16 @@ cpu_critical: cpu-trip-2 {
- 					hysteresis = <0>;
- 				};
- 			};
-+
-+			cooling-maps {
-+				map0 {
-+					trip = <&cpu_target>;
-+					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+				};
-+			};
- 		};
- 
- 		gpu-thermal {
-
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
--- 
-2.43.0
-
+>
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account. If the series needs another revision for
+> other reasons, please include the information in the commit messages
+> then.
+>
+> The evaluation is done by an LLM so it may be wrong, if you think
+> that is the case please reply and explain.
 
