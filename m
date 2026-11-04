@@ -2,69 +2,118 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93B6860A3828
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 17:48:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8DAB606D81A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 17:49:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0uOuWvwQ;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=nTRRIPr/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1n+W2pIP;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b2p970Tn
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Qfvio25cdXXS1J1fIZqL5jA3i+NA1ppNqoJBEYXQEA4=; b=0uOuWvwQXZ7awL
-	R3gkABMioE+SX8aETt7/Mt9g+z+PsDGutHqWeOp9VoJl1wRE90xZjx586bIIEeWmchZ7O3kUEUpPD
-	4YiT/GWGwpWbB4KLddMLmN6+SeNQDpj5XviRCXUPr4SMnX/V7BX+C7nN0Y6vhe+cECPTIJFP7o3az
-	W+yWr2QlbPdCHq3w6cndK2AsnAxqNB2BywWPaI2+xSi9ILu2KaN7z48CnJuwXrVxiyKZoluOKiKLn
-	8yYVeheTBv5VpeElRWC9GVOBsNdNqYc9AM1L/cgHWTjFtqaXQmZP0NhXRXuP/GMUDTytf5JC5xSUR
-	mD7jYK413JdWW+HJJc7A==;
+	List-Owner; bh=bcezpuhf8jHaudjk12beSUxNoV1WoyCZJEHGgJ3QzvM=; b=1n+W2pIPstsuE3
+	vnVFwqLUNsSTTRMt3+qHNkIJK3Fgubaw8cNAaKpJg1/X+9uDthjtMqthUctyOEME6R+JmwgsTM8Bj
+	hpdZ7aCrtcMZDVi+B8zc8gzcS0NZkG9YhtkxlJdSpATUVwdADqyY2bWQw05WO7UAaWUkIkKoH9v9+
+	cA5As1IItcoP1BQkZEAqff8gzfbl5aPXf0ozdoy8W+RKzWwSOvMieoxwz/9KC6DwnMix+rJ+fB5S5
+	3CMDodAP7ginTnOHuJoK5LrbPgqalV+ux55r8k6nE45usiuBv/df1kmdV/ESLeIqqbc2W86IyLnoP
+	8PEe5Ru75MXeRlkVIBeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOf6L-00000006Guh-3cyP;
-	Wed, 04 Nov 2026 17:48:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOf6A-00000006GgS-3bec
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 17:48:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3F1D41BB0;
-	Wed,  4 Nov 2026 09:48:31 -0800 (PST)
-Received: from e133894.arm.com (e133894.arm.com [10.2.80.62])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 098CA3F673;
-	Wed,  4 Nov 2026 09:48:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793814514; bh=Id1g8MWz/JqcFn8xOCbYiIJXp1f20zUGkCEjpJhFp4Y=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nTRRIPr/r432V+L/3ury9XzvpvELtc5YkaMsZ+uy/ruNyJ53xSonfP1ErvFV4gIm5
-	 as4/S72BBKQBhxfECSDh/A6HXN9tn7fjTEx5aGE+QpX5tS20pmOk9GxJtBSLTn4Kp6
-	 /oBVbxgJhs6l+x5QEaCSgi2556D6b5jDo4fnU3UU=
-From: Sascha Bischoff <sascha.bischoff@arm.com>
-Date: Wed, 04 Nov 2026 17:48:02 +0000
-Subject: [PATCH v2 08/10] irqchip/gic-v5: Invalidate ITS device cache
- before freeing ITT
+	id 1xOf6U-00000006HA7-2C51;
+	Wed, 04 Nov 2026 17:48:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOf6T-00000006H76-2L5B;
+	Wed, 04 Nov 2026 17:48:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id F1AEC609EB;
+	Wed,  4 Nov 2026 17:48:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 607D91F00A24;
+	Wed,  4 Nov 2026 17:48:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793814532;
+	bh=bcezpuhf8jHaudjk12beSUxNoV1WoyCZJEHGgJ3QzvM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=b2p970TnxvWKRo+rE6NnJ4OIho+4QePGvqRNZHl6anFONN9yJPTchJWUc0qBmLKMP
+	 JvkxHL9Xpazk/Huej+TwCJZHgiPgiAyRo9RJRGihF/6a+/CNo/3BdMkurHq6+gg9B5
+	 a7MwrwVrAK3vZfdnArgG9/HYd6cBVLWThLJ1ioEA5wfTs9oBWECQl7eJJfmnDUQfDP
+	 LaHC4vtifmzxhjEohgwt44TW9vNrVW+cAwxBcO0ff1SXrqyqyzsGk2Fdw4CFpfKDPJ
+	 wACbdW1zKWYZ9fjPVS/3n6oGT0Y6gKZdHlMydG6AuKxv5l5faXWx4/bMgBdafPz6V5
+	 gY61Q398MrSwg==
+Message-ID: <aa0e757f-dfd5-416a-aefa-3639d7bdf629@kernel.org>
+Date: Wed, 4 Nov 2026 18:48:39 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/5] devfreq: Use %pe to print error pointers
+ symbolically
+To: Sumeet Pawnikar <sumeet4linux@gmail.com>, rafael@kernel.org,
+ amit.kachhap@gmail.com, daniel.lezcano@kernel.org, thara.gopinath@gmail.com,
+ talel@amazon.com, hayashi.kunihiko@socionext.com, mhiramat@kernel.org,
+ mmayer@broadcom.com, viresh.kumar@linaro.org, sumitg@nvidia.com,
+ peter.griffin@linaro.org, myungjoo.ham@samsung.com,
+ kyungmin.park@samsung.com, cw00.choi@samsung.com, Frank.Li@nxp.com,
+ s.hauer@pengutronix.de, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, sven@kernel.org, j@jannau.net,
+ marcan@marcan.st, casey.connolly@linaro.org, sre@kernel.org,
+ wens@kernel.org, t.schramm@manjaro.org
+Cc: bcm-kernel-feedback-list@broadcom.com, linux-samsung-soc@vger.kernel.org,
+ kernel@pengutronix.de, imx@lists.linux.dev,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260912191156.185448-1-sumeet4linux@gmail.com>
+ <20260912191156.185448-3-sumeet4linux@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260912191156.185448-3-sumeet4linux@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261104-host_gicv5_fixes-v2-8-e47ad20ea3c8@arm.com>
-References: <20261104-host_gicv5_fixes-v2-0-e47ad20ea3c8@arm.com>
-In-Reply-To: <20261104-host_gicv5_fixes-v2-0-e47ad20ea3c8@arm.com>
-To: Marc Zyngier <maz@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
- Timothy Hayes <timothy.hayes@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Jonathan Cameron <jic23@kernel.org>, 
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Sascha Bischoff <sascha.bischoff@arm.com>
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_094834_958097_8CA90DC7 
-X-CRM114-Status: GOOD (  13.09  )
-X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,56 +124,39 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-A cached device table entry can still reference the ITT after its
-memory is freed via kfree(), even if the DTE has been marked as
-invalid. Once the memory has been released, it could be reallocated,
-and it would be unfortunate for the hardware to interpret this as a
-valid ITT.
+On 12/09/2026 21:11, Sumeet Pawnikar wrote:
+> diff --git a/drivers/devfreq/imx-bus.c b/drivers/devfreq/imx-bus.c
+> index 49798f542d68..dba76d8b9e5a 100644
+> --- a/drivers/devfreq/imx-bus.c
+> +++ b/drivers/devfreq/imx-bus.c
+> @@ -75,8 +75,8 @@ static int imx_bus_init_icc(struct device *dev)
+>  	priv->icc_pdev = platform_device_register_data(
+>  			dev, icc_driver_name, -1, NULL, 0);
+>  	if (IS_ERR(priv->icc_pdev)) {
+> -		dev_err(dev, "failed to register icc provider %s: %ld\n",
+> -				icc_driver_name, PTR_ERR(priv->icc_pdev));
+> +		dev_err(dev, "failed to register icc provider %s: %pe\n",
+> +				icc_driver_name, priv->icc_pdev);
+>  		return PTR_ERR(priv->icc_pdev);
+>  	}
 
-Invalidate the device cache and wait for completion before freeing the
-ITT during device teardown.
+Apparently reviewing only a few lines of entire patch is still reviewing:
 
-Fixes: 57d72196dfc85 ("irqchip/gic-v5: Add GICv5 ITS support")
-Acked-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
----
- drivers/irqchip/irq-gic-v5-its.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+https://lore.kernel.org/all/9e39502a-dd17-4fa2-98a3-9019523cb5e8@kernel.org/
 
-diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
-index 8628de326f28d..4de07bbdc4923 100644
---- a/drivers/irqchip/irq-gic-v5-its.c
-+++ b/drivers/irqchip/irq-gic-v5-its.c
-@@ -556,6 +556,7 @@ static int gicv5_its_device_unregister(struct gicv5_its_chip_data *its,
- 				       struct gicv5_its_dev *its_dev)
- {
- 	__le64 *dte;
-+	int ret;
- 
- 	dte = gicv5_its_devtab_get_dte_ref(its, its_dev->device_id, false);
- 
-@@ -568,9 +569,10 @@ static int gicv5_its_device_unregister(struct gicv5_its_chip_data *its,
- 	/* Zero everything - make it clear that this is an invalid entry */
- 	its_write_table_entry(its, dte, 0);
- 
-+	ret = gicv5_its_device_cache_inv(its, its_dev);
- 	gicv5_its_free_itt(its_dev);
- 
--	return gicv5_its_device_cache_inv(its, its_dev);
-+	return ret;
- }
- 
- /*
+Therefore:
 
--- 
-2.34.1
+Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
 
+
+Best regards,
+Krzysztof
 
