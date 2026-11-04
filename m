@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94C1E606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 11:12:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8026A606A330
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 11:15:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=g/qmJ4Kk;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=2HPcvgDB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LvsSjbTs;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=J2xn6IhH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
@@ -14,29 +14,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Sq72/jE1QWYRdcK1hoiu7bRYxYUswJNBNRjBOWyiKL8=; b=g/qmJ4Kk4rn1EOYHUWodHwhLeE
-	Mqw4pZPl5uMfOuQsEXHSSbPg9PbtM+2Ia7nEm9Zg3Q6lvwpPjTvZIVmR53BjbWQfg3tx1MKUeTuBn
-	rPH+CLlGp0s89qM9WLrzCjNg0TvIdB6W+QrVPSnl45pBFCcGvLX1X1768BCw754xRqbeTxjQZxqop
-	io7K3OiqCpnQrMLMCHjAsfOau+diowlpN9BOSJ1mwH/z9gZL0EN7qs/yolCj7GimK1DYJAFF3EsRi
-	vzJR/9BNj8YjvrDoFhrLDKH9Ru8zmMcVaSeyGGvp0zIHvymHaaedLiTPDyACnvujEEZMcKxcpx9ij
-	8yxYIaqQ==;
+	bh=ElMP7E+td4PbWaeCgFxYru40sXUejYFoNFjAdaBjGOg=; b=LvsSjbTsKy/NWEJT70ijAyVR4r
+	MVMQWsHfAzEsrHkYcMP+/KWjL02bzJC5RfMHAkcGkEhr7Bke+lmBReOx9SX/iHhNbrjRsuTPrDFXx
+	60Hu9+OmLDuF8uPM6z66xYHrIsJFQeKYktlNasBWYXn6RtqmwIWaUCqCuKxBInyNfC45gAwgi/Fln
+	CB9lLUhhwdWMawp3y2K1osahdhI5a49TNRdN2K3UpxtxVScFkEdKKP3AWzd4urMILx3rXiM/QWkL+
+	X6raOPy1u0I4NBfTENWY2dxynhE7bjI83jsr4bRiAkhLSd2L6TyHWh8xgdyJ23IsSFMCzxchPmMlV
+	Ur/CxM/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYuZ-000000057LW-3W0B;
-	Wed, 04 Nov 2026 11:12:11 +0000
+	id 1xOYxE-000000057aD-1Gvu;
+	Wed, 04 Nov 2026 11:14:56 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYuY-000000057L0-0W4f;
-	Wed, 04 Nov 2026 11:12:11 +0000
+	id 1xOYxC-000000057ZI-0Eng;
+	Wed, 04 Nov 2026 11:14:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=Sq72/jE1QWYRdcK1hoiu7bRYxYUswJNBNRjBOWyiKL8=; b=2HPcvgDB89z9MCCbZPrKTjDdSe
-	a2iOhzncH45XWbpf9h5Z8prpD2YftEz7/e5hwuvWn+QuCeuR+A985T/5nMETf+5nDv4C/OGiEYWiN
-	yHNn/W7mCluK0Avj86ssbgeDhbC5MybjVA9WWWhZe6nnpnYsMAqhE8dncxIx4P5Sw9H0FPt3JwUjA
-	V2dW8uAPnS6oH6s/atFbE1YQM3BrqEBVTBRoCa6Px+Gf2R9yjpHPLpIRsFY0/nmSSP+QIih6+Ebkj
-	gVyTKzfad0lXgE4JzqsC3FtSmP5P7yTqCtINcMmCiSDl37j6H7J+F/DKy534XRIjzr18Rpw0TYvFZ
-	34n1vy7Q==;
+	bh=ElMP7E+td4PbWaeCgFxYru40sXUejYFoNFjAdaBjGOg=; b=J2xn6IhHyGYpOrVe5sEcUkfaKY
+	Nc+tIqwchMNBf6e0WxuM/1TyGy200YvdFq0TlADp3CGjiLoDRN4P1kPKAACXT0gFqgBz+H+EZU5LL
+	l8MGFNTnKN6Dw6NaGRwxVSZP0l498mS3SSQWuzEzC9HZYR0FHtGUJrXnDj+KNO7A4AAFj77a5ICam
+	ana+vlz5r7rgK19JEJLpgUsamSCyCJim3XtYGeF0vsra/5pAwgl2HHS1phJAmA4J5PLNdBlmeBbJ/
+	8siN4Ma/gCPNxpy8AmG3cZmmo697E7EIdH6MSRlsHdnWI7A5f+fMT970ATK0zQZK7Oc//yLd6+cOo
+	/8dLGruQ==;
 From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
 To: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Oded Gabbay <ogabbay@kernel.org>,
  Igor Paunovic <royalnet026@gmail.com>
@@ -51,19 +51,20 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, Igor Paunovic <royalnet026@gmail.com>
-Subject: Re: [PATCH v2 05/11] accel/rocket: request the core clocks by name
-Date: Wed, 04 Nov 2026 12:11:52 +0100
-Message-ID: <13701281.ZYm5mLc6kN@diego>
-In-Reply-To: <20260922080114.44662-6-royalnet026@gmail.com>
+Subject: Re: [PATCH v2 08/11] accel/rocket: restore the NPU clock boot rate before
+ powering the cores down
+Date: Wed, 04 Nov 2026 12:14:37 +0100
+Message-ID: <5089783.JsnAkG3lO3@diego>
+In-Reply-To: <20260922080114.44662-9-royalnet026@gmail.com>
 References: <20260922080114.44662-1-royalnet026@gmail.com>
- <20260922080114.44662-6-royalnet026@gmail.com>
+ <20260922080114.44662-9-royalnet026@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_031210_188327_0BC0F3D4 
-X-CRM114-Status: GOOD (  30.56  )
+X-CRM114-CacheID: sfid-20261104_031454_245826_B660E499 
+X-CRM114-Status: GOOD (  46.25  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,97 +84,151 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Am Dienstag, 22. September 2026, 10:01:08 Mitteleurop=C3=A4ische Normalzeit=
+Am Dienstag, 22. September 2026, 10:01:11 Mitteleurop=C3=A4ische Normalzeit=
  schrieb Igor Paunovic:
-> rocket_core_init() hands core->clks to devm_clk_bulk_get() without ever
-> setting the .id members. The rocket_core array is allocated with
-> devm_kcalloc() in rocket_device_init(), and rocket_probe() only fills in
-> .rdev, .dev and .index, so all four clk_bulk_data entries are requested
-> with a NULL con_id (unlike core->resets, whose ids are set a few lines
-> above).
+> The compute clock is generated by a PVTPLL that lives inside the NPU power
+> island. Powering an island up while that clock is above the rate the
+> bootloader left it at does not work: the domain never acks the power-on,
+> and the first register access into it afterwards takes an asynchronous
+> SError. So the rate has to be back down before the last core goes away.
 >=20
-> clk_get(dev, NULL) ends up in of_clk_get_hw(np, 0, NULL), and
-> of_parse_clkspec() only consults "clock-names" when a name was passed,
-> so the index stays 0 for all four entries. Every entry therefore ends up
-> holding a handle to the *first* clock of the DT "clocks" property, i.e.
-> ACLK_NPUn. Nothing fails: probe succeeds and the driver believes it owns
-> four different clocks.
+> Nothing in the driver raises the clock today, which makes this a no-op on
+> its own, but it is the guard that has to be in the tree before anything
+> does, and the next patches do. The .shutdown hook is the same guard for t=
+he
+> handover: once devfreq is driving the clock, a kexec would otherwise pass
+> the raised rate to the next kernel, which powers the islands up before it
+> looks at it. What this cannot do is rescue a rate it did not set - the ra=
+te
+> read at probe is taken as the boot rate whatever it is.
 >=20
-> The consequence is that rocket_device_runtime_resume() prepares and
-> enables the AXI clock four times, while hclk, pclk and - most
-> importantly - the NPU compute clock ("npu", SCMI_CLK_NPU on RK3588) are
-> never prepared or enabled by this driver at all. The NPU still works
-> only because the Rockchip power-domain driver sets GENPD_FLAG_PM_CLK and
-> its attach_dev() callback walks the device node with of_clk_get() and
-> adds every clock to the pm_clk list, so genpd happens to keep the
-> remaining clocks running. The bug is therefore latent today, but it
-> means the driver holds no reference to the clock that actually feeds the
-> NPU, which stands in the way of any future frequency scaling
-> (OPP/devfreq) work.
+> The rate is read at probe rather than hardcoded. Mainline pins the RK3588
+> cores at 200 MHz with assigned-clock-rates, but that is a devicetree
+> property, not a property of the hardware, and a SoC whose devicetree does
+> not set it would be left running at a rate this driver had invented.
 >=20
-> Found on an Orange Pi 5 Plus (RK3588) by reading the live clock tree:
-> /sys/kernel/debug/clk/clk_summary shows four "fdab0000.npu" consumer
-> handles on aclk_npu0 (and likewise on aclk_npu1/aclk_npu2 for the other
-> two cores), while hclk_npu0, pclk_npu_root and scmi_clk_npu have no
-> "fdab0000.npu" consumer at all - their only consumers are the
-> "npu@fdab0000" handles created by the power-domain driver via
-> of_clk_get().
+> All three cores share the clock, so only the last core to suspend may low=
+er
+> it; the others just drop the count. Lowering it is safe with the islands
+> already down as long as the boot rate is one the firmware serves from GPL=
+L,
+> which on the RK3588 is the 200 MHz the devicetree pins: for that rate the
+> firmware writes only CRU clock selectors, never a register inside the NPU.
 >=20
-> Set the ids explicitly, in the order mandated by the binding
-> (Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml):
-> aclk, hclk, npu, pclk. After the change the driver holds one handle per
-> distinct clock and clk_bulk_prepare_enable() covers all four.
->=20
-> Note that this is a user-visible tightening for out-of-tree DTs: the
-> old NULL-id requests resolved by index and succeeded no matter what
-> "clock-names" contained, while the named requests fail probe with
-> -ENOENT when one of the four names is missing. That is the right
-> outcome for in-tree users - the binding requires exactly these four
-> clock-names and rk3588-base.dtsi carries them on all three cores - but
-> a DT that relied on the permissive lookup goes from silently running on
-> the wrong clock handles to not probing at all, so record the change
-> here where git log will find it.
->=20
-> Fixes: ed98261b4168 ("accel/rocket: Add a new driver for Rockchip's NPU")
 > Assisted-by: LLM sparse checkpatch
 > Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
-> Tested-by: Sidong Yang <sidong.yang@furiosa.ai>
-> Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS, N=
-anoPC-T6 Plus
-> Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> Reviewed-by: Jiaxing Hu <gahing@gahingwoo.com>
 > ---
-> Same diff and the same message text (his copy re-wraps the lines) as
-> 01/14 of Jiaxing Hu's RK3576 series, which carries this patch as well;
-> whichever lands first, the other drops it. The trailers differ: Jiaxing
-> asked me to drop his Signed-off-by from my own posting of it, as he did
-> not pass this copy along, and Assisted-by is added because an LLM helped
-> with the checks on this v2.
+> v2: v1 of this patch kept a struct clk handle in struct rocket_device,
+> taken from the devres of the first core to probe, and used it from the
+> runtime suspend of whichever core went down last. Unbinding the cores
+> freed the handle underneath it: KASAN reported a slab-use-after-free in
+> clk_set_rate() during a ten-round unbind/rebind test on this board after
+> v1 was posted. No handle is kept any more; the callback uses the handle of
+> the core it runs for, which is bound for as long as the call lasts.
+> "A reboot" is dropped from the kexec sentence and the comment: whether the
+> clock selectors survive the global reset the firmware does on reboot has
+> not been checked. The argument that lowering the rate is safe is now
+> limited to a boot rate the firmware serves from GPLL, which on the RK3588
+> is the 200 MHz the devicetree pins.
 >=20
->  drivers/accel/rocket/rocket_core.c | 4 ++++
->  1 file changed, 4 insertions(+)
+>  drivers/accel/rocket/rocket_core.c   | 10 ++++++
+>  drivers/accel/rocket/rocket_device.h | 15 +++++++++
+>  drivers/accel/rocket/rocket_drv.c    | 47 ++++++++++++++++++++++++++++
+>  3 files changed, 72 insertions(+)
 >=20
 > diff --git a/drivers/accel/rocket/rocket_core.c b/drivers/accel/rocket/ro=
 cket_core.c
-> index b3b2fa9ba645a..5dd260bacbff6 100644
+> index 5dd260bacbff6..c736537cf28f6 100644
 > --- a/drivers/accel/rocket/rocket_core.c
 > +++ b/drivers/accel/rocket/rocket_core.c
-> @@ -28,6 +28,10 @@ int rocket_core_init(struct rocket_core *core)
+> @@ -12,6 +12,7 @@
+>  #include <linux/reset.h>
+> =20
+>  #include "rocket_core.h"
+> +#include "rocket_device.h"
+>  #include "rocket_job.h"
+> =20
+>  int rocket_core_init(struct rocket_core *core)
+> @@ -36,6 +37,15 @@ int rocket_core_init(struct rocket_core *core)
 >  	if (err)
->  		return dev_err_probe(dev, err, "failed to get resets for core %d\n", c=
+>  		return dev_err_probe(dev, err, "failed to get clocks for core %d\n", c=
 ore->index);
 > =20
-> +	core->clks[0].id =3D "aclk";
-> +	core->clks[1].id =3D "hclk";
-> +	core->clks[2].id =3D "npu";
-> +	core->clks[3].id =3D "pclk";
+> +	/*
+> +	 * Record what the compute clock was running at before anything here
+> +	 * touched it, on the first core to probe. Reading it rather than
+> +	 * hardcoding a rate keeps this working on a SoC whose devicetree does
+> +	 * not pin the clock with assigned-clock-rates.
+> +	 */
 
-additionally, while reading the followup patches, please introduce some
-constants for the indices. ROCKET_CLK_ACLK, ... or some other name.
-Because when you access them later by index, that makes things harder
-to read and follow (especially in the future)
+shorter comment please
+
+> +	if (!core->rdev->npu_boot_rate)
+> +		core->rdev->npu_boot_rate =3D clk_get_rate(core->clks[2].clk);
+
+see comment about using a constant for the array index in patch 5.
+
+> +
+>  	core->pc_iomem =3D devm_platform_ioremap_resource_byname(pdev, "pc");
+>  	if (IS_ERR(core->pc_iomem)) {
+>  		dev_err(dev, "couldn't find PC registers %ld\n", PTR_ERR(core->pc_iome=
+m));
+> diff --git a/drivers/accel/rocket/rocket_device.h b/drivers/accel/rocket/=
+rocket_device.h
+> index abb88a254e569..ba7c977cd6951 100644
+> --- a/drivers/accel/rocket/rocket_device.h
+> +++ b/drivers/accel/rocket/rocket_device.h
+> @@ -22,6 +22,21 @@ struct rocket_device {
+>  	unsigned int num_cores;
+>  	/* Slot capacity (DT core count); slots with a NULL .dev are free. */
+>  	unsigned int max_cores;
+> +
+> +	/*
+> +	 * The cores have no clock of their own: one clock feeds all of them,
+> +	 * so any core's handle refers to the same thing. No handle is kept
+> +	 * here: each one belongs to the devres of the core that asked for it
+> +	 * and dies with that core's unbind, while this structure outlives any
+> +	 * single core. Whoever needs the clock uses the handle of the core it
+> +	 * was called for, which is bound for as long as the call lasts.
+> +	 *
+> +	 * npu_boot_rate is the rate the clock was left at before the driver
+> +	 * touched it, and active_cores counts the cores that are runtime
+> +	 * resumed right now.
+> +	 */
+
+shorter comment please
+
+> +	unsigned long npu_boot_rate;
+> +	atomic_t active_cores;
+>  };
+> =20
+>  struct rocket_device *rocket_device_init(struct platform_device *pdev,
+> diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/roc=
+ket_drv.c
+> index b9b36c578db20..8f03de1af488c 100644
+> --- a/drivers/accel/rocket/rocket_drv.c
+> +++ b/drivers/accel/rocket/rocket_drv.c
+> @@ -297,6 +297,30 @@ static int find_core_for_dev(struct device *dev)
+>  	return -1;
+>  }
+> =20
+> +/*
+> + * Put the compute clock back where the bootloader had it. The cores sha=
+re
+> + * this clock, so this is only correct once none of them is running any =
+more.
+> + *
+> + * Lowering the rate is safe with the power islands down as long as the =
+boot
+> + * rate is one the firmware serves from GPLL, which on the RK3588 is the
+> + * 200 MHz the devicetree pins: for that rate the firmware touches only =
+the
+> + * CRU clock selectors, none of the NPU's own registers.
+
+shorter comments please.
 
 
+Thanks
 Heiko
 
 
