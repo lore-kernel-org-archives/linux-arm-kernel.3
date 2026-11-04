@@ -2,73 +2,64 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FA22606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:30:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BEAB606D808
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:40:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OpjZmxzv;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i+eOpIVC
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=m0Qv9qwk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=nLTKrRV7zGj2+I2eiQhkslScmWRTzYP0lSx7u0c6KX0=; b=OpjZmxzvjcBT4v
-	4x92lHrLOgtWWjhpRVC0tkd77/PCacur00c0SjKeUtwkdm1ec9+uae2cyP76GEBlAE5rQMPrndVLa
-	B5AvMi4bE0ZFzo5LM9DoJRT1RzJxHfP0BQsTKpWtJ8aoL082EPD+UP+XSSfJMtTrMWOIiALsJJoyO
-	hyQZO5Z/3nzCHFHYT/44nX6YNYB49gCNjeLSQhS+WQp/hFYkDp0JHzbfq6LtmxYA+ye3/Ty1VoQdB
-	+QSJK4xXB8JBlTuJfysdw2yIUdESM4L/RuxFnynZQEUYpPXx1tKVPFqjAUJfFZn7HbuwjxJhet5oo
-	cMIs3TZkXGpujE9A3dcw==;
+	List-Owner; bh=hGdRVfQcdtQSbKgueRKAsfkTIP1tHUDFQLDjBcke0wA=; b=m0Qv9qwkETjwrB
+	oMebIaWAzTwlz1MoJKz3OalVHtj8Tvy/Fi7Ws3dI1LB3LJuT43G1mPYIZBc6qwryxUCK06A1NI5Mq
+	U3+m7v2ZD6U5ibp5pt0KvHocpveO1yQexDkZ8CwoIwvPijRI2pDX0+46srLO+EFVxQ0fGEByKeQhq
+	65atMLwPl7LnR+Nq8/IGZgOyRZTxM6JQ+UhJbplB9EOkXsxC96fpvpzIPqH4mWa9q+lw+btis0U32
+	4c7xhIoeuKQcnC/fjpw+9+FMfLyrH6fDbtpsUuTbQk+MYu9Qm8R2ZPIbF+2+GlJZjE/JOSa8xE+HS
+	e1rQismwL6aFOUwMeThQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOa8g-00000005Kfh-3wk8;
-	Wed, 04 Nov 2026 12:30:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xOaIC-00000005Lxi-13hg;
+	Wed, 04 Nov 2026 12:40:40 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOa8f-00000005Kee-0gPh
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 12:30:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5CA0062FFE
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Nov 2026 12:30:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16FAC1F00A15
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Nov 2026 12:30:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793795448;
-	bh=nLTKrRV7zGj2+I2eiQhkslScmWRTzYP0lSx7u0c6KX0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=i+eOpIVCD6c9q3d8U7OaPRj1DAkcCbwKg0e0/FB4gvbWHhi53k/RkjVa0uRQXDCQ1
-	 zAvMD+YbSdnJSgGy25maWzemVTB7PwuC1McmSi1j6y2JieTGBPLJN1h2Z1OLzBVXPg
-	 j48YnItp8Vtjr5vRU1ggfwvm9WN+pdGbfrSw0o+XLh5yr3ygW4Gu+yKjE0BlN9XR5y
-	 uEjIJ0p/MAGSP2G908hwhZduD9zfnPlyPpCVzp4pdXsXiMWLorsj50bnoaX7EhOjjh
-	 Wu54b2wlES4jjZJ41wtWivS0w+8qvi5sNm7SSJtwrhbfe+SsghRpIg3Xir1PcIdSlC
-	 Pnt6va1saxJIQ==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5bfbc25a76aso2075457e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 04:30:48 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvBz5VA3guM0lSEG2O/TB3hdWHA/OA83rDtIIDzloTpczL6c9yFX3YOGvxXWmck6c7wuhkJZoZtFvEtzb9Il5/xwI@lists.infradead.org
-X-Gm-Message-State: APuU4Z98iK0HEdQoYa4cNauobZgFiRl4KUTy5s/7Z61ysGoeZmbt0nRH
-	7e1JM8jMyd8SF74tEKNIqPWCLNYCYTuFJ4CF+zdWdN6TublL16PFWgypRsoFw1vwfBcEE0RXPA/
-	a9pSXM0DAelBCIDTGSvJ8vrcM+ezBjvc=
-X-Received: by 2002:a05:6512:a8c:b0:5bf:c97d:d170 with SMTP id
- 2adb3069b0e04-5bfd11f352bmr5131215e87.17.1793795446847; Wed, 04 Nov 2026
- 04:30:46 -0800 (PST)
+	id 1xOaI8-00000005LwO-0ta3;
+	Wed, 04 Nov 2026 12:40:39 +0000
+Received: from Vostro-3710.. (unknown [14.220.232.26])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 537c3cf4f;
+	Wed, 4 Nov 2026 20:40:24 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: coiaprant@gmail.com
+Cc: bigfoot@classfun.cn,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	heiko@sntech.de,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: Re: [PATCH v3 5/6] arm64: dts: rockchip: fix USB OTG power on Photonicat in battery mode
+Date: Wed,  4 Nov 2026 20:40:20 +0800
+Message-Id: <20261104124020.3546166-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261102174450.3000397-6-coiaprant@gmail.com>
+References: <20261102174450.3000397-6-coiaprant@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261001085217.1778645-1-alexander.sverdlin@siemens.com>
-In-Reply-To: <20261001085217.1778645-1-alexander.sverdlin@siemens.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 4 Nov 2026 13:30:34 +0100
-X-Gmail-Original-Message-ID: <CAD++jLn8yxh3LmUzbb2vZfJFJB=_mCZ+VeQhnZktfmuMiv5uEg@mail.gmail.com>
-X-Gm-Features: AclHuK_xh55IfYWDcMEadkkQPRWoFw-pLiRPci8jz0ty-rrKgkyopgwVmzEI3cA
-Message-ID: <CAD++jLn8yxh3LmUzbb2vZfJFJB=_mCZ+VeQhnZktfmuMiv5uEg@mail.gmail.com>
-Subject: Re: [PATCH 0/2] pinctrl: fix group/function table leaks on consumer re-probe
-To: "A. Sverdlin" <alexander.sverdlin@siemens.com>
-Cc: linux-gpio@vger.kernel.org, Tony Lindgren <tony@atomide.com>, 
-	Haojian Zhuang <haojian.zhuang@linaro.org>, Lokesh Vutla <lokeshvutla@ti.com>, 
-	Nishanth Menon <nm@ti.com>, Rob Herring <robh@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa1a693295003a2kunm0429b5521628f4
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZSR1PVkhITEtIShlOHRlPS1YeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKT1VJSUtVSUhJVUlNWVdZFhoPEhUdFFlBWU9LSFVKS0hKTE
+	xJVUpLS1VKQktLWQY+
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261104_044036_439969_5B9159C9 
+X-CRM114-Status: UNSURE (   7.70  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,63 +70,26 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Oct 1, 2026 at 10:52=E2=80=AFAM A. Sverdlin
-<alexander.sverdlin@siemens.com> wrote:
+Hi,
 
-> From: Alexander Sverdlin <alexander.sverdlin@siemens.com>
->
-> Pinctrl drivers that create their groups/functions lazily from the
-> consumer's device-tree node in .dt_node_to_map() leak the per-mapping
-> tables when the same node is mapped again. The core deduplicates
-> groups/functions by name and keeps the first instance for the controller'=
-s
-> lifetime, so it silently drops the copies built on every subsequent
-> mapping - e.g. on each re-probe of the consumer device. kmemleak does not
-> flag them because they stay reachable from the controller's devres list.
->
-> Reproducer (patch 1, pinctrl-single) - any board where a device referenci=
-ng
-> a pinctrl-single state is repeatedly re-probed; here an I2C TPM whose nod=
-e
-> has a "default" pinctrl state:
->
->   while modprobe tpm_tis_i2c; do rmmod tpm_tis_i2c; done
->
-> The tables land in a generic kmalloc-N cache (kmalloc-192 on arm64, where
-> ARCH_KMALLOC_MINALIGN pads every devres allocation; the bucket differs by
-> config), so watch it cache-independently by diffing /proc/slabinfo after
-> dropping the reclaimable slab:
->
->   sync; echo 3 > /proc/sys/vm/drop_caches
->   cat /proc/slabinfo | awk 'NR>2{print $1,$2}' | sort > /tmp/a
->   <run N cycles>
->   sync; echo 3 > /proc/sys/vm/drop_caches
->   cat /proc/slabinfo | awk 'NR>2{print $1,$2}' | sort > /tmp/b
->   join /tmp/a /tmp/b | awk '$3>$2{print $1,$3-$2}'
->
-> Patch 1 (pinctrl-single) was found and fixed with the above test on real
-> hardware. Patch 2 (ti-iodelay) has the same bug pattern - plus a missing
-> .dt_free_map that leaks the mapping table as well - but was found by code
-> review only and is compile-tested only; I have no such hardware to
-> reproduce it.
->
-> Alexander Sverdlin (2):
->   pinctrl: single: don't leak group/function tables on consumer re-probe
->   pinctrl: ti-iodelay: fix memory leaks on consumer re-probe
+> regulator_5v_boost: regulator-5v-boost {
 
-I got exactly zero reviews on this patch set from the pinctrl-single
-maintainers, so I have now just applied it.
+I prefer to use vcc as a prefix for consistency.
 
-Maybe the old maintainers have other things to do, have you considered
-signing up as co-maintainer? You seem to know what you are doing.
+> +	 * 5V_OUT is the OR-ed combination of the VBAT boost (via D5002)
+> +	 * and VCCIN_5V (via D16).
+> +	 * It has no enable pin of its own.
+> +	 * Model it as a fixed regulator depending on the boost converter,
+> +	 * so that VBAT is boosted when running on battery.
 
-Yours,
-Linus Walleij
+What are the benefits of doing this? This is not a real regulator.
+It is the same path as 5V_BOOST. D16 controls which channel the VIN
+of VCC5V0_USB30_OTG0 comes from. 
 
