@@ -2,70 +2,99 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8094606EE9C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 15:16:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FD4A6082BC2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 15:19:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EoR2iJnw;
-	dkim=pass (2048-bit key, unprotected) header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=X/HdE4h3
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=p6Q5lXoH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=nnBZYqOf+KME/Sp46pI5WW+OtBO4bG0EElZeJz4UPYY=; b=EoR2iJnweCtpYd
-	kA4X6PMKHvKNwZlCI2GvO3742HjFT51mLFQPLDxM2idmeb6wU6J60vNvtPEGgune74h97mM/WxSw4
-	rmlBWRvxDwPCkLsQyRpHTp+bMCbNZ9ljDpHG8BlZLCgFS4CK9uuThQB2rhS7jPsZXlYxcEnbERmIz
-	ayf3uD9y6OoLw4D5qNJ1Q71Z14QLgASZ4zRy+5sBLMo8hkKCViVBetWlVSBNRffz79LSqaeOLIPXM
-	T56a9OkZ22lMsPlqlSCMALcqYwRiHgdCGkp9ljJBC85whHCgHS4EbbXIbry9DmyF1F7tgQCOisOfX
-	wALFmqrGxwjhar6HIGDA==;
+	List-Owner; bh=1kasbafd3T9Fhrw7R0Nr/dFHUF4ChKeJYhTGf2AiF+Y=; b=p6Q5lXoHBHw1pK
+	9tnGNW/znCFSDMhIIrKTTkzFCOzCTqHNhu+ivGeUE/4N+yFViRV/0wkkDtOF/TsJscSxkndVJUwxb
+	SREBoX+VPjpQKrrd2AJb/RCF0muqoEHvR7h2QmUl1yQLeaEVdgGWFf9oB7f7v1sq48y0assiZr2r1
+	hS9OyaXrbR7X/bCfLwYBWRgdzQpnpBS5gLGDH6Mfz5GIz3to1gFWg58iGf71yR/S3PDwMFds7t0g4
+	YUb6AknjLZjwyAfdheWRolbJAq+xpwSnbCXg6KcJuNjiN/gUDWuVL85FIoK2HMAewhEtdLtyCUFAo
+	+W2sGeKPdFlh6UYT5AZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOcio-00000005k4O-09Io;
-	Wed, 04 Nov 2026 15:16:18 +0000
-Received: from bulk0.mail-out.lima-city.de ([91.216.248.212])
+	id 1xOclw-00000005kuf-2oms;
+	Wed, 04 Nov 2026 15:19:32 +0000
+Received: from mail-wr1-f44.google.com ([209.85.221.44])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOcij-00000005jz9-0VR9
+	id 1xOclu-00000005ktt-1agY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 15:16:14 +0000
-From: Andre Eikmeyer <dev@deq.rocks>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=deq.rocks;
-	s=securedbylima-20251205; t=1793805371;
-	bh=mWsgDh7OF28rOrP2S6q/TxC8rHRQKih+umd7HIeD2es=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=X/HdE4h3xHSTIPkQxV4pCg/0dQjJigN3HU/s8cHXEk9r1kNm3WqnxUkxC3GGPPb/C
-	 1L3ek/ETzIlBv7wtxvFtDYa7KgUkBta/JzXPT5GCd8N/1uJ0+iUDvFhVYPvZEdmbGi
-	 10mbKCCVLSCWmXi9W/DGu9jwSQMOY9B+db5H4pfL8zfQ5sP76hEIc8LCriNDIAfL0u
-	 JEjHuAdmYrqo0dRSBlLL8Zo0wCJH1BLQddW4ntEFXryqgqhSW+7y6HWMk8uVM2oKrz
-	 7kfP6WnN0+DAqf+4hsjo+pJDkYs3d/79esuxvYzPc4pbw+/CViWc4PNF11IPXIajT7
-	 0ORe2XzUtAfzA==
-To: marcel@holtmann.org,
-	luiz.dentz@gmail.com
-Cc: linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	sven@kernel.org,
-	j@jannau.net,
-	neal@gompa.dev,
-	asahi@lists.linux.dev,
+	Wed, 04 Nov 2026 15:19:31 +0000
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-490f38e9688so69147f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 07:19:29 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793805568; x=1794410368;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=1kasbafd3T9Fhrw7R0Nr/dFHUF4ChKeJYhTGf2AiF+Y=;
+        b=XPUBg3Ru4hTJjxyuibUlgSIyOGbbf+yFxB1/eRIIUfil9lLZdjby5psXfPPKDFVny5
+         KOtMoLKVGGNl4e4yFRbDbaQpSYA8ROyXCKkktTIJsZkd8Wz7rtGHeK8RL5QyKO7ykqsE
+         S7lF2Zv8Hvh8mYay0XyGvgUD5tItK4PJwhd9sCAU1nqlMw2tXkyOddwwebIbubcuAF6c
+         sjZ2Jk6SD0yyjDdESTbzGucfYMEeW+DXVGcbsU9ujoFmSt+Q6XCuqYk3D9/hRzbF/MSc
+         K4Z2j9CAWn/TEfouflY5z56ORzghsD4BmGf+y0nijOt4bs+DtX6Z2n5zrEtvE8iXBzjV
+         gG/g==
+X-Forwarded-Encrypted: i=1; AKwUvByiTyCkkCq59FZhOvMe232/s/pT3I+jkcrdOpy8yvfZjnCEf/yBJILDYNeSs3NxpJ6XP9BHPaAN4OlXrenSA9Xm@lists.infradead.org
+X-Gm-Message-State: APuU4Z9bT+mvrUcVRGWD4qa984zWRzFG4nNuf9VwbTPavd04CgSslYaS
+	lBJbYSgion09NvOUK7eo0PQ2OVlbmC7QQrXZK9OydgJMI6spytunzCmj+YdehKK8V+E=
+X-Gm-Gg: AYBFou1czdN1QfR6kNJKoTIOXnE3j52y+Xz+vKbzLM+c+Uvuud+LR9I2zN//T9NSepn
+	UMfZpPR5J1vJuI9LVzee9Iyw2KQ1Jf/ZUQ9SM38d7PfLhx1M892SnZ1pQuajP2ATJGad6dvmb9K
+	wouBZcvJoy4+XaV3B1d7yYPY9m3aQ9Af5UBE+p2NOKRhbH5ICXA6EBjFihxdKkdafl+z1x3GOvd
+	oH4Ktp6Cafq+5avIUmoZ0e7bJX5XvRQZEXqH5O2y/ZAUJEQAJ4hubqtuen+HE+qtQdwu5WtJn3t
+	lEK1kYl5BpxtwqzJOjxbtCMDm42NZuctj4H+57yw6X2z4D5G2HHOsYYv6POCKy/Nmhh1VmwixDY
+	qguK9Dh6bUs1Fn6MZxIXGroEUAy81I0LQBv4c+bvHy5kneIU8Q4bLNgv2W34KZhJ4XaUnJNbpYa
+	jpi9O3Nr6EH22hUfr0XRYf2sGLwzZyG+k9xqDV2kKKTQfgbCwdgCcNvG5kYuvz/D9FP2XGOHgTL
+	safQqTinpJCInq0BILDlR/cjJePH52+GgMw2MO6AHdH46hD1Wnz3Z0pAm+flMuM+IbN/U2T+hD7
+	1useb1rRRQG9ka+6SP8jlE6MWg==
+X-Received: by 2002:adf:e18c:0:b0:48e:eb:56c5 with SMTP id ffacd0b85a97d-48e6e2c1d83mr40340920f8f.8.1793805567922;
+        Wed, 04 Nov 2026 07:19:27 -0800 (PST)
+Received: from lake ([2a02:810d:d09:1b65:4366:70cb:bf82:f8ac])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48fec8d8e29sm4639812f8f.19.2026.11.04.07.19.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Nov 2026 07:19:26 -0800 (PST)
+From: Christian Schmidbauer <opensource@grische.xyz>
+To: netdev@vger.kernel.org
+Cc: maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Christian Schmidbauer <opensource@grische.xyz>,
+	stable@vger.kernel.org,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Ong Boon Leong <boon.leong.ong@intel.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	66ton99@gmail.com,
-	josemiguelo.ochoa@gmail.com,
-	aditya.garg@linux.dev,
-	Andre Eikmeyer <dev@deq.rocks>,
-	Yossef Osman <Yossef.Osman@proton.me>
-Subject: [PATCH 2/4] Bluetooth: btbcm: clear vendor bits in LE advertising report types
-Date: Wed,  4 Nov 2026 16:15:59 +0100
-Message-ID: <20261104151601.70493-3-dev@deq.rocks>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261104151601.70493-1-dev@deq.rocks>
-References: <20261104151601.70493-1-dev@deq.rocks>
+	linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org
+Subject: [PATCH net v2 1/3] net: stmmac: honour Rx checksum errors in the AF_XDP zero-copy path
+Date: Wed,  4 Nov 2026 16:19:11 +0100
+Message-ID: <20261104151914.2651241-2-opensource@grische.xyz>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261104151914.2651241-1-opensource@grische.xyz>
+References: <20261104151914.2651241-1-opensource@grische.xyz>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_071613_514983_E9772BBE 
-X-CRM114-Status: GOOD (  16.54  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261104_071930_434939_E7DB6327 
+X-CRM114-Status: GOOD (  13.23  )
+X-Spam-Score: -1.4 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,144 +105,68 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+X-Spam-Status: No, score=-16.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,FROM_SUSPICIOUS_NTLD,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The BCM4364B0 of the MacBookPro15,1 (UART) and the BCM4377 of the
-MacBookAir9,1 (PCIe) set bits 4, 5 and 7 of the event type in LE
-Advertising Report events. btmon on the 15,1 shows types 0x10, 0x13,
-0x14, 0x20, 0x23, 0x24, 0x93 and 0xa0 next to plain 0x00, 0x03 and 0x04,
-the same advertiser shows up as 0x13, 0x23 and 0x03. The kernel log of
-the 9,1 lists 0x10 to 0x24 and 0x80, 0x83, 0x90, 0x93, 0xa0, 0xa3.
-process_adv_report() drops every type above 0x04 with "Unknown
-advertising packet type", so most advertisements never reach the host.
-An AirDrop sender was reported as 0x23, 0x23 and 0x13 and only the
-fourth report, 0x03, reached BlueZ 32 s after the first one.
+Commit ee0aace5f844 ("net: stmmac: Correctly handle Rx checksum offload
+errors") taught stmmac_rx() to honour the csum_none status, but
+stmmac_dispatch_skb_zc() still ignores it and sets CHECKSUM_UNNECESSARY
+for every IP frame whenever the checksum offload engine (CoE) is
+enabled.
 
-Add btbcm_fixup_le_adv_report(), which clears the bits above the type,
-and call it from hci_bcm on Apple machines and from hci_bcm4377 before
-the event goes to the core.
+Since commit fe4042797651 ("net: stmmac: dwmac4: stop hardware from
+dropping checksum-error packets") dwmac4 delivers such frames instead of
+dropping them, so this path receives them.
 
-Suggested-by: Jose Miguel Ochoa <josemiguelo.ochoa@gmail.com>
-Tested-by: Yossef Osman <Yossef.Osman@proton.me>
-Tested-by: Aditya Garg <aditya.garg@linux.dev>
-Signed-off-by: Andre Eikmeyer <dev@deq.rocks>
+Mark the skb CHECKSUM_NONE when csum_none is set, as stmmac_rx() does.
+
+Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
+Cc: <stable@vger.kernel.org>
+Assisted-by: Claude:claude-opus-5-5
+Signed-off-by: Christian Schmidbauer <opensource@grische.xyz>
 ---
- drivers/bluetooth/btbcm.c       | 30 ++++++++++++++++++++++++++++++
- drivers/bluetooth/btbcm.h       |  5 +++++
- drivers/bluetooth/hci_bcm.c     |  5 +++++
- drivers/bluetooth/hci_bcm4377.c |  1 +
- 4 files changed, 41 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/bluetooth/btbcm.c b/drivers/bluetooth/btbcm.c
-index 0facfe62333..527a5c75fd6 100644
---- a/drivers/bluetooth/btbcm.c
-+++ b/drivers/bluetooth/btbcm.c
-@@ -282,6 +282,36 @@ void btbcm_set_acl_priority_on_connect(struct hci_dev *hdev, struct sk_buff *skb
- }
- EXPORT_SYMBOL_GPL(btbcm_set_acl_priority_on_connect);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 7ffed295eb14..3e5803db19b4 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -5547,7 +5547,7 @@ static struct sk_buff *stmmac_construct_skb_zc(struct stmmac_channel *ch,
  
-+/* The BCM4364 and BCM4377 of the T2 Macs set bits above the event type of LE
-+ * Advertising Reports, 0x13 and 0x23 for ADV_NONCONN_IND for example. The
-+ * core drops reports of unknown types, so clear them.
-+ */
-+void btbcm_fixup_le_adv_report(struct sk_buff *skb)
-+{
-+	struct hci_event_hdr *hdr = (void *)skb->data;
-+	struct hci_ev_le_advertising_info *info;
-+	u8 *p, *end;
-+	u8 num;
-+
-+	if (hci_skb_pkt_type(skb) != HCI_EVENT_PKT ||
-+	    skb->len < HCI_EVENT_HDR_SIZE + 2 || hdr->evt != HCI_EV_LE_META)
-+		return;
-+
-+	p = skb->data + HCI_EVENT_HDR_SIZE;
-+	if (p[0] != HCI_EV_LE_ADVERTISING_REPORT)
-+		return;
-+
-+	num = p[1];
-+	p += 2;
-+	end = skb->data + skb->len;
-+	while (num-- && p + sizeof(*info) + 1 <= end) {
-+		info = (void *)p;
-+		info->type &= 0x0f;
-+		p += sizeof(*info) + info->length + 1;
-+	}
-+}
-+EXPORT_SYMBOL_GPL(btbcm_fixup_le_adv_report);
-+
- int btbcm_patchram(struct hci_dev *hdev, const struct firmware *fw)
+ static void stmmac_dispatch_skb_zc(struct stmmac_priv *priv, u32 queue,
+ 				   struct dma_desc *p, struct dma_desc *np,
+-				   struct xdp_buff *xdp)
++				   struct xdp_buff *xdp, int status)
  {
- 	const struct hci_command_hdr *cmd;
-diff --git a/drivers/bluetooth/btbcm.h b/drivers/bluetooth/btbcm.h
-index a4d47b242e9..56936e64b5f 100644
---- a/drivers/bluetooth/btbcm.h
-+++ b/drivers/bluetooth/btbcm.h
-@@ -60,6 +60,7 @@ int btbcm_write_pcm_int_params(struct hci_dev *hdev,
- 			       const struct bcm_set_pcm_int_params *params);
+ 	struct stmmac_rxq_stats *rxq_stats = &priv->xstats.rxq_stats[queue];
+ 	struct stmmac_channel *ch = &priv->channel[queue];
+@@ -5575,7 +5575,8 @@ static void stmmac_dispatch_skb_zc(struct stmmac_priv *priv, u32 queue,
  
- void btbcm_set_acl_priority_on_connect(struct hci_dev *hdev, struct sk_buff *skb);
-+void btbcm_fixup_le_adv_report(struct sk_buff *skb);
+ 	skb->protocol = eth_type_trans(skb, priv->dev);
  
- int btbcm_setup_patchram(struct hci_dev *hdev);
- int btbcm_setup_apple(struct hci_dev *hdev);
-@@ -101,6 +102,10 @@ static inline void btbcm_set_acl_priority_on_connect(struct hci_dev *hdev,
- {
- }
+-	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb))
++	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb) ||
++	    (status & csum_none))
+ 		skb_checksum_none_assert(skb);
+ 	else
+ 		skb->ip_summed = CHECKSUM_UNNECESSARY;
+@@ -5789,7 +5790,8 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
  
-+static inline void btbcm_fixup_le_adv_report(struct sk_buff *skb)
-+{
-+}
-+
- static inline int btbcm_setup_patchram(struct hci_dev *hdev)
- {
- 	return 0;
-diff --git a/drivers/bluetooth/hci_bcm.c b/drivers/bluetooth/hci_bcm.c
-index cf4f1455cf9..1ae9619ee1e 100644
---- a/drivers/bluetooth/hci_bcm.c
-+++ b/drivers/bluetooth/hci_bcm.c
-@@ -148,6 +148,7 @@ struct bcm_device {
- 	bool			no_uart_clock_set;
- 	bool			use_autobaud_mode;
- 	bool			acl_priority;
-+	bool			adv_type_fixup;
- 	u8			pcm_int_params[5];
- 	u32			max_autobaud_speed;
- };
-@@ -686,6 +687,9 @@ static int bcm_recv_event(struct hci_dev *hdev, struct sk_buff *skb)
- 	struct hci_uart *hu = hci_get_drvdata(hdev);
- 	struct bcm_data *bcm = hu->priv;
- 
-+	if (bcm->dev && bcm->dev->adv_type_fixup)
-+		btbcm_fixup_le_adv_report(skb);
-+
- 	if (bcm->dev && bcm->dev->acl_priority)
- 		btbcm_set_acl_priority_on_connect(hdev, skb);
- 
-@@ -1100,6 +1104,7 @@ static int bcm_get_resources(struct bcm_device *dev)
- 
- 	if (x86_apple_machine && !bcm_apple_get_resources(dev)) {
- 		dev->acl_priority = true;
-+		dev->adv_type_fixup = true;
- 		return 0;
- 	}
- 
-diff --git a/drivers/bluetooth/hci_bcm4377.c b/drivers/bluetooth/hci_bcm4377.c
-index 30fcadfae3f..8d99a7a8f76 100644
---- a/drivers/bluetooth/hci_bcm4377.c
-+++ b/drivers/bluetooth/hci_bcm4377.c
-@@ -691,6 +691,7 @@ static void bcm4377_handle_event(struct bcm4377_data *bcm4377,
- 
- 	memcpy(skb_put(skb, len), payload, len);
- 	hci_skb_pkt_type(skb) = type;
-+	btbcm_fixup_le_adv_report(skb);
- 	btbcm_set_acl_priority_on_connect(bcm4377->hdev, skb);
- 	hci_recv_frame(bcm4377->hdev, skb);
- 
+ 		switch (res) {
+ 		case STMMAC_XDP_PASS:
+-			stmmac_dispatch_skb_zc(priv, queue, p, np, buf->xdp);
++			stmmac_dispatch_skb_zc(priv, queue, p, np, buf->xdp,
++					       status);
+ 			xsk_buff_free(buf->xdp);
+ 			break;
+ 		case STMMAC_XDP_CONSUMED:
+-- 
+2.54.0
+
 
