@@ -2,85 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E4AE606A864
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 20:38:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1323C607524D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 20:39:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uxfUj3OC;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Bg9GoV+Z
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=koV9VlwO;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=iav.lv header.i=@iav.lv header.a=rsa-sha256 header.s=zoho header.b=F/mPSDlc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=KZ3i2ZCoB8qigK/rXEJ3PPRenrHzQG6J30zdGcU7gKs=; b=uxfUj3OCXmJ/Zx
-	E8GL5xVWGYYPzqppT4ILc1NubMZMKyt/ZQBQD6YzQErYDht9ktSTi8aFVCzjOXthQX8CA+Aqm4xwo
-	zPXHPkUhu10xssBeuA5x02E21X/4bA7q71nhvUBy8LxiuSh2ugvwRTYJzgmPu6+LFngzpFs5sqI7o
-	UoKLvoY+sHYTcAHSnP7sf99PHPNI/08jDIMCXI5KNhnlpCOOUSAzKLsXgLDP26+97ASb8m1uensgn
-	NNRleO0IIF9cvWFGKYLX6WghncIFKJFqZd8ogaPELOsJrSGLtNmfxCpMcLc0rhrnhDYh2Uj7S+D43
-	3h4kK7AR/x9mjZJRYgYw==;
+	List-Owner; bh=ItJWBgurNWrKzbA3+9kWCtCIwN+CzwIffxyCOBCEeZ4=; b=koV9VlwOngpPVb
+	a4JElVK91YMeqsNX6SMkfRzVY6vmuS8weno2pM1q12p2Xq+tgChc/q3MH93telEDOFp2mak49m39f
+	n/MbeLgWYJ+S6sG135PKxOG+/1rqLUTy7TNJQCXZmEkNFoCfM5gjiSfrkoV/ikgFBgaSlSwMFPMTV
+	yslYaNuVR8UEizpY8jlByGx4ED64Dt1guvXeuU6s698kdJNj1dkLVK28FBrQY8UTlmSpxAn7zAgF3
+	eV2wtx2rWoVD+4nxjvCcMJZQTXboigk4hqiGq45AbO01rxq8QDJzI7yokP3yThys/Uear+K4d5mnD
+	aHRD9nLSYw+wHdXd0OqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOhkP-00000006uqo-3Ajb;
-	Wed, 04 Nov 2026 20:38:17 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1xOh8m-00000006pbw-4Bys;
+	Wed, 04 Nov 2026 19:59:25 +0000
+Received: from sender-op-o15.zoho.eu ([136.143.169.15])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOhkM-00000006uoQ-0rJz;
-	Wed, 04 Nov 2026 20:38:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1793824691;
-	bh=ZyQWW1wCUyxgX5lh8xj5l7gQjS6rGe83Ig2v6D8kRco=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Bg9GoV+ZPTgROm1ZJusnJY1kYsZvbhM+sKMBFfy3xgpe4rP+DGeHre8m1lwwQAC0i
-	 WWnjnjILknGW5VX4vv8B4DXAeG5DsbqPgHWBYEz9p0ffJmThorskM1KObk16V8z16t
-	 utNEtiEzwKBu6NgCPhWN+5NQbbRk8cVQ0bjYK1WmQAC3GyNmbx+Lum+WEXBJl2tXNN
-	 WOYjWTpf827xMUS8KxuHHsvVNJ9WWtK13OTWw1Ajg5KkbGa6c2G+vkpt64h0/rJ/Vy
-	 PwrMheYZy2Jhat0yZQYrpwQcjfO6dtf0+U6sCMGE00RuMIU46p3hVaPZ5I+nVbrp1X
-	 ccio0OVYj/FjA==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0687B17E066C;
-	Wed, 04 Nov 2026 21:38:09 +0100 (CET)
-Message-ID: <c823ced3-693a-4620-8a88-81cca7062c01@collabora.com>
-Date: Wed, 4 Nov 2026 22:38:09 +0200
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 08/15] drm/rockchip: vop2: Avoid DCLK source switch for
- 10-bit YUV422 output
-To: Daniel Stone <daniel@fooishbar.org>
-Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+	id 1xOh8k-00000006pa8-0rgU;
+	Wed, 04 Nov 2026 19:59:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1793822353; cv=none; 
+	d=zohomail.eu; s=zohoarc; 
+	b=dlV+Ny7hMOkt5HlZXhS26tgvbGlxQSLVURMm88dYkJMHWlULVV0zmrBO9gxBn7WMswHyq/aRkHk/hkyUyvQvScLFrcd8md0fionlD+5VJGGGlpae+fCFMb/iWwjsmTQeHrRisYXN+w2vbaABX7Rhqsco+EvwZnyT7xXZBsWUXTI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
+	t=1793822353; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ItJWBgurNWrKzbA3+9kWCtCIwN+CzwIffxyCOBCEeZ4=; 
+	b=PHRuyDioZ2UmrngLNTXv1sxpH7KF6ZBwgzXJgOwZ5rnw0a0Aq7NDbBfsyHjNUGBJwUnw7IxEoBUBo73S9YeWNC9D6cNo4Gpp2E3Y92HjLrV1SSKbUriY79tl6jBRoJ2xGgp54GzaX4L/+0woOci0HiY4/Iu0wyvaQGRKFob+b+4=
+ARC-Authentication-Results: i=1; mx.zohomail.eu;
+	dkim=pass  header.i=iav.lv;
+	spf=pass  smtp.mailfrom=iav@iav.lv;
+	dmarc=pass header.from=<iav@iav.lv>
+DKIM-Signature: a=rsa-sha256; b=F/mPSDlc4uIp6nAJHIOr/sNm8CuQcnOjV63n6wSvUpp1rZ03Ldkn+O6DHim38i2EcxTOGPx7aGWqjPccxvtEG+L0CnB5dOhByaaEYd6rxSYmXDvrFrB9l6yiwzpf2SdRkXldpUkcc/j9XVnviticvo6Y8DKw3tzzz0kxkrtonrM=; c=relaxed/relaxed; s=zoho; d=iav.lv; v=1; bh=ItJWBgurNWrKzbA3+9kWCtCIwN+CzwIffxyCOBCEeZ4=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zoho.eu with SMTPS id 1793822350815917.9354164021267;
+	Wed, 4 Nov 2026 20:59:10 +0100 (CET)
+Date: Wed, 04 Nov 2026 21:59:09 +0200
+From: Igor Velkov <iav@iav.lv>
+To: =?utf-8?Q?Adri=C3=A1n?= Larumbe <adrian.larumbe@collabora.com>
+Cc: iav@iav.lv, Boris Brezillon <boris.brezillon@collabora.com>,
+ Rob Herring <robh@kernel.org>, Steven Price <steven.price@arm.com>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Daniel Stone <daniels@collabora.com>, Philipp Zabel
- <p.zabel@pengutronix.de>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, kernel@collabora.com,
- Andy Yan <andyshrk@163.com>, dri-devel@lists.freedesktop.org,
- linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Igor Paunovic <royalnet026@gmail.com>
-References: <20261014-dw-hdmi-qp-yuv-v5-0-6fab0fe43a9b@collabora.com>
- <20261014-dw-hdmi-qp-yuv-v5-8-6fab0fe43a9b@collabora.com>
- <CAPj87rPsh_cVQWtGEisDrXWiT+Zj6D6n5wXpmbuoFvMKtOi7TA@mail.gmail.com>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <CAPj87rPsh_cVQWtGEisDrXWiT+Zj6D6n5wXpmbuoFvMKtOi7TA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+ Heiko Stuebner <heiko@sntech.de>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH] drm/panfrost: Gate the RK3399 GPU clock in runtime suspend
+Message-ID: <20261104-panfrost-rk3399-pm-rt-larumbe-reply-1@iav.lv>
+In-Reply-To: <autNWETrwrHbD2H9@sobremesa>
+References: <20261030-panfrost-rk3399-pm-rt-v1-1-e94437159a9d@iav.lv>
+ <autNWETrwrHbD2H9@sobremesa>
+X-Archived-By: <archiver.kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_123814_412846_DF6976E9 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20261104_115922_383802_5F95F5A7 
+X-CRM114-Status: GOOD (  23.86  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,58 +75,84 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Daniel,
+Hi Adrián,
 
-On 10/30/26 1:42 PM, Daniel Stone wrote:
-> Hi,
-> 
-> On Tue, 13 Oct 2026 at 23:51, Cristian Ciocaltea
-> <cristian.ciocaltea@collabora.com> wrote:
->>         if (vop2->pll_hdmiphy0 || vop2->pll_hdmiphy1) {
->> -               unsigned int bpc = vcstate->output_bpc ?: 8;
->> +               /*
->> +                * YUV422 always transmits two 12-bit components per clock
->> +                * cycle, regardless of the color depth, which from a rate
->> +                * perspective is equivalent to three 8-bit RGB components.
->> +                * Force 8 bpc here so the bandwidth check reflects the actual
->> +                * TMDS rate and avoids an unnecessary DCLK source switch.
->> +                */
->> +               unsigned int bpc = vcstate->output_mode == ROCKCHIP_OUT_MODE_YUV422 ?
->> +                                       8 : (vcstate->output_bpc ?: 8);
-> 
-> The nested ternary is pretty violent; please write it out explicitly.
-> Either way, the equivalent clock adjustment for YUV420 is handled in
-> the setup_intf_mux() handler, so would it be better for YUV422 to also
-> live there, rather than mashed in with bpc here?
+On 04.11.2026, Adrián Larumbe wrote:
+>> On ROCK Pi 4A restore from hibernation hangs in genpd_restore_noirq()
+>> of the GPU while panfrost is bound. With the clock gated in runtime
+>> suspend, as on the Allwinner H616 and the Renesas parts, it restores.
+>
+> I find the wording in the preceding paragraph a bit confusing . Would
+> you mind clarifying what 'parts' means here? I guess you refer to
+> specific SoCs.
 
-Moving YUV422 into setup_intf_mux() wouldn't work, because that function returns
-the real DCLK rate.  The YUV420 halving there is justified, but for YUV422 the
-DCLK simply equals the pixel clock.
+Yes, SoCs: allwinner,sun50i-h616-mali, renesas,r9a08g046-mali and
+renesas,r9a09g047-mali already use default_pm_rt_data. v2 will name
+them.
 
-What's actually not great here is the bandwidth check, as it tries to rebuild
-the TMDS rate from DCLK.
+> Also, I wonder why not disabling the clocks would forestall coming back
+> from a power suspension state. Have you raised this matter to the
+> maintainers of the RK3399 SoC subsystem?
 
-Apart from the YUV422 special handling, there's another complication: when vop2
-processes multiple pixels per clock cycle, DCLK is only a fraction of the pixel
-clock, e.g. RK3576 halves it for pixel clocks above 600 MHz.  This will
-interfere with upcoming HDMI 2.1 support - e.g. FRL mode such as 4K@120Hz 8-bit
-RGB, with a pixel clock of 1188 MHz, ends up with a 594 MHz DCLK, which slips
-under the limit and wrongly selects the HDMI PHY PLL as DCLK source.
+The kernel that reads the image never binds panfrost, so after
+clk_disable_unused() aclk_gpu stays gated. The restored image still has
+it enabled in software (enable count 1 since probe), so powering the GPU
+domain back on, whose clocks include aclk_gpu, only bumps the count, and
+the QoS writes that follow in rockchip_pd_power() go to a gated block
+and hang. I traced this for rkvdec [1]; for the GPU I see the hang at
+the same spot, genpd_restore_noirq(), and gating in runtime suspend
+removes it. I haven't raised it separately; Heiko is on To.
 
-I've reworked the source switch logic to rely on the actual TMDS character rate
-computed by the HDMI connector state helpers, which already accounts for the
-output color format and depth.  It gives the same result as today for RGB and
-YUV420, corrects the behaviour for YUV422 and upcoming FRL, and removes the bpc
-handling entirely.
+> Would you also mind describing what you did to reproduce this
+> resume-from-suspend issue? Lately we've been getting some fixes for
+> similar SoC issues and I wonder whether mine also has it.
 
-Thanks,
-Cristian
+It is hibernation (restore from disk), not suspend to RAM. ROCK Pi 4A,
+drm-misc-next 33ed26235db9 plus [1], panfrost as a module, bound, GPU
+idle, swap file with resume= and resume_offset=: systemctl hibernate,
+power off and on. Without the patch restore hangs at "panfrost
+ff9a0000.gpu: calling genpd_restore_noirq" 2 of 2, with it restores
+6 of 6. A quick check on another board: with panfrost bound and the GPU
+idle, its core clock keeps enable count 1 in clk_summary.
+
+> If this patch depends on another fix being merged first, I think it's
+> best you delay sending a v2 until it's been committed to its relevant
+> subsystem tree and changes pulled into drm-misc-next.
+
+It applies and builds without [1]; [1] only gets this board through
+restore up to the GPU. [1] goes through linux-media, so I'd rather not
+tie v2 to it, but fine either way.
+
+> I'm not entirely sure about what patch submission guidelines say about
+> testing information, but normally commit trailers must come about
+> last. Would you mind then moving this to right before the S-o-b?
+
+The test notes are below the "---" on purpose, so they stay out of the
+commit.
+
+>> +	{ .compatible = "rockchip,rk3399-mali", .data = &default_pm_rt_data },
+>
+> You're effectively adding support to a whole new SoC. This made me
+> wonder, are we sure suspension resumption not working is only because of
+> GPU_PM_RT? Shouldn't we know first about its supplies and power domains,
+> and any potential GPU quirks? I think this goes beyond my knowledge, so
+> maybe Steven Price can pitch in.
+
+The node already carries "rockchip,rk3399-mali", "arm,mali-t860" and
+binds through the fallback today. default_pm_rt_data differs from
+default_data only in GPU_PM_RT; supplies and the power domain stay as
+they are. The RK3399 GPU node has no bus clocks and no resets, so
+GPU_PM_RT changes only aclk_gpu here. Steven's view is welcome.
+
+[1] https://lore.kernel.org/r/20261030-rkvdec-runtime-pm-clocks-v2-1-8ff510a231de@iav.lv
+
+--
+Igor Velkov
 
