@@ -2,12 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 901EC606A338
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 11:49:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 078DD606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 11:50:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Dx+FNEfc;
-	dkim=pass (2048-bit key, unprotected) header.d=cirrus.com header.i=@cirrus.com header.a=rsa-sha256 header.s=PODMain02222019 header.b=G6Wmi5Ea;
-	dkim=pass (1024-bit key, unprotected) header.d=cirrus4.onmicrosoft.com header.i=@cirrus4.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-cirrus4-onmicrosoft-com header.b=tELJqSxM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rPhDnHpY;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=IdtIy1k5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -15,148 +14,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=s+ipAFSeLD/B03FikKho9U0tktFHRe9fufYviHZ9D3A=; b=Dx+FNEfcbdBVTWSafHh8kelauv
-	S1Odph66ShKnqs5taqgysiknmea2EyaIsL6+Oyqlw4xdnBLl4F/KBzyeU2LjEB52IpzUjncz1gBg7
-	LpH55pjJPjKCIhjd69PKuZnr7df6NoVRwFk0J3hnuhr8v9wwGDTdPV0YsR/L9JzoLHtAZxpBsNdi5
-	SmhrivBZmtEkyJfXdBNNH2D6Nf1Jva/XnZ7uqst1bXY2QLOX+s3I6i9dqhyjZmYkNrXsemYtNDdDF
-	9DzA+5QOrtoatOCRQxVNHR2TjdiSghRs0FGH8e+gPZpzZ5IJqcdOv06AolZ5lP9Mg1XrtlR1Bl++o
-	J5CFT+Mw==;
+	bh=d5OejrVGsomYty+i3ZRzaeZMrk9/8f7YEpZV3hplRGU=; b=rPhDnHpYi65jCzT57btitA9bSf
+	j14DpikVLSOJyQR4FDyObnXLwj7junBDm0jSq6OfZhi/B0xpCZOpqyVkO/Lmdq4ArnKl4i9mz33sA
+	0VaJkgftnbkmuBKt1hJ+mv5OPYRwvtIOgCGSYpBLO+0dPjrZzRek98qOEH9P153rtzNHxGoBDYnpi
+	paJCRfRgyqJsGrpYZ9DHEgXQUtruJ++VQmt+MUvAOedyc3UOfE/LiiBcgiiH+rTTXf9F0wjYH2vTh
+	hBoy0RSForK5KttCOnauSASlIIHlg1wBG8Y0Z1EdX5oOLdySx/E32YZEQcMitviX4rjYXp7ZZuIHP
+	tEC52fAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZU9-00000005Dmj-2i7M;
-	Wed, 04 Nov 2026 11:48:57 +0000
-Received: from mx0a-001ae601.pphosted.com ([67.231.149.25] helo=mx0b-001ae601.pphosted.com)
+	id 1xOZVf-00000005E3r-0rOo;
+	Wed, 04 Nov 2026 11:50:31 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZU7-00000005DmI-07Ru
+	id 1xOZVX-00000005E2Q-17px
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 11:48:56 +0000
-Received: from pps.filterd (m0077473.ppops.net [127.0.0.1])
-	by mx0a-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A49woqv3106919;
-	Wed, 4 Nov 2026 05:48:39 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=PODMain02222019; bh=s+ipAFSeLD/B03FikK
-	ho9U0tktFHRe9fufYviHZ9D3A=; b=G6Wmi5EaoyE9HS/4VpE8SROYr44xpqex8Z
-	qkvq3yrCYyaunUoephTwhwxUM8YAAfS2idEtITAvo+MLdng1TRKDqQDoTYaWDsUF
-	VSw8WFoqFQh0/6VQ3eamEM+g5LpofOhEkKO3J87Us8a8bwbV/GKwGOP0IfbpfSm2
-	R4CVJ1LPMUFDCSMh+8qwb/+1rv92IPSz15g0XIKm4yI9yzr+fZ2F4/+Ohd5hgMBZ
-	K/pHACzfcpnKFA1G3pvalIpgq32cFVsuTqDvQhsQWn6claEqTj7LReY3wqs11Guy
-	N6N6GolK8D+eNp7rWI7N7a/Hz74uJyU1DSBTzirpjSnwncG/v7Xw==
-Received: from ph8pr06cu001.outbound.protection.outlook.com (mail-westus3azon11022127.outbound.protection.outlook.com [40.107.209.127])
-	by mx0a-001ae601.pphosted.com (PPS) with ESMTPS id 4hndrfd3xg-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 04 Nov 2026 05:48:39 -0600 (CST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TROYzzHabLI2az3vXZwBnqdaEhV8vwp1nXfRPSrAM+4AhTvlhrXcAxK1Dh1p20FYMML189V5/LaoD/tfZgmfxCjG8QR9bBkm9mztqwAyr12pfw2LUCjnAp0gnInepQ3yCQSa5N6pSoamVk7sPHYCbK+CUM05thyDc4qQOHELyhuzyakOdBiFDXOyqeR5KNpE/TOvoX5jLnBPLDiiVevVKHdjYToU05kuCu11gL0OhHWhlMlWcR4d3ND5l5QFKbPIMmeOQK5BldOe5+MNSQlyX5NYvt5AaT0P3HnWtjL/fDxIC5Dnz6GIBKCM83czuLD3xV/qqYmgO8qSWCme3Q0qKw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=s+ipAFSeLD/B03FikKho9U0tktFHRe9fufYviHZ9D3A=;
- b=vjD8j+YdRUFHQy/cRs5Pc7vJqQCLpG/b6H47i8kxraWbGdO4PyAREKvA82/JrXrC/pK/ZH9/s2YuhFqip9WPly5imjE0ZRebbNIzRH8lq+um4r1deBYzUPhU+RGHaWFf/AoQtv21SpAt6LGxokXe1qS9IjoMLHHmE9pRwKefFxPqmMjFW3mWFAvlNGLiA7IOxaOWrFXdKSiqcK8kZ4woQvhuH4mrmjLLZ4ROvAY3JZu+XPXw3d7+jJkl3d+MKy5unpVg8qSTmSOZx4UXnsP+uFdyrYi/coUl9dQXzyHmAm0Vrv5Va/uPwAvm3LJyDpRS+9KQFovtyTSfxWxaqCkgvg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 84.19.233.75) smtp.rcpttodomain=altera.com
- smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
- action=oreject header.from=opensource.cirrus.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=s+ipAFSeLD/B03FikKho9U0tktFHRe9fufYviHZ9D3A=;
- b=tELJqSxMiTsVtaCWMEtJMEFT+TTtuOTthhPf9IGzMEEsi8CzP30bM/Hj2A+MK3DdfVHAar0JFbd+vMnvnKoOJ3Zc0/bhozCh+Kwwn069ilYKpKjJSr65fDsEM/QAGDGUIswT91A0H8w9SIBelRiA06W4Zr9gErDoTNVISlBawMQ=
-Received: from BN0PR04CA0012.namprd04.prod.outlook.com (2603:10b6:408:ee::17)
- by BLAPR19MB4258.namprd19.prod.outlook.com (2603:10b6:208:27d::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Wed, 4 Nov 2026
- 11:48:35 +0000
-Received: from BN1PEPF00018545.namprd05.prod.outlook.com
- (2603:10b6:408:ee:cafe::53) by BN0PR04CA0012.outlook.office365.com
- (2603:10b6:408:ee::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.10 via Frontend Transport; Wed, 4
- Nov 2026 11:48:35 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=softfail (sender
- IP is 84.19.233.75) smtp.mailfrom=opensource.cirrus.com; dkim=none (message
- not signed) header.d=none;dmarc=fail action=oreject
- header.from=opensource.cirrus.com;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
-Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
- BN1PEPF00018545.mail.protection.outlook.com (10.167.248.4) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.5
- via Frontend Transport; Wed, 4 Nov 2026 11:48:35 +0000
-Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id D1185406544;
-	Wed,  4 Nov 2026 11:48:33 +0000 (UTC)
-Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id B83E9820273;
-	Wed,  4 Nov 2026 11:48:33 +0000 (UTC)
-Date: Wed, 4 Nov 2026 11:48:32 +0000
-From: Charles Keepax <ckeepax@opensource.cirrus.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Adrian Ng <adrianhoyin.ng@altera.com>, Linus Walleij <linusw@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Support Opensource <support.opensource@diasemi.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-        Srinivas Neeli <srinivas.neeli@amd.com>,
-        Michal Simek <michal.simek@amd.com>, linux-gpio@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, patches@opensource.cirrus.com
-Subject: Re: [PATCH] gpio: Convert to subsys_platform_driver()
-Message-ID: <ausbkKByIo7UO96S@opensource.cirrus.com>
-References: <20261104113309.1634121-1-peng.fan@oss.nxp.com>
+	Wed, 04 Nov 2026 11:50:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793793023; x=1825329023;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=xcmnKuYaN43ljFcSwJ9+DlplQK/ScAcS9ZuYXiL1cQE=;
+  b=IdtIy1k5MH4TQyWFaKBX3bEmoz5t0zspyu+QHiFo69Bk7iySJrF3gkhs
+   Y/8iCTv6CRfaP5ivhWbOKg47nnAF0u4iL90Ftt5suWjvRQCa8PPbd+Z4O
+   pHmiFOKrV9UMo3NDeBhFTGSSgza7SUud5UYx+i3FiE8TNZfeRaXL4vn0Z
+   QdXZmFJY8Mg3FfdzhMDQDZDhhVPkw2m9p9yUt0uM2ffvQtOZrjAu+u1If
+   P/j2Ur91ylcDq3GrW0pDDtMrXr3gCPSXRd1EpuNGZp2yUa4IoFG90CPH3
+   qxnddO7/KboTNuEzFdXcu2mlKrlaKdJuSjZDjfyUikOX1Ihqn97yKkmIj
+   w==;
+X-CSE-ConnectionGUID: fKCpXM6gRfWuHpGWegs27Q==
+X-CSE-MsgGUID: 3QXs0fZCQ56aqkh07U350g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11955"; a="2550901"
+X-IronPort-AV: E=Sophos;i="6.27,195,1787036400"; 
+   d="scan'208";a="2550901"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2026 03:50:23 -0800
+X-CSE-ConnectionGUID: A81cgGfxSCKoADnHFuRfKg==
+X-CSE-MsgGUID: yptMbd2vTjiP98KUKtDuow==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,195,1787036400"; 
+   d="scan'208";a="6841666"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.24])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2026 03:50:19 -0800
+Date: Wed, 4 Nov 2026 13:50:17 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Chi-Wen Weng <cwweng.linux@gmail.com>
+Cc: jic23@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
+	andy@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, cwweng@nuvoton.com
+Subject: Re: [PATCH v4 2/2] iio: adc: Add Nuvoton MA35D1 EADC driver
+Message-ID: <ausb-YqIJM0mI65Y@ashevche-desk.local>
+References: <20261104091136.151269-1-cwweng.linux@gmail.com>
+ <20261104091136.151269-3-cwweng.linux@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261104113309.1634121-1-peng.fan@oss.nxp.com>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00018545:EE_|BLAPR19MB4258:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0df7a363-6a54-4b8b-7e48-08df3a698ef0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|23010399003|36860700016|61400799027|261009223027099003|261022075727099003|56012099006|11063799006|10067099003|18002099003|16102099003|22082099003;
-X-Microsoft-Antispam-Message-Info: OAMYHb7hYklBVN9T7n72QBglG+Xu8HxxfhyTYRE7RdY4UStVIEETHELce1JDUhrEJR5ZbX3dbZu2+fF0c5ZJ+5th4Uky1Svg6Iw3tZ8suCAwkWxyVg9mpeStuBM0ADFwVnUtrfmgbYyIiUCJO6wB+inSWatrMEfQ57xwdYu1rPMXbeMF7JbA0sg1y0qT5J0OcqIb5r5e392MnBrxpSaI8C+opLMW/VI/YL1qK9BMV8LgPfz48Q6dVx8OCpJ/mRtqeIbHmBLTH/2vg7wn27pvONAu2FT0m2V2RaLx4+10eNu059G1fE218pyeTuj/50vw3Z4BhgsJREDfh66DRDXhhJ08Xnj2jDNi8LEFzHK6ENTgFvMPo4U6rd2kWkj+wVXiQPMaOxwmCK0S8rQmo1HwpbKWaPzF8ub4wYy8XTx3o5IbVvqi72AimucefKvZh63J5OHVKdxEloa7YweqrcKhOGSbq6Fz+qaXIAXPoN3lYrCDTj4yOvMkYj69BiTfoxgedxFpIwBhMoJxqIcG7xCb8yC2pk27fJ6enhjt82nKG5dm/RhIhprTx+kWL3XMINiL5YiML/CKLR3qU3OeYn9ZS6C926J9LtfPIjbsx8lbO2CBf63XgZK28WwvR5/VZPvplG6Z5FqzmCGUCP+/eLLR/fMrZWgLKD8ncxCHuUj9yYsRYEON3lC+zO5JBXgOkNAU5Ku4qxU2OJ+HypTHU8UT9Q==
-X-Forefront-Antispam-Report: CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(23010399003)(36860700016)(61400799027)(261009223027099003)(261022075727099003)(56012099006)(11063799006)(10067099003)(18002099003)(16102099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: oSwQtDoWW5+fB4qx+6b3u1EMV06coj9MywqJJn23YN//JO5OdJtuQY2IYXUOXl7KI1nZqy47zxf28sSNGMXcORg5DWyLif7weXevHoiNy0hsZw/VhbDq1GFYf82fvO/M/nwWqZbUyw2dNOnQWoyQMO5Xz945W1SlneZM08f7zro+l0y8vsxqw8ijLsVFbPs5wbOo6DL9aS+VBfdPu2pFEUG4juJneSkKsS13oSwyAki8OyoWjz4hqIv8OsW0nRbTpClfta5IY74vsoeTrtVmKX+I9En0+kGhWV3ZJm3hVV18cVQXbDxJu5t457Ii9k0JiGCrzG4khMQG1aEwF/qAdPn7qFpeCvwmopVyL1hr5fkt77UcRvdTJKlnafzEM1pxkldw/PmMcYW1jbfFDUz3jFnhR8vsfmAGZrysNFnqyezEnfClnQ9H9P0Fjl4REFo+
-X-Exchange-RoutingPolicyChecked: zConIWnx1tiOQMFIvZAvcY8yqGP0Kqys6IaOUC1f93rs3eoXNkBxrZ6s4p7SxCe33jAl0RcVZLdGKuMiqmqSZBn6zRBEOyJgA+vrC9Zn7deGxbJVqnROPHhv8ksH++xDVry2mQ+FxaJzFL9mo1ZpmSK4cIfZ1ZRWPqMse1lV1rT7Bc3Xt0DJp6G0kTVuHcua11pt1FUpuY8HGy4TA2ei9hJZU1VYbxLPHaao62OBs2L05dtgmHOQzxjQ9x9O2UDH8YxXJhN4P5FW6tkFqda/COhslnhDchfNyndWJT3gQkjTwgnzlIllt29dhNxAKDD8jEbpQ2kf9YurbD+Y376y3g==
-X-OriginatorOrg: opensource.cirrus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 11:48:35.1865
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0df7a363-6a54-4b8b-7e48-08df3a698ef0
-X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-BN1PEPF00018545.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BLAPR19MB4258
-X-Proofpoint-GUID: rfYrj0mPT6DBM7CQE4f9hh0LaeFYQbLP
-X-Authority-Analysis: v=2.4 cv=HMRWhYtv c=1 sm=1 tr=0 ts=6aeb1b97 cx=c_pps
- a=2p4Im4Y1RcQvwJl7Z3FgyA==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s63m1ICgrNkA:10 a=RWc_ulEos4gA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=Dj2-6B8FqX4mGL0U3gbX:22
- a=8AirrxEcAAAA:8 a=w1d2syhTAAAA:8 a=DqZYlRkov0yPPlpfqKoA:9 a=CjuIK1q_8ugA:10
- a=ST-jHhOKWsTCqRlWije3:22
-X-Proofpoint-ORIG-GUID: rfYrj0mPT6DBM7CQE4f9hh0LaeFYQbLP
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTA0MDA0NiBTYWx0ZWRfXyFmm5SJRmJuD
- 7dE49vmkApf+xEsL8/X08F3JbgLsOdnhWm3SNFypYAvJe6SxWYXtXr/h5Wb7OKqhHMEzv7v8pLZ
- 0iMSg7XojaNC6YUjohpp/r6M93k4htYdAFWQPIlzKCx/770lK8cmDZDJ7v3KY25Jjejf0mxWB6n
- S2u71FS5XN670p9Pc6WAdLA/zQr8rmfRXxalHDcssZKT/XNp36MVWIVwZYPwMt9y5FcyxWQ6TWB
- gHx0jox2gcFxcP9R/pOfvBbL6d/ZAyDgyjpcHzXp85UkrI+2L7nTbJMyAnO5yMmGG4aDHe2g01D
- JDCNPqr6Gp6GLTmloaTRBo8fni9ooQMKxQW8HzJatFrdyV3FOI0D98mtGVwOno/ki6PA0JC5iNt
- dyy3GZkKrlqJAnqps+xgS1zVSjOBsWbRJ5d79aOunZJ7E24IyWnzLCveTQJ5+XAUTbbru3H1a3Q
- ndjviivjoPXedD8J9Cw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTA0MDA0NiBTYWx0ZWRfX7NMIxiagSEDf
- AqICdlHjmWzCgt6wIDt5LhJ55btMEKj6ms5l/ezBx286gqSoF52upoJwD/T0LFJGQvxjf4Oe2EF
- fYZ1d7hw1DN3eIKu5Ohi5K4mBeKuofc=
-X-Proofpoint-Spam-Reason: safe
+In-Reply-To: <20261104091136.151269-3-cwweng.linux@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_034855_068702_8EF5D553 
-X-CRM114-Status: GOOD (  10.02  )
-X-Spam-Score: -2.6 (--)
+X-CRM114-CacheID: sfid-20261104_035028_068680_3A3567BB 
+X-CRM114-Status: GOOD (  28.36  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,29 +89,543 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 04, 2026 at 07:33:09PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> Replace the open-coded subsys_initcall()/module_exit() platform driver
-> registration with subsys_platform_driver().
-> 
-> No functional change.
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/gpio/gpio-wm831x.c    | 13 +------------
->  drivers/gpio/gpio-wm8350.c    | 13 +------------
->  drivers/gpio/gpio-wm8994.c    | 13 +------------
+On Wed, Nov 04, 2026 at 05:11:36PM +0800, Chi-Wen Weng wrote:
 
-Acked-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+> Add an IIO driver for the Enhanced Analog-to-Digital Converter found on
+> Nuvoton MA35D1 SoCs.
+> 
+> Support single-ended and fixed differential input pairs, direct
+> conversion, and triggered buffered capture using sample module 0.
+> 
+> The hardware supports multiple sample modules, but this initial driver
+> uses sample module 0 only and therefore supports one active voltage
+> channel per buffered scan.
 
-Thanks,
-Charles
+...
+
+> +struct ma35d1_adc {
+> +	struct regmap *regmap;
+> +	struct clk *clk;
+> +	struct reset_control *rst;
+> +	struct completion completion;
+> +	/* Protect conversion state and register accesses from PM transitions. */
+> +	struct mutex lock;
+> +	const struct iio_chan_spec *scan_chan;
+> +	unsigned int vref_mV;
+> +	int irq;
+> +	bool clk_enabled;
+> +	bool external_vref;
+> +	bool suspended;
+> +};
+
+Now when it has optimal layout it's better to regroup the fields with some ties.
+
+struct ma35d1_adc {
+	struct regmap *regmap;
+	struct clk *clk;
+	struct reset_control *rst;
+	struct completion completion;
+	/* Protect conversion state and register accesses from PM transitions. */
+	struct mutex lock;
+	const struct iio_chan_spec *scan_chan;
+	int irq;
+	unsigned int vref_mV;
+	bool external_vref;
+	bool clk_enabled;
+	bool suspended;
+};
+
+...
+
+> +static const struct regmap_config ma35d1_adc_regmap_config = {
+> +	.reg_bits = 32,
+> +	.val_bits = 32,
+> +	.reg_stride = 4,
+> +	.max_register = MA35D1_EADC_REFADJCTL,
+
+Add a comment why no cache is enabled.
+
+> +};
+
+...
+
+> +static int ma35d1_adc_hw_init(struct ma35d1_adc *adc)
+> +{
+> +	struct regmap *map = adc->regmap;
+
+> +	unsigned int i;
+
+Not used outside the loops, just declare inside respective for:s.
+
+> +}
+
+...
+
+> +static int ma35d1_adc_config_channel(struct ma35d1_adc *adc,
+> +				     const struct iio_chan_spec *chan)
+> +{
+> +	struct regmap *map = adc->regmap;
+> +	unsigned int mask;
+> +	int ret;
+> +
+> +	mask = MA35D1_EADC_CTL_DIFFEN | MA35D1_EADC_CTL_DMOF;
+> +	ret = regmap_assign_bits(map, MA35D1_EADC_CTL, mask, chan->differential);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/*
+> +	 * INTPOS = 0 generates ADIF0 at end of conversion. TRGSEL = 0 disables
+> +	 * the hardware trigger; conversions are started through SWTRG0.
+> +	 */
+> +	mask = MA35D1_EADC_SCTL_CHSEL_MASK |
+> +	       MA35D1_EADC_SCTL_TRGSEL_MASK |
+> +	       MA35D1_EADC_SCTL_INTPOS;
+
+Use room on the previous line(s).
+
+> +	ret = regmap_update_bits(map, MA35D1_EADC_SCTL(0), mask,
+> +				 FIELD_PREP(MA35D1_EADC_SCTL_CHSEL_MASK,
+> +					    chan->channel));
+> +	if (ret)
+> +		return ret;
+> +
+> +	return regmap_update_bits(map, MA35D1_EADC_INTSRC0,
+> +				  MA35D1_EADC_INTSRC0_MASK,
+> +				  MA35D1_EADC_INTSRC0_SPLIEN0);
+> +}
+
+...
+
+> +static int ma35d1_adc_read_conversion(struct ma35d1_adc *adc,
+> +				      const struct iio_chan_spec *chan, u16 *raw)
+> +{
+> +	struct regmap *map = adc->regmap;
+> +	unsigned int val;
+> +	long timeout;
+> +	int ret;
+> +
+> +	reinit_completion(&adc->completion);
+> +
+> +	ret = regmap_write(map, MA35D1_EADC_STATUS2, MA35D1_EADC_STATUS2_ADIF0);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = ma35d1_adc_config_channel(adc, chan);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_set_bits(map, MA35D1_EADC_CTL, MA35D1_EADC_CTL_ADCIEN0);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_write(map, MA35D1_EADC_SWTRG, BIT(0));
+> +	if (ret)
+> +		goto disable_irq;
+> +
+> +	timeout = wait_for_completion_timeout(&adc->completion,
+> +					      MA35D1_EADC_TIMEOUT);
+
+Make it a single (yes, a bit longer) line.
+
+> +	if (!timeout) {
+> +		ma35d1_adc_abort_conversion(adc);
+> +		return -ETIMEDOUT;
+> +	}
+> +
+> +	ret = ma35d1_adc_disable_irq(adc);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_read(map, MA35D1_EADC_DAT(0), &val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (!(val & MA35D1_EADC_DAT_VALID))
+> +		return -EIO;
+> +
+> +	if (val & MA35D1_EADC_DAT_OV)
+> +		return -EOVERFLOW;
+> +
+> +	*raw = FIELD_GET(MA35D1_EADC_DAT_RESULT_12BIT, val);
+> +
+> +	return 0;
+> +
+> +disable_irq:
+> +	ma35d1_adc_disable_irq(adc);
+> +
+> +	return ret;
+> +}
+
+...
+
+> +static irqreturn_t ma35d1_adc_isr(int irq, void *data)
+> +{
+> +	struct iio_dev *indio_dev = data;
+> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
+> +	struct regmap *map = adc->regmap;
+> +	unsigned int status;
+> +	int ret;
+> +
+> +	ret = regmap_read(map, MA35D1_EADC_STATUS2, &status);
+> +	if (ret)
+> +		return IRQ_NONE;
+> +
+> +	if (!(status & MA35D1_EADC_STATUS2_ADIF0))
+> +		return IRQ_NONE;
+
+regmap_test_bits() ? It will hide status OTOH. Up to you.
+
+> +	ret = regmap_write(map, MA35D1_EADC_STATUS2, MA35D1_EADC_STATUS2_ADIF0);
+> +	if (ret)
+> +		dev_err_ratelimited(regmap_get_device(map),
+> +				    "failed to clear ADC interrupt status: %d\n", ret);
+> +
+> +	complete(&adc->completion);
+> +
+> +	return IRQ_HANDLED;
+> +}
+
+...
+
+> +static int ma35d1_adc_read_raw(struct iio_dev *indio_dev,
+> +			       const struct iio_chan_spec *chan,
+> +			       int *val, int *val2, long mask)
+> +{
+> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
+> +	u16 raw;
+> +	int ret;
+> +
+> +	switch (mask) {
+> +	case IIO_CHAN_INFO_RAW: {
+> +		IIO_DEV_ACQUIRE_DIRECT_MODE(indio_dev, claim);
+> +		if (IIO_DEV_ACQUIRE_FAILED(claim))
+> +			return -EBUSY;
+> +
+> +		guard(mutex)(&adc->lock);
+> +
+> +		if (adc->suspended)
+> +			return -EBUSY;
+> +
+> +		ret = ma35d1_adc_read_conversion(adc, chan, &raw);
+> +		if (ret)
+> +			return ret;
+> +
+> +		if (chan->differential)
+> +			*val = ma35d1_adc_sign_extend(raw);
+> +		else
+> +			*val = raw;
+> +
+> +		return IIO_VAL_INT;
+> +	}
+> +	case IIO_CHAN_INFO_SCALE:
+> +		*val = adc->vref_mV;
+> +		/* Differential mode has a VREF / 2048 LSB; single-ended uses /4096. */
+> +		*val2 = chan->differential ? MA35D1_EADC_DIFF_SCALE_BITS :
+> +					       MA35D1_EADC_RESOLUTION;
+
+Broken indentation.
+
+> +		return IIO_VAL_FRACTIONAL_LOG2;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+
+...
+
+> +static int ma35d1_adc_update_scan_mode(struct iio_dev *indio_dev,
+> +				       const unsigned long *scan_mask)
+> +{
+> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
+> +	int bit;
+
+> +	adc->scan_chan = NULL;
+
+Should we update this even in case of wrong channel type?
+
+> +	iio_for_each_active_channel(indio_dev, bit) {
+> +		const struct iio_chan_spec *chan = &indio_dev->channels[bit];
+> +
+> +		if (chan->type != IIO_VOLTAGE)
+> +			return -EINVAL;
+> +
+> +		adc->scan_chan = chan;
+> +	}
+> +
+> +	if (!adc->scan_chan)
+> +		return -EINVAL;
+> +
+> +	return 0;
+> +}
+
+...
+
+> +	return regmap_write(adc->regmap, MA35D1_EADC_STATUS2,
+> +			    MA35D1_EADC_STATUS2_ADIF0);
+
+	struct regmap *map = adc->regmap;
+	...
+	return regmap_write(map, MA35D1_EADC_STATUS2, MA35D1_EADC_STATUS2_ADIF0);
+
+*yes, it's 81 characters long.
+
+...
+
+> +static int ma35d1_adc_parse_channels(struct iio_dev *indio_dev,
+> +				     struct device *dev)
+> +{
+> +	DECLARE_BITMAP(used_single_inputs, MA35D1_EADC_MAX_EXT_CHANNELS);
+> +	DECLARE_BITMAP(used_diff_pairs, MA35D1_EADC_NUM_DIFF_PAIRS);
+> +	DECLARE_BITMAP(used_regs, MA35D1_EADC_MAX_EXT_CHANNELS);
+> +	struct iio_chan_spec *channels;
+> +	unsigned int scan_index;
+> +	int num_channels;
+> +	int ret;
+> +
+> +	bitmap_zero(used_single_inputs, MA35D1_EADC_MAX_EXT_CHANNELS);
+> +	bitmap_zero(used_diff_pairs, MA35D1_EADC_NUM_DIFF_PAIRS);
+> +	bitmap_zero(used_regs, MA35D1_EADC_MAX_EXT_CHANNELS);
+> +
+> +	num_channels = device_get_child_node_count(dev);
+> +	if (!num_channels)
+> +		return dev_err_probe(dev, -ENOENT, "no ADC channels configured\n");
+> +
+> +	if (num_channels > MA35D1_EADC_MAX_EXT_CHANNELS)
+> +		return dev_err_probe(dev, -ENOSPC, "too many ADC channels\n");
+> +
+> +	channels = devm_kcalloc(dev, size_add(num_channels, 1),
+> +				sizeof(*channels), GFP_KERNEL);
+> +	if (!channels)
+> +		return -ENOMEM;
+> +
+> +	scan_index = 0;
+> +	device_for_each_child_node_scoped(dev, child) {
+> +		bool has_diff, has_single;
+> +		u32 reg, vinp, vinn;
+> +
+> +		ret = fwnode_property_read_u32(child, "reg", &reg);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret,
+> +					     "missing channel reg property\n");
+> +
+> +		if (reg >= MA35D1_EADC_MAX_EXT_CHANNELS)
+> +			return dev_err_probe(dev, -ENOSPC,
+> +					     "invalid ADC channel index %u\n", reg);
+> +
+> +		if (test_and_set_bit(reg, used_regs))
+> +			return dev_err_probe(dev, -EEXIST,
+> +					     "duplicate ADC channel index %u\n", reg);
+> +
+> +		has_single = fwnode_property_present(child, "single-channel");
+> +		has_diff = fwnode_property_present(child, "diff-channels");
+> +		if (has_single && has_diff)
+> +			return dev_err_probe(dev, -EINVAL,
+> +					     "channel %u has conflicting input properties\n",
+> +					     reg);
+> +
+> +		if (has_diff) {
+
+> +			u32 inputs[2];
+
+No need, move this above instead of vinn and vinp. Or use custom data:
+
+		struct {
+			u32 p;
+			u32 n;
+		} vin;
+
+if you want to have distinct names.
+
+
+> +			ret = fwnode_property_read_u32_array(child, "diff-channels",
+> +							     inputs, ARRAY_SIZE(inputs));
+> +			if (ret)
+> +				return dev_err_probe(dev, ret,
+> +						     "invalid diff-channels for index %u\n",
+> +						     reg);
+> +
+> +			vinp = inputs[0];
+> +			vinn = inputs[1];
+> +			if (vinp >= 4 || vinn != vinp + 4)
+> +				return dev_err_probe(dev, -ECHRNG,
+> +						     "invalid differential inputs %u-%u\n",
+> +						     vinp, vinn);
+> +
+> +			if (test_and_set_bit(vinp, used_diff_pairs))
+> +				return dev_err_probe(dev, -EEXIST,
+> +						     "duplicate differential inputs %u-%u\n",
+> +						     vinp, vinn);
+> +
+> +			channels[scan_index] = (struct iio_chan_spec) {
+> +				.type = IIO_VOLTAGE,
+> +				.indexed = 1,
+> +				.differential = 1,
+> +				.channel = vinp,
+> +				.channel2 = vinn,
+> +				.address = reg,
+> +				.scan_index = scan_index,
+> +				.info_mask_separate = BIT(IIO_CHAN_INFO_RAW) |
+> +						      BIT(IIO_CHAN_INFO_SCALE),
+> +				.scan_type = {
+> +					.format = IIO_SCAN_FORMAT_SIGNED_INT,
+> +					.realbits = MA35D1_EADC_RESOLUTION,
+> +					.storagebits = 16,
+> +					.endianness = IIO_CPU,
+> +				},
+> +			};
+> +		} else {
+> +			if (has_single) {
+> +				ret = fwnode_property_read_u32(child, "single-channel",
+> +							       &vinp);
+> +				if (ret)
+> +					return dev_err_probe(dev, ret,
+> +							     "invalid single-channel for index %u\n",
+> +							     reg);
+> +			} else {
+> +				vinp = reg;
+> +			}
+> +
+> +			if (vinp >= MA35D1_EADC_MAX_EXT_CHANNELS)
+> +				return dev_err_probe(dev, -ECHRNG,
+> +						     "invalid ADC input %u\n", vinp);
+> +
+> +			if (test_and_set_bit(vinp, used_single_inputs))
+> +				return dev_err_probe(dev, -EEXIST,
+> +						     "duplicate ADC input %u\n", vinp);
+> +
+> +			channels[scan_index] = (struct iio_chan_spec) {
+> +				.type = IIO_VOLTAGE,
+> +				.indexed = 1,
+> +				.channel = vinp,
+> +				.address = reg,
+> +				.scan_index = scan_index,
+> +				.info_mask_separate = BIT(IIO_CHAN_INFO_RAW) |
+> +						      BIT(IIO_CHAN_INFO_SCALE),
+> +				.scan_type = {
+> +					.format = IIO_SCAN_FORMAT_UNSIGNED_INT,
+> +					.realbits = MA35D1_EADC_RESOLUTION,
+> +					.storagebits = 16,
+> +					.endianness = IIO_CPU,
+> +				},
+> +			};
+> +		}
+> +
+> +		scan_index++;
+> +	}
+> +
+> +	channels[scan_index] = IIO_CHAN_SOFT_TIMESTAMP(scan_index);
+> +
+> +	indio_dev->channels = channels;
+> +	indio_dev->num_channels = scan_index + 1;
+> +
+> +	return 0;
+> +}
+
+...
+
+> +static int ma35d1_adc_init_vref(struct ma35d1_adc *adc, struct device *dev)
+> +{
+> +	int ret;
+> +
+> +	ret = devm_regulator_get_enable_read_voltage(dev, "vref");
+> +	if (ret == -ENODEV) {
+> +		adc->vref_mV = MA35D1_EADC_INTERNAL_VREF_mV;
+
+> +		return 0;
+
+Can be deduplicated. See below how.
+
+> +	}
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "failed to get VREF supply\n");
+> +
+> +	if (!ret)
+> +		return dev_err_probe(dev, -EINVAL, "invalid VREF voltage\n");
+> +
+> +	adc->external_vref = true;
+> +	adc->vref_mV = ret / (MICRO / MILLI);
+
+	if (ret == -ENODEV) {
+		adc->vref_mV = MA35D1_EADC_INTERNAL_VREF_mV;
+	} else if (ret < 0) {
+		return dev_err_probe(dev, ret, "failed to get VREF supply\n");
+	} else {
+		adc->external_vref = true;
+		adc->vref_mV = ret / (MICRO / MILLI);
+	}
+
+
+> +	return 0;
+> +}
+
+...
+
+> +	adc->clk = devm_clk_get(dev, NULL);
+> +	if (IS_ERR(adc->clk))
+> +		return dev_err_probe(dev, PTR_ERR(adc->clk),
+> +				     "failed to get ADC clock\n");
+> +
+> +	ret = clk_prepare_enable(adc->clk);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to enable ADC clock\n");
+
+> +	adc->clk_enabled = true;
+
+Repeats what __clk_is_enabled() provides.
+
+> +	ret = devm_add_action_or_reset(dev, ma35d1_adc_clk_disable_action, adc);
+> +	if (ret)
+> +		return ret;
+
+...
+
+> +static int ma35d1_adc_resume(struct device *dev)
+> +{
+> +	struct iio_dev *indio_dev = dev_get_drvdata(dev);
+> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
+> +	int ret;
+
+> +	mutex_lock(&adc->lock);
+
+What's wrong with guard()()? Yes, for resume triggering support this needs to
+be wrapped. Same Q to other explicit mutex_lock() use cases.
+
+> +	ret = clk_prepare_enable(adc->clk);
+> +	if (ret)
+> +		goto unlock;
+> +
+> +	adc->clk_enabled = true;
+> +	ret = ma35d1_adc_hw_init(adc);
+> +	if (ret) {
+> +		clk_disable_unprepare(adc->clk);
+> +		adc->clk_enabled = false;
+> +		goto unlock;
+> +	}
+> +
+> +	adc->suspended = false;
+> +	mutex_unlock(&adc->lock);
+> +
+> +	return iio_device_resume_triggering(indio_dev);
+> +
+> +unlock:
+> +	mutex_unlock(&adc->lock);
+> +
+> +	return ret;
+> +}
+> +
+> +static DEFINE_SIMPLE_DEV_PM_OPS(ma35d1_adc_pm_ops,
+> +				ma35d1_adc_suspend, ma35d1_adc_resume);
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
