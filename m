@@ -2,135 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07C18606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 14:00:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A632606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 14:01:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=km9dx53B;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=erOCVOlR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Av55nSIh;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AhPTozuL
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=EK0JUgp8OCD/gxw0LjPEg0NrLddUOwjtQqQrgH4Zeuo=; b=km9dx53BVJ1P+w
-	xcx33EK3g/cUfymDfoaCZcECfvAwFLZekcSU967G1KOZXHeFRMvMws04a57+xcfUnPhWcoyjmhvYA
-	Ym4F9B2Sr2BmTsvdWaJGP6jZCqayccVdxl/49Bp9a2J+i6XFeZ+eymwMPvfQUMq0sZC6gDDIt335w
-	eF/UBT+mWJYgx6giW49BSOmhxp3Z5PhHTL21F6e+nLA7ViCtr++hthxUWO2paCLf3GXtKhTY6IyvO
-	ZdOz7gGY92LjE4SsNjm1aPvh/9z+poMVsz8Hnj/a/LA1CFAm3t9XfL8wqWbrfiuCCVs12av2Z7to3
-	c2WPCZurK+y+lMYE6oxw==;
+	List-Owner; bh=gjE0e4Jpg2/L+9H+FXO8WVtezi6JzsD1ckb0zbLEW4g=; b=Av55nSIhOkk6k7
+	72W9gXQZuY/Oo53p/u9T4sysOJWFmEL8Q8uCBsQvSUfJL7jpt/iSJYaSLIafHCsN0BipQxOw5+Epw
+	DiyHuXI9SS5wjU1NOsC0nUKhmHsQ9jK527mb0mxUaYtUk3UScAZifzbjyO3JXCfM8197s4f9QW+im
+	uBSn/jgLyTWHKIoChg3dLaOwevTzNILC7ipwdbGzLH1TZG4IAz2bfqnP3tR8rtqkIH66HXUxBMLlN
+	vmFHZcdGS9LRCMKaqLXKNsQi7q5XyjiSxeU+Z8Hd0rBGs4+EToJHCiN9rQ/wr884acI6MmzPczJs6
+	gsxpiZgEVrlCWrKJi6hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xObXf-00000005XJJ-13Tr;
-	Wed, 04 Nov 2026 14:00:43 +0000
-Received: from mail-dl1-x122e.google.com ([2607:f8b0:4864:20::122e])
+	id 1xObYY-00000005XXC-2WNT;
+	Wed, 04 Nov 2026 14:01:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xObXb-00000005XIT-3oi2
+	id 1xObYY-00000005XWu-10Io
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 14:00:41 +0000
-Received: by mail-dl1-x122e.google.com with SMTP id a92af1059eb24-1ae18eb9ad0so721209c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 06:00:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793800838; x=1794405638; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EK0JUgp8OCD/gxw0LjPEg0NrLddUOwjtQqQrgH4Zeuo=;
-        b=erOCVOlRqI6SbR9bHLstET/4xb5qL6zX7m63IT7wpu3Wm19kYJY8z0L/4yB0X6gnvN
-         7LjETc7gRo4pC19sCiwGaZ4SJGz+WlDmW+A1iUGlTf0zkin7kllksfVDSyYUdhn2DQ5J
-         X8lETPRUlJGRaP/gsApLJtU2del3t0dD02ygNz3qvXNeBWcTpNFrSBj6YhVU7Q665ib8
-         MSvpN864QsuI5pXDHHua+mMgUFDTDEBASSAS2+M0HKxDOaMZ7aQ1I0DG8tCSNCjOi6zJ
-         dRmKeXshZD41FZtopNuYgZ4KTfNh7Z1EptDXpvGZ60GptSFgewvZTzsikQRlRZX3gH6E
-         nrbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793800838; x=1794405638;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EK0JUgp8OCD/gxw0LjPEg0NrLddUOwjtQqQrgH4Zeuo=;
-        b=HJnC9Z7yydzSZw3jFWEOnn37FY5qhlcoQtvuw2oUcHJ74MtLSwl2kBX9j71KK/mzGN
-         n+x+Wegsy/bwgyaGSWXtXdSZAxbB2UrF8RMvibPzeFgVi08ByQ0VQCFFj7m73GkRoHPz
-         TuBe0Qh84myk12qkfcJNtssByJsFJ3IxnJfzOwlrqQszUBTFrpli3AAbG7uz5sQSlKwL
-         tAjYURsN0KYAMvVkn6XxS2o9Z6rnPVUfLaA5oqbrGPZN6LTUu+4xfuKfAS9g/dNaPWqW
-         AKp+79Wp0zI+6lxrCiY7yqMl+afyqkEioUQOUtwOF4zy9dpZ3mNWpP5Zdp2ssUDrW1z/
-         LV9w==
-X-Forwarded-Encrypted: i=1; AKwUvByR94at4LJbClRtKpRWq0gfbydUD8c6Ae+iDOYw0IxkwFnRh0C0HgiU4xfiMpAxpqZk1Kj2e4osn0iV+bCq3ja0@lists.infradead.org
-X-Gm-Message-State: APuU4Z/hLG2hM2VkSPxylBRnTP/PJDmiMiubRHsjdvIuSV48BQSM6TeV
-	3Fkez01vhy6oCJPoQ3zCnX73yi9//Nb/qhjPWj9GGLULVxMmu96ZLOca
-X-Gm-Gg: AYBFou1Sh8tdkrfSRS9u7L5Dai5hpAgSl9DHD9Gwb3VdRxslUfuArMtlO+b8YDsQtTC
-	9YO0+GX3aoRDpSWRQQROU7D+yHPgL7y1nY2jD2yTfIc3KHrbuCFlXfYNS7Y3jgT6heSQQ5AmIye
-	HjBSCvZ9R8CIQUeEKOCV31MUz/g0rLDX1fEMFFPKDMXA00gAJMIqX3/Js4TWnxAKfVfizf3D6QE
-	L2VJ3nX5GV+WwXcsCPBmHc4IBRJGFs/ipfolTXe/EqNcc1XYNDS+D6Nexwp+K4/YaVw7sh244N/
-	7siHN9uWym0gyWa1wgCghI/HSWvvfmPcc9U6+mR14X6+b0z/uu/yKHI6ZowYwmEIWPnIi0QPHJD
-	TJqDZWOxOfQj9k1cAdPgaeZjnvxXfGqTYSwnQR8yOVD+7wA5cGv/dfhGO3x2jHWsYXaxj7VDuiT
-	abm/F1Rj/ggeM65lD2Bm4w5IswbVaCIGAgk2oORei7FcB5gjD6lZWvMN4KBEHp6U78sWw+Oyo+6
-	dEdCvuw3+Zmgnl++HyX37wfO+Udgl1O9dBeEYS3YU1XYr3GasOTwHkFL6C38EtXm41x4tMIkizQ
-	mHMJsxYEVFxC2UF8fW4f4sspW7D06i829kDabxzF29W7yZn3vXInwxFe7zwwaYQLVnDD0/x8Mde
-	Pve0=
-X-Received: by 2002:a05:7023:a89:b0:1a8:9857:2102 with SMTP id a92af1059eb24-1ac5f183841mr25563977c88.30.1793800837135;
-        Wed, 04 Nov 2026 06:00:37 -0800 (PST)
-Received: from localhost ([2.27.148.106])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b245c30521sm8553620c88.13.2026.11.04.06.00.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Nov 2026 06:00:36 -0800 (PST)
-From: Han Gao <rabenda.cn@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Han Gao <rabenda.cn@gmail.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Linus Walleij <linusw@kernel.org>,
-	=?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Drew Fustini <fustini@kernel.org>,
-	Icenowy Zheng <uwu@icenowy.me>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	Yao Zi <me@ziyao.cc>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-clk@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH RFC v3 00/17] riscv: add initial Zhihe A210 support using SCMI clocks and resets
-Date: Wed,  4 Nov 2026 22:00:30 +0800
-Message-ID: <20261104140031.1172491-1-rabenda.cn@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <9b99c531-1977-4bc1-8105-bd9c3e129951@kernel.org>
-References: 
+	Wed, 04 Nov 2026 14:01:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A5F9F418C0
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Nov 2026 14:01:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AF121F00919
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Nov 2026 14:01:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793800897;
+	bh=gjE0e4Jpg2/L+9H+FXO8WVtezi6JzsD1ckb0zbLEW4g=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=AhPTozuL4KSFCX2IY3v/JSy++FpA7zvwoQWHbMLM8lBoWgCklGVemQWHkd2/Xpcs/
+	 JfPwdF40o/ujsRHbnoOSbUpR6WfRt7rmtwljOh2iWLoA1X95eog1gkmHN9kW54gcdp
+	 sivOTc/f81cO/jRGZuTUQLFPVZ0KsMbxQ/wTBKC8KPwHgKupZ0pZkap5LX9utCo1aV
+	 Jcs7L+dImB+nxFJLhorYA5MOxZULqGH80PdPulfH78QyxDL/VXxFHxb1ffHzos8zHb
+	 4e/VVCoJ6xUx+pjRY9P6bo9oG0KAD4GsjmTxb7cpn+w8u9aTyJfI6liEOlKpY52wpK
+	 sQ0/TIuI2LN1g==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5bfa65c8617so382836e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 06:01:37 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AKwUvBwwzwQYYM2xPz2dOlp5NYvCR4zH5dcxND6PR8AwnNCT5Zquo7uHMqtV+zqTv3unhezU36Sq13cm2nUUwHNR/AHj@lists.infradead.org
+X-Gm-Message-State: APuU4Z/3QqAd346JknUQh43o+6JMperZoF1mQIDf+JcJGPjzBikL+TzB
+	QnMcMR9jiif0UYBCfoir8YF1HQDky7bZv/Ks2kkjq8TjywDw3sIITK6JF/TrKM8N9NzQAsM0g+q
+	yI/BARU0YKDYn7OCcs4SbO8tHwFrfpBQ=
+X-Received: by 2002:a05:6512:130f:b0:5bf:b70f:5544 with SMTP id
+ 2adb3069b0e04-5bfd951f972mr4988129e87.9.1793800896344; Wed, 04 Nov 2026
+ 06:01:36 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_060039_942460_48E9FA25 
-X-CRM114-Status: GOOD (  17.82  )
-X-Spam-Score: -2.1 (--)
+References: <20261030082932.193164-1-julian@outer-limits.org>
+In-Reply-To: <20261030082932.193164-1-julian@outer-limits.org>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 4 Nov 2026 15:01:24 +0100
+X-Gmail-Original-Message-ID: <CAD++jL=gqPPvLC72ioyRUJtDvqO9xUCA9B+vK95smaiEY5a8Zg@mail.gmail.com>
+X-Gm-Features: AclHuK9orhwXbJqsVZsNMjktFmZa1Og1q3CM8Pzy0ZRLDTTCV01s2sm6CKPLgxE
+Message-ID: <CAD++jL=gqPPvLC72ioyRUJtDvqO9xUCA9B+vK95smaiEY5a8Zg@mail.gmail.com>
+Subject: Re: [PATCH] ARM: fix big-endian check for IO memcpy and memset
+To: Julian Vetter <julian@outer-limits.org>
+Cc: Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,50 +77,42 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi, Krzysztof
+On Fri, Oct 30, 2026 at 9:30=E2=80=AFAM Julian Vetter <julian@outer-limits.=
+org> wrote:
 
-On Wed, 4 Nov 2026 09:24:15 +0100 Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> The commit 7ddfe625cbc1 ("ARM: optimize
+> memset_io()/memcpy_fromio()/memcpy_toio()") switched little-endian
+> builds to mmioset()/mmiocpy() and intended to keep the byte-wise
+> _memset_io()/_memcpy_fromio()/_memcpy_toio() for big-endian builds.
+> However, the check uses __ARMBE__, which is not defined by GCC. The
+> define used throughout the kernel is __ARMEB__ for big-endian ARM. So,
+> big-endian builds have been using mmioset() and mmiocpy() ever since.
+>
+> This is a problem on ARMv5 BE32 platforms like IXP4xx, where word
+> accesses to IO memory can end up on different byte lanes than byte
+> accesses. Fix the typo, so big-endian builds use the correct byte-wise
+> implementations again, as originally intended.
+>
+> Switching big-endian builds to the generic implementation from
+> lib/iomem_copy.c instead is not an option either, because it also uses
+> word accesses for the aligned parts of a buffer and thus has the same
+> byte lane problem on BE32. ARMv6/v7 BE8 mode would work with both, but
+> it is marked as broken and is expected to be removed, so it is not worth
+> treating it differently from BE32.
+>
+> Signed-off-by: Julian Vetter <julian@outer-limits.org>
 
-> On 02/11/2026 20:45, Han Gao wrote:
-> > This adds initial support for the Zhihe A210 SoC and the Melon Pi V1
-> > and V2 boards.
-> > 
-> > The A210 has four C908V and four C920V2 cores, plus an E902 management
-> > core. The E902 firmware handles clocks, resets, power, the PMIC and
-> > CPU DVFS, so Linux uses SCMI for clocks and resets. The only new SCMI
-> > piece is the mailbox to the E902. [2] explains why I picked SCMI over
-> > RPMI.
-> > 
-> Considering how vulab@iscas.ac.cn is ignoring reviews/comments and spams
-> with a lot of unthreaded emails, completely disregarding any tries of
-> contact over last 1.5 months, shall we ignore all contributions from
-> @iscas.ac.cn?
-> 
-> Maybe this will be the only way to actually be heard?
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-Apologies, I am unable to communicate directly with the team at vulab,
-but I have passed the relevant information on to them;
-I trust they will handle the matter appropriately.
+Please put this patch into Russell's patch tracker.
 
-Thanks,
-Han
-
-> 
-> Best regards,
-> Krzysztof
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-Sent using hkml (https://github.com/sjp38/hackermail)
+Yours,
+Linus Walleij
 
