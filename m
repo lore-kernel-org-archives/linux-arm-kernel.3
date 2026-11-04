@@ -2,54 +2,54 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EA35606A338
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 07:21:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7EAA606EE81
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 07:21:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eYUAPJg1;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=acW0eaVv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZXp3LjFQ;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AZ85mUpT
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=P2nVUZgbkko0fSVzH+RCHTPFIPIPFR9Bvrfp4msS4Ts=; b=eYUAPJg1bCx86G
-	T+fV0v2o4osQ9JA3osc+EDcDvnFecCctvS/3bsGzOlKTDeUdU/0eJWzNcMgBDoxlXDvX/r+5K52hM
-	1lPT8IZH6WO8f4D4oHyjn5ts9uDKUaMsyfzcMBAG/j7qSS+70f4wVonlM6yzGDpFEuD367rQdQwgf
-	AcO671wUsTUZqQmu/em6Z04LPyYG4kdi/GMK3nkxeAXt1B+hNgamExVIZEN6XdgYAnzcMi6DPXYhA
-	XLTSbL8yw2kWL+GqIA3NkpN/56byY0c4LmdDAEKNKlo9OReWmQZsJkd7yg7+Y2mZ23XCP3/vVmMMt
-	ogNK2csBGyEIkfb63Wgg==;
+	List-Owner; bh=rZwszdc84eriJd4ZO7DbKvYJxYBtwYicHhgWXewMqDs=; b=ZXp3LjFQL59ngn
+	Qku+Uqyu8y6IaZ3xMgYQy4ksO3Bg8FQaml3xGC1/goK69VcvJPruaxlZPyEkYUOnALp0v++UgRjEt
+	SQjmpXaz5Y9U6D+GolIqztwrrIVu6bzA2IkaS6p9PA7Gd3Fm3RM7W0T7ZFqowrJ0U70XWna6mse9W
+	B/NxTCjhxERtvoTrbcKKmYuxukTg4+EshqrlfAa9wj8fc1OrC3vGi0Q1LymnApa5J4+QKzY1JrNnr
+	F+mVJpslv/3Y3gWAUQWMUQC2sdentDl0+kPyxSazFAim/iGVP1tk9wVFgDaHwH0Wq0kbU135eAsr8
+	WRpCPrKnrkg2rLqq1B2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOVJ3-00000004VQ6-43vh;
-	Wed, 04 Nov 2026 07:21:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xOVJ9-00000004VSt-0LEJ;
+	Wed, 04 Nov 2026 07:21:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOVJ3-00000004VPZ-0Oxh
+	id 1xOVJ8-00000004VSF-13za
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 07:21:13 +0000
+	Wed, 04 Nov 2026 07:21:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4E92F60D96;
-	Wed,  4 Nov 2026 07:21:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 172A81F00A25;
-	Wed,  4 Nov 2026 07:21:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BB0B6433E3;
+	Wed,  4 Nov 2026 07:21:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 183D71F00A2B;
+	Wed,  4 Nov 2026 07:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793776872;
-	bh=P2nVUZgbkko0fSVzH+RCHTPFIPIPFR9Bvrfp4msS4Ts=;
+	s=k20260515; t=1793776877;
+	bh=rZwszdc84eriJd4ZO7DbKvYJxYBtwYicHhgWXewMqDs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=acW0eaVv29f8/vEHVW3ogKW6SYjiSGqDTiwnu8MiiQn3/Z8gZCRIWrF3tFbxSF8S3
-	 auEGwRcMbPXlECMkUImCCImJuVvM1q+vM4X880Ab14NNm+QDKCBEHk0CM00A9N5Nxv
-	 7PwdFD8H5rOCRkLQHseT5Ga3SWp/dmokn4XGEsWGyRUKyyclSsI9i1A3+nv7rWfyzR
-	 1cS7y0MwO1//cwzACEPqK1nLYshjNh0tmQeZcMKmc8dmOl17Krb2roJjQ0au4pv8vY
-	 Lfnn5wldrYV0Lj7iR7upSdhM/qUG6rva60Y+Sw9/kRHQS1+s01QLC5GZQTqRrvlxXH
-	 +ySTRLLBF6LXw==
-Message-ID: <94c560c1-b292-417f-adec-700923ebe726@kernel.org>
-Date: Wed, 4 Nov 2026 08:21:08 +0100
+	b=AZ85mUpTl7AZO0VzzIeRDMJ+1jZQa0dNVLHjbEIoqAKsnPYhMNuzA3CU48uwEZ7Sk
+	 jYAlHJKF7giI4fGMU9yp+os83ZQ7m/mR0QdiOAoEs3YB3WIMERCd46PkgX/cYF1Qkd
+	 KgVRsnf7CqeQ/AhW1Ib088yZ2C2eSzIwTeNaxJkST1xNIm1U21iCFTeb/tt8vE8LKv
+	 z3Rxzyeib1rNzuq0r77494Vc5FAONi72KcxbRHmM1ti6L3q0YI9XueeSco+VzXtQsh
+	 DG9/cnijtCRMwvqCdNugvmjnvl/P1kxhGo8vzIPJhw0I9WpCPXmwpO75nXtl9BY2lx
+	 Y4kriwI51Rqng==
+Message-ID: <794a43d2-74be-46ce-a779-f7227a82516e@kernel.org>
+Date: Wed, 4 Nov 2026 08:21:14 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] media: exynos4-is: Free control handler if ISP subdev
- init fails
+Subject: Re: [PATCH] media: exynos4-is: Free control handler if fimc-lite
+ subdev init fails
 To: Wentao Liang <vulab@iscas.ac.cn>,
  Sylwester Nawrocki <s.nawrocki@samsung.com>,
  Mauro Carvalho Chehab <mchehab@kernel.org>,
@@ -58,7 +58,7 @@ To: Wentao Liang <vulab@iscas.ac.cn>,
 Cc: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
  stable@vger.kernel.org
-References: <20261103094616.1289357-1-vulab@iscas.ac.cn>
+References: <20261103094617.1289377-1-vulab@iscas.ac.cn>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,7 +104,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20261103094616.1289357-1-vulab@iscas.ac.cn>
+In-Reply-To: <20261103094617.1289377-1-vulab@iscas.ac.cn>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -126,17 +126,17 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 On 03/11/2026 10:46, Wentao Liang wrote:
-> fimc_isp_subdev_create() initializes isp->ctrls.handler and creates a
-> number of standard controls. If any of them cannot be created,
-> handler->error is set and the function returns after cleaning up the
-> media entity only. The control handler still owns the memory allocated
-> for its buckets and for the controls created before the failure, and
-> neither fimc_isp_subdev_destroy() nor the caller's cleanup runs on this
-> error path, so that memory is leaked.
+> fimc_lite_create_capture_subdev() initializes fimc->ctrl_handler and adds
+> a control to it. If the control cannot be created, handler->error is set
+> and the function returns after cleaning up the media entity only. The
+> control handler still owns the memory allocated for its buckets and for
+> any control created before the failure, and fimc_lite_probe() does not
+> call fimc_lite_unregister_capture_subdev() on this error, so that memory
+> is leaked.
 > 
 > Free the control handler before returning the error.
 > 
-> Fixes: 9a761e436843 ("[media] exynos4-is: Add Exynos4x12 FIMC-IS driver")
+> Fixes: 4af813108b88 ("[media] s5p-fimc: Add support for Exynos4x12 FIMC-LITE")
 > Cc: stable@vger.kernel.org
 > Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
 > Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
