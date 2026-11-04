@@ -2,80 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D04CC606A331
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 16:46:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6B2D606A32E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 16:47:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mdsuQCFi;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=jSJW/UL5
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bqkX/Crj;
+	dkim=pass (2048-bit key, unprotected) header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=uCkjDFcp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=S3LMfYdxSPYX6KeF1OEfox88UMF6+xUpUY6ooLhhmV0=; b=mdsuQCFiEDa5OKrpzWQ1h07MJz
-	1H22/tkBdfVPK15TzVLj3vhJ/omW6WCbOomRJBf/tlI3JBH4ZfxEIk85AJujLvKQWHFVJ8cp9bj57
-	HYaipTbP2VODcaaw/D/5HgoIBU/aq3GxeVHac5W7AX63d0+IBZo2EJZ8H2yTymMExnrr5V0OGQA9+
-	phSaHYxPxp8M8c1U4um4W6RHuABhNnAJvjWyHVHsQs79GHD1DGCrLLNUV3/J40vujY36FLV2azndI
-	KbwBwZHXrgSVgHEtP+rhbAzR0d4SxNzVp7CF8qkkZYSk80tsitFpCy7K3IbbwdRP1XrvclCE8GBtW
-	zJBJL7jQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=+Mmd9iz+6l+RtzunqHn07DyKAk1sZGUOJe891sWi+Nc=; b=bqkX/Crjj4cj/z
+	nI2fZQBDtHWdizXQJyUmIpyq8LVEG/vPK57QFxQCNBNdrhnDf2RHojg6K9ws4SejrnF5K0BFuGf1/
+	YpUqJCCh52mWzfA0oKEQDk6P8S+GOt4AUJt8k7Kd5UZeDwX1QVBZEsuc8u3ecmPMW6VWhLr4Ddl1C
+	nADb4yw/D9Sd8OQgx9hm0FKfojDYuBriihm/0wtllFaXXY77cim0vZBX9891X48+/8DfDWdg/YKu8
+	Nm9Lbq1GAl4y1Qe+bNZtOLoN2ShUefIkiy5dgwtz6nONZQv/oHTKyITz5qnLetO+bbtunUMify9kg
+	YhHt1IjL530lCe6c+wpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOe83-000000063mE-1N0K;
-	Wed, 04 Nov 2026 16:46:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOe7m-000000063QK-41Iv
+	id 1xOe9C-000000064oz-3Yu2;
+	Wed, 04 Nov 2026 16:47:38 +0000
+Received: from bulk0.mail-out.lima-city.de ([91.216.248.212])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOe90-000000064kq-1UDJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 16:46:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6CC7169C;
-	Wed,  4 Nov 2026 08:46:06 -0800 (PST)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A43F73F632;
-	Wed,  4 Nov 2026 08:46:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793810770; bh=X1quyvwTNcCWCSQevunm3NZQbaIAqRt2lmIUgM0IgjU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jSJW/UL5Rv4ZsXd6CU1n8K3Xu/B86jAObtXeK1lLDWfCRYOK7czgeZAPNGOTSIrMa
-	 7ZG7Isu59V9qG4CJYscXVsmSjB1lLjaoFCOf6gEy7Nmau9kTVTEJvLVe8uxn7MXprB
-	 VM9DZ3Q+SbFiyHeXepHGxwLUPaJOhxyw8YSagqms=
-Date: Wed, 4 Nov 2026 16:46:07 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Leo Yan <leo.yan@linux.dev>, Adrian Hunter <adrian.hunter@intel.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>, Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
-	linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	linux-doc@vger.kernel.org, John Garry <john.garry@linux.dev>
-Subject: Re: [PATCH v3 07/18] perf python: Expose sample instruction length
-Message-ID: <20261104164607.GL9176@e132581.arm.com>
-References: <20261102-james-cs-unformatted-per-thread-fix-v3-0-dbcb0c281b9b@linaro.org>
- <20261102-james-cs-unformatted-per-thread-fix-v3-7-dbcb0c281b9b@linaro.org>
+	Wed, 04 Nov 2026 16:47:35 +0000
+Date: Wed, 4 Nov 2026 17:47:20 +0100
+X-Lima-ML-UUID: 1fb7ae95-0ae2-4b9e-9cfd-6a995782d75f
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=deq.rocks;
+	s=securedbylima-20251205; t=1793810843;
+	bh=+Mmd9iz+6l+RtzunqHn07DyKAk1sZGUOJe891sWi+Nc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=uCkjDFcpV18IotsW2/mO8QwbUqz2kruKoz/mzn/mqm97aaG+9qIqQQTJxN136PzNd
+	 1yLb/GTpobe0/76DBqk9c81b54TwUdcjye6wpIC1xwGCI/PdFT+W8fI91tr51/YV2Q
+	 PDFyzzOvVF1PwGBr8m0eK8n9X3XuRxtIX6T1/ayXRqZ0ZFNIUCw3hh9sumtnWCeC9w
+	 TmGfmORbv2YghVWGV8jV2SQ4FMN3DDwFIslRU2jhBYYkVLKi0KUEuqqkfg55xVjUcl
+	 T/MQzMKJPsPBMDNbM2oFTn0QfyBYfjRAxOdj0IzHaPxbRU/wVWoMBbcaKllNCyqKwk
+	 iXxxy/T5aREFQ==
+From: =?UTF-8?B?QW5kcsOp?= Eikmeyer <dev@deq.rocks>
+To: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Cc: marcel@holtmann.org, linux-bluetooth@vger.kernel.org,
+ linux-kernel@vger.kernel.org, sven@kernel.org, j@jannau.net,
+ neal@gompa.dev, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, 66ton99@gmail.com,
+ josemiguelo.ochoa@gmail.com, aditya.garg@linux.dev, Yossef Osman
+ <Yossef.Osman@proton.me>
+Subject: Re: [PATCH 2/4] Bluetooth: btbcm: clear vendor bits in LE
+ advertising report types
+Message-ID: <20261104174720.254b7e00@kait2en-mbp15-1>
+In-Reply-To: <CABBYNZLwMW68WYBVp=-R=4Mji+-Q5AEtrcu5F_7rRYju8d-XNA@mail.gmail.com>
+References: <20261104151601.70493-1-dev@deq.rocks>
+	<20261104151601.70493-3-dev@deq.rocks>
+	<CABBYNZLMVso40XpULwTwBwAE4tpXndSJMKhmoVLrmgm+unBNCA@mail.gmail.com>
+	<20261104164647.5e9351cb@kait2en-mbp15-1>
+	<CABBYNZLwMW68WYBVp=-R=4Mji+-Q5AEtrcu5F_7rRYju8d-XNA@mail.gmail.com>
+Organization: KaiT2en
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261102-james-cs-unformatted-per-thread-fix-v3-7-dbcb0c281b9b@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_084611_053793_877840A7 
-X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-CacheID: sfid-20261104_084726_827785_A3317D95 
+X-CRM114-Status: UNSURE (   9.08  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -4.4 (----)
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,21 +78,29 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_2 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 02, 2026 at 12:15:21PM +0000, James Clark wrote:
-> Expose perf_sample::insn_len as a read-only insn_len attribute.
-> 
-> Trace decoders supply instruction lengths on synthesized samples to
-> indicate whether an instruction was executed or not during a call or
-> exception. Let scripts read this value directly.
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
+On Wed, 4 Nov 2026 11:29:11 -0500
+Luiz Augusto von Dentz <luiz.dentz@gmail.com> wrote:
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+> Yes that would work. That said, I don't think it is worth adding a
+> quirk for this. Masking the reserved bits shouldn't cause any side
+> effects afaik, well except if those bits are later adopted by
+> Bluetooth SIG. Then these controllers would become
+> non-compliant=E2=80=94though they already are, as the bits are reserved a=
+nd
+> not in use. In that case we would probably require a quirk to avoid a
+> conflict. So, is that what you are trying to fix?
+
+No, nothing concrete beyond the scope, and I agree it is harmless as
+long as the bits stay reserved. We only put it in the drivers because
+our downstream ships driver modules through DKMS and not bluetooth.ko,
+which let many users test it quickly. Let's keep 88397423671f as it
+is then. I'll drop patch 2 and 3 and send a v2 with patch 1 and 4.
 
