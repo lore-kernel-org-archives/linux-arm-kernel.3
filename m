@@ -2,51 +2,51 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1CA7606D80F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE536606D820
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 17:24:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xvT+yhAK;
-	dkim=pass (1024-bit key, unprotected) header.d=cyberchaos.dev header.i=@cyberchaos.dev header.a=rsa-sha256 header.s=mail header.b=lLpQSlXJ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xmH1CEx2;
+	dkim=pass (1024-bit key, unprotected) header.d=cyberchaos.dev header.i=@cyberchaos.dev header.a=rsa-sha256 header.s=mail header.b=kth79mT9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=bIVg0foxmqTG/8sVU2ZcbJWE1ifg0bPsxbq01Yjc28s=; b=xvT+yhAKU5ozte
-	9QslnfpPDQV4fZVHBrmEJ5dMTlG0Lca556NGelPS/7zkzLyubsWbFyw9IeyaBjEW5Lx0SLkAPiZIE
-	6qgr5sQqkUit70gPiN7I65wGOTVSzEhVqLhPDviMjJP0UA63KVqMmavBGx8RfcV0IgdPNPQx5nMv9
-	KIZ2cPJWzoptj/2UcEGKAXGRZl/MiL3KmPC6BElpHoXF7wwUpt+p59j6rtxGamcFBVL/1c2qmyGWH
-	JiLIV2/KRd62TAlZRMJoAA6Nzye1BqGjy/2ab0LP9OB7jXhtmh2aDV7tAS3lIbfOPmUihcYMVJmsJ
-	Z9qaRKk3APLa9cO8NNNw==;
+	List-Owner; bh=7KIi5ajgm8xWQZ/dZf4T7JLHUXnisyBiLTaDomI84wc=; b=xmH1CEx2wwavnT
+	uY9J/Si+1fKWwGHP93yVWU6PlYkMQEp0+tG2Pv+OhPg70JX1nZ0J1jX1JXWpxG147BgqocFOytkKR
+	kth1stZdf0DR42bcaxUER6rfsLg93AWWWYoh3YJV07sdSew2wAcd7DPoqg7HWYwRKXsY6UP11py2M
+	Ux/0BETjvoYVljvhAdhb/bsrgDDZLbdCqdTipg/pDgpTqxp9kV0vpiVO5xYty1EDIMVbd18/Pb1sx
+	OFEl9zNwMpyA/ZflTlBO/0H3SXX6DBLseTYjjY2HCYUw8stBoEddH5lJpfq8zDrdMIoXPSNGPtuny
+	bgD2Xa0GTd3CQwd4KvjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOeiu-00000006BQN-0oQA;
-	Wed, 04 Nov 2026 17:24:32 +0000
+	id 1xOej0-00000006BWb-1pJ7;
+	Wed, 04 Nov 2026 17:24:38 +0000
 Received: from mail.cyberchaos.dev ([195.39.247.168])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOeiq-00000006BMi-0h0x
+	id 1xOeit-00000006BPP-3f7X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 17:24:29 +0000
+	Wed, 04 Nov 2026 17:24:33 +0000
 From: Yureka Lilian <yureka@cyberchaos.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1793813066;
+	s=mail; t=1793813070;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=bIVg0foxmqTG/8sVU2ZcbJWE1ifg0bPsxbq01Yjc28s=;
-	b=lLpQSlXJUz/r4I2/RAZhwV9/lbOT0i3PhA2jYW3igjnj3nk6SQ7a9Ixb2lhFDlUCbasjsl
-	GNbQ/aQpQCp8Hy2QDSvE3QkE0paT3F8zLhRQaYwyjv8c6I1tmaOZozWTZ43lrzZF9hdk0W
-	OtvtdUbXwVx16iH1mYf50EJJBIGvnfI=
-Date: Wed, 04 Nov 2026 18:24:16 +0100
-Subject: [PATCH v2 3/9] dt-bindings: arm: power: apple,pmgr-pwrstate: Add
- t8142 compatible
+	bh=7KIi5ajgm8xWQZ/dZf4T7JLHUXnisyBiLTaDomI84wc=;
+	b=kth79mT9ePMBDeNF8OXM5FwgUjM4ED+LpEEa7Pf/2eX4Qb7ughpCmRqlZ7+Mw5L2MXG6ms
+	8ImE++fQxGOmsJDMtP9vNwyjglToN10OZLkgAT5s57wkEV/Nc4CAWEyDY6ZLqH2Skb0Bgj
+	22GtYWbGyv9k+xS1eDkYODw6wtAZUBU=
+Date: Wed, 04 Nov 2026 18:24:19 +0100
+Subject: [PATCH v2 6/9] dt-bindings: pinctrl: apple,pinctrl: Add t8142
+ compatible
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261104-apple-m5-initial-devicetrees-v2-3-fd727a82d380@cyberchaos.dev>
+Message-Id: <20261104-apple-m5-initial-devicetrees-v2-6-fd727a82d380@cyberchaos.dev>
 References: <20261104-apple-m5-initial-devicetrees-v2-0-fd727a82d380@cyberchaos.dev>
 In-Reply-To: <20261104-apple-m5-initial-devicetrees-v2-0-fd727a82d380@cyberchaos.dev>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -61,11 +61,10 @@ To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
 Cc: Yureka Lilian <yureka@cyberchaos.dev>, asahi@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-pwm@vger.kernel.org, 
- linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_092428_367255_493335F9 
-X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-CacheID: sfid-20261104_092432_085178_830C65DB 
+X-CRM114-Status: UNSURE (   8.21  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -86,28 +85,29 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The device power state management of the PMGR blocks on the Apple
-silicon M5 SoC (t8142) is compatible with the M1-M4 SoCs.
-Add "apple,t8142-pmgr-pwrstate" as M5 specific compatible.
+The pin controller on the Apple Silicon T8142 (M5) SoCs is compatible
+with t8140. Add "apple,t8142-pinctrl" as SoC specific compatible under
+"apple,t8140-pinctrl".
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 ---
- Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml b/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
-index a37a837a4eac..451f2a80f844 100644
---- a/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
-+++ b/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
-@@ -51,6 +51,7 @@ properties:
-               - apple,t8122-pmgr-pwrstate
-               - apple,t8132-pmgr-pwrstate
-               - apple,t8140-pmgr-pwrstate
-+              - apple,t8142-pmgr-pwrstate
-           - const: apple,t8103-pmgr-pwrstate
- 
-   reg:
+diff --git a/Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
+index 0984e4e58af3..13ece17eca9c 100644
+--- a/Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
+@@ -27,6 +27,9 @@ properties:
+               - apple,t8122-pinctrl
+               - apple,t8132-pinctrl
+           - const: apple,t8103-pinctrl
++      - items:
++          - const: apple,t8142-pinctrl
++          - const: apple,t8140-pinctrl
+       - items:
+           # Do not add additional SoC to this list.
+           - enum:
 
 -- 
 2.56.0
