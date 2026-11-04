@@ -2,70 +2,118 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F1BD606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 16:24:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0F44606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 16:26:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=h5cDfD+c;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=r/K7kW5K
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Gpk6yWEm;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nF53MeSp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=8yMCvYeghmYZPA3TkxIffw8/jGubs8fIzlV+8czvpCA=; b=h5cDfD+cHCVVdu
-	FQOpwVyNEC3v29JwwONZw1MUAV6ruBptft5s+UJzvmDKQDaoIs5YKTt71MAhddbxECqiq2eQi3bD2
-	UUcpSop9YHAmYJ5sm/bX5Cy9HWvAEOp6uJoxvxUILXXmwxWKWyh5IbAlLPdBpLqUzJ0cd0WO4hPt5
-	viiWNPkjemgYlqkxJmzEYJ7LJweMJ4Elofqj6DnhynincsD2FtCLYGc42Q3ud9DxuoIfRUn4ziTSR
-	92BGE35z3D88v9pL2X5eqtBEU8U9S0p3tWhrThxDZfvRk+G8mNvJZ+3iy4V5jA2SbBrSjDFxbhPsR
-	thwNjJkLPvPjdgPM/W9g==;
+	List-Owner; bh=02xlunbPJG9twMrNC4lzpNV5WoLplwFKW8EyaQv0RmE=; b=Gpk6yWEmL651fs
+	5b1Nt0rMqGRZ8teKlJ6GDc7ns0mz2f5gBwyNBkR3lASBgw21xXMRsAFEJ8x0RGbJkEoejxc/jsgp1
+	Vi5DZ2XIHu2wfeEYc3rPuZt2CpPAT+SnPE/OO7OXE3YcZX1whaUfahVdXlNFMsl5QvcmysQr4wJU+
+	/tzHyCMgciT80qVxTW3PGVVkfGrL1tDAGfwlpeYHdSNukMqN9mWLqAxWyPrJiKMO2M9fubuhBcnwc
+	jT0OKV76tvOUDShj54WaHfjEYD9flTsOwJx3ulSS2Zi4xQ5n7X46HzXWqXrZ9RY3P729ZQwyymX7g
+	EYYxhtkPVOv12YHSVA/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOdmW-00000005xoD-3dJY;
-	Wed, 04 Nov 2026 16:24:12 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xOdoU-00000005yHc-2KSj;
+	Wed, 04 Nov 2026 16:26:14 +0000
+Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOdmS-00000005xmv-4Apd;
-	Wed, 04 Nov 2026 16:24:11 +0000
-Received: from [192.168.0.43] (chfd-03-b2-v4wan-176392-cust229.vm15.cable.virginm.net [82.19.20.230])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BC42C4DC;
-	Wed,  4 Nov 2026 17:21:46 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1793809307;
-	bh=GdIuvaxUvWhoJU/w/vWgBMZrzMuLhEaSuLfiGH2sLkU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=r/K7kW5KiYEp9y9wOYKdtSRQ4by97MqGLfkx9aviIaNEUy4Dp/2lrAdJxHyhIy8+y
-	 1o39aKfeBdk6OkvgXjhGucLTu0S9XBelREZZcZ6PQKW1fJZHYL9I+vT8cGhPRB472p
-	 /UFKSdXJ9Phv8ew01QDF/BdY+OQ+OJzsCDxxVAQ0=
-Message-ID: <6a86cb84-c4b4-44b3-9977-12ac1dc8505c@ideasonboard.com>
-Date: Wed, 4 Nov 2026 16:24:01 +0000
+	id 1xOdoQ-00000005yFn-2Xs3
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Nov 2026 16:26:12 +0000
+Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-54492d8a988so355321cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 08:26:10 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1793809569; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ZkjeBQ+m6BWcI7Ak24g0mJHu9468p2a1ddOhVv7LrWQs7EYCYAPPknB2Mnnpcgp+Gx
+         59XsGOJGf8/NSQBHB2zaLfKZ2zD4lg9jRMssx0BOXoI9uWOB7mFYjj8hJ0fnozTRWPTY
+         r29oBAg3/7kUZbwNLonJ61nIHcXziE0yitbezikd4ME4FpYE71fFPpppIcNJgAF1hDwG
+         Dyc1LFvfCgVAtWTAeKjX7v/CZeUVD5psl8tAOluZlggbMwfC4Umlo+Aw3HaGu0jIJT1G
+         XhXk8zhgW33+Z7nU+rzx85fwFM1ky8yH8eEuT4fkeueWf7e3c/Arl/WS9ppMszUpCHfW
+         2B9Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=02xlunbPJG9twMrNC4lzpNV5WoLplwFKW8EyaQv0RmE=;
+        fh=mfxDg5rusiK/zbYnFMWMAQE735tJwq81el7UlGQSjxc=;
+        b=jCdbEN2IsXo9sHhkfFLEXpXNH+MmGkb4YpOhUM/m3Q2gyr0RAfhwBucW1WnqwpO+Va
+         ceFmVICa13RIetcFchcTzyDP65bE/3Ozf1SvPlAfppBk7fzVF2baRV5hY1CraSpTVHTm
+         jj1asz2R60bS1fu+CQPDIZnrfshTj923NVORKflT2kMWviYr0Bnzm5M/jtMdOw0STm38
+         EQr3baKHqocbL5N4sd2MRC+5veGTfkUKcR8Zij80j0Gomw4TKybmj846byBXSGbOwaZM
+         jMeDGmmELbM4ytf8AYM5hzyary2iLWKf62HDibBh58CEUcizBxU3NSIGz5zq6XolnKds
+         Z4gw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1793809569; x=1794414369; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=02xlunbPJG9twMrNC4lzpNV5WoLplwFKW8EyaQv0RmE=;
+        b=nF53MeSpALBsGhXGCrSId/tlDNVFxOU8P5tOIm224Qx8u0clli8WhtNFBkPiO3xQsE
+         Ij5RONuiEbFt6GQ0yFW7MgT9Jt+w/m3kLGOlQqFFVaUZ5aaCg2XD/jWZCpR0tz37a8XT
+         cbmRE2n1fLVWTp38ue/4rnYcOFdkQaape1MOGau1DoIKPqLT3roNscqUIO/+vB8SzZCH
+         R1P76HmeS3nTqF2DJ6dk4g95BN4Fl7x3QVpMdjl53n4/bm/JQsUzwCmxB3Ih5pkkV5zg
+         o7wIE2TI9R+owX5qGecqihxviPRSRLynQLYcbNffqNfL9lT1G8cwHViJSFBqaULdP91B
+         9w4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793809569; x=1794414369;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=02xlunbPJG9twMrNC4lzpNV5WoLplwFKW8EyaQv0RmE=;
+        b=yMGpWEZJN047ePyWBLijr6etSS/+ipvqEesL+YbqIqWgZOWyqWuQ65T9Z/EYiN0fKW
+         G/qVKi6rzEX+JWsZk7kdYqkeQQCtf1uPf0E+ubitgqmy+vizDzmoyltk+UYwOxNVtVKL
+         3aTnA0v75YsnqicW5XngpAyGk/BeGp81FwpeD06REvjzgogMvE8G0KNilPPo5I1D0Sst
+         Q1g/Y9DT+mqfZ7Z8nMwuyfR8tU4BzkvnaXPmkJHnj4Ddd9hXLYdbL2AZqFBiPVYAQqCH
+         jUeq2OVp/fiKd2Gjz9wQtVyavwquaBqHOWuSMCNHT5UGHhFOZ07yK7Df+3sXjhLFxKEL
+         F2/g==
+X-Forwarded-Encrypted: i=1; AKwUvByip1VnCIUUvY7jsfmpg1hk99j5VQ+WZUdBJOEQnhnDEq4vIAsIGZY1iijiBvA2rkQFLGitZYz/zu0AmBl1L4UO@lists.infradead.org
+X-Gm-Message-State: APuU4Z/BIuv7bKwvBYU0aJHYOfAEQdCU3E+lbeXczvNngoEUgsFc9Ve7
+	dACUDqKAu2bXD/czD+RorZ2SfBw+8KlbbYa6mgAcr+jjlwcumrNwn/RXSaTyx8jpFgLN5fGWo/K
+	cknW0dlTUnmjyHsEmu8j8DmK93ADrKWxBUPO7WRji
+X-Gm-Gg: AYBFou3YaGo2Ch25jxWKpv5nqBWsCHoxcj1Tv5lvuCVM7nA6gfJtAstvRwASSURREO+
+	QZo9trvqiDNM217EFH+wTcuxyk43+cnUXkCFC2BkPRB/OhKgdApHjryo+rHMpGYdAHRK2xcK341
+	LgjDrJsDLrtmjycw/Bj2dWna/zKJThtAjr7GxmHex6GJxBX2Aau78Un7HyX7+vSUpNZiMd/HOH9
+	BqfJ5qxey3v/sO6U4RrE3/TjJ1Y9VKY7JPFhOAq700VnvbidG0fqSd+dlL0haCI+KzUtpbDc2eY
+	RzfH10om7AXFVHFxpDXR7WXU4fIJjlZHXGZS6pf0s/UedtsONgP0NqgIIxaekMcq0zFmIpbT4KU
+	8QufxrTH4wH3NrEivBYRoo2jhDU0i3YX3D5CIhAWmVAAt2/UwkI3lHFsjYergKudheznPYYLAl/
+	/UUMYAXQPuuO4=
+X-Received: by 2002:a05:622a:4894:b0:535:9aa3:5ebb with SMTP id
+ d75a77b69052e-54b4cd278d4mr21858561cf.8.1793809568468; Wed, 04 Nov 2026
+ 08:26:08 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/7] Introduce v4l2-isp reset buffers
-To: =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
-Cc: Jacopo Mondi <jacopo.mondi+renesas@ideasonboard.com>,
- Jai Luthra <jai.luthra+renesas@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>,
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Keke Li <keke.li@amlogic.com>,
- Dafna Hirschfeld <dafna@fastmail.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20261104-v4l2-isp-resume-v1-0-06aeb8cf2940@ideasonboard.com>
- <20261104142302.GK1959885@ragnatech.se>
-Content-Language: en-US
-From: Dan Scally <dan.scally@ideasonboard.com>
-In-Reply-To: <20261104142302.GK1959885@ragnatech.se>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20261104160716.2910873-1-bwicaksono@nvidia.com>
+In-Reply-To: <20261104160716.2910873-1-bwicaksono@nvidia.com>
+From: Ian Rogers <irogers@google.com>
+Date: Wed, 4 Nov 2026 08:25:57 -0800
+X-Gm-Features: AclHuK-GeTinNBFNoWnfPGGAtOY6Xq1W9g3atyK1ujiBfiA8CNbeKnUu-zkauLA
+Message-ID: <CAP-5=fXriq3akwKxsxSuBZ0M=1OMuCe8ig_j-r6ehfCeCVAYcQ@mail.gmail.com>
+Subject: Re: [PATCH v3 0/7] perf: Add NVIDIA Tegra410 uncore PMU events and metrics
+To: Besar Wicaksono <bwicaksono@nvidia.com>
+Cc: acme@kernel.org, namhyung@kernel.org, ctshao@google.com, 
+	linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	vsethi@nvidia.com, rwiley@nvidia.com, skelley@nvidia.com, mochs@nvidia.com, 
+	rajjoshi@nvidia.com, treding@nvidia.com, jonathanh@nvidia.com, 
+	john.garry@linux.dev, will@kernel.org, james.clark@linaro.org, 
+	mike.leach@arm.com, leo.yan@linux.dev, mark.rutland@arm.com, 
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org, adrian.hunter@intel.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_082409_915164_59B9BF49 
-X-CRM114-Status: GOOD (  39.17  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261104_082610_662950_6D4D341D 
+X-CRM114-Status: GOOD (  23.82  )
+X-Spam-Score: -17.6 (-----------------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,142 +124,111 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+X-Spam-Status: No, score=-23.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_IN_DEF_DKIM_WL
 	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Niklas - thanks for commenting
+On Wed, Nov 4, 2026 at 8:08=E2=80=AFAM Besar Wicaksono <bwicaksono@nvidia.c=
+om> wrote:
+>
+> Add event aliases and derived metrics for the NVIDIA Tegra410 uncore
+> PMUs, and fix perf's aggregation of the Tegra410 PCIe PMU instances.
+>
+> The series covers the UCF, PCIe, PCIe target, CPU memory latency, and
+> chip-to-chip interconnect PMUs. It provides symbolic names for the raw
+> event encodings and metrics for bandwidth, frequency, and average read
+> latency.
+>
+> The PCIe and PCIe target PMUs are named nvidia_pcie_pmu_<socket>_rc_<rc>
+> and nvidia_pcie_tgt_pmu_<socket>_rc_<rc>. perf only strips the number at
+> the end of a PMU name, so the instances of each socket were treated as a
+> different PMU, and these events and metrics gave one result per socket
+> and were reported incorrectly (e.g. with --metric-only), as discussed in
+> v1 and v2. Patches 6 and 7 fix this:
+>
+> - Patch 6 adds a check of the cpumasks of all merged PMU instances to the
+>   zero-count skip in perf stat, so a socket that counts nothing shows 0
+>   instead of having its row hidden.
+> - Patch 7 treats both numbers of the NVIDIA PCIe PMU names as the
+>   suffix, so the instances on all sockets are merged as nvidia_pcie_pmu
+>   or nvidia_pcie_tgt_pmu. Per-RC results are still available with
+>   --no-aggr or -A.
+>
+> Changes in v3:
+> - Replace v2 patches 7-9 (merging PMU instances that match the same
+>   comma-separated json Unit, naming a merged counter after all of its
+>   PMUs, and the ABI document) with a special case for the NVIDIA PCIe
+>   PMU names in pmu_name_len_no_suffix(), perf_pmu__match_wildcard() and
+>   pmu_name_cmp(). Thanks to Ian Rogers for the suggestion.
+>
+> Changes in v2:
+> - Move the uncore JSON out of the sys directory and remove the
+>   "Compat" fields. Thanks to Ian Rogers for the feedback.
+> - Drop "perf jevents: Process model files before sys subdirectories",
+>   which this series no longer needs.
+> - Add UCF SLC and memory bandwidth metrics from all sources to local
+>   CMEM (read, write and read+write) and from local sources to local
+>   CMEM and to remote memory, PCIe bandwidth metrics to local
+>   destinations, and read+write bandwidth metrics for UCF SLC, UCF
+>   memory and PCIe. Thanks to Chun-Tse Shao for the suggestion.
+> - Add patches 6-9 to fix the PCIe instance aggregation. Thanks to Ian
+>   Rogers and Chun-Tse Shao for the pointers.
+>
+> v2: https://lore.kernel.org/all/20261030174816.1544471-1-bwicaksono@nvidi=
+a.com/
+> v1: https://lore.kernel.org/all/20261019164241.403644-1-bwicaksono@nvidia=
+.com/
+>
+> Besar Wicaksono (7):
+>   perf jevents: Add support for NVIDIA Tegra410 UCF PMU aliasing
+>   perf jevents: Add support for NVIDIA Tegra410 PCIE PMU aliasing
+>   perf jevents: Add support for NVIDIA Tegra410 PCIE-TGT PMU aliasing
+>   perf jevents: Add support for NVIDIA Tegra410 CPU Memory Latency PMU
+>     aliasing
+>   perf jevents: Add support for NVIDIA Tegra410 C2C PMU aliasing
+>   perf stat: Check merged PMU instance's cpumasks when skipping zero
+>     counts
+>   perf pmus: Treat both numbers of NVIDIA PCIe PMU names as suffix
 
-On 04/11/2026 14:23, Niklas Söderlund wrote:
-> Hi Daniel,
-> 
-> On 2026-11-04 12:28:15 +0000, Daniel Scally wrote:
->> The V4L2 generic ISP parameters buffers described in
->> Documentation/driver-api/media/v4l2-isp.rst has a problem in that if
->> a driver using the parameters format is running a stream and the
->> device is suspended to RAM and later resumed, userspace will not tend
->> to reconfigure it with _all_ of the possible parameter blocks. The
->> format allows only a subset to be populated into the buffer queued to
->> the driver and this is the common practice in libcamera. The effect
->> will be that a resumed device will have lost any configuration that
->> tends to be sent only a single time at the start of a stream, for
->> example lens shading table settings.
->>
->> This series performs some preliminary cleanup and then adds the "reset
->> buffer" concept to v4l2-isp. This is a mechanism through which user
->> space can flag a struct v4l2_isp_block_header.flags as needing to be
->> reapplied on device reset, such that the v4l2-isp framework will store
->> that block into a buffer allocated for the purpose when it validates
->> the block.
->>
->> The last patch in the series updates the rkisp1 driver to use the
->> v4l2-isp reset buffer to reapply that saved configuration on resume.
->>
->> An alternative approach might simply be to store the "last seen" copy
->> of any block in the reset buffer - this would be a simple change.
->> That implies a lot more processing on the majority of frames, as we'll
->> then always copy at least something, but it reduces the risk of losing
->> a setting. That amount of processing each frame seems very undesirable
->> to me though, particularly given the scene will presumably have changed
->> after resume and so the settings like AWB gains that are applied for
->> most frames are probably out of date anyway. On the other hand we may
->> end up flagging a lot of blocks, as there's parameters that might be
->> changed mid-stream (like gamma) but would not be so regularly changed
->> that we could just rely on them being sent naturally on resume, so a
->> third approach might be to invert the meaning of the flag and store
->> any block that _isn't_ flagged as _not_ needing to be reapplied.
-> 
-> Is there any reason not saving and restoring all relevant ISP registers
-> directly in the suspend() / resume () callbacks? AFIK this is what most
-> drivers do here and it's not clear to me why this would not work here?
+Other than the nit the that commit messages adding events refer to it
+as "PMU aliasing":
 
-I don't see any reason that would not work, and maybe I overthought this indeed. This method does 
-still seem to have some advantages to me though; it means we can easily reuse the existing function 
-in the driver that applies the parameters to the hardware, which should make adding suspend() and 
-resume() support for a driver that uses the extensible parameters much simpler. If we were to read 
-the settings from the ISP registers and store them in suspend() instead of doing it this way I think 
-I'd still want to re-use the normal "write-params-buffer-to-hardware" function (for example 
-rkisp1_ext_params_config() in the rkisp1 driver) to avoid the risk of ending up with differences 
-between how the parameters were applied on resume() and on the normal handling of a parameters 
-buffer from userspace, so I think that we would end up populating a struct v4l2_isp_params_buffer 
-that was stored in the device's driver_data struct anyway - the difference would be that we'd have 
-to build it in suspend() for each ISP driver instead of having the core handle it in the course of 
-normal operation. I could knock up an example for the rkisp1 of creating that buffer in suspend() to 
-see how it looks perhaps?
+Reviewed-by: Ian Rogers <irogers@google.com>
 
-The "reset buffer" idea also means that if we extend the parameters buffer for an ISP with more 
-blocks in the future there's no extra work to do in the suspend() and resume() callbacks for them - 
-as long as userspace flagged the new block then they would just be reapplied "for free".
+Thanks,
+Ian
 
-Thanks
-Dan
-
-> 
->>
->> I'm open to opinions on how best to set the balance!
->>
->> Please note that the changes for the C3 and Dreamchip are only compile
->> tested.
->>
->> Thanks
->> Dan
->>
->> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
->> ---
->> Daniel Scally (7):
->>        media: rppx1: Drop max_size param from rppx1_params()
->>        media: v4l2-isp: Hold v4l2-isp data in central struct
->>        media: v4l2-isp: Update users to initialise and validate new struct
->>        media: v4l2-isp: Use centrally-held data in framework
->>        media: v4l2-isp: Add v4l2_isp_params_for_each_block()
->>        media: v4l2-isp: Introduce "reset buffer" concept
->>        media: rkisp1: Re-apply v4l2-isp reset buffer on resume
->>
->>   Documentation/userspace-api/media/v4l/v4l2-isp.rst |  19 ++++
->>   .../media/platform/amlogic/c3/isp/c3-isp-common.h  |   2 +
->>   .../media/platform/amlogic/c3/isp/c3-isp-params.c  |  28 +++--
->>   .../media/platform/arm/mali-c55/mali-c55-common.h  |   1 +
->>   .../media/platform/arm/mali-c55/mali-c55-params.c  |  28 ++---
->>   .../media/platform/dreamchip/rppx1/rpp_params.c    |  30 +++--
->>   drivers/media/platform/dreamchip/rppx1/rppx1.c     |   8 ++
->>   drivers/media/platform/dreamchip/rppx1/rppx1.h     |   5 +
->>   drivers/media/platform/renesas/rcar-isp/core-io.c  |   3 +-
->>   .../media/platform/rockchip/rkisp1/rkisp1-common.h |   3 +
->>   .../media/platform/rockchip/rkisp1/rkisp1-params.c |  61 ++++++----
->>   drivers/media/v4l2-core/v4l2-isp.c                 | 126 +++++++++++++++++++--
->>   include/media/rppx1.h                              |   2 +-
->>   include/media/v4l2-isp.h                           | 109 ++++++++++++++----
->>   include/uapi/linux/media/v4l2-isp.h                |   1 +
->>   15 files changed, 331 insertions(+), 95 deletions(-)
->> ---
->> base-commit: 00178eda305a332f302882849ff7374d4169be8b
->> change-id: 20261030-v4l2-isp-resume-41fad731df28
->> prerequisite-change-id: 20261028-rkisp1-suspend-and-resume-7d4f388a9a61:v1
->> prerequisite-patch-id: 8f6b499ef7898229c5b02e987822dd676a0cfd74
->> prerequisite-patch-id: 56d0852983c6f46537c03ca3bec71e0ce4046431
->> prerequisite-patch-id: 0b9edd21d24a25c620792dfa692d91346ceccdde
->> prerequisite-patch-id: 3b9425028cd62b60b3dc3dbd2fc3b5a8912a1fb4
->> prerequisite-patch-id: 771f986e2754383e7b5a920b25bf1609dc96f0b4
->> prerequisite-patch-id: 79c95d6375d662a4f75cccd8650b3fab05e4e66c
->> prerequisite-patch-id: e2ff2463db4934e707afbf0a239270d26dbf8189
->> prerequisite-patch-id: 5a923b7606f7cc60fd6b75be2d73231470043bcb
->> prerequisite-patch-id: fb80748a1a24316cdd77481b60936f716fd0aa71
->> prerequisite-patch-id: 1450f7d1f4b1a41e7ce65ea6d2fbd450d3a198ad
->> prerequisite-patch-id: d1d2ba9927536b110f7fbc0c68698d08afb74c27
->> prerequisite-patch-id: c2ae6f91cb9662307f90070523945ee03a79c4c3
->> prerequisite-patch-id: 87b425bde44fe889367a93302629dc011a3ec88a
->> prerequisite-patch-id: 25e4c9ee767dc61406adcf1e1463796a79832795
->> prerequisite-patch-id: 82388f762700dbcf39fdc43e6ba56c1feb55733a
->> prerequisite-patch-id: a4ad2fb2c7f8659c6d9bdcd9718a7ee69f124838
->>
->> Best regards,
->> -- 
->> Daniel Scally <dan.scally@ideasonboard.com>
->>
-> 
-
+>  .../arm64/nvidia/t410/uncore-cpu_mem.json     |  43 +
+>  .../arm64/nvidia/t410/uncore-nvclink.json     |  67 ++
+>  .../arm64/nvidia/t410/uncore-nvdlink.json     |  43 +
+>  .../arm64/nvidia/t410/uncore-nvlink_c2c.json  | 115 +++
+>  .../arch/arm64/nvidia/t410/uncore-pcie.json   | 249 ++++++
+>  .../arm64/nvidia/t410/uncore-pcie_tgt.json    |  83 ++
+>  .../arch/arm64/nvidia/t410/uncore-ucf.json    | 764 ++++++++++++++++++
+>  tools/perf/util/pmu.c                         |   9 +
+>  tools/perf/util/pmus.c                        |  23 +
+>  tools/perf/util/stat-display.c                |  20 +
+>  10 files changed, 1416 insertions(+)
+>  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-c=
+pu_mem.json
+>  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-n=
+vclink.json
+>  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-n=
+vdlink.json
+>  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-n=
+vlink_c2c.json
+>  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-p=
+cie.json
+>  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-p=
+cie_tgt.json
+>  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-u=
+cf.json
+>
+> --
+> 2.43.0
+>
 
