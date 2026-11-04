@@ -2,70 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D3C2606A331
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:11:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 434E1606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:16:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nVVDVrH4;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CVb22o5M
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TBVo8pZk;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EUEur2Jp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=6EsKNx+i/27AOT45Y7CU7NIo3IUkBxCrUdSGAbsZRm4=; b=nVVDVrH4r1ZmlY
-	oUVx3wy1YL4DDgGnWKApaSxPB28ieb3rAXFY91z22kxsSSydbaUKFMKFrtRwBBIB9TPtCFEKnZFU0
-	OE2KpnZGl3AZx0M/h6wO2DuTJLdd5KEUd54jrMeYB+Ap8LHJ3aVUbWVtm0VaPToLJKRzTFGEACvI1
-	TBkbwOQt7MPNHyvicBfDGsxVNJAHIrZ+GNWT7SOD9MIO//L13QuEu8hbY2q1yo24W6euaigWojYYP
-	v2Ex8sajX5k2+qhG/sfql8fO57APXLRg/IFVI5D6D+73xUPvZnc4G/MHDGy2RHTmJmF3B7zKAoyrP
-	84jL7XLoUTj6Mh7DDtwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=KbmkajyfFV3udbEtJGrmA3+mmB8dwA1xxk3Neh9mt9o=; b=TBVo8pZkcE8tzmyv83SOg7U7XN
+	dKvmjxIPLXO03QNNqArY6U//tZECzwApgWOdBxA1DctxkMnobK6LJJOHTmRT3J/7qmTFwj5bpL5aQ
+	wBwYVuPMnrw4pLmO/vzImYFS9KXZ3qKSILHFHw42ZHqTf/FYcDF8BQmqezSG4zg4Zze0MRH0uxwdX
+	LLZfWL9xQaORnOYiz96e6VkdaBEOWTKAIDkCIQ0sWWkc0UNZaMmxWDfuXzq1RAgJHo8XPPRj+sbV8
+	EAqtSFFt32nG5liLynXY5dXrO8j6+fWNBsVzEjI+M19ORYcSJjUlVUaDVsBV7Yb3TpJN0eIbKhboi
+	oW0qWK3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZpq-00000005GgK-3OvM;
-	Wed, 04 Nov 2026 12:11:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xOZuL-00000005HDe-2f4z;
+	Wed, 04 Nov 2026 12:16:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZpp-00000005GfA-0wE7
+	id 1xOZuK-00000005HDW-2a40
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 12:11:21 +0000
+	Wed, 04 Nov 2026 12:16:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6F03D60F1C;
-	Wed,  4 Nov 2026 12:11:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 827D01F00919;
-	Wed,  4 Nov 2026 12:11:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BBB7440657;
+	Wed,  4 Nov 2026 12:15:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C31A21F000C1;
+	Wed,  4 Nov 2026 12:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793794280;
-	bh=6EsKNx+i/27AOT45Y7CU7NIo3IUkBxCrUdSGAbsZRm4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=CVb22o5MeuxPtkYl6fYYqI1g8BE2dtuG9E8jQBTPP/QAhN4X+PPEcvCpb0LQ6DJMo
-	 e6lcTM1/DwwfxmQYhQKfNDFIjyWI3or9dBC/ryYC1eLMNRlCd+wbU81XUU3DrP+8QU
-	 w7KsSPFe9HeoL/jcHWdUsDZORR0eDM5kvF/bjnXn6dBc4fhRiIgZhbvdYMTPsO4861
-	 +f63SHH12IbRoe8viAV9/pfG05ejYzlLRHsVwUHNIxAU0K1fYW3RSLUHDLT7EIWOwg
-	 5BQSngEIVLDhHo/Vm5KiV4Wf7gBEpUDzHBFyN9V+hNVLZ+XDdYXSqqIrQfevsceM6Q
-	 oJ+83gHwuVeWQ==
-From: Michael Walle <mwalle@kernel.org>
-To: Dong Aisheng <aisheng.dong@nxp.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Carlos Song <carlos.song@nxp.com>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Michael Walle <mwalle@kernel.org>
-Subject: [PATCH 2/2] i2c: imx-lpi2c: don't treat a NACK in SMBus block read as an error
-Date: Wed,  4 Nov 2026 13:10:36 +0100
-Message-ID: <20261104121108.659820-2-mwalle@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261104121108.659820-1-mwalle@kernel.org>
-References: <20261104121108.659820-1-mwalle@kernel.org>
+	s=k20260515; t=1793794559;
+	bh=KbmkajyfFV3udbEtJGrmA3+mmB8dwA1xxk3Neh9mt9o=;
+	h=From:Subject:Date:To:Cc;
+	b=EUEur2JphXwpoZ4tHxAj2WhlM0C5UdBaVipHPNJ080rKeMF2BCPCCK8bv4Uody99k
+	 nkuTsM1stI7355+eJsS/UTQyky4ILP8cyOjCi9VheSX4Hyt+AU0nTo5SQQZo7X1+cB
+	 1qbJZrukyHPwuOl9BTJ4ex0RNvIplJCFIKdnjQiqN6soqpaKhJdDWoabANpZOSTUz9
+	 +FtH4IFYzZ92nmIvdK1K2aeWWntHQqBuQrN4nrK0WbctOMFKnRD9pX14Dkxppz2AL4
+	 EwAuZrV3wXPqM/CVVfig81ZXBYCQLIiJ2m19oyyDG7Ds1Kg/AZCElCU7FYrvXLJp+5
+	 Cy/eGuRmQfusg==
+From: Linus Walleij <linusw@kernel.org>
+Subject: [PATCH 0/2] ARM: configs: Enable the TEO cpuidle governor in
+ multi-platform defconfigs
+Date: Wed, 04 Nov 2026 13:15:53 +0100
+Message-Id: <20261104-multi-timers-cpufreq-cpuidle-v1-0-c7fd14706715@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MTQrCMBBA4auEWTuQnyroVcRFTSY60NY6SaQQc
+ vemrh7f5lVIJEwJbqqC0I8Tf5YOc1Lg3+PyIuTQDVbbizF6wLlMmTHzTJLQryUKfY9ymAjPYbR
+ OOxeuzwh9sQpF3v77+6O1HW0esF9uAAAA
+X-Change-ID: 20261104-multi-timers-cpufreq-cpuidle-5da23033d9bf
+To: Russell King <linux@armlinux.org.uk>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
+ Anna-Maria Behnsen <anna-maria@linutronix.de>, 
+ Frederic Weisbecker <frederic@kernel.org>, Ingo Molnar <mingo@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Linus Walleij <linusw@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,48 +86,44 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-An SMBus device might indicate that a value isn't ready yet by asserting
-a NACK.
-This will lead to the following error message which will flood the
-kernel log for some device like an IPMI SSIF BMC:
+Enable the Timer Events Oriented (TEO) cpuidle governor in the ARM
+multi_v5 and multi_v7 defconfigs.
 
-   [    4.277005] i2c i2c-5: SMBus read count failed -110
+The upsides of the TEO governor are described in
+commit b26bf6ab716f27955e2a503ffca1691582127cbb
+"cpuidle: New timer events oriented governor for tickless systems"
+by Rafael.
 
-Stop the polling if NDF is set and return -EIO, just like everywhere
-else. While at it, drop the MSR_RDF_ASSERTED() macro, it's just one bit,
-no need for FIELD_GET.
+We need to gain some traction for this governor.
 
-Fixes: efdc383d1cc2 ("i2c: imx-lpi2c: fix SMBus block read NACK after byte count")
-Signed-off-by: Michael Walle <mwalle@kernel.org>
+Both defconfigs already enable CPU_IDLE and NO_HZ_IDLE. Selecting
+CPU_IDLE_GOV_TEO suppresses Kconfig's automatic menu selection, so TEO
+becomes the default governor on these tickless configurations.
+
+Leave multi_v4t_defconfig unchanged. It uses periodic ticks, which
+select the ladder governor and give it a higher runtime rating than
+TEO. Enabling TEO alone would not make it the default.
+
+Configuration generation was checked for both patches. No hardware
+runtime testing was performed.
+
+Prepared with OpenAI Codex assistance.
+
+Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
- drivers/i2c/busses/i2c-imx-lpi2c.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+Linus Walleij (2):
+      ARM: configs: multi_v5: Enable the TEO cpuidle governor
+      ARM: configs: multi_v7: Enable the TEO cpuidle governor
 
-diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-index f57e800ac3b5..583155802e8a 100644
---- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-+++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-@@ -92,7 +92,6 @@
- #define MRDR_RXEMPTY	BIT(14)
- #define MDER_TDDE	BIT(0)
- #define MDER_RDDE	BIT(1)
--#define MSR_RDF_ASSERTED(x) FIELD_GET(MSR_RDF, (x))
- 
- #define SCR_SEN		BIT(0)
- #define SCR_RST		BIT(1)
-@@ -594,7 +593,10 @@ static int lpi2c_imx_read_init(struct lpi2c_imx_struct *lpi2c_imx,
- 		writel((RECV_DATA << 8) | 0x01, lpi2c_imx->base + LPI2C_MTDR);
- 
- 		ret = readl_poll_timeout(lpi2c_imx->base + LPI2C_MSR, val,
--					 MSR_RDF_ASSERTED(val), 1, 1000);
-+					 (val & (MSR_RDF | MSR_NDF)), 1, 1000);
-+		if (val & MSR_NDF)
-+			return -EIO;
-+
- 		if (ret) {
- 			dev_err(&lpi2c_imx->adapter.dev, "SMBus read count failed %d\n", ret);
- 			return ret;
--- 
-2.47.3
+ arch/arm/configs/multi_v5_defconfig | 1 +
+ arch/arm/configs/multi_v7_defconfig | 1 +
+ 2 files changed, 2 insertions(+)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261104-multi-timers-cpufreq-cpuidle-5da23033d9bf
+
+Best regards,
+--  
+Linus Walleij <linusw@kernel.org>
 
 
