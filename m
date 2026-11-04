@@ -2,87 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91E0F606A339
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A217E607E903
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 19:25:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BBObeahB;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yxW9IiDc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4LuO+EzR;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uSiFWz3S
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=eGQwnQ2neaJQ1jlowOf5tkGQBWxndnEwh30xNQGSIkQ=; b=BBObeahBu/nv51
-	TaVKKz/XjC1guT2bTClvCKzzpeP0uxFhOXagKHqpKrFtYExQy7o1A/KXiWfPFMbo1W9UWEhaqmloG
-	pnHAWc/FwhYu/dD4c1NEC2kcQiYqtXE/LM4Ei239aArIgxG0WppkWSKBuXamnz/TbtMpX1Bqfk83M
-	E3RNDhzkhdWFyqdkWN+FFJxvjTneGVuqwLXMzi1FmfZuq6cknph6aUnD1mV1pAoZunCIOltKAyLMs
-	Uy3+JJ49uqh8jfm1pKAQgV1dxG9XrVl7uhNda2wNmu5LPzIY61V3oaUc5lXhS6W6xiVx8dXt33aDD
-	CF+pAOMcNhDEiMcZdKFw==;
+	List-Owner; bh=JUJOd9ewD2XzFuoXefvfL/kztf8QXUFxcaNj03ZJSj4=; b=4LuO+EzRSnEPwr
+	ZWnbrt/Wr39j9aep26526kHOUevKKEZkv7XFAZDtMMUzkTBGfpuQUzKvo9hRNlc50EJBCSVI2eRun
+	L5DLAJ8ggORyekAVIYIgujUtlU/gTQSnSFSh37A6b68n0L0Z/NzpXefexb8UaordEBrESiEO7g86d
+	d6D23UD7pAw3j1Vhg63sPuZpptpFo+Ige+kq3PX6QnInUBvSIBKlkp47UfUjTKVgK1it2k3rmbbYN
+	xclW7cEYzD5VaElFLcMIp1Feyp4yI1npKN0dWuRXWkhCieGJ0CrisfiG5qcIuDN7IHmWcsjGIULv4
+	xiAuPgj2urdfCW+GVZ4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOgbh-00000006b9v-34tq;
-	Wed, 04 Nov 2026 19:25:13 +0000
-Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
+	id 1xOgbn-00000006bF7-3ybU;
+	Wed, 04 Nov 2026 19:25:19 +0000
+Received: from mail-oi1-x22e.google.com ([2607:f8b0:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOgbe-00000006b5R-25yu
+	id 1xOgbf-00000006b6W-33ej
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 19:25:12 +0000
-Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-823e4047037so772795a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 11:25:09 -0800 (PST)
+	Wed, 04 Nov 2026 19:25:13 +0000
+Received: by mail-oi1-x22e.google.com with SMTP id 5614622812f47-53aa0802881so516884b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 11:25:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793820309; x=1794425109; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793820310; x=1794425110; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=eGQwnQ2neaJQ1jlowOf5tkGQBWxndnEwh30xNQGSIkQ=;
-        b=yxW9IiDcJNIwbulDm54aZons2atEljF3RQcyvKVImOGJQKK7rVULqocS0OZcFC80LO
-         DmAwh/igifBozfRtLmNZ49CorD7glNZFKdH7//lmuVhXC5QfOtmPEp2HU9swXkqsN/QZ
-         GKU2lBKscVT5uDS4/ob2AqpJD9CVovDCUB/zpesLX4mDpJsVOTXFXR87rAn6miEcQCrz
-         9TyfBgp2r4bBXMfFPfknA83uHFkPPrR4sUVZIcWAV+CndOiDoMtV2Gtnq0Mz5a9y0NR9
-         fzUoYIGlCF0+pv6WiaAkGKvwe5jR35kEx47Q2SMVXjDB8uhytzn5qCQrqTUZ7kFrYIAQ
-         vYfg==
+        bh=JUJOd9ewD2XzFuoXefvfL/kztf8QXUFxcaNj03ZJSj4=;
+        b=uSiFWz3SmQxYuQwJWFmNTBcmn7zrFsbYsypzgKw8k4heijsgZAy+nHJbotDXOrWJOP
+         RLP6cnmAbwok2U/kcSEKsRNS9A/sac2aZ7K4gjJ2NmHOf0iVU2a5/2R3LpiC4uzR6Fqn
+         yRqennuehxqgwZJKQt6YbuVeRsHjDNFlH9fwTAOdSsGPIOOt0apUlWTA+pNVnX+WXJhG
+         YTLxT7CIz1Bd3kbf+rWP0L2tckWXkhkLahZFnXInU8+ui0y9Kn8hroWy9AMPPtJyWLh9
+         5Ls50MBLRgJXFo0vMcoJLYPQHHCB8j1hSUuxj9uJbd6blCA+ogpf5cBGpaHPzQPu9W1I
+         b+Hw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793820309; x=1794425109;
+        d=1e100.net; s=20260707; t=1793820310; x=1794425110;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=eGQwnQ2neaJQ1jlowOf5tkGQBWxndnEwh30xNQGSIkQ=;
-        b=NyypWE4jYmmvbZ2jHMhwSCfU48s3C4DKlZgaennh1UGpdx7Adbcs8UdTlkU2MPWt4T
-         3FL3oyopLSKpxllPam9JpnEgKpk4eusThr3BKPJQ01brI7f3LsZGjOhBEpGJ307/fJSt
-         lOGya3fY1uiETyFjEyWXcMjVSPpDUooDc2nhtaEBn8zX6IM6aRM8yfqnkHV0cFJkBPIp
-         YF1LXq3kCcWCvF68XKcZpJRXgjRZ7TKJ0UFSOfggLYeHl8qjyT0qTWZuayeGUDDCOp1I
-         CtPJYgiSRTSy+o+PJaZ0GNWO6K4m+TCLn1oBXLALWrvahRdj4mxwTEOv+4Hxug6Hzk1o
-         bzFw==
-X-Forwarded-Encrypted: i=1; AKwUvByRI28kB06x9Lc7QlXe2vRD6cUTDe2GJYOcJU4VIC3sA+TYWLikSG4CmHyFdMAtXqHIcs0Rn0f/kAVovciTuy9T@lists.infradead.org
-X-Gm-Message-State: APuU4Z9rQFPA7JkpWvgrA41HTxhGy7pNoLjg3aVLHLwmDJ4Pie4GvK18
-	QHTWraF/6Ef//6oy+v1henPclvx8KWKv133e5A406fAzKa+x/maKao2D
-X-Gm-Gg: AYBFou169JqWUGIjMu4LjXUEsUP0V4Pvto9eV2AxKF+eOeKroe5gLvTYaU4HAbiQfit
-	UXMfwYOGSoOHzOMOvN0ziBrMJmobUUIOThkvokw/z/TBzToNjv5aLc/cIZchtoPEyEVPoR2tt1P
-	7ZlqKA5Xywqmk8OCv+ANxjNNkt0rANGuP18XzPRFw9KiP0jIbGaK4HLpj2fs8M45F/D4iMpEHjC
-	LYQf8VGumTUkqc4vaPSQyXxmhtpx5gTRXbtTxoBNj1sdk+ye+rlBE+ooNSllMjEom2jJHfpfwte
-	hrjiCLOy8ucYI9WNwgZR/ke6ngvYAHxRUtomY+YoOBenUFcbxSBOPSmUhlMTG+TvEM4njbmxweW
-	kGYi7snW+gx/0lmaZBVrm/mUM6ADZxCdvjRrrEhTi8dr7rmWY+/ml2xPBAzRPpJFL3ynwh3VrEG
-	3qsSQ+QMgEDOHGoWwu9X1acEmB7eGu6XsJdZPEigXfbXgLkPcQ8YPvIN0u5juclBCYr5jLaU3ny
-	QJmWfiu8dQslRSso1RJNzhbU90W/5igU/yrSrSoQQY88MmgHUhB2cXtb28utUXhIi8qdGcavJaq
-	316Nbdd8W+SHzvMP+7NYjPVD9W7Hd6EeZ/0tUl3TEFHyC0Z1yMj3lM0wobS1ZIrJ7DpG8qVh+kk
-	02rZpBC0C8Qqfa0WwO7+mV+JR1voxwWBwTMfkYVgV+d6LiQypwbWE47sAmokt7fW4Msl9shlOlc
-	TJJfXTheNtyHK0FGuS9iTgyJsKHmZtTCFV/d6rxHj/U+Jp27pRMqtK
-X-Received: by 2002:a05:6808:2218:b0:52b:7641:33a6 with SMTP id 5614622812f47-5640deea502mr12233182b6e.14.1793820309111;
-        Wed, 04 Nov 2026 11:25:09 -0800 (PST)
+        bh=JUJOd9ewD2XzFuoXefvfL/kztf8QXUFxcaNj03ZJSj4=;
+        b=mCj72LwuKuUEI6Hvq8o2qZdBd+rRR61894YBfmnIdM3fWNjNxSn/557YLsgHex1/F3
+         2NX13vzQsPzTSrHik2oYZZzIKxvYe7CLe49vg0mOANI7ui8BZgz3zE/z1TTBpE9hS+84
+         O/wWuZbduIIMwu3rb0MlHtgGUigdWxLtM15wBy4vMSttJFyzUk8MaYEJR6nrYdYhRkTj
+         jV3l0dQhcqO5URxiVWKJx4M5l6tO/mQXeeOWu/efE8x3I5ysS72lCHn0BHE0DZ4+eMAW
+         hGm/GD4owVflNp0Y/vAekPEizCE1ifsNiz3I2JE9Na6VJSFKzSoRw3HUzJgN9tAsjpmK
+         AEmQ==
+X-Forwarded-Encrypted: i=1; AKwUvBx1JvxEEQo9Ba6QBEouyB/7qb5yeTU1tZMP+CQyukoSUCZBY4zivmqnIWy2sdxXeNeFb53KWalGzJgldbJeie+s@lists.infradead.org
+X-Gm-Message-State: APuU4Z9US8f50WzyU/FtrgFAzrfG5LDu+KKwJIcg6ADiZT3V1K1Dfsjq
+	2A8u9A1r31MC49zJCKxNmHehNFtKpnvl2cE1YD86S8v3PcbrR/X0ChMQ
+X-Gm-Gg: AYBFou2U+RggOASFjKSeakpW3hUoOljkVaH1BioGW0jCa62LT82jUuKapmx2XfeUrgs
+	3cEYsnri2xswuK53GQZqUBO/Xyo7ZyKn7DvFNSqjOaZHsMPKZGztm9al5FNZS1iMkhpGrQo732O
+	D/r0uSKjruO1gIFCTnUk8CpFHOFt+d319bT9flaeSKauTogMeB/4HZUX9qbycHaeqjPWlnRRK2L
+	JfhA6W/kqJX+LihHRO74rcGV3PGsKCuwd5taWs8THjizCUXUlRy9jWlSNGXMNW3bOSHKFGqD4k6
+	iEoJpc3kQ9Y/Ur5FOTJWTdrFLb5S3H24gtHSGkei8MLN/diAW+OoHHpRBgSdxL1b7uX84PSlRnv
+	GK3MF4U4sS/AxQMcNTzAWjmZsBp0ujMhEX1D2hJuyrqsromoGutzmXGt7sxyjcMAYKOJsn0nbv6
+	NUQWBvFb1KsWh+AvoB7a/T3khIAZ5NEDfBe9Qeo6M9k7CxB/yvrBmILoo9pHibCo9YTxq5s9OZi
+	9K8F1X5B3L6F6PTG8zudTJTXgAtsOTadWCE6DVl/EzncPhTFt8AtDEjR/vxx73b2y589DdUv37x
+	QExrzCQsNQdS2CXVwToohktgPklXoxaP/oHODN6sIu8IwNcAEQzoyuE4xDnBsFEjoMKjkmPVRWF
+	wzINTbRS3Y8QFeJPQz9HqxCLr3xAPViY8Ufm0QKGMSlC7vi+j+yPQBBtNpkHLflPnAmuVthGIXj
+	/zNXsUHVG/skaC/AEgskfYrEEJElt+6C/zo2Rps08iZ6eI5yBttOXr
+X-Received: by 2002:a05:6808:198e:b0:4d6:9293:9b56 with SMTP id 5614622812f47-5640de2e892mr13003756b6e.62.1793820310505;
+        Wed, 04 Nov 2026 11:25:10 -0800 (PST)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-567a9c7bbcesm2328723b6e.1.2026.11.04.11.25.07
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-567a9c7bbcesm2328723b6e.1.2026.11.04.11.25.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Nov 2026 11:25:08 -0800 (PST)
+        Wed, 04 Nov 2026 11:25:10 -0800 (PST)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Wed, 04 Nov 2026 12:24:54 -0700
-Subject: [PATCH v12 4/5] arm64: dts: allwinner: h616: add PWM controller
+Date: Wed, 04 Nov 2026 12:24:55 -0700
+Subject: [PATCH v12 5/5] MAINTAINERS: Add entry on Allwinner sun8i/H616 PWM
+ driver
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261104-h616-pwm-v8-v12-4-8ed39b0dba69@gmail.com>
+Message-Id: <20261104-h616-pwm-v8-v12-5-8ed39b0dba69@gmail.com>
 References: <20261104-h616-pwm-v8-v12-0-8ed39b0dba69@gmail.com>
 In-Reply-To: <20261104-h616-pwm-v8-v12-0-8ed39b0dba69@gmail.com>
 To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
@@ -104,8 +105,8 @@ Cc: Philipp Zabel <p.zabel@pengutronix.de>,
  James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_112510_555813_E6CCABBD 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20261104_112511_801909_90630289 
+X-CRM114-Status: GOOD (  10.81  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -127,82 +128,30 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Richard Genoud <richard.genoud@bootlin.com>
 
-The H616 has a PWM controller that can provide PWM signals, but also
-plain clocks.
-
-Add the PWM controller node and pins in the device tree.
+Add myself as maintainer of Allwinner SUN8I PWM driver.
 
 Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi | 47 ++++++++++++++++++++++++++
- 1 file changed, 47 insertions(+)
+ MAINTAINERS | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-index c6b3a3f8359a..b6580f0c6e0f 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-@@ -293,6 +293,17 @@ watchdog: watchdog@30090a0 {
- 			clocks = <&osc24M>;
- 		};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 93abbb315065..b80ae0ac5eed 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -947,6 +947,11 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/hwlock/allwinner,sun6i-a31-hwspinlock.yaml
+ F:	drivers/hwspinlock/sun6i_hwspinlock.c
  
-+		pwm: pwm@300a000 {
-+			compatible = "allwinner,sun50i-h616-pwm";
-+			reg = <0x0300a000 0x400>;
-+			clocks = <&osc24M>, <&ccu CLK_BUS_PWM>;
-+			clock-names = "mod", "bus";
-+			resets = <&ccu RST_BUS_PWM>;
-+			#pwm-cells = <3>;
-+			#clock-cells = <1>;
-+			status = "disabled";
-+		};
++ALLWINNER SUN8I PWM DRIVER
++M:	Richard Genoud <richard.genoud@bootlin.com>
++S:	Maintained
++F:	drivers/pwm/pwm-sun8i.c
 +
- 		pio: pinctrl@300b000 {
- 			compatible = "allwinner,sun50i-h616-pinctrl";
- 			reg = <0x0300b000 0x400>;
-@@ -397,6 +408,42 @@ nand_rb1_pin: nand-rb1-pin {
- 				bias-pull-up;
- 			};
- 
-+			/omit-if-no-ref/
-+			pwm0_pin: pwm0-pin {
-+				pins = "PD28";
-+				function = "pwm0";
-+			};
-+
-+			/omit-if-no-ref/
-+			pwm1_pin: pwm1-pin {
-+				pins = "PG19";
-+				function = "pwm1";
-+			};
-+
-+			/omit-if-no-ref/
-+			pwm2_pin: pwm2-pin {
-+				pins = "PH2";
-+				function = "pwm2";
-+			};
-+
-+			/omit-if-no-ref/
-+			pwm3_pin: pwm3-pin {
-+				pins = "PH0";
-+				function = "pwm3";
-+			};
-+
-+			/omit-if-no-ref/
-+			pwm4_pin: pwm4-pin {
-+				pins = "PI14";
-+				function = "pwm4";
-+			};
-+
-+			/omit-if-no-ref/
-+			pwm5_pin: pwm5-pin {
-+				pins = "PA12";
-+				function = "pwm5";
-+			};
-+
- 			/omit-if-no-ref/
- 			spi0_pins: spi0-pins {
- 				pins = "PC0", "PC2", "PC4";
+ ALLWINNER THERMAL DRIVER
+ M:	Vasily Khoruzhick <anarsoul@gmail.com>
+ M:	Yangtao Li <tiny.windzz@gmail.com>
 
 -- 
 2.53.0
