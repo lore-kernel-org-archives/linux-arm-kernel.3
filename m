@@ -2,53 +2,53 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAF02606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 08:10:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8860606A330
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 08:10:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1n29CLL6;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S2hDpltL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TmSQSEA3;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jwExKOP3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=TGjvdT1tSAdYwaRRPqeNTxe41Nk6QGzMso6+8hC+8JM=; b=1n29CLL67RGpdu
-	wZEu8iaa87k8RvBjF9TrWCjbiqHrUdIDKxPzZJF+Gdl2gS+G4Yp/yr+sqHqRGJf1uIaa04QidzzVK
-	X0ydeFTWjG/EFQsqNnWaZLDZPG4pppFFHCqJC+U1rQGGOxS23E4D92aCistrygjQJYRWYiwYDVkbT
-	KTUGUL84cClJwgOcFNWNIbx3S02zEdCevJyfJ3zi9WvIeAxttgM2qKD+9jhZVkG+lUu3sZwEf94ew
-	sTz0kiXjS1gSrmdhZz/UdD6jEYHn0FsgWrPEw0CyHERKMHJA46FWPtrJdZTIHaw/hvyoZEP3g8UGb
-	cBVJ72P2DRO02TvXL60w==;
+	List-Owner; bh=ig4cNXieuTOvvTi83XT+rrmuyz/PrNyQl1mTni3mESc=; b=TmSQSEA3dWTtSR
+	aryoIe/rT9TPfl0dje+XZscKks+fwd6nx1P08Jezd2lF0ebffxrH43t1vSSkvvSdfRcF/vp2+uNS5
+	xFLjWtgx2yMIadQoJx7jCX6SkGSwbmkcGGHUQAxx04tpOUNUi5UA7ExWASxbY11C+da/hhDW5hleM
+	xPkiO5uPcsxYWQtTQqBAanOjt2TtNepiAHk0n6tB2UCoPNuFzaIUGC/r7mYeVl5ZF5jQo0rwlR5nY
+	spzXdCkIGS+cyIAnQ/rtjA7iToRbzijyLny+W4tbe59PyjvaRJZTatSNi0VlCBS3F1rugDMag1Qy3
+	XPjI0H/QdYIouZ0yBrug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOW4F-00000004eOf-13zX;
-	Wed, 04 Nov 2026 08:09:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xOW4V-00000004eUp-2cAE;
+	Wed, 04 Nov 2026 08:10:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOW4E-00000004eON-0RZG
+	id 1xOW4V-00000004eUZ-0TDQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 08:09:58 +0000
+	Wed, 04 Nov 2026 08:10:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 72607416B6;
-	Wed,  4 Nov 2026 08:09:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68EC91F000C1;
-	Wed,  4 Nov 2026 08:09:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 84E2043BED;
+	Wed,  4 Nov 2026 08:10:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A0D71F000C1;
+	Wed,  4 Nov 2026 08:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793779797;
-	bh=TGjvdT1tSAdYwaRRPqeNTxe41Nk6QGzMso6+8hC+8JM=;
+	s=k20260515; t=1793779814;
+	bh=ig4cNXieuTOvvTi83XT+rrmuyz/PrNyQl1mTni3mESc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=S2hDpltLKFLlVIbuR1j18MJZC7mpen4l/KzEdOo6ODJ7fPWyVH1T3xHmEuPj2AGBJ
-	 ciMtW+NbguZu4JSL73FrnO3H0go8Jbf/JmbB7HTgSr/CDnjh4eYBE/2gTBTrsGkZHX
-	 /b6cOH3BzSCp/P1r/TrgpYXm5hr4RIsaxTanEkES+FQMvIAGToTv2y+n6JMPjbWzqQ
-	 p+tErFSl07e8vD/UsPrUQ7dMqO8NgnjEzCHfVioDgBUuTV5bz93OudbyRmtSwpmx5k
-	 aXDkTTbhN/F0fEbm1FVVyJRArl2Oj6xQSS0PwzU9+p51lsQFnTv/N7Q7pWWpjXBEPI
-	 482rRLXDKTacg==
-Message-ID: <515d0b89-e0c9-4df5-ad6c-756247d9ecb3@kernel.org>
-Date: Wed, 4 Nov 2026 09:09:49 +0100
+	b=jwExKOP3QR6CYk53tnJfDHsm1P7S4Y5BvypI44fOhaK5rS33YU2JrdfZzJ+Nb8Mt0
+	 oKwsW37DpM/ec3AcgIvPELrMmO+2GBY66G/5JWTUH6Ls1FkjBn+Ym2k8Er26n/o/Dd
+	 To8kGaXLdEEtXjK5MaxBNYxzPxsEieFLOLYyirvH513RNZ6qlHkjuf9gmEBdDVjFiF
+	 8XDjR9MUD1RvttjWjDCCycpgfiVbDO/cT4YJjAqY9QzUHwFrul2JRFZomd0M2Mb6bN
+	 SrdUkY1gkpWMyLtxEjmVsmSezzPgXQg5aJSgD2dqHlBFDjb/cCOS6rtAndRgNIcY5e
+	 uRBGYsqfyX82A==
+Message-ID: <742ef130-6c59-497e-821d-00ab7f2082cc@kernel.org>
+Date: Wed, 4 Nov 2026 09:10:07 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 5/8] arm64: dts: allwinner: h616: describe the UART
+Subject: Re: [PATCH v5 8/8] arm64: dts: allwinner: a523: describe the UART
  integration
 To: James Hilliard <james.hilliard1@gmail.com>,
  Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
@@ -63,7 +63,7 @@ Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-sunxi@lists.linux.dev
 References: <20261029-submit-h616-uart-fifo-v1-v5-0-53b433aebbf8@gmail.com>
- <20261029-submit-h616-uart-fifo-v1-v5-5-53b433aebbf8@gmail.com>
+ <20261029-submit-h616-uart-fifo-v1-v5-8-53b433aebbf8@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,7 +109,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20261029-submit-h616-uart-fifo-v1-v5-5-53b433aebbf8@gmail.com>
+In-Reply-To: <20261029-submit-h616-uart-fifo-v1-v5-8-53b433aebbf8@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -131,17 +131,18 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 On 29/10/2026 19:47, James Hilliard wrote:
-> Identify the H616 UART integration on each of the six controllers. The
-> specific compatible describes the fixed FIFO capacity, register layout
-> and receive-trigger mapping.
+> Identify the Allwinner UART integration on all eight CPUX controllers.
+> The specific compatible selects FIFO-depth discovery through FCC and the
+> Allwinner receive-trigger mapping. Each controller supplies its own depth,
+> so the same compatible covers the different FIFO capacities.
 > 
-> Retain snps,dw-apb-uart as the generic fallback. H618 includes this DTSI
-> and uses the same UART integration.
+> Retain snps,dw-apb-uart as a fallback. The common SoC description supplies
+> these UART nodes to the A527 and T527 boards as well.
 > 
 > Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 > ---
->  arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
+>  arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 16 ++++++++--------
+>  1 file changed, 8 insertions(+), 8 deletions(-)
 
 
 DTS cannot be combined in this patchset and must be split. Don't mix
