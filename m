@@ -2,10 +2,10 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC1A8606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93BC3606A330
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:50:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CLebEAlE
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oQm1jRRB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
@@ -13,41 +13,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=xVK4Bu9UYvmBrhVxIppgDvWMYL7Cu53nffoa0XQ6rgs=; b=CLebEAlE1PQzU/F6B8Gks6Lbnb
-	gbRtBRPtub6ROIZxAiTkGmXdxKo2i0us8zdevhMPqclZkyfKxNJvZEChPSptctS5/N4paPOtc8bov
-	egu0cFA1lLX/lsgTmpz3ZYPlHYqkdPWQmsCloehAKs6q7gWFe2DZrXSSHUI5gV/cvoC1Rh1jswBCF
-	O+F9wS082LH4Y96Tgc2Oh0Ojnz1CiUASsYyGfCqjKcR8B2sMT7AW1nIigevIGjn3M70hMxGeacSiN
-	D5t/MFYSjsGLZZ9dhyHsqrQoXNdhgl3uGDQQDRfuZMpekrxWfVBZtoqrqtRhhQfV0bjDQ66cidajP
-	1QgLO88w==;
+	bh=M5O38IyefLS0AYgXYSj0xczdGJPrqgEsGDgdyw4myDo=; b=oQm1jRRBDAY+haiIpQr9KqspSk
+	T/7K8huTlfOfRRGC+wZbKOhBQ49/W/uo9xfvWL/TGQkStCQweqH/Ga/+L2m614RZRGOBcIR74MyXE
+	A+1XSW3PzQGqRhNmXbvVblWQtyld84yySijx3cS80O+Lg2ugRpmyAVP/ElpcBpOheGN0AX0Yw+GA5
+	xGQlnpMvi3tWYeO8Gq6li5FhZvOEJj6UfFQFZnuXPHaayu+X6GNA7OtPWVFU93tqd/QJSPDC7SYun
+	fsFnnC/ZB4SxGSaTqavjWkAi2YtFky6uQ9+Xul94ZcEz4TR4R9kIpe8GerKnRRu67kzrjP/YgxY2D
+	SdcB6gTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOaRo-00000005Nrk-46cc;
-	Wed, 04 Nov 2026 12:50:37 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1xOaRo-00000005Np1-08YD;
+	Wed, 04 Nov 2026 12:50:36 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOaRh-00000005Nii-27Gh
+	id 1xOaRf-00000005Nh3-14HK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 12:50:33 +0000
+	Wed, 04 Nov 2026 12:50:30 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MxPu1rm2C02hd/woLxW8Aw0WExz9Jgcu8Ypm8aGVdM3TF8KGbkw/w02d404HyX04zeyQRoyFx7lErvNLbrBQLtVZ5EUohSqynQEd57+PG88y1cAb2u11d7DHpL06kljSctD3W/PSD7lUounBYAquJvzMm307Y+57H8449miUC/1nvq6l4bWCek6h7rUlWjGtChaRQ1BlY4cGmkml2i0ANBrKPha0Dw0QeGqPrFmlWSCFZvplAC83DXNkbC4Cc/YIZIM8OuGHcDXRsbA9detjnnWkX4XHHqriJt0HlA+7BIqTZ/bN1G07wQO3xo6GADsZuC5GCRIAF4+Ms9/ktrIGVQ==
+ b=c9SKjFMVftYesWPs8DPOYUIWEE2CR1tBaWpJBntF+jr4162sGah0S2/u1VH01r7aN/aeOTx+rZpJ1hrxd5Z4o9W4t9RKaHq78lhTMpVrfjVZUHBnJs6xXtSN4/472+JD5wBnApQz+KhWVqUjUdnQmEuB7GvC9xbBbNdzpwfi3oP0F2kwi63FSoWH7yGFkbufq/Zsg/E2Bhs760FtHdNKc1VuS/rR9hoGYysxA5B8YaIIAS5pPwY55lLI56z2GkI/t8R/kbOxw7s6ICCtj4YGhGUwsr8TtFIb/MRPdtMRZipqc/e1oLHImFnCqE7FBYavWGy8DaKxGxLcc/oeS5b0Jw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xVK4Bu9UYvmBrhVxIppgDvWMYL7Cu53nffoa0XQ6rgs=;
- b=kFelaLtoLIlz4MJIYMUQ8x8FTGgSv8oMcY85pE4/Vqys3giWW+1T+ueWM/WSt+hYCylejIpyNwle6PkpimqKy+37QyarhvhGBimiHej8UArnxt4hBdF9tx8/S4O72gLEib0XxQ20tRVKsTSED3PIIMe2BOP3Wqjm8KjIwusHkpo5HhyCW5mE/7WAQ5XmyfdJii0pfOOi5VCBRglRrIsuVvpnh5jkCuwnbmzucH10cF/0SV3bwTqCxAaRxm5y2BVxQTrdytnMbvf8citAm3DNJzW4aj8QqFyYYJZnyRFFQPpjSIJa4NVUobAmG7tMY6I4tzSDrUFbOb3hVN68bcnIxA==
+ bh=M5O38IyefLS0AYgXYSj0xczdGJPrqgEsGDgdyw4myDo=;
+ b=AUkVObqPL0ho98rnxszJQcrrp4zQATiCqNj4+W7ZzYfUeUqfcbno3KtXEJ38ZNAwSRsscLmijjk8eoCqzL0FuE3RS3p9b/qU6YTc3ewV/FD7nLMTzefDaUJUQTzQ5Fz8tCLtaVG1b08WKazdhyf96HFqklyJKBYi0DqL9hxqiABzV+RWWO8y2ENL1zDjmXb5qhFPrG0zfHCN8FHDK27YuDuwfIo2gbI5f1JFqfTVMMvD1+0B0MeW4wUcc55hteXE0yfr4ltJK6TIKgkk63Bt4dxE7829rGxsdhOlZ5NpQFp/1KduKLnnF81GxYc4y62AmQPYF/mbWjW/JwmGEeStdQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from SI2P153CA0018.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::9) by
- KL1PR06MB6180.apcprd06.prod.outlook.com (2603:1096:820:d7::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.592.9; Wed, 4 Nov 2026 12:50:22 +0000
-Received: from SG1PEPF000082E6.apcprd02.prod.outlook.com
- (2603:1096:4:140:cafe::78) by SI2P153CA0018.outlook.office365.com
- (2603:1096:4:140::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.4 via Frontend Transport; Wed, 4
- Nov 2026 12:50:22 +0000
+Received: from SI2PR01CA0042.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:193::23) by TYUPR06MB6080.apcprd06.prod.outlook.com
+ (2603:1096:400:344::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Wed, 4 Nov 2026
+ 12:50:19 +0000
+Received: from SG1PEPF000082E2.apcprd02.prod.outlook.com
+ (2603:1096:4:193:cafe::79) by SI2PR01CA0042.outlook.office365.com
+ (2603:1096:4:193::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.9 via Frontend Transport; Wed, 4
+ Nov 2026 12:50:19 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
  header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
@@ -55,64 +56,59 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG1PEPF000082E6.mail.protection.outlook.com (10.167.240.5) with Microsoft
+ SG1PEPF000082E2.mail.protection.outlook.com (10.167.240.11) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.592.5 via Frontend Transport; Wed, 4 Nov 2026 12:50:21 +0000
+ 15.21.592.5 via Frontend Transport; Wed, 4 Nov 2026 12:50:18 +0000
 Received: from ubuntu (unknown [172.20.64.99])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id BE49940E6386;
-	Wed,  4 Nov 2026 20:44:39 +0800 (CST)
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 40F2640A5BF2;
+	Wed,  4 Nov 2026 20:44:14 +0800 (CST)
 From: Jelly Jia <Jelly.Jia@cixtech.com>
 To: vkoul@kernel.org,
 	robh@kernel.org,
 	krzk+dt@kernel.org,
 	conor+dt@kernel.org,
-	robin.murphy@arm.com,
-	sboyd@kernel.org,
-	bmasney+clk@redhat.com,
-	jbrunet+clk@baylibre.com
+	robin.murphy@arm.com
 Cc: devicetree@vger.kernel.org,
 	Frank.Li@kernel.org,
 	cix-kernel-upstream@cixtech.com,
 	dmaengine@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Jelly.Jia@cixtech.com,
-	linux-clk@vger.kernel.org,
-	joakim.zhang@cixtech.com
-Subject: [PATCH v2 4/5] dmaengine: arm-dma350: Honour dma-channel-mask
-Date: Wed,  4 Nov 2026 20:44:36 +0800
-Message-ID: <20261104124437.296753-5-Jelly.Jia@cixtech.com>
+	Jelly.Jia@cixtech.com
+Subject: [PATCH v5 4/5] dmaengine: arm-dma350: Support integration clocks and resets
+Date: Wed,  4 Nov 2026 20:44:10 +0800
+Message-ID: <20261104124411.296640-5-Jelly.Jia@cixtech.com>
 X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261104124437.296753-1-Jelly.Jia@cixtech.com>
-References: <20261104124437.296753-1-Jelly.Jia@cixtech.com>
+In-Reply-To: <20261104124411.296640-1-Jelly.Jia@cixtech.com>
+References: <20261104124411.296640-1-Jelly.Jia@cixtech.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E6:EE_|KL1PR06MB6180:EE_
+X-MS-TrafficTypeDiagnostic: SG1PEPF000082E2:EE_|TYUPR06MB6080:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 45975e97-0b6f-4625-c698-08df3a723040
+X-MS-Office365-Filtering-Correlation-Id: 28d2d5c8-e76a-4d66-c66f-08df3a722e5c
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|82310400026|36860700016|261021123027099003|56012099006|261102123227099003|261009223027099003|261022105027099003|261028144727099003|261021121427099003|261026140227099003|10067099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: mt6qAVWakX+J8TZy4jwuPJB7/wa7/wH4blR4d+jRO1HQi1Mjn+KDHHRSHohBZKvFZxndcYuOcVumOySxut/dxBUjzH3gNkuO/5PCmlahSGoGlnCOubXdLbvr1X78gVBXdIZ7cWjI8YYAaAf36S8x3iubdtUFF3WHjpBKVpkT+OQexvuV8MLzTeeZ5Xu3eYPJp3SGvJcWB//Z2a2pV2aA7oi4wnKt76JXfex9qzDK6w6v75/H2FmBlFTUWQoJMC18FRIulX+Z6etpdlCLm/2llDkDnnI1Gw8yqgt/i53c1r2eEl15kGhUsGkjcA5n7CfHPrJFiYTcGf2Kn1/shKbwePnZVmH+mBkb8URheW1Lhd9w6jsfU7yZKTs51NHS8/Y9ZU4s+TPgH5KeNuYaxXRvkp6J2qKYl2fbu1JdW8J4X6R6pIEfsjo/HPVMUT6jDBZfb6eU2vAo/YsD5imcIqx2phD7JuD9i4H5Dh6mBDsP9waOtSWsgORjSNnrFLnhSaRjDDiAPwuDxU5zQnOSs2RYsqtfu2XsC7XfgvsPFgbBSd5YJ6IdBmzIb1WRBxxclt3GJpE3b//oCDcvV9F8+YuEII9FoxglTFS8w1FJTJzn1E82d8WLKsjgqvDY93g5dKvAqERQA8PRjutCMjmlWPohixiEnUi5UTxQk+Rx/H4xCTPhFr7q2c8DkVbH1F7tYwCQqlWHUzx3bSX7B9SCqT9W3A==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(82310400026)(36860700016)(261021123027099003)(56012099006)(261102123227099003)(261009223027099003)(261022105027099003)(261028144727099003)(261021121427099003)(261026140227099003)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|82310400026|7416014|36860700016|56012099006|261021121427099003|261028144727099003|261022105027099003|261026140227099003|261009223027099003|261022075727099003|10067099003|22082099003|261102123227099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: ymyP5GWkhaFCd9kG8IS3v9HCcGA5I+sRaxmK/sSYFqxvDLiIjx6XCYZuYmpBsEQ8uNekJmcPSIRUUIiP087U2RSGAvw7buMkwYc+eJouBGWfnegqRY/E1HHEzKxKFlXSoEeHiKay9WZGyJZXzg6grlBrqdbSnBrCNYtI+XKsna946GJsbljC+kh5982KEq8/mh1cgF+ti0Tef96+Jgrg1IsA13ePdUkkyvDxFNDNqZbGjY8nX4j2lhm2Aaunrj1HcMifdv7dd5sPEZ8GwFmDWPiiMEDglgk2pd6h36T0tbnVQ+Kr6E9geS0iz2j3+OJEY3IjziKQs3NMuvDcxQCIBGHwtmaRNVy7/b0SGL0OcHzYK2clK5t4L6Oj+qPKXLQ3JwRqcueHqxE1zrVSijgJA8/IymXLLuBtLksBBqjruoKR4oD825pa2IY8WBaO8Xayb5X7cbSpPmF8xRORaE+/auw/L4e4R7S0SyavvWLFnmGSUtYf0FZYGCMM52wZXJLBcFPXoWwVQNYF2HIw30ap49FBeoLMqkAwDq2vWpIFg82ZmqSU7kC2//o+7rXxFZPyDJn42SSwbfRF3ft3Rk22yogsZEY1hzph0SIxq+sv9o/Y2JEnk1McSq52Ek3YJJIVLBy+qGjLSI/+7EbA+ZhfS7/N9iaIiB6l2p21HOW0afSIorML2+PWgLmkd8XYOhR9yU98+Q99faORuhFUXP3n0w==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(82310400026)(7416014)(36860700016)(56012099006)(261021121427099003)(261028144727099003)(261022105027099003)(261026140227099003)(261009223027099003)(261022075727099003)(10067099003)(22082099003)(261102123227099003)(18002099003)(6133799003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: n4+rTiqRaQoHWcSevZA6a/45wZjFg34vExIYMppPLqOERUaqITM1ABJonGUI/PSBZN8WXRXy5ocszdWRmNvK1aOHm0qoJ9Fetzr7cCAvk36EBt0B1OpgEozmtrRrANerUto/gUfNpam8G3iTBdXhATd4qz0cKqHwTdjEV8ER9Um28+0KAKJYJIL8in8SbUgBtRS58mjcwQJBLXnLwlx+MU1XblSf80W1xnPqZ+Ku6UZQtei+sGQvbackoP815D1wP14+gR6DtlxkFnn3S74jfeJdzfRgvSutvv4yUmpq+HIVb1gpFeBQ701Ku0MP/YW4rUyjM0CAcnIaM/7k3SojNEVFYrxvrfG3TjOXTsWWutN+/CIP4U0uIot9kYz2JLR7bF6XoIu2L4MCckwp9iXKWokwE7xerW2kcxAqBVNtNNk8j+FuAjTUc/CdnMHY+hUj
+X-MS-Exchange-AntiSpam-MessageData-0: o4CaU52OKedh/Sc79tXSqL6Ia3tQVTx+KvXsbWqoNIJjbq2zbSvAqUQFZVSI6UsOwQpUbzsXNHhZabRX3Ja+h37rXDfbz2URQ8sE4hY0mWd8dOu7xQascjRxClXC4D50380GOYDetd1d3RLT5LApRy6dwwY1d4p6NeYMrImwDd6OdSMcsbplZGq+ap9OQXPTV3phUSJLoRaiuU0XrB+XiUpPH1kiMj0UxLb01JoGwH4AtBHjwKfXOAO1PucGB9fOUeoMm2Fi541WgmcR/tbgJWyQYrdf2fJfW/Cu3gnlfGyjAp8QM2jdxOOAOL1zq6Rm1qCox0oKSArsSkai9aVI8iyiX0YypF4jqALvpUxmjhDSuMaFDPFpcnF5HLDg0+y6CNdh56Ulav8/gub4aXBiGM5Pz98t8BPpbHvgNS0cQrjiz444F6qSh19thoYQoYug
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 12:50:21.8445
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 12:50:18.6670
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 45975e97-0b6f-4625-c698-08df3a723040
+X-MS-Exchange-CrossTenant-Network-Message-Id: 28d2d5c8-e76a-4d66-c66f-08df3a722e5c
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E6.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E2.apcprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB6180
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYUPR06MB6080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_045029_561667_44679D8E 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20261104_045027_291377_3FBDAB50 
+X-CRM114-Status: GOOD (  14.02  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,67 +127,67 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-DMA-350 channels may be reserved for firmware or another processor.
-Read the optional dma-channel-mask property and register only the channels
-whose bits are set. If the property is absent, preserve the existing
-behaviour and expose every hardware channel.
+DMA-350 integrations may gate the controller with a clock or hold it in
+reset. Enable an optional clock and deassert an optional reset before
+accessing the controller registers.
 
-Skip masked channels before accessing their channel registers or
-initializing their interrupts and virt-dma state. This avoids clearing
-or configuring channels reserved for firmware or another processor.
+Use the deasserted reset helper rather than requesting a reset pulse.
+This also supports reset controllers that only implement assert and
+deassert operations.
+
+Both resources remain optional, so existing integrations without them
+are unchanged.
 
 Signed-off-by: Jelly Jia <Jelly.Jia@cixtech.com>
 ---
- drivers/dma/arm-dma350.c | 20 +++++++++++++++++++-
- 1 file changed, 19 insertions(+), 1 deletion(-)
+ drivers/dma/arm-dma350.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
 diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
-index 2f22f8a0ab47..b24e569a1dd8 100644
+index cfe3bacfab68..2f22f8a0ab47 100644
 --- a/drivers/dma/arm-dma350.c
 +++ b/drivers/dma/arm-dma350.c
-@@ -1253,9 +1253,10 @@ static int d350_probe(struct platform_device *pdev)
- 	struct clk *clk;
+@@ -4,6 +4,7 @@
+ 
+ #include <linux/bitfield.h>
+ #include <linux/bitops.h>
++#include <linux/clk.h>
+ #include <linux/dmaengine.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/dmapool.h>
+@@ -14,6 +15,7 @@
+ #include <linux/module.h>
+ #include <linux/overflow.h>
+ #include <linux/platform_device.h>
++#include <linux/reset.h>
+ #include <linux/scatterlist.h>
+ #include <linux/slab.h>
+ 
+@@ -1247,12 +1249,24 @@ static void d350_free_chan_resources(struct dma_chan *chan)
+ static int d350_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
++	struct reset_control *reset;
++	struct clk *clk;
  	struct d350 *dmac;
  	void __iomem *base;
-+	u32 chan_mask = U32_MAX;
  	u32 reg;
  	int ret, nchan, dw, aw, r, p;
--	bool coherent, memset;
-+	bool coherent, has_chan_mask, memset;
+ 	bool coherent, memset;
  
- 	clk = devm_clk_get_optional_enabled(dev, NULL);
- 	if (IS_ERR(clk))
-@@ -1328,6 +1329,19 @@ static int d350_probe(struct platform_device *pdev)
- 	dmac->dma.device_caps = d350_caps;
- 	INIT_LIST_HEAD(&dmac->dma.channels);
- 
-+	/*
-+	 * dma-channel-mask is optional. Firmware-reserved channels stay
-+	 * clear; if the property is absent, Linux may use every channel.
-+	 */
-+	has_chan_mask = device_property_present(dev, "dma-channel-mask");
-+	if (has_chan_mask) {
-+		ret = device_property_read_u32(dev, "dma-channel-mask",
-+					       &chan_mask);
-+		if (ret)
-+			return dev_err_probe(dev, ret,
-+					     "failed to read dma-channel-mask\n");
-+	}
++	clk = devm_clk_get_optional_enabled(dev, NULL);
++	if (IS_ERR(clk))
++		return dev_err_probe(dev, PTR_ERR(clk),
++				     "failed to enable clock\n");
 +
- 	reg = readl_relaxed(base + DMANSECCTRL + NSEC_CTRL);
- 	writel_relaxed(reg | INTREN_ANYCHINTR_EN,
- 		       base + DMANSECCTRL + NSEC_CTRL);
-@@ -1337,6 +1351,10 @@ static int d350_probe(struct platform_device *pdev)
- 	for (int i = 0; i < nchan; i++) {
- 		struct d350_chan *dch = &dmac->channels[i];
- 
-+		if (has_chan_mask &&
-+		    (i >= 32 || !(chan_mask & BIT(i))))
-+			continue;
++	reset = devm_reset_control_get_optional_exclusive_deasserted(dev, NULL);
++	if (IS_ERR(reset))
++		return dev_err_probe(dev, PTR_ERR(reset),
++				     "failed to deassert reset\n");
 +
- 		dch->base = base + DMACH(i);
- 		writel_relaxed(CH_CMD_CLEAR, dch->base + CH_CMD);
- 
+ 	base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
 -- 
 2.54.0
 
