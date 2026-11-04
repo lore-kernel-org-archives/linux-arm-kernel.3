@@ -2,101 +2,125 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D645606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 15:51:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28990606D808
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 16:08:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3bmMenso;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KpNZA4Eu
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ttgIBfm7;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=qWjx2hVR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=5MryvWougc8oZCTNV6AOfjFxzrIHneZrJJ6z1cTNnJA=; b=3bmMenso3OnNWDu913ptHbdJnc
-	+hEuGeX2zBPv3KFS1GsCAZoy4Tz1ipQXesU7DzlJGOFTVae5NtnMensLwpRBh+LqIcTrrPWCuPDpo
-	MhJtD6OmFuv3xU0F8eNAd5r8ccFdEtli8PtKw8D37eJjbw9hEUA0cr5w4Fdg2c4PTVbY7orsenXuQ
-	wAdzVHWbs6myAbssF60trFZa1BrMJXAFP8vKNWTxDhhRWnJ91D/tIceDyFLvIAlLkb/ACR+5zyoHA
-	/OQxqLEMvMQIh7JrXcmBjEBM2/pNhoKcAwRaEtx+UADLaduknjlywKkdhRp1poSxAb8Fb2RtnD5cJ
-	ijlqAn+w==;
+	bh=s2fEH/wxEuoGYvwcDbZc1Q0HCduy5caX2JlssWH0y1Y=; b=ttgIBfm7/ydsahoPOqaWkAOW2I
+	pmnjzpMrOxFjQPOKvdrf8E7cDAhq5lF9jpkmhhc/oVrk6hE+nBjr+U4OkMkT7osJvAXX7ZsK1vzHW
+	VIEJ2HAHxKY6FFKDucCPysysNAX3Gpwi2QNnBBcxE5fbom+NtUY8B7KFeArxkhvybTtl4JnDtvcCY
+	g/u+TP8DpgxEwK201stKhm2oinY9k/5BKh8Fp+N/BkwqWqI+4ektN2/pSXVJaIt5Wrvsj4mViSryk
+	Uyb4wGh/HsovLJ51rloxnlXOngEWVnqyPEMhkf7jvLHvRYyaGl8zGVt/DYoEq7fW8UC9441+mkbHw
+	sHjUcNqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOdGs-00000005qTl-4995;
-	Wed, 04 Nov 2026 15:51:31 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1xOdWx-00000005t30-1dMF;
+	Wed, 04 Nov 2026 16:08:07 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOdGp-00000005qS8-2nDT
+	id 1xOdWu-00000005t1k-0lEv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 15:51:29 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-48b060ec084so582575f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 07:51:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793807485; x=1794412285; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5MryvWougc8oZCTNV6AOfjFxzrIHneZrJJ6z1cTNnJA=;
-        b=KpNZA4EulL+kH4wd/Ba0cg5wfV9IRubQ+nYyN7ypexM+PClZh/2IXZVyaRd9SF6DoJ
-         0DMGrhBtMv6bguDHosHxavjQX0a/CT4sYqW8yZ/AaQe0+KCSe5j/GVVPGpVi8UMJfn5b
-         HkIYdsAT2Mot9EKBETLd5v0XhG4Cjsm9wHT6RGydZ++NvzGlh3oQIBwIICyTjTlNTiSf
-         BxSJ8qA6JZGg2b3s8wEkx05TKKt05iOL04uS8O+B7q9KAA/fHDx60EZRFEZk3FlfEi0f
-         20g453gcmJvE1POWSClbLCl6oPTFDbFaan5XmB/MISQ0jO9gkOBJBg3vMRxpxqytm1Ix
-         IW+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793807485; x=1794412285;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5MryvWougc8oZCTNV6AOfjFxzrIHneZrJJ6z1cTNnJA=;
-        b=SB2f8rGUtBsSaXnN77KngCdsIgT1Oq+MBiih2ANGtpD5V3Dm1IbsGzplTcylrCjbiL
-         4vHlgEyu/j5uhaR1q2EsChNZXJP36LxYwxnrGN88S/X2Ez1uGgsVAOSDVby8RJG2J2W+
-         Acb7+NGehlwidmlbsQu+TOcx2xQxOahZgWPGOdJGLuv4kl1Hnq3mCfulARXJIkOcqj6X
-         1Re4Hi5BYvw4IHLQncW8NDq8aoDIAcKf3SPgCCEKi2F13SW+JqoemBvZlWFyT746vn0S
-         8bcgJ3MCWB8Wjfd8RFyl1h3emnRlWzKkwnPXhTGQXCVLtUry9chPFmiYgEUxbsKDtQp8
-         erog==
-X-Forwarded-Encrypted: i=1; AKwUvBxx47drsKy2K8VPXCsq9EQ5+jRMErYEC8V2b+YDHPRzrKSqDK0yu5ZpBdSNw1aUyemkfYrDC2pB6CwK3awORpEw@lists.infradead.org
-X-Gm-Message-State: APuU4Z9/rAuiC0bPrVEF+3m0ZguHk/SHc+gSvssj38m4OaslEaLjrPqk
-	fGK/vSq/5rRPXLXBesUddeeRmRKx0my8yxpJQoOdXTi7HrFlE5J/fOAK
-X-Gm-Gg: AYBFou35gzvvtktI8Od/EMk4xkCUuSqhlAW+rgttvzaEmRQdVD6gni4E4SYvKT8cwJY
-	EWsso9Bci0io1JsUKrU02Huo+o06yIcPEtjLbW2QBRE6IPGoTuy0Rv6HSY7A5tIRWUizpMwTWrR
-	EAhBmefIPSok+vX69zsCG35Ss7xnKR2vUHURmXb78Uu0Hhf2g956HfRAUHnXlGt6OKM5hI2fw9P
-	RP+g6VWikTpFhejHzw396MhX07N28wUPt2Z6FSpzuRh8scCnfc9nopcLN1gVmBkrSz6kTrr14aR
-	eu36bb6gusIWMsxtipp0t5nXb+9+QxkZDfpjeXzVVzpbO3MyrnjZfMAFc3yOiDrCEUzVrtJextS
-	Srx19CxHNDBzcpLT8tccpaFFstbDyt6buuQAu5gTRTpQUVij4nuS8En4LOytSMMllJaRy8F54hH
-	BJC4pzohUExfP2zqDs1rO6eDxqcM1fef5VpVFP/vu9zGVbfdx81DR4nunUzBU7dEvxr/pLASS6i
-	LnLgeHKjnO6g2wInZ90zuuTyXMduKLOcROaPZVcocLoyaUxLKcLkbrqehXQFlABIhqA+m2ZUIad
-	2Djj9F1Ctq/J2DVuRQpLtV0tAQPU7ON+TjBmFy7ZqfFNbA==
-X-Received: by 2002:a05:6000:402c:b0:48e:76ab:7906 with SMTP id ffacd0b85a97d-48e76ab7f39mr33469456f8f.9.1793807485352;
-        Wed, 04 Nov 2026 07:51:25 -0800 (PST)
-Received: from localhost.localdomain ([79.117.198.103])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48fecac2772sm4394985f8f.18.2026.11.04.07.51.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Nov 2026 07:51:24 -0800 (PST)
-From: Jose Nieto <jnieto.alaber@gmail.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org
-Cc: Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jose Nieto <jnieto.alaber@gmail.com>
-Subject: [PATCH] drm/meson: plane: add pixel blend mode property
-Date: Wed,  4 Nov 2026 16:51:19 +0100
-Message-ID: <20261104155119.284708-1-jnieto.alaber@gmail.com>
-X-Mailer: git-send-email 2.47.3
+	Wed, 04 Nov 2026 16:08:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UGAubwkwMwSrNgNR6PADkPRbB4IuSH71AFbKKmsQzsOZpiZdbw2dqc26+gJohgC7Tqykh/M7GdVK01ibXHQl9tOL8fiL3apPh7Icn/WAoMjzwKeOg/iMiiKVqUbztkhxuLls+6pg3S2ZUw8YTQ6CutFBmSAmeC6lZ2/fCd3Om+3PRPNZRmbWPusOnHnzI35erSUZI5+TPnPYfPtCqIzjXEWOHpkuzOuEyejYP1GNK//x0t77Q+KzUcCEdvWZb4zjDurAWYZ5hdyxR8VClRo3IN4xOTDdQ+37aF/agucytO9rRMBUqgKqxyEI6hgKkonJ6VcpVWJN2uxgq1sxkOltzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=s2fEH/wxEuoGYvwcDbZc1Q0HCduy5caX2JlssWH0y1Y=;
+ b=Za2uqPIamnOtbKM3mF2T++PCvRFrp3Y11K+rMDCbWhma9Nv+7mA/3oxLVjPdzndsS01f3/vbeeVWnP2Y1l8sL7e0+A0edi+wwyPHG76jLE6JTookcnTMmZJZHoLd1cnMle2O5PHjUGltbLJGflaZKX07niemidsJcbwWLyMN947HVgnNnIBB89aImQX0KpM57zUS9kMw+mDZt2FNBSO7Y8AoNlMM0H/XpwpWONZRBbHOJ+pZEEqSFyjV4RVfJl+6QbLsgwQYTJVN9O9gQTfahBCWnEMHvtJVCt8kFAipl+VBy1sW2J1pUKMYgzCmrChZdc39GaS3078tBQ4VmRmRiA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=s2fEH/wxEuoGYvwcDbZc1Q0HCduy5caX2JlssWH0y1Y=;
+ b=qWjx2hVRgrdF8OuJgzta8gJB0/HDjtLLOeVZJlh6Qi1y/ip1/EvfL1Kf9NpkGq7q2FVHDXt70WO9N7JnzEi2ReTa/5X1bHgeEMgV3YekgexfkmscvBFVTlkSbath4m0e5cXzaVZK4CZ++eBCVn+W6zeMBeA7HIJoWmwr0P6eb6zfm1IUCv3RhcYxD/COLa56iZ3+TmmKBG6yd9TAJlCC7VxFshYH52zwAfI/6u2YUMgLgGroU99/KqWBLyu/ZC4obMgxILOWSz+4aJTUzOBZyS27kjXgkUP9zgqT5FOIY+yXbY8oudKyhnpo+XLV+dbE6zIdLp42NLo9lyUzIMABTA==
+Received: from DS1PR02CA0017.namprd02.prod.outlook.com (2603:10b6:8:44a::12)
+ by SN7PR12MB8169.namprd12.prod.outlook.com (2603:10b6:806:32f::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.9; Wed, 4 Nov 2026
+ 16:07:57 +0000
+Received: from CY4PEPF000392DC.namprd03.prod.outlook.com
+ (2603:10b6:8:44a:cafe::86) by DS1PR02CA0017.outlook.office365.com
+ (2603:10b6:8:44a::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.17 via Frontend Transport; Wed, 4
+ Nov 2026 16:07:57 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CY4PEPF000392DC.mail.protection.outlook.com (10.167.247.122) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.592.5 via Frontend Transport; Wed, 4 Nov 2026 16:07:56 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 4 Nov
+ 2026 08:07:34 -0800
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 4 Nov
+ 2026 08:07:34 -0800
+Received: from build-bwicaksono-noble-20260804.internal (10.127.8.11) by
+ mail.nvidia.com (10.129.68.6) with Microsoft SMTP Server id 15.2.2562.56 via
+ Frontend Transport; Wed, 4 Nov 2026 08:07:32 -0800
+From: Besar Wicaksono <bwicaksono@nvidia.com>
+To: <acme@kernel.org>, <namhyung@kernel.org>, <irogers@google.com>,
+	<ctshao@google.com>
+CC: <linux-tegra@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<vsethi@nvidia.com>, <rwiley@nvidia.com>, <skelley@nvidia.com>,
+	<mochs@nvidia.com>, <rajjoshi@nvidia.com>, <treding@nvidia.com>,
+	<jonathanh@nvidia.com>, <john.garry@linux.dev>, <will@kernel.org>,
+	<james.clark@linaro.org>, <mike.leach@arm.com>, <leo.yan@linux.dev>,
+	<mark.rutland@arm.com>, <alexander.shishkin@linux.intel.com>,
+	<jolsa@kernel.org>, <adrian.hunter@intel.com>, Besar Wicaksono
+	<bwicaksono@nvidia.com>
+Subject: [PATCH v3 0/7] perf: Add NVIDIA Tegra410 uncore PMU events and metrics
+Date: Wed, 4 Nov 2026 16:07:09 +0000
+Message-ID: <20261104160716.2910873-1-bwicaksono@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF000392DC:EE_|SN7PR12MB8169:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9d17350c-06ff-49e5-d271-08df3a8dca69
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|7416014|1800799024|23010399003|6133799003|10067099003|18002099003|5023799004|11063799006|261022105027099003|261026140227099003|261102123227099003|261028144727099003|261026121527099003|261021121427099003|56012099006|261021123027099003|261009223027099003;
+X-Microsoft-Antispam-Message-Info: cL2rTDcn4HwMu7CFwOlmcYq0/21J1C1SKeYRFnX5hNFM+AZMMAXkQS+VJXiyUAMpG720JpAYLOrqT8Zsk/EZ4WyiLY/b7TnfPoA5c2xE9sS2Oh4WMBPh1KZvyFTMMF9QkSkLoamRsndDRv8YlN3HP8Wz8/eQOSNY9am/NM6TjV5s3weoMeTnnOzRZ4f5ovSuKARlS+3CkJRX/Iah+7fhA17V8LEdQoHy2E/8LEPIxxWzXMjfKCZMZtTrcUwRn2E9PSeT8mOe86rbsSGaXGOFTHbl12thVyAFgxRjpE6qG2pBV5B3sH3Hi4n5Rhb9h9quqOvo/GQIfsSroiaJ3n450fPTNvQhRSASqtDjT6W61fn5Qp0vijwABSWWjI6LCGfENI7nxoZ3NYqTFLE1UBLf8xpy26hGPQ06ByCthatIU7BL5W/4tELR/HfA/J5TB+C83fuittEXY9VTf1kXxlzry8fEZgtzYfQFRNOb9KmKzsBt5TLyKYRQpbWSTDLAlHo+YRW81es3fHU7HtY+EbstuHllYrGsHxROpnkcY77lbmA3IoYFObg3O10zniJFaWSPikWaZbwS3H7PNgyFt6MC65JMDpEfdJ8lFLAZpjp+IGjMYXRiViYGQmkCmqIRUHAgspD0fDpHfgOSjMEurr/WBUvJvU6uC5cV5bmVxJhEMvSSpEMpsabVCvVaiwqhuUv1dY7fBkiuzQ/XDOXM90C1sQ==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(7416014)(1800799024)(23010399003)(6133799003)(10067099003)(18002099003)(5023799004)(11063799006)(261022105027099003)(261026140227099003)(261102123227099003)(261028144727099003)(261026121527099003)(261021121427099003)(56012099006)(261021123027099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: edh9QUkJ29w/pkFHZux0q4/rvrZhp5oUdhwIJVRt5rKbqdbASauBzQNGgP3RWevd71h9gXc+pKq2oL0peLtkI69QUS9yt43whexbwRN6dPvUD5IOgom08vvGVD4NuG0yOexyn/+LNVBpz/ZPlwiYxHtR78dX6Ukv7n4Er4uSReL2deEyZ1lxg5aofsdKDUNzW3TsJXOLsqEw60xqYryDrdtWyoiMpxlVvwfqaB57y05dTSWqL1YrkH/IPE9CIPUY5mnNhAeh4Edfkm8pqd4s/5Y4LPUfLADij+FqrXCnjuQyTEBXUUuBhE/dnw1Nyv77lje4mXdl9yHsyjC8IpgfC7TMFEoeuQ8udAZdvfd86o+hTVbc4/XYjVSW2JmAip8DBVHSjfMZduDGAxUq0HOBxvzHSfs3qr3TDTUIn7sfJngUW+OfTV5rdiTf9+tMMII1
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 16:07:56.9646
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9d17350c-06ff-49e5-d271-08df3a8dca69
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF000392DC.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB8169
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_075127_717588_2ADCE7BE 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20261104_080804_229841_43E07391 
+X-CRM114-Status: GOOD (  14.47  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,77 +132,91 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The primary plane exposes ARGB8888, a format with alpha, but never set up
-the pixel blend mode property. This makes the DRM core warn at boot:
+Add event aliases and derived metrics for the NVIDIA Tegra410 uncore
+PMUs, and fix perf's aggregation of the Tegra410 PCIe PMU instances.
 
-  [PLANE:...:meson_primary_plane] pixel format with alpha exposed but
-  blend mode not setup. Please fix.
+The series covers the UCF, PCIe, PCIe target, CPU memory latency, and
+chip-to-chip interconnect PMUs. It provides symbolic names for the raw
+event encodings and metrics for bandwidth, frequency, and average read
+latency.
 
-Advertise PIXEL_NONE and COVERAGE and derive OSD_REPLACE_EN from the
-requested blend mode. Formats without alpha (e.g. XRGB8888) keep the
-previous opaque behaviour.
+The PCIe and PCIe target PMUs are named nvidia_pcie_pmu_<socket>_rc_<rc>
+and nvidia_pcie_tgt_pmu_<socket>_rc_<rc>. perf only strips the number at
+the end of a PMU name, so the instances of each socket were treated as a
+different PMU, and these events and metrics gave one result per socket
+and were reported incorrectly (e.g. with --metric-only), as discussed in
+v1 and v2. Patches 6 and 7 fix this:
 
-Signed-off-by: Jose Nieto <jnieto.alaber@gmail.com>
----
- drivers/gpu/drm/meson/meson_plane.c | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
+- Patch 6 adds a check of the cpumasks of all merged PMU instances to the
+  zero-count skip in perf stat, so a socket that counts nothing shows 0
+  instead of having its row hidden.
+- Patch 7 treats both numbers of the NVIDIA PCIe PMU names as the
+  suffix, so the instances on all sockets are merged as nvidia_pcie_pmu
+  or nvidia_pcie_tgt_pmu. Per-RC results are still available with
+  --no-aggr or -A.
 
-diff --git a/drivers/gpu/drm/meson/meson_plane.c b/drivers/gpu/drm/meson/meson_plane.c
-index cf8c90158fcf..115849a0b0c8 100644
---- a/drivers/gpu/drm/meson/meson_plane.c
-+++ b/drivers/gpu/drm/meson/meson_plane.c
-@@ -233,18 +233,13 @@ static void meson_plane_atomic_update(struct drm_plane *plane,
- 		}
- 	}
- 
--	switch (fb->format->format) {
--	case DRM_FORMAT_XRGB8888:
--	case DRM_FORMAT_XBGR8888:
--		/* For XRGB, replace the pixel's alpha by 0xFF */
-+	if (!fb->format->has_alpha ||
-+	    new_state->pixel_blend_mode == DRM_MODE_BLEND_PIXEL_NONE)
-+		/* Ignore the pixel's alpha */
- 		priv->viu.osd1_ctrl_stat2 |= OSD_REPLACE_EN;
--		break;
--	case DRM_FORMAT_ARGB8888:
--	case DRM_FORMAT_ABGR8888:
--		/* For ARGB, use the pixel's alpha */
-+	else
-+		/* Use the pixel's alpha */
- 		priv->viu.osd1_ctrl_stat2 &= ~OSD_REPLACE_EN;
--		break;
--	}
- 
- 	/* Default scaler parameters */
- 	vsc_bot_rcv_num = 0;
-@@ -536,6 +531,7 @@ int meson_plane_create(struct meson_drm *priv)
- 	struct drm_plane *plane;
- 	const uint64_t *format_modifiers = format_modifiers_default;
- 	int ret;
-+	unsigned int blend_modes = BIT(DRM_MODE_BLEND_PIXEL_NONE) | BIT(DRM_MODE_BLEND_COVERAGE);
- 
- 	meson_plane = devm_kzalloc(priv->drm->dev, sizeof(*meson_plane),
- 				   GFP_KERNEL);
-@@ -566,6 +562,10 @@ int meson_plane_create(struct meson_drm *priv)
- 	/* For now, OSD Primary plane is always on the front */
- 	drm_plane_create_zpos_immutable_property(plane, 1);
- 
-+	ret = drm_plane_create_blend_mode_property(plane, blend_modes);
-+	if (ret)
-+		return ret;
-+
- 	priv->primary_plane = plane;
- 
- 	return 0;
+Changes in v3:
+- Replace v2 patches 7-9 (merging PMU instances that match the same
+  comma-separated json Unit, naming a merged counter after all of its
+  PMUs, and the ABI document) with a special case for the NVIDIA PCIe
+  PMU names in pmu_name_len_no_suffix(), perf_pmu__match_wildcard() and
+  pmu_name_cmp(). Thanks to Ian Rogers for the suggestion.
+
+Changes in v2:
+- Move the uncore JSON out of the sys directory and remove the
+  "Compat" fields. Thanks to Ian Rogers for the feedback.
+- Drop "perf jevents: Process model files before sys subdirectories",
+  which this series no longer needs.
+- Add UCF SLC and memory bandwidth metrics from all sources to local
+  CMEM (read, write and read+write) and from local sources to local
+  CMEM and to remote memory, PCIe bandwidth metrics to local
+  destinations, and read+write bandwidth metrics for UCF SLC, UCF
+  memory and PCIe. Thanks to Chun-Tse Shao for the suggestion.
+- Add patches 6-9 to fix the PCIe instance aggregation. Thanks to Ian
+  Rogers and Chun-Tse Shao for the pointers.
+
+v2: https://lore.kernel.org/all/20261030174816.1544471-1-bwicaksono@nvidia.com/
+v1: https://lore.kernel.org/all/20261019164241.403644-1-bwicaksono@nvidia.com/
+
+Besar Wicaksono (7):
+  perf jevents: Add support for NVIDIA Tegra410 UCF PMU aliasing
+  perf jevents: Add support for NVIDIA Tegra410 PCIE PMU aliasing
+  perf jevents: Add support for NVIDIA Tegra410 PCIE-TGT PMU aliasing
+  perf jevents: Add support for NVIDIA Tegra410 CPU Memory Latency PMU
+    aliasing
+  perf jevents: Add support for NVIDIA Tegra410 C2C PMU aliasing
+  perf stat: Check merged PMU instance's cpumasks when skipping zero
+    counts
+  perf pmus: Treat both numbers of NVIDIA PCIe PMU names as suffix
+
+ .../arm64/nvidia/t410/uncore-cpu_mem.json     |  43 +
+ .../arm64/nvidia/t410/uncore-nvclink.json     |  67 ++
+ .../arm64/nvidia/t410/uncore-nvdlink.json     |  43 +
+ .../arm64/nvidia/t410/uncore-nvlink_c2c.json  | 115 +++
+ .../arch/arm64/nvidia/t410/uncore-pcie.json   | 249 ++++++
+ .../arm64/nvidia/t410/uncore-pcie_tgt.json    |  83 ++
+ .../arch/arm64/nvidia/t410/uncore-ucf.json    | 764 ++++++++++++++++++
+ tools/perf/util/pmu.c                         |   9 +
+ tools/perf/util/pmus.c                        |  23 +
+ tools/perf/util/stat-display.c                |  20 +
+ 10 files changed, 1416 insertions(+)
+ create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-cpu_mem.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-nvclink.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-nvdlink.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-nvlink_c2c.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-pcie.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-pcie_tgt.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-ucf.json
+
 -- 
-2.47.3
+2.43.0
 
 
