@@ -2,70 +2,129 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0D8D606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 17:37:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26B32606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 17:39:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bq943YNM;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=f3KMWRYV
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nIKHfoXE;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NQtdgw0J
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=sVm5vm53TcuuiHKOjBSbO/ogRlTrTCzTLWf1Fg0Jk+M=; b=bq943YNMaE1Az7
-	/bObZNnlKWdxyg0gRHKVxAjevZkUNMs2WtcuyP+834R7IQnH9ZsztH0cJMCKLeuCGu6+NV8CGRfXv
-	JOR2/oAraJYrdlovcfw7GaNyzNTrnfwvt5N7DTCem+qXDsAqCB7S1323LSHyAIyVh/WRBmTHEMkiH
-	R43eBfTTxcgmHxUK385GZLNH4ovgACsrC/UMGYI0xZHjjmPLbCXiZiuVTW8Ld3hGkbT2Pcj3KbRqo
-	y5d0DfSaGtZatmIk/WF+0OjhSBVSxSWgUQXCu1NGWyFYjrXaL4LgcGXvog9q9GhhJ0a5YX1PR9ZSO
-	2nm9JmE+t6Kf8K3QcbmQ==;
+	List-Owner; bh=VBTftESCyh0yxPgmjsbtevP+1+uG9koiMGzvN+ELLp8=; b=nIKHfoXEOrmBbA
+	DwuL3H5XQL9nOl+GbiAO+kZHOTeR06DlRVKnfn8uEZ4XcwaCL9qi5ph0EqVTtRZEd9ufCz8k3NOnC
+	L587HYhCvJ/AGO0aJ3o9GvquJzY3UK8N5HqllHsWm2K/dzArixrcGDsjY7EUdEZ5+tX7WJL6RE4CZ
+	VlvfazaZbAAzKR4SAP4hVinW2gewG0YZmAciOuc2vF486kfso5kUFThtztWnK09wcvozL3pTk0+R5
+	XGBXIIGJsIOD8Qav77xm+fGQ4cwCBr+4g0AZc0oG/x6jWt9LSxHK0PUDJ3uDKeCJAPztX36xEMYhm
+	h9t23iZ/NmIcj2CKRyeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOevY-00000006FBu-3KDL;
-	Wed, 04 Nov 2026 17:37:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOevW-00000006FBC-0DGJ
+	id 1xOewp-00000006FMZ-0Xio;
+	Wed, 04 Nov 2026 17:38:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOewn-00000006FMD-2yZ2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 17:37:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1EBD71BB2;
-	Wed,  4 Nov 2026 09:37:30 -0800 (PST)
-Received: from [10.57.90.115] (unknown [10.57.90.115])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5F4203F673;
-	Wed,  4 Nov 2026 09:37:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793813853; bh=FBb/TbKhVIoXQAmd1m4CKiunRWfUuceXTHGcjdsZEyU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=f3KMWRYV1SWzQkyLugtLAI/c/yVkDJFoo0FBPJWCCNqunjwaTJZv9YIFhry9sQReZ
-	 JRCNFuz5tkzhe7L/UuGVwWe5P2DVL8shSKujBCwo0MzH8ibadvS1hHNL1S16G1MNHH
-	 1OwhC3wXS4Eir2T7Pwe9p3CwjycllOaPL76mnxLk=
-Message-ID: <e5ce1693-6f03-4a66-84da-7f64f48ef691@arm.com>
-Date: Wed, 4 Nov 2026 17:37:29 +0000
+	Wed, 04 Nov 2026 17:38:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 63BF342DEA;
+	Wed,  4 Nov 2026 17:38:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FD821F00919;
+	Wed,  4 Nov 2026 17:38:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793813933;
+	bh=VBTftESCyh0yxPgmjsbtevP+1+uG9koiMGzvN+ELLp8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=NQtdgw0JAZJnyRdcvgREO77S1JBlhrbMLT8xYWT9Ymw8m9R16hz1iQ6/w5YcDVPcD
+	 MExx0lk5JI4Y90lOOug6EBjj6waiJYKOuCd/pGJrum+ATMgimwBU5YXeV/Fsh2pMqb
+	 svZFEajEmUCtcamQT3L0ONP0k4wTRqtYOZsuOCwZ6v959MF0lFv1aS8Ru/H6lsCdGy
+	 ZDA2NrKu40mAzo2mtPxwNGOvA8lrcBk3TqU94GgCcAGeXne/KqLn2jhFfhWguQOEOF
+	 W0hssNC3Kywynv9/r1tn+6q4u+E29xTBdvNGgyApFVoKQ/S2tju6Wywm36Q7IUozjB
+	 l11w62SfMuHfA==
+Message-ID: <93534aaf-00f3-45f4-982e-7fd44ab3799c@kernel.org>
+Date: Wed, 4 Nov 2026 18:38:40 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/10] irqchip/gic-v5: Release ITS MMIO region on DT probe
- failure
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
- Radu Rendec <radu@rendec.net>, Timothy Hayes <timothy.hayes@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Jonathan Cameron <jic23@kernel.org>,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261102-host_gicv5_fixes-v1-0-743b61626fc5@arm.com>
- <20261102-host_gicv5_fixes-v1-10-743b61626fc5@arm.com>
- <auikDS0RE5E13z8I@red-moon>
-Content-Language: en-GB
-From: Sascha Bischoff <sascha.bischoff@arm.com>
-In-Reply-To: <auikDS0RE5E13z8I@red-moon>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH] i2c: Convert to subsys_platform_driver()
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+ Codrin Ciubotariu <codrin.ciubotariu@microchip.com>,
+ Andi Shyti <andi.shyti@kernel.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Bartosz Golaszewski <brgl@kernel.org>,
+ Mika Westerberg <mika.westerberg@linux.intel.com>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Oleksij Rempel <o.rempel@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, Frank Li
+ <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Vignesh R <vigneshr@ti.com>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>,
+ Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>,
+ Roger Quadros <rogerq@kernel.org>, Vladimir Zapolskiy <vz@mleia.com>,
+ Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Linus Walleij <linusw@kernel.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-omap@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org
+References: <20261104113316.1634141-1-peng.fan@oss.nxp.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
+ /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
+ s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
+ EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
+ rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
+ DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
+ IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
+ vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
+ oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
+ sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
+ vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
+ Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
+ BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
+ 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
+ f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
+ WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
+ XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
+ IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
+ YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
+ p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
+ GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
+ YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
+ vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
+ ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
+ QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
+ +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
+ wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
+ c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
+ K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
+ n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
+ qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
+In-Reply-To: <20261104113316.1634141-1-peng.fan@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_093734_136729_E7FDE070 
-X-CRM114-Status: GOOD (  15.65  )
-X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,72 +143,64 @@ X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
-
-On 02/11/2026 14:54, Lorenzo Pieralisi wrote:
-> On Mon, Nov 02, 2026 at 01:33:03PM +0000, Sascha Bischoff wrote:
->> of_io_request_and_map() reserves the ITS configuration frame region.
->> If ITS initialisation fails after mapping it, the error path only
->> unmaps the registers and leaves the region reserved.
->>
->> Keep the resource description and release the region on that path.
->>
->> Fixes: 57d72196dfc85 ("irqchip/gic-v5: Add GICv5 ITS support")
->> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
->> ---
->>   drivers/irqchip/irq-gic-v5-its.c | 7 +++++++
->>   1 file changed, 7 insertions(+)
+On 04/11/2026 12:33, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
 > 
-> A minor note on coding style below, other than that:
+> Replace the open-coded subsys_initcall()/module_exit() platform driver
+> registration with subsys_platform_driver().
 > 
-> Acked-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
->>
->> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
->> index c0f3982229194..91abe63cb5cf9 100644
->> --- a/drivers/irqchip/irq-gic-v5-its.c
->> +++ b/drivers/irqchip/irq-gic-v5-its.c
->> @@ -1188,6 +1188,7 @@ static int __init gicv5_its_init_bases(void __iomem *its_base, struct fwnode_han
->>   
->>   static int __init gicv5_its_init(struct device_node *node)
->>   {
->> +	struct resource res;
+> No functional change.
 > 
-> FIR tree ordering.
-
-Argh, yup. Missed that one when making this change. Fixed!
-
-Thanks,
-Sascha
-
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/i2c/busses/i2c-at91-core.c          | 13 +------------
+>  drivers/i2c/busses/i2c-davinci.c            | 14 +-------------
+>  drivers/i2c/busses/i2c-designware-platdrv.c | 13 +------------
+>  drivers/i2c/busses/i2c-imx.c                | 13 +------------
+>  drivers/i2c/busses/i2c-mxs.c                | 13 +------------
+>  drivers/i2c/busses/i2c-omap.c               | 15 +--------------
+>  drivers/i2c/busses/i2c-pnx.c                | 13 +------------
+>  drivers/i2c/busses/i2c-pxa.c                | 13 +------------
+>  drivers/i2c/busses/i2c-s3c2410.c            | 13 +------------
+>  drivers/i2c/busses/i2c-sh_mobile.c          | 13 +------------
+>  drivers/i2c/busses/i2c-versatile.c          | 13 +------------
+>  11 files changed, 11 insertions(+), 135 deletions(-)
 > 
-> https://docs.kernel.org/process/maintainer-tip.html
-> 
->>   	void __iomem *its_base;
->>   	int ret, idx;
->>   
->> @@ -1197,6 +1198,11 @@ static int __init gicv5_its_init(struct device_node *node)
->>   		return -ENODEV;
->>   	}
->>   
->> +	/* Save the region to release if ITS setup fails after mapping it. */
->> +	ret = of_address_to_resource(node, idx, &res);
->> +	if (ret)
->> +		return ret;
->> +
->>   	its_base = of_io_request_and_map(node, idx, of_node_full_name(node));
->>   	if (IS_ERR(its_base)) {
->>   		pr_err("%pOF: unable to map GICv5 ITS_CONFIG_FRAME\n", node);
->> @@ -1213,6 +1219,7 @@ static int __init gicv5_its_init(struct device_node *node)
->>   
->>   out_unmap:
->>   	iounmap(its_base);
->> +	release_mem_region(res.start, resource_size(&res));
->>   	return ret;
->>   }
->>   
->>
->> -- 
->> 2.34.1
->>
 
+
+> -subsys_initcall(i2c_adap_pxa_init);
+> -module_exit(i2c_adap_pxa_exit);
+> +subsys_platform_driver(i2c_pxa_driver);
+> diff --git a/drivers/i2c/busses/i2c-s3c2410.c b/drivers/i2c/busses/i2c-s3c2410.c
+> index 15e14a6fe6dc..dd1f6f854a32 100644
+> --- a/drivers/i2c/busses/i2c-s3c2410.c
+> +++ b/drivers/i2c/busses/i2c-s3c2410.c
+> @@ -1188,18 +1188,7 @@ static struct platform_driver s3c24xx_i2c_driver = {
+>  		.of_match_table = of_match_ptr(s3c24xx_i2c_match),
+>  	},
+>  };
+> -
+> -static int __init i2c_adap_s3c_init(void)
+> -{
+> -	return platform_driver_register(&s3c24xx_i2c_driver);
+> -}
+> -subsys_initcall(i2c_adap_s3c_init);
+> -
+> -static void __exit i2c_adap_s3c_exit(void)
+> -{
+> -	platform_driver_unregister(&s3c24xx_i2c_driver);
+> -}
+> -module_exit(i2c_adap_s3c_exit);
+> +subsys_platform_driver(s3c24xx_i2c_driver);
+
+Apparently reviewing only a few lines out of 300 is still reviewing:
+
+https://lore.kernel.org/all/9e39502a-dd17-4fa2-98a3-9019523cb5e8@kernel.org/
+
+Therefore:
+
+Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
+
+Best regards,
+Krzysztof
 
