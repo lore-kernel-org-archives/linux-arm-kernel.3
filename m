@@ -2,53 +2,53 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81C08606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 11:34:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E0E1606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 11:34:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zHI0J2na
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZGynPKRG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=iLRmmarQrutlcpUJnkZ7FMmvPx1rvpOHPDTMLMisppI=; b=zHI0J2nawp6hbdqmrFW57LDtve
-	bGFqLPNeDgs+Ak2RpJiXOkVv7yASg6THxZIORlAZzlGivfCwzjptHfWliWZsST3oDbv2I3fJiVe8q
-	XNKQPq3+V5wgvmdNLVkxIUISxIw8QfbCOR+XO2iNcvQ6vdtbiCkHiW5vKqMtTwsGeEO1xHHH9qeM+
-	tfdXUThH9T5ExOTfXjGhcLZ5Ujf6BHBiJkMIbD9JnmVaOAnkKnCmjrxZ96TYoJEXe7eIgh9+3kYpk
-	Q8/noc805301XBHdy4McAUTaf5X9ywCRqPq99j8joP8g0fIRDfsCRodZUSdY0EqIvrkGV1QDiZpKx
-	7oqEYqDg==;
+	bh=Bw3iYNs494OoZ2HUqf1eAnVbLeeNMMr6kGoN9P/R7gw=; b=ZGynPKRGMCMfjJrJtOrbDFrmTs
+	cRvkZpGF6MReWraYuuyIdDLiJ7UPlMDx+CfWhUREe+V5y8iHvUGzM7d+TQvJxFFhjHQSTLQ4PdDnf
+	xzOobULrV1RfZjWRXqNiglTpUR7ysMdWNwTbN6Sl7mQQ3oyiYYZ0O93CNyUwnaSBMig5tyOWm/u40
+	Iso2ILOItYy+x0RqtY7zxMWFKyPfdQR97EVvp0ugivxvjE3VyNo9LKyxSZ8uTRDf0tLPIc8OCvUGK
+	oJWfq6MW8ZDhCHM5Z/lv3Q38krw0fMCIb3grbFgS2x8HG3jaGWCcxX1nyrqjym+Jch8wM39lp6eUN
+	s9crRpNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZFg-00000005Aal-0rSw;
-	Wed, 04 Nov 2026 11:34:00 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1xOZFp-00000005Aeu-1av6;
+	Wed, 04 Nov 2026 11:34:09 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZFb-00000005AXJ-1MEM
+	id 1xOZFc-00000005AXa-1Bli
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 11:33:58 +0000
+	Wed, 04 Nov 2026 11:33:59 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D5Q+TgvYb5q4HnCshVtuYU1M0xy4XHUqaTndSuQsEfxFrY6eQe2Amyf4rnwHevLiFKxuyP8lid0dmDUSGYRNJhnp36bsof86+XLvd2DXL9CxK/bIw6GoTryTQM8thkLR/Yg1YqheXpyI1Wof7GEd50yx6PUDeF7BL4PRBLOfFP6JBhbhJUuetTLI0+4EH4zmBVgDvYCK+LUMIdeKShtY+dAgq2w5z1k5jqLcJYzMqg5PxD0re2CUuIeUxwWjO/TS2ixGQFtPNoFWo6F9v7fBcHr4YeL8EMx8Tl10wVOoJ51yYLmzO1aiK4HFypQTxky6zhWv19HTvNe5VdPNLeNESw==
+ b=OizsH3LblUqzZS9QpAxYjcg7pUqjtMY5BgcCRT2gqaIdP8KQEcN+jkrZUsBkK2E4hrLWYPL+lf0dF3rp93DZwFXLq3dEWZMnKGUloWoqoyIVIGpwRuZDRFp4eaOHaAZOPxYS/lwht4w/WDJp4MBb6N12DODUI8oIRI1Vq9gKghaw5mhSzaMcfCqMuUVXljJP7oMnMxh0zuw8JkE89pjxgFHhVqTA7wL3y68TXyM1kLVKd6ifSMvUmzTXX6rDC0biljvLl9YPz0ir4jaRvzR6hZScsJiHJsmGebSQ5fbtulXmPnYTgzrSG27FghY3mYitY4EQQps+ApAUqrqXw5pVFQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iLRmmarQrutlcpUJnkZ7FMmvPx1rvpOHPDTMLMisppI=;
- b=uPU93ejvG9srRQyaBAXxneHsmH0KiBcC/y9FVPFeDYhaS+YgtAQ1wQbUL57ntkE/JqK8d8KCVWIm6WhrQzeBkbOiIXA3S7I0caVQVeodPNUDJ7w4SLqu1P8bRip5TtS4lt4hW4XOC2Hzb+9D5NQFqUvZE56U8qALPvzERQClvn7142B7j4c0K38o4zA1uRlQj2t4Qxxr9lLoHyMwJFS1rn+Qih3Hhz1sOqDKFgam+28LJJ0diaXnMptxXCAjKbwY6ptvanRJmbGqHvRsA1Q79D2/d4pP41/YZpx/4A06Wr+rkTH5uQ9r82N8/I27PN6/syahzXLNeDPEtrPBek3oDw==
+ bh=Bw3iYNs494OoZ2HUqf1eAnVbLeeNMMr6kGoN9P/R7gw=;
+ b=OWuwQ1vDj2p7yew3BfihOZncqUf7z9FJkP4rXhiKn43ggIGHPHY9ITKAtN0zhAqDM27VAGkZN/KVZxgBnn0VIREy9zmH7PjBIv1ub6WlfAtRUpV5jEXboGHjWNmw69t+4URYtVm5U6kPi0CdPd3aNGmIxeaNRpzkdyo0ogka3aZmp6agrBMSAePRYxwdqFR2p4NoO6iEtS9NizRkuhh1aPZEvYRzcvToJxRAEiDj42x1Nz+35Wufvu/Xbzbd01Ea4ZHzOcEU1H66e1Q+x3aEGUVGx2sdTxkPtnRYfnrtfM6eg4tBI22lp2XBdTrvbkoghxWr6Ro/3NmjeK0cklu5vw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from SI2PR01CA0033.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::23) by TY0PR06MB5442.apcprd06.prod.outlook.com
- (2603:1096:400:31e::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Wed, 4 Nov 2026
+Received: from TYCP286CA0141.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:31b::6)
+ by JH0PR06MB7200.apcprd06.prod.outlook.com (2603:1096:990:9a::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.9; Wed, 4 Nov 2026
  11:33:47 +0000
-Received: from SG1PEPF000082E5.apcprd02.prod.outlook.com
- (2603:1096:4:192:cafe::ad) by SI2PR01CA0033.outlook.office365.com
- (2603:1096:4:192::23) with Microsoft SMTP Server (version=TLS1_3,
+Received: from TY2PEPF0000AB86.apcprd03.prod.outlook.com
+ (2603:1096:400:31b:cafe::23) by TYCP286CA0141.outlook.office365.com
+ (2603:1096:400:31b::6) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.9 via Frontend Transport; Wed, 4
- Nov 2026 11:33:46 +0000
+ Nov 2026 11:33:47 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
  header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
@@ -56,11 +56,11 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG1PEPF000082E5.mail.protection.outlook.com (10.167.240.8) with Microsoft
+ TY2PEPF0000AB86.mail.protection.outlook.com (10.167.253.10) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.21.592.5 via Frontend Transport; Wed, 4 Nov 2026 11:33:46 +0000
 Received: from cix (unknown [172.18.64.61])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id C65AD42CB741;
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id F3EA942CB745;
 	Wed,  4 Nov 2026 19:33:44 +0800 (CST)
 From: joakim.zhang@cixtech.com
 To: lgirdwood@gmail.com,
@@ -76,40 +76,41 @@ Cc: cix-kernel-upstream@cixtech.com,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Joakim Zhang <joakim.zhang@cixtech.com>,
-	Joakim Zhang <joakimzhang@cixtech.com>
-Subject: [PATCH v4 RESEND 0/4] ASoC: cdns: Add Cadence I2S-SC and I2S-MC controller support
-Date: Wed,  4 Nov 2026 19:33:38 +0800
-Message-ID: <20261104113342.3660269-1-joakim.zhang@cixtech.com>
+	Joakim Zhang <joakim.zhang@cixtech.com>
+Subject: [PATCH v4 RESEND 1/4] ASoC: dt-bindings: Add Cadence I2S-SC controller
+Date: Wed,  4 Nov 2026 19:33:39 +0800
+Message-ID: <20261104113342.3660269-2-joakim.zhang@cixtech.com>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20261104113342.3660269-1-joakim.zhang@cixtech.com>
+References: <20261104113342.3660269-1-joakim.zhang@cixtech.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E5:EE_|TY0PR06MB5442:EE_
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB86:EE_|JH0PR06MB7200:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 7e1f6429-38fb-49d7-69f0-08df3a677d4c
+X-MS-Office365-Filtering-Correlation-Id: 4fd17688-214f-49d9-8632-08df3a677d2d
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|7416014|376014|82310400026|1800799024|261021121427099003|261022105027099003|261022075727099003|261009223027099003|261026140227099003|261026121527099003|261028144727099003|18002099003|261102123227099003|6133799003|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: k6EAaK/fyGKbw0RUiHsb0rnSs+ah594bmt8Y35UFOou0dWks/lSIo0rZsDZ3d4CCxSwntaftpyGEAaNZ8zk1fdOg8vSaeOw79vYPKk8Wjq1erypXHQ+RVPS+e5XLbjr1qk5pb/kmKp3iDXi1bU8hNzbTHGD++36jDdfTtKNLWUHB6RCiFaiu0QUa3RsP8oqq3EhqfwKoCfFDeqcxRlXut7aB2IvL8zXzW+9tylla+gYvHPt+zBRNwiVIC4cEDnD95n+vflxR4Y681blCSOuF1Oc3uL5S3qdvdTqRGOBGz6Bk/iuSHPyG9hNp0h3RAUjc/DPmySbJnYmDsXd0SIL9ObGdL96elLRc9Gi0b4a1SzRSTYGTLi9KIRQLmNnsixaOkCMkQee7mvz6PjGJ1fbYbOo+F19w32ITIEzicqF9CF4SvCC+o2RVphBNMWmT5+qDCty+lFIYvPWFx+L7MGGaNMqeZ8eWi6FggB+pWRnMQSuigM0GhHM/eo9g4ldYSVqVriTPXzsJPgCpPWyuporK5kNM2pe6YIzBdFUk42au9uXRPVdsGKBtJdWO6fpLPNJVwGLz6E4byRmeN491ZoSU32LOb1PskvlVyFmZ9hVAK07gFud5oeUJCAy+UA6C7nr54fwJ4yWIN9uVvJUMk4uXd0dXsTz6gDzvNGWujvlHn7WLQB09nNKYBBbBZqVcauRXenjo8c7n2WSn0SGHbfb+3Q==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(7416014)(376014)(82310400026)(1800799024)(261021121427099003)(261022105027099003)(261022075727099003)(261009223027099003)(261026140227099003)(261026121527099003)(261028144727099003)(18002099003)(261102123227099003)(6133799003)(10067099003)(56012099006);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|36860700016|82310400026|261021121427099003|56012099006|261009223027099003|261102123227099003|261026121527099003|261022075727099003|261022105027099003|261026140227099003|261028144727099003|18002099003|22082099003|10067099003|3023799007;
+X-Microsoft-Antispam-Message-Info: UEicw/p18QQU7CuErj6Cryj0AsDRu3YnVSPqTdR4SX3KnO7Q8cLxB0Q4op0TT017p52JFH/MG5oXO1uVzPonMgHyAcXvj3H4jp7yVNvAQNXVpF33JCNMMSkGSpNbqI1zCRVolrOScniWgQonrzlEw519LEAhkAmxCHxHAKWLsgWJdmByr5OKUwWNi3r/63Nw3NEGW/nhDCdDKJkjsX1cYIt3ocFM7t77wuZdkpfrbS0xyXnhvyIM+B0vsX4JQgGJzbcjBu/9nN2SzJ7/uFQs6BYPRLc+H5LL41qAT1/Lr3s1n4elhy8rYPqnX276om5GB1lTADIiOyZChPLPj68nP2GA0bV0ujXFF24hVCEdwdR6vRiY2DV8RMriNYlZiUxooRLr73Q+NSGS52eA7rMNzVcsvWpvyVG8JCq4NPRsU0QEAC61aAF2PtmEGQPPRY8Z61jkcHkHIm4TIDQgUOKXlQE62P+UdRch13cJNuvlh9vvOtctIZ51BoI6mWW7mlj3sPVhL0fl1jlG3Z/WzHOfIK3jqNUFybF0Cu0k6YADPtyr4vafuxLMgZg5eGZCgpwp/QKLqq/fw6vh4WMYET8Mi5jehjiKATK9nlhY4znROFwmOPPKF8+/4xFJBnME4mcLDJOTgZOiNikwVWEDkIo0uQ==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(36860700016)(82310400026)(261021121427099003)(56012099006)(261009223027099003)(261102123227099003)(261026121527099003)(261022075727099003)(261022105027099003)(261026140227099003)(261028144727099003)(18002099003)(22082099003)(10067099003)(3023799007);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 449FNjPpYLRkV2ZhFqA4Es2o9OAQFGBfvlQJOlgKglCKtbBGUI15YbDQi5F3nMBbR9aPOwjnYaVcVRW3PIIL90XwzoAMnUX28XxNr4lED+OwELDl/FAJ1K+7FwZtGINUWsC5K1XldsSSHkOmifz8EqUu/3nr0iP8l78OACh+dwkh1anOBqu/yU2+RDozRkjLsh+vqfin6m2U2exHPBKvkPyquDnRmn3BLhOMbAE01sxFoxvV24JN56JMJHYsR00cqKYoFOKlpD2bIaHSXdx+nu3Xoi2KTmgW6IZk0rjD3LdZY4Hy7imNO2sXwhE4X/PzVbtpqcV8VY2jvJlAFpJe033YCmKZkOY9NqepmCKRTyg0+1zZ95w1hJLemqYBOyKIwjvgpYnLqBd+I1vDQySYo8xaU7fNRKjGK7UYZyluK0sm5+MoNrqWbfk5lYmtmDrM
+X-MS-Exchange-AntiSpam-MessageData-0: wxbfTGLos3O3yPnp8VBA8NDQ8xzPJ39HR4/8t5xexSUsXkh8I11hjFdX6rKSx8b8UefsetljD1B9ZrU9w5Fp8HOn1QC4WlRV8Y8DjN3SUAqjDVq/1n0yd1v8N2dIkP0LMGq/GnTMYDF61faBUYz6uQsItJwu1Kg0H9UzNeDvSvEIhhvvZryHjo4c9T80hkc+sQJr+HfGw62lZf74XG7pFogvI5g952voaKoZFEgNRe5HaeEdYmpnvpKiL0unJXmeYuicXQC39zbj9PuNDwi2+iDY+nE1D/f086GcVeeKJEwKYKnQnkfx33PE1uvFM8orZSBy4eZ3m8sixdKuqgW+CU7bMal7e2/SIFJBVyrY375Iy9J/Cs+V5j7/qqQCc0VptsWu0/racC6lTdhATZDchTIEQVFDsecjixougsByU63lStn6ex40StIV7A+B1FMd
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 11:33:46.6132
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 11:33:46.3859
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7e1f6429-38fb-49d7-69f0-08df3a677d4c
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4fd17688-214f-49d9-8632-08df3a677d2d
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E5.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB86.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5442
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR06MB7200
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_033355_366362_BE281C80 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20261104_033356_325945_6EAFECE9 
+X-CRM114-Status: GOOD (  13.29  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -130,91 +131,113 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Joakim Zhang <joakim.zhang@cixtech.com>
 
-This series adds support for the Cadence I2S-SC and I2S-MC controllers
-integrated in the CIX SKY1 audio subsystem, together with their DT
-bindings.
+Add the DT binding for the Cadence I2S-SC controller integrated in
+the CIX SKY1 audio subsystem. I2S-SC is a full-duplex stereo
+controller supporting standard I2S, left/right-justified and DSP
+formats, plus TDM operation with up to 16 slots.
 
-I2S-SC provides full-duplex stereo playback and capture in standard
-I2S, left/right-justified and DSP modes, along with TDM operation
-supporting up to 16 slots. I2S-MC provides multi-channel playback and
-capture through a configurable set of its 8 data pins, described by
-cix,pin-out-num, cix,pin-rx-mask and cix,pin-tx-mask, and exposes a
-transmit DAI and a receive DAI.
-
-Both drivers register the dmaengine PCM helper, select the audio
-reference clock parent for the 8 kHz or 11.025 kHz sample rate family
-and keep the minimum functional-clock to bit-clock ratio required for
-safe clock domain crossing.
-
-Resending to carry the Reviewed-by tags received on the two binding
-patches; the patches are otherwise unchanged since v4.
-
-Changes in v4:
-- Enforce the dma-names order in the bindings: a single "tx" or "rx"
-  name is still allowed for single-direction instances, but a pair must
-  be "tx", "rx".
-- Drop the DMA controller stub node from the binding examples.
-- Select REGMAP_MMIO; a COMPILE_TEST build without it would fail to
-  link the regmap MMIO users.
-- Include the transmitter and receiver synchronizing-unit reset bits in
-  the masked register write of the I2S-MC DAI probe, so that the write
-  actually programs the state its comment describes.
-
-Changes in v3:
-- Add the explicit <linux/bitfield.h> include, which a W=1 build of the
-  FIELD_PREP() sites needs (both drivers).
-- Fix the probe error paths: disable the manually enabled clocks and
-  drop the runtime PM usage count on every failure path, unwinding
-  through a single goto label (both drivers).
-- Return dev_err_probe() directly instead of logging with it and then
-  returning the error separately (both drivers).
-
-Changes in v2:
-- Move the IRQ request after the clocks are enabled and the reset is
-  released, so the handler never runs against unclocked hardware.
-- Disable the IRQ before switching the regcache to cache-only mode on
-  suspend, and re-enable it only after the cache is synced on resume;
-  check the status read in the ISR (both drivers).
-- Replace the manual runtime PM bookkeeping with devm_pm_runtime_enable()
-  and drop the remove() callbacks (both drivers).
-- Switch to RUNTIME_PM_OPS()/SYSTEM_SLEEP_PM_OPS() wrapped in pm_ptr()
-  and drop the __maybe_unused annotations (both drivers).
-- Serialize the shared transceiver clock state in prepare() against the
-  trigger() state machine with the existing spinlock (I2S-SC).
-- Disable clocks in the reverse order of enablement (both drivers).
-- Sort the cdns/ entry into the vendor list in sound/soc/Makefile and
-  switch sound/soc/cdns/Makefile to the '-y' object syntax.
-- Clean up the includes and initializer style (both drivers).
-- Add a NULL check for the match data in probe (both drivers).
-- Factor the MC transmitter and receiver configuration into a shared
-  helper.
-- Drop the compatible string from the DMAC stub node in the binding
-  examples.
-
-Signed-off-by: Joakim Zhang <joakimzhang@cixtech.com>
-
-Joakim Zhang (4):
-  ASoC: dt-bindings: Add Cadence I2S-SC controller
-  ASoC: cdns: Add Cadence I2S-SC controller driver
-  ASoC: dt-bindings: Add Cadence I2S-MC controller
-  ASoC: cdns: Add Cadence I2S-MC controller driver
-
- .../bindings/sound/cix,sky1-i2s-mc.yaml       |  119 ++
- .../bindings/sound/cix,sky1-i2s-sc.yaml       |   89 ++
- sound/soc/Kconfig                             |    1 +
- sound/soc/Makefile                            |    1 +
- sound/soc/cdns/Kconfig                        |   23 +
- sound/soc/cdns/Makefile                       |    7 +
- sound/soc/cdns/cdns-i2s-mc.c                  | 1128 ++++++++++++++++
- sound/soc/cdns/cdns-i2s-sc.c                  | 1166 +++++++++++++++++
- 8 files changed, 2534 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/sound/cix,sky1-i2s-mc.yaml
+Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/sound/cix,sky1-i2s-sc.yaml       | 89 +++++++++++++++++++
+ 1 file changed, 89 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml
- create mode 100644 sound/soc/cdns/Kconfig
- create mode 100644 sound/soc/cdns/Makefile
- create mode 100644 sound/soc/cdns/cdns-i2s-mc.c
- create mode 100644 sound/soc/cdns/cdns-i2s-sc.c
 
+diff --git a/Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml b/Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml
+new file mode 100644
+index 000000000000..9ef11272d0fd
+--- /dev/null
++++ b/Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml
+@@ -0,0 +1,89 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/sound/cix,sky1-i2s-sc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Cadence I2S-SC controller
++
++maintainers:
++  - Joakim Zhang <joakim.zhang@cixtech.com>
++
++description: |
++  The Cadence I2S-SC controller integrated in the CIX SKY1 audio subsystem.
++  It supports full-duplex stereo playback and capture in standard I2S,
++  left/right-justified and DSP modes, as well as TDM operation with up to
++  16 slots. The transmitter and receiver are started and stopped together
++  by the controller.
++
++allOf:
++  - $ref: dai-common.yaml#
++
++properties:
++  compatible:
++    const: cix,sky1-i2s-sc
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 4
++
++  clock-names:
++    items:
++      - const: hst
++      - const: i2s
++      - const: audio-clk0
++      - const: audio-clk2
++
++  resets:
++    maxItems: 1
++
++  dmas:
++    minItems: 1
++    maxItems: 2
++    description:
++      One DMA channel for instances wired for a single direction, either
++      "tx" or "rx", or two channels for both transmit and receive.
++
++  dma-names:
++    minItems: 1
++    items:
++      - enum: [ tx, rx ]
++      - const: rx
++
++  "#sound-dai-cells":
++    const: 0
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - resets
++  - dmas
++  - dma-names
++  - "#sound-dai-cells"
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    i2s@7020000 {
++        compatible = "cix,sky1-i2s-sc";
++        reg = <0x7020000 0x10000>;
++        interrupts = <GIC_SPI 219 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&audss_cru 16>, <&audss_cru 26>,
++                 <&scmi_clk 100>, <&scmi_clk 101>;
++        clock-names = "hst", "i2s", "audio-clk0", "audio-clk2";
++        resets = <&audss_cru 0>;
++        dmas = <&audss_dmac 0>, <&audss_dmac 1>;
++        dma-names = "tx", "rx";
++        #sound-dai-cells = <0>;
++    };
 -- 
 2.50.1
 
