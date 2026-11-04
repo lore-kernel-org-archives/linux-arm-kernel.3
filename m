@@ -2,72 +2,62 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9D50606A331
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 19:16:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCA10606D4C6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 19:23:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dVm+mjwZ;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=hjxCLNOe
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kORnHRez;
+	dkim=temperror header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=qGr2NKGN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=X09cmhideRzP2/0pXNcm8+NawPZ+G5eZLsTNigbgmV8=; b=dVm+mjwZYNyMj2
-	i2u2KmkZDAkuxWC4erKr6Li9awNjnFEQde6mzDDePGq4ejqvlx+mNi3dYZd9FEWpEnK6Y30PmnrmX
-	EncmLtDigflRFUsmsH7e2BaDSUmXC5ZJVxz2smy1lJGag8OHfmCF4/tQVf9hsMfoV7uyE4lF9y7Tm
-	lKSMCqMOs63uRuxzhczE9c4KeG+Gd2lNsx5V3s8VNNHqQOt9UPwkZqm4S40gEcsinj0JXpTjLcXBI
-	W/dIVGE5UpEdBNv/RxvLf/MP4TaJV0byWCgA2CmrGYYE5IuAuTeeoUjCyQAmhZvHM9Mu0wk7oCNJB
-	6ewqDcjXtWkeV6YaZp9A==;
+	List-Owner; bh=PoEnk5w0FeXgmUszIA38mVTO0/9NRJVsUtjtCXZXtvk=; b=kORnHRezpsfT1q
+	xeiJX/amis/ZQK5Hewqs6tU7VlEo0bbjhS6M3C+nR553t677aWK1BcuHKLfzscuqtE9I46QZlAMk7
+	ytoDyQHLH2Qm2pzDfsjsyCBbZMw+L2xgwi8O7myP0AU7pPuMQm2urq0SHMIWQ/rs/JoXBUD6zMoTd
+	4Bm83LsEC6L87efvK7faE0B/BIOXj2oXSyud80DWNJ7+41n30A6T77wgdgN4pvxtmbFWjtFE96SWE
+	kcRFhYg2QksM9FOIYJ874n1IyeDN+JtTR7fzffneFosvB8FwE09Ak8aNqlnjKWIyoMPWNPf/55Yvf
+	6Ay87ItF9RXqok41PvHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOgSf-00000006XYj-2TjY;
-	Wed, 04 Nov 2026 19:15:53 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xOg9l-00000006T3p-3xio;
+	Wed, 04 Nov 2026 18:56:21 +0000
+Received: from mail-4322.protonmail.ch ([185.70.43.22])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOgSc-00000006XWD-3MEB;
-	Wed, 04 Nov 2026 19:15:52 +0000
-Received: from [192.168.0.43] (chfd-03-b2-v4wan-176392-cust229.vm15.cable.virginm.net [82.19.20.230])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id E5EC9C23;
-	Wed,  4 Nov 2026 20:13:28 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1793819609;
-	bh=HBg4aRNd/R3i+9umRwQlYorXdpv2ec8lmZZoaw1A1Tk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hjxCLNOerzI938rBRdpl9ZtbSOB4Og9M7qEmBQztYDP6w0dr1QLTV0ANT27Dsvx96
-	 aEgyVb5sQxuQE3Nkw8aThC/KbG1wHCSf+aSjdH1St919f8FhXAS8tUAIAK+RvAUnOp
-	 ij0305Iw9gj+cAxHfy/xBFBJhO3QSjssnVJUSgxs=
-Message-ID: <8eec215a-77a8-4e5d-9290-70ec58c1c329@ideasonboard.com>
-Date: Wed, 4 Nov 2026 19:15:44 +0000
+	id 1xOg9j-00000006T2P-2pRs
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Nov 2026 18:56:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1793818576; x=1794077776;
+	bh=PoEnk5w0FeXgmUszIA38mVTO0/9NRJVsUtjtCXZXtvk=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=qGr2NKGNyA8oQsQN5aT4QbA2ipKJFBAk8gaR7VbT56KzBAQptM3M/5H80lBsj1Z6y
+	 st0Heiowa4h9BebEodOu+qHAiYNvhldpzxLdsK25Znd6fzCkoYv2HflgHYT2ALeb5S
+	 KfMc19qLA2Ryo1oPN4cI9zmoOSpiLCC0edOufl2dfT4JD+lalPs66QLXzlg//+EZ4w
+	 sPUK0j1IYsw17fZ3ghLls+jifpHIM9woX2ZgFi7X84+DHRuGfiBQ22AZN26xuQjaIP
+	 j6RtAb6MW/4H6BMwrV1oisuevt3F2ZPdGKJOHESBKDo9wSWnRkQKp6bC9bhM2p99R/
+	 +zZ5hAWz9jNsg==
+Date: Wed, 04 Nov 2026 18:56:12 +0000
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, jitao.shi@mediatek.com, dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kernel@collabora.com, justin.yeh@mediatek.com, jason-jh.lin@mediatek.com, CK Hu <ck.hu@mediatek.com>
+Subject: Re: [PATCH v9 05/13] drm/mediatek: mtk_dsi: Enable interrupt at component bind time
+Message-ID: <hXDHNenOxP_1Fjv3k-eSNDIFG2yGsdvlxFOCpn0SMdRImzGWQfDVFE-0px1K0-Z472dL3IuLWE5BWIQeOo_U12SjzZOeJ3FNLIxus-KoGNE=@protonmail.com>
+In-Reply-To: <20260916110825.102631-6-angelogioacchino.delregno@collabora.com>
+References: <20260916110825.102631-1-angelogioacchino.delregno@collabora.com> <20260916110825.102631-6-angelogioacchino.delregno@collabora.com>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: 1252c7109e566e88ba7843d515915c4f14738510
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/7] Introduce v4l2-isp reset buffers
-To: =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
-Cc: Jacopo Mondi <jacopo.mondi+renesas@ideasonboard.com>,
- Jai Luthra <jai.luthra+renesas@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>,
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Keke Li <keke.li@amlogic.com>,
- Dafna Hirschfeld <dafna@fastmail.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20261104-v4l2-isp-resume-v1-0-06aeb8cf2940@ideasonboard.com>
- <20261104142302.GK1959885@ragnatech.se>
- <6a86cb84-c4b4-44b3-9977-12ac1dc8505c@ideasonboard.com>
- <20261104170645.GM1959885@ragnatech.se>
-Content-Language: en-US
-From: Dan Scally <dan.scally@ideasonboard.com>
-In-Reply-To: <20261104170645.GM1959885@ragnatech.se>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_111551_023403_1718951B 
-X-CRM114-Status: GOOD (  57.17  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261104_105619_866390_82D55A71 
+X-CRM114-Status: GOOD (  19.68  )
+X-Spam-Score: -2.5 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,211 +68,133 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Niklas
+On Wednesday, September 16th, 2026 at 2:08 PM, AngeloGioacchino Del Regno <=
+angelogioacchino.delregno@collabora.com> wrote:
 
-On 04/11/2026 17:06, Niklas Söderlund wrote:
-> Hi Dan,
-> 
-> On 2026-11-04 16:24:01 +0000, Dan Scally wrote:
->> Hi Niklas - thanks for commenting
->>
->> On 04/11/2026 14:23, Niklas Söderlund wrote:
->>> Hi Daniel,
->>>
->>> On 2026-11-04 12:28:15 +0000, Daniel Scally wrote:
->>>> The V4L2 generic ISP parameters buffers described in
->>>> Documentation/driver-api/media/v4l2-isp.rst has a problem in that if
->>>> a driver using the parameters format is running a stream and the
->>>> device is suspended to RAM and later resumed, userspace will not tend
->>>> to reconfigure it with _all_ of the possible parameter blocks. The
->>>> format allows only a subset to be populated into the buffer queued to
->>>> the driver and this is the common practice in libcamera. The effect
->>>> will be that a resumed device will have lost any configuration that
->>>> tends to be sent only a single time at the start of a stream, for
->>>> example lens shading table settings.
->>>>
->>>> This series performs some preliminary cleanup and then adds the "reset
->>>> buffer" concept to v4l2-isp. This is a mechanism through which user
->>>> space can flag a struct v4l2_isp_block_header.flags as needing to be
->>>> reapplied on device reset, such that the v4l2-isp framework will store
->>>> that block into a buffer allocated for the purpose when it validates
->>>> the block.
->>>>
->>>> The last patch in the series updates the rkisp1 driver to use the
->>>> v4l2-isp reset buffer to reapply that saved configuration on resume.
->>>>
->>>> An alternative approach might simply be to store the "last seen" copy
->>>> of any block in the reset buffer - this would be a simple change.
->>>> That implies a lot more processing on the majority of frames, as we'll
->>>> then always copy at least something, but it reduces the risk of losing
->>>> a setting. That amount of processing each frame seems very undesirable
->>>> to me though, particularly given the scene will presumably have changed
->>>> after resume and so the settings like AWB gains that are applied for
->>>> most frames are probably out of date anyway. On the other hand we may
->>>> end up flagging a lot of blocks, as there's parameters that might be
->>>> changed mid-stream (like gamma) but would not be so regularly changed
->>>> that we could just rely on them being sent naturally on resume, so a
->>>> third approach might be to invert the meaning of the flag and store
->>>> any block that _isn't_ flagged as _not_ needing to be reapplied.
->>>
->>> Is there any reason not saving and restoring all relevant ISP registers
->>> directly in the suspend() / resume () callbacks? AFIK this is what most
->>> drivers do here and it's not clear to me why this would not work here?
->>
->> I don't see any reason that would not work, and maybe I overthought this
->> indeed. This method does still seem to have some advantages to me though; it
->> means we can easily reuse the existing function in the driver that applies
->> the parameters to the hardware, which should make adding suspend() and
->> resume() support for a driver that uses the extensible parameters much
->> simpler. If we were to read the settings from the ISP registers and store
->> them in suspend() instead of doing it this way I think I'd still want to
->> re-use the normal "write-params-buffer-to-hardware" function (for example
->> rkisp1_ext_params_config() in the rkisp1 driver) to avoid the risk of ending
->> up with differences between how the parameters were applied on resume() and
->> on the normal handling of a parameters buffer from userspace, so I think
->> that we would end up populating a struct v4l2_isp_params_buffer that was
->> stored in the device's driver_data struct anyway - the difference would be
->> that we'd have to build it in suspend() for each ISP driver instead of
->> having the core handle it in the course of normal operation. I could knock
->> up an example for the rkisp1 of creating that buffer in suspend() to see how
->> it looks perhaps?
-> 
-> I think what made me comment on this is the involvement of user-space in
-> how suspend/resume will act. Normally I assume the kernel will deal with
-> it all, and after resume it will restore (to the extent possible) the
-> hardware state as it where at suspend time. I'm sure this approach exist
-> elsewhere in the kernel, I'm just not aware of it.
-> 
-> My worry is that suspend/resume will work as expected for libcamera
-> users, but then somebody does something else and expect the kernel to
-> handle it correctly like it do for other types of devices.
+> Having the DSI interrupt enabled before actually binding the DSI
+> component to the display controller driver is both useless and
+> dangerous: the main purpose of this interrupt is to signal CMD
+> done, LP RX data ready, or VideoMode done, or to reset the HW
+> engine if this doesn't come.
+>=20
+> Should this interrupt come too late (during probe), the HW will
+> be reset only at the next occurrence of a timeout, which slows
+> down boot and may render artifacts to the DSI display.
+>=20
+> Moreover, clearing the DSI interrupt while the display controller
+> is not ready yet, may result in an interrupt storm.
+>=20
+> In order to prevent this from happening, request the interrupt
+> with IRQF_NO_AUTOEN, and enable it only when binding DSI to its
+> display controller component master.
+>=20
+> Reviewed-by: CK Hu <ck.hu@mediatek.com>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
 
-Ah; yes I understand. The motivation with the flag was just to avoid dealing with _every_ block, 
-because on most frames, all that comes in are settings that change rapidly like the white balance 
-gains. It doesn't seem worthwhile even handling those because the scene will probably have changed 
-when the device resumes anyway so whatever they were set to originally is unlikely to still be 
-appropriate anyway. In the cover letter I mentioned the alternative to just record the "last seen" 
-copy of every block and reapply that, but that implies a performance hit that I think is undesirable 
-given it's probably a waste of time to reapply those kinds of settings.
+This was necessary on mt6595, otherwise it would get stuck.
 
-Perhaps instead of the flag coming from userspace we could add a flags field to struct 
-v4l2_isp_params_block_type_info, an array of which is already passed to the v4l2-isp core by each 
-driver - then the driver can decide whether or not a block is flagged as needing to be tracked by 
-the core and reapplied on resume, and the whole thing is completely transparent to userspace.
+Acked-by: Roman Vivchar <rva333@protonmail.com>
+Tested-by: Roman Vivchar <rva333@protonmail.com> # mt6595, mt6768
 
-
+> ---
+>  drivers/gpu/drm/mediatek/mtk_dsi.c | 24 +++++++++++++-----------
+>  1 file changed, 13 insertions(+), 11 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediate=
+k/mtk_dsi.c
+> index 28ba532210ff..6ac6daa61e68 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+> @@ -225,6 +225,7 @@ struct mtk_dsi {
+>  =09int refcount;
+>  =09bool enabled;
+>  =09bool lanes_ready;
+> +=09int irq;
+>  =09u32 irq_data;
+>  =09wait_queue_head_t irq_wait_queue;
+>  =09const struct mtk_dsi_driver_data *driver_data;
+> @@ -1101,6 +1102,8 @@ static int mtk_dsi_bind(struct device *dev, struct =
+device *master, void *data)
+>  =09=09return ret;
+>  =09}
+>=20
+> +=09enable_irq(dsi->irq);
+> +
+>  =09return 0;
+>  }
+>=20
+> @@ -1109,6 +1112,8 @@ static void mtk_dsi_unbind(struct device *dev, stru=
+ct device *master,
+>  {
+>  =09struct mtk_dsi *dsi =3D dev_get_drvdata(dev);
+>=20
+> +=09disable_irq(dsi->irq);
+> +
+>  =09drm_encoder_cleanup(&dsi->encoder);
+>  }
+>=20
+> @@ -1342,7 +1347,6 @@ static int mtk_dsi_probe(struct platform_device *pd=
+ev)
+>  {
+>  =09struct mtk_dsi *dsi;
+>  =09struct device *dev =3D &pdev->dev;
+> -=09int irq_num;
+>  =09int ret;
+>=20
+>  =09dsi =3D devm_drm_bridge_alloc(dev, struct mtk_dsi, bridge,
+> @@ -1375,9 +1379,9 @@ static int mtk_dsi_probe(struct platform_device *pd=
+ev)
+>  =09if (IS_ERR(dsi->phy))
+>  =09=09return dev_err_probe(dev, PTR_ERR(dsi->phy), "Failed to get MIPI-D=
+PHY\n");
+>=20
+> -=09irq_num =3D platform_get_irq(pdev, 0);
+> -=09if (irq_num < 0)
+> -=09=09return irq_num;
+> +=09dsi->irq =3D platform_get_irq(pdev, 0);
+> +=09if (dsi->irq < 0)
+> +=09=09return dsi->irq;
+>=20
+>  =09dsi->host.ops =3D &mtk_dsi_ops;
+>  =09dsi->host.dev =3D dev;
+> @@ -1386,17 +1390,15 @@ static int mtk_dsi_probe(struct platform_device *=
+pdev)
+>=20
+>  =09platform_set_drvdata(pdev, dsi);
+>=20
+> +=09ret =3D devm_request_irq(&pdev->dev, dsi->irq, mtk_dsi_irq,
+> +=09=09=09       IRQF_NO_AUTOEN, dev_name(&pdev->dev), dsi);
+> +=09if (ret)
+> +=09=09return dev_err_probe(&pdev->dev, ret, "Failed to request DSI irq\n=
+");
+> +
+>  =09ret =3D mipi_dsi_host_register(&dsi->host);
+>  =09if (ret < 0)
+>  =09=09return dev_err_probe(dev, ret, "Failed to register DSI host\n");
+>=20
+> -=09ret =3D devm_request_irq(&pdev->dev, irq_num, mtk_dsi_irq,
+> -=09=09=09       IRQF_TRIGGER_NONE, dev_name(&pdev->dev), dsi);
+> -=09if (ret) {
+> -=09=09mipi_dsi_host_unregister(&dsi->host);
+> -=09=09return dev_err_probe(&pdev->dev, ret, "Failed to request DSI irq\n=
+");
+> -=09}
+> -
+>  =09dsi->bridge.of_node =3D dev->of_node;
+>  =09dsi->bridge.type =3D DRM_MODE_CONNECTOR_DSI;
+>=20
+> --
+> 2.55.0
+>=20
+>=20
 > 
-> Maybe I'm being too causations. Putting the user-space involvement to
-> the side for a moment, having v4l2-isp provide helpers to apply buffers
-> at resume time to save on boiler plate code in drivers is of course a
-> good idea.
-> 
-> IIRC this is what is done for V4L2 controls already. The V4L2 core sets
-> all controls at resume time so the drivers don't need to deal with it
-> directly in their handlers and the existing set/get callbacks are used.
-> 
-> Maybe we need a get params callback to v4l2-isp? And have the core do it
-> the same way here? I guess this is one fun area where we mixing V4L2
-> classic controls, controls in buffers (v4l2-isp) and per frame controls
-> into yet another control abstraction, so maybe not go there ;-)
-
-Haha well I did wonder if the block handlers could also be added to struct 
-v4l2_isp_params_block_type_info and a function from v4l2-isp core do the walking of the blocks and 
-calling of the handlers...I haven't looked into it too seriously yet, but maybe it's worthwhile.
-
-> 
-> I'm happy to hear what others think of this. I do see the value of what
-> you are trying todo, I'm just a tad worried about involving user-space.
-
-I understand - thank you for raising it!
-
-Dan
-
-> 
->>
->> The "reset buffer" idea also means that if we extend the parameters buffer
->> for an ISP with more blocks in the future there's no extra work to do in the
->> suspend() and resume() callbacks for them - as long as userspace flagged the
->> new block then they would just be reapplied "for free".
-> 
-> I understand and this would be appealing.
-> 
->>
->> Thanks
->> Dan
->>
->>>
->>>>
->>>> I'm open to opinions on how best to set the balance!
->>>>
->>>> Please note that the changes for the C3 and Dreamchip are only compile
->>>> tested.
->>>>
->>>> Thanks
->>>> Dan
->>>>
->>>> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
->>>> ---
->>>> Daniel Scally (7):
->>>>         media: rppx1: Drop max_size param from rppx1_params()
->>>>         media: v4l2-isp: Hold v4l2-isp data in central struct
->>>>         media: v4l2-isp: Update users to initialise and validate new struct
->>>>         media: v4l2-isp: Use centrally-held data in framework
->>>>         media: v4l2-isp: Add v4l2_isp_params_for_each_block()
->>>>         media: v4l2-isp: Introduce "reset buffer" concept
->>>>         media: rkisp1: Re-apply v4l2-isp reset buffer on resume
->>>>
->>>>    Documentation/userspace-api/media/v4l/v4l2-isp.rst |  19 ++++
->>>>    .../media/platform/amlogic/c3/isp/c3-isp-common.h  |   2 +
->>>>    .../media/platform/amlogic/c3/isp/c3-isp-params.c  |  28 +++--
->>>>    .../media/platform/arm/mali-c55/mali-c55-common.h  |   1 +
->>>>    .../media/platform/arm/mali-c55/mali-c55-params.c  |  28 ++---
->>>>    .../media/platform/dreamchip/rppx1/rpp_params.c    |  30 +++--
->>>>    drivers/media/platform/dreamchip/rppx1/rppx1.c     |   8 ++
->>>>    drivers/media/platform/dreamchip/rppx1/rppx1.h     |   5 +
->>>>    drivers/media/platform/renesas/rcar-isp/core-io.c  |   3 +-
->>>>    .../media/platform/rockchip/rkisp1/rkisp1-common.h |   3 +
->>>>    .../media/platform/rockchip/rkisp1/rkisp1-params.c |  61 ++++++----
->>>>    drivers/media/v4l2-core/v4l2-isp.c                 | 126 +++++++++++++++++++--
->>>>    include/media/rppx1.h                              |   2 +-
->>>>    include/media/v4l2-isp.h                           | 109 ++++++++++++++----
->>>>    include/uapi/linux/media/v4l2-isp.h                |   1 +
->>>>    15 files changed, 331 insertions(+), 95 deletions(-)
->>>> ---
->>>> base-commit: 00178eda305a332f302882849ff7374d4169be8b
->>>> change-id: 20261030-v4l2-isp-resume-41fad731df28
->>>> prerequisite-change-id: 20261028-rkisp1-suspend-and-resume-7d4f388a9a61:v1
->>>> prerequisite-patch-id: 8f6b499ef7898229c5b02e987822dd676a0cfd74
->>>> prerequisite-patch-id: 56d0852983c6f46537c03ca3bec71e0ce4046431
->>>> prerequisite-patch-id: 0b9edd21d24a25c620792dfa692d91346ceccdde
->>>> prerequisite-patch-id: 3b9425028cd62b60b3dc3dbd2fc3b5a8912a1fb4
->>>> prerequisite-patch-id: 771f986e2754383e7b5a920b25bf1609dc96f0b4
->>>> prerequisite-patch-id: 79c95d6375d662a4f75cccd8650b3fab05e4e66c
->>>> prerequisite-patch-id: e2ff2463db4934e707afbf0a239270d26dbf8189
->>>> prerequisite-patch-id: 5a923b7606f7cc60fd6b75be2d73231470043bcb
->>>> prerequisite-patch-id: fb80748a1a24316cdd77481b60936f716fd0aa71
->>>> prerequisite-patch-id: 1450f7d1f4b1a41e7ce65ea6d2fbd450d3a198ad
->>>> prerequisite-patch-id: d1d2ba9927536b110f7fbc0c68698d08afb74c27
->>>> prerequisite-patch-id: c2ae6f91cb9662307f90070523945ee03a79c4c3
->>>> prerequisite-patch-id: 87b425bde44fe889367a93302629dc011a3ec88a
->>>> prerequisite-patch-id: 25e4c9ee767dc61406adcf1e1463796a79832795
->>>> prerequisite-patch-id: 82388f762700dbcf39fdc43e6ba56c1feb55733a
->>>> prerequisite-patch-id: a4ad2fb2c7f8659c6d9bdcd9718a7ee69f124838
->>>>
->>>> Best regards,
->>>> -- 
->>>> Daniel Scally <dan.scally@ideasonboard.com>
->>>>
->>>
->>
-> 
-
 
