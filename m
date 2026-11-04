@@ -2,65 +2,61 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3D296082BE2
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB8466082BE3
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 18:56:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2B1RtH1Q;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=mDzpexrS
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nK0aFu1b;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=UNF8t2yQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=T8rIgPmASaQ6EqBhG0uyatVrEBQDeLgoQ78+SrZDhks=; b=2B1RtH1Q3d9eLVA3/tt78dNF2f
-	VjhAWxmj2uNLi7rc2tB6ySJBICCElfIjN8Aeul9MJD6hn28/I4FilFhmMr+jUXFfDSENhEV5g+5K5
-	YFLoI154bRadAvEs3zh0ym6O2voc5GeVNrD+ziGbQPP9vOX9fa40s7OzFpLZaglO7ZNVC9W7dSMQm
-	N0sOun/2MMZ6MF2Gp6/XDFFTCscDzX1bgbxi+wRQwrKge3Sr9BM5tHgaxBAY3JIQuz4rZCXNSlvmu
-	IposUbnw7zf+h11v8eIREGBWKCzp/KXaC32gfO1zGqaMDipr5WRBDuSt99g1Q8JIVZWd2tnvtNubd
-	mXQbz/Sg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=5oG796ZsMIzUdujbfiI9ngeaTwHYr3CIhqpe8MlhOAI=; b=nK0aFu1bCNd49p
+	b+0aCRCt7sYgAWhyZC/sjpuOqtGAXF727xT6HCKih7jEob7KLiiSkjWOfnRwmrjzvUzBu/zkIeSBr
+	U48lomhkhoNFPSoJB9W1E8QNUv4rL7gr2T3/qhWWG1aCWiGw1JaTmHcaoS7js00ZIODHIbOZ7YHoS
+	rSSq6Kinyz3PMZlp7uRhV7xvxB6aZ0BmT6NgergGBujnH+0dgN9MMqFfhUyotewnIiBrvuUFZLgVr
+	Q1ah9DgokWYk22b2sJWqKKEy/08pTbEiQQdSANaOVem84edqx6e9doie2SIoT2YBZ3g8A6yCCXAGx
+	u7hjoh0aB3Fm/7plLGxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOgAC-00000006TBW-0qbv;
+	id 1xOgAC-00000006TC9-26bk;
 	Wed, 04 Nov 2026 18:56:48 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOgA8-00000006T8L-2FaE;
-	Wed, 04 Nov 2026 18:56:46 +0000
+	id 1xOgA8-00000006T8O-2hsJ;
+	Wed, 04 Nov 2026 18:56:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1793818601;
-	bh=VB0xkskEXr7uqJo35Wl1R8zYHYMTLxuasxaQ51RUvEs=;
-	h=From:Subject:Date:To:Cc:From;
-	b=mDzpexrSowot73+Z/58SOaxzlhUwoo96xHMUX8Kb483vw9Rq4JU+a21VJgCS3Zk+K
-	 clT3sRXuVRbHo2rO3SAMoRtGA3wo4+IIwj6jWzhQ40ildDAtNGvt3SgLTF1sHFAi60
-	 zS6GkAXIJXW1iHKfWWnxgUMMCw5yz6oq5p8mXGi8BA/2UJsf0VOg4XCefJshd2SJlV
-	 +Z5p/fvnzUdYg4pC1ej7Cbh3pcoAErxTFdJgasf8z1/NpRAfyopCA4NWJHAc8Q6cr9
-	 JSK4BetmDt5wx6MV8dv7zrhu9Ds2UEsMan3w63iBpmz8LIRB0aV/1NX51lNRXUTzxa
-	 iJ+/R3gsxudrQ==
+	bh=NQeFSwVzjO3zfx4y+HItj0QcIreheijn672U0YY9ONw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=UNF8t2yQlGAceDIjfec70/pti7gUuKeB6SUsyrpBg8GUTPotig4AL9BCXqTX8P8iL
+	 OGUUdW03K5ENlee4xEqgLx8a67tVkzTdMMa+F8EIx7nycJxLkhTlE48srYI9W95HnS
+	 JSFnNKCoxAm8uXshb7D4E7+cRxtnqDZjV2hZKyxIVyr7TNbHdxiu8qZzv98XNyupNU
+	 PSmjiLAuP6+ggUL4ror+gKbrs/+KFe4UeGqEDCRy90MnL0VNUQ6/E0qxpT4an7raAV
+	 imODKuEXTmB9oUYCTXIKhfdutNvJTmS8TZpRzQ5KIGVZvoFPIRrneyGFJ/CntpOexP
+	 wB4OtTi14awvQ==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 24BDE17E066C;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 299E617E0D49;
 	Wed, 04 Nov 2026 19:56:41 +0100 (CET)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id D277748002B; Wed, 04 Nov 2026 19:56:40 +0100 (CET)
+	id D8EB4480031; Wed, 04 Nov 2026 19:56:40 +0100 (CET)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: [PATCH v7 00/10] PCI: dw-rockchip: add system suspend support
-Date: Wed, 04 Nov 2026 19:56:38 +0100
-Message-Id: <20261104-rockchip-pcie-system-suspend-v7-0-6ae6875939a2@collabora.com>
+Date: Wed, 04 Nov 2026 19:56:42 +0100
+Subject: [PATCH v7 04/10] PCI: dw-rockchip: Add helper function for
+ enhanced LTSSM control mode
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XPwarCMBCF4VeRrI2k0yZtXPke4iKZTG1Qm5JoU
- KTvbhREuFx0+c/iO8ydJYqeElsv7ixS9smHsUS7XDAczLgn7l1pBgJkJaDjMeABBz/xCT3xdEt
- nOvF0SRONjncKe9GZ1gJoVogpUu+vL367Kz34dA7x9lrLzfP6hvV3ODdccCSgygqlwcEGw/Fob
- IhmheHEnniWb1CJulI/QFlAaa00rm6daur/QPUBtfjxelYF7K2xiEZrqOxfcJ7nByE+G41uAQA
- A
-X-Change-ID: 20251028-rockchip-pcie-system-suspend-86cf08a7b229
+Message-Id: <20261104-rockchip-pcie-system-suspend-v7-4-6ae6875939a2@collabora.com>
+References: <20261104-rockchip-pcie-system-suspend-v7-0-6ae6875939a2@collabora.com>
+In-Reply-To: <20261104-rockchip-pcie-system-suspend-v7-0-6ae6875939a2@collabora.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
  =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
  Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -75,26 +71,26 @@ Cc: Alexey Charkov <alchark@flipper.net>, linux-pci@vger.kernel.org,
  linux-kernel@vger.kernel.org, kernel@collabora.com, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5866;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2361;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=VB0xkskEXr7uqJo35Wl1R8zYHYMTLxuasxaQ51RUvEs=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGrrf+gry4GSGGdQFVkjBcsBc5CWAMrAimJKe
- T0hGYpvy/WmGIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJq63/oAAoJENju1/PI
- O/qa/wsP/RxJbFRBWr6b93uiy+QRr2sviDM9pF86E9ZLEBi/POK8wCemmLSK/AKw1+z1N20xkXr
- opXm4rPh1i2zFKf1PfraIYPuGiIW5EsHkRBlcsnCtUwpiLL9zNH2lLHedjE3zIcRYUMCCyxANKn
- kwoRPckaLyVLjp3XjECOBN6DSBS/FPWxKCWyGRwLCX/PDdxuitT4KGz0hueMR5EEFg9o/EGHked
- h9FKediJyC99sTDfnJ0dQhHsrirBBLWTFbeUuntDrANee2NHsF8bRVSGDNTu8f9N4j1CQOYvEpx
- xETr0ubQ47gBvE4rYM6DAgQ0pQdhIl/PSSxZmOFPV3W26GLry/UqyINQEkm4/6Ofxu5Wkrty+E3
- j3nckm3nmQW7L/oa2yJU2RnGCqca3tNCfmnapu4gQig+cIUy5Z3wmsiwT3ClrwdAt+LV5oMi/HG
- 5JRAV3DOx+2lyKsylnESEjG6CguJktyG1z7tswG9j9LlPAg4Q0RkhEngeT0xQTsXzVGoJoRi693
- t0D3o/rBCduXTw8klsTaJYIY+n7odPhqRE5xVWqqEdV1gepz297KO2d8If7xC2IkUqZcDva1Dhh
- ziQ3migXc2t5JWr8+icylUg0A3Ch8GzpfFUeOqRQGjsGxz9Ygy99rTuF962/vh+YeVPLIe3eQpr
- g8ENX4uXTJW6slgD+SiIuDQ==
+ bh=NQeFSwVzjO3zfx4y+HItj0QcIreheijn672U0YY9ONw=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGrrf+iWzuKb6gXvj3ZCiv/DFzNuW4MAAR1zM
+ wKypmemU11B7YkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJq63/oAAoJENju1/PI
+ O/qaTVoQAKe0hiYJkvOaqAipnBuevxZfk2QziuUd/FlkpTU2A06rIkQCCNKS/6wC8Qs6H875tld
+ OMWv06XjLGv4tAo9sEge6o0Z5cpQaXWSAg6miOMWgb0TbDk4N+j1WFTW6ub7zP4+huu0H0Y4GBK
+ hxlEIL3Pil1Fujd0lSYYoVHimoN11uYRAaHAaS/wsR7wLP68OA4b0L259OZBwrwkxFpTYmrDNcq
+ ApB9mHDnRCxY2VKExWxyKsc4N6BOEfdFS4vwsWJ8vh4hu6ZO1GbhAFmidMYMGuKWINRIUQWr32Q
+ GVlFWY8XbNq5QftZ80bWdmeHxHPM0vq+jn0X/6OcivPgU6lhhh2Kfz8Eu4xhWR/c0g+RfkutZah
+ 3wzVMz+sTQHMKnj3NJQxKXP9Pnn2ldH5CgdXLorltbmmBLVxoMmWHduLBftqNLexQeImBPzIm23
+ HGpdyt+InHuxnsNrElWweYj0XnwD61UvdwJS84KK196vBaKgHPeWsGbpj8yEeX3F4d2Ahh8EFYD
+ VS7NHDJsA9lQ5l1RLh+W3XOu9sjk/C5KRb4elluxwFTlCSoY98yPsxlzbgXCusbY8E6n7kkWmd7
+ fqB6XrcVWkwo8iycXEIyHGSkCKshklAXz0k91siYnbHe7HVpJPaxw2k4uqMBhzD81qdt0Jo8ZLu
+ rxf3krlNDQ7ChaMT2fkkklA==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_105644_740543_7434F186 
-X-CRM114-Status: GOOD (  22.93  )
+X-CRM114-CacheID: sfid-20261104_105644_881627_21E17AE5 
+X-CRM114-Status: GOOD (  13.90  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,119 +110,66 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-I've been working on fixing up at least basic system suspend support on
-the Rockchip RK3576 platform. The last open issue is missing support in
-the PCIe driver. This series is a follow-up for Shawn Lin's series with
-feedback from Niklas Cassel and Manivannan Sadhasivam being handled as
-well as some of my own changes fixing up things I noticed.
+Remove code duplication and improve readability by introducing a new
+function to setup the enhanced LTSSM mode.
 
-I've tested this on multiple RK3576 and RK3588 boards and things look
-good to me on the PCIe side.
-
-On RK3588, I also needed [0] to fix PCIe IOMMU issues after resume. I
-consider this an independent issue. Also on the Rockchip EVBs the
-brcmfmac driver fails to suspend. The WIFI card is connected via PCIe,
-but the problem is with the driver/firmware and unrelated to PCIe
-itself. I will send a separate workaround patch for that. Additionally
-on RK3588 the system will run into SError on resume due to a USB2
-problem. This problem is also independent and will be handled
-separately.
-
-[0] https://lore.kernel.org/all/20260728210928.1050849-1-praan@google.com/
-
-Changes in v7:
-* Link to v6: https://patch.msgid.link/20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com
-* Rebased to v7.4-rc1
-* Collect Reviewed-by tags from Shawn Lin to (mostly) unchanged patches;
-  I skipped some due to changes in v7
-* Keep dev_err_probe() message for rockchip_pcie_phy_init in patch
-  restoring vpcie3v3 regulator handling
-* Avoid dynamic mask for extra flags in "enhanced LTSSM control mode helper"
-  by just adding specific support for the extra flag needed. Apparently
-  some compiler configurations don't like it.
-* Avoid duplicated register define in In pme_turn_off patch
-* Move bit defines to the correct register defines in pme_turn_off patch
-* In broken L1SS resume flag patch move the explanation comment from the
-  code to the commit message (FWIW this comment is not AI generated by
-  me, but was copied from the Qcom implementation).
-* In system PM support patch, set pp->suspend_poweroff to fix the issue
-  identified by Igor
-* In system PM support patch, just return 0 for DW_PCIE_EP_TYPE (Mani)
-  to keep the status-quo (I've not tested this specifically).
-* In system PM support patch, use the same init order as probe (Sashiko)
-* In clear debug buffer patch, drop dw_pcie_dbi_ro_wr_dis(), which
-  is already done by the core nowadays (Sashiko, Mani)
-* In clear debug buffer patch, fix actual register write (Sashiko)
-* In clear debug buffer patch, update patch description with
-  better explanation about the register (Mani)
-
-Changes in v6:
- * https://lore.kernel.org/r/20260316-rockchip-pcie-system-suspend-v5-0-5bb5ad37d643@collabora.com
- * Rebase to pci/next
- * Minor changes to make checkpatch happy
- * Update patch description of the last patch and drop RFC tag
-   according to feedback from Shawn Lin
- * Prepend new patch, which fixes Nicolas Frattaroli's conversion
-   to FIELD_PREP_WM16 accidently dropping a flag.
- * Add another new patch, which sets .broken_l1ss_resume to tell the
-   PCI core that the controller is powered off during suspend following
-   the Qcom example
-
-Changes in v5:
- * https://lore.kernel.org/r/20251029-rockchip-pcie-system-suspend-v4-0-ce2e1b0692d2@collabora.com
- * rebase to v7.0-rc1
- * Add an RFC patch at the end with some bits I found in the Rockchip vendor kernel;
- * Made some tests on Rock 5B+ (RK3588); with this patch series suspending works
-   when setting pm_test to devices. A full system suspend fails in a later step,
-   but that is independent of PCIe.
-
-Changes in v4:
- * https://lore.kernel.org/linux-pci/1744940759-23823-1-git-send-email-shawn.lin@rock-chips.com/
- * rename rockchip_pcie_get_ltssm to rockchip_pcie_get_ltssm_status_reg
-   in a separate patch (Niklas Cassel)
- * rename rockchip_pcie_get_pure_ltssm to rockchip_pcie_get_ltssm_state
-   in a separate patch (Niklas Cassel)
- * Move devm_phy_get out of phy_init to probe in a separate patch
-   (Manivannan Sadhasivam)
- * Add helper function for enhanced LTSSM control mode in a separate patch
-   (Niklas Cassel)
- * Add helper function for controller mode in a separate patch
-   (Niklas Cassel)
- * Add helper function for DDL indicator in a separate patch
-   (Niklas Cassel)
- * Move rockchip_pcie_pme_turn_off implementation in a separate patch
- * Rebase to v6.18-rc3 using new FIELD_PREP_WM16()
- * Improve readability of PME_TURN_OFF/PME_TO_ACK defines (Manivannan Sadhasivam)
- * Fix usage of reverse Xmas (Manivannan Sadhasivam)
- * Assert PERST# before turning off other resources (Manivannan Sadhasivam)
- * Improve some error messages (Manivannan Sadhasivam)
- * Rename goto labels as per their purpose (Manivannan Sadhasivam)
- * Add extra patch for dw_pcie_resume_noirq, since I've seen errors
-   during resume on boards not having anything plugged into their PCIe
-   port
-
+Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
-Sebastian Reichel (10):
-      PCI: dw-rockchip: Fix LTSSM set functions
-      PCI: dw-rockchip: Restore vpcie3v3 regulator handle
-      PCI: dw-rockchip: Move devm_phy_get out of phy_init
-      PCI: dw-rockchip: Add helper function for enhanced LTSSM control mode
-      PCI: dw-rockchip: Add helper function for controller mode
-      PCI: dw-rockchip: Add helper function for DDL indicator
-      PCI: dw-rockchip: Add pme_turn_off support
-      PCI: dw-rockchip: Set broken L1SS resume flag
-      PCI: dw-rockchip: Add system PM support
-      PCI: dw-rockchip: Clear debug buffer before entering L2
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 24 ++++++++++++++----------
+ 1 file changed, 14 insertions(+), 10 deletions(-)
 
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 272 ++++++++++++++++++++++----
- 1 file changed, 232 insertions(+), 40 deletions(-)
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20251028-rockchip-pcie-system-suspend-86cf08a7b229
+diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+index a3b0fb918479..7645b0895bf9 100644
+--- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
++++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+@@ -683,6 +683,18 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
+ 	return IRQ_HANDLED;
+ }
+ 
++static void rockchip_pcie_enable_enhanced_ltssm_control_mode(struct rockchip_pcie *rockchip,
++							     bool delay_link_training_after_reset)
++{
++	u32 val;
++
++	/* Enable the enhanced control mode of signal app_ltssm_enable */
++	val = FIELD_PREP_WM16(PCIE_LTSSM_ENABLE_ENHANCE, 1);
++	if (delay_link_training_after_reset)
++		val |= FIELD_PREP_WM16(PCIE_LTSSM_APP_DLY2_EN, 1);
++	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
++}
++
+ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
+ 				      struct rockchip_pcie *rockchip)
+ {
+@@ -706,9 +718,7 @@ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
+ 		return ret;
+ 	}
+ 
+-	/* LTSSM enable control mode */
+-	val = FIELD_PREP_WM16(PCIE_LTSSM_ENABLE_ENHANCE, 1);
+-	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
++	rockchip_pcie_enable_enhanced_ltssm_control_mode(rockchip, false);
+ 
+ 	rockchip_pcie_writel_apb(rockchip,
+ 				 PCIE_CLIENT_SET_MODE(PCIE_CLIENT_MODE_RC),
+@@ -765,13 +775,7 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
+ 		return ret;
+ 	}
+ 
+-	/*
+-	 * LTSSM enable control mode, and automatically delay link training on
+-	 * hot reset/link-down reset.
+-	 */
+-	val = FIELD_PREP_WM16(PCIE_LTSSM_ENABLE_ENHANCE, 1) |
+-	      FIELD_PREP_WM16(PCIE_LTSSM_APP_DLY2_EN, 1);
+-	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
++	rockchip_pcie_enable_enhanced_ltssm_control_mode(rockchip, true);
+ 
+ 	rockchip_pcie_writel_apb(rockchip,
+ 				 PCIE_CLIENT_SET_MODE(PCIE_CLIENT_MODE_EP),
 
-Best regards,
---  
-Sebastian Reichel <sebastian.reichel@collabora.com>
+-- 
+2.53.0
 
 
