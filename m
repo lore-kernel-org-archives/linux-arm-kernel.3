@@ -2,70 +2,63 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDFC1606A338
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 11:07:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A28D0606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 11:08:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Q17Sj9l2;
-	dkim=pass (2048-bit key, unprotected) header.d=cknow-tech.com header.i=@cknow-tech.com header.a=rsa-sha256 header.s=key1 header.b=i9wmOrk7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xv1sbJo2;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aY49vEqh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=pn71ylw68hoKcWMtScmwb4UGZwFPZD+7J9Ycpz0hSGA=; b=Q17Sj9l2+yvKd2
-	T4kMhrxw7fad+Zn5lpuHYRSotGZArDqwVKs8dDleBz69mgeCUwEvnc3lXWyqno6khH5QeyH8vqzNN
-	xPi6Zg3yY9HNuQWBqQF0jYlyTQCKhO3JtYuZWXe+aJbpjmrVr/8iYL6LxU1mGrK9oz+KPPPSf+Zz+
-	kfHd62ROjp57EFm6GenTld0gMt+mwRWIhaGlARePausl8Bou19eve0Mg9XGWuhPQS/y3PPZo6o4n5
-	aevHPAceYDQcUHbOv9rn7GjHbh/4fe0BIaFssQA/vNcV8YLXbpIkLMY3q8JABRcuTZyRzTV1c8RbH
-	4vsdw2+xJjziynlo274w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=Rlq0AlUVPysrDth/CxuMoGsaxPC731Hkjxmxyzg8dD8=; b=xv1sbJo2JkMjwd0ltSkWOtsT6h
+	hbC/RYJAIQXE5nBNVn0pt4HeuIfnF/ddhu0bE530L5R7tjQvSyPY3BwqZMlBeFYdUliS6bfzeJAVl
+	vWzs2mIaSMgOOlOUUItPqA4kRKBcUi6S4/LqFb5J07i36Jz0trxvTe94/mjenpKF02RpPKI5rbAQa
+	BDIN2dz8GngSo3w+OygD/w8Lz+RcfGiXTdSb6QxDKWkpiGcoyXmvTVO4tKw0rMuMFRXMlZgT8aDkv
+	UOmwMpFe4lx8KQZFHKh6uGt/BhW02k5c1ZeJ/PWcsiyyuEIU00RtJkEU0dMBvvL/Tx1G50JeNIq7M
+	DawIZZXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYpd-000000056EB-2s3l;
-	Wed, 04 Nov 2026 11:07:05 +0000
-Received: from out-167.mta1.migadu.com ([95.215.58.167] helo=mta1.migadu.com)
+	id 1xOYqO-000000056hh-3zyx;
+	Wed, 04 Nov 2026 11:07:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYpY-0000000564C-3GaO
+	id 1xOYqN-000000056h6-0YYE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 11:07:04 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=q5GZcZWMOQIvRaqa09yIq33VkC0yOqXCBT7tjMXSkZw=;
- c=simple/simple; d=cknow-tech.com;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793790419; v=1; x=1794395219;
- b=i9wmOrk7S0bzmMdqlWDDqH7mKZDBEYModFLDCxormp2tBq47Z+SqWsplzwBAgFdE+gqxvops
- 4B2pki6BCHAztSWRmaCt197Y3KbEW0flCQNYbQe007tnoxAU08fpz2x7W/sIJnnTXVltLSnuERH
- 2xBdU+oEnylhXwBBfHob+ZTVsGeNqtsevSzR3Wk4vVOGGffaGgZD4gHyceLBPnj/LMtG5TOeiaz
- IWGqDSfD7cholz/mR2Vwv/nLf+emC+SBBpzE8So8KvYYnsQxDNVuLtft9iL2I6Rr2df3dSnGQxT
- 3/B6P2S0xPJucKfjEN8m0ACqSomXAf+FdKnauiAkfsQIA==
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 7eceafc41300d51d;
-	Wed, 04 Nov 2026 11:06:58 +0000
-X-Mizu-Trace-ID: 7eceafc41300d51d
-X-Migadu-Flow: FLOW_OUT
-From: Diederik de Haas <diederik@cknow-tech.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Diederik de Haas <diederik@cknow-tech.com>
-Subject: [PATCH RESEND 3/3] arm64: dts: rockchip: Add support for FriendlyElec NanoPC-T6 Plus
-Date: Wed,  4 Nov 2026 12:05:06 +0100
-Message-ID: <20261104110640.1132917-4-diederik@cknow-tech.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261104110640.1132917-1-diederik@cknow-tech.com>
-References: <20261104110640.1132917-1-diederik@cknow-tech.com>
+	Wed, 04 Nov 2026 11:07:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9562A4196E;
+	Wed,  4 Nov 2026 11:07:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6F7C1F000C1;
+	Wed,  4 Nov 2026 11:07:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793790470;
+	bh=Rlq0AlUVPysrDth/CxuMoGsaxPC731Hkjxmxyzg8dD8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aY49vEqhN62ykjnMpkAIKjZ28H6cualZd/MRlIWKbcuXlUAiePZ7oko52CH53WrCf
+	 5QLRqjDPRUepLCarInRwxW6dlhNi0IIus/ayByqiRUDFHfCKOXsjeHCgeowIJzJ1cI
+	 xRMQucEJ10m3Qj/A7AFs6sgZLNeJAmYQPdVllMYM8NBAUC8ir+4h7EoquEsRxeFmkT
+	 Txyxm2AT3QJJu5RtITSGjtJpUdDX6HQ170BhDfXKPERGoFiISmyb8tV7czHxrstT4C
+	 ocC2cwEBC52bCs/pAE9+oFZ+Z077xKs+5jgpR5JE0bH5Svk6OQhvb7WeoqTnVdG4k7
+	 sfIhcA8/Y2LOg==
+Date: Wed, 4 Nov 2026 12:07:46 +0100
+From: Thorsten Blum <blum@kernel.org>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: cacheinfo: Simplify init_cache_level()
+Message-ID: <ausSAhn0qRagNcrz@kernel.org>
+References: <20261104083632.65715-2-blum@kernel.org>
+ <0534c6f4-3bb8-4249-816c-502cf8ccb287@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_030701_010386_0202D0A8 
-X-CRM114-Status: GOOD (  14.88  )
-X-Spam-Score: -2.8 (--)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0534c6f4-3bb8-4249-816c-502cf8ccb287@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,146 +69,36 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The FriendlyElec NanoPC-T6 Plus is a new board in the NanoPC-T6 series.
+Hi Ben,
 
-The main differences between the NanoPC-T6 Plus and the NanoPC-T6 LTS are:
-- use of LPDDR5 RAM
-- addition of an M.2 B-key connector for a 4G LTE module and a companion
-  NanoSIM card slot.
-- 10 pin header with UART and 2x USB 2.0 host got replaced with a 3 pin
-  UART header.
-- different audio codec (Everest ES8389)
+On Wed, Nov 04, 2026 at 10:32:58AM +0000, Ben Horgan wrote:
+> Hi Thorsten,
+> 
+> On 04/11/2026 08:36, Thorsten Blum wrote:
+> > acpi_get_cache_info() already sets fw_level to 0 on failure, so drop the
+> > redundant check and the manual assignment.
+> 
+> This doesn't seem to be the case when CONFIG_ACPI_PPTT is not defined. Can the dummy implementation
+> in include/linux/cacheinfo.h be called from init_cache_level()? For the implementation in
 
-Add basic support for it.
+On arm64, ACPI_PPTT is selected when ACPI is enabled. When ACPI is
+disabled, acpi_disabled = 1 and init_cache_level() won't call the stub.
 
-Link: https://wiki.friendlyelec.com/wiki/index.php/NanoPC-T6_Plus
-Link: https://wiki.friendlyelec.com/wiki/images/a/ad/NanoPC-T6_Plus_2511_SCH.pdf
-Link: http://everest-semi.com/pdf/ES8389%20PB.pdf
-Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
----
- arch/arm64/boot/dts/rockchip/Makefile         |  1 +
- .../dts/rockchip/rk3588-nanopc-t6-plus.dts    | 91 +++++++++++++++++++
- 2 files changed, 92 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-plus.dts
+> drivers/acpi/pptt.c levels is documented as "Number of levels if success." and so would be good to
+> mention what happens in the error case if it needs to be relied on.
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 442d322a20cf..8dfcfe16a400 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -209,6 +209,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-lubancat-5io.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-mnt-reform2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6-lts.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6-plus.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-ok3588-c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-orangepi-5-max.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-orangepi-5-plus.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-plus.dts b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-plus.dts
-new file mode 100644
-index 000000000000..f23ac4bd9f16
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-plus.dts
-@@ -0,0 +1,91 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2021 Rockchip Electronics Co., Ltd.
-+ * Copyright (c) 2023 Thomas McKahan
-+ * Copyright (c) 2024 Linaro Ltd.
-+ */
-+
-+/dts-v1/;
-+
-+#include "rk3588-nanopc-t6.dtsi"
-+
-+/ {
-+	model = "FriendlyElec NanoPC-T6 Plus";
-+	compatible = "friendlyarm,nanopc-t6-plus", "rockchip,rk3588";
-+
-+	codec_es_3v3: regulator-codec-es-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-name = "codec_es_3v3";
-+		vin-supply = <&vcc4v0_sys>;
-+	};
-+
-+	usb2_port_5v: regulator-usb2-port-5v {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpio = <&gpio1 RK_PA4 GPIO_ACTIVE_HIGH>;
-+		pinctrl-0 = <&usb20_host_pwren_h_pin>;
-+		pinctrl-names = "default";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-name = "usb2_port_5v";
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+};
-+
-+&analog_sound {
-+	compatible = "audio-graph-card";
-+	hp-det-gpios = <&gpio1 RK_PC4 GPIO_ACTIVE_LOW>;
-+	label = "rk3588-es8389";
-+
-+	dais = <&i2s0_8ch_p0>;
-+	routing = "Headphones", "HPOL",
-+		  "Headphones", "HPOR",
-+		  "INPUT1", "Microphones Connector",
-+		  "INPUT2", "Microphones Connector";
-+	widgets = "Headphone", "Headphones",
-+		  "Microphone", "Microphones Connector";
-+};
-+
-+&i2c7 {
-+	codec@10 {
-+		compatible = "everest,es8389";
-+		reg = <0x10>;
-+		assigned-clocks = <&cru I2S0_8CH_MCLKOUT_TO_IO>;
-+		assigned-clock-rates = <12288000>;
-+		clocks = <&cru I2S0_8CH_MCLKOUT_TO_IO>;
-+		clock-names = "mclk";
-+		#sound-dai-cells = <0>;
-+		vdda-supply = <&codec_es_3v3>;
-+		vddd-supply = <&vcc_1v8_s3>;
-+
-+		port {
-+			es8389_p0_0: endpoint {
-+				remote-endpoint = <&i2s0_8ch_p0_0>;
-+			};
-+		};
-+	};
-+};
-+
-+&i2s0_8ch {
-+	i2s0_8ch_p0: port {
-+		i2s0_8ch_p0_0: endpoint {
-+			dai-format = "i2s";
-+			mclk-fs = <256>;
-+			remote-endpoint = <&es8389_p0_0>;
-+		};
-+	};
-+};
-+
-+&pinctrl {
-+	usb {
-+		usb20_host_pwren_h_pin: usb20-host-pwren-h-pin {
-+			rockchip,pins = <1 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&u2phy2_host {
-+	phy-supply = <&usb2_port_5v>;
-+};
--- 
-2.55.0
+Below the parameter descriptions, it already says:
 
+  "Errors caused by lack of a PPTT table, or otherwise, return 0
+   indicating we didn't find any cache levels."
+
+Thanks,
+Thorsten
 
