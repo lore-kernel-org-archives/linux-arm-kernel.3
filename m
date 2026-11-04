@@ -2,70 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8DAB606D81A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 17:49:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A8FD606D81B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 17:51:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1n+W2pIP;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b2p970Tn
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tKyzFwJV;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dCLagkxm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=bcezpuhf8jHaudjk12beSUxNoV1WoyCZJEHGgJ3QzvM=; b=1n+W2pIPstsuE3
-	vnVFwqLUNsSTTRMt3+qHNkIJK3Fgubaw8cNAaKpJg1/X+9uDthjtMqthUctyOEME6R+JmwgsTM8Bj
-	hpdZ7aCrtcMZDVi+B8zc8gzcS0NZkG9YhtkxlJdSpATUVwdADqyY2bWQw05WO7UAaWUkIkKoH9v9+
-	cA5As1IItcoP1BQkZEAqff8gzfbl5aPXf0ozdoy8W+RKzWwSOvMieoxwz/9KC6DwnMix+rJ+fB5S5
-	3CMDodAP7ginTnOHuJoK5LrbPgqalV+ux55r8k6nE45usiuBv/df1kmdV/ESLeIqqbc2W86IyLnoP
-	8PEe5Ru75MXeRlkVIBeA==;
+	List-Owner; bh=d5VQc0NVFmwQmNrNgit0f6JDQ4FL4SdVcOTRhJBmZU0=; b=tKyzFwJVs7RnYw
+	A9Ip3uX+GtXrI3zImd7vsc6ebZ9Ambbkxcwjg8cCRnaq7PJyNfA4L0Uu1UzqALHWKeWDf5CsEAc/e
+	tuo5K9PHclVjnI+fKHC3zkK9idsjyznvkuBKPgQ9GambfYfzWyffCQfKVWf24RGfY6m9mubx9n+RU
+	uXXrzFPyNCgh899vuvmVR4hHcOUDHs6Jz1DBIp7MO/gxRMwBktlett/voiNeyJWJq2sAZtOzgdgks
+	1lyj9/XA/UKr7CcDi3r5Pxlf6bW5VQSyZboi+zfggU4S1O1PTMdZ0ynybq0c+JzTov2K7gyERCbii
+	98gJz3DwFBRz3029fkfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOf6U-00000006HA7-2C51;
-	Wed, 04 Nov 2026 17:48:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xOf8s-00000006IZA-2a5U;
+	Wed, 04 Nov 2026 17:51:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOf6T-00000006H76-2L5B;
-	Wed, 04 Nov 2026 17:48:53 +0000
+	id 1xOf8r-00000006IYk-1Fs2
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Nov 2026 17:51:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F1AEC609EB;
-	Wed,  4 Nov 2026 17:48:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 607D91F00A24;
-	Wed,  4 Nov 2026 17:48:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1268342AF3;
+	Wed,  4 Nov 2026 17:51:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AB281F000C1;
+	Wed,  4 Nov 2026 17:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793814532;
-	bh=bcezpuhf8jHaudjk12beSUxNoV1WoyCZJEHGgJ3QzvM=;
+	s=k20260515; t=1793814681;
+	bh=d5VQc0NVFmwQmNrNgit0f6JDQ4FL4SdVcOTRhJBmZU0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=b2p970TnxvWKRo+rE6NnJ4OIho+4QePGvqRNZHl6anFONN9yJPTchJWUc0qBmLKMP
-	 JvkxHL9Xpazk/Huej+TwCJZHgiPgiAyRo9RJRGihF/6a+/CNo/3BdMkurHq6+gg9B5
-	 a7MwrwVrAK3vZfdnArgG9/HYd6cBVLWThLJ1ioEA5wfTs9oBWECQl7eJJfmnDUQfDP
-	 LaHC4vtifmzxhjEohgwt44TW9vNrVW+cAwxBcO0ff1SXrqyqyzsGk2Fdw4CFpfKDPJ
-	 wACbdW1zKWYZ9fjPVS/3n6oGT0Y6gKZdHlMydG6AuKxv5l5faXWx4/bMgBdafPz6V5
-	 gY61Q398MrSwg==
-Message-ID: <aa0e757f-dfd5-416a-aefa-3639d7bdf629@kernel.org>
-Date: Wed, 4 Nov 2026 18:48:39 +0100
+	b=dCLagkxmbIiyQGkMFzHs2oA8HlsKSAEJaJgVuwRlOocY030r7PqqFX3dkeMyvO3QN
+	 qX0NTOgKw+QgB3nagHSQpZ4EaTADuqeNdSvV5C+1qY5yaM5/vHtK+M4bzdQ/+2xoUw
+	 2q24Wkv0uvhKpkSzpaudI8n9BNlYEulgt2ubBJyxtPsk3APA4fQeWe485Ih6Kai230
+	 OwWVx83G3fcgygwH6WSC/Dn5qg8PF1rRzHX9WDqHksPLHzQ8Mgx6sj7ks3dtQQ8kyK
+	 Dar7lTXCYLGHAE8GzVImwxRqNQebyXdlO7UBR6CNJgE2H9+wfnCaPvw3J3NW+6uoTx
+	 jkNNN/jBvlWCA==
+Message-ID: <7b476c24-3185-49ff-9a72-fbd865dc0d65@kernel.org>
+Date: Wed, 4 Nov 2026 18:51:10 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] devfreq: Use %pe to print error pointers
- symbolically
-To: Sumeet Pawnikar <sumeet4linux@gmail.com>, rafael@kernel.org,
- amit.kachhap@gmail.com, daniel.lezcano@kernel.org, thara.gopinath@gmail.com,
- talel@amazon.com, hayashi.kunihiko@socionext.com, mhiramat@kernel.org,
- mmayer@broadcom.com, viresh.kumar@linaro.org, sumitg@nvidia.com,
- peter.griffin@linaro.org, myungjoo.ham@samsung.com,
- kyungmin.park@samsung.com, cw00.choi@samsung.com, Frank.Li@nxp.com,
- s.hauer@pengutronix.de, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, sven@kernel.org, j@jannau.net,
- marcan@marcan.st, casey.connolly@linaro.org, sre@kernel.org,
- wens@kernel.org, t.schramm@manjaro.org
-Cc: bcm-kernel-feedback-list@broadcom.com, linux-samsung-soc@vger.kernel.org,
- kernel@pengutronix.de, imx@lists.linux.dev,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260912191156.185448-1-sumeet4linux@gmail.com>
- <20260912191156.185448-3-sumeet4linux@gmail.com>
+Subject: Re: [PATCH 1/1] crypto: use dmaengine_desc_set_callback()
+To: Frank.Li@oss.nxp.com, Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Bartosz Golaszewski <brgl@kernel.org>,
+ Jia Jie Ho <jiajie.ho@starfivetech.com>,
+ William Qiu <william.qiu@starfivetech.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, T Pratham
+ <t-pratham@ti.com>, Thorsten Blum <blum@kernel.org>,
+ Frank Li <Frank.Li@nxp.com>, Pan Chuang <panchuang@vivo.com>,
+ =?UTF-8?B?TWF4aW1lIE3DqXLDqQ==?= <maxime.mere@foss.st.com>,
+ "open list:CRYPTO API" <linux-crypto@vger.kernel.org>,
+ "moderated list:ARM/Microchip (AT91) SoC support"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>,
+ "open list:QUALCOMM CRYPTO DRIVERS" <linux-arm-msm@vger.kernel.org>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: imx@lists.linux.dev, vkoul@kernel.org
+References: <20261102164538.3834039-1-Frank.Li@oss.nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -111,7 +117,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260912191156.185448-3-sumeet4linux@gmail.com>
+In-Reply-To: <20261102164538.3834039-1-Frank.Li@oss.nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -128,35 +134,50 @@ X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=unavailable autolearn_force=no version=4.0.1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 12/09/2026 21:11, Sumeet Pawnikar wrote:
-> diff --git a/drivers/devfreq/imx-bus.c b/drivers/devfreq/imx-bus.c
-> index 49798f542d68..dba76d8b9e5a 100644
-> --- a/drivers/devfreq/imx-bus.c
-> +++ b/drivers/devfreq/imx-bus.c
-> @@ -75,8 +75,8 @@ static int imx_bus_init_icc(struct device *dev)
->  	priv->icc_pdev = platform_device_register_data(
->  			dev, icc_driver_name, -1, NULL, 0);
->  	if (IS_ERR(priv->icc_pdev)) {
-> -		dev_err(dev, "failed to register icc provider %s: %ld\n",
-> -				icc_driver_name, PTR_ERR(priv->icc_pdev));
-> +		dev_err(dev, "failed to register icc provider %s: %pe\n",
-> +				icc_driver_name, priv->icc_pdev);
->  		return PTR_ERR(priv->icc_pdev);
->  	}
+On 02/11/2026 17:45, Frank.Li@oss.nxp.com wrote:
+> ---
+>  drivers/crypto/atmel-aes.c            | 3 +--
+>  drivers/crypto/atmel-sha.c            | 6 ++----
+>  drivers/crypto/atmel-tdes.c           | 3 +--
+>  drivers/crypto/img-hash.c             | 3 +--
+>  drivers/crypto/omap-aes.c             | 8 +++-----
+>  drivers/crypto/omap-des.c             | 5 ++---
+>  drivers/crypto/omap-sham.c            | 3 +--
+>  drivers/crypto/qce/dma.c              | 3 +--
+>  drivers/crypto/sa2ul.c                | 3 +--
+>  drivers/crypto/starfive/jh7110-aes.c  | 3 +--
+>  drivers/crypto/starfive/jh7110-hash.c | 3 +--
+>  drivers/crypto/stm32/stm32-cryp.c     | 9 +++------
+>  drivers/crypto/stm32/stm32-hash.c     | 3 +--
+>  drivers/crypto/ti/dthev2-aes.c        | 9 +++------
+>  14 files changed, 22 insertions(+), 42 deletions(-)
+> 
+> diff --git a/drivers/crypto/atmel-aes.c b/drivers/crypto/atmel-aes.c
+> index 84392411b98d8..49f1bf19747d8 100644
+> --- a/drivers/crypto/atmel-aes.c
+> +++ b/drivers/crypto/atmel-aes.c
+> @@ -824,8 +824,7 @@ static int atmel_aes_dma_transfer_start(struct atmel_aes_dev *dd,
+>  	if (!desc)
+>  		return -ENOMEM;
+>  
+> -	desc->callback = callback;
+> -	desc->callback_param = dd;
+> +	dmaengine_desc_set_callback(desc, callback, NULL, dd);
+>  	dmaengine_submit(desc);
+>  	dma_async_issue_pending(dma->chan);
+>  
 
 Apparently reviewing only a few lines of entire patch is still reviewing:
-
 https://lore.kernel.org/all/9e39502a-dd17-4fa2-98a3-9019523cb5e8@kernel.org/
 
 Therefore:
-
 Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
-
 
 Best regards,
 Krzysztof
+
 
