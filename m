@@ -2,85 +2,99 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E5D4606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 23:24:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 388926082BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 23:49:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IM64b7nN;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=J6eQ9pL/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZzHyBaQ+;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=ckya8XXj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=jYeLi8tUmdcFROiq/jmTkZ4ahpzcaw03wqXaIhratXY=; b=IM64b7nNTN5Uag
-	RWExcQLP60hLXwJlx4JcJsi4Ai+4TZQWrkq6JpHDjCvF6/WLYrRpP81h78LZEPXdCn7KEiazEfr6c
-	S6kj+px4nYOPRjqNyWPofCTcbrzjqul4twm4ln/hed9WFevZikKTTJBsZkFBXDBWfsiljIGdlcSFW
-	8xy0DkQ/RraX5U+SW8F0e9+CuKLOLSN0ZlA2NLqK5RCVTBQrBtj/68oIEmlOg6c4YsBRTCloYPjsv
-	1iGPEkrBKsp0IiOT8vOVF2NmYyD5hO/fB/q9BJ5VGAPW/2LhYep3iTq1XIzEASfQHzj7OocssUtCl
-	DIUimTaZ5LmvL9PKWa+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=m1dkmcldC8pS++pzGm6xswfQROiXoCXlLYpleWR5Pvw=; b=ZzHyBaQ+/1gG7m7aySled+17pT
+	yMH/oKb4OHI76kcRcN3eb9V13SscZHvELFgGi6+nD2bOhwpa5OM6FaFzEJ2htp7posxKqt9U9wbtb
+	3NIhs93wQp8kUraizqZr9LL/26vv5CWXk/z1ZhYzXlsgngleQCAk1L39y1AfKp/q2n9XtBBHcYlcl
+	+rMfydIqEpgLm8Nmgh5LuyD6aFle5h+LYLlsdA4wCGpPJv2KVayPlsLKXXIeGeeUjCMNXN5lRtu9Q
+	wXVDeHitYxVAH+yuMyF88p9jLQfUS/2Sul/fb1d6ZFD36wGFwITogv9nhmtXeRZgA6Mx5eXRa7M35
+	Bas9ZaZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOkKz-00000007FAh-4Bhl;
-	Wed, 04 Nov 2026 23:24:14 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOkKv-00000007F96-3Ekt
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 23:24:11 +0000
-Received: from localhost (unknown [4.194.122.144])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 6F0C820B7166;
-	Wed,  4 Nov 2026 15:23:40 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 6F0C820B7166
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1793834632;
-	bh=jYeLi8tUmdcFROiq/jmTkZ4ahpzcaw03wqXaIhratXY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=J6eQ9pL/r15bH7Qh1CB8Nj21vQZAsQ49wPwIRLFaB/znP1aeZE+SgGk+3BMCorZX8
-	 qb7tbVHfG/vE6yOjWiSn1CVWqWZ2AtQU2yrQR8m++pexA+HDASvrrghR4WKGicGN/4
-	 Tg56ukofwyEtVSfUNJqMKpz4JzwcXy74SP9GRGzE=
-Date: Wed, 4 Nov 2026 15:23:51 -0800
-From: Jacob Pan <jacob.pan@linux.microsoft.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, Alex Williamson <alex@shazbot.org>, Alexey
- Kardashevskiy <aik@amd.com>, Bjorn Helgaas <bhelgaas@google.com>, Catalin
- Marinas <catalin.marinas@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Joerg
- Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>, Jonathan
- Hunter <jonathanh@nvidia.com>, Kevin Tian <kevin.tian@intel.com>, Krishna
- Reddy <vdumpa@nvidia.com>, Lukas Wunner <lukas@wunner.de>, Nicolin Chen
- <nicolinc@nvidia.com>, Robin Murphy <robin.murphy@arm.com>, Samuel Ortiz
- <sameo@rivosinc.com>, Shameer Kolothum
- <shameerali.kolothum.thodi@huawei.com>, Steven Price
- <steven.price@arm.com>, Suravee Suthikulpanit
- <suravee.suthikulpanit@amd.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Thierry Reding <thierry.reding@kernel.org>, Vasant Hegde
- <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>, Xu Yilun
- <yilun.xu@linux.intel.com>, kvm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-coco@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-tegra@vger.kernel.org, jacob.pan@linux.microsoft.com
-Subject: Re: [PATCH v8 12/15] iommufd/viommu: Allow PCI TSM backends to
- provide vIOMMU operations
-Message-ID: <20261104152351.00002565@linux.microsoft.com>
-In-Reply-To: <20261104161632.3547423-13-aneesh.kumar@kernel.org>
-References: <20261104161632.3547423-1-aneesh.kumar@kernel.org>
-	<20261104161632.3547423-13-aneesh.kumar@kernel.org>
-Organization: LSG
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	id 1xOkj7-00000007HAt-04Bo;
+	Wed, 04 Nov 2026 23:49:09 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOkiz-00000007H65-2THv;
+	Wed, 04 Nov 2026 23:49:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1793836139;
+	bh=dtL04qPAz8o5teY7MsjxAf6ee93yJpOTM5INfoCSzPk=;
+	h=From:Subject:Date:To:Cc:From;
+	b=ckya8XXj2JrGbl23HonSZvDvkACSS4Efp1i1gf1zbr6cUFhzzaoE5GgD07cVe2ral
+	 mI59Dr91UBRpgncbFYY7X+aPvxfl1AxEbMXEBpAavkasYgj5pvai2H1KmXIKUu53MW
+	 n/K9pYIMc5gsusXMdLH7eXVOIdTcABC0lX2YCE/BYrJK/U5Mu4huLwJhSCuOXUfKuD
+	 hsw4ouLSIvveaUVwC+q+olk73tueLfx2bkfJLRKVpqHiH/ya7CoVZJ4Vi0qnUVLyqd
+	 FzaL82yK/Hr6o6Etc45SoOe/HBNEEOXKej7SycnhbJX18VqP0KUxkcuRkQqre0QLKE
+	 +hC/ZhevKkUUg==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 27CA917E078F;
+	Thu, 05 Nov 2026 00:48:59 +0100 (CET)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id DCF4E48002B; Thu, 05 Nov 2026 00:48:58 +0100 (CET)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Subject: [PATCH v8 0/9] PCI: dw-rockchip: add system suspend support
+Date: Thu, 05 Nov 2026 00:47:01 +0100
+Message-Id: <20261105-rockchip-pcie-system-suspend-v8-0-0434b4f373bc@collabora.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ISO-8859-1
-Content-Transfer-Encoding: quoted-printable
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_2
-	autolearn=ham autolearn_force=no version=4.0.1
-X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
-	aws-us-west-2-korg-listserv-alma10-1
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XPTW7CMBCG4asgr2tkO/EfK+6BurDHk8YqxJFNr
+ SKUu9cgQRdFzfKdxTP6rqRgjljIbnMlGWssMU0tzNuGwOimD6QxtCaCCcmZMDQn+IQxznSGiLR
+ cyhlPtHyVGadAjYKBGae9EJY0Ys44xO87f3hvPcZyTvly/1b72/UB2//h2lNGAQVyz5QVQewhH
+ Y/Op+y2kE7khlf5ABXruFoBZQOl99KFTgfVd69A9QtatjK9qgYO3nkAZ63g/hWonyDnrF8BdQO
+ VQ2W0tJ11fyYvy/ID7opajL8BAAA=
+X-Change-ID: 20251028-rockchip-pcie-system-suspend-86cf08a7b229
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>, 
+ Shawn Lin <shawn.lin@rock-chips.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, 
+ "Yury Norov (NVIDIA)" <yury.norov@gmail.com>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Alexey Charkov <alchark@flipper.net>, linux-pci@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7061;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=dtL04qPAz8o5teY7MsjxAf6ee93yJpOTM5INfoCSzPk=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGrrxGbMGJunvqzDik/j8xW+rBF9q/ngW63/m
+ gPOkwOnrJRr1YkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJq68RmAAoJENju1/PI
+ O/qaUYAQAJ2PSLway03WOMeW7fU2YT6tf4dGnvu5HZxW4XSR8Ob3vkxg8Xz027xl4B53BSbLbo/
+ S9Z8lUuzQ+/Unz2KMOut/4jZb3KQvsroZbWBy9cSIxsWuw71LXlPEe4hhxvjkWkpz2NCWM/a9O3
+ F8CGN9AwyCYAof9ej8MJ7ii7K9x3nJdNFoPUHhgQ5fO7CszCRfCUrXJ2+TVQnasyJA4fMZaAfe3
+ AEfV1JJEyXshaeXF1oNckSvPQ2w+7M9xSUAVcqdScMyh52ZhWTZiLwchkprJ5rlit6O+MRhLy/F
+ 6cvxkeTY/C7wkgVLwshOppPfhTxJAtlka3czHlYGMNgPSdnKZE4cemADWQoDB9B6BN2tEjNMMKD
+ p1SMWBA97JVlqRHaJevHumwy1/6AJaXjHnwSPhv3vQ+qFfvW9n//0TotbGyC+Z2ZodScB4ZXLt8
+ rfUF/0rCnMorTFPWhw8LAMOovY6uQDiF75JQPF9jOgdiokL6aAhx+F0QnCK2FFCp5t3qVbD7JXz
+ K9xLhTm4Pv1cRJajMAU6yJG/QpdTqrYjCWXyBNa4zTSmIBl3UqxBTi+qCHAYvTz28LFlsFKHjJz
+ 9bEualWFBP3hK8ujO4I0UibHVfxZD3zg4PVFmwjZTytTw0YTaHd2nAKf3aWeqDQ+/r6dJKOne8J
+ u6ehtuGIZexAow7aI1Mw2SA==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_152409_888233_D5D0AC85 
-X-CRM114-Status: GOOD (  38.18  )
+X-CRM114-CacheID: sfid-20261104_154901_813288_60879F53 
+X-CRM114-Status: GOOD (  27.82  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,395 +106,146 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
+X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
+	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Aneesh,
+I've been working on fixing up at least basic system suspend support on
+the Rockchip RK3576 platform. The last open issue is missing support in
+the PCIe driver. This series is a follow-up for Shawn Lin's series with
+feedback from Niklas Cassel and Manivannan Sadhasivam being handled as
+well as some of my own changes fixing up things I noticed.
 
-On Wed,  4 Nov 2026 21:46:29 +0530
-"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
+I've tested this on multiple RK3576 and RK3588 boards and things look
+good to me on the PCIe side. Additionally Igor Velkov tested previous
+versions on RK3568.
 
-> In confidential-computing configurations, a vIOMMU may be implemented
-> by a TEE Security Manager rather than by the physical IOMMU driver.
-> Such an implementation also needs the TSM identity when creating and
-> validating vdevices.
->=20
-> Allow VIOMMU_ALLOC to first query the TSM associated with the target
-> PCI device for vIOMMU operations. Fall back to the physical IOMMU
-> driver when the TSM does not provide operations for the requested
-> vIOMMU type.
->=20
-> Resolve the PCI TSM association under pci_tsm_rwsem, pin the module
-> providing the operations, and take a TSM device reference. Store the
-> TSM device in the vIOMMU and release both references on allocation
-> failure, fallback to the physical IOMMU driver, or vIOMMU
-> destruction. Keep the module pinned until after dropping the device
-> reference, since the final put may release the TSM device.
->=20
-> The device reference preserves the TSM allocation. Backends providing
-> vIOMMU operations must not unregister their TSM while the module is
-> pinned, since the reference does not prevent backend resource
-> teardown.
->=20
-> This enables the Realm vIOMMU implementation to provide its operations
-> through the PCI TSM backend and retain the TSM identity needed by its
-> vdevices.
->=20
-> Cc: Jason Gunthorpe <jgg@ziepe.ca>
-> Cc: Kevin Tian <kevin.tian@intel.com>
-> Cc: Joerg Roedel <joro@8bytes.org>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Robin Murphy <robin.murphy@arm.com>
-> Cc: Bjorn Helgaas <bhelgaas@google.com>
-> Cc: iommu@lists.linux.dev
-> Cc: linux-pci@vger.kernel.org
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->  drivers/iommu/iommufd/viommu.c | 35 +++++++++++++++++++++++++++-----
->  drivers/pci/tsm/core.c         | 22 ++++++++++++++++++++
->  drivers/virt/coco/tsm-core.c   | 37
-> ++++++++++++++++++++++++++++++++++ include/linux/iommufd.h        |
-> 2 ++ include/linux/pci-tsm.h        | 24 ++++++++++++++++++++++
->  include/linux/tsm.h            | 25 +++++++++++++++++++++++
->  6 files changed, 140 insertions(+), 5 deletions(-)
->=20
-> diff --git a/drivers/iommu/iommufd/viommu.c
-> b/drivers/iommu/iommufd/viommu.c index 16e8b6421f1f..1686f19c5060
-> 100644 --- a/drivers/iommu/iommufd/viommu.c
-> +++ b/drivers/iommu/iommufd/viommu.c
-> @@ -15,6 +15,8 @@ void iommufd_viommu_destroy(struct iommufd_object
-> *obj)=20
->  	if (viommu->ops && viommu->ops->destroy)
->  		viommu->ops->destroy(viommu);
-> +	if (viommu->tsm_dev)
-> +		tsm_put_device(viommu->tsm_dev);
->  	refcount_dec(&viommu->hwpt->common.obj.users);
->  	if (viommu->kvm_file)
->  		fput(viommu->kvm_file);
-> @@ -30,6 +32,7 @@ int iommufd_viommu_alloc_ioctl(struct iommufd_ucmd
-> *ucmd) .len =3D cmd->data_len,
->  	};
->  	struct iommufd_hwpt_paging *hwpt_paging;
-> +	struct tsm_dev *tsm_dev =3D NULL;
->  	struct iommufd_viommu *viommu;
->  	struct iommufd_device *idev;
->  	struct iommu_device *iommu_dev;
-> @@ -49,15 +52,33 @@ int iommufd_viommu_alloc_ioctl(struct
-> iommufd_ucmd *ucmd) rc =3D -EOPNOTSUPP;
->  		goto out_put_idev;
->  	}
-> -	if (!iommu_dev->ops->get_viommu_ops) {
-> -		rc =3D -EOPNOTSUPP;
-> +	tsm_dev =3D tsm_get_device(idev->dev);
-So I want to reuse this flow for MSHV since tsm already does module
-pinning and locking for backend providers. Once MSHV supports TDISP, it
-could register a link TSM similarly to the CCA =A0cca_link_pci_ops.
+On RK3588, I also needed [0] to fix PCIe IOMMU issues after resume. I
+consider this an independent issue. Additionally on RK3588 the system
+will run into SError on resume due to a USB2 PHY problem. This problem
+is also independent handled via [1] (needs new revision).
 
-However, we also want to use the same viommu/vdevice flow to support
-non-confidential device assignment with Hypervisor managed S2 mapping.
-I belive pKVM has the same need.[1]
+[0] https://lore.kernel.org/all/20260728210928.1050849-1-praan@google.com/
+[1] https://lore.kernel.org/linux-phy/ar7QuTetvpLltrDT@venus/
 
-I am thinking MSHV/pKVM can register an assignment-only tsm_dev to
-leverage this? Could PCI/TSM support this role without device-security?
+Changes in v8:
+- Link to v7: https://patch.msgid.link/20261104-rockchip-pcie-system-suspend-v7-0-6ae6875939a2@collabora.com
+- Drop the final debug patch; I took that over from Rockchip's vendor
+  tree as it seems useful for debug purposes. Using it involves reading
+  the register via /dev/mem. It's not directly tied to actual system PM
+  support itself, so it can be submitted separetely. It's not worth
+  fighting Sashiko for it.
+- In LTSSM control mode patch also replace one occurance that I missed
+- In system PM support patch add guard not suspending an already
+  suspended PCIe devices, which can happen when resume failed following
+  the example of UltraRISC (Sashiko)
+- In the same patch replace 0xffff mask with PCIE_INTR_MASK to avoid
+  overflow issue; the new mask is not functional equivalent as we just
+  work on the lower 8 bit now. The following 8 bit are reserved on
+  RK3588 and RK3576 anyways, though. Thus this effectivly better
+  documents the purpose of the cached value. (Sashiko)
+- Drop incorrect custom PERST# handling in the resume handler (Sashiko)
+- Modify interrupt masking to follow RC instead of EP logic (Sashiko)
+- I've not picked up the Tested-by tag from Igor Velkov on v7
+  as there are some changes (even though I'm fairly sure they
+  don't matter), which add RK3568 to the tested SoC range.
 
-Something like:
-@@ -48,7 +41,13 @@ struct pci_tsm_ops {
-        struct module *owner;
-        const struct iommufd_viommu_ops *(*viommu_get_ops)(
-                struct device *dev, enum iommu_viommu_type type);
-+
-+       struct pci_tsm_assignment_ops {
-+               bool (*match)(struct pci_dev *pdev);
-+               struct pci_tsm *(*probe)(struct tsm_dev *tsm_dev,
-+                                        struct pci_dev *pdev);
-+               void (*remove)(struct pci_tsm *tsm);
-+       } assignment_ops;
+Changes in v7:
+* Link to v6: https://patch.msgid.link/20260908-rockchip-pcie-system-suspend-v6-0-fbabcca9921b@collabora.com
+* Rebased to v7.4-rc1
+* Collect Reviewed-by tags from Shawn Lin to (mostly) unchanged patches;
+  I skipped some due to changes in v7
+* Keep dev_err_probe() message for rockchip_pcie_phy_init in patch
+  restoring vpcie3v3 regulator handling
+* Avoid dynamic mask for extra flags in "enhanced LTSSM control mode helper"
+  by just adding specific support for the extra flag needed. Apparently
+  some compiler configurations don't like it.
+* Avoid duplicated register define in In pme_turn_off patch
+* Move bit defines to the correct register defines in pme_turn_off patch
+* In broken L1SS resume flag patch move the explanation comment from the
+  code to the commit message (FWIW this comment is not AI generated by
+  me, but was copied from the Qcom implementation).
+* In system PM support patch, set pp->suspend_poweroff to fix the issue
+  identified by Igor
+* In system PM support patch, just return 0 for DW_PCIE_EP_TYPE (Mani)
+  to keep the status-quo (I've not tested this specifically).
+* In system PM support patch, use the same init order as probe (Sashiko)
+* In clear debug buffer patch, drop dw_pcie_dbi_ro_wr_dis(), which
+  is already done by the core nowadays (Sashiko, Mani)
+* In clear debug buffer patch, fix actual register write (Sashiko)
+* In clear debug buffer patch, update patch description with
+  better explanation about the register (Mani)
 
-[1] https://lore.kernel.org/linux-iommu/atiaKG86qcifKzBT@google.com/
-> +	if (IS_ERR(tsm_dev)) {
-> +		rc =3D PTR_ERR(tsm_dev);
-> +		tsm_dev =3D NULL;
->  		goto out_put_idev;
->  	}
-> -	ops =3D iommu_dev->ops->get_viommu_ops(idev->dev, cmd->type);
-> -	if (!ops) {
-> -		rc =3D -EOPNOTSUPP;
-> +	ops =3D tsm_dev ? tsm_viommu_get_ops(tsm_dev, idev->dev,
-> cmd->type) : NULL;
-> +	if (IS_ERR(ops)) {
-> +		rc =3D PTR_ERR(ops);
->  		goto out_put_idev;
->  	}
-> +	if (!ops) {
-> +		if (tsm_dev) {
-> +			tsm_put_device(tsm_dev);
-> +			tsm_dev =3D NULL;
-> +		}
-> +		if (!iommu_dev->ops->get_viommu_ops) {
-> +			rc =3D -EOPNOTSUPP;
-> +			goto out_put_idev;
-> +		}
-> +		ops =3D iommu_dev->ops->get_viommu_ops(idev->dev,
-> cmd->type);
-> +		if (!ops) {
-> +			rc =3D -EOPNOTSUPP;
-> +			goto out_put_idev;
-> +		}
-> +	}
-> +
->  	/*
->  	 * It is a driver bug to omit the required operations or
-> provide a size
->  	 * smaller than the core vIOMMU structure.
-> @@ -95,6 +116,8 @@ int iommufd_viommu_alloc_ioctl(struct iommufd_ucmd
-> *ucmd) viommu->kvm_file =3D get_file(idev->kvm_file);
->  	viommu->type =3D cmd->type;
->  	viommu->ictx =3D ucmd->ictx;
-> +	viommu->tsm_dev =3D tsm_dev;
-> +	tsm_dev =3D NULL;
->  	viommu->hwpt =3D hwpt_paging;
->  	refcount_inc(&viommu->hwpt->common.obj.users);
->  	INIT_LIST_HEAD(&viommu->veventqs);
-> @@ -119,6 +142,8 @@ int iommufd_viommu_alloc_ioctl(struct
-> iommufd_ucmd *ucmd) out_put_hwpt:
->  	iommufd_put_object(ucmd->ictx, &hwpt_paging->common.obj);
->  out_put_idev:
-> +	if (tsm_dev)
-> +		tsm_put_device(tsm_dev);
->  	iommufd_put_object(ucmd->ictx, &idev->obj);
->  	return rc;
->  }
-> diff --git a/drivers/pci/tsm/core.c b/drivers/pci/tsm/core.c
-> index 96ba5a8be8af..5ded1a5a4f7e 100644
-> --- a/drivers/pci/tsm/core.c
-> +++ b/drivers/pci/tsm/core.c
-> @@ -9,6 +9,8 @@
->  #define dev_fmt(fmt) "PCI/TSM: " fmt
-> =20
->  #include <linux/bitfield.h>
-> +#include <linux/iommufd.h>
-> +#include <linux/module.h>
->  #include <linux/pci.h>
->  #include <linux/pci-doe.h>
->  #include <linux/pci-tsm.h>
-> @@ -36,6 +38,26 @@ static const struct pci_tsm_ops
-> *to_pci_tsm_ops(struct pci_tsm *tsm) return tsm->tsm_dev->pci_ops;
->  }
-> =20
-> +struct tsm_dev *pci_tsm_get_device(struct pci_dev *pdev)
-> +{
-> +	const struct pci_tsm_ops *ops;
-> +	struct tsm_dev *tsm_dev;
-> +
-> +	guard(rwsem_read)(&pci_tsm_rwsem);
-> +	if (!pdev->tsm)
-> +		return NULL;
-> +
-> +	tsm_dev =3D pdev->tsm->tsm_dev;
-> +	ops =3D tsm_dev->pci_ops;
-> +	if (!ops->viommu_get_ops)
-> +		return NULL;
-> +	if (!try_module_get(ops->owner))
-> +		return ERR_PTR(-ENODEV);
-> +	get_device(&tsm_dev->dev);
-> +	return tsm_dev;
-> +}
-> +EXPORT_SYMBOL_GPL(pci_tsm_get_device);
-> +
->  static inline bool is_dsm(struct pci_dev *pdev)
->  {
->  	return pdev->tsm && pdev->tsm->dsm_dev =3D=3D pdev;
-> diff --git a/drivers/virt/coco/tsm-core.c
-> b/drivers/virt/coco/tsm-core.c index e7807dc94807..92ce3337f1ea 100644
-> --- a/drivers/virt/coco/tsm-core.c
-> +++ b/drivers/virt/coco/tsm-core.c
-> @@ -9,6 +9,16 @@
->  #include <linux/cleanup.h>
->  #include <linux/pci-tsm.h>
-> =20
-> +/* The caller must hold a tsm_get_device() reference for the entire
-> use. */ +const struct iommufd_viommu_ops *tsm_viommu_get_ops(struct
-> tsm_dev *tsm_dev,
-> +		struct device *dev, enum iommu_viommu_type type)
-> +{
-> +	if (!tsm_dev->pci_ops->viommu_get_ops)
-> +		return NULL;
-> +	return tsm_dev->pci_ops->viommu_get_ops(dev, type);
-> +}
-> +EXPORT_SYMBOL_GPL(tsm_viommu_get_ops);
-> +
->  static void tsm_release(struct device *);
->  static const struct class tsm_class =3D {
->  	.name		=3D "tsm",
-> @@ -16,6 +26,33 @@ static const struct class tsm_class =3D {
->  };
->  static DEFINE_IDA(tsm_ida);
-> =20
-> +/**
-> + * tsm_get_device() - Pin the TSM attached to a device
-> + * @dev: device whose TSM is to be pinned
-> + *
-> + * A successful lookup takes a TSM device reference and pins the
-> backend
-> + * module. Release both with tsm_put_device(). Backends providing
-> vIOMMU
-> + * operations must not unregister their TSM independently of module
-> unload.
-> + * Return: NULL if no vIOMMU-capable TSM is attached, an error if
-> the module
-> + * cannot be pinned, or the TSM device associated with the pinned
-> backend.
-> + */
-> +struct tsm_dev *tsm_get_device(struct device *dev)
-> +{
-> +	if (!dev_is_pci(dev))
-> +		return NULL;
-> +	return pci_tsm_get_device(to_pci_dev(dev));
-> +}
-> +EXPORT_SYMBOL_GPL(tsm_get_device);
-> +
-> +void tsm_put_device(struct tsm_dev *tsm_dev)
-> +{
-> +	struct module *owner =3D tsm_dev->pci_ops->owner;
-> +
-> +	put_device(&tsm_dev->dev);
-> +	module_put(owner);
-> +}
-> +EXPORT_SYMBOL_GPL(tsm_put_device);
-> +
->  static int match_id(struct device *dev, const void *data)
->  {
->  	struct tsm_dev *tsm_dev =3D container_of(dev, struct tsm_dev,
-> dev); diff --git a/include/linux/iommufd.h b/include/linux/iommufd.h
-> index 5f5c67b24134..a4b29915d0ca 100644
-> --- a/include/linux/iommufd.h
-> +++ b/include/linux/iommufd.h
-> @@ -23,6 +23,7 @@ struct iommufd_access;
->  struct iommufd_ctx;
->  struct iommufd_device;
->  struct iommufd_viommu_ops;
-> +struct tsm_dev;
->  struct page;
-> =20
->  enum iommufd_object_type {
-> @@ -104,6 +105,7 @@ struct iommufd_viommu {
->  	struct iommu_device *iommu_dev;
->  	struct iommufd_hwpt_paging *hwpt;
->  	struct file *kvm_file;
-> +	struct tsm_dev *tsm_dev;
-> =20
->  	const struct iommufd_viommu_ops *ops;
-> =20
-> diff --git a/include/linux/pci-tsm.h b/include/linux/pci-tsm.h
-> index eaf0199d01f7..19e9e0ef3bbb 100644
-> --- a/include/linux/pci-tsm.h
-> +++ b/include/linux/pci-tsm.h
-> @@ -3,7 +3,10 @@
->  #define __PCI_TSM_H
->  #include <linux/mutex.h>
->  #include <linux/pci.h>
-> +#include <uapi/linux/iommufd.h>
-> =20
-> +struct iommufd_viommu_ops;
-> +struct module;
->  struct pci_tsm;
->  struct pci_tsm_context;
->  struct tsm_dev;
-> @@ -16,12 +19,27 @@ struct tsm_dev;
->   * @devsec_ops: Lock, unlock, and interrogate the security state of
-> the
->   *		function via the platform TSM (typically virtual
-> function
->   *		operations).
-> + * @viommu_get_ops: Return operations for a supported TSM-owned
-> vIOMMU type,
-> + *		  or NULL if unsupported
-> + * @owner: Module providing the vIOMMU operations, if built as a
-> module
-> + *
-> + * The vIOMMU owner holds a TSM device reference and pins the
-> backend module
-> + * before querying @viommu_get_ops, releasing both after vIOMMU
-> destruction.
-> + * A backend providing this callback must not unregister its TSM
-> while the
-> + * module is pinned.
->   *
->   * This operations are mutually exclusive either a tsm_dev instance
->   * manages physical link properties or it manages function security
->   * states like TDISP lock/unlock.
-> + *
-> + * @viommu_get_ops runs with the backend module pinned. The PCI/TSM
-> + * association is checked during acquisition under pci_tsm_rwsem.
->   */
->  struct pci_tsm_ops {
-> +	struct module *owner;
-> +	const struct iommufd_viommu_ops *(*viommu_get_ops)(
-> +		struct device *dev, enum iommu_viommu_type type);
-> +
->  	/*
->  	 * struct pci_tsm_link_ops - Manage physical link and the
-> TSM/DSM session
->  	 * @probe: establish context with the TSM (allocate / wrap
-> 'struct @@ -151,6 +169,7 @@ struct pci_tsm_pf0
-> *pci_tsm_context_pf0(struct pci_tsm_context *context); struct pci_dev
-> *pci_tsm_context_dsm_dev(struct pci_tsm_context *context); bool
-> pci_tsm_context_match_device(struct pci_tsm_context *context, struct
-> pci_dev *pdev); +struct tsm_dev *pci_tsm_get_device(struct pci_dev
-> *pdev); #else
->  static inline int pci_tsm_register(struct tsm_dev *tsm_dev)
->  {
-> @@ -165,6 +184,11 @@ static inline bool pci_tsm_is_configured(struct
-> pci_dev *pdev) return false;
->  }
-> =20
-> +static inline struct tsm_dev *pci_tsm_get_device(struct pci_dev
-> *pdev) +{
-> +	return NULL;
-> +}
-> +
->  static inline struct pci_tsm_context *
->  pci_tsm_context_get(struct pci_dev *pdev, struct tsm_dev
-> *viommu_tsm_dev) {
-> diff --git a/include/linux/tsm.h b/include/linux/tsm.h
-> index 19dedf971f14..3d5286aeaa42 100644
-> --- a/include/linux/tsm.h
-> +++ b/include/linux/tsm.h
-> @@ -110,6 +110,8 @@ struct tsm_report_ops {
->  };
-> =20
->  struct pci_tsm_ops;
-> +struct iommufd_viommu_ops;
-> +
->  struct tsm_dev {
->  	struct device dev;
->  	int id;
-> @@ -124,4 +126,27 @@ int tsm_report_unregister(const struct
-> tsm_report_ops *ops); struct tsm_dev *tsm_register(struct device
-> *parent, struct pci_tsm_ops *ops); void tsm_unregister(struct tsm_dev
-> *tsm_dev); struct tsm_dev *find_tsm_dev(int id);
-> +
-> +#ifdef CONFIG_TSM
-> +struct tsm_dev *tsm_get_device(struct device *dev);
-> +void tsm_put_device(struct tsm_dev *tsm_dev);
-> +const struct iommufd_viommu_ops *tsm_viommu_get_ops(struct tsm_dev
-> *tsm_dev,
-> +		struct device *dev, enum iommu_viommu_type type);
-> +#else
-> +static inline struct tsm_dev *tsm_get_device(struct device *dev)
-> +{
-> +	return NULL;
-> +}
-> +
-> +static inline void tsm_put_device(struct tsm_dev *tsm_dev)
-> +{
-> +}
-> +
-> +static inline const struct iommufd_viommu_ops *
-> +tsm_viommu_get_ops(struct tsm_dev *tsm_dev, struct device *dev,
-> +		enum iommu_viommu_type type)
-> +{
-> +	return NULL;
-> +}
-> +#endif
->  #endif /* __TSM_H */
+Changes in v6:
+ * https://lore.kernel.org/r/20260316-rockchip-pcie-system-suspend-v5-0-5bb5ad37d643@collabora.com
+ * Rebase to pci/next
+ * Minor changes to make checkpatch happy
+ * Update patch description of the last patch and drop RFC tag
+   according to feedback from Shawn Lin
+ * Prepend new patch, which fixes Nicolas Frattaroli's conversion
+   to FIELD_PREP_WM16 accidently dropping a flag.
+ * Add another new patch, which sets .broken_l1ss_resume to tell the
+   PCI core that the controller is powered off during suspend following
+   the Qcom example
+
+Changes in v5:
+ * https://lore.kernel.org/r/20251029-rockchip-pcie-system-suspend-v4-0-ce2e1b0692d2@collabora.com
+ * rebase to v7.0-rc1
+ * Add an RFC patch at the end with some bits I found in the Rockchip vendor kernel;
+ * Made some tests on Rock 5B+ (RK3588); with this patch series suspending works
+   when setting pm_test to devices. A full system suspend fails in a later step,
+   but that is independent of PCIe.
+
+Changes in v4:
+ * https://lore.kernel.org/linux-pci/1744940759-23823-1-git-send-email-shawn.lin@rock-chips.com/
+ * rename rockchip_pcie_get_ltssm to rockchip_pcie_get_ltssm_status_reg
+   in a separate patch (Niklas Cassel)
+ * rename rockchip_pcie_get_pure_ltssm to rockchip_pcie_get_ltssm_state
+   in a separate patch (Niklas Cassel)
+ * Move devm_phy_get out of phy_init to probe in a separate patch
+   (Manivannan Sadhasivam)
+ * Add helper function for enhanced LTSSM control mode in a separate patch
+   (Niklas Cassel)
+ * Add helper function for controller mode in a separate patch
+   (Niklas Cassel)
+ * Add helper function for DDL indicator in a separate patch
+   (Niklas Cassel)
+ * Move rockchip_pcie_pme_turn_off implementation in a separate patch
+ * Rebase to v6.18-rc3 using new FIELD_PREP_WM16()
+ * Improve readability of PME_TURN_OFF/PME_TO_ACK defines (Manivannan Sadhasivam)
+ * Fix usage of reverse Xmas (Manivannan Sadhasivam)
+ * Assert PERST# before turning off other resources (Manivannan Sadhasivam)
+ * Improve some error messages (Manivannan Sadhasivam)
+ * Rename goto labels as per their purpose (Manivannan Sadhasivam)
+ * Add extra patch for dw_pcie_resume_noirq, since I've seen errors
+   during resume on boards not having anything plugged into their PCIe
+   port
+
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+Sebastian Reichel (9):
+      PCI: dw-rockchip: Fix LTSSM set functions
+      PCI: dw-rockchip: Restore vpcie3v3 regulator handle
+      PCI: dw-rockchip: Move devm_phy_get out of phy_init
+      PCI: dw-rockchip: Add helper function for enhanced LTSSM control mode
+      PCI: dw-rockchip: Add helper function for controller mode
+      PCI: dw-rockchip: Add helper function for DDL indicator
+      PCI: dw-rockchip: Add pme_turn_off support
+      PCI: dw-rockchip: Set broken L1SS resume flag
+      PCI: dw-rockchip: Add system PM support
+
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 267 +++++++++++++++++++++-----
+ 1 file changed, 224 insertions(+), 43 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20251028-rockchip-pcie-system-suspend-86cf08a7b229
+
+Best regards,
+--  
+Sebastian Reichel <sebastian.reichel@collabora.com>
 
 
