@@ -2,68 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17823606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:11:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41199606A32E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:11:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JJs73Cnq;
-	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=DPtVCVe+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dD8zyQLA;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gndPHB8K
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=PM+1SXBE1tO8IGolYslHAuqq+HDTOKBxAOZ2o3BRaQ0=; b=JJs73Cnq7zobmg9urDhVg4syYk
-	bLb7l9Lrzhq+shfDbT3IkJcJNcJiREi4Jhxt9QEZ2tjAcVALyBLBxLnWWRdnMRI97/0qJWyqNJTJG
-	07ZW3idz2T9nBZZwxrF+J5tMGcZUxKTFoGayF3VO14kdt0tFkHguADHudgl4W8GCcFE7KWGDcDpM3
-	y/Q01I6PkvjqZ4K55oI08nKcP4ttzfFXSXzr2FxquBeRReBFG/g4nX+HOu28l8qN6C1eOa/x7qdDH
-	8TmizokBqueCtHef/RsDh7No+dBg0Czt3zmvH8lOHHwFLPtMNeSje3JgibiGD7LA586QNO/Ui1W+j
-	A2bH9Cog==;
+	bh=/f5A3hR3Bm+usn2244B9GDUzSk90oqC+oGYIPpnfKec=; b=dD8zyQLAnMn9+tXoiYvjeJzHVi
+	l5LEYTZmqsFI6yvRvnQAEBvH4Ze0Y5yxInrqnOE3LVkQO+NpvoOEHP5X60ltEy98wGAFPdefXKzr/
+	FTUxZsvSr2eF/Y9lEY3qC0ixP0bbFAvFbxYVVtlNwj0siV5fOjNSUEjgStJjOUjaQgscM7lfPEDEJ
+	doR6Oh2VjnkhATSujzPgMcQFnH+SerZaMxLZufn1BJCT9a++x7LiUhA5t0cneBUjXYGhi3a0d2LOV
+	6zA5Ica7nc7q9NSC9kGh2wTzg6xIs+lNkx5S8I1BDqpA4FMHA/5ipcqbIOcXxWgyDSlnzO1SJhDUN
+	+8w+Xq3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZpa-00000005GcC-2GkO;
-	Wed, 04 Nov 2026 12:11:06 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1xOZpm-00000005Gdv-2f1R;
+	Wed, 04 Nov 2026 12:11:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZpY-00000005Gbn-1ZeZ
+	id 1xOZpl-00000005Gdh-31GT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 12:11:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Content-Type:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=PM+1SXBE1tO8IGolYslHAuqq+HDTOKBxAOZ2o3BRaQ0=; b=DPtVCVe+pcamCzJc01XI7O4qkX
-	yYweOEk5BL88jVN6149yTUKRNpjMgHL52CAErHZFrEv/+eRNPDatL2ZAn2BmumA9wYAXxfPvPIfnJ
-	RazZoDmf0tVwNNPNcVy5UgOi/LJ3hpwamdFIo5kFwCvOoKe0tYBgWUboFgn97ov7IND0nVMYH9A6C
-	ifQvaYbClrAq5k6AjQFw/r2ulk6HiG/J4++BpWUm6jIgbYtW7TWw4LGVQKRyww+H91BmLEy7JCGKL
-	KA2swXz/S1unrolO/+TY4ic8tp/lb0+zSs27fiVp044phprOel4bGfW3h73sk7d6AWQic9psFni2x
-	ETp4vWCw==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1xOZpS-007hWX-1p;
-	Wed, 04 Nov 2026 12:10:58 +0000
-Date: Wed, 4 Nov 2026 04:10:53 -0800
-From: Breno Leitao <leitao@debian.org>
-To: linux-btrfs@vger.kernel.org
-Cc: David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>, 
-	Qu Wenruo <wqu@suse.com>, linux-kernel@vger.kernel.org, boris@bur.io, jlayton@kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: btrfs: bug report: reflink racing with async compression forces
- read-only
-Message-ID: <ause7k_HjzUWT3D-@gmail.com>
+	Wed, 04 Nov 2026 12:11:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3121343436;
+	Wed,  4 Nov 2026 12:11:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D1BF1F000C1;
+	Wed,  4 Nov 2026 12:11:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793794277;
+	bh=/f5A3hR3Bm+usn2244B9GDUzSk90oqC+oGYIPpnfKec=;
+	h=From:To:Cc:Subject:Date;
+	b=gndPHB8KuXtUVdAEjeHq+VK7vBVz5TBIJ0SP2svlUxclb5ES5qbzqlmr2ZqCGq+lS
+	 s8rNm70hl3s/OP6OBzTapLtBZcR1GLxIJ3+t5QnuavyviANZ9uqbxgW1KUwAugygoc
+	 EeI9K++Clc5XJVybgyEMJNCUQcvRZ0hmmp4bdqNJ7c3d11Wggq21aEaCulOdrILlev
+	 +IsUrOB4GY9Scq5tV2ler70t0aXDIskR6k4Ja8/ipzPaj14bpUU4IIEJ/BIuNvMcGF
+	 EvDJDODLhWn05YDlm1tVq4nNOpEm63CDOrVUZRRnyU3p03f2wJT4s4GKrIW7o/b4HN
+	 Q5L0kmWVX3/5A==
+From: Michael Walle <mwalle@kernel.org>
+To: Dong Aisheng <aisheng.dong@nxp.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Carlos Song <carlos.song@nxp.com>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Michael Walle <mwalle@kernel.org>
+Subject: [PATCH 1/2] i2c: imx-lpi2c: fix SMBus block read with PEC
+Date: Wed,  4 Nov 2026 13:10:35 +0100
+Message-ID: <20261104121108.659820-1-mwalle@kernel.org>
+X-Mailer: git-send-email 2.47.3
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-Debian-User: leitao
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_041104_421144_BC74EC2A 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -4.4 (----)
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,49 +75,59 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
+If PEC is enabled, the I2C core sets msgs->len to 2 instead of 1. The
+length calculation for the second receive command assumes it's always
+1. This will lead to a short read and eventually a timeout because the
+PEC byte is never received.
 
-We are seeing btrfs go read-only on arm64 production hosts (64K pages,
-4K blocks, compress-force=zstd:3), on 6.16-based kernels and up, still
-being reproduced in linux-next as of today:
+Take msgs->len into account when calculating the remaining bytes.
 
-  BTRFS warning (device nvme0n1p2): no extent map found for inode ...
-  when unpinning extent range [20480, 24576), generation ...
-  BTRFS: error (device nvme0n1p2 state A) in btrfs_finish_one_ordered:3200:
-  errno=-2 No such entry
-  BTRFS info (device nvme0n1p2 state EA): forced readonly
+This was tested on a board which uses an IPMI SSIF BMC.
 
-A quick bissection seems to point to commit 1d2fbb7f1f9e ("btrfs: allow
-compression even if the range is not page aligned")
+Fixes: efdc383d1cc2 ("i2c: imx-lpi2c: fix SMBus block read NACK after byte count")
+Signed-off-by: Michael Walle <mwalle@kernel.org>
+---
+ drivers/i2c/busses/i2c-imx-lpi2c.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
 
-I've able to come up with a reproducer that hits the issue within
-seconds with 64K pages:
+diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
+index 7302464c371a..f57e800ac3b5 100644
+--- a/drivers/i2c/busses/i2c-imx-lpi2c.c
++++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
+@@ -563,7 +563,7 @@ static unsigned int lpi2c_SMBus_block_read_length_byte(struct lpi2c_imx_struct *
+ static int lpi2c_imx_read_init(struct lpi2c_imx_struct *lpi2c_imx,
+ 			       struct i2c_msg *msgs)
+ {
+-	unsigned int temp, val, block_len;
++	unsigned int temp, val, block_len, remaining;
+ 	int ret;
+ 
+ 	lpi2c_imx->rx_buf = msgs->buf;
+@@ -612,9 +612,13 @@ static int lpi2c_imx_read_init(struct lpi2c_imx_struct *lpi2c_imx,
+ 		 * keep MTDR non-empty and ensuring continuous ACKs. Only update command register
+ 		 * here. All block bytes will be read out at IRQ handler or lpi2c_imx_read_atomic()
+ 		 * function.
++		 *
++		 * msgs->len is 1 - or if PEC enabled msgs->len is 2. Two bytes
++		 * have already been requested.
+ 		 */
+-		if (block_len > 1)
+-			writel((RECV_DATA << 8) | (block_len - 2), lpi2c_imx->base + LPI2C_MTDR);
++		remaining = msgs->len + block_len - 2;
++		if (remaining)
++			writel((RECV_DATA << 8) | (remaining - 1), lpi2c_imx->base + LPI2C_MTDR);
+ 
+ 		lpi2c_imx->msglen += block_len;
+ 		msgs->len += block_len;
+-- 
+2.47.3
 
-	https://github.com/leitao/btrfs-reflink-async-compress
-
-My robot identified this as the root cause, but I am not smart enough to
-understand: 
-
-A reflink into a range that is still being compressed does not wait
-for it:
-
-1. Another part of the same folio starts writeback first, which clears
-   the folio's dirty tag.
-2. The second filemap_fdatawrite_range() in btrfs_fdatawrite_range()
-   finds folios by that tag, so btrfs_wait_ordered_range() returns
-   before the async extent has an ordered extent.
-3. btrfs_clone() drops or splits the extent map pinned for that extent,
-   and the transaction aborts when it completes. If the clone wins the
-   race instead, the compressed write lands after it and the cloned data
-   is silently lost.
-
-Thanks,
---breno
 
