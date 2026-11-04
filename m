@@ -2,44 +2,44 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC4DC606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 08:49:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36803606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 08:49:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Kx+wcL5I;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q0lFkMvJ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wwkJ+H/a;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Em0M3UeR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Wgtb9kfhJDQT6OIlDEFANW5PARd8orgbcoPjl6TcZEI=; b=Kx+wcL5I2ZEs4K
-	gq5GbWBxs3JG3K8Xi1VGXNvG3ej9hg1ZDdarMCfEPOegrDi7T/dMUKiORw96FjQKTSiTlyEaX6u8B
-	ZKSExBxBwLoS2OoulB9V+i9cdiMEeSknRSuPGVwrMh3AEreAHDIX166wdxcgj0318s2LGVCKE7URC
-	ZX5P618F6qGP/F8JMvEmBBnfPHpfSONZoTNcSS9q56aI47clfOc5o2iX2qpvbZ44E71FkJtko7wLa
-	5/aS6dKZW5Pguws3KHwn7yrjSwo4F9vHJnbHKEIrynd2xAX4pSBZbSAmrlpGSkY4jBf1F4nAZymUb
-	K6P3+itcTJYIVCR8POhQ==;
+	List-Owner; bh=AfXeCeneHqNmuixn/C9DCjk2UEGT5HCCQsR07Fy0vVk=; b=wwkJ+H/asiZ9gi
+	iu0nJ2xjNemFimFnoxLzwkIR4Yv4REhnpq99tOmS2BXfH6JUomPW9PMgH0eLuF9IjK8YlZHYq9A+O
+	0ftrgE2lVKuIUWeYl+d64aZHCIRw/A07Ja0V7A0AITTfkwZePC9Yg3gHzEq+LUF0qJCea355Cl4lF
+	zLlvhiKEd3ofIrEqf5vTPZ9MNqI++Z0VziHr+e5qpSvyzaJM/doOPh9VfRd6B2GP8j21/9jrLnkIm
+	L2joNM3/MUnR3vQ480VNn47xr5seEcS9lizoTgaJSOtvEsMVMBEuKvBxZyPJ9U2K5/Vsv/H3LPe+U
+	m7MpQ4q01X8chsvBf9Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOWg3-00000004l5i-27YR;
-	Wed, 04 Nov 2026 08:49:03 +0000
-Received: from out-191.mta0.migadu.com ([2001:41d0:1004:224b::bf] helo=mta0.migadu.com)
+	id 1xOWg8-00000004l9J-2cVB;
+	Wed, 04 Nov 2026 08:49:08 +0000
+Received: from out-200.mta0.migadu.com ([2001:41d0:1004:224b::c8] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOWg1-00000004l3A-00BX
+	id 1xOWg5-00000004l6U-3svg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 08:49:02 +0000
+	Wed, 04 Nov 2026 08:49:07 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=zy9OoZoEVLZKrHt/PA6PNvYObGqJuDPk1PHvlEStbBI=;
+DKIM-Signature: a=rsa-sha256; bh=RoNzd28AyvTb0ibr+4xItgKDPl/EqyvaBO8VS7dD1Vo=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793782139; v=1; x=1794386939;
- b=q0lFkMvJ6aldS90vGPX8Tae1McejmsXzlrjf3IcLe1lPgX422iXCunXCI26VYMDPQOUR5Gh4
- rtcfT+rB+0SYffDNWlwahAWRYclzDTmXBA3zmFch3OLEhvvydC9wnrXaHsReMK6v68tqB6f8s4A
- Jlz53TVC+NpFkWmEieQcwVl8=
+ t=1793782144; v=1; x=1794386944;
+ b=Em0M3UeRUiqmI2xQO3AQX1AGIwL2MPPAwGlOAOWn0npDGHjxDWRsJxi8mWK6g98roh4BQCwt
+ 6YxVuA7Nw+goPeU/kVOs9oOg+M67WANy/LV5el/xHONsp06ubrvvkD52jYQuEow0w7fcrujoC2K
+ x7pHogqI/o0p9jOvaa8JhxXU=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id adf1661c24975b7e;
-	Wed, 04 Nov 2026 08:48:59 +0000
-X-Mizu-Trace-ID: adf1661c24975b7e
+Received: by smtp.migadu.com with ESMTPS id 0936b15fc4cf6f51;
+	Wed, 04 Nov 2026 08:49:03 +0000
+X-Mizu-Trace-ID: 0936b15fc4cf6f51
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -60,9 +60,9 @@ Cc: Will Deacon <will@kernel.org>,
 	kvm@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 03/16] tools: arm-smccc: Add the pKVM memory sharing function IDs
-Date: Wed,  4 Nov 2026 08:48:29 +0000
-Message-ID: <20261104084842.132944-4-fuad.tabba@linux.dev>
+Subject: [PATCH 04/16] KVM: selftests: Export the ucall pool's guest physical address
+Date: Wed,  4 Nov 2026 08:48:30 +0000
+Message-ID: <20261104084842.132944-5-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261104084842.132944-1-fuad.tabba@linux.dev>
 References: <20261104084842.132944-1-fuad.tabba@linux.dev>
@@ -70,9 +70,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_004901_174605_E17633A0 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261104_004906_103491_34811930 
+X-CRM114-Status: GOOD (  12.37  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,59 +91,55 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The tools copy of arm-smccc.h lacks the pKVM guest hypercalls that the
-protected-VM selftests make.
+A protected guest's memory is private until the guest itself shares it,
+so the guest has to share the ucall pool before its first ucall. The
+host can't do that for it. Only the guest's copy of ucall_pool holds the
+pool's address.
 
-The kernel's arm-smccc.h defines the vendor-hyp UID with UUID_INIT(),
-which requires linux/uuid.h, and tools doesn't have one. So rather than
-sync the whole header, copy the function numbers and IDs of HYP_MEMINFO,
-MEM_SHARE and MEM_UNSHARE from include/linux/arm-smccc.h.
+Add get_ucall_pool_gpa(), which reads that copy, so that the host can
+pass the address to the guest.
 
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- tools/include/linux/arm-smccc.h | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ tools/testing/selftests/kvm/include/ucall_common.h | 1 +
+ tools/testing/selftests/kvm/lib/ucall_common.c     | 9 ++++++++-
+ 2 files changed, 9 insertions(+), 1 deletion(-)
 
-diff --git a/tools/include/linux/arm-smccc.h b/tools/include/linux/arm-smccc.h
-index 63ce9bebccd32..8c8f4ad639018 100644
---- a/tools/include/linux/arm-smccc.h
-+++ b/tools/include/linux/arm-smccc.h
-@@ -111,6 +111,10 @@
- /* KVM "vendor specific" services */
- #define ARM_SMCCC_KVM_FUNC_FEATURES		0
- #define ARM_SMCCC_KVM_FUNC_PTP			1
-+/* Start of pKVM hypercall range */
-+#define ARM_SMCCC_KVM_FUNC_HYP_MEMINFO		2
-+#define ARM_SMCCC_KVM_FUNC_MEM_SHARE		3
-+#define ARM_SMCCC_KVM_FUNC_MEM_UNSHARE		4
- #define ARM_SMCCC_KVM_FUNC_FEATURES_2		127
- #define ARM_SMCCC_KVM_NUM_FUNCS			128
+diff --git a/tools/testing/selftests/kvm/include/ucall_common.h b/tools/testing/selftests/kvm/include/ucall_common.h
+index cbdcb0a50c4f9..3a6cdf9aa0464 100644
+--- a/tools/testing/selftests/kvm/include/ucall_common.h
++++ b/tools/testing/selftests/kvm/include/ucall_common.h
+@@ -41,6 +41,7 @@ __printf(5, 6) void ucall_assert(u64 cmd, const char *exp,
+ u64 get_ucall(struct kvm_vcpu *vcpu, struct ucall *uc);
+ void ucall_init(struct kvm_vm *vm, gpa_t mmio_gpa);
+ int ucall_nr_pages_required(u64 page_size);
++gpa_t get_ucall_pool_gpa(struct kvm_vm *vm);
  
-@@ -133,6 +137,24 @@
- 			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
- 			   ARM_SMCCC_KVM_FUNC_PTP)
+ /*
+  * Perform userspace call without any associated data.  This bare call avoids
+diff --git a/tools/testing/selftests/kvm/lib/ucall_common.c b/tools/testing/selftests/kvm/lib/ucall_common.c
+index 029ce21f9f2fa..aa1f0f92c6d1d 100644
+--- a/tools/testing/selftests/kvm/lib/ucall_common.c
++++ b/tools/testing/selftests/kvm/lib/ucall_common.c
+@@ -21,10 +21,17 @@ int ucall_nr_pages_required(u64 page_size)
  
-+#define ARM_SMCCC_VENDOR_HYP_KVM_HYP_MEMINFO_FUNC_ID			\
-+	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
-+			   ARM_SMCCC_SMC_64,				\
-+			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
-+			   ARM_SMCCC_KVM_FUNC_HYP_MEMINFO)
+ /*
+  * ucall_pool holds per-VM values (global data is duplicated by each VM), it
+- * must not be accessed from host code.
++ * must not be accessed from host code. The host reads only a VM's copy.
+  */
+ static struct ucall_header *ucall_pool;
+ 
++gpa_t get_ucall_pool_gpa(struct kvm_vm *vm)
++{
++	struct ucall_header **pool = addr_gva2hva(vm, (gva_t)&ucall_pool);
 +
-+#define ARM_SMCCC_VENDOR_HYP_KVM_MEM_SHARE_FUNC_ID			\
-+	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
-+			   ARM_SMCCC_SMC_64,				\
-+			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
-+			   ARM_SMCCC_KVM_FUNC_MEM_SHARE)
++	return addr_gva2gpa(vm, (gva_t)*pool);
++}
 +
-+#define ARM_SMCCC_VENDOR_HYP_KVM_MEM_UNSHARE_FUNC_ID			\
-+	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
-+			   ARM_SMCCC_SMC_64,				\
-+			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
-+			   ARM_SMCCC_KVM_FUNC_MEM_UNSHARE)
-+
- /* ptp_kvm counter type ID */
- #define KVM_PTP_VIRT_COUNTER			0
- #define KVM_PTP_PHYS_COUNTER			1
+ void ucall_init(struct kvm_vm *vm, gpa_t mmio_gpa)
+ {
+ 	struct ucall_header *hdr;
 -- 
 2.47.3
 
