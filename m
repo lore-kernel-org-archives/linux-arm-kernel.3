@@ -2,69 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD2CD606A330
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 17:05:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA37D606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 17:06:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kY+W/Dq6;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IUQJStB8
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iFGd7jGZ;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=aBYGdWw7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=3kGc/TdTlhAna5c/XIOgSyLjkq7Couqao11uc4WOjTg=; b=kY+W/Dq6NIEvBefLG+7Nxdf7kE
-	pO40kRzm18bySQJlUhozfKmWJkVFel2heUfYHEKCtT7IHcRVmKBc69KthYZdOPznZFY972wf1xy1C
-	Vg5v6olSX1t+7RvcSdUNv9Q3BHcvvRsOCH595oHdtGP/DxMJL5Km99wgFEKxYDLHKGW4imyMoG6hE
-	qMJseo19md9zBJ42mUPfHA881FCZsXNH1SJm0UB765PbDvyAwSihLjC/5VMDMvZ2k77cUsjZ6AGlY
-	6Pqo423M3WiouyiW/miI5KbHkn/zhJT5h9hHV0fP+nKvosECzyfc+PXMLT1ArDMN4Y/+SqYzSJMaN
-	bQcaHFiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=xHp9zcciDt9BQSTYUI4c3pqvrH6NfBZKhO/JkiSc8yA=; b=iFGd7jGZD+icOd
+	7m9CL0rjQVNKYPaSy+WTtWaDd/BRrqYwlwkBfzTukcd6cvoPWzr68Tkegr0zr1AahF+vUCYvOruVp
+	Ac9npmqeeR4gtQM4WPj0hq/gG9BJfeBcXp8k4RGy576o9bMj1dFiOh+qTc/YqXrox39fqEs6/mHW0
+	Z0rARu1C438U+Jm4ffZAdp/ctUC43LD3DDB+4KOysv0r2d2svFK/q4xErnW1u91YzKCwEnoYb5ek2
+	gOUtpMSGAmHfccnQzwOpDfptDxd0mXwdTXCzIfHTck409E3E6gk0rXZUTxO/83sUJRELiMkCO6eY2
+	+w/7d5XFAUuGQbdGcZGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOeQU-000000068WS-1f4Y;
-	Wed, 04 Nov 2026 17:05:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOeQT-000000068W2-3M1s;
-	Wed, 04 Nov 2026 17:05:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 455B641A0E;
-	Wed,  4 Nov 2026 17:05:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E48671F00A16;
-	Wed,  4 Nov 2026 17:05:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793811929;
-	bh=3kGc/TdTlhAna5c/XIOgSyLjkq7Couqao11uc4WOjTg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IUQJStB8ZjzvNZVLPPeWp5Y7uiS5eTbo6dCqqwrFKLwoYkaTF9WqGfqx09Kv0s9cB
-	 1XhX3bj6IpEB2ZF/TTHyWBz+Db6hmDjHOKOQ6oUH0FK9I9ZniLR0oNi913PW82jqPi
-	 uVfAdrqi9KuWkxojbDGlick8bdWZHKCIRPfFSxHD+g56tHmrcYVNfO/ik225CcwDNR
-	 qsINv46jOBuzi6Xc981oeLegIsbQLoSYlfgje1QkzhNP+mEILtw8eliChTVaDWwESs
-	 JbuXej3F8dMVI6Su6taznVPzvOV7YheIIk+8BnU1pAJsod8ZvPYArrs0iqOFImr0N0
-	 q/Fj544IgSGJw==
-Date: Wed, 4 Nov 2026 11:05:26 -0600
-From: Rob Herring <robh@kernel.org>
-To: Shashank Maurya <shashank.maurya@oss.qualcomm.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 1/2] dt-bindings: regulator: rpi-panel-v2: Add
- vcc-supply property
-Message-ID: <20261104170526.GA2198175-robh@kernel.org>
-References: <20261104-rpi_reg-v4-0-3578e794ff45@oss.qualcomm.com>
- <20261104-rpi_reg-v4-1-3578e794ff45@oss.qualcomm.com>
+	id 1xOeR7-000000068kE-3piI;
+	Wed, 04 Nov 2026 17:06:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOeR5-000000068iw-0W2r
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Nov 2026 17:06:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 813BE1BB0;
+	Wed,  4 Nov 2026 09:06:00 -0800 (PST)
+Received: from [10.57.90.115] (unknown [10.57.90.115])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 909573F673;
+	Wed,  4 Nov 2026 09:06:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793811963; bh=M5dLetY60rROLOEP0RTG1zWPi4zkfIzPuDEW8MB3PWQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=aBYGdWw7WH5tD8TaTad1UX5sXkFqHy3kJFkCIO/NV+nPvDKlY2sXMTXu+pv2gHLoM
+	 z3vZUPDN/buLPybv/Q+X6+qfjoULVPVgWwTWUrdshr2BqKyGHwDH3WX9pynYyFbpe+
+	 ECT6kIX/0a74V1YeaSzu7NMMtnYPeJE0Zi4A9SSk=
+Message-ID: <ba2d9aa3-f14d-47e6-8cdc-62a6d385515e@arm.com>
+Date: Wed, 4 Nov 2026 17:05:59 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261104-rpi_reg-v4-1-3578e794ff45@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/10] irqchip/gic-v5: Serialise IRS synchronisation
+ requests
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+ Radu Rendec <radu@rendec.net>, Timothy Hayes <timothy.hayes@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Jonathan Cameron <jic23@kernel.org>,
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20261102-host_gicv5_fixes-v1-0-743b61626fc5@arm.com>
+ <20261102-host_gicv5_fixes-v1-3-743b61626fc5@arm.com>
+ <aumlixJkwDBlv8Yf@red-moon>
+Content-Language: en-GB
+From: Sascha Bischoff <sascha.bischoff@arm.com>
+In-Reply-To: <aumlixJkwDBlv8Yf@red-moon>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261104_090607_240989_F42CB902 
+X-CRM114-Status: GOOD (  17.27  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,23 +77,95 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 04, 2026 at 01:40:47PM +0530, Shashank Maurya wrote:
-> Add an optional vcc-supply property to the Raspberry Pi 7" touchscreen
-> panel V2 regulator binding. The panel controller MCU is powered from an
-> external power rail, which has to be supplied before any I2C
-> communication can take place.
+On 03/11/2026 09:12, Lorenzo Pieralisi wrote:
+> On Mon, Nov 02, 2026 at 01:32:56PM +0000, Sascha Bischoff wrote:
+>> IRS_SYNCR writes are ignored while IRS_SYNC_STATUSR.IDLE is clear.
+>> Calls to gicv5_irs_syncr() for different IRQs can overlap, allowing
+>> the second request to be dropped. Its caller can then observe the
+>> first request completing and assume that its own events have been
+>> processed.
+>>
+>> Serialise the request and completion poll with a raw spinlock. We use
+>> atomic polling, as the lock cannot be held over a sleeping wait.
+>>
+>> Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+>> ---
+>>   drivers/irqchip/irq-gic-v5-irs.c | 8 ++++++--
+>>   1 file changed, 6 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
+>> index 4edf787f3f97f..ead76560ea08f 100644
+>> --- a/drivers/irqchip/irq-gic-v5-irs.c
+>> +++ b/drivers/irqchip/irq-gic-v5-irs.c
+>> @@ -10,6 +10,7 @@
+>>   #include <linux/log2.h>
+>>   #include <linux/of.h>
+>>   #include <linux/of_address.h>
+>> +#include <linux/spinlock.h>
+>>   
+>>   #include <linux/irqchip.h>
+>>   #include <linux/irqchip/arm-gic-v5.h>
+>> @@ -22,6 +23,8 @@
+>>   #define LPI_ID_BITS_LINEAR		12
+>>   
+>>   static DEFINE_PER_CPU_READ_MOSTLY(struct gicv5_irs_chip_data *, per_cpu_irs_data);
+>> +/* Synchronization requests must not overlap in an IRS Domain. */
+>> +static DEFINE_RAW_SPINLOCK(irs_sync_lock);
+>>   static LIST_HEAD(irs_nodes);
+>>   
+>>   static u32 irs_readl_relaxed(struct gicv5_irs_chip_data *irs_data,
+>> @@ -507,10 +510,11 @@ void gicv5_irs_syncr(void)
+>>   		return;
+>>   
+>>   	syncr = FIELD_PREP(GICV5_IRS_SYNCR_SYNC, 1);
+>> +	guard(raw_spinlock_irqsave)(&irs_sync_lock);
 > 
-> The property is optional so that existing device trees which do not
-> describe the supply remain valid.
-> 
-> Signed-off-by: Shashank Maurya <shashank.maurya@oss.qualcomm.com>
 
-Missing Krzysztof's ack.
+Hi Lorenzo,
+
+> Why does it have to be a spinlock ?
+
+gicv5_irs_syncr() is also called while restoring the host ITTE in 
+gicv5_its_set_vcpu_affinity() once we have the GICv5 ITS support for 
+KVM. That callback runs under the irq descriptor lock via 
+irq_set_vcpu_affinity(), so it cannot sleep. I’ll clarify this in the 
+commit message.
+
+Apologies for the lack of clarify in that regard for some of these 
+commits. They logically made more sense when they were bundled together 
+with my KVM changes, but now that I pulled them out some of the commit 
+messages lack context.
+
+> 
+> Thanks,
+> Lorenzo
+
+Thanks,
+Sascha
+
+> 
+>>   	irs_writel_relaxed(irs_data, syncr, GICV5_IRS_SYNCR);
+>>   
+>> -	gicv5_wait_for_op(irs_data->irs_base, GICV5_IRS_SYNC_STATUSR,
+>> -			  GICV5_IRS_SYNC_STATUSR_IDLE);
+>> +	gicv5_wait_for_op_atomic(irs_data->irs_base, GICV5_IRS_SYNC_STATUSR,
+>> +				 GICV5_IRS_SYNC_STATUSR_IDLE, NULL);
+>>   }
+>>   
+>>   int gicv5_irs_register_cpu(int cpuid)
+>>
+>> -- 
+>> 2.34.1
+>>
+
 
