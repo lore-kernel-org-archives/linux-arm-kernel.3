@@ -2,10 +2,10 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCEE56082BD6
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC1A8606A329
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:50:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dQqUDIg0
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CLebEAlE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
@@ -13,41 +13,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=yDZPcnE1uFPGSiI0MS8aKMlU2GHR0GHCdoJTfCo3Xdg=; b=dQqUDIg0ZdTu4ekm++mhHckJu7
-	H9IJ3JaUOZwV+3GUd7dTJLRvkQwqDNVGgMBaFFzqOF8YLZXNzuecMjtZ6S6QvXng9ogvCMnw/jFfh
-	ogiRVufsdLIABrCucnly/Uj+jOPFYEjL+s7HamDc7n1LNYOefqI2kVs2SpuHGpMMvy8oBM4IkOvDs
-	mXTuFLm4rEVqOGKSkZnK0VQwxYp+k0kxmPLZ8C0W3xsBDnCjyv20nEdCHJLUdYBDCHQqZWXOQ5KVt
-	i0WvvcTlTmBWfo0krsfbCKVWu726y/4rnMV+9dofp2mbAGTrep8RvuLPMReRcXlPBvhRaF5jEOZqz
-	2QGojOqw==;
+	bh=xVK4Bu9UYvmBrhVxIppgDvWMYL7Cu53nffoa0XQ6rgs=; b=CLebEAlE1PQzU/F6B8Gks6Lbnb
+	gbRtBRPtub6ROIZxAiTkGmXdxKo2i0us8zdevhMPqclZkyfKxNJvZEChPSptctS5/N4paPOtc8bov
+	egu0cFA1lLX/lsgTmpz3ZYPlHYqkdPWQmsCloehAKs6q7gWFe2DZrXSSHUI5gV/cvoC1Rh1jswBCF
+	O+F9wS082LH4Y96Tgc2Oh0Ojnz1CiUASsYyGfCqjKcR8B2sMT7AW1nIigevIGjn3M70hMxGeacSiN
+	D5t/MFYSjsGLZZ9dhyHsqrQoXNdhgl3uGDQQDRfuZMpekrxWfVBZtoqrqtRhhQfV0bjDQ66cidajP
+	1QgLO88w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOaRo-00000005NrD-3USJ;
-	Wed, 04 Nov 2026 12:50:36 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1xOaRo-00000005Nrk-46cc;
+	Wed, 04 Nov 2026 12:50:37 +0000
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOaRh-00000005Nig-04hm
+	id 1xOaRh-00000005Nii-27Gh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 12:50:31 +0000
+	Wed, 04 Nov 2026 12:50:33 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xgn12F3J9jNMrtTqITPxFo1mrHXRFJWDan+PcWCpvdHYyGpt0FMpZYyhwjg3720JSLHosMD7BiD35YtwjCsMvDRODVS5M9IHt9hp+EYDoR7Yeif+zSB6cLNyEnLY+9woWu3On6F6Ht1ONbCv9snGVOZ30bQdnl9yfwd3lpIPE+8QZqR/VhW+MHR7/3N2bgYH7Xk05ezorndEvtqBd9POCgGIY6AGhD32EH3DQ40lDPtRKxuJA+lcZdh7ax+qrhUGt9WBuZibsv56F09hSf+OX9ZXcM35eNZwezk8kpx4tqI1F9+2vgmzpgzhybAyuBS+yyNZj+7B32tj5AYSBA8Ehw==
+ b=MxPu1rm2C02hd/woLxW8Aw0WExz9Jgcu8Ypm8aGVdM3TF8KGbkw/w02d404HyX04zeyQRoyFx7lErvNLbrBQLtVZ5EUohSqynQEd57+PG88y1cAb2u11d7DHpL06kljSctD3W/PSD7lUounBYAquJvzMm307Y+57H8449miUC/1nvq6l4bWCek6h7rUlWjGtChaRQ1BlY4cGmkml2i0ANBrKPha0Dw0QeGqPrFmlWSCFZvplAC83DXNkbC4Cc/YIZIM8OuGHcDXRsbA9detjnnWkX4XHHqriJt0HlA+7BIqTZ/bN1G07wQO3xo6GADsZuC5GCRIAF4+Ms9/ktrIGVQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yDZPcnE1uFPGSiI0MS8aKMlU2GHR0GHCdoJTfCo3Xdg=;
- b=kr4eJGH2iZtdFE2HxhnXb+E0r3jv/Y0sKXKu6mGaWc7dPrQIRKZcNrUX/ryy6cLL/J7Lw++7mpNluYGPLE+IXqEeWt6FhQYBqyN1WSR9CimRoQEeW0KtQcldOaiN4Dd7/gyDbwHXxiLZQl7Qj+S9dHZAj7BvDlWAYUZsms2WoGKycvd2hcWQQSI+kAdf5Y/l3atfUeUODvBpPaT3Lxhjo/3m/vTiQLCBTLKIa3oacDPOtK/LVeTg9xxRvoh80TZhZY/darV8SZe0d58LUBjHuAZ81Zp3MFWgNfV4RyD7oy8oHveGtHmcSb0m58mJc6TO/vvVIp/rD0j8JOdmKsFoog==
+ bh=xVK4Bu9UYvmBrhVxIppgDvWMYL7Cu53nffoa0XQ6rgs=;
+ b=kFelaLtoLIlz4MJIYMUQ8x8FTGgSv8oMcY85pE4/Vqys3giWW+1T+ueWM/WSt+hYCylejIpyNwle6PkpimqKy+37QyarhvhGBimiHej8UArnxt4hBdF9tx8/S4O72gLEib0XxQ20tRVKsTSED3PIIMe2BOP3Wqjm8KjIwusHkpo5HhyCW5mE/7WAQ5XmyfdJii0pfOOi5VCBRglRrIsuVvpnh5jkCuwnbmzucH10cF/0SV3bwTqCxAaRxm5y2BVxQTrdytnMbvf8citAm3DNJzW4aj8QqFyYYJZnyRFFQPpjSIJa4NVUobAmG7tMY6I4tzSDrUFbOb3hVN68bcnIxA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from SI2PR01CA0046.apcprd01.prod.exchangelabs.com
- (2603:1096:4:193::18) by SEZPR06MB6551.apcprd06.prod.outlook.com
- (2603:1096:101:187::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Wed, 4 Nov 2026
- 12:50:23 +0000
-Received: from SG1PEPF000082E2.apcprd02.prod.outlook.com
- (2603:1096:4:193:cafe::f) by SI2PR01CA0046.outlook.office365.com
- (2603:1096:4:193::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.9 via Frontend Transport; Wed, 4
+Received: from SI2P153CA0018.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::9) by
+ KL1PR06MB6180.apcprd06.prod.outlook.com (2603:1096:820:d7::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.592.9; Wed, 4 Nov 2026 12:50:22 +0000
+Received: from SG1PEPF000082E6.apcprd02.prod.outlook.com
+ (2603:1096:4:140:cafe::78) by SI2P153CA0018.outlook.office365.com
+ (2603:1096:4:140::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.4 via Frontend Transport; Wed, 4
  Nov 2026 12:50:22 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
@@ -56,11 +55,11 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG1PEPF000082E2.mail.protection.outlook.com (10.167.240.11) with Microsoft
+ SG1PEPF000082E6.mail.protection.outlook.com (10.167.240.5) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.592.5 via Frontend Transport; Wed, 4 Nov 2026 12:50:22 +0000
+ 15.21.592.5 via Frontend Transport; Wed, 4 Nov 2026 12:50:21 +0000
 Received: from ubuntu (unknown [172.20.64.99])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 574F140920F9;
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id BE49940E6386;
 	Wed,  4 Nov 2026 20:44:39 +0800 (CST)
 From: Jelly Jia <Jelly.Jia@cixtech.com>
 To: vkoul@kernel.org,
@@ -79,11 +78,10 @@ Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Jelly.Jia@cixtech.com,
 	linux-clk@vger.kernel.org,
-	joakim.zhang@cixtech.com,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v2 3/5] dt-bindings: dma: arm,dma-350: Document dma-channel-mask
-Date: Wed,  4 Nov 2026 20:44:35 +0800
-Message-ID: <20261104124437.296753-4-Jelly.Jia@cixtech.com>
+	joakim.zhang@cixtech.com
+Subject: [PATCH v2 4/5] dmaengine: arm-dma350: Honour dma-channel-mask
+Date: Wed,  4 Nov 2026 20:44:36 +0800
+Message-ID: <20261104124437.296753-5-Jelly.Jia@cixtech.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261104124437.296753-1-Jelly.Jia@cixtech.com>
 References: <20261104124437.296753-1-Jelly.Jia@cixtech.com>
@@ -92,30 +90,29 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E2:EE_|SEZPR06MB6551:EE_
+X-MS-TrafficTypeDiagnostic: SG1PEPF000082E6:EE_|KL1PR06MB6180:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 1acc1b6d-6825-4287-ee5d-08df3a7230a2
+X-MS-Office365-Filtering-Correlation-Id: 45975e97-0b6f-4625-c698-08df3a723040
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|7416014|82310400026|1800799024|376014|261021121427099003|261009223027099003|261026121527099003|18002099003|22082099003|261102123227099003|6133799003|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: SMX9AAg5w0R6PUmCeND/FGWLycm0wjDzmAlvT3+/foUnmdFwuC5KZQDF6zZpdj1Wdlb2gmMxeAjAECgBdhwwEQQbw6/BcIfs2PiVe4vncdCxFK7/9YyiXLQS/Q2EUooR+c5vsjYsSU0jMVLzS8muWbwBvjwjI+BWZOaW8O3bphiIPi2gw2TQTFugXloX+oCFr5Rz10+NzOQuUepdr+vRAG+HdD6r79meZGMHP1vH1/llcCZ/vrkbkCyhPP6k4oimMiEHjAJvG2V2MIFt9oebOcn6XkoZE8AB0QRJyICOhc1KdrMpnBoaBywZZ8cWVIEtxOBqw/1uFC5mPG1vh6Eg4G88Bo/50wdgfXatpO0TbUJ+8etBQxXh4g4YkaeiY5apAvmeJfoCBRCVQ4iPn3Im72YURVk2c1X0bKirZ8echJT+BcIXbMfd5MTDDOsVIdl/ug4mJQLQVz+jtjm6RCnlhpTvCbpshTsITvl3zpsCJLD1jDQMV2MfprXwCuSx99WvX3o8dIZRXdVU4PJZ7ji4ib/dPFSOlF1a/N/OHfZxGBvgBaPXD7yUfoXfF9DE6MyxFTLRBjziJHDxTTiTB4ig0Qzz704PwZni2lJePq+dFvH3FZTpeh0/6qbo4sNK/mceyBVLsJS460bzNDViD9qzwk6Tf0Mo5C22RWwNOST1ymOCVP8fNKz6uEchrG1aC5THrOtubAd44FUhdjF6TGmVgQ==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(7416014)(82310400026)(1800799024)(376014)(261021121427099003)(261009223027099003)(261026121527099003)(18002099003)(22082099003)(261102123227099003)(6133799003)(10067099003)(56012099006);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|82310400026|36860700016|261021123027099003|56012099006|261102123227099003|261009223027099003|261022105027099003|261028144727099003|261021121427099003|261026140227099003|10067099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info: mt6qAVWakX+J8TZy4jwuPJB7/wa7/wH4blR4d+jRO1HQi1Mjn+KDHHRSHohBZKvFZxndcYuOcVumOySxut/dxBUjzH3gNkuO/5PCmlahSGoGlnCOubXdLbvr1X78gVBXdIZ7cWjI8YYAaAf36S8x3iubdtUFF3WHjpBKVpkT+OQexvuV8MLzTeeZ5Xu3eYPJp3SGvJcWB//Z2a2pV2aA7oi4wnKt76JXfex9qzDK6w6v75/H2FmBlFTUWQoJMC18FRIulX+Z6etpdlCLm/2llDkDnnI1Gw8yqgt/i53c1r2eEl15kGhUsGkjcA5n7CfHPrJFiYTcGf2Kn1/shKbwePnZVmH+mBkb8URheW1Lhd9w6jsfU7yZKTs51NHS8/Y9ZU4s+TPgH5KeNuYaxXRvkp6J2qKYl2fbu1JdW8J4X6R6pIEfsjo/HPVMUT6jDBZfb6eU2vAo/YsD5imcIqx2phD7JuD9i4H5Dh6mBDsP9waOtSWsgORjSNnrFLnhSaRjDDiAPwuDxU5zQnOSs2RYsqtfu2XsC7XfgvsPFgbBSd5YJ6IdBmzIb1WRBxxclt3GJpE3b//oCDcvV9F8+YuEII9FoxglTFS8w1FJTJzn1E82d8WLKsjgqvDY93g5dKvAqERQA8PRjutCMjmlWPohixiEnUi5UTxQk+Rx/H4xCTPhFr7q2c8DkVbH1F7tYwCQqlWHUzx3bSX7B9SCqT9W3A==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(82310400026)(36860700016)(261021123027099003)(56012099006)(261102123227099003)(261009223027099003)(261022105027099003)(261028144727099003)(261021121427099003)(261026140227099003)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: kwoGkAftb+tBTlsg+aM0p59u4QNwNL9fU7IFULVuWgLLjjCySf5QKLWf51OU98F7fjOncDQfeuOHFS93U0u1pYXLfR4ZuBjqlOew6CSj8JA1+Yj16y7BwOwO1kZ+KXgwvG+StaBosoWagYRSB0HuF7XNg2y6SlNWc3etesyrTOM+LgwJmhcDYxRYdLnuvVkwDOCudM/9pdgTxqbHq+3tJHNZTpajVMsKmxZhNY1LIj7riN8tlmxy6fEe+th2ukTdqX2WycNmMFu2Y9ntKEHmZ9HsAQOSK9WDizde8k6cihNZwpLxSwBl9sG0qyiIyWWzYPTc3ZaoEyM9rF0PobntkeD3XCQ9SZEdSsew6WdGNg4On2E+57A3Clq8tXt+vK4JSdw/guq4aQoHymu0cK+BPJePHx8Yvc6x6azypcrK3lDh06HSzBBfQhKC2gqpNv+i
+X-MS-Exchange-AntiSpam-MessageData-0: n4+rTiqRaQoHWcSevZA6a/45wZjFg34vExIYMppPLqOERUaqITM1ABJonGUI/PSBZN8WXRXy5ocszdWRmNvK1aOHm0qoJ9Fetzr7cCAvk36EBt0B1OpgEozmtrRrANerUto/gUfNpam8G3iTBdXhATd4qz0cKqHwTdjEV8ER9Um28+0KAKJYJIL8in8SbUgBtRS58mjcwQJBLXnLwlx+MU1XblSf80W1xnPqZ+Ku6UZQtei+sGQvbackoP815D1wP14+gR6DtlxkFnn3S74jfeJdzfRgvSutvv4yUmpq+HIVb1gpFeBQ701Ku0MP/YW4rUyjM0CAcnIaM/7k3SojNEVFYrxvrfG3TjOXTsWWutN+/CIP4U0uIot9kYz2JLR7bF6XoIu2L4MCckwp9iXKWokwE7xerW2kcxAqBVNtNNk8j+FuAjTUc/CdnMHY+hUj
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 12:50:22.1725
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 12:50:21.8445
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1acc1b6d-6825-4287-ee5d-08df3a7230a2
+X-MS-Exchange-CrossTenant-Network-Message-Id: 45975e97-0b6f-4625-c698-08df3a723040
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E2.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E6.apcprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB6551
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB6180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_045029_098296_1513A15E 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261104_045029_561667_44679D8E 
+X-CRM114-Status: GOOD (  13.56  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -134,33 +131,67 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Some DMA-350 integrations reserve channels for firmware or another
-processor. Allow the standard dma-channel-mask property so firmware can
-describe which channels Linux may use.
+DMA-350 channels may be reserved for firmware or another processor.
+Read the optional dma-channel-mask property and register only the channels
+whose bits are set. If the property is absent, preserve the existing
+behaviour and expose every hardware channel.
 
-DMA-350 implements at most eight channels, so one 32-bit cell is enough;
-limit the property to a single cell.
+Skip masked channels before accessing their channel registers or
+initializing their interrupts and virt-dma state. This avoids clearing
+or configuring channels reserved for firmware or another processor.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Jelly Jia <Jelly.Jia@cixtech.com>
 ---
- Documentation/devicetree/bindings/dma/arm,dma-350.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/dma/arm-dma350.c | 20 +++++++++++++++++++-
+ 1 file changed, 19 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
-index 43279878207c..98e7bb651210 100644
---- a/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
-+++ b/Documentation/devicetree/bindings/dma/arm,dma-350.yaml
-@@ -43,6 +43,9 @@ properties:
-     description:
-       Optional reset line, where the integration exposes one.
+diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
+index 2f22f8a0ab47..b24e569a1dd8 100644
+--- a/drivers/dma/arm-dma350.c
++++ b/drivers/dma/arm-dma350.c
+@@ -1253,9 +1253,10 @@ static int d350_probe(struct platform_device *pdev)
+ 	struct clk *clk;
+ 	struct d350 *dmac;
+ 	void __iomem *base;
++	u32 chan_mask = U32_MAX;
+ 	u32 reg;
+ 	int ret, nchan, dw, aw, r, p;
+-	bool coherent, memset;
++	bool coherent, has_chan_mask, memset;
  
-+  dma-channel-mask:
-+    maxItems: 1
+ 	clk = devm_clk_get_optional_enabled(dev, NULL);
+ 	if (IS_ERR(clk))
+@@ -1328,6 +1329,19 @@ static int d350_probe(struct platform_device *pdev)
+ 	dmac->dma.device_caps = d350_caps;
+ 	INIT_LIST_HEAD(&dmac->dma.channels);
+ 
++	/*
++	 * dma-channel-mask is optional. Firmware-reserved channels stay
++	 * clear; if the property is absent, Linux may use every channel.
++	 */
++	has_chan_mask = device_property_present(dev, "dma-channel-mask");
++	if (has_chan_mask) {
++		ret = device_property_read_u32(dev, "dma-channel-mask",
++					       &chan_mask);
++		if (ret)
++			return dev_err_probe(dev, ret,
++					     "failed to read dma-channel-mask\n");
++	}
 +
- required:
-   - compatible
-   - reg
+ 	reg = readl_relaxed(base + DMANSECCTRL + NSEC_CTRL);
+ 	writel_relaxed(reg | INTREN_ANYCHINTR_EN,
+ 		       base + DMANSECCTRL + NSEC_CTRL);
+@@ -1337,6 +1351,10 @@ static int d350_probe(struct platform_device *pdev)
+ 	for (int i = 0; i < nchan; i++) {
+ 		struct d350_chan *dch = &dmac->channels[i];
+ 
++		if (has_chan_mask &&
++		    (i >= 32 || !(chan_mask & BIT(i))))
++			continue;
++
+ 		dch->base = base + DMACH(i);
+ 		writel_relaxed(CH_CMD_CLEAR, dch->base + CH_CMD);
+ 
 -- 
 2.54.0
 
