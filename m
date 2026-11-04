@@ -2,79 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 969C7606D805
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 18:49:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8968A606D805
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 18:49:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=z9fk0esQ;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GpCcGZnn
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dPKQy2S/;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xVTZ9+Yr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=tDX9nGWyIBZYspDuB9K3KPW8x4O1lO65MXioXZW/+9U=; b=z9fk0esQjGRjkFxcpF7jDGHrMy
-	uKdRDiJNOEC3ExhSynF9C2Z7EvVCrDvHwFH5L7qFdeLuxd9jU3BHINDpFEm1CqqAALD0ZeJOXvfXG
-	Y9SUtS4tWQtM4a8XbDWAXs25di3vdjp5Wuj8VIveKSyyjhfH40nWV/9ScMm/gqAWG+YXBNTk801ZU
-	E0+fXKzO66aXvZu1GYf8yk93OiWQugfHLtiKpvtz5JryGt7fPhfGgwaR8BQbC0l1pKmMYd0uatFs/
-	YC1hDIxnKlQKm0ioUn1jjcp8qahyJ5M+sbR1+3KWfsO7NWaCLoNY4EwOtz9TVoZX2HnylJZiEH7pc
-	Myhjm50g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=9PHCbRvvMmLrPh5VFq5+SIP4ujixMpIDMCoNYb2j3tk=; b=dPKQy2S/neq06o
+	wtaRbj+/hTPlrxNqGkmpGtBNoTspJQKeFnmUfoCLyn/hDqbSyYUzOgb//m7Y82B7dRpX+1jzmsxBd
+	rmghsIfG2HtIptEgmpHnjbr9YlqEuBxLLlyQMvsjcu19r+eNu523bwAPriRjDEQ0ushn5NRZKhA/W
+	Nn+i1OefJpxadK0uvAMxSrFad5rcJR+zP8YHrwDioQPNdFKEQjpuqJ4z+6HRngktx2iOqh0Jo6HE6
+	h4z79rtbTUXzjYpuQ/AN2NAtibJNwZD56rlgqe5mi+STgIZpHakwrmL5+QHSaeX2JslPH5WaVs3xP
+	flkGTc2pl2kG72mY3ESg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOg3T-00000006Rbl-1AUo;
-	Wed, 04 Nov 2026 18:49:51 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1xOg3V-00000006RdA-1wVP;
+	Wed, 04 Nov 2026 18:49:53 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOg3Q-00000006RaW-1Dvz
+	id 1xOg3R-00000006RaY-20vl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 18:49:49 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4b467581b98so7718345e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 10:49:46 -0800 (PST)
+	Wed, 04 Nov 2026 18:49:50 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4ac95761c85so7762325e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 10:49:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793818185; x=1794422985; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tDX9nGWyIBZYspDuB9K3KPW8x4O1lO65MXioXZW/+9U=;
-        b=GpCcGZnnp/UkwfKEfygUGiWwTnNmJbIv2i873lBh8j23XdTq5hdvB8AeBB8b3bogVN
-         XRHtN2DeJcZ0ByGlxzqIIP4lNXV1DK+czIFCXQGX7x04wmyEywZrcMh9w5N47gx7iO23
-         xVapy3Se51NkpA1wpTJ8roQi1H7wPm0epvrED8KIhLuRZd/y7f/tH57o5Fdf/Qbqypo4
-         /Kppc2RSvVHULHF32EBARBIx0TQopPivLlBsqg+AxvohKQOV05s6i+xWECTpOof7FM6K
-         TNFAduxudTAXboyTPhjP2AaplDURPd0cr6J/WbN7kpI0yv7tXgX3dFgU53LrhwgbsWMM
-         7pJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793818185; x=1794422985;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1793818187; x=1794422987; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=tDX9nGWyIBZYspDuB9K3KPW8x4O1lO65MXioXZW/+9U=;
-        b=X8989UIdMIyA3E8d9ErsRxG8QTAekqE4ZyCCoxS2udcw9Eu3/aPM4mt82SPivmDCZ9
-         lFJhjqd6OewOS1+3ABp1UrTA59FHH+p2re3BRR2NFwGiA20QY9duolcVVTdWeT8OGLUB
-         9jWE5oOhSnfUFdqIgqX8WfD/ytJQCJmGMQNZLu2ZAAfXxpwP0V7Ww8ZSxcdadGpoeM52
-         SOTXHkk1vvKn+yl2cUhexRM5anBr1X2fjGbf2a+6ZCx0cajFN70DZgy9B/mzXgpJhcIU
-         Yldg8YSz3pn+MuT4LC4NVR9Ez9moftmsWhYnfv53F5GDawPmM/evvD2//0qVFpVUwFSX
-         Tqgg==
-X-Forwarded-Encrypted: i=1; AKwUvBymezzcjNNayG3SB0QsvEpYUMacS+kA6xhXHD64NBvqt3SdWqFLJmAWLgJyioRtXqLiTmB4g2brc+wC06GmeN5n@lists.infradead.org
-X-Gm-Message-State: APuU4Z/VKtwLUhKQvSbapPyNQklAdALy6YC6N4+tkaNGvOjRwwAtnN5A
-	GLTH4bDn/A9dvL3rwF0FuFFGq51F0qi7VPXtcVOutdRvvcOTX80GZL4I
-X-Gm-Gg: AYBFou1hCMNGX2SphL3Wtnhe4dJFdWZ5gCd5OzyaPlYaw4tSprIDNeMCJIloGf2NfFi
-	h7k+ZNfA1NFCxS6OJRHctH8Vuk7bfkj7uWq5Al/2U6/FKmTZbf9Bq6eKr8ElQ+Dn01RLNcTz7e7
-	recuk4mPRtl9DcNoB96maJtEMAQkfMaPwduSnH/RMvhmqhbtwzWNJLiKIVTqJ+CqrM6Vusi0kM5
-	xxg9lWv/q/MOkZPDzaqqhdp1IBf6iRDkTMwbVty8rQejAe/YNShwSJrtU+l4TwYMfOjCznENUJV
-	HypN+amZi//ilHCcqMj/ugopkhN4hbZKLRQxK8uEuKozAG00ZD36Cg4x4OCChZd4AWqIunOGsTk
-	HD6bgo59cNO7p5GPqPH+mmDkgyhmrrVlNTLiMOWbtsvhvQ0uky606BsDfuHRKR2KF3GKwSoFYxc
-	Hj+XgKX+0iKipQW0GRZvzVUcj1by/C5cDeM18jDWJ0fifxOGnW97EIlwfqeW0HQoxVws+ZaMnXu
-	Xx2Ygp71jD6TwFJIkcP4ZutlYg5sO2wGgdS3jT1dPgu3VTb1U3NPiGwR6lQZ5Qzk5eni6iKvB1x
-	sZEbEx5pUzvG0m0+A8xhcmH7iu/XOpyqWAsBf/luWC3DG+lFMDDtRH9z01X972G3lN7SraViIsu
-	hWHFT1NdsL0RNsM7urv92aLgCwG8e/c2nfjbYBtrg9QmFsCVqP/BgvnLEt/X7SkZPOFyQVZpWao
-	IxG0DfjiWyYL7RH6RoPscwPeGd6RjpPPKCUHaRcw7tIsfUZUeAUzN5tNxpSVuv43oF3oiSPvYIi
-	95leTtmCc0Gkgyb4prPYHo4jdkepidXxSUbvD3+gwl2
-X-Received: by 2002:a05:600c:3554:b0:4a1:e7ce:107b with SMTP id 5b1f17b1804b1-4ac150b20eamr403830775e9.2.1793818185436;
-        Wed, 04 Nov 2026 10:49:45 -0800 (PST)
+        bh=9PHCbRvvMmLrPh5VFq5+SIP4ujixMpIDMCoNYb2j3tk=;
+        b=xVTZ9+YrIUm+R4DIChKd847v0jeLxY/wqWtCCwq7q15gD83hj9COsI84Kknx7RVFMM
+         fEHI1ZTAT7/bkML8+MiazoL+K7C2IMeX+BVu1Kx3lvGJZMR7s4J4ycQEUisuY9cpoi8f
+         kUxOkHtIo3P+is4uz2QiHJO8vCDSfkS9YIxrGkQjsCSw3jHjNLbbRo2arff/2RS9xptz
+         t/VB02NCIxNmj5gWRQSoauHyrlbVt+NmB4YRgM2KZo31rJ0fLuI73yO3o7L/W5GyTJbH
+         NSLF24gDsDcyyqxHbEbMQezcCjyGBAFlMfObv0CpnEGuWES5Kjomb6vU8o0pzU61JxSm
+         JNLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793818187; x=1794422987;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9PHCbRvvMmLrPh5VFq5+SIP4ujixMpIDMCoNYb2j3tk=;
+        b=Ukd+zaL+SWVec4uK6Asy+3iQ2SG2pmvj+JkRY5fNdtfPO/MwdZlVwtJ/U902Te+spz
+         Ycmoxw4lF/0irlZyw7LPDsrpdXzFPFQUNHw+iQa257xN4j4au1ClD9m02/VCIueSJpu1
+         M+KcXK/Z8urZA0USBf/2DWIIdO906+o8Y7khGiYEFOc90yKyoPVPSGEr/nNavGHsx1pP
+         EHHa+kd7B/8Mx4uIXlhOngyxub5eQiDFQO0WTOiKl6pt7BndZKiXayIQHxIp9x1Lvf8S
+         IEMJ+ryclua/Kn/J+ievurIH+wekA4YpJeExQiriL4kjg2PBMvYY+9sF7DCcZQdwRcuh
+         Xzqw==
+X-Forwarded-Encrypted: i=1; AKwUvBygaBGeR8DJeMIAD6aew7hN9dJhcwyPgxnTNmbqcKNOFICG7vyhcCqg2rnigRwi5EgExBGE5lhC0zYKJiNf2k0S@lists.infradead.org
+X-Gm-Message-State: APuU4Z9Y/eSDdy6OIacNmGqZWuajH3/q22ACS0GAtD59UYz8ivfEJBbg
+	4Qo5E4xwF499wNmoKyz2StIlElkuEiX1XhNGcH0f6Ul+ym8CtIxne/QQ
+X-Gm-Gg: AYBFou2TAvU0zg3HHdMC4CRs8cyqX0NNKAi2LbydiGsE71AQz3z0Vsm3bI0HKvvil1l
+	LJzIZHXqeZC7rp7oH0/KZg8a6oNU37mWrbE0YM9+0i3DuPTjjYsO/w5cZfK2qboFN+MuWx0nV4q
+	QOHIQ0gBn449H3eXusp/13NPRitDmFa+5F4rxN74Y9+ZsakrnhLtY+sVkeMf8G0LUmK9PueeYyq
+	SYLI0QipPXw5LTw1/Q/hD5uLhn4OQgQ5QopsjGMr8+zMVKP5VmwhFMkLrnUnlTmLZTbf2DMiZhe
+	T3ITKrKGx8a7sBfJDoZdN8+KMoWVWq9MRThM8m1HfK27jB8RV/RaqaduZnysEukn+K0/5oWLXLK
+	8lXltLCPVr/+OUsAqvs6W4bVJByIg5nxj4fVK7y/6ta2gqt5ga3rDOHzfyDqzLOTAFtZgIbpWPe
+	Vbt/NE0kQS/Y/SZkPr6B1kBkoBpcCimkJ+1YpZErxDtilIFMSJT1PwE7RByxSfVe5HvwTS3B03B
+	L4NL1iXJwOmT2EHha53ECc3CNB6Y83CzJnFv8lyHNtZ8PtFNFwjXUX/dtOrDN2pjT25TWTBkWXW
+	03r6OhVl849S/lMBKG92SjBhrtRW6pSmL3GFEUqASkDV543Lfy7jtGPSRy3vjS6HvHtE6QCdBys
+	/GskZ1TkuDCiEjgxeyekKy/g0xsu5FyFizL3Nl15qtgdH6xLmkLyMgD/1qUnyHx9C0WYvTJ/fR8
+	I7H40e/J/MqF4yWAtmldkB2/4jCu4a3l1PKSY9hQtRlBfoKqX283jnL6ameAQpAT0EV8Wt679RJ
+	ji76Y5bKuDM1Nc6pu8i6Y1M/0hyGCX2fUeLxhU6cUJ/SGXjrAc3RM9ThVJ4Jd47dQ==
+X-Received: by 2002:a05:600c:190f:b0:4a2:1a:a11d with SMTP id 5b1f17b1804b1-4ac1275c26emr364814095e9.0.1793818187271;
+        Wed, 04 Nov 2026 10:49:47 -0800 (PST)
 Received: from jernej-laptop (APN-122-103-30-gprs.simobil.net. [46.122.103.30])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b56fca22e1sm5081745e9.14.2026.11.04.10.49.43
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b56fca22e1sm5081745e9.14.2026.11.04.10.49.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Nov 2026 10:49:44 -0800 (PST)
+        Wed, 04 Nov 2026 10:49:46 -0800 (PST)
 From: Jernej Skrabec <jernej.skrabec@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -86,17 +86,18 @@ Cc: devicetree@vger.kernel.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH 0/2] arm64: dts: allwinner: h6: Enable GPU and CPU DVFS on more boards
-Date: Wed,  4 Nov 2026 19:49:38 +0100
-Message-ID: <20261104184940.882833-1-jernej.skrabec@gmail.com>
+Subject: [PATCH 1/2] arm64: dts: allwinner: h6: Add GPU OPP table to all boards
+Date: Wed,  4 Nov 2026 19:49:39 +0100
+Message-ID: <20261104184940.882833-2-jernej.skrabec@gmail.com>
 X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261104184940.882833-1-jernej.skrabec@gmail.com>
+References: <20261104184940.882833-1-jernej.skrabec@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_104948_358879_985034F4 
-X-CRM114-Status: UNSURE (   8.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261104_104949_532544_E0134F4C 
+X-CRM114-Status: GOOD (  13.24  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,30 +109,77 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Most H6 boards don't use the GPU OPP table, and the Orange Pi One Plus
-and Lite2 lack CPU DVFS as well, so their GPU and CPU run at a fixed
-clock rate. This series enables both.
+Only the Beelink GS1 and TaiQiCat A01 include the H6 GPU OPP table, so
+the GPU on all other H6 boards runs at a fixed clock rate. Include it on
+the remaining boards, so devfreq can scale the GPU clock for either
+better performance or lower power consumption.
 
-Jernej Skrabec (2):
-  arm64: dts: allwinner: h6: Add GPU OPP table to all boards
-  arm64: dts: allwinner: h6: orangepi: Enable CPU frequency scaling
+The table also works with a fixed GPU supply, as on Tanix boards.
 
+Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+---
  arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3.dts | 1 +
- arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi.dtsi  | 6 ++++++
+ arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi.dtsi  | 1 +
  arch/arm64/boot/dts/allwinner/sun50i-h6-pine-h64.dts   | 1 +
  arch/arm64/boot/dts/allwinner/sun50i-h6-tanix.dtsi     | 1 +
- 4 files changed, 9 insertions(+)
+ 4 files changed, 4 insertions(+)
 
-
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3.dts b/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3.dts
+index dc7381c944c9..ce82aa265cfd 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3.dts
+@@ -5,6 +5,7 @@
+ 
+ #include "sun50i-h6.dtsi"
+ #include "sun50i-h6-cpu-opp.dtsi"
++#include "sun50i-h6-gpu-opp.dtsi"
+ 
+ #include <dt-bindings/gpio/gpio.h>
+ 
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi.dtsi
+index e34dbb992021..2948369cd659 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi.dtsi
+@@ -5,6 +5,7 @@
+ /dts-v1/;
+ 
+ #include "sun50i-h6.dtsi"
++#include "sun50i-h6-gpu-opp.dtsi"
+ 
+ #include <dt-bindings/gpio/gpio.h>
+ 
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6-pine-h64.dts b/arch/arm64/boot/dts/allwinner/sun50i-h6-pine-h64.dts
+index fa7a765ee828..f4a5a2215ea2 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h6-pine-h64.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h6-pine-h64.dts
+@@ -5,6 +5,7 @@
+ 
+ #include "sun50i-h6.dtsi"
+ #include "sun50i-h6-cpu-opp.dtsi"
++#include "sun50i-h6-gpu-opp.dtsi"
+ 
+ #include <dt-bindings/gpio/gpio.h>
+ 
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6-tanix.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h6-tanix.dtsi
+index bb7de37c0d58..f08077175549 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h6-tanix.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h6-tanix.dtsi
+@@ -5,6 +5,7 @@
+ 
+ #include "sun50i-h6.dtsi"
+ #include "sun50i-h6-cpu-opp.dtsi"
++#include "sun50i-h6-gpu-opp.dtsi"
+ 
+ #include <dt-bindings/gpio/gpio.h>
+ 
 -- 
 2.43.0
 
