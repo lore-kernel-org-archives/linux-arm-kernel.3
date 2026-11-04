@@ -2,98 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBD9D606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 10:26:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 096C7606A32D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 10:26:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=R3PqpNd1;
-	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=R10bR+nG
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uI07dMGc;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=A+8t5vjZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=o3uO33BWTvRzGT589zK5XHXlVqQazzRdbRxGw4lkcXk=; b=R3PqpNd1uQ01X1z15LFDHbmJ0c
-	Wt7D8J6UM45c8EmeHwy9o5FkVBmQXyY7wEZ+kQX/gw6ZPd4WeO3g4MEYxpFmAckFNZHhOYlojvvQ+
-	taSO1fVzd5gvwdGnEF5W6YSWQclM7qAxq+GHzcz73m1H9jmgqKk4AxwRsvh9fOCGQjXFVfvc5/mR5
-	ApkS9r68dSTfJf/b6n7GFqETO8YQWW1H5NBB/WDSeULfOeOLILBdWqrZrtE6rOIkR6b//S7JLltn7
-	bIGnZa0d3XZPBfZxGfy+++hMTBi3/edw0cmtchpZPDMVEn5fCw0E0UgDywKmQW1mJy5u1PD29wkjd
-	aQvuC5yg==;
+	bh=uRrdt0oAcAPfS+w2dQ61HkrI15khdaUCiJ5g7tU0p+Q=; b=uI07dMGcv9dPM24anTGw7Ef/i8
+	ZpSozk5XcXizOiZZ8V/vmurOKCvlIn/hIyl5YZ8181TJ/OBFf11n/JF9jXB+8Xgvc7se+n651nhhj
+	JTxyODX7CVKVBjPTHtEpuSS9yKssHO1Qhiiasbzdyj8+xToW2QDaCB5qnBoBj/LUgf3szKEMelcrz
+	SL/Wlby1fGRsl0QNAGLiygI1Y2ByKOO6LbwhHDKr8yv275j875PLWS1JU3qloYyhWRy2I7H6Txo3C
+	vNZI9ZYmJM1gK0KeTLaYywsswvqsaSwI9Tec2wP4akbuut0eTV4w4U8Ihr8ox7Dg2el+HhINTiRmv
+	u47e9TEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYBg-00000004zZ1-0pIH;
-	Wed, 04 Nov 2026 10:25:48 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1xOYBp-00000004zdF-1nrB;
+	Wed, 04 Nov 2026 10:25:57 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYBd-00000004zXG-2vjY;
-	Wed, 04 Nov 2026 10:25:47 +0000
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 60653200AD7;
-	Wed, 04 Nov 2026 11:25:41 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1793787941;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o3uO33BWTvRzGT589zK5XHXlVqQazzRdbRxGw4lkcXk=;
-	b=R10bR+nGpDOBHsBsgfY6x5gF6MVODYpe6zLWjOZvK+UTPbvF0HfqI/A/FRWV1xQ4rLOnJG
-	Hb8X0WX7j8MES5DZFlHTx+H0VDKdNkdnDXrwpBmZQD9uxqA2KqMQa+cD/tPkBFUbCD/bzy
-	HDEzMn4V9OjGUW4bx9vc1i1mW99gnJJv7Kker8hWZzv4E56jco3hpM2e6rpueAOWLuKM/c
-	hC7UWblK3ZcwnjcxAgxFp/foAklOa+fGZBqbfdfoPH3N4tWeIrqEcoIWLYNbphD/LSX+Y6
-	Cj5o9sYMg6E8rkMq1xVDrb3oQEqgDJt4gK6LDpJsPOTicIIrL87fbOnc7srrHg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1793787941;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o3uO33BWTvRzGT589zK5XHXlVqQazzRdbRxGw4lkcXk=;
-	b=aFCcuWhsp1Rz+FS39uH9Jep8WwzbEDt5X9Up5FrfhiHMupYvat/6ZsySEzPCJQbFFbrwdF
-	KxQfsflbd/FGbjgketDjDxiEn+2hXdq/QUXfdX/hn9MkcRlUk4K7KZQPX5inZV51ngDGxH
-	oIB7VXZOgAg4jv6zK11cAa1CH+MPVj8pg+Uf6/8qUbf5eMCW7rNfx49qebB3SqkOXX7wCK
-	u9AmNrsZPEEUK10aJK3NUbySExb7xvJ9jQPNOt1owma2lxC7CWI6AgDNp1UFTgKoXS0iiU
-	MOHCpL73RQg2QI3XWSMy8OMvGqtPnFpWcm8xM+tuBQynPUYBWfjXIlQnceVmUQ==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793787941; a=rsa-sha256;
-	cv=none;
-	b=W2SKAYeDEhEpB+KWH744MC/8Zua/10/EdN1knlfwc1zu3oHnUZNBLRDhvIToO9Czib2rc8
-	ttW6//vcBNO82+tOTuPweTyX/nRR4Z7AbC3GD6HS726LZbYk++LEDxksFPWHt9BHbnWpcK
-	OG+b2US90SeGVwPL6nQbqQWGLAdr9wssj3RIJH12VMFyi59Hyocz+TvK3UUS3TJdi4aTo6
-	rOBFxvK4R//wbiwbT556vl5gcqkF+t/7KkgN4E14J4r8OYUCcJa7eKz9jyp3oyB9AD4FBa
-	1rSsYoeu/4NZAATdwpGICbJiZk7+wqYyVkVOJBfhgH6VBVLUGxaHyUfOYokBsQ==
-Message-ID: <9afb8ddc8451afad4f7ff7b9a133dd8542d07205.camel@pengutronix.de>
-Subject: Re: [PATCH 1/3] hwspinlock: sun6i: Get the clock and the reset
- without names
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>, Wilken Gottwalt
-	 <wilken.gottwalt@posteo.net>, Bjorn Andersson <andersson@kernel.org>
-Cc: Baolin Wang <baolin.wang@linux.alibaba.com>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai	 <wens@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland	 <samuel@sholland.org>, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt	 <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti	 <alex@ghiti.fr>, Andre Przywara
- <andre.przywara@arm.com>, Bastian Germann	 <bage@debian.org>,
- linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Wed, 04 Nov 2026 11:25:41 +0100
-In-Reply-To: <20260927025626.69614-2-tien.nguyenminh@embeddedlinux.blog>
-References: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
-	 <20260927025626.69614-2-tien.nguyenminh@embeddedlinux.blog>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	id 1xOYBm-00000004zc0-2Y3p;
+	Wed, 04 Nov 2026 10:25:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=uRrdt0oAcAPfS+w2dQ61HkrI15khdaUCiJ5g7tU0p+Q=; b=A+8t5vjZqpreZvPSLqn2rWHCfk
+	n20HzKOydnfedJfrqrbJoETErbWXGYMoVDxPotfS+pj30dhVa9kgt9ioE3h2XT9i+o0G+8YdGkx94
+	c3QBYW5k2mk+ni5jhkwtbJ0XyA5dPKbn2W67WeyaIRUJ548XcG9M2F372a+JG9Z4saOhjOzo+w3oC
+	eyhS0ZoraybqUEcq+Rs1ShIc64rINHDJig5KDlfjZqHUgloCWhUZhfDAow0U/X/rkbraLV4ZTsUbE
+	L8NNkvSjhwcAGWUz3HAevwzEEWEfjFK3ykebZUp2dFTL+4ugzZ2Y132qKzJFggyFXmgKN48nvtd3S
+	d5ApHuFg==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: tomeu@tomeuvizoso.net, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
+ ulfh@kernel.org, p.zabel@pengutronix.de, ogabbay@kernel.org,
+ zhangqing@rock-chips.com, Jiaxing Hu <gahing@gahingwoo.com>
+Cc: royalnet026@gmail.com, abel.vesa@oss.qualcomm.com,
+ sebastian.reichel@collabora.com, sidong.yang@furiosa.ai,
+ u.kleine-koenig@baylibre.com, chaoyi.chen@rock-chips.com,
+ diederik@cknow-tech.com, alchark@flipper.net, leonard@lausen.nl,
+ jeff.hugo@oss.qualcomm.com, rfoss@kernel.org,
+ dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
+ iommu@lists.linux.dev, linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Jiaxing Hu <gahing@gahingwoo.com>
+Subject: Re: [PATCH v15 04/15] accel/rocket: let the core suspend after a reset
+Date: Wed, 04 Nov 2026 11:25:30 +0100
+Message-ID: <3373678.NnENhoQgcM@diego>
+In-Reply-To: <20261101082307.151957-5-gahing@gahingwoo.com>
+References: <20261101082307.151957-1-gahing@gahingwoo.com>
+ <20261101082307.151957-5-gahing@gahingwoo.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_022545_894354_AB6D8FB8 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20261104_022554_650177_ECCA7A91 
+X-CRM114-Status: GOOD (  17.52  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,50 +83,58 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On So, 2026-09-27 at 09:56 +0700, Nguyen Minh Tien wrote:
-> The driver looks up its clock and reset by the name "ahb", but the
-> binding doesn't define clock-names or reset-names, so a node that
-> follows the binding fails to probe:
+Am Sonntag, 1. November 2026, 09:22:56 Mitteleurop=C3=A4ische Normalzeit sc=
+hrieb Jiaxing Hu:
+> rocket_reset() drops the in-flight job's runtime PM reference with
+> pm_runtime_put_noidle(), which requests nothing, so the core does not
+> suspend until something else asks and its power domain does not cycle. On
+> RK3576 the domain's power-on resets the NPU bus interface; without it the
+> IOMMU stops answering and the job after a timeout fails.
 >=20
->   sun6i_hwspinlock 3005000.hwlock: unable to get AHB clock (-2)
+> Use pm_runtime_put_autosuspend(), as the completion path does. On a ROCK =
+4D
+> the job after a timeout goes from 0 to 128 of 128 channels correct.
 >=20
-> There is only one of each, so get them without a name. That is what
-> was asked for when the names were added to an A64 node, and nodes that
-> do set "ahb" keep working. For the reset, call the explicit
-> devm_reset_control_get_exclusive(), which devm_reset_control_get()
-> only wraps.
->=20
-> Fixes: 3c881e05c814 ("hwspinlock: add sun6i hardware spinlock support")
-> Link: https://lore.kernel.org/f720eaf9-01d0-0e57-f6bf-9aade00aafb8@linaro=
-.org
-> Signed-off-by: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>
+> Link: https://lore.kernel.org/all/20260819073530.6087-1-royalnet026@gmail=
+=2Ecom/
+> Fixes: 0810d5ad88a1 ("accel/rocket: Add job submission IOCTL")
+> Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
+> Tested-by: Igor Paunovic <royalnet026@gmail.com> # RK3588, three cores, i=
+nduced reset, JOB_TIMEOUT_MS=3D2
 > ---
->  drivers/hwspinlock/sun6i_hwspinlock.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+>  drivers/accel/rocket/rocket_job.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
 >=20
-> diff --git a/drivers/hwspinlock/sun6i_hwspinlock.c b/drivers/hwspinlock/s=
-un6i_hwspinlock.c
-> index c2d3145880..e7cc121310 100644
-> --- a/drivers/hwspinlock/sun6i_hwspinlock.c
-> +++ b/drivers/hwspinlock/sun6i_hwspinlock.c
-> @@ -104,14 +104,14 @@ static int sun6i_hwspinlock_probe(struct platform_d=
-evice *pdev)
->  	if (!priv)
->  		return -ENOMEM;
+> diff --git a/drivers/accel/rocket/rocket_job.c b/drivers/accel/rocket/roc=
+ket_job.c
+> index 5b2abf40b618..152a9098634b 100644
+> --- a/drivers/accel/rocket/rocket_job.c
+> +++ b/drivers/accel/rocket/rocket_job.c
+> @@ -467,12 +467,12 @@ rocket_reset(struct rocket_core *core, struct drm_s=
+ched_job *bad)
 > =20
-> -	priv->ahb_clk =3D devm_clk_get(&pdev->dev, "ahb");
-> +	priv->ahb_clk =3D devm_clk_get(&pdev->dev, NULL);
->  	if (IS_ERR(priv->ahb_clk)) {
->  		err =3D PTR_ERR(priv->ahb_clk);
->  		dev_err(&pdev->dev, "unable to get AHB clock (%d)\n", err);
->  		return err;
->  	}
+>  	/*
+>  	 * No handler is running now, but we might still have stuck jobs. Let's
+> -	 * make sure the PM counters stay balanced by manually calling
+> -	 * pm_runtime_put_noidle().
+> +	 * make sure the PM counters stay balanced by putting the reference the
+> +	 * job took, and request idle while doing it so the core can suspend.
+>  	 */
+
+with my comment in patch 3/15 fixed
+
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+
+>  	scoped_guard(mutex, &core->job_lock) {
+>  		if (core->in_flight_job)
+> -			pm_runtime_put_noidle(core->dev);
+> +			pm_runtime_put_autosuspend(core->dev);
 > =20
-> -	priv->reset =3D devm_reset_control_get(&pdev->dev, "ahb");
-> +	priv->reset =3D devm_reset_control_get_exclusive(&pdev->dev, NULL);
+>  		iommu_detach_group(NULL, core->iommu_group);
+> =20
+>=20
 
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-regards
-Philipp
+
+
 
