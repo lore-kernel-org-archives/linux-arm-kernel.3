@@ -2,85 +2,118 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9563606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:28:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96260606A32F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:30:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=401AtxsB;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=ZahJNV6Q
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Rj9bbIMB;
+	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=Gc7mO5Yb
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=S+ck/Y1jUYQofWJ7Q2k9BREFmgj2ytIsC87GbjuuUbw=; b=401AtxsBh3b/hy
-	ColcX4GPJi4sMBDu2ViPJmYdGyLIHsZxFVbCOna25tzNHoYX6yScKfHKZmRce5wjFS2aAjJeF2S6e
-	6RmjmB1v6PwXz2B21ksRcBtSoFfzIepHPcithOrp76qDcqlSwMPaF1P5zwwogqIWNyM6Vfyo05xtN
-	nN9PuvNdaZxLGtQIkdkXFhYshsxcHBO8YdDxPGVLhvWc11izP52RoWuZ+61tnSTFVKcvcGdsGFj+y
-	BOqa5MehifqlboNoaMUbuGEDtjcW+N32ng5jh8f//g6uDLTUfB9Eqsa0dKlTgYskqN/x1SywJJBTM
-	WlBxCUUdJRQz/vpiu5Qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=hd92GcgT778Yt0B1JwZXuH2F889LDpcB4cZALLNz4n0=; b=Rj9bbIMB47zltUy8Gq5hCsPKr4
+	HwZ9RdB0lPOVN2wDfXlBIURGN+9CuLGPwpgZEdtWiA4urCibMPpcwDTc/eGfRKU0NafYFXIoYJREu
+	gKGySSImt5Ykaq4nyKuYqmu8e3iqeGjnh1ytobhC99BgIid+ghcPVQGct/6nA3lLK0ZzzaPQMOcDf
+	NbLjJS+VJ+t40HBMF4l7yS5Ymleacj/eMmNeHOk8RnkLLaVzHXTvyVeq60WRHxyvzqELk107Ws0nS
+	pOMB34Uqmz0EIAFAqYxjJyi0cM5opS4Ftt9ekClMwjWnaI4bb29ir6LrWQGW81a3SjcDhAyq1LkjS
+	caEeddcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOa6j-00000005JgT-36ap;
-	Wed, 04 Nov 2026 12:28:49 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1xOa8c-00000005Ke3-0dzK;
+	Wed, 04 Nov 2026 12:30:46 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOa6Z-00000005JSZ-47dz;
-	Wed, 04 Nov 2026 12:28:41 +0000
-Received: from [127.0.1.1] (chfd-03-b2-v4wan-176392-cust229.vm15.cable.virginm.net [82.19.20.230])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 0C34E232A;
-	Wed,  4 Nov 2026 13:26:19 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1793795179;
-	bh=Ed8zH7eVXyshlepJ2a6VxF47jhQzEAoGKAtRybwj0yw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZahJNV6Qupejq0WQeykhHN85LlnxFqVSn4CJIGVD+NTy/ljqrddzfYHGF6LLFBOdf
-	 7WBUIkDIjxxcs8EiasfTSl4n8CW9ti79M7d4hvzk8zOXsejhrKAQbMvFALdY9JRjbJ
-	 izjqxCZcctwH66qACTBfEPZfKnqAEPd5EayPKcG4=
-From: Daniel Scally <dan.scally@ideasonboard.com>
-Date: Wed, 04 Nov 2026 12:28:21 +0000
-Subject: [PATCH 6/7] media: v4l2-isp: Introduce "reset buffer" concept
+	id 1xOa8Z-00000005Kdc-2hiq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Nov 2026 12:30:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rVuTzr9xSSomF59jDZLQpzYWSKdu4vl8ObBUl58B53Q7v91nryZfLMMNH2l6Ou1mziXL/sxknOVbCjMrBP7PQNHnc8rXHFKyDhg0PSftm90CXHTvGEx45F4BSrr3DiLUcQowdQfvD7bm27lUPrJkvrtW1u/IA3Q5Ox2of+GPrKcWNZA283rYrE/NXDY71Kz02SFUOaq7utHDPYRtHVe9dIdTbwxA9Ea+YDJ2P2eZAfCgilp/DWBdd5ktxRNWMIYixjDqReM6J197+waNA02uzLLfrD75EZ+7D7ImVzeN3MHoSG61M40RGLlGjGh+l3aC+g/g590TFYx33h/aJEw2QA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hd92GcgT778Yt0B1JwZXuH2F889LDpcB4cZALLNz4n0=;
+ b=hSUDrIEbVg0vkuRCGrRalENwUC+oPlaLn4AgSLRfeU0jLGN6MHRMjYbfV8+Ntvbe7ddxcj82/d9pd8Rc958zdRSasZSvHkmurQz00quqz6DUCIfYLjj0s5YMMioYz7+u2yX8ZfUT0US9b8Czgsp0yW9aTb0KDaR2opE/55Gl9DNVT7Z9iGMHrOpGW4O//0buiibRQJRKg/v2PEL3pMon/u4Yr0XYM8rJsBcYIjMB9OsqF/LzkQ4pRiI/XfPaB44qg1bFCVu4j7qwZ+cFABu52Fcq7gAVJDE3iJegGlDxb81K3xrVhd2cIgxu1jUigSVXFpyfy5tzUgOn9z9B+dn3Dw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hd92GcgT778Yt0B1JwZXuH2F889LDpcB4cZALLNz4n0=;
+ b=Gc7mO5YbdgY+z+PS8czdbIEn4JpOqCSuEZFZhh8RTbZcXp7jood2qHKzJXtKaYl9UgAfjR6iJRLVuMV3qdpCVPZWHmFDHgNOsKE0gnIzmtpgXdIH4MC8Os6Thdlb3bx7IfjjpMZLduozKLoVlIsZTq0VklSu1R/xAaIXEXwOw0hbT3/m8/p3ZBzpPCAGxONoAjfpk82Ii0eP+7hMs81s8FU+/r2obuZQBDOX8pay8c+kc0w6eWp1SbfqDQDIYHYnGejNEJAPQs50QW7hJgRr9C3b71Blkmb84C22rsz8Ml8nhkgli/l+FKrb5zzOfwwT0sLm5XOGQDRebc7jL2XHMg==
+Received: from VI1PR03CA0068.eurprd03.prod.outlook.com (2603:10a6:803:50::39)
+ by DU0PR10MB6653.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:403::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.9; Wed, 4 Nov 2026
+ 12:30:38 +0000
+Received: from MI3PEPF0000848B.eurprd02.prod.outlook.com
+ (2603:10a6:803:50:cafe::9d) by VI1PR03CA0068.outlook.office365.com
+ (2603:10a6:803:50::39) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.10 via Frontend Transport; Wed, 4
+ Nov 2026 12:30:37 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ MI3PEPF0000848B.mail.protection.outlook.com (10.167.240.138) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.592.5 via Frontend Transport; Wed, 4 Nov 2026 12:30:37 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 4 Nov
+ 2026 13:31:22 +0100
+Received: from localhost (10.48.87.100) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 4 Nov
+ 2026 13:30:36 +0100
+From: Patrick Delaunay <patrick.delaunay@foss.st.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: Linux STM32 <linux-stm32@st-md-mailman.stormreply.com>, Patrick Delaunay
+	<patrick.delaunay@foss.st.com>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH] arm64: dts: st: add PSCI idle state to STM32MP23 CPU domains
+Date: Wed, 4 Nov 2026 13:30:25 +0100
+Message-ID: <20261104133023.1.If2b6b99285c1e60ca11b6e7fccf7d9b130ca20dd@changeid>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261104-v4l2-isp-resume-v1-6-06aeb8cf2940@ideasonboard.com>
-References: <20261104-v4l2-isp-resume-v1-0-06aeb8cf2940@ideasonboard.com>
-In-Reply-To: <20261104-v4l2-isp-resume-v1-0-06aeb8cf2940@ideasonboard.com>
-To: Jacopo Mondi <jacopo.mondi+renesas@ideasonboard.com>, 
- Jai Luthra <jai.luthra+renesas@ideasonboard.com>, 
- =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>, 
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Keke Li <keke.li@amlogic.com>, 
- Dafna Hirschfeld <dafna@fastmail.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: linux-media@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Daniel Scally <dan.scally@ideasonboard.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8462;
- i=dan.scally@ideasonboard.com; h=from:subject:message-id;
- bh=Ed8zH7eVXyshlepJ2a6VxF47jhQzEAoGKAtRybwj0yw=;
- b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBq6yTvABSD/Ovufvg2xAspJQNRPQZLAHYJVpUjd
- wQUuuQ/2buJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCausk7wAKCRDISVd6bEV1
- MutZD/4k34mDvjjZfm9sg772I8vLH8hegDcOQTUPDfVzMNQO+dqTi326z7BKalEBz++nVP7Whqx
- 7gZcOviUs6Ki5WGToCsRSdOg0gObSB7BFPOIniaCjZp7UXsKr5miwy9fE5I4YF7mkl6dfVaYTDI
- JO7DvILZ+owE7oDNfNaa3ykG3nPKT8dkCb/GfM9VSb0fJp+iWCnGo+nMdQOT34FlakO0Kk4WmbE
- BW8MO/gzCXpsB77vejkNM2+28gBMaOnLJNqg7ViverMCcYa7MX8uewKZjBj/dwa3H6wJbAcmOHl
- Gc53TDxFQME9wkjGDiWFsk+V3nzkLYduvaM51O/B6j7iY+xxS62SUajPQARKQVwdvPh3cfKf8U/
- mTEuzGcFhYO3FEkfVlumXJaWPCeXk+/nvsWeM43PYlgRH0w2eJCBIJA+7jq4Xav9Abk94YE6Kju
- i9Jd8wxQ2ixVJcwLaxTLKyzj76vBfCRni6HXItf6v0z4ObGP57C2jvgxQ9BhFuzyV2e/gqgRueK
- pu50onDSRYif+0zN63BPeQz+fCmWZZm/txLtP3XbTo3CmXSFHbKwuU3dcyC91JOiSZmpeGgj66+
- BN6/WSeiZhUyZIq+4wc3akmmfe6biYgL8MEl1zpW89q3FRLc83L8Vbm35KbGQdBmo3L8ntG19im
- /5aoiOjv8UWC5Yw==
-X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
- fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PEPF0000848B:EE_|DU0PR10MB6653:EE_
+X-MS-Office365-Filtering-Correlation-Id: c77cee8d-e871-4870-ab22-08df3a6f6e49
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700016|23010399003|1800799024|10067099003|18002099003|11063799006|261102123227099003|261026121527099003|261026140227099003|261022105027099003|261028144727099003|261021121427099003|261021123027099003|56012099006|261009223027099003;
+X-Microsoft-Antispam-Message-Info: DtDTCjRjimFGq3qhRmYZhRY06h+v+/RQUsLQSOpLUpRTwRepnHPB+w7xsMgxfm5QkgvHxP8zAf/+hqYuUdNslj43k9cOCSy/b5AjZVYQEpBn7FK7D7RxDyfD0BBBClxUgpfZEaQl6IkFp8dUjlfOiobFMxdF6jWFoaCJ5VZupp5XchyImEbxtIt00wU6g0H0LS7PN2QkPODaztG5AAUUq4UQeabQOiowa5AI1HTz/qTN7lvGyzW5n/3J3mWQTuvtagomEQ15b+YFPtcN9rwqkFF8pdRId1SJUFACalTkXBxC98Y7maoBq7SiLGr0IcuPWXn6QTdPzjT9eovWGuhypiWw0e/eATWSFjMBgi1mygaF66/GOtvhN4z9wjKllqNEJikpY+86Zl9DCzcQJhqwgPtgeROImi41K2BLktAn3HfjbU1BzrlRMNAI2rSoHU9Uh5c8788a1TUBW8DHDGX/AObPGMU3pKAHCr+erNKxM3mqp5IEuWY0kdYrvKJpbwvr9u8BC35YxmimGj/pVAQOB2IGk3dXCOn+KZ0qFx9YMRcQzSpwgny28vq3wz7cqXJT1vShvNdEUtrQmjIuyiUU9ubWNStTdCae75zXU0uljCnyB31gHXGTy7MuijR815/EY3LzWKCQJXMkYfP8Fxm+tvJS1qpZrHiWUzoc5OQIErtdZnTImUiOCvdW9t9fOGk1S/kyFJ4ERzexhbu99wpAww==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700016)(23010399003)(1800799024)(10067099003)(18002099003)(11063799006)(261102123227099003)(261026121527099003)(261026140227099003)(261022105027099003)(261028144727099003)(261021121427099003)(261021123027099003)(56012099006)(261009223027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: PHj0AojaCJlXQSQgNHm9cdSaPKLJFfYCE6u8mQJ0pH3tCTN0iiX1pYwQIjcJhaR/LATnfwFkkZfCvS47x2DGMXFeF5YuuZ/iZmR7mN7uv7mL+jACEwVPB0hHsCw5MaCGQEPluD9S80VR3EmRpU6zPRJntoKSlJkMPi+hk9q7PlQ8POIuGLV5+gsq86M1lPQGjifMLPrmv2W8SukqDsQZ7eAz/9Zps9aWsilbJp8zWw0w1fxtMXVcaxLJtpOku6lL9Qa2u3d1MyPURX3N7dWh8ZQ1ul5nTx3Kxvy+7M8di5UO7mg5L/nqhMkD1OODeI7K5cj0ufkAy1g39XeISSIUnuU6KLhvmsXaHU4LdsiF8VrkEKjaMSl+j7bcPRrOBec8lPB+GGg1tEoHuzaN/qHo4fllxkDom1n1acVYLCzPXe1F/M++DekZjk7VGNn4/gHo
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 12:30:37.5553
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c77cee8d-e871-4870-ab22-08df3a6f6e49
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: MI3PEPF0000848B.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB6653
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_042840_375834_926C0FA0 
-X-CRM114-Status: GOOD (  31.23  )
+X-CRM114-CacheID: sfid-20261104_043043_919616_F0EE21FA 
+X-CRM114-Status: GOOD (  11.43  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,201 +133,68 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The extensible parameters format defined in the v4l2-isp framework
-is designed to allow userspace to pass a truncated buffer of params
-for an ISP, which need not include all of its available configuration
-settings. This allows heavy configuration like lens shading tables to
-be passed by userspace to the driver a single time, and subsequent
-per-frame buffers to be much lighter. This is problematic in the case
-of suspend or hibernate and resume, in which scenario the hardware
-will lose all settings, but userspace has no way of knowing that they
-need to be re-applied.
+Define a PSCI CPU suspend state and reference it from both STM32MP23
+CPU power domains.
 
-Introduce the concept of a "reset buffer" to v4l2-isp. Userspace can
-pass a new flag that marks a parameter block as needing to be
-re-applied. Where the validation process finds that flag, the marked
-block is copied to a VB2Q-independent instance of a
-v4l2_isp_params_buffer. If that block has been written to the reset
-buffer before then the existing copy is overwritten.
+In OSI mode, PSCI power domains are initialized as off. The idle-state
+allows the CPU power-domain governor to manage them, avoiding probe
+stalls for devices that depend on the cluster power domain, including
+SDMMC1.
 
-The intention with using the existing v4l2_isp_params_buffer is to
-facilitate a driver easily using the normal function to apply a
-params buffer to also apply the reset buffer on device reset.
-
-Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+Signed-off-by: Patrick Delaunay <patrick.delaunay@foss.st.com>
 ---
- Documentation/userspace-api/media/v4l/v4l2-isp.rst | 19 +++++++
- drivers/media/v4l2-core/v4l2-isp.c                 | 66 ++++++++++++++++++++++
- include/media/v4l2-isp.h                           | 15 +++++
- include/uapi/linux/media/v4l2-isp.h                |  1 +
- 4 files changed, 101 insertions(+)
 
-diff --git a/Documentation/userspace-api/media/v4l/v4l2-isp.rst b/Documentation/userspace-api/media/v4l/v4l2-isp.rst
-index 8a3f05b5e85fd335e68e349234e2cfe5e7e83099..6bd72c7741816676d22a3197ae72ae6796973a5f 100644
---- a/Documentation/userspace-api/media/v4l/v4l2-isp.rst
-+++ b/Documentation/userspace-api/media/v4l/v4l2-isp.rst
-@@ -56,6 +56,25 @@ returns an error.
- Extension to the parameters format can be implemented by adding new blocks
- definition without invalidating the existing ones.
+ arch/arm64/boot/dts/st/stm32mp231.dtsi | 14 ++++++++++++++
+ arch/arm64/boot/dts/st/stm32mp233.dtsi |  1 +
+ 2 files changed, 15 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/st/stm32mp231.dtsi b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+index fefbf6f4f153..27231e140fbb 100644
+--- a/arch/arm64/boot/dts/st/stm32mp231.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+@@ -24,6 +24,19 @@ cpu0: cpu@0 {
+ 			power-domains = <&cpu0_pd>;
+ 			power-domain-names = "psci";
+ 		};
++
++		idle-states {
++			entry-method = "psci";
++
++			cpu_sleep: cpu-sleep {
++				compatible = "arm,idle-state";
++				arm,psci-suspend-param = <0x00000002>;
++				local-timer-stop;
++				entry-latency-us = <150>;
++				exit-latency-us = <200>;
++				min-residency-us = <1000>;
++			};
++		};
+ 	};
  
-+ISP Reset buffers
-+-----------------
-+The parameters buffer format described by :c:type:`v4l2_isp_params_buffer`
-+allows intentionally for userspace to pass a truncated buffer of parameters for
-+an ISP which does not need to include all of its available configuration
-+settings. This allows heavy configuration like lens shading tables to be passed
-+by userspace a single time, and subsequent per-frame buffers to be much lighter.
-+
-+In the case of a suspend or hibernate action followed by a system resume this
-+presents a problem. The hardware will have lost all settings, but userspace has
-+no way of knowing that they were lost and need to be re-applied.
-+
-+The V4L2 ISP framework includes the concept of a "reset buffer". As part of the
-+validation process, the framework will store the "last-seen" instance of each
-+configuration block type in an instance of v4l2_isp_params_buffer. Drivers can
-+then simply re-apply that "reset buffer" using their normal configuration
-+function when resuming from hibernation with an active stream
-+
-+
- ISP statistics
- ==============
+ 	arm-pmu {
+@@ -123,6 +136,7 @@ psci {
  
-diff --git a/drivers/media/v4l2-core/v4l2-isp.c b/drivers/media/v4l2-core/v4l2-isp.c
-index 925632e1037db18f0948ceb0ce7c652e167516c9..1420aa0f48194ff04a29fbbf83d0646d3b9d23d2 100644
---- a/drivers/media/v4l2-core/v4l2-isp.c
-+++ b/drivers/media/v4l2-core/v4l2-isp.c
-@@ -54,6 +54,69 @@ int v4l2_isp_validate(struct v4l2_isp *isp)
- }
- EXPORT_SYMBOL_GPL(v4l2_isp_validate);
+ 		cpu0_pd: power-domain-cpu0 {
+ 			#power-domain-cells = <0>;
++			domain-idle-states = <&cpu_sleep>;
+ 			power-domains = <&cluster_pd>;
+ 		};
  
-+int v4l2_isp_params_init_reset_buf(struct v4l2_isp *isp)
-+{
-+	isp->params.reset_buf = devm_kzalloc(isp->dev, isp->params.max_size,
-+					     GFP_KERNEL);
-+	if (!isp->params.reset_buf)
-+		return -ENOMEM;
-+
-+	isp->params.reset_buf->version = V4L2_ISP_PARAMS_VERSION_V0;
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(v4l2_isp_params_init_reset_buf);
-+
-+static void v4l2_isp_params_update_reset_buf(struct v4l2_isp *isp,
-+					     const struct v4l2_isp_params_block_header *block,
-+					     const struct v4l2_isp_params_block_type_info *info)
-+{
-+	struct v4l2_isp_params_buffer *buffer = isp->params.reset_buf;
-+	struct v4l2_isp_params_block_header *new_block;
-+	struct v4l2_isp_params_block_header *old_block;
-+
-+	/*
-+	 * If the reset buffer was never initialised then the driver didn't ask
-+	 * us to handle this and we can just do nothing.
-+	 */
-+	if (!buffer) {
-+		dev_dbg(isp->dev, "Reset buffer is not initialised\n");
-+		return;
-+	}
-+
-+	v4l2_isp_params_for_each_block(buffer, old_block) {
-+		if (old_block->type != block->type)
-+			continue;
-+
-+		memcpy(old_block, block, block->size);
-+		return;
-+	}
-+
-+	/*
-+	 * If we didn't find an existing stored copy for the given block type
-+	 * then we simply add it to the end of the array.
-+	 */
-+	new_block = (struct v4l2_isp_params_block_header *)
-+		&buffer->data[buffer->data_size];
-+
-+	/*
-+	 * This looks awkward! We're memcpy()ing with block->size but setting
-+	 * new_block->size with info->size. The reason is that the source buffer
-+	 * might have only contained the block header rather than a full block.
-+	 * In that case, we need to only memcpy() the amount of space that it
-+	 * actually used in the source buffer.
-+	 *
-+	 * In future though userspace might queue a buffer with a full block for
-+	 * the same block type. If we only reserved here enough space for the
-+	 * header then things would need to be rearranged in the reset buffer.
-+	 * Much easier to just reserve enough space for the full block right
-+	 * away.
-+	 */
-+	memcpy(new_block, block, block->size);
-+	new_block->size = info->size;
-+	buffer->data_size += new_block->size;
-+}
-+
- int v4l2_isp_params_validate_buffer_size(struct v4l2_isp *isp,
- 					 struct vb2_buffer *vb)
- {
-@@ -170,6 +233,9 @@ int v4l2_isp_params_validate_buffer(struct v4l2_isp *isp, struct vb2_buffer *vb,
- 		if (info->block_validate && info->block_validate(dev, block))
- 			return -EINVAL;
- 
-+		if (block->flags & V4L2_ISP_PARAMS_FL_BLOCK_REAPPLY)
-+			v4l2_isp_params_update_reset_buf(isp, block, info);
-+
- 		block_offset += block->size;
- 		buffer_size -= block->size;
- 	}
-diff --git a/include/media/v4l2-isp.h b/include/media/v4l2-isp.h
-index 5f13651b53d3c06fc676b32826daa68ad77b5cf6..b2ad6d98a4c266c388db623ddd549307b7fd4b09 100644
---- a/include/media/v4l2-isp.h
-+++ b/include/media/v4l2-isp.h
-@@ -72,6 +72,8 @@ struct v4l2_isp_params_block_type_info {
-  * @dev: pointer to the &struct device associated with the ISP
-  * @params: sub-struct holding data related to the V4L2 ISP parameters
-  * @params.types_info: pointer to array of params block information structs
-+ * @params.reset_buf: pointer to a buffer containing a copy of any block
-+ *		      flagged as needing re-application on device reset
-  * @params.num_block_types: number of possible params block types
-  * @params.max_size: maximum size in bytes of the data member of
-  *		     &struct v4l2_isp_params_buffer
-@@ -88,6 +90,7 @@ struct v4l2_isp {
- 
- 	struct {
- 		const struct v4l2_isp_params_block_type_info *types_info;
-+		struct v4l2_isp_params_buffer *reset_buf;
- 		size_t num_block_types;
- 		size_t max_size;
- 	} params;
-@@ -104,6 +107,18 @@ struct v4l2_isp {
-  */
- int v4l2_isp_validate(struct v4l2_isp *isp);
- 
-+/**
-+ * v4l2_isp_params_init_reset_buf - Init a buffer to store device reset data
-+ * @isp: pointer to the &struct v4l2_isp to allocate the buffer for
-+ *
-+ * This function allocates memory for &struct v4l2_isp.params.reset_buf, which
-+ * is intended to be populated with parameter blocks that are flagged with
-+ * %V4L2_ISP_PARAMS_FL_BLOCK_REAPPLY.
-+ *
-+ * @return 0 on success, -ENOMEM on failure
-+ */
-+int v4l2_isp_params_init_reset_buf(struct v4l2_isp *isp);
-+
- /**
-  * v4l2_isp_params_validate_buffer_size - Validate a V4L2 ISP buffer sizes
-  * @isp: the driver's &struct v4l2_isp pointer
-diff --git a/include/uapi/linux/media/v4l2-isp.h b/include/uapi/linux/media/v4l2-isp.h
-index e4607e1217e1a720f8f0a180abf3c064a0d81bf7..43059940edf1a2cad9868a4bc049ee32211cc465 100644
---- a/include/uapi/linux/media/v4l2-isp.h
-+++ b/include/uapi/linux/media/v4l2-isp.h
-@@ -42,6 +42,7 @@ enum v4l2_isp_version {
- 
- #define V4L2_ISP_PARAMS_FL_BLOCK_DISABLE	(1U << 0)
- #define V4L2_ISP_PARAMS_FL_BLOCK_ENABLE		(1U << 1)
-+#define V4L2_ISP_PARAMS_FL_BLOCK_REAPPLY	(1U << 2)
- 
- /*
-  * Reserve the first 8 bits for V4L2_ISP_PARAMS_FL_* flag.
+diff --git a/arch/arm64/boot/dts/st/stm32mp233.dtsi b/arch/arm64/boot/dts/st/stm32mp233.dtsi
+index 78f4059fca5d..cebefd99906f 100644
+--- a/arch/arm64/boot/dts/st/stm32mp233.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp233.dtsi
+@@ -26,6 +26,7 @@ arm-pmu {
+ 	psci {
+ 		cpu1_pd: power-domain-cpu1 {
+ 			#power-domain-cells = <0>;
++			domain-idle-states = <&cpu_sleep>;
+ 			power-domains = <&cluster_pd>;
+ 		};
+ 	};
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+branch: master
 
 -- 
 2.43.0
