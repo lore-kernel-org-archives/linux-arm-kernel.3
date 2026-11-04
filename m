@@ -2,59 +2,58 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB77F606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 23:49:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F2AC606D835
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 23:49:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vofz+fx2;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=h5JTEh2V
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZqkN7S+r;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=pPt/hVPr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=+6KEAoCQ8UVREw+29ki3sy3gq19cTttnWP1dyJrgYI8=; b=vofz+fx2Hyhz7T
-	bidXczbwkq7euHH+IeRr7jpsQ0pwVaGGpnLDJCiM0VW1zgSQdyGTQHZrafVQfr6/GO9CZd6bcgQEx
-	2SA6oO8+gkOXVaBPFZA64slKxIqLtanecplYkrzqsdN26HMavFiyrRSTyB+tdU4H+QStrkOvzCjLj
-	yTKBbbzq2+2/cS1JkOTOTBqpHROmFet9vSqe5u2q2QWBXUzJacJ7I3FE+Z2s31KBDj9U/BxB1rH4M
-	zY+r5y3RU2tHTDID/DKyo7iG3huMhacDjfzR0Zkfrme36RrP+mnoWJAC1rsX/+EJifefQVClB3t/s
-	Oyn0Bsjkss/R8r/+PY0w==;
+	List-Owner; bh=gxPnOEqUBYiDusajLZtexhp1yQ4KHd98B5Z02a7yjhM=; b=ZqkN7S+rQacNHs
+	OhKKWFcGQuRCgM7wZLAQvNxPx3DEJh5hnM0KLva5gvG1Af3WpEb2bM0eGu2cdv/vLb4l/XFbR7x00
+	XRjhXY2yRL7vc/x2TWfJyOxHuU01uOBE100QoiPy4tINOXmSsvM9otDwTNYxHf9A0b0/uFs/hFHyc
+	xmrCtDy1f+fAk5abjo7W7bLLXqxPydT0fgN5TIJ5aYEndRbRospfzHUW1iM5ulu0BvOmElHahNBh8
+	33V/VJ514TqPDVAsLHb/oDLEixpQc4vy8ybgIfAVp1LkI5HXglJR3vROTmhim7XKIV9MX14XcOE+z
+	Ys4tE+qahS47KV1GKUYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOkjD-00000007HGW-32Wg;
-	Wed, 04 Nov 2026 23:49:15 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1xOkjH-00000007HOS-0fOL;
+	Wed, 04 Nov 2026 23:49:19 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOkj3-00000007H7z-0bdh;
-	Wed, 04 Nov 2026 23:49:09 +0000
+	id 1xOkj4-00000007H8R-2VJv;
+	Wed, 04 Nov 2026 23:49:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1793836139;
-	bh=t+Sk8DaOjl37LRgFHYoTMUyiYaOzy7rtv2N+aTckxP0=;
+	bh=ji9wnBG7CyP1UkiJ+ncXGIQ0aWxHO0PKvYRsy14xv/Q=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=h5JTEh2VNhXVqjBaTPQ/bnsDTTnRpVJA4Kt3+5KeeaNMKgUtpySZAoD3VxEVNa4MT
-	 mRRUgGgNWADJ03+vKGpy0kE4sI2fxjX9DlEKBE5UW4Zb9PvtdnGU8PB9bkHeuhpgYZ
-	 9LiSFZeDnwWqjQkoZqAozvHdvD8zd0Ecxet5pFiPo8AdEK0DCo/I01nH+3kpMwngHF
-	 FAK1Iz8Gpeyoh/yl2lmlKuYzudtPsPqjPZIcd0vwAeU8lsME9C/YGRiEdoPG/Q0ZxD
-	 NoBMnOlEXPWM1L50l0VWLNHnJDzhiQnGNMvnHw2ifFbfMl8f9F2Tqx6quzcCR3niBN
-	 VJ7m5Wl84aPGQ==
+	b=pPt/hVPrexbV6BSJsFBq8XRuqL+bz4Q/iKJ1unr4Aiupy3lCWPOpGWHao8HQhEU5l
+	 JrfiBcqLo1JL80/vn9RT0JPraZC8hUCy1TaiJg+Wr/CAMSHGJtdk4a/CaPEKso0qTf
+	 NYD4vPjW5Gvpmj+6qgIH+n8csqEgGMO3/O/suQuqe46FM3YZpK0WuXUtWMhoh0tCDl
+	 lG9g3d1re4WjIQW9uY2rLGJIa2aBg6zMPOocX9QF7gplQjbCkoUpSutX7Wf9wS7KcI
+	 Nv+eHBP9xkf31vMGiYWzeSeCmVgb+O41fFPyKb3FYYAQdFJBwnybZfmbhKpTr2Sbz6
+	 1ZU6A+qHeu2BA==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7CF8817E0D5D;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 89CBD17E0D81;
 	Thu, 05 Nov 2026 00:48:59 +0100 (CET)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id E6C65480038; Thu, 05 Nov 2026 00:48:58 +0100 (CET)
+	id EC2F7480047; Thu, 05 Nov 2026 00:48:58 +0100 (CET)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 05 Nov 2026 00:47:07 +0100
-Subject: [PATCH v8 6/9] PCI: dw-rockchip: Add helper function for DDL
- indicator
+Date: Thu, 05 Nov 2026 00:47:10 +0100
+Subject: [PATCH v8 9/9] PCI: dw-rockchip: Add system PM support
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-rockchip-pcie-system-suspend-v8-6-0434b4f373bc@collabora.com>
+Message-Id: <20261105-rockchip-pcie-system-suspend-v8-9-0434b4f373bc@collabora.com>
 References: <20261105-rockchip-pcie-system-suspend-v8-0-0434b4f373bc@collabora.com>
 In-Reply-To: <20261105-rockchip-pcie-system-suspend-v8-0-0434b4f373bc@collabora.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
@@ -71,26 +70,26 @@ Cc: Alexey Charkov <alchark@flipper.net>, linux-pci@vger.kernel.org,
  linux-kernel@vger.kernel.org, kernel@collabora.com, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1998;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5022;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=t+Sk8DaOjl37LRgFHYoTMUyiYaOzy7rtv2N+aTckxP0=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGrrxGo9yWZaeb88ImwkDIW+x2VLfpk+75f8V
- m1YZScgRxWQh4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJq68RqAAoJENju1/PI
- O/qaTKoP/A7HCX6ZFuz9TZmWHUfDe39lNoH03CxTdiVMrA/ctGFe7N1y1cpZotNulZH5AWjQEhw
- YucDCAJop/5awLRAhZ6AykLa+imRagRuspgeTDbM3xg/tp6Q7qrNDHHkpIdxAK/PzOANpd4Opn3
- +qDOQDVup5qjcpzsqhuQMXtZXoTVYI4z2lcRDZmnfpaFCESlnMTTiynSnyI6QYhPUrEWvz6ZsPx
- iKniWCjQkCgTn0ipX6pGA3wZLMG2ctYK2zs4KsUHx2VqYBe0T2/JI2sxZMiCJxh4oFheVh8maGE
- GuMm63TE3q8AC3skfyLKYyr7lw474Sn4W2uCh+twjmUygh2NUXeW/2V9hY0rK+tbeDdLhttlKuk
- q3C+oIUDRWX8ugDoZ1k12eHI9/iz3qwQaKghT2p+0AgHNL8TOeosiedLnJZCq9TytiI+S4tIOti
- e8xgiMrzVcU6FrTbEzCgPuNj+htWfM2X9G3yvozflMi+/ftm9sCuRq4RCuBfXBbRi94xr0bC+Cm
- Vy+XN8/ePrWpGqc/QyLyWRqAeI4Bd35whKyJNcA+jvOOV2j0xBTSUlPBcG7/mSF0q/ak7HxTO43
- e2DByu3CRkzNiABT20RMGsSCtfdUgFP+TFhXez3zdwhRpK3ibQ93LpEswS5d4hmGsnB9HXr7Eaa
- NpWewbaf1V9fQe1irccMqJw==
+ bh=ji9wnBG7CyP1UkiJ+ncXGIQ0aWxHO0PKvYRsy14xv/Q=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGrrxGrMjRLHELIEO1dVe/MrAmX0gpMKLgLNF
+ LENleDV6n4VmYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJq68RqAAoJENju1/PI
+ O/qaSd4QAJrqJbrk6g2FUaT/PqZpDr82e8Towi/SW6TIdjUDboEPu5WsA5WVt6y6UUcLBXZc3ky
+ umD382bWn2y14Ui/x6uRH/llDWCi1wq6JTsOrJ2yt3QrmqK+wJ7t7UNcJs3oUG94ipV+yBeAHL1
+ aYDodPd7jQ+dM52AnO13CQq8S9UwDXY2W7jfMaVkZO8igirqFlXywbkhUNRBRrrI4MX7gktzceR
+ a3HNe1i9xtnT4RLQeffZnb+sc4AuQ1mFFtdIhvnLvNB/rkq6X5xMEtni9DvnlXVLOZHD7Qc1uEi
+ 69RPSr0eaJfJ9NW1qlyOHGYfjkVICgjplw7OkWy5++xAO16mYMkmElRJdxFld61+DBbRwOezpBZ
+ aWtJmqVEybqSuiRpYl0YxH6lufb99H09rI959+8DVkIkm1j3+MEO9BNX2DSM34UlcMWSVQLJaEv
+ xMEX8wN+cE4Nax/ZqaEuqiv3pzcQ4nQCqK3cgdAx0d4nzeeydsMcAUE/OwBwPaJzwBO2DKoWDTj
+ G+IgjW9EpPQXBr8sDsxySzPPemeuy/uk5Dq32sMhZ5FxhpbpHvXTL/+6Ep3+obooRm7RQewY6dl
+ TgbpemPV46YcdRAYegpB4BbDyXgJF2Ubj1mgBxkJaRcO5LFzQOXsmolAozu7IyauTrfMKap95AH
+ GqlNXAN1rBJesdFuSZjYjTA==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_154908_140493_00C0431A 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20261104_154908_281296_B7564B76 
+X-CRM114-Status: GOOD (  20.74  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,56 +109,167 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Remove code duplication and improve readability by introducing a new
-function to setup the DLL indicator.
+Add system PM support for Rockchip PCIe Designware Controllers.
 
-Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
+I've tested this on the Rockchip RK3576 EVB1, the Radxa ROCK 4D
+and the ArmSom Sige5 boards.
+
+While I haven't experienced any issues, most of my tests have been done
+without any devices attached (i.e. default board without any extras), so
+there _might_ still be some problems. As system suspend does not work at
+all right now, I think it makes sense to get at least the basic
+configurations working as soon as possible as it will allow us to catch
+regressions by enabling system suspend in CI systems like KernelCI.
+
+Co-developed-by: Shawn Lin <shawn.lin@rock-chips.com>
+Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 16 +++++++++++-----
- 1 file changed, 11 insertions(+), 5 deletions(-)
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 105 ++++++++++++++++++++++++++
+ 1 file changed, 105 insertions(+)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index c6a4649dae2e..0e26abc50920 100644
+index 9a2606748281..cf88c87d342d 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -700,6 +700,16 @@ static void rockchip_pcie_set_controller_mode(struct rockchip_pcie *rockchip, u3
- 	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_SET_MODE(mode), PCIE_CLIENT_GENERAL_CON);
- }
+@@ -124,6 +124,7 @@ struct rockchip_pcie {
+ 	struct gpio_desc *rst_gpio;
+ 	struct regulator *vpcie3v3;
+ 	struct irq_domain *irq_domain;
++	u32 intx;
+ 	const struct rockchip_pcie_of_data *data;
+ 	bool supports_clkreq;
+ 	struct delayed_work trace_work;
+@@ -804,6 +805,7 @@ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
  
-+static void rockchip_pcie_unmask_dll_indicator(struct rockchip_pcie *rockchip)
-+{
-+	u32 val;
-+
-+	/* unmask DLL up/down indicator and hot reset/link-down reset */
-+	val = FIELD_PREP_WM16(PCIE_RDLH_LINK_UP_CHGED, 0) |
-+	      FIELD_PREP_WM16(PCIE_LINK_REQ_RST_NOT_INT, 0);
-+	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_INTR_MASK_MISC);
-+}
-+
- static int rockchip_pcie_configure_rc(struct platform_device *pdev,
- 				      struct rockchip_pcie *rockchip)
- {
-@@ -760,7 +770,6 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
- {
- 	struct device *dev = &pdev->dev;
- 	int irq, ret;
--	u32 val;
+ 	pp = &rockchip->pci.pp;
+ 	pp->ops = &rockchip_pcie_host_ops;
++	pp->suspend_poweroff = true;
  
- 	if (!IS_ENABLED(CONFIG_PCIE_ROCKCHIP_DW_EP))
- 		return -ENODEV;
-@@ -800,10 +809,7 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
- 
- 	pci_epc_init_notify(rockchip->pci.ep.epc);
- 
--	/* unmask DLL up/down indicator and hot reset/link-down reset */
--	val = FIELD_PREP_WM16(PCIE_RDLH_LINK_UP_CHGED, 0) |
--	      FIELD_PREP_WM16(PCIE_LINK_REQ_RST_NOT_INT, 0);
--	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_INTR_MASK_MISC);
-+	rockchip_pcie_unmask_dll_indicator(rockchip);
- 
+ 	ret = dw_pcie_host_init(pp);
+ 	if (ret) {
+@@ -1035,6 +1037,103 @@ static int rockchip_pcie_rc_reset_root_port(struct pci_host_bridge *bridge,
  	return ret;
  }
+ 
++static int rockchip_pcie_suspend(struct device *dev)
++{
++	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
++	struct dw_pcie *pci = &rockchip->pci;
++	int ret;
++
++	if (rockchip->data->mode == DW_PCIE_EP_TYPE)
++		return 0;
++
++	if (pci->suspended)
++		return 0;
++
++	rockchip->intx = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_MASK_LEGACY);
++	rockchip->intx &= PCIE_INTR_MASK;
++
++	ret = dw_pcie_suspend_noirq(pci);
++	if (ret)
++		return ret;
++
++	gpiod_set_value_cansleep(rockchip->rst_gpio, 0);
++	rockchip_pcie_phy_deinit(rockchip);
++	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
++	reset_control_assert(rockchip->rst);
++	if (rockchip->vpcie3v3)
++		regulator_disable(rockchip->vpcie3v3);
++
++	return 0;
++}
++
++static int rockchip_pcie_resume(struct device *dev)
++{
++	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
++	struct dw_pcie *pci = &rockchip->pci;
++	int ret;
++	u32 val;
++
++	if (rockchip->data->mode == DW_PCIE_EP_TYPE)
++		return 0;
++
++	if (rockchip->vpcie3v3) {
++		ret = regulator_enable(rockchip->vpcie3v3);
++		if (ret) {
++			dev_err(dev, "regulator enable failed: %d\n", ret);
++			return ret;
++		}
++	}
++
++	ret = rockchip_pcie_phy_init(rockchip);
++	if (ret) {
++		dev_err(dev, "phy init failed: %d\n", ret);
++		goto err_disable_regulator;
++	}
++
++	ret = reset_control_deassert(rockchip->rst);
++	if (ret) {
++		dev_err(dev, "reset deassert failed: %d\n", ret);
++		goto err_deinit_phy;
++	}
++
++	ret = clk_bulk_prepare_enable(rockchip->clk_cnt, rockchip->clks);
++	if (ret) {
++		dev_err(dev, "clock init failed: %d\n", ret);
++		goto err_assert_reset;
++	}
++
++	rockchip_pcie_writel_apb(rockchip, FIELD_PREP_WM16(PCIE_INTR_MASK, rockchip->intx),
++				 PCIE_CLIENT_INTR_MASK_LEGACY);
++
++	rockchip_pcie_enable_enhanced_ltssm_control_mode(rockchip, 0);
++	rockchip_pcie_set_controller_mode(rockchip, PCIE_CLIENT_MODE_RC);
++
++	ret = dw_pcie_resume_noirq(pci);
++	if (ret) {
++		dev_err(dev, "failed to resume: %d\n", ret);
++		goto err_reassert_rst;
++	}
++
++	/* unmask hot reset/link-down reset */
++	val = FIELD_PREP_WM16(PCIE_LINK_REQ_RST_NOT_INT, 0);
++	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_INTR_MASK_MISC);
++
++	return 0;
++
++err_reassert_rst:
++	gpiod_set_value_cansleep(rockchip->rst_gpio, 0);
++	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
++err_assert_reset:
++	reset_control_assert(rockchip->rst);
++err_deinit_phy:
++	rockchip_pcie_phy_deinit(rockchip);
++err_disable_regulator:
++	if (rockchip->vpcie3v3)
++		regulator_disable(rockchip->vpcie3v3);
++
++	return ret;
++}
++
+ static const struct rockchip_pcie_of_data rockchip_pcie_rc_of_data_rk3568 = {
+ 	.mode = DW_PCIE_RC_TYPE,
+ };
+@@ -1065,11 +1164,17 @@ static const struct of_device_id rockchip_pcie_of_match[] = {
+ 	{},
+ };
+ 
++static const struct dev_pm_ops rockchip_pcie_pm_ops = {
++	NOIRQ_SYSTEM_SLEEP_PM_OPS(rockchip_pcie_suspend,
++				  rockchip_pcie_resume)
++};
++
+ static struct platform_driver rockchip_pcie_driver = {
+ 	.driver = {
+ 		.name	= "rockchip-dw-pcie",
+ 		.of_match_table = rockchip_pcie_of_match,
+ 		.suppress_bind_attrs = true,
++		.pm = &rockchip_pcie_pm_ops,
+ 	},
+ 	.probe = rockchip_pcie_probe,
+ };
 
 -- 
 2.53.0
