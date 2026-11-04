@@ -2,73 +2,78 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B64AC606D821
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 16:12:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EE30606EE8B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 16:16:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Tcnvtpsb;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=g00dkbCd
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VScGjTpn;
+	dkim=pass (2048-bit key, unprotected) header.d=posteo.net header.i=@posteo.net header.a=rsa-sha256 header.s=1984.8680eb header.b=jx7AZzau
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bveTO0+StKxpuK35+DwPLa38Tc+AfBhkX4WsslUA1n0=; b=Tcnvtpsb9rHtzLYunmLRKkQwuS
-	ygD+C1ztqApI/hppErkTjgofi31FeBIINHk1LyXkw2IikVS4XB8tadb0C21T/ohePcJ4RWfk/lYx5
-	fDOrlzqZ2tocmRnblbHsgFyMDLfRuZO6Z22l+N87z9rZM0uCVC70R5m5+HWMph/o8D+RpQaqXzgGk
-	hKsvcnyKPM/pLkIMeXXZbQwrfVA84uZnt49nk8KzpI3RjSAHkVsFXE3RgIRzXjO/bdRIrztuOPUjw
-	oABO9S/jaKoeUf7y5jaxLK+b+mDK/dZxQsnHCeixWTRpjABs8G+vKapeLyid4L5cS5Z02zbTZwE8T
-	mfEHbYiw==;
+	bh=uSL4WCFdu/8AH47XVLkok2dck+ry3uGzMw20szqHJBM=; b=VScGjTpnwvEE9XVfVhsW6Ocmod
+	v/rdzR4nP6SmLx3FzbL2Rt0OQkpkoWmRfWriDXTTAgKc3x7yk6wxp6PegZ0dq7w7Q9wTvy3fHHxfo
+	+1PhwkYfWHaFzdw6HHkiHySS+l14ABMIS23dLCsMooD0MFcP6WyaYEbA8acD4G13z6CBldL+8oKjl
+	s9fw8lXXYOfYh8PqnsJmUaXmT+jBlDlmLNs4jVqid9y73MIe1IP3/7n89vr5hjX2+9Qg80xd3HjIx
+	gYV1Vyop1dj9yll4CwIINmrIP2CvMdWs261FVYErMWlSxGcAphhVDi5XRay2p7zAacXJAVY2h7g/a
+	etmKaKoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOdbR-00000005uK4-1qCj;
-	Wed, 04 Nov 2026 16:12:45 +0000
-Received: from sender6-op-o11.zoho.com ([165.173.180.11])
+	id 1xOdek-00000005ur2-3a41;
+	Wed, 04 Nov 2026 16:16:10 +0000
+Received: from mout01.posteo.de ([185.67.36.65])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOdbO-00000005uJL-2YB6;
-	Wed, 04 Nov 2026 16:12:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1793808744; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=E/62NSDe0vaSbCCbvaPH/G+x6dAmPjbRWxgYGA2c3+W5vcAq31UDEHDbxGjRfh0O8Au9haU82JJ3mfz/qZttVTrr2rwBFstZpO+tDTA+z25kFRAlZH41eCjJgIG+39cA4+823PrrVYI4dYGEXeGLDMGaUEW6btE/NvfCRNr8ep8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1793808744; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=bveTO0+StKxpuK35+DwPLa38Tc+AfBhkX4WsslUA1n0=; 
-	b=fUDSEeQHqgnxpJZwm7KTwJIjtduDprKg++gxdGUw9BOm+hj3ndu9NceClATpQIjD3HRFN1varrfMAqCs3ohUuaUaJexbpTozVNosucqJZYwbpRm3E/ScC2W9/uCmwEOiROnUGYWQi0FWUzn8pcRHzLbMoA7Fzkoq2MomaO6Qp94=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=adrian.larumbe@collabora.com;
-	dmarc=pass header.from=<adrian.larumbe@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=g00dkbCdKCVijxi0aOSUvqxlSJwtp4GMt050SfbyRBrL8pkzzsz6v2HpHNLLMa+DU1BQI6h2VCnKf8HmgNHU7o6FqQ+W2OcncjzDFCBIEbyQxrdJ/edqvQgGROOLF5S2mXPHayDADShRJvtUM45TymOtm0FZt6a+jEyjyMKSb8g=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=bveTO0+StKxpuK35+DwPLa38Tc+AfBhkX4WsslUA1n0=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1793808743618272.38594916343584;
-	Wed, 4 Nov 2026 08:12:23 -0800 (PST)
-Date: Wed, 4 Nov 2026 16:12:19 +0000
-From: =?utf-8?Q?Adri=C3=A1n?= Larumbe <adrian.larumbe@collabora.com>
-To: =?utf-8?B?TWljaGHFgiBLb3BlxIc=?= <michal@nozomi.space>
-Cc: Boris Brezillon <boris.brezillon@collabora.com>, 
-	Steven Price <steven.price@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	id 1xOdeg-00000005uoB-30FR
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Nov 2026 16:16:09 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout01.posteo.de (Postfix) with ESMTPS id 70C56240027
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Nov 2026 17:16:03 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net;
+	s=1984.8680eb; t=1793808963;
+	bh=uSL4WCFdu/8AH47XVLkok2dck+ry3uGzMw20szqHJBM=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding:From;
+	b=jx7AZzauITfBef6KYUAEf6GHPCWor4fyfgidwB+08Cc/9M2rKbMEedBDWBNCOQ+a5
+	 uxCIUFJbyKDA0M72lUY/FXyq/miyk6yFZ3E0j3xxUojrtkOHZn2Tcv44DCtQGHJ97H
+	 GHtt6ohVFl14a5eYc4nqTXX70bVyzH8bRbJfb7O7Tpu5KyXq9MLYP3a1WwE8ZX6Yx8
+	 BryyChw3QaG95eW7bJI4tNzI3WhHWsGRX2YhPufltmJV9gZ0koOjhAhfOO0jIchDeq
+	 c/yYGWSUKc6uLTUYCLZTAd76GHIA5ukKhpDHRH7xVWM/NEWtr8w44n0O2BKMmGcxkV
+	 +D7CPHPffigEw==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4jKVt83CGdz6twJ;
+	Wed,  4 Nov 2026 17:16:00 +0100 (CET)
+From: Mateusz Nowicki <mateusz.nowicki@posteo.net>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	linux-watchdog@vger.kernel.org
+Cc: Mateusz Nowicki <mateusz.nowicki@posteo.net>,
+	Julius Werner <jwerner@chromium.org>,
+	Evan Benn <evanbenn@chromium.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Antonio Borneo <antonio.borneo@foss.st.com>,
+	Marek Vasut <marex@nabladev.com>,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] drm/panfrost: Enable the GPU timestamp counter on
- MT8188
-Message-ID: <autXXJFdiSTpir7K@sobremesa>
-References: <20261003200132.866240-1-michal@nozomi.space>
- <20261003200132.866240-3-michal@nozomi.space>
+Subject: [RFC PATCH 0/3] watchdog: arm_smc_wdt: allow a list of SMC function ids
+Date: Wed, 04 Nov 2026 16:16:02 +0000
+Message-ID: <20261104161553.30115-1-mateusz.nowicki@posteo.net>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261003200132.866240-3-michal@nozomi.space>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/293.791.62
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_081242_734657_4DD8D346 
-X-CRM114-Status: GOOD (  30.12  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261104_081607_930800_CAE350A2 
+X-CRM114-Status: GOOD (  17.21  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,151 +84,76 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Michał,
+Hi all,
 
-On 03.10.2026 22:01, Michał Kopeć wrote:
-> On MediaTek SoCs the GPU timestamp counter is fed by the SoC system timer
-> only once the TOP_TSVALUEB enable bits are set in the MFGCFG block. The
-> setting is lost whenever the GPU power domain is turned off.
-> 
-> Without it, GPU_TIMESTAMP reads zero, so the SYSTEM_TIMESTAMP query and
-> timestamps written by jobs are always zero, which breaks timestamp
-> queries in userspace drivers.
-> 
-> Look up the MFGCFG block from the mediatek,mfgcfg phandle and set the
-> bits from the vendor quirk hook, which runs on every power-up, as the
-> downstream kbase driver does. Without the phandle nothing changes.
+this follows up on Marek's report about the stm32mp2 watchdog [1].
 
-To me this looks like the right location for the fix inside the quirk function
-further below is somewhere in MT8188's device RPM handlers themselves, rather
-the Panfrost driver. RPM core keeps a tree of runtime dependencies, so SoC
-resume handlers would always be run before those of the child nodes (Panfrost
-being among them). 
+A quick recap: the arm,smc-wdt driver talks to the firmware through one
+SMC function id that it reads from the device tree, and there is no way
+to ask the firmware which id it uses. On the STM32MP2 SoCs that id
+changed over time. ST's OP-TEE from ecosystem v5 expects 0xb200005a,
+their 4.0.0 fork accepts both, and the 4.8.0 fork as well as upstream
+OP-TEE only accept 0xbc000000.
 
-> Signed-off-by: Michał Kopeć <michal@nozomi.space>
-> ---
->  drivers/gpu/drm/panfrost/panfrost_device.h |  1 +
->  drivers/gpu/drm/panfrost/panfrost_drv.c    |  1 +
->  drivers/gpu/drm/panfrost/panfrost_gpu.c    | 39 ++++++++++++++++++++++
->  drivers/gpu/drm/panfrost/panfrost_gpu.h    |  1 +
->  4 files changed, 42 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/panfrost/panfrost_device.h b/drivers/gpu/drm/panfrost/panfrost_device.h
-> index 1fe1554f2652b..0a73939a023c3 100644
-> --- a/drivers/gpu/drm/panfrost/panfrost_device.h
-> +++ b/drivers/gpu/drm/panfrost/panfrost_device.h
-> @@ -134,6 +134,7 @@ struct panfrost_device {
->  	int mmu_irq;
->  
->  	void __iomem *iomem;
-> +	struct regmap *mtk_mfgcfg;
->  	struct clk *clock;
->  	struct clk *bus_clock;
->  	struct clk *bus_ace_clock;
-> diff --git a/drivers/gpu/drm/panfrost/panfrost_drv.c b/drivers/gpu/drm/panfrost/panfrost_drv.c
-> index 70c05210ea846..e811652e2384d 100644
-> --- a/drivers/gpu/drm/panfrost/panfrost_drv.c
-> +++ b/drivers/gpu/drm/panfrost/panfrost_drv.c
-> @@ -1133,6 +1133,7 @@ static const struct panfrost_compatible mediatek_mt8188_data = {
->  	.pm_domain_names = mediatek_pm_domains,
->  	.pm_features = BIT(GPU_PM_CLK_DIS) | BIT(GPU_PM_VREG_OFF),
->  	.gpu_quirks = BIT(GPU_QUIRK_FORCE_AARCH64_PGTABLE),
-> +	.vendor_quirk = panfrost_gpu_mt8188_quirk,
->  };
->  
->  static const struct panfrost_compatible mediatek_mt8192_data = {
-> diff --git a/drivers/gpu/drm/panfrost/panfrost_gpu.c b/drivers/gpu/drm/panfrost/panfrost_gpu.c
-> index 29ac0dce5ff89..971abc9cc222c 100644
-> --- a/drivers/gpu/drm/panfrost/panfrost_gpu.c
-> +++ b/drivers/gpu/drm/panfrost/panfrost_gpu.c
-> @@ -9,8 +9,11 @@
->  #include <linux/interrupt.h>
->  #include <linux/io.h>
->  #include <linux/iopoll.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/of.h>
->  #include <linux/platform_device.h>
->  #include <linux/pm_runtime.h>
-> +#include <linux/regmap.h>
->  
->  #include <drm/drm_print.h>
->  
-> @@ -114,6 +117,40 @@ void panfrost_gpu_amlogic_quirk(struct panfrost_device *pfdev)
->  	gpu_write(pfdev, GPU_PWR_OVERRIDE1, 0xfff | (0x20 << 16));
->  }
->  
-> +#define MTK_MFG_TIMESTAMP			0x130
-> +#define   MTK_MFG_TIMESTAMP_TOP_TSVALUEB_EN	0x3
-> +
-> +void panfrost_gpu_mt8188_quirk(struct panfrost_device *pfdev)
-> +{
-> +	/*
-> +	 * The GPU timestamp counter only counts once MFGCFG routes the SoC
-> +	 * system timer to it. The setting is lost whenever the GPU power
-> +	 * domain is turned off, so it has to be restored on every power-up.
-> +	 */
-> +	if (pfdev->mtk_mfgcfg)
-> +		regmap_write(pfdev->mtk_mfgcfg, MTK_MFG_TIMESTAMP,
-> +			     MTK_MFG_TIMESTAMP_TOP_TSVALUEB_EN);
-> +}
+My earlier patch, commit ae4d08bbe3f4 ("arm64: dts: st: fix arm,smc-id
+of the SMC watchdog on stm32mp2"), switched the dtsi to 0xbc000000. That
+made the watchdog work with current OP-TEE, but it broke boards that run
+the older firmware. So today 6.18.y uses one id and 7.4 the other. When
+the kernel and the firmware disagree, nobody pets the watchdog that the
+bootloader started, and the board resets after 32 seconds. Marek hit
+this even with a recovery kernel, which is about the worst place for it.
 
-Here you cast an SoC issue as a GPU quirk, which is a misrepresentation of the problem.
-GPU quirks are about working around GPU-model specific issues by poking GPU registers
-themselves. 
+The idea from that thread: let arm,smc-id be a list. The driver tries
+the ids one by one and keeps the first one the firmware accepts. Older
+kernels only read the first cell, so they behave exactly as they do
+now. For stm32mp2 the list is <0xbc000000 0xb200005a>. Calling an id
+that belongs to some other firmware service would be bad, so the
+binding says the list may only hold ids known to be this watchdog.
 
-> +static void panfrost_gpu_get_mtk_mfgcfg(struct panfrost_device *pfdev)
-> +{
-> +	struct device_node *np;
-> +	struct regmap *regmap;
-> +
-> +	np = of_parse_phandle(pfdev->base.dev->of_node, "mediatek,mfgcfg", 0);
-> +	if (!np)
-> +		return;
-> +
-> +	regmap = device_node_to_regmap(np);
-> +	of_node_put(np);
-> +	if (IS_ERR(regmap)) {
-> +		dev_warn(pfdev->base.dev, "failed to get MFGCFG: %pe\n", regmap);
-> +		return;
-> +	}
-> +
-> +	pfdev->mtk_mfgcfg = regmap;
-> +}
-> +
->  static void panfrost_gpu_init_quirks(struct panfrost_device *pfdev)
->  {
->  	u32 quirks = 0;
-> @@ -519,6 +556,8 @@ int panfrost_gpu_init(struct panfrost_device *pfdev)
->  {
->  	int err;
->  
-> +	panfrost_gpu_get_mtk_mfgcfg(pfdev);
+Why RFC: arm,smc-id already exists in firmware/arm,scmi.yaml as a plain
+uint32, and dt_binding_check complains when another binding turns it
+into an array:
 
-We cannot add SoC-specific workarounds in generic driver code. There has to be another way.
+  arm-smc-wdt.yaml: arm,smc-id: multiple incompatible types: uint32-array
+  arm,scmi.yaml: arm,smc-id: multiple incompatible types: uint32
 
->  	err = panfrost_gpu_soft_reset(pfdev);
->  	if (err)
->  		return err;
-> diff --git a/drivers/gpu/drm/panfrost/panfrost_gpu.h b/drivers/gpu/drm/panfrost/panfrost_gpu.h
-> index b4fef11211d5f..2b974576b96e9 100644
-> --- a/drivers/gpu/drm/panfrost/panfrost_gpu.h
-> +++ b/drivers/gpu/drm/panfrost/panfrost_gpu.h
-> @@ -23,5 +23,6 @@ unsigned long long panfrost_cycle_counter_read(struct panfrost_device *pfdev);
->  unsigned long long panfrost_timestamp_read(struct panfrost_device *pfdev);
->  
->  void panfrost_gpu_amlogic_quirk(struct panfrost_device *pfdev);
-> +void panfrost_gpu_mt8188_quirk(struct panfrost_device *pfdev);
->  
->  #endif
-> -- 
-> 2.55.0
+DT folks, is there a way to keep the list in arm,smc-id that you would
+be fine with? If not, I can move the extra ids into a new property,
+something like:
 
-Adrian Larumbe
+  arm,smc-id = <0xbc000000>;
+  arm,smc-alt-ids = <0xb200005a>;
+
+The driver side would stay the same, it would just read the fallback
+ids from the other property.
+
+One more question: should patches 2 and 3 go to stable as well? Then
+6.18.y would also work with both firmware generations. The 6.18.y
+version of patch 3 would turn its 0xb200005a into the same list.
+
+[1] https://lore.kernel.org/all/1b14e1e4-962f-4391-91fd-b09143641643@nabladev.com/
+
+Mateusz Nowicki (3):
+  dt-bindings: watchdog: arm-smc-wdt: allow a list of SMC ids
+  watchdog: arm_smc_wdt: try every id of arm,smc-id
+  arm64: dts: st: list both watchdog SMC ids on stm32mp23 and stm32mp25
+
+ .../bindings/watchdog/arm-smc-wdt.yaml         |  9 +++++++--
+ arch/arm64/boot/dts/st/stm32mp231.dtsi         |  2 +-
+ arch/arm64/boot/dts/st/stm32mp251.dtsi         |  2 +-
+ drivers/watchdog/arm_smc_wdt.c                 | 18 ++++++++++++------
+ 4 files changed, 21 insertions(+), 10 deletions(-)
+
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+-- 
+2.56.0
+
 
