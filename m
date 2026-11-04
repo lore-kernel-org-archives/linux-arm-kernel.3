@@ -2,32 +2,31 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC51B606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 03:59:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B79B9606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 03:59:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NdT03oGF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ObgWm542
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=QWbjlLOr+8hkpwlUSwLszIplc2RXylAKoniq+0KkMAI=; b=NdT03oGFwShub2Js85udWWP7x2
-	zcQIXNEnUqNfWdOaHI5G8J6t5ZxXshVYc2O1rv25fS4K1n/C4PHLbluFFT2C0JxkWdn2tXEL0YPJQ
-	jUlIYD3NG3oemyBUI+p/ah2oIBOoibu5K5vk/LnKNmmZ1RVA2KAKm71qBWQAOuH+eHWwXu9DbmDsz
-	eIy68EPHeekeozMTBi63SusPpNWs78M/sYzOXWMT5boQnbLR4Hj0+tqOLjyv5QOnH7tufJlnH6Cb8
-	R6/z41KNbNiDmQzHM+PLgMee9JPV69lJla7il2DYRIpuhymuKA5KM+ZZlxodwa4OgGTTHhQ02oL1/
-	9KQYLp5g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=uBHr36LK49YQkkFNPU7jgzWwlJeQFqDRMsaYzjRg1WI=; b=ObgWm542931UmM
+	jAht49h8023GB6rGI/QC4mjeVzpU+crtqwTExK38rIlzAiReV4C+iMRpROOjRJtiB+go5mt6IrMQb
+	XUqOg+Hhq4aFeuTb/ekTGaxZQnXPp22pQ2/107kcT3aCqIeOLz3OLcjCCzVAJuywe1sP/VEIGHxbe
+	DdBqeKjgBUv+FilqkaGInmJ1jCIK4BOpgvQJXz7Al61u7Q7jXNhn8IpbYYy+1HNgfCRedxVauJa04
+	IPna7C8qqQ+eIJMA4H09DX0lx7goLrzz/bs2bR2auQgKP3ZA1hFrjkcYfKZaKNgUuDzuTl7/nyxtV
+	8ajYXW59Kzg77fRFdsvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOS9M-00000004Hfh-3uQO;
-	Wed, 04 Nov 2026 03:59:00 +0000
+	id 1xOS9Q-00000004Hgj-04cR;
+	Wed, 04 Nov 2026 03:59:04 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOS9H-00000004Hf9-0Jj0
+	id 1xOS9M-00000004Hf9-11Rl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 03:58:59 +0000
+	Wed, 04 Nov 2026 03:59:01 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 4 Nov
@@ -36,18 +35,16 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Wed, 4 Nov 2026 11:58:47 +0800
 From: Billy Tsai <billy_tsai@aspeedtech.com>
-Subject: [PATCH 0/2] gpio: aspeed: Fix lost interrupts from
- write-1-to-clear status bits
-Date: Wed, 4 Nov 2026 11:58:34 +0800
-Message-ID: <20261104-gpio-aspeed-irq-status-v1-0-9805645f856d@aspeedtech.com>
+Date: Wed, 4 Nov 2026 11:58:35 +0800
+Subject: [PATCH 1/2] gpio: aspeed: Clear only the acked line's G4 interrupt
+ status
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGqt6moC/x3MMQqAMAxA0atIZgOmFAevIg6lTTVLWxsVQby7x
- fEN/z+gXIUVpu6Bypeo5NRAfQd+c2lllNAMZjAj0WBxLZLRaWEOKHVHPdxxKlL0hpzlEH2EFpf
- KUe5/PC/v+wEVUbMRaAAAAA==
-X-Change-ID: 20261104-gpio-aspeed-irq-status-1fc21a4edfcf
+Message-ID: <20261104-gpio-aspeed-irq-status-v1-1-9805645f856d@aspeedtech.com>
+References: <20261104-gpio-aspeed-irq-status-v1-0-9805645f856d@aspeedtech.com>
+In-Reply-To: <20261104-gpio-aspeed-irq-status-v1-0-9805645f856d@aspeedtech.com>
 To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
 	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
 	Ryan Chen <ryan_chen@aspeedtech.com>
@@ -56,17 +53,16 @@ CC: <linux-gpio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<billy_tsai@aspeedtech.com>, <stable@vger.kernel.org>, Aaron Antone
 	<aae@amazon.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793764727; l=1310;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793764727; l=1851;
  i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=Spxhcm05RN8n5Sh9TZW9A+mV+AO88j/EoIbdaSDAC1Q=;
- b=8g/Xu7pU2y1fekmgY5p4e8m8VTtBLtTYoqVWdQqsYQcNcbyBEVhAedQYqRNqcERFOBFSADxdx
- TTpXNzDJzH2DlwXjM5x/4B7aOHlLrSzdi4D7Qkn8sa3pN1cll6XdZ9m
+ bh=TEOj7oqwxfBFK2B1FS9iy35fS31jC1PHn9rs7TGEd8Q=;
+ b=A6uNk7/EeJuMSlFXFHIIuh48EZqHYrN2yYSRc2hFsh4mWw8YtVum+F4B801WohKC80pkwuaT2
+ vpUwXOtKplwAr5NofnGBl7YfHRbziZzCYP0uP8WZB7Q9wLfy8wNUP6W
 X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
  pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_195855_147050_FDA37E4D 
-X-CRM114-Status: UNSURE (   7.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261103_195900_309391_6492C25C 
+X-CRM114-Status: GOOD (  14.12  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,35 +82,54 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The Aspeed GPIO interrupt status bits are write-1-to-clear on every
-generation, but the driver updates them with read-modify-write helpers
-that write a pending status bit back as 1. Each write therefore clears
-interrupts that have not been handled yet.
+The G4 interrupt status registers are write-1-to-clear: writing 0 to a
+bit has no effect and writing 1 clears that line's status flag.
+aspeed_gpio_irq_ack() clears a line's status through
+aspeed_g4_reg_bit_set(), which reads the bank's status register, sets
+the line's bit and writes the whole value back. That write clears every
+interrupt pending in the 32-line bank, not just the acked one.
 
-Patch 1 fixes G4 (AST2400/AST2500/AST2600), where the status register
-covers a 32-line bank. Acking one line clears every interrupt pending
-in the bank, and an edge that latches after the handler has read the
-status register is lost. This was observed on an AST2600 BMC with two
-lines of the same bank toggling together at host power-off.
+aspeed_gpio_irq_handler() reads each bank's status register once and
+dispatches the lines that were set. If another line in the same bank
+latches an edge after that read and before an ack in the bank, the ack
+clears its status and the handler is never called for it, so the edge
+is lost.
 
-Patch 2 fixes G7 (AST2700), where each line's status bit sits in that
-line's own control register. Updating any other field of the register
-while the line's interrupt is pending clears it.
+Write only the line's own bit when clearing the interrupt status on G4.
 
+Fixes: 79fc9a2fcc45 ("gpio: aspeed: Create llops to handle hardware access")
+Cc: stable@vger.kernel.org
+Reported-by: Aaron Antone <aae@amazon.com>
+Suggested-by: Aaron Antone <aae@amazon.com>
 Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 ---
-Billy Tsai (2):
-      gpio: aspeed: Clear only the acked line's G4 interrupt status
-      gpio: aspeed: Preserve the pending G7 interrupt status on control writes
+ drivers/gpio/gpio-aspeed.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
- drivers/gpio/gpio-aspeed.c | 19 ++++++++++++++++++-
- 1 file changed, 18 insertions(+), 1 deletion(-)
----
-base-commit: 65ba8f34ec886ec72b2c07ddc8cf3d815c32869d
-change-id: 20261104-gpio-aspeed-irq-status-1fc21a4edfcf
+diff --git a/drivers/gpio/gpio-aspeed.c b/drivers/gpio/gpio-aspeed.c
+index dc53b2decb66..2482f2ff735d 100644
+--- a/drivers/gpio/gpio-aspeed.c
++++ b/drivers/gpio/gpio-aspeed.c
+@@ -1041,6 +1041,17 @@ static void aspeed_g4_reg_bit_set(struct aspeed_gpio *gpio, unsigned int offset,
+ 	void __iomem *addr = aspeed_gpio_g4_bank_reg(gpio, bank, reg);
+ 	u32 temp;
+ 
++	/*
++	 * The interrupt status register is write-1-to-clear. Write only this
++	 * line's bit so that interrupts pending on the other lines of the bank
++	 * stay latched.
++	 */
++	if (reg == reg_irq_status) {
++		if (val)
++			iowrite32(GPIO_BIT(offset), addr);
++		return;
++	}
++
+ 	if (reg == reg_val)
+ 		temp = gpio->dcache[GPIO_BANK(offset)];
+ 	else
 
-Best regards,
 -- 
-Billy Tsai <billy_tsai@aspeedtech.com>
+2.34.1
 
 
