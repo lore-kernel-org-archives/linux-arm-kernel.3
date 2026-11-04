@@ -2,70 +2,64 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4731606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 10:28:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11FF7606A32E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 10:33:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ujBnPcfb;
-	dkim=temperror header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=o5rbZXVq
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vsonG+wW;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=huvCLGAS
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=GLaKKMhflH6c9HMj7tkIQiYSGOrte1eESSKQrGjfr70=; b=ujBnPcfbsARGgDZno/lankuLZw
-	fITcTZZ6YGYF0Kn+ZT+spUgPhXZIq3Oj7R1pkwJmjlP8a4tlUrt9VLbJQih83WaDNZF0KeKJhUIx7
-	fVkDQZjtWKg8e/HLWqIWt1MoppxBLxicRw4xuqpB8qLUzLSLLSAZEB8UWL5TiYrJicwBtflP3eb/R
-	iFkaayNlDbS+7ccNDzN4GNEuGapSPGMRct3dP8OmKUy4Atb9tkVP6ffvRgag83qVhGlYgV5aoGxN5
-	PxYcczJV0E3cF6IkP32DUmZKOvQ5vqqgxI5GeJrskDVVdWhXnvDpknuaT9/Pl6R/mDblN/IF4Uave
-	bDf5ZjDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=1Iv1WntciehPvxwu4Si0O6dND9HQk4iqVMScK44DvpY=; b=vsonG+wW32qsQw
+	kmkOGVd/PtXUS/s05FDVJ18QajhkUIJet1GIwy94i+hi2Vi3HjMEVWu/3R+SJB/RQgAhgI0039UkC
+	0zdHrwKQcngtpVpwnOLhgHi3YlExJKO/KC8P4jmLVfeBzkzPUiDBcyUWW/F0u4yBm7gI4RhjrHm7X
+	8WbNuR4mamrlLiWjoeblxAqyT93UqHmbID986/wFde2FNTT0zuvhAsgaWcQwc45jxmhJAPscTrkvs
+	cq6tUrd7FzyhJ42z8iUOALiC+2xJ+/iFIqknAzM+rrM31q9c9iHAXuZoASl1qFtYqYObdqxQh5qRH
+	Lcur8vZIAZdtQlsLQ0VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYDv-0000000503d-1Nys;
-	Wed, 04 Nov 2026 10:28:07 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYDs-0000000502M-3DwL;
-	Wed, 04 Nov 2026 10:28:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=GLaKKMhflH6c9HMj7tkIQiYSGOrte1eESSKQrGjfr70=; b=o5rbZXVqXBOPz9MgAOGvVCI9OH
-	rfV9RhCslhaCfar5qBWNZHOGhTb40svSP/U9cZBARICeF1s85qeLm1BXEtT1FXRqf/AxyyViXG5JX
-	uIkNbXx6TybQeiCckwatSpovab7geUmVJWT0K8/k6CSMM106OEhaJ5IuD+HJk93478dgXIlLq1V4r
-	N9RVyxyPENrg82zAQ9/z5Ej+MN4xwZMgv64pxwVyEPWSqNSYhP4JmER2b3z8rz2+60vAtDieRB/ya
-	3mLn1L8ZILnwjvn3P0wwDdv+BlF8gERII7sgsrW/Io66GFLsiGRYShcjIZh/lpt2g4xaPqN5nSVLE
-	7GEI3XHg==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: tomeu@tomeuvizoso.net, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
- ulfh@kernel.org, p.zabel@pengutronix.de, ogabbay@kernel.org,
- zhangqing@rock-chips.com, Jiaxing Hu <gahing@gahingwoo.com>
-Cc: royalnet026@gmail.com, abel.vesa@oss.qualcomm.com,
- sebastian.reichel@collabora.com, sidong.yang@furiosa.ai,
- u.kleine-koenig@baylibre.com, chaoyi.chen@rock-chips.com,
- diederik@cknow-tech.com, alchark@flipper.net, leonard@lausen.nl,
- jeff.hugo@oss.qualcomm.com, rfoss@kernel.org,
- dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- iommu@lists.linux.dev, linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Jiaxing Hu <gahing@gahingwoo.com>
-Subject: Re: [PATCH v15 05/15] accel/rocket: factor the completion tail out of the IRQ
- handler
-Date: Wed, 04 Nov 2026 11:27:41 +0100
-Message-ID: <8888361.5OynTdThKG@diego>
-In-Reply-To: <20261101082307.151957-6-gahing@gahingwoo.com>
-References: <20261101082307.151957-1-gahing@gahingwoo.com>
- <20261101082307.151957-6-gahing@gahingwoo.com>
+	id 1xOYIm-000000050af-3irR;
+	Wed, 04 Nov 2026 10:33:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOYIg-000000050ZQ-2fLn
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Nov 2026 10:33:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 199121650;
+	Wed,  4 Nov 2026 02:32:58 -0800 (PST)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 20CC13F628;
+	Wed,  4 Nov 2026 02:33:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793788381; bh=ae7gcM+IMAdW9ErHPxtXtAVPHeIA7G36McPY8luPyTw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=huvCLGASz1/wFbLPEMvJ9QNdH71xRG33Lth5bIXHLQ1/R5Or00zHId/QeEsd+HAUD
+	 I4L0EyPxdW9YApzR621up9xFUiQirHDjEfmbothS3Q0/nd/TD4esY8pL+0n4OnR0TY
+	 UDijcjSDFMdxQTtzg+WQFMV9LMZOovbG3dgbAook=
+Message-ID: <0534c6f4-3bb8-4249-816c-502cf8ccb287@arm.com>
+Date: Wed, 4 Nov 2026 10:32:58 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: cacheinfo: Simplify init_cache_level()
+To: Thorsten Blum <blum@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261104083632.65715-2-blum@kernel.org>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20261104083632.65715-2-blum@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_022804_811134_C58738F4 
-X-CRM114-Status: GOOD (  15.83  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261104_023302_714664_C0C64FC0 
+X-CRM114-Status: GOOD (  19.95  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,87 +70,66 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Am Sonntag, 1. November 2026, 09:22:57 Mitteleurop=C3=A4ische Normalzeit sc=
-hrieb Jiaxing Hu:
-> Move the part of rocket_job_handle_irq() that starts the next task or
-> retires the job into rocket_job_next_locked(). No functional change.
->=20
-> Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
-> Reviewed-by: Igor Paunovic <royalnet026@gmail.com>
+Hi Thorsten,
 
-this makes the irq-handler more descriptive in what it does
+On 04/11/2026 08:36, Thorsten Blum wrote:
+> acpi_get_cache_info() already sets fw_level to 0 on failure, so drop the
+> redundant check and the manual assignment.
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+This doesn't seem to be the case when CONFIG_ACPI_PPTT is not defined. Can the dummy implementation
+in include/linux/cacheinfo.h be called from init_cache_level()? For the implementation in
+drivers/acpi/pptt.c levels is documented as "Number of levels if success." and so would be good to
+mention what happens in the error case if it needs to be relied on.
 
+Thanks,
+
+Ben
+
+> 
+> Use unsigned int for fw_level to match the expected type, and remove the
+> now-unused local ret variable.
+> 
+> Signed-off-by: Thorsten Blum <blum@kernel.org>
 > ---
->  drivers/accel/rocket/rocket_job.c | 31 ++++++++++++++++++++-----------
->  1 file changed, 20 insertions(+), 11 deletions(-)
->=20
-> diff --git a/drivers/accel/rocket/rocket_job.c b/drivers/accel/rocket/roc=
-ket_job.c
-> index 152a9098634b..417d5ef06c09 100644
-> --- a/drivers/accel/rocket/rocket_job.c
-> +++ b/drivers/accel/rocket/rocket_job.c
-> @@ -365,6 +365,25 @@ static struct dma_fence *rocket_job_run(struct drm_s=
-ched_job *sched_job)
->  	return ERR_PTR(ret);
->  }
-> =20
-> +/* Start the job's next task, or retire it. Caller holds job_lock. */
-> +static void rocket_job_next_locked(struct rocket_core *core)
-> +{
-> +	lockdep_assert_held(&core->job_lock);
-> +
-> +	if (!core->in_flight_job)
-> +		return;
-> +
-> +	if (core->in_flight_job->next_task_idx < core->in_flight_job->task_coun=
-t) {
-> +		rocket_job_hw_submit(core, core->in_flight_job);
-> +		return;
-> +	}
-> +
-> +	iommu_detach_group(NULL, iommu_group_get(core->dev));
-> +	dma_fence_signal(core->in_flight_job->done_fence);
-> +	pm_runtime_put_autosuspend(core->dev);
-> +	core->in_flight_job =3D NULL;
-> +}
-> +
->  static void rocket_job_handle_irq(struct rocket_core *core)
+>  arch/arm64/kernel/cacheinfo.c | 12 ++++--------
+>  1 file changed, 4 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/cacheinfo.c b/arch/arm64/kernel/cacheinfo.c
+> index 309942b06c5b..881131fb4934 100644
+> --- a/arch/arm64/kernel/cacheinfo.c
+> +++ b/arch/arm64/kernel/cacheinfo.c
+> @@ -67,19 +67,15 @@ int early_cache_level(unsigned int cpu)
+>  
+>  int init_cache_level(unsigned int cpu)
 >  {
->  	pm_runtime_mark_last_busy(core->dev);
-> @@ -378,17 +397,7 @@ static void rocket_job_handle_irq(struct rocket_core=
- *core)
->  		rocket_pc_writel(core, OPERATION_ENABLE, 0x0);
->  		rocket_pc_writel(core, INTERRUPT_CLEAR, 0x1ffff);
-> =20
-> -		if (core->in_flight_job) {
-> -			if (core->in_flight_job->next_task_idx < core->in_flight_job->task_co=
-unt) {
-> -				rocket_job_hw_submit(core, core->in_flight_job);
-> -				return;
-> -			}
-> -
-> -			iommu_detach_group(NULL, iommu_group_get(core->dev));
-> -			dma_fence_signal(core->in_flight_job->done_fence);
-> -			pm_runtime_put_autosuspend(core->dev);
-> -			core->in_flight_job =3D NULL;
-> -		}
-> +		rocket_job_next_locked(core);
->  	}
->  }
-> =20
->=20
-
-
-
+> -	unsigned int level, leaves;
+> -	int fw_level, ret;
+> +	unsigned int level, leaves, fw_level;
+>  	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+>  
+>  	detect_cache_level(&level, &leaves);
+>  
+> -	if (acpi_disabled) {
+> +	if (acpi_disabled)
+>  		fw_level = of_find_last_cache_level(cpu);
+> -	} else {
+> -		ret = acpi_get_cache_info(cpu, &fw_level, NULL);
+> -		if (ret < 0)
+> -			fw_level = 0;
+> -	}
+> +	else
+> +		acpi_get_cache_info(cpu, &fw_level, NULL);
+>  
+>  	if (level < fw_level) {
+>  		/*
+> 
 
 
