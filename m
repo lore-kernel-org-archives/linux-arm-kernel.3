@@ -2,94 +2,98 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3626E606A334
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 10:23:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBD9D606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 10:26:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qGcxnGZC;
-	dkim=pass (2048-bit key, unprotected) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=gz0yrFio
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=R3PqpNd1;
+	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=R10bR+nG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=n4Ps0qSkWYG+d69oSo/IEmxe2Snl/v2IpZ6SrpXA0rw=; b=qGcxnGZCej/r38VQd0xr+fn3Zw
-	GLwk+pcT8R4vBPpLlqVybkPlBzYaxefBEa9Yy3OvFEYqLx4ACRxxnRV48FsmNe4ytfeYLVcWfcyUO
-	4kt0kHclRHEi6dtRDmEa0JT1mS9NnDMnrW4obVeMNNTUvskBP25WYABwcy//9yh3cKvBUj/MJsspY
-	f/ISnQ9UImaAZ35S6UKzCoEIICiuhCzBKCgIFVOcyCIFRR+e5tSMvdGdMRL5jtPTNEfdTN3D3WAIm
-	aPKDq7ZHwUKNfoO5Qylq/B/+wYFq7q4iSc5wp9FEwGrd9SOAB23VJekCRvGb13FAST1Fj0zmCUOYL
-	VrvEkfWg==;
+	bh=o3uO33BWTvRzGT589zK5XHXlVqQazzRdbRxGw4lkcXk=; b=R3PqpNd1uQ01X1z15LFDHbmJ0c
+	Wt7D8J6UM45c8EmeHwy9o5FkVBmQXyY7wEZ+kQX/gw6ZPd4WeO3g4MEYxpFmAckFNZHhOYlojvvQ+
+	taSO1fVzd5gvwdGnEF5W6YSWQclM7qAxq+GHzcz73m1H9jmgqKk4AxwRsvh9fOCGQjXFVfvc5/mR5
+	ApkS9r68dSTfJf/b6n7GFqETO8YQWW1H5NBB/WDSeULfOeOLILBdWqrZrtE6rOIkR6b//S7JLltn7
+	bIGnZa0d3XZPBfZxGfy+++hMTBi3/edw0cmtchpZPDMVEn5fCw0E0UgDywKmQW1mJy5u1PD29wkjd
+	aQvuC5yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOY9f-00000004zI5-3Vqz;
-	Wed, 04 Nov 2026 10:23:43 +0000
-Received: from esa10.hc1455-7.c3s2.iphmx.com ([139.138.36.225])
+	id 1xOYBg-00000004zZ1-0pIH;
+	Wed, 04 Nov 2026 10:25:48 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOY9d-00000004zHY-1lXd
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 10:23:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1793787828; x=1825323828;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=NSpsS79pjRX5vqOjgAJTbb2PTGzrYCU3NoXWTJpFtPw=;
-  b=gz0yrFio6se4NdgATw2Vxsvfrf3Cb8YvdDubH0OuyVseSjQQISpebUdH
-   jHbuD/r0ZtxcB7ULvjnwQJ3awekH0MiWtAk2DvXItpqHhdbQl6XNMLl68
-   sA7DKjLtGfq5xlmISVVbYOjmUOt1UjuKg9mlNIxmiikGk1dP3dasNBpTf
-   lIClvl/ZubKncLugjSo2tgEHNeX6ysAhTkNK/kSKd53QWNMskt6iS8uY9
-   p2vPC01cUdObZm85mzMKbcb7zQF85WvjKQ+ngOuS+mUSGMF6YjQ5k5mmn
-   6urdQ7oDuiECDNZSzbrLq2JiI0u4+NpqgJ8QlA1fkvfAaX/ospakhLNHH
-   Q==;
-X-CSE-ConnectionGUID: IAeYP4IJTGmJKea91lyNgw==
-X-CSE-MsgGUID: 41NYYyEWSDK/jzOpsc8Edw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11955"; a="246776278"
-X-IronPort-AV: E=Sophos;i="6.27,195,1786978800"; 
-   d="scan'208";a="246776278"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa10.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2026 19:23:46 +0900
-Received: from az2uksmgm3.o.css.fujitsu.com (unknown [10.151.22.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 584081C1C724
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Nov 2026 10:23:39 +0000 (UTC)
-Received: from az2uksmom4.o.css.fujitsu.com (unknown [10.151.22.204])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm3.o.css.fujitsu.com (Postfix) with ESMTPS id 0900BC00234
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Nov 2026 10:23:39 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.9.61.160])
-	by az2uksmom4.o.css.fujitsu.com (Postfix) with SMTP id 12AB04059A5;
-	Wed,  4 Nov 2026 10:23:30 +0000 (UTC)
-Date: Wed, 4 Nov 2026 19:23:29 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH 03/11] KVM: arm64: CCA: Check for RMI support at KVM init
-Message-ID: <ausEnXB1TE_moI0E@FCCLS0092175.localdomain>
-References: <20261102141304.126883-1-steven.price@arm.com>
- <20261102141304.126883-4-steven.price@arm.com>
+	id 1xOYBd-00000004zXG-2vjY;
+	Wed, 04 Nov 2026 10:25:47 +0000
+Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
+	(Authenticated sender: pza@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 60653200AD7;
+	Wed, 04 Nov 2026 11:25:41 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1793787941;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=o3uO33BWTvRzGT589zK5XHXlVqQazzRdbRxGw4lkcXk=;
+	b=R10bR+nGpDOBHsBsgfY6x5gF6MVODYpe6zLWjOZvK+UTPbvF0HfqI/A/FRWV1xQ4rLOnJG
+	Hb8X0WX7j8MES5DZFlHTx+H0VDKdNkdnDXrwpBmZQD9uxqA2KqMQa+cD/tPkBFUbCD/bzy
+	HDEzMn4V9OjGUW4bx9vc1i1mW99gnJJv7Kker8hWZzv4E56jco3hpM2e6rpueAOWLuKM/c
+	hC7UWblK3ZcwnjcxAgxFp/foAklOa+fGZBqbfdfoPH3N4tWeIrqEcoIWLYNbphD/LSX+Y6
+	Cj5o9sYMg6E8rkMq1xVDrb3oQEqgDJt4gK6LDpJsPOTicIIrL87fbOnc7srrHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1793787941;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=o3uO33BWTvRzGT589zK5XHXlVqQazzRdbRxGw4lkcXk=;
+	b=aFCcuWhsp1Rz+FS39uH9Jep8WwzbEDt5X9Up5FrfhiHMupYvat/6ZsySEzPCJQbFFbrwdF
+	KxQfsflbd/FGbjgketDjDxiEn+2hXdq/QUXfdX/hn9MkcRlUk4K7KZQPX5inZV51ngDGxH
+	oIB7VXZOgAg4jv6zK11cAa1CH+MPVj8pg+Uf6/8qUbf5eMCW7rNfx49qebB3SqkOXX7wCK
+	u9AmNrsZPEEUK10aJK3NUbySExb7xvJ9jQPNOt1owma2lxC7CWI6AgDNp1UFTgKoXS0iiU
+	MOHCpL73RQg2QI3XWSMy8OMvGqtPnFpWcm8xM+tuBQynPUYBWfjXIlQnceVmUQ==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793787941; a=rsa-sha256;
+	cv=none;
+	b=W2SKAYeDEhEpB+KWH744MC/8Zua/10/EdN1knlfwc1zu3oHnUZNBLRDhvIToO9Czib2rc8
+	ttW6//vcBNO82+tOTuPweTyX/nRR4Z7AbC3GD6HS726LZbYk++LEDxksFPWHt9BHbnWpcK
+	OG+b2US90SeGVwPL6nQbqQWGLAdr9wssj3RIJH12VMFyi59Hyocz+TvK3UUS3TJdi4aTo6
+	rOBFxvK4R//wbiwbT556vl5gcqkF+t/7KkgN4E14J4r8OYUCcJa7eKz9jyp3oyB9AD4FBa
+	1rSsYoeu/4NZAATdwpGICbJiZk7+wqYyVkVOJBfhgH6VBVLUGxaHyUfOYokBsQ==
+Message-ID: <9afb8ddc8451afad4f7ff7b9a133dd8542d07205.camel@pengutronix.de>
+Subject: Re: [PATCH 1/3] hwspinlock: sun6i: Get the clock and the reset
+ without names
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>, Wilken Gottwalt
+	 <wilken.gottwalt@posteo.net>, Bjorn Andersson <andersson@kernel.org>
+Cc: Baolin Wang <baolin.wang@linux.alibaba.com>, Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai	 <wens@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland	 <samuel@sholland.org>, Paul
+ Walmsley <pjw@kernel.org>, Palmer Dabbelt	 <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti	 <alex@ghiti.fr>, Andre Przywara
+ <andre.przywara@arm.com>, Bastian Germann	 <bage@debian.org>,
+ linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Wed, 04 Nov 2026 11:25:41 +0100
+In-Reply-To: <20260927025626.69614-2-tien.nguyenminh@embeddedlinux.blog>
+References: <20260927025626.69614-1-tien.nguyenminh@embeddedlinux.blog>
+	 <20260927025626.69614-2-tien.nguyenminh@embeddedlinux.blog>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261102141304.126883-4-steven.price@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_022341_742484_D0947927 
-X-CRM114-Status: GOOD (  22.17  )
+X-CRM114-CacheID: sfid-20261104_022545_894354_AB6D8FB8 
+X-CRM114-Status: GOOD (  17.14  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,69 +113,50 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Steven,
-
-On 11/02 14:12, Steven Price wrote:
-> Check if the RMI support is sufficient for using in KVM. Specifically, we
-> will only support creating realm VMs when KVM is set to 'rmm' mode.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
+On So, 2026-09-27 at 09:56 +0700, Nguyen Minh Tien wrote:
+> The driver looks up its clock and reset by the name "ahb", but the
+> binding doesn't define clock-names or reset-names, so a node that
+> follows the binding fails to probe:
+>=20
+>   sun6i_hwspinlock 3005000.hwlock: unable to get AHB clock (-2)
+>=20
+> There is only one of each, so get them without a name. That is what
+> was asked for when the names were added to an A64 node, and nodes that
+> do set "ahb" keep working. For the reset, call the explicit
+> devm_reset_control_get_exclusive(), which devm_reset_control_get()
+> only wraps.
+>=20
+> Fixes: 3c881e05c814 ("hwspinlock: add sun6i hardware spinlock support")
+> Link: https://lore.kernel.org/f720eaf9-01d0-0e57-f6bf-9aade00aafb8@linaro=
+.org
+> Signed-off-by: Nguyen Minh Tien <tien.nguyenminh@embeddedlinux.blog>
 > ---
->  arch/arm64/kvm/Kconfig | 1 +
->  arch/arm64/kvm/rmi.c   | 4 +++-
->  2 files changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-> index cecea0820e52..d067063a3686 100644
-> --- a/arch/arm64/kvm/Kconfig
-> +++ b/arch/arm64/kvm/Kconfig
-> @@ -34,6 +34,7 @@ menuconfig KVM
->  	select GUEST_PERF_EVENTS if PERF_EVENTS
->  	select KVM_GUEST_MEMFD
->  	select KVM_GENERIC_PRE_FAULT_MEMORY
-> +	select ARM_RMM_RMI
->  	help
->  	  Support hosting virtualized guest machines.
->  
-> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-> index 5ecc8b349869..9d118768550d 100644
-> --- a/arch/arm64/kvm/rmi.c
-> +++ b/arch/arm64/kvm/rmi.c
-> @@ -3,6 +3,7 @@
->   * Copyright (C) 2023-2026 ARM Ltd.
->   */
->  
-> +#include <linux/arm-rmi-cmds.h>
->  #include <linux/kvm_host.h>
->  
->  #include <asm/virt.h>
-> @@ -12,7 +13,8 @@ void kvm_init_rmi(void)
->  	if (kvm_get_mode() != KVM_MODE_RMM)
->  		return;
->  
-> -	/* TODO: Check if the RMI is available */
-> +	if (!is_rmi_available())
-> +		return;
+>  drivers/hwspinlock/sun6i_hwspinlock.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/hwspinlock/sun6i_hwspinlock.c b/drivers/hwspinlock/s=
+un6i_hwspinlock.c
+> index c2d3145880..e7cc121310 100644
+> --- a/drivers/hwspinlock/sun6i_hwspinlock.c
+> +++ b/drivers/hwspinlock/sun6i_hwspinlock.c
+> @@ -104,14 +104,14 @@ static int sun6i_hwspinlock_probe(struct platform_d=
+evice *pdev)
+>  	if (!priv)
+>  		return -ENOMEM;
+> =20
+> -	priv->ahb_clk =3D devm_clk_get(&pdev->dev, "ahb");
+> +	priv->ahb_clk =3D devm_clk_get(&pdev->dev, NULL);
+>  	if (IS_ERR(priv->ahb_clk)) {
+>  		err =3D PTR_ERR(priv->ahb_clk);
+>  		dev_err(&pdev->dev, "unable to get AHB clock (%d)\n", err);
+>  		return err;
+>  	}
+> =20
+> -	priv->reset =3D devm_reset_control_get(&pdev->dev, "ahb");
+> +	priv->reset =3D devm_reset_control_get_exclusive(&pdev->dev, NULL);
 
-From an admin/operator's perspective, kvm_rmi_is_available would
-silently remain FALSE in either of the following cases:
-- kvm-arm.mode=rmm is set, but RMI is not available for some reason.
-- RMI is available, but the admin forgot to set kvm-arm.mode=rmm.
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-So I think it would be useful to emit diagnostic messages for these
-cases, for example:
-
-if (!is_rmi_available()) {
-    if (kvm_get_mode() == KVM_MODE_RMM)
-        pr_info("Realm VM support is disabled because RMI is not available\n");
-	return;
-}
-
-if (kvm_get_mode() != KVM_MODE_RMM) {
-    pr_info("Realm VM support is disabled. Use kvm-arm.mode=rmm to enable it\n");
-	return;
-}
-
-Thanks,
-Kohei
+regards
+Philipp
 
