@@ -2,100 +2,78 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C763F606A33B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 18:52:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F053606D835
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 18:53:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UJv1yoxQ;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dfISi4NF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hwyh9Mqj;
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Tv+VOjuX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=i5XsCr+ucTT+O73E9489h5skp2UtkxdhspydLfN+Gms=; b=UJv1yoxQkOS/Aulf9pgscwVRIA
-	KCj/IzRGNd6L7hGgtcyCDIU7XayU9QDkLNZMOj0tpMyItUHNrn6Lat4h5hNAVNNZ10OKp2dIcpkKj
-	ENmrwQ/zNkxY5Wg7RLnzNjkrQJTDiALxcrvgvhXuSwVzRqFiTYEnpV4/P+5Uec/IuMfv4Oa6RoLa+
-	dELMnBL7L9TwfTZg4kTRDsC+bkbrkVDKDS6R7fWJmw18Lezp0P7aaCyRum73JhDVDXlEcRODuyFK2
-	B4PVpjTP3HQRHNNft1JTmgPZnexjEyyFO1OFjusYRb7LdQmMTB0tKWXX0dVu5cTeJpUfIjFPYntdk
-	M4eRI4kA==;
+	bh=kll/G1zD/C2JyZu7pxNelwTrLUBWbNvvxhXCfrLDdII=; b=hwyh9Mqj3J6zVKKeDwSW6uayX6
+	/3qFp3yfLwAXsU/Ps/Vzlqv4C/VqDQVn2J8oBG+R3JA3NmfDAh9/ilgJcm8qDXbNshJRW2ofc+nLT
+	tcbXi5rAW5AqjW88Ijm1g3K6D3whPFLuqpZtYTA7Uu1JoKD7da/6chZ70czGUyzMJntjqu3e6K4CD
+	wPrDslZZAbZ/cI8vuHAEzKob+nAoC/DOaGXPt3N84EJWlztX2A0WSeyLDZHhuxZrSHkwBD2hnL9aP
+	y812CGwFxmc6hetHS6iRnYrtxdIMk5zOEe2bDx7g6usXSRA6wIeZ1BLvNKkyLDRCcG5Q2IjtybU1O
+	OP7OT/Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOg5W-00000006SAT-2hZu;
-	Wed, 04 Nov 2026 18:51:58 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1xOg6y-00000006SSr-48A6;
+	Wed, 04 Nov 2026 18:53:28 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOg5S-00000006S7v-2B6L
+	id 1xOg6v-00000006SS5-0p9o
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 18:51:57 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4a1b07c3c5fso9394595e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 10:51:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793818312; x=1794423112; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=i5XsCr+ucTT+O73E9489h5skp2UtkxdhspydLfN+Gms=;
-        b=dfISi4NFFpU9SUSqkvcjHSJJJlAkpgtjqnSecMs5jygx0WABSt5Q3xLr2PxRJUGTVo
-         8cz7NV8HBm/GJMhy3e+XuRJPn2ZeP6Z0Z2AUyqp2qe8HRr7+VoKvEQ8robhZx0CvYEKp
-         QAYfkIH4reFQSThE/jWS2WhZQjdET0zc6HxB+Z2CyxPgtfMDgXoI5F89rmRY760VLWkb
-         DDKwbsiYjqwZ0tA6zdbg0oPQnTDLLLOxQqvaMj3MFy2lfuGVzPytrzh8Mp2pHty3BBWV
-         j9oFgsD1k4crz6y8NqDIYH0KiD8BD4zy3mKPN1qFWT4onnAYD9Y16hOL4fEOBO8YllJn
-         +zPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793818312; x=1794423112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=i5XsCr+ucTT+O73E9489h5skp2UtkxdhspydLfN+Gms=;
-        b=lsxEpLADGVWIW3kmNCVjfnenp2zSOtFXD/zDLcavnPhHa2hbfk6Q9K9WQlfiphvPZO
-         gk/IwoEzMdBgxmfGhbKJ5MAOVazVNndgXgKTbQpQjX8HgXv+XYLFp9oLpO2DKzyKRzDd
-         oGdvFXKSPA5svowehJ1t7qLjluk3klh+AE038rUNxUg+LDv6GdtxcIe2xeS/u3z1W1Az
-         q3jZhFwkivRjhQXhyAr2mak6ZCJN1dLrvfGNp7K6kV+3kW+zjSlsshS4Iq3GoTVdLhGZ
-         gDdX0zGRochyf+A/FOR2XGEbZb72zv6VcAkG+/LPRCFyHkbmFfsqZxAdJaTPqz9JMlqg
-         zCpA==
-X-Forwarded-Encrypted: i=1; AKwUvBwZaZXsyw0V8LKC1cQhPOkzKSCNAj9h0olf5zZo7qzic7iD6uPDyIAIR0mOdSKQzWVWD7rVTxOyV4eIfEExbDI5@lists.infradead.org
-X-Gm-Message-State: APuU4Z+cO7i9e3AuMnv87RtOtU+yBxYRFkcCTkKDqTVxFg+aRDDw6Lix
-	PHBXsHbfw3qzN9MKuEI+pLc5JL+n1gNLa+/TiRBTjtebI/gJ29640YAj
-X-Gm-Gg: AYBFou06zGA0VFWPQt+wqAXrjXuAnKJFLVbZq+gcKPmKY3ZmxrL/30/D0fw3YXTPc3F
-	usC/x/X1xi/rrM6VZc/MGU8fPT74V8NCEYtPiSIZ9QYWRYdEhprs/Hn7vTDUMbMeqHczoT+tcSd
-	24cs1uPNFZJznlNF+WFWWdDspUt4LGbqN25mtlU8HfghLKKfxBf4cVdC2T+HNHzFDArWGPIbjxs
-	DlRsDNl5RRPk6b8gfUIh7gorghqMH4/qKqnE6cSblBBNPamtpJAZCDDhR2ZfL27TPufFBq6QL84
-	/8nkB+leF9xJN6hRpGVSJdwXE2yu5tHx1EXqTqNnjgwerqh5MG4M6vJNPyqK8wLhugEkYthxFAb
-	TFS4cgp5yftrAdXV4lzyd5y8cQPYsqElvUs31qIBhcXMmiDFoIu6kAWyC+jMXNJAAnH/RetJUhF
-	WSfsrnqOy9P48BP5Zsd8Xpf9QoI77Yi40vw1oENbaVtXJl4nnsFpPClTDzz58zfNjMu5It/HPv1
-	XT9vw04towZ/o4AfRzq0+/f3PlLR8oeT11at+T1ugvqCQSYMnnXiQH7UxEUfsTI5YVe4eM8LPXc
-	tA9ihvlEMdpXJWp7xSM9we/2C+6D7ElJJ6H2nrZSk5s6TL8xzzctKrsS3JAdF6GxcQzx6CoGvpj
-	iv9ve5BYZ6yylhJ27krE2r6ndRHH0cS0vieCwC/J5DOerv1mJ1Vng0j+V9OlYsxHWnNQ/6XpX7x
-	uP5+TuE4xV0Tv69lUkN3TKUB9ZG2mzQeA+UVfoVcRVC0LLw0FiJ8zZeviNsI1RMSgT4Imld0LL/
-	Wmj3+8Ty2RWOnJvL0brqMFQ7/ARh5f1WegCbrIAPakP
-X-Received: by 2002:a05:600c:470d:b0:4a7:9006:b176 with SMTP id 5b1f17b1804b1-4ac17471285mr378898355e9.7.1793818312397;
-        Wed, 04 Nov 2026 10:51:52 -0800 (PST)
-Received: from jernej-laptop (APN-122-103-30-gprs.simobil.net. [46.122.103.30])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b56f02386bsm4031515e9.7.2026.11.04.10.51.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Nov 2026 10:51:51 -0800 (PST)
-From: Jernej Skrabec <jernej.skrabec@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH] ARM: dts: sun8i: r40: bananapi-m2-ultra: Limit eMMC clock to 37.5 MHz
-Date: Wed,  4 Nov 2026 19:51:48 +0100
-Message-ID: <20261104185148.883318-1-jernej.skrabec@gmail.com>
-X-Mailer: git-send-email 2.56.0
+	Wed, 04 Nov 2026 18:53:27 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id A71331A1451;
+	Wed,  4 Nov 2026 18:53:20 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6714A60770;
+	Wed,  4 Nov 2026 18:53:20 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C414410329205;
+	Wed,  4 Nov 2026 19:53:09 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1793818395; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=kll/G1zD/C2JyZu7pxNelwTrLUBWbNvvxhXCfrLDdII=;
+	b=Tv+VOjuXj3AH4ln4E3aXj4PZMQKql3KWSZmz2mqRiK+jgYCiAKLyFxJvFwNFzOT2mtfa/p
+	/bx6al1jJJa+bZV3C/HjKYVwdSHnNj8K+VmDEMZY3OlMMIZEFHnds8sgV9MHo+HHCYtDbn
+	x70RoP2HsMme65Nfa8ffeM8rDHEGo3j2+2HSbRpN6yCyuTlkgd0HG3FUPB2K32I/sVrj1A
+	QtaakxhrG4MI4ibpZz6wPkLdC3Y5lwyrVFf/Ha/JM1zFsyvQeTFeUDZjjKHvUFr+l7oMnW
+	YRz4CV1SlYuEY/gOOB+7jtEAUBx2umSS15PswdMcUJmkil+id0WtdNn/3JwwbA==
+Date: Wed, 4 Nov 2026 19:53:08 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Boris Brezillon <bbrezillon@kernel.org>,
+	Mark Brown <broonie@kernel.org>, Andy Gross <andy.gross@linaro.org>,
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	stable@vger.kernel.org, Wentao Liang <vulab@iscas.ac.cn>,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH v2] memory: atmel-ebi: Disable SMC clock on probe failure
+Message-ID: <20261104185308b845fb6d@mail.local>
+References: <20261101190733.121473-3-krzysztof.kozlowski@oss.qualcomm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261101190733.121473-3-krzysztof.kozlowski@oss.qualcomm.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_105154_581241_3A9118EB 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20261104_105325_766146_120EA521 
+X-CRM114-Status: GOOD (  24.52  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,44 +85,119 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The Samsung eMMC on Banana Pi M2 Ultra fails with "data error, sending
-stop command" within a second of sustained reads in DDR52 mode at
-50 MHz. At 37.5 MHz the same board survives a long read/write soak.
+Hi,
 
-Limit the eMMC clock to 37.5 MHz. Also enable the hardware reset line,
-which is routed to the controller (PC24), so the card can be recovered
-after such errors.
+On 01/11/2026 20:07:34+0100, Krzysztof Kozlowski wrote:
+> Unprepare and drop the SMC clock reference, if probe fails to avoid
+> resource leakage e.g. during probe deferral.
+> 
+> There is no remove() callback, presumably on purpose so only error paths
+> are handled.
+> 
+> Cc: <stable@vger.kernel.org>
+> Fixes: 87108dc78eb8 ("memory: atmel-ebi: Enable the SMC clock if specified")
+> Reported-by: Wentao Liang <vulab@iscas.ac.cn>
+> Closes: https://lore.kernel.org/all/20260917101623.2146392-1-vulab@iscas.ac.cn/
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://sashiko.dev/#/bug/linux-8e236c81-01b2-4274-a213-11c3f31acfc2
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> 
+> ---
+> 
+> I independently developed the patch and then checked the queue with
+> pending work of iscas. That one has issues and other complains from me,
+> so only credits for the report.
+> 
+> Changes in v2:
+> 1. Handle of_platform_populate() error.
+> ---
+>  drivers/memory/atmel-ebi.c | 27 ++++++++++++++++++++-------
+>  1 file changed, 20 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/memory/atmel-ebi.c b/drivers/memory/atmel-ebi.c
+> index 1e8e8aba2542..7dc2f7add1b1 100644
+> --- a/drivers/memory/atmel-ebi.c
+> +++ b/drivers/memory/atmel-ebi.c
+> @@ -562,7 +562,7 @@ static int atmel_ebi_probe(struct platform_device *pdev)
+>  	}
+>  	ret = clk_prepare_enable(ebi->smc.clk);
+>  	if (ret)
+> -		return ret;
+> +		goto err_put_clk;
+>  
 
-Link: https://forum.libreelec.tv/thread/30663-banana-pi-m2u-emmc-data-error-sending-stop-command-fixed-with-a-40-mhz-device-tr/
-Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
----
- arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts | 2 ++
- 1 file changed, 2 insertions(+)
+Couldn't we simply devm_clk_get_enabled() ?
 
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts b/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts
-index cd2351acc32f..ddb70af25836 100644
---- a/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts
-+++ b/arch/arm/boot/dts/allwinner/sun8i-r40-bananapi-m2-ultra.dts
-@@ -195,6 +195,8 @@ &mmc2 {
- 	vmmc-supply = <&reg_dcdc1>;
- 	vqmmc-supply = <&reg_dcdc1>;
- 	bus-width = <8>;
-+	max-frequency = <37500000>;
-+	cap-mmc-hw-reset;
- 	non-removable;
- 	status = "okay";
- };
+>  	/*
+>  	 * The sama5d3 does not provide an EBICSA register and thus does need
+> @@ -572,14 +572,16 @@ static int atmel_ebi_probe(struct platform_device *pdev)
+>  		ebi->regmap =
+>  			syscon_regmap_lookup_by_phandle(np,
+>  							ebi->caps->regmap_name);
+> -		if (IS_ERR(ebi->regmap))
+> -			return PTR_ERR(ebi->regmap);
+> +		if (IS_ERR(ebi->regmap)) {
+> +			ret = PTR_ERR(ebi->regmap);
+> +			goto err_disable_clk;
+> +		}
+>  	}
+>  
+>  	ret = of_property_read_u32(np, "#address-cells", &val);
+>  	if (ret) {
+>  		dev_err(dev, "missing #address-cells property\n");
+> -		return ret;
+> +		goto err_disable_clk;
+>  	}
+>  
+>  	reg_cells = val;
+> @@ -587,7 +589,7 @@ static int atmel_ebi_probe(struct platform_device *pdev)
+>  	ret = of_property_read_u32(np, "#size-cells", &val);
+>  	if (ret) {
+>  		dev_err(dev, "missing #address-cells property\n");
+> -		return ret;
+> +		goto err_disable_clk;
+>  	}
+>  
+>  	reg_cells += val;
+> @@ -603,11 +605,22 @@ static int atmel_ebi_probe(struct platform_device *pdev)
+>  
+>  			ret = atmel_ebi_dev_disable(ebi, child);
+>  			if (ret)
+> -				return ret;
+> +				goto err_disable_clk;
+>  		}
+>  	}
+>  
+> -	return of_platform_populate(np, NULL, NULL, dev);
+> +	ret = of_platform_populate(np, NULL, NULL, dev);
+> +	if (ret)
+> +		goto err_disable_clk;
+> +
+> +	return 0;
+> +
+> +err_disable_clk:
+> +	clk_disable_unprepare(ebi->smc.clk);
+> +err_put_clk:
+> +	clk_put(ebi->smc.clk);
+> +
+> +	return ret;
+>  }
+>  
+>  static __maybe_unused int atmel_ebi_resume(struct device *dev)
+> -- 
+> 2.53.0
+> 
 
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
 -- 
-2.43.0
-
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
