@@ -2,67 +2,63 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7625606A33E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 07:20:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4207606A330
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 07:21:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=C+6BqgCW;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LA8K4a0v
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qbbdersG;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k9RCxh64
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=1Ekpcp5TWZq0p4aqoWrcejQKlqmgI+qIHdFwhI1gIDo=; b=C+6BqgCWCkJGyG
-	4cgq5XQ77x2BxQcnHo6gGuubCpEBcrkUZd78zN6KwFk92M4MVtiSmI0a4jJHB2e+7gC3KMgN5srmo
-	1PA2852guf1rhRSATBKaIa3qp4VqvcQqQQ2rxqm49KkRUGr4BKAZtZxqTJk6Yn5iGg8OCv5+72U/v
-	CaoctfgkB6GTdIsW2MiKtcwsD8ZtfhxwCTn1k+NbTXH6EUB/qXlbMgwv55kT+4dnH0i/e+qIu7FXn
-	/Apw7gGvbQrVS6lKHUeXNpPo12X27GPjqpqw/N0pJ2vpS2ySrbrzpGiWA/+XpYwkcifPll4WD26vI
-	lvDHyHX0UhquStfxENzg==;
+	List-Owner; bh=L0psWKRkASGm46CunD1oZXPWrrP9V2HqWj0pDQuxulg=; b=qbbdersGd5s2hy
+	IXWVHPmCaMpRuJhokv7z+vqQ8n8ICnZxSpe2MRokYNyQaVdvIUGmbu23ZzM0KKnOK41TctXogY+8E
+	aiwcW9Y1Pvdn9LfPtrPJYW/DCYGT2+MBJ6+OdoN0HKWOyzFs9A/gGGZsubeyXKZRbGwksVwCbMczx
+	c5A72lHTTenqphwtAQwFXkrrW4piTMi3MPxvNQaqRKnzMKyGQJGxP9hfMd9QJBpYDAEezxv4Vk/bQ
+	W9VJtKuEC1Cdh8yE+ZwzCh9qgOOjC9e5+FiRY6Ghh5EdYZC0+IC+fkBvIrx3BhClW7+vJHF0ow58X
+	G1ysMtf9tXY8bJcWlu1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOVIG-00000004VFe-1MsT;
-	Wed, 04 Nov 2026 07:20:24 +0000
+	id 1xOVIx-00000004VOE-3Xv1;
+	Wed, 04 Nov 2026 07:21:07 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOVIE-00000004VFH-1qcd;
-	Wed, 04 Nov 2026 07:20:22 +0000
+	id 1xOVIw-00000004VNy-2r4z
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Nov 2026 07:21:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0C62841348;
-	Wed,  4 Nov 2026 07:20:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DC851F00919;
-	Wed,  4 Nov 2026 07:20:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7050340F35;
+	Wed,  4 Nov 2026 07:21:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0CD91F000C1;
+	Wed,  4 Nov 2026 07:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793776821;
-	bh=1Ekpcp5TWZq0p4aqoWrcejQKlqmgI+qIHdFwhI1gIDo=;
+	s=k20260515; t=1793776866;
+	bh=L0psWKRkASGm46CunD1oZXPWrrP9V2HqWj0pDQuxulg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=LA8K4a0vJgQc39wUUG6i4hpczNDWdG+toSwrlumPAhyZytI5rGsyVjLUN56z84i4I
-	 eI7XB0uiMOIddzetTqmIiFzKr3PQDR6TmcEN2fFmw2dwYbZoaZsmLxzCEAGb0LVgwv
-	 Ww3grG7RbPpKmn9hpAHHMEf90NZvOJAeo/NdQKK9yah1Zw70/VSDsCj5SbTuRoBl2L
-	 XW8ZKc12B73OSjaOA+8CQuAw7GgcBN8Rfjoq7Egg1Z/XcjxFp1AH5aExHRbhlnFMq/
-	 SEYYVOMmDOdziKm4BnBrXO0xgsU4Ue03iDAmgYVQxl7nAwyeh/Prhi14AfBRb+K+6t
-	 n6iEpRfyPXyXw==
-Message-ID: <7c15c254-d157-4f5b-bfae-06a5301af222@kernel.org>
-Date: Wed, 4 Nov 2026 08:20:11 +0100
+	b=k9RCxh64i0WDXkNSfepE9eHTvVOorBjZpHTpacgODRluwSmtEoFSbunhpgyG54Q5U
+	 mFsURCkoO62yW411T+TN8trzrlaoZUQ/EuAkCXyQNfnmofEyAxEKcnTamRK07ss6Mh
+	 DNCJVniW1Ru1rLQCXMaG40FfpVrqIPyacSxEWoQUijK+HJJKXmPZ40iPFV/hqx172h
+	 q1aCqrVggefYeB57vDP91mLheS14+HwgsALAp/Bgn+830h7DScDGOA7Rlut8QMmLr2
+	 j+NVbh/fxdcDRqe+kZLyX9gsTHyMzaaempaf07LzQxCg00NdX5W/o9+nM8eLsk5V7y
+	 o2ht7P4ZCwZfw==
+Message-ID: <cf62f2f9-08e1-4f0c-820f-5e129e4c7de0@kernel.org>
+Date: Wed, 4 Nov 2026 08:21:00 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/7] dt-bindings: net: dsa: mediatek,mt7530: add EcoNet
- EN751221 switches
-To: Caleb James DeLisle <cjd@cjdns.fr>
-Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- chester.a.unal@arinc9.com, daniel@makrotopia.org, linux@armlinux.org.uk,
- arinc.unal@arinc9.com, Landen.Chao@mediatek.com, dqfext@gmail.com,
- sean.wang@mediatek.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, naseefkm@gmail.com, b.larsson@gmx.com
-References: <20261029184202.1859843-1-cjd@cjdns.fr>
- <20261029184202.1859843-7-cjd@cjdns.fr>
- <20261103-soft-lyrical-squid-c5a108@quoll>
- <39cb446e-b667-4766-bd79-2635eb36166c@cjdns.fr>
+Subject: Re: [PATCH] media: exynos4-is: Free the control handler if
+ fimc_ctrls_create() fails
+To: Wentao Liang <vulab@iscas.ac.cn>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20261103094612.1289226-1-vulab@iscas.ac.cn>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,7 +104,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <39cb446e-b667-4766-bd79-2635eb36166c@cjdns.fr>
+In-Reply-To: <20261103094612.1289226-1-vulab@iscas.ac.cn>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -121,32 +117,32 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 03/11/2026 14:15, Caleb James DeLisle wrote:
->>> +        const: econet,en751221-gswitch
->> That's almost the same compatible, which makes me wonder if you describe
->> the same device twice. Same device, same compatible.
+On 03/11/2026 10:46, Wentao Liang wrote:
+> v4l2_ctrl_handler_init() allocates the handler's bucket array, and each
+> subsequent v4l2_ctrl_new_std() call allocates a control.  When one of
+> those calls fails it only records the error in handler->error.
+> fimc_ctrls_create() returns that error with ctrls->ready left false, so
+> neither caller calls fimc_ctrls_delete(), and that function would not
+> free the handler in that state anyway.  The bucket array and the
+> controls created so far are leaked.
 > 
+> Free the handler before returning the error.
 > 
-> Well, these are both MT7530 based, but one of them is on-die with the 
-> SoC and the other one is an MCM so for the driver they are very 
-> different - they're even loaded by different kmods. I think since one is 
-> MMIO and the other is MDIO, using the same compatible won't cause a 
-> driver problem - but I don't know if it's best practice to smooth over 
-> such a difference or not. Your advice here would be most appreciated.
-> 
+> Fixes: 9448ab7dec30 ("[media] s5p-fimc: Add color effect control")
+> Cc: stable@vger.kernel.org
+> Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 
-The drivers do not matter - we have one compatible for I2C/SPI/Serial
-devices as well. The only question is about the hardware, what are these
-devices and what are you here exactly describing. Compatible is en751221
-but you call it MT7530, so even more confusion.
+This is another posting of bot ignoring feedback and probably
+introducing vilnerabilities hidden in big spam posting.
 
 Best regards,
 Krzysztof
