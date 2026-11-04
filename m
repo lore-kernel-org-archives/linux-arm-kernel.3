@@ -2,150 +2,105 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5F3E606A33A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 22:07:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4370E606E83B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 22:08:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Oblh4y+s;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=cIGtOA+H
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=na8vB1bF;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=SyA6t0X5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=FfK+EaLlfdX1tscNQzDj2eCu9z9s7fCeCB8RqVMbzfc=; b=Oblh4y+sOTIi50q7WQQMiHHmvz
-	m3O0RRZGn1e9QsSnLmqYFyGT1CXqa7+kQl7dSGCqxwZAHb8bGRYHn7vQlGWnJvLo9Wr47Kak6U95w
-	mUtXGSqYl8o1V/Ze6VsFd9D+7Si8ocSrviUndmTqT2cCS83BsLdukGivgg/dXGZFfTRJ9yIZQAKzd
-	+oNfUSLuzF90+nTjNgBlqtytRjUOjKUK+j/+C4tet70Fm4u/IXH7rStkbOXAec9f6J+AoLaytiVJ9
-	GNIfuHE9yQuphdrbCp85M54G+lDzW52sdyErM/Me0owz2W5ps9VX/NTv2tRLPm+Fga6aol2fb3NhB
-	eBKKwdpg==;
+	bh=uPpZHIHN2f+krnoJTSXhizzaZXUBHGCxVWnErBLk0sw=; b=na8vB1bFvXtrcGcFuKpH+uD+YZ
+	aFtXdcUtQl4MOZAqhmOqeoCeNRATBoAyTV6bYHpdJJXxmfVVVB1kUyMrSlC2MSm6b5tJCBC20M6Us
+	XE6d71lDPlwQOtnZUTKLY64/fcJmDwszah6heYMD+2ySaFAD9bLbFZWFJ2opz78I6w6/Ko2NCA14F
+	i7Uyj0a3TsANi4lB3KEK0wjrBn7bhN1bd9KjlDXRdg4MHt/QWqj85Dw8xbaslRPNGgJkFskS4+gy7
+	AirG/Xh3PzK1hA56/Q57RP01lY5041Er5WR1/I61lkFpxqsJgiqoJsNZ51IewZetGDuohz5+7AGEb
+	2gw2bwpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOj87-000000077gI-1HIm;
-	Wed, 04 Nov 2026 22:06:53 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1xOj9L-000000077uR-0AYL;
+	Wed, 04 Nov 2026 22:08:07 +0000
+Received: from omta040.useast.a.cloudfilter.net ([44.202.169.39])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOj85-000000077f2-0HAe
+	id 1xOj9I-000000077sQ-12Kq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 22:06:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W+4Re47ci36M3yJAhubapE3o1UeK09P8hrdqKS8ou9udAjDdNfnJ+kOqI4c3WVyHwCffvdjTxgHH+O/zrSOrpUjqq8toSOAG9nQD20j4S+/LLuw7KOv5e6wc1CRBdSY/fDFWfigGaexraT2qzVZaNnRc3SUgU2MUVTt2FIG/PIGFLGGuIEmUapE48MnQD9G3ULUcXcVZcrkJGUG8tqnspgVjgPv/CGceVXZDZFv7ZuhDuMgyolNFZElqy38AwhDg7vQJRmtAMLovhMsd+69ltib5HS19elSfUk2tGua5lCbr+nldvWw2TSPJ/od7Q5BQjeEBcw9diRSNqxozB9AYug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FfK+EaLlfdX1tscNQzDj2eCu9z9s7fCeCB8RqVMbzfc=;
- b=RQ3crpEn0TAABzJ83Ny0i7Dxn1t1uj1+tn2d7X3+Jew1ihJ0AMuuHlct/wY8qmIGwSRCZYFNhHHrAS9EqmVEa+AWj35aXuYNOU/DRFMwabHHjhPvvtpPP41nBdyr/8oiwjutHBbwW5FXRAt1Inc2tcG1FB0+v7f8XYSoK/R0k7hSPXFYZQVlFFNyvCMAybCMQE3rqR6yNWlXSpcbraDyJmR+kXMUyaTFPo/XrxO5ZhbQx72dV4S8b9VR8xanuamw4GbkhNLBkF8pwyjBe9nm86/OXz3lPaBNaQSzRaKpXW9nHLyx5+mIbZblL2Y2uUj3vuGaDHziVy6/FPHamPDIJQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FfK+EaLlfdX1tscNQzDj2eCu9z9s7fCeCB8RqVMbzfc=;
- b=cIGtOA+HN7I4HmT0Oupd6YTTK5L6qG2YSScSlpjxSZLLBvGYFbMq0EW+y11rmeeeIWBtx6eYsgFiGfFsYi80o5Y7CSXBVhHecMRNvThmKcW2YlZeeeCf2Trhmj5fk1i5haCK4cgsKtOaRP73VV4kgYrui4g0PvDIyjsxvBNnVMlLIZpCMsDZVH2I6CjT5spGZyokEYJvsWcuGthkudeEcKkht3wovu7a4sO3ptTagDoEYqeOP1cXavvuISO+542OVWMQ30Oy/K/cOXa+sGVCJ9DjrzQN7Csa8esND0PFy1bEVyqNbV6Cli0lRr9PBAPgeXD2ClIDvGkPOfLnJqI8UQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by GV1PR04MB10776.eurprd04.prod.outlook.com (2603:10a6:150:20b::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Wed, 4 Nov
- 2026 22:06:41 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0592.007; Wed, 4 Nov 2026
- 22:06:41 +0000
-From: Frank.Li@oss.nxp.com
-To: Sascha Hauer <s.hauer@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kaszubski <sympthicode@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Alice Guo <alice.guo@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] ARM: dts: imx7ulp: Add TMP6 PWM node to i.MX7ULP
-Date: Wed,  4 Nov 2026 17:06:32 -0500
-Message-ID: <179382998972.3912318.16272070383640645687.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261021150403.71569-1-sympthicode@gmail.com>
-References: <20261021150403.71569-1-sympthicode@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: DS7P222CA0010.NAMP222.PROD.OUTLOOK.COM (2603:10b6:8:2e::6)
- To MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+	Wed, 04 Nov 2026 22:08:06 +0000
+Received: from eig-obgw-6004b.ext.cloudfilter.net ([10.0.30.210])
+	by cmsmtp with ESMTPS
+	id OdPjxjp6HOOJnOj9HxUTe9; Wed, 04 Nov 2026 22:08:03 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id Oj9FxhEApKD1BOj9FxgJHn; Wed, 04 Nov 2026 22:08:01 +0000
+X-Authority-Analysis: v=2.4 cv=N6MpF39B c=1 sm=1 tr=0 ts=6aebacc1
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=mpaa-ttXAAAA:8
+ a=AhJusznchYkEs9MMiQMA:9 a=CjuIK1q_8ugA:10 a=KPbNTLLc3YvdawN95zVk:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
+	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
+	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=uPpZHIHN2f+krnoJTSXhizzaZXUBHGCxVWnErBLk0sw=; b=SyA6t0X5HCcBfATZNI8Kbb4ksm
+	hTB7osa3MOtNNirjIdy8uJ8HAWGaphLEybiIZNPeTBj+JeVI80v8EElmkTd4hWBuPa/Z3+pl5092+
+	g1k8ogbs00esl5aa6vfujqZm05BPnNOXAYmYbS6FjwVyliDV9z2cyOaHG4eoufGv3F7acBqjphECZ
+	a83clvz33UqYtmcmVN1kGQ5M1xWyCr2hbVp50kXGgewihE3mWC+1JybQabLER4T44tNtuEGUblraT
+	lHRp8qKk/AeTvLQK/pMznIjGWDG3GjfQaHKI0mbyQQ+eTJPQwxlS6gFmQctKCwhoIFmA/PrMwIFA4
+	RISQ6J5g==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:36806 helo=server.roeck-us.net)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xOj9E-00000000ul0-2R7W;
+	Thu, 05 Nov 2026 03:38:00 +0530
+Date: Wed, 4 Nov 2026 14:07:59 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Zexin Wang <ot_zexin.wang@mediatek.com>
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	light.chen@mediatek.com, Fred-WY.Chen@mediatek.com,
+	Yt.Hsieh@mediatek.com, linux-watchdog@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] watchdog: sbsa_gwdt: Limit the MediaTek WS0 race
+ workaround to revision 0
+Message-ID: <055e6366-83db-435d-af3f-4168a822a870@roeck-us.net>
+References: <20261104083714.3026535-1-ot_zexin.wang@mediatek.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|GV1PR04MB10776:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6611ccc4-562e-462f-5419-08df3abfe799
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|366016|1800799024|23010399003|22082099003|10067099003|18002099003|11063799006|261022075727099003|261022105027099003|261026121527099003|261026140227099003|261028144727099003|56012099006|261009223027099003;
-X-Microsoft-Antispam-Message-Info: Z8vvNaByXuyZbOsZWVegO68U7PSBpqp1U3GMcmpYwmgwuHxaoJSh0zyMci5urVCGIGlt8nKi0SA0EB9FvI+honB4KckMaAZh3wErLwkhzd88FO4Ts9XwKSlWfni7ONY3veLB/c/xWyUVmJ6sZC8peIUAD/+61qJ4DaeDyhh2deeAXxPkWc99gkflCsFOlUe8rgWqYhtz56PkEeVeSURr0Dxmloce2CeR8XW9zPT473Njic4U/Q2qtQgtdPdYkwTW0OhUeuyrDxeS427ADT5R4g2zta0rXsH0S7gluE8Ma9C+QKtsZ676xTMqMbprPm42QDbJXqwxbFHQdAqkWYT/KvVbxHcLb3Yl+JbF2i1z+Yv5yNOQr/bhVRw3Gvf2pO3jWKi4Rtuur5YrmE2RGnKHhbi3D8fosjfK2Zmd9iyL+VOtLj3Fg/hvm5anNLb6tqPW3+jreakxu/+Khr96wO/EIuZKbOwc8jHhaYOpyRx43X8fiv32VFv8Aam53Aj6LA+zeplCRfVCpg708EAbJ4gl1sEaS6xAFy94EAn1ABkcDNBYx49LRaCSvLSe8XK70a0oMIYu4n8I1E3Mp4AZ3gWi902FEpNmtKeqXoJqhYXv0AEe8ahxSUZ+oFHKf56zHlF/FQXAp6QDhRfDH35SOMheS4PrfgodujE4L3OaC3CPOQ0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(366016)(1800799024)(23010399003)(22082099003)(10067099003)(18002099003)(11063799006)(261022075727099003)(261022105027099003)(261026121527099003)(261026140227099003)(261028144727099003)(56012099006)(261009223027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SXIyWUUxNjQ1cFZaVEJobDRjS1dxVDFvU1FvQldXY2xWTTdZREQ3eFZnK1pi?=
- =?utf-8?B?SVQ2cWZmOXZUbEljMno3blRtNHVQNmlWUVc4d21xOG9RbWpWNEVqVFc2K2hu?=
- =?utf-8?B?TzJpbkdIeEs1eS9xR2luTHNNUlE0L2orSk0zSUJUUUYwMmxMYUFpVC9FNUZH?=
- =?utf-8?B?eEZiNmF4KzBsWGViQytJaGhoeSt2U3RCM3l2YkVkTHNoN0VWT2I2TitSM1dL?=
- =?utf-8?B?bXBROHVVUWVJL2pKQVhLdnF5WHFlVjd4YzJwSEVrNWNnZkZxdW5ERGk4NDlm?=
- =?utf-8?B?dm5KQlJVSkRnUXZLY0VtV0VNVFkyMlJMQUtiZFFFa1RLUW9kMFRudXNOVWth?=
- =?utf-8?B?Q0RZaWFDTTBwYXBNa0lUTUxOaHlOc0ljUmZGU3RmT0hpODdBU0xSUVNYdld5?=
- =?utf-8?B?aHZlVjdQYXRRdHRPUVl2L0dyZVlweXBRRDFyeCttbU1XUHNJQjl0alZ6RlpZ?=
- =?utf-8?B?U2NHZEFUejhtM3ZhWXFEMjY0SU5UaXJkcjBLQWNnS3l4Z2tIaWRMYVYzK2oy?=
- =?utf-8?B?T3NKVTJ3T2hlRGdXdDR3bVBxVDQyZkFTTURhNWNkL2JlODliZW9xaUJaZkc3?=
- =?utf-8?B?REhnNDU5Y2Zvd3gzTG5MTjM1VUhSRnQ1cndNZVRnOTRQUUR3MlIzdnFzbVVS?=
- =?utf-8?B?NVJ6ZndaaDlyNUgwMFdEZEFTd21GSHp1OEc0T3h3ZW9Ga2pXaCtpUGtxczlL?=
- =?utf-8?B?eUFWc1FjR2NPR1FSbUI5dHhRYXBKTmVRWUpYai9GQlZvUnBoTk1CbXBDT1FS?=
- =?utf-8?B?S0NvMDB4akRhWWo5TWxheXRjSlhvbFJqUWJNWk5aZTN4WGFJeVVWeVFDVFQ5?=
- =?utf-8?B?RWRjQnhsMk5mOHFYRTNxUmZrL2FuL3V1MGNRK1BoQkMxT0hkZnpZOVFhOXRP?=
- =?utf-8?B?MXk2Vml6aExsYlozRW5XcFNZY0NuNVRFSnNaRUhMSGxxVUZwL1l2TmVpdmxV?=
- =?utf-8?B?QjlranZUMjFxNTIvMHZzL1VpWTlURk8yajV4T1I4cUJvanNXUC9Dd1FwN0l4?=
- =?utf-8?B?UEp3cXh5YXFFSThhVjhlbTJncW5xeDJibTQ0OE85S2M5dnUvMGYwVDJ3UTlr?=
- =?utf-8?B?Sm0wc2xNMFMyY0Y2NmdsUjdLb1ljV2lHRmRRalN3UWk4YTgvcmdSNUFvK2Vp?=
- =?utf-8?B?bmdqL3hkTGpuSllaTWYwSEVqZmt3aWJjKzU4NldURjBkclN1VzB1ZFRHRzFG?=
- =?utf-8?B?Rm9YdTJXSHlURGlabFJyQlVNL1dpNUZZN1BFUUdZeUNPUitNMnAwa2tzbERr?=
- =?utf-8?B?dHpLc3YzdHpDY093NWFjYnRnY1VOMU1uUndnVnoxNGFNTFl3KzU0azdGb2Na?=
- =?utf-8?B?QUFOWkJKYlRCVXVGdHByTys0OUFJL0tZYzZxdWhqU3dFRmpXcWhNeEplNDBw?=
- =?utf-8?B?QUx6OEtnbTdGd24yb0dHdmZzaFF5M2VtRmFBMGxXaEtvR1dld3JTQWlaa09v?=
- =?utf-8?B?QUsrUFd3eEJpNVZDUStITHVpT0t3UmRhc0sxSzVZcjJlKzlFNXFPc1J2VHN2?=
- =?utf-8?B?dHp0Y05MSDJsdmY4bGJwLzNoN1dYS2o4WXlHclZoUmR0VzdiMzA3NnhZQmtX?=
- =?utf-8?B?Vy84WmJGbGJ4ZHhOUm42ZmdFTEdBMHJwK1JkUjFHK0RpUktrQlI2dExjZmht?=
- =?utf-8?B?am1Wa09IY0lPSEJmVXFtRG5zZ09lUXBRZHdBd3JJOTdib3pzLzhFb25VdW1V?=
- =?utf-8?B?S0s4MWo0SExnUklHbGVUaDJ2dXVNRHJUS05rbnlDcVg4dXEvMTRpaFRraFNE?=
- =?utf-8?B?VThmUS9HbHdndGI4RWtxYXI4UUVBVExWTk1sTWl6cktDdGVPZFpsdjdsb3dk?=
- =?utf-8?B?M1ZWY21YRVE5WU56ZlVyVWNvVU5sVmRxeW9QSGVRYWtxTjRyZUJvbEdtbHg4?=
- =?utf-8?B?b01FUk9iWTVpbzhmUlJCVTY2NUZIZG8vTEFpZWY5enVGZi9YdmdGNkdFeXFa?=
- =?utf-8?B?OWpyWUpaMlNQSER6dEhZU0tWMU9RVXRBeHhjb25BVks2Z1YramZPTmhOVXEz?=
- =?utf-8?B?cEZQR3g4cE95QXl0VjBqNkZiNVo2ZVYvTVN4SDgraXVPcnZ0SE13NjZOdGRu?=
- =?utf-8?B?SjVrTFVYMUlvbGJ5ZHRhN2xLWTRUclhQYlFjK0JCSHZKZVB6aUpMMWNqTTdR?=
- =?utf-8?B?NlpiWHZRTWJzMGRCbjBLZFZpWXVhSXFESnJyS2R2TlBnU2FyU25nRUZoWTBa?=
- =?utf-8?B?cGxFa2dubDFBMkVzcHlLRitOWTdJelA4T1VQalBxbGhEZTEvRUlzL2VvbzFR?=
- =?utf-8?B?YlpBUFZYN3JySWp5QXhZOVRvbDAvM3o1bmJKL3JYL2dQS0xpeEdHcGZTaitV?=
- =?utf-8?B?YUxJaE1yTVVhalFCb1QrMjYyVEdib0p3bk9QZWNhSnRzaUNjTTZCY1RzMm9h?=
- =?utf-8?Q?vBnGG6hXNLgicKkKn7DGJz+lbLXQuCzbXkmbd?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6611ccc4-562e-462f-5419-08df3abfe799
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 22:06:40.9299
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RsCHaIAdspylxRKZjR9A1mVW00T+yS6Txmf9I2drKFlIsicy61bvSUhx1Xt89awnxNL2EiJJrh4AGIVyaVKkhWHDovkohfBOhk5qmHkkl9mw7rSCyeHRmfwkuAPJgliS
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10776
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261104083714.3026535-1-ot_zexin.wang@mediatek.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xOj9E-00000000ul0-2R7W
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:36806
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 2
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfO1H7OWjai2k/Af46XHASLPosZ5yWbB4GtNGYUtKEbbzwFutax80auebrwjS8Ymg4lWzVFZT67mzJiPPblTJ4tfboVXf8a6ww4Shl6hpMAmuJu1xxkUL
+ vuqheYcB6AxXGjxBRS9P3XNn9Juh2atPMbrDlywpxmVAwBHVWbhj+0hCoMCEAHGJh810W2vya2bGAW4F/clkHtFyXzqJDbmdgtugQTpI18OwDAr0N3vXxG2b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_140649_107170_98BAB481 
-X-CRM114-Status: GOOD (  10.79  )
-X-Spam-Score: -1.0 (-)
+X-CRM114-CacheID: sfid-20261104_140805_289759_B6C03866 
+X-CRM114-Status: UNSURE (   6.36  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.4 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,33 +111,27 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Frank Li <Frank.Li@nxp.com>
-
-
-On Wed, 21 Oct 2026 17:03:31 +0200, Krzysztof Kaszubski wrote:
-> Add the Low Power Timer/Pulse Width Modulation Module 6 (TPM6)
-> node to the i.MX 7ULP device tree.
+On Wed, Nov 04, 2026 at 04:37:02PM +0800, Zexin Wang wrote:
+> The WS0 race workaround is currently enabled for all MediaTek SBSA
+> Generic Watchdog revisions in single-stage mode. However, only
+> revision 0 is affected by the race condition.
 > 
-> TPM6 is located in the Application Domain (Cortex-A7) at base
-> address 0x40a10000. This enables PWM and timer support for
-> peripherals connected to this domain, such as display backlight
-> controllers.
+> Read the revision field from W_IIDR and enable the workaround only for
+> MediaTek watchdogs with revision 0 in single-stage mode. This avoids
+> unnecessarily restricting the minimum timeout and adjusting the
+> keepalive interval on unaffected revisions.
 > 
-> [...]
+> Signed-off-by: Zexin Wang <ot_zexin.wang@mediatek.com>
 
-Applied, thanks!
+Applied.
 
-[1/1] ARM: dts: imx7ulp: Add TMP6 PWM node to i.MX7ULP
-      commit: d00ea6ec73f6288cc05dcd9b66d35b078c2149b1
-
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+Thanks,
+Guenter
 
