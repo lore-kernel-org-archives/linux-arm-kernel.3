@@ -2,80 +2,156 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83F1B606A333
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 09:00:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5976D606A332
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 09:03:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=W3N1l648;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=MHZnCuK3
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=E6EiTrXt;
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gy/VpIhK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=eAdT+8rLd44bxIIAm/zwqM4YbafLLwH/m+nhuD3g5QU=; b=W3N1l648qEwGra
-	nFy+O7ITFK7VVfGBbi+BPCTL1IbLDhzq4OtIHnkGaiNU/UwGlcv15IBHjxMRPAjZEcziQwkCPyA6+
-	a7dyJIyV4PKc6A34gIqCkSPIexGnutT0vhTUGfayCsaG6RH1Yx06HtOWZdyI6cQ+DihA6jDq8gMOH
-	hxaScGt/VENC6luXO/IqrrYHG/ilRTd6yfrbqBoPMLGFN3CORvz78IvFiFDvpvE3xSPHJ5dmf+OtH
-	8STFb9r3tmn9rmha/MaLFza+/KrVTjs2e1W96NMuN5fmHDyuehO0IhnHJxKxqEk16WoXio3reABaV
-	LiwO8D84xinF9QROxpug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=JQJlu4Eu705KNYlVvd6QIRtjIbYoI9QZx5iQyxAATKw=; b=E6EiTrXtxaKfkienZfJenOHLqC
+	yH2x9WgAXVzWs1ytTl3xA/EKkYgmKtbMS/wVAw1SQQQzBiAf8iOc2eavXYxO+rq25iLqK4LKKUE8b
+	M58+o38MmBi6DRcPzZTuIrHufA2S9LwQ0/JmWiIv+0r//4ZZDKGQNQ0VC3xnp1MKYMjHew6tfoxOZ
+	9r7MfAJXOJpmtOCu17gPTX36rjgRt2Q+HFgngsHccNdI40lt3Y5Bq+LM4fhzHHVbVI5ulsUmhID71
+	wBWgu6KLcXXUuRe8zO435iyilOGNhO2e40Et2b2lwCNXP3jryCZJoidGMDHn+VMafk78/X6IkGwgV
+	pu3NpdAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOWqu-00000004oS9-2Ke8;
-	Wed, 04 Nov 2026 09:00:16 +0000
-Received: from mail-m6070.netease.com ([210.79.60.70])
+	id 1xOWuN-00000004p9h-3pgb;
+	Wed, 04 Nov 2026 09:03:51 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOWqo-00000004oPM-4BEY;
-	Wed, 04 Nov 2026 09:00:13 +0000
-Received: from [172.16.12.74] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5376b923e;
-	Wed, 4 Nov 2026 16:59:59 +0800 (GMT+08:00)
-Message-ID: <fd180b9c-de60-4718-b17f-319bf4339e13@rock-chips.com>
-Date: Wed, 4 Nov 2026 16:59:58 +0800
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
+	id 1xOWuL-00000004p7T-0QAH
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Nov 2026 09:03:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aL6ip/AFaVBANiB+UB6HcktYhM0FXUBzhXTJeaY7cSS3Jriw5218IBQu0rp77wblmj/Sk1FBJSg5gesAVIvQBNjrvT3ese1FzD1WXh3nfkbRsPd0RCnGEe7ShYa7qEda+apMuAW5MBQrJpKJfQe32k2T7VuCxwSC0fVzNuEcvxLCDWSLL+oN0S+lSWCRSXb6qcNQ/a4FHNvytBHHng8ZsxMhZwvY4c2M60yvaPULDQwhsTgGaHMLKFXzVmcvWJTJWX23xc1D3fiu50jjLNX65SWndtucsJGfKEvKbOzKrQGLfhn8ivAxzhzFypHp94/9BttohOM8t/4hGmYS4dlTbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JQJlu4Eu705KNYlVvd6QIRtjIbYoI9QZx5iQyxAATKw=;
+ b=GS5LVuGvdmbGdd6j7m/a/3q8+HXGfm3GQJKLhZ6Q2QWMc2tTESSs6KQHYVO0ZF7DRuBcphYflW0mVAWLF+SvoyAe+5az+C7CTRatJs3q1ftcfN5efilm+rHazkzeDBlGniXmjgxWvZ5QyChH7v8jNQWNx2Jqk5zEOenc3DiLEr3kZqviYcNMY7XFHH0Av5YDSk3opjYtVk+1SXkNy08IFKuTLTPE/8WEXjXAr1JkjR7CJpFh62FHbZypIhHDW0My40B8uXl7r9n+Nx3TiNbe4hYqqCP/QxjWuR4jFKMyPTsKFS9Vt4eg0o90PuP6ddNZA6/VERQOA2zaURhw0nVmdQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JQJlu4Eu705KNYlVvd6QIRtjIbYoI9QZx5iQyxAATKw=;
+ b=gy/VpIhKcbHb1VdZfl4GmJf9Lpk266ZvjK1xJFIevwherGeQYOyYxMyOA0awvf/WX0ev4nT1XQ0Maiz3m7f1scK05/H4Pr+xMpzl0f/GOjk7M3H5QTmDkJq1orHhJYiP8NqTGyvI+Ney4Bu/gDsaUBYm+LnbmunW5KzOnkS9sd8=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SA1PR12MB6798.namprd12.prod.outlook.com (2603:10b6:806:25a::22)
+ by DSVPR12MB999123.namprd12.prod.outlook.com (2603:10b6:8:388::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Wed, 4 Nov 2026
+ 09:03:44 +0000
+Received: from SA1PR12MB6798.namprd12.prod.outlook.com
+ ([fe80::e317:e4a3:6ae9:8c54]) by SA1PR12MB6798.namprd12.prod.outlook.com
+ ([fe80::e317:e4a3:6ae9:8c54%5]) with mapi id 15.21.0592.009; Wed, 4 Nov 2026
+ 09:03:44 +0000
+Message-ID: <00010302-9cce-4733-942d-bc4930dcc3c7@amd.com>
+Date: Wed, 4 Nov 2026 14:33:17 +0530
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/6] dt-bindings: phy: Add rockchip,rk3568-edp-phy
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Sandy Huang <hjc@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Dave Jones <s.dave.jones@gmail.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
-References: <20261030064905.2248999-1-damon.ding@rock-chips.com>
- <20261030064905.2248999-3-damon.ding@rock-chips.com>
- <20261103-lemon-guillemot-of-economy-eefbbd@quoll>
+Subject: Re: [PATCH] net: dma: use dmaengine_desc_set_callback()
+To: Frank.Li@oss.nxp.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ Michal Simek <michal.simek@amd.com>, Stephan Gerhold <stephan@gerhold.net>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Sergey Ryazanov <ryazanov.s.a@gmail.com>,
+ Johannes Berg <johannes@sipsolutions.net>, Frank Li <Frank.Li@nxp.com>,
+ Andre Przywara <andre.przywara@arm.com>, Li Youhong <liyouhong@kylinos.cn>,
+ Joe Damato <joe@dama.to>, Arnd Bergmann <arnd@arndb.de>,
+ bui duc phuc <phucduc.bui@gmail.com>, Yicong Hui <yiconghui@gmail.com>,
+ Simon Horman <horms@kernel.org>,
+ "open list:NETWORKING DRIVERS" <netdev@vger.kernel.org>,
+ "moderated list:ARM/Allwinner sunXi SoC support"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
+ open list <linux-kernel@vger.kernel.org>,
+ "open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>
+Cc: imx@lists.linux.dev, vkoul@kernel.org
+References: <20261102191922.4044912-1-Frank.Li@oss.nxp.com>
 Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <20261103-lemon-guillemot-of-economy-eefbbd@quoll>
+From: "Gupta, Suraj" <suraj.gupta2@amd.com>
+In-Reply-To: <20261102191922.4044912-1-Frank.Li@oss.nxp.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0aa1a5c95c3e03a8kunm4bbaef2a348d4c
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDTklPVksZGRpLSxlPSBgYH1YVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUJCSU
-	5KVUpLS1VKQktCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=MHZnCuK3X0/bHPD1qBFBpPTg5quAPx84ehdDHx+2O7e+ZW0NvxFEq3Qa7uJmJjE/dpQuLUHBLvCCA7Erx3R7UwcpFYvbZelF7bJukJ0Kp7fqAV1l7q9ezBQqrl4ZAThxvSRXaHEinP0DVtJ8ttPK0TCapb15cyIRtY1FZvkdsBk=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=eAdT+8rLd44bxIIAm/zwqM4YbafLLwH/m+nhuD3g5QU=;
-	h=date:mime-version:subject:message-id:from;
+X-ClientProxiedBy: PN0PR01CA0031.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:4e::21) To SA1PR12MB6798.namprd12.prod.outlook.com
+ (2603:10b6:806:25a::22)
+X-Archived-By: <archiver.kernel.org>
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA1PR12MB6798:EE_|DSVPR12MB999123:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6bc5995b-b626-4759-c6a9-08df3a528723
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|23010399003|10067099003|22082099003|18002099003|56012099006|261022105027099003|11063799006|921020|261021121427099003|261028144727099003|261026140227099003|261102123227099003|261026121527099003|261009223027099003|261021123027099003;
+X-Microsoft-Antispam-Message-Info: M1096serL62Mr5LrqmYsBUO9j7CTc5w331ZWFxam9Fb5NBtK3qgnzokKyEJRFndIc78SdABnS6DmbT5rmRfI8SEcekUprUGo0JT6qeZqYrxVMhCBMpD/BuaqDoB03PGCyYczswZ6DObzQ2NGWR4hRpYENXkthcLpCHGvNgVvYgweKc0aUIWUpSdS8diII3G9OlEGhd56FA/YNZNwB8IsewgnQxXk6tmafsZhOg1pUVIczFJ5uC8bLzenri5qMU2461Cy3Dv/pW3ytileZ2r5poH1WVGDmk4CYuEJYH9eRNv5MN/qNByKHrDsNY+LRqe620aPaXzIc82gnrL3toEYI+3ZLkXqLLA4rj1lU2ziJUMPw/hUhBvKatQFjsWqc6DFdmATXitBzHl85/hC7/EoMDiZ4NNj08abWtSmupNAeyxADrH4I75ooJHxr2b8JyynE6th7UMtsX6wmfLortcheTkah+nCim25KoR/IQvTnmgXerOwDCSJ9wzBs1RTgP48pan63DksjBMRVvUcwXCurJwS8bzb6XnqPfAPPDl6GGXP7n7w/t/X0FoliYzGB4N02hHXxPMuI5z2X3TOTxKnif1AKnzEM3dgA33G4t6BulKU2EPrfzaN+7a2z4CFnvMP6ll8MoVYNmOC7VIBICgz2wTq932DjTXfalhp/3K/YeKGW+dS/wWWCIs//5q1dSTFUHTYVKiA3hkSs0rkLwAZfQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB6798.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(23010399003)(10067099003)(22082099003)(18002099003)(56012099006)(261022105027099003)(11063799006)(921020)(261021121427099003)(261028144727099003)(261026140227099003)(261102123227099003)(261026121527099003)(261009223027099003)(261021123027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RStkRWJQdHVZM3IzUjR5ejRIeEovZ1ZWdWF4eUhtYVpXbWNyTGZzTVBvMCtX?=
+ =?utf-8?B?S3N4UEpRYWdoZWdXMjVmM3ZCcWl1ZDhaYjI4RHhONkFBSC9Ubm5TdEJ1eDg4?=
+ =?utf-8?B?ZXFBaEJBRG8xK05jbWJENW9USFNicVF6c2xKRjVVek93bWdlbjh2RUJBNFA0?=
+ =?utf-8?B?Z01laHp0aysvZk10ekdmRldmbWJYWElSYlJibVV5cjRXZGhWOVJiR0N0NEhP?=
+ =?utf-8?B?M0UrWjFUdXQxUUxPdkF3SHVNNXlWZEVUVGlvVGVXY1AwTDUzSWRta0xWOENa?=
+ =?utf-8?B?cGhSMEROR2ZhUjBGWm9LOFdJVloxSE1MdmVnU2wvanUyclNBdVVJZ0M2WmRo?=
+ =?utf-8?B?NmwwNXc4djVsYVNMaHN0OEVkeUdlNGtzWWlGTkQwck5vRUUyWEJyVUVhMEVx?=
+ =?utf-8?B?bFBjb1BMYUNFQnlMYlRLVUxOTTgzeEJzU2NsMnZwNFhHaFIxbDZwSk1wMy9z?=
+ =?utf-8?B?RE13U01kcU1qbEhaY0J4b09pOUFwSWJybEtQdjV2YkM5MzdYc0ZjaHhyTmh5?=
+ =?utf-8?B?eVROU081Y0xSQmtFRXVnUURuejNmQ3ZxOFdtQlh0V253WXY3U040ZzM5eVcr?=
+ =?utf-8?B?c0ZhanpscmxVQ3pORUNSemkxYVVwZGxQTzhoNUZ1amtUQVJqcDBFNDcrcE9E?=
+ =?utf-8?B?bG1aOWt3MkJ4K0FPbkNqN2N3aHBqZy9RdUhCZzdBWHZkOVhoc0t5eHBaL1o4?=
+ =?utf-8?B?QUlIUTBYYVlyQ3lRdXYwQlFmTjFBOEJ2TnNXZ0ZKV1cvbFlVZ3N1RVZlWXhF?=
+ =?utf-8?B?S3lIL3owakcvZ09QOWNmSFVHdzJTc0V5ejJIbHFlK2gweXlsTnVYZlRLT2ho?=
+ =?utf-8?B?WVhEK05WbHlLOXJUS3A5ekYwWWxMU3g4MWdBUHlzeXFNdlgxZ3dLNXZFYTJi?=
+ =?utf-8?B?RElsOXh2dHgzTjM4dkdYZ1k2M2hJVm15L09GcWc2b3JRY1FzdndmS1lRKzB4?=
+ =?utf-8?B?NmRPWXZSb0NCN3JINjJsRGpwQnB1NTRiVXdIYmJlOTE3Z0tNeHZ6QnRJaXlL?=
+ =?utf-8?B?Uk1xS1RoZmpNSnZOdzFrcmlYaXFsV1dDbHkvTlpTOVMxd0ZTSitDU1NFdlZh?=
+ =?utf-8?B?RWVoV0xBVVd6UnVXbHhvN1lOZlFnVEc4M3BMc1UySEVSbFNRTjMraVljbldJ?=
+ =?utf-8?B?K3ZYc1VrYzZ4OUE1WUtNdHpDMzNSMDQrbkVtNTRsdkZDZ2Q4Y1lYVGVEYnZt?=
+ =?utf-8?B?YlArL0FoSUhtRGNoSzdhWTJXUFRYRFliRUw5L3U0a3JwNzhENkZkWlQ1V0wx?=
+ =?utf-8?B?VEYxTlZuUFh1aDFsdkg5WHFwU0d3TG5nNndPYjBZSGpRaDBmNEd1ZmYwb0NO?=
+ =?utf-8?B?M1gyRlExbTB1bXdDU0RmNEwrY3JzaTJNNFBOdXc2TDM3VE15Z1VDeXBjeUh0?=
+ =?utf-8?B?ejRTUSsrNERDbWQ2dndtUTNhVEFBVkFzQnpYWmVoNS9JendWYWxPaG00TU5r?=
+ =?utf-8?B?dG1SMHJqaXdPWFdGaVBKY1d0UkdhcHcxSjU0bDRnVktNU1JmSjRJRE9LT3JF?=
+ =?utf-8?B?cUFPakpESHJaMGdyWTZtcXdlc3J2R2FFaXJBMHRvelNWN3dvNDUzcGQxQ25L?=
+ =?utf-8?B?ZWxsRDZRam45T1ZpZU9DeE02Q2I2dGZ0TjdrSHRnQU12UG9ZSi9NYVY4OW9O?=
+ =?utf-8?B?KzlUQ0ZjWG1YVGJCWGp0MVJKemVzTkZCczJ6VWF5bCtsL3RvU0ZteVJTTjdS?=
+ =?utf-8?B?SGxnNy9FTGFHSVdlb3A2emxDRHh2eEl3V2IxTGl0ODhFL2VheDRuWHJpOGZE?=
+ =?utf-8?B?SSt4TkRHdVFJSHNjSExncGluM28xZDZsc29zcVJqS0tXdS9XbkNYbkxlUFhl?=
+ =?utf-8?B?ZnVnRVNIYUUzMmV6MVl6VVdlUE1mTDJQbnhUb3JTblpKME9TYm92WlRwangx?=
+ =?utf-8?B?SlBGcjFxNERISWliQmtiRG9SS3NNYXhKMkdOVXM2QTl2Ky9waHdhMFpSMzJ4?=
+ =?utf-8?B?TlpJSXpnZW1NRENzQVBnV003YnloczlFd3hLWU5MOWhaWExtZmxnTXFITFBm?=
+ =?utf-8?B?a2pLNFZmYld4RUtTMXhncWNDaVdwcTdmL0lPdjlrZmZBaVZSY1NndE1jZ1o3?=
+ =?utf-8?B?bjZwczFPNXNUOTFuNlVvWWd0RTRtV1Jpb1dxcFRHSU9rMjlQNWxKalp2SXg1?=
+ =?utf-8?B?YmF1b1lsamRkVTlQNmtJSlZxNWxNSkY3QklHSDdBSGN3Y2V3ZHN0eUpzcFcw?=
+ =?utf-8?B?V0ZGak0vaHpaSGoxdU1qQ1lNWWJhQ2FPckJOQTFNeFhqRnZzTFJJdUNzblR4?=
+ =?utf-8?B?cjJJbGJuUTVzK3psZzdpTG52aWdqTk9LVGgzNlhoeS9qSDhYWGxMWGNDdDlL?=
+ =?utf-8?Q?F1gzSlDrwOCBQTq3yx?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6bc5995b-b626-4759-c6a9-08df3a528723
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB6798.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 09:03:44.2307
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sfSVdhtF5bNMlwpeCoPnQ0hAKMVsXri2bh+izg60ItUCS9ZoyMjwnpgs8fBUpoglBjBCVOyMpWMelcz5qyIKCw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSVPR12MB999123
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_010012_296454_B731F77A 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20261104_010349_162829_8D578ABE 
+X-CRM114-Status: GOOD (  16.85  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,166 +171,121 @@ X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Krzysztof,
 
-On 11/3/2026 7:20 PM, Krzysztof Kozlowski wrote:
-> On Fri, Oct 30, 2026 at 02:49:01PM +0800, Damon Ding wrote:
->> Document the eDP transmitter PHY with NaNeng IP block found on the
->> RK3568 SoC.  The PHY has its own register window inside the eDP PHY
->> GRF, so its node is modeled as a child of the eDP PHY GRF syscon with
->> a reg property describing that window.  Also add the
->> "rockchip,rk3568-edp-phy-grf" compatible and the phy node reference to
->> the Rockchip GRF schema.
->>
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->>
->> ---
->>
->> Changes in v4:
->> - Add the reg entry for the PHY node and the ranges/#address-cells/
->>    #size-cells for the parent syscon node.
->> ---
->>   .../bindings/phy/rockchip,rk3568-edp-phy.yaml | 68 +++++++++++++++++++
->>   .../devicetree/bindings/soc/rockchip/grf.yaml | 20 ++++++
->>   2 files changed, 88 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/phy/rockchip,rk3568-edp-phy.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3568-edp-phy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3568-edp-phy.yaml
->> new file mode 100644
->> index 000000000000..b78da00ffefd
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/phy/rockchip,rk3568-edp-phy.yaml
->> @@ -0,0 +1,68 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/phy/rockchip,rk3568-edp-phy.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Rockchip eDP Transmitter PHY with NaNeng IP block
->> +
->> +maintainers:
->> +  - Damon Ding <damon.ding@rock-chips.com>
->> +  - Heiko Stuebner <heiko@sntech.de>
->> +
->> +description:
->> +  On the RK3568 SoC the eDP PHY is controlled through the eDP PHY GRF
->> +  registers, therefore the PHY node is expected to be a child of the
->> +  eDP PHY GRF syscon node.
->> +
->> +properties:
->> +  compatible:
->> +    const: rockchip,rk3568-edp-phy
->> +
->> +  reg:
->> +    maxItems: 1
->> +    description: PHY registers within the eDP PHY GRF.
->> +
->> +  clocks:
->> +    maxItems: 1
->> +
->> +  clock-names:
->> +    const: refclk
+
+On 11/3/2026 12:49 AM, Frank.Li@oss.nxp.com wrote:
+> From: Frank Li <Frank.Li@nxp.com>
 > 
-> Just "ref"
-
-Will fix in v5.
-
+> Replace open-coded assignments to callback and callback_param fields
+> of struct dma_async_tx_descriptor with calls to the
+> dmaengine_desc_set_callback() helper across net drivers.
 > 
->> +
->> +  "#phy-cells":
->> +    const: 0
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - clocks
->> +  - clock-names
->> +  - "#phy-cells"
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/clock/rk3568-cru.h>
->> +
->> +    soc {
->> +      #address-cells = <2>;
->> +      #size-cells = <2>;
->> +
->> +      edp_phy_grf: syscon@fdcb0000 {
->> +        compatible = "rockchip,rk3568-edp-phy-grf", "syscon", "simple-mfd";
+> No functional change intended. Prepare to make struct
+> dma_async_tx_descriptor private to the DMA engine.
 > 
-> This is beyond the scope of this binding. Drop entire node.
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Will Drop in v5. The example should only show the PHY node itself.
+Reviewed-by: Suraj Gupta <suraj.gupta2@amd.com>
 
+Thanks!
+Suraj
+
+> ---
+>   drivers/net/ethernet/allwinner/sun4i-emac.c       |  3 +--
+>   drivers/net/ethernet/micrel/ks8842.c              |  6 ++----
+>   drivers/net/ethernet/xilinx/xilinx_axienet_main.c |  6 ++----
+>   drivers/net/wwan/qcom_bam_dmux.c                  | 10 ++++------
+>   4 files changed, 9 insertions(+), 16 deletions(-)
 > 
->> +        reg = <0x0 0xfdcb0000 0x0 0x8000>;
->> +        clocks = <&cru PCLK_EDPPHY_GRF>;
->> +        ranges = <0x0 0x0 0xfdcb0000 0x100>;
->> +        #address-cells = <1>;
->> +        #size-cells = <1>;
->> +
->> +        edp_phy: phy@0 {
->> +          compatible = "rockchip,rk3568-edp-phy";
->> +          reg = <0x0 0x100>;
->> +          clocks = <&pmucru XIN_OSC0_EDPPHY_G>;
->> +          clock-names = "refclk";
->> +          #phy-cells = <0>;
->> +        };
->> +      };
->> +    };
->> diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
->> index 7bcb4e2f47ec..c089bd014003 100644
->> --- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
->> +++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
->> @@ -93,6 +93,7 @@ properties:
->>                 - rockchip,rk3399-grf
->>                 - rockchip,rk3399-pmugrf
->>                 - rockchip,rk3562-pmu-grf
->> +              - rockchip,rk3568-edp-phy-grf
->>                 - rockchip,rk3568-grf
->>                 - rockchip,rk3568-pmugrf
->>                 - rockchip,rk3576-ioc-grf
->> @@ -119,6 +120,8 @@ properties:
->>     "#size-cells":
->>       const: 1
->>   
->> +  ranges: true
->> +
->>   required:
->>     - compatible
->>     - reg
->> @@ -156,6 +159,22 @@ allOf:
->>             $ref: /schemas/phy/rockchip,rk3288-dp-phy.yaml#
->>             unevaluatedProperties: false
->>   
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            const: rockchip,rk3568-edp-phy-grf
->> +
->> +    then:
->> +      required:
->> +        - "#address-cells"
->> +        - "#size-cells"
->> +      patternProperties:
->> +        "^phy@[0-9a-f]+$":
->> +          type: object
->> +          $ref: /schemas/phy/rockchip,rk3568-edp-phy.yaml#
->> +          unevaluatedProperties: false
-> 
-> Properties should be defined in top level. Here you only narrow them.
-> 
-> This binding is getting close to unreadable/unmaintainable. Split new
-> devices with children to their own binding.
-
-Agreed. The "rockchip,rk3568-edp-phy-grf" syscon will be documented by
-its own binding schema in v5.
-
-Best regards,
-Damon
+> diff --git a/drivers/net/ethernet/allwinner/sun4i-emac.c b/drivers/net/ethernet/allwinner/sun4i-emac.c
+> index 09b2abdfc9e84..d7ee42b2c1976 100644
+> --- a/drivers/net/ethernet/allwinner/sun4i-emac.c
+> +++ b/drivers/net/ethernet/allwinner/sun4i-emac.c
+> @@ -303,8 +303,7 @@ static int emac_dma_inblk_32bit(struct emac_board_info *db,
+>   		goto prepare_err;
+>   	}
+>   
+> -	desc->callback_param = req;
+> -	desc->callback = emac_dma_done_callback;
+> +	dmaengine_desc_set_callback(desc, emac_dma_done_callback, NULL, req);
+>   
+>   	cookie = dmaengine_submit(desc);
+>   	ret = dma_submit_error(cookie);
+> diff --git a/drivers/net/ethernet/micrel/ks8842.c b/drivers/net/ethernet/micrel/ks8842.c
+> index f0d6bfc6025ca..c68abd4643e72 100644
+> --- a/drivers/net/ethernet/micrel/ks8842.c
+> +++ b/drivers/net/ethernet/micrel/ks8842.c
+> @@ -453,8 +453,7 @@ static int ks8842_tx_frame_dma(struct sk_buff *skb, struct net_device *netdev)
+>   	if (!ctl->adesc)
+>   		return NETDEV_TX_BUSY;
+>   
+> -	ctl->adesc->callback_param = netdev;
+> -	ctl->adesc->callback = ks8842_dma_tx_cb;
+> +	dmaengine_desc_set_callback(ctl->adesc, ks8842_dma_tx_cb, NULL, netdev);
+>   	dmaengine_submit(ctl->adesc);
+>   
+>   	netdev->stats.tx_bytes += skb->len;
+> @@ -567,8 +566,7 @@ static int __ks8842_start_new_rx_dma(struct net_device *netdev)
+>   			goto out;
+>   		}
+>   
+> -		ctl->adesc->callback_param = netdev;
+> -		ctl->adesc->callback = ks8842_dma_rx_cb;
+> +		dmaengine_desc_set_callback(ctl->adesc, ks8842_dma_rx_cb, NULL, netdev);
+>   		dmaengine_submit(ctl->adesc);
+>   	} else {
+>   		err = -ENOMEM;
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> index 8a50cad1c104f..7e83c4b5f1931 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> @@ -1014,8 +1014,7 @@ axienet_start_xmit_dmaengine(struct sk_buff *skb, struct net_device *ndev)
+>   
+>   	skbuf_dma->skb = skb;
+>   	skbuf_dma->sg_len = sg_len;
+> -	dma_tx_desc->callback_param = lp;
+> -	dma_tx_desc->callback_result = axienet_dma_tx_cb;
+> +	dmaengine_desc_set_callback(dma_tx_desc, NULL, axienet_dma_tx_cb, lp);
+>   	/* Claim the ring slot only after the steps above that can fail.  The
+>   	 * completion callback can't run before dmaengine_submit().
+>   	 */
+> @@ -1565,8 +1564,7 @@ static void axienet_rx_submit_desc(struct net_device *ndev)
+>   	skbuf_dma->skb = skb;
+>   	skbuf_dma->dma_address = sg_dma_address(skbuf_dma->sgl);
+>   	skbuf_dma->desc = dma_rx_desc;
+> -	dma_rx_desc->callback_param = lp;
+> -	dma_rx_desc->callback_result = axienet_dma_rx_cb;
+> +	dmaengine_desc_set_callback(dma_rx_desc, NULL, axienet_dma_rx_cb, lp);
+>   	lp->rx_ring_head++;
+>   	dmaengine_submit(dma_rx_desc);
+>   
+> diff --git a/drivers/net/wwan/qcom_bam_dmux.c b/drivers/net/wwan/qcom_bam_dmux.c
+> index cc6ace8d64371..1479f8362e04e 100644
+> --- a/drivers/net/wwan/qcom_bam_dmux.c
+> +++ b/drivers/net/wwan/qcom_bam_dmux.c
+> @@ -195,9 +195,8 @@ static bool bam_dmux_skb_dma_submit_tx(struct bam_dmux_skb_dma *skb_dma)
+>   		return false;
+>   	}
+>   
+> -	desc->callback = bam_dmux_tx_callback;
+> -	desc->callback_param = skb_dma;
+> -	desc->cookie = dmaengine_submit(desc);
+> +	dmaengine_desc_set_callback(desc, bam_dmux_tx_callback, NULL, skb_dma);
+> +	dmaengine_submit(desc);
+>   	return true;
+>   }
+>   
+> @@ -477,9 +476,8 @@ static bool bam_dmux_skb_dma_submit_rx(struct bam_dmux_skb_dma *skb_dma)
+>   		return false;
+>   	}
+>   
+> -	desc->callback = bam_dmux_rx_callback;
+> -	desc->callback_param = skb_dma;
+> -	desc->cookie = dmaengine_submit(desc);
+> +	dmaengine_desc_set_callback(desc, bam_dmux_rx_callback, NULL, skb_dma);
+> +	dmaengine_submit(desc);
+>   	return true;
+>   }
+>   
 
 
