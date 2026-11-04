@@ -2,95 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78EF6606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 10:28:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4731606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 10:28:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zPAVrIMJ;
-	dkim=pass (2048-bit key, unprotected) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=r+Yfsyxv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ujBnPcfb;
+	dkim=temperror header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=o5rbZXVq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=7veRrT8eWAeBKJG1Q0lJd1x2zWh4g6/qHWjAZxV9nEY=; b=zPAVrIMJax31RdXmJ0bNXH2tt7
-	UuWLJ9VlwqcLYL1wf59HVxozk/wKqlE82QpPgzcqFSIk6LwK05qD93tfigHR3C78L6i6Zfqfo67kP
-	5JO8DbqJ42zsP1OwyXqclb2wHwgka3/EdpQP0Gzlf7AvjyClRogLSQs4I8TYu5wlqvEe4PrEr6NRZ
-	UBjJdzWDXeIfCNUsaCzABPus+MtCGbfJVHiprIo2piI+JgtcgR7mIWUpeiD09JmzWeR9UptHimG7Z
-	uTYMUZBkHB/WisXo+BLoeiYhN14MvIVTAa9X11iRwzd0dTGF3E5a1guxldsH1O3qmD3+7vCBKJtqV
-	hhoagQGQ==;
+	bh=GLaKKMhflH6c9HMj7tkIQiYSGOrte1eESSKQrGjfr70=; b=ujBnPcfbsARGgDZno/lankuLZw
+	fITcTZZ6YGYF0Kn+ZT+spUgPhXZIq3Oj7R1pkwJmjlP8a4tlUrt9VLbJQih83WaDNZF0KeKJhUIx7
+	fVkDQZjtWKg8e/HLWqIWt1MoppxBLxicRw4xuqpB8qLUzLSLLSAZEB8UWL5TiYrJicwBtflP3eb/R
+	iFkaayNlDbS+7ccNDzN4GNEuGapSPGMRct3dP8OmKUy4Atb9tkVP6ffvRgag83qVhGlYgV5aoGxN5
+	PxYcczJV0E3cF6IkP32DUmZKOvQ5vqqgxI5GeJrskDVVdWhXnvDpknuaT9/Pl6R/mDblN/IF4Uave
+	bDf5ZjDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYDq-00000005020-3NMo;
-	Wed, 04 Nov 2026 10:28:03 +0000
-Received: from esa10.hc1455-7.c3s2.iphmx.com ([139.138.36.225])
+	id 1xOYDv-0000000503d-1Nys;
+	Wed, 04 Nov 2026 10:28:07 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYDo-0000000501V-3DWS
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 10:28:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1793788087; x=1825324087;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=wlmr7Aue0wdrqc12Gk8qvFNC+7tKFeGN9AZd173LYv8=;
-  b=r+Yfsyxv3ZsU93L0t1aRj13omNo9csRJCtFNLlspdXm2no6h1VQs67Bv
-   p1vUqJPTqGGfYyeUTH3DiGsg3QeYu0lzn+MZ222TrS6vRUyv2af2fqV0V
-   j/azbsjvK3y8h7+JjmWUe3+LykektFY+y7xbh+oe88dGc/h23erdD7XxY
-   N3NtnAGJf5XOPa0HeUNZXW38QrT0XTOC1/jJX7qcZVvow9u3LKEaebYJ0
-   dOd/yE1oQMOuAB1UaysJNlSEOIXjq/4IY6ITG8pAjAmf2klq9BN+DWuBP
-   NYEnt7GdTEqTyZuoZRpc79rARdiaRc3yBtJC3mY7F1ypOYlgjROIqrCYg
-   w==;
-X-CSE-ConnectionGUID: U+Bq3iDNQIuY8GLW8+wSQQ==
-X-CSE-MsgGUID: ksdK95fGQp+2yXcLU/NxRg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11955"; a="246776614"
-X-IronPort-AV: E=Sophos;i="6.27,195,1786978800"; 
-   d="scan'208";a="246776614"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa10.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2026 19:28:05 +0900
-Received: from az2uksmgm3.o.css.fujitsu.com (unknown [10.151.22.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id BB1AF1002B9D
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Nov 2026 10:27:58 +0000 (UTC)
-Received: from az2nlsmom2.o.css.fujitsu.com (unknown [10.150.26.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm3.o.css.fujitsu.com (Postfix) with ESMTPS id 6F899C00836
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Nov 2026 10:27:58 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.9.61.160])
-	by az2nlsmom2.o.css.fujitsu.com (Postfix) with SMTP id A62E61800599;
-	Wed,  4 Nov 2026 10:27:50 +0000 (UTC)
-Date: Wed, 4 Nov 2026 19:27:49 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH 03/11] KVM: arm64: CCA: Check for RMI support at KVM init
-Message-ID: <ausIgejq7Io9VjZL@FCCLS0092175.localdomain>
-References: <20261102141304.126883-1-steven.price@arm.com>
- <20261102141304.126883-4-steven.price@arm.com>
- <ausEnXB1TE_moI0E@FCCLS0092175.localdomain>
+	id 1xOYDs-0000000502M-3DwL;
+	Wed, 04 Nov 2026 10:28:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=GLaKKMhflH6c9HMj7tkIQiYSGOrte1eESSKQrGjfr70=; b=o5rbZXVqXBOPz9MgAOGvVCI9OH
+	rfV9RhCslhaCfar5qBWNZHOGhTb40svSP/U9cZBARICeF1s85qeLm1BXEtT1FXRqf/AxyyViXG5JX
+	uIkNbXx6TybQeiCckwatSpovab7geUmVJWT0K8/k6CSMM106OEhaJ5IuD+HJk93478dgXIlLq1V4r
+	N9RVyxyPENrg82zAQ9/z5Ej+MN4xwZMgv64pxwVyEPWSqNSYhP4JmER2b3z8rz2+60vAtDieRB/ya
+	3mLn1L8ZILnwjvn3P0wwDdv+BlF8gERII7sgsrW/Io66GFLsiGRYShcjIZh/lpt2g4xaPqN5nSVLE
+	7GEI3XHg==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: tomeu@tomeuvizoso.net, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
+ ulfh@kernel.org, p.zabel@pengutronix.de, ogabbay@kernel.org,
+ zhangqing@rock-chips.com, Jiaxing Hu <gahing@gahingwoo.com>
+Cc: royalnet026@gmail.com, abel.vesa@oss.qualcomm.com,
+ sebastian.reichel@collabora.com, sidong.yang@furiosa.ai,
+ u.kleine-koenig@baylibre.com, chaoyi.chen@rock-chips.com,
+ diederik@cknow-tech.com, alchark@flipper.net, leonard@lausen.nl,
+ jeff.hugo@oss.qualcomm.com, rfoss@kernel.org,
+ dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
+ iommu@lists.linux.dev, linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Jiaxing Hu <gahing@gahingwoo.com>
+Subject: Re: [PATCH v15 05/15] accel/rocket: factor the completion tail out of the IRQ
+ handler
+Date: Wed, 04 Nov 2026 11:27:41 +0100
+Message-ID: <8888361.5OynTdThKG@diego>
+In-Reply-To: <20261101082307.151957-6-gahing@gahingwoo.com>
+References: <20261101082307.151957-1-gahing@gahingwoo.com>
+ <20261101082307.151957-6-gahing@gahingwoo.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <ausEnXB1TE_moI0E@FCCLS0092175.localdomain>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_022801_356291_473A67C6 
-X-CRM114-Status: GOOD (  25.62  )
+X-CRM114-CacheID: sfid-20261104_022804_811134_C58738F4 
+X-CRM114-Status: GOOD (  15.83  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,73 +84,79 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 11/04 19:23, Kohei Enju wrote:
-> Hi Steven,
-> 
-> On 11/02 14:12, Steven Price wrote:
-> > Check if the RMI support is sufficient for using in KVM. Specifically, we
-> > will only support creating realm VMs when KVM is set to 'rmm' mode.
-> > 
-> > Signed-off-by: Steven Price <steven.price@arm.com>
-> > ---
-> >  arch/arm64/kvm/Kconfig | 1 +
-> >  arch/arm64/kvm/rmi.c   | 4 +++-
-> >  2 files changed, 4 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-> > index cecea0820e52..d067063a3686 100644
-> > --- a/arch/arm64/kvm/Kconfig
-> > +++ b/arch/arm64/kvm/Kconfig
-> > @@ -34,6 +34,7 @@ menuconfig KVM
-> >  	select GUEST_PERF_EVENTS if PERF_EVENTS
-> >  	select KVM_GUEST_MEMFD
-> >  	select KVM_GENERIC_PRE_FAULT_MEMORY
-> > +	select ARM_RMM_RMI
-> >  	help
-> >  	  Support hosting virtualized guest machines.
-> >  
-> > diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-> > index 5ecc8b349869..9d118768550d 100644
-> > --- a/arch/arm64/kvm/rmi.c
-> > +++ b/arch/arm64/kvm/rmi.c
-> > @@ -3,6 +3,7 @@
-> >   * Copyright (C) 2023-2026 ARM Ltd.
-> >   */
-> >  
-> > +#include <linux/arm-rmi-cmds.h>
-> >  #include <linux/kvm_host.h>
-> >  
-> >  #include <asm/virt.h>
-> > @@ -12,7 +13,8 @@ void kvm_init_rmi(void)
-> >  	if (kvm_get_mode() != KVM_MODE_RMM)
-> >  		return;
-> >  
-> > -	/* TODO: Check if the RMI is available */
-> > +	if (!is_rmi_available())
-> > +		return;
-> 
-> From an admin/operator's perspective, kvm_rmi_is_available would
-> silently remain FALSE in either of the following cases:
-> - kvm-arm.mode=rmm is set, but RMI is not available for some reason.
-> - RMI is available, but the admin forgot to set kvm-arm.mode=rmm.
-> 
-> So I think it would be useful to emit diagnostic messages for these
-> cases, for example:
-> 
-> if (!is_rmi_available()) {
->     if (kvm_get_mode() == KVM_MODE_RMM)
->         pr_info("Realm VM support is disabled because RMI is not available\n");
-> 	return;
-> }
-> 
-> if (kvm_get_mode() != KVM_MODE_RMM) {
->     pr_info("Realm VM support is disabled. Use kvm-arm.mode=rmm to enable it\n");
-> 	return;
-> }
+Am Sonntag, 1. November 2026, 09:22:57 Mitteleurop=C3=A4ische Normalzeit sc=
+hrieb Jiaxing Hu:
+> Move the part of rocket_job_handle_irq() that starts the next task or
+> retires the job into rocket_job_next_locked(). No functional change.
+>=20
+> Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
+> Reviewed-by: Igor Paunovic <royalnet026@gmail.com>
 
-Sorry, the indentation got mangled :(
+this makes the irq-handler more descriptive in what it does
 
-> 
-> Thanks,
-> Kohei
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+
+> ---
+>  drivers/accel/rocket/rocket_job.c | 31 ++++++++++++++++++++-----------
+>  1 file changed, 20 insertions(+), 11 deletions(-)
+>=20
+> diff --git a/drivers/accel/rocket/rocket_job.c b/drivers/accel/rocket/roc=
+ket_job.c
+> index 152a9098634b..417d5ef06c09 100644
+> --- a/drivers/accel/rocket/rocket_job.c
+> +++ b/drivers/accel/rocket/rocket_job.c
+> @@ -365,6 +365,25 @@ static struct dma_fence *rocket_job_run(struct drm_s=
+ched_job *sched_job)
+>  	return ERR_PTR(ret);
+>  }
+> =20
+> +/* Start the job's next task, or retire it. Caller holds job_lock. */
+> +static void rocket_job_next_locked(struct rocket_core *core)
+> +{
+> +	lockdep_assert_held(&core->job_lock);
+> +
+> +	if (!core->in_flight_job)
+> +		return;
+> +
+> +	if (core->in_flight_job->next_task_idx < core->in_flight_job->task_coun=
+t) {
+> +		rocket_job_hw_submit(core, core->in_flight_job);
+> +		return;
+> +	}
+> +
+> +	iommu_detach_group(NULL, iommu_group_get(core->dev));
+> +	dma_fence_signal(core->in_flight_job->done_fence);
+> +	pm_runtime_put_autosuspend(core->dev);
+> +	core->in_flight_job =3D NULL;
+> +}
+> +
+>  static void rocket_job_handle_irq(struct rocket_core *core)
+>  {
+>  	pm_runtime_mark_last_busy(core->dev);
+> @@ -378,17 +397,7 @@ static void rocket_job_handle_irq(struct rocket_core=
+ *core)
+>  		rocket_pc_writel(core, OPERATION_ENABLE, 0x0);
+>  		rocket_pc_writel(core, INTERRUPT_CLEAR, 0x1ffff);
+> =20
+> -		if (core->in_flight_job) {
+> -			if (core->in_flight_job->next_task_idx < core->in_flight_job->task_co=
+unt) {
+> -				rocket_job_hw_submit(core, core->in_flight_job);
+> -				return;
+> -			}
+> -
+> -			iommu_detach_group(NULL, iommu_group_get(core->dev));
+> -			dma_fence_signal(core->in_flight_job->done_fence);
+> -			pm_runtime_put_autosuspend(core->dev);
+> -			core->in_flight_job =3D NULL;
+> -		}
+> +		rocket_job_next_locked(core);
+>  	}
+>  }
+> =20
+>=20
+
+
+
+
 
