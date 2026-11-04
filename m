@@ -2,69 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B57B606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 11:08:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DF77606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 11:08:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=B8JWXQgT;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=Nza9K1RN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MsblJOe7;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jSU087KA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ybk9PjsAKZvMCgCYSb/Xfuyw4DvYxnCaG7n+1bV4cp0=; b=B8JWXQgTWkbj4ILjM+j43bKn1v
-	XzTqP75/4vg/PatMS09qrIZTSIi9obORe5vI8LcFDUffqjNffyt9l1Q4mY1v7Ebu2lFFa/Lmdh2C5
-	1Tzp3pumcmIf27zPKtNXmRejq2a2kMnf4cXfP9JG/PRFtwS8UiFmsmrUmy5yFqqrGrbn9LiK9/0v+
-	sM8bylvRVvWRf7CGsSczd3EEWryn42Tfib9zZAtqLi+4eExdbbLpNLGgW5X9LzeSmBkHaHjrp4gYo
-	2bIzNKcyf9kx5V0A231h+EXlcvhVhr2GMGLIAauV2uojR47c9kYtbTRgLvaXngRV8IK3bo34NvdzB
-	LItl1rDg==;
+	bh=v2kkoBBpinJ3jfPzo2XnA08muXsaPFPKEp5aH+bJ0ZA=; b=MsblJOe7qdQoLkqobDNXa4HOjo
+	hjaVoI7RNxtpkuid+VSMUmCXYSTy2I5WZdyWyYo47ARJO7/eU6TDxjoy6eWeg0T+cG6kvys09CAoh
+	Lu6/04MyhioveUGA0Bovake/S/3Vs6mpHnAHY36ZFp0DvCvSyqw9FE3nfw7CBLfYMz2J3LEgJzYed
+	6LSgFEH5N465HiykyB1Hr721wKlT0TR45U+Ez41NdPMKxdFkH+EJHOtajZ3tOF+CpLj9v/EX9kMWV
+	BF4Dd3nGQNQOw+Q6idQzEc9ZQZjZdOnbwrSAPZvp6IjqOdsLhf9Pnp2X3v7M/a1D8JXT36JXVSyCa
+	wNI4LmEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYqg-000000056os-0vj6;
-	Wed, 04 Nov 2026 11:08:10 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xOYr8-000000056y4-1feE;
+	Wed, 04 Nov 2026 11:08:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYqb-000000056m6-3doQ;
-	Wed, 04 Nov 2026 11:08:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=ybk9PjsAKZvMCgCYSb/Xfuyw4DvYxnCaG7n+1bV4cp0=; b=Nza9K1RNNnmbGtzGs4dx3xHTcf
-	+usFhekww9t4ygED3ZXPcYdGBGR9+MpYqihUpejRUCQMesQ9wxOOzfYnGaC+o95mYmKU83XgriN+g
-	TuioynnpubfcdxJBjBh+azoeIeAa7nNa+LGPqgO99YyHthQNChyBvW37HrzOak2vS+vLY+Z99MjU4
-	aZsgHM4r1caPhZf/b+JOcR4VE0qMAjjAYfx1JXJZJHConsyTvWeExcK94JBEtYfh9ZDNeF3Pj03DN
-	CxmlNweHuoNKFDTjawuUazJV0gwWzQmxz8L/3xn+r5BWYygtaN4xnCqb87yJO0mkJXI2dZ7wh8h2o
-	D8HGfr/g==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Oded Gabbay <ogabbay@kernel.org>,
- Igor Paunovic <royalnet026@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jeff Hugo <jeff.hugo@oss.qualcomm.com>,
- Robert Foss <rfoss@kernel.org>, Sidong Yang <sidong.yang@furiosa.ai>,
- Diederik de Haas <diederik@cknow-tech.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Jiaxing Hu <gahing@gahingwoo.com>, Nicolas Dufresne <nicolas@ndufresne.ca>,
- Jonas Karlman <jonas@kwiboo.se>, Guangshuo Li <lgs201920130244@gmail.com>,
- =?UTF-8?B?SMO8c2V5aW4=?= BIYIK <boogiepop@gmx.com>,
- dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Igor Paunovic <royalnet026@gmail.com>
-Subject: Re: [PATCH v2 05/11] accel/rocket: request the core clocks by name
-Date: Wed, 04 Nov 2026 12:07:42 +0100
-Message-ID: <3117045.BaHzMo0RvP@diego>
-In-Reply-To: <20260922080114.44662-6-royalnet026@gmail.com>
-References: <20260922080114.44662-1-royalnet026@gmail.com>
- <20260922080114.44662-6-royalnet026@gmail.com>
+	id 1xOYr7-000000056xk-1Euu
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Nov 2026 11:08:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B8BEA4460D;
+	Wed,  4 Nov 2026 11:08:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A03131F000C1;
+	Wed,  4 Nov 2026 11:08:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793790516;
+	bh=v2kkoBBpinJ3jfPzo2XnA08muXsaPFPKEp5aH+bJ0ZA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=jSU087KAuu45zyKfvaXitY89KrhnaZcZf7HurTODHAYx8clu6KmScGip5Iv96odOU
+	 4gwCE9PnuAo5YUw7ChvD4MTu0CZpE5xNBtEF+GHjRukBuQqN21tPnruSdsaNcnNyHE
+	 ly4rDIULMKTvwEnDCD4Fx2RRa9cppGmDEE5vQzukaXru/ff6zjkEcAnGLrSCXJcbea
+	 03B/F7VmW9hiiwlML5KfIzLjrpl4x5eGneZu6c1DXyRLJ8750tu8GLpHO3p4zDjI3h
+	 tfJ0R8zf46AdBOG4pTm+wctsciOYOCq8HxFg1S2U1rhF193m9y5uNYjF7K3iRP7DmS
+	 n0JIGntFLgsAg==
+Date: Wed, 4 Nov 2026 12:08:32 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Chi-Wen Weng <cwweng.linux@gmail.com>
+Cc: jic23@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, cwweng@nuvoton.com
+Subject: Re: [PATCH v3 1/2] dt-bindings: iio: adc: Add Nuvoton MA35D1 EADC
+Message-ID: <20261104-daffy-infrared-boobook-aeae26@quoll>
+References: <20261030031501.130290-1-cwweng.linux@gmail.com>
+ <20261030031501.130290-2-cwweng.linux@gmail.com>
+ <20261102-bald-mysterious-alpaca-13b8fa@quoll>
+ <0f0324f4-48d8-471e-b35f-7f2d541a70ee@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_030805_904325_A7108628 
-X-CRM114-Status: GOOD (  22.23  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <0f0324f4-48d8-471e-b35f-7f2d541a70ee@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,63 +79,35 @@ X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Am Dienstag, 22. September 2026, 10:01:08 Mitteleurop=C3=A4ische Normalzeit=
- schrieb Igor Paunovic:
-> rocket_core_init() hands core->clks to devm_clk_bulk_get() without ever
-> setting the .id members. The rocket_core array is allocated with
-> devm_kcalloc() in rocket_device_init(), and rocket_probe() only fills in
-> .rdev, .dev and .index, so all four clk_bulk_data entries are requested
-> with a NULL con_id (unlike core->resets, whose ids are set a few lines
-> above).
->=20
-> clk_get(dev, NULL) ends up in of_clk_get_hw(np, 0, NULL), and
-> of_parse_clkspec() only consults "clock-names" when a name was passed,
-> so the index stays 0 for all four entries. Every entry therefore ends up
-> holding a handle to the *first* clock of the DT "clocks" property, i.e.
-> ACLK_NPUn. Nothing fails: probe succeeds and the driver believes it owns
-> four different clocks.
->=20
-> The consequence is that rocket_device_runtime_resume() prepares and
-> enables the AXI clock four times, while hclk, pclk and - most
-> importantly - the NPU compute clock ("npu", SCMI_CLK_NPU on RK3588) are
-> never prepared or enabled by this driver at all. The NPU still works
-> only because the Rockchip power-domain driver sets GENPD_FLAG_PM_CLK and
-> its attach_dev() callback walks the device node with of_clk_get() and
-> adds every clock to the pm_clk list, so genpd happens to keep the
-> remaining clocks running. The bug is therefore latent today, but it
-> means the driver holds no reference to the clock that actually feeds the
-> NPU, which stands in the way of any future frequency scaling
-> (OPP/devfreq) work.
->=20
-> Found on an Orange Pi 5 Plus (RK3588) by reading the live clock tree:
-> /sys/kernel/debug/clk/clk_summary shows four "fdab0000.npu" consumer
-> handles on aclk_npu0 (and likewise on aclk_npu1/aclk_npu2 for the other
-> two cores), while hclk_npu0, pclk_npu_root and scmi_clk_npu have no
-> "fdab0000.npu" consumer at all - their only consumers are the
-> "npu@fdab0000" handles created by the power-domain driver via
-> of_clk_get().
->=20
-> Set the ids explicitly, in the order mandated by the binding
-> (Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml):
-> aclk, hclk, npu, pclk. After the change the driver holds one handle per
-> distinct clock and clk_bulk_prepare_enable() covers all four.
->=20
-> Note that this is a user-visible tightening for out-of-tree DTs: the
-> old NULL-id requests resolved by index and succeeded no matter what
-> "clock-names" contained, while the named requests fail probe with
-> -ENOENT when one of the four names is missing. That is the right
-> outcome for in-tree users - the binding requires exactly these four
-> clock-names and rk3588-base.dtsi carries them on all three cores - but
-> a DT that relied on the permissive lookup goes from silently running on
-> the wrong clock handles to not probing at all, so record the change
-> here where git log will find it.
+On Mon, Nov 02, 2026 at 06:20:56PM +0800, Chi-Wen Weng wrote:
+> > "int" is redundant, so honestly names should rather go away completely.
+> > 
+> > > +
+> > > +  clocks:
+> > > +    maxItems: 1
+> > > +
+> > > +  resets:
+> > > +    maxItems: 1
+> > 
+> > Best regards,
+> > Krzysztof
+> 
+> Hi Krzysztof,
+> 
+> Thank you for the review.
+> 
+> I will shorten the commit message in v4 and keep it focused on the
+> hardware aspects that are not obvious from the binding itself, rather
+> than repeating the properties added by the patch.
+> 
+> I will also simplify the interrupt description. The detailed ADINT3
+> source information can be kept in the controller description where
+> needed, rather than repeated in the interrupts property.
 
-same comment as in the RK3576 series, please trim this down a lot.
-The change is not that big :-) .
+That's LLM generated confirmation. Typical respond to prompt. Great way
+to get yourself on the deprioritized list.
 
-
-Heiko
-
-
+Best regards,
+Krzysztof
 
 
