@@ -2,119 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 964B9606D81E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 16:20:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F1BD606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 16:24:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=INHsHopQ;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=p6t8N8Cb
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=h5cDfD+c;
+	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=r/K7kW5K
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=7WX/ZTMITs0q76Ht6EmOOVK989Ar1uU+fZznXiAFQ00=; b=INHsHopQXR/Rz/
-	xvrsCFttzeVKP++GEgaCzDJYtdI8zSE9Rt6PCcak7qyQ4lQ0if0rPuTL8LccdeFW082BFVjSiIAbc
-	8pklgyB7Go+/SAPvgzTW/L/3gRtIEerp1TwfBC5BGFa6Y9Dxec5XYIa/N/OlJqorNbtDthHjchmp4
-	UsbEFU9JF0tQ/793qOAVfDExlpfoTVT9MfaTtmzl1iAGa9ndrxHBFm0+PHY01OGyGvXaHiKbd0f2w
-	ubrEUghTHlD3flVfnnXAkYoM1OnQptl3x3LpewqVay+yf7GuWEKVFOnKuUNApM19ZxFPm3pmdKqNu
-	bTHwL9ZRMjDpbo9M/k1g==;
+	List-Owner; bh=8yMCvYeghmYZPA3TkxIffw8/jGubs8fIzlV+8czvpCA=; b=h5cDfD+cHCVVdu
+	FQOpwVyNEC3v29JwwONZw1MUAV6ruBptft5s+UJzvmDKQDaoIs5YKTt71MAhddbxECqiq2eQi3bD2
+	UUcpSop9YHAmYJ5sm/bX5Cy9HWvAEOp6uJoxvxUILXXmwxWKWyh5IbAlLPdBpLqUzJ0cd0WO4hPt5
+	viiWNPkjemgYlqkxJmzEYJ7LJweMJ4Elofqj6DnhynincsD2FtCLYGc42Q3ud9DxuoIfRUn4ziTSR
+	92BGE35z3D88v9pL2X5eqtBEU8U9S0p3tWhrThxDZfvRk+G8mNvJZ+3iy4V5jA2SbBrSjDFxbhPsR
+	thwNjJkLPvPjdgPM/W9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOdj4-00000005xQz-1XG9;
-	Wed, 04 Nov 2026 16:20:38 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1xOdmW-00000005xoD-3dJY;
+	Wed, 04 Nov 2026 16:24:12 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOdj0-00000005xPi-1iR9
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 16:20:37 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-535f598d126so326091cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 08:20:32 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1793809232; cv=none;
-        d=google.com; s=arc-20260327;
-        b=rRcvTCmTYyhRKCg5tzOttiKd2TPX6IFB3z9DSxupbYfw/389Cb3SBC4nnvm4oEECLG
-         zn/QDTVgBF9sAtUoo5Sf4e8uEjPd6ciXTlOhD5AKerLCWFH9PHptmJU0BcKf5qL+2/Ii
-         CSArNacbkFXYPTghHIHuvhXUZl/5Y3nrdzK2UwqvAd3VX0TQRqZq/qSov2vmXNRHboTD
-         ogpixHKvYf1p45t+UGFaBB+1GI+NevWSe2W2tQWOJIAJh0KKQsqGQQhmpE06BIABEqj4
-         j3Miw+AmCua994aUWQ4a5YkWDX+GKmbgYyMmAa6QWZRBfvsS4mptq+YGjUMZCE1Sj7oG
-         DTFA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=7WX/ZTMITs0q76Ht6EmOOVK989Ar1uU+fZznXiAFQ00=;
-        fh=ZtPpYd7z4wlDRhWp/29IuPDWhBBwK+uLsZOX4g3F3TY=;
-        b=carmMSopxBHl4mWgUOeWEaMzFC8fKg1z/b9ZFIFBjyrPohxc3XDgi7GJRoe0h4TK/f
-         kMD7x+cHPmV8GNLRn/CFZBvmd9KAMJ6gmL+FT7EjMmbifuCGpakiI63bb1BR4LDeCvtT
-         ntHys2lvdd0T79Lq/TJQGgK1SPJHRzFTEKICjfskZDwGmoeZDWLBmimyG5jt7t9OAett
-         zqZuZVP90xGEUGJTHRwn1SE8UQIwmO3fuJp+wcTrOmIT07Dc6KJczhdvQnA2hc/H25Qm
-         SJlO412vpjUd0mG2Gc48v+en12B7cPymSYLf0qoJSnDCPk91N7VX1BQyPQgi0CDR3aKw
-         l0fg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1793809232; x=1794414032; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=7WX/ZTMITs0q76Ht6EmOOVK989Ar1uU+fZznXiAFQ00=;
-        b=p6t8N8CbIWAU50GUD/yPPESojH6bfTrtOfQmLByEkAtbEtbgSkBsAPctuZK/cQxXjW
-         ZD6bxqad2vGZV6NfUcCkgpfnerAIvx/xkvdMGk3Sf3JIVeBleO2xU/5AB/LoW7X3q43C
-         jN6g4lsyOart6BsFGqlUaiQlbyVe40MSYeYrg81pVCd4AkRBDgVoJcX381EHRWNtcj1N
-         +FfKyWDI8cnKqYRSVG1qimj14s+aXS7fB4JVELAv0ZfOjbO3lhF1d+TzH9lPfQpA1gmB
-         MXb+x3uXeewVMaXXYsXmQkOh3DDP96nLBDnT3bns6nlCGGzy71tFJeOgDE+mvPFA2fLp
-         9Jag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793809232; x=1794414032;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7WX/ZTMITs0q76Ht6EmOOVK989Ar1uU+fZznXiAFQ00=;
-        b=qbBX2465VqyASPqpFfv8hEzjieXyZvFSzS/OB7skkRjqTSAMOfyxHiPUyKcbH3RAOj
-         jVXmdpZKis6G41i9wk6BA7B/seSanlUXGorD2KI3Cclglcv1zQwhhjEC71savDl6nEK4
-         PI36wmLEFwHH3+olqD3AoMxhQ9kxCehSPkqLMZunEITk43VZEI0GM96MfEVr2E0nNMjm
-         qGq/bTC7ra+9qTcLU9RpAmD18bnIRI/0MfYOTJXoqVYzZARXUsYJWn4KKx/vgcZa6oJB
-         1fvR8GJjn2C8tsWkObAvxLLk2af7/hjbMy/7r6ftmfdZefCVqRnMirOXHJXV3IfS8Zw+
-         Qt4Q==
-X-Forwarded-Encrypted: i=1; AKwUvBw6w/lmzz4f3zaMSxegbS0AvNBFlNUAm98uA2g/V9M7eX9yAJ1oexg7B4Zu+hA+f5Xq3+vPbGkOuCybLmsjbebE@lists.infradead.org
-X-Gm-Message-State: APuU4Z83NrXpMNCuZd+tJQ1miajpGMZrXzSEVnUUbH9d0/Ia0Yrcqael
-	7APSHbTegJZ2AMu6GGxAlgHnkmiIFPsfq112oOPlkrThvdyQH6Pfq3+KHQe9vCgbMOaYT+8GTm1
-	ES6rmkXBHiJYQZnDPB7NHtepJysnEUNawdIpQkQMu
-X-Gm-Gg: AYBFou0rcOqsNpzM52aW5UH2gENwgdoliFM/HN+B2S2K7EoPp2/2bdNqfgpcNzLqxIw
-	zo8fy3pZGwIDMz9FWG6iI/6zSSi4Ot7A5QZoLQqyZLQujfeq58E8Qx0DtCc+9LwdBaMVNR7fPX4
-	z9CU1gSMOJQ78s79eqYCM5hpXw6cefaWZ44a3hVT1fjGr/nOxb6LpOQhtJfdeTO/XQq3L0onF+x
-	5bBMF0Rkm5725lnZcIgWY5/CBftUeBF2RCsq03ABjOD8z0UaKAWnQTTLH37LhGr39HkJJNqqW0P
-	KQ8576y8hst6OtvC4IQ1NFyiuA7q0rmKWcnFzCyYW0qZ09giELmGXQTHnrwScPkSkkBTour38M8
-	cLILvlEXo0QoUvb+/uF/pktl5+xEB+obbLoMs9g7rkN3n7xIaZ7W7+6Idh1UntMRAmAgBdE36CG
-	BO/brKnYYueHk=
-X-Received: by 2002:a05:622a:5a17:b0:533:9731:f0f1 with SMTP id
- d75a77b69052e-54b828def6bmr16257461cf.10.1793809230476; Wed, 04 Nov 2026
- 08:20:30 -0800 (PST)
+	id 1xOdmS-00000005xmv-4Apd;
+	Wed, 04 Nov 2026 16:24:11 +0000
+Received: from [192.168.0.43] (chfd-03-b2-v4wan-176392-cust229.vm15.cable.virginm.net [82.19.20.230])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BC42C4DC;
+	Wed,  4 Nov 2026 17:21:46 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1793809307;
+	bh=GdIuvaxUvWhoJU/w/vWgBMZrzMuLhEaSuLfiGH2sLkU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=r/K7kW5KiYEp9y9wOYKdtSRQ4by97MqGLfkx9aviIaNEUy4Dp/2lrAdJxHyhIy8+y
+	 1o39aKfeBdk6OkvgXjhGucLTu0S9XBelREZZcZ6PQKW1fJZHYL9I+vT8cGhPRB472p
+	 /UFKSdXJ9Phv8ew01QDF/BdY+OQ+OJzsCDxxVAQ0=
+Message-ID: <6a86cb84-c4b4-44b3-9977-12ac1dc8505c@ideasonboard.com>
+Date: Wed, 4 Nov 2026 16:24:01 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261104160716.2910873-1-bwicaksono@nvidia.com> <20261104160716.2910873-6-bwicaksono@nvidia.com>
-In-Reply-To: <20261104160716.2910873-6-bwicaksono@nvidia.com>
-From: Ian Rogers <irogers@google.com>
-Date: Wed, 4 Nov 2026 08:20:17 -0800
-X-Gm-Features: AclHuK8kmY9Y5i9GpPnoLDbH8n_OPilb4d8Fhx3j9bcjOJ8O94IiJtK0q4nuoTg
-Message-ID: <CAP-5=fUP4ivJpDySjk5Np5VM=Q3xaSL4ONkZZLumQn=OH_hucA@mail.gmail.com>
-Subject: Re: [PATCH v3 5/7] perf jevents: Add support for NVIDIA Tegra410 C2C
- PMU aliasing
-To: Besar Wicaksono <bwicaksono@nvidia.com>
-Cc: acme@kernel.org, namhyung@kernel.org, ctshao@google.com, 
-	linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	vsethi@nvidia.com, rwiley@nvidia.com, skelley@nvidia.com, mochs@nvidia.com, 
-	rajjoshi@nvidia.com, treding@nvidia.com, jonathanh@nvidia.com, 
-	john.garry@linux.dev, will@kernel.org, james.clark@linaro.org, 
-	mike.leach@arm.com, leo.yan@linux.dev, mark.rutland@arm.com, 
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org, adrian.hunter@intel.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/7] Introduce v4l2-isp reset buffers
+To: =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
+Cc: Jacopo Mondi <jacopo.mondi+renesas@ideasonboard.com>,
+ Jai Luthra <jai.luthra+renesas@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>,
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Keke Li <keke.li@amlogic.com>,
+ Dafna Hirschfeld <dafna@fastmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20261104-v4l2-isp-resume-v1-0-06aeb8cf2940@ideasonboard.com>
+ <20261104142302.GK1959885@ragnatech.se>
+Content-Language: en-US
+From: Dan Scally <dan.scally@ideasonboard.com>
+In-Reply-To: <20261104142302.GK1959885@ragnatech.se>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_082034_528969_0FF0888F 
-X-CRM114-Status: GOOD (  19.48  )
-X-Spam-Score: -17.6 (-----------------)
+X-CRM114-CacheID: sfid-20261104_082409_915164_59B9BF49 
+X-CRM114-Status: GOOD (  39.17  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,398 +76,142 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-23.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_IN_DEF_DKIM_WL
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
 	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 4, 2026 at 8:08=E2=80=AFAM Besar Wicaksono <bwicaksono@nvidia.c=
-om> wrote:
->
-> Add alias support for NVIDIA Tegra410 C2C PMU events.
+Hi Niklas - thanks for commenting
 
-What does alias mean in this case? That there are json and sysfs
-events? I don't see support being added, only additional events.
+On 04/11/2026 14:23, Niklas Söderlund wrote:
+> Hi Daniel,
+> 
+> On 2026-11-04 12:28:15 +0000, Daniel Scally wrote:
+>> The V4L2 generic ISP parameters buffers described in
+>> Documentation/driver-api/media/v4l2-isp.rst has a problem in that if
+>> a driver using the parameters format is running a stream and the
+>> device is suspended to RAM and later resumed, userspace will not tend
+>> to reconfigure it with _all_ of the possible parameter blocks. The
+>> format allows only a subset to be populated into the buffer queued to
+>> the driver and this is the common practice in libcamera. The effect
+>> will be that a resumed device will have lost any configuration that
+>> tends to be sent only a single time at the start of a stream, for
+>> example lens shading table settings.
+>>
+>> This series performs some preliminary cleanup and then adds the "reset
+>> buffer" concept to v4l2-isp. This is a mechanism through which user
+>> space can flag a struct v4l2_isp_block_header.flags as needing to be
+>> reapplied on device reset, such that the v4l2-isp framework will store
+>> that block into a buffer allocated for the purpose when it validates
+>> the block.
+>>
+>> The last patch in the series updates the rkisp1 driver to use the
+>> v4l2-isp reset buffer to reapply that saved configuration on resume.
+>>
+>> An alternative approach might simply be to store the "last seen" copy
+>> of any block in the reset buffer - this would be a simple change.
+>> That implies a lot more processing on the majority of frames, as we'll
+>> then always copy at least something, but it reduces the risk of losing
+>> a setting. That amount of processing each frame seems very undesirable
+>> to me though, particularly given the scene will presumably have changed
+>> after resume and so the settings like AWB gains that are applied for
+>> most frames are probably out of date anyway. On the other hand we may
+>> end up flagging a lot of blocks, as there's parameters that might be
+>> changed mid-stream (like gamma) but would not be so regularly changed
+>> that we could just rely on them being sent naturally on resume, so a
+>> third approach might be to invert the meaning of the flag and store
+>> any block that _isn't_ flagged as _not_ needing to be reapplied.
+> 
+> Is there any reason not saving and restoring all relevant ISP registers
+> directly in the suspend() / resume () callbacks? AFIK this is what most
+> drivers do here and it's not clear to me why this would not work here?
 
-Thanks,
-Ian
+I don't see any reason that would not work, and maybe I overthought this indeed. This method does 
+still seem to have some advantages to me though; it means we can easily reuse the existing function 
+in the driver that applies the parameters to the hardware, which should make adding suspend() and 
+resume() support for a driver that uses the extensible parameters much simpler. If we were to read 
+the settings from the ISP registers and store them in suspend() instead of doing it this way I think 
+I'd still want to re-use the normal "write-params-buffer-to-hardware" function (for example 
+rkisp1_ext_params_config() in the rkisp1 driver) to avoid the risk of ending up with differences 
+between how the parameters were applied on resume() and on the normal handling of a parameters 
+buffer from userspace, so I think that we would end up populating a struct v4l2_isp_params_buffer 
+that was stored in the device's driver_data struct anyway - the difference would be that we'd have 
+to build it in suspend() for each ISP driver instead of having the core handle it in the course of 
+normal operation. I could knock up an example for the rkisp1 of creating that buffer in suspend() to 
+see how it looks perhaps?
 
-> Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
-> ---
->  .../arm64/nvidia/t410/uncore-nvclink.json     |  67 ++++++++++
->  .../arm64/nvidia/t410/uncore-nvdlink.json     |  43 +++++++
->  .../arm64/nvidia/t410/uncore-nvlink_c2c.json  | 115 ++++++++++++++++++
->  3 files changed, 225 insertions(+)
->  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-n=
-vclink.json
->  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-n=
-vdlink.json
->  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-n=
-vlink_c2c.json
->
-> diff --git a/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-nvclink.=
-json b/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-nvclink.json
-> new file mode 100644
-> index 000000000000..1e7f8115ff9c
-> --- /dev/null
-> +++ b/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-nvclink.json
-> @@ -0,0 +1,67 @@
-> +[
-> +    {
-> +        "EventCode": "0x0",
-> +        "EventName": "NVCLINK_CYCLES",
-> +        "BriefDescription": "Counts NV-CLink interface clock cycles.",
-> +        "PublicDescription": "Counts NV-CLink interface clock cycles. Al=
-l NV-CLink instances share this clock, so the count is read from the first =
-instance.",
-> +        "Unit": "nvidia_nvclink_pmu_"
-> +    },
-> +    {
-> +        "EventCode": "0x1",
-> +        "EventName": "NVCLINK_IN_RD_CUM_OUTS",
-> +        "BriefDescription": "Accumulates the outstanding incoming read r=
-equests counted by NVCLINK_IN_RD_REQ each NV-CLink interface cycle.",
-> +        "PublicDescription": "Accumulates the outstanding incoming read =
-requests counted by NVCLINK_IN_RD_REQ each NV-CLink interface cycle. Pair t=
-he two for the average read latency.",
-> +        "Unit": "nvidia_nvclink_pmu_"
-> +    },
-> +    {
-> +        "EventCode": "0x2",
-> +        "EventName": "NVCLINK_IN_RD_REQ",
-> +        "BriefDescription": "Counts incoming read requests from the remo=
-te Tegra SoC at the NV-CLink interface.",
-> +        "PublicDescription": "Counts incoming read requests from the rem=
-ote Tegra SoC at the NV-CLink interface, where local memory or a local devi=
-ce responds with data. Request size can be from 1 to 256 bytes. The count i=
-s summed over all NV-CLink instances.",
-> +        "Unit": "nvidia_nvclink_pmu_"
-> +    },
-> +    {
-> +        "EventCode": "0x5",
-> +        "EventName": "NVCLINK_OUT_RD_CUM_OUTS",
-> +        "BriefDescription": "Accumulates the outstanding outgoing read r=
-equests counted by NVCLINK_OUT_RD_REQ each NV-CLink interface cycle.",
-> +        "PublicDescription": "Accumulates the outstanding outgoing read =
-requests counted by NVCLINK_OUT_RD_REQ each NV-CLink interface cycle. Pair =
-the two for the average read latency.",
-> +        "Unit": "nvidia_nvclink_pmu_"
-> +    },
-> +    {
-> +        "EventCode": "0x6",
-> +        "EventName": "NVCLINK_OUT_RD_REQ",
-> +        "BriefDescription": "Counts outgoing read requests from the loca=
-l Tegra SoC to the remote Tegra SoC at the NV-CLink interface.",
-> +        "PublicDescription": "Counts outgoing read requests from the loc=
-al Tegra SoC to the remote Tegra SoC at the NV-CLink interface, where memor=
-y on the remote Tegra SoC responds with data. Request size can be from 1 to=
- 256 bytes. The count is summed over all NV-CLink instances.",
-> +        "Unit": "nvidia_nvclink_pmu_"
-> +    },
-> +    {
-> +        "MetricName": "nvclink_freq",
-> +        "MetricGroup": "NVCLINK_Frequency;NVCLINK_Latency;NVCLINK_Read_L=
-atency",
-> +        "MetricConstraint": "NO_GROUP_EVENTS",
-> +        "MetricExpr": "(NVCLINK_CYCLES / aggr_nr(NVCLINK_CYCLES)) / 1e9 =
-/ duration_time",
-> +        "ScaleUnit": "1GHz",
-> +        "BriefDescription": "NV-CLink interface clock frequency.",
-> +        "PublicDescription": "Average NV-CLink interface clock frequency=
- over the measurement interval.",
-> +        "Unit": "nvidia_nvclink_pmu_"
-> +    },
-> +    {
-> +        "MetricName": "nvclink_in_avg_rd_latency",
-> +        "MetricGroup": "NVCLINK_Latency;NVCLINK_Read_Latency;NVCLINK_Inc=
-oming",
-> +        "MetricConstraint": "NO_GROUP_EVENTS",
-> +        "MetricExpr": "(NVCLINK_IN_RD_CUM_OUTS / NVCLINK_IN_RD_REQ) / nv=
-clink_freq",
-> +        "ScaleUnit": "1ns/request",
-> +        "BriefDescription": "Average latency of incoming read requests f=
-rom the remote Tegra SoC at the NV-CLink interface.",
-> +        "PublicDescription": "Average latency of the incoming read reque=
-sts counted by NVCLINK_IN_RD_REQ, measured at the NV-CLink interface.",
-> +        "Unit": "nvidia_nvclink_pmu_"
-> +    },
-> +    {
-> +        "MetricName": "nvclink_out_avg_rd_latency",
-> +        "MetricGroup": "NVCLINK_Latency;NVCLINK_Read_Latency;NVCLINK_Out=
-going",
-> +        "MetricConstraint": "NO_GROUP_EVENTS",
-> +        "MetricExpr": "(NVCLINK_OUT_RD_CUM_OUTS / NVCLINK_OUT_RD_REQ) / =
-nvclink_freq",
-> +        "ScaleUnit": "1ns/request",
-> +        "BriefDescription": "Average latency of outgoing read requests s=
-ent by the local Tegra SoC to the remote Tegra SoC at the NV-CLink interfac=
-e.",
-> +        "PublicDescription": "Average latency of the outgoing read reque=
-sts counted by NVCLINK_OUT_RD_REQ, measured at the NV-CLink interface.",
-> +        "Unit": "nvidia_nvclink_pmu_"
-> +    }
-> +]
-> diff --git a/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-nvdlink.=
-json b/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-nvdlink.json
-> new file mode 100644
-> index 000000000000..7777add3741d
-> --- /dev/null
-> +++ b/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-nvdlink.json
-> @@ -0,0 +1,43 @@
-> +[
-> +    {
-> +        "EventCode": "0x0",
-> +        "EventName": "NVDLINK_CYCLES",
-> +        "BriefDescription": "Counts NV-DLink interface clock cycles.",
-> +        "PublicDescription": "Counts NV-DLink interface clock cycles. Al=
-l NV-DLink instances share this clock, so the count is read from the first =
-instance.",
-> +        "Unit": "nvidia_nvdlink_pmu_"
-> +    },
-> +    {
-> +        "EventCode": "0x1",
-> +        "EventName": "NVDLINK_IN_RD_CUM_OUTS",
-> +        "BriefDescription": "Accumulates the outstanding read requests c=
-ounted by NVDLINK_IN_RD_REQ each NV-DLink interface cycle.",
-> +        "PublicDescription": "Accumulates the outstanding read requests =
-counted by NVDLINK_IN_RD_REQ each NV-DLink interface cycle. Pair the two fo=
-r the average read latency.",
-> +        "Unit": "nvidia_nvdlink_pmu_"
-> +    },
-> +    {
-> +        "EventCode": "0x2",
-> +        "EventName": "NVDLINK_IN_RD_REQ",
-> +        "BriefDescription": "Counts read requests to local CXL memory at=
- the NV-DLink interface.",
-> +        "PublicDescription": "Counts read requests to local CXL memory a=
-t the NV-DLink interface, from all requesters, local and remote. Request si=
-ze can be from 1 to 256 bytes. The count is summed over all NV-DLink instan=
-ces.",
-> +        "Unit": "nvidia_nvdlink_pmu_"
-> +    },
-> +    {
-> +        "MetricName": "nvdlink_freq",
-> +        "MetricGroup": "NVDLINK_Frequency;NVDLINK_Latency;NVDLINK_Read_L=
-atency",
-> +        "MetricConstraint": "NO_GROUP_EVENTS",
-> +        "MetricExpr": "(NVDLINK_CYCLES / aggr_nr(NVDLINK_CYCLES)) / 1e9 =
-/ duration_time",
-> +        "ScaleUnit": "1GHz",
-> +        "BriefDescription": "NV-DLink interface clock frequency.",
-> +        "PublicDescription": "Average NV-DLink interface clock frequency=
- over the measurement interval.",
-> +        "Unit": "nvidia_nvdlink_pmu_"
-> +    },
-> +    {
-> +        "MetricName": "nvdlink_in_avg_rd_latency",
-> +        "MetricGroup": "NVDLINK_Latency;NVDLINK_Read_Latency",
-> +        "MetricConstraint": "NO_GROUP_EVENTS",
-> +        "MetricExpr": "(NVDLINK_IN_RD_CUM_OUTS / NVDLINK_IN_RD_REQ) / nv=
-dlink_freq",
-> +        "ScaleUnit": "1ns/request",
-> +        "BriefDescription": "Average latency of read requests to local C=
-XL memory at the NV-DLink interface.",
-> +        "PublicDescription": "Average latency of the read requests count=
-ed by NVDLINK_IN_RD_REQ, measured at the NV-DLink interface.",
-> +        "Unit": "nvidia_nvdlink_pmu_"
-> +    }
-> +]
-> diff --git a/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-nvlink_c=
-2c.json b/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-nvlink_c2c.js=
-on
-> new file mode 100644
-> index 000000000000..48a64caaba61
-> --- /dev/null
-> +++ b/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-nvlink_c2c.json
-> @@ -0,0 +1,115 @@
-> +[
-> +    {
-> +        "EventCode": "0x0",
-> +        "EventName": "NVLINK_C2C_CYCLES",
-> +        "BriefDescription": "Counts NVLink-C2C interface clock cycles.",
-> +        "PublicDescription": "Counts NVLink-C2C interface clock cycles. =
-All NVLink-C2C instances share this clock, so the count is read from the fi=
-rst instance.",
-> +        "Unit": "nvidia_nvlink_c2c_pmu_"
-> +    },
-> +    {
-> +        "EventCode": "0x1",
-> +        "EventName": "NVLINK_C2C_IN_RD_CUM_OUTS",
-> +        "BriefDescription": "Accumulates the outstanding incoming read r=
-equests counted by NVLINK_C2C_IN_RD_REQ each NVLink-C2C interface cycle.",
-> +        "PublicDescription": "Accumulates the outstanding incoming read =
-requests counted by NVLINK_C2C_IN_RD_REQ each NVLink-C2C interface cycle. P=
-air the two for the average read latency. The gpu_mask filter works as desc=
-ribed for NVLINK_C2C_IN_RD_REQ.",
-> +        "Unit": "nvidia_nvlink_c2c_pmu_"
-> +    },
-> +    {
-> +        "EventCode": "0x2",
-> +        "EventName": "NVLINK_C2C_IN_RD_REQ",
-> +        "BriefDescription": "Counts incoming read requests from connecte=
-d GPUs or a remote Tegra SoC at the NVLink-C2C interface.",
-> +        "PublicDescription": "Counts incoming read requests sent by conn=
-ected GPUs or a remote Tegra SoC to the local Tegra SoC at the NVLink-C2C i=
-nterface, where the local Tegra SoC responds with data. Request size can be=
- from 1 to 256 bytes. The count is summed over all NVLink-C2C instances. Fi=
-lters: the gpu_mask filter selects GPUs by index, one bit per GPU. This fil=
-ter is available only when GPUs are connected. An unset gpu_mask counts all=
- GPUs.",
-> +        "Unit": "nvidia_nvlink_c2c_pmu_"
-> +    },
-> +    {
-> +        "EventCode": "0x3",
-> +        "EventName": "NVLINK_C2C_IN_WR_CUM_OUTS",
-> +        "BriefDescription": "Accumulates the outstanding incoming write =
-requests counted by NVLINK_C2C_IN_WR_REQ each NVLink-C2C interface cycle.",
-> +        "PublicDescription": "Accumulates the outstanding incoming write=
- requests counted by NVLINK_C2C_IN_WR_REQ each NVLink-C2C interface cycle. =
-Available only when GPUs are connected. Pair the two for the average write =
-latency. The gpu_mask filter works as described for NVLINK_C2C_IN_WR_REQ.",
-> +        "Unit": "nvidia_nvlink_c2c_pmu_"
-> +    },
-> +    {
-> +        "EventCode": "0x4",
-> +        "EventName": "NVLINK_C2C_IN_WR_REQ",
-> +        "BriefDescription": "Counts incoming write requests from connect=
-ed GPUs to the local Tegra SoC at the NVLink-C2C interface.",
-> +        "PublicDescription": "Counts incoming write requests sent by con=
-nected GPUs to the local Tegra SoC at the NVLink-C2C interface, where the G=
-PU sends the data. Request size can be from 1 to 256 bytes. Available only =
-when GPUs are connected. The count is summed over all NVLink-C2C instances.=
- Filters: the gpu_mask filter selects GPUs by index, one bit per GPU. An un=
-set gpu_mask counts all GPUs.",
-> +        "Unit": "nvidia_nvlink_c2c_pmu_"
-> +    },
-> +    {
-> +        "EventCode": "0x5",
-> +        "EventName": "NVLINK_C2C_OUT_RD_CUM_OUTS",
-> +        "BriefDescription": "Accumulates the outstanding outgoing read r=
-equests counted by NVLINK_C2C_OUT_RD_REQ each NVLink-C2C interface cycle.",
-> +        "PublicDescription": "Accumulates the outstanding outgoing read =
-requests counted by NVLINK_C2C_OUT_RD_REQ each NVLink-C2C interface cycle. =
-Pair the two for the average read latency. The gpu_mask filter works as des=
-cribed for NVLINK_C2C_OUT_RD_REQ.",
-> +        "Unit": "nvidia_nvlink_c2c_pmu_"
-> +    },
-> +    {
-> +        "EventCode": "0x6",
-> +        "EventName": "NVLINK_C2C_OUT_RD_REQ",
-> +        "BriefDescription": "Counts outgoing read requests to connected =
-GPUs or a remote Tegra SoC at the NVLink-C2C interface.",
-> +        "PublicDescription": "Counts outgoing read requests from all req=
-uesters to connected GPUs or a remote Tegra SoC at the NVLink-C2C interface=
-, where the GPU or remote Tegra SoC responds with data. Request size can be=
- from 1 to 256 bytes. The count is summed over all NVLink-C2C instances. Fi=
-lters: the gpu_mask filter selects GPUs by index, one bit per GPU. This fil=
-ter is available only when GPUs are connected. An unset gpu_mask counts all=
- GPUs.",
-> +        "Unit": "nvidia_nvlink_c2c_pmu_"
-> +    },
-> +    {
-> +        "EventCode": "0x7",
-> +        "EventName": "NVLINK_C2C_OUT_WR_CUM_OUTS",
-> +        "BriefDescription": "Accumulates the outstanding outgoing write =
-requests counted by NVLINK_C2C_OUT_WR_REQ each NVLink-C2C interface cycle."=
-,
-> +        "PublicDescription": "Accumulates the outstanding outgoing write=
- requests counted by NVLINK_C2C_OUT_WR_REQ each NVLink-C2C interface cycle.=
- Available only when GPUs are connected. Pair the two for the average write=
- latency. The gpu_mask filter works as described for NVLINK_C2C_OUT_WR_REQ.=
-",
-> +        "Unit": "nvidia_nvlink_c2c_pmu_"
-> +    },
-> +    {
-> +        "EventCode": "0x8",
-> +        "EventName": "NVLINK_C2C_OUT_WR_REQ",
-> +        "BriefDescription": "Counts outgoing write requests to connected=
- GPUs at the NVLink-C2C interface.",
-> +        "PublicDescription": "Counts outgoing write requests from all re=
-questers to connected GPUs at the NVLink-C2C interface, where the requester=
- sends the data. Request size can be from 1 to 256 bytes. Available only wh=
-en GPUs are connected. The count is summed over all NVLink-C2C instances. F=
-ilters: the gpu_mask filter selects GPUs by index, one bit per GPU. An unse=
-t gpu_mask counts all GPUs.",
-> +        "Unit": "nvidia_nvlink_c2c_pmu_"
-> +    },
-> +    {
-> +        "MetricName": "nvlink_c2c_freq",
-> +        "MetricGroup": "NVLINK_C2C_Frequency;NVLINK_C2C_Latency;NVLINK_C=
-2C_Read_Latency;NVLINK_C2C_Write_Latency",
-> +        "MetricConstraint": "NO_GROUP_EVENTS",
-> +        "MetricExpr": "(NVLINK_C2C_CYCLES / aggr_nr(NVLINK_C2C_CYCLES)) =
-/ 1e9 / duration_time",
-> +        "ScaleUnit": "1GHz",
-> +        "BriefDescription": "NVLink-C2C interface clock frequency.",
-> +        "PublicDescription": "Average NVLink-C2C interface clock frequen=
-cy over the measurement interval.",
-> +        "Unit": "nvidia_nvlink_c2c_pmu_"
-> +    },
-> +    {
-> +        "MetricName": "nvlink_c2c_in_avg_rd_latency",
-> +        "MetricGroup": "NVLINK_C2C_Latency;NVLINK_C2C_Read_Latency;NVLIN=
-K_C2C_Incoming",
-> +        "MetricConstraint": "NO_GROUP_EVENTS",
-> +        "MetricExpr": "(NVLINK_C2C_IN_RD_CUM_OUTS / NVLINK_C2C_IN_RD_REQ=
-) / nvlink_c2c_freq",
-> +        "ScaleUnit": "1ns/request",
-> +        "BriefDescription": "Average latency of incoming read requests a=
-t the NVLink-C2C interface.",
-> +        "PublicDescription": "Average latency of the incoming read reque=
-sts counted by NVLINK_C2C_IN_RD_REQ, measured at the NVLink-C2C interface."=
-,
-> +        "Unit": "nvidia_nvlink_c2c_pmu_"
-> +    },
-> +    {
-> +        "MetricName": "nvlink_c2c_in_avg_wr_latency",
-> +        "MetricGroup": "NVLINK_C2C_Latency;NVLINK_C2C_Write_Latency;NVLI=
-NK_C2C_Incoming",
-> +        "MetricConstraint": "NO_GROUP_EVENTS",
-> +        "MetricExpr": "(NVLINK_C2C_IN_WR_CUM_OUTS / NVLINK_C2C_IN_WR_REQ=
-) / nvlink_c2c_freq",
-> +        "ScaleUnit": "1ns/request",
-> +        "BriefDescription": "Average latency of incoming write requests =
-from connected GPUs at the NVLink-C2C interface.",
-> +        "PublicDescription": "Average latency of the incoming write requ=
-ests counted by NVLINK_C2C_IN_WR_REQ, measured at the NVLink-C2C interface.=
- Available only when GPUs are connected.",
-> +        "Unit": "nvidia_nvlink_c2c_pmu_"
-> +    },
-> +    {
-> +        "MetricName": "nvlink_c2c_out_avg_rd_latency",
-> +        "MetricGroup": "NVLINK_C2C_Latency;NVLINK_C2C_Read_Latency;NVLIN=
-K_C2C_Outgoing",
-> +        "MetricConstraint": "NO_GROUP_EVENTS",
-> +        "MetricExpr": "(NVLINK_C2C_OUT_RD_CUM_OUTS / NVLINK_C2C_OUT_RD_R=
-EQ) / nvlink_c2c_freq",
-> +        "ScaleUnit": "1ns/request",
-> +        "BriefDescription": "Average latency of outgoing read requests a=
-t the NVLink-C2C interface.",
-> +        "PublicDescription": "Average latency of the outgoing read reque=
-sts counted by NVLINK_C2C_OUT_RD_REQ, measured at the NVLink-C2C interface.=
-",
-> +        "Unit": "nvidia_nvlink_c2c_pmu_"
-> +    },
-> +    {
-> +        "MetricName": "nvlink_c2c_out_avg_wr_latency",
-> +        "MetricGroup": "NVLINK_C2C_Latency;NVLINK_C2C_Write_Latency;NVLI=
-NK_C2C_Outgoing",
-> +        "MetricConstraint": "NO_GROUP_EVENTS",
-> +        "MetricExpr": "(NVLINK_C2C_OUT_WR_CUM_OUTS / NVLINK_C2C_OUT_WR_R=
-EQ) / nvlink_c2c_freq",
-> +        "ScaleUnit": "1ns/request",
-> +        "BriefDescription": "Average latency of outgoing write requests =
-to connected GPUs at the NVLink-C2C interface.",
-> +        "PublicDescription": "Average latency of the outgoing write requ=
-ests counted by NVLINK_C2C_OUT_WR_REQ, measured at the NVLink-C2C interface=
-. Available only when GPUs are connected.",
-> +        "Unit": "nvidia_nvlink_c2c_pmu_"
-> +    }
-> +]
-> --
-> 2.43.0
->
+The "reset buffer" idea also means that if we extend the parameters buffer for an ISP with more 
+blocks in the future there's no extra work to do in the suspend() and resume() callbacks for them - 
+as long as userspace flagged the new block then they would just be reapplied "for free".
+
+Thanks
+Dan
+
+> 
+>>
+>> I'm open to opinions on how best to set the balance!
+>>
+>> Please note that the changes for the C3 and Dreamchip are only compile
+>> tested.
+>>
+>> Thanks
+>> Dan
+>>
+>> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+>> ---
+>> Daniel Scally (7):
+>>        media: rppx1: Drop max_size param from rppx1_params()
+>>        media: v4l2-isp: Hold v4l2-isp data in central struct
+>>        media: v4l2-isp: Update users to initialise and validate new struct
+>>        media: v4l2-isp: Use centrally-held data in framework
+>>        media: v4l2-isp: Add v4l2_isp_params_for_each_block()
+>>        media: v4l2-isp: Introduce "reset buffer" concept
+>>        media: rkisp1: Re-apply v4l2-isp reset buffer on resume
+>>
+>>   Documentation/userspace-api/media/v4l/v4l2-isp.rst |  19 ++++
+>>   .../media/platform/amlogic/c3/isp/c3-isp-common.h  |   2 +
+>>   .../media/platform/amlogic/c3/isp/c3-isp-params.c  |  28 +++--
+>>   .../media/platform/arm/mali-c55/mali-c55-common.h  |   1 +
+>>   .../media/platform/arm/mali-c55/mali-c55-params.c  |  28 ++---
+>>   .../media/platform/dreamchip/rppx1/rpp_params.c    |  30 +++--
+>>   drivers/media/platform/dreamchip/rppx1/rppx1.c     |   8 ++
+>>   drivers/media/platform/dreamchip/rppx1/rppx1.h     |   5 +
+>>   drivers/media/platform/renesas/rcar-isp/core-io.c  |   3 +-
+>>   .../media/platform/rockchip/rkisp1/rkisp1-common.h |   3 +
+>>   .../media/platform/rockchip/rkisp1/rkisp1-params.c |  61 ++++++----
+>>   drivers/media/v4l2-core/v4l2-isp.c                 | 126 +++++++++++++++++++--
+>>   include/media/rppx1.h                              |   2 +-
+>>   include/media/v4l2-isp.h                           | 109 ++++++++++++++----
+>>   include/uapi/linux/media/v4l2-isp.h                |   1 +
+>>   15 files changed, 331 insertions(+), 95 deletions(-)
+>> ---
+>> base-commit: 00178eda305a332f302882849ff7374d4169be8b
+>> change-id: 20261030-v4l2-isp-resume-41fad731df28
+>> prerequisite-change-id: 20261028-rkisp1-suspend-and-resume-7d4f388a9a61:v1
+>> prerequisite-patch-id: 8f6b499ef7898229c5b02e987822dd676a0cfd74
+>> prerequisite-patch-id: 56d0852983c6f46537c03ca3bec71e0ce4046431
+>> prerequisite-patch-id: 0b9edd21d24a25c620792dfa692d91346ceccdde
+>> prerequisite-patch-id: 3b9425028cd62b60b3dc3dbd2fc3b5a8912a1fb4
+>> prerequisite-patch-id: 771f986e2754383e7b5a920b25bf1609dc96f0b4
+>> prerequisite-patch-id: 79c95d6375d662a4f75cccd8650b3fab05e4e66c
+>> prerequisite-patch-id: e2ff2463db4934e707afbf0a239270d26dbf8189
+>> prerequisite-patch-id: 5a923b7606f7cc60fd6b75be2d73231470043bcb
+>> prerequisite-patch-id: fb80748a1a24316cdd77481b60936f716fd0aa71
+>> prerequisite-patch-id: 1450f7d1f4b1a41e7ce65ea6d2fbd450d3a198ad
+>> prerequisite-patch-id: d1d2ba9927536b110f7fbc0c68698d08afb74c27
+>> prerequisite-patch-id: c2ae6f91cb9662307f90070523945ee03a79c4c3
+>> prerequisite-patch-id: 87b425bde44fe889367a93302629dc011a3ec88a
+>> prerequisite-patch-id: 25e4c9ee767dc61406adcf1e1463796a79832795
+>> prerequisite-patch-id: 82388f762700dbcf39fdc43e6ba56c1feb55733a
+>> prerequisite-patch-id: a4ad2fb2c7f8659c6d9bdcd9718a7ee69f124838
+>>
+>> Best regards,
+>> -- 
+>> Daniel Scally <dan.scally@ideasonboard.com>
+>>
+> 
+
 
