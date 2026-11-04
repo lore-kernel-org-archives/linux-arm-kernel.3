@@ -2,61 +2,58 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 434E1606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:16:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C35F606A330
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:16:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TBVo8pZk;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EUEur2Jp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XnBARsuS;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G3YnGJGA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=KbmkajyfFV3udbEtJGrmA3+mmB8dwA1xxk3Neh9mt9o=; b=TBVo8pZkcE8tzmyv83SOg7U7XN
-	dKvmjxIPLXO03QNNqArY6U//tZECzwApgWOdBxA1DctxkMnobK6LJJOHTmRT3J/7qmTFwj5bpL5aQ
-	wBwYVuPMnrw4pLmO/vzImYFS9KXZ3qKSILHFHw42ZHqTf/FYcDF8BQmqezSG4zg4Zze0MRH0uxwdX
-	LLZfWL9xQaORnOYiz96e6VkdaBEOWTKAIDkCIQ0sWWkc0UNZaMmxWDfuXzq1RAgJHo8XPPRj+sbV8
-	EAqtSFFt32nG5liLynXY5dXrO8j6+fWNBsVzEjI+M19ORYcSJjUlVUaDVsBV7Yb3TpJN0eIbKhboi
-	oW0qWK3A==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=vf9Ww/+0wywlaEvzewNdTh6CXvRx2uONOk0Ka6cW+ko=; b=XnBARsuSlN72U0
+	ThVpQRHTDjvyLPR5DfzYqZjkIDSm1qY38e2vN5PhFkvduVf7AbijgjODBfzDAyVJlYDZqE8hd4pzH
+	Jaf2SWLgzFYZ33iNJkY5O3n+Q7+su1g3SHMGd1tD5Vn0sHjmyBGfMml92deV7RbZUuch+nIY5HOb+
+	Ftg5EH9UvpHM4t/0/LiapYZDwvHeITzBaFYO0JZvMHS+UoSrGpufHtrDfWM0ed/u+oC4mAm1S90Cj
+	e/A2fq/zi3hVqqw5Mrk0wri4dwY786oZF3iy/t9qkn77JGWrAy/rZlMbrqd/pQXLxg7ZIzmVoI8zy
+	Y7xuSuDNrWTF+ExT/f9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZuL-00000005HDe-2f4z;
-	Wed, 04 Nov 2026 12:16:01 +0000
+	id 1xOZuO-00000005HEP-2zNM;
+	Wed, 04 Nov 2026 12:16:04 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZuK-00000005HDW-2a40
+	id 1xOZuN-00000005HE2-2DpC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 12:16:00 +0000
+	Wed, 04 Nov 2026 12:16:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BBB7440657;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3EF6B44540;
+	Wed,  4 Nov 2026 12:16:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1497E1F00919;
 	Wed,  4 Nov 2026 12:15:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C31A21F000C1;
-	Wed,  4 Nov 2026 12:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793794559;
-	bh=KbmkajyfFV3udbEtJGrmA3+mmB8dwA1xxk3Neh9mt9o=;
-	h=From:Subject:Date:To:Cc;
-	b=EUEur2JphXwpoZ4tHxAj2WhlM0C5UdBaVipHPNJ080rKeMF2BCPCCK8bv4Uody99k
-	 nkuTsM1stI7355+eJsS/UTQyky4ILP8cyOjCi9VheSX4Hyt+AU0nTo5SQQZo7X1+cB
-	 1qbJZrukyHPwuOl9BTJ4ex0RNvIplJCFIKdnjQiqN6soqpaKhJdDWoabANpZOSTUz9
-	 +FtH4IFYzZ92nmIvdK1K2aeWWntHQqBuQrN4nrK0WbctOMFKnRD9pX14Dkxppz2AL4
-	 EwAuZrV3wXPqM/CVVfig81ZXBYCQLIiJ2m19oyyDG7Ds1Kg/AZCElCU7FYrvXLJp+5
-	 Cy/eGuRmQfusg==
+	s=k20260515; t=1793794563;
+	bh=vf9Ww/+0wywlaEvzewNdTh6CXvRx2uONOk0Ka6cW+ko=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=G3YnGJGA0XR4sIMBHklqB0vq8l9UuYP4kUgHy61YAhjEc4+RAV31VCIYgYxNPRJpB
+	 oh0vvLsVdbigZUzUkbQqZMSixo8QNh2EW/jMcaVmSzF6gHbhi9ylFsZ0me0sys9wG1
+	 /xafNqu/db2fAigWWhL7zF8g4Ndz1FDa5C6bql8ha5ypHugF2oWWROO1hLKCbko/EW
+	 UaAjNkkg0JYIc8nC/eszcHJJxN4Cxp/LrY5JfXjC9y5DAaSMUIHyVcRITfZqM0QAv5
+	 HikvlIH9h6ByoeFSVKuzsZft3kRDXDzyAElLrTDLhP52r9K2lbtto+mweq9gIyWuLe
+	 njEWxoU0iGeFA==
 From: Linus Walleij <linusw@kernel.org>
-Subject: [PATCH 0/2] ARM: configs: Enable the TEO cpuidle governor in
- multi-platform defconfigs
-Date: Wed, 04 Nov 2026 13:15:53 +0100
-Message-Id: <20261104-multi-timers-cpufreq-cpuidle-v1-0-c7fd14706715@kernel.org>
+Date: Wed, 04 Nov 2026 13:15:54 +0100
+Subject: [PATCH 1/2] ARM: configs: multi_v5: Enable the TEO cpuidle
+ governor
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MTQrCMBBA4auEWTuQnyroVcRFTSY60NY6SaQQc
- vemrh7f5lVIJEwJbqqC0I8Tf5YOc1Lg3+PyIuTQDVbbizF6wLlMmTHzTJLQryUKfY9ymAjPYbR
- OOxeuzwh9sQpF3v77+6O1HW0esF9uAAAA
-X-Change-ID: 20261104-multi-timers-cpufreq-cpuidle-5da23033d9bf
+Message-Id: <20261104-multi-timers-cpufreq-cpuidle-v1-1-c7fd14706715@kernel.org>
+References: <20261104-multi-timers-cpufreq-cpuidle-v1-0-c7fd14706715@kernel.org>
+In-Reply-To: <20261104-multi-timers-cpufreq-cpuidle-v1-0-c7fd14706715@kernel.org>
 To: Russell King <linux@armlinux.org.uk>, 
  "Rafael J. Wysocki" <rafael@kernel.org>, 
  Daniel Lezcano <daniel.lezcano@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
@@ -86,44 +83,28 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Enable the Timer Events Oriented (TEO) cpuidle governor in the ARM
-multi_v5 and multi_v7 defconfigs.
-
-The upsides of the TEO governor are described in
-commit b26bf6ab716f27955e2a503ffca1691582127cbb
-"cpuidle: New timer events oriented governor for tickless systems"
-by Rafael.
-
-We need to gain some traction for this governor.
-
-Both defconfigs already enable CPU_IDLE and NO_HZ_IDLE. Selecting
-CPU_IDLE_GOV_TEO suppresses Kconfig's automatic menu selection, so TEO
-becomes the default governor on these tickless configurations.
-
-Leave multi_v4t_defconfig unchanged. It uses periodic ticks, which
-select the ladder governor and give it a higher runtime rating than
-TEO. Enabling TEO alone would not make it the default.
-
-Configuration generation was checked for both patches. No hardware
-runtime testing was performed.
-
-Prepared with OpenAI Codex assistance.
+The multi_v5 defconfig already enables cpuidle and tickless idle. Select
+TEO to use it as the default cpuidle governor instead of menu.
 
 Signed-off-by: Linus Walleij <linusw@kernel.org>
 ---
-Linus Walleij (2):
-      ARM: configs: multi_v5: Enable the TEO cpuidle governor
-      ARM: configs: multi_v7: Enable the TEO cpuidle governor
-
  arch/arm/configs/multi_v5_defconfig | 1 +
- arch/arm/configs/multi_v7_defconfig | 1 +
- 2 files changed, 2 insertions(+)
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261104-multi-timers-cpufreq-cpuidle-5da23033d9bf
+ 1 file changed, 1 insertion(+)
 
-Best regards,
---  
-Linus Walleij <linusw@kernel.org>
+diff --git a/arch/arm/configs/multi_v5_defconfig b/arch/arm/configs/multi_v5_defconfig
+index a0d2fb2fcf9a..5e5c3dba1d72 100644
+--- a/arch/arm/configs/multi_v5_defconfig
++++ b/arch/arm/configs/multi_v5_defconfig
+@@ -34,6 +34,7 @@ CONFIG_CPU_FREQ=y
+ CONFIG_CPU_FREQ_STAT=y
+ CONFIG_CPU_FREQ_DEFAULT_GOV_ONDEMAND=y
+ CONFIG_CPU_IDLE=y
++CONFIG_CPU_IDLE_GOV_TEO=y
+ CONFIG_ARM_KIRKWOOD_CPUIDLE=y
+ CONFIG_KPROBES=y
+ CONFIG_MODULES=y
+
+-- 
+2.56.0
 
 
