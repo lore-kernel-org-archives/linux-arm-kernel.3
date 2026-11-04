@@ -2,66 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA30B606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 01:29:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10173606A331
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 01:40:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GyjPiKqY;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lXGkOWfo
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nQBqXlUW;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gGSLhNHq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=7YNjFeSZLRe8iuNqdLIZAFL9s0rXyoUr/FeoHtfoBoo=; b=GyjPiKqY0hlb+qWxNRSdiYo/ws
-	o1Hl2afhCPJDjSW82r+5fjxNI49J59kVq8Ssf+8IRWY6na7mRDpkww3qQBfRZ/COxmQCyjj5+kPtD
-	QhtTHXKeZNCy/MIkx80CxZrbcGDsiKu0VGiwMtcOwXXFWEEpj+FtPr7SZKtP9QqKqmenT+Zutuytf
-	rahDAPnNNjK2DlTfwdk9AVGMFcLR6/+fZnQmjPhXPvTcRBZ5WIFU7rlZXv6oGYAZUK8foSkBTswo9
-	fiTOsvdD7AawIGP8QgrYImR4dMu08c2jEGPkP+5UnnCBLzRoQ4+z9kVIm58HE3nnB/DjOTwQk5Hxb
-	YFAvZOeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=ljoz0IZXV/fb7lLK+CyHT4EslT/P2ixwKVNk6JMrWWk=; b=nQBqXlUWZDfGBz
+	IzaHkmO04G4aMv6m9ALID1S3RZxhAVyOzNhfKVsH1twbN8oxGILnPiGaeU51u+DN3hKQOZbD9Zux5
+	rzjmRC0UTInSE3H9KKkFjn7wu1pphwA9dn7nP7/gPxtguIgbDkgTTEajTD6v9ZCEDT9mIKw3UMAs0
+	GfYgJwQH14xAc0x6VfZWSo6a0xzKYIregVlcYIzqEAde9QFwIHiHhrIhAhaUoenzjFspvQ82aizsK
+	5oyw96WvTss7wztakp2Sq7c7tNBhYJXPH08s9FYobofE4CmZQqHx9QRqJOAjR9hNmBt6OGRAQZ5Yk
+	UEKVQ0B867HTuzqXKSxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOPoa-000000044n7-2Pk8;
-	Wed, 04 Nov 2026 01:29:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOPzZ-000000045O8-3P83;
+	Wed, 04 Nov 2026 01:40:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOPoa-000000044n1-0tNu
+	id 1xOPzW-000000045Nd-1Cdc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 01:29:24 +0000
+	Wed, 04 Nov 2026 01:40:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 903D543F10;
-	Wed,  4 Nov 2026 01:29:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFF1E1F00A15;
-	Wed,  4 Nov 2026 01:29:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1FEFA60AAB;
+	Wed,  4 Nov 2026 01:40:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EECA01F000C1;
+	Wed,  4 Nov 2026 01:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793755763;
-	bh=7YNjFeSZLRe8iuNqdLIZAFL9s0rXyoUr/FeoHtfoBoo=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=lXGkOWfoAnGynFjfY3Q8Vg6xBtRq/37wMwSC6tlE+w/Zmz1+flXb+1Q6Ev6nPk0U8
-	 MbTndQlkMjNGU8Un9CtSzse0BcVi8OoL7YEIPWEg4JJu9XCz1aUgNZny43HZB9gRz6
-	 T6cZvUhaJasd3GytSeo6Jt0luRcZlHS23XCm10rzYGBP8FH9pTYYJcQSAKb2wQQzhd
-	 qGldGeJGeoLwBD2Z7UanQuYjxBGaIghSOBxeMBE7DeRnqafun894csFljJ1LD/HOwJ
-	 uwT1BhTu0gA8Xrff3lz1NyPGMRfFUwC9Vr5OYKa79tp5AxaWTcMfEAc6U5Q5a36Wb1
-	 mbPyO4vb4pZhA==
-Subject: Re: [PATCH net] net: stmmac: rebuild VLAN priority steering when
- filters change
-From: netdev-bot+sashiko@kernel.org
-To: james.hilliard1@gmail.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- piotrwejman90@gmail.com, linux@armlinux.org.uk, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Wed, 04 Nov 2026 01:29:22 +0000
-Message-ID: <179375576232.488856.8160594272005799972@kernel.org>
-In-Reply-To: <20261102-submit-stmmac-vlan-prio-v1-v1-1-2b37767e4e08@gmail.com>
-References: <20261102-submit-stmmac-vlan-prio-v1-v1-1-2b37767e4e08@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1793756440;
+	bh=ljoz0IZXV/fb7lLK+CyHT4EslT/P2ixwKVNk6JMrWWk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=gGSLhNHqVBzKwaf4HJL7lM2pZ/TPYOlAh7Y0eZkKQohx/dWkAsljuX3akBhY1jFQC
+	 Wl4hIyU2ToFGupDpg0XySxy+sBlNlAL3Tr8+ZVuB74X5TL6tjDp/Cm4dIQ/Fql4xmQ
+	 /lM9+uO5u7/yxYyX2FHMmL+XAS3FkCpkbsyA3rgHHHEzUP8LM+FzwQw03pjrgUlPnH
+	 zu2fjoRQtyPknxQY9pGdoj97RIayJkWeM04RRlBDpGFwzoo1cYTbcTMXfsc6V+F75D
+	 0n/rnU4p66QSXtFzR5RWxndilVNyB81DVIWabd8ohgl0/hr8qxj4Eq2lnDsl0ZvcMx
+	 cqwT/MJ2c7F+g==
+Date: Wed, 4 Nov 2026 01:40:31 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Brian Norris <briannorris@chromium.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Fabrice Gasnier
+ <fabrice.gasnier@st.com>, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Ulf Hansson <ulfh@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, Andy Shevchenko
+ <andy@kernel.org>, David Lechner <dlechner@baylibre.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Subject: Re: [PATCH v2 3/5] PM: runtime: Propagate last_busy from dependent
+ to dependency
+Message-ID: <20261104014031.2aed1419@jic23-hlaptop>
+In-Reply-To: <aup9LKewaLr2B5cR@google.com>
+References: <20261103221717.3840215-1-briannorris@chromium.org>
+	<20261103141442.v2.3.I40c0bc917fa0b13111251844e9a54feb1d9cd7d2@changeid>
+	<20261103231719.486a18de@jic23-hlaptop>
+	<aup9LKewaLr2B5cR@google.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,309 +76,201 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_2
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On Tue, 3 Nov 2026 16:32:44 -0800
+Brian Norris <briannorris@chromium.org> wrote:
+
+> Hi Jonathan,
+> 
+> On Tue, Nov 03, 2026 at 11:17:19PM +0000, Jonathan Cameron wrote:
+> > On Tue,  3 Nov 2026 14:14:41 -0800
+> > Brian Norris <briannorris@chromium.org> wrote:
+> >   
+> > > When a child device suspends, it does not update the last_busy timestamp
+> > > for its parent. If that parent configured autosuspend and didn't
+> > > otherwise maintain its last_busy timestamp, it may now be immediately
+> > > eligible to suspend. This is probably not expected -- the parent should
+> > > wait for its autosuspend delay before suspending.  
+> > 
+> > So reading this again - I wonder if this text is describing the
+> > expected behaviour.  
+> 
+> Agreed, this might give the wrong impression, depending on the
+> assumptions the reader makes about autosuspend delay. (I think I had a
+> particular problem scenario in mind, but didn't translate that properly
+> here.)
+> 
+> > If the child is also using autosupend then, in extreme case, that time
+> > might be longer than the autosuspend time of the parent.
+> > If so it seems odd the parent still waits.  
+> 
+> Right, that seems wrong, and indeed that's not what this patch does.
+> 
+> > So most expected to me
+> > would be if the parent were to suspend it's autosuspend time after
+> > the parent or child was last used for something that indicate a
+> > desire not to suspend (that shouldn't include actions the child
+> > did whilst suspending).  
+> 
+> (Not sure I'm parsing this sentence quite right, but...)
+> 
+> The point is that last_busy should propagate (rather than, say, the
+> expiration time). So each device still gets its own-delay-based
+> autosuspend timer expiration. That may mean the parent waits longer than
+> the child, but it may not, if the child's delay was longer than the
+> parent's.
+> 
+> > Maybe there isn't a sensible way to deal with this and what you have here
+> > is the best we can do.  Note that this is just commenting on this
+> > statement in the commit description.  From what follows I think
+> > this is just a commit description thing rather than functional.  
+> 
+> If I'm understanding what you're saying correctly: maybe it would be an
+> improvement here to say:
+> 
+>   If that parent configured an autosuspend delay longer than its child's
+>   and didn't otherwise maintain its last_busy timestamp, it may now be
+>   immediately eligible to suspend.
+> 
+> I think that would more accurately describe the target problem, even if
+> it doesn't cover all cases (such as when the parent delay is shorter).
+
+Agreed. That covers the main case nicely.
+
+> 
+> > > The effect of this behavior is that a parent device may suspend sooner
+> > > than its autosuspend delay, simply because its usage was accounted by
+> > > its children, and not by direct references to the parent device.  
+> > 
+> > Sooner is indeed bad.
+> >   
+> > > 
+> > > This was noticed in several cases, and some have implemented
+> > > workarounds, such as in commit c537d3457542 ("iio: adc: stm32-adc: fix
+> > > runtime autosuspend delay when slow polling"). At the same time, Ulf
+> > > suggested these problems "should be solved in the runtime PM core" [1].
+> > > 
+> > > Instead of working around the problem in drivers, we propagate last_busy
+> > > timestamps from a dependent device to its dependencies any time it may
+> > > allow a dependency to suspend -- i.e., when releasing a refcount for its
+> > > parent or suppliers. We take care to only propagate the timestamp if it
+> > > is larger than the existing busy timestamp.  
+> > 
+> > So this sounds fine but I don't think aligns with that first paragraph.
+> >   
+> > > 
+> > > Note that this works best if the dependent device is using autosuspend
+> > > (and therefore updates its last_busy timestamps appropriately), but even
+> > > for a non-autosuspend child, this is still somewhat useful --
+> > > non-autosuspend devices still automatically update their last_busy every
+> > > time they resume.  
+> > 
+> > Can we set the last busy on the suspend of child devices that aren't
+> > suspending as a result of autosuspend timeout but for other reasons?
+> > (may be some fiddly corners!)  
+> 
+> Do you have concrete use cases in mind, or do you bring this up simply
+> because of my note?
+
+Just your note ;)
+> 
+> For one, I feel like for devices with power.use_autosuspend==true, it's
+> reasonable to expect drivers to use the appropriate helpers to update
+> last_busy at the appropriate times, and so any "corner cases" are from
+> misuse.
+> 
+> But if you mean non-use_autosuspend devices: I suppose it'd be possible
+> but I haven't reasoned through the implementation very far yet. It
+> almost seems like we'd need to plumb pm_runtime_mark_last_busy() into
+> *all* the put() helpers, including the non-autosuspend ones
+> (pm_runtime_put(), pm_runtime_put_sync()). I'm not quite sure if that's
+> desirable. But I could try to look a bit more, if you think there are
+> important use cases that would need this.
+If it is hard not a problem to leave it as is and call out the limitation
+as you have done.  Someone who needs it can figure it out!
+
+
+Jonathan
+
+> 
+> Brian
+> 
+> > > Link: https://lore.kernel.org/all/CAPDyKFp=KTf8=zGBSzPYqhjnZpY8xwvjCeM1e-WTKT1QLSxaDA@mail.gmail.com/ [1]
+> > > Signed-off-by: Brian Norris <briannorris@chromium.org>
+> > > ---
+> > > Cc: Ulf Hansson <ulfh@kernel.org>
+> > > 
+> > > Changes in v2:
+> > >  * Update comments to explain when/why rpm_propagate_last_busy()
+> > >    performs the update
+> > > 
+> > >  drivers/base/power/runtime.c | 23 ++++++++++++++++++++++-
+> > >  1 file changed, 22 insertions(+), 1 deletion(-)
+> > > 
+> > > diff --git a/drivers/base/power/runtime.c b/drivers/base/power/runtime.c
+> > > index 2a117d6a776f..dd306cbabcd3 100644
+> > > --- a/drivers/base/power/runtime.c
+> > > +++ b/drivers/base/power/runtime.c
+> > > @@ -318,6 +318,22 @@ static int rpm_get_suppliers(struct device *dev)
+> > >  	return 0;
+> > >  }
+> > >  
+> > > +/*
+> > > + * Propagate last_busy timestamp from one device to another, typically when a
+> > > + * device (@dev) releases a reference count on a dependency (@target) and might
+> > > + * allow it to (auto)suspend. This can, for example, prevent overactive suspend
+> > > + * when a dependency's usage is primarily driven by one of its dependents.
+> > > + */
+> > > +static void rpm_propagate_last_busy(struct device *dev, struct device *target)
+> > > +{
+> > > +	s64 busy = atomic64_read(&dev->power.last_busy);
+> > > +	s64 target_busy = atomic64_read(&target->power.last_busy);
+> > > +
+> > > +	while (target_busy < busy)
+> > > +		if (atomic64_try_cmpxchg(&target->power.last_busy, &target_busy, busy))
+> > > +			return;
+> > > +}
+> > > +
+> > >  /**
+> > >   * pm_runtime_release_supplier - Drop references to device link's supplier.
+> > >   * @link: Target device link.
+> > > @@ -348,6 +364,7 @@ static void __rpm_put_suppliers(struct device *dev, bool try_to_suspend)
+> > >  		if (!device_link_test(link, DL_FLAG_PM_RUNTIME))
+> > >  			continue;
+> > >  
+> > > +		rpm_propagate_last_busy(dev, link->supplier);
+> > >  		pm_runtime_release_supplier(link);
+> > >  		if (try_to_suspend)
+> > >  			pm_request_idle(link->supplier);
+> > > @@ -710,6 +727,8 @@ static int rpm_suspend(struct device *dev, int rpmflags)
+> > >  
+> > >  	if (dev->parent) {
+> > >  		parent = dev->parent;
+> > > +		if (!parent->power.ignore_children)
+> > > +			rpm_propagate_last_busy(dev, parent);
+> > >  		atomic_add_unless(&parent->power.child_count, -1, 0);
+> > >  	}
+> > >  	wake_up_all(&dev->power.wait_queue);
+> > > @@ -1368,8 +1387,10 @@ int __pm_runtime_set_status(struct device *dev, unsigned int status)
+> > >  		goto out_set;
+> > >  
+> > >  	if (status == RPM_SUSPENDED) {
+> > > -		atomic_add_unless(&parent->power.child_count, -1, 0);
+> > >  		notify_parent = !parent->power.ignore_children;
+> > > +		if (notify_parent)
+> > > +			rpm_propagate_last_busy(dev, parent);
+> > > +		atomic_add_unless(&parent->power.child_count, -1, 0);
+> > >  	} else {
+> > >  		spin_lock_nested(&parent->power.lock, SINGLE_DEPTH_NESTING);
+> > >    
+> >   
+> 
 
-Critical: 0 · High: 2 · Medium: 1 (2) · Low: 0
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] tc_add_vlan_flow()
-  (drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c:764-765) now runs `if…
-- [High] tc_add_ethtype_flow() (stmmac_tc.c:801-871) can take over an in-
-  use VLAN entry found by cookie.
-- [Medium] The new check `tc >= priv->plat->rx_queues_to_use` in
-  tc_add_vlan_flow() (stmmac_tc.c:748) runs only when a rule is inserted.
-
-Pre-existing issues:
-- [Medium] This problem wasn't introduced by this patch, but VLAN-
-  priority steering programmed into RXQ_CTRL2/3 (PSRQn) for tc-flower…
-- [Medium] This problem wasn't introduced by this patch, but
-  tc_add_ethtype_flow() (stmmac_tc.c:820) still checks only `tc < 0`…
-
---
-
-net: stmmac: rebuild VLAN priority steering when filters change
-
-This patch puts each VLAN tc-flower rule's priority on a new per-device
-list. After every insert and delete, it rebuilds the full RX queue
-priority masks from the platform assignments plus that list. It also
-makes the GMAC4/XGMAC rx_queue_prio callbacks replace the target queue's
-mask, and checks hw_tc against rx_queues_to_use in tc_add_vlan_flow().
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> index 10b61fa2c27c5..6707f7621f3b8 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-
-[ ... ]
-
-> @@ -685,6 +687,41 @@ static struct stmmac_rfs_entry *tc_find_rfs(struct stmmac_priv *priv,
->  
->  #define VLAN_PRIO_FULL_MASK (0x07)
->  
-> +static void tc_update_vlan_prio(struct stmmac_priv *priv, u8 prio)
-> +{
-> +	u8 prios[MTL_MAX_RX_QUEUES] = {};
-> +	struct stmmac_rfs_entry *entry;
-> +	unsigned int queue, i;
-> +
-
-[ ... ]
-
-> +	list_for_each_entry(entry, &priv->vlan_prio, vlan_node) {
-> +		for (queue = 0; queue < priv->plat->rx_queues_to_use; queue++)
-> +			prios[queue] &= ~entry->vlan_prio;
-> +		prios[entry->tc] |= entry->vlan_prio;
-> +	}
-
-[Severity: Medium]
-The tc >= rx_queues_to_use check in tc_add_vlan_flow() only runs when a
-rule is inserted. What happens to an installed rule after ethtool -L
-reduces the RX queue count?
-
-stmmac_reinit_queues() does:
-
-	priv->plat->rx_queues_to_use = rx_cnt;
-
-It does not revalidate or remove the installed VLAN rules. Take a rule
-installed with hw_tc N, then run ethtool -L with rx <= N. On the next
-unrelated VLAN rule add or delete, this loop clears that rule's
-vlan_prio from every active queue. It then sets the bit in
-prios[entry->tc], which neither programming loop below reaches, since
-both stop at rx_queues_to_use.
-
-Does that leave the PCP mapped to no RX queue at all? That would
-override both the platform rx_queues_cfg[].prio assignment and any older
-rule. There is no out-of-bounds access, because entry->tc is still below
-the old rx_queues_to_use.
-
-The commit message says "Validate the selected RX queue before indexing
-the masks", but that only holds at insertion time.
-
-> +
-> +	/* Install the new assignment before clearing the previous queue. */
-> +	for (queue = 0; queue < priv->plat->rx_queues_to_use; queue++)
-> +		if (prios[queue] & prio)
-> +			stmmac_rx_queue_prio(priv, priv->hw, prios[queue], queue);
-> +	for (queue = 0; queue < priv->plat->rx_queues_to_use; queue++)
-> +		if (!(prios[queue] & prio))
-> +			stmmac_rx_queue_prio(priv, priv->hw, prios[queue], queue);
-> +}
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but is the VLAN priority
-steering programmed here lost every time stmmac_hw_setup() runs?
-
-stmmac_hw_setup() runs on stmmac_open(), on resume, and on the ethtool
--L/-G reinit path. stmmac_init_dma_engine() calls stmmac_reset(), which
-clears RXQ_CTRL2/3. After that, stmmac_mtl_configuration() calls
-stmmac_mac_config_rx_queues_prio(), which only reprograms the platform
-masks:
-
-	for (queue = 0; queue < rx_queues_count; queue++) {
-		if (!priv->plat->rx_queues_cfg[queue].use_prio)
-			continue;
-
-		prio = priv->plat->rx_queues_cfg[queue].prio;
-		stmmac_rx_queue_prio(priv, priv->hw, prio, queue);
-	}
-
-priv->vlan_prio is never replayed there. Software still treats those
-rules as installed, while the hardware steers by the platform defaults.
-
-With this patch, the lost rules only come back as a side effect of the
-next unrelated VLAN rule add or delete. A rule added while the interface
-is down is wiped by the next open.
-
-Could stmmac_mtl_configuration() use the new list to restore the rules
-after a reset?
-
-> +
->  static int tc_add_vlan_flow(struct stmmac_priv *priv,
->  			    struct flow_cls_offload *cls)
->  {
-
-[ ... ]
-
-> @@ -708,7 +745,7 @@ static int tc_add_vlan_flow(struct stmmac_priv *priv,
->  	if (!dissector_uses_key(dissector, FLOW_DISSECTOR_KEY_VLAN))
->  		return -EINVAL;
->  
-> -	if (tc < 0) {
-> +	if (tc < 0 || tc >= priv->plat->rx_queues_to_use) {
->  		netdev_err(priv->dev, "Invalid traffic class\n");
->  		return -EINVAL;
->  	}
-
-[Severity: Medium]
-This is a pre-existing issue, but tc_add_ethtype_flow() still only
-checks tc < 0 before it uses tc as the RX queue:
-
-	if (tc < 0) {
-		netdev_err(priv->dev, "Invalid traffic class\n");
-		return -EINVAL;
-	}
-	...
-	stmmac_rx_queue_routing(priv, priv->hw,
-				PACKET_DCBCPQ, tc);
-
-The same point about tc_classid_to_hwtc() only bounding by
-netdev_get_num_tc() applies there. Can an LLDP or PTP rule with
-hw_tc >= rx_queues_to_use send those frames to an RX queue that isn't
-enabled, so they are never received?
-
-Should tc_add_ethtype_flow() get the same bound?
-
-> @@ -724,13 +761,18 @@ static int tc_add_vlan_flow(struct stmmac_priv *priv,
->  		}
->  
->  		prio = BIT(match.key->vlan_priority);
-> -		stmmac_rx_queue_prio(priv, priv->hw, prio, tc);
-> +		if (entry->in_use)
-> +			list_del(&entry->vlan_node);
-> +		else
-> +			priv->rfs_entries_cnt[STMMAC_RFS_T_VLAN]++;
-
-[Severity: High]
-Can this list_del() run on an entry that was never linked on
-priv->vlan_prio?
-
-tc_find_rfs() matches on cookie only:
-
-	if (entry->cookie == cls->cookie)
-		return entry;
-
-So the entry returned here can be an in-use LLDP or 1588 entry.
-
-tc_add_flow_cls() falls through to tc_add_vlan_flow() whenever
-tc_add_ethtype_flow() fails. For an LLDP cookie that is already
-installed, tc_add_ethtype_flow() returns -ENOENT because the entry
-counts against itself:
-
-	case ETH_P_LLDP:
-		if (priv->rfs_entries_cnt[STMMAC_RFS_T_LLDP] >=
-		    priv->rfs_entries_max[STMMAC_RFS_T_LLDP])
-			return -ENOENT;
-
-An LLDP/1588 entry's vlan_node is either still zeroed from
-devm_kcalloc() in tc_rfs_init(), or holds LIST_POISON1/2 if
-tc_del_vlan_flow() released the slot earlier. In both cases __list_del()
-writes through a NULL or poison pointer here, with rtnl held.
-
-One way to reach this with CAP_NET_ADMIN:
-
-1) Bind a shared ingress block to eth0 and to a second device.
-
-2) Add "protocol 802.1Q flower vlan_prio 3 vlan_ethtype 0x88cc hw_tc 1"
-   to the block. tc_add_flow() fails, and tc_add_ethtype_flow() installs
-   the rule as an LLDP entry with cookie C.
-
-3) Run "ethtool -K eth0 hw-tc-offload off". "rxhash on" also works,
-   since tc_setup_cls() then returns -EBUSY.
-
-4) Run "tc qdisc del dev eth0 ingress". FLOW_CLS_DESTROY fails in
-   stmmac_setup_tc_block_cb(), and tcf_block_playback_offloads()
-   ignores errors on removal. The LLDP entry stays in use with
-   cookie C.
-
-5) Turn hw-tc-offload back on and re-bind the block. fl_reoffload()
-   replays FLOW_CLS_REPLACE with cookie C. tc_add_ethtype_flow()
-   returns -ENOENT, and tc_add_vlan_flow() reaches this list_del() with
-   entry->in_use set.
-
-tc_del_vlan_flow() checks entry->type != STMMAC_RFS_T_VLAN before its
-list_del(), but the add path doesn't. Should the entry only be unlinked
-and reused when entry->type == STMMAC_RFS_T_VLAN, with the request
-rejected otherwise?
-
-The commit message says "Reoffloading an existing cookie reuses its
-entry without incrementing the rule count", but that only covers
-reoffloading a VLAN cookie as VLAN. Before this patch the same type mixup
-only threw off the counters.
-
->  
->  		entry->in_use = true;
->  		entry->cookie = cls->cookie;
->  		entry->tc = tc;
->  		entry->type = STMMAC_RFS_T_VLAN;
-> -		priv->rfs_entries_cnt[STMMAC_RFS_T_VLAN]++;
-> +		entry->vlan_prio = prio;
-> +		list_add_tail(&entry->vlan_node, &priv->vlan_prio);
-> +		tc_update_vlan_prio(priv, entry->vlan_prio);
->  	}
-
-[Severity: High]
-Can a VLAN entry stay linked on priv->vlan_prio after it has been
-re-typed to LLDP or 1588?
-
-tc_add_ethtype_flow() can also take over an in-use entry found by
-cookie, including a VLAN rule that is linked here. It overwrites
-entry->type and entry->tc but never calls list_del(&entry->vlan_node):
-
-	entry->type = STMMAC_RFS_T_LLDP;
-	priv->rfs_entries_cnt[STMMAC_RFS_T_LLDP]++;
-	...
-	entry->in_use = true;
-	entry->cookie = cls->cookie;
-	entry->tc = tc;
-
-Later, tc_del_ethtype_flow() frees the slot (in_use = false,
-cookie = 0) while vlan_node is still linked. It also never decrements
-rfs_entries_cnt[STMMAC_RFS_T_VLAN].
-
-The next VLAN rule that gets that slot from tc_find_rfs(priv, cls, true)
-takes the !in_use branch. It then calls list_add_tail() on a node that
-is already on the list.
-
-Depending on the list layout, the node either ends up pointing to
-itself, or other nodes drop out of the list and a later list_del()
-leaves a self-loop. Would list_for_each_entry() in tc_update_vlan_prio()
-then loop forever with rtnl held?
-
-The same stale-cookie mechanism as above gets here:
-
-1) Install LLDP rule L.
-
-2) Install R = "protocol 802.1Q flower vlan_prio 3 vlan_ethtype 0x88cc
-   hw_tc 2". The LLDP slot is full, so R becomes a VLAN entry.
-
-3) Delete L.
-
-4) Make R's entry stale with hw-tc-offload off plus unbind, then turn
-   it back on and re-bind. fl_reoffload() replays R, and
-   tc_add_ethtype_flow() re-types the linked VLAN entry.
-
-5) Delete R.
-
-6) Add VLAN rules until one of them reuses that slot.
-
-While a re-typed entry is on the list, tc_update_vlan_prio() also does:
-
-	prios[entry->tc] |= entry->vlan_prio;
-
-prios[] is a u8 [MTL_MAX_RX_QUEUES] array, and tc_add_ethtype_flow()
-only checks tc < 0. Suppose a new LLDP/1588 filter takes a stale VLAN
-cookie (a freed filter address reused by slab) with hw_tc >= 8. That
-needs num_tc > 8, for example taprio with overlapping TXQs. Could this
-then write past the end of prios[]?
-
-Should tc_add_ethtype_flow() unlink a VLAN entry before re-typing it,
-or refuse to take over an entry of a different type?
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261102-submit-stmmac-vlan-prio-v1-v1-1-2b37767e4e08%40gmail.com
 
