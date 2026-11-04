@@ -2,81 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4B95606A330
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 02:28:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F6B2606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 02:33:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fFA152Q2
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KutiDpO4;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=uTbK0dvH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=i58akWjzUYm8bTHH/RbasE8Ou8t+HVevZjRVQ3Fujhg=; b=fFA152Q2A0/V1zWZmPCZYE1vj7
-	1MnhWP8DpQxZ/B+3GJ7B6NqXE5a3IC1wMLsqurQi1C2JReMCmO7iyxqXr1Jn3+6Fj3UhxJPTORwZM
-	3Fa4TEX0etK7w2N6q0sQM2Y+dFX3FDV1SETTWeAyvJrmNL0zfmjHT29eiFq/DudepMElyZCRUY9C3
-	qs0c028rILLL1PuJbJUQUGoUZeuMxDpP9vGSrS9KvALkNkpW/5ENkXlYf4m0JRw1UxEX4snumUKVu
-	8zlA+oxIwBlJkH1j6WGRkA5IX8khTI5rnSCauRsK0d51ls0gawWd9n4wJqYJy5Ilg+c98h+bY+pEu
-	s7ZvYlUg==;
+	bh=44sRRDwl9anK1R2znFsd4YZuaIspdZA1Io6aW5ME0gY=; b=KutiDpO4oVXBACSh3Rs5cfP/yC
+	AgE475QFztorvGIv/x6Z2ORulpAzbB1xs4SDfgFKSHP8DH3NG3ae5jZh7XImG59LfnLU1WnC/B/Xa
+	fRNlAkFZvM6WwoGXqd0N2bcdmI+9lWGgb04wnE6ZZhznGFDwMdo5RA26U4RdSpEd2KP6ZFjP7EopA
+	0kXZ7/w+nfsPkYrZhHHD7Cn236hvF9U2O0cVpNMfZLwd9IQ8X1ClDst/a80ReFT2/eG8BHFsM20YP
+	W696rWOD/tr9FE+iZHgl7MiN4yq9gK1LbEsGzvkFqzFDjNy0NyvCf/DDxz9hhjsyZAubD1MKGCFX4
+	kdobyH6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOQjT-000000049co-03a4;
-	Wed, 04 Nov 2026 02:28:11 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1xOQoW-00000004A0d-2ZQg;
+	Wed, 04 Nov 2026 02:33:24 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOQjQ-000000049bb-3x5v
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 02:28:10 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-01 (Coremail) with SMTP id qwCowABnVf82mOpq2Js+AA--.27325S2;
-	Wed, 04 Nov 2026 10:28:06 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: Shengjiu Wang <shengjiu.wang@gmail.com>,
-	Xiubo Li <Xiubo.Lee@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Nicolin Chen <nicoleotsuka@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: linux-sound@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] ASoC: fsl: imx-sgtl5000: drop codec device reference after probe
-Date: Wed,  4 Nov 2026 02:28:15 +0000
-Message-Id: <20261104022815.1484320-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	id 1xOQoT-000000049zo-3wc5;
+	Wed, 04 Nov 2026 02:33:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=44sRRDwl9anK1R2znFsd4YZuaIspdZA1Io6aW5ME0gY=; b=uTbK0dvHx1D0gtV0VNBn+6tklF
+	ucpF4DcfXrfJDac/aQj6Q7BNa56YLZ/ch5eoGtbFH6MnvMGztsQtkDhqrNyMx26aqu1SqdDs1T/GY
+	kVwjaFCvJvFiZcnbqmnkmiDtEDWaDPW1bzhWRvoOTpTU+quRF7MJynsYBjF4iRCg/xlo=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xOQny-00EDkm-4R; Wed, 04 Nov 2026 03:32:50 +0100
+Date: Wed, 4 Nov 2026 03:32:50 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Qingfang Deng <dqfext@gmail.com>,
+	SkyLake Huang <SkyLake.Huang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Joris Vaisvila <joey@tinyisr.com>,
+	Ahmed Naseef <naseefkm@gmail.com>, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next v4 1/6] net: phy: mediatek: export __mtk_tr_write
+Message-ID: <556b6194-4d03-4ef3-b9b1-8c256d42130a@lunn.ch>
+References: <20261103221439.30502-1-ansuelsmth@gmail.com>
+ <20261103221439.30502-2-ansuelsmth@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowABnVf82mOpq2Js+AA--.27325S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrZw48Gw1furyUWw1kurW7Arb_yoWDGwbEk3
-	48Wa4kZryrGr9rKF1DZr47Zrs7WFnrWFW7Jr4IyF4DW3s8tFWrXry5Gr45uF1DXw4rCrs5
-	A3WUZFWFgr1S9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbfxYjsxI4VWkKwAYFVCjjxCrM7CY07I20VC2zVCF04k26cxKx2IY
-	s7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4
-	kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_
-	Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI
-	0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2Wl
-	Yx0E2Ix0cI8IcVAFwI0_ZF0_GryDMcIj6I8E87Iv67AKxVW8Jr0_Cr1UMcvjeVCFs4IE7x
-	kEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kK
-	e7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCF04k20xvE74AGY7Cv6cx26r48ZrWUJr1UMx
-	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
-	wI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20x
-	vE14v26F1j6w1UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAv
-	wI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWxJVW8Jr1lIxAIcVC2z280aVCY1x0267
-	AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x07bz5lnUUUUU=
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRMBA2rqY-nHZQAAsg
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261103221439.30502-2-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_182809_363433_8ABD6926 
-X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-CacheID: sfid-20261103_183321_975328_077EC714 
+X-CRM114-Status: UNSURE (   7.53  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.9 (/)
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,43 +80,19 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
-	version=4.0.1
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-imx_sgtl5000_probe() takes a reference on the codec i2c device, but the
-successful probe path returns without releasing it. Only the error
-paths drop the reference, so every successful probe leaks the i2c
-client device.
+On Tue, Nov 03, 2026 at 11:14:32PM +0100, Christian Marangi wrote:
+> Export __mtk_tr_write to directly write to debug register.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 
-Release the reference once the card has been registered.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Fixes: 81e8e4926167 ("ASoC: fsl: add sgtl5000 clock support for imx-sgtl5000")
-Cc: stable@vger.kernel.org
-Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- sound/soc/fsl/imx-sgtl5000.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/sound/soc/fsl/imx-sgtl5000.c b/sound/soc/fsl/imx-sgtl5000.c
-index 8bcf54ef709e..8ce333eb47fe 100644
---- a/sound/soc/fsl/imx-sgtl5000.c
-+++ b/sound/soc/fsl/imx-sgtl5000.c
-@@ -177,6 +177,8 @@ static int imx_sgtl5000_probe(struct platform_device *pdev)
- 		goto put_device;
- 	}
- 
-+	put_device(&codec_dev->dev);
-+
- 	of_node_put(ssi_np);
- 	of_node_put(codec_np);
- 
--- 
-2.34.1
-
+    Andrew
 
