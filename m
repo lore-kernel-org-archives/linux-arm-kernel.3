@@ -2,113 +2,113 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 407C7606D801
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 07:22:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E3CF606A33B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 07:23:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ptdjuzI6;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TIEwbRL3
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TqgpeIHd;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fAzoyO7l
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
-	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=MOReuoec1CLoNa//dtGNf5m3XGY/nvtMHuSPmq6nhyA=; b=ptdjuzI69tDin3MGE9jKm2EM6+
-	ux0oXGtQlul65suOcsjJYqElSghryu47NK1juMSbLn/kx1/mKuEJWmQC4PW5D7K+yaEBu3LWTPaDv
-	/WDE4Pe6hJyNs/T6ocu2LmiXj1GuU6wPkgW0a31lT8vXPnULoe8CTsY+N8SNsyrL2eArco4dgnqb0
-	h6WMO7Nfw3a4fFfcl8lnZ/u7X4qkaaTFLfaQEYVapbzcZdZZk34PH8beM90EJriV8keaSlWaXYrVK
-	1V2S1Xaiil/yteS9Ft2WkpAD/W9cuQq8lj02k+5FNR1l6ipR5cD3qMBU9Nuyay5i9ReaInIqpVb6X
-	P8efGlvQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=NBOQ40gBeaDYVe8Awm5p4ozUA0tAVvF4nJgh2RDLTZA=; b=TqgpeIHdYGl9zt
+	Xw7KLRgrCT0g9RUUgJLIgQN+MhJqujJ1sZHjFdlORcozM4kqpXIlPgPFVw07UvaBSk59sEpjPh8Ox
+	lCb+GLr3enHhFSdb2EYtelDjAx3oQVYJ4HKsIj//KzeL2LOPeF7x0Z+ByLC6E9LDGlzp334gxMtPP
+	tkPXhYljIdGVQeikGLj8X5FLsECZju8siPKYQaXxGPAP0vfTJAXTU1uhC9BaP9wSFNL0VWmUDWOOk
+	BPs/ULTvhx7GH0RVYiaeuHxxZ1F65/wENhqibSLVaVMQIkHfgjTz/89nd2G9PJORCAgSwl7p1nuOb
+	zaTgTVfhieOqutW6vpqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOVKS-00000004Vo8-35lV;
-	Wed, 04 Nov 2026 07:22:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xOVLa-00000004WEf-4C5r;
+	Wed, 04 Nov 2026 07:23:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOVKR-00000004Vn0-00kJ
+	id 1xOVLY-00000004WDh-3nzE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 07:22:39 +0000
+	Wed, 04 Nov 2026 07:23:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 70A09602C3;
-	Wed,  4 Nov 2026 07:22:38 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793776958;
-	b=kPVkBcWLsFvwh05Zxf6XyMTa/p/d0daGyxyqeToOLQyiQRZHn6MKrG2uDElMAdPr/Usx
-	 ye9jSjfxGcIVZzl7Wke6QF8JBbz6Exf2Vf6ALBlZKOdbiLTM5mN8N25s2YkrLEZXA1LzQ
-	 U7qjmcXnvBG5S4AQSmRxPDCZe2voYjsBgyq4fweL+hbN879muH85FvS6V4jrkfn77VBdA
-	 GVaMbxgPF60NPz0VR9Te2r/VjroK0Qu9PNP1okO1H71idY/XYGMb4afhM8oLMCpb1py5D
-	 36vJHtU3y3PzNDkUWR7HRfBgoRv++D2MuFRJ4w6angMGxpLntzCQwLuJ/TCF60lNxLg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793776958;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=MOReuoec1CLoNa//dtGNf5m3XGY/nvtMHuSPmq6nhyA=;
-	b=TQTAMw18AikVfVvsmIsQN3lPeBCee0pnCJXf0b/ynbB6UI5G3QakzYpQRzTNIp0E8eDM
-	 heiDrbWc2qriCIlcpRf7nsEsdc+fFezFg9+6mc3omHCnEnN0eANrLK9VD03Y6YP2ryp6U
-	 wJkf5E2KtbWRC+Mp3EcnLVfVR12d6DeYC1sbnsmOLpjQtr2q/4h3p4ARD8PN3fLsETuO2
-	 AYckv5rtgDQ9I0cV7HaWG8SDLwUGskQvG623oAf0D/D51XGMAdj0NyCcDO+R+VULl345o
-	 OjoY9HtCSP9q/nV/0hv61lpQOlWVuOoy7nvkOkZR+W+NwKrClg+BgJAdKZpvWCf9Q9w==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 9CD061F0093A;
-	Wed,  4 Nov 2026 07:22:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A521B434BD;
+	Wed,  4 Nov 2026 07:23:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C3B71F000C1;
+	Wed,  4 Nov 2026 07:23:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793776958;
-	bh=MOReuoec1CLoNa//dtGNf5m3XGY/nvtMHuSPmq6nhyA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=TIEwbRL3sLpRnF56qQHid6QrDYfoeOkxuStey2WN8p/Y7kDaMRlDi4pHNwl8BX2Mm
-	 1SUkHAw/AzTQt3Xt15rrdM7plIgInkq/ywZCPHaTKsvEUUGG8qFXjO9+KG4FUtYE+C
-	 PiwvXouOohh0r+fjJe6S/LhBuZxEv/wwS3pm4B+AvO4Np0RbjuLEvlFqmSe0fiIUaZ
-	 mV9eNr26q95uD1958OfB1T6THn7UhpEACmXrPgRhJbk4SGfDHoYKQ2QPsoN71T6ohZ
-	 i1dlgYRzwwmbVCdOTAEV5o170/udrrvbezeMd2/rzFH8dGPJ4Y7JY63H9m1GlWdZur
-	 wZb5HRHW51i6Q==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 32EBC46D2D;
-	Wed,  4 Nov 2026 07:22:36 +0000 (UTC)
-From: Joseph Telaak via B4 Relay <devnull+joseph.telaak.dev@kernel.org>
-Date: Wed, 04 Nov 2026 02:22:24 -0500
-Subject: [PATCH net-next 1/2] dt-bindings: net: Add Siflower SF19A2890 GMAC
+	s=k20260515; t=1793777028;
+	bh=NBOQ40gBeaDYVe8Awm5p4ozUA0tAVvF4nJgh2RDLTZA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=fAzoyO7l7JrQauRVoEzkU2YbVbg3GZqLoQ1vbvKVgH8kKLf+jgVdZxVK2J5pSVAQL
+	 igHw5zbRXGhLbFPt+6lEcO8n/DMrkktk0R1AX7yS00jD4BRA/50zagFe3mZ/c1n3zS
+	 XDzqw/t2zI2Is/qsU5wgGD+XARqXmJio2t4k4O/1/1DlI2m29fAlsYM94VHedruACU
+	 QT8dAv05U6y1yXEoOuDyxkHzcTTF/Z6pdNibFjrneUGC58mrUzESj2HUCPPF5jhi93
+	 TDrFG+NTMNMwg7Q8eQunznuVUUt2kQEY4UDVM7lVI4kwhKurhlq8vTVoKgRIh2K2Vt
+	 z5rnAZ5/U8I1A==
+Message-ID: <c0313537-532f-4c9c-86fb-067838829427@kernel.org>
+Date: Wed, 4 Nov 2026 08:23:42 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261104-sf19a2890-gmac-v1-1-a15965a49574@telaak.dev>
-References: <20261104-sf19a2890-gmac-v1-0-a15965a49574@telaak.dev>
-In-Reply-To: <20261104-sf19a2890-gmac-v1-0-a15965a49574@telaak.dev>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Richard Cochran <richardcochran@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- Jose Abreu <joabreu@synopsys.com>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Chuanhong Guo <gch981213@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, linux-mips@vger.kernel.org, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, Joseph Telaak <joseph@telaak.dev>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793776955; l=4305;
- i=joseph@telaak.dev; s=20261104; h=from:subject:message-id;
- bh=XOuu0yKHxzyySINW5UI8L81RpxlJ/TBeyAQn1sO1t/Q=;
- b=fisEUu+QvicaWpO+KC4U+S4bZAlkUMjZ+KOJ4cxZYLaahaAsnH+U3P8OYszWrmpXkxZA9VQ8I
- ZyA4qvWinNvBKDhiFXJ1ry6q9QPeY6FdUTNdQjeTDSBshkVQbt/xD/R
-X-Developer-Key: i=joseph@telaak.dev; a=ed25519;
- pk=oQI+UfddlZ0wK2ac4WKOGNjUl1ZEN8j9ZVFSqEDoNP0=
-X-Endpoint-Received: by B4 Relay for joseph@telaak.dev/20261104 with
- auth_id=1404
-X-Original-From: Joseph Telaak <joseph@telaak.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: PCI: Add linux,pci-domain-reuse property
+To: Cui Chao <cuichao1753@phytium.com.cn>, Will Deacon <will@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Wang Yinfeng <wangyinfeng@phytium.com.cn>, linux-pci@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261102095150.2370959-1-cuichao1753@phytium.com.cn>
+ <20261102095150.2370959-2-cuichao1753@phytium.com.cn>
+ <8112d8ca-2234-490c-a4a2-c3b01adfbc88@kernel.org>
+ <b49779cf-5132-4539-86c2-e4f806b1675d@phytium.com.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
+ /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
+ s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
+ EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
+ rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
+ DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
+ IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
+ vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
+ oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
+ sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
+ vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
+ Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
+ BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
+ 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
+ f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
+ WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
+ XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
+ IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
+ YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
+ p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
+ GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
+ YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
+ vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
+ ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
+ QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
+ +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
+ wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
+ c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
+ K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
+ n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
+ qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
+In-Reply-To: <b49779cf-5132-4539-86c2-e4f806b1675d@phytium.com.cn>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,160 +119,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: joseph@telaak.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Joseph Telaak <joseph@telaak.dev>
+On 03/11/2026 03:57, Cui Chao wrote:
+> 
+> On 11/2/2026 6:00 PM, Krzysztof Kozlowski wrote:
+>> On 02/11/2026 10:51, Cui Chao wrote:
+>>> Add a new optional boolean property 'linux,pci-domain-reuse' for PCI
+>>> host bridges.
+>>>
+>>> By default, the 'linux,pci-domain' property must be unique across all
+>>> host bridges. This property allows a host bridge to explicitly opt-out
+>>> of this uniqueness check, permitting multiple host bridges to reuse the
+>>> same software domain number.
+>> Why isn't this deducible from the compatibles?
+> Hi Krzysztof,
+> 
+> Thanks.
+> 
+> The compatible cannot express this. "pci-host-ecam-generic" only
 
-The Siflower SF19A2890 has a DesignWare GMAC 3.73a whose interface
-type and RGMII clock delays are set in a configuration block of their
-own, next to its clock and reset manager. It takes a fourth clock, the
-RGMII transmit reference.
+You have vendor specific compatibles, no?
 
-Signed-off-by: Joseph Telaak <joseph@telaak.dev>
----
- .../bindings/net/siflower,sf19a2890-gmac.yaml      | 110 +++++++++++++++++++++
- .../devicetree/bindings/net/snps,dwmac.yaml        |   1 +
- 2 files changed, 111 insertions(+)
+> describes how configuration space is accessed; it does not describe
+> whether two host bridge instances may share one Linux PCI domain.
+> 
+> The same compatible is used on systems where every host bridge must
+> have a unique domain and on this system where two RCs intentionally
+> share a domain with disjoint bus ranges and resource windows.
+> Comparing the compatible strings of the nodes therefore cannot
+> distinguish our case.
 
-diff --git a/Documentation/devicetree/bindings/net/siflower,sf19a2890-gmac.yaml b/Documentation/devicetree/bindings/net/siflower,sf19a2890-gmac.yaml
-new file mode 100644
-index 000000000..377f24a65
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/siflower,sf19a2890-gmac.yaml
-@@ -0,0 +1,110 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/siflower,sf19a2890-gmac.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Siflower SF19A2890 GMAC
-+
-+maintainers:
-+  - Joseph Telaak <joseph@telaak.dev>
-+
-+description:
-+  The Siflower SF19A2890 has a Synopsys DesignWare GMAC 3.73a. Its
-+  interface type and RGMII clock delays are set in a configuration block
-+  of their own. The MAC adds an RGMII delay only where the
-+  rx-internal-delay-ps or tx-internal-delay-ps property says so.
-+
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        const: siflower,sf19a2890-gmac
-+  required:
-+    - compatible
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: siflower,sf19a2890-gmac
-+      - const: snps,dwmac
-+
-+  reg:
-+    items:
-+      - description: MAC registers
-+      - description: Interface configuration registers
-+
-+  interrupts:
-+    maxItems: 3
-+
-+  interrupt-names:
-+    items:
-+      - const: macirq
-+      - const: eth_wake_irq
-+      - const: eth_lpi
-+
-+  clocks:
-+    items:
-+      - description: GMAC main clock
-+      - description: Peripheral registers interface clock
-+      - description: PTP reference clock
-+      - description: RGMII transmit reference clock
-+
-+  clock-names:
-+    items:
-+      - const: stmmaceth
-+      - const: pclk
-+      - const: ptp_ref
-+      - const: byp_ref
-+
-+  rx-internal-delay-ps:
-+    description:
-+      Applied in steps of about 55 ps, rounded to the nearest step.
-+    maximum: 14025
-+
-+  tx-internal-delay-ps:
-+    description:
-+      Applied in steps of about 55 ps, rounded to the nearest step.
-+    maximum: 14025
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - interrupt-names
-+  - clocks
-+  - clock-names
-+  - resets
-+  - reset-names
-+
-+allOf:
-+  - $ref: snps,dwmac.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/interrupt-controller/mips-gic.h>
-+
-+    ethernet@10800000 {
-+        compatible = "siflower,sf19a2890-gmac", "snps,dwmac";
-+        reg = <0x10800000 0x200000>, <0x19e04440 0x10>;
-+        interrupt-parent = <&gic>;
-+        interrupts = <GIC_SHARED 32 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SHARED 34 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SHARED 33 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-names = "macirq", "eth_wake_irq", "eth_lpi";
-+        clocks = <&gmac_crm 0>, <&gmac_crm 1>, <&gmac_crm 3>, <&gmac_crm 2>;
-+        clock-names = "stmmaceth", "pclk", "ptp_ref", "byp_ref";
-+        resets = <&gmac_crm 0>;
-+        reset-names = "stmmaceth";
-+        phy-mode = "rgmii-id";
-+        rx-internal-delay-ps = <550>;
-+        tx-internal-delay-ps = <935>;
-+
-+        fixed-link {
-+            speed = <1000>;
-+            full-duplex;
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 2c4842404..c3d96d58a 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -98,6 +98,7 @@ properties:
-         - rockchip,rk3588-gmac
-         - rockchip,rv1108-gmac
-         - rockchip,rv1126-gmac
-+        - siflower,sf19a2890-gmac
-         - snps,dwmac
-         - snps,dwmac-3.40a
-         - snps,dwmac-3.50a
+OK, so let's look at your DTS - where is it posted for upstream?
 
--- 
-Git-155)
+> 
+> Adding a vendor-specific compatible only to trigger this Linux policy
+> would not describe a different hardware programming model either.
+> What actually makes reuse valid is the platform-level relationship:
+> the bus ranges and resource windows are disjoint.
+> 
+> If you prefer to avoid a new property, I can rework this to derive or
+> validate reuse from the non-overlapping bus-range and resource layout
+> instead. Would that be the preferred direction?
+> 
+
+This one is clear paste of LLM output to a message.
 
 
+Best regards,
+Krzysztof
 
