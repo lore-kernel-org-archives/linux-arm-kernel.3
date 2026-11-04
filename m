@@ -2,121 +2,186 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B2E1606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 11:04:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03779606D806
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 11:07:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bVcb1+6l;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RN68OluP
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WiOqsheR;
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=SbU0nSak
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=di6PXeHB5ao9aED5rnI+MTd/fUST/3nbmo+6wj6cYKc=; b=bVcb1+6luugACB
-	YsKxDpaZVVopCXhiD4RHoudQ6IuVhU0QdkIbN/lEG24zDhTqu7+5xn8or2NXqjcHAg8LDdLzaq+Zp
-	FdwaKR4daiHZ1B43XGytci1rIXL4xsvPaZcsUyDKvpXMujhKNhsVbmui62JRdDkjQPhhRrqx4ecJZ
-	qDVM/Dq+mYS//w/mNWWHc7r7715tOK8JVAMhJb1OaWbJHTuTDjihGRTwaO7qymFwMgTKxbZs42Kww
-	SuEZNAUA1X1nfy7m1mYXmZG0edgB/s0Ew5YLW8E9E6nxlA6dAUGFXT+iPYegPke2m9QkOt2Pid4L8
-	TdLIPuE3xJxsjN3bmXpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=Qgv5Xqik/ac2ZR0jM/Wc1LlwA7c2nQmToB3PP6/cosE=; b=WiOqsheRth0vC8KS0GXSXmfrTB
+	Nn0gUQnh2txUzYzI5jP/MJ6wOSPQZQOM3+QVUFHdPPkStSFOMpx5Wzz59P+dl7dXXF0ttJGTaJz14
+	9NPeIYlAwkH4lF3G8E/+IGpee2pgD6xYadXLUEnSXEBm0XhIkVLFPiBe+ElQYzZezx8uRTYin+W2/
+	G+rp0Aa+cMp639iHWzKbDH/4lRUwgYhBj5//om8gHtmNx24r0yFyUA4jt4QGkjDNOtPHi6MfbtuOq
+	NN038hV4lnS9nHVyymQpXCfh2kgyw6DO+AAFWjWAUWqDjQwZgBkG68SOQOZSQoUPXkoHJWE+e06YZ
+	Q+08BuLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYmv-000000055ej-3lAg;
-	Wed, 04 Nov 2026 11:04:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xOYpV-0000000562N-0bdF;
+	Wed, 04 Nov 2026 11:06:57 +0000
+Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOYmu-000000055eR-2SOR;
-	Wed, 04 Nov 2026 11:04:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9460060F2B;
-	Wed,  4 Nov 2026 11:04:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 836381F000C1;
-	Wed,  4 Nov 2026 11:04:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793790255;
-	bh=di6PXeHB5ao9aED5rnI+MTd/fUST/3nbmo+6wj6cYKc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=RN68OluPXZoITcxHSrLsbOtsG8Ly5//ASQqc92i7xUl439vTmX5vX/nLHS2JUDixb
-	 XBAAJCFj3HR1LJLIYT35y+wfcZ+kztwTZkMIjBpBgU6GDc7GpSyD1wow6zjgaVhlXc
-	 VO/mxBFb01zcyIGsMgWZFJx4Pl+ieqn7dKV8ef2YYWy3REAV1Ivb7isYDdrD/944Oq
-	 jcnBmWe2dhoZI7d/WfBQe/I9YSCD77PQkLUTea2ciL3rwJSRGA7Q5xmUDV5u9aG6wP
-	 sfp+EhNE+XCtCYmg3yJKjMb7/TPhO8GeWraaTMqCX8xs0joCsRik1yzfAwWLZE0qPc
-	 NXGm3Rei7+HpQ==
-Message-ID: <02bde189-8ab3-4a39-8abf-0c61298f406d@kernel.org>
-Date: Wed, 4 Nov 2026 12:04:04 +0100
+	id 1xOYpQ-000000055zs-1Krd
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Nov 2026 11:06:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=K87izcJWlirR5roV/MgEQ9xdHUbQlcqihD5k0WIy9CApPEtmda1Vb5TABnMPqyWNcTkUoWNzBQQFd/tvSmk+vPkNV1D8x4ztWXmgv2PCNxS4JqrTZ0rPyJVIt3PNiLFjRQ7bTKPDBJ4AlDUNLb2OSrXUY2/qPQnLWK0tQtXffqowX7s9vvRg+AXG0jeVTSwfIeeGX2bw+AxJwuoerKjOsIY9tMuCmSk6Rgn/zH7ZYi9Vzt3xJjUM7PKldkn+OXEs5AXvNeZQLgxlHJwF2vWOWnGI4KV5P78hjdAHuR5lBvNPo9Qi76yLB2hIVuMMF0k4x6m8jPAZolr1raNWCJt++g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Qgv5Xqik/ac2ZR0jM/Wc1LlwA7c2nQmToB3PP6/cosE=;
+ b=vL5eK974OwWX+V/mvjIPIRe+GeLbITH+YfTiw7v8qq6esVQEdwpONPm25V4IDe72akV3Fq5YqJFuPQR+Cl+7bZ8D6jPg7zWyIqNDAUiTWsVQAetR7Nrd68rM4JoifRrIvEa9hG4AlcNOVdvn90oEOdnyE3/+dSMkn0ZJEnKCBjYJwz+2CBF3sbOx+xRF2fHwfUXoJXTyK72krvY1cQAGdBR3ya5yjeJihvfpCARV/maxcd4ujQgZjJG2lN8LswnyAjYVAxaacKHWhJimikVMdsixLaKt9YGxaEmscE1R/SAySSxCXdMhipN3mJH8hEPI+3J8aIswhkgS3bMLnKYYwA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Qgv5Xqik/ac2ZR0jM/Wc1LlwA7c2nQmToB3PP6/cosE=;
+ b=SbU0nSakJwqTpQVJnrp8zqj6ueHvIGLrr9YlOoASJCHGOSMLvXndFqz1XciHZ6JQMbw1RdD6iTfOq1q6RRsEp3b/F6OuMtIis4ObIdJnPtg8UQNMaewT8sIK1lqcqVYmwNGXkrigWQtavAoElf4S8KVW6P09mxi5ydNPGFcwTP8=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
+ by SA1PR12MB6749.namprd12.prod.outlook.com (2603:10b6:806:255::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.9; Wed, 4 Nov 2026
+ 11:06:48 +0000
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287%5]) with mapi id 15.21.0592.007; Wed, 4 Nov 2026
+ 11:06:48 +0000
+Message-ID: <ab197016-5411-44cc-a896-8787411648ba@amd.com>
+Date: Wed, 4 Nov 2026 12:06:41 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/3] arm64: zynqmp: Add support for ALINX EdgeBoard
+ FZ3A
+To: Pufan Jin <cyan2254650260@gmail.com>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>
+Cc: andrew@lunn.ch, Conor Dooley <conor.dooley@microchip.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261014175020.62907-1-cyan2254650260@gmail.com>
+Content-Language: en-US
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ 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
+ mpwx1d8=
+In-Reply-To: <20261014175020.62907-1-cyan2254650260@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR13CA0203.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c3::28) To LV5PR12MB9779.namprd12.prod.outlook.com
+ (2603:10b6:408:301::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 02/22] ASoC: dt-bindings: cs42l42: Allow referenced
- dai-common properties
-To: James Calligeros <jcalligeros99@gmail.com>
-Cc: David Rhodes <david.rhodes@cirrus.com>,
- Richard Fitzgerald <rf@opensource.cirrus.com>,
- =?UTF-8?Q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
- Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
- Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, asahi@lists.linux.dev,
- linux-sound@vger.kernel.org, patches@opensource.cirrus.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20261103-macaudio-v4-0-637484efe46d@gmail.com>
- <20261104-strict-precise-mouflon-85cbad@quoll>
- <f25646e3-d80e-4b26-b869-42608c89e665@kernel.org>
- <dD3cbQkjQr2lqk83ChC6wQ@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <dD3cbQkjQr2lqk83ChC6wQ@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|SA1PR12MB6749:EE_
+X-MS-Office365-Filtering-Correlation-Id: 01318654-be2b-4318-7329-08df3a63b85d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|261022075727099003|261022105027099003|261021123027099003|261021135927099003|261021121427099003|261026140227099003|261026121527099003|261028144727099003|261102123227099003|56012099006|5023799004|11063799006|10067099003|260925021311599003|260925022911599003|260925021911599003|22082099003|18002099003|261009221227099003|261009223027099003|6133799003|13003099007|3023799007;
+X-Microsoft-Antispam-Message-Info: F37HaEq6aJBK+uIfM/dPrfCt1E/PFIKk6PTN6ybgFT5Q3lnBXH5YednaiRULpBS62Klgt5J8wtcCOFoU0iMgoYSqTNg1kFQMEyBnD5Bg8niTGijVDM8GcAm3Jrr8BnLA6AVmf2FqTFo030F7KdbdeYDfP8Ye3wplGw/bYMYvPqiXD6jdZiVF2nNlsU/reHlzqzPo1cuPeDNz6RGuRt5ZSRThiWgj5RCG3I6dLyD5Pbw8ybTx14+v1VfXnQtboQyN4iEDmzCGF60vFId3uhANjCgGZX+HR99AnG8loC0KemV4sDZwpbqiordQ3jMo6Pf1HLMNZcccRoZsnATcKBhfHI5GzcmDVo2jz6GEKOZFlt41z3vO3hNArgLoJ+Bt9w3CPlbMe/vhWqw/p51cKqdwLLWjDy9ls6r/OmZYnGIp08OQdfY3o5QD36GTfWA0qif1A2U+VkT/B11Pebb9vmbrpnzj5y3rpvZiLUKSywnmvLBtnpBPryi27O4sY/9vh/mgXDAs1nky4mu8qHrSPp6xRXd6Dmj8kPl//nSEt1iWL7DbE3kiGBpxBmauFtGvvRt6ijq1zDJjMs6/kITa7tVLOesjG752lhJUrQ+bj2sUC4Q=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(261022075727099003)(261022105027099003)(261021123027099003)(261021135927099003)(261021121427099003)(261026140227099003)(261026121527099003)(261028144727099003)(261102123227099003)(56012099006)(5023799004)(11063799006)(10067099003)(260925021311599003)(260925022911599003)(260925021911599003)(22082099003)(18002099003)(261009221227099003)(261009223027099003)(6133799003)(13003099007)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bWtOVG1jODZ6MHJ1RGdkL2NtVS9jVkhPTkp5S05EcmJycVpubUN0emVjNXQ3?=
+ =?utf-8?B?elZkOG9seGdjNTVIWFVaYW5POWVBNVl0V01zSnhtRmxWS0R5ZWFCY1JiTzcw?=
+ =?utf-8?B?UWFJcE0rTDBPcFFVckNhajVXdkk5c0gxeVFXTzY0bkd3ZzhSUm9teFVOazhT?=
+ =?utf-8?B?NVE4cjVkYTBEa1pZOHI4YndjeG9LdGVVUXg4ejN5UnpSd3FBL3JsMThvaktT?=
+ =?utf-8?B?NWg3YXFIVTF3R1JLUTB4QndWOUlWdmo4TTc3Zm9vSHg1RVl4Ynp3eVFWclY5?=
+ =?utf-8?B?V1JPTEtRMGVGbEtTY28xK0hPUnh3TkU3a0pFaTIyWXlUTnJGNjU4OUEvajJh?=
+ =?utf-8?B?c3k0N2VjOG9wVG5UUkp0UnBFS3FLMUFzK2t0cVF2WGNKcG9kQ2tPUkNSVnRT?=
+ =?utf-8?B?dDVlcXZDQVg2VnBWVlkrRG0wZGFkbk9mMnB5Tmxwb3pVZDNpa1RKZXgvUmhD?=
+ =?utf-8?B?YnN1VFlRTC9DZkgwM1hwSmNMemM5MVIvYkFqOEpNTHMrZE5ZWTgvZEdoZ0Fm?=
+ =?utf-8?B?L3hFb0JBZkJ3VVRrQWdPYWtrSDFjS24xWmd0c2ZGVml4UUN5NDh1RzEzRjFt?=
+ =?utf-8?B?b3hJNDZpeFVYcjVTRDVJRHVmcElack5laDh1YThRYmVBTFlRblkzZTBsNXNi?=
+ =?utf-8?B?ODhOS0RqRXlLNkRGQ2dUejdPaHhEd1RNd01Samk2MFlPRVRBOXgvdmxtb2Fh?=
+ =?utf-8?B?dWFEUnAwM2J0RG1va29NdWdhdDhBY3V6MkRwRUdBWkdKWXZGK3l2OGFyKzhR?=
+ =?utf-8?B?U0JNYWdNVVI0ZUdGdWlVYWE2NUxjak41QUNsd3JwbzdBaXllcnBzN2FubHpW?=
+ =?utf-8?B?cEJMRGtDbnh6QTVtZDRGd3h1NS92NDBOMEk4cjBKQlJiY0lkL1M2NjQzN0lv?=
+ =?utf-8?B?TzArVjg0Y2FhVS9QVTVLMlBESWFQYlp0VWFOY3kwVGNJR3lyRjVZQXNvS1R0?=
+ =?utf-8?B?WDlSMkpqSTM2NWVMZUFLY0JkTXBmbEpRSDN4V0JrckVteHBQSXhnUktTRko5?=
+ =?utf-8?B?VXhETGFMbXhqczdqdnRBazdpSW1QVWpIZ3JZUnNhTXNaTTQwamRUdVdQdThy?=
+ =?utf-8?B?T1UxTGtCdW9zWXUyNnF0TElLQmlIQ2xOZVpjNkJLb3dkTHRzZHhtaGZ3eUd6?=
+ =?utf-8?B?QUtyWUIvcG11cmszMWlmVnFvZUxsQVA2dlU5blBnZ3ArNmwxdEowbDFnUmJh?=
+ =?utf-8?B?MVRmV1NENFJ1REowK3puT3lpSkh6Z2RwTDhUY3UwMlRrRFh2TEc5MXpIUXVD?=
+ =?utf-8?B?VGVXVzQyNWtsc3BIMFIwN2o4ZVpGcW1mTFQrdGwzMytFMUd1UXJJNmdPbU00?=
+ =?utf-8?B?eVlqeVNudGF0dWlMRGcydEV3QVJ1QUp3ZHUrYStmb0JpWWdRR0ZlTVF0WkRv?=
+ =?utf-8?B?ZEhYbXR0RDRVb09qMHMyTTdsS0lRR0wrMEhWRTRkYk1SYis5V1g5WGd6dnpQ?=
+ =?utf-8?B?SmMwbkdsV0pLdzlncFNnV2IxUVRpSXk0Qk9PMFlUeU1jbndHZFdhWkY0SENh?=
+ =?utf-8?B?ei8zVzFJVDZPZWs2cHFpcTNVRWZGZVlvSVN4UXdQY3JWWHRhV0pnblBGamd3?=
+ =?utf-8?B?eGJXRTZ0bTdycUxJeVM1NUlLMmxxL21CUk5Wa1JmUHp2d2ZiTVoxZVFiM2sx?=
+ =?utf-8?B?UkVBYXlsZFBxOXh6Nnc2QVJ4QzhJcEZnRDY1RGNOb012NitDZ3Z5dE9tcmpz?=
+ =?utf-8?B?WldTb1k0eWwxaThpczJVbkVpbUlja1MvYXJLMVc5Vkk2QXZBVWxmbisrREdQ?=
+ =?utf-8?B?QTkwbHZPTHpFZW5UeFpWbGxwNG1zVVYwNFlnNVAxdnB6WWd1UUFwMXJVNlpp?=
+ =?utf-8?B?S0I1T2FzMityQVdYbG9XdytyajVZODRyU1Z3cG5NTUhiclZXeTd5Ky9qZHli?=
+ =?utf-8?B?V0k4UURlNVg0UGFRM1d5STVPS2tyWUVDM3VDYVhwZWZMdU9raTRGVjJ2SWZ2?=
+ =?utf-8?B?VHVFNXZSVnVkRmtMY1ZxYmlFbzNkT2V0TEgvY28rYWJRNnhyM1MwZm5lSFFU?=
+ =?utf-8?B?S0Q0YTJ2Z1VNazl4V09WQlhNU0thUnNaQ3FieE5ZSGJvOERpNkg0dGk2MUUz?=
+ =?utf-8?B?NWFpelNFT24zWEh1UzFPQkhDZVMxWG01REdoYVBKakZ4TDJIaVo0alQ2UTBP?=
+ =?utf-8?B?WWloL1N2NHdGRTF0SE1odEQ5VkNhak5zQXUxTFEyb05HREVtUnpIUVZHeXpv?=
+ =?utf-8?B?TzlsTTI3TmtTVlhmZWI1dTNWMjZSd2ZxWHVsM1l5UkJMVnFJcTE5UnJLdmoz?=
+ =?utf-8?B?Q3NzTnJBSFdQWEYvZ2JRRW1tMDBIckJKTGx3SXBxUmRuazdGVVREN3JGQjZR?=
+ =?utf-8?B?WFRvRkNaUjc4WkNDRlczWWpFYllSYndVeUZpTGZydE5nOWlrS3RGUT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 01318654-be2b-4318-7329-08df3a63b85d
+X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 11:06:48.0016
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8YRJDIvEunWSZYR0ysIH86RhVjKmiDCyi+PkC/YrZYGIsSzQ861v28YJMI/mUMGP
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6749
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261104_030652_423076_76909A24 
+X-CRM114-Status: GOOD (  21.32  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,69 +196,525 @@ X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=unavailable autolearn_force=no version=4.0.1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 04/11/2026 11:58, James Calligeros wrote:
-> On Wednesday, 4 November 2026 8:52:38 pm Australian Eastern Standard Time 
-> Krzysztof Kozlowski wrote:
->> On 04/11/2026 11:49, Krzysztof Kozlowski wrote:
->>> On Tue, Nov 03, 2026 at 05:39:50PM +1000, James Calligeros wrote:
->>>> We may need to define both #sound-dai-cells and sound-name-prefix on some
->>>> machines where this codec is part of a simple DAI. Allow this by
->>>> refrencing
->>>> dai-common.yaml and allowing its properties to be used.
->>>>
->>>> Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
->>>> ---
->>>>
->>>>  Documentation/devicetree/bindings/sound/cirrus,cs42l42.yaml | 5 ++++-
->>>>  1 file changed, 4 insertions(+), 1 deletion(-)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/sound/cirrus,cs42l42.yaml
->>>> b/Documentation/devicetree/bindings/sound/cirrus,cs42l42.yaml index
->>>> ab4c7d22dc0e..4ac0af34c464 100644
->>>> --- a/Documentation/devicetree/bindings/sound/cirrus,cs42l42.yaml
->>>> +++ b/Documentation/devicetree/bindings/sound/cirrus,cs42l42.yaml
->>>> @@ -9,6 +9,9 @@ title: Cirrus Logic CS42L42 audio CODEC
->>>>
->>>>  maintainers:
->>>>    - patches@opensource.cirrus.com
->>>>
->>>> +allOf:
->>>> +  - $ref: dai-common.yaml#
->>>> +
->>>>
->>>>  description:
->>>>    The CS42L42 is a low-power audio codec designed for portable
->>>>    applications.
->>>>    It provides a high-dynamic range, stereo DAC for audio playback and a
->>>>    mono
->>>>
->>>> @@ -193,7 +196,7 @@ required:
->>>>    - VL-supply
->>>>    - VA-supply
->>>
->>> Missing dai-cells constraint
->>
->> Heh, I already asked for this two weeks ago.
->>
->> I do not see how you responded to my comment, dropping everything from
->> DT patchwork.
->>
->> Best regards,
->> Krzysztof
+
+
+On 10/14/26 19:50, Pufan Jin wrote:
+> The ALINX EdgeBoard FZ3A is an embedded computing board from ALINX based on
+> the Xilinx Zynq UltraScale+ XCZU3EG SoC. The hardware was designed and
+> manufactured by ALINX for Baidu's AI EdgeBoard program.
 > 
-> Given that the binding did not have a constraint for this originally, it
-> was my impression that adding one would best go in another patch unrelated
-> to this series. If you think it's fine to add here then I can simply fix this
-> for v5.
+> This series adds the ALINX vendor prefix, documents the board compatible,
+> and adds a device tree for the board's PS peripherals:
+>    - UART1 debug console
+>    - eMMC (HS200) and microSD card
+>    - GEM3 Ethernet with Micrel KSZ9031 PHY on the MDIO bus
+>    - I2C0 and I2C1
+>    - QSPI NOR flash
+>    - PCIe
+>    - USB 3.0 host
+>    - DisplayPort output
+> 
+> Public board documentation and product links:
+>    - https://ai.baidu.com/tech/hardware/deepkit
+>    - https://ai.baidu.com/ai-doc/HWCE/8kq9b2121
+>    - https://www.alinx.com/
+>    - https://vd100-20232-v101.readthedocs.io/zh-cn/en/VD100_S1_RSTdocument_EN/00_aboutALINX_EN.html
+> 
+> Tested on ALINX EdgeBoard FZ3A hardware with Linux 7.3.0-rc5: the board boots
+> from SD card into userspace over the serial console, gem3 negotiates
+> 1000Mbps/Full duplex with phy-mode = "rgmii-id", and the eMMC runs in
+> HS200 mode.
+> 
+> The base DTB passes CHECK_DTBS=y without warnings, the bindings pass
+> dt_binding_check, and the DTS passes dt-check-style.
+> 
+> Apologies for the threading issues in v2 caused by an SMTP relay breakdown;
+> v3 is sent as a clean, unified thread and addresses all reviewer comments.
+> 
+> Changes in v3:
+>    - Update author and submission email to cyan2254650260@gmail.com
+>    - Patch 1:
+>      - Fix legal transliteration to "Xinyi Electronic Technology (Shanghai)
+>        Co., Ltd. (ALINX)" (Conor Dooley)
+>      - Add website link in commit message (Conor Dooley)
+>      - Collect Conor's Acked-by
+>    - Patch 2:
+>      - Collect Conor's Acked-by
+>    - Patch 3:
+>      - Add public board documentation and product links in commit message
+>        and DTS header comment (Michal Simek)
+>      - Conform to DTS coding style:
+>        - Sort compatible before model in root node
+>        - Sort children in natural-sort order
+>        - Reorder properties in canonical order (phys before phy-names, etc.)
+>        - Add required blank lines before status properties
+>        - Alphabetize pinctrl children and pin configurations
+> 
+> Changes in v2:
+>    - Use the correct vendor prefix 'alinx' instead of 'ebdee', and rename
+>      the board and DTS file accordingly (Krzysztof Kozlowski)
+>    - Describe the board as a single board computer with the SoC, DDR4 and
+>      eMMC on one PCB (Andrew Lunn)
+>    - Add the MDIO bus and describe the KSZ9031 PHY with phy-handle (Andrew Lunn)
+>    - Enable eMMC HS200 on sdhci0: drop no-1-8-v, add pinctrl and mmc-hs200-1_8v
+>    - Drop power-source and bias-high-impedance from pinctrl_gem3_default,
+>      which only produce spurious warnings on pre-2023.1 PM firmware
+> 
+> 
+> Pufan Jin (3):
+>    dt-bindings: vendor-prefixes: Add ALINX vendor prefix
+>    dt-bindings: soc: xilinx: Add ALINX EdgeBoard FZ3A
+>    arm64: zynqmp: Add ALINX EdgeBoard FZ3A
+> 
+>   .../bindings/soc/xilinx/xilinx.yaml           |   1 +
+>   .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+>   arch/arm64/boot/dts/xilinx/Makefile           |   1 +
+>   .../xilinx/zynqmp-alinx-edgeboard-fz3a.dts    | 360 ++++++++++++++++++
+>   4 files changed, 364 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts
+> 
+> Range-diff against v2:
+> 1:  c33ea63b7 ! 1:  ceeae5872 dt-bindings: vendor-prefixes: Add ALINX vendor prefix
+>      @@
+>        ## Metadata ##
+>      -Author: Pufan Jin <2254650260@qq.com>
+>      +Author: Pufan Jin <cyan2254650260@gmail.com>
+>       
+>        ## Commit message ##
+>           dt-bindings: vendor-prefixes: Add ALINX vendor prefix
+>       
+>      -    Add vendor prefix for ALINX (Shanghai Xin'yi Electronics Technology
+>      +    Add vendor prefix for ALINX (Xinyi Electronic Technology (Shanghai)
+>           Co., Ltd.).
+>       
+>      -    Signed-off-by: Pufan Jin <2254650260@qq.com>
+>      +    Link: https://www.alinx.com/
+>      +    Signed-off-by: Pufan Jin <cyan2254650260@gmail.com>
+>      +    Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>       
+>        ## Documentation/devicetree/bindings/vendor-prefixes.yaml ##
+>       @@ Documentation/devicetree/bindings/vendor-prefixes.yaml: patternProperties:
+>      @@ Documentation/devicetree/bindings/vendor-prefixes.yaml: patternProperties:
+>          "^alientek,.*":
+>            description: Guangzhou Xingyi Intelligent Technology Co., Ltd.
+>       +  "^alinx,.*":
+>      -+    description: Shanghai Xin'yi Electronics Technology Co., Ltd. (ALINX)
+>      ++    description: Xinyi Electronic Technology (Shanghai) Co., Ltd. (ALINX)
+>          "^allegro,.*":
+>            description: Allegro DVT
+>          "^allegromicro,.*":
+> 2:  888548b4e ! 2:  da2a7b3e7 dt-bindings: soc: xilinx: Add ALINX EdgeBoard FZ3A
+>      @@
+>        ## Metadata ##
+>      -Author: Pufan Jin <2254650260@qq.com>
+>      +Author: Pufan Jin <cyan2254650260@gmail.com>
+>       
+>        ## Commit message ##
+>           dt-bindings: soc: xilinx: Add ALINX EdgeBoard FZ3A
+>       
+>           Document the ALINX EdgeBoard FZ3A compatible.
+>       
+>      -    Signed-off-by: Pufan Jin <2254650260@qq.com>
+>      +    Signed-off-by: Pufan Jin <cyan2254650260@gmail.com>
+>      +    Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>       
+>        ## Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml ##
+>       @@ Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml: properties:
+> 3:  cd96303fb ! 3:  273fcd977 arm64: zynqmp: Add ALINX EdgeBoard FZ3A
+>      @@
+>        ## Metadata ##
+>      -Author: Pufan Jin <2254650260@qq.com>
+>      +Author: Pufan Jin <cyan2254650260@gmail.com>
+>       
+>        ## Commit message ##
+>           arm64: zynqmp: Add ALINX EdgeBoard FZ3A
+>      @@ Commit message
+>           The base DTB passes CHECK_DTBS=y, and the Xilinx SoC binding passes
+>           dt_binding_check.
+>       
+>      -    Signed-off-by: Pufan Jin <2254650260@qq.com>
+>      +    Link: https://ai.baidu.com/tech/hardware/deepkit
+>      +    Link: https://ai.baidu.com/ai-doc/HWCE/8kq9b2121
+>      +    Link: https://www.alinx.com/
+>      +    Signed-off-by: Pufan Jin <cyan2254650260@gmail.com>
+>       
+>        ## arch/arm64/boot/dts/xilinx/Makefile ##
+>       @@
+>      @@ arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts (new)
+>       + * Device tree for the ALINX EdgeBoard FZ3A
+>       + * based on the Xilinx Zynq UltraScale+ XCZU3EG
+>       + *
+>      ++ * Product info: https://ai.baidu.com/tech/hardware/deepkit
+>      ++ * Documentation: https://ai.baidu.com/ai-doc/HWCE/8kq9b2121
+>      ++ *
+>       + * Copyright (c) 2026 Pufan Jin
+>       + */
+>       +
+>      @@ arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts (new)
+>       +#include "zynqmp-clk-ccf.dtsi"
+>       +
+>       +/ {
+>      -+	model = "ALINX EdgeBoard FZ3A";
+>       +	compatible = "alinx,edgeboard-fz3a", "xlnx,zynqmp";
+>      ++	model = "ALINX EdgeBoard FZ3A";
+>       +
+>       +	aliases {
+>       +		ethernet0 = &gem3;
+>      @@ arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts (new)
+>       +		stdout-path = "serial0:115200n8";
+>       +	};
+>       +
+>      -+	dpcon: connector {
+>      -+		compatible = "dp-connector";
+>      -+		label = "mini-DP";
+>      -+		type = "mini";
+>      -+
+>      -+		port {
+>      -+			dpcon_in: endpoint {
+>      -+				remote-endpoint = <&dpsub_dp_out>;
+>      -+			};
+>      -+		};
+>      -+	};
+>      -+
+>       +	dp_aclk: clock-dp-aclk {
+>       +		compatible = "fixed-clock";
+>       +		#clock-cells = <0>;
+>      @@ arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts (new)
+>       +		clock-frequency = <100000000>;
+>       +	};
+>       +
+>      -+	memory@0 {
+>      -+		device_type = "memory";
+>      -+		reg = <0x0 0x0 0x0 0x7ff00000>;
+>      ++	dpcon: connector {
+>      ++		compatible = "dp-connector";
+>      ++		label = "mini-DP";
+>      ++		type = "mini";
+>      ++
+>      ++		port {
+>      ++			dpcon_in: endpoint {
+>      ++				remote-endpoint = <&dpsub_dp_out>;
+>      ++			};
+>      ++		};
+>       +	};
+>       +
+>       +	vcc_3v3_pcie: regulator-pcie {
+>       +		compatible = "regulator-fixed";
+>      -+		regulator-name = "pcie-reset";
+>      -+		regulator-min-microvolt = <3300000>;
+>      -+		regulator-max-microvolt = <3300000>;
+>      -+		gpios = <&gpio 37 GPIO_ACTIVE_HIGH>;
+>       +		enable-active-high;
+>      ++		gpios = <&gpio 37 GPIO_ACTIVE_HIGH>;
+>       +		regulator-always-on;
+>       +		regulator-boot-on;
+>      ++		regulator-max-microvolt = <3300000>;
+>      ++		regulator-min-microvolt = <3300000>;
+>      ++		regulator-name = "pcie-reset";
+>       +	};
+>       +
+>       +	reserved_memory: reserved-memory {
+>      ++		ranges;
+>       +		#address-cells = <2>;
+>       +		#size-cells = <2>;
+>      -+		ranges;
+>       +
+>       +		linux_cma: cma {
+>       +			compatible = "shared-dma-pool";
+>      ++			alloc-ranges = <0x0 0x0 0x0 0x7ff00000>;
+>       +			reusable;
+>      -+			alloc-ranges = <0x0 0x0 0x0 0x80000000>;
+>      -+			size = <0x0 0x20000000>;	/* 512MB */
+>      -+			linux,cma-default;
+>      ++			size = <0x0 0x20000000>;
+>       +		};
+>       +	};
+>      ++
+>      ++	memory@0 {
+>      ++		device_type = "memory";
+>      ++		reg = <0x0 0x0 0x0 0x7ff00000>;
+>      ++	};
+>       +};
+>       +
+>       +&ams_pl {
+>      @@ arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts (new)
+>       +	snps,dis_u2_susphy_quirk;
+>       +	snps,hsphy_interface = "ulpi";
+>       +	snps,usb3_lpm_capable;
+>      ++
+>       +	status = "okay";
+>       +};
+>       +
+>      @@ arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts (new)
+>       +	clocks = <&lpd_lsbus>, <&zynqmp_clk GEM3_REF>,
+>       +		 <&zynqmp_clk GEM3_TX>, <&zynqmp_clk GEM3_RX>,
+>       +		 <&zynqmp_clk GEM_TSU>;
+>      -+	pinctrl-names = "default";
+>      -+	pinctrl-0 = <&pinctrl_gem3_default>;
+>      -+	phy-mode = "rgmii-id";
+>       +	phy-handle = <&phy0>;
+>      ++	phy-mode = "rgmii-id";
+>      ++	pinctrl-0 = <&pinctrl_gem3_default>;
+>      ++	pinctrl-names = "default";
+>      ++
+>       +	status = "okay";
+>       +
+>       +	mdio {
+>      @@ arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts (new)
+>       +		#size-cells = <0>;
+>       +
+>       +		phy0: ethernet-phy@1 {
+>      -+			reg = <1>;
+>       +			compatible = "ethernet-phy-id0022.1620";
+>      ++			reg = <1>;
+>       +		};
+>       +	};
+>       +};
+>       +
+>       +&gpio {
+>       +	clocks = <&lpd_lsbus>;
+>      ++
+>       +	status = "okay";
+>       +};
+>       +
+>       +&i2c0 {
+>       +	clock-frequency = <400000>;
+>      -+	pinctrl-names = "default";
+>       +	pinctrl-0 = <&pinctrl_i2c0_default>;
+>      ++	pinctrl-names = "default";
+>      ++
+>       +	status = "okay";
+>       +};
+>       +
+>       +&i2c1 {
+>       +	clock-frequency = <400000>;
+>      -+	pinctrl-names = "default";
+>       +	pinctrl-0 = <&pinctrl_i2c1_default>;
+>      ++	pinctrl-names = "default";
+>      ++
+>       +	status = "okay";
+>       +};
+>       +
+>      @@ arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts (new)
+>       +
+>       +&pcie {
+>       +	phys = <&psgtr 0 PHY_TYPE_PCIE 0 0>;
+>      ++
+>       +	status = "okay";
+>       +};
+>       +
+>       +&pinctrl0 {
+>       +	status = "okay";
+>       +
+>      ++	pinctrl_gem3_default: gem3-default {
+>      ++		conf {
+>      ++			groups = "ethernet3_0_grp";
+>      ++			slew-rate = <SLEW_RATE_SLOW>;
+>      ++		};
+>      ++
+>      ++		conf-mdio {
+>      ++			bias-disable;
+>      ++			groups = "mdio3_0_grp";
+>      ++			slew-rate = <SLEW_RATE_SLOW>;
+>      ++		};
+>      ++
+>      ++		conf-rx {
+>      ++			low-power-disable;
+>      ++			pins = "MIO70", "MIO71", "MIO72", "MIO73", "MIO74",
+>      ++			       "MIO75";
+>      ++		};
+>      ++
+>      ++		conf-tx {
+>      ++			bias-disable;
+>      ++			low-power-enable;
+>      ++			pins = "MIO64", "MIO65", "MIO66", "MIO67", "MIO68",
+>      ++			       "MIO69";
+>      ++		};
+>      ++
+>      ++		mux {
+>      ++			function = "ethernet3";
+>      ++			groups = "ethernet3_0_grp";
+>      ++		};
+>      ++
+>      ++		mux-mdio {
+>      ++			function = "mdio3";
+>      ++			groups = "mdio3_0_grp";
+>      ++		};
+>      ++	};
+>      ++
+>       +	pinctrl_i2c0_default: i2c0-default {
+>       +		conf {
+>       +			bias-pull-up;
+>      @@ arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts (new)
+>       +		};
+>       +	};
+>       +
+>      -+	pinctrl_usb0_default: usb0-default {
+>      -+		mux {
+>      -+			function = "usb0";
+>      -+			groups = "usb0_0_grp";
+>      -+		};
+>      -+	};
+>      -+
+>       +	pinctrl_sdhci0_default: sdhci0-default {
+>      -+		mux {
+>      -+			groups = "sdio0_0_grp";
+>      -+			function = "sdio0";
+>      -+		};
+>      -+
+>       +		conf {
+>      ++			bias-disable;
+>       +			groups = "sdio0_0_grp";
+>       +			slew-rate = <SLEW_RATE_SLOW>;
+>      -+			bias-disable;
+>       +		};
+>      -+	};
+>       +
+>      -+	/*
+>      -+	 * Omit 'power-source' and 'bias-high-impedance' to avoid spurious
+>      -+	 * warnings on the board's pre-2023.1 PM firmware. Bank voltage
+>      -+	 * and pin directions are already configured by hardware.
+>      -+	 */
+>      -+	pinctrl_gem3_default: gem3-default {
+>       +		mux {
+>      -+			function = "ethernet3";
+>      -+			groups = "ethernet3_0_grp";
+>      -+		};
+>      -+
+>      -+		conf {
+>      -+			groups = "ethernet3_0_grp";
+>      -+			slew-rate = <SLEW_RATE_SLOW>;
+>      -+		};
+>      -+
+>      -+		conf-rx {
+>      -+			pins = "MIO70", "MIO71", "MIO72", "MIO73", "MIO74",
+>      -+			       "MIO75";
+>      -+			low-power-disable;
+>      -+		};
+>      -+
+>      -+		conf-tx {
+>      -+			pins = "MIO64", "MIO65", "MIO66", "MIO67", "MIO68",
+>      -+			       "MIO69";
+>      -+			bias-disable;
+>      -+			low-power-enable;
+>      -+		};
+>      -+
+>      -+		mux-mdio {
+>      -+			function = "mdio3";
+>      -+			groups = "mdio3_0_grp";
+>      ++			function = "sdio0";
+>      ++			groups = "sdio0_0_grp";
+>       +		};
+>      ++	};
+>       +
+>      -+		conf-mdio {
+>      -+			groups = "mdio3_0_grp";
+>      -+			slew-rate = <SLEW_RATE_SLOW>;
+>      -+			bias-disable;
+>      ++	pinctrl_usb0_default: usb0-default {
+>      ++		mux {
+>      ++			function = "usb0";
+>      ++			groups = "usb0_0_grp";
+>       +		};
+>       +	};
+>       +};
+>      @@ arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts (new)
+>       +&psgtr {
+>       +	clocks = <&gtr_refclk0>, <&gtr_refclk1>, <&gtr_refclk2>;
+>       +	clock-names = "ref0", "ref1", "ref2";
+>      ++
+>       +	status = "okay";
+>       +};
+>       +
+>       +&qspi {
+>       +	clocks = <&zynqmp_clk QSPI_REF>, <&lpd_lsbus>;
+>       +	num-cs = <1>;
+>      ++
+>       +	status = "okay";
+>       +
+>       +	flash: flash@0 {
+>      -+		#address-cells = <1>;
+>      -+		#size-cells = <1>;
+>       +		compatible = "jedec,spi-nor";
+>       +		reg = <0x0>;
+>      ++		#address-cells = <1>;
+>      ++		#size-cells = <1>;
+>       +		spi-max-frequency = <50000000>;
+>       +		spi-rx-bus-width = <4>;
+>       +		spi-tx-bus-width = <1>;
+>      @@ arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts (new)
+>       +};
+>       +
+>       +&sdhci0 {
+>      ++	assigned-clock-rates = <187498125>;
+>      ++	bus-width = <8>;
+>      ++	cap-mmc-hw-reset;
+>       +	clocks = <&zynqmp_clk SDIO0_REF>, <&lpd_lsbus>;
+>      -+	pinctrl-names = "default";
+>      -+	pinctrl-0 = <&pinctrl_sdhci0_default>;
+>      -+	non-removable;
+>       +	disable-wp;
+>      ++	mmc-hs200-1_8v;
+>       +	no-sd;
+>       +	no-sdio;
+>      -+	mmc-hs200-1_8v;
+>      -+	cap-mmc-hw-reset;
+>      -+	bus-width = <8>;
+>      ++	non-removable;
+>      ++	pinctrl-0 = <&pinctrl_sdhci0_default>;
+>      ++	pinctrl-names = "default";
+>       +	xlnx,mio-bank = <0>;
+>      -+	assigned-clock-rates = <187498125>;
+>      ++
+>       +	status = "okay";
+>       +};
+>       +
+>      @@ arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts (new)
+>       +	clocks = <&zynqmp_clk SDIO1_REF>, <&lpd_lsbus>;
+>       +	disable-wp;
+>       +	no-1-8-v;
+>      ++
+>       +	status = "okay";
+>       +};
+>       +
+>       +&uart0 {
+>       +	clocks = <&zynqmp_clk UART0_REF>, <&lpd_lsbus>;
+>      ++
+>       +	status = "okay";
+>       +};
+>       +
+>       +&uart1 {
+>       +	clocks = <&zynqmp_clk UART1_REF>, <&lpd_lsbus>;
+>      ++
+>       +	status = "okay";
+>       +};
+>       +
+>       +&usb0 {
+>      -+	phy-names = "usb3-phy";
+>       +	phys = <&psgtr 1 PHY_TYPE_USB3 0 1>;
+>      -+	pinctrl-names = "default";
+>      ++	phy-names = "usb3-phy";
+>       +	pinctrl-0 = <&pinctrl_usb0_default>;
+>      ++	pinctrl-names = "default";
+>       +	reset-gpios = <&gpio 44 GPIO_ACTIVE_LOW>;
+>       +
+>       +	status = "okay";
+>      @@ arch/arm64/boot/dts/xilinx/zynqmp-alinx-edgeboard-fz3a.dts (new)
+>       +		 <&zynqmp_clk DP_AUDIO_REF>,
+>       +		 <&zynqmp_clk DP_VIDEO_REF>;
+>       +	clock-names = "dp_apb_clk", "dp_aud_clk", "dp_vtc_pixel_clk_in";
+>      -+	phy-names = "dp-phy0", "dp-phy1";
+>       +	phys = <&psgtr 3 PHY_TYPE_DP 0 2>,
+>       +	       <&psgtr 2 PHY_TYPE_DP 1 2>;
+>      ++	phy-names = "dp-phy0", "dp-phy1";
+>      ++
+>       +	status = "okay";
+>       +};
 
-Can be separate patch preceding this one, because adding constraint
-later would be an ABI break/impact.
-
-
-Best regards,
-Krzysztof
+Applied.
+M
 
