@@ -2,132 +2,115 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F021606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 15:25:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 622BF606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 15:25:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=F58cjR17;
-	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=MWLtuwuu;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=D+5OHO+Z
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tMtTxqt7;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wUtxsyce
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=wZ3DRmkWaygrCw95oypD39+/CKzDxSTN6BAmdjxj1PI=; b=F58cjR17MW8Z1QOVEtSbbB82UP
-	jxUjo0eyJ1r5LwYD98fPSsC0qDzNoOROJh4pnbl7ENr5+/wbJl5vM4pdPY+a908mBHlh/i2ZHwykx
-	ajbYYZe/gR3ZlNluA4rSBmsG304XWRYY5EHUkeVu0pUfQKG4LxCGpe6WLITbJMldybdZ3MfPCCvHQ
-	3hD+KzSOl8UsbrS8xsL8t9/nymUUo8i6jvuAXUgN01UhNFmbtT1XDvPLRE/n6ToteS3pdvXaYxQtG
-	/vVxU8JXiuSO/sgUtbbfDC+pM3A29gLTZrg/yJU2UpzlZVHO+K+KbmfK92+qxLJaryClouae/K91y
-	gjTLepnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=FQAPIWMbbJdCSrqpLgLYAqpkKK9TOoJ/Jv2La7z0jSE=; b=tMtTxqt7R3LL1C
+	STqPEH2d9lQkUJMV3Xcga4Os7ohVW/dnNx8hEMCiMUNFyhkDNm3nZWFnv236tsXPKQuLNjfPcjGUD
+	6j6l7FhLedOGc8rWdal5+3fpoH2GuZxBwGUXWhsIXM5cwj844eUSIcqiwfEYl2gW2vMuqGgB07Psn
+	O7hN289+LurDSQrQhtx0EQ5+FavPOcZ6ESLuJnzEp7BIdid7Wmr/Ipgtb2H8JvNexPmvvP/+yaC3K
+	C9PAMcrzdVb90ye1lZwXp7yL6sSb+uNJIyd4Bvx2bVCosF35ARYnwdx1qNbJZomkmyDTwwiImv5N1
+	P7oF9GaT7S7+hx8x8VNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xObtR-00000005cPX-34DN;
-	Wed, 04 Nov 2026 14:23:13 +0000
-Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
+	id 1xOcrI-00000005m2T-2Xrx;
+	Wed, 04 Nov 2026 15:25:04 +0000
+Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xObtO-00000005cNI-3XNq
+	id 1xOcrG-00000005m1m-0yKf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 14:23:12 +0000
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id C16967A019D
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Nov 2026 09:23:07 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-02.internal (MEProxy); Wed, 04 Nov 2026 09:23:07 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1793802185;
-	 x=1793888585; bh=wZ3DRmkWaygrCw95oypD39+/CKzDxSTN6BAmdjxj1PI=; b=
-	MWLtuwuu0wnyjYpIp54smeZq7WcRSqXglLa8THDdAN9Ds1ri6Igg+IPfAg8lrtwz
-	syBtZSJk5c2jI71W+YagrodTBD6u2PzCOYVw3U3bGZT7Jv1UBp0AbI5e5HVSIvO0
-	FJaWMCYf2DPVIFqNofJhO/AjsLy9rtDwKKe/GW1RC4wxdzYG6geoobbf/Oe+aaVZ
-	H23oTkWWZmRbqp/HWhC0QpezPB3X9EBoIwTekTn4kvvHResFgZe0b9jSCWj7BOUh
-	InXDW6GEn3gPRfDq/ZpjsZl927g1CW68XpSCkxAHcnKr4CdrdjaLgzrb06Qu7e5F
-	s0K8MFO13/15DzQawNbpFA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1793802185; x=
-	1793888585; bh=wZ3DRmkWaygrCw95oypD39+/CKzDxSTN6BAmdjxj1PI=; b=D
-	+5OHO+Zo7roGHU8xsWDxiv+wOBv7dQQitozCCJW/17gC4G5SE1+TBqiXTk9QgJO0
-	tapcjj2a3SB9eI6nDQukrl1kqh6s7K9pArxrHYatfC/NSoHW2yH6c4uMqwQKAJoQ
-	/PD9hGU5YNBYbtwVhgYyCo2AiAOz0gsugDeEgrNeHqDzxGP60Jt3TTVTkYUQTLyT
-	PrRL7uIX8B3ig6dL7fTsTshvuDJO7VMw3MGcgiD236T0m48t+kIw8cTFOVXsFkda
-	1nXYdQ8Q7B2Ot1Kb6dN0dvDBKhOHYa0yQ3rrIXDvJXLOEg6tVQ7zse3eMzhYGyUa
-	thjARxKERbx2ljJ+Y3GKQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-08;
-	repo=github.com/dkim2wg/interop; date=2026-10-28; sw=lmtpprox;
-	action=sign d=ragnatech.se a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1793802185; d=ragnatech.se;
-	mf=PG5pa2xhcy5zb2Rlcmx1bmRAcmFnbmF0ZWNoLnNlPg==;
-	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
-	s=fm2:rsa-sha256:xOEDzEaT6Vjyp9tveNKIYYrbsM6NlxGjckD/1zNkJ0spmGa
-	wEqpKk5aUXr1QOFH47A+bT1SaUwdFlgENL5ScqRHyL5imancKIkRKMoit6Hf3r2a
-	8I2bkC7RxQuSQWRRWuqq1+Jf4abzcN/ZPsvDFTvtGh+N76pP8akh/xfaro9Ko3jU
-	2Sae0J1pTEa0xEqgW5zvamP6TumZJ4lXYgSk0ecYcpfC2APNplpUQIHyVLYOTL3d
-	NlpeFp7o+NT48d3jmTMOgug0+cohwhsKeLDNRpLFBP9+zCibozRxTVVQvrmz4ya2
-	dRAnMkJi32QVQgmmlgO2CcRMsR6jFZYi7N1SJRg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-08;
-	repo=github.com/dkim2wg/interop; date=2026-10-28; sw=lmtpprox;
-	action=mi-m=1; hc=13;
-	hn=cc,content-disposition,content-transfer-encoding,
-	content-type,date,feedback-id,from,in-reply-to,message-id,
-	mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:8WiOfuZyMdap+bE48SVdsCssOjsRm1RgtdPkx6M+cZc=:3dKkUVLANeDhIDjo92f1TgMhswlkcL7fJFLihtnLb64=;
-X-ME-Sender: <xms:yD_raojYF3IyExQ-LjzAu8nfHElZKaRYXc_38-x5nLQbbD9ILo-vjg>
-    <xme:yD_rahfVu8FDSYOdoMrU4E-ZWf_i4AQNWICPNr_snBlI4NYPDiWGCUHjtMxxRIjWm
-    omvq0Wp9uk-D2McUuuMo7vfmVWcfghMSo3VTTdCj0XeIaH1qytLJR4>
-X-ME-Received: <xmr:yD_rav3UgwI2n1R5uQgrMn8BWX-h1WtTNICkspWZCQb63v4K1pJRoPdedDec5nEfRlEPTklLbHTD8nwRcAZKLL_fbGeJtlQ>
-X-ME-Proxy-Cause: dmFkZTEo1+WJsU4C+3nNiXfFO8SI/WuAp2HlmE9Ie61JliHIvX6Ui2NijT+UPECYV7P9wZ
-    xk47MtoDmoxkGIougV8QR/uK4i1WE9zO3Nw4ZMD5zce8v+BFodocnhpXB5g0wehRzQid49
-    EJr+qfgq38hgeWjHslRVK5RqlghPLSxV6ASMX864XEgLeOwO3NErmY+HjgtqRN1slSDhkS
-    cI2Tfet0cQgfDpxvE6LJkjJ/XGLBYUo8DK7GOOKZdr+sK61a/S9pvdi0niS/ELLM7rsX4c
-    V/vYP9GQNT4I9qQi73IIJb81AZELdlZw3x2TpB/luLNbNug+TfMu/Kxy2Iz+byXDmU9rUK
-    6j6XLOATrryMHg0iU3Nbby5DGUvfQZRJw7NG4i35oAlblzCyfAGv0JSdk8XPKcFQH2zoGm
-    jsjNywbiU3dxeXIJD21bJPCozkEANJOXEWi1Ek0coPSpDmz1f7uWe/rzVDmyk+gLxr3oQs
-    HjVQikGEU5ny3+8iFMHdxKLssOGpYwRltQ3M54StYYzO2RQu7nE+oCqJsxvfaH34oeUqTY
-    NkIfzTPv5Bdjt6jy+W9VbhVtlSOz1sOJGi//s5vTSkKtUkFAyZdGDz6jKdAnH8h+k0xWl4
-    eFuK/68kN0PsjEwTavY10UvFgn+FvV5yaNVLQm7Lh3kobJXIkckqKIOaE0Qw
-X-ME-Proxy: <xmx:yD_ralrNSpmY6UHe6-d5yYhr4D0nJySoZBKlrqriQAlqMOzl3BXvIw>
-    <xmx:yD_ravhV--6M9cOyi2NsUjFOlKKdh26bZaYmNFvo9imb4PPcFnnScQ>
-    <xmx:yD_rahnKk5RSII8E9JV0YCmarLnq_AyAywuXB4iotmyEea7T1OCsvg>
-    <xmx:yD_raooK3RtjX7GDLuo4BqmBXZSDLgpGZNwPloVr2nEhLSrKPqOlzg>
-    <xmx:yT_ramiihEUsoZLwtfFpUQbyWdCIVIEbImImt0rRrugz4sr4dc5mngvf>
-Feedback-ID: i80c9496c:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 4 Nov 2026 09:23:04 -0500 (EST)
-Date: Wed, 4 Nov 2026 15:23:02 +0100
-From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
-To: Daniel Scally <dan.scally@ideasonboard.com>
-Cc: Jacopo Mondi <jacopo.mondi+renesas@ideasonboard.com>,
-	Jai Luthra <jai.luthra+renesas@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Keke Li <keke.li@amlogic.com>,
-	Dafna Hirschfeld <dafna@fastmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/7] Introduce v4l2-isp reset buffers
-Message-ID: <20261104142302.GK1959885@ragnatech.se>
-References: <20261104-v4l2-isp-resume-v1-0-06aeb8cf2940@ideasonboard.com>
+	Wed, 04 Nov 2026 15:25:03 +0000
+Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-845f3fa7f38so325400a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 07:25:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1793805901; cv=none;
+        d=google.com; s=arc-20260327;
+        b=QEGvYpWFXFLnuJTYp2tBT5tZKgm/1Aw4rTApBzEmabnznYtgnOdzdXNz6l6kIaHb+X
+         s5Vfys8gPDdOtSZHxFY36DjWnpKABufXXUuQfoNlmH02T0a2Qi9VaiqnKvZWfQhYXAA/
+         +nXNY/qEIHUQTuNkxpv505krAMntf4UxWWM1FmZoh+CwcVKZDWMM9x/3+tUVn9VspThO
+         aP5rH3fQ24A8YtsIl0TAbhaTQrK8B0Dps2bVo7pzxtK/S6Wt7hM7pIE0xCOELGJAX0+T
+         778Wfhisgt1tJIUjce7XS9mLrDM/7IhwiEnARfRBWdcdNH13svOwsDBdGpcedbjzWuKg
+         etNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=FQAPIWMbbJdCSrqpLgLYAqpkKK9TOoJ/Jv2La7z0jSE=;
+        fh=vZ4WH2ODTnikvC8cD9dvu/AFnTE+37Xbx9JsUgt0Pho=;
+        b=VTo/Lsta6uWuHbjJXB1gqT6zcWOyvOApbnGaHZ9nlUlPgLAPzZXsk1QzvG72kgrTCk
+         fZQ5JCg6cu8KVMJ498UvgVAX4OdJ3isTf1ML6pSi1+Wwtpwa9lqiW9AmBNNS0YgKhDU5
+         Zj/fG5B/Luj0mQu/uEMWhQu044SU///V20jXvYK/B/8iUlsROc1PIFyPjhuXooDbgfaq
+         pB88nbZGVSDfTH5kD2O9TH0DD9nfcKVJqWvSABlNM6eLjZcfKKTHiKui2mKFMsY7KXxJ
+         oMaK+wiSrtneX/4V3JukFaFYXZGH4S4hEit0Esv1FPI++f01ZXhgf3ZEkiEuBodVAAmr
+         7wWw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793805901; x=1794410701; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=FQAPIWMbbJdCSrqpLgLYAqpkKK9TOoJ/Jv2La7z0jSE=;
+        b=wUtxsyceerZDsbIkryQh5+A7pzxfUn6N5r6q/sEUZ0E3ygOSCWpkZnU88nG/G0KKZL
+         +o+Hyt4Q99qbMUpK+Ul5RPIXHwekbrNfnrjH8gKnIefb6dxQQ8a8VW+EKle1Q8ik+luJ
+         FlUpcBL37tLy+ZEEk2d2WvNPU+kvTXUWZzc2XB6rtr2bITmDiHYp5szCODojYr3QNh22
+         2gKGUXV1xSOkkEfHIjYZNXEHBIktikapBz9o0cK3upBEqqNWT/xX1uRY0zhkXFcU0kCY
+         ygdfNlzfu08Npmua05m8pUPJvsAxp/55zAZ+XuM7pT3Xt55xoAcKfpCrSnQio9nF0ZP9
+         p09Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793805901; x=1794410701;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FQAPIWMbbJdCSrqpLgLYAqpkKK9TOoJ/Jv2La7z0jSE=;
+        b=MJ4D72EF/HgOSaAovQ6T37xq8D0hBHFgMd9BUOIgnaysn48h4myJ33KfggY1vmNK5A
+         iIh8FtCu0e0WROpVPfG1OK3BWaiwqEHx26bcx4J30SjEx/tKPRYPod48iPOVCMLcQSgL
+         NXnUpsjoAql/HypirpVAVtUSTCX4cyLEhJF5uCmvctr7gzzhcWCXZYpefwiW3I6w7GwT
+         qJqUox3KPUPwcZI2gbiD5pldcWI95LXXJH/11R9r/lxeTojNLaxEfk/OKXCq7sZSnsQn
+         YqSPOSsZyojPaa8cavoQclbenOIKsx0wuVCHho8/s4Rb3QxRk4Q3bkWrjnadfOkLNpTU
+         NU9A==
+X-Forwarded-Encrypted: i=1; AKwUvBx+YsQmYLaQqao2tLxwGoKpZ5Fn+Np+tAWCIQAF1+hTJ7AYUcpCd3B9ALsQSxdDC/jMPgxqg8+/QMagpGWlUy7G@lists.infradead.org
+X-Gm-Message-State: APuU4Z/dbECJFcqgrBvH28H25OAtc/D3GaM8MgQIgFL/q2i/Spnyz5M2
+	5kb7gSi8PdYmNCObvuDfmQU60l1QErIOW0ypO/E3qWUxSP+UZ7Mqvo7G/PeVjxXG6XvR+Da0jKb
+	qk6Jyco07x50z5/tj5UZf/5F3nR1OIMg=
+X-Gm-Gg: AYBFou2qxJPhdTwG68tasYwhyOAilH5mOwcSwlNBujLItbTVLmUSFTLG+fNv67Bf84d
+	vON3C0LSnuSdh8EMVb0BmtZ5b2XabG7kXOfapk7+3a5hiMMqs5QDeS08xGH36Hbg8tVoylQCOoe
+	M+UIOUCRT2eEavEhjvDtKnxKK7pqG7oY8uJCXsSJQD5uBOa/H2iD4P72qMtmgSxB8sO5YaIpS1v
+	9pG1S8ttNTtUCXYwIIqPNt7VL04BTO7dif0DqsSprk3Ta0EIk+EzDrmVoPNCb6Ng25zn6VeehXi
+	Ut0Ozn98jiUA/ZkvhiEoPDerpfEAkcOPJFWQrXyjUNyw5k5WkzBkPTKG/rPonviR33Iu9ANypGL
+	tLXEEJlllcAtSbhrFwtoHGhLnj+2/E5R9upJ4rzKrqd79RwDwV3y6Lsv25e305pjxarmkWg6G7o
+	nf0IyS/9NpLKs6ERjcZcVwGXOzgQk7EDsL9noUuAz/jfb4h/DwteAlTls+
+X-Received: by 2002:a05:6808:23d3:b0:552:2c0b:905f with SMTP id
+ 5614622812f47-5640dc2c531mr11109420b6e.10.1793805900632; Wed, 04 Nov 2026
+ 07:25:00 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261104-v4l2-isp-resume-v1-0-06aeb8cf2940@ideasonboard.com>
+References: <20261104151601.70493-1-dev@deq.rocks> <20261104151601.70493-3-dev@deq.rocks>
+In-Reply-To: <20261104151601.70493-3-dev@deq.rocks>
+From: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Date: Wed, 4 Nov 2026 10:24:47 -0500
+X-Gm-Features: AclHuK8hxLtpKa8aXaTi7mu-MijqC4C86dfWCBKmhN_R5OdoXiTiEBf1-KSgMMk
+Message-ID: <CABBYNZLMVso40XpULwTwBwAE4tpXndSJMKhmoVLrmgm+unBNCA@mail.gmail.com>
+Subject: Re: [PATCH 2/4] Bluetooth: btbcm: clear vendor bits in LE advertising
+ report types
+To: Andre Eikmeyer <dev@deq.rocks>
+Cc: marcel@holtmann.org, linux-bluetooth@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, sven@kernel.org, j@jannau.net, neal@gompa.dev, 
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	66ton99@gmail.com, josemiguelo.ochoa@gmail.com, aditya.garg@linux.dev, 
+	Yossef Osman <Yossef.Osman@proton.me>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_062311_083002_1092EAB4 
-X-CRM114-Status: GOOD (  38.25  )
+X-CRM114-CacheID: sfid-20261104_072502_285769_63F3E4DE 
+X-CRM114-Status: GOOD (  28.00  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -139,118 +122,169 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Daniel,
+Hi Andre,
 
-On 2026-11-04 12:28:15 +0000, Daniel Scally wrote:
-> The V4L2 generic ISP parameters buffers described in
-> Documentation/driver-api/media/v4l2-isp.rst has a problem in that if
-> a driver using the parameters format is running a stream and the
-> device is suspended to RAM and later resumed, userspace will not tend
-> to reconfigure it with _all_ of the possible parameter blocks. The
-> format allows only a subset to be populated into the buffer queued to
-> the driver and this is the common practice in libcamera. The effect
-> will be that a resumed device will have lost any configuration that
-> tends to be sent only a single time at the start of a stream, for
-> example lens shading table settings.
-> 
-> This series performs some preliminary cleanup and then adds the "reset
-> buffer" concept to v4l2-isp. This is a mechanism through which user
-> space can flag a struct v4l2_isp_block_header.flags as needing to be
-> reapplied on device reset, such that the v4l2-isp framework will store
-> that block into a buffer allocated for the purpose when it validates
-> the block. 
-> 
-> The last patch in the series updates the rkisp1 driver to use the
-> v4l2-isp reset buffer to reapply that saved configuration on resume.
-> 
-> An alternative approach might simply be to store the "last seen" copy
-> of any block in the reset buffer - this would be a simple change.
-> That implies a lot more processing on the majority of frames, as we'll
-> then always copy at least something, but it reduces the risk of losing
-> a setting. That amount of processing each frame seems very undesirable
-> to me though, particularly given the scene will presumably have changed
-> after resume and so the settings like AWB gains that are applied for
-> most frames are probably out of date anyway. On the other hand we may
-> end up flagging a lot of blocks, as there's parameters that might be
-> changed mid-stream (like gamma) but would not be so regularly changed
-> that we could just rely on them being sent naturally on resume, so a
-> third approach might be to invert the meaning of the flag and store
-> any block that _isn't_ flagged as _not_ needing to be reapplied.
-
-Is there any reason not saving and restoring all relevant ISP registers 
-directly in the suspend() / resume () callbacks? AFIK this is what most 
-drivers do here and it's not clear to me why this would not work here?
-
-> 
-> I'm open to opinions on how best to set the balance!
-> 
-> Please note that the changes for the C3 and Dreamchip are only compile
-> tested.
-> 
-> Thanks
-> Dan
-> 
-> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+On Wed, Nov 4, 2026 at 10:16=E2=80=AFAM Andre Eikmeyer <dev@deq.rocks> wrot=
+e:
+>
+> The BCM4364B0 of the MacBookPro15,1 (UART) and the BCM4377 of the
+> MacBookAir9,1 (PCIe) set bits 4, 5 and 7 of the event type in LE
+> Advertising Report events. btmon on the 15,1 shows types 0x10, 0x13,
+> 0x14, 0x20, 0x23, 0x24, 0x93 and 0xa0 next to plain 0x00, 0x03 and 0x04,
+> the same advertiser shows up as 0x13, 0x23 and 0x03. The kernel log of
+> the 9,1 lists 0x10 to 0x24 and 0x80, 0x83, 0x90, 0x93, 0xa0, 0xa3.
+> process_adv_report() drops every type above 0x04 with "Unknown
+> advertising packet type", so most advertisements never reach the host.
+> An AirDrop sender was reported as 0x23, 0x23 and 0x13 and only the
+> fourth report, 0x03, reached BlueZ 32 s after the first one.
+>
+> Add btbcm_fixup_le_adv_report(), which clears the bits above the type,
+> and call it from hci_bcm on Apple machines and from hci_bcm4377 before
+> the event goes to the core.
+>
+> Suggested-by: Jose Miguel Ochoa <josemiguelo.ochoa@gmail.com>
+> Tested-by: Yossef Osman <Yossef.Osman@proton.me>
+> Tested-by: Aditya Garg <aditya.garg@linux.dev>
+> Signed-off-by: Andre Eikmeyer <dev@deq.rocks>
 > ---
-> Daniel Scally (7):
->       media: rppx1: Drop max_size param from rppx1_params()
->       media: v4l2-isp: Hold v4l2-isp data in central struct
->       media: v4l2-isp: Update users to initialise and validate new struct
->       media: v4l2-isp: Use centrally-held data in framework
->       media: v4l2-isp: Add v4l2_isp_params_for_each_block()
->       media: v4l2-isp: Introduce "reset buffer" concept
->       media: rkisp1: Re-apply v4l2-isp reset buffer on resume
-> 
->  Documentation/userspace-api/media/v4l/v4l2-isp.rst |  19 ++++
->  .../media/platform/amlogic/c3/isp/c3-isp-common.h  |   2 +
->  .../media/platform/amlogic/c3/isp/c3-isp-params.c  |  28 +++--
->  .../media/platform/arm/mali-c55/mali-c55-common.h  |   1 +
->  .../media/platform/arm/mali-c55/mali-c55-params.c  |  28 ++---
->  .../media/platform/dreamchip/rppx1/rpp_params.c    |  30 +++--
->  drivers/media/platform/dreamchip/rppx1/rppx1.c     |   8 ++
->  drivers/media/platform/dreamchip/rppx1/rppx1.h     |   5 +
->  drivers/media/platform/renesas/rcar-isp/core-io.c  |   3 +-
->  .../media/platform/rockchip/rkisp1/rkisp1-common.h |   3 +
->  .../media/platform/rockchip/rkisp1/rkisp1-params.c |  61 ++++++----
->  drivers/media/v4l2-core/v4l2-isp.c                 | 126 +++++++++++++++++++--
->  include/media/rppx1.h                              |   2 +-
->  include/media/v4l2-isp.h                           | 109 ++++++++++++++----
->  include/uapi/linux/media/v4l2-isp.h                |   1 +
->  15 files changed, 331 insertions(+), 95 deletions(-)
-> ---
-> base-commit: 00178eda305a332f302882849ff7374d4169be8b
-> change-id: 20261030-v4l2-isp-resume-41fad731df28
-> prerequisite-change-id: 20261028-rkisp1-suspend-and-resume-7d4f388a9a61:v1
-> prerequisite-patch-id: 8f6b499ef7898229c5b02e987822dd676a0cfd74
-> prerequisite-patch-id: 56d0852983c6f46537c03ca3bec71e0ce4046431
-> prerequisite-patch-id: 0b9edd21d24a25c620792dfa692d91346ceccdde
-> prerequisite-patch-id: 3b9425028cd62b60b3dc3dbd2fc3b5a8912a1fb4
-> prerequisite-patch-id: 771f986e2754383e7b5a920b25bf1609dc96f0b4
-> prerequisite-patch-id: 79c95d6375d662a4f75cccd8650b3fab05e4e66c
-> prerequisite-patch-id: e2ff2463db4934e707afbf0a239270d26dbf8189
-> prerequisite-patch-id: 5a923b7606f7cc60fd6b75be2d73231470043bcb
-> prerequisite-patch-id: fb80748a1a24316cdd77481b60936f716fd0aa71
-> prerequisite-patch-id: 1450f7d1f4b1a41e7ce65ea6d2fbd450d3a198ad
-> prerequisite-patch-id: d1d2ba9927536b110f7fbc0c68698d08afb74c27
-> prerequisite-patch-id: c2ae6f91cb9662307f90070523945ee03a79c4c3
-> prerequisite-patch-id: 87b425bde44fe889367a93302629dc011a3ec88a
-> prerequisite-patch-id: 25e4c9ee767dc61406adcf1e1463796a79832795
-> prerequisite-patch-id: 82388f762700dbcf39fdc43e6ba56c1feb55733a
-> prerequisite-patch-id: a4ad2fb2c7f8659c6d9bdcd9718a7ee69f124838
-> 
-> Best regards,
-> -- 
-> Daniel Scally <dan.scally@ideasonboard.com>
-> 
+>  drivers/bluetooth/btbcm.c       | 30 ++++++++++++++++++++++++++++++
+>  drivers/bluetooth/btbcm.h       |  5 +++++
+>  drivers/bluetooth/hci_bcm.c     |  5 +++++
+>  drivers/bluetooth/hci_bcm4377.c |  1 +
+>  4 files changed, 41 insertions(+)
+>
+> diff --git a/drivers/bluetooth/btbcm.c b/drivers/bluetooth/btbcm.c
+> index 0facfe62333..527a5c75fd6 100644
+> --- a/drivers/bluetooth/btbcm.c
+> +++ b/drivers/bluetooth/btbcm.c
+> @@ -282,6 +282,36 @@ void btbcm_set_acl_priority_on_connect(struct hci_de=
+v *hdev, struct sk_buff *skb
+>  }
+>  EXPORT_SYMBOL_GPL(btbcm_set_acl_priority_on_connect);
+>
+> +/* The BCM4364 and BCM4377 of the T2 Macs set bits above the event type =
+of LE
+> + * Advertising Reports, 0x13 and 0x23 for ADV_NONCONN_IND for example. T=
+he
+> + * core drops reports of unknown types, so clear them.
+> + */
+> +void btbcm_fixup_le_adv_report(struct sk_buff *skb)
+> +{
+> +       struct hci_event_hdr *hdr =3D (void *)skb->data;
+> +       struct hci_ev_le_advertising_info *info;
+> +       u8 *p, *end;
+> +       u8 num;
+> +
+> +       if (hci_skb_pkt_type(skb) !=3D HCI_EVENT_PKT ||
+> +           skb->len < HCI_EVENT_HDR_SIZE + 2 || hdr->evt !=3D HCI_EV_LE_=
+META)
+> +               return;
+> +
+> +       p =3D skb->data + HCI_EVENT_HDR_SIZE;
+> +       if (p[0] !=3D HCI_EV_LE_ADVERTISING_REPORT)
+> +               return;
+> +
+> +       num =3D p[1];
+> +       p +=3D 2;
+> +       end =3D skb->data + skb->len;
+> +       while (num-- && p + sizeof(*info) + 1 <=3D end) {
+> +               info =3D (void *)p;
+> +               info->type &=3D 0x0f;
+> +               p +=3D sizeof(*info) + info->length + 1;
+> +       }
+> +}
+> +EXPORT_SYMBOL_GPL(btbcm_fixup_le_adv_report);
 
--- 
-Kind Regards,
-Niklas Söderlund
+I don't think I agree with this being cleaner then doing at
+hci_event.though; not only is it more code but it also walks the
+packet which is inefficient and may have security implications as
+well.
+
+>  int btbcm_patchram(struct hci_dev *hdev, const struct firmware *fw)
+>  {
+>         const struct hci_command_hdr *cmd;
+> diff --git a/drivers/bluetooth/btbcm.h b/drivers/bluetooth/btbcm.h
+> index a4d47b242e9..56936e64b5f 100644
+> --- a/drivers/bluetooth/btbcm.h
+> +++ b/drivers/bluetooth/btbcm.h
+> @@ -60,6 +60,7 @@ int btbcm_write_pcm_int_params(struct hci_dev *hdev,
+>                                const struct bcm_set_pcm_int_params *param=
+s);
+>
+>  void btbcm_set_acl_priority_on_connect(struct hci_dev *hdev, struct sk_b=
+uff *skb);
+> +void btbcm_fixup_le_adv_report(struct sk_buff *skb);
+>
+>  int btbcm_setup_patchram(struct hci_dev *hdev);
+>  int btbcm_setup_apple(struct hci_dev *hdev);
+> @@ -101,6 +102,10 @@ static inline void btbcm_set_acl_priority_on_connect=
+(struct hci_dev *hdev,
+>  {
+>  }
+>
+> +static inline void btbcm_fixup_le_adv_report(struct sk_buff *skb)
+> +{
+> +}
+> +
+>  static inline int btbcm_setup_patchram(struct hci_dev *hdev)
+>  {
+>         return 0;
+> diff --git a/drivers/bluetooth/hci_bcm.c b/drivers/bluetooth/hci_bcm.c
+> index cf4f1455cf9..1ae9619ee1e 100644
+> --- a/drivers/bluetooth/hci_bcm.c
+> +++ b/drivers/bluetooth/hci_bcm.c
+> @@ -148,6 +148,7 @@ struct bcm_device {
+>         bool                    no_uart_clock_set;
+>         bool                    use_autobaud_mode;
+>         bool                    acl_priority;
+> +       bool                    adv_type_fixup;
+>         u8                      pcm_int_params[5];
+>         u32                     max_autobaud_speed;
+>  };
+> @@ -686,6 +687,9 @@ static int bcm_recv_event(struct hci_dev *hdev, struc=
+t sk_buff *skb)
+>         struct hci_uart *hu =3D hci_get_drvdata(hdev);
+>         struct bcm_data *bcm =3D hu->priv;
+>
+> +       if (bcm->dev && bcm->dev->adv_type_fixup)
+> +               btbcm_fixup_le_adv_report(skb);
+> +
+>         if (bcm->dev && bcm->dev->acl_priority)
+>                 btbcm_set_acl_priority_on_connect(hdev, skb);
+>
+> @@ -1100,6 +1104,7 @@ static int bcm_get_resources(struct bcm_device *dev=
+)
+>
+>         if (x86_apple_machine && !bcm_apple_get_resources(dev)) {
+>                 dev->acl_priority =3D true;
+> +               dev->adv_type_fixup =3D true;
+>                 return 0;
+>         }
+>
+> diff --git a/drivers/bluetooth/hci_bcm4377.c b/drivers/bluetooth/hci_bcm4=
+377.c
+> index 30fcadfae3f..8d99a7a8f76 100644
+> --- a/drivers/bluetooth/hci_bcm4377.c
+> +++ b/drivers/bluetooth/hci_bcm4377.c
+> @@ -691,6 +691,7 @@ static void bcm4377_handle_event(struct bcm4377_data =
+*bcm4377,
+>
+>         memcpy(skb_put(skb, len), payload, len);
+>         hci_skb_pkt_type(skb) =3D type;
+> +       btbcm_fixup_le_adv_report(skb);
+>         btbcm_set_acl_priority_on_connect(bcm4377->hdev, skb);
+>         hci_recv_frame(bcm4377->hdev, skb);
+>
+
+
+--=20
+Luiz Augusto von Dentz
 
