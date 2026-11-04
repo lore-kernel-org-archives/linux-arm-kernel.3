@@ -2,55 +2,51 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86FC1606A330
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:28:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97715606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:28:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=y1R06ddb;
-	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=WNCEd79F
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1im0atT4;
+	dkim=pass (1024-bit key, unprotected) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=J1CLJ6Ti
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=79WIwLXbu2bjW8swwHRNP797G/u9xL70aEW++x9HO6E=; b=y1R06ddbtb47/IYHEYwiXzKJZB
-	2NypPUXgG8ltIjL2QoWi317yV3VdG+C8BWeS+sT22QU4Aqqg3/+5umxGlKQ98zXPmblYFS3pCzbVh
-	Z0Ne6Doi+NiQf9k8tpNiLeBftnHWzkHyvXFrqxe/RiyOATAE4xpCK1x6GoXboJYCbTr8aBaQHhmIO
-	K8KJ/sC1wI5YBzgkzHZTfAB+aazA+NiVkzj+LGDicsnSXde3WzbEkaG+1j7xN/1AWGo4aDC9nCKn9
-	V8hAEzSZXyPKfx4JtttB6a5Q/7VhHMnuKIbEVsXQPYQqRZyqmg1OITrCkR0zT0zDJkRpz22UWDbb+
-	l0KcuwbQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=tmcHG6iHSRfTtxGrjBta3XLELPPUpyHHe56W9gejRh8=; b=1im0atT4BQnKGA
+	U831JUev4WSJ0nDoazBHxaxgeoraFVlgz0PpybeOW0+W4MsczIE9YvOKqeFifsvG5NOq0Uf2M+cV2
+	0LdGRQpztEMMsFJm8XcO4KfAqBJ3lpkWxzC/z8o6Pyi1jkS/Oqd3HnMBE96CiHWFqBmhunjbAY/2S
+	Mr74+kYBlV68F4w36QDfGElnBY6PpjikN9cJBg4UINFx6TyugoKul/QZtW7pYSQm8UhuR3ejoM1Wc
+	/QsAZYYQnOotWwoc4JQj8rHplt3CnLwZeoZfuvDvkNbNOSShA3Tlzwg+tuqFq5z38Nv6MD2rwHYBP
+	Rw03hwRwYfG8yuk/ChIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOa6Z-00000005JSx-2eBJ;
-	Wed, 04 Nov 2026 12:28:39 +0000
+	id 1xOa6d-00000005JXl-1Olu;
+	Wed, 04 Nov 2026 12:28:43 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOa6W-00000005JQy-3bqy;
-	Wed, 04 Nov 2026 12:28:38 +0000
+	id 1xOa6X-00000005JR5-3M2t;
+	Wed, 04 Nov 2026 12:28:39 +0000
 Received: from [127.0.1.1] (chfd-03-b2-v4wan-176392-cust229.vm15.cable.virginm.net [82.19.20.230])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A2709C23;
-	Wed,  4 Nov 2026 13:26:14 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 91F0C227A;
+	Wed,  4 Nov 2026 13:26:17 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1793795175;
-	bh=6Wl2UyK1kpAgNBRQWfzDtffs0FWm6Qx1dRsbvMGwqMQ=;
-	h=From:Subject:Date:To:Cc:From;
-	b=WNCEd79FZOXh2wzkiPMaZlqjD6A/FWINGb6RjWV0FFhffMHLrSR5PZpp7d241trAr
-	 mB64VolGy2BzieiZvFxF7d+2kpK/vcQRgRNzN5DvnPolEGKNBaA5yGjtBtbY9MFU5G
-	 CQVeOihAPSo++uOYT/P73bCRB1LjdrQXf4kpaxkU=
+	s=mail; t=1793795178;
+	bh=QKxOWMq2mrO+ZhX/hXtXscWz3CQJ2HSJtKRaOqECBb0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=J1CLJ6TirU+vsZ5bDdYdSgexqG48LdM2RMzZIIGmjlXTM7poz8gJhd5AyLtuv3sl1
+	 PClaw+jLyaXuIYhlgKRQmaWv0ny0W9hzBjYfx4S6eou8YyBWiPYz2iiTDFLV4WzB85
+	 /ncyQQkw9JVt9+dNhR5rMvPuVVm96JFUNd580MMM=
 From: Daniel Scally <dan.scally@ideasonboard.com>
-Subject: [PATCH 0/7] Introduce v4l2-isp reset buffers
-Date: Wed, 04 Nov 2026 12:28:15 +0000
-Message-Id: <20261104-v4l2-isp-resume-v1-0-06aeb8cf2940@ideasonboard.com>
+Date: Wed, 04 Nov 2026 12:28:19 +0000
+Subject: [PATCH 4/7] media: v4l2-isp: Use centrally-held data in framework
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAN8k62oC/02OwW6DMBBEfwXtuSt5bQcv/ErFweB1Y6UQYgdUK
- eLfY5UeepjDG2lG7wVFcpICffOCLHsq6b5UoI8GpqtfvgRTqAxa6ZaUUbjbb42prJilbLOgpei
- DMxSiZqirNUtMP7+Pn8PJWR5bPX6eJYy+CE73eU7PvlGKHEvwRl28MToapZk12y5GZ5wNltpuF
- B7hv1DfnDqaMd+qC2HZyipLQF/zJ+aCjYbZd76lficYjuMNhq37D+4AAAA=
-X-Change-ID: 20261030-v4l2-isp-resume-41fad731df28
+Message-Id: <20261104-v4l2-isp-resume-v1-4-06aeb8cf2940@ideasonboard.com>
+References: <20261104-v4l2-isp-resume-v1-0-06aeb8cf2940@ideasonboard.com>
+In-Reply-To: <20261104-v4l2-isp-resume-v1-0-06aeb8cf2940@ideasonboard.com>
 To: Jacopo Mondi <jacopo.mondi+renesas@ideasonboard.com>, 
  Jai Luthra <jai.luthra+renesas@ideasonboard.com>, 
  =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
@@ -65,27 +61,27 @@ Cc: linux-media@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
  linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  Daniel Scally <dan.scally@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5075;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10498;
  i=dan.scally@ideasonboard.com; h=from:subject:message-id;
- bh=6Wl2UyK1kpAgNBRQWfzDtffs0FWm6Qx1dRsbvMGwqMQ=;
- b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBq6yTo6kKqzSXFZnZJXTbEM5149OvDhfaa+HgPw
- VcjjWnX7g6JAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCausk6AAKCRDISVd6bEV1
- Mu3jEACdY3cNuGBqaEpvZKTXz/9399gnvZNi2yJsxS+zWUpLc+VWQI1OMEll+oSPH9am7qGb1NA
- U6feBpua4YQQ3km1sN7Th2NE4fey7jIKtslx/dZq9QfoUJjmf60M0XLhGxa+T+6chcQD1Umqup3
- 9joQcylsjc4TSwkY/qjpdU8SDZ6m+FVYADjHQMt7HGW2JpTLAhfdi3gqpZoVUottJnuVbOLraNl
- BSCG6v+YNDLTNTJxyCVOjsuJbu3Q9h1gJpiqBfd+/kprio2vpEX9jlMrnSyAx5MBtpf935hSvTZ
- h6PGO2QSjQkrZ1olrKYn0OSFsGKledzZ1RIhUb1OTYqrAbYYZWcfiRfiNf6C1TsspW6NdUCuwx8
- /wUx+PfWNOv2Bl3j3pB2oyPkYQuXX0wzMcdoyhrS6SvG2OUmJO0093JIAH1sdWcHUHpf3CZ0HQq
- KVJvHkLnOlXzVExhaU34AAJZuaXJ5skiazQ+pnF1iYyyBGbN05Uvnw13Ik5vZa6nu1yixLDJAwS
- jfHyhHTBsDp1tWGP0othUvE09wSfmWRsBoCnJEPmafC00mIALD/KDj/LAQm4ygGU5w/xgOKJ08J
- fJSmpIpBZUje6sb5Egfqptes2f9bglwls9GHzbbgslKolmawOT8Cz6Kxatl4/vDwW2I2NUaZvAp
- SakmlulYQGRQOtQ==
+ bh=QKxOWMq2mrO+ZhX/hXtXscWz3CQJ2HSJtKRaOqECBb0=;
+ b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBq6yTvS3ZhGmpjYItq83kuk8gql7DUC5in5AVtz
+ nA1Sbc9DbeJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCausk7wAKCRDISVd6bEV1
+ MoJLD/9FEjlxeciFVUqRQEBtXUJbkhEQbi8TgyiqD23l8BCcrAKTzRCGcEjhdFq9DTleMHDAAW0
+ eeT3umnQV4GNeakYq/HFIAFBt8mxYkTF+ug3Yw77jpYrPPf6E03NCOMfX22UrV+QYsAqpLiabLf
+ nVqyDwfw2ntixl067nrTgJbomjvoBvDU0Efp/bXA/20xDwnI2xLEyArxZWZy0FL4b2kR84tbBaX
+ WATSzYtz3EiPhfzVyvOi2x7PieD6FRgNPvi0a/KqHlw74rhcQAivaaIpGW1sUySMMUVjqvH+qoO
+ vx1emPURRvkUSlxhVFQbsUA8IXTVnlEVd9yfYMlI+YAymFjU8h/O4AOFxT5XuTnQSioUYY2zU8j
+ cTpDzum/882RCzkzftqxuy4+3600LTFsGOZEWnz/1KCLS+88sDrASa8EIvLMOBmihbV6qUtQBW2
+ NiRXV+1HnhZ+CwvP0tGTK6IbGOJPzd7lAIJQKtWHSQonJgNWZ+XfUVMNrt8KfMRNw3NzlL6vy6m
+ kMsVnVUbVTXp+ZPSZunjd6mj1SezUw+2fRRd9L/e52EGL50U+QlxCLb+xpoqTD/VOY4xoiXlPBl
+ 30BwkQ3QxRrhlboGnvcC2REv3YKn8fnH1ZSCgvRzq5SyChfI8fegHM8beny109Q2egCZmn/U/Rs
+ C/tUtFNeUP4QJQw==
 X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
  fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_042837_061254_3ABC0AC1 
-X-CRM114-Status: GOOD (  21.92  )
-X-Spam-Score: -2.0 (--)
+X-CRM114-CacheID: sfid-20261104_042838_171065_83D72BE5 
+X-CRM114-Status: GOOD (  18.61  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,107 +92,245 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,TRACKER_ID,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The V4L2 generic ISP parameters buffers described in
-Documentation/driver-api/media/v4l2-isp.rst has a problem in that if
-a driver using the parameters format is running a stream and the
-device is suspended to RAM and later resumed, userspace will not tend
-to reconfigure it with _all_ of the possible parameter blocks. The
-format allows only a subset to be populated into the buffer queued to
-the driver and this is the common practice in libcamera. The effect
-will be that a resumed device will have lost any configuration that
-tends to be sent only a single time at the start of a stream, for
-example lens shading table settings.
-
-This series performs some preliminary cleanup and then adds the "reset
-buffer" concept to v4l2-isp. This is a mechanism through which user
-space can flag a struct v4l2_isp_block_header.flags as needing to be
-reapplied on device reset, such that the v4l2-isp framework will store
-that block into a buffer allocated for the purpose when it validates
-the block. 
-
-The last patch in the series updates the rkisp1 driver to use the
-v4l2-isp reset buffer to reapply that saved configuration on resume.
-
-An alternative approach might simply be to store the "last seen" copy
-of any block in the reset buffer - this would be a simple change.
-That implies a lot more processing on the majority of frames, as we'll
-then always copy at least something, but it reduces the risk of losing
-a setting. That amount of processing each frame seems very undesirable
-to me though, particularly given the scene will presumably have changed
-after resume and so the settings like AWB gains that are applied for
-most frames are probably out of date anyway. On the other hand we may
-end up flagging a lot of blocks, as there's parameters that might be
-changed mid-stream (like gamma) but would not be so regularly changed
-that we could just rely on them being sent naturally on resume, so a
-third approach might be to invert the meaning of the flag and store
-any block that _isn't_ flagged as _not_ needing to be reapplied.
-
-I'm open to opinions on how best to set the balance!
-
-Please note that the changes for the C3 and Dreamchip are only compile
-tested.
-
-Thanks
-Dan
+Update the framework's APIs to use the centrally held data rather
+than require users to pass data in to each function call.
 
 Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
 ---
-Daniel Scally (7):
-      media: rppx1: Drop max_size param from rppx1_params()
-      media: v4l2-isp: Hold v4l2-isp data in central struct
-      media: v4l2-isp: Update users to initialise and validate new struct
-      media: v4l2-isp: Use centrally-held data in framework
-      media: v4l2-isp: Add v4l2_isp_params_for_each_block()
-      media: v4l2-isp: Introduce "reset buffer" concept
-      media: rkisp1: Re-apply v4l2-isp reset buffer on resume
+ drivers/media/platform/amlogic/c3/isp/c3-isp-params.c |  9 +++------
+ drivers/media/platform/arm/mali-c55/mali-c55-params.c |  8 ++------
+ drivers/media/platform/dreamchip/rppx1/rpp_params.c   |  7 ++-----
+ .../media/platform/rockchip/rkisp1/rkisp1-params.c    |  9 +++------
+ drivers/media/v4l2-core/v4l2-isp.c                    | 19 +++++++++----------
+ include/media/v4l2-isp.h                              | 18 ++++++------------
+ 6 files changed, 25 insertions(+), 45 deletions(-)
 
- Documentation/userspace-api/media/v4l/v4l2-isp.rst |  19 ++++
- .../media/platform/amlogic/c3/isp/c3-isp-common.h  |   2 +
- .../media/platform/amlogic/c3/isp/c3-isp-params.c  |  28 +++--
- .../media/platform/arm/mali-c55/mali-c55-common.h  |   1 +
- .../media/platform/arm/mali-c55/mali-c55-params.c  |  28 ++---
- .../media/platform/dreamchip/rppx1/rpp_params.c    |  30 +++--
- drivers/media/platform/dreamchip/rppx1/rppx1.c     |   8 ++
- drivers/media/platform/dreamchip/rppx1/rppx1.h     |   5 +
- drivers/media/platform/renesas/rcar-isp/core-io.c  |   3 +-
- .../media/platform/rockchip/rkisp1/rkisp1-common.h |   3 +
- .../media/platform/rockchip/rkisp1/rkisp1-params.c |  61 ++++++----
- drivers/media/v4l2-core/v4l2-isp.c                 | 126 +++++++++++++++++++--
- include/media/rppx1.h                              |   2 +-
- include/media/v4l2-isp.h                           | 109 ++++++++++++++----
- include/uapi/linux/media/v4l2-isp.h                |   1 +
- 15 files changed, 331 insertions(+), 95 deletions(-)
----
-base-commit: 00178eda305a332f302882849ff7374d4169be8b
-change-id: 20261030-v4l2-isp-resume-41fad731df28
-prerequisite-change-id: 20261028-rkisp1-suspend-and-resume-7d4f388a9a61:v1
-prerequisite-patch-id: 8f6b499ef7898229c5b02e987822dd676a0cfd74
-prerequisite-patch-id: 56d0852983c6f46537c03ca3bec71e0ce4046431
-prerequisite-patch-id: 0b9edd21d24a25c620792dfa692d91346ceccdde
-prerequisite-patch-id: 3b9425028cd62b60b3dc3dbd2fc3b5a8912a1fb4
-prerequisite-patch-id: 771f986e2754383e7b5a920b25bf1609dc96f0b4
-prerequisite-patch-id: 79c95d6375d662a4f75cccd8650b3fab05e4e66c
-prerequisite-patch-id: e2ff2463db4934e707afbf0a239270d26dbf8189
-prerequisite-patch-id: 5a923b7606f7cc60fd6b75be2d73231470043bcb
-prerequisite-patch-id: fb80748a1a24316cdd77481b60936f716fd0aa71
-prerequisite-patch-id: 1450f7d1f4b1a41e7ce65ea6d2fbd450d3a198ad
-prerequisite-patch-id: d1d2ba9927536b110f7fbc0c68698d08afb74c27
-prerequisite-patch-id: c2ae6f91cb9662307f90070523945ee03a79c4c3
-prerequisite-patch-id: 87b425bde44fe889367a93302629dc011a3ec88a
-prerequisite-patch-id: 25e4c9ee767dc61406adcf1e1463796a79832795
-prerequisite-patch-id: 82388f762700dbcf39fdc43e6ba56c1feb55733a
-prerequisite-patch-id: a4ad2fb2c7f8659c6d9bdcd9718a7ee69f124838
+diff --git a/drivers/media/platform/amlogic/c3/isp/c3-isp-params.c b/drivers/media/platform/amlogic/c3/isp/c3-isp-params.c
+index 25f6a7d9bad9d61d641690f43faceaae0f938da5..f0b330520f97ad3bb701de3aed35670158508829 100644
+--- a/drivers/media/platform/amlogic/c3/isp/c3-isp-params.c
++++ b/drivers/media/platform/amlogic/c3/isp/c3-isp-params.c
+@@ -809,8 +809,7 @@ static int c3_isp_params_vb2_buf_prepare(struct vb2_buffer *vb)
+ 	struct c3_isp_params_cfg *cfg = buf->cfg;
+ 	int ret;
+ 
+-	ret = v4l2_isp_params_validate_buffer_size(params->isp->dev, vb,
+-						   params->vfmt.fmt.meta.buffersize);
++	ret = v4l2_isp_params_validate_buffer_size(&params->v4l2_isp, vb);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -820,10 +819,8 @@ static int c3_isp_params_vb2_buf_prepare(struct vb2_buffer *vb)
+ 	 */
+ 	memcpy(cfg, usr_cfg, payload_size);
+ 
+-	return v4l2_isp_params_validate_buffer(params->isp->dev, vb,
+-					(struct v4l2_isp_params_buffer *)cfg,
+-					c3_isp_params_block_types_info,
+-					ARRAY_SIZE(c3_isp_params_block_types_info));
++	return v4l2_isp_params_validate_buffer(&params->v4l2_isp, vb,
++					(struct v4l2_isp_params_buffer *)cfg);
+ }
+ 
+ static int c3_isp_params_vb2_buf_init(struct vb2_buffer *vb)
+diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-params.c b/drivers/media/platform/arm/mali-c55/mali-c55-params.c
+index 06509152a51a1d47355d3c7c9985112ce3c20450..7b9d2650ce8730ccc05eee0c9dc33a88d022acf1 100644
+--- a/drivers/media/platform/arm/mali-c55/mali-c55-params.c
++++ b/drivers/media/platform/arm/mali-c55/mali-c55-params.c
+@@ -707,14 +707,12 @@ static int mali_c55_params_buf_prepare(struct vb2_buffer *vb)
+ 	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
+ 	struct mali_c55_params_buf *buf = to_mali_c55_params_buf(vbuf);
+ 	struct v4l2_isp_params_buffer *config = vb2_plane_vaddr(vb, 0);
+-	struct mali_c55 *mali_c55 = params->mali_c55;
+ 	int ret;
+ 
+ 	if (!config)
+ 		return -EFAULT;
+ 
+-	ret = v4l2_isp_params_validate_buffer_size(mali_c55->dev, vb,
+-			v4l2_isp_buffer_size(MALI_C55_PARAMS_MAX_SIZE));
++	ret = v4l2_isp_params_validate_buffer_size(&params->v4l2_isp, vb);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -726,9 +724,7 @@ static int mali_c55_params_buf_prepare(struct vb2_buffer *vb)
+ 
+ 	memcpy(buf->config, config, v4l2_isp_buffer_size(MALI_C55_PARAMS_MAX_SIZE));
+ 
+-	return v4l2_isp_params_validate_buffer(mali_c55->dev, vb, buf->config,
+-					       mali_c55_params_block_types_info,
+-					       ARRAY_SIZE(mali_c55_params_block_types_info));
++	return v4l2_isp_params_validate_buffer(&params->v4l2_isp, vb, buf->config);
+ }
+ 
+ static void mali_c55_params_buf_queue(struct vb2_buffer *vb)
+diff --git a/drivers/media/platform/dreamchip/rppx1/rpp_params.c b/drivers/media/platform/dreamchip/rppx1/rpp_params.c
+index 5b8b471198ec1d540f31c0ac1b15d0d54bd808fc..aff3f3a997b4134b753fd1e1faf2058216f4b939 100644
+--- a/drivers/media/platform/dreamchip/rppx1/rpp_params.c
++++ b/drivers/media/platform/dreamchip/rppx1/rpp_params.c
+@@ -57,16 +57,13 @@ int rppx1_params(struct rppx1 *rpp, struct vb2_buffer *vb,
+ 	size_t block_offset;
+ 	int ret;
+ 
+-	ret = v4l2_isp_params_validate_buffer_size(rpp->dev, vb,
+-				v4l2_isp_buffer_size(RPPX1_PARAMS_MAX_SIZE));
++	ret = v4l2_isp_params_validate_buffer_size(&rpp->isp, vb);
+ 	if (ret)
+ 		return ret;
+ 
+ 	cfg = vb2_plane_vaddr(&vbuf->vb2_buf, 0);
+ 
+-	ret = v4l2_isp_params_validate_buffer(rpp->dev, vb, cfg,
+-					      rppx1_ext_params_blocks_info,
+-					      ARRAY_SIZE(rppx1_ext_params_blocks_info));
++	ret = v4l2_isp_params_validate_buffer(&rpp->isp, vb, cfg);
+ 	if (ret)
+ 		return ret;
+ 
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+index 756332d8bd154c3175ad5d563f6e5cf615f42499..8974c520d1879f3f0f642819a41984f6ac3ee01d 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+@@ -2735,8 +2735,7 @@ static int rkisp1_params_prepare_ext_params(struct rkisp1_params *params,
+ 		vb2_plane_vaddr(&vbuf->vb2_buf, 0);
+ 	int ret;
+ 
+-	ret = v4l2_isp_params_validate_buffer_size(params->rkisp1->dev, vb,
+-						   params->metafmt->buffersize);
++	ret = v4l2_isp_params_validate_buffer_size(&params->v4l2_isp, vb);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -2746,10 +2745,8 @@ static int rkisp1_params_prepare_ext_params(struct rkisp1_params *params,
+ 	 */
+ 	memcpy(cfg, usr_cfg, payload_size);
+ 
+-	return v4l2_isp_params_validate_buffer(params->rkisp1->dev, vb,
+-				(struct v4l2_isp_params_buffer *)cfg,
+-				rkisp1_ext_params_block_types_info,
+-				ARRAY_SIZE(rkisp1_ext_params_block_types_info));
++	return v4l2_isp_params_validate_buffer(&params->v4l2_isp, vb,
++				(struct v4l2_isp_params_buffer *)cfg);
+ }
+ 
+ static int rkisp1_params_vb2_buf_prepare(struct vb2_buffer *vb)
+diff --git a/drivers/media/v4l2-core/v4l2-isp.c b/drivers/media/v4l2-core/v4l2-isp.c
+index a979c0690d19d9956a45657561b510546b3aa8c2..925632e1037db18f0948ceb0ce7c652e167516c9 100644
+--- a/drivers/media/v4l2-core/v4l2-isp.c
++++ b/drivers/media/v4l2-core/v4l2-isp.c
+@@ -54,15 +54,15 @@ int v4l2_isp_validate(struct v4l2_isp *isp)
+ }
+ EXPORT_SYMBOL_GPL(v4l2_isp_validate);
+ 
+-int v4l2_isp_params_validate_buffer_size(struct device *dev,
+-					 struct vb2_buffer *vb,
+-					 size_t max_size)
++int v4l2_isp_params_validate_buffer_size(struct v4l2_isp *isp,
++					 struct vb2_buffer *vb)
+ {
+ 	size_t header_size = offsetof(struct v4l2_isp_params_buffer, data);
+ 	size_t payload_size = vb2_get_plane_payload(vb, 0);
++	struct device *dev = isp->dev;
+ 
+ 	/* Payload size can't be greater than the destination buffer size */
+-	if (payload_size > max_size) {
++	if (payload_size > isp->params.max_size) {
+ 		dev_dbg(dev, "Payload size is too large: %zu\n", payload_size);
+ 		return -EINVAL;
+ 	}
+@@ -77,13 +77,12 @@ int v4l2_isp_params_validate_buffer_size(struct device *dev,
+ }
+ EXPORT_SYMBOL_GPL(v4l2_isp_params_validate_buffer_size);
+ 
+-int v4l2_isp_params_validate_buffer(struct device *dev, struct vb2_buffer *vb,
+-				    const struct v4l2_isp_params_buffer *buffer,
+-				    const struct v4l2_isp_params_block_type_info *type_info,
+-				    size_t num_block_types)
++int v4l2_isp_params_validate_buffer(struct v4l2_isp *isp, struct vb2_buffer *vb,
++				    const struct v4l2_isp_params_buffer *buffer)
+ {
+ 	size_t header_size = offsetof(struct v4l2_isp_params_buffer, data);
+ 	size_t payload_size = vb2_get_plane_payload(vb, 0);
++	struct device *dev = isp->dev;
+ 	size_t block_offset = 0;
+ 	size_t buffer_size;
+ 
+@@ -118,7 +117,7 @@ int v4l2_isp_params_validate_buffer(struct device *dev, struct vb2_buffer *vb,
+ 		block = (const struct v4l2_isp_params_block_header *)
+ 			(buffer->data + block_offset);
+ 
+-		if (block->type >= num_block_types) {
++		if (block->type >= isp->params.num_block_types) {
+ 			dev_dbg(dev,
+ 				"Invalid block type %u at offset %zu\n",
+ 				block->type, block_offset);
+@@ -147,7 +146,7 @@ int v4l2_isp_params_validate_buffer(struct device *dev, struct vb2_buffer *vb,
+ 		 * with data that a later kernel, once it implements the type,
+ 		 * would validate and possibly reject.
+ 		 */
+-		info = &type_info[block->type];
++		info = &isp->params.types_info[block->type];
+ 		if (!info->size) {
+ 			dev_dbg(dev, "Unsupported block type %u at offset %zu\n",
+ 				block->type, block_offset);
+diff --git a/include/media/v4l2-isp.h b/include/media/v4l2-isp.h
+index dc3e612ef79ea510ec1535f483fc16c6ec3d4569..b758d9b0e7f5c29cd8c4197f4a4a86cf3e5334fc 100644
+--- a/include/media/v4l2-isp.h
++++ b/include/media/v4l2-isp.h
+@@ -91,9 +91,8 @@ int v4l2_isp_validate(struct v4l2_isp *isp);
+ 
+ /**
+  * v4l2_isp_params_validate_buffer_size - Validate a V4L2 ISP buffer sizes
+- * @dev: the driver's device pointer
++ * @isp: the driver's &struct v4l2_isp pointer
+  * @vb: the videobuf2 buffer
+- * @max_size: the maximum allowed buffer size
+  *
+  * This function performs validation of the size of a V4L2 ISP parameters buffer
+  * before the driver can access the actual data buffer content.
+@@ -106,17 +105,14 @@ int v4l2_isp_validate(struct v4l2_isp *isp);
+  * against @max_size and it's validated to be large enough to accommodate at
+  * least one ISP configuration block.
+  */
+-int v4l2_isp_params_validate_buffer_size(struct device *dev,
+-					 struct vb2_buffer *vb,
+-					 size_t max_size);
++int v4l2_isp_params_validate_buffer_size(struct v4l2_isp *isp,
++					 struct vb2_buffer *vb);
+ 
+ /**
+  * v4l2_isp_params_validate_buffer - Validate a V4L2 ISP parameters buffer
+- * @dev: the driver's device pointer
++ * @isp: the driver's &struct v4l2_isp pointer
+  * @vb: the videobuf2 buffer
+  * @buffer: the V4L2 ISP parameters buffer
+- * @type_info: the array of per-block-type validation info
+- * @num_block_types: the number of block types in the type_info array
+  *
+  * This function completes the validation of a V4L2 ISP parameters buffer,
+  * verifying each configuration block correctness before the driver can use
+@@ -129,10 +125,8 @@ int v4l2_isp_params_validate_buffer_size(struct device *dev,
+  * to prevent userspace from modifying its content after it has been submitted
+  * to the driver, and then call this function to complete validation.
+  */
+-int v4l2_isp_params_validate_buffer(struct device *dev, struct vb2_buffer *vb,
+-				    const struct v4l2_isp_params_buffer *buffer,
+-				    const struct v4l2_isp_params_block_type_info *type_info,
+-				    size_t num_block_types);
++int v4l2_isp_params_validate_buffer(struct v4l2_isp *isp, struct vb2_buffer *vb,
++				    const struct v4l2_isp_params_buffer *buffer);
+ 
+ /**
+  * struct v4l2_isp_stats_block_type_info - V4L2 ISP stats per-block-type info
 
-Best regards,
 -- 
-Daniel Scally <dan.scally@ideasonboard.com>
+2.43.0
 
 
