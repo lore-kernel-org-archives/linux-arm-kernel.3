@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73CD3606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 14:03:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 214B8606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 14:05:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CMXRd2Rk;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G3zOtOlW
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3+AeXAA+;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iFhQ25LS
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,54 +14,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=uknA9LO5XfZyma+M7n03w/JxLoJTVSxXbrmN0E2Qqwk=; b=CMXRd2Rkh8et3ykjqNCWKeo89P
-	RtZrNQgFFPqajzxUmeleuBRl+AJVvQ4Ez9VsLg8588g6QHThiYR7+T2YdWsJ8RTaMgIda9QcbVpOZ
-	r0MdV+G+mFRBDBj/6Jt/u8K/XSpAD4SSV4Ncd5M8Pqz7HTjZfPdGYS9xhibT1qESOelBf+elj2X6l
-	lUxnRwzIGeq9G6ZmRAzNLZWZ/F3TqornxM73rpRCaZWlYTkWBb7Oejryr+0imYnw/hPOpbcy++9YN
-	vc/7VM6aAfEyMleiedlL2fRq0zUV5u6fhCxO+MLJX7Azz7KYdUfVNO8MONVYRrZv7J3gW0EIqd2FT
-	DiqJCgCw==;
+	bh=eH9cP+eSCph2k6r+Y5Wz7HRU49O/httC0nGpICpjyGY=; b=3+AeXAA+LpN5usqhwsRZxRc7oO
+	9K5/C0UpsfKenQLeOwyuobCpT1y/QXv+YhYBM594DF8DFy7Q2iCnq3nFi0f2Vb/TfUedPUx8oz+r4
+	Tq26D8b/omixm5BVfjZ/bPg5eVONmmDuvBQTMQ1nJ69aqlNAgqj9DG8nK5ykOLkEjz17TchPVFYjD
+	S5Lt/ZA1sZShO5w0ugW5yu4HJ6kIVdYo6R1NhaCj/5RoqKYEMeC5MwQCSxGd5EX9zGrYbLZ3qtDmL
+	HxArSZHGkaW7oq837o7QzaG/3uoBiaxmbkl0g4+WhYh95+sXNAPhbRqX+eKei3at+4AzaGlb+cNF/
+	+2pkaF3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xObaU-00000005YMj-0aFR;
-	Wed, 04 Nov 2026 14:03:38 +0000
+	id 1xObc7-00000005YZr-1s2G;
+	Wed, 04 Nov 2026 14:05:19 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xObaS-00000005YMI-3Dal
+	id 1xObc5-00000005YZf-2wr0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 14:03:36 +0000
+	Wed, 04 Nov 2026 14:05:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 85E4A40351;
-	Wed,  4 Nov 2026 14:03:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E94E1F000C1;
-	Wed,  4 Nov 2026 14:03:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6343243B9E;
+	Wed,  4 Nov 2026 14:05:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF1161F000C1;
+	Wed,  4 Nov 2026 14:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793801016;
-	bh=uknA9LO5XfZyma+M7n03w/JxLoJTVSxXbrmN0E2Qqwk=;
+	s=k20260515; t=1793801117;
+	bh=eH9cP+eSCph2k6r+Y5Wz7HRU49O/httC0nGpICpjyGY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=G3zOtOlWX3MGmRDd5z/B4xbOCZZdTwCaGj35JCzfNwkvryB8Lgtd5yWEpArAooh63
-	 enx/9Uowo+XlfwgYddKPXN6IvHQ4UwitDFFZQoqMGWZ/5jrWG1mB7Ub2T8mrtnwK9C
-	 10xfSV0BEtoZVLwAlTkPWG8llG+QezSFxQ/L6TrOof5EMwuow2nGs3tAziCJ68WAZW
-	 46U0Jsi7d+s8ZenOVI99LKlKuV7LjsmcBEf85/SKzlI4/wLMBnG7KnScjRDe3ZQ9xR
-	 GBMlM7hGYZfi6l728afXvYzWPew12XKhawrid3K7RnZ5BRXRuMKvRnPbK27W++r1iK
-	 ngFpNwQY8LX+w==
-Date: Wed, 4 Nov 2026 15:03:32 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Shan-Chun Hung <shanchun1218@gmail.com>
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, vkoul@kernel.org, 
-	Frank.Li@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	kees@kernel.org, gustavoars@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	dmaengine@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: dma: nuvoton,ma35d1-pdma: Document
- MA35D1 PDMA controller
-Message-ID: <20261104-vole-of-legendary-plenty-811cf1@quoll>
-References: <20261103022202.2139674-1-shanchun1218@gmail.com>
- <20261103022202.2139674-2-shanchun1218@gmail.com>
+	b=iFhQ25LS6X8qFxZw+3UIXhlc5l0jQ2ka1gGkAeCYFAa5lpRq2bVUcA1h0kqugd6Q2
+	 OPPSDJv2HXSXByIRZvS0a4o8r+fm07mesoJdu2PMdDW11eANd4OdCxrhzXS8/aH9ne
+	 yPBEoVek3oXs2suxt3CPsujAYluewP8XYd27E5FY+iTE6MUZajETjVBeiLUKa770ax
+	 9R+Jp+mqLJzkyzJZgtDi3fUWxtdc+4H2MOKurlulaE6cnRie3B5wLL1ZQlYzF1H3A4
+	 5KEBRVfqEcqbqJJYFq4ghyexetbZ32/JEEnzONhUuEeYcP6l0T4pvBoRDHPN3dHUCg
+	 k2PgtJB//J+Zw==
+Date: Wed, 4 Nov 2026 14:05:12 +0000
+From: Will Deacon <will@kernel.org>
+To: Oleg Nesterov <oleg@redhat.com>
+Cc: Zhao Gongyi <zhaogongyi@bytedance.com>, catalin.marinas@arm.com,
+	mark.rutland@arm.com, ruanjinjie@huawei.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: ptrace: don't warn on missing siginfo in a
+ group-stop
+Message-ID: <aus7mMS4tXAzPCSi@willie-the-truck>
+References: <20261023110710.10145-1-zhaogongyi@bytedance.com>
+ <attf9KALBQyOGyco@redhat.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261103022202.2139674-2-shanchun1218@gmail.com>
+In-Reply-To: <attf9KALBQyOGyco@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,178 +70,75 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Nov 03, 2026 at 10:22:01AM +0800, Shan-Chun Hung wrote:
-> Add binding for Nuvoton MA35D1 PDMA controller.
+Hey Oleg,
+
+On Fri, Oct 23, 2026 at 03:24:04PM +0200, Oleg Nesterov wrote:
+> On 10/23, Zhao Gongyi wrote:
+> >
+> > --- a/arch/arm64/kernel/ptrace.c
+> > +++ b/arch/arm64/kernel/ptrace.c
+> > @@ -573,10 +573,6 @@ static void update_syscall_orig_x0_after_ptrace(struct task_struct *target)
+> >  	if (regs->syscallno == NO_SYSCALL)
+> >  		return;
+> >
+> > -	/* We should only be called when target is in a ptrace stop */
+> > -	if (WARN_ON_ONCE(!info))
+> > -		return;
+> > -
+> >  	/*
+> >  	 * For compat tasks, orig_r0 is provided directly through GPR index
+> >  	 * 17.
+> > @@ -588,7 +584,7 @@ static void update_syscall_orig_x0_after_ptrace(struct task_struct *target)
+> >  	 * Don't update orig_x0 for a syscall-exit-stop, as x0 now contains the
+> >  	 * return value of the system call.
+> >  	 */
+> > -	if ((info->si_code & ~0x80) == SIGTRAP &&
+> > +	if (info && (info->si_code & ~0x80) == SIGTRAP &&
+> >  	    target->ptrace_message == PTRACE_EVENTMSG_SYSCALL_EXIT) {
+> >  		return;
 > 
+> LGTM, but I don't understand this arm-specific code.
 
-Looks like valid Sashiko review, so only few nits, not a full review:
+Welcome to the club :)
 
-> Signed-off-by: Shan-Chun Hung <shanchun1218@gmail.com>
-> ---
->  .../bindings/dma/nuvoton,ma35d1-pdma.yaml     |  72 +++++++++++
->  include/dt-bindings/dma/ma35d1-pdma.h         | 113 ++++++++++++++++++
->  2 files changed, 185 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/dma/nuvoton,ma35d1-pdma.yaml
->  create mode 100644 include/dt-bindings/dma/ma35d1-pdma.h
-> 
-> diff --git a/Documentation/devicetree/bindings/dma/nuvoton,ma35d1-pdma.yaml b/Documentation/devicetree/bindings/dma/nuvoton,ma35d1-pdma.yaml
-> new file mode 100644
-> index 000000000000..cd752571242c
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/dma/nuvoton,ma35d1-pdma.yaml
-> @@ -0,0 +1,72 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/dma/nuvoton,ma35d1-pdma.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Nuvoton MA35D1 PDMA controller
-> +
-> +description:
-> +  This describes the devicetree bindings for four Peripheral DMA engines to perform
+The original rationale is described in e057b9477232 ("arm64: syscall:
+Ensure saved x0 is kept in-sync with tracer updates"), so hopefully that
+helps to set the scene. The crux of the problem is that the x0 register
+on arm64 is used both for the first argument of a system call but also
+for the return value, which causes difficulties for things like syscall
+restarting, syscall skipping and syscall reporting in /proc/<pid>/syscall.
 
-Do not describe what the binding document is describe. Just describe
-that directly, so explain the hardware. Look at other examples.
+We handle that by keeping the original argument value in a shadow variable,
+orig_x0, in the pt_regs and using that to implement the problematic
+mechanisms above, including the accessors used by seccomp in asm/syscall.h.
 
-> +  memory-to-memory, memory-to-peripheral, or peripheral-to-memory data transfer
-> +  capable of supporting 10 channels, implemented in Nuvoton MA35D1 SoCs.
-> +
-> +maintainers:
-> +  - Shan-Chun Hung <shanchun1218@gmail.com>
-> +
-> +allOf:
-> +  - $ref: dma-controller.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: nuvoton,ma35d1-pdma
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  "#dma-cells":
-> +    const: 2
-> +    description:
-> +      The first cell is the channel number. The second cell is the
-> +      peripheral request source (REQSRC) selection, which defines which
-> +      peripheral is connected to that PDMA channel.
-> +
-> +  dma-channels:
-> +    const: 10
+The bug was (a) that we only copied x0 into orig_x0 early on the syscall
+path (el0_svc_common()), which meant that tracer updates to x0 would not
+be visible to seccomp filters and (b) that we passed x0 to the syscall,
+which meant that the unchecked value was used as the first argument.
 
-Why isn't this implied by the compatible? Drop.
+My initial fix (in e057b9477232) tried to copy x0 back into orig_x0
+after tracer updates on the syscall entry path, however this didn't work
+with some of the more complicated seccomp interactions (involving BPF
+programs and SECCOMP_RET_TRACE) and so commit 88b839ce497c ("arm64: ptrace:
+Keep 'orig_x0' in-sync with x0 on syscall entry") took a different
+approach of updating orig_x0 at a lower-level, whenever x0 is written
+by ptrace *and* we're on the syscall entry path. The latter check is
+really a "we're not on the syscall exit path" so that we can handle the
+seccomp case.
 
-> +
-> +additionalProperties: false
+So that's the mess we're in and I'm all ears if there's a cleaner way to
+sort it out without breaking anything that relies on the fragile semantics
+we already have.
 
-This goes after required block.
+Cheers,
 
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - interrupts
-> +  - "#dma-cells"
-> +  - dma-channels
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
-> +
-> +    soc {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        dma-controller@40080000 {
-> +            compatible = "nuvoton,ma35d1-pdma";
-> +            reg = <0x0 0x40080000 0x0 0x2000>;
-> +            interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
-> +            clocks = <&clk PDMA0_GATE>;
-> +            #dma-cells = <2>;
-> +            dma-channels = <10>;
-> +        };
-> +    };
-> +
-> +...
-> diff --git a/include/dt-bindings/dma/ma35d1-pdma.h b/include/dt-bindings/dma/ma35d1-pdma.h
-> new file mode 100644
-> index 000000000000..0ddc99d29661
-> --- /dev/null
-> +++ b/include/dt-bindings/dma/ma35d1-pdma.h
-
-Filename must match the binding filename.
-
-> @@ -0,0 +1,113 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * Copyright (C) 2026 Nuvoton Technology Corp.
-> + */
-> +
-> +#ifndef __DT_BINDINGS_DMA_MA35D1_PDMA_H__
-> +#define __DT_BINDINGS_DMA_MA35D1_PDMA_H__
-> +
-> +#define MA35D1_PDMA_MEM			0
-
-
-Hole
-
-> +#define MA35D1_PDMA_UART0_TX		4
-> +#define MA35D1_PDMA_UART0_RX		5
-> +#define MA35D1_PDMA_UART1_TX		6
-> +#define MA35D1_PDMA_UART1_RX		7
-> +#define MA35D1_PDMA_UART2_TX		8
-> +#define MA35D1_PDMA_UART2_RX		9
-> +#define MA35D1_PDMA_UART3_TX		10
-> +#define MA35D1_PDMA_UART3_RX		11
-> +#define MA35D1_PDMA_UART4_TX		12
-> +#define MA35D1_PDMA_UART4_RX		13
-> +#define MA35D1_PDMA_UART5_TX		14
-> +#define MA35D1_PDMA_UART5_RX		15
-> +#define MA35D1_PDMA_UART6_TX		16
-> +#define MA35D1_PDMA_UART6_RX		17
-> +#define MA35D1_PDMA_UART7_TX		18
-> +#define MA35D1_PDMA_UART7_RX		19
-> +#define MA35D1_PDMA_UART8_TX		20
-> +#define MA35D1_PDMA_UART8_RX		21
-> +#define MA35D1_PDMA_UART9_TX		22
-> +#define MA35D1_PDMA_UART9_RX		23
-> +#define MA35D1_PDMA_UART10_TX		24
-> +#define MA35D1_PDMA_UART10_RX		25
-> +#define MA35D1_PDMA_UART11_TX		26
-> +#define MA35D1_PDMA_UART11_RX		27
-> +#define MA35D1_PDMA_UART12_TX		28
-> +#define MA35D1_PDMA_UART12_RX		29
-> +#define MA35D1_PDMA_UART13_TX		30
-> +#define MA35D1_PDMA_UART13_RX		31
-> +#define MA35D1_PDMA_UART14_TX		32
-> +#define MA35D1_PDMA_UART14_RX		33
-> +#define MA35D1_PDMA_UART15_TX		34
-> +#define MA35D1_PDMA_UART15_RX		35
-> +#define MA35D1_PDMA_UART16_TX		36
-> +#define MA35D1_PDMA_UART16_RX		37
-> +#define MA35D1_PDMA_QSPI0_TX		54
-
-You should not have holes in the ABI or this is not DT ABI, so drop or
-move out entire file from bindings.
-
-Best regards,
-Krzysztof
-
+Will
 
