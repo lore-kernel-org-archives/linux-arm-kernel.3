@@ -2,68 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24CCE606A333
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 17:29:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B654606EEA3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 17:36:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FfUEbu9u;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ad3K59ZV
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EgFiQWgU;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ndfZr0Qf
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=yDbkb1XED6qncOAadzXW360XIzlZHMnFZRPOUhpQgSU=; b=FfUEbu9uEHHLNTyjBLSfUPGNd5
-	HL/863104W1AhVB4lndxy8geEs2l4kzAVhkaVNk26Mg9050vZuGaqrvuaQY4CYm4fcAr0gJRLLcnZ
-	aLrZB9wbcsIv1gffHQXW1SdK/GC1WuloP3esUEW2YTrfRLlBvFMlL2WQfsiDWMBtsioODnHmwdQTb
-	GNZmeslW02sYmx/ok0LtcN2eVBelO4IA8mtDIX/2WkkA8C7aKUDLk9CPnJ0EYtBmX1kc8HurbGgb/
-	QUZmzUxVYNEGmO0lh1M8alJyvqiVXGXf0XPdiNtWdcnx3mXVo2DuXy6X66XEnr5NYkm/Q7eKyCaqv
-	H8UsRaYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=G20Wy6mvQhIhx6DbI6mVst9t/UsYM5tKx7o8MtawhC8=; b=EgFiQWgUmS7bs1
+	Zg/2l3Ml5RTX9kXmM6ZHF1sGBJq37iwJzuNx2bEmTzwMJM5D/WiI3And+doAn79AAWHlBbFE/dDvh
+	ZWKdRm0Th+hb2Gm8kqelNL+lDwzT+sn/Vs41B7lkJ99Ex5UVieyD7L+vuqkXd1Y0Yi3FtnGXHsdQy
+	1alY6/eUR+RYTgc/nRuTDOfcFOnSh23Ei0lHMRSkaaGi9kegQNr7JVF13l5Cc7tVVvlD28IPkDH6Q
+	gOoeJiVO/IjpU72MTDc4dPT34bu1aAnZZ8o8//4nqubRldE/d30CD2p1gbuFXPNYwYcTG2ZQpjN/w
+	+5aD58ga0KKNRj6evFoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOeni-00000006DGA-47ud;
-	Wed, 04 Nov 2026 17:29:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOeni-00000006DFJ-0Y8S
+	id 1xOeu7-00000006Ewr-2MRi;
+	Wed, 04 Nov 2026 17:36:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOeu4-00000006Evl-35bi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 17:29:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3AD6860A7F;
-	Wed,  4 Nov 2026 17:29:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3244B1F00A16;
-	Wed,  4 Nov 2026 17:29:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793813368;
-	bh=yDbkb1XED6qncOAadzXW360XIzlZHMnFZRPOUhpQgSU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ad3K59ZVwey0zN+ISekqtJdevUXZTFq9kr5r6K9gxSakjrzb9VFhME1mvJWxZZCbR
-	 C3okzBzlhkWouCNkouGn0AwWpmtcPyuK0AlxNRavWXvZ0Wh5UHW424pQYEpfBinoXr
-	 ZyMZSDhubMTw/4GQN4BLOV2yPY8j+Vs6GZOs/n1hKOn7MS0BWjtc6GdGGlAYue1k9O
-	 Wnd5QnSlC+APeAjd5WL8RVORlBTdbO/bcWky9AkIo+6M8q02hod5kE5bNH+N01lIP/
-	 AV53S+B/1sNH08KkjMMsMcRBMj2rureyOC4U6CAvXRhBpXdmkpGRUa341Hqn7KZHv2
-	 8Yg5aTzE07zcg==
-Date: Wed, 4 Nov 2026 18:29:25 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Devarsh Thakkar <devarsht@ti.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, LiangCheng Wang <zaq14760@gmail.com>
-Subject: Re: [PATCH v3 12/14] MAINTAINERS: Add entry for Solomon SSD16xx DRM
- driver
-Message-ID: <20261104-shrewd-traditional-goose-a382db@quoll>
-References: <20261019213726.4145532-1-devarsht@ti.com>
- <20261019213726.4145532-13-devarsht@ti.com>
+	Wed, 04 Nov 2026 17:36:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2A391BB0;
+	Wed,  4 Nov 2026 09:36:00 -0800 (PST)
+Received: from [10.57.90.115] (unknown [10.57.90.115])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 783133F673;
+	Wed,  4 Nov 2026 09:36:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793813763; bh=8YUIckxR/Kf62QtZ2ufF3DzvzhbMTOa7JbCXcU787hI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ndfZr0Qfl4BmjWFbLIDOfv7FasvdeCY1iV9z4z1mlwaskQYTjslhGpmaPhLOTjzFU
+	 AihpTEpECsvh4sn6Rx9EoLuW14kAiy4hZEduQSYinChn7Nz4vrSYooKESOowNOJmSQ
+	 QiDM1orkqob7nAvLCkHGiY7JpvCAU51GAtv86Hxs=
+Message-ID: <7da011fa-5bb1-4090-8421-eeebb42c1b26@arm.com>
+Date: Wed, 4 Nov 2026 17:35:59 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261019213726.4145532-13-devarsht@ti.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 04/10] irqchip/gic-v5: Serialise ITS invalidation commands
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+ Radu Rendec <radu@rendec.net>, Timothy Hayes <timothy.hayes@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Jonathan Cameron <jic23@kernel.org>,
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Sashiko AI <sashiko-bot@kernel.org>, stable@vger.kernel.org
+References: <20261102-host_gicv5_fixes-v1-0-743b61626fc5@arm.com>
+ <20261102-host_gicv5_fixes-v1-4-743b61626fc5@arm.com>
+ <auiyrFXjX0hGgd7D@red-moon>
+Content-Language: en-GB
+From: Sascha Bischoff <sascha.bischoff@arm.com>
+In-Reply-To: <auiyrFXjX0hGgd7D@red-moon>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261104_093604_854940_91CAD2CA 
+X-CRM114-Status: GOOD (  22.27  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,25 +76,110 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Oct 20, 2026 at 03:07:24AM +0530, Devarsh Thakkar wrote:
+On 02/11/2026 15:56, Lorenzo Pieralisi wrote:
+> On Mon, Nov 02, 2026 at 01:32:57PM +0000, Sascha Bischoff wrote:
+>> The ITS uses DIDR and EIDR to select the translation to invalidate.
+>> These registers are shared by all interrupts targeting the ITS. Event
+>> invalidation can run concurrently for different IRQs, and device
+>> invalidation can overlap it. The per-IRQ descriptor lock does not
+>> serialise the commands, so one CPU can accidentally issue an
+>> invalidation using another CPU's DeviceID or EventID.
+> 
+> "Another CPU's DeviceID or EventID " can probably be explained better
+> (or just removed because it is unclear) I understand there is a link to
+> Sashiko's report but it is worth updating the log IMO.
+> 
+> "using the DeviceID or EventID associated with an IRQ that is invalidated
+> on another CPU" or something like that.
+> 
+>> Add a raw spinlock to each ITS and hold it across the command register
+>> writes and the STATUSR.IDLE poll for both invalidation paths. A raw
+>> spinlock is required because the forwarding path calls the event
+> 
+> Can you please define "the forwarding path" more explicitly ?  See above.
 
-> +DRM DRIVER FOR SOLOMON SSD16XX E-PAPER DISPLAY CONTROLLERS
-> +M:	Devarsh Thakkar <devarsht@ti.com>
-> +R:	LiangCheng Wang <zaq14760@gmail.com>
-> +S:	Maintained
+I've tried to clean up this commit message to give the required context.
 
-> +T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
+Thanks for the feedback!
 
-Drop, you do not commit there.
+> 
+> Thanks,
+> Lorenzo
 
-Best regards,
-Krzysztof
+Thanks,
+Sascha
+
+> 
+>> invalidation helper with the IRQ descriptor lock held.
+>>
+>> Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
+>> Reported-by: Sashiko AI <sashiko-bot@kernel.org>
+>> Link: https://sashiko.dev/#/patchset/20261016155741.979985-1-sascha.bischoff@arm.com?part=11
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+>> ---
+>>   drivers/irqchip/irq-gic-v5-its.c | 9 +++++++++
+>>   1 file changed, 9 insertions(+)
+>>
+>> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
+>> index 28e39b065de0e..6d98f3dbe34b6 100644
+>> --- a/drivers/irqchip/irq-gic-v5-its.c
+>> +++ b/drivers/irqchip/irq-gic-v5-its.c
+>> @@ -16,6 +16,7 @@
+>>   #include <linux/of_address.h>
+>>   #include <linux/of_irq.h>
+>>   #include <linux/slab.h>
+>> +#include <linux/spinlock.h>
+>>   
+>>   #include <linux/irqchip.h>
+>>   #include <linux/irqchip/arm-gic-v5.h>
+>> @@ -28,6 +29,8 @@
+>>   struct gicv5_its_chip_data {
+>>   	struct	xarray			its_devices;
+>>   	struct	mutex			dev_alloc_lock;
+>> +	/* Event and device invalidation commands share DIDR. */
+>> +	raw_spinlock_t			inv_lock;
+>>   	struct	fwnode_handle		*fwnode;
+>>   	struct gicv5_its_devtab_cfg	devtab_cfgr;
+>>   	void	__iomem			*its_base;
+>> @@ -129,6 +132,8 @@ static int gicv5_its_itt_cache_inv(struct gicv5_its_chip_data *its, u32 device_i
+>>   	eidr = FIELD_PREP(GICV5_ITS_EIDR_EVENTID, event_id);
+>>   	eventr = FIELD_PREP(GICV5_ITS_INV_EVENTR_I, 0x1);
+>>   
+>> +	guard(raw_spinlock_irqsave)(&its->inv_lock);
+>> +
+>>   	its_writeq_relaxed(its, didr, GICV5_ITS_DIDR);
+>>   	its_writel_relaxed(its, eidr, GICV5_ITS_EIDR);
+>>   	its_writel_relaxed(its, eventr, GICV5_ITS_INV_EVENTR);
+>> @@ -371,6 +376,9 @@ static int gicv5_its_device_cache_inv(struct gicv5_its_chip_data *its,
+>>   		  FIELD_PREP(GICV5_ITS_INV_DEVICER_EVENTID_BITS,
+>>   			     its_dev->itt_cfg.event_id_bits)	|
+>>   		  FIELD_PREP(GICV5_ITS_INV_DEVICER_L1, 0x0);
+>> +
+>> +	guard(raw_spinlock_irqsave)(&its->inv_lock);
+>> +
+>>   	its_writeq_relaxed(its, didr, GICV5_ITS_DIDR);
+>>   	its_writel_relaxed(its, devicer, GICV5_ITS_INV_DEVICER);
+>>   
+>> @@ -1112,6 +1120,7 @@ static int __init gicv5_its_init_bases(void __iomem *its_base, struct fwnode_han
+>>   		return -ENOMEM;
+>>   
+>>   	mutex_init(&its_node->dev_alloc_lock);
+>> +	raw_spin_lock_init(&its_node->inv_lock);
+>>   	xa_init(&its_node->its_devices);
+>>   	its_node->fwnode = handle;
+>>   	its_node->its_base = its_base;
+>>
+>> -- 
+>> 2.34.1
+>>
 
 
