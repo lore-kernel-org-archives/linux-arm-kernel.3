@@ -2,53 +2,53 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90208606A337
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 07:50:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04110606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 07:51:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=x3eqy45a;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dSFRndyi
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Qsh+y3+Q;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kuCZxDfw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=eanFIhKnRmMtFwx9MbBDusXnDhS1QecflN5oOWQ62fM=; b=x3eqy45aOiDUK/
-	ZaNjNnmRoUDQV8OHdFDCtBhps73ySKxW4NMw0HUe2kB/MvvNlSj5drelW+iU5eI6Xp3KzJD2Qs9t+
-	v77q2WPVplN2yBgs6avFPXmhziJokFbdLTOxPUEs/zGy6v0i+9LcnrVzWwvCPqMADxYK46DLJfyYf
-	ctlptab+04DifoxJgE5EG2L6mWlLNz6ehemTLp2ndOScy3/3lEaCrkMenq9spZgsQFxXq5GTnB61O
-	kJs2Zf0A7gYNvOsEDOHZNA4ivoR+8LMPj9kY+CjW9wOacpBmeZG4CaLY1cLjZf7lVkadp2rxdveO4
-	zdIpWa4/1CkZe3mdt1nA==;
+	List-Owner; bh=wib53BzBWIQ/iei6dV6vU1OpXkGrKSEW+nY3L1O5OIg=; b=Qsh+y3+QdTG8cn
+	a2vztnP1RR14eZO4aOuX8qnGOCrv97M5bwbzzJ2ua2kn9MtcCR59VETWQxzozJ+FZbuLmUrGQsc0N
+	eCi0vwsJGtBaCb7/EpImTRU96jwkFa2wWRNzJfcr2XOL98a53Al0yyUSLYy5yMas0I1vCzq9rXHXt
+	Os9GGqIfJabH+dsPx/wMeT/xNF115OlVvGfnKfcsK/bve0ualhE4UqDYxJOAN3t/HIfseCTyWFXPg
+	DzCVX4nSsYNsmSTrLfgAQqOutbJxDqE4o8CzDLxDnJ/8NP0hQ7uHqtvaqN9r0TRciM8o6vBx8Gt8a
+	1webe0EZUfACjXNPEfpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOVhM-00000004atd-17Km;
-	Wed, 04 Nov 2026 07:46:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xOVlu-00000004bpi-3rPR;
+	Wed, 04 Nov 2026 07:51:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOVhL-00000004asq-3Cad
+	id 1xOVlu-00000004bpR-0SGZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 07:46:19 +0000
+	Wed, 04 Nov 2026 07:51:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D6A6D60D93;
-	Wed,  4 Nov 2026 07:46:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B8711F00A17;
-	Wed,  4 Nov 2026 07:46:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8267B410AB;
+	Wed,  4 Nov 2026 07:51:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47A1B1F000C1;
+	Wed,  4 Nov 2026 07:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793778378;
-	bh=eanFIhKnRmMtFwx9MbBDusXnDhS1QecflN5oOWQ62fM=;
+	s=k20260515; t=1793778661;
+	bh=wib53BzBWIQ/iei6dV6vU1OpXkGrKSEW+nY3L1O5OIg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=dSFRndyip3BJTqj1aGrzUi6ygh1wNRxo0P7y5EzfgHvnMFEZg4EzD1vNSg35+CPN9
-	 joXYlMnhvDe49qF2r33p2sy2btCo0GJA7R+H5yTZUin+ly4KvGN41vtqQUA8HwqOVA
-	 /r4ZTG0vSQaeUWwAjFN59Nk04L3m0cMpECj2DjV820AdfAYqOqJXzIIL81QrsnrU+c
-	 mOldf5jty6nK6thQ6K1WcAt/GE/2oyP3tEMfbUW+K0sAhhYjOo/gXqcMggnleAHeBH
-	 pPEA9W2+MwhMdJrRgtwB+3bheO1ll0nHOZuG+ob2Kap2OE/eIxD2FIrEnAg6lVmZ4N
-	 JfnIj44BZuX7A==
-Message-ID: <7c35c198-5202-4e02-a23f-7a86415a5bcf@kernel.org>
-Date: Wed, 4 Nov 2026 08:46:11 +0100
+	b=kuCZxDfwwPYseCHjmRpB6DbMkv90BKj1wP/P+k6wp9pXFCc3d7gpULh8ZvDONi26Z
+	 1QubdnZHY+p7Xn5BjIX6HGpbscbtgK8sQnmh1uaWkwG5X6NXmY/IY18YW7bVkTyb5N
+	 z0TGdc2bltmyKQfEYHh7oQibC1QOlmkVlPIemf8qOiPdVMjLPWDDJ9ukexoMMZIzDM
+	 ZXNLmp0OF9yZ0CogbjG1PVlDCaQZwCAFzahPBawICH39VvjOaoG7RyOsecjXqCR4V7
+	 QZF5umCpj2rXRh55TTqaFh1ah3TsyHwX3KlNvkq+v9Xq18XdD8u6Wc5cGE3ud91YjG
+	 nBGF0LvJCzabA==
+Message-ID: <b28d5657-8491-41ae-821e-2b8c4d212244@kernel.org>
+Date: Wed, 4 Nov 2026 08:50:53 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/3] arm64: dts: cix: Add USB4/USB5 nodes for Sky1
+Subject: Re: [PATCH v5 1/3] dt-bindings: usb: Add CIX Sky1 USBSSP controller
 To: =?UTF-8?B?SG9uZ2xpYW5nIFlhbmcgKOadqOWuj+S6rik=?=
  <hongliang.yang@cixtech.com>, Greg Kroah-Hartman
  <gregkh@linuxfoundation.org>, Peter Chen <peter.chen@kernel.org>,
@@ -64,7 +64,7 @@ Cc: "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  cix-kernel-upstream <cix-kernel-upstream@cixtech.com>
 References: <20261103074929.1971195-1-hongliang.yang@cixtech.com>
- <20261103074929.1971195-4-hongliang.yang@cixtech.com>
+ <20261103074929.1971195-2-hongliang.yang@cixtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,7 +110,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20261103074929.1971195-4-hongliang.yang@cixtech.com>
+In-Reply-To: <20261103074929.1971195-2-hongliang.yang@cixtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -123,37 +123,74 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 On 03/11/2026 08:49, Hongliang Yang (杨宏亮) wrote:
-> Add USB4 and USB5 controller nodes for the CIX Sky1 SoC. Enable USB4
-> and USB5 in host mode on the Radxa Orion O6 board.
-> 
-> The two controllers share the RCSU register region and their glue
-> registers are interleaved inside it, so the region is described by a
-> simple-bus container with an address-translating ranges property and
-> each controller maps its registers as offsets inside that region.
-> 
-> Signed-off-by: Hongliang Yang <hongliang.yang@cixtech.com>
-> ---
-> v4 -> v5:
-> - Fixed continuation line indentation reported by checkpatch.
->  arch/arm64/boot/dts/cix/sky1-orion-o6.dts | 42 ++++++++++
->  arch/arm64/boot/dts/cix/sky1.dtsi         | 95 +++++++++++++++++++++++
->  2 files changed, 137 insertions(+)
+> Add device tree binding for the CIX Sky1 Cadence USBSSP controller
+> glue layer. Each controller has an AXI bus attribute configuration
+> register and a controller status register. The glue registers of the
+> two controllers are interleaved inside a shared RCSU region, which is
+> represented as a simple-bus container node with an address-translating
+
+Shared region is not a simple bus. Simple bus is a simple bus, so
+obviously is not a shared region.
+
+> ranges property; each glue node describes its registers as offsets
+> inside that region. Mode strap controls are programmed through the
+> Sky1 S5 system controller referenced by the cix,usb-syscon phandle.
+> The CIX glue node wraps a Cadence USBSSP core as a child node.
 > 
 
-No improvements, since v2. You never responded to feedback, never asked
-for clarifications, just ignored it. At v4 I tried to explain it more,
-you did not respond.
 
-NAK.
+> +    soc {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        usb-rcsu@91c0300 {
+> +            compatible = "simple-bus";
+> +            #address-cells = <2>;
+> +            #size-cells = <2>;
+> +            ranges = <0x00 0x00000000 0x00 0x091c0300 0x00 0x150>,
+> +                     <0x00 0x091d0000 0x00 0x091d0000 0x00 0x20000>;
+
+Drop node. Not relevant.
+
+
+> +
+> +            usb@14 {
+
+So this is @14
+
+> +                compatible = "cix,sky1-usbssp";
+> +                reg = <0x00 0x14 0x00 0x10>,
+> +                      <0x00 0x100 0x00 0x10>;
+> +                reg-names = "axi", "status";
+> +                ranges;
+> +                #address-cells = <2>;
+> +                #size-cells = <2>;
+> +
+> +                clocks = <&scmi_clk CLK_TREE_USB3A_H0_CLK_SOF>,
+> +                         <&scmi_clk CLK_TREE_USB3A_0_AXI_GATE>,
+> +                         <&scmi_clk CLK_TREE_USB3A_H0_CLK_LPM>,
+> +                         <&scmi_clk CLK_TREE_USB3A_0_APB_GATE>;
+> +                clock-names = "sof", "axi", "lpm", "apb";
+> +                resets = <&src SKY1_USBC_SS2_PRST_N>,
+> +                         <&src SKY1_USBC_SS2_RST_N>;
+> +                reset-names = "apb", "core";
+> +                cix,usb-syscon = <&src>;
+> +
+> +                usb@91d0000 {
+
+But this is at @91d0000
+
+You have completely fake representation of hardware.
+
 
 Best regards,
 Krzysztof
