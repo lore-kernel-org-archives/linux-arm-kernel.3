@@ -2,49 +2,49 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CA0F606A332
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 15:27:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11CCB606D820
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 15:27:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4m4i3gim;
-	dkim=pass (2048-bit key, unprotected) header.d=posteo.net header.i=@posteo.net header.a=rsa-sha256 header.s=1984.8680eb header.b=EZAUJ5Ps
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rRZhS4Fn;
+	dkim=pass (2048-bit key, unprotected) header.d=posteo.net header.i=@posteo.net header.a=rsa-sha256 header.s=1984.8680eb header.b=EDt2T1A/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=JN22oxdaN3zgBX5qNztQ4ZuT8bGPH+vtOiywU9Zm/R0=; b=4m4i3gimdgJq5S
-	b79X/shbOxridf1WXK5ojSv/9xfz4HVJ+mmPgwBN5TwzP67z5CDHkKlihZ50FFmKO4finWwX7uq1q
-	boxD1vdR/K4aCH5hv8ay0iZcbEv+V0ksq3rMAhnw+j7HwoqsoenLEMEuscFEbHN8pbDJc1+hknszC
-	12WpS6DEnxHCBK7jY7ixYmjlJ6jnvuH2hGd2ZlxPPHsq31FbuFCK5ylaMBAX+cur2diarOH62092v
-	RJdYAqpX/c0wm8KagBN4je6tP24/x1Q5yDxphrgBpeRJK89Ilqi/F3UkbYLinyv059JGgcuqmS/5h
-	nsjQVjeE5+gUn1QWce5Q==;
+	List-Owner; bh=Y8EIbelQmwDXNINKGdWYmBtsdh5/PXS0KvgWapyB5tc=; b=rRZhS4Fnm3bQsu
+	HNwK/A8ZQXvPGX+evbbWYNuM2bjo3SsmhAU3ViiGpZDPC4CyauSwDxnXkFye7P4OwwxR2B2BhmmCq
+	6EKVIPIjX6mx0FtpIGxwBZXTp+o3vQkABBtqoueZk0vMMocVZfLhT1mMIOPIRWbrYoP7w+WWTlh6S
+	lSmfuga+BUf17OX9zp/PV6nARVeKC/xZU+ZI26mfgupDuzUZWHeztB9BTn7y8uJiidBCQfCdyYzj3
+	kyEHSMVVymRzRuY8HZr2JV72pUOtAWVGuJoqC/Y0ZswbpiBRwKgPMQB9IVBhYdQw1Gqjr+0LiU1Gd
+	hEJSrvPhb80ppytqtA5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOctc-00000005mQT-3SGH;
-	Wed, 04 Nov 2026 15:27:28 +0000
+	id 1xOctc-00000005mQh-3wLE;
+	Wed, 04 Nov 2026 15:27:30 +0000
 Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOctY-00000005mNR-0HI1
+	id 1xOctW-00000005mNQ-3v8c
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 15:27:25 +0000
+	Wed, 04 Nov 2026 15:27:26 +0000
 Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id 50915240104
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Nov 2026 16:27:22 +0100 (CET)
+	by mout02.posteo.de (Postfix) with ESMTPS id B7B9C240101
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Nov 2026 16:27:20 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net;
-	s=1984.8680eb; t=1793806042;
-	bh=JN22oxdaN3zgBX5qNztQ4ZuT8bGPH+vtOiywU9Zm/R0=;
+	s=1984.8680eb; t=1793806040;
+	bh=Y8EIbelQmwDXNINKGdWYmBtsdh5/PXS0KvgWapyB5tc=;
 	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:
 	 Content-Transfer-Encoding:From;
-	b=EZAUJ5PspiLCVJ+gpdACGaT/RQHwloO815etCseAXsLgHh+6L/aAYYBo2pGtU1Hg2
-	 ADHhQckFJsIZicQIo66QTfSjaa0BBR/xJQGQ+teKq9BFIwrjDSvD1jEgebOpuHaYI8
-	 S9ohrzi7+nSIELEk8RZa0Xc/WI43M87RHxOpBnc+8rxi9wT4IhR9frb2B3ceG2oG55
-	 BbgVkt6eein0A8sYJJwFVU3AfqjsbcD1qA/7oCEl4ehpV4ch8h/G9mayI8eFfHLGMT
-	 5Jomv72iIwd2hpz6Ax8i05F7zR+KNB0zoIzQ/4h90NKNAQAUNkl/6qtF/qy/j8Xoh2
-	 22glTK3I+yy9w==
+	b=EDt2T1A/H/qJwI0uM0Q+PARbq4xwvf+KMlWwEPp1KbAWzflsfpklK0VyZQ9QDWsG/
+	 Du+TAHpIWadKuRXNV0dwPkIUTBRjraUc5nakFGFu8tnGlFcc8FrwYFvf4IG24U/lK5
+	 7BoQs6+WqdNocoZIaJMkpW9P5TrQBm9f2UCrQRrTHjAP9y8fKaUhIfP7J0HpZOemM7
+	 vB24B750up6pkg1OtGDihWGd/dmwtTvYKwJn7cxnZhyFZqaLKCSuXcf43mlMYh8mtL
+	 fJ/TZzEWIEgVqh31VSWjqBT23yd9CVaBPAWp23A8ZPnQKSc6F+X5SApDyBBdDxrAbm
+	 k+J2XlW0tfedA==
 Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4jKTp00wwKz9rxV;
-	Wed,  4 Nov 2026 16:27:20 +0100 (CET)
+	by submission (posteo.de) with ESMTPSA id 4jKTny3vGQz9rxW;
+	Wed,  4 Nov 2026 16:27:18 +0100 (CET)
 From: Mateusz Nowicki <mateusz.nowicki@posteo.net>
 To: Ulf Hansson <ulfh@kernel.org>,
 	linux-mmc@vger.kernel.org
@@ -63,17 +63,17 @@ Cc: Christophe Kerello <christophe.kerello@foss.st.com>,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org,
 	Mateusz Nowicki <mateusz.nowicki@posteo.net>
-Subject: [PATCH v2 3/5] mmc: mmci: stm32: use the delay block above 100 MHz on stm32mp25 SoC
-Date: Wed, 04 Nov 2026 15:27:21 +0000
-Message-ID: <20261104152657.14909-4-mateusz.nowicki@posteo.net>
+Subject: [PATCH v2 2/5] mmc: mmci: stm32: release the delay block before enabling it
+Date: Wed, 04 Nov 2026 15:27:20 +0000
+Message-ID: <20261104152657.14909-3-mateusz.nowicki@posteo.net>
 In-Reply-To: <20261104152657.14909-1-mateusz.nowicki@posteo.net>
 References: <20261104152657.14909-1-mateusz.nowicki@posteo.net>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_072724_413562_0440BACB 
-X-CRM114-Status: GOOD (  15.76  )
+X-CRM114-CacheID: sfid-20261104_072723_137292_757D6400 
+X-CRM114-Status: GOOD (  13.15  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,75 +95,51 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Christophe Kerello <christophe.kerello@foss.st.com>
 
-On stm32mp25 SoC, the delay block has to be used only for an external
-data frequency above 100 MHz. Skip the tuning up to that frequency, keep
-50 MHz for stm32mp15 as before.
+The delay block must be locked on the last frequency set. To avoid it
+staying locked on a frequency used before, disable it first and wait for
+the lock to drop before enabling it again.
 
 Fixes: b5c3eb385797 ("mmc: mmci: stm32: add delay block support for STM32MP25")
 Cc: stable@vger.kernel.org
 Signed-off-by: Christophe Kerello <christophe.kerello@foss.st.com>
-[Mateusz: reworded the commit message, check dlyb before reading
-min_freq, added Fixes and Cc stable]
+[Mateusz: reworded the commit message, added Fixes and Cc stable]
 Signed-off-by: Mateusz Nowicki <mateusz.nowicki@posteo.net>
 ---
 
 Notes:
-    On the STM32MP257F-DK (SDMMC2 kernel clock 200 MHz, eMMC in HS200 at
-    100 MHz) the writes failed with I/O errors in all 9 test runs without
-    this change, with sdmmc2 pins_a or pins_b and with or without NEGEDGE.
-    With it all 6 runs were correct, on both pin groups.
+    On the STM32MP257F-DK eMMC in HS200 at 150 MHz, switching from DDR52 to
+    HS200 made the tuning pick a wrong phase in 9 of 18 tries without this
+    change, the phase was right in all 12 tries with it.
 
- drivers/mmc/host/mmci_stm32_sdmmc.c | 16 +++++++++++-----
- 1 file changed, 11 insertions(+), 5 deletions(-)
+ drivers/mmc/host/mmci_stm32_sdmmc.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/mmc/host/mmci_stm32_sdmmc.c b/drivers/mmc/host/mmci_stm32_sdmmc.c
-index bb058e0910ad..a50dc58336de 100644
+index 9dc51859c2e5..bb058e0910ad 100644
 --- a/drivers/mmc/host/mmci_stm32_sdmmc.c
 +++ b/drivers/mmc/host/mmci_stm32_sdmmc.c
-@@ -75,6 +75,7 @@ struct sdmmc_dlyb {
- 	void __iomem *base;
- 	u32 unit;
- 	u32 max;
-+	unsigned int min_freq;
- 	struct sdmmc_tuning_ops *ops;
- };
+@@ -537,10 +537,20 @@ static int sdmmc_dlyb_mp15_prepare(struct mmci_host *host)
+ static int sdmmc_dlyb_mp25_enable(struct sdmmc_dlyb *dlyb)
+ {
+ 	u32 cr, sr;
++	int ret;
  
-@@ -636,14 +637,16 @@ static int sdmmc_execute_tuning(struct mmc_host *mmc, u32 opcode)
- 	u32 clk;
- 	int ret;
+ 	cr = readl_relaxed(dlyb->base + SYSCFG_DLYBSD_CR);
+-	cr |= DLYBSD_CR_EN;
  
--	if ((host->mmc->ios.timing != MMC_TIMING_UHS_SDR104 &&
--	     host->mmc->ios.timing != MMC_TIMING_MMC_HS200) ||
--	    host->mmc->actual_clock <= 50000000)
-+	if (host->mmc->ios.timing != MMC_TIMING_UHS_SDR104 &&
-+	    host->mmc->ios.timing != MMC_TIMING_MMC_HS200)
- 		return 0;
- 
- 	if (!dlyb || !dlyb->base)
- 		return -EINVAL;
- 
-+	if (host->mmc->actual_clock <= dlyb->min_freq)
-+		return 0;
++	cr &= ~DLYBSD_CR_EN;
++	writel_relaxed(cr, dlyb->base + SYSCFG_DLYBSD_CR);
 +
- 	ret = dlyb->ops->dlyb_enable(dlyb);
- 	if (ret)
- 		return ret;
-@@ -749,10 +752,13 @@ void sdmmc_variant_init(struct mmci_host *host)
- 		return;
++	ret = readl_relaxed_poll_timeout(dlyb->base + SYSCFG_DLYBSD_SR,
++					 sr, !(sr & DLYBSD_SR_LOCK), 1,
++					 DLYBSD_TIMEOUT_1S_IN_US);
++	if (ret)
++		return ret;
++
++	cr |= DLYBSD_CR_EN;
+ 	writel_relaxed(cr, dlyb->base + SYSCFG_DLYBSD_CR);
  
- 	dlyb->base = base_dlyb;
--	if (of_device_is_compatible(np, "st,stm32mp25-sdmmc2"))
-+	if (of_device_is_compatible(np, "st,stm32mp25-sdmmc2")) {
- 		dlyb->ops = &dlyb_tuning_mp25_ops;
--	else
-+		dlyb->min_freq = 100000000;
-+	} else {
- 		dlyb->ops = &dlyb_tuning_mp15_ops;
-+		dlyb->min_freq = 50000000;
-+	}
- 
- 	host->variant_priv = dlyb;
- 	host->mmc_ops->execute_tuning = sdmmc_execute_tuning;
+ 	return readl_relaxed_poll_timeout(dlyb->base + SYSCFG_DLYBSD_SR,
 -- 
 2.56.0
 
