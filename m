@@ -2,115 +2,108 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 536E1606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:51:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7DBE606A330
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:51:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Q9s0zcE+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ywGU5SNK;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WmKHW74P
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=k8vcglFdNRJ+Ul+n5cwH3SgLZqsIg3iHMh0FJsU5jOg=; b=Q9s0zcE+Bl4+4RCXDPbjz/6T8m
-	Q3bB07AFQBM7lI5HvA0Sh+++LfpgO+mdm2QQFXABntE1Nwf/TESlfGbco4ar8lCwAVJRLKwVcJ3+g
-	qWdpoWgjlx6HAVtYBqBhQUnZsGh4eqvHZtzqdJBpHEhu15Jzl/r7jfEDkhuifKsIMo4837S47AJmn
-	Cy9HO3rfUGuFmor/pUbopVi/+lfnH3tComwybQTvh/b5B+Td++fllLMZyWxi/yocSiDa0wJDstCE8
-	9pQwY0QBjJERtQ0Yu2ExlSTqmmSkEfczsiVA4sM0iO4P6zaHBGkyfFuh2hLmn5xk56zbG0JZ8m4Nj
-	c9VjMsuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=wXHNHwyHqZyMWvC89h3xRMVsL0F7PlcQnNFtH9sdpDM=; b=ywGU5SNKnEV0xf
+	6E26kAO4cyhF7iKdW/bixOE/PYxHpP8MUWVzkJIzf8hWcwd+7pDY3c6bEsICodbteAxj+ZsGN22YT
+	Y2hMrn3/MRSnS6xvySz4hX8yAkDcm9ydRJpRjamRuKZlMggYGjWPS0iPuK0nCmHIR+DEqAj8i5RCJ
+	aM/7dBateG4OIJSjhlM0nKwDNS1PwF0kxdWcsTfni3p4M+EEDMqMxsTRVtyim6uzm+rNkzxCuO7L0
+	MpshHeRHcR+JqT5e7yjf2TC6irV7NkaqjbPMryD3tc3CuPRVP3HYYBt+ogkMeqETewz9/Awz6Es/e
+	SDeAHPcUOT0+P5c3dlKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOaRo-00000005NqE-1m82;
-	Wed, 04 Nov 2026 12:50:36 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1xOaS6-00000005OEx-1c5v;
+	Wed, 04 Nov 2026 12:50:54 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOaRg-00000005Nhs-2RvC
+	id 1xOaS0-00000005O6u-3QZh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 12:50:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iv6T842IxCo2fFYIdnrNvsS2rouUZwyTbqk+/Ue/HBn8E0iAUAyKwxqJUqAmCcxoz9nHH5Dg6gogSnht8icCF4BmnB/vvT010Doxr74RtgAm2bV594XS0/JuL/z0xV9lwdhBUrR62t7yIvVuF0GhFSCZm5jzY1Dl+1KwHvql/YIZDjTutrqzrM78aIT4FU0XaJgsfpZn11rmAf4VgQEsRzutriBdGj8oOHbxiJsE2s3azZj4mBZU3yXeJ66M+mRC2xvn+ZsGa+2/0zGKN5qco1cW/05jS0xkqWU6zb2YX2dUMOH+F7amA+lwc+hmF63DFjgekj+6pNFMuqpkLSd6aA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=k8vcglFdNRJ+Ul+n5cwH3SgLZqsIg3iHMh0FJsU5jOg=;
- b=WE4WPLUo7DeQF4fvHr4q/ilDIYCGULS0IMp97UWMBcb1VJm75vtkOG/aqifhP5oGHLOSd18mZTwxlysloTLWOeA05yAYnL2iysGv0fZwNgv3P0NwODhegGDwU7hcUL+WS4ODSVr613ilIX3e7i3rOF8LfNDgYabPextktpEgvBa8AaHBBpRUk8dPPynmP2gi8oCFRS74Xs11kxZKLaKxhxCV/bxvG+mrSnNR6zeq98y6ELxK5Ds+pqEu2zfplaWy1mIU+tVlCregPKQzMvJexOU88MZ4819vIDJdNsnX566dV2w62dt2Yq6hUFn5C0ljYL9CVScq6wpon7/W/kaBnQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI2PR02CA0020.apcprd02.prod.outlook.com (2603:1096:4:195::7) by
- TY2PPFB683BA8FF.apcprd06.prod.outlook.com (2603:1096:408::7a3) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.592.8; Wed, 4 Nov 2026 12:50:20 +0000
-Received: from SG2PEPF000B66CC.apcprd03.prod.outlook.com
- (2603:1096:4:195:cafe::44) by SI2PR02CA0020.outlook.office365.com
- (2603:1096:4:195::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.9 via Frontend Transport; Wed, 4
- Nov 2026 12:50:20 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66CC.mail.protection.outlook.com (10.167.240.25) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.592.5 via Frontend Transport; Wed, 4 Nov 2026 12:50:19 +0000
-Received: from ubuntu (unknown [172.20.64.99])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 1FF0840920E2;
-	Wed,  4 Nov 2026 20:44:38 +0800 (CST)
-From: Jelly Jia <Jelly.Jia@cixtech.com>
-To: vkoul@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	robin.murphy@arm.com,
-	sboyd@kernel.org,
-	bmasney+clk@redhat.com,
-	jbrunet+clk@baylibre.com
-Cc: devicetree@vger.kernel.org,
-	Frank.Li@kernel.org,
-	cix-kernel-upstream@cixtech.com,
-	dmaengine@vger.kernel.org,
+	Wed, 04 Nov 2026 12:50:52 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-cc4c02ddd62so430635a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 04:50:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793796648; x=1794401448; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wXHNHwyHqZyMWvC89h3xRMVsL0F7PlcQnNFtH9sdpDM=;
+        b=WmKHW74P5YK3fbtgdV0j5mh2YuqtWtoqI0VotoB/KQp2CqAQAtmCSRoSKyy3mhRDpz
+         NC4LEOFN8rWwdOpNly+uNHiUJcnPD8+REjVfz1/A408SV8yfQ15wr0gyJZ+a6lCLmU62
+         QCmIGc8Bkg3IS+BmkDvyLRvZ9EqLdKMy7CrQRWTVg68sCjp56sr56IIX2HLLh2jxiACV
+         5lB/hYa5iUou2vArB+IVpq21h1CRikSjvfjDq6stzCWO13g0ro9a6r+VvmegQd4qN2sL
+         zf6UswKIfmm7We8rcIvEuNGETntvSy2Jo1CHIYwI+Y+j32XA1pgEpz3PBlSw9TKDOsyk
+         gfow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793796648; x=1794401448;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wXHNHwyHqZyMWvC89h3xRMVsL0F7PlcQnNFtH9sdpDM=;
+        b=MfjI7+xF3YOoEniavj381SF6IKhm1FEQW21/1vR15GFTQTNHm/TjZ5LucolPAO4Uc2
+         0+d9pP/8aWfR+aKVfm/k02ekpgODA8ZfdYawFWIuIDlWL6B2ajazV3by/7k6BVqDbd3b
+         kuI2wo4w+dL8kq4tKuegf5bwHMJyljZiNQUYH/Il3zwAgxN0l96YFYQyR+wNSdZ23zFD
+         6DFItOr3Nk6QDOkI8U8jsr2mI1lAKM0ag0WhLefUZyduXb27i7k3cFNBxNZkprndAmfH
+         f1hwuvGs7ghOd5c3k32dRjfalnLKydgK7HRgGd6xfAFGJ8yNJDnh4Q8+7gjKtP12DMO3
+         WmUw==
+X-Forwarded-Encrypted: i=1; AKwUvBwI8SDdxqruZNWzzROt2E9MDlCra9Eaz6bp60lvRh7dwXTdqIlmi0ja6dGeaYMwLRWyn8omRbHEuhiDoekC7q5s@lists.infradead.org
+X-Gm-Message-State: APuU4Z+jGCO7LsSOJ9iSsURaS4LbtFJ0lKnM004f0acWywewdnGmISqq
+	iea5yrf07+czfpIp3CIi3StFjFUpfOsCyQfNqqZKHETha32YoJaV+pWfVT9ZOxa8
+X-Gm-Gg: AYBFou0wXmz//leD6eoasLBg+fkMbGJL3XlHE7kbDi+er6hN3y3S8J1uJsqwqCo7fNe
+	PjEk92bi1Qu4fCq3yhs/XXKxsPXg9OTK5latADgMfxSQ0e2HROQCOn2J7bqfY71frLqQHbpO2tN
+	EOymtPGo81tjNp3zAjfZFzFbWDul3vkE8wYZzJ83MyvVeEyqZ1WCozb1VU8GP++o8aD7gks3v8A
+	oEbHWHZY754Rk6u2LcmcCkW4sAdZ2jPFyrVgVcGAgUHPrP0gpxGjlOYnUo9xpVHkKXdFtR7jkEA
+	UWdFtIGWLtoSKPKPCbCoq7VbqFs5n0QXXcnNkGbbfmeLC6y20xe7AZjCZTJaQJ2aaHchTErA7Ab
+	duGvJqbO4IIiMQWaBZVycSO6Dlv+A3q3HKr9q9HFZW7iDsIsu++RhHnUVQkSLuNbqARSsUqXvLP
+	rzVres6YwZsm1G90Z0bZZrywspCs1ow6hCglG9eZl61OwG625zNw/vGR5VS259ApfF19EwoX073
+	wRRItEYmVEClbe4Lj5NRRSmrY7Z6NlFFY3ZcpF6/RB3RaEl636d66puSke/o4OWYp9O+bvZpYGR
+	dpPswhslLaKnA6f+vYZ9FELpuPDS
+X-Received: by 2002:a17:90b:4c52:b0:3ab:1481:69e5 with SMTP id 98e67ed59e1d1-3ae897ccbfdmr13704831a91.11.1793796647941;
+        Wed, 04 Nov 2026 04:50:47 -0800 (PST)
+Received: from server227.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b09449bff2sm3920799a91.9.2026.11.04.04.50.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Nov 2026 04:50:47 -0800 (PST)
+From: Zxyan Zhu <zxyan0222@gmail.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	maxime.chevallier@bootlin.com
+Cc: mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	richardcochran@gmail.com,
+	muhammad.nazim.amirul.nazle.asmade@altera.com,
+	rohan.g.thomas@altera.com,
+	o.rempel@pengutronix.de,
+	wojciech.drewek@intel.com,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Jelly.Jia@cixtech.com,
-	linux-clk@vger.kernel.org,
-	joakim.zhang@cixtech.com
-Subject: [PATCH v2 0/5] soc: cix: Add the Sky1 AUDSS DMA-350 interrupt path
-Date: Wed,  4 Nov 2026 20:44:32 +0800
-Message-ID: <20261104124437.296753-1-Jelly.Jia@cixtech.com>
-X-Mailer: git-send-email 2.56.0
+	Zxyan Zhu <zxyan0222@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH net-next v9 2/3] net: stmmac: guard against a zero channel in the aux snapshot handler
+Date: Wed,  4 Nov 2026 20:50:29 +0800
+Message-Id: <20261104125030.1183146-3-zxyan0222@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261104125030.1183146-1-zxyan0222@gmail.com>
+References: <20261104125030.1183146-1-zxyan0222@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CC:EE_|TY2PPFB683BA8FF:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: ecd55323-0c76-43ca-7c81-08df3a722f05
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|23010399003|1800799024|7416014|376014|6133799003|10067099003|18002099003|3023799007|261102123227099003|56012099006|5023799004|261022075727099003|261028144727099003|261021121427099003|261026121527099003|261022105027099003|261021123027099003|261026140227099003|261009223027099003|260925021911599003|260925021311599003|260925022911599003;
-X-Microsoft-Antispam-Message-Info: 7hU2y65PnE9YKwDKk+ptwUX2GE5IO1Hr4vtjQ9EPE9Qqpj0IUTBOoPPQpgkIrUVbVESze6fUc2Kok44tGof+c/F2u5lTJLnuMuuImEJwcY7R/4zTmUSXSF+0mKj5C7Sk1MPq8mkQ5Z/YhVMN9kr3AtNOg2z2L0r7z6hTw7YbEoq0mKQx7V9N4uHaKfmCKDPDH7LwQyl4gPcSza0wmzVHXRNurjCpk/FayEijnxiBcpLRXrQPSwcdEaHPHGU9SMnQZCgmUKa1BLVpJJv9BS7NWfyb2pJFQ23u2yFbuyRiwXGEFfbEUL//VTmUSKurXfH6kEziJzwY5ubGtzida8OZCNBpXtdd7doT3gEJ1dOlOfRu58BG2p2yGRNcBB3VPViAO8NFY5sFnmkxMh/BmTma69swUe+Lns8MVSd7FdkOhvnsyuU9CgHxlZx3JZL8eBUn67RBeidrhpKnyQETtQr1EdhzJ98LhxQ1IYZSeeINol30SaBIsn/PY3kH18e9eXFz+7FFUHPtyXagRtWXAeDVTvFj3fN3+72HhKpYI6nfbYPdVvGz6Y1/5MSrapEut7q4fzxP3GzaKkdLOfLNOkPep22OS5E0Ix/hC//vL1NrYgzfyr6gmBUC3lI2W+QZaRo2hypKWVWFtn7egho0JU7meWwRBbrpQG2vQP5d5e4yMSo9Qj2D27Z6mdS4hEGzTTgr5U76wbeTiblZ3xxt/wgXBA==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(23010399003)(1800799024)(7416014)(376014)(6133799003)(10067099003)(18002099003)(3023799007)(261102123227099003)(56012099006)(5023799004)(261022075727099003)(261028144727099003)(261021121427099003)(261026121527099003)(261022105027099003)(261021123027099003)(261026140227099003)(261009223027099003)(260925021911599003)(260925021311599003)(260925022911599003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: wmUI32+fX16G3RZDCpjO6Yk+VHWmX9mXiUpiMjACU2ISEVDxNBxGDyQZd9I2elLQmNwHNnJ19SO4b+UnXPmSMRsgetS/9HSMqmawLgRb8wkXa//7q+o3AJqq+tmJ7y56gBZvVZEX9CF5AYFinmbWIWxbHFrZ1hy/0XiS7jnQPGoFx+SFMVUIQZPhQrGRjSqbP96pvokCj/t9WuZXGCXdVBez6YiKUsGANmRNuikEvbq4yJbzoq1QKmxs7PqYnQmsE5rHXQKf2Vlp8GbVHd8ocojH0tTGKmPJnE9aFhst0kQXeDX0DzpS0SI9Xck+L2eW4GSAg3F/xdfZBeVxKLtXAAraTUz9JI2t4bZ/RkTSQ/z8/58/AOvp+2KV/3oBhTfJR2B8O4V912UtdyU2ncfldwbtx7oKiKyP13If83WYKYdyDcKlZPfujVUV3pAWhcRa
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 12:50:19.7750
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ecd55323-0c76-43ca-7c81-08df3a722f05
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CC.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY2PPFB683BA8FF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_045028_623870_0990FD17 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20261104_045048_860238_71B68A79 
+X-CRM114-Status: GOOD (  13.10  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,92 +115,53 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hello,
+The generic timestamp_interrupt() handler derives the EXTTS channel
+index with ilog2() applied directly to the PTP_ACR channel mask, with
+no check for a zero mask.  ilog2(0) yields -1, which ends up in
+event.index as 0xffffffff, and ptp_clock_event() uses that index in
+test_bit() against a PTP_MAX_CHANNELS bitmap without range validation,
+reading far past the allocation from hard IRQ context.
 
-This series adds the CIX Sky1 AUDSS DMA-350 and its interrupt path through
-the audio subsystem CRU. The DMA, CRU and DT changes are posted together
-because the controller depends on the CRU interrupt gates, while
-dma-channel-mask describes which channels Linux may use. Keeping them
-together allows the complete interrupt path to be reviewed. If separate
-submissions are preferred, they can be split in the next revision. No
-audio client drivers are added here.
+The zero-mask window is reachable: stmmac_enable() sets
+STMMAC_FLAG_EXT_SNAPSHOT_EN before it programs PTP_ACR, so an EXTTS
+interrupt arriving in between passes the flag check while the mask is
+still clear (snapshots can also linger in the FIFO from a previous
+enable, as only PTP_ACR_ATSFC clears them).
 
-It depends on the companion v5 series, "dmaengine: arm-dma350: Add slave
-support and Sky1 integration", for slave/cyclic transfers and optional
-clock and reset support. Apply that series first.
+Check the mask before applying the ilog2().
 
-The CRU gates the AP interrupt path for each of the eight DMA channels
-and combines enabled inputs onto GIC SPI 230. Channels may be reserved
-for firmware or the DSP; dma-channel-mask limits those available to Linux.
-The AP gate bits control interrupt delivery, not channel ownership, and
-this series does not implement runtime AP/DSP ownership transfer.
+Fixes: 8851346912a1 ("net: stmmac: Assign configured channel value to EXTTS event")
+Cc: stable@vger.kernel.org
+Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-Conor suggested interrupt-map when the routing was described as being
-configured by firmware. This series instead manages each AP gate via
-irq_mask and irq_unmask. A static interrupt-map alone would translate
-child specifiers to the shared GIC SPI but would not provide that gate
-control. Model the CRU as an irqchip so the register owner manages the
-gates, without CRU register accesses in the DMA driver. Feedback on this
-choice of irqchip rather than a static interrupt-map is welcome.
-
-The gate register exposes no per-channel pending status. The chained
-handler polls every enabled child, and each DMA channel handler checks
-its own status. The children use level flow handling with IRQ_IS_POLLED
-so disabled and oneshot-threaded interrupts remain masked, while inactive
-channels returning IRQ_NONE do not accumulate spurious-IRQ counts.
-
-The AUDSS DT describes a 1 MiB peripheral window and a 512 MiB DRAM window
-with dma-ranges. The prerequisite series allocates linked commands from
-a coherent DMA pool, so successfully allocated commands are reachable
-through the controller's DMA address windows.
-
-Changes since v1:
-- Drop the unrelated GIC node from the binding example. (Krzysztof.)
-- Retain Krzysztof's Reviewed-by for the dma-channel-mask binding. DMA-350
-  supports one to eight channels, so the single-cell mask is retained.
-  (Frank's array-handling question.)
-- Use raw regmap locking, explicit irq_disable and level flow handling
-  with polled children, including the oneshot-threaded case. (Sashiko.)
-- Dispose of child IRQ mappings before removing the domain and select
-  IRQ_DOMAIN for COMPILE_TEST configurations. (Sashiko.)
-- Associate the domain with the PM device, protect teardown register
-  accesses, quiesce the parent IRQ before runtime suspend and use noirq
-  system sleep callbacks. Save and restore software reset state as part
-  of the CRU context. (Sashiko.)
-- Rebase onto Linux 7.4-rc1 and use irq_domain_create_linear().
-
-Signed-off-by: Jelly Jia <Jelly.Jia@cixtech.com>
-
-Jelly Jia (5):
-  dt-bindings: soc: cix: Describe the Sky1 AUDSS DMA IRQ controller
-  clk: cix: Handle Sky1 AUDSS DMA interrupt gates as an irqchip
-  dt-bindings: dma: arm,dma-350: Document dma-channel-mask
-  dmaengine: arm-dma350: Honour dma-channel-mask
-  arm64: dts: cix: Add the Sky1 AUDSS DMA-350 integration
-
- .../devicetree/bindings/dma/arm,dma-350.yaml  |   3 +
- .../bindings/soc/cix/cix,sky1-audss-cru.yaml  |  37 +++-
- arch/arm64/boot/dts/cix/sky1.dtsi             |  26 ++-
- drivers/clk/cix/Kconfig                       |   1 +
- drivers/clk/cix/clk-sky1-audss.c              | 181 +++++++++++++++++-
- drivers/dma/arm-dma350.c                      |  20 +-
- 6 files changed, 261 insertions(+), 7 deletions(-)
-
-
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-prerequisite-patch-id: aad1bc3c30a4825048143a3e0395e696201548e9
-prerequisite-patch-id: d7f5243feddb5f16231302bd4c948d359ca92ac1
-prerequisite-patch-id: ddc9ee115f12a7d2ee7ceff7e0485e7166581756
-prerequisite-patch-id: 3d5fb2f7a5b2da42cb013d1c2e0a6e5eac5ffd6a
-prerequisite-patch-id: 0e54074dcfd104480233bb076d2424e6ba1bd25e
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
+index 870c740b4a50..fd1142344950 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
+@@ -245,7 +245,10 @@ static void timestamp_interrupt(struct stmmac_priv *priv)
+ 		       GMAC_TIMESTAMP_ATSNS_SHIFT;
+ 
+ 	acr_value = readl(priv->ptpaddr + PTP_ACR);
+-	channel = ilog2(FIELD_GET(PTP_ACR_MASK, acr_value));
++	channel = FIELD_GET(PTP_ACR_MASK, acr_value);
++	if (!channel)
++		return;
++	channel = ilog2(channel);
+ 
+ 	for (i = 0; i < num_snapshot; i++) {
+ 		read_lock_irqsave(&priv->ptp_lock, flags);
 -- 
-2.54.0
+2.34.1
 
 
