@@ -2,71 +2,59 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C762B606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 14:51:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F9E1606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 14:55:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NHfHLx2G;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hEYLohFI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vHBtrx/v;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kP9efIyT
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=KZ+cSODzQCgfcBpl6SVJcEIqMlZuev5QB51iLkiBvrk=; b=NHfHLx2GbIPKXt
-	lWHumgcWMLEvYGPJEXul8tGSGTpYNLRBHx0anAWl6cOdd6D1FUYuPmMgnFkUtRMxFvJJEYQIAGqWM
-	snqVkpZJFCEh5ZnXVvRmPh6lhfas7/AXw1Whp8WLPkFf2bzN+yHRo4CguJXLKp8MqP0pHle21XK0O
-	eTLK2bEqPD/ewxHAU62LOG7KnAy+1hgZxeRPC5RLxlQPkCanc+Sny+XIXQBdEhpFkNbRjTyF0+is2
-	QJ9c87T3UqUiI5rbgi630Z682+LBovTHSE69zDuu6piwe35wxWJzdh1jxSdbCRBMQ2eCbg+JsEZSS
-	N260fqGAx9gi+U2za2IQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=XEGRVEHzcjuh7Ti0KDoH632ww8gEAaSH2npDq52VRq4=; b=vHBtrx/vsK63l4NzbgdIBNUpYL
+	Kg71yq2nL0jTBUfQJTIiXLa9kECv8kqO+t5KnLyd11XmOK0M2pCCfyRuZvJiGAWpsMq6FsBr9tPx0
+	JjxIq6gwbarHa7af6HZYdF+ekdoxM1CYFkewANeBp1DvK2bP1tcBi3R2OWygkuy34Qrmzew7t/608
+	///gmFv9WHQzI7ovhjleMiL9lGJ82JFOx9apFFgZJADVGsxboBzTNbDXNZ6NUz2vt36vfWYWZr3i1
+	OndsnQyYwoVdmOVAc5+DOvFsh5QV+IolSRWwsVNdCFkCmkZLYTTqTXLq9MsPf+fwZsbCDGGjpx/a0
+	Y/mHpl1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOcKR-00000005gjU-36GN;
-	Wed, 04 Nov 2026 14:51:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOcO6-00000005hbG-1l8k;
+	Wed, 04 Nov 2026 14:54:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOcKQ-00000005giN-0fFD
+	id 1xOcO4-00000005haW-1Vsd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 14:51:06 +0000
+	Wed, 04 Nov 2026 14:54:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C64443A58;
-	Wed,  4 Nov 2026 14:51:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99F001F00A02;
-	Wed,  4 Nov 2026 14:51:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E73D843CC2
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  4 Nov 2026 14:54:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F20611F000C1;
+	Wed,  4 Nov 2026 14:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793803864;
-	bh=KZ+cSODzQCgfcBpl6SVJcEIqMlZuev5QB51iLkiBvrk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=hEYLohFIYjvoBdLuSxCMYOa4+tBioMrRKoOn0Zd/jT9g4EOO9QpvN3p/3FXAzgWW7
-	 esXIGQ1oM+hi2SxM1uYJjXqyN2OPSeovFr/0lU4pVqFY/8ztfaE3jYExzg7uSe9hgO
-	 MLQhcygksG9R/0WGsdFcJNb1PMPwjMOgyqY6kai8bdC4in3FmxrdWAQpy9U7a6N+zt
-	 5PWPnK4J9IzvBj7cL2QpmWMT7SapiHZcNgIhCVc5+62SYGL8qtgdkgqsr3Ni/+ioxM
-	 PC+7Ze1AJyXio77uxs2uHyEKkn+IsTCkupZxreazy+ClKBmUnFbt2+FIwd5SedbkL0
-	 kTyrTfW2za8lA==
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: (subset) [PATCH] ARM: dts: aspeed: Correct white-space style
-Date: Wed,  4 Nov 2026 15:50:44 +0100
-Message-ID: <179380380617.180018.5035897143826922583.b4-ty@b4>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260801210437.384040-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260801210437.384040-2-krzysztof.kozlowski@oss.qualcomm.com>
+	s=k20260515; t=1793804091;
+	bh=XEGRVEHzcjuh7Ti0KDoH632ww8gEAaSH2npDq52VRq4=;
+	h=From:To:Cc:Subject:Date;
+	b=kP9efIyTh8nYQ6VrAPzuQ3BwS9VeiMK2VfMciwSdgHAduztAsR8ST6APEVzvj6Jun
+	 +S/Wb5f8YhiXPnrwF4ib6bWX82PZIGZgunPCxFVvxst/DmoNTXmp4UvJAYnk8mCZ5d
+	 j3Uz0O0j7HNZfEfdTDPjuwXSmQJ9bmn64VkXPJU+mcsVqjfMS98UBnaEq8O1kaDSKF
+	 RQAEj2tXMQpxFq1MSA9MgUplTBJ4zebpo9Cb4RTm2rbAMSODvOnK4tZOe9SSgCZfvh
+	 kbo00+fgyGEVAc7mbTpaJKxkltaT/dyFPLiSYjJBZ08TCvUnWqxSGpN4BWMqckHLlP
+	 MwVTuZug07PJg==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH] ARM: vexpress: fix iounmap missing after of_iomap in SMP prepare
+Date: Wed,  4 Nov 2026 14:54:45 +0000
+Message-ID: <20261104145446.2767924-1-sudeep.holla@kernel.org>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=569; i=krzk@kernel.org; h=from:subject:message-id; bh=Okt3ZSzwnfGvkN/VPRaSt/4uaDxDFjo067Mc70YUqJM=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBq60ZFEdlmY28ps779HHOvpcaFb5uiI9gKS045I q3cX4xYIXSJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCautGRQAKCRDBN2bmhouD 1ypDD/9LsvgMsAEVjEmkOYZG43IflZC8TaSgHFnrB9O0MF4d2lGoamHBT6Bm8H1ACULZAiDjYks cKhZ4tqAa2P11cQH8yKv0P9QaaPAgAOUqag6s5vOPWp0HcGwCMM8wDJApnzmU2sZt/R4un6Ci/4 4OAoFgnvBgTuR3rkJRYScsD4u408LCTYlPVgCU8PZPLtmj3Q0DaXViKgACYykdG5AcuWGChkRbC XzRmn/sJaypEefZgzW+fTOt2zBN3vd/KcN86z6NSg/p6/DI/PL6+Ca34ZF8eyZZndpLmfMeHyNt sd9lWIRhWp5qj/L5yWM7KsDzoHS4FT5wHK2xBAeTtjne3xv6L2+Yt+CRm6w1cP0f9zqAH0uFWqH ul0DSI35KfxCQRSHERIer1YkvmR1Xhs/RPL5Mz5zxjgq9quXmOvfnq5KTft5kS/U+3JCwTOvTHy bQ3DwEcXTuKhDqSnk2ycZbE8wDSAQxu2Sr9tCmp83NWlVhWrZ7P5lbCtPkngEmfVGgn9vqqgYpE ZX8P/VOgAzGVztGOykoGjyDr2jUn7D9k3j++u2KnA+BJYQsrD5qZYxqXhoPiMkwPqHKdxdQax7D EE/N4YHwQPlDoBxPJIfcWnTHI53FhFWKJMzUUTU+uRyN0euIIN8yQLyNUoZhGAeRE2cC/NSZCVK jbohlvttijpc0q
- Q==
-X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,28 +66,53 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+of_iomap() maps a region of device memory and returns a pointer that
+must later be released with iounmap(). Currently return value from
+of_iomap() is passed directly to scu_enable() without saving it, making
+it impossible to unmap afterwards, causing an I/O memory leak.
 
-On Sat, 01 Aug 2026 23:04:38 +0200, Krzysztof Kozlowski wrote:
-> Correct a few white-space issues, like missing space before bracket '{'
-> character or spurious space, which will be flagged by dt-check-style
-> ("redundant-whitespace" warning).  No functional changes.
+Store the mapped base address in a local variable, check it for NULL,
+call scu_enable(), then release the mapping with iounmap().
 
-This is waiting for three months without feedback, so just picked it up.
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://sashiko.dev/#/bug/linux-5bb0baa3-6a9a-49a0-94f1-80f8cd8f6915
+Closes: https://sashiko.dev/#/bug/linux-6803acf3-f91e-450a-a738-8803e6ac1f1a
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+---
+ arch/arm/mach-versatile/platsmp-vexpress.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-Applied, thanks!
-
-[1/1] ARM: dts: aspeed: Correct white-space style
-      https://git.kernel.org/krzk/linux-dt/c/48481f2f187d2162c89c324c9ead4b6351ea9b50
-
-Best regards,
+diff --git a/arch/arm/mach-versatile/platsmp-vexpress.c b/arch/arm/mach-versatile/platsmp-vexpress.c
+index b810ad50b98c..e3c8ee4c52fb 100644
+--- a/arch/arm/mach-versatile/platsmp-vexpress.c
++++ b/arch/arm/mach-versatile/platsmp-vexpress.c
+@@ -63,9 +63,15 @@ static void __init vexpress_smp_dt_prepare_cpus(unsigned int max_cpus)
+ {
+ 	struct device_node *scu __free(device_node) =
+ 		of_find_matching_node(NULL, vexpress_smp_dt_scu_match);
++	void __iomem *scu_base;
+ 
+-	if (scu)
+-		scu_enable(of_iomap(scu, 0));
++	if (scu) {
++		scu_base = of_iomap(scu, 0);
++		if (scu_base) {
++			scu_enable(scu_base);
++			iounmap(scu_base);
++		}
++	}
+ 
+ 	/*
+ 	 * Write the address of secondary startup into the
 -- 
-Krzysztof Kozlowski <krzk@kernel.org>
+2.43.0
+
 
