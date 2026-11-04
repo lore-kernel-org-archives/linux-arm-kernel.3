@@ -2,86 +2,89 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0C00606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 08:58:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3D1C606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 08:58:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=j6ZReDM5;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZmTzG+gG
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KH+EkjM4;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nIAifwv6
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=EsWY/yTZXFYVprtWvUf3XnhiSXDepU5aallNWHc59Og=; b=j6ZReDM5BxN3hs
-	YF6LtxYhD6OrkKoPEuBrycWAufmtOAhrnerok8+fgFF1XxzNTN/n1LCkTJ8pjtbJRX5wUWuTUF8Vn
-	AIoi8IxLyMboyX9P0pXWVbK8hhXCDD/xfvCOWMQR3+2uLz4+2793UVvZxjlWPL4UIeYTTXAVO0dH9
-	4AF934kW4PNydj181lOtgNKd+L6ywkxKgLu9XWnOzBfRat+U7Yrcxybyby61r8yZF/DkIY5NobeFz
-	DCgkFM0fJsvl/0ycbyaN9nFZv/quCXePb4HR34zjRhd1DoQYGK4OJYClPrC9YnauBsq7LCrly/4Tr
-	4Av4XeqFyIRvh4EsXbDA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=OoqZGZYI6TTfcslrQJHSRXRXk2wqf8h5ehjURRlGg5A=; b=KH+EkjM4uKvqcg9i+BGbnucd+a
+	/BiG+4m7RJYHMCewL2l2asnvdZLPLVLr9Cy6v1WWO46XABwe5gL8iyNA1P3TUxdJDWlLNqVQ0CC0s
+	7crAugN1gzSu8Cdmxt2vOGSGRpbNuDx/YLYJpsYiXS8VicWkzhVpGCmaCWAHNxCQwfWIypDiu76WW
+	LW+ydU3lVeFic+4fwf0xn4Acx7ue71r5180IYP0sO0C17F5GTJALVXG8jXdvbiwl9E8HXFmbzbB5d
+	Xy7TYnqesx6C8Ohhnm/t3Q+7FoBdeFpdKl4OiewDWemlyt0J5vvDpRvrliUOirqia59KpOrxi+6UM
+	+HAbCCxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOWoZ-00000004nav-0snx;
-	Wed, 04 Nov 2026 08:57:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOWob-00000004nbw-1eFp;
+	Wed, 04 Nov 2026 08:57:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOWoX-00000004naM-49Z9;
+	id 1xOWoY-00000004naN-0MFJ;
 	Wed, 04 Nov 2026 08:57:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 623C34051D;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7F1564034A;
 	Wed,  4 Nov 2026 08:57:49 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1793782669;
-	b=pF25pVi15PUvV/N1uYk64uWWWbJ15808G6pOdzt+EeJWoSxarojJjQja6iunnLrR5D1v
-	 D5qb4iMQtlBbi4sciegpxeAyQq1nYOnEjP7C/y0bB0P/OZyVygIdC5bxHnPwClQHulnV0
-	 lb5qZB7SKXNjTLgSsgWwEDZEMpDFX3eFIft9bZi7tWTjXe7bl5On5PckD+2Aevv9Eq7/2
-	 P5QfJB2faFXvnrHvvPUyLdiSegL6WLr4KpWbQ7b1KmvbTST1MkSfSi4dLOAhpxU93rZtU
-	 xylK0FNYKBwFfC/ZPU2vqfSDNWlHfKti47qBDUjPhddnMrJzoZzzHXItiGjTUzyYBpw==
+	b=zaHFGxdEXQ/CQwC5+Mnb5/SlEz4AUDlKy4xjSemS8F8obqUplRn+TYYFj16l78Tx0h5U
+	 /4aYTCbpTZLsC75VGAdleyyCYoFwudUKY/Gu03c1+Qg2Y1qhsulxIJNA1ubnWF/iqZsMc
+	 ztjITrfuEeBcLIZQbMlIACiMlzpBZZe51SWLnz5IUzX8taclclxLAFQ9qZK5Oi3jpz2tf
+	 SVPuJbDEX+q/Pxvlu3/40jh23pyTkmgTa+fqyExNOPsT4LBkFBYwbhDJshDYKRZkbLDrU
+	 omYjmQn0FSthtjjvovKfaHEHl7nlDE1R/epHbKa5yyi5ct/sFf7tv4jNRteY1ndQ6Dg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
 	c=relaxed/relaxed; t=1793782669;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To;
-	bh=EsWY/yTZXFYVprtWvUf3XnhiSXDepU5aallNWHc59Og=;
-	b=QKfsJ+hZXfREJ8QUC6qf25bbxLgbx0BxPADKq9GWxPxdN46ZIQNFcr5JpVfP38Wyzm+b
-	 DW3XI3Fbl1mBhDTt50s/Ox9Dl6u8Oq5yz6UXJYlwGhIc+gg+3wF1sByNvepqefDver2lw
-	 29maVY8HFAAeWLvVyR/IpADBSB83WaC9eFSVf3ZwiS0INi/41pmC013QIh7PDWlej4DUF
-	 mk8kP/sZDRSK3/zKNmaiBbPSsI2kCqU17HEWXmdTBKe2imfUx07tlJNPsIUIE4ROs3UJn
-	 9iI0qGzXGRxB10+9bq4JC4cjHMLIJ7+8wx6bXaBl3dLFuZ+jmbC3MFsOsnUzMDZv6GA==
+	bh=OoqZGZYI6TTfcslrQJHSRXRXk2wqf8h5ehjURRlGg5A=;
+	b=UUYrnjMhJ5h+7OVF3vMLgAW6IjMkdCzWsf9p5Sgen1K1QqKD8hUv8UeU/QI+yE3h9MhR
+	 FthyKkEf3GfgPSI7UdXcwBIf57rGmUio4ftzDjm+T9Oamyw5XE2JcRnNyKqLEvXeIMTaC
+	 Jr+uJoXqnqoot0lGKGFwG1ng5BLDZRTUAWaEw8l8BALeOyGoMifWrhgVXJB5rnsBYCrJT
+	 4gBTNyJPF1iUgcefiIP5lS52TxK4uBxRI5WrLkek/sWyWApRZvroJMQ2KhXOBcbgo1JUV
+	 UlTesZjYEjpBWlZoS9z6/71r/JzPNBJDfqObPgcxXfvU+51D/U/nscfhpywRK4PwdRA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id AA13C1F000C1;
+	by smtp.kernel.org (Postfix) with ESMTPS id A98221F00A02;
 	Wed,  4 Nov 2026 08:57:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1793782669;
-	bh=EsWY/yTZXFYVprtWvUf3XnhiSXDepU5aallNWHc59Og=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=ZmTzG+gGRt63kk9MWzueKzLUU17ctl9W8ua5PjpxJKK8DdAz9xtMjSVHzHjANGPt0
-	 aepwr8IamHmADaJ2zhVojQiDuEE4AfgUk6FYsq9G2+4akJauvcHPWJx9Gd7g5BcFvB
-	 OSypO+k6ZBYxPY+rQ9xr6e4Jx1yqUoIxVfy8cETXL116nxZ4y/yOj6F4tH8jX7Z/Ia
-	 GNWplZk8f6JUyD20EknYYdIuSexTtWlQSuEWaqtOgFhuKB+A6TYJ/nWThznYLuHdHn
-	 5TTq4lUamziQES3BFEjhAEgmoOU31lTeeUeF2VLEcE4+Hs0thYaB0DbtDWEOSnheHU
-	 AOPfD8dTntSpw==
+	bh=OoqZGZYI6TTfcslrQJHSRXRXk2wqf8h5ehjURRlGg5A=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=nIAifwv6Wq6IVngQRA3F+R6U3Vh1kdVlQWJi/VRkoe6N4hTK2blBFs3zqWLGI6n5d
+	 tABiOmsLmXBht0XDunDrK6ualwxOkf8sC+/+DSSzWNbV6ikGYOkFb+6AbJJO4L4eiX
+	 bizECwqnLV4u1sP38t9LHcbFvcGi4s1clUFJL5pXgqCmL10jMvDg8irhy2Kg/xm4VJ
+	 hZ9YZ8hFVlPzeUfIdebPYgbXFCWStSpeJa8n1BySN7CIyuNMC5nkVMLDxkXy/IgQoe
+	 4uIPOOFfeuBT3q7TaLu5fHKERLyhscqUNlop6b1sg0gVedLNLPHwSYB/ikx6QnBzpC
+	 rJEDwf4GcFuHA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 18D0746D55;
+	by lkml.kernel.org (Postfix) with ESMTP id 083A546D68;
 	Wed,  4 Nov 2026 08:57:48 +0000 (UTC)
 From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
-Date: Wed, 04 Nov 2026 16:56:03 +0800
-Subject: [PATCH v4 1/2] dt-bindings: power: rockchip: Add RK3572 power
- domains
+Subject: [PATCH v4 0/2] pmdomain: rockchip: Add RK3572 power domains
+Date: Wed, 04 Nov 2026 16:56:02 +0800
+Message-Id: <20261104-add-board-ok3572-c-pmdomain-v4-0-15cf8b5a6e59@qq.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261104-add-board-ok3572-c-pmdomain-v4-1-15cf8b5a6e59@qq.com>
-References: <20261104-add-board-ok3572-c-pmdomain-v4-0-15cf8b5a6e59@qq.com>
-In-Reply-To: <20261104-add-board-ok3572-c-pmdomain-v4-0-15cf8b5a6e59@qq.com>
+X-B4-Tracking: v=1; b=H4sIACLz6moC/33OQQrCMBAF0KtI1o4kk1qtK+8hLtLMVKO00USDI
+ r27jSIqiMsPf96fm4gcHEexGN1E4OSi890QivFI2K3pNgyOhixQYqkkajBEUHsTCPxeT2cIFg4
+ t+da4DrCRSEYpPS9ZDMIhcOMuD321fuZ4rndsT5nMja2LJx+uj/mkcu+1hL+WkgIJspYNzadGK
+ +bl8TixvhVZT/h5///ThAM0q4ioQK7Qqi9If0Llf0hnSFKpCtJU4Rvq+/4OS2/9dV4BAAA=
+X-Change-ID: 20261023-add-board-ok3572-c-pmdomain-2f02da11386e
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
  Elaine Zhang <zhangqing@rock-chips.com>, Ulf Hansson <ulfh@kernel.org>
@@ -90,11 +93,11 @@ Cc: Cunhao Lu <1579567540@qq.com>, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
  Finley Xiao <finley.xiao@rock-chips.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793782666; l=2834;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793782666; l=6041;
  i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
- bh=oyvMUU7R4CjKJ/p4yd/DxcdPfUMgGd3L5BZrnlpZr8A=;
- b=QJ1uWl+F7GBiGoGGJ+woFdBVjA8OLhcGVy1YEOIXpoJqX/+/qBrkXK6SqOvk0bgcpYc8HWZHY
- 0xT8khOcz40B93eyVSzKyNNqLh007MZTtht5ngy3HAw9FuuZPoli+1X
+ bh=p8nhVp0B8dou8lBdSNcuhjAqfSLAPvC5wNytWwZF1yU=;
+ b=tdG1T6yiA8cZzkwOWo1Dayi1LTLYp+wZXh3gTCDS1UQ3Cu5606An2QEfmExFJZ/ZBji9sRGMz
+ IBXhMfd5IKqDvQ3tZGfzsRVxrWRuOrjDCIeIka8U6y7A8zB2+v+C9ou
 X-Developer-Key: i=1579567540@qq.com; a=ed25519;
  pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
 X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
@@ -119,96 +122,154 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Finley Xiao <finley.xiao@rock-chips.com>
+This is one of the subsystem submissions for RK3572 support.
 
-Describe the RK3572 power controller and define its 14 power-domain IDs.
-Require the system GRF phandle used to check firmware shift-ready status.
+This series adds the RK3572 power-controller binding and power IDs,
+followed by support for all 14 power domains. It includes system GRF
+firmware shift-ready checks, NPU voltage-domain control and genpd startup
+protection for boot-enabled IMG, VOP, VOP_PRE and VO.
 
-Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
+The RK3572 SoC has eight CPU cores: two Cortex-A73 cores and six
+Cortex-A53 cores. It also integrates an Arm Mali-G310V2 MC1 GPU.
+The OK3572-C board provides two Gigabit Ethernet ports, three USB3 Type-A
+ports, a Type-C dual-role port, eMMC, microSD, and UART.
+
+This series depends on the separately submitted power-on rollback fix [1].
+Firmware readiness failures reuse it, preserving the original error and
+saved QoS. If rollback fails, the domain may remain on while resources are
+released and genpd may power down its parent.
+
+[1] https://patch.msgid.link/20261101-fix-rockchip-pmdomain-power-on-rollback-v1-1-59a45783e33e@qq.com
+
+Testing was performed with Debian 13 minimal and Linux 7.3 on the
+OK3572-C with the FET3572-C module. Shared peripheral tests were run with
+the system booted from SD, while eMMC validation covered the complete
+boot chain.
+
+Passed functionality:
+
+- SD and eMMC complete the firmware, kernel, and root filesystem
+  boot chain.
+- UART console works at 1500000 baud.
+- SD read/write and data persistence checks pass.
+- All eight CPUs start; CPU frequency scaling and hotplug checks pass.
+- Both Ethernet ports obtain IPv4 addresses and pass bidirectional file
+  transfers.
+- All three Type-A ports pass USB2 and USB3 enumeration, data transfers,
+  and reconnect persistence checks.
+- Type-C host and device modes pass in both plug orientations. Physical
+  reconnects correctly select the expected device, host, and device roles
+  in sequence.
+
+Stability:
+
+- Repeated cold and software reboots complete on SD and eMMC without
+  data integrity failures or power-domain transition failures.
+- A combined CPU, memory, network, SD, and USB3 stress test completes
+  without a crash, lockup, CPU offline event, or thermal shutdown.
+- Ethernet error and drop counters do not increase during bidirectional
+  network tests.
+
+Power-domain validation:
+
+- All 14 domains register; 11 complete 1,140 runtime-PM cycles. NPU VD
+  sequencing and startup-protection release are checked.
+- Physical cold boot with an eMMC root filesystem succeeds. Read/write
+  checks pass on eMMC, SD and two USB storage devices; both Ethernet
+  ports pass ping tests bound to their respective interfaces.
+- Thirteen return-value injections after successful operations check
+  idle-exit and firmware-readiness rollback, NPU cleanup, original errors
+  and saved QoS. Retries succeed after removing injection.
+- 124 host model cases using the driver and genpd pass ASan and UBSan.
+
+Build and checks:
+
+- The kernel, modules, and board DTB build successfully.
+- Strict checkpatch reports no errors.
+
+Untested hardware and paths:
+
+- NPU
+- PCIe
+- GPU, video output, and audio
+- CPU rates above 1.2 GHz and voltage scaling
+- Other low-speed external interfaces
+
+Some files in this series are derived from the Forlinx OK3572-C BSP
+Alpha1. Thanks to Forlinx for their support.
+Thanks also to Rockchip's David Wu, Elaine Zhang, Finley Xiao, Frank
+Wang, William Wu, and Ye Zhang for providing the driver source files.
+
+AI assistance:
+
+- Codex / DeepSeek V4.1 Flash were used for:
+  - Reviewing and adjusting code style to follow community conventions
+  - Automating tests
+  - Collecting data
+
 Signed-off-by: Cunhao Lu <1579567540@qq.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
 Changes in v4:
-- Describe the system GRF register as firmware shift-ready status.
+- Drop generic pending-state tracking and power-off recovery; reuse the
+  separate power-on rollback fix for firmware readiness errors.
+- Support all 14 domains, including NPU voltage-domain control and
+  cleanup after failed transitions.
+- Retain boot-enabled IMG, VOP, VOP_PRE and VO domains until sync_state.
+- Use firmware shift-ready naming for the GRF status.
+- Build ungate write masks with unsigned arithmetic.
+- Link to v3:
+  https://patch.msgid.link/20261026-add-board-ok3572-c-pmdomain-v3-0-70d614d3d921@qq.com
+
+Changes in v3:
+- Track incomplete shutdowns to preserve QoS and complete firmware updates.
+- Preserve pending memory resets across shutdown and cancel unfinished
+  power-on requests.
+- Attempt to restore the domain after power-off errors, while preserving
+  the original error returned to genpd.
+- Link to v2:
+  https://patch.msgid.link/20261023-add-board-ok3572-c-pmdomain-v2-0-79ddd42e92c1@qq.com
+
+Changes in v2:
+- Split the original RK3572 support series by subsystem.
+- Track low-level power-on and restoration separately. Retain unfinished
+  memory resets across retries, avoid repeating completed resets, and
+  preserve QoS snapshots when shutting down after a failed power-on.
+- Link to v1:
+  https://patch.msgid.link/20261022-add-board-ok3572-c-v1-0-0b0fd85a31ee@qq.com
+
 ---
- .../bindings/power/rockchip,power-controller.yaml  | 17 ++++++++++++
- .../power/rockchip,rk3572-power-controller.h       | 30 ++++++++++++++++++++++
- 2 files changed, 47 insertions(+)
+Raw dmesg: see v2 cover letter.
 
-diff --git a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
-index b41db576f95d..fbf3e0ab4cd9 100644
---- a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
-+++ b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
-@@ -43,6 +43,7 @@ properties:
-       - rockchip,rk3528-power-controller
-       - rockchip,rk3562-power-controller
-       - rockchip,rk3568-power-controller
-+      - rockchip,rk3572-power-controller
-       - rockchip,rk3576-power-controller
-       - rockchip,rk3588-power-controller
-       - rockchip,rv1126-power-controller
-@@ -57,6 +58,22 @@ properties:
-   "#size-cells":
-     const: 0
- 
-+  rockchip,grf:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: System GRF with firmware shift-ready status.
-+
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          const: rockchip,rk3572-power-controller
-+    then:
-+      required:
-+        - rockchip,grf
-+    else:
-+      properties:
-+        rockchip,grf: false
-+
- required:
-   - compatible
-   - "#power-domain-cells"
-diff --git a/include/dt-bindings/power/rockchip,rk3572-power-controller.h b/include/dt-bindings/power/rockchip,rk3572-power-controller.h
-new file mode 100644
-index 000000000000..c2316fa859df
---- /dev/null
-+++ b/include/dt-bindings/power/rockchip,rk3572-power-controller.h
-@@ -0,0 +1,30 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-+/*
-+ * Copyright (c) 2026 Rockchip Electronics Co., Ltd.
-+ * Author: Finley Xiao <finley.xiao@rock-chips.com>
-+ */
-+
-+#ifndef __DT_BINDINGS_POWER_RK3572_POWER_CONTROLLER_H__
-+#define __DT_BINDINGS_POWER_RK3572_POWER_CONTROLLER_H__
-+
-+/* VD_NPU */
-+#define RK3572_PD_NPU		0
-+
-+/* VD_GPU */
-+#define RK3572_PD_GPU		1
-+
-+/* VD_LOGIC */
-+#define RK3572_PD_NVM0		2
-+#define RK3572_PD_NVM1		3
-+#define RK3572_PD_DSMC		4
-+#define RK3572_PD_PHP		5
-+#define RK3572_PD_AUDIO		6
-+#define RK3572_PD_IMG		7
-+#define RK3572_PD_VDEC		8
-+#define RK3572_PD_VI		9
-+#define RK3572_PD_VENC		10
-+#define RK3572_PD_VO		11
-+#define RK3572_PD_VOP		12
-+#define RK3572_PD_VOP_PRE	13
-+
-+#endif
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+To: Elaine Zhang <zhangqing@rock-chips.com>
+To: Ulf Hansson <ulfh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-pm@vger.kernel.org
 
--- 
-2.34.1
+---
+Cunhao Lu (1):
+      pmdomain: rockchip: Add RK3572 power domains
+
+Finley Xiao (1):
+      dt-bindings: power: rockchip: Add RK3572 power domains
+
+ .../bindings/power/rockchip,power-controller.yaml  |  17 +++
+ drivers/pmdomain/rockchip/pm-domains.c             | 168 +++++++++++++++++++--
+ .../power/rockchip,rk3572-power-controller.h       |  30 ++++
+ 3 files changed, 204 insertions(+), 11 deletions(-)
+---
+base-commit: 99e3bb2c6f246f38179cc569e38a45d9555206ed
+change-id: 20261023-add-board-ok3572-c-pmdomain-2f02da11386e
+
+Best regards,
+--  
+Cunhao Lu <1579567540@qq.com>
 
 
 
