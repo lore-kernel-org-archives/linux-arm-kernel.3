@@ -2,76 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B35D606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 01:14:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA30B606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 01:29:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QJyboj31;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Q2Z34R/F
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GyjPiKqY;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lXGkOWfo
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=lYMX9gV6Dojh3jBu+0B6wZGmoQtuUvF5WWAGmG743YU=; b=QJyboj3171Seap
-	6QTefeBKS1CO029lyekqmIIid+JZGdbLfzTTMeaEuZCpptSZCKjdYdkHJprg4TLuruYorQfx3ztSF
-	eeJ9j3OjbpLacSN+SIfyW65zK2P/o9ItjC9moclhOTI08Lmth9LlATM0Y4fa+NlHrgkGQMYoMDDb/
-	lAPtktWkbJ9sUWccU9qZ+lE+E+9m8XZKU9Kh0w2eGs/dX/mmk2KFfV0bbcu7KFmrT1GZx4euvstWc
-	loJKmaREIUF7Z1gE6PAmsT8ZTIEvLad2RVABrTFNSZQstitpkNWVTnuplP6YFmh2fwVIHNkoPEuKu
-	GEmQi17dw6088ta3gSwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=7YNjFeSZLRe8iuNqdLIZAFL9s0rXyoUr/FeoHtfoBoo=; b=GyjPiKqY0hlb+qWxNRSdiYo/ws
+	o1Hl2afhCPJDjSW82r+5fjxNI49J59kVq8Ssf+8IRWY6na7mRDpkww3qQBfRZ/COxmQCyjj5+kPtD
+	QhtTHXKeZNCy/MIkx80CxZrbcGDsiKu0VGiwMtcOwXXFWEEpj+FtPr7SZKtP9QqKqmenT+Zutuytf
+	rahDAPnNNjK2DlTfwdk9AVGMFcLR6/+fZnQmjPhXPvTcRBZ5WIFU7rlZXv6oGYAZUK8foSkBTswo9
+	fiTOsvdD7AawIGP8QgrYImR4dMu08c2jEGPkP+5UnnCBLzRoQ4+z9kVIm58HE3nnB/DjOTwQk5Hxb
+	YFAvZOeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOPZt-000000044DW-1Wr7;
-	Wed, 04 Nov 2026 01:14:13 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1xOPoa-000000044n7-2Pk8;
+	Wed, 04 Nov 2026 01:29:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOPZo-000000044Cs-3NB5
+	id 1xOPoa-000000044n1-0tNu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 01:14:11 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=lYMX9gV6Dojh3jBu+0B6wZGmoQtuUvF5WWAGmG743YU=;
-	b=Q2Z34R/FZisDKgb2p9yXIy3A3J8SAI3gYAMlNgfl6mnpIew1xbRm/q032ff67OuoMTna4vY86
-	4hp0rcrdc2QqBcM/C2C60GZyK7SweVsX6y9N/JdhR0kH2AbsiLsKrGXkYT24a1lKrx3/tw1KI7R
-	5fQi1SsdDBUbF58sbH87d0c=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4jK6sC0FtKz1d056;
-	Wed,  4 Nov 2026 09:13:51 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id E8B914057C;
-	Wed,  4 Nov 2026 09:14:01 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 4 Nov
- 2026 09:14:01 +0800
-Message-ID: <e63525ac-e0ee-4c69-9390-a1e9805eb716@huawei.com>
-Date: Wed, 4 Nov 2026 09:14:00 +0800
+	Wed, 04 Nov 2026 01:29:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 903D543F10;
+	Wed,  4 Nov 2026 01:29:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFF1E1F00A15;
+	Wed,  4 Nov 2026 01:29:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793755763;
+	bh=7YNjFeSZLRe8iuNqdLIZAFL9s0rXyoUr/FeoHtfoBoo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=lXGkOWfoAnGynFjfY3Q8Vg6xBtRq/37wMwSC6tlE+w/Zmz1+flXb+1Q6Ev6nPk0U8
+	 MbTndQlkMjNGU8Un9CtSzse0BcVi8OoL7YEIPWEg4JJu9XCz1aUgNZny43HZB9gRz6
+	 T6cZvUhaJasd3GytSeo6Jt0luRcZlHS23XCm10rzYGBP8FH9pTYYJcQSAKb2wQQzhd
+	 qGldGeJGeoLwBD2Z7UanQuYjxBGaIghSOBxeMBE7DeRnqafun894csFljJ1LD/HOwJ
+	 uwT1BhTu0gA8Xrff3lz1NyPGMRfFUwC9Vr5OYKa79tp5AxaWTcMfEAc6U5Q5a36Wb1
+	 mbPyO4vb4pZhA==
+Subject: Re: [PATCH net] net: stmmac: rebuild VLAN priority steering when
+ filters change
+From: netdev-bot+sashiko@kernel.org
+To: james.hilliard1@gmail.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ piotrwejman90@gmail.com, linux@armlinux.org.uk, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Wed, 04 Nov 2026 01:29:22 +0000
+Message-ID: <179375576232.488856.8160594272005799972@kernel.org>
+In-Reply-To: <20261102-submit-stmmac-vlan-prio-v1-v1-1-2b37767e4e08@gmail.com>
+References: <20261102-submit-stmmac-vlan-prio-v1-v1-1-2b37767e4e08@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 19/19] Documentation: arm64: mpam: Describe the L2
- monitor events
-To: Daniel Pereira <danielmaraboo@gmail.com>
-CC: <reinette.chatre@intel.com>, <james.morse@arm.com>, <ben.horgan@arm.com>,
-	<corbet@lwn.net>, <skhan@linuxfoundation.org>, <rdunlap@infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20261029123611.1108424-1-ruanjinjie@huawei.com>
- <20261029123611.1108424-20-ruanjinjie@huawei.com>
- <CAMAsx6c655ZN6YkwCSmgo9rdddUG9sjYQE_1XQi6=J=i=7N_Jw@mail.gmail.com>
- <432a92de-bd62-4d89-b0b8-3e89086660e0@huawei.com>
- <CAMAsx6fCiTLSPpbOPW9nh1rmqLEzy6i-YjK5BzhtmRq4nBykjA@mail.gmail.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <CAMAsx6fCiTLSPpbOPW9nh1rmqLEzy6i-YjK5BzhtmRq4nBykjA@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemk200008.china.huawei.com (7.202.194.74)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_171410_123268_DBAD77D6 
-X-CRM114-Status: GOOD (  10.40  )
-X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,37 +72,309 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
+Critical: 0 · High: 2 · Medium: 1 (2) · Low: 0
 
-在 2026/11/3 21:02, Daniel Pereira 写道:
-> On Tue, Nov 03, 2026 05:59 AM, Jinjie Ruan <ruanjinjie@huawei.com> wrote:
->>
-> Hi Jinjie,
-> 
->> This is an outdated message leftover by mistake; please ignore it.
-> 
-> Thanks for clarifying. Will the commit message be fixed in the next
-> version, or will the patch go forward as it is? I ask because the stale
-> sentence ("Say why a bandwidth counter is assigned for the life of the
-> monitoring group...") would otherwise end up in the git history.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Will delete it. Thank you!
+- [High] tc_add_vlan_flow()
+  (drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c:764-765) now runs `if…
+- [High] tc_add_ethtype_flow() (stmmac_tc.c:801-871) can take over an in-
+  use VLAN entry found by cookie.
+- [Medium] The new check `tc >= priv->plat->rx_queues_to_use` in
+  tc_add_vlan_flow() (stmmac_tc.c:748) runs only when a rule is inserted.
 
-> 
-> 
-> Thanks,
-> Daniel
+Pre-existing issues:
+- [Medium] This problem wasn't introduced by this patch, but VLAN-
+  priority steering programmed into RXQ_CTRL2/3 (PSRQn) for tc-flower…
+- [Medium] This problem wasn't introduced by this patch, but
+  tc_add_ethtype_flow() (stmmac_tc.c:820) still checks only `tc < 0`…
+
+--
+
+net: stmmac: rebuild VLAN priority steering when filters change
+
+This patch puts each VLAN tc-flower rule's priority on a new per-device
+list. After every insert and delete, it rebuilds the full RX queue
+priority masks from the platform assignments plus that list. It also
+makes the GMAC4/XGMAC rx_queue_prio callbacks replace the target queue's
+mask, and checks hw_tc against rx_queues_to_use in tc_add_vlan_flow().
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+> index 10b61fa2c27c5..6707f7621f3b8 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+
+[ ... ]
+
+> @@ -685,6 +687,41 @@ static struct stmmac_rfs_entry *tc_find_rfs(struct stmmac_priv *priv,
+>  
+>  #define VLAN_PRIO_FULL_MASK (0x07)
+>  
+> +static void tc_update_vlan_prio(struct stmmac_priv *priv, u8 prio)
+> +{
+> +	u8 prios[MTL_MAX_RX_QUEUES] = {};
+> +	struct stmmac_rfs_entry *entry;
+> +	unsigned int queue, i;
+> +
+
+[ ... ]
+
+> +	list_for_each_entry(entry, &priv->vlan_prio, vlan_node) {
+> +		for (queue = 0; queue < priv->plat->rx_queues_to_use; queue++)
+> +			prios[queue] &= ~entry->vlan_prio;
+> +		prios[entry->tc] |= entry->vlan_prio;
+> +	}
+
+[Severity: Medium]
+The tc >= rx_queues_to_use check in tc_add_vlan_flow() only runs when a
+rule is inserted. What happens to an installed rule after ethtool -L
+reduces the RX queue count?
+
+stmmac_reinit_queues() does:
+
+	priv->plat->rx_queues_to_use = rx_cnt;
+
+It does not revalidate or remove the installed VLAN rules. Take a rule
+installed with hw_tc N, then run ethtool -L with rx <= N. On the next
+unrelated VLAN rule add or delete, this loop clears that rule's
+vlan_prio from every active queue. It then sets the bit in
+prios[entry->tc], which neither programming loop below reaches, since
+both stop at rx_queues_to_use.
+
+Does that leave the PCP mapped to no RX queue at all? That would
+override both the platform rx_queues_cfg[].prio assignment and any older
+rule. There is no out-of-bounds access, because entry->tc is still below
+the old rx_queues_to_use.
+
+The commit message says "Validate the selected RX queue before indexing
+the masks", but that only holds at insertion time.
+
+> +
+> +	/* Install the new assignment before clearing the previous queue. */
+> +	for (queue = 0; queue < priv->plat->rx_queues_to_use; queue++)
+> +		if (prios[queue] & prio)
+> +			stmmac_rx_queue_prio(priv, priv->hw, prios[queue], queue);
+> +	for (queue = 0; queue < priv->plat->rx_queues_to_use; queue++)
+> +		if (!(prios[queue] & prio))
+> +			stmmac_rx_queue_prio(priv, priv->hw, prios[queue], queue);
+> +}
+
+[Severity: Medium]
+This isn't a bug introduced by this patch, but is the VLAN priority
+steering programmed here lost every time stmmac_hw_setup() runs?
+
+stmmac_hw_setup() runs on stmmac_open(), on resume, and on the ethtool
+-L/-G reinit path. stmmac_init_dma_engine() calls stmmac_reset(), which
+clears RXQ_CTRL2/3. After that, stmmac_mtl_configuration() calls
+stmmac_mac_config_rx_queues_prio(), which only reprograms the platform
+masks:
+
+	for (queue = 0; queue < rx_queues_count; queue++) {
+		if (!priv->plat->rx_queues_cfg[queue].use_prio)
+			continue;
+
+		prio = priv->plat->rx_queues_cfg[queue].prio;
+		stmmac_rx_queue_prio(priv, priv->hw, prio, queue);
+	}
+
+priv->vlan_prio is never replayed there. Software still treats those
+rules as installed, while the hardware steers by the platform defaults.
+
+With this patch, the lost rules only come back as a side effect of the
+next unrelated VLAN rule add or delete. A rule added while the interface
+is down is wiped by the next open.
+
+Could stmmac_mtl_configuration() use the new list to restore the rules
+after a reset?
+
+> +
+>  static int tc_add_vlan_flow(struct stmmac_priv *priv,
+>  			    struct flow_cls_offload *cls)
+>  {
+
+[ ... ]
+
+> @@ -708,7 +745,7 @@ static int tc_add_vlan_flow(struct stmmac_priv *priv,
+>  	if (!dissector_uses_key(dissector, FLOW_DISSECTOR_KEY_VLAN))
+>  		return -EINVAL;
+>  
+> -	if (tc < 0) {
+> +	if (tc < 0 || tc >= priv->plat->rx_queues_to_use) {
+>  		netdev_err(priv->dev, "Invalid traffic class\n");
+>  		return -EINVAL;
+>  	}
+
+[Severity: Medium]
+This is a pre-existing issue, but tc_add_ethtype_flow() still only
+checks tc < 0 before it uses tc as the RX queue:
+
+	if (tc < 0) {
+		netdev_err(priv->dev, "Invalid traffic class\n");
+		return -EINVAL;
+	}
+	...
+	stmmac_rx_queue_routing(priv, priv->hw,
+				PACKET_DCBCPQ, tc);
+
+The same point about tc_classid_to_hwtc() only bounding by
+netdev_get_num_tc() applies there. Can an LLDP or PTP rule with
+hw_tc >= rx_queues_to_use send those frames to an RX queue that isn't
+enabled, so they are never received?
+
+Should tc_add_ethtype_flow() get the same bound?
+
+> @@ -724,13 +761,18 @@ static int tc_add_vlan_flow(struct stmmac_priv *priv,
+>  		}
+>  
+>  		prio = BIT(match.key->vlan_priority);
+> -		stmmac_rx_queue_prio(priv, priv->hw, prio, tc);
+> +		if (entry->in_use)
+> +			list_del(&entry->vlan_node);
+> +		else
+> +			priv->rfs_entries_cnt[STMMAC_RFS_T_VLAN]++;
+
+[Severity: High]
+Can this list_del() run on an entry that was never linked on
+priv->vlan_prio?
+
+tc_find_rfs() matches on cookie only:
+
+	if (entry->cookie == cls->cookie)
+		return entry;
+
+So the entry returned here can be an in-use LLDP or 1588 entry.
+
+tc_add_flow_cls() falls through to tc_add_vlan_flow() whenever
+tc_add_ethtype_flow() fails. For an LLDP cookie that is already
+installed, tc_add_ethtype_flow() returns -ENOENT because the entry
+counts against itself:
+
+	case ETH_P_LLDP:
+		if (priv->rfs_entries_cnt[STMMAC_RFS_T_LLDP] >=
+		    priv->rfs_entries_max[STMMAC_RFS_T_LLDP])
+			return -ENOENT;
+
+An LLDP/1588 entry's vlan_node is either still zeroed from
+devm_kcalloc() in tc_rfs_init(), or holds LIST_POISON1/2 if
+tc_del_vlan_flow() released the slot earlier. In both cases __list_del()
+writes through a NULL or poison pointer here, with rtnl held.
+
+One way to reach this with CAP_NET_ADMIN:
+
+1) Bind a shared ingress block to eth0 and to a second device.
+
+2) Add "protocol 802.1Q flower vlan_prio 3 vlan_ethtype 0x88cc hw_tc 1"
+   to the block. tc_add_flow() fails, and tc_add_ethtype_flow() installs
+   the rule as an LLDP entry with cookie C.
+
+3) Run "ethtool -K eth0 hw-tc-offload off". "rxhash on" also works,
+   since tc_setup_cls() then returns -EBUSY.
+
+4) Run "tc qdisc del dev eth0 ingress". FLOW_CLS_DESTROY fails in
+   stmmac_setup_tc_block_cb(), and tcf_block_playback_offloads()
+   ignores errors on removal. The LLDP entry stays in use with
+   cookie C.
+
+5) Turn hw-tc-offload back on and re-bind the block. fl_reoffload()
+   replays FLOW_CLS_REPLACE with cookie C. tc_add_ethtype_flow()
+   returns -ENOENT, and tc_add_vlan_flow() reaches this list_del() with
+   entry->in_use set.
+
+tc_del_vlan_flow() checks entry->type != STMMAC_RFS_T_VLAN before its
+list_del(), but the add path doesn't. Should the entry only be unlinked
+and reused when entry->type == STMMAC_RFS_T_VLAN, with the request
+rejected otherwise?
+
+The commit message says "Reoffloading an existing cookie reuses its
+entry without incrementing the rule count", but that only covers
+reoffloading a VLAN cookie as VLAN. Before this patch the same type mixup
+only threw off the counters.
+
+>  
+>  		entry->in_use = true;
+>  		entry->cookie = cls->cookie;
+>  		entry->tc = tc;
+>  		entry->type = STMMAC_RFS_T_VLAN;
+> -		priv->rfs_entries_cnt[STMMAC_RFS_T_VLAN]++;
+> +		entry->vlan_prio = prio;
+> +		list_add_tail(&entry->vlan_node, &priv->vlan_prio);
+> +		tc_update_vlan_prio(priv, entry->vlan_prio);
+>  	}
+
+[Severity: High]
+Can a VLAN entry stay linked on priv->vlan_prio after it has been
+re-typed to LLDP or 1588?
+
+tc_add_ethtype_flow() can also take over an in-use entry found by
+cookie, including a VLAN rule that is linked here. It overwrites
+entry->type and entry->tc but never calls list_del(&entry->vlan_node):
+
+	entry->type = STMMAC_RFS_T_LLDP;
+	priv->rfs_entries_cnt[STMMAC_RFS_T_LLDP]++;
+	...
+	entry->in_use = true;
+	entry->cookie = cls->cookie;
+	entry->tc = tc;
+
+Later, tc_del_ethtype_flow() frees the slot (in_use = false,
+cookie = 0) while vlan_node is still linked. It also never decrements
+rfs_entries_cnt[STMMAC_RFS_T_VLAN].
+
+The next VLAN rule that gets that slot from tc_find_rfs(priv, cls, true)
+takes the !in_use branch. It then calls list_add_tail() on a node that
+is already on the list.
+
+Depending on the list layout, the node either ends up pointing to
+itself, or other nodes drop out of the list and a later list_del()
+leaves a self-loop. Would list_for_each_entry() in tc_update_vlan_prio()
+then loop forever with rtnl held?
+
+The same stale-cookie mechanism as above gets here:
+
+1) Install LLDP rule L.
+
+2) Install R = "protocol 802.1Q flower vlan_prio 3 vlan_ethtype 0x88cc
+   hw_tc 2". The LLDP slot is full, so R becomes a VLAN entry.
+
+3) Delete L.
+
+4) Make R's entry stale with hw-tc-offload off plus unbind, then turn
+   it back on and re-bind. fl_reoffload() replays R, and
+   tc_add_ethtype_flow() re-types the linked VLAN entry.
+
+5) Delete R.
+
+6) Add VLAN rules until one of them reuses that slot.
+
+While a re-typed entry is on the list, tc_update_vlan_prio() also does:
+
+	prios[entry->tc] |= entry->vlan_prio;
+
+prios[] is a u8 [MTL_MAX_RX_QUEUES] array, and tc_add_ethtype_flow()
+only checks tc < 0. Suppose a new LLDP/1588 filter takes a stale VLAN
+cookie (a freed filter address reused by slab) with hw_tc >= 8. That
+needs num_tc > 8, for example taprio with overlapping TXQs. Could this
+then write past the end of prios[]?
+
+Should tc_add_ethtype_flow() unlink a VLAN entry before re-typing it,
+or refuse to take over an entry of a different type?
+
+[ ... ]
 
 -- 
-Best regards,
-Jinjie
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261102-submit-stmmac-vlan-prio-v1-v1-1-2b37767e4e08%40gmail.com
 
