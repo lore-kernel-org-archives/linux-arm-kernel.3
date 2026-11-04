@@ -2,181 +2,146 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18524606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 00:51:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BC37606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 00:52:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=S8UwbcsP;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZxtVug9g
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=m/3oR+rg;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=NNFBZi2l;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=TnwgPAKp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=d+VNjbqnIdkPj+Dr8BYT+E+/EzP+AzKN2YbQGjScHUU=; b=S8UwbcsP4qv6Gd9H0mq8pnV4wu
-	tcI+8tGfh9tU62Spef258bc3Ml8Lw/cedNXBkoE8ILVIsZCkqEDOV4DzTVMBkpTh1VLYD+M/77Caw
-	pI0idn6wU5niAF/TiKkP8oMHef7WWwM8pS2zUGdbgGcyjwnsuhMVhZ7E+mmcjChxdccUYxuNKksx3
-	gZg6d6jZdZj/m0sxhvdZw5zuklMwZBOo67vCCgMBsPbCrXdL0fYPQ14HiP7V4g6sdpDKs30grf4xf
-	eZuIY+nbVxK7ee1zdHA5VpNhvsu354/FdMWuaWmKW3Bf7+ebtW2ZXNCYE42qo7xbYc9vuwLJ3iWLs
-	mto2+C2A==;
+	bh=INQpRPx8mbyWzq5yXaQzWIi3Hx/cG/9SMyY+hgzfpfU=; b=m/3oR+rgoqJLJ4CS4TiW3TUfPn
+	XDabbA3CiDSvR83y2M+XgEz7CK8ukDF3U6oD39oP/PjM2PA8x5WKmJqYV08XbTt8bA6e7xGJrrA6H
+	aDSAfVTe0lQOm6ZfdhxX0AuNzp72fgMHN6MTFB3E+91tPsCxvzn2x41tO+0/vRAwxAtLcwi6dNI5x
+	gryHhSpWET0sEQ5DgrV0174j3OcxGHOKCpdCHSOqV4cexbejpyYkSaTWEWhA8PlpMU2BoIcRtEszx
+	Wau6gsHJYjOP5tnmUNYDoGO4JwuIxQot//JUA8uDr1bDOpafbL7Qjx3EaQkRnRiHkVwj9XjFhRsLg
+	oj28jfww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOPDm-000000041Ut-3WJ8;
-	Wed, 04 Nov 2026 00:51:22 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1xOPEO-000000041dq-0TM4;
+	Wed, 04 Nov 2026 00:52:00 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOPDk-000000041U3-3OPO
+	id 1xOPEK-000000041cU-12PB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 00:51:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793753481; x=1825289481;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=O8L+ZN7/jI5iHUoSXwoBUtJLA35YErXgaoYdC6VgQ6A=;
-  b=ZxtVug9gy02Wmt5KJJ8a5fWSjX/aTti/DNao9ZWgrJ6AXMRIrVxjg+ir
-   rF5zhhahVgbcza+EqdYhCbQ51XAEKf+hbjGZ+yhviNvihxHZ0NK/NDUWi
-   VVDAX2WCnmtsy+4xUQRto8TpZBfmjD05l05mSbBBwiE50z5tZfi9oZqzS
-   wJiwnIgB2l97xSybmbTcIaz+65s5TYv/gK8DXnbtg+ECmZQGx4dbc4JEP
-   4xwx4G1C9WSYAPDePob/qgCJZr/xQBKhXV8jzCdioZCr9hXnNb5TT18xE
-   MKBJp6sM0mPRPoZfvz4N8L1d9RYov0XwMssl++7V3P+3ig/XDMfQn0TV1
-   w==;
-X-CSE-ConnectionGUID: vFZ/dwRASROfDz4zD7c7Ng==
-X-CSE-MsgGUID: ECtjYltORf+0e6D8poUqvw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11955"; a="2373820"
-X-IronPort-AV: E=Sophos;i="6.27,194,1787036400"; 
-   d="scan'208";a="2373820"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 16:51:19 -0800
-X-CSE-ConnectionGUID: Ej4ZTV8MRnGGaEU8ZSn/6g==
-X-CSE-MsgGUID: OE2xKcy6QH6qlex0dhdZ3Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,194,1787036400"; 
-   d="scan'208";a="6584690"
-Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
-  by fmviesa004.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Nov 2026 16:51:19 -0800
-Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
- fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 3 Nov 2026 16:51:16 -0800
-Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
- FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Tue, 3 Nov 2026 16:51:16 -0800
-Received: from BL0PR03CU003.outbound.protection.outlook.com (52.101.53.53) by
- edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 3 Nov 2026 16:51:16 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ye80B+z0FteHpJfVTA0p4+EMFYAhA4N/CLLpUUHq8Uz5OIO61RSBb23a0JZunLTSCy7j4yDUZrs8iPtf89jYsY/6LGsq0TRYl/Erz8XEpoHBY37uocFBf/dRQQQZrAAmpHrOERYyTQQpUjz1xHzdP+fb0PxFmZnJ5zkPrVRKqcsDw5wU+O9M6al9HKRZcz1tj0mFHnN0TYLqvlxrfjsHkGG485IcV+YAFvqe9nNJVFW2NQKw6pw2QLQI+v8hht0MBHkF4mQr+fMRQ3nJuE5Lh+oWVmmdGCqVs4yCo5PV7+nz7SPjTgdbSzwzy3G6ZDWfjayDmkfCtoxuWvhsOzbxWQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=d+VNjbqnIdkPj+Dr8BYT+E+/EzP+AzKN2YbQGjScHUU=;
- b=F+ENbfwY5Kr8BQGWt+vZHD3O9Qmt+iEVUqcZKZMpUD7/+tc+3q0yGq0B3ED3wJchGsm8XtCtiyRuJ8Z6KVI0HY4uh0xONFl1lVGQRdX+CfnBVt7/wlG+POeREJgdorr51xJSu9yLgTCMnKC+DXqGKpjhIl/9GMbp4irCqdNMlLv6aTHTw/WLOUPiq2Vhu88on88ftHS6HahIgGaAzv/tvOA8F0W/9PVY1QC7lsnt8wfGI2nfxT2U8QAZYlZR2MVVdcq26l/VULZRWlWbCZDsF1tvWq3m5/26WQ1LOlr09mfSpHN7ISy4Mx/rLzE1OHjoGHg/NWdOEOysHDgBO/3jKQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
- by CH3PR11MB525758.namprd11.prod.outlook.com (2603:10b6:610:34d::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Wed, 4 Nov 2026
- 00:51:14 +0000
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc%6]) with mapi id 15.21.0569.011; Wed, 4 Nov 2026
- 00:51:14 +0000
-Message-ID: <56d16560-51ca-4a73-a376-b897bb77e612@intel.com>
-Date: Tue, 3 Nov 2026 16:51:12 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 10/10] arm_mpam: resctrl: Update the comment on
- monitoring domain setup
-To: Ben Horgan <ben.horgan@arm.com>, <james.morse@arm.com>,
-	<Dave.Martin@arm.com>, <fenghuay@nvidia.com>
-CC: <tony.luck@intel.com>, <yu.c.chen@intel.com>, <babu.moger@amd.com>,
-	<fustini@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>
-References: <cover.1792443633.git.reinette.chatre@intel.com>
- <f6080eca2696f4a06777725854447a563aa29696.1792443633.git.reinette.chatre@intel.com>
- <c7f180d1-f81e-495e-91be-b76a4c4df21d@arm.com>
-Content-Language: en-US
-From: Reinette Chatre <reinette.chatre@intel.com>
-In-Reply-To: <c7f180d1-f81e-495e-91be-b76a4c4df21d@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW3PR06CA0020.namprd06.prod.outlook.com
- (2603:10b6:303:2a::25) To SJ2PR11MB8370.namprd11.prod.outlook.com
- (2603:10b6:a03:540::20)
+	Wed, 04 Nov 2026 00:51:58 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A40RUOb230859
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 4 Nov 2026 00:51:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=INQpRPx8mbyWzq5yXaQzWIi3
+	Hx/cG/9SMyY+hgzfpfU=; b=NNFBZi2laTdbxo85/1u/nINapGie1XWld52p126d
+	BkwVEhqNTD/3WKux9QQp+3Nt2W2tpLwM0SNTrUbTejRVbFe+A89etQsAp1g5sBgs
+	WZBuuRHJiRazcGWyV5ftJa2r30rZlr/8JIImABcuN+Cq5oKQrnufcE169RAN5rOk
+	VdUoRUlEO4/olpjqOvxfzytCQuiAdGjY1qe4OcU41cHaaCsX6EQJ6ycTogPkM8QL
+	SQmeRKImqhseFhcmAUTzuzAYJQMn6pWiv5T7s9y4MMo/os1XdrHCaFYeMiIIJPbR
+	dlgsJA8sIHvTxWUhwJxpHovUUAkjD+01bwDErlzYor2SGQ==
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hqhypjbxt-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 00:51:54 +0000 (GMT)
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-36a3451ea93so175434eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 16:51:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1793753513; x=1794358313; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=INQpRPx8mbyWzq5yXaQzWIi3Hx/cG/9SMyY+hgzfpfU=;
+        b=TnwgPAKpULKb7jwVV3jUAphKIOwumkI7PU9mDdORu7eB4Vv+/VoYoAddReIR453CgA
+         fjrNXLUUYMbElu6vcBLe98OvPpyJpnxHizvB4Kvm09/dBIdt3I+8JR16kHqAlZDfjUkD
+         I20eC7nwagNBAHHfD7l82cXn07ViRumM8YV1ZDdaXZQH5pXCvnDVZ50gNe94opYdte2R
+         2NNQSLTymmvlYuLcGebbeZpgAx5/Fn9ObvABPy/8nvkCRTiM3TxwOAfXsWOfRXe85ot7
+         GbsOg2Yvif4tbqqQ+dESp5yVhsslJ2DdPGzvDQPt4MTMIIHbbKuLxnCFWBf/nZJPgQDH
+         60nQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793753513; x=1794358313;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=INQpRPx8mbyWzq5yXaQzWIi3Hx/cG/9SMyY+hgzfpfU=;
+        b=zOyOYDLkXFUaIbq6CD4Zl3z1V0VMKxWlsFZN5tDH79ci7JEzFaKQcRZkqxnU2nuiC6
+         ZZYxpXt9xhguM8dcOwwp3qDJsMjSEUbDJtIubPmY22dkZjxrIuivuOC/xr0fq+ctyn8x
+         JZgsYolESb7YMBRjVyP+LuBSWTYYI6o5iORjYtG6qWfzfNgMf/ilryvEdUMOxU8xBPvc
+         +cHDlYdxbqv0Ri8IJkYGVXsRtGGr8RIrFzbh25U7wCvLQfeKmuUJzhjhS52MISW8VaOL
+         Booo21Ev9ZMKvssxSupWX+PuLqxm9YzlVwzrrNl2ahDT7jKXKemOM3ycXFkCHCVTvkv+
+         vI3g==
+X-Forwarded-Encrypted: i=1; AKwUvBxhpaIiVk3OG6sVKr5aBfKcZAYdGeaqckvLWON5uyOc+2+IoskigJ+ATMC2gydSmLXr6dSbN3r/ha/zQ0WigPH+@lists.infradead.org
+X-Gm-Message-State: APuU4Z9vh2UKQF5rexigYPoSe2Zt6MV38q6r5aFb4Ll+2z/X9qWIzdBg
+	4lmTKXvUwBD0+yCdMSj1KW/P+xzvD5Ej6aK/Hcfu0nQgve7kHudJIp2a6PRXX1dQSJbR8B6piJE
+	YP3rmp7cjqfoyXvKEh817zz85lFrx7sYWI8hg1KbO0fRihoumxWoNo9dlUXwkiPxV91P2blMpRg
+	ydhg==
+X-Gm-Gg: AYBFou1tAPLFkx+THrof0wwt2dY6YvVvMvLlXRDD08TDLTbB8aW9+chOF09DqdPVAdr
+	1Pocn7wuLRufEfP7FlcCjy5sHx79KX3muBRKwUXqF+a6Ye+nwaDWxSWbsVofcpFDg5vfF60nAmD
+	kdVeClC1ScQapCpeo7voVLRtVmoJCIEFdO762qn8SlK6Ytq0cZqomh4gtLNShjZnurliYfJm+x7
+	wEo743wd7m1ODADnvpSAch2SDdRIOY+dGH3tDs/COmZMI9/UsFYuWy70rn2Kt5ELNtjbRt6zwWd
+	QbckCmMOiTZTuWFRCqQamLIKgFOLonlTHdwqocR/UR3x+RIzLNBzzjHk0s863EH91czpp7Cn4Aq
+	ydnwk39RTp6J8z6h8Yd5RDoN1tY2oCOFKWw43p8R43i/LSBhG0S2wXKYAEBpGJ9iGaJIzuZa4Oh
+	K3uOuY33bBis1vtTg76FcW
+X-Received: by 2002:a05:7300:e9cd:10b0:36a:ac68:c745 with SMTP id 5a478bee46e88-36aac68c84amr5935682eec.25.1793753512929;
+        Tue, 03 Nov 2026 16:51:52 -0800 (PST)
+X-Received: by 2002:a05:7300:e9cd:10b0:36a:ac68:c745 with SMTP id 5a478bee46e88-36aac68c84amr5935624eec.25.1793753512201;
+        Tue, 03 Nov 2026 16:51:52 -0800 (PST)
+Received: from hu-ashoraj-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36ca38a67edsm1825616eec.8.2026.11.03.16.51.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Nov 2026 16:51:51 -0800 (PST)
+Date: Tue, 3 Nov 2026 16:51:49 -0800
+From: Ashok Raj <ashok.raj@oss.qualcomm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Vladimir Murzin <vladimir.murzin@arm.com>,
+        linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+        will@kernel.org, mark.rutland@arm.com, lpieralisi@kernel.org,
+        ruanjinjie@huawei.com, liaochang1@huawei.com,
+        Ashok Raj <ashoraj@qti.qualcomm.com>,
+        Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Subject: Re: [PATCH 00/38] arm64: Add support for FEAT_NMI
+Message-ID: <auqBpSIIdRMYXdDG@hu-ashoraj-lv.qualcomm.com>
+References: <20260914102102.68597-1-vladimir.murzin@arm.com>
+ <atwyAKSnttnBpked@hu-ashoraj-lv.qualcomm.com>
+ <86tsm7xsp2.wl-maz@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|CH3PR11MB525758:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8e827c39-8a07-4813-dec7-08df3a0dba58
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|11063799006|4143699003|261028144727099003|261009223027099003|261026140227099003|261022105027099003|56012099006|261026121527099003|22082099003|18002099003|10067099003;
-X-Microsoft-Antispam-Message-Info: Zkh7lLt6kuKvdhfAK23gtCQfSm+pcPvGSoqaeJtDuJFZpsG6j+1JRNGM9+/Q8W21RO/TWDrS0Bo+OSgXN6mgOzrrYH1QdvItNUxihwR9RC9NrQRcvcnW3FNOU0SfDSJXt6giiliBzaFouL16QZVQISVZmVAecHMusBFPWU2rBk+6jzgKDSwo7bUF1/PjgDG49pgFDutwVbOGEeWh5eYs0nxQabsaY9DkIb8CsidHlEd7EHKlQEVO5ealrlMX/tv6G0ZUpfh6ZNieB8tG6OCxseamHivd1NGZghLzBhFQNM0UbEcuzEvA1yvCz19e/eoNMK9/6vTh+Rj05MyLEshRlDo1sFX4tz7OloTTvj2tpDQFWXQhm0RfBFvREkKg9+lh3jdXer6b1nPQiGppTIkBN8b8V6+jlSMK9tn1nVmyt3phh+Vp69+Evhq3F6UlaRveCIhUyTJ+UsLnxlPIQGVJdBdBOCFSx1Qsiw7hrJmZmyH7Yn1avbTMZJ0sdZq0+nmD6PfNWE5gY9VwpNamLwlqUzd3HNnyZgLI/s2ERnakvpx/hrFtM2hlXAy8+UtlqHKx7gXLSGN6Vw7nuFYvh9E8ZT7GuUwvjR3d28siOiRmTLWttuv/gl2qUUZrElxJqAR/WHQH7TWIplBKT3/bHNJwaSbToil/AtwGOEvimb4YUQY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(11063799006)(4143699003)(261028144727099003)(261009223027099003)(261026140227099003)(261022105027099003)(56012099006)(261026121527099003)(22082099003)(18002099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RnljWFdTUXpxMXlaR2NldmJTdkl2SGM5bTZ6YXAyUy9MTW5NTmt3SlNFaC9M?=
- =?utf-8?B?K1lJR1lKYllqSzNxSy9pV3ZIV2VYNTJtMlZwamRwK3puVFpVODFsVU9lajFi?=
- =?utf-8?B?emVJUmMzT1hjY1JaeS9rWURSYVF4S1hXMm5kSVgyZStPNkpUQVJIWDVrazl3?=
- =?utf-8?B?L0xMdVQrZEViUE5Xb3J2RjdtTzVlWXRsb0hYeG1Bcit0SHNqTi9BNm5VcURw?=
- =?utf-8?B?akQ5Q2ltY2oveXdvTmRSUUlSby9tZlJUNU9WMlFXd2xHSGVucmRBV3QyMDkz?=
- =?utf-8?B?R0Q3VHFhenVtNEFCTlFwMDdiWVN2V21MZGZUL3ZrQlNWRmc3T3p1Q014bTB0?=
- =?utf-8?B?dmVwQ2c2Wlo2Sk1sQ2FINGlTdm5xRU4zTFZ1WjBkeGthYStSQU1EWmVyckg2?=
- =?utf-8?B?SXJiNitadVh1akhoNWgwd2NCNE4zK0dmcDlOck5YMHNXQTJveHZtWHZpKzRW?=
- =?utf-8?B?UUFqSDVwa205bUM3ZFpMRUdTdFJtYnhBa25seUpJNUdqcWFETTFONjVGZmxh?=
- =?utf-8?B?UjgwNnBvY3lGUHAzSDk5T2U5cjRGTGdyVkduaFpoK2Q5alo4MGp2UW5CNlZa?=
- =?utf-8?B?bGY0L2Rzb2hFQk8xdVIwSjdpOEFrTUI1Mlk0OEN1YUpSL3AvYys2NzVtNzFv?=
- =?utf-8?B?TSs4SS9xdHhCZHJyUzloQldTa215Z3d6VGhJUmg0WUs5a2l5cjR0dHo2aVJ3?=
- =?utf-8?B?RlRXTEdUdlZETFd5YTRXQWh4ekZZaUZIYjN6MXBvK0VSbmVuQTJkdW9saGMw?=
- =?utf-8?B?TXRLK3kwOTI5eTVlMlhkNFVjdkMxM1ZRVVNEYWdoNFJrYytSSGNmS3QxWmpR?=
- =?utf-8?B?RWZ0S0g5WEZPblBqNnQ4ek1HUnMrS0RUYVkxUmhvU1pOKzMzZ0dGQWYwcHBh?=
- =?utf-8?B?M0QwM2ZBM0pwL21lNVhyZlRweWFCVWJpT3dZMVdObWUwVC84NEttUHR1cG9s?=
- =?utf-8?B?dXNuaC9yWEwrTTVJZUhoRFUzU1d2ZjYvQ3lkMHdQY3B6U1JDVmc4ZW5nNjJX?=
- =?utf-8?B?dlJCYW9OT294UnpZbU5md1ZucTJrMEV6NEFRVmZ6S1c1b2ZQYmtJS2hpM2VI?=
- =?utf-8?B?aTJDTHl3WDhEYUhLVm14cnczTEpXM1NXeWJzWUJRQndhSVh1c2VRSzN3Z0pN?=
- =?utf-8?B?TVIrZXczRFJSTloxS2ViZ25lQjJqQlRES3MyeFVrWTZaeSs3MW5QZmJXTEtv?=
- =?utf-8?B?enlHeUJYRTY0UjIwV2o4Z3pMRWFWRXJsVlNxam04d1RBR1JqelBzZ3ByL1RM?=
- =?utf-8?B?S0o0d01rZThhcTBxQkFwNEtEbTcveitCVnpEdkRqazdTbTA4S2xsZjF3dXN4?=
- =?utf-8?B?T05CZ3JFYThHaERvb0ovaHl0UTlyNW91TExJVkd3MEx2OGdyUEdyNzdWdGNP?=
- =?utf-8?B?SHA2Rkw3THc4UHI3NkhHL3Z6YTFSd2VaZk1CeXEzT1dBQXdqNEhFVWNlU1JE?=
- =?utf-8?B?NkZpTVcxQkd1WWR4MHd2VFcyZklQMGtoY3BTekxSMWhqQkFRVHdPdlpiUzAx?=
- =?utf-8?B?ODNMcFdKR3owR2pXd01NUjJXSzA2bnFSc2lyWUIwZURWTlFPV2l0TEw3Y1Fa?=
- =?utf-8?B?cFEvVVBGWUo1WXhSeStQeUlXdVFqU0lwL3hjd0NJUyt2eExFd0FUclBSN3Yr?=
- =?utf-8?B?KzRZUXM2Z01NSmJSZWhTdmZaYklIY3NwQk80MTVFZVdSayt6U3NaUDZ2Rnlw?=
- =?utf-8?B?YVdkOGgydEsrRkxFSERtQ0xCd1Vab2Y2ang3TGw2MXFuMVBHL3YrNnVCbGNo?=
- =?utf-8?B?V1VsWkRtT1piMkRHOGJUTmt4eGZ2SkN5QW1MNFJLZnpTN3VxdzJDbDIrOVVv?=
- =?utf-8?B?aVMrSFJCdzFmMDd3OHFhc1pPbjIwMFpPeU9PeXhJM1RtY2hGL2Uvd3kyYTZo?=
- =?utf-8?B?ZElpcGdrb2ZnQk4vZzhQVGNpK0xkaUtOMzZycW4veEtMWHErWUhqM01YWkFY?=
- =?utf-8?B?MklobUhXZzlOb1o2MFZGc29WMTBLNkg4S1NhOUVvZ1NkVVNCZnppblJNWmtN?=
- =?utf-8?B?VFVWY200azZHdkhLY2hMOFVlbERvZkVPRGJheVgvWmRpdWpWZGNqVGxzZitm?=
- =?utf-8?B?WVUyc1l6cVY2aEdEQTIxTVZYdnFDcW5uY0JhdWUzeEVtbXFOakIwOWw1OS82?=
- =?utf-8?B?aEowcmxDT2VnbE5hOGtndXdESTVwaU5zWGhObGpMRC9sRE0yai9zODFPR29j?=
- =?utf-8?B?R1p6bDhiZUdIMkhjekMrL1VkR2tDYkUvbVZhdkVtWDVyeFhHclV2MnVSWEN1?=
- =?utf-8?B?eFpDdWxnOFo4Y1pBUUt1d0k0NjRDSmRZZXM0anhhWFBaOTFWVXJlb3ZGaFFQ?=
- =?utf-8?B?czM1RmdsWmorM1NvM1RJcmhXSjlpUmV4UEdGb1E5cERFSmpSdGpxQXdDbXlT?=
- =?utf-8?Q?3lHjFiy+qya7VR8Y=3D?=
-X-Exchange-RoutingPolicyChecked: ttcULE750DTr88+OTFv+0n9jFEY3WRqXRgWNqdKZhQyJ/DC/JwA1mxUGkj0r6rtZ0LolBxxDkN/UVowLEhQLSrmCc2h36W20CPZN88VE/vi2TzhaSnQbb3su1gQ9rvCLJVBI68F7h/2VVGWFid8TU3nu3UFldqRMl0U8C8YarTTsLxwKLlM74uRcnpiw1/4d+2a9S6EDL2SvhDIaUNBNPA7kKf59Mm3kS7J9M1qZxYXr9APVlJw49NT2tyd0GYO9t7Xlp6TwblbDhMTWki0G8cuEs9XXSyaVatUOMXcGg/chYwYPJXH2s7aczFo1orkLwbUZS3X1x+NsunxFROyONA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8e827c39-8a07-4813-dec7-08df3a0dba58
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 00:51:14.6705
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /bh6WKNfsPGHGi9+0VxxBvjIiCfFwH/tR6iCb5Q18aUlX/RP6y4BILVuBFyOWvBbADl2de5Z4kXi2h0lhKCZz/XJ81GGad4z6AlNyGej+YA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR11MB525758
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <86tsm7xsp2.wl-maz@kernel.org>
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTA0MDAwMyBTYWx0ZWRfXzlwGH+U46Y4S
+ zJt6TNvO/wVbOs9jaKj4HcpURoeJCROq+5d2ad1MdFDcW7fqUVoC2h/b28D2SYoV8KlrQdbs61J
+ 0Nuzy41jfhcRZ0iv3wB4affVNeTX718=
+X-Proofpoint-ORIG-GUID: f4EsDd3vHDmAME8dThlE-kgoyYol40e8
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTA0MDAwMyBTYWx0ZWRfX0CuZ2BI5ryRs
+ l4ML4FXL2BHzWAUKhmi9S4nQsoduplRlKmJVXoAMkrR3Vpr+tZxSajBJhb/tOsHGrtQyppip/Mn
+ AKDAUaAmgT4Gzik4SRiw4KUxMh3IdPf5BvRn7j7HUHjo5EjFQ58ej+Kc2L6WQCPGQKBJ2VGX1bQ
+ fQ30zzuI/Tu69MmYZzOk8u8xclnQxDPdOnodoATyl6qEI9Z1uo9m3RD053qCzS1MxSG2OR4sdES
+ cUxIvZgRoJJlAoVvPGybYYtwsnX4ZAQASx2GI9k+EPDAqe4KBvzNRW2kUP0WFLVPpu6sTjtuZye
+ 5HvMdfLFFjnrfrZMofMJeecYq04+VBhEWg6PdQY48T/se64xWY12srJzGcY0lgzQ3aS+ILPkcHM
+ 309PGDZ4h1T6tHk1OYOVq3smU3F+UbUkR4xy7jcuWiv+dmEK7xnJ+bYw+aqzeDx9kzV8wMJv4xe
+ KR71vFr0ZIWViFyKa6w==
+X-Proofpoint-GUID: f4EsDd3vHDmAME8dThlE-kgoyYol40e8
+X-Authority-Analysis: v=2.4 cv=T94Z3PKQ c=1 sm=1 tr=0 ts=6aea81aa cx=c_pps
+ a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=7MFEsAuBIBwT2tAUPEYA:9 a=QEXdDO2ut3YA:10 a=6Ab_bkdmUrQuMsNx7PHu:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-04_01,2026-11-03_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 lowpriorityscore=0 impostorscore=0 phishscore=0 clxscore=1015
+ adultscore=0 suspectscore=0 priorityscore=1501 malwarescore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610300000 definitions=main-2611040003
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_165120_870366_31406602 
-X-CRM114-Status: GOOD (  16.03  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261103_165156_874879_7AF02FB3 
+X-CRM114-Status: GOOD (  40.35  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,61 +152,133 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Ben,
+On Tue, Oct 27, 2026 at 11:56:41AM +0000, Marc Zyngier wrote:
+> > 
+> > Hi all,
+> > 
+> > I am working on arm64 HEST/GHES Type-4 (NMI) support using FEAT_NMI
+> > and GIC NMI support.
+> > 
+> > On arm64, the proposed ACPI semantics are that the Type-4 Vector names
+> > one GSI corresponding to an NMI-capable GIC SPI.
 
-On 11/3/26 8:27 AM, Ben Horgan wrote:
-> On 19/10/2026 23:07, Reinette Chatre wrote:
->> The comment in mpam_resctrl_setup_mon_domain() explains that the L3
->> component IDs need to be used for a monitoring domain because there may
->> be no control component for the L3. It also describes searching each
->> event's class for a component with overlapping CPUs.
->>
->> Neither matches the code. The monitoring domain has its own structure
->> and is set up independently of the control domain, so whether a control
->> component exists has no bearing on it. Each event's class must have a
->> component that contains the CPU, and all components of the domain must
->> cover the same CPUs, which is stricter than overlapping.
->>
->> Rewrite the comment to say where the domain's ID comes from and what is
->> required of the components that back the domain's events.
->>
->> No functional change.
->>
->> Signed-off-by: Reinette Chatre <reinette.chatre@intel.com>
->> ---
->> Note to maintainers: This comment update is kept as a separate patch to
->> make it easy to review. It can be folded into "arm_mpam: resctrl: Give
->> the monitoring domain its own structure" and "arm_mpam: resctrl: Require
->> monitoring components to cover the same CPUs" if preferred.
+Hi Marc,
+
 > 
-> Yes, I think squashing those 3 patches together would be good.
+> I've already said all I had to say about encoding the notion of
+> priority in FW tables.
+
+Thank you for the feedback. 
+
+I'll try to explain without tripping over myself :-)
+
+The intent of that proposal was not to prescribe an OS interrupt
+priority. The narrower goal was to give platform owners a way to
+identify a small set of critical platform events for which we need
+prompt OS handling. 
+
+But I agree the Type-4 (GHES NMI) seems to prescribe rather than 
+being a hint. Unlike x86, in ARM without the OS helping with the 
+routing and setting the superpriority it would be a dead end.
+Type4 seems like the wrong model. I won't pursue this further unless I
+hear otherwise.
+
+The second choice I prototyped was to just use the existing Type10
+entry, it has the usual GSI and is already plumbed.
+
+The missing piece here is to tell that we need "urgent" indication. 
+
+We don't have a lot of room for meta-data, but one obvious candidate 
+was to repurpose the ConfigurationWriteEnable bit. Currently the values
+are
+
+Bit 0  Type
+Bit 1  Poll Interval
+Bit 2  Switch To Polling Threshold Value
+Bit 3  Switch To Polling Threshold Window
+Bit 4  Error Threshold Value
+Bit 5  Error Threshold Window
+
+Bits6-15 are reserved and MBZ.
+
+We could borrow a bit (bit15 for e.g), to indicate Urgent interrupt
+source.
+
+Proided that we can pursue this in the ACPI spec.
+
 > 
-Done. Since "arm_mpam: resctrl: Require monitoring components to cover the same CPUs"
-depends on "arm_mpam: resctrl: Require a component for each monitoring event" for
-which you provided RB separately I re-ordered "arm_mpam: resctrl: Require a component
-for each monitoring event" to be before "arm_mpam: resctrl: Give the monitoring domain
-its own structure" to support this squash.
+> > The NMI property belongs
+> > to that SPI, while its target PE is normal mutable GIC routing state
+> > (GICD_IROUTER<n>). This also permits a platform to describe multiple
+> > GHESv2 Type-4 sources, each with a distinct NMI SPI.
+> > 
+> > The current Linux GHES implementation registers the interrupt with:
+> > 
+> >     request_nmi(irq, handler,
+> >                 IRQF_PERCPU | IRQF_NOBALANCING |
+> >                 IRQF_NO_THREAD | IRQF_NO_AUTOEN,
+> >                 ...);
+> >
+> > request_nmi() requires IRQF_PERCPU, which marks the descriptor IRQD_PER_CPU.
+> > Generic CPU-offline IRQ migration then skips it. This makes sense for a
+> > true PPI, but this GHES interrupt is an SPI: if its target CPU is offlined,
+> > GICD_IROUTER<n> may remain pointed at the outgoing PE and notification can
+> > be lost, or possibly it might fail the cpu offline since an interrupt
+> > can't be retargetted. 
+> 
+> Obviously, the PERCPU flag says exactly that. So if anything needs
+> fixing, it is the GHES driver.
+> 
+> > 
+> > The GICv3 affinity callback can retarget an NMI-configured SPI: it masks
+> > the SPI, updates GICD_IROUTER<n>, unmasks it, and updates effective
+> > affinity.
+> > 
+> > Would maintainers prefer that GHES explicitly retarget these NMI SPIs in a
+> > CPU-hotplug callback while retaining the current request_nmi() contract,
+> > or should genirq gain an explicit routable-NMI SPI registration model that
+> > is not marked IRQD_PER_CPU, but remains excluded from automatic balancing?
+> 
+> The question really is: why does the GHES interrupt need to be
+> strictly affine to one given CPU?
 
-At this point the next version of this series looks like:
-	arm_mpam: resctrl: Add a helper to find the component counting an event
-	arm_mpam: resctrl: Use find_component() when allocating a domain
-	arm_mpam: resctrl: Rename ctrl_comp in mpam_resctrl_alloc_domain()
-	arm_mpam: resctrl: Do not fail CPU online when domain setup fails
-	arm_mpam: resctrl: Split control and monitoring domain setup into helpers
-	arm_mpam: resctrl: Require a component for each monitoring event
-	arm_mpam: resctrl: Give the monitoring domain its own structure
-	arm_mpam: resctrl: Rename struct mpam_resctrl_dom to mpam_resctrl_ctrl_dom
+It doesn't need to be affinitized to one CPU. But request_nmi() seems to
+required IRQF_PERCPU. 
 
-Thank you very much for your review. Unless something shows up I plan to send the
-next version next week.
+I didn't change the default implementation, so I handled that with the
+offline callback to retarget the interrupt to a different CPU.
+> 
+> > In either model, the intended policy is that irqbalance must not move the
+> > interrupt,
+> 
+> NOBALANCING achieves this, by preventing userspace from changing the
+> affinity.
+> 
+> > but OSPM must be able to retarget the SPI before its target CPU is
+> > removed.
+> 
+> Whatever OSPM is...
 
-Reinette
+Sorry, weird spec language :-(
+
+> 
+> The real question is *WHY* do you need this. What breaks if you let
+> these interrupts be migrated at will?
+
+Maybe I missed something, if current version of request_nmi() can give
+that migratable interrupt that's all we need. Likely I didn't set the
+right bits. 
+
+Let me know what you think about the Type10 proposal, and I'll drop the
+Type4 and pursue this instead.
+
+Cheers,
+Ashok
 
