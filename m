@@ -2,80 +2,150 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 411BB606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 22:58:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3F47606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 23:02:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vV1VU7pf;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QBp+Q/qh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=P3dUzL38;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Iq+PXbvP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=eiBJTBFQf9YAHwnC/I4w5TIHr7VLqlllu3kFhUbXiHo=; b=vV1VU7pfqEBGa4
-	DzsdYkkWSJ29bs8ZEAOXVQqp+zF02fMEIkuHS4+O7IYvxmrtW/d4yJ+/3Skod344dAL3W2VoOrCEq
-	dTfdx/GL9zCxFyOyVBfefwU3MrPve55L0zWiAOHdG+Wr96eYJXsjwpy/t1DzPDClkJ5zLazdaxgic
-	RTieFa0BiN4wGtHwNv/r6W2VF6aKtnTs0GEKcXqzWE6BTBxQ6C8ZKofChKu4GO9JpmHyHFkB5WD7C
-	v9fRXiti0laSNd9yr+5EWbX44+z5a2bS2eeXKXMprT9wHVKBq7ngi8t3z8ZkoMY2ihtNcRBI5E5L+
-	NZqcq+yBrubHr80O7Uyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=ScB+1RNNN7nrFc24z/jDL9Wx6H4VUx2SuocMwTMSEps=; b=P3dUzL38U1sduECeQsX3YSnzgR
+	/Hy+lbViYr3XNbWOEOGosb11Grb3BRnyAqbZQb5ZKsa5/m+tJXUdttvCDI5u1DlQxma6PkjTm9bZy
+	qxRCxph0lNF0kUg4B8Vj3L7bOWOLf4RwPmtK3EvBO0TfxfVACM0TpkhHjrpKcHW+QbQ6o5SDXzKmm
+	79YV3F2vSJUGFQni05ABcoQLnZjfhUot/wBdPDPEgSL1P8wpVBC3ZI7cOl3ZqhU8jPPuSb7Vkor00
+	YDneudXienhbOvsLYeNxc0b4xljm2mlURlfM/8sWVXcLZuW04YcwO6eyclIR1AQCik7XTdh1QLy+q
+	4AasKHbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOjwI-00000007CcN-0My2;
-	Wed, 04 Nov 2026 22:58:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xOjzq-00000007Czw-3AQJ;
+	Wed, 04 Nov 2026 23:02:22 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOjwH-00000007Cc5-01Ez
+	id 1xOjzn-00000007CzY-3sS4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 22:58:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1917D60207;
-	Wed,  4 Nov 2026 22:58:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B8611F00919;
-	Wed,  4 Nov 2026 22:58:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793833119;
-	bh=eiBJTBFQf9YAHwnC/I4w5TIHr7VLqlllu3kFhUbXiHo=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=QBp+Q/qhkqA49iE7hiEg/DOPNKq5TQ1YfoV6HAYBX9eLL8IncwIhpt2MS6U7l2iyb
-	 inRB6aD3jPHr56MTukOaxT9I1PKFaGi7Ff3cMXzp4t1cSBS3rmEoqrHvb0PZOXlDgt
-	 Wu/4JJpphQPXkNab1PPV3SILD29P2dA4PgZPU3krN+JPumBkRkmc2OVip5Y8B5Bd+3
-	 sm2RRs7FDpCjahRKFcW0cgBLaZFJbxFuPBmIfGUhdEc6xATf1MWMe7NK2o0j77fJUT
-	 5f4rWlEbhIINIBUzAoXT5KijQC4tPhRVNRqcu3fnIC/BIw4ewQ9M7tq8dhZKDYVeTA
-	 c7/JwA/ckXsYg==
+	Wed, 04 Nov 2026 23:02:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JfZCV5IvCAcL0qHg5YIBCsAdTapUf74IeJaLcO+9fxwzqanLk1Vrbtlaoq+H7FTvyIQ8tr/aiJJ5FO5AINVBeoufT+DS0788bWZKxBm1pY+tx2e0IZpV3QGzF3GOC1A1F49AI7Gg1Tm8UeX4orfLa3WSAbCFlO8ctI4L2mUTlEcXYqvC0I5XBikdLGQKWN5D8vXwcAnKPbdTxjXyjnVpYwyaTyxajgMjP/SYwDxL7sIug31EK9pIqmeciyamSFLxanetoVziOv4ejKqvH7sJLK+e4z7kIvAn1fgshd7DHD9Ah0mbUQq4O32Axnnwc0eY/3t4cd+P1EsahefhMhoUag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ScB+1RNNN7nrFc24z/jDL9Wx6H4VUx2SuocMwTMSEps=;
+ b=UlJ1kL9PHQxvw5YmqwsUL5XGsdE/xfcCSUaj3ijsTsJaGZ0CZaQT0OWBvlSITdnZDPSlWjC8QMe/os/1n/7Bv84q9+2MWjTyn5g+sTdU4MlhqnBYtGwLPer58p7fQWeoyaZjM9GShUjRPJHS0jfBu3tbsTJUqp3v4gdo4P+th1Gd652xUunUiNXEYBLn35vswhHyU9FJb5YPrBe2Yzu7wvN3hyrXqi4E/SCVeJmKXgxtWtTM6nXbIwAzxdIiJaIGvYyWoDxN1y+HNQg6HVYuiM0UEiXnell02w7C7T0ZCC36a5Dk8vwJdClJOTqTaYLcUbRGYDZfqGVE7G3oN4b3Ww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ScB+1RNNN7nrFc24z/jDL9Wx6H4VUx2SuocMwTMSEps=;
+ b=Iq+PXbvPi64pXU2YRfsc4s5Wg9TDURj2sxvi0MMvZIFdEcJHdlpSF+dFGuK3YZHg7rhFdPNxlXsW5Yh/ogPUSa3k7eQ8eFAmQan1yxLLe2ZgGUvcYjlWiuqwk3goqH/DFsDgdUarU8eWF8rN8hnVU58RAnwkD9e+71pjrK8EjfEP6rA3K2zd65dLplUVu2eMXKNg7anTT/Pm8rD0XFSl3E1qmG48YSmJBpxuzMpPwBVq4U5tRYbWOD3sQYsKH4kYK3ComBOf0My7oJ5R+bKVln8QnCp5mkW+7dOUFh5Eyt8vKwceZPbNPNhc0LHMsCicSSIDOO4hiJgnKTNTR42GyQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from IA1PR12MB7687.namprd12.prod.outlook.com (2603:10b6:208:421::11)
+ by SJ0PR12MB6928.namprd12.prod.outlook.com (2603:10b6:a03:47a::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Wed, 4 Nov 2026
+ 23:02:11 +0000
+Received: from IA1PR12MB7687.namprd12.prod.outlook.com
+ ([fe80::44bd:3118:a52:69d8]) by IA1PR12MB7687.namprd12.prod.outlook.com
+ ([fe80::44bd:3118:a52:69d8%4]) with mapi id 15.21.0569.011; Wed, 4 Nov 2026
+ 23:02:10 +0000
+Message-ID: <e5fb0b57-0304-4989-94af-9432115c7cb6@nvidia.com>
+Date: Wed, 4 Nov 2026 15:02:04 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 RESEND 3/6] firmware: smccc: lfa: Register ACPI
+ notification
+Content-Language: en-US
+To: Nirmoy Das <nirmoyd@nvidia.com>, Andre Przywara <andre.przywara@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Salman Nabi <salman.nabi@arm.com>,
+ Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, vsethi@nvidia.com,
+ Varun Wadekar <vwadekar@nvidia.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, devicetree@vger.kernel.org
+References: <20261102165421.3651202-1-andre.przywara@arm.com>
+ <20261102165421.3651202-4-andre.przywara@arm.com>
+ <c9f66683-7902-4b5c-9f76-c55b1894ce9c@nvidia.com>
+From: Vedashree Vidwans <vvidwans@nvidia.com>
+In-Reply-To: <c9f66683-7902-4b5c-9f76-c55b1894ce9c@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MW4PR03CA0344.namprd03.prod.outlook.com
+ (2603:10b6:303:dc::19) To IA1PR12MB7687.namprd12.prod.outlook.com
+ (2603:10b6:208:421::11)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2 5/7] clk: stm32mp25: add clock for D3 peripherals
- allocation for Cortex-CM0
-From: Brian Masney <masneyb@kernel.org>
-To: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Gwenael Treuveur <gwenael.treuveur@foss.st.com>, 
- Brian Masney <masneyb@kernel.org>
-In-Reply-To: <20261023-ups_mp25_clk_update-v2-5-398d348ea8fd@foss.st.com>
-References: <20261023-ups_mp25_clk_update-v2-0-398d348ea8fd@foss.st.com>
- <20261023-ups_mp25_clk_update-v2-5-398d348ea8fd@foss.st.com>
-Date: Wed, 04 Nov 2026 17:58:29 -0500
-Message-Id: <179383310949.724795.2248553531492904727.b4-review@b4>
-X-Mailer: b4 0.17-dev-7ca47
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7845; i=masneyb@kernel.org;
- s=20250903; h=from:subject:message-id;
- bh=SEVQkXUfKjajYOiqgWTGq0lvvrHvIZ320IKGWJ0E/t8=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLJe75iZFKDqefrMc177a1eCL614ctqoMDojSGOHmOSZ9
- c131GbodpSyMIhxMciKKbIsyTUqiEhdZXvvjiYLzBxWJpAhDFycAjCRDcYM/6y95VJDpxf9kl5/
- 0uvverfNe+a2/hYK/s3J8+xp31/ZaiGGv/IMrMJHjOaHP3Ca0bzr5pXp8Vs59WPK6hilvruwzjg
- xgw8A
-X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR12MB7687:EE_|SJ0PR12MB6928:EE_
+X-MS-Office365-Filtering-Correlation-Id: fea5c068-1d55-437a-5770-08df3ac7a832
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|22082099003|18002099003|4143699003|261022115727099003|56012099006|11063799006|3023799007|261022075727099003|261026140227099003|261026121527099003|261009223027099003|261028144727099003|261102123227099003|261022105027099003|261021121427099003|261021123027099003|10067099003|5023799004|6133799003;
+X-Microsoft-Antispam-Message-Info: y6P7tRrkFBDKEUs10OaKmjU9PrwH6IVGoIFGaRr2BQBohGc7luRXrUkgF/0EDXujWb64+jYBePr7JFNLG9i9x6XWw4T6hNTOX++Oc6pvTxi/2N1bVJsSH+df+2h1ABATBo8dedK2Ursn3pjVcEbij2CWctpkMTN+SmMzy89qm+M6VoU2Jjps/iN+K1rN/rg3zsE0F5a2vPZvqcp6UoXUpHpoKFUzqZf7OcYfcMPx1DYbLf3MO7/Xsg86Hd1v8WLJlZi5qow4nA4EcH285rIN8k3hDQxoP0+wjEFaWvBQd9XwPSNkOUNgkjz3HpT8tDQnI2xU42ddyOs2sw8xToXuh8W5VDaE5GA1cpPxrxHhyrmiccfNPdwnfHiUvAjxMvsbFaxgRuIT3LXdoQwQYDnxtmbdjolkkn7rjDm8IrbFJVNOlOEr5vneJGatvrmJpO0u/EEZwL2Vcmd/uVOGJ1V4JVampVn4Ke+M28y4vN7kKBqAfGntYmR/6xe+LtAPBu6fKkG43iBqiere9FaBHz0SYojLQgaOmYk/gmQ4rjA6lcOufVqiVFi3+s3LzM6Haj/tjFdatQDLoG64Hk8TjsOMRgJASiY73k3cHxTnLTTExTAyy/bKnz0bCfNVBBr0kAnRIRDfqs71t8b2nUz9hTD0gfz7dQniO+RWP3l8lCPjoiI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB7687.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(22082099003)(18002099003)(4143699003)(261022115727099003)(56012099006)(11063799006)(3023799007)(261022075727099003)(261026140227099003)(261026121527099003)(261009223027099003)(261028144727099003)(261102123227099003)(261022105027099003)(261021121427099003)(261021123027099003)(10067099003)(5023799004)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RHhOV2tKQ1FIOXVTSTB1ME13c0J5azJ4VXI0Q1dKUy9RYnFSankveURTZWx5?=
+ =?utf-8?B?VHY4UkdlZXpBcFR6UkVjaTNUWkNMelB5VkE0V2YzbzJneGRUQ3ZZK3h5YkFQ?=
+ =?utf-8?B?QXJyaG1WbkVBaWJ4a2ZXT29kaXpTK2tGMkVxaWNDQ01LMG1BVUJmeGZ4Vjkz?=
+ =?utf-8?B?SFd4dytZSUE5V0w3MDBKVEt3cVQrNW1aWVBsTTZhdE1taGh6Wk9XbGZIVW1x?=
+ =?utf-8?B?TTBTMkYveGljZWZMWXExdklWUm13SDRsUE5iZmp2UkdvelpJZ0gycnNQdU9h?=
+ =?utf-8?B?UEFDWFdRT0k1OEdyaUUwdUsreGJIeWxBdHQrN2lmUXdFMHdCanZ6eTN4aGdJ?=
+ =?utf-8?B?Q1VydWFBTTlOSmRmTExmaThlaGtNcHNzYjhxQlJFR3h6VTJEMG9zZGNEOUl4?=
+ =?utf-8?B?MlQ5Ry9zQzlEeTNRc1BKc3Qvd3pQQ095aStuUUgwZnU1TEFoajl1TVNUVmh1?=
+ =?utf-8?B?UDMzUkR0R2ZLc0crbTZORVVwdTBQMXhkbzhhL2dCQ05vUVRNS3czU0lMMjhG?=
+ =?utf-8?B?bmVjRmZrYk1iMFphcGt4QnlpRGhhR3ovenFUYUxXMitRcW5MdGF5aWlad1Jj?=
+ =?utf-8?B?UFMyZDJWTG5GZG5NclpnMTN2MVpLdjNaUnNYOEJYMlJXUXYzN2JxcFhhSTVZ?=
+ =?utf-8?B?dU52Nk9xQ3B6emFTVGlUbGl0UGh4R2VwSmZ5NmFONm5kcnlIdVZsV2tpTTZx?=
+ =?utf-8?B?Yjg0M3dKcEYzbnNockdtdzVqWFdpeWJ1TkdKSzFHSzBNTmJiV3UxQ2xLQTBy?=
+ =?utf-8?B?clQ0a3Jya0VxOHh4WE1PR0k0ZlFJby9jb3oyaE5wekZ5UTloTW1yQVpoRkt6?=
+ =?utf-8?B?cDMzOWhFazBCN2ZZUjFrMHRsVm4ycm50VEpDTTFhRUNVTmtDUU9hZ3ZpSzhO?=
+ =?utf-8?B?N1dKSTdQemIrQ1BWNWRLbXZNOHV5RVdrcmZGK1NGR2RUS0JGaFhOakJGbUdD?=
+ =?utf-8?B?OWdzTXNCZkxBeThaL05YVnJoelQ0aUtvOW85MXpQS3hYaHlKZHZKU2RXTFNh?=
+ =?utf-8?B?VHJHTDRHTmRMazJyMFNZWWRBSWd3T2o0Tnp1b0ZXZ0VFUEd1ZEUrRG9OQi85?=
+ =?utf-8?B?VFJteEJDRWd6MWJIMjgzOVUzSU5JUURiWW83SCtVb0Z6OHpuOXJVZllDUDgx?=
+ =?utf-8?B?VFBaWEVuM0NXbWp4REYxT3BoZnBzeGFJbTBrOFN0eFFWbXpBQTNHU1ZsVlE4?=
+ =?utf-8?B?eFZSdyt0VDhEWW9EbzR0ZmpqeDMxN3hvY2NPR2pjZDE2SEkwVFMzenVIUGRT?=
+ =?utf-8?B?bnFBSEFoQm5yMldtNG1MK0VVZ3VKMUpsZGJqaVZOb0M5RzJwRjNMVnM1UHVa?=
+ =?utf-8?B?Si9vTVBkSUNMUTN5RlBTY0tLNGRZNUllVlhwdnR6dnRmVFpGMVBZU3c3Mk0v?=
+ =?utf-8?B?ZnMvM1JBTzZ3SGRkQWpCUjBFdTBzNDhTRGVsV3F1OTJQSFdrWXhiOXBQTWJi?=
+ =?utf-8?B?ZzAzTnNHYTNSeHg5TC9ldmdIZkUrN1A4c3VXTzJmRXVKOEQ5YzhNWWpSajlo?=
+ =?utf-8?B?ZTJCSDE4VnA5QWdkQm50UjNYVjhPVHFZSmovcGlkeWpremZkYU5TdlVXaXNS?=
+ =?utf-8?B?bEhZWEJYeDNYbVVxRlErNk5MaC9WcjhnM3J2Tm1Bc2hjTVo3MHFKZFZwaHpY?=
+ =?utf-8?B?MWNLSWU1MjdSMnYrZEhSUlp3L1luMWxIUGQvNk8wVVZJWTM2ckVYR21Ha3dm?=
+ =?utf-8?B?cVB3SFZMTmlxMGdSb2NkZUs2MXA2T2toYjB1YmRXUUJNNjFkeDJoQ0FvVldL?=
+ =?utf-8?B?ODI2VFBFdVRUbnVYU3ltbEdBaTBqZUpoNXQ5ZDUxbEEwVXVIZHpLSUl2dFdT?=
+ =?utf-8?B?ZXZ4bGgvS3VTVExyb1k5a2lNcGxhTmQwOFF6NDN4bUtUVzd4c2FUYmpIbHJE?=
+ =?utf-8?B?eG9nSnZzS2RyeUNVNVFoY1JwMlRKLzVsM2YxTjdCTitFYlFERDlWcHh0Tldi?=
+ =?utf-8?B?NmZKSk9OZnVDcDJYMEJzek5wRUx3a3Z2QW1GRGxVYkpQQ3hjUGdjYnhiQjF0?=
+ =?utf-8?B?U29ZK0xRNlp3ZG5McmJ2aWtkVHpRclpwMHc5c3hpeFhXeVV0cDdCVHNPTlVW?=
+ =?utf-8?B?NFY5a1djRCtHZ25rUVZYa3U4WHFjSUFVUUZuYXg5VXdUeW9ycWhMVUtJY3c1?=
+ =?utf-8?B?RnF4NW1lVG9EeVNxSHJuRzlLcUVteGl1RWdYcDZHTDU5SkVMMlQwTU9rcnVP?=
+ =?utf-8?B?dFhMYktiajVwOHc1dlEyMHNSSkFSMVVZalJuS25JbWpPQmQ2Y2hjb0kraDF3?=
+ =?utf-8?B?aEYzb0lSZ2VvRGZZZ2daVWRlM2MwY1BTZEVkMU5YaWV6MFdwaGxSTldPOGZQ?=
+ =?utf-8?B?MVU4ZXJTbzFwWjl3SjFmWHU1cTEzT3FOSVRNQ29HaEVINktyNU9LQT09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fea5c068-1d55-437a-5770-08df3ac7a832
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR12MB7687.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 23:02:10.7651
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0dJPBs9IzwVHoL0EZg6NS31QvTB4eeJWEX6hnu+4gfjVWygsM1qflt0K/+eBPD+TXerMGp6RylvTHAMP7YHuHQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6928
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261104_150220_007703_AADEF028 
+X-CRM114-Status: GOOD (  25.18  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,236 +156,274 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UPPERCASE_50_75,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Gabriel,
+Hi Andre
 
-> GATE_<IP>AM allows to enable the Autonomous Mode of the D3 peripherals.
-> GATE_<IP>C3 allows to enable the allocation of the peripherals to CPU3.
-> 
-> For any D3 peripheral allocated to CPU3 (CPU3 domain is used and AMEN),
-> MSIKERON must be set to allow the Stop modes. That is why all the
-> autonomous clocks have the MSI KER clock as their parent.
-> 
-> Add the HSI KER, HSE KER and MSI KER clocks as new RCC input clocks and
-> register the C3 reset.
-> 
-> Update the number of clocks of the provider to cover the new IDs.
-> 
-> Signed-off-by: Gwenael Treuveur <gwenael.treuveur@foss.st.com>
-> Signed-off-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-> ---
->  drivers/clk/stm32/clk-stm32mp25.c | 176 +++++++++++++++++++++++++++++++++++++-
->  1 file changed, 175 insertions(+), 1 deletion(-)
+On 11/4/26 12:03, Nirmoy Das wrote:
+> Hi Andre
 >
-> diff --git a/drivers/clk/stm32/clk-stm32mp25.c b/drivers/clk/stm32/clk-stm32mp25.c
-> index 59abac0cc56a..3199cf18f4d3 100644
-> --- a/drivers/clk/stm32/clk-stm32mp25.c
-> +++ b/drivers/clk/stm32/clk-stm32mp25.c
-> @@ -18,7 +18,7 @@
->  #include <dt-bindings/reset/st,stm32mp25-rcc.h>
->  
->  /* Number of clock identifiers of the binding, SCMI ones excluded: highest ID + 1 */
-> -#define STM32MP25_LAST_CLK	(HSE_DIV2_CK + 1)
-> +#define STM32MP25_LAST_CLK	(CK_SPI8_AM + 1)
->  
->  /* Clock security definition */
->  #define SECF_NONE		-1
-> @@ -38,6 +38,7 @@
->  /* Register: RIFSC_SEMCR */
->  #define RCC_SEMCR_SEMCID_MASK	GENMASK(6, 4)
->  
-> +#define MP25_RIF_RCC_C3		72
->  #define MP25_RIF_RCC_IS2M	107
->  #define MP25_RIF_RCC_MCO1	108
->  #define MP25_RIF_RCC_MCO2	109
-> @@ -126,6 +127,9 @@ enum {
->  	TIMG2,
->  	PLL3,
->  	DSI_TXBYTE,
-> +	HSI_KER_ON,
-> +	HSE_KER_ON,
-> +	MSI_KER_ON,
->  };
->  
->  static const struct clk_parent_data adc12_src[] = {
-> @@ -225,6 +229,10 @@ enum enum_gate_cfg {
->  	GATE_ADC12,
->  	GATE_ADC3,
->  	GATE_ADF1,
-> +	GATE_ADF1AM,
-> +	GATE_ADF1C3,
-> +	GATE_C3,
-> +	GATE_C3AM,
->  	GATE_CCI,
->  	GATE_CRC,
->  	GATE_CRYP1,
-> @@ -249,6 +257,7 @@ enum enum_gate_cfg {
->  	GATE_ETHSWMAC,
->  	GATE_ETHSWREF,
->  	GATE_FDCAN,
-> +	GATE_GPIOZC3,
->  	GATE_GPU,
->  	GATE_HASH,
->  	GATE_HDP,
-> @@ -260,22 +269,35 @@ enum enum_gate_cfg {
->  	GATE_I2C6,
->  	GATE_I2C7,
->  	GATE_I2C8,
-> +	GATE_I2C8AM,
-> +	GATE_I2C8C3,
->  	GATE_I3C1,
->  	GATE_I3C2,
->  	GATE_I3C3,
->  	GATE_I3C4,
-> +	GATE_I3C4AM,
-> +	GATE_I3C4C3,
->  	GATE_IS2M,
->  	GATE_IWDG1,
->  	GATE_IWDG2,
->  	GATE_IWDG3,
->  	GATE_IWDG4,
->  	GATE_IWDG5,
-> +	GATE_LPDMAC3,
->  	GATE_LPTIM1,
->  	GATE_LPTIM2,
->  	GATE_LPTIM3,
-> +	GATE_LPTIM3AM,
-> +	GATE_LPTIM3C3,
->  	GATE_LPTIM4,
-> +	GATE_LPTIM4AM,
-> +	GATE_LPTIM4C3,
->  	GATE_LPTIM5,
-> +	GATE_LPTIM5AM,
-> +	GATE_LPTIM5C3,
->  	GATE_LPUART1,
-> +	GATE_LPUART1AM,
-> +	GATE_LPUART1C3,
->  	GATE_LTDC,
->  	GATE_LVDS,
->  	GATE_MCO1,
-> @@ -285,6 +307,7 @@ enum enum_gate_cfg {
->  	GATE_PCIE,
->  	GATE_PKA,
->  	GATE_RNG,
-> +	GATE_RTCC3,
->  	GATE_SAES,
->  	GATE_SAI1,
->  	GATE_SAI2,
-> @@ -303,6 +326,8 @@ enum enum_gate_cfg {
->  	GATE_SPI6,
->  	GATE_SPI7,
->  	GATE_SPI8,
-> +	GATE_SPI8AM,
-> +	GATE_SPI8C3,
->  	GATE_TIM1,
->  	GATE_TIM10,
->  	GATE_TIM11,
-> @@ -354,6 +379,10 @@ static const struct stm32_gate_cfg stm32mp25_gates[GATE_NB] = {
->  	GATE_CFG(GATE_ADC12,		RCC_ADC12CFGR,		1,	0),
->  	GATE_CFG(GATE_ADC3,		RCC_ADC3CFGR,		1,	0),
->  	GATE_CFG(GATE_ADF1,		RCC_ADF1CFGR,		1,	0),
-> +	GATE_CFG(GATE_ADF1AM,		RCC_ADF1CFGR,		3,	0),
-> +	GATE_CFG(GATE_ADF1C3,		RCC_C3CFGR,		23,	0),
-> +	GATE_CFG(GATE_C3,		RCC_C3CFGR,		1,	0),
-> +	GATE_CFG(GATE_C3AM,		RCC_C3CFGR,		3,	0),
->  	GATE_CFG(GATE_CCI,		RCC_CCICFGR,		1,	0),
->  	GATE_CFG(GATE_CRC,		RCC_CRCCFGR,		1,	0),
->  	GATE_CFG(GATE_CRYP1,		RCC_CRYP1CFGR,		1,	0),
-> @@ -378,6 +407,7 @@ static const struct stm32_gate_cfg stm32mp25_gates[GATE_NB] = {
->  	GATE_CFG(GATE_ETHSWMAC,		RCC_ETHSWCFGR,		1,	0),
->  	GATE_CFG(GATE_ETHSWREF,		RCC_ETHSWCFGR,		21,	0),
->  	GATE_CFG(GATE_FDCAN,		RCC_FDCANCFGR,		1,	0),
-> +	GATE_CFG(GATE_GPIOZC3,		RCC_C3CFGR,		24,	0),
->  	GATE_CFG(GATE_GPU,		RCC_GPUCFGR,		1,	0),
->  	GATE_CFG(GATE_HASH,		RCC_HASHCFGR,		1,	0),
->  	GATE_CFG(GATE_HDP,		RCC_HDPCFGR,		1,	0),
-> @@ -389,22 +419,35 @@ static const struct stm32_gate_cfg stm32mp25_gates[GATE_NB] = {
->  	GATE_CFG(GATE_I2C6,		RCC_I2C6CFGR,		1,	0),
->  	GATE_CFG(GATE_I2C7,		RCC_I2C7CFGR,		1,	0),
->  	GATE_CFG(GATE_I2C8,		RCC_I2C8CFGR,		1,	0),
-> +	GATE_CFG(GATE_I2C8AM,		RCC_I2C8CFGR,		3,	0),
-> +	GATE_CFG(GATE_I2C8C3,		RCC_C3CFGR,		21,	0),
->  	GATE_CFG(GATE_I3C1,		RCC_I3C1CFGR,		1,	0),
->  	GATE_CFG(GATE_I3C2,		RCC_I3C2CFGR,		1,	0),
->  	GATE_CFG(GATE_I3C3,		RCC_I3C3CFGR,		1,	0),
->  	GATE_CFG(GATE_I3C4,		RCC_I3C4CFGR,		1,	0),
-> +	GATE_CFG(GATE_I3C4AM,		RCC_I3C4CFGR,		3,	0),
-> +	GATE_CFG(GATE_I3C4C3,		RCC_C3CFGR,		27,	0),
->  	GATE_CFG(GATE_IS2M,		RCC_IS2MCFGR,		1,	0),
->  	GATE_CFG(GATE_IWDG1,		RCC_IWDG1CFGR,		1,	0),
->  	GATE_CFG(GATE_IWDG2,		RCC_IWDG2CFGR,		1,	0),
->  	GATE_CFG(GATE_IWDG3,		RCC_IWDG3CFGR,		1,	0),
->  	GATE_CFG(GATE_IWDG4,		RCC_IWDG4CFGR,		1,	0),
->  	GATE_CFG(GATE_IWDG5,		RCC_IWDG5CFGR,		1,	0),
-> +	GATE_CFG(GATE_LPDMAC3,		RCC_C3CFGR,		25,	0),
->  	GATE_CFG(GATE_LPTIM1,		RCC_LPTIM1CFGR,		1,	0),
->  	GATE_CFG(GATE_LPTIM2,		RCC_LPTIM2CFGR,		1,	0),
->  	GATE_CFG(GATE_LPTIM3,		RCC_LPTIM3CFGR,		1,	0),
-> +	GATE_CFG(GATE_LPTIM3AM,		RCC_LPTIM3CFGR,		3,	0),
-> +	GATE_CFG(GATE_LPTIM3C3,		RCC_C3CFGR,		16,	0),
->  	GATE_CFG(GATE_LPTIM4,		RCC_LPTIM4CFGR,		1,	0),
-> +	GATE_CFG(GATE_LPTIM4AM,		RCC_LPTIM4CFGR,		3,	0),
-> +	GATE_CFG(GATE_LPTIM4C3,		RCC_C3CFGR,		17,	0),
->  	GATE_CFG(GATE_LPTIM5,		RCC_LPTIM5CFGR,		1,	0),
-> +	GATE_CFG(GATE_LPTIM5AM,		RCC_LPTIM5CFGR,		3,	0),
-> +	GATE_CFG(GATE_LPTIM5C3,		RCC_C3CFGR,		18,	0),
->  	GATE_CFG(GATE_LPUART1,		RCC_LPUART1CFGR,	1,	0),
-> +	GATE_CFG(GATE_LPUART1AM,	RCC_LPUART1CFGR,	3,	0),
-> +	GATE_CFG(GATE_LPUART1C3,	RCC_C3CFGR,		20,	0),
->  	GATE_CFG(GATE_LTDC,		RCC_LTDCCFGR,		1,	0),
->  	GATE_CFG(GATE_LVDS,		RCC_LVDSCFGR,		1,	0),
->  	GATE_CFG(GATE_MCO1,		RCC_MCO1CFGR,		8,	0),
-> @@ -413,6 +456,7 @@ static const struct stm32_gate_cfg stm32mp25_gates[GATE_NB] = {
->  	GATE_CFG(GATE_OSPIIOM,		RCC_OSPIIOMCFGR,	1,	0),
->  	GATE_CFG(GATE_PCIE,		RCC_PCIECFGR,		1,	0),
->  	GATE_CFG(GATE_PKA,		RCC_PKACFGR,		1,	0),
-> +	GATE_CFG(GATE_RTCC3,		RCC_C3CFGR,		26,	0),
+> On 02.11.26 17:54, Andre Przywara wrote:
+>> From: Vedashree Vidwans <vvidwans@nvidia.com>
+>>
+>> The Arm LFA spec describes an ACPI notification mechanism, where the
+>> platform (firmware) can notify an LFA client about newly available
+>> firmware imag updates ("pending images" in LFA terms).
+>>
+>> Add a faux device after discovering the existence of an LFA agent via
+>> the SMCCC discovery mechnism, and use that device to check for the ACPI
+>> notification description. Register this when one is provided.
+>>
+>> The notification just conveys the fact that at least one firmware image
+>> has now a pending update, it doesn't say which, also there could be more
+>> than one pending. Loop through all images to find every which needs to
+>> be activated, and trigger the activation. We need to do this is a loop,
+>> since an activation might change the number and the status of available
+>> images.
+>>
+>> Signed-off-by: Vedashree Vidwans <vvidwans@nvidia.com>
+>> [Andre: convert from platform driver to smccc bus]
+>> Signed-off-by: Andre Przywara <andre.przywar@arm.com>
+>> ---
+>>   drivers/firmware/smccc/lfa_fw.c | 154 +++++++++++++++++++++++++++++++-
+>>   1 file changed, 153 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/firmware/smccc/lfa_fw.c 
+>> b/drivers/firmware/smccc/lfa_fw.c
+>> index db2a7fe344d5d..4b4daf79611bb 100644
+>> --- a/drivers/firmware/smccc/lfa_fw.c
+>> +++ b/drivers/firmware/smccc/lfa_fw.c
+>> @@ -33,12 +33,14 @@
+>>    * skipped by setting the force_cpu_rendezvous sysfs file to false.
+>>    */
+>>   +#include <linux/acpi.h>
+>>   #include <linux/arm-smccc.h>
+>>   #include <linux/arm-smccc-bus.h>
+>>   #include <linux/array_size.h>
+>>   #include <linux/delay.h>
+>>   #include <linux/fs.h>
+>>   #include <linux/init.h>
+>> +#include <linux/kernel.h>
+>>   #include <linux/kobject.h>
+>>   #include <linux/ktime.h>
+>>   #include <linux/list.h>
+>> @@ -49,11 +51,13 @@
+>>   #include <linux/stop_machine.h>
+>>   #include <linux/string.h>
+>>   #include <linux/sysfs.h>
+>> +#include <linux/types.h>
+>>   #include <linux/uuid.h>
+>>   #include <linux/workqueue.h>
+>>     #include <uapi/linux/psci.h>
+>>   +#define DRIVER_NAME    "ARM_LFA"
+>>   #undef pr_fmt
+>>   #define pr_fmt(fmt) "Arm LFA: " fmt
+>>   @@ -753,6 +757,135 @@ static void clean_fw_components_tree(void)
+>>       }
+>>   }
+>>   +/*
+>> + * Iterate over all FW components and trigger activation of all 
+>> activatible and
+>> + * pending components.
+>> + * Since we would need to re-enumerate the list of all components 
+>> after a
+>> + * successful activation, and this could trigger infinite loops if a 
+>> firmware
+>> + * component still appears as pending, we create an array of update 
+>> candidates
+>> + * first, then activate each one of them.
+>> + */
+>> +static void activate_pending_components(void)
+>> +{
+>> +    struct fw_component **all_comps;
+>> +    struct fw_component *comp;
+>> +    struct kobject *kobj;
+>> +    int nr_comps = 0;
+>> +    int ret, i;
+>> +
+>> +    down_read(&smc_lock);
+>> +    spin_lock(&lfa_kset->list_lock);
+>> +    all_comps = kmalloc_array(list_count_nodes(&lfa_kset->list),
+>> +                  sizeof(*all_comps), GFP_NOWAIT);
+>> +    if (!all_comps) {
+>> +        spin_unlock(&lfa_kset->list_lock);
+>> +        up_read(&smc_lock);
+>> +        pr_warn("LFA: automatic activation failed: -ENOMEM\n");
+>> +        return;
+>> +    }
+>> +
+>> +    list_for_each_entry(kobj, &lfa_kset->list, entry) {
+>> +        comp = kobj_to_fw_component(kobj);
+>> +
+>> +        if (comp->fw_seq_id == -1)
+>> +            continue; /* Invalid FW component */
+>> +
+>> +        _update_fw_component_pending(comp);
+>> +        if (comp->activation_capable && comp->activation_pending) {
+>> +            kobject_get(&comp->kobj);
+>> +            all_comps[nr_comps++] = comp;
+>> +        }
+>> +    }
+>> +    spin_unlock(&lfa_kset->list_lock);
+>> +    up_read(&smc_lock);
+>> +
+>> +    for (i = 0; i < nr_comps; i++) {
+>> +        comp = all_comps[i];
+>> +
+>> +        ret = prime_fw_component(comp);
+The kobject references protect the snapshot objects from being freed, 
+but do not guarantee that the components remain in the firmware inventory.
 
-In enum_gate_cfg, GATE_RTCC3 comes after GATE_RNG, but here it is
-placed before GATE_RNG. Keep the same order.
+For example, the snapshot can contain A and B, and activating A can 
+remove B from the refreshed inventory. The reference keeps B allocated, 
+but its sequence ID becomes `-1`. The subsequent PRIME call does not 
+reject that invalid ID before issuing the SMC.
 
->  	GATE_CFG(GATE_RNG,		RCC_RNGCFGR,		1,	0),
->  	GATE_CFG(GATE_SAES,		RCC_SAESCFGR,		1,	0),
->  	GATE_CFG(GATE_SAI1,		RCC_SAI1CFGR,		1,	0),
-> @@ -432,6 +476,8 @@ static const struct stm32_gate_cfg stm32mp25_gates[GATE_NB] = {
->  	GATE_CFG(GATE_SPI6,		RCC_SPI6CFGR,		1,	0),
->  	GATE_CFG(GATE_SPI7,		RCC_SPI7CFGR,		1,	0),
->  	GATE_CFG(GATE_SPI8,		RCC_SPI8CFGR,		1,	0),
-> +	GATE_CFG(GATE_SPI8AM,		RCC_SPI8CFGR,		3,	0),
-> +	GATE_CFG(GATE_SPI8C3,		RCC_C3CFGR,		19,	0),
->  	GATE_CFG(GATE_TIM1,		RCC_TIM1CFGR,		1,	0),
->  	GATE_CFG(GATE_TIM10,		RCC_TIM10CFGR,		1,	0),
->  	GATE_CFG(GATE_TIM11,		RCC_TIM11CFGR,		1,	0),
-> @@ -518,6 +564,77 @@ static struct clk_stm32_gate ck_ker_adf1 = {
->  	.hw.init = CLK_HW_INIT_INDEX("ck_ker_adf1", FLEXGEN_42, &clk_stm32_gate_ops, 0),
->  };
->  
-> +static struct clk_stm32_gate ck_ker_adf1_am = {
-> +	.gate_id = GATE_ADF1AM,
-> +	.hw.init = CLK_HW_INIT_HW("ck_ker_adf1_am", &ck_ker_adf1.hw, &clk_stm32_gate_ops, 0),
-> +};
-> +
-> +/* C3 */
-> +static struct clk_stm32_gate ck_cpu3 = {
-> +	.gate_id = GATE_C3,
-> +	.hw.init = CLK_HW_INIT_INDEX("ck_cpu3", ICN_LS_MCU, &clk_stm32_gate_ops, 0),
-> +};
-> +
-> +static struct clk_stm32_gate ck_cpu3_am = {
-> +	.gate_id = GATE_C3AM,
-> +	.hw.init = CLK_HW_INIT_HW("ck_cpu3_am", &ck_cpu3.hw, &clk_stm32_gate_ops, 0),
+Could candidates be revalidated under `smc_lock` before issuing 
+component operations? The check needs to cover activation retries too, 
+since inventory can change between calls.
+>> +        if (ret) {
+>> +            pr_warn("LFA: LFA_PRIME failed for component %s\n",
+>> +                kobject_name(&comp->kobj));
+>> +            kobject_put(&comp->kobj);
+>> +            continue;
+>> +        }
+>> +
+>> +        ret = activate_fw_component(comp);
+>> +        if (ret) {
+>> +            pr_warn("LFA: LFA_ACTIVATE failed for component %s\n",
+>> +                kobject_name(&comp->kobj));
+>> +            kobject_put(&comp->kobj);
+>> +            continue;
+>> +        }
+>> +
+>> +        pr_info("%s: automatic activation succeeded\n",
+>> +            kobject_name(&comp->kobj));
+>> +        kobject_put(&comp->kobj);
+>> +    }
+>> +
+>> +    kfree(all_comps);
+>> +}
+>> +
+>> +#ifdef CONFIG_ACPI
+>> +static void lfa_acpi_notify_handler(acpi_handle handle, u32 event, 
+>> void *data)
+>> +{
+>> +    /* The spec explicitly mentions 0x80 only for the update event. */
+>> +    if (event != 0x80)
+>> +        return;
+>> +
+>> +    activate_pending_components();
+>> +}
+>> +
+>> +static int lfa_register_acpi(struct device *dev)
+>> +{
+>> +    struct acpi_device *acpi_dev;
+>> +    acpi_handle handle;
+>> +    acpi_status status;
+>> +
+>> +    acpi_dev = acpi_dev_get_first_match_dev("ARML0003", NULL, -1);
+>> +    if (!acpi_dev)
+>> +        return -ENODEV;
+>> +    handle = acpi_device_handle(acpi_dev);
+>> +    if (!handle) {
+>> +        acpi_dev_put(acpi_dev);
+>> +        return -ENODEV;
+>> +    }
+>> +
+>> +    /* Register notify handler that indicates LFA updates are 
+>> available */
+>> +    status = acpi_install_notify_handler(handle, ACPI_DEVICE_NOTIFY,
+>> +                         lfa_acpi_notify_handler, NULL);
+>> +    if (ACPI_FAILURE(status)) {
+>> +        acpi_dev_put(acpi_dev);
+>> +        return -EIO;
+>> +    }
+>> +
+>> +    ACPI_COMPANION_SET(dev, acpi_dev);
+>> +
+>> +    return 0;
+>> +}
+>> +
+>> +static void lfa_remove_acpi(struct device *dev)
+>> +{
+>> +    struct acpi_device *acpi_dev = ACPI_COMPANION(dev);
+>> +    acpi_handle handle = acpi_device_handle(acpi_dev);
+>> +
+>> +    if (handle)
+>> +        acpi_remove_notify_handler(handle,
+>> +                       ACPI_DEVICE_NOTIFY,
+>> +                       lfa_acpi_notify_handler);
+>> +    acpi_dev_put(acpi_dev);
+>> +}
+>> +#else    /* !CONFIG_ACPI */
+>> +static int lfa_register_acpi(struct device *dev)
+>> +{
+>> +    return -ENODEV;
+>> +}
+>> +
+>> +static void lfa_remove_acpi(struct device *dev)
+>> +{
+>> +}
+>> +#endif
+>> +
+>>   static bool lfa_smccc_has_all_functions(void)
+>>   {
+>>       struct arm_smccc_1_2_regs regs = { 0 }, res;
+>> @@ -813,13 +946,32 @@ static int lfa_smccc_probe(struct 
+>> arm_smccc_device *sdev)
+>>       if (err != 0) {
+>>           kset_unregister(lfa_kset);
+>>           destroy_workqueue(fw_comps_update_wq);
+>> +        return err;
+>> +    }
+>> +
+>> +    if (!acpi_disabled) {
+>> +        err = lfa_register_acpi(&sdev->dev);
+>> +        if (!err)
+>> +            pr_info("registered LFA ACPI notification\n");
+>> +    }
+>> +
+>> +    /*
+>> +     * An ACPI notification or an interrupt are optional, but we must
+>> +     * handle errors that occurred during their setup.
+>> +     */
+>> +    if (err != -ENODEV) {
+>
+> On successful registration, err is zero, so this condition still 
+> unregisters the inventory and destroys the workqueue before returning 
+> success. Should it be:
+>
+> if (err && err != -ENODEV) {
+>
+>
+> Regards,
+>
+> Nirmoy
+>
+>> +        kset_unregister(lfa_kset);
+>> +        destroy_workqueue(fw_comps_update_wq);
+>> +        return err;
+>>       }
+>>   -    return err;
+>> +    return 0;
+>>   }
+>>     static void lfa_smccc_remove(struct arm_smccc_device *sdev)
+>>   {
+>> +    if (!acpi_disabled)
+>> +        lfa_remove_acpi(&sdev->dev);
+>>       clean_fw_components_tree();
+>>       flush_workqueue(fw_comps_update_wq);
+>>       destroy_workqueue(fw_comps_update_wq);
 
-Should these two clocks have CLK_IGNORE_UNUSED? set?
+Regards,
 
-Brian
+Veda
 
--- 
-Brian Masney <masneyb@kernel.org>
 
