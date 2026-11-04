@@ -2,99 +2,77 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CD0B606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 08:03:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CD3C606A32F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 08:06:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=scDzpF+k
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wDn6lZwf;
+	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=fOEj9ig5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Message-ID:Date:Content-Transfer-Encoding:Content-Type:Mime-Version:Subject:
+	Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=IOB/DMG8E0H1LG/g/S6WJ7zKwN49Fb8gn4W1dEispPc=; b=scDzpF+kFpAceH
-	lpAFbTTtchrBFaHTq0mdZ5xNrWCyLBTtxy8lUf3bYbBCd+mSlwgwPl7d7zfNFZ5+P1D9T1lv46I8G
-	zpBIoHQrhxSjdPYxHd7a6mBohpveeEFNeU8Cr/ruXnCKO49MvkLuOyCnBheysR9+geGakGGWBw6L5
-	VPO0O0jn7YdghTi9BwcPF/QdF2oDzLiz3/fED0U26xF5BYTKbAshxEw8xyhXWp9SPAwGZ+IhgGMNu
-	DZ3mhl9eRwFjTFg1N7cJzYAVl+Ef6d4pCT21V3dLtuITg+fBbdv67i05JA1qtdBbL43ETDvMJzLSd
-	tQf5Z9KG+FpZHXqL3KVQ==;
+	List-Owner; bh=WgxEiGMcAXeHim/OCpv0zMeF0d48h/zJZ1XH8xX5r4w=; b=wDn6lZwf7aIheE
+	SLgzSeK1CJ1tG3x4Js2xmg1MnjLiWajO/5eNz9Gz2nRTivHvRaq3EC54UQYHO6ZtZo+hiQVPTH19C
+	NnGI+hQ8fmGWqm98fxoWonh/MU+4lruiFXHtm3sXXFHMr1ODte+SuSaDbIj38q+Z9lx4wc1HDduke
+	qqwTL6GzVfqNNwJQLdgT3KUOEINh9T4jvbqA1Lqiuj9Q9ln7oInfcErMey4AYDlOEurOJTBy1mH7f
+	fQfzknfxk4Htr9OHpizqdpyZIKuFGslS/+s20JmfcDJ/fMsAj0CdftmqnZaUobunYTjJqE23WERgu
+	G2XWwLeuXXyF+cUqQNxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOVxM-00000004dem-30Rj;
-	Wed, 04 Nov 2026 08:02:52 +0000
-Received: from mail-pl1-f180.google.com ([209.85.214.180])
+	id 1xOW0o-00000004dpD-0zkQ;
+	Wed, 04 Nov 2026 08:06:26 +0000
+Received: from out203-205-221-202.mail.qq.com ([203.205.221.202])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOVxK-00000004deG-09ts
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 08:02:51 +0000
-Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2e5378b281aso2335245ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 00:02:49 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793779369; x=1794384169;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IOB/DMG8E0H1LG/g/S6WJ7zKwN49Fb8gn4W1dEispPc=;
-        b=tpnnvOWUZ2bWQzd3NWs+M3/OFn7wDHZ12p14yELI8Jov5+ULns5msA7FPrKUHcXNpi
-         Or+BmO7PNQVB2hQQQl4biXNHZdJsGENhtvy9nPkcvRzNyCcNRROKq99aFaCeVIPkzhy5
-         1nFhDVpQo1tYYNfLmHSq2gX+6CPS6SskqEQsmwgpU1iI5sT2SVjzYyRs9CWUG/hfB0VM
-         Ds3lzwY3oyRjxnCyana6oNgHHRBncA59JneM5TkwNNOp1uObCJX49GESgsjPsLHnFo61
-         iFHV0CndCSGEdi/4QsKBT7Okj95IkqyLaums5T13/hZ9w3JmAgd59zcpM7yOk4IWhLVK
-         Inzw==
-X-Forwarded-Encrypted: i=1; AKwUvBz00NCC/AX/z0BOrNsQZCulnR90DJ1PmzC6yCJ5F5HlIUIMhHQcnbbLaoi+XheYrr1qsJywy356vMu1hbaPaOWB@lists.infradead.org
-X-Gm-Message-State: APuU4Z+e2rUDlFzo+lQsKehk5ZhuV/8fkBSNrggORJRlaZPoIoR8edS1
-	9ryFIU1Viw0T2xURgC31HlUTAK74Evllli97YJGbuQpWbhshEFlts17UPKC+E3YO
-X-Gm-Gg: AYBFou0IOXBvq7E6foC5BGEHzkez3qQhyuQyBod92npZgO+VNtpyxT0f8+zMwJZfegZ
-	3VOMpsxxkFH7M7K4ZVzphZWj9a1E0mJepeIlpgidhmZohVD6N3yefGaArxAzaTez9KOCkeKWXTx
-	BG/VmVh3658CYWptFGOVta1iiaH5zyvWQHRKovyx/IduO/XP/1NO8+DW8V2bnv5gMOmN1rsQEos
-	69WtKw/W9Fa/wZ9ZoKhcxdLm+pP4Fejsw+uHrc/mYC+m7gv0wJN+ZtOYtDTdQLetCIRdhndZlTd
-	s4W1wxO48FHyNTI03RcUhCgXfJzR+GpWoUcFwhpf73WdvXq480RoWpuY6JiiNBCyCv/kli1hyrm
-	11BRGKTrsHDS6idPDItkMPWHU18Qzm++fk4zSCGHiMQAS0zFRDz6nP7NrJRXbq7FST6PVAmagv3
-	1kw1R9rekET6oEt9/SnuRIkLLb97qmsZVSmVKG8VFS3Ka2Eu0LMU//8NNMGC60yjCxKfsLaCm1B
-	CyFuWeBq410CiEKvMp91cr+sLw0jBED6t3MD8p5qivCuXh8jPw0AMXlv/De2yfGo1lQpNlcUoYh
-	tIvCw/HRCu5YaV1GShINWyp+zaLLisRX6eV2/gCne+mUOS51KiIrRRfKIECR0ekvG3tMUb9hIHn
-	Tv1uPXEWJSHtOK2pwmgQhnamwQtI5wqZOtFwogA+TU1I=
-X-Received: by 2002:a17:90b:5350:b0:3ac:7842:bd50 with SMTP id 98e67ed59e1d1-3ae896f51damr13388235a91.15.1793779368670;
-        Wed, 04 Nov 2026 00:02:48 -0800 (PST)
-Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com. [74.125.82.172])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b07c5aa69fsm8245538a91.2.2026.11.04.00.02.46
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Nov 2026 00:02:46 -0800 (PST)
-Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-36cad25b8b0so572812eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 00:02:46 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvByZdeuEdrlZsOIknwX8rXcxZyAkM3FiY0sFEbMndUcdflnaeUwr5UqBi20hvjdGVUQRB8qpC4I47pPAQgjQnwPO@lists.infradead.org
-X-Received: by 2002:a05:693c:42d3:b0:369:faa2:1fb2 with SMTP id
- 5a478bee46e88-36a4236a650mr23219527eec.8.1793779365508; Wed, 04 Nov 2026
- 00:02:45 -0800 (PST)
+	id 1xOW0m-00000004doD-0BB4;
+	Wed, 04 Nov 2026 08:06:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1793779579; bh=WgxEiGMcAXeHim/OCpv0zMeF0d48h/zJZ1XH8xX5r4w=;
+	h=From:To:Cc:Subject:Date:References:In-Reply-To;
+	b=fOEj9ig5JXN09CLHqNfTNgbw330Bh/WIacL9+P9J5rKELZqrG/iX3nWAuCG41tSLn
+	 3v2RfVVwIiWX9HMUBlu8oX6dbosXWswYQ2tpi76OJJHbKygZRed3lrS1MI5Ic3xMoR
+	 7P5ESqp3MzxmK8aiNu8ZZuBBgwpvf5duWSzGefiE=
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-XMAILINFO: Nze9Gsl2QAyr5RxeywbNGg6T5cysE3+3MmOq0TdLhgaEbwUJeN9vA51HWHzzUm
+	 8+OJbKEXn/feXKvOo/2TOKWuMMaZCIRy0UWsahrowRynnMa1jlpI0vfs9ZOmuX96Xaup7yVWAnGAv
+	 r6wM66C+1UYEho16kdBhDsLpHI+JddESc7SYXXmZFx+74oaXiw1W84KD1+73Doq2momM1ZyOLpLVm
+	 fV1uRXtsx6533qpYQG0c/4T9nSYawztosAet8uI+nIP0baYUxMTrZM6eK6ENU6GbdUALaUjqa0nRi
+	 JnOK5vl0RU0PdywsI/aetYv7E9OSBwmGX/iD5HmmDmiizWHdl/1TqbAd/oR/algyGG2OKdfBXDKKs
+	 HYqgTOgGjUruMQ4c8dzbqe2eny2nQmPRQJzS/PZl+J8H0qcVkrNQTuWxK9xo6H+CFbLfKBVfUZYbr
+	 YFzatZMYpuAeERkWN/EVm/6nx6H3BGOnp6RfaVyYhAG3R6IXVMAT0xrRZqUkHNvRb4f1imVoF9rs1
+	 AgJ4Nim5PyXcsyshlnwttdra7XpG5Ls3uNC36X5MeDQ1quwW6q3FR7XldERP8bD0LnpebQ6n0k6ut
+	 ckQyxhQSLVEBGkgDVS03MOpisqtOZEZUdkSTHf8r8nTSBNlw3vLQbj7qrPJUQH3T8fvb7f6ApkmI3
+	 oKSY3zzZhEtVBvUu+4Z8tkOqR6AxKoiFdFU5fJKc6g3r9j8J9HxW4uw65lrmt1oX2qWz9vD1R4MQi
+	 oGDAWCUPBoJDgw0g9uG7UTzINOwf29Qfz4hq2mV93CqttBx9jgEFeEU6VLR2o4ZoXtFvdhutAE9aM
+	 6x7HpA6IltYkk0VpbHrv7WyxWvTIyjGN1CVBT1rfTLKTEZQdeSZWj+r2UrpU9TxRd7GvadgTmsEpb
+	 gZhqcpqIdrU4vRN1thMDTweEEW5ZOrTmuoFywATQS6FxrleaLOG/Wpq6Ff2xANFsj9ceWelW2BxeQ
+	 rtkA9lMeex1XHsrHi3eRcpdnX2oz4zD+rIDRa/nMGR4jboJp0+BFH+GoAmUjwEwcQlLuusR5xtYtb
+	 JRCvoxORlO2iH+BN6Q7T2DXhPGw==
+From: "=?utf-8?B?Q3VuaGFvIEx1?=" <1579567540@qq.com>
+To: "=?utf-8?B?bmV0ZGV2LWJvdCtzYXNoaWtv?=" <netdev-bot+sashiko@kernel.org>
+Cc: "=?utf-8?B?bWts?=" <mkl@pengutronix.de>, "=?utf-8?B?bWFpbGhvbA==?=" <mailhol@kernel.org>, "=?utf-8?B?aGVpa28=?=" <heiko@sntech.de>, "=?utf-8?B?ZGF2ZW0=?=" <davem@davemloft.net>, "=?utf-8?B?d2c=?=" <wg@grandegger.com>, "=?utf-8?B?c29ja2V0Y2Fu?=" <socketcan@hartkopp.net>, "=?utf-8?B?a2VybmVs?=" <kernel@pengutronix.de>, "=?utf-8?B?ZWR1bWF6ZXQ=?=" <edumazet@kernel.org>, "=?utf-8?B?a3ViYQ==?=" <kuba@kernel.org>, "=?utf-8?B?cGFiZW5p?=" <pabeni@redhat.com>, "=?utf-8?B?aG9ybXM=?=" <horms@kernel.org>, "=?utf-8?B?Y29yYmV0?=" <corbet@lwn.net>, "=?utf-8?B?c2toYW4=?=" <skhan@linuxfoundation.org>, "=?utf-8?B?cmR1bmxhcA==?=" <rdunlap@infradead.org>, "=?utf-8?B?bGludXgtY2Fu?=" <linux-can@vger.kernel.org>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>, 
+	"=?utf-8?B?bGludXgtYXJtLWtlcm5lbA==?=" <linux-arm-kernel@lists.infradead.org>, "=?utf-8?B?bGludXgtcm9ja2NoaXA=?=" <linux-rockchip@lists.infradead.org>, "=?utf-8?B?bmV0ZGV2?=" <netdev@vger.kernel.org>, "=?utf-8?B?bGludXgtZG9j?=" <linux-doc@vger.kernel.org>, "=?utf-8?B?c3RhYmxl?=" <stable@vger.kernel.org>
+Subject: Re: [PATCH net v6 3/6] can: rockchip_canfd: cancel bus-off restart before closing the device
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-References: <20261104-sf19a2890-gmac-v1-0-a15965a49574@telaak.dev> <963ddb89-fada-4340-b767-285ce9362d1e@bootlin.com>
-In-Reply-To: <963ddb89-fada-4340-b767-285ce9362d1e@bootlin.com>
-From: Joseph Telaak <joseph@telaak.dev>
-Date: Wed, 4 Nov 2026 03:02:34 -0500
-X-Gmail-Original-Message-ID: <CAPY4CJ4Y3Zgq7OV00LedV=wty-pqR=4t70XgWYTbdfzCeaH-Cg@mail.gmail.com>
-X-Gm-Features: AclHuK8VH8JEq69kYaCOOBuUsCrdovmtS3uWzk_R-GaR7GJ1IVUq8iGvFERmNvs
-Message-ID: <CAPY4CJ4Y3Zgq7OV00LedV=wty-pqR=4t70XgWYTbdfzCeaH-Cg@mail.gmail.com>
-Subject: Re: [PATCH net-next 0/2] net: stmmac: Add the Siflower SF19A2890 glue
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Richard Cochran <richardcochran@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Chuanhong Guo <gch981213@gmail.com>, 
-	Russell King <linux@armlinux.org.uk>, linux-mips@vger.kernel.org, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Mime-Version: 1.0
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+Date: Wed, 4 Nov 2026 16:06:17 +0800
+X-Priority: 3
+Message-ID: <tencent_2E7A44783FBE26011A7319CF849111D78007@qq.com>
+X-QQ-MIME: TCMime 1.0 by Tencent
+X-Mailer: QQMail 2.x
+X-QQ-Mailer: QQMail 2.x
+References: <20261017-rockchip-canfd-restart-close-v6-3-ed605feb4b6e@qq.com>
+	<179237864073.3135.8117104622491949177@kernel.org>
+In-Reply-To: <179237864073.3135.8117104622491949177@kernel.org>
+X-QQ-mid: xmsezb41-0t1793779577t7nbgj69z
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_000250_104334_4E2E4DFA 
-X-CRM114-Status: GOOD (  35.27  )
-X-Spam-Score: -1.4 (-)
+X-CRM114-CacheID: sfid-20261104_000624_403986_C1472B51 
+X-CRM114-Status: GOOD (  12.85  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,113 +83,38 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,FROM_EXCESS_BASE64,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 11/4/26 08:53, Maxime Chevallier wrote:
->> The MAINTAINERS entry that covers these files comes with the MIPS series
->> "MIPS: Add support for the Siflower SF19A2890"; this series applies on
->> its own. That entry is also why checkpatch's question about updating
->> MAINTAINERS for the new files is left unanswered here.
->
-> hmm not sure this is the common practice, usually you update MAINTAINERS
-> along with the driver introduction. This should be part of this series.
+SGksCgo+IElzIHJrY2FuZmRfc3RhcnRfeG1pdCgpIHNlcmlhbGl6ZWQgYWdhaW5zdCB0aGlz
+IHJlaW5pdGlhbGl6YXRpb24gYXQgYWxsPwo+IFdvdWxkIHRoaXMgbGVhdmUgSU5UX01BU0sg
+dW5tYXNrZWQgYW5kIHRoZSBUWCBxdWV1ZSBhd2FrZSBvbiBhCj4gY29udHJvbGxlciB0aGF0
+IGlzIGluIHJlc2V0IHdpdGggdGhlIENBTiBzdGF0ZSBhdCBDQU5fU1RBVEVfQlVTX09GRj8K
+CkJvdGggd2luZG93cyBwcmVkYXRlIHRoaXMgcGF0Y2guIEl0cyBhZGRlZCB3YWl0cyBjYW4g
+ZXh0ZW5kIHRoZSBUWCByYWNlCmFmdGVyIHRoZSBjb3JlIHJlc3RvcmVzIGNhcnJpZXIuIFBh
+dGNoIDUgb2YgdjYgY2xvc2VzIGJvdGggd2luZG93cy4KSSB3aWxsIGZpeCB0aGlzIGlzc3Vl
+IGluIHY3IGJ5IGludHJvZHVjaW5nIHJlc3RhcnQgc3luY2hyb25pemF0aW9uIGFuZApUWCBw
+cm90ZWN0aW9uIHRvZ2V0aGVyLgoKSW4gdGhlIGNvbXBsZXRlIHY2IHNlcmllcywgYm90aCBy
+ZXN0YXJ0IGFuZCBvcGVuIHVzZQpya2NhbmZkX2NoaXBfc3RhcnRfZmluaXNoKCkuIEl0IGhv
+bGRzIHR4X2xvY2sgd2hpbGUgY2xlYXJpbmcgdGhlIElSUSBnYXRlLAp1bm1hc2tpbmcgaW50
+ZXJydXB0cyBhbmQgd2FraW5nIHRoZSBxdWV1ZS4gQSBuZXcgYnVzLW9mZiBtdXN0IGFjcXVp
+cmUgdGhlCnNhbWUgbG9jayBpbiBya2NhbmZkX3R4X2Rpc2FibGUoKSBiZWZvcmUgcHVibGlz
+aGluZyBCVVNfT0ZGIGFuZCBzdG9wcGluZwp0aGUgY29udHJvbGxlciwgc28gaXQgdGFrZXMg
+cHJlY2VkZW5jZSBvdmVyIHN0YXJ0dXAuIFRoZSBmbGFnIGlzIG5vdCB0aGUKb25seSBzeW5j
+aHJvbml6YXRpb24gaGVyZTsgYW4gYWRkaXRpb25hbCBsb2NrIGFyb3VuZCB0aGUgd2hvbGUg
+aGFuZGxlcgppcyBub3QgbmVlZGVkIGZvciB0aGUgcmVwb3J0ZWQgaW50ZXJsZWF2aW5nLgoK
+PiBDYW4gdGhlIGhhbmRsZXIgc2VlIGEgbmV3IGN5Y2xlX2xhc3QgdG9nZXRoZXIgd2l0aCBh
+biBvbGQgbnNlYz8KClllcywgYmVmb3JlIHBhdGNoIDYgb2YgdjYuIFRoYXQgcHJlLWV4aXN0
+aW5nIHJhY2UgaXMgZml4ZWQgYnkgdGFraW5nCnRpbWVzdGFtcF9sb2NrIGZvciBjb252ZXJz
+aW9uIGFzIHdlbGwgYXMgdGltZWNvdW50ZXIgdXBkYXRlcy4gSSB3aWxsCnJldGFpbiB0aGF0
+IGZpeCBpbiB2Ny4gVGhlIHdvcmtlciByZWFybWluZyBpc3N1ZSBpcyBhbHJlYWR5IGZpeGVk
+IGJ5IHRoZQpsb2NrZWQgYWN0aXZlIGNoZWNrIGluIHBhdGNoIDQgb2YgdjYgYW5kIHdpbGwg
+YWxzbyByZW1haW4gZml4ZWQuCgpCZXN0IHJlZ2FyZHMsCkN1bmhhbyBMdQoKcHctYm90OiBj
+cgo=
 
-Makes sense, v2 will add a MAINTAINERS entry for the glue and its
-binding.
-
->> - the MAC address from the factory partition, and ethtool reporting the
->>   link with no PCS workaround.
->
-> no PCS workaround ? what's that about ?
-
-The OpenWrt driver this is based on set STMMAC_FLAG_HAS_INTEGRATED_PCS,
-because the core reports a PCS whose link status doesn't work in RGMII
-mode. stmmac now only uses the integrated PCS for SGMII and the flag is
-gone, so the glue needs nothing for it. That line was only meant to say
-the link is reported correctly without it; I'll word it better in v2.
-
-On Wed, Nov 4, 2026 at 2:59=E2=80=AFAM Maxime Chevallier
-<maxime.chevallier@bootlin.com> wrote:
->
-> Hi Joseph,
->
-> On 11/4/26 08:22, Joseph Telaak via B4 Relay wrote:
-> > The Siflower SF19A2890, a MIPS SoC for home routers, has a DesignWare
-> > GMAC 3.73a. Its interface type and RGMII clock delays are set in a
-> > small configuration block next to its clock and reset manager. This
-> > series adds a binding and the glue.
-> >
-> > The glue is based on Chuanhong Guo's driver, which read the RGMII delay=
-s
-> > from a factory flash cell in the delay line's own units and always
-> > applied them. Here the delays come from rx-internal-delay-ps and
-> > tx-internal-delay-ps and are applied only when those are present. The
-> > interface type is set through set_phy_intf_sel.
-> >
-> > The delay line's step is not documented, so I measured it: sweeping
-> > each delay register over 0-255 with the link at 1000 Mb/s, the working
-> > windows repeat every 145 steps (TX) and 144.5 steps (RX), which is one
-> > 8 ns period of the 125 MHz RGMII clock. So a step is about 55 ps. The
-> > TX eye is about 3.1 ns wide and the RX eye about 1.75 ns; the delays th=
-e
-> > bootloader programs, 17 and 10 steps (935 and 550 ps), sit inside both.
-> >
-> > On the GL.iNet GL-SFT1200 the GMAC is the CPU port of a MaxLinear GSW15=
-0
-> > switch over RGMII with no delays on the board; the GMAC adds both.
-> >
-> > The MAINTAINERS entry that covers these files comes with the MIPS serie=
-s
-> > "MIPS: Add support for the Siflower SF19A2890"; this series applies on
-> > its own. That entry is also why checkpatch's question about updating
-> > MAINTAINERS for the new files is left unanswered here.
->
-> hmm not sure this is the common practice, usually you update MAINTAINERS
-> along with the driver introduction. This should be part of this series.
->
-> >
-> > Tested on a GL-SFT1200 with the GSW150 driver:
-> > - each of WAN, LAN 1 and LAN 2 links at 1000 Mb/s full duplex and
-> >   passes iperf3 both ways (160-205 Mb/s out, 262-273 Mb/s in, well
-> >   under line rate; I have not looked into where the limit is);
-> > - 10 GB each way through LAN 1, after which every CRC, alignment,
-> >   error, drop, overflow and underflow counter on eth0 and lan1 is 0;
-> > - 50 link down/up cycles, after which the link and traffic recover;
-> > - the MAC address from the factory partition, and ethtool reporting the
-> >   link with no PCS workaround.
->
-> no PCS workaround ? what's that about ?
->
-> Besides that, nice and simple glue, thanks ! :)
->
-> Maxime
->
-> >
-> > ---
-> > Joseph Telaak (2):
-> >       dt-bindings: net: Add Siflower SF19A2890 GMAC
-> >       net: stmmac: Add Siflower SF19A2890 glue
-> >
-> >  .../bindings/net/siflower,sf19a2890-gmac.yaml      | 110 +++++++++++++=
-+
-> >  .../devicetree/bindings/net/snps,dwmac.yaml        |   1 +
-> >  drivers/net/ethernet/stmicro/stmmac/Kconfig        |  11 ++
-> >  drivers/net/ethernet/stmicro/stmmac/Makefile       |   1 +
-> >  .../net/ethernet/stmicro/stmmac/dwmac-sf19a2890.c  | 158 +++++++++++++=
-++++++++
-> >  5 files changed, 281 insertions(+)
-> > ---
-> > base-commit: 7b6ab4dbc156e2f96419715130b3d5738a306c93
-> > change-id: 20261102-sf19a2890-gmac-4fb4808f869c
-> >
-> > Best regards,
-> > --
-> > Joseph Telaak <joseph@telaak.dev>
->
->
 
