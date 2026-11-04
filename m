@@ -2,10 +2,10 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2770606B2C0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 22:16:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3ED04606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 22:20:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mkUYO4oF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ruWrkiYX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
@@ -13,72 +13,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=4dUj7qtlv87aoaokSVHZlryaRSMAw8BaqO13OeSv3d8=; b=mkUYO4oFW7cgezJwyOpqGSdBOc
-	dVtwtCgedS2iKIqJb+JXPHTf+pl6cvswOtuxGgg8sW+kejjJCUAVxAjBotd3GvfizdBl+Yn0aYqrs
-	QMEAnrUQRVjQsh0i/MeYtFkEOfyZOT28TB6KpKIFbN/S5Q305ZeipzjplMWQsURhYeQZ0ggHBzSEO
-	bCm7uOnU/L9eMv0DV9djePU5o1JKr+c3YFBeMNb2DtLmv+uSOIdtyBozHzI4hrkGnpM4H6dH4iORI
-	T4L0HzIGPJDiyLrdy7tXec6vRWrblwXXC8wRkW+w502s/1vLAozpoaqvo2vBXRwcS/zdilZBtfvu6
-	OTwzxJCw==;
+	bh=EuVZ/U8iXB5qoqQB2mOa7sPSxLd+TMbAJUrNPXzT9Uo=; b=ruWrkiYXBbp1ZUsx0IXfTX4pHg
+	6MA/qzuAJP58JsYKk08tErH3lUoGOCCauYnhEKQhG76Ele0XnUwupsCsfUT5JvTmAcWpz6r0+6kIM
+	DR1Pv9hF6yu+U8HF1jtM6Ovntnp4ZqD+tAWevZvVtJHbFFIegmF+7sbJn1lBugeK1idLQgnXKGj6m
+	QlrVTmL2V5g4n5FxulAOnIVQrkfEkq1Gv8pBDgE7ySKYiftKNKgql5yKYfVLtbUu17cZPoftDQ1I3
+	wlgEUE7YYbB7ieO6azcejWz6npFFMiEaFNGEXwz+rx3IUxIZ8AIleV4VXIHGjRH1SXQqANF9EbSNw
+	zukE8GVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOjHS-000000078aV-456J;
-	Wed, 04 Nov 2026 22:16:30 +0000
+	id 1xOjKy-000000078r9-0uJW;
+	Wed, 04 Nov 2026 22:20:08 +0000
 Received: from mail-pj1-f43.google.com ([209.85.216.43])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOjHQ-000000078Zz-0Owu
+	id 1xOjKu-000000078qj-0Ywd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 22:16:29 +0000
-Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3ae1b34e0d2so24315a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 14:16:27 -0800 (PST)
+	Wed, 04 Nov 2026 22:20:06 +0000
+Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3ada4c06b7bso595620a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 14:20:03 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793830587; x=1794435387;
+        d=1e100.net; s=20260707; t=1793830803; x=1794435603;
         h=content-type:cc:to:subject:message-id:date:from:in-reply-to
          :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=4dUj7qtlv87aoaokSVHZlryaRSMAw8BaqO13OeSv3d8=;
-        b=WbT92BbkswE/5XBkAVyTuJCaaZWrhAUe3Y3rtBDoRPXEVbOZaMRU34QowEzEAd3ISi
-         yO6rQJxWUr7myB3KHU1/pj+MFYb+pOuRxc9BHGICTqgsEdPoUlarlw3RJBkHK4oE5HSj
-         HIurWkbajNGT3TzoVWZehvVp3kkgm1WEnocrZQIQzTbZgvPEN85C2jn2X0bmqpAK1TYu
-         oz4iJblH/SRqARd+v2nRsjW0+z4FsKuAEryDya8nHRKML3OZwXpCYaF1WCWDl6Lyr4oV
-         YTtjRioe7cdYTLAnWo+AoFsGj6mcbJjZ6yEY43p2ZW4BBsuyWjdxSTRTZe0foWXTsot7
-         cVNw==
-X-Forwarded-Encrypted: i=1; AKwUvBwEpyUk9pr5ZHEsMHtYUL8XjXKQN+7+FXfiO5lYe9eb1/qYq8Pm4x5aBv6JSoJEBX7tC1OIpoX8eIfdT0GLySGH@lists.infradead.org
-X-Gm-Message-State: APuU4Z9tqJPaOD2jGWVDrPSJjAsqFCSzA1VhQHy0g9ZDPcZGZdfLfdYQ
-	GT3cnENd8N27TNdvAbkkeNtOqiiPHp5hzk853b7evmiLs9/FArn+Yud/ZZfi/D6b
-X-Gm-Gg: AYBFou2nt0yC1aOcj44otz7oYhSv0EtnhDEYGYag6uNCCappcMyoaU9isR+7ryHN7tH
-	ylLHAftfdKFE35Gb6+5gnYWx8JRKARd78Jehc+OWHRJO+SO1VGfGxNFlHxuJPxxcmL25eKQbMMT
-	QltCqq93eReg7HdtoqncZRijtXP05fiHD8EIFgsBvm3nlwukQkA35EzqUaMmNN6VuTn1aLgnu7F
-	6Z3+7aZ7yP4MATt/PMETi0pdVBygUNN3csNEudvI9X7Fo+Nn7o5i2HqoTgh80uLje90/aHnoBII
-	AiTfEcdU/ygVHARdQbE5pMujKJE8wba+6gxXZV9pXXl9DaEUowYPyogmmCYGt1HiEWzuAS5+rGr
-	S8EmWipsAKkYM6o25fbVbCp9KW2d5uBR39ZOJYMm94+9M7UIu7RpAvTZ4y4i4Edz4X4FgHPk2aE
-	KO7U+OENMROxIdBkhZS6Ta/mHmDd58mEhFUaMCcMzWKLn9TI9s/CTi2976Yw/QGTg0Qm+F/Herm
-	8z4342A7MxoO4M4GRxaQWmhRInkkZGLBULJEXzd/rtrc5JZCc1C4qLiG6k5QH6i/wIrMsOtVlAx
-	1BempA3KSOPfXjElX89vRMM4KuBC5SEL3z4VmWag6yAS5zkXKwOiuM3LIezO5XmxvkLuwCBhN8+
-	fsvdHancomt6HcFT4VqJTFxxImOYoDRNnf20WWj0dg9U=
-X-Received: by 2002:a17:90b:3f48:b0:3ae:3d82:5d88 with SMTP id 98e67ed59e1d1-3b0af950e83mr500920a91.0.1793830587043;
-        Wed, 04 Nov 2026 14:16:27 -0800 (PST)
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com. [74.125.82.170])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0b31cd6c0sm662504a91.13.2026.11.04.14.16.26
+        bh=EuVZ/U8iXB5qoqQB2mOa7sPSxLd+TMbAJUrNPXzT9Uo=;
+        b=N75zZSaeVxRE85erD+4Xr05N0VsUIvqQAO46esqu3j3f/iwO3dNftfQn/wkTc8O9Kp
+         Vzk1zU/PitKxLq2GJVBQxhV1QLOafK+/LVIj1QnfNt5wPf4rFEVeBG3CFSzgCc6Y2lE8
+         kp2okNVLTAMy9SHV6pgBJX2RmXfzyo0tDZmxb6Xsb1urraCWtnq9W/bEbuFc+GMCWZ9z
+         bb6BVGJq6XbJe8kxTeywfDosT2Oue/hUTx3r1IF3BOTrSfu5smZFyHE2A1/i4xx5zCkx
+         +jmqwbNmO41VuZzMPiHi/q7hZW31PNkn3dUSdK/OVqinlnp7a2K2MyrWagQXXPkhGpy0
+         qOmA==
+X-Forwarded-Encrypted: i=1; AKwUvBwxTQFJRTVAwnGjlw5bOLrTSM2S2UlIpCxkyShKGaVVHauBRjzCXd6W9MZm7A5tThTth5axG+aahqLKoELZvd3o@lists.infradead.org
+X-Gm-Message-State: APuU4Z/q+1sTVQAOSFKbJv6xL6+zQX44bXD9mK5tjOdkVsLnNYBUQCX4
+	sBcnYoD4B24aODOyYd6GJu1rlLHAkaXsusqTgVNkFDbvf1WFb2uxiMF1fEbc9A==
+X-Gm-Gg: AYBFou1saOZPWEtljsOj2Pj8aawnttumPoXKOoXe257oP2l3dHKh+3kYXTaVYNNZaih
+	35ZERdg3aZjCoeq7zUz26B9w8MAx6VIYNJAi9ByzlxuJ0EU5zTHi/pgbaa9RpiEOdECIibyd/rs
+	MUfdzbBx/Jq2m63r6d0crXsr3RaVuETNUUg54X38CZ23s99SkZ+x/B1fTCfN7REC3UffoZBvKEs
+	ogazPXj5J4sqG08mzYeAd/1npyJyT6DuuhvjRpqFvDdt5Ykl69kfgZfRsVn/SXT6bRG7RuO3ZjE
+	HK1+bYfr4oFvJS8zatCWWGjSpB+89i1ynLIcraW1q1WKqrYWAkSipe88aQJn2XgQY99NYcs9R5z
+	6z4shx3KB1KqV9yjoOIdb6Ohvw0GqwTR+iX1SI3+eU3t10PCTYqr8T3Axk38WcZslcLxfluWhnp
+	73399I2O7SJCTJ3CZtSA2142CL+5uoqF92wrYBWyBASn54LhInMjUoSXHJMuRYl3Eak9bwTLymL
+	wsFc+8hpsm3F+uX1tr0WJ5GfOIxGf2H/z+PWDhhm8VnXBgqlnxNHQ7402d4DJZy5zLJFP0IvPU0
+	AB0YG2UebFQFupeEXy1rlVbTxsrNu1TZYAccA8fMFO+B0KiKgb5kkhup+K+jPnXPY+Qb/aWjUtE
+	1HOK3IVHqxiQ=
+X-Received: by 2002:a17:90b:1a8f:b0:3ad:eb38:9778 with SMTP id 98e67ed59e1d1-3ae897994dcmr15617202a91.48.1793830803212;
+        Wed, 04 Nov 2026 14:20:03 -0800 (PST)
+Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com. [74.125.82.181])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0b312cc44sm811193a91.1.2026.11.04.14.20.02
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Nov 2026 14:16:26 -0800 (PST)
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-36c9a93a1abso69408eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 14:16:26 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvBwbDkaT64MCbgsgwDU2EsST7g4YzUDiYIWIOuIFH8XFsN8uybNW1duNSXPQfj+bDbcVDdwmSeCanepVTBiKxANY@lists.infradead.org
-X-Received: by 2002:a05:693c:80da:b0:368:2c6d:ddfe with SMTP id
- 5a478bee46e88-36de5f6f030mr1017112eec.9.1793830585474; Wed, 04 Nov 2026
- 14:16:25 -0800 (PST)
+        Wed, 04 Nov 2026 14:20:03 -0800 (PST)
+Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-36dbde64409so678994eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 14:20:02 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AKwUvBwgOMWPFHPEvQHRO238vDASKJjIOGnF0YfcS5ZP/vEO2BmhNXxnpq/vcJvQqO6E5JRnR3VQmvsKFfx8aZCOj5tP@lists.infradead.org
+X-Received: by 2002:a05:7300:e9d3:20b0:369:fe81:a575 with SMTP id
+ 5a478bee46e88-36a4243ab94mr30254394eec.35.1793830801788; Wed, 04 Nov 2026
+ 14:20:01 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 References: <20261104-sf19a2890-gmac-v1-0-a15965a49574@telaak.dev>
- <20261104-sf19a2890-gmac-v1-1-a15965a49574@telaak.dev> <e134193f-ba1b-47c1-9a06-419b1b796ea0@lunn.ch>
-In-Reply-To: <e134193f-ba1b-47c1-9a06-419b1b796ea0@lunn.ch>
+ <20261104-sf19a2890-gmac-v1-2-a15965a49574@telaak.dev> <ba345fce-e88a-4aac-b9a4-59c500f80247@lunn.ch>
+In-Reply-To: <ba345fce-e88a-4aac-b9a4-59c500f80247@lunn.ch>
 From: Joseph Telaak <joseph@telaak.dev>
-Date: Wed, 4 Nov 2026 17:16:14 -0500
-X-Gmail-Original-Message-ID: <CAPY4CJ74O1tFVCpcN9seoeWDF0VR9GNfKuE+rWODQamN2sjL3g@mail.gmail.com>
-X-Gm-Features: AclHuK9-UnITn3qNlxFDVEt7-zpIej_-hzEuMRZnZQ7mZri5SrN5fWqpIt5XJGI
-Message-ID: <CAPY4CJ74O1tFVCpcN9seoeWDF0VR9GNfKuE+rWODQamN2sjL3g@mail.gmail.com>
-Subject: Re: [PATCH net-next 1/2] dt-bindings: net: Add Siflower SF19A2890 GMAC
+Date: Wed, 4 Nov 2026 17:19:50 -0500
+X-Gmail-Original-Message-ID: <CAPY4CJ73NCpxXWWD+HTVXctWCbOutbW+FHT83fGB+ar=Hu+vsQ@mail.gmail.com>
+X-Gm-Features: AclHuK9bkkUrD9f9kOIMS4d2kgzS-vT8Hn9jZFXbBFoDFm8RqLepOJdYmZqvzqI
+Message-ID: <CAPY4CJ73NCpxXWWD+HTVXctWCbOutbW+FHT83fGB+ar=Hu+vsQ@mail.gmail.com>
+Subject: Re: [PATCH net-next 2/2] net: stmmac: Add Siflower SF19A2890 glue
 To: Andrew Lunn <andrew@lunn.ch>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
 	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -92,8 +92,8 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>
 	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_141628_161739_115FFBB4 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20261104_142005_868745_9B0742B7 
+X-CRM114-Status: GOOD (  11.00  )
 X-Spam-Score: -1.4 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,32 +112,16 @@ X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-> Please add minimum, and multipleOf.
->
-> I've not looked at the code yet, but default: 0 would also be good.
+> What does SF19A2890_GMAC_RX_DELAY_EN do? By default rx is 0, so the
+> delay is not enabled. Is that any different to actually enabling it
+> with SF19A2890_GMAC_RX_DELAY set to 0?
 
-Will do: minimum 0, multipleOf 55 and default 0.
+RX_DELAY_EN switches the RX delay line in; with it clear the line is
+bypassed. I checked on the board: with it clear, the link passes
+traffic at every RX_DELAY value, including 40 and 80 steps, which fail
+with it set; with it set, RX_DELAY applies as measured in the sweep.
 
-> These values are odd. The RGMII standard says 2ns is required. Where
-> is the rest coming from.
-
-They are the values the vendor bootloader programs, and I checked them
-against the hardware. Sweeping each delay over its 256 steps at
-1000 Mb/s, TX works from 0 to about 2.8 ns and RX from 0 to about
-1.5 ns; 935 and 550 ps sit inside both windows, and a 2 ns RX delay in
-the MAC fails.
-
-The rest of the skew is not programmed anywhere: the switch's PCDU
-register for this port reads back 0, and with the MAC's delays at 0 as
-well the link still passes traffic. So it comes from the board routing
-or the chips themselves, which I can't separate from software.
-
-If you'd rather see this described another way in the DT, I'm happy to
-change it for v2.
-
-> Does this mean there is a switch on the other end? Maybe look at what
-> the switch is doing for RGMII delays.
-
-Yes, a MaxLinear GSW150 on its CPU port, with phy-mode "rgmii-id" and no
-*-internal-delay-ps. As above, its delays read back as 0.
+With RX_DELAY at 0, enabled and bypassed both pass traffic, so any
+difference between them is too small to show at 1000 Mb/s. v2 will
+explain this in a comment.
 
