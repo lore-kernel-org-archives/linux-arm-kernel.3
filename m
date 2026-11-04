@@ -2,64 +2,87 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 214B8606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 14:05:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 252B8606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 14:06:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3+AeXAA+;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iFhQ25LS
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GPKK0/hl;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=S2p04aUu
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=eH9cP+eSCph2k6r+Y5Wz7HRU49O/httC0nGpICpjyGY=; b=3+AeXAA+LpN5usqhwsRZxRc7oO
-	9K5/C0UpsfKenQLeOwyuobCpT1y/QXv+YhYBM594DF8DFy7Q2iCnq3nFi0f2Vb/TfUedPUx8oz+r4
-	Tq26D8b/omixm5BVfjZ/bPg5eVONmmDuvBQTMQ1nJ69aqlNAgqj9DG8nK5ykOLkEjz17TchPVFYjD
-	S5Lt/ZA1sZShO5w0ugW5yu4HJ6kIVdYo6R1NhaCj/5RoqKYEMeC5MwQCSxGd5EX9zGrYbLZ3qtDmL
-	HxArSZHGkaW7oq837o7QzaG/3uoBiaxmbkl0g4+WhYh95+sXNAPhbRqX+eKei3at+4AzaGlb+cNF/
-	+2pkaF3g==;
+	bh=0ZdKyKH+Ww5i9BiLpu8awrPqNj31X9LX5Wb4WFhtBGU=; b=GPKK0/hlhS4xPKt3r6uMdc46mv
+	MPIloBxtXg3yr6FTZrnGwQI/2WXJ4Vc/ChMcu2trTEwedtZ2kH/mcYpxO/mBF76YiYAE7S4tWrPix
+	3DbwpqDkkEuhjt169VDUvsm+wrOCXVCiBC8yW2vHWsm9cbb/YbW7rxgemEGOpm3/6RgQw+3Vy6+Rp
+	hlo5GHWpNFd7SkRUMa5j/JOgJ/PLOP6N1f+XvsbnBIYZhJt0AqDltT3dBSCK2QnkZ4QKOHXps6BoO
+	W+Tnhdvu+yUWWcfl4bN8nTDqZRAM4jUYV1Yf3nosIbvxuIvQSb4uVNgISFc9UGUNHvUoRBWcA7nUV
+	MJuuw6eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xObc7-00000005YZr-1s2G;
-	Wed, 04 Nov 2026 14:05:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xObdG-00000005Yja-3RuZ;
+	Wed, 04 Nov 2026 14:06:30 +0000
+Received: from mail-ed1-x546.google.com ([2a00:1450:4864:20::546])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xObc5-00000005YZf-2wr0
+	id 1xObdD-00000005Yi0-3ejZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 14:05:17 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6343243B9E;
-	Wed,  4 Nov 2026 14:05:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF1161F000C1;
-	Wed,  4 Nov 2026 14:05:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793801117;
-	bh=eH9cP+eSCph2k6r+Y5Wz7HRU49O/httC0nGpICpjyGY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iFhQ25LS6X8qFxZw+3UIXhlc5l0jQ2ka1gGkAeCYFAa5lpRq2bVUcA1h0kqugd6Q2
-	 OPPSDJv2HXSXByIRZvS0a4o8r+fm07mesoJdu2PMdDW11eANd4OdCxrhzXS8/aH9ne
-	 yPBEoVek3oXs2suxt3CPsujAYluewP8XYd27E5FY+iTE6MUZajETjVBeiLUKa770ax
-	 9R+Jp+mqLJzkyzJZgtDi3fUWxtdc+4H2MOKurlulaE6cnRie3B5wLL1ZQlYzF1H3A4
-	 5KEBRVfqEcqbqJJYFq4ghyexetbZ32/JEEnzONhUuEeYcP6l0T4pvBoRDHPN3dHUCg
-	 k2PgtJB//J+Zw==
-Date: Wed, 4 Nov 2026 14:05:12 +0000
-From: Will Deacon <will@kernel.org>
-To: Oleg Nesterov <oleg@redhat.com>
-Cc: Zhao Gongyi <zhaogongyi@bytedance.com>, catalin.marinas@arm.com,
-	mark.rutland@arm.com, ruanjinjie@huawei.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: ptrace: don't warn on missing siginfo in a
- group-stop
-Message-ID: <aus7mMS4tXAzPCSi@willie-the-truck>
-References: <20261023110710.10145-1-zhaogongyi@bytedance.com>
- <attf9KALBQyOGyco@redhat.com>
+	Wed, 04 Nov 2026 14:06:29 +0000
+Received: by mail-ed1-x546.google.com with SMTP id 4fb4d7f45d1cf-6b3dc91781fso860227a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 06:06:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1793801186; x=1794405986; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0ZdKyKH+Ww5i9BiLpu8awrPqNj31X9LX5Wb4WFhtBGU=;
+        b=S2p04aUubwMi9dwTAMUdyfye6TsD6KEIh/vPHpBpqM9AgeroxVwfAHitVUTsJXKcHd
+         Zcme5kpKeGwDDFt+CLAK52C6XgskbknaeztnjPzW9F2T0SeezlgR+z7HdSRvzcyYM3te
+         FE9FeFZB27FSBbiFfjxioRUGl/v1oU+iKu8QzBr4PAGF7EES92jTJgjRzDvNFAd+Hy0m
+         xDH3bIsAkAlgwl51b7LMCjzv2Uu/bAOjVSVsaltIP5/B9FGTHWU02kkbeX785fN8o+G8
+         eWEbndsjRoP4QmPDx8peE82RwWiniol6Zx7yB+3hfcDmA37UBz3e3DMuhvCym8XXaaIf
+         YgTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793801186; x=1794405986;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0ZdKyKH+Ww5i9BiLpu8awrPqNj31X9LX5Wb4WFhtBGU=;
+        b=UdsNpC4wysFMv1tqLfs3sib8FSpvd+S6eN8+DJJvTjnCanwwR+8+7IDJj4r0GyhMx1
+         KOSsuxGb2JoFHVmbiN5YsGzpJFASlo2+1j7I4B8i2iQTM12sTIYIzb6mIWiduwq3UdUe
+         0twjiG593VlhNyq434jnKMM6JaojckLKdTzvzQchbGaXk6/DuIAJh+APQYghXL/87smR
+         dt7W3vXC7tav0vlsoEq1xgcEQ7GTBPyYUTLL7FcsSfQxeMIk59xX0FxVoVnxf/x6/YgY
+         7ot3y7synILSdxRK5HhuMx1UZIdUTUN7nCg/jJDhozEU06ITS9MNO0vIZ2MngPDy/+ss
+         /Ewg==
+X-Forwarded-Encrypted: i=1; AKwUvBxrG7i9CKLs9f7SU73KEUh5HvJIMzbiOVGlZaA1YIsDepTDWootxUuI3roE5N8l93Ao3LZLUjaXVGTa07pqgvKl@lists.infradead.org
+X-Gm-Message-State: APuU4Z+hsKovGFH2Cl10yDGm9Zlh4pGHIWyt1BetmV3iIboFZUHDtgZS
+	1mM5o9fzkCauQ6YupINnYZ7Am2VFz+woDvKToIjTi+8vsyjO4mNELvtpifAStyE62KKOMZTPUDS
+	WoCG/fBp5FhQkdL+03RkOOA==
+X-Received: from edsk22.prod.google.com ([2002:aa7:d8d6:0:b0:6b5:677a:3c36])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6402:a303:b0:6b4:329:109c with SMTP id 4fb4d7f45d1cf-6b4d3392457mr8652022a12.4.1793801185529;
+ Wed, 04 Nov 2026 06:06:25 -0800 (PST)
+Date: Wed,  4 Nov 2026 14:06:08 +0000
+In-Reply-To: <20261104140612.137869-1-vdonnefort@google.com>
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <attf9KALBQyOGyco@redhat.com>
+Mime-Version: 1.0
+References: <20261104140612.137869-1-vdonnefort@google.com>
+X-Mailer: git-send-email 2.56.0.455.g6c5a503b38-goog
+Message-ID: <20261104140612.137869-2-vdonnefort@google.com>
+Subject: [PATCH v2 1/5] KVM: arm64: Add missing exception classes to kvm_arm_exception_class
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261104_060627_916061_748B9AA0 
+X-CRM114-Status: GOOD (  11.31  )
+X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,75 +93,51 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-26.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT,
+	USER_IN_DEF_DKIM_WL autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hey Oleg,
+kvm_arm_exception_class is missing several exception classes defined in
+esr.h, causing the event kvm_exit and hyp event hyp_enter to log an
+unknown ESR. Add the missing entries and while at it, order them by
+their value.
 
-On Fri, Oct 23, 2026 at 03:24:04PM +0200, Oleg Nesterov wrote:
-> On 10/23, Zhao Gongyi wrote:
-> >
-> > --- a/arch/arm64/kernel/ptrace.c
-> > +++ b/arch/arm64/kernel/ptrace.c
-> > @@ -573,10 +573,6 @@ static void update_syscall_orig_x0_after_ptrace(struct task_struct *target)
-> >  	if (regs->syscallno == NO_SYSCALL)
-> >  		return;
-> >
-> > -	/* We should only be called when target is in a ptrace stop */
-> > -	if (WARN_ON_ONCE(!info))
-> > -		return;
-> > -
-> >  	/*
-> >  	 * For compat tasks, orig_r0 is provided directly through GPR index
-> >  	 * 17.
-> > @@ -588,7 +584,7 @@ static void update_syscall_orig_x0_after_ptrace(struct task_struct *target)
-> >  	 * Don't update orig_x0 for a syscall-exit-stop, as x0 now contains the
-> >  	 * return value of the system call.
-> >  	 */
-> > -	if ((info->si_code & ~0x80) == SIGTRAP &&
-> > +	if (info && (info->si_code & ~0x80) == SIGTRAP &&
-> >  	    target->ptrace_message == PTRACE_EVENTMSG_SYSCALL_EXIT) {
-> >  		return;
-> 
-> LGTM, but I don't understand this arm-specific code.
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+---
+ arch/arm64/include/asm/kvm_arm.h | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
-Welcome to the club :)
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index ba0062849be9..91ef5d27b491 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -244,14 +244,15 @@
+ 
+ #define kvm_arm_exception_class \
+ 	ECN(UNKNOWN), ECN(WFx), ECN(CP15_32), ECN(CP15_64), ECN(CP14_MR), \
+-	ECN(CP14_LS), ECN(FP_ASIMD), ECN(CP10_ID), ECN(PAC), ECN(CP14_64), \
+-	ECN(SVC64), ECN(HVC64), ECN(SMC64), ECN(SYS64), ECN(SVE), \
+-	ECN(IMP_DEF), ECN(IABT_LOW), ECN(IABT_CUR), \
+-	ECN(PC_ALIGN), ECN(DABT_LOW), ECN(DABT_CUR), \
+-	ECN(SP_ALIGN), ECN(FP_EXC32), ECN(FP_EXC64), ECN(SERROR), \
++	ECN(CP14_LS), ECN(FP_ASIMD), ECN(CP10_ID), ECN(PAC), ECN(OTHER), \
++	ECN(CP14_64), ECN(BTI), ECN(ILL), ECN(SVC32), ECN(HVC32), ECN(SMC32), \
++	ECN(SVC64), ECN(HVC64), ECN(SMC64), ECN(SYS64), ECN(SVE), ECN(ERET), \
++	ECN(FPAC), ECN(SME), ECN(IMP_DEF), ECN(IABT_LOW), ECN(IABT_CUR), \
++	ECN(PC_ALIGN), ECN(DABT_LOW), ECN(DABT_CUR), ECN(SP_ALIGN), ECN(MOPS), \
++	ECN(FP_EXC32), ECN(FP_EXC64), ECN(GCS), ECN(SERROR), \
+ 	ECN(BREAKPT_LOW), ECN(BREAKPT_CUR), ECN(SOFTSTP_LOW), \
+ 	ECN(SOFTSTP_CUR), ECN(WATCHPT_LOW), ECN(WATCHPT_CUR), \
+-	ECN(BKPT32), ECN(VECTOR32), ECN(BRK64), ECN(ERET)
++	ECN(BKPT32), ECN(VECTOR32), ECN(BRK64)
+ 
+ #define kvm_mode_names				\
+ 	{ PSR_MODE_EL0t,	"EL0t" },	\
+-- 
+2.56.0.455.g6c5a503b38-goog
 
-The original rationale is described in e057b9477232 ("arm64: syscall:
-Ensure saved x0 is kept in-sync with tracer updates"), so hopefully that
-helps to set the scene. The crux of the problem is that the x0 register
-on arm64 is used both for the first argument of a system call but also
-for the return value, which causes difficulties for things like syscall
-restarting, syscall skipping and syscall reporting in /proc/<pid>/syscall.
-
-We handle that by keeping the original argument value in a shadow variable,
-orig_x0, in the pt_regs and using that to implement the problematic
-mechanisms above, including the accessors used by seccomp in asm/syscall.h.
-
-The bug was (a) that we only copied x0 into orig_x0 early on the syscall
-path (el0_svc_common()), which meant that tracer updates to x0 would not
-be visible to seccomp filters and (b) that we passed x0 to the syscall,
-which meant that the unchecked value was used as the first argument.
-
-My initial fix (in e057b9477232) tried to copy x0 back into orig_x0
-after tracer updates on the syscall entry path, however this didn't work
-with some of the more complicated seccomp interactions (involving BPF
-programs and SECCOMP_RET_TRACE) and so commit 88b839ce497c ("arm64: ptrace:
-Keep 'orig_x0' in-sync with x0 on syscall entry") took a different
-approach of updating orig_x0 at a lower-level, whenever x0 is written
-by ptrace *and* we're on the syscall entry path. The latter check is
-really a "we're not on the syscall exit path" so that we can handle the
-seccomp case.
-
-So that's the mess we're in and I'm all ears if there's a cleaner way to
-sort it out without breaking anything that relies on the fragile semantics
-we already have.
-
-Cheers,
-
-Will
 
