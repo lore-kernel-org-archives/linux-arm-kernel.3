@@ -2,50 +2,50 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8DAC606D81E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 11:40:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDA78606D80C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 11:41:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BhkGyjV3;
-	dkim=pass (1024-bit key, unprotected) header.d=cyberchaos.dev header.i=@cyberchaos.dev header.a=rsa-sha256 header.s=mail header.b=oCERtlr5
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BM8Vi6T2;
+	dkim=pass (1024-bit key, unprotected) header.d=cyberchaos.dev header.i=@cyberchaos.dev header.a=rsa-sha256 header.s=mail header.b=at5rsQ/j
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=b8gdt5Gsl7of0UCwZA1LRvMWZqGY7tF4209QTmH/GcI=; b=BhkGyjV3Z5nY/V
-	dResl4rxXM30gKBXBSTo9rHSN/LlKqyTj5caTX3uG/HYK03D4+lfZkO1uh3/33t/dynFgm+PsoRjg
-	9gE8lrhya0ydMtJOK56uY7CmyjDRzDnHDaFCRDoy1nd4EhE12FErIo3H8aWqr/VuC/OOcX8si7pX8
-	c8CZGj6WPmfrNxlidAK47xjtLBsiAd29cGnbasfo1A2tf3nxTwg2tp8ct3ZFs+IH+gBhcvBNcHYwb
-	BGMIZi/MgDQHn3gvQxlV+ni1qBQlbXo5CG9xVXao2nkL8H+4aaDCShxohpXv+ojlBRDEBW67Mzwp5
-	iuXcd2lR6ubeCZZ9b43Q==;
+	List-Owner; bh=8FaVhxguwgKI7Sj57jrxeuXDOLyYakEWO+TPFrvtixk=; b=BM8Vi6T2PeNLqy
+	DWIeXIpw45yDPdt+ub1ry1CBsyK+CEwsejfqM5DvCdjBo9yVu5JvfsvU/d0aCz/00jI/F0xnJOrK7
+	aI8HgsIsU+WzwCzUl+SZiGbyqoKA2VdCwGBI3/EvxSen69IfAgmMWW+c4ZxC9dB41BT+yxm0kWRph
+	Vc83Bp33CFMwzCNCIdjfFekGGG7pl764+hldGAJe7Zmgg9/NxoNkx+2nYOU4XjodF+6gcIdBP/s7a
+	q7E4FnrjxH2bI8mJKzke1a36JhJtr25iFls51RKAsTleIsVtO+6lDICJ5byYcJU02N4XCqfWzUnU4
+	jQ5ASHmoiyfnNYYm5qJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZMG-00000005CbB-4AwQ;
-	Wed, 04 Nov 2026 11:40:48 +0000
-Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
+	id 1xOZMO-00000005CfY-1We1;
+	Wed, 04 Nov 2026 11:40:56 +0000
+Received: from [195.39.247.168] (helo=mail.cyberchaos.dev)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZMD-00000005CZw-4AZN
+	id 1xOZMJ-00000005CZu-3Aw5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 11:40:47 +0000
+	Wed, 04 Nov 2026 11:40:53 +0000
 From: Yureka Lilian <yureka@cyberchaos.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1793792441;
+	s=mail; t=1793792440;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=b8gdt5Gsl7of0UCwZA1LRvMWZqGY7tF4209QTmH/GcI=;
-	b=oCERtlr5rn8ngX0o9/IKhBD/Jw7b3jjwg1rmVSJ4QVDmkg7lj+zyv62AhgGsw0OQzhx+3y
-	CykiD1aHGSyrAQou3Nw/TbbxBFIfi9y+gIeidxEnRzUWi5q5v08DYKvtAhM7IYX4cDT+FZ
-	gBIiy/tLWikwG522MzWTdtNUHfqhMgE=
-Date: Wed, 04 Nov 2026 12:40:31 +0100
-Subject: [PATCH v2 3/3] arm64: dts: apple: t600x: Add PCIe pwren gpios
+	bh=8FaVhxguwgKI7Sj57jrxeuXDOLyYakEWO+TPFrvtixk=;
+	b=at5rsQ/jOkdtSPI+2QXw+EHXVB0TuvT/f3XdBQ1Di6LlgYRik4GL+5r+04gFo7VDr5l9Rl
+	ggQpu/7Oh0QBbq+LQr2TqWomFiArzV9yOefxmasCliQWvFROLC1C85e4ct8RRClPiviwQg
+	Hq/jJ3KP5RU7Yv6vjptFycvChAMiA8s=
+Date: Wed, 04 Nov 2026 12:40:30 +0100
+Subject: [PATCH v2 2/3] PCI: apple: Integrate pwrctrl API
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261104-apple-pcie-pwren-v2-3-216a4066965f@cyberchaos.dev>
+Message-Id: <20261104-apple-pcie-pwren-v2-2-216a4066965f@cyberchaos.dev>
 References: <20261104-apple-pcie-pwren-v2-0-216a4066965f@cyberchaos.dev>
 In-Reply-To: <20261104-apple-pcie-pwren-v2-0-216a4066965f@cyberchaos.dev>
 To: Bartosz Golaszewski <brgl@kernel.org>, 
@@ -61,9 +61,9 @@ Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  devicetree@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_034046_217901_72B5478A 
-X-CRM114-Status: GOOD (  11.98  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261104_034051_963839_90E0C30F 
+X-CRM114-Status: GOOD (  12.04  )
+X-Spam-Score: -1.3 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,159 +82,71 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-For the MacBook Pro and Mac Studio devices using the M1 Pro/Max/Ultra
-SoCs, add the appropriate fixed regulators for enabling the peripherals
-connected to the PCIe ports (WiFi, SD card reader and USB xHCI), which
-are controlled by GPIOs connected to the SMC.
-Set the regulators as the power-supply of the respective PCIe port, so
-that the endpoints are powered on before probing the ports.
+Integrate the PCI pwrctrl framework into the Apple PCIe host driver to
+provide standardized power management for PCI devices.
 
-Add the 'pciclass,0604' compatible string to the PCIe bridge nodes in
-the SoC to allow the pci-pwrctrl-generic driver to bind to them.
+Notably, this allows enabling powering on the WiFi, SD card reader on
+various Macs by means of the pwrctrl framework before probing the ports.
 
 Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 ---
- arch/arm64/boot/dts/apple/t600x-die0.dtsi      |  4 ++++
- arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi | 16 +++++++++++++++
- arch/arm64/boot/dts/apple/t600x-j375.dtsi      | 27 ++++++++++++++++++++++++++
- 3 files changed, 47 insertions(+)
+ drivers/pci/controller/Kconfig      |  1 +
+ drivers/pci/controller/pcie-apple.c | 23 +++++++++++++++++++++++
+ 2 files changed, 24 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/apple/t600x-die0.dtsi b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-index 122a566e75d1..635635c4bfbd 100644
---- a/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-@@ -460,6 +460,7 @@ pcie0: pcie@590000000 {
- 		pinctrl-names = "default";
+diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+index d246bbe37948..791892a6c0c6 100644
+--- a/drivers/pci/controller/Kconfig
++++ b/drivers/pci/controller/Kconfig
+@@ -46,6 +46,7 @@ config PCIE_APPLE
+ 	depends on OF
+ 	depends on PCI_MSI
+ 	select PCI_HOST_COMMON
++	select PCI_PWRCTRL_GENERIC
+ 	select IRQ_MSI_LIB
+ 	help
+ 	  Say Y here if you want to enable PCIe controller support on Apple
+diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
+index c2cffc0659f4..2d32092e2122 100644
+--- a/drivers/pci/controller/pcie-apple.c
++++ b/drivers/pci/controller/pcie-apple.c
+@@ -30,6 +30,7 @@
+ #include <linux/msi.h>
+ #include <linux/of_irq.h>
+ #include <linux/pci-ecam.h>
++#include <linux/pci-pwrctrl.h>
  
- 		port00: pci@0,0 {
-+			compatible = "pciclass,0604";
- 			device_type = "pci";
- 			reg = <0x0 0x0 0x0 0x0 0x0>;
- 			reset-gpios = <&pinctrl_ap 4 GPIO_ACTIVE_LOW>;
-@@ -479,6 +480,7 @@ port00: pci@0,0 {
- 		};
+ #include "pci-host-common.h"
  
- 		port01: pci@1,0 {
-+			compatible = "pciclass,0604";
- 			device_type = "pci";
- 			reg = <0x800 0x0 0x0 0x0 0x0>;
- 			reset-gpios = <&pinctrl_ap 5 GPIO_ACTIVE_LOW>;
-@@ -498,6 +500,7 @@ port01: pci@1,0 {
- 		};
+@@ -825,6 +826,28 @@ static int apple_pcie_init(struct pci_config_window *cfg)
+ 	if (WARN_ON(!pcie))
+ 		return -ENOENT;
  
- 		port02: pci@2,0 {
-+			compatible = "pciclass,0604";
- 			device_type = "pci";
- 			reg = <0x1000 0x0 0x0 0x0 0x0>;
- 			reset-gpios = <&pinctrl_ap 6 GPIO_ACTIVE_LOW>;
-@@ -518,6 +521,7 @@ port02: pci@2,0 {
- 		};
- 
- 		port03: pci@3,0 {
-+			compatible = "pciclass,0604";
- 			device_type = "pci";
- 			reg = <0x1800 0x0 0x0 0x0 0x0>;
- 			reset-gpios = <&pinctrl_ap 7 GPIO_ACTIVE_LOW>;
-diff --git a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-index caded1636f3d..4f9dccf839ad 100644
---- a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-@@ -55,6 +55,20 @@ led-0 {
- 			default-state = "keep";
- 		};
- 	};
++	// Ensure all ports can be powered on before attempting initialization
++	for_each_available_child_of_node_scoped(dev->of_node, of_port) {
++		ret = pci_pwrctrl_create_device(of_port, pcie->dev);
++		if (ret) {
++			dev_err(pcie->dev, "Failed to create pwrctrl device: %pe\n", ERR_PTR(ret));
++			return ret;
++		}
 +
-+	vreg_pcie0_port0: regulator-pcie0-port0 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pwren-pcie0-port0";
-+		gpio = <&smc_gpio 13 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
++		ret = pci_pwrctrl_power_on_device(of_port);
++		if (ret) {
++			if (ret != -EPROBE_DEFER) {
++				dev_err(pcie->dev,
++					"Failed to power on device: %pe\n",
++					ERR_PTR(ret));
++				for_each_available_child_of_node_scoped(dev->of_node, of_port) {
++					pci_pwrctrl_destroy_device(of_port);
++				}
++			}
++			return ret;
++		}
++	}
 +
-+	vreg_pcie0_port1: regulator-pcie0-port1 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pwren-pcie0-port1";
-+		gpio = <&smc_gpio 26 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
- };
- 
- &serial0 {
-@@ -176,6 +190,7 @@ &nco_clkref {
- /* PCIe devices */
- &port00 {
- 	/* WLAN */
-+	power-supply = <&vreg_pcie0_port0>;
- 	bus-range = <1 1>;
- 	wifi0: wifi@0,0 {
- 		compatible = "pci14e4,4433";
-@@ -195,6 +210,7 @@ bluetooth0: bluetooth@0,1 {
- 
- &port01 {
- 	/* SD card reader */
-+	power-supply = <&vreg_pcie0_port1>;
- 	bus-range = <2 2>;
- 	sdhci0: mmc@0,0 {
- 		compatible = "pci17a0,9755";
-diff --git a/arch/arm64/boot/dts/apple/t600x-j375.dtsi b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
-index 8a1494949e4c..412b2fe109be 100644
---- a/arch/arm64/boot/dts/apple/t600x-j375.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
-@@ -42,6 +42,30 @@ memory@10000000000 {
- 		device_type = "memory";
- 		reg = <0x100 0 0x2 0>; /* To be filled by loader */
- 	};
-+
-+	/* WLAN/BT */
-+	vreg_pcie0_port0: regulator-pcie0-port0 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pwren-pcie0-port0";
-+		gpio = <&smc_gpio 13 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	/* SD card reader */
-+	vreg_pcie0_port1: regulator-pcie0-port1 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pwren-pcie0-port1";
-+		gpio = <&smc_gpio 26 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	/* USB xHCI */
-+	vreg_pcie0_port3: regulator-pcie0-port3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pwren-pcie0-port3";
-+		gpio = <&smc_gpio 20 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
- };
- 
- &serial0 {
-@@ -356,6 +380,7 @@ &nco_clkref {
- /* PCIe devices */
- &port00 {
- 	/* WLAN */
-+	power-supply = <&vreg_pcie0_port0>;
- 	bus-range = <1 1>;
- 	wifi0: wifi@0,0 {
- 		compatible = "pci14e4,4433";
-@@ -375,6 +400,7 @@ bluetooth0: bluetooth@0,1 {
- 
- &port01 {
- 	/* SD card reader */
-+	power-supply = <&vreg_pcie0_port1>;
- 	bus-range = <2 2>;
- 	sdhci0: mmc@0,0 {
- 		compatible = "pci17a0,9755";
-@@ -397,6 +423,7 @@ ethernet0: ethernet@0,0 {
- 
- &port03 {
- 	/* USB xHCI */
-+	power-supply = <&vreg_pcie0_port3>;
- 	bus-range = <4 4>;
- 	status = "okay";
- };
+ 	for_each_available_child_of_node_scoped(dev->of_node, of_port) {
+ 		ret = apple_pcie_setup_port(pcie, of_port);
+ 		if (ret) {
 
 -- 
 2.56.0
