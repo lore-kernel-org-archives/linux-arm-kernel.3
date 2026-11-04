@@ -2,77 +2,93 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CD3C606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 08:06:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9584606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 08:09:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wDn6lZwf;
-	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=fOEj9ig5
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pyK0Czc6;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AcA76mZi
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Message-ID:Date:Content-Transfer-Encoding:Content-Type:Mime-Version:Subject:
-	Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=WgxEiGMcAXeHim/OCpv0zMeF0d48h/zJZ1XH8xX5r4w=; b=wDn6lZwf7aIheE
-	SLgzSeK1CJ1tG3x4Js2xmg1MnjLiWajO/5eNz9Gz2nRTivHvRaq3EC54UQYHO6ZtZo+hiQVPTH19C
-	NnGI+hQ8fmGWqm98fxoWonh/MU+4lruiFXHtm3sXXFHMr1ODte+SuSaDbIj38q+Z9lx4wc1HDduke
-	qqwTL6GzVfqNNwJQLdgT3KUOEINh9T4jvbqA1Lqiuj9Q9ln7oInfcErMey4AYDlOEurOJTBy1mH7f
-	fQfzknfxk4Htr9OHpizqdpyZIKuFGslS/+s20JmfcDJ/fMsAj0CdftmqnZaUobunYTjJqE23WERgu
-	G2XWwLeuXXyF+cUqQNxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=GdBo/TxNnOVemrXh2EGPlKcpC1+btQOcLPV2gMWTVCM=; b=pyK0Czc6ul5WkmDoahLh4aIeQr
+	0aMbIyBpeDIQiNjHOJq/zNAh2ZY7b6u99qFewbNk4xKIOb4JMTLOgkoPHlS+A1539hCToBH/JQs1u
+	35ArMqfyG/ofmrequGswLOfKhCjIGxAtTEddh8Vv3czwXofEhPvgDvusaJmxlG+Y94teukAfwobjj
+	HuJMhmK7U0dxho1wRKNTgIr7deXIil5iqLsjK+BJLyj6JB8nYx5GUh6CidBXHq5fSRAEiDXqmE6Vm
+	Ft81s3BVTFJPRO5OxNFyXu5YZkBK4ZeJa7Od7gp/APw0XDp80wc4KrE3dVjwkQK9kQqTid2GMB1uG
+	NNuPptmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOW0o-00000004dpD-0zkQ;
-	Wed, 04 Nov 2026 08:06:26 +0000
-Received: from out203-205-221-202.mail.qq.com ([203.205.221.202])
+	id 1xOW3H-00000004eC2-3uk8;
+	Wed, 04 Nov 2026 08:08:59 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOW0m-00000004doD-0BB4;
-	Wed, 04 Nov 2026 08:06:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1793779579; bh=WgxEiGMcAXeHim/OCpv0zMeF0d48h/zJZ1XH8xX5r4w=;
-	h=From:To:Cc:Subject:Date:References:In-Reply-To;
-	b=fOEj9ig5JXN09CLHqNfTNgbw330Bh/WIacL9+P9J5rKELZqrG/iX3nWAuCG41tSLn
-	 3v2RfVVwIiWX9HMUBlu8oX6dbosXWswYQ2tpi76OJJHbKygZRed3lrS1MI5Ic3xMoR
-	 7P5ESqp3MzxmK8aiNu8ZZuBBgwpvf5duWSzGefiE=
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-X-QQ-XMAILINFO: Nze9Gsl2QAyr5RxeywbNGg6T5cysE3+3MmOq0TdLhgaEbwUJeN9vA51HWHzzUm
-	 8+OJbKEXn/feXKvOo/2TOKWuMMaZCIRy0UWsahrowRynnMa1jlpI0vfs9ZOmuX96Xaup7yVWAnGAv
-	 r6wM66C+1UYEho16kdBhDsLpHI+JddESc7SYXXmZFx+74oaXiw1W84KD1+73Doq2momM1ZyOLpLVm
-	 fV1uRXtsx6533qpYQG0c/4T9nSYawztosAet8uI+nIP0baYUxMTrZM6eK6ENU6GbdUALaUjqa0nRi
-	 JnOK5vl0RU0PdywsI/aetYv7E9OSBwmGX/iD5HmmDmiizWHdl/1TqbAd/oR/algyGG2OKdfBXDKKs
-	 HYqgTOgGjUruMQ4c8dzbqe2eny2nQmPRQJzS/PZl+J8H0qcVkrNQTuWxK9xo6H+CFbLfKBVfUZYbr
-	 YFzatZMYpuAeERkWN/EVm/6nx6H3BGOnp6RfaVyYhAG3R6IXVMAT0xrRZqUkHNvRb4f1imVoF9rs1
-	 AgJ4Nim5PyXcsyshlnwttdra7XpG5Ls3uNC36X5MeDQ1quwW6q3FR7XldERP8bD0LnpebQ6n0k6ut
-	 ckQyxhQSLVEBGkgDVS03MOpisqtOZEZUdkSTHf8r8nTSBNlw3vLQbj7qrPJUQH3T8fvb7f6ApkmI3
-	 oKSY3zzZhEtVBvUu+4Z8tkOqR6AxKoiFdFU5fJKc6g3r9j8J9HxW4uw65lrmt1oX2qWz9vD1R4MQi
-	 oGDAWCUPBoJDgw0g9uG7UTzINOwf29Qfz4hq2mV93CqttBx9jgEFeEU6VLR2o4ZoXtFvdhutAE9aM
-	 6x7HpA6IltYkk0VpbHrv7WyxWvTIyjGN1CVBT1rfTLKTEZQdeSZWj+r2UrpU9TxRd7GvadgTmsEpb
-	 gZhqcpqIdrU4vRN1thMDTweEEW5ZOrTmuoFywATQS6FxrleaLOG/Wpq6Ff2xANFsj9ceWelW2BxeQ
-	 rtkA9lMeex1XHsrHi3eRcpdnX2oz4zD+rIDRa/nMGR4jboJp0+BFH+GoAmUjwEwcQlLuusR5xtYtb
-	 JRCvoxORlO2iH+BN6Q7T2DXhPGw==
-From: "=?utf-8?B?Q3VuaGFvIEx1?=" <1579567540@qq.com>
-To: "=?utf-8?B?bmV0ZGV2LWJvdCtzYXNoaWtv?=" <netdev-bot+sashiko@kernel.org>
-Cc: "=?utf-8?B?bWts?=" <mkl@pengutronix.de>, "=?utf-8?B?bWFpbGhvbA==?=" <mailhol@kernel.org>, "=?utf-8?B?aGVpa28=?=" <heiko@sntech.de>, "=?utf-8?B?ZGF2ZW0=?=" <davem@davemloft.net>, "=?utf-8?B?d2c=?=" <wg@grandegger.com>, "=?utf-8?B?c29ja2V0Y2Fu?=" <socketcan@hartkopp.net>, "=?utf-8?B?a2VybmVs?=" <kernel@pengutronix.de>, "=?utf-8?B?ZWR1bWF6ZXQ=?=" <edumazet@kernel.org>, "=?utf-8?B?a3ViYQ==?=" <kuba@kernel.org>, "=?utf-8?B?cGFiZW5p?=" <pabeni@redhat.com>, "=?utf-8?B?aG9ybXM=?=" <horms@kernel.org>, "=?utf-8?B?Y29yYmV0?=" <corbet@lwn.net>, "=?utf-8?B?c2toYW4=?=" <skhan@linuxfoundation.org>, "=?utf-8?B?cmR1bmxhcA==?=" <rdunlap@infradead.org>, "=?utf-8?B?bGludXgtY2Fu?=" <linux-can@vger.kernel.org>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>, 
-	"=?utf-8?B?bGludXgtYXJtLWtlcm5lbA==?=" <linux-arm-kernel@lists.infradead.org>, "=?utf-8?B?bGludXgtcm9ja2NoaXA=?=" <linux-rockchip@lists.infradead.org>, "=?utf-8?B?bmV0ZGV2?=" <netdev@vger.kernel.org>, "=?utf-8?B?bGludXgtZG9j?=" <linux-doc@vger.kernel.org>, "=?utf-8?B?c3RhYmxl?=" <stable@vger.kernel.org>
-Subject: Re: [PATCH net v6 3/6] can: rockchip_canfd: cancel bus-off restart before closing the device
+	id 1xOW3F-00000004eBY-2BSk;
+	Wed, 04 Nov 2026 08:08:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793779738; x=1825315738;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=AomuazU2zzGRzimCBaFv5taOozoMnYWT55en1Ds0W0o=;
+  b=AcA76mZiv2W9NUYxGkdCiLOcWFP7Zz2nalYIklKk3AdB4oXLYMnvJdHY
+   lT2sBjZiCzaVndDgAMo+ICpMo9MfP9sMi9jENRNv4SYcN1yUjnTOexVDH
+   KhxNgFThj3/RxY83WGjwxzQ6FkShfSCFCTQvAH77+9DYmtC2nlb5Iml44
+   AWwrM1wylZPgduQPJx+XfLULj2zsvcjOfO7/c/SgpsQ2uNjI/vVJuw/Zd
+   r1AmVjGRpJDl02CCf3iAdWXrYNPY3/t5JbothwDFqzgkFbEytAZN8Ltx0
+   S8XqmtcLBwUSI9WCXNnSEdKZbwVIN8OfyG/eWEcz7WLV3afW/KeTGaMo6
+   A==;
+X-CSE-ConnectionGUID: kdtoWhPrRV6UNn8Wzhy2Eg==
+X-CSE-MsgGUID: 11CoY175Rma5eloM47Sb6A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11955"; a="2522924"
+X-IronPort-AV: E=Sophos;i="6.27,194,1787036400"; 
+   d="scan'208";a="2522924"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2026 00:08:57 -0800
+X-CSE-ConnectionGUID: a58E8IiMRzm/5YsOkdjGXw==
+X-CSE-MsgGUID: h1BM+L5RRQe53f1dB18fYA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,194,1787036400"; 
+   d="scan'208";a="6779258"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa005.fm.intel.com with ESMTP; 04 Nov 2026 00:08:54 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1001)
+	id A280F99; Wed, 04 Nov 2026 09:08:53 +0100 (CET)
+Date: Wed, 4 Nov 2026 09:08:53 +0100
+From: "mika.westerberg@linux.intel.com" <mika.westerberg@linux.intel.com>
+To: Chunfeng Yun =?utf-8?B?KOS6keaYpeWzsCk=?= <Chunfeng.Yun@mediatek.com>
+Cc: "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"westeri@kernel.org" <westeri@kernel.org>,
+	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"YehezkelShB@gmail.com" <YehezkelShB@gmail.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"andreas.noever@gmail.com" <andreas.noever@gmail.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH 4/4] thunderbolt: prevent pcie tunnel activation/teardown
+ warnings
+Message-ID: <20261104080853.GB176724@black.igk.intel.com>
+References: <20261030082539.1208733-1-chunfeng.yun@mediatek.com>
+ <20261030082539.1208733-5-chunfeng.yun@mediatek.com>
+ <20261030085628.GS158991@black.igk.intel.com>
+ <82f1a3227685b241938ccb500b97d1e73212bf36.camel@mediatek.com>
+ <20261103124842.GA158991@black.igk.intel.com>
+ <1dc9e15cdc03e4084eacc45d1c2c90f17e6c47e5.camel@mediatek.com>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-Content-Type: text/plain;
-	charset="utf-8"
-Content-Transfer-Encoding: base64
-Date: Wed, 4 Nov 2026 16:06:17 +0800
-X-Priority: 3
-Message-ID: <tencent_2E7A44783FBE26011A7319CF849111D78007@qq.com>
-X-QQ-MIME: TCMime 1.0 by Tencent
-X-Mailer: QQMail 2.x
-X-QQ-Mailer: QQMail 2.x
-References: <20261017-rockchip-canfd-restart-close-v6-3-ed605feb4b6e@qq.com>
-	<179237864073.3135.8117104622491949177@kernel.org>
-In-Reply-To: <179237864073.3135.8117104622491949177@kernel.org>
-X-QQ-mid: xmsezb41-0t1793779577t7nbgj69z
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <1dc9e15cdc03e4084eacc45d1c2c90f17e6c47e5.camel@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_000624_403986_C1472B51 
-X-CRM114-Status: GOOD (  12.85  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261104_000857_625818_BD4B6F09 
+X-CRM114-Status: GOOD (  28.34  )
+X-Spam-Score: -4.2 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,38 +99,121 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-2.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,FROM_EXCESS_BASE64,HEADER_FROM_DIFFERENT_DOMAINS,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-SGksCgo+IElzIHJrY2FuZmRfc3RhcnRfeG1pdCgpIHNlcmlhbGl6ZWQgYWdhaW5zdCB0aGlz
-IHJlaW5pdGlhbGl6YXRpb24gYXQgYWxsPwo+IFdvdWxkIHRoaXMgbGVhdmUgSU5UX01BU0sg
-dW5tYXNrZWQgYW5kIHRoZSBUWCBxdWV1ZSBhd2FrZSBvbiBhCj4gY29udHJvbGxlciB0aGF0
-IGlzIGluIHJlc2V0IHdpdGggdGhlIENBTiBzdGF0ZSBhdCBDQU5fU1RBVEVfQlVTX09GRj8K
-CkJvdGggd2luZG93cyBwcmVkYXRlIHRoaXMgcGF0Y2guIEl0cyBhZGRlZCB3YWl0cyBjYW4g
-ZXh0ZW5kIHRoZSBUWCByYWNlCmFmdGVyIHRoZSBjb3JlIHJlc3RvcmVzIGNhcnJpZXIuIFBh
-dGNoIDUgb2YgdjYgY2xvc2VzIGJvdGggd2luZG93cy4KSSB3aWxsIGZpeCB0aGlzIGlzc3Vl
-IGluIHY3IGJ5IGludHJvZHVjaW5nIHJlc3RhcnQgc3luY2hyb25pemF0aW9uIGFuZApUWCBw
-cm90ZWN0aW9uIHRvZ2V0aGVyLgoKSW4gdGhlIGNvbXBsZXRlIHY2IHNlcmllcywgYm90aCBy
-ZXN0YXJ0IGFuZCBvcGVuIHVzZQpya2NhbmZkX2NoaXBfc3RhcnRfZmluaXNoKCkuIEl0IGhv
-bGRzIHR4X2xvY2sgd2hpbGUgY2xlYXJpbmcgdGhlIElSUSBnYXRlLAp1bm1hc2tpbmcgaW50
-ZXJydXB0cyBhbmQgd2FraW5nIHRoZSBxdWV1ZS4gQSBuZXcgYnVzLW9mZiBtdXN0IGFjcXVp
-cmUgdGhlCnNhbWUgbG9jayBpbiBya2NhbmZkX3R4X2Rpc2FibGUoKSBiZWZvcmUgcHVibGlz
-aGluZyBCVVNfT0ZGIGFuZCBzdG9wcGluZwp0aGUgY29udHJvbGxlciwgc28gaXQgdGFrZXMg
-cHJlY2VkZW5jZSBvdmVyIHN0YXJ0dXAuIFRoZSBmbGFnIGlzIG5vdCB0aGUKb25seSBzeW5j
-aHJvbml6YXRpb24gaGVyZTsgYW4gYWRkaXRpb25hbCBsb2NrIGFyb3VuZCB0aGUgd2hvbGUg
-aGFuZGxlcgppcyBub3QgbmVlZGVkIGZvciB0aGUgcmVwb3J0ZWQgaW50ZXJsZWF2aW5nLgoK
-PiBDYW4gdGhlIGhhbmRsZXIgc2VlIGEgbmV3IGN5Y2xlX2xhc3QgdG9nZXRoZXIgd2l0aCBh
-biBvbGQgbnNlYz8KClllcywgYmVmb3JlIHBhdGNoIDYgb2YgdjYuIFRoYXQgcHJlLWV4aXN0
-aW5nIHJhY2UgaXMgZml4ZWQgYnkgdGFraW5nCnRpbWVzdGFtcF9sb2NrIGZvciBjb252ZXJz
-aW9uIGFzIHdlbGwgYXMgdGltZWNvdW50ZXIgdXBkYXRlcy4gSSB3aWxsCnJldGFpbiB0aGF0
-IGZpeCBpbiB2Ny4gVGhlIHdvcmtlciByZWFybWluZyBpc3N1ZSBpcyBhbHJlYWR5IGZpeGVk
-IGJ5IHRoZQpsb2NrZWQgYWN0aXZlIGNoZWNrIGluIHBhdGNoIDQgb2YgdjYgYW5kIHdpbGwg
-YWxzbyByZW1haW4gZml4ZWQuCgpCZXN0IHJlZ2FyZHMsCkN1bmhhbyBMdQoKcHctYm90OiBj
-cgo=
+Hi,
 
+On Wed, Nov 04, 2026 at 07:09:50AM +0000, Chunfeng Yun (云春峰) wrote:
+> On Tue, 2026-11-03 at 13:48 +0100, mika.westerberg@linux.intel.com
+> wrote:
+> > Hi,
+> > 
+> > On Tue, Nov 03, 2026 at 08:33:51AM +0000, Chunfeng Yun (云春峰) wrote:
+> > > On Fri, 2026-10-30 at 09:56 +0100, Mika Westerberg wrote:
+> > > > On Fri, Oct 30, 2026 at 04:25:39PM +0800, Chunfeng Yun wrote:
+> > > > > When usb4 enter sleep mode, echo 1 to authorized of sysfile,
+> > > > > will wakeup usb4 driver, but fail to create pcie tunnel, cause
+> > > > > the warning due to a race condition between switch disconnect
+> > > > 
+> > > > It's router
+> > > will modify it.
+> > > 
+> > > > 
+> > > > > during resume and user authorization
+> > > [  278.831186] usb4_hi NVDA8100:00: 0:1: is unplugged (state: 7),
+> > > retrying...
+> > > [  278.943031] usb4_hi NVDA8100:00: 0:1: failed to reach state
+> > > TB_PORT_UP. Ignoring port...
+> > > [  278.951125] usb4_hi NVDA8100:00: 0:1: lost during suspend,
+> > > disconnecting
+> > > [  278.957819] usb4_hi NVDA8100:00: 0:4 <-> 1:16 (USB3):
+> > > deactivating
+> > > [  278.964794] usb4_hi NVDA8100:00: deactivating USB3 Down path
+> > > from
+> > > 0:4 to 1:16
+> > > [  278.972737] usb4_hi NVDA8100:00: deactivating USB3 Up path from
+> > > 1:16
+> > > to 0:4
+> > > [  278.980504] usb4_hi NVDA8100:00: 0: TMU: mode change off -> bi-
+> > > directional, HiFi requested
+> > > [  278.991265] usb4_hi NVDA8100:00: 0: TMU: mode set to: bi-
+> > > directional, HiFi
+> > > [  278.999511] usb4_hi NVDA8100:00: 0:1: total credits changed 66 -
+> > > > 66
+> > > [  279.006408] usb4_hi NVDA8100:00: 1: link width set to symmetric,
+> > > dual lanes
+> > > [  279.013763] usb4_hi NVDA8100:00: 0:7 <-> 1:9 (PCI): activating
+> > > [  279.019587] usb4_hi NVDA8100:00: activating PCIe Down path from
+> > > 0:7
+> > > to 1:9
+> > > [  279.026468] usb4_hi NVDA8100:00: 1:1: Writing hop 1
+> > > [  279.031335] usb4_hi NVDA8100:00: 1:1:  In HopID: 8 => Out port:
+> > > 9
+> > > Out HopID: 8
+> > > [  279.038546] usb4_hi NVDA8100:00: 1:1:   Weight: 1 Priority: 3
+> > > Credits: 32 Drop: 0 PM: 0
+> > > [  279.046536] usb4_hi NVDA8100:00: 1:1:    Counter enabled: 0
+> > > Counter
+> > > index: 2047
+> > > [  279.053834] usb4_hi NVDA8100:00: 1:1:   Flow Control (In/Eg):
+> > > 1/0
+> > > Shared Buffer (In/Eg): 0/0
+> > > [  279.062259] usb4_hi NVDA8100:00: 1:1:   Unknown1: 0x0 Unknown2:
+> > > 0x0
+> > > Unknown3: 0x0
+> > > [  279.069730] ------------[ cut here ]------------
+> > > [  279.074335] usb4_hi NVDA8100:00: PCIe Down path activation
+> > > failed
+> > > [  279.080426] WARNING: CPU: 5 PID: 2433 at
+> > > drivers/thunderbolt/path.c:587 tb_path_activate+0x1a4/0x5b0
+> > > ...
+> > > [  279.220285] Call trace:
+> > > [  279.222722]  tb_path_activate+0x1a4/0x5b0 (P)
+> > > [  279.227068]  tb_tunnel_activate+0x140/0x498
+> > > [  279.231241]  tb_tunnel_pci+0x180/0x490
+> > > [  279.234980]  tb_domain_approve_switch+0x74/0xb0
+> > > [  279.239500]  authorized_store+0x214/0x270
+> > > [  279.243498]  dev_attr_store+0x20/0x70
+> > > ...
+> > > [  279.288888] ---[ end trace 0000000000000000 ]---
+> > > [  279.293497] usb4_hi NVDA8100:00: 0:7 <-> 1:9 (PCI): activation
+> > > failed
+> > > 
+> > > 
+> > > root cause:
+> > > 
+> > > The warning were caused by a race condition between switch
+> > > disconnect
+> > > during resume and user authorization:
+> > > 
+> > >    1. While the system was in runtime suspend, userspace executed:
+> > > 
+> > >        echo 1 > /sys/bus/thunderbolt/devices/0-1/authorized
+> > >    2. Writing to this sysfs attribute woke up the USB4 controller
+> > > (nhi_runtime_resume).
+> > >    3. During resume, the downstream port 0:1 failed to complete
+> > > link
+> > > training within the timeout and was declared lost:
+> > 
+> > Okay we get the warning but the bigger problem here is that why the
+> > link
+> > does not come up anymore? 
+> Yes, it is one case
+> > Unless you unplugged the router as well.
+> it is another one.
+> 
+> if the driver already know the router is disconnected, whether still
+> need to look up the pcie tunnel? it want to do it, I will abandon this
+> patch.
+
+I think it makes sense to fix it but I was more concerned about the link
+issue you seem to have there. The link should be re-trained once we runtime
+resume if the router is still connected. There could be many reasons for
+this but I would check that the PD/retimer firmwares are up-to-date at
+least as they may contribute to this.
 
