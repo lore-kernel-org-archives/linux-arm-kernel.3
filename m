@@ -2,48 +2,47 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41199606A32E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:11:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D3C2606A331
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 12:11:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dD8zyQLA;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gndPHB8K
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nVVDVrH4;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CVb22o5M
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=/f5A3hR3Bm+usn2244B9GDUzSk90oqC+oGYIPpnfKec=; b=dD8zyQLAnMn9+tXoiYvjeJzHVi
-	l5LEYTZmqsFI6yvRvnQAEBvH4Ze0Y5yxInrqnOE3LVkQO+NpvoOEHP5X60ltEy98wGAFPdefXKzr/
-	FTUxZsvSr2eF/Y9lEY3qC0ixP0bbFAvFbxYVVtlNwj0siV5fOjNSUEjgStJjOUjaQgscM7lfPEDEJ
-	doR6Oh2VjnkhATSujzPgMcQFnH+SerZaMxLZufn1BJCT9a++x7LiUhA5t0cneBUjXYGhi3a0d2LOV
-	6zA5Ica7nc7q9NSC9kGh2wTzg6xIs+lNkx5S8I1BDqpA4FMHA/5ipcqbIOcXxWgyDSlnzO1SJhDUN
-	+8w+Xq3g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=6EsKNx+i/27AOT45Y7CU7NIo3IUkBxCrUdSGAbsZRm4=; b=nVVDVrH4r1ZmlY
+	oUVx3wy1YL4DDgGnWKApaSxPB28ieb3rAXFY91z22kxsSSydbaUKFMKFrtRwBBIB9TPtCFEKnZFU0
+	OE2KpnZGl3AZx0M/h6wO2DuTJLdd5KEUd54jrMeYB+Ap8LHJ3aVUbWVtm0VaPToLJKRzTFGEACvI1
+	TBkbwOQt7MPNHyvicBfDGsxVNJAHIrZ+GNWT7SOD9MIO//L13QuEu8hbY2q1yo24W6euaigWojYYP
+	v2Ex8sajX5k2+qhG/sfql8fO57APXLRg/IFVI5D6D+73xUPvZnc4G/MHDGy2RHTmJmF3B7zKAoyrP
+	84jL7XLoUTj6Mh7DDtwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZpm-00000005Gdv-2f1R;
-	Wed, 04 Nov 2026 12:11:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOZpq-00000005GgK-3OvM;
+	Wed, 04 Nov 2026 12:11:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZpl-00000005Gdh-31GT
+	id 1xOZpp-00000005GfA-0wE7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 12:11:17 +0000
+	Wed, 04 Nov 2026 12:11:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3121343436;
+	by tor.source.kernel.org (Postfix) with ESMTP id 6F03D60F1C;
+	Wed,  4 Nov 2026 12:11:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 827D01F00919;
 	Wed,  4 Nov 2026 12:11:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D1BF1F000C1;
-	Wed,  4 Nov 2026 12:11:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793794277;
-	bh=/f5A3hR3Bm+usn2244B9GDUzSk90oqC+oGYIPpnfKec=;
-	h=From:To:Cc:Subject:Date;
-	b=gndPHB8KuXtUVdAEjeHq+VK7vBVz5TBIJ0SP2svlUxclb5ES5qbzqlmr2ZqCGq+lS
-	 s8rNm70hl3s/OP6OBzTapLtBZcR1GLxIJ3+t5QnuavyviANZ9uqbxgW1KUwAugygoc
-	 EeI9K++Clc5XJVybgyEMJNCUQcvRZ0hmmp4bdqNJ7c3d11Wggq21aEaCulOdrILlev
-	 +IsUrOB4GY9Scq5tV2ler70t0aXDIskR6k4Ja8/ipzPaj14bpUU4IIEJ/BIuNvMcGF
-	 EvDJDODLhWn05YDlm1tVq4nNOpEm63CDOrVUZRRnyU3p03f2wJT4s4GKrIW7o/b4HN
-	 Q5L0kmWVX3/5A==
+	s=k20260515; t=1793794280;
+	bh=6EsKNx+i/27AOT45Y7CU7NIo3IUkBxCrUdSGAbsZRm4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=CVb22o5MeuxPtkYl6fYYqI1g8BE2dtuG9E8jQBTPP/QAhN4X+PPEcvCpb0LQ6DJMo
+	 e6lcTM1/DwwfxmQYhQKfNDFIjyWI3or9dBC/ryYC1eLMNRlCd+wbU81XUU3DrP+8QU
+	 w7KsSPFe9HeoL/jcHWdUsDZORR0eDM5kvF/bjnXn6dBc4fhRiIgZhbvdYMTPsO4861
+	 +f63SHH12IbRoe8viAV9/pfG05ejYzlLRHsVwUHNIxAU0K1fYW3RSLUHDLT7EIWOwg
+	 5BQSngEIVLDhHo/Vm5KiV4Wf7gBEpUDzHBFyN9V+hNVLZ+XDdYXSqqIrQfevsceM6Q
+	 oJ+83gHwuVeWQ==
 From: Michael Walle <mwalle@kernel.org>
 To: Dong Aisheng <aisheng.dong@nxp.com>,
 	Andi Shyti <andi.shyti@kernel.org>,
@@ -58,10 +57,12 @@ Cc: Carlos Song <carlos.song@nxp.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Michael Walle <mwalle@kernel.org>
-Subject: [PATCH 1/2] i2c: imx-lpi2c: fix SMBus block read with PEC
-Date: Wed,  4 Nov 2026 13:10:35 +0100
-Message-ID: <20261104121108.659820-1-mwalle@kernel.org>
+Subject: [PATCH 2/2] i2c: imx-lpi2c: don't treat a NACK in SMBus block read as an error
+Date: Wed,  4 Nov 2026 13:10:36 +0100
+Message-ID: <20261104121108.659820-2-mwalle@kernel.org>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261104121108.659820-1-mwalle@kernel.org>
+References: <20261104121108.659820-1-mwalle@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -83,50 +84,47 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-If PEC is enabled, the I2C core sets msgs->len to 2 instead of 1. The
-length calculation for the second receive command assumes it's always
-1. This will lead to a short read and eventually a timeout because the
-PEC byte is never received.
+An SMBus device might indicate that a value isn't ready yet by asserting
+a NACK.
+This will lead to the following error message which will flood the
+kernel log for some device like an IPMI SSIF BMC:
 
-Take msgs->len into account when calculating the remaining bytes.
+   [    4.277005] i2c i2c-5: SMBus read count failed -110
 
-This was tested on a board which uses an IPMI SSIF BMC.
+Stop the polling if NDF is set and return -EIO, just like everywhere
+else. While at it, drop the MSR_RDF_ASSERTED() macro, it's just one bit,
+no need for FIELD_GET.
 
 Fixes: efdc383d1cc2 ("i2c: imx-lpi2c: fix SMBus block read NACK after byte count")
 Signed-off-by: Michael Walle <mwalle@kernel.org>
 ---
- drivers/i2c/busses/i2c-imx-lpi2c.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+ drivers/i2c/busses/i2c-imx-lpi2c.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-index 7302464c371a..f57e800ac3b5 100644
+index f57e800ac3b5..583155802e8a 100644
 --- a/drivers/i2c/busses/i2c-imx-lpi2c.c
 +++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-@@ -563,7 +563,7 @@ static unsigned int lpi2c_SMBus_block_read_length_byte(struct lpi2c_imx_struct *
- static int lpi2c_imx_read_init(struct lpi2c_imx_struct *lpi2c_imx,
- 			       struct i2c_msg *msgs)
- {
--	unsigned int temp, val, block_len;
-+	unsigned int temp, val, block_len, remaining;
- 	int ret;
+@@ -92,7 +92,6 @@
+ #define MRDR_RXEMPTY	BIT(14)
+ #define MDER_TDDE	BIT(0)
+ #define MDER_RDDE	BIT(1)
+-#define MSR_RDF_ASSERTED(x) FIELD_GET(MSR_RDF, (x))
  
- 	lpi2c_imx->rx_buf = msgs->buf;
-@@ -612,9 +612,13 @@ static int lpi2c_imx_read_init(struct lpi2c_imx_struct *lpi2c_imx,
- 		 * keep MTDR non-empty and ensuring continuous ACKs. Only update command register
- 		 * here. All block bytes will be read out at IRQ handler or lpi2c_imx_read_atomic()
- 		 * function.
-+		 *
-+		 * msgs->len is 1 - or if PEC enabled msgs->len is 2. Two bytes
-+		 * have already been requested.
- 		 */
--		if (block_len > 1)
--			writel((RECV_DATA << 8) | (block_len - 2), lpi2c_imx->base + LPI2C_MTDR);
-+		remaining = msgs->len + block_len - 2;
-+		if (remaining)
-+			writel((RECV_DATA << 8) | (remaining - 1), lpi2c_imx->base + LPI2C_MTDR);
+ #define SCR_SEN		BIT(0)
+ #define SCR_RST		BIT(1)
+@@ -594,7 +593,10 @@ static int lpi2c_imx_read_init(struct lpi2c_imx_struct *lpi2c_imx,
+ 		writel((RECV_DATA << 8) | 0x01, lpi2c_imx->base + LPI2C_MTDR);
  
- 		lpi2c_imx->msglen += block_len;
- 		msgs->len += block_len;
+ 		ret = readl_poll_timeout(lpi2c_imx->base + LPI2C_MSR, val,
+-					 MSR_RDF_ASSERTED(val), 1, 1000);
++					 (val & (MSR_RDF | MSR_NDF)), 1, 1000);
++		if (val & MSR_NDF)
++			return -EIO;
++
+ 		if (ret) {
+ 			dev_err(&lpi2c_imx->adapter.dev, "SMBus read count failed %d\n", ret);
+ 			return ret;
 -- 
 2.47.3
 
