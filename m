@@ -2,10 +2,10 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E42D2606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 02:40:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E5B2606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 02:40:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZpBmhdnF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GpXt3v3W
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
@@ -13,64 +13,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=36Y5pL4NdH8kDIXYo87U2fescr4cMGf2b+Jv2gOIdXM=; b=ZpBmhdnF4qOQdWNKAbDb87vF39
-	NpZ5TElW56Li1oSdTulJ0FU9mmBSIiuXNal4Ml1vmfCcHCTZmZXIim9q4Lur6IT58YUvEMTqtr1Ah
-	zbLKL5Mg52pjHOJtV7/cqXMRBqda/KP9+JYxWIUJSCxRMK5YbBHrKxF3qWVTNMYaf7HhbAN41l2pS
-	ZIttVX2Gc13H8qNJpFDuTmXDizZe0o8cQE0p/zFY8GA8HCny4U8Gm4HfXQNQ9rh8aijIR6x2uc4sd
-	4yXGIAEybNiISeTVnHdHm51a7/SJS9vkvSJijCwe9KW42eScRRd+FB7wFSYOmk/11X7OjcndM0E6J
-	r4rsyFzw==;
+	bh=GPPjgPXMdTGHADngYsCikDS3FDt2Si5kyVRezK2CTn8=; b=GpXt3v3Wuz+4FR4ubum3N55AR/
+	6WQGdWmQd85ee2dVC8oocPdlAuPhSWans7EwXTZhF+g+n/8NP8o8S2Cs7mlNIEu3e/+pIJtVerKbl
+	t1eFbtE222xN2/GK1/Fhp4Ms6sCHmV+guCBOB9yuoOWqjfWeRYF1hFHcKs6bLlF4K+ZilTbFudsPV
+	JpJtBcsxJHjNW0P+0JgLQcg1HyEAoKUcXwfnX2UerNi7+SVeGv3bIcxd5lb7OK/HmegFixqbykVX2
+	zlzwIfQ5z4ffoGoCfv06g8FD/d1OfjLLLzFZdiA7h53h86uTmmipOSeGfu9Pvzo3GAzWXQp/CZmUo
+	yhZVRznQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOQve-00000004BJ3-3w33;
-	Wed, 04 Nov 2026 02:40:46 +0000
+	id 1xOQvi-00000004BKr-0HWh;
+	Wed, 04 Nov 2026 02:40:50 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOQvZ-00000004BEy-1ukV
+	id 1xOQvd-00000004BH1-1Oh1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 02:40:42 +0000
+	Wed, 04 Nov 2026 02:40:46 +0000
 Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-01 (Coremail) with SMTP id qwCowABXg_0nm+pqT7k+AA--.27763S2;
-	Wed, 04 Nov 2026 10:40:39 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowACXwvwqm+pqh7k+AA--.5176S2;
+	Wed, 04 Nov 2026 10:40:42 +0800 (CST)
 From: Wentao Liang <vulab@iscas.ac.cn>
-To: Liam Girdwood <lgirdwood@gmail.com>,
+To: Olivier Moysan <olivier.moysan@foss.st.com>,
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
 	Mark Brown <broonie@kernel.org>,
 	Jaroslav Kysela <perex@perex.cz>,
 	Takashi Iwai <tiwai@suse.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
 Cc: linux-sound@vger.kernel.org,
-	imx@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] ASoC: mxs-saif: unregister the mclk if adding the provider fails
-Date: Wed,  4 Nov 2026 02:40:48 +0000
-Message-Id: <20261104024048.1508618-1-vulab@iscas.ac.cn>
+Subject: [PATCH] ASoC: stm32: spdifrx: keep the control DMA channel on config failure
+Date: Wed,  4 Nov 2026 02:40:51 +0000
+Message-Id: <20261104024051.1508703-1-vulab@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowABXg_0nm+pqT7k+AA--.27763S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrKw1rZF48tFykGrWDXw4ruFg_yoWDtrg_ta
-	yv93yqvryDCF1Fkw1DCws8ZryIgasrCw1rW34UKr43tFyxJFsIva4qyrZ8u3s8Zr1IgFy5
-	XryUZryfJ3y2kjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbf8YjsxI4VWkCwAYFVCjjxCrM7CY07I20VC2zVCF04k26cxKx2IY
-	s7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4
-	kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_
-	Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI
-	0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2Wl
-	Yx0E2Ix0cI8IcVAFwI0_Wrv_ZF1lYx0Ex4A2jsIE14v26r4UJVWxJr1lOx8S6xCaFVCjc4
-	AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
-	14v26r1q6r43MxAIw28IcxkI7VAKI48JMxAIw28IcVCjz48v1sIEY20_Gr43Wr1UJr1l4I
-	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
-	xVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
-	AFwI0_Xr0_Ar1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr1lIxAIcVCF04k26cxK
-	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26F4j6r4UJwCI42IY6I8E87Iv6xkF7I0E14
-	v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7IU0c6pPUUUUU==
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRMBA2rqY-nVXwAAsI
+X-CM-TRANSID: qwCowACXwvwqm+pqh7k+AA--.5176S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CF43ZF17Jr4xKw1ktFyfCrg_yoW8Jw1rpr
+	4rJrWvg3y5Xan8XF4qgr109ayv9rZ3Ar4DKws8Ww12vrnxAryIva9xWw4qgr42yFW8Ga12
+	9rs3tFy5uw1rCF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBjb7Iv0xC_Kw4lb4IE77IF4wAFc2x0x2IEx4CE42xK8VAvwI8I
+	cIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2
+	AK021l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v2
+	6r4UJVWxJr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14
+	v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xf
+	McIj6xIIjxv20xvE14v26rWY6Fy7McIj6I8E87Iv67AKxVW8Jr0_Cr1UMcvjeVCFs4IE7x
+	kEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kK
+	e7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCF04k20xvE74AGY7Cv6cx26r48ZrWUJr1UMx
+	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
+	wI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20x
+	vE14v26ryj6F1UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAv
+	wI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWxJVW8Jr1lIxAIcVC2z280aVCY1x0267
+	AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x07bzhL5UUUUU=
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwQBA2rqZFjVPQAAsV
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_184041_869938_492145F0 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20261103_184045_802004_0FC668D7 
+X-CRM114-Status: GOOD (  10.20  )
 X-Spam-Score: -0.9 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,37 +89,40 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-clk_register_divider() registers the mclk, while of_clk_add_provider() only
-stores it as the provider data. If of_clk_add_provider() fails, the clock
-stays registered but no provider refers to it, and the driver has no remove
-callback to release it, so the clock is leaked.
+When dmaengine_slave_config() fails, stm32_spdifrx_dma_ctrl_register()
+sets ctrl_chan to NULL and returns the error. The channel obtained from
+dma_request_chan() is thus lost, and stm32_spdifrx_probe() calls
+stm32_spdifrx_remove() on the error path, which then passes NULL to
+dma_release_channel().
 
-Unregister the clock on this error path before returning.
+Leave ctrl_chan untouched so that the remove path releases the channel.
+Its IS_ERR() check already handles the case where dma_request_chan()
+failed.
 
-Fixes: 7c9e6150f2e7 ("ASoC: mxs: register saif mclk to clock framework")
+Fixes: 03e4d5d56fa5 ("ASoC: stm32: Add SPDIFRX support")
 Cc: stable@vger.kernel.org
 Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
 Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 ---
- sound/soc/mxs/mxs-saif.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ sound/soc/stm/stm32_spdifrx.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/sound/soc/mxs/mxs-saif.c b/sound/soc/mxs/mxs-saif.c
-index e46896ac9669..aaf62f081b32 100644
---- a/sound/soc/mxs/mxs-saif.c
-+++ b/sound/soc/mxs/mxs-saif.c
-@@ -783,8 +783,10 @@ static int mxs_saif_mclk_init(struct platform_device *pdev)
- 	}
+diff --git a/sound/soc/stm/stm32_spdifrx.c b/sound/soc/stm/stm32_spdifrx.c
+index 88863dbd05d9..ce75929daf73 100644
+--- a/sound/soc/stm/stm32_spdifrx.c
++++ b/sound/soc/stm/stm32_spdifrx.c
+@@ -425,10 +425,8 @@ static int stm32_spdifrx_dma_ctrl_register(struct device *dev,
  
- 	ret = of_clk_add_provider(np, of_clk_src_simple_get, clk);
--	if (ret)
-+	if (ret) {
-+		clk_unregister(clk);
- 		return ret;
-+	}
+ 	ret = dmaengine_slave_config(spdifrx->ctrl_chan,
+ 				     &spdifrx->slave_config);
+-	if (ret < 0) {
++	if (ret < 0)
+ 		dev_err(dev, "dmaengine_slave_config returned error %d\n", ret);
+-		spdifrx->ctrl_chan = NULL;
+-	}
  
- 	return 0;
- }
+ 	return ret;
+ };
 -- 
 2.34.1
 
