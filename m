@@ -2,151 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3BD7606D806
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 11:39:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B496606D807
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 11:40:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IZdCDqy5;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=FzJN5ifN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=elEufZOm;
+	dkim=pass (1024-bit key, unprotected) header.d=cyberchaos.dev header.i=@cyberchaos.dev header.a=rsa-sha256 header.s=mail header.b=yWfisoRE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=Ce0x1bYbthAlA4eBlNO+8Kih2ZJ0MSwKRA1L6Dt9iCY=; b=IZdCDqy5WUaMsxnZlbl/XLuWs/
-	P8BSPyz4mC0UNKXNpaGrWE3T242gx4KSgeOPXlpMJqkK8AGLmPjrMnjHmrPW533XMdbhPVysHFB4G
-	APobhqOwamBKgfw5K8+c5zql8WJxJLBArJ+8xwBNqz/nIYLa/VIPgUaDBILoSRNSxky2+O0tVElpA
-	AIjQkFe6p1wv53ARuXgbBE267BZHXsHVPdPcOYtIGsUgEnVZtMqXHibyBXXwfZhYJ83Errstz6sC+
-	Uo5EbMNh14OGkQHYSwVHnlItdPVek97+IkfKVlP7VBRx9PgqD14gzZ9VDGW4sbRtD1eAMCFGdBCBc
-	YttimhWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=GNEkLS7x3xup7k/Ojt7ZkvN366zwwDCNFWsahX9UKfI=; b=elEufZOmJeg9aH
+	wdqOtKlI28YPrMtb5H7V2RO9D3abmXrDZsdKUzqusIE1k7+Pg01pkmrIIljFZh23Dueu9EBAm1Rep
+	4+UWQcSz1aaGFZxQxtiyXcQ6tJ1swLUyPVJ1Zr3f2JInGb0TX/ja64Wee/bdINLiNuiVVkkvA24mG
+	SinCCsTZEwP7OiIO/gCXO7qbQwalRCUbqk64SK8a2ns3BSo/abt88Fb6AWRlbFvOerRav4RjzzTkt
+	rK5E+ppdfvGun78t2NY71VZNhJKDjoU6c9Oz+8E3TuZ7OSrNHHk3RtTa5RAF2qiAaT7l0uWftGFQu
+	u91lELTFFXk6K5jqyJEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZKm-00000005CO1-30h8;
-	Wed, 04 Nov 2026 11:39:16 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1xOZME-00000005CaZ-3mCu;
+	Wed, 04 Nov 2026 11:40:46 +0000
+Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOZKk-00000005CNW-0q0A
+	id 1xOZMC-00000005CZq-11BT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 11:39:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kXIFZ1z2S89rSmxTfn87457DITius/w8FAf6rZOTJdIqryIjIZXwUfrxrW8TjPjh5upadK0Ob0TVBqFBZ6lgHgr85VOZMNm5IUaevpS4tMpDZvQ330Nk59E6P1NYXvbW4qvpPIVP6x8rFnpPIqAW15a4yLykRQFiRk5SfM0OsB0JS8bzlTo+9zy44Kjogi6Le5wtKGNVoNUV+mjaJyMe6hHLLGNrHC6zAdfp/TRDq88VaLDKTBN4sVwPFV7qOLPlrnNy/78w17lqpfn0y+gSbXVtBu7NylEsrkLv3gOcNw1Jvudfr/dsOoDdMb9btr+hYA/Dkv7ym8oyrUl850Jo8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ce0x1bYbthAlA4eBlNO+8Kih2ZJ0MSwKRA1L6Dt9iCY=;
- b=vcfxPzVK3YdWu6DiwGFrNqUa/LLtC3kyZsVv5ww3fwQSGPUdicgA/WrEqIodCvkvywZC/p7977hJQRPIt2qiC+VReOR+k03xE5y7NLB8DozKQCWN3g5Gu+N+HxlTKQN5ugNWJPPRipBj+kDxTwbLj2OxuCTsDJHemJwPueczTDI34tfqQ35VnhfZa9gej7PJveiR3C9dDJwjqYmzzfm9mW5/nWBYZwcICpmtnnLBi6aylBt7p/ANNTDTcvc2PbsTqOfbqLQ3Sskxfu09Mx4JWamSZQYbAwx5/zc1MFQ27+izok8q7hqByjS9LeOZJ3FaKf/BlDLyodJGNLI+TIreIA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ce0x1bYbthAlA4eBlNO+8Kih2ZJ0MSwKRA1L6Dt9iCY=;
- b=FzJN5ifNoiqHDvmwjqB0g6vQZXGPWW4EiPlDVdRZAp5cNxwiXzPvjy5wiQQkmBbhAShzyBvqh6kshazrD9fGxCQbq42wOs4hOQWS9lSNXagLNltm2njNB5XrKPfEY5gkhTrRfAM0E1YYAVGf27+m/XLNA7bhGyj17X5i4UnDzEebqKqXXLgYlQNqSr6KdK6Erv2FwckEVBeuJBroXR2asvTt8ieHmMvU5R5/9aULEODufUoMFFcmxUFaKtpdBdhdAJJeEftXdsL2moWKFtdkc6enXqlihdxUneM6a8ASiUOd2O/0/Cp58pAaFjYQ8N6UGEJYWk4xRB/eHF8PomDCIQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
- by DBBPR04MB7804.eurprd04.prod.outlook.com (2603:10a6:10:1e0::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.9; Wed, 4 Nov 2026
- 11:39:07 +0000
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85%5]) with mapi id 15.21.0592.009; Wed, 4 Nov 2026
- 11:39:07 +0000
-From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-To: Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Linus Walleij <linusw@kernel.org>
-Cc: Chester Lin <chester62515@gmail.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Matthias Brugger <mbrugger@suse.com>,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH v2] pinctrl: nxp: s32g2: Enable by default on ARCH_S32
-Date: Wed,  4 Nov 2026 12:39:05 +0100
-Message-Id: <20261104113905.96582-1-khristineandreea.barbulescu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P195CA0007.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:5e2::7) To AM9PR04MB8179.eurprd04.prod.outlook.com
- (2603:10a6:20b:3b5::20)
+	Wed, 04 Nov 2026 11:40:45 +0000
+From: Yureka Lilian <yureka@cyberchaos.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
+	s=mail; t=1793792439;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GNEkLS7x3xup7k/Ojt7ZkvN366zwwDCNFWsahX9UKfI=;
+	b=yWfisoRENsW64pUOMDbkEuV3yPacTgGGhFKf/9z38WVNVD16MXsFRiolhs5oFqdE/x0vAL
+	8GlEAtT85sRsNg2FbSLm02JsYYBSAgv3qzmpey/131p6h20seyO/y/kEiOjwCGUE1n1HRH
+	HIN8KtO9OTfcYh0xBgTHl7DpjWqY7Uk=
+Date: Wed, 04 Nov 2026 12:40:29 +0100
+Subject: [PATCH v2 1/3] PCI/pwrctrl: Export per-device APIs
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|DBBPR04MB7804:EE_
-X-MS-Office365-Filtering-Correlation-Id: bc2ca12d-74f2-471d-e344-08df3a683c06
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|19092799006|11063799006|56012099006|261021123027099003|261021121427099003|261009223027099003|261102123227099003|261022075727099003|10067099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: t4n9SCOw7sJ1HQOmvCnCo1lVLy42ApQtXvu1SbQWq0KeLM0hBDo6/nHpHfuuLT1sFzYBZzDtiDVmHp9g8qww8fN63lmQ+0VVdepT3x/ikWylZnh1S3Bf465lSQDR6Pds3IOzGIw0/XrcB9jO0e9cc1ORkKkESp5cCKgLJgDDvw9RFds/aNqKc9uCATvlOsGprEzCHTeupUBjSinBhU23FjK2vHaYe/aEimufSEgJyEJK9t+im/Cr25mYOZbivytZEkXAxLvWIQ8XRZYkqpi29Gt4yXdK8r0/J7/KkZBztMxgOyhkBpo/mjlJ2qxbb2xdW/fdvsxrFjXlZkS0UwFZhY+yDJ/96eGSvAJHbWWaAQotK8UDIRNOfa3u4Bptyr76p38S90meXe4lRTAMryJvpz0/ihXTm1/9W+fkLPkQf5suo/pLdfuZEHCAD4KI+q5+qSPTUqZSCl1cy6f/dS8KgAAteR/YDx7jNAxLqB0npzxaLQwnkd4yoyImioDvZ3BvPDE9qXpLMLHwWjOZfW1d7PTBRGICTHmxk4Jywyc31226CfUegDdCvdaiX380tr6TgUR/BTk0nxyBb/u0LNVcBy/6Uz/TthLhBZgMNYqwuL0rxXUwJ/GHdLXQRXjQ0pXYoTrAlB42WUv84e3lUGI7CyJuS3xGzeDzz0qVvG2ZqZs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(19092799006)(11063799006)(56012099006)(261021123027099003)(261021121427099003)(261009223027099003)(261102123227099003)(261022075727099003)(10067099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MW9kMHRSMlNHbVZhRDQ3aG1DdnZrY3dWemVHUVQyb2puUXpqa21XU2I0U3JG?=
- =?utf-8?B?NnZNN2tqYXRYeWR5dDNqUVlTdlFqNDZBOU5PR3dhbUpjR1U4M0hvUHdzaTZ0?=
- =?utf-8?B?azlrVW5pQXdtMHRhMkdqbXplR2VMZzY0YWs4UGdaOGE2WkJiZTJZK0Ivc3Zm?=
- =?utf-8?B?SjlzdHNNYThTdktsbnpON1lldHg4bDdmbHlHZ3cvazZrK1NuWEp1bnEvVEY0?=
- =?utf-8?B?Sk9BaG9pV0FMN2I0OGg0c3pxbEhwdDVNTTVIVUNtYU5xNVFnQnR2MEdpdmFr?=
- =?utf-8?B?aCtLMlVnQk5Gcm5mS21iRDIzMVpIeGZFbXpweWZ1aHZFb25RU3JUbFEvbHZ4?=
- =?utf-8?B?WXcxNjdTcTltVXVKOXV5c2x2ZzlYa3dwVkc2S0VBRUwzS1JvTG15eGNibXpa?=
- =?utf-8?B?Q0UxVUVoeGZvYi9VdG43ZTRWQnNIQnBodmZNdzVwVSszQmY4OFJpWlo1d1BG?=
- =?utf-8?B?ZEpHSDdVb3dubjkvVXFVMHRCQnRTaW50cjdmTkx1d1RKbzFZZzgrNWtSa3E2?=
- =?utf-8?B?TkhSK3BOYVc2VWxMaUxMSWREVFh3YUZVdzBrc09XbVdCOU5YT0ZIeGtscHBF?=
- =?utf-8?B?dGRIdzgvRkNGd2pWbTZUVjZHcjVURVJDZGFHZS8rMW84SGI4ci85bEZLQ2tJ?=
- =?utf-8?B?enMyakVmUTR4cUhyM3FNWUp1cnN2Q2cxSGRwa3hWS0xBMHhTWE5nT1lNbWNN?=
- =?utf-8?B?Rk03bnhHN002bWRyazY5THdoOERFR0krUEVIQmsrNjFXc2JQdCtpcUxxWmhh?=
- =?utf-8?B?V3ZISkZrenJpbGFyMlVQT0NkNDRzVHZKQlB0UUhVTFd4WW55OGdsdVZoN3o1?=
- =?utf-8?B?OWVhMk1oM2FzVjhnM0pxZGptVVliejhDZGc0bUQwR2c1MG5iaUFRY2JpYzZx?=
- =?utf-8?B?a0dPdWUzY2NUVUpDZFBxZzIrS2lHaDMxcll5VmZycmhSSmd1L0hrSkczL2s2?=
- =?utf-8?B?aDRweStVSGVLQ20ydERXWjBlRlJBSERWYjFjUGFqckgraVFUZW9icjU3WlNU?=
- =?utf-8?B?WkFxZSsxNDlUY2lWWGVJeVloMXo5V2FiSTBmNVMzYUhLNm5WSGk5em1iU3pk?=
- =?utf-8?B?SEJ3Z2s3N21jWjVRa1BQZlJUa2hFVlBNbzAwUklFQjMwOG95OEcrdVErdkVr?=
- =?utf-8?B?UktuSk1KcnRJU3BZQU9pbUF2UmUzYVRwWTBCUysyR2puSGZXcTJ5Nm5HYW1p?=
- =?utf-8?B?TForbTczOTRKUVNUcCthYWJwT0VzL3dxeTlBTDEyUjBpS0MyRGtwdndvTnA0?=
- =?utf-8?B?dGxIMGdPMkRqb1l0Z2tTWjdpR2NWV2JRWkJHc1kweVkrMHRodE9UQmM3Wnlr?=
- =?utf-8?B?Z3NZK2JpaENkOGUwUU5zaDc4WVVnSlRvd3psL0N1blF3TjRCSHRqTFFVdzZi?=
- =?utf-8?B?Y00yRzZuaVc0aGhFVXptLzk0b08rZHExK0wrN01valkzZEJiMjJhOU5xd2Nw?=
- =?utf-8?B?SDI5RTQrNHN4dkFBaDVOaFB0QUJZU3hUMmRNc2hhZlJTMndtcXg3dkR4dFNv?=
- =?utf-8?B?T3lTQ3FYSDQ3dlBQNzU2STRoL2lLbFdFTFQ0YnZMY0RsRGFYc2N1WVlrU2FH?=
- =?utf-8?B?UkhFUE9pVzJkRDQrSFNWQk0rcFhFUzYxL0l6ZFZYS1lnVHh0eGc5QTQ3eTVB?=
- =?utf-8?B?OWpmSlpOY1RVb3Ava2U0cGZJRlhOWk5iODArbVAxa1BxTDlGUFN2cWhSUVRS?=
- =?utf-8?B?b1ZwRm9oR2RoZURpajNWUXk5TXBGQ0dXdDBPMUJ6K0pyb1VNR0VvTDJlVGo1?=
- =?utf-8?B?OWkwRDI2OXlEbXdoeDNBRlhvMGh2azhBVE04SVNBVnVCcXpFZW52Q1AxZ0pB?=
- =?utf-8?B?RmZoRVp0MGZieW1NeENMb3BkSE5EQlFKdzRad1ZoN0F1M0JaTUZ1QlBFb2JV?=
- =?utf-8?B?UUNIRFRndTNlWWJReE1hTlhNd3hiQ2JDY05iSGpGYVpwOXFpNzFESXVGVEJK?=
- =?utf-8?B?UVNqV3VrdGJ5WmlXNXNRdVNBc080aXBsSVBERWlVNXZ3WXlMNHdkVDVYQ2hw?=
- =?utf-8?B?ZWhqVGZhTEpBZGEraFRXeTcraXNUY3B2aUJWdmk5cnZrQUkrK3Q0U0xCT2Jh?=
- =?utf-8?B?VFViMkpxMS9aM0ZieTJUckN4UVBiNnY5RThzSGtSeVA1VGJjeC9Ma2ZwN3lp?=
- =?utf-8?B?cFBjekpkdkg0Rk5Vcm9IdFRwM2FGMDlreXMrWlBYdWJucm95ZDhGNHJ6N0ZN?=
- =?utf-8?B?cnZJdGtPYXJZTGFhNVRZc3FhK0lqdGYzMzMrS2QzcHgzQTBFN1VHSGxkR0FF?=
- =?utf-8?B?UmxzZDJ6N0dwcmRuRDdhUW1rcHFyeUt5SXg4WEZJY01IbTByOGV0eVJmZW1U?=
- =?utf-8?B?dDVXZ1o1Y1pHYWhhY0YwUnNZb2U4cGNjaklHMGtvUndJeHM2R1cxU2ZzMHZI?=
- =?utf-8?Q?IxUPeAuKRcxA6Dm3OQ8EYwAovoDiSNz56D7l+?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bc2ca12d-74f2-471d-e344-08df3a683c06
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 11:39:06.9570
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iiIIKhEn2rIVfFMhGV71hz4Ahcx6T2ssYiY5B4TdRazP4lsmdnhI962fcNxbXcJLuV9+LYwbYVaPxH1gdf4zf/LM9cLojRDyMQFomJGT5Kl2luQ+294tudWBCJ+fbUi0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7804
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261104-apple-pcie-pwren-v2-1-216a4066965f@cyberchaos.dev>
+References: <20261104-apple-pcie-pwren-v2-0-216a4066965f@cyberchaos.dev>
+In-Reply-To: <20261104-apple-pcie-pwren-v2-0-216a4066965f@cyberchaos.dev>
+To: Bartosz Golaszewski <brgl@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+ Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_033914_247872_61397EAD 
-X-CRM114-Status: GOOD (  13.78  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20261104_034044_561890_3BED5D91 
+X-CRM114-Status: GOOD (  13.11  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,54 +74,155 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The SIUL2 pin controller provides the pin muxing used by peripherals on
-the supported S32G boards: the S32G2-based S32G274A-EVB and
-S32G274A-RDB2, and the S32G3-based S32G399A-RDB3. Without the driver
-some peripherals never finish probing and a defconfig kernel cannot
-boot to rootfs on these boards.
+Export the `pci_pwrctrl_power_on_device()` and
+`pci_pwrctrl_power_off_device()` functions to allow PCIe host drivers
+to call manage power control on a per-port basis.
 
-As the driver is required by every supported S32G board rather than
-being optional, make PINCTRL_S32G2 default to ARCH_S32 and keep the
-user prompt only under COMPILE_TEST.
+Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+---
+ drivers/pci/pwrctrl/core.c  | 51 ++++++++++++++++++++++++++++++++++++++++-----
+ include/linux/pci-pwrctrl.h |  4 ++++
+ 2 files changed, 50 insertions(+), 5 deletions(-)
 
-v2 -> v1:
-- list the S32G boards that need the pinctrl driver
-in the commit message
-- drop the v1 arm64 defconfig change
-- default to ARCH_S32 in Kconfig instead
-
- drivers/pinctrl/nxp/Kconfig | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/pinctrl/nxp/Kconfig b/drivers/pinctrl/nxp/Kconfig
-index abca7ef97003..d6d97c944b94 100644
---- a/drivers/pinctrl/nxp/Kconfig
-+++ b/drivers/pinctrl/nxp/Kconfig
-@@ -8,8 +8,14 @@ config PINCTRL_S32CC
- 	select REGMAP_MMIO
+diff --git a/drivers/pci/pwrctrl/core.c b/drivers/pci/pwrctrl/core.c
+index 0e2387cf4657..b59dbedf251b 100644
+--- a/drivers/pci/pwrctrl/core.c
++++ b/drivers/pci/pwrctrl/core.c
+@@ -191,7 +191,16 @@ static int __pci_pwrctrl_power_off_device(struct device *dev)
+ 	return pwrctrl->power_off(pwrctrl);
+ }
  
- config PINCTRL_S32G2
-+	bool "NXP S32G2 pinctrl driver" if COMPILE_TEST
- 	depends on ARCH_S32 && OF
--	bool "NXP S32G2 pinctrl driver"
-+	default ARCH_S32
- 	select PINCTRL_S32CC
- 	help
--	  Say Y here to enable the pinctrl driver for NXP S32G2 family SoCs
-+	  Enable the SIUL2 pin controller driver for NXP S32G2 family SoCs.
-+
-+	  This controller provides the pin muxing and configuration needed by
-+	  peripherals on the S32G274A-EVB, S32G274A-RDB2 and S32G399A-RDB3
-+	  boards, so every S32G defconfig build requires it to reach rootfs.
-+	  It is therefore enabled by default on ARCH_S32.
+-static void pci_pwrctrl_power_off_device(struct device_node *np)
++/**
++ * pci_pwrctrl_power_off_device - Power off pwrctrl devices
++ *
++ * @device_node: PCI port or device to operate on
++ *
++ * Recursively traverse all pwrctrl devices for the devicetree hierarchy
++ * below the specified PCI port or device and power them off in a depth
++ * first manner.
++ */
++void pci_pwrctrl_power_off_device(struct device_node *np)
+ {
+ 	struct platform_device *pdev;
+ 	int ret;
+@@ -216,6 +225,7 @@ static void pci_pwrctrl_power_off_device(struct device_node *np)
+ 
+ 	platform_device_put(pdev);
+ }
++EXPORT_SYMBOL_GPL(pci_pwrctrl_power_off_device);
+ 
+ /**
+  * pci_pwrctrl_power_off_devices - Power off pwrctrl devices
+@@ -245,11 +255,21 @@ static int __pci_pwrctrl_power_on_device(struct device *dev)
+ 	return pwrctrl->power_on(pwrctrl);
+ }
+ 
+-/*
++/**
++ * pci_pwrctrl_power_on_device - Power on pwrctrl devices
++ *
++ * @device_node: PCI port or device to operate on
++ *
+  * Power on the devices in a depth first manner. Before powering on the device,
+  * make sure its driver is bound.
++ * Recursively traverse all pwrctrl devices for the devicetree hierarchy
++ * below the specified PCI port or device and power them on in a depth
++ * first manner.  Before powering on the device, make sure its driver is bound.
++ *
++ * Return: 0 on success, -EPROBE_DEFER if any pwrctrl driver is not bound, an
++ * appropriate error code otherwise.
+  */
+-static int pci_pwrctrl_power_on_device(struct device_node *np)
++int pci_pwrctrl_power_on_device(struct device_node *np)
+ {
+ 	struct platform_device *pdev;
+ 	struct device_node *child;
+@@ -296,6 +316,7 @@ static int pci_pwrctrl_power_on_device(struct device_node *np)
+ 
+ 	return ret;
+ }
++EXPORT_SYMBOL_GPL(pci_pwrctrl_power_on_device);
+ 
+ /**
+  * pci_pwrctrl_power_on_devices - Power on pwrctrl devices
+@@ -335,7 +356,17 @@ int pci_pwrctrl_power_on_devices(struct device *parent)
+ }
+ EXPORT_SYMBOL_GPL(pci_pwrctrl_power_on_devices);
+ 
+-static int pci_pwrctrl_create_device(struct device_node *np,
++/**
++ * pci_pwrctrl_create_device - Create pwrctrl devices
++ *
++ * @device_node: PCI port or device to operate on
++ *
++ * Recursively create pwrctrl devices for the devicetree hierarchy below
++ * the specified PCI port or device in a depth first manner.
++ *
++ * Return: 0 on success, negative error number on error.
++ */
++int pci_pwrctrl_create_device(struct device_node *np,
+ 				     struct device *parent)
+ {
+ 	struct platform_device *pdev;
+@@ -368,6 +399,7 @@ static int pci_pwrctrl_create_device(struct device_node *np,
+ 
+ 	return 0;
+ }
++EXPORT_SYMBOL_GPL(pci_pwrctrl_create_device);
+ 
+ /**
+  * pci_pwrctrl_create_devices - Create pwrctrl devices
+@@ -396,7 +428,15 @@ int pci_pwrctrl_create_devices(struct device *parent)
+ }
+ EXPORT_SYMBOL_GPL(pci_pwrctrl_create_devices);
+ 
+-static void pci_pwrctrl_destroy_device(struct device_node *np)
++/**
++ * pci_pwrctrl_destroy_device - Destroy pwrctrl devices
++ *
++ * @device_node: PCI port or device to operate on
++ *
++ * Recursively destroy pwrctrl devices for the devicetree hierarchy below
++ * the specified PCI port or device in a depth first manner.
++ */
++void pci_pwrctrl_destroy_device(struct device_node *np)
+ {
+ 	struct platform_device *pdev;
+ 
+@@ -415,6 +455,7 @@ static void pci_pwrctrl_destroy_device(struct device_node *np)
+ 
+ 	of_node_clear_flag(np, OF_POPULATED);
+ }
++EXPORT_SYMBOL_GPL(pci_pwrctrl_destroy_device);
+ 
+ /**
+  * pci_pwrctrl_destroy_devices - Destroy pwrctrl devices
+diff --git a/include/linux/pci-pwrctrl.h b/include/linux/pci-pwrctrl.h
+index 1192a2527521..f27be6489b50 100644
+--- a/include/linux/pci-pwrctrl.h
++++ b/include/linux/pci-pwrctrl.h
+@@ -59,6 +59,10 @@ int pci_pwrctrl_create_devices(struct device *parent);
+ void pci_pwrctrl_destroy_devices(struct device *parent);
+ int pci_pwrctrl_power_on_devices(struct device *parent);
+ void pci_pwrctrl_power_off_devices(struct device *parent);
++int pci_pwrctrl_create_device(struct device_node *np, struct device *parent);
++void pci_pwrctrl_destroy_device(struct device_node *np);
++int pci_pwrctrl_power_on_device(struct device_node *np);
++void pci_pwrctrl_power_off_device(struct device_node *np);
+ #else
+ static inline int pci_pwrctrl_create_devices(struct device *parent) { return 0; }
+ static void pci_pwrctrl_destroy_devices(struct device *parent) { }
+
 -- 
-2.34.1
+2.56.0
 
 
