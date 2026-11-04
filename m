@@ -2,68 +2,136 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EA58606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 14:41:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84B84606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 14:41:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vWAmS0qp;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PGa51tuI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=isyc75Je;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=wFKHE6FG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=CyvjTTUdEpdGCSMavau95YAskLlm8/fyjgWRzSYqkgY=; b=vWAmS0qp4/GOe+rBHYN8ZERRNK
-	KQdIZduEUnBWEQ8/4ojzxUOsdtFLrZSoU+eU/VVWqgebEUgHz3jwxfWMVc3oBC54WQcqW2ZpcwuEr
-	aOuDXtV0nSCdYkmgxmpdewWIAkGhtSrS0zSTaLLp36M3xRG+vkP6XE4JILLBYmOqhjmcgsIj7m/bD
-	dqVK6Ap8LQgtLJet/FoknjzkgLu4oYj2IQmFIfI4q4URRsyTYC7GqVUno09rBSsFEFeVOUWgHlg8+
-	fhZDL5nlU+RRqGQKEnSzAs/o6znn2MZ8nR1y1HyrQT2Z8LtkDO0xi9x4WEN6fyUDPGaO7FiqsAGPc
-	iDYqBZAw==;
+	bh=GVH5FsNcdOC718CDmUelDBpyYnRMeEOSc+uEv8J+lJo=; b=isyc75JepEelQItW0zT3m91tDU
+	+VdH27c5cjMEEoM76Bbyi/bNKU/Z9QqPJN7Dr6PzzSw+8hgrxRVXkqRp11F29hSwX5FpXPFoUHALA
+	IEh+C7ssAE3WXv10CAocK3QnUdHfCNEUdO3fcM08lsQIdsSG+lMPtzMSOMih0JnFGYsVXDHpuJ53J
+	10FPhq7Fbksqa/GU4+k12bDdpWT1pz6mq3p3a7hZhU9tR8Rg8Nr430f0V7CCp57OpYQjiL+koPJIi
+	7gheYTUeqTswpUL5Ulx0gCJ4ynnArtQq+2aM7dmkeZe0FepTkXIfpxjBAn+tEcuYzU3vnrGnsFpEz
+	NJQlvMgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOcAe-00000005fMq-1ky8;
-	Wed, 04 Nov 2026 14:41:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOcB9-00000005fVd-2pIN;
+	Wed, 04 Nov 2026 14:41:31 +0000
+Received: from mail-northeuropeazon11010014.outbound.protection.outlook.com ([52.101.84.14] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOcAd-00000005fMD-1Y84
+	id 1xOcB7-00000005fUn-1V1W
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 14:40:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9EA7D4172C;
-	Wed,  4 Nov 2026 14:40:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F267A1F000C1;
-	Wed,  4 Nov 2026 14:40:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793803258;
-	bh=CyvjTTUdEpdGCSMavau95YAskLlm8/fyjgWRzSYqkgY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PGa51tuIaKq1GcyLufKRg/mLTl/jrwLHi8XH6sN3WnWvDEPCHKXU8odd0K4/BsRzc
-	 kP664CmQnDy5qMekxIjXzdHp/4aFio2MqM3Z0qo1cgxE1UU5EvcQ/8W/G/sLUT8t1q
-	 +tEz4biO53s/bcHAcufkfGVRX3ml1F7R5gWKjRfNeYWpO+x9aK7tPLofllcMD+ocN7
-	 Zt3AGvT6NeLVchSAZvQYrDNseW/UphlmdckBh+CkVYh0wBB8hr3HFyW1i/UMFZS6Ki
-	 M72fqefvdG9KcXnV5WS2ZQlGgV6cUUoBxZP4dmXJA4heJysb1/XXn9HhYVvuDKWDtp
-	 1BwxehhoqlKWw==
-Date: Wed, 4 Nov 2026 15:40:56 +0100
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: arm <arm@kernel.org>, soc@kernel.org, 
-	Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, "Rafael J . Wysocki" <rafael@kernel.org>, 
-	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org
-Subject: Re: [GIT PULL 4/7] firmware/tegra: Changes for v7.4-rc1
-Message-ID: <autADOKsSVVMn6r9@orome>
-References: <20261003095924.1370238-1-thierry.reding@kernel.org>
- <20261003095924.1370238-4-thierry.reding@kernel.org>
- <928b3eaf-32da-43a9-9ca5-d59ef8a3b330@app.fastmail.com>
- <auslF5pwDHtcNoCy@orome>
- <bcad1d7e-387d-4251-8974-7f0dcd2f9734@app.fastmail.com>
+	Wed, 04 Nov 2026 14:41:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OOJc6XL57zEPYKQqPX8Eg4puJc5cYxLnyAUULk6qQJ+JFpmGKqQtVwX2J3bygHYcXGURO5JgNsS0zclWr+EWFmWsdPd+DUhRoSit7AF0N/ujtBPelv/bPLcCCoAgWscyWGRKEKxfbexU/J3rnYFWRG8sQHR4k8Un6H9qn+rz6nGhrhu8wvjPEjOhNGwt+Ud/4J9lxFg/TfS74fyUOO0HqMXBOoKplmm83TvWQeAZgd60TB8AKVFYfNoROLR2uWeirOzRkHWvy3uCObsRjgOVA6gyDnckDnUUI+Gf0dfx5jeEKIgSpgm4VwEzVlNknLamWUE940wecPGpcDUmgxvhkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GVH5FsNcdOC718CDmUelDBpyYnRMeEOSc+uEv8J+lJo=;
+ b=C+EPo1b7kZ4n7efdE9IPwv1aXLRR19a0TDw1c5n9w8DwAwyhIxFQHL91WeC167USTAOEV3CokJnk28oO5B46NZ36cL11tDS2yNHLwL+yQ0pCyV8UktvSmA3i4T7e+S8h9HSwK5bIRg3A4MoOXFMHcwACg1KusksXWJaSzjNNzKPY8UQCXBoej+F1JGBPGEvNKKQcgLgkBm9Gx2vHaM/R2W1dAvA7CLpqmfhGuFgSze+C9ZYNq6EsQ3CZf2E5SVQeRrOUoaNuA0YQA/zs+4AimLHcAr2yoNoodmKj+TxAIWoXOprlqpMIF6aXii/rKhZg48U8m+xWvbCpghhWhY1y3g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GVH5FsNcdOC718CDmUelDBpyYnRMeEOSc+uEv8J+lJo=;
+ b=wFKHE6FGBMRz66j457YLcE9l40R5XA6nu8h27m8CvwvSV13W9tKNKHNkBtmKFMCknR5/hIdJYRYcrQ9sJodBmzji6zlTN7JcVeCTQiTSDsfo4Pic6WR3u0kJ+Icg8/F1nh7T7fCA7/3+dXVZn4uYIY6Rk5mIx4P9iBjE7hV8M9d2KvWkbwVU0qO+v6+G6921fKo0/EkfOrnHmmVf5nsC0sO0/yvkkK2D9Kqllc6ewXX6vKQwpNTobtbnLTSkSiGyiV4j3sf6MG0i9hFJLEPKaB3ZG33tp3DwUgKB8q8fBnjhwlu+0DJjA12vzvoZiEa+/ZMmU4x9UwydMH65snNAUw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by AS1PR04MB9430.eurprd04.prod.outlook.com (2603:10a6:20b:4da::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Wed, 4 Nov 2026
+ 14:41:24 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0592.007; Wed, 4 Nov 2026
+ 14:41:22 +0000
+Date: Wed, 4 Nov 2026 08:41:14 -0600
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Mark Brown <broonie@kernel.org>, Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	"open list:SPI SUBSYSTEM" <linux-spi@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"moderated list:PXA2xx/PXA3xx SUPPORT" <linux-arm-kernel@lists.infradead.org>,
+	imx@lists.linux.dev, vkoul@kernel.org, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 1/1] spi: replace chan->device->dev with
+ dmaengine_get_provider_device()
+Message-ID: <autEColBK8NUhTTy@SMW015318>
+References: <20261103215824.1823272-1-Frank.Li@oss.nxp.com>
+ <aurwylnNpkKi_Bx-@ashevche-desk.local>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aurwylnNpkKi_Bx-@ashevche-desk.local>
+X-ClientProxiedBy: DS7PR03CA0100.namprd03.prod.outlook.com
+ (2603:10b6:5:3b7::15) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="oq4coqgkbfbzxn3z"
-Content-Disposition: inline
-In-Reply-To: <bcad1d7e-387d-4251-8974-7f0dcd2f9734@app.fastmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AS1PR04MB9430:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4528c53e-c2f9-4aff-304e-08df3a81b1ea
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|1800799024|366016|19092799006|4143699003|11063799006|56012099006|261009223027099003|261026121527099003|261022105027099003|261028144727099003|261102130727099003|261026140227099003|10067099003|22082099003|18002099003|41080700001;
+X-Microsoft-Antispam-Message-Info: JD9psevqPnIrvjwpaNTrH0DhLHxC+JbOEndclq1qSD1QpyDXE8Il3CnSfyjEwg05SqzjxTA1SUtEwkCXFI38ZwCU/d4q/elihk7aZ+QG3m9VOSuHYXfAiGoXUPenWUHzc3ktpbH0xulSmncFwSUBD528dS5h8dy3VhCc/ijpCPQyddbO8Y4oKfEZqXkEgQIeHPYaLHy42D8OwV50TqQlICuXlYg1ZAxnC1S0SWUrw78KHQEGP1awR8AeSw14bdW2+oIwfrQ7t35QipogkL+ItvQHkNljfLiMoixlMa1YDQPGfUuNHBLDGOoL/0v/fDXgzB8g1pvW6ba6+yvw7SDaQtS1Q7D8bBYNhBfwtkQrvD2S61Y9UWtsWGYlZxE9+TrwlTx5YSn/w5VmaapqtOlGZQQquEM+BUETCJtdX/3ZrwTYjr8Q6h6Jp6mABAxyUxwjvZMeP+aPJGEO0X7zxRcGmIck0P8fV3ibkGwDHPbyxGCdlrTHpApHiXEYG9jKcn0vWRTeSsVpCXuGr2XWZ30d6q6U+G3r+QdEGNotN16ztLDfajkgTEGBiIPlnFdk3L8UkZd6SxN74DCWt1GupdB/HjjmXocBhvf2W2gSmtHJq9V5VcJtzFUsc5zyHOLuVCAb/RMRi1PEZqSn1k+l6GkmVtD8ut/5/Q1/PyFDlPB3N1UDznoOAEAbBdF4RYpuqa/6tei0bhQtVV71deRf/oFUIicQUyuAtFijeI4OOWtHs/k=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(1800799024)(366016)(19092799006)(4143699003)(11063799006)(56012099006)(261009223027099003)(261026121527099003)(261022105027099003)(261028144727099003)(261102130727099003)(261026140227099003)(10067099003)(22082099003)(18002099003)(41080700001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sj8J93U6Q7qhxhVojOrxV2madeOPwqp8OgBDicW+dlx2t73dXzx2Tw0a0VXC?=
+ =?us-ascii?Q?lde/1obby0g5rYH8iNQA8q+I7NhNuNuKStTIocgUn8VS7dAmdjkPWg0HThS8?=
+ =?us-ascii?Q?iMZGledDYlWqMy7BUVhntVAtHrfG+zQBmH5+LsWxeLnKPhnWEDC42jhVKRLr?=
+ =?us-ascii?Q?IgRFkYxh3AzZuml4gpnscocBTkug/B/T/sVWJRvJ9V19wsVYrkodU7OueLIG?=
+ =?us-ascii?Q?X5zxPB7VLj1ARFNYOg97ngvmtmfQqtY8+JFY5/9PrsY2PvuF/esms28ba5Yd?=
+ =?us-ascii?Q?NbUlHujsKF81TyV01+/CUf3P5+YqcHpAPhV+EiT5mkUQl18CH6JY2OYiFuwY?=
+ =?us-ascii?Q?KgkXGHJbxIy/xxauMsaPH50I4EBB9oJs3fqH0oIg/KNE/9GFsj6TtF4wJyfg?=
+ =?us-ascii?Q?rbybf25NXNU8BCvEcIxwvK1NzxE9WZHJt2aPAOe9NBB03yBRLQE3ZU11Q9rF?=
+ =?us-ascii?Q?2WJcVfeW9/DTUGltVwpm7JUgSxm/2dnHkDGs/H3FnFp6iuZdqN+NNeShZ5Oe?=
+ =?us-ascii?Q?qb1IdG0N3f6Om+MN2mJnQMk0zlH6CPm+5LQTycdwwWN7p2PuWC0gszNHCAjK?=
+ =?us-ascii?Q?Z/JV9N12Q7Wtjt4f5fX0+Yf2+H1w6LQclpAmYsSdAEWYKeO1mBbL+rClZXzm?=
+ =?us-ascii?Q?VgACfdMojkNGh6T+FvKUjzSIWodN7JKhLoTN5MiPPagS5NoPK9337X/w5EZI?=
+ =?us-ascii?Q?pRSp/nwTF3iGTFVVuRdKp8+oPpnIShXifS5ucQvg48GFgXWg5d8d4JX+0vBu?=
+ =?us-ascii?Q?oFwo6oSXEwtucEnOwGzqMgnPe7y2Hxd/fMTpnAW/ki0Bjp8ds8irHXpqADoW?=
+ =?us-ascii?Q?94sy5TAyQxwTPwCTlftVnEnn7wzuBuDt3FaTyNyZz2rQpnGPMrb+wGQ1NvOG?=
+ =?us-ascii?Q?a3CigN+hna4Q8ChVuQYc+ycDIb00AJCEIJvYMvQ8nfBPTBVawMcFWzYGjBPd?=
+ =?us-ascii?Q?URTTaAr0gUjscYkCWMK4OAVxGf92B+wXUm6UgM97PEcC+920BhINpuqIzT5U?=
+ =?us-ascii?Q?i0Y10EHuPhr1nN5/QXwFeGk381X54nOXQcEQmmgpFj2LJqUuC+gI1HIXsbwM?=
+ =?us-ascii?Q?YaR5rEttTlR9PdDoBj52bGCB2hmqITOCWFPmjaBKLsRQlE95h4rhqGfG/z9N?=
+ =?us-ascii?Q?j32Zzw4ysrxCV5Rv76sMwwGblffz3hHbiMNZVCAdoNBO3LWiiuCfdx+hCKIA?=
+ =?us-ascii?Q?zmybb3ztCCDdYwJdnaFcRxxxwYevjKCfukyCAPKlUvLfbE1extj2iIPw3V5P?=
+ =?us-ascii?Q?8HDPZ4QkLvh4CqNU5hRIwYsX/pJvjavY3rYekA4a0M+Z8yqL/bGyf4dv1PsL?=
+ =?us-ascii?Q?OKsQSkf6HZl3sOybLG8yEQ++jumA5I5fRtP8bPbh2njvg8/OySVgNwLvnkM6?=
+ =?us-ascii?Q?vIE2nW0QUixvq++oC3yUrYPCLqg+JyCrM8Fe85xArEK53sna7K6GjBASNlTS?=
+ =?us-ascii?Q?V4ZgBUxg+ji3rEMkQDisH4Uw9dHHPe5uXZGFXOBidPEMDAXGH+ITo8Y+Piz1?=
+ =?us-ascii?Q?CgjenSlibVzJkv/Aws+NoVzawryJj4mgsnAqUtJ939wJOPpIxuK15/1v9XtZ?=
+ =?us-ascii?Q?aE3QbCmQjK9GaHJMokyNzrKf3g2rLLjQn+dWXAIb+s/bs+9iNou7qRKtZi9N?=
+ =?us-ascii?Q?UrTk+D5I0aSyBXcE45C0U72n/9dj0ul5aqVLyHIa/FUHndBmnhygV6FDsHP5?=
+ =?us-ascii?Q?gfBDgLJmLnjZPyaGlBOYFyVJWDBRBWN+McGIRDToEZPrkWARcTNCEA4FjScZ?=
+ =?us-ascii?Q?c92ekl44hpwR3uyICyx9mgEE/+Q53AmYAr1PhUC+61GGA3adbty6?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4528c53e-c2f9-4aff-304e-08df3a81b1ea
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 14:41:22.2176
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: INnWKj6xLbMffsETikVfuQnBsKrzXPAjKkgvzbXL632toFd5ptk7GeSFklgklqyvCJjfiu2tVZUMTwvkz15O1OJKWx7eNm/IhFqnH15A0UdKeJQlUsYOPh0nQuzSQk1Z
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9430
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261104_064129_397615_EC58E334 
+X-CRM114-Status: GOOD (  19.98  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,133 +142,60 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
---oq4coqgkbfbzxn3z
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [GIT PULL 4/7] firmware/tegra: Changes for v7.4-rc1
-MIME-Version: 1.0
-
-On Wed, Nov 04, 2026 at 03:11:09PM +0100, Arnd Bergmann wrote:
-> On Wed, Nov 4, 2026, at 13:42, Thierry Reding wrote:
-> > On Tue, Oct 13, 2026 at 07:22:23PM +0200, Arnd Bergmann wrote:
-> >> On Sat, Oct 3, 2026, at 11:59, Thierry Reding wrote:
-> >>=20
-> >> Where is the ACPI binding documentation for this driver, and who is
-> >> responsible for reviewing it?
+On Wed, Nov 04, 2026 at 10:46:02AM +0200, Andy Shevchenko wrote:
+> On Tue, Nov 03, 2026 at 04:58:23PM -0500, Frank.Li@oss.nxp.com wrote:
+>
+> > Use the dmaengine_get_provider_device() API instead of directly
+> > accessing chan->device->dev to get the DMA provider device.
 > >
-> > Hi Arnd, Rafael, Len,
+> > No functional change. Prepare make to struct dma_device private to the DMA
+> > engine.
+>
+> ...
+>
+> >  	struct dw_dma_slave *s = param;
 > >
-> > Sorry for the late reply, this fell through the cracks.
-> >
-> > Admittedly there's not much of a formal process here at all. Anything
-> > I've received up to now seemed to be fairly straightforward support
-> > extensions like this where the ACPI tables basically provide the same
-> > information as the DT via standard resources like register ranges.
-> >
-> > I suppose for anything beyond this, we'll want better documentation and
-> > broader review.
-> >
-> > Is there anything in particular that you're looking for? Should I guide
-> > people internally to always Cc linux-acpi for anything that concerns
-> > ACPI?
->=20
-> I don't know, I'm also still learning about how this is done, I
-> was hoping that there was already an established way.
+> > -	if (s->dma_dev != chan->device->dev)
+> > +	if (s->dma_dev != dmaengine_get_provider_device(chan))
+> >  		return false;
+>
+> It's obvious that we need another helper to match.
+>
+> // void * and EXPORT to be able to use as filter function
+> bool dmaengine_match_provider_device(struct dma_chan *chan, void *dma_dev)
+> {
+> 	return dmaengine_get_provider_device(chan) == dma_dev;
+> }
+> EXPORT_SYMBOL_GPL(dmaengine_match_provider_device);
+>
 
-Yeah, me too. Maybe Rafael and Len can provide some guidance here. I
-don't know how ACPI on more traditional platforms works, but I imagine
-that it's a lot of the same anyway, except perhaps that people have more
-experience with the spec and today might be doing a good job already.
+Yes, I can submit Add API patch first. It cross multi subsystems, it'd
+better put this optimizate at next version and leave it as it now. Others
+depend on dma engine patch to make merge complex. and there are not much
+files.
 
-> Having a review done by the ACPI maintainers would definitely
-> help from my point of view, but I'm not sure whether they are
-> set up for that, in case there are a lot of new drivers.
+Frank
 
-I think platform maintainers need to be a first line of defense here
-since they sit at the intersection of a lot of this. At least that's the
-case for me. Also, I'm eager to learn how to do this right, but I'm
-often at a loss of where to start. The spec is a bit daunting, and then
-there's various extensions, too. Maybe the AI genies can help me ramp
-up.
-
-> I assume there is a knowledge gap in both subsystem maintainers
-> regarding ACPI (certainly this is the case for me for drivers/bus,
-> drivers/firmware, drivers/soc, etc) and ACPI maintainers regarding
-> many of the subsystems that we support with DT.
-
-Agreed. I've seen some patches where the ACPI support was as simple as
-just adding an ID table entry and the rest was all standard, but I think
-once we move beyond standard resources things might get a bit more
-complicated. I imagine that ACPI may not even have specs for certain
-aspects that we currently handle in DT...
-
-> > I'm not very familiar with ACPI, so I'm probably not the best reviewer,
-> > but I'm sure I'll get the hang of it over time. Generally I think the
-> > same principles that we use elsewhere apply: use ACPI standards where we
-> > can (standard interfaces, resources, etc.) and if device-specific
-> > configuration is needed, use _DSD key-value pairs to mirror what we've
-> > done for DT (and also mirror back any new properties needed by ACPI to
-> > DT schemas). For anything that isn't (and can't be) documented as part
-> > of DT schemas and still custom descriptions are needed, we probably
-> > should have some documentation in Documentation/firmware-guide/acpi.
-> >
-> > One problem that I see with ACPI, and which we successfully side-stepped
-> > with DT, is that we usually get "baked-in" ACPI tables, meaning we don't
-> > have much of a choice but to accept whatever is provided. In a way that
-> > is a step back for Linux, so hopefully we can get better practices in
-> > place and avoid this turning into a big mess down the road.
->=20
-> Hopefully there is a process in place to amend bindings in a backward
-> compatible way. I would always expect issues to come up during driver
-> review that lead to firmware binding changes. Since in this case
-> both the firmware and the driver are provided by NVIDIA, I don't
-> think we should treat the firmware as an opaque blob that can't
-> be changed as we might for other machines.
-
-If we follow best practices that we've learned during the DT transition,
-backwards-compatibility shouldn't be all that much of an issue, I think.
-But maybe I'm a bit optimistic...
-
-=46rom my perspective, these kinds of processes need to be injected as
-early into the chip development cycle as possible, which comes with its
-own set of challenges (secrecy, timelines, ...). Even if you submit
-patches for upstream relatively quickly, which we often do these days,
-it's usually at a point where hardware is relatively fix already and it
-becomes increasingly harder to update ACPI tables after that point.
-
-I'll see if we can adjust some of our internal processes to get this
-sort of feedback into the loop earlier on.
-
-Thierry
-
---oq4coqgkbfbzxn3z
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmrrQ/MACgkQ3SOs138+
-s6GmYxAAqm8oI57PJDACg+xpKzJC801NDGREvpjHqUE6y4QEGHBWNPx3FFjURmwt
-yFBc/WTPLH373hjaBo+gUUsZRukXEzoPdHq2k2UFWtWPTJ28kiPdM1NN4WImOK0b
-h3uHd9At17ThB866U9l/hM7Mbkmh6X6wOz6fDePReSrbzuzIQBD3bRGRad0Sb5xq
-5AhbqWQfXxQwldi26oI38mHu+qRMVmQR2hzF62eGXrD466Q1xpjM/v6XUV0BFLjD
-4ksbs96Cq5amGlMHlAScQOaWFkt7bO/RKnjYWgLOLmWrnVQNJQYN6EnEJhwbfS/C
-xJx/s+WMDDbWqO5v32Il80i6e5jI2y55reqTCKEaR0cwM3wRsGWuhBygYwFVWCMj
-enQJ49OdShNlfBj2pTTOVdMJE57I2PTfvJNZVuuqkU0A69YVNftpPLDLGn8iexEp
-5rVjfpRRu8RZs4wlVhnCoieaMfxjaErfv0vsvkOgyufn6lBDNSDHFNl/0rJxp8qV
-+YvFWxX+A5bpi5GchNLZyrTDJwUT5DXqraZMpEokwDWxcD4TnxuvADlVAg9TyFaT
-j68p5nuZqFn62QpV6JUAkU5L1QSMkKJ3h9Ms8mHwyd8FQp1Zr+86hGAjJEQ1vg+L
-sc0a36xXAojiLp9fFLlFVuEiB9VLCYSm1KT+ppDVjUD2RkCPeGo=
-=fUR7
------END PGP SIGNATURE-----
-
---oq4coqgkbfbzxn3z--
+> ...
+>
+> >  static bool pxa2xx_spi_idma_filter(struct dma_chan *chan, void *param)
+> >  {
+> > -	return param == chan->device->dev;
+> > +	return param == dmaengine_get_provider_device(chan);
+> >  }
+>
+> With that being done this function is gone.
+>
+> --
+> With Best Regards,
+> Andy Shevchenko
+>
+>
 
