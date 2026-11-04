@@ -2,136 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84B84606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 14:41:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC622606A333
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 14:42:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=isyc75Je;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=wFKHE6FG
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=i+gEc/vh;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=luId+KEo
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=GVH5FsNcdOC718CDmUelDBpyYnRMeEOSc+uEv8J+lJo=; b=isyc75JepEelQItW0zT3m91tDU
-	+VdH27c5cjMEEoM76Bbyi/bNKU/Z9QqPJN7Dr6PzzSw+8hgrxRVXkqRp11F29hSwX5FpXPFoUHALA
-	IEh+C7ssAE3WXv10CAocK3QnUdHfCNEUdO3fcM08lsQIdsSG+lMPtzMSOMih0JnFGYsVXDHpuJ53J
-	10FPhq7Fbksqa/GU4+k12bDdpWT1pz6mq3p3a7hZhU9tR8Rg8Nr430f0V7CCp57OpYQjiL+koPJIi
-	7gheYTUeqTswpUL5Ulx0gCJ4ynnArtQq+2aM7dmkeZe0FepTkXIfpxjBAn+tEcuYzU3vnrGnsFpEz
-	NJQlvMgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=yEXOiGhgbR5kbYCDmjXy0GbChNz5nYoCzDv/8cG/g+Y=; b=i+gEc/vhVOantN
+	84p/2sjmDy0x5Z8wTkJEHYBgowZiTefnX4w0XIjLFlZCA811QMI9UNEyBe9P7rMlBInBnw6SfSTsH
+	rEPq0D32iwzLMFLnTuezgIjQWAbm3sHaZinPEUt8ZEkyktaWy7m3/otyBkXsfSewNBm5PGUDeGGVb
+	26gFWad27nJ8hfaeXuWHcCdsRWxuLBPR04TaFcFfx1ow4E8uStZgcFJaUeQnckRHx5WADna7LTIh/
+	8wpfIDVFaauodr2mvvOc7OeMWZusHk0lGnUA6vB8IzlydH+ga+Dhtms40vKuMGxiXWY3WP7M0iZSG
+	nppjzBkqskpMOY+Yo+cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOcB9-00000005fVd-2pIN;
-	Wed, 04 Nov 2026 14:41:31 +0000
-Received: from mail-northeuropeazon11010014.outbound.protection.outlook.com ([52.101.84.14] helo=DB3PR0202CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOcB7-00000005fUn-1V1W
+	id 1xOcBl-00000005fdJ-3fuj;
+	Wed, 04 Nov 2026 14:42:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOcBi-00000005fck-3g69
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 14:41:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OOJc6XL57zEPYKQqPX8Eg4puJc5cYxLnyAUULk6qQJ+JFpmGKqQtVwX2J3bygHYcXGURO5JgNsS0zclWr+EWFmWsdPd+DUhRoSit7AF0N/ujtBPelv/bPLcCCoAgWscyWGRKEKxfbexU/J3rnYFWRG8sQHR4k8Un6H9qn+rz6nGhrhu8wvjPEjOhNGwt+Ud/4J9lxFg/TfS74fyUOO0HqMXBOoKplmm83TvWQeAZgd60TB8AKVFYfNoROLR2uWeirOzRkHWvy3uCObsRjgOVA6gyDnckDnUUI+Gf0dfx5jeEKIgSpgm4VwEzVlNknLamWUE940wecPGpcDUmgxvhkQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GVH5FsNcdOC718CDmUelDBpyYnRMeEOSc+uEv8J+lJo=;
- b=C+EPo1b7kZ4n7efdE9IPwv1aXLRR19a0TDw1c5n9w8DwAwyhIxFQHL91WeC167USTAOEV3CokJnk28oO5B46NZ36cL11tDS2yNHLwL+yQ0pCyV8UktvSmA3i4T7e+S8h9HSwK5bIRg3A4MoOXFMHcwACg1KusksXWJaSzjNNzKPY8UQCXBoej+F1JGBPGEvNKKQcgLgkBm9Gx2vHaM/R2W1dAvA7CLpqmfhGuFgSze+C9ZYNq6EsQ3CZf2E5SVQeRrOUoaNuA0YQA/zs+4AimLHcAr2yoNoodmKj+TxAIWoXOprlqpMIF6aXii/rKhZg48U8m+xWvbCpghhWhY1y3g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GVH5FsNcdOC718CDmUelDBpyYnRMeEOSc+uEv8J+lJo=;
- b=wFKHE6FGBMRz66j457YLcE9l40R5XA6nu8h27m8CvwvSV13W9tKNKHNkBtmKFMCknR5/hIdJYRYcrQ9sJodBmzji6zlTN7JcVeCTQiTSDsfo4Pic6WR3u0kJ+Icg8/F1nh7T7fCA7/3+dXVZn4uYIY6Rk5mIx4P9iBjE7hV8M9d2KvWkbwVU0qO+v6+G6921fKo0/EkfOrnHmmVf5nsC0sO0/yvkkK2D9Kqllc6ewXX6vKQwpNTobtbnLTSkSiGyiV4j3sf6MG0i9hFJLEPKaB3ZG33tp3DwUgKB8q8fBnjhwlu+0DJjA12vzvoZiEa+/ZMmU4x9UwydMH65snNAUw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by AS1PR04MB9430.eurprd04.prod.outlook.com (2603:10a6:20b:4da::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Wed, 4 Nov 2026
- 14:41:24 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0592.007; Wed, 4 Nov 2026
- 14:41:22 +0000
-Date: Wed, 4 Nov 2026 08:41:14 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Mark Brown <broonie@kernel.org>, Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	"open list:SPI SUBSYSTEM" <linux-spi@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"moderated list:PXA2xx/PXA3xx SUPPORT" <linux-arm-kernel@lists.infradead.org>,
-	imx@lists.linux.dev, vkoul@kernel.org, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH 1/1] spi: replace chan->device->dev with
- dmaengine_get_provider_device()
-Message-ID: <autEColBK8NUhTTy@SMW015318>
-References: <20261103215824.1823272-1-Frank.Li@oss.nxp.com>
- <aurwylnNpkKi_Bx-@ashevche-desk.local>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aurwylnNpkKi_Bx-@ashevche-desk.local>
-X-ClientProxiedBy: DS7PR03CA0100.namprd03.prod.outlook.com
- (2603:10b6:5:3b7::15) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	Wed, 04 Nov 2026 14:42:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F5F31476;
+	Wed,  4 Nov 2026 06:42:01 -0800 (PST)
+Received: from [10.57.65.23] (unknown [10.57.65.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DF6933F673;
+	Wed,  4 Nov 2026 06:42:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793803324; bh=OQ+6GXsnzNtECacWk2BjiQr1Za6EzTRmQxCpvw/0bo8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=luId+KEomiCYTx0zsDXfLF0NiGSbVJSZAawz5X649BNQCNK5aIrov6r7jQPa5f5G1
+	 /y7/Z1tTcJswVlprth41Zn/4fMIj1S2AkxetBjIo4WJhSSAHooaIdF0oJpfr07XKSr
+	 mYYkWIizutTHBEivTMuSApJZfPh5pMdZsop7CXg0=
+Message-ID: <80b69632-dbe1-405b-910a-c17a943d8fc2@arm.com>
+Date: Wed, 4 Nov 2026 14:41:59 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AS1PR04MB9430:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4528c53e-c2f9-4aff-304e-08df3a81b1ea
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|1800799024|366016|19092799006|4143699003|11063799006|56012099006|261009223027099003|261026121527099003|261022105027099003|261028144727099003|261102130727099003|261026140227099003|10067099003|22082099003|18002099003|41080700001;
-X-Microsoft-Antispam-Message-Info: JD9psevqPnIrvjwpaNTrH0DhLHxC+JbOEndclq1qSD1QpyDXE8Il3CnSfyjEwg05SqzjxTA1SUtEwkCXFI38ZwCU/d4q/elihk7aZ+QG3m9VOSuHYXfAiGoXUPenWUHzc3ktpbH0xulSmncFwSUBD528dS5h8dy3VhCc/ijpCPQyddbO8Y4oKfEZqXkEgQIeHPYaLHy42D8OwV50TqQlICuXlYg1ZAxnC1S0SWUrw78KHQEGP1awR8AeSw14bdW2+oIwfrQ7t35QipogkL+ItvQHkNljfLiMoixlMa1YDQPGfUuNHBLDGOoL/0v/fDXgzB8g1pvW6ba6+yvw7SDaQtS1Q7D8bBYNhBfwtkQrvD2S61Y9UWtsWGYlZxE9+TrwlTx5YSn/w5VmaapqtOlGZQQquEM+BUETCJtdX/3ZrwTYjr8Q6h6Jp6mABAxyUxwjvZMeP+aPJGEO0X7zxRcGmIck0P8fV3ibkGwDHPbyxGCdlrTHpApHiXEYG9jKcn0vWRTeSsVpCXuGr2XWZ30d6q6U+G3r+QdEGNotN16ztLDfajkgTEGBiIPlnFdk3L8UkZd6SxN74DCWt1GupdB/HjjmXocBhvf2W2gSmtHJq9V5VcJtzFUsc5zyHOLuVCAb/RMRi1PEZqSn1k+l6GkmVtD8ut/5/Q1/PyFDlPB3N1UDznoOAEAbBdF4RYpuqa/6tei0bhQtVV71deRf/oFUIicQUyuAtFijeI4OOWtHs/k=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(1800799024)(366016)(19092799006)(4143699003)(11063799006)(56012099006)(261009223027099003)(261026121527099003)(261022105027099003)(261028144727099003)(261102130727099003)(261026140227099003)(10067099003)(22082099003)(18002099003)(41080700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sj8J93U6Q7qhxhVojOrxV2madeOPwqp8OgBDicW+dlx2t73dXzx2Tw0a0VXC?=
- =?us-ascii?Q?lde/1obby0g5rYH8iNQA8q+I7NhNuNuKStTIocgUn8VS7dAmdjkPWg0HThS8?=
- =?us-ascii?Q?iMZGledDYlWqMy7BUVhntVAtHrfG+zQBmH5+LsWxeLnKPhnWEDC42jhVKRLr?=
- =?us-ascii?Q?IgRFkYxh3AzZuml4gpnscocBTkug/B/T/sVWJRvJ9V19wsVYrkodU7OueLIG?=
- =?us-ascii?Q?X5zxPB7VLj1ARFNYOg97ngvmtmfQqtY8+JFY5/9PrsY2PvuF/esms28ba5Yd?=
- =?us-ascii?Q?NbUlHujsKF81TyV01+/CUf3P5+YqcHpAPhV+EiT5mkUQl18CH6JY2OYiFuwY?=
- =?us-ascii?Q?KgkXGHJbxIy/xxauMsaPH50I4EBB9oJs3fqH0oIg/KNE/9GFsj6TtF4wJyfg?=
- =?us-ascii?Q?rbybf25NXNU8BCvEcIxwvK1NzxE9WZHJt2aPAOe9NBB03yBRLQE3ZU11Q9rF?=
- =?us-ascii?Q?2WJcVfeW9/DTUGltVwpm7JUgSxm/2dnHkDGs/H3FnFp6iuZdqN+NNeShZ5Oe?=
- =?us-ascii?Q?qb1IdG0N3f6Om+MN2mJnQMk0zlH6CPm+5LQTycdwwWN7p2PuWC0gszNHCAjK?=
- =?us-ascii?Q?Z/JV9N12Q7Wtjt4f5fX0+Yf2+H1w6LQclpAmYsSdAEWYKeO1mBbL+rClZXzm?=
- =?us-ascii?Q?VgACfdMojkNGh6T+FvKUjzSIWodN7JKhLoTN5MiPPagS5NoPK9337X/w5EZI?=
- =?us-ascii?Q?pRSp/nwTF3iGTFVVuRdKp8+oPpnIShXifS5ucQvg48GFgXWg5d8d4JX+0vBu?=
- =?us-ascii?Q?oFwo6oSXEwtucEnOwGzqMgnPe7y2Hxd/fMTpnAW/ki0Bjp8ds8irHXpqADoW?=
- =?us-ascii?Q?94sy5TAyQxwTPwCTlftVnEnn7wzuBuDt3FaTyNyZz2rQpnGPMrb+wGQ1NvOG?=
- =?us-ascii?Q?a3CigN+hna4Q8ChVuQYc+ycDIb00AJCEIJvYMvQ8nfBPTBVawMcFWzYGjBPd?=
- =?us-ascii?Q?URTTaAr0gUjscYkCWMK4OAVxGf92B+wXUm6UgM97PEcC+920BhINpuqIzT5U?=
- =?us-ascii?Q?i0Y10EHuPhr1nN5/QXwFeGk381X54nOXQcEQmmgpFj2LJqUuC+gI1HIXsbwM?=
- =?us-ascii?Q?YaR5rEttTlR9PdDoBj52bGCB2hmqITOCWFPmjaBKLsRQlE95h4rhqGfG/z9N?=
- =?us-ascii?Q?j32Zzw4ysrxCV5Rv76sMwwGblffz3hHbiMNZVCAdoNBO3LWiiuCfdx+hCKIA?=
- =?us-ascii?Q?zmybb3ztCCDdYwJdnaFcRxxxwYevjKCfukyCAPKlUvLfbE1extj2iIPw3V5P?=
- =?us-ascii?Q?8HDPZ4QkLvh4CqNU5hRIwYsX/pJvjavY3rYekA4a0M+Z8yqL/bGyf4dv1PsL?=
- =?us-ascii?Q?OKsQSkf6HZl3sOybLG8yEQ++jumA5I5fRtP8bPbh2njvg8/OySVgNwLvnkM6?=
- =?us-ascii?Q?vIE2nW0QUixvq++oC3yUrYPCLqg+JyCrM8Fe85xArEK53sna7K6GjBASNlTS?=
- =?us-ascii?Q?V4ZgBUxg+ji3rEMkQDisH4Uw9dHHPe5uXZGFXOBidPEMDAXGH+ITo8Y+Piz1?=
- =?us-ascii?Q?CgjenSlibVzJkv/Aws+NoVzawryJj4mgsnAqUtJ939wJOPpIxuK15/1v9XtZ?=
- =?us-ascii?Q?aE3QbCmQjK9GaHJMokyNzrKf3g2rLLjQn+dWXAIb+s/bs+9iNou7qRKtZi9N?=
- =?us-ascii?Q?UrTk+D5I0aSyBXcE45C0U72n/9dj0ul5aqVLyHIa/FUHndBmnhygV6FDsHP5?=
- =?us-ascii?Q?gfBDgLJmLnjZPyaGlBOYFyVJWDBRBWN+McGIRDToEZPrkWARcTNCEA4FjScZ?=
- =?us-ascii?Q?c92ekl44hpwR3uyICyx9mgEE/+Q53AmYAr1PhUC+61GGA3adbty6?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4528c53e-c2f9-4aff-304e-08df3a81b1ea
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 14:41:22.2176
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: INnWKj6xLbMffsETikVfuQnBsKrzXPAjKkgvzbXL632toFd5ptk7GeSFklgklqyvCJjfiu2tVZUMTwvkz15O1OJKWx7eNm/IhFqnH15A0UdKeJQlUsYOPh0nQuzSQk1Z
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9430
+User-Agent: Mozilla Thunderbird
+Subject: [BUMP] [RFC PATCH v2 00/15] Arm Core Local Accelerator Driver
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+ Alex Williamson <alex@shazbot.org>, Jason Gunthorpe <jgg@nvidia.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jean-Philippe Brucker <jpb@kernel.org>,
+ Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, kvm@vger.kernel.org, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
+References: <20261015142552.4128028-1-ryan.roberts@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20261015142552.4128028-1-ryan.roberts@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_064129_397615_EC58E334 
-X-CRM114-Status: GOOD (  19.98  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261104_064207_021244_7E3B8B8D 
+X-CRM114-Status: GOOD (  37.39  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,60 +77,172 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 04, 2026 at 10:46:02AM +0200, Andy Shevchenko wrote:
-> On Tue, Nov 03, 2026 at 04:58:23PM -0500, Frank.Li@oss.nxp.com wrote:
->
-> > Use the dmaengine_get_provider_device() API instead of directly
-> > accessing chan->device->dev to get the DMA provider device.
-> >
-> > No functional change. Prepare make to struct dma_device private to the DMA
-> > engine.
->
-> ...
->
-> >  	struct dw_dma_slave *s = param;
-> >
-> > -	if (s->dma_dev != chan->device->dev)
-> > +	if (s->dma_dev != dmaengine_get_provider_device(chan))
-> >  		return false;
->
-> It's obvious that we need another helper to match.
->
-> // void * and EXPORT to be able to use as filter function
-> bool dmaengine_match_provider_device(struct dma_chan *chan, void *dma_dev)
-> {
-> 	return dmaengine_get_provider_device(chan) == dma_dev;
-> }
-> EXPORT_SYMBOL_GPL(dmaengine_match_provider_device);
->
+Hi All,
 
-Yes, I can submit Add API patch first. It cross multi subsystems, it'd
-better put this optimizate at next version and leave it as it now. Others
-depend on dma engine patch to make merge complex. and there are not much
-files.
+Just a polite bump; now that -rc1 is out, if anyone can spare any time to cast
+an eye and offer opinions, I'd be grateful. At this point, I'm most interested
+in feedback on the arm64 integration aspect; If you see blockers I'd like to
+discuss early.
 
-Frank
+Thanks,
+Ryan
 
-> ...
->
-> >  static bool pxa2xx_spi_idma_filter(struct dma_chan *chan, void *param)
-> >  {
-> > -	return param == chan->device->dev;
-> > +	return param == dmaengine_get_provider_device(chan);
-> >  }
->
-> With that being done this function is gone.
->
+
+On 15/10/2026 15:25, Ryan Roberts wrote:
+> Hi All,
+> 
+> This is v2 of an RFC to introduce a driver for the Arm Core Local Accelerator
+> (CLA), a CPU-local interface for programming attached accelerators. While the
+> interface is agnostic to the accelerator type, the initial (and currently only)
+> target is a compute engine.
+> 
+> The RFC aims to engage the community and get feedback on some key aspects. This
+> will help plan our approach for eventual upstreaming. Based on feedback from
+> Will and Marc in RFCv1, the driver now supports both bare metal and virtualized
+> environments. I also have commitments to publish the CLA spec, a supporting FVP
+> and a representaive user space, all to support upstreaming the driver, as per
+> Will's feedback.
+> 
+> For now you can find documentation included with patch 1, which describes the HW
+> and driver design. Note that the CLA is not part of the Arm Architecture.
+> 
+> Patch 1 documents the hardware and driver design, and adds a driver skeleton.
+> Patches 2-5 initialize and probe the device. Patches 6-9 add context management
+> for switching the device between different users. Patches 10-12 add some (small)
+> changes to KVM and VFIO, which then enables patches 13-15 to expose the HW for
+> device assignment into a VM.
+> 
+> Aspects I'm seeking feedback for:
+> 
+> * The general structure of the driver: The current shape addresses the
+>   performance requirements we have for the use cases, and is therefore our
+>   preferred approach. But there are some unusual aspects due to the HW design.
+> 
+> * Driver interaction with architectural support: I've opted to treat the CLA as
+>   a device rather than a CPU extension, so it's implemented as a (mostly)
+>   self-contained driver. It has some unavoidable coupling to the arch code since
+>   it needs to share page tables and ASIDs/VMIDs. All arm64 arch interaction is
+>   contained in cla-mtc.c.
+> 
+> * The location of the driver: although most accelerators will likely be compute
+>   ones, CLA is a generic MMIO interface that could handle any kind of
+>   accelerator. It's currently implemented as a misc driver. accel is another
+>   potential option, but given the current SVA approach, we would not use any of
+>   the services (memory-management or otherwise) that accel provides.
+> 
+> * Virtualization support: since the HW uses the CPU's MMU, we introduced a new
+>   VFIO_CPU_MMU group type, and added the kvm_arch_[get|put]_guest_mmu() API to
+>   KVM/arm64 so that the CLA can share the stage2 pgtables and VMID. The CPU
+>   pinning problem remains unsolved; the vCPU must be pinned to the pCPU that
+>   owns the CLA in order to access it. If the pCPU goes offline or the vCPU is
+>   otherwise unpinned, it would look to the guest like the HW is faulty. This
+>   issue is therefore contained to the guest. I've additionally improved the
+>   robustness of the core driver to deal with this eventuality gracefully.
+> 
+> I consider the core driver to be well tested and robust. The virtualization
+> portion is prototype and has known issues that would be addressed assuming the
+> approach gets positive feedback.
+> 
+> Changes since RFCv1 [1]
+> =======================
+> 
+>  - Added KVM guest support through VFIO mdev, including exclusive domain
+>    assignment, stage-2 memory translation and VMID pinning
+>  - Changed the userspace ABI to expose one `/dev/cla/<class-id>` device per
+>    accelerator class; `ARM_CLA_PARAM_DEV_ACCELS` now reports only accelerators
+>    belonging to the opened class (per Arnd)
+>  - Removed `ARM_CLA_UABI_VERSION` and the `ARM_CLA_PARAM_UABI_VERSION` query
+>    (per Arnd)
+>  - Various driver bug fixes and robustness improvements
+> 
+> 
+> Source, along with some tests, is available at [2]. Patches based on v7.3-rc5.
+> 
+> [1] https://lore.kernel.org/all/20260717104759.123203-1-ryan.roberts@arm.com/
+> [2] https://gitlab.arm.com/linux-arm/linux-rr/-/tree/features/cla-driver-v2-rfc-tests
+> 
+> Thanks,
+> Ryan
+> 
+> 
+> Jean-Philippe Brucker (10):
+>   misc/arm-cla: Add driver skeleton and documentation
+>   misc/arm-cla: Add launch operation helpers
+>   misc/arm-cla: Probe firmware-described devices
+>   misc/arm-cla: Initialize devices on CPU bringup
+>   misc/arm-cla: Accelerator context save and restore
+>   KVM: arm64: Export stage-2 MMU config
+>   vfio: Support VFIO devices that access the CPU MMU
+>   misc/arm-cla: Add stage-2 MTC and VM context switch
+>   misc/arm-cla: Support exclusive context assignment
+>   misc/arm-cla: Add vfio-mdev user interface
+> 
+> Ryan Roberts (4):
+>   dt-bindings: misc: Add Arm Core Local Accelerator
+>   misc/arm-cla: Set up memory translation context
+>   misc/arm-cla: Manage domain contexts
+>   misc/arm-cla: Add userspace interface
+> 
+> Shameer Kolothum (1):
+>   KVM: arm64: Introduce support to pin VMIDs
+> 
+>  .../devicetree/bindings/misc/arm,cla.yaml     |  77 +++
+>  Documentation/misc-devices/arm-cla.rst        | 217 +++++++
+>  Documentation/misc-devices/index.rst          |   1 +
+>  MAINTAINERS                                   |   9 +
+>  arch/arm64/include/asm/kvm_host.h             |  14 +
+>  arch/arm64/include/asm/kvm_mmu.h              |   1 +
+>  arch/arm64/kvm/mmu.c                          | 102 ++++
+>  arch/arm64/kvm/sys_regs.c                     |  14 +-
+>  arch/arm64/kvm/vmid.c                         |  77 ++-
+>  drivers/misc/Kconfig                          |   1 +
+>  drivers/misc/Makefile                         |   1 +
+>  drivers/misc/arm-cla/Kconfig                  |  26 +
+>  drivers/misc/arm-cla/Makefile                 |  15 +
+>  drivers/misc/arm-cla/arm-cla-regs.h           | 192 ++++++
+>  drivers/misc/arm-cla/arm-cla.h                | 393 ++++++++++++
+>  drivers/misc/arm-cla/cla-ctx.c                | 229 +++++++
+>  drivers/misc/arm-cla/cla-init.c               | 562 ++++++++++++++++++
+>  drivers/misc/arm-cla/cla-mdev.c               | 469 +++++++++++++++
+>  drivers/misc/arm-cla/cla-mtc.c                | 335 +++++++++++
+>  drivers/misc/arm-cla/cla-ops.c                | 417 +++++++++++++
+>  drivers/misc/arm-cla/cla-regs.c               | 370 ++++++++++++
+>  drivers/misc/arm-cla/cla-sched.c              | 474 +++++++++++++++
+>  drivers/misc/arm-cla/cla-topology.c           | 202 +++++++
+>  drivers/misc/arm-cla/cla-user.c               | 541 +++++++++++++++++
+>  drivers/vfio/group.c                          |  37 +-
+>  drivers/vfio/vfio.h                           |   5 +
+>  drivers/vfio/vfio_main.c                      |  16 +-
+>  include/linux/vfio.h                          |   1 +
+>  include/uapi/linux/arm-cla.h                  | 198 ++++++
+>  29 files changed, 4969 insertions(+), 27 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/misc/arm,cla.yaml
+>  create mode 100644 Documentation/misc-devices/arm-cla.rst
+>  create mode 100644 drivers/misc/arm-cla/Kconfig
+>  create mode 100644 drivers/misc/arm-cla/Makefile
+>  create mode 100644 drivers/misc/arm-cla/arm-cla-regs.h
+>  create mode 100644 drivers/misc/arm-cla/arm-cla.h
+>  create mode 100644 drivers/misc/arm-cla/cla-ctx.c
+>  create mode 100644 drivers/misc/arm-cla/cla-init.c
+>  create mode 100644 drivers/misc/arm-cla/cla-mdev.c
+>  create mode 100644 drivers/misc/arm-cla/cla-mtc.c
+>  create mode 100644 drivers/misc/arm-cla/cla-ops.c
+>  create mode 100644 drivers/misc/arm-cla/cla-regs.c
+>  create mode 100644 drivers/misc/arm-cla/cla-sched.c
+>  create mode 100644 drivers/misc/arm-cla/cla-topology.c
+>  create mode 100644 drivers/misc/arm-cla/cla-user.c
+>  create mode 100644 include/uapi/linux/arm-cla.h
+> 
 > --
-> With Best Regards,
-> Andy Shevchenko
->
->
+> 2.43.0
+> 
+
 
