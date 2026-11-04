@@ -2,104 +2,98 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4370E606E83B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 22:08:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2770606B2C0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 22:16:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=na8vB1bF;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=SyA6t0X5
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mkUYO4oF
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=uPpZHIHN2f+krnoJTSXhizzaZXUBHGCxVWnErBLk0sw=; b=na8vB1bFvXtrcGcFuKpH+uD+YZ
-	aFtXdcUtQl4MOZAqhmOqeoCeNRATBoAyTV6bYHpdJJXxmfVVVB1kUyMrSlC2MSm6b5tJCBC20M6Us
-	XE6d71lDPlwQOtnZUTKLY64/fcJmDwszah6heYMD+2ySaFAD9bLbFZWFJ2opz78I6w6/Ko2NCA14F
-	i7Uyj0a3TsANi4lB3KEK0wjrBn7bhN1bd9KjlDXRdg4MHt/QWqj85Dw8xbaslRPNGgJkFskS4+gy7
-	AirG/Xh3PzK1hA56/Q57RP01lY5041Er5WR1/I61lkFpxqsJgiqoJsNZ51IewZetGDuohz5+7AGEb
-	2gw2bwpg==;
+	bh=4dUj7qtlv87aoaokSVHZlryaRSMAw8BaqO13OeSv3d8=; b=mkUYO4oFW7cgezJwyOpqGSdBOc
+	dVtwtCgedS2iKIqJb+JXPHTf+pl6cvswOtuxGgg8sW+kejjJCUAVxAjBotd3GvfizdBl+Yn0aYqrs
+	QMEAnrUQRVjQsh0i/MeYtFkEOfyZOT28TB6KpKIFbN/S5Q305ZeipzjplMWQsURhYeQZ0ggHBzSEO
+	bCm7uOnU/L9eMv0DV9djePU5o1JKr+c3YFBeMNb2DtLmv+uSOIdtyBozHzI4hrkGnpM4H6dH4iORI
+	T4L0HzIGPJDiyLrdy7tXec6vRWrblwXXC8wRkW+w502s/1vLAozpoaqvo2vBXRwcS/zdilZBtfvu6
+	OTwzxJCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOj9L-000000077uR-0AYL;
-	Wed, 04 Nov 2026 22:08:07 +0000
-Received: from omta040.useast.a.cloudfilter.net ([44.202.169.39])
+	id 1xOjHS-000000078aV-456J;
+	Wed, 04 Nov 2026 22:16:30 +0000
+Received: from mail-pj1-f43.google.com ([209.85.216.43])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOj9I-000000077sQ-12Kq
+	id 1xOjHQ-000000078Zz-0Owu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 22:08:06 +0000
-Received: from eig-obgw-6004b.ext.cloudfilter.net ([10.0.30.210])
-	by cmsmtp with ESMTPS
-	id OdPjxjp6HOOJnOj9HxUTe9; Wed, 04 Nov 2026 22:08:03 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id Oj9FxhEApKD1BOj9FxgJHn; Wed, 04 Nov 2026 22:08:01 +0000
-X-Authority-Analysis: v=2.4 cv=N6MpF39B c=1 sm=1 tr=0 ts=6aebacc1
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=mpaa-ttXAAAA:8
- a=AhJusznchYkEs9MMiQMA:9 a=CjuIK1q_8ugA:10 a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
-	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
-	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=uPpZHIHN2f+krnoJTSXhizzaZXUBHGCxVWnErBLk0sw=; b=SyA6t0X5HCcBfATZNI8Kbb4ksm
-	hTB7osa3MOtNNirjIdy8uJ8HAWGaphLEybiIZNPeTBj+JeVI80v8EElmkTd4hWBuPa/Z3+pl5092+
-	g1k8ogbs00esl5aa6vfujqZm05BPnNOXAYmYbS6FjwVyliDV9z2cyOaHG4eoufGv3F7acBqjphECZ
-	a83clvz33UqYtmcmVN1kGQ5M1xWyCr2hbVp50kXGgewihE3mWC+1JybQabLER4T44tNtuEGUblraT
-	lHRp8qKk/AeTvLQK/pMznIjGWDG3GjfQaHKI0mbyQQ+eTJPQwxlS6gFmQctKCwhoIFmA/PrMwIFA4
-	RISQ6J5g==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:36806 helo=server.roeck-us.net)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xOj9E-00000000ul0-2R7W;
-	Thu, 05 Nov 2026 03:38:00 +0530
-Date: Wed, 4 Nov 2026 14:07:59 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: Zexin Wang <ot_zexin.wang@mediatek.com>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	light.chen@mediatek.com, Fred-WY.Chen@mediatek.com,
-	Yt.Hsieh@mediatek.com, linux-watchdog@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] watchdog: sbsa_gwdt: Limit the MediaTek WS0 race
- workaround to revision 0
-Message-ID: <055e6366-83db-435d-af3f-4168a822a870@roeck-us.net>
-References: <20261104083714.3026535-1-ot_zexin.wang@mediatek.com>
+	Wed, 04 Nov 2026 22:16:29 +0000
+Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3ae1b34e0d2so24315a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 14:16:27 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793830587; x=1794435387;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=4dUj7qtlv87aoaokSVHZlryaRSMAw8BaqO13OeSv3d8=;
+        b=WbT92BbkswE/5XBkAVyTuJCaaZWrhAUe3Y3rtBDoRPXEVbOZaMRU34QowEzEAd3ISi
+         yO6rQJxWUr7myB3KHU1/pj+MFYb+pOuRxc9BHGICTqgsEdPoUlarlw3RJBkHK4oE5HSj
+         HIurWkbajNGT3TzoVWZehvVp3kkgm1WEnocrZQIQzTbZgvPEN85C2jn2X0bmqpAK1TYu
+         oz4iJblH/SRqARd+v2nRsjW0+z4FsKuAEryDya8nHRKML3OZwXpCYaF1WCWDl6Lyr4oV
+         YTtjRioe7cdYTLAnWo+AoFsGj6mcbJjZ6yEY43p2ZW4BBsuyWjdxSTRTZe0foWXTsot7
+         cVNw==
+X-Forwarded-Encrypted: i=1; AKwUvBwEpyUk9pr5ZHEsMHtYUL8XjXKQN+7+FXfiO5lYe9eb1/qYq8Pm4x5aBv6JSoJEBX7tC1OIpoX8eIfdT0GLySGH@lists.infradead.org
+X-Gm-Message-State: APuU4Z9tqJPaOD2jGWVDrPSJjAsqFCSzA1VhQHy0g9ZDPcZGZdfLfdYQ
+	GT3cnENd8N27TNdvAbkkeNtOqiiPHp5hzk853b7evmiLs9/FArn+Yud/ZZfi/D6b
+X-Gm-Gg: AYBFou2nt0yC1aOcj44otz7oYhSv0EtnhDEYGYag6uNCCappcMyoaU9isR+7ryHN7tH
+	ylLHAftfdKFE35Gb6+5gnYWx8JRKARd78Jehc+OWHRJO+SO1VGfGxNFlHxuJPxxcmL25eKQbMMT
+	QltCqq93eReg7HdtoqncZRijtXP05fiHD8EIFgsBvm3nlwukQkA35EzqUaMmNN6VuTn1aLgnu7F
+	6Z3+7aZ7yP4MATt/PMETi0pdVBygUNN3csNEudvI9X7Fo+Nn7o5i2HqoTgh80uLje90/aHnoBII
+	AiTfEcdU/ygVHARdQbE5pMujKJE8wba+6gxXZV9pXXl9DaEUowYPyogmmCYGt1HiEWzuAS5+rGr
+	S8EmWipsAKkYM6o25fbVbCp9KW2d5uBR39ZOJYMm94+9M7UIu7RpAvTZ4y4i4Edz4X4FgHPk2aE
+	KO7U+OENMROxIdBkhZS6Ta/mHmDd58mEhFUaMCcMzWKLn9TI9s/CTi2976Yw/QGTg0Qm+F/Herm
+	8z4342A7MxoO4M4GRxaQWmhRInkkZGLBULJEXzd/rtrc5JZCc1C4qLiG6k5QH6i/wIrMsOtVlAx
+	1BempA3KSOPfXjElX89vRMM4KuBC5SEL3z4VmWag6yAS5zkXKwOiuM3LIezO5XmxvkLuwCBhN8+
+	fsvdHancomt6HcFT4VqJTFxxImOYoDRNnf20WWj0dg9U=
+X-Received: by 2002:a17:90b:3f48:b0:3ae:3d82:5d88 with SMTP id 98e67ed59e1d1-3b0af950e83mr500920a91.0.1793830587043;
+        Wed, 04 Nov 2026 14:16:27 -0800 (PST)
+Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com. [74.125.82.170])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0b31cd6c0sm662504a91.13.2026.11.04.14.16.26
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Nov 2026 14:16:26 -0800 (PST)
+Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-36c9a93a1abso69408eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 14:16:26 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AKwUvBwbDkaT64MCbgsgwDU2EsST7g4YzUDiYIWIOuIFH8XFsN8uybNW1duNSXPQfj+bDbcVDdwmSeCanepVTBiKxANY@lists.infradead.org
+X-Received: by 2002:a05:693c:80da:b0:368:2c6d:ddfe with SMTP id
+ 5a478bee46e88-36de5f6f030mr1017112eec.9.1793830585474; Wed, 04 Nov 2026
+ 14:16:25 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261104083714.3026535-1-ot_zexin.wang@mediatek.com>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xOj9E-00000000ul0-2R7W
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:36806
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 2
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfO1H7OWjai2k/Af46XHASLPosZ5yWbB4GtNGYUtKEbbzwFutax80auebrwjS8Ymg4lWzVFZT67mzJiPPblTJ4tfboVXf8a6ww4Shl6hpMAmuJu1xxkUL
- vuqheYcB6AxXGjxBRS9P3XNn9Juh2atPMbrDlywpxmVAwBHVWbhj+0hCoMCEAHGJh810W2vya2bGAW4F/clkHtFyXzqJDbmdgtugQTpI18OwDAr0N3vXxG2b
+References: <20261104-sf19a2890-gmac-v1-0-a15965a49574@telaak.dev>
+ <20261104-sf19a2890-gmac-v1-1-a15965a49574@telaak.dev> <e134193f-ba1b-47c1-9a06-419b1b796ea0@lunn.ch>
+In-Reply-To: <e134193f-ba1b-47c1-9a06-419b1b796ea0@lunn.ch>
+From: Joseph Telaak <joseph@telaak.dev>
+Date: Wed, 4 Nov 2026 17:16:14 -0500
+X-Gmail-Original-Message-ID: <CAPY4CJ74O1tFVCpcN9seoeWDF0VR9GNfKuE+rWODQamN2sjL3g@mail.gmail.com>
+X-Gm-Features: AclHuK9-UnITn3qNlxFDVEt7-zpIej_-hzEuMRZnZQ7mZri5SrN5fWqpIt5XJGI
+Message-ID: <CAPY4CJ74O1tFVCpcN9seoeWDF0VR9GNfKuE+rWODQamN2sjL3g@mail.gmail.com>
+Subject: Re: [PATCH net-next 1/2] dt-bindings: net: Add Siflower SF19A2890 GMAC
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Richard Cochran <richardcochran@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Chuanhong Guo <gch981213@gmail.com>, Russell King <linux@armlinux.org.uk>, linux-mips@vger.kernel.org, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_140805_289759_B6C03866 
-X-CRM114-Status: UNSURE (   6.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261104_141628_161739_115FFBB4 
+X-CRM114-Status: GOOD (  14.80  )
 X-Spam-Score: -1.4 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,27 +105,39 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 04, 2026 at 04:37:02PM +0800, Zexin Wang wrote:
-> The WS0 race workaround is currently enabled for all MediaTek SBSA
-> Generic Watchdog revisions in single-stage mode. However, only
-> revision 0 is affected by the race condition.
-> 
-> Read the revision field from W_IIDR and enable the workaround only for
-> MediaTek watchdogs with revision 0 in single-stage mode. This avoids
-> unnecessarily restricting the minimum timeout and adjusting the
-> keepalive interval on unaffected revisions.
-> 
-> Signed-off-by: Zexin Wang <ot_zexin.wang@mediatek.com>
+> Please add minimum, and multipleOf.
+>
+> I've not looked at the code yet, but default: 0 would also be good.
 
-Applied.
+Will do: minimum 0, multipleOf 55 and default 0.
 
-Thanks,
-Guenter
+> These values are odd. The RGMII standard says 2ns is required. Where
+> is the rest coming from.
+
+They are the values the vendor bootloader programs, and I checked them
+against the hardware. Sweeping each delay over its 256 steps at
+1000 Mb/s, TX works from 0 to about 2.8 ns and RX from 0 to about
+1.5 ns; 935 and 550 ps sit inside both windows, and a 2 ns RX delay in
+the MAC fails.
+
+The rest of the skew is not programmed anywhere: the switch's PCDU
+register for this port reads back 0, and with the MAC's delays at 0 as
+well the link still passes traffic. So it comes from the board routing
+or the chips themselves, which I can't separate from software.
+
+If you'd rather see this described another way in the DT, I'm happy to
+change it for v2.
+
+> Does this mean there is a switch on the other end? Maybe look at what
+> the switch is doing for RGMII delays.
+
+Yes, a MaxLinear GSW150 on its CPU port, with phy-mode "rgmii-id" and no
+*-internal-delay-ps. As above, its delays read back as 0.
 
