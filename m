@@ -2,95 +2,190 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 416BC606A333
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 17:08:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FA8D606A33A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 17:15:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lj8c8H/v;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YvTm5R0s
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JhpjunoW;
+	dkim=pass (2048-bit key, unprotected) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=AclDWDAj;
+	dkim=pass (1024-bit key, unprotected) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=JxJU9Ak0
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=HM1X62uqqSW8+dQdfDbaF9vMh4Xi6tzQU0GrJjMKdtg=; b=lj8c8H/v07NxxhvCGO2pDCRzCv
-	DnGiFkWIUSeqaexgf5gYCOo+H6P7Cd7RPtG5gw+DCqOm7hQQ7V4cRdHRmFUkRWKS1N3yG0LtjqemP
-	Qna5q93e96zRAGdmCbbvKgjrxD7uHFxd62EmoDxcwONBmmdb+IXTxTMvB1OxHLgu2Bqjn6NTEPTC+
-	dufWHwo4DGBnqEDQPHLCvrm0dqUR0E+RaAIIKubkjIwfB+hH01NibKxhsDVHnuwJlL+5JITZxifma
-	ILXDG44Wq6GS8zuFO8ZPZ12wDxgCg+SiiRwG9CjVFRW6s+neoAtV51KZFymh/npOnpFBzv5tt2d39
-	ABhVL79g==;
+	bh=xrvM2R1QSdew7Tn21A79IQNDobSAjnjIhdIvhYyir2Q=; b=JhpjunoWK73QLUA20nhPcLkYfZ
+	71T0VVFmz3P+dJbmxbOeAzRpc9OZ2NaWSv0giajlsxM4Bt0TbsKr0KbFHC5lJR4MzoAEemmXDw0oT
+	CHxCtnaiQLZUUIP9iVleUZgBbiagU96juSGdOA07cubCW4/VWmbWowhmc6TVtQneQtpgNeZ0sL5yG
+	UsKRI+QMLVLNJ7+S62Pv+gUVVEUMj1pQdJ3SS6QHlhXrug9NlKZXFVP6m4vXTA9KyyefOlvLEvFCD
+	GRfSjCK8OApsRJ6kVDgsq/7eGqMQSoiAu7I0tLMFFNZFWlrYcxLPtgUBacxN2IfcnhSL3Yn0ESASW
+	tsPeyOjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOeT7-000000069OB-0SP9;
-	Wed, 04 Nov 2026 17:08:13 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1xOea1-00000006AF2-2hG1;
+	Wed, 04 Nov 2026 17:15:21 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOeT1-000000069MY-2NIE
+	id 1xOeZz-00000006AEV-29h4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 17:08:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793812088; x=1825348088;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=ft8VhpNUkwAoJ7C9+JE583msFXwVNKOM2x9mwVzGgq4=;
-  b=YvTm5R0snyRyUa0/zKz4x+hZp2SuKFh8UigZycDNenL1viGBmk7/xcDp
-   1Fy9MqEozFP3l35dAyyEs/b/dM/uRIIqYAxr818fwWqpoiR6wXxvNnYOj
-   Q4abgHHjJ5BfeT7PY3SK7P9CKWrG3/DqB5O1NhqrinUOK/Y2Ro6yTLJLH
-   DQm19zHT03jFc5vVCzKxtgeX/y9m5Oqnz/qVNpy+6AUZO24m8yA/nyM1i
-   bEHJcUL5wZJ4ZRwKcoQ5eSSjSCty99/b7A9pMYH6rbIZE6l9zv46OuECM
-   TYgoKGXhwGsdNUspYq8DbR82bgAIH/EwaahCvpO4O6vxaeLTP4Mi5z/Ek
-   g==;
-X-CSE-ConnectionGUID: m5Y/af1uTCGa1bTp2cdIbA==
-X-CSE-MsgGUID: vU7wv57nRkiPagS0ZeJy7w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11956"; a="2483179"
-X-IronPort-AV: E=Sophos;i="6.27,195,1787036400"; 
-   d="scan'208";a="2483179"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2026 09:08:07 -0800
-X-CSE-ConnectionGUID: hp/hoIyeSCK3mj/fpTGilw==
-X-CSE-MsgGUID: npWrMFopRXuq3g6GQJvZnw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,195,1787036400"; 
-   d="scan'208";a="6781883"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.24])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2026 09:08:03 -0800
-Date: Wed, 4 Nov 2026 19:08:01 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Cc: Thierry Reding <thierry.reding@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, arm <arm@kernel.org>, soc@kernel.org,
-	Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Len Brown <lenb@kernel.org>,
-	linux-acpi@vger.kernel.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Hans de Goede <hansg@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Mika Westerberg <westeri@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Subject: Re: [GIT PULL 4/7] firmware/tegra: Changes for v7.4-rc1
-Message-ID: <autmcaraWcXIoRfZ@ashevche-desk.local>
-References: <20261003095924.1370238-1-thierry.reding@kernel.org>
- <20261003095924.1370238-4-thierry.reding@kernel.org>
- <928b3eaf-32da-43a9-9ca5-d59ef8a3b330@app.fastmail.com>
- <auslF5pwDHtcNoCy@orome>
- <bcad1d7e-387d-4251-8974-7f0dcd2f9734@app.fastmail.com>
- <autADOKsSVVMn6r9@orome>
- <CAJZ5v0iyaHGj2b7H8g0nqrxvz8GpXiE6hkVp9RM7KF+KDckjrA@mail.gmail.com>
+	Wed, 04 Nov 2026 17:15:20 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A4FhKSD2829906;
+	Wed, 4 Nov 2026 11:15:14 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=xrvM2R1QSdew7Tn21A79IQNDobSAjnjIhdIvhYyir
+	2Q=; b=AclDWDAjp1T+R60xFMfY74wQOyJ+C9yF5C+ala1iLhba6X7sZcFwHnzNe
+	hqPDZnB42V0XYAXEUH2dWUs73s+HyY1H5TUh3OU2YGRac10onYHTj82UUY3wM4Sv
+	5fDLwf/OQ6Lo/TsEcVuYP8L1BLhJGfnI+276jBtBk3TMaw0xMvmSLgGFNNix1kqj
+	SuMxwA5T4KV4rcB0xFYH1Vz4SIUd4MNAQuW59g6/+3c8XZJXBbgFI3gKamRPo3X4
+	gbjCcg6dxg9gqmSn0H20mRevmQDljrdyRgxlTJHg9CGOesSoRiPYC/f5NSBgYfGi
+	vc8fZyF7aPvnNqyHT5N/0/H6TIWYg==
+Received: from mw6pr02cu001.outbound.protection.outlook.com (mail-westus2azon11012043.outbound.protection.outlook.com [52.101.48.43])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4hqu7emy1w-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 04 Nov 2026 11:15:13 -0600 (CST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oH8eSpWXQJD8M6UOiqWAKmq4/tMAVkLkZutapXC2sS6LLWB+7J2rzPuxCTm3KKIjf6J8npW9pntojEgmjzkJkN/t14K1BVgnNWQZ0ZsXK4V66OBfMQmUMpIFTIGbiaYLXR9w8qRZaGX1UVDmoEjDVKlrW97EcYexTHPfXEGB/Pa+OjJaGwoM/O48ioQOeYyTT0vxjakShseCWAIxtmlcqmY6mhnzc41o6q/2hFBUXGlQDzeAVef92uqw++YlS3Yhn9g72Z6dH1IZ3dIc5sMgBvKGChxMWaR5YcqQlSKonZQz+MPh7/k14oBiDkfGG3Fk7zZQOQ7X2OzIpcsDhfdOQg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xrvM2R1QSdew7Tn21A79IQNDobSAjnjIhdIvhYyir2Q=;
+ b=Ed3UGBp/Z+DVrAnM3IizTfEKCWeOJWv60JHOqKo7jeKpGo12pBuV5fvhqPybM8UtokJcwsAz9mD/qlphcVBxdB8qtZ8T2HUnCdlvnmfgY+BUUUXq/5RwvxwmVJnK3ROFz+buNklwv3m2x19muo6xZ2TLwk+pkUadJYXxSOoZovYWwMPnPxdB4IFiNEsCxTjAUG+0cMK1Z7Tc6p3FLr+ZEU1wC3rp4qtaI1VcTifBZ2NxX0d4VKNUNWnKcKLDdtCbOwTGmGhEDIIIbmWhvMgKJv4Uq8fCDmHI7uNQr6eM6oWqquqLBhTCkiOyDF4CgK15Sj1DTVxkd+nwNY3KUloyag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=ideasonboard.com smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xrvM2R1QSdew7Tn21A79IQNDobSAjnjIhdIvhYyir2Q=;
+ b=JxJU9Ak0Evv3JedIGWTQEysrTu8hKo3KqHlPgYraA29+DYNd66Jox0QQ5VJQv1L7qcCuKEeVX1RHdVPuR2wPfUw1fM24a1NlPUt6msraP8RONXykRV9KkVDKkX2oq3CP4ioHO6FYfDxfIdud/M7f3mZzotl1zdsB7seMJX561NE=
+Received: from SJ0PR05CA0086.namprd05.prod.outlook.com (2603:10b6:a03:332::31)
+ by BY5PR10MB4131.namprd10.prod.outlook.com (2603:10b6:a03:206::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Wed, 4 Nov
+ 2026 17:15:08 +0000
+Received: from MW1PEPF0001888E.namprd03.prod.outlook.com
+ (2603:10b6:a03:332:cafe::2b) by SJ0PR05CA0086.outlook.office365.com
+ (2603:10b6:a03:332::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.9 via Frontend Transport; Wed, 4
+ Nov 2026 17:15:07 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ MW1PEPF0001888E.mail.protection.outlook.com (10.167.249.165) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.592.5 via Frontend Transport; Wed, 4 Nov 2026 17:15:07 +0000
+Received: from DLEE214.ent.ti.com (157.170.170.117) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 4 Nov
+ 2026 11:14:52 -0600
+Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 4 Nov
+ 2026 11:14:51 -0600
+Received: from DLEE213.ent.ti.com ([fe80::a556:26ae:12b3:7789]) by
+ DLEE213.ent.ti.com ([fe80::a556:26ae:12b3:7789%20]) with mapi id
+ 15.02.2562.045; Wed, 4 Nov 2026 11:14:51 -0600
+From: "Lannynd, Thorsten" <t-lannynd@ti.com>
+To: Kieran Bingham <kieran.bingham@ideasonboard.com>,
+        "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+CC: "Brnich, Brandon" <b-brnich@ti.com>,
+        "Bajjuri, Praneeth"
+	<praneeth@ti.com>,
+        "Donadkar, Rishikesh" <r-donadkar@ti.com>,
+        "Thakkar,
+ Devarsh" <devarsht@ti.com>, "Menon, Nishanth" <nm@ti.com>,
+        "Raghavendra,
+ Vignesh" <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] arm64: dts: ti: k3-am62x-sk: Add orientation to IMX219
+ sensor node
+Thread-Topic: [PATCH] arm64: dts: ti: k3-am62x-sk: Add orientation to IMX219
+ sensor node
+Thread-Index: AQHdaw9V3prNcYZ4ykqsBV2D91Op47ceh5sA//+g+8A=
+Date: Wed, 4 Nov 2026 17:14:51 +0000
+Message-ID: <07628cd90ad84a599a0f8df2b666ea5c@ti.com>
+References: <20261102211549.1011388-1-t-lannynd@ti.com>
+ <179381101896.194410.4650216012053782559@ping.linuxembedded.co.uk>
+In-Reply-To: <179381101896.194410.4650216012053782559@ping.linuxembedded.co.uk>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAJZ5v0iyaHGj2b7H8g0nqrxvz8GpXiE6hkVp9RM7KF+KDckjrA@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW1PEPF0001888E:EE_|BY5PR10MB4131:EE_
+X-MS-Office365-Filtering-Correlation-Id: 16277b99-592b-4e29-0b3a-08df3a972ca8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|42112799006|23010399003|376014|1800799024|36860700016|82310400026|4143699003|56012099006|261009223027099003|261022075727099003|261026121527099003|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 5o/gaX9FjO/fHXBxf7DpKG7kryu9fqO18O/x5KS2X/T8HqgzhXsXGE5dVJkEhybov+Xscp16a2HY6e8xVp63XaDXTeXt58PP4pYPoeBOyl3tht5VeVaDh01nls5mdMDC3i7BVvLTBS+UIWsbYxso4dpMGP4ZVOvraIye8zq3gulPZFWgd/Ki5aCltPn+6xqp+ODexaYFUuHfvd12rVDptAXHD//nLIekCkJk59AC9FicLydRhLYBxXPggsgggC3Q1sSxSbnMevDKfmcExrt9E0YK52NJ/aoMyw4NweuBEDocuxTScuW4KOzWh6JUTAvImm2BU+UdNwk+UNnnEYNTDUWOwigY12NFzQGNwnkz4RpHXTEQTyIsM4t91TyfT+jWfrNLwZlBeCrzGjoJM1jWsh774QZR3IHJn4UnTneOypv+d0fCRaREFer60g9PFZsRR4pE3y4zfIkzhrxSh+cl7wmC+zvSa3mVs2UA4zlDyW0Z6ASPF8Z5+P/fFTMWnILtbFu5tzNHaRgQ3ySbI+FnLqAO1gx2kF8aWe7A+xFmPWk5p5Er8Hl296H6OeaQaFHXs0ljm1kyrNCBuPLZzGqvyuYbAntYfdfVTyEC1+1p0TPxXl9VhWAQCap7RbT7y6QBtC2fbwyM76oMu6P+oar4lyohMuFDjWwve++K3yd3jCoNP4/VVndwiINokNtcEzkANtJJsAzNgfyYbnNeqsMBeA==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(42112799006)(23010399003)(376014)(1800799024)(36860700016)(82310400026)(4143699003)(56012099006)(261009223027099003)(261022075727099003)(261026121527099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: B2kwzFpfq+V9xYcTuWj0Rrf6KPT9/zhuAweI6ewa7AD36PTy8slOY6UQe04GHbi1CWKIiKL9CAxwi8c5Vy+S6t7L1gZZOvzMU3Gva3C2xF2PK5uEenZp7CjEGreOwjGhFqWKa7qD8PNHvGvR9b4HizgjdmdG5eeQujnwMysmfr38iPizNhWkrOpfyYXFM7vGFI6l+lhZJxs26eF6kbXOFYTB6epaO6UvkS7epzqAATuzOb1aESgtowsivmy/asyGyktX7Ty8XIVU8yaRRlufHG9SM12GdaPQmFhEyLEmvydFk2PVUL2+XK5v05nYBjbGRDUAj//JbNF33sVTEMQmZtV+zmx+oqM5twSS0czDaSffMZ3i+kLWdKjNJFD4zZusqyFGWf7OaQaKWZ89qL6oQ1y/uchPrsEFnYA99foYHh81U6k2v6Y+n6g1dS5x6Hz0
+X-Exchange-RoutingPolicyChecked: x6xA+pw+z7iWP4jMuPSOaXLBWXYYCVV22zy7+2N1d4INkRuv0Qt+mB1jhilLPnlTZ+HGTRyXQeEGkczf2XGij3p8ar0u6znEdB9cXewUpRwg6CRFFyDAVuFGv3Y7f2OqOf3e0y5CM4/MMFcAbWaFLY3hR2Qzi+snwkJLjuAAxGeUTYBT896avpKv4xfRvhFqf+tu14OP5ZtobZ5fVNbInmUIe0yjPnuj/9kZZymdzCGW94Hl0s51vbMvFv7XLf3cCUF0c93k8UtYpm32H9ccGUJLwnzvdpd2sh896YN8hI2Gk75MT7cZikdtDHQMRUXKGqqErR2Moe4zUhG0/96l8A==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 17:15:07.2226
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 16277b99-592b-4e29-0b3a-08df3a972ca8
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: MW1PEPF0001888E.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR10MB4131
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTA0MDA2OCBTYWx0ZWRfX+/5Oa8ZfIEfg
+ QFNeBi3f66AcSdHqpwjxtv/Z+rleLHNKOBY8KkwVIpm8lv+T56vD0Xlrxf+AUx9HVt7/xif5zbb
+ ycHPcdHx+rNcNyvOxan6uBHDXt5f11M=
+X-Authority-Analysis: v=2.4 cv=fPusTpae c=1 sm=1 tr=0 ts=6aeb6821 cx=c_pps
+ a=5ROfPwdIRWh2zNeQ7OwrBw==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=xqWC_Br6kY4A:10 a=Plcs4fxahJUA:10
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s63m1ICgrNkA:10 a=AlMIdn_sM9wA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=fPAWb5peG099m5CrUpKH:22
+ a=RLkMY2Tp61soLUrgEnYA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: bt3tv8RVtrsAM0EXwzxfpJjWEWfDOPGT
+X-Proofpoint-ORIG-GUID: bt3tv8RVtrsAM0EXwzxfpJjWEWfDOPGT
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTA0MDA2OCBTYWx0ZWRfXzHJHKzAfdLJc
+ 0PC+sXT1B/EjARIAts6evpbLmXtB2eKQPuzM8/g2gu9fanhbO6Bg2ieKDDWrC5vX95uvsV5EeyN
+ a18IFhJsfo5zgwC87daJ+Rd6MMb8PMS1JpzgBSWR+4tNtS9QCvQ8Bdx8IjHt7Sr0wsoUAHLzUI+
+ cwXJfzKAv5F5T+7JaVNss980w6QdImgyFwBVp690vwbbD/MjsJ3PDOo4orba4hVOfQZ3uB8IZat
+ v86+56s8pEQ+BsGUVd3Fa9QGd2UP+zW6SY1bxYCsDoEKjAyWu0qg++4/tnJVqvDMMP7K+nIA2YG
+ ExO0b91jsegvOqltqdN9Sy2xPLb9ve3AnKG59CwF2xegqHCKVN1xsTft+fZQZW5/0h2HDJFdKfC
+ NNQyp3H0xJvheDyQdTfmHGASaYeip1qz3krtzCAR/iv6plVBB7ZdDQdjtw39bJKpXOLCoUS54k0
+ U1dVvUQ68rNvfS+tAgg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-04_05,2026-11-04_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 suspectscore=0 adultscore=0 malwarescore=0
+ impostorscore=0 lowpriorityscore=0 clxscore=1011 priorityscore=1501
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2610300000
+ definitions=main-2611040068
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_090807_619050_90464763 
-X-CRM114-Status: GOOD (  55.85  )
-X-Spam-Score: -4.2 (----)
+X-CRM114-CacheID: sfid-20261104_091519_670779_BC19DFBA 
+X-CRM114-Status: GOOD (  10.28  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,130 +196,16 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
 	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 04, 2026 at 05:28:18PM +0100, Rafael J. Wysocki (Intel) wrote:
-> On Wed, Nov 4, 2026 at 3:41 PM Thierry Reding <thierry.reding@kernel.org> wrote:
-> > On Wed, Nov 04, 2026 at 03:11:09PM +0100, Arnd Bergmann wrote:
-> > > On Wed, Nov 4, 2026, at 13:42, Thierry Reding wrote:
-> > > > On Tue, Oct 13, 2026 at 07:22:23PM +0200, Arnd Bergmann wrote:
-> > > >> On Sat, Oct 3, 2026, at 11:59, Thierry Reding wrote:
-> > > >>
-> > > >> Where is the ACPI binding documentation for this driver, and who is
-> > > >> responsible for reviewing it?
-> > > >
-> > > > Sorry for the late reply, this fell through the cracks.
-> > > >
-> > > > Admittedly there's not much of a formal process here at all. Anything
-> > > > I've received up to now seemed to be fairly straightforward support
-> > > > extensions like this where the ACPI tables basically provide the same
-> > > > information as the DT via standard resources like register ranges.
-> > > >
-> > > > I suppose for anything beyond this, we'll want better documentation and
-> > > > broader review.
-> > > >
-> > > > Is there anything in particular that you're looking for? Should I guide
-> > > > people internally to always Cc linux-acpi for anything that concerns
-> > > > ACPI?
-> > >
-> > > I don't know, I'm also still learning about how this is done, I
-> > > was hoping that there was already an established way.
-> >
-> > Yeah, me too. Maybe Rafael and Len can provide some guidance here.
-> 
-> I cannot speak for Len, and he has not been actively involved in the
-> maintenance of ACPI support in the kernel for several years.
-> 
-> As far as I'm concerned, the code maintained by me is mostly located
-> in drivers/acpi/ (as per the relevant MAINTAINERS entries) and it is
-> mostly generic code related to ACPI support.  I generally don't
-> maintain device drivers using ACPI support except for the ones under
-> drivers/acpi/ which mostly bind to devices representing interfaces
-> defined in the ACPI specification (which is kind of a special case).
-> 
-> But there is more.  There is ACPI support code in other places (like
-> for instance gpiolib-acpi maintained by Andy and Mika, or platform-x86
-> drivers maintained by Ilpo) and there are experienced kernel
-> developers in the ARM ecosystem with quite a bit of ACPI-related
-> knowledge (Hans, Jonathan, Sudeep, Lorenzo - all CCed) who can be
-> reached out to for guidance (and arguably they have more experience
-> with ARM platforms than I do).
-> 
-> > I don't know how ACPI on more traditional platforms works, but I imagine
-> > that it's a lot of the same anyway, except perhaps that people have more
-> > experience with the spec and today might be doing a good job already.
-> 
-> If you have any specific questions, I think I should be able to answer
-> at least some of them, but I'm afraid I cannot give you general
-> guidance on how to do ACPI support in device drivers that would be
-> universally useful.  Different drivers have different needs.
-> 
-> There are things in ACPI that are not present in DT and vice versa.
-> It also depends on what bus types we're talking about (platform vs PCI
-> vs USB etc).
-
-And don't forget the big player(s) such as Microsoft that from time to time
-creates an "extension" to the ACPI (in means of additional tables or how some
-of the existing data should be interpreted if it's not clear from the ACPI
-specification). For instance, above mentioned USB ACPI support for some cases
-heavily relies on the MS "extensions". Or earlycon support for ACPI is based
-on MS defined SPCR table. And so on...
-
-> > > Having a review done by the ACPI maintainers would definitely
-> 
-> So as per the above, who exactly do you mean by "ACPI maintainers"?
-> If you mean "the people maintaining the code in drivers/acpi/", that's
-> just me and quite frankly, I'm not sure if my review, specifically,
-> would be super-useful for driver development (the fact that my review
-> bandwidth is almost completely saturated nowadays aside).
-> 
-> My recommendation would be to ask other people within the ARM
-> ecosystem who have more experience with ACPI for help.
-> 
-> > > help from my point of view, but I'm not sure whether they are
-> > > set up for that, in case there are a lot of new drivers.
-> 
-> I am not and had I been trying to do it, it wouldn't have scaled anyway.
-> 
-> > I think platform maintainers need to be a first line of defense here
-> > since they sit at the intersection of a lot of this. At least that's the
-> > case for me. Also, I'm eager to learn how to do this right, but I'm
-> > often at a loss of where to start. The spec is a bit daunting, and then
-> > there's various extensions, too. Maybe the AI genies can help me ramp
-> > up.
-> 
-> My advice would be to reach out to people within your ecosystem in the
-> first place.
-> 
-> > > I assume there is a knowledge gap in both subsystem maintainers
-> > > regarding ACPI (certainly this is the case for me for drivers/bus,
-> > > drivers/firmware, drivers/soc, etc) and ACPI maintainers regarding
-> > > many of the subsystems that we support with DT.
-> >
-> > Agreed. I've seen some patches where the ACPI support was as simple as
-> > just adding an ID table entry and the rest was all standard, but I think
-> > once we move beyond standard resources things might get a bit more
-> > complicated. I imagine that ACPI may not even have specs for certain
-> > aspects that we currently handle in DT...
-> 
-> That certainly is true, but the ACPI specification is under active
-> development and pieces that are missing can be added to it.  There is
-> a process for that in place and ARM people take part in it.
-
-
-On top of the above in Linux we also developed some "extensions", for instance
-how I²C muxes are described, or how some multi-functional devices are being
-enumerated. These specifics we usually document under
-Documentation/firmware-guide/acpi/ (see i2c-muxes.rst for the mentioned case).
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+T24gV2VkLCA0IE5vdiAyMDI2LCBLaWVyYW4gQmluZ2hhbSB3cm90ZToNCj4gPiArICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIG9yaWVudGF0aW9uID0gPDI+Ow0KPiANCj4gYW5kIHRoZW4g
+eW91IGNhbiBkbzoNCj4gDQo+IAkJCQlvcmllbnRhdGlvbiA9DQo+IDxNRURJQV9PUklFTlRBVElP
+Tl9FWFRFUk5BTD47DQoNCkdvb2QgY2F0Y2gsIHdpbGwgZml4IGluIHYyDQoNCi0tDQpUaG9yc3Rl
+bg0K
 
