@@ -2,80 +2,100 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 742AD606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 08:37:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7492B606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 08:41:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=u+FxLL/c;
-	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=vFvvQ5wF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0QX/Bqlw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=BQ87gBPtkwxoz8xl4Pe/IUMApvOi36VjXgZ8bl6jw0Y=; b=u+FxLL/crYqIx7GuWkCEhBks0N
-	nguGChnS9ZQdfJa6d9ntlB0h7/1JvfjjViNO50oE+1Awtqn3PQ2swoa4pVR+xTF92Ywd0g7cWKNMW
-	yoAO1OarQvSqcqgNX+Sse7tYzW+UU+bdqHJgCU8YRL6F0x312vcEQses1mk8730kI/p9U4Q5aij7E
-	odHOg29ZZQHWoL0YUVhJpDO5iPzTh8Xj8TrxUSnlv0BSMp8cRaPcQ6/JPzoQ9YGIAW7ImsIEyPbrQ
-	nqrx/2HrK407QfvJxfLh3Z/539wLqeLD54n9SbOdJvBvpBXkGGd6/+Thcf4YgfZICOzO8B+1UDdKU
-	OTFdjzwg==;
+	bh=bKYL0tIwOuQrMDxrCyv61nKmyjjc86ptxINLaNUCb9M=; b=0QX/Bqlwa3eE24SeK5mD0XRtXn
+	CcjyJt28tfSF1lcNZloOEt08a3Y8c4TuDvqt9MCluJogXk7RPjviv/aFOEXx1s7Ajx8p8JbhihSTl
+	sOnndDU8Xyy4T+8ongxk4D1CN5ZvAf0Os1lhRLITCxYxpyRDGG18riP2ludJzjXyA4zHpiKglbWbl
+	cAJ6nSiGZTdyrT36Nd00dGMdIhI7SNBNkNZ3nF9jvvWvFgemsWB51SA06MqfWr9aewuC1zg9df2jf
+	PTHaDX+ZIIHEIg5xmgjZxtqbBuLbZ+DALhh+qCM8WjE/ABXpySqCxdN4d0uBNPl1lK0NfOfBiUdWC
+	VOP5BRtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOWUr-00000004j5U-1Xko;
-	Wed, 04 Nov 2026 08:37:29 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1xOWYF-00000004jSR-3Hbn;
+	Wed, 04 Nov 2026 08:40:59 +0000
+Received: from mail-pj1-f50.google.com ([209.85.216.50])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOWUp-00000004j4R-1xjJ;
-	Wed, 04 Nov 2026 08:37:28 +0000
-X-UUID: f40419b6d82a11f1afed4741b24580c9-20261104
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=BQ87gBPtkwxoz8xl4Pe/IUMApvOi36VjXgZ8bl6jw0Y=;
-	b=vFvvQ5wFm21BJG4i+zgcMs84ELWwisuox3ZO3lFd9uTZDVpRQJHYocGnljAFm5zypOR+8VyKUxX93bFAJ4b95MFMC4/u/gBUDE576jkQDDvNrv1ST+O15jFPVifUv7MiTD+iC/H/iugUwiLoOtHeQHWOnGylsdwi8JwRiGzCLlc=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:88a2e5f4-5a56-4b8d-a0c1-e3a291e4e713,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0318ac,CLOUDID:8093917f-3613-4bd1-a0b7-c3a1d3e04ced,B
-	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
-	DM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
-	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: f40419b6d82a11f1afed4741b24580c9-20261104
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
-	(envelope-from <ot_zexin.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1763910981; Wed, 04 Nov 2026 01:37:21 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Wed, 4 Nov 2026 16:37:19 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Wed, 4 Nov 2026 16:37:18 +0800
-From: Zexin Wang <ot_zexin.wang@mediatek.com>
-To: Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
-	<linux@roeck-us.net>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: <light.chen@mediatek.com>, <Fred-WY.Chen@mediatek.com>,
-	<Yt.Hsieh@mediatek.com>, Zexin Wang <ot_zexin.wang@mediatek.com>,
-	<linux-watchdog@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-Subject: [PATCH] watchdog: sbsa_gwdt: Limit the MediaTek WS0 race workaround to revision 0
-Date: Wed, 4 Nov 2026 16:37:02 +0800
-Message-ID: <20261104083714.3026535-1-ot_zexin.wang@mediatek.com>
-X-Mailer: git-send-email 2.43.0
+	id 1xOWY2-00000004jQg-05nZ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Nov 2026 08:40:58 +0000
+Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3ad2b3b1c02so273986a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 00:40:45 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793781645; x=1794386445;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=bKYL0tIwOuQrMDxrCyv61nKmyjjc86ptxINLaNUCb9M=;
+        b=BSsPZBrltQMPafTJrPdmgzBlzzQ1xMWg/iCthFZU19vccsxz2yTdAMzkBGIs9poVF7
+         ckO8/cUw6ISJyTcqen+7dsuFHJW5rBB5hL6ykiCdvMZemuGi/bshB6RgBHjc6brLYwYO
+         H02reb2B1h/MGmLB1Uo2Y7GPoKlnjVEoDggRqzDmOBZ89QgvHMybigTW7g/Yxmj8T1kD
+         /t1J+h+zQMR513o6ldz/SA6frUn17QaGPgjIFFB6U2SQoopA8y9sZ/GZS0oEqqSBBi9s
+         Ep99FUplJvnRa9oi5+fCu9DtSl1vQ/ehBlCIWqsSGU3KYZ1OkM4A5vgxCrVaLzyglFiQ
+         IZ2Q==
+X-Forwarded-Encrypted: i=1; AKwUvBzr7NZa11RTgGupgefIz3LR/pfMoM4dxc0P18jZAoHfKarJaPpxpgrtF/opUSgv9tDbkz2p9/iaLQfku95biG8S@lists.infradead.org
+X-Gm-Message-State: APuU4Z+DMXgSbPFkeDxxE/DblK0ejDJliMmEB5HFDgCHwuLkfeFeOlhb
+	MmQDQdq+0NvuvUJDQnPchmPcQuXIPhCX3OUKLFamGPQGBkA5bvGsrPa6BE89Sg==
+X-Gm-Gg: AYBFou2WX4F80DqsaNdsqr4abPOHo/chrrY9XrOzxGybahVSQCCA/9mxEnSs9Zdgkj/
+	8qnyhprnG5Eq3YYJAKLpKiPSsllYmjtz8LSN7yAMlJ8CVQnAaIYKYvrPsJcSOGbBFZDeptUU2Ow
+	XZ0nmN1yvU2BQV5JLcljdS5CjcxctbmSJD9a4zjt5Si0FZZDC4Ax3cp31ILE9L9dtjbIar4H+eo
+	WxEdEi4b7kkghDsqycVhFqxZqP7YCxCMuspVhvgmF2CAoRRZ8ZtYcgNgJv79YrccunzLtuSgLpG
+	wkKhsdmiP21kFzCcKaxuSXSOwsEpFiYEZNda1MJbUbp5u/rcPsJmDlsj/sUwx3762AxdiikhnRi
+	RJb8ys24jyJAhWrkcyNPmPAXOPYXFCmeYNHL71TJhpNWMbVKvC3ng2dyOgOSxq09Se+wF/bG+KY
+	og78GgXVJDOFbcMx9VgVPZeCBvcua/4t9rGrPcs3jkdPq3HtIkk+dYGwoe1Lf+HQzxth7O364P0
+	HwtVQBo3OStlAYpgz0Gp0SyWlIhw1sQ9KeTR98nskFqMOKLVfEteTln0ohsYhmHyQd0d5vRiXlV
+	ZJ7Z3UobvPVDvROz8ZfzZZe5/GjwNPWcK3SzXFPoKWcMYlTRLzdegs2LdTs9rPHcrkfLzqLRAYP
+	u57kqk6fCPhs=
+X-Received: by 2002:a17:90b:3d88:b0:3ad:370f:46be with SMTP id 98e67ed59e1d1-3ae8980ee00mr12478630a91.36.1793781645096;
+        Wed, 04 Nov 2026 00:40:45 -0800 (PST)
+Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com. [74.125.82.180])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b07c8b1913sm8429402a91.10.2026.11.04.00.40.44
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Nov 2026 00:40:45 -0800 (PST)
+Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-3514b90bb89so825096eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 00:40:44 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AKwUvBw+XVxZVLpKGtLtuWzY06Q9nATX9LRwGr5u246FtAARmP88X/MxKTKTmBxNQQGdZMRwciGa1QG0/gCo0DtAHKYe@lists.infradead.org
+X-Received: by 2002:a05:693c:6407:b0:36a:7b3c:4e0a with SMTP id
+ 5a478bee46e88-36a7b3c4f8dmr7297124eec.24.1793781644445; Wed, 04 Nov 2026
+ 00:40:44 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+References: <20261104-sf19a2890-gmac-v1-0-a15965a49574@telaak.dev>
+ <20261104-sf19a2890-gmac-v1-2-a15965a49574@telaak.dev> <6e8d69e3-9404-4a80-874e-0133f942229e@bootlin.com>
+In-Reply-To: <6e8d69e3-9404-4a80-874e-0133f942229e@bootlin.com>
+From: Joseph Telaak <joseph@telaak.dev>
+Date: Wed, 4 Nov 2026 03:40:32 -0500
+X-Gmail-Original-Message-ID: <CAPY4CJ5RZFkQh5G0BbgC7FesQQbQ53AJQv6pYoK+YEVo8k62bA@mail.gmail.com>
+X-Gm-Features: AclHuK9Odzf_wS7Gr7Do7DU0hVIY-1521pU5hfzHYwAlyguOls_NqIQeDv60H-0
+Message-ID: <CAPY4CJ5RZFkQh5G0BbgC7FesQQbQ53AJQv6pYoK+YEVo8k62bA@mail.gmail.com>
+Subject: Re: [PATCH net-next 2/2] net: stmmac: Add Siflower SF19A2890 glue
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Richard Cochran <richardcochran@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Chuanhong Guo <gch981213@gmail.com>, 
+	Russell King <linux@armlinux.org.uk>, linux-mips@vger.kernel.org, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_003727_513411_5412E196 
-X-CRM114-Status: GOOD (  11.63  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261104_004046_058931_2EC19D2E 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.4 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,75 +106,16 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The WS0 race workaround is currently enabled for all MediaTek SBSA
-Generic Watchdog revisions in single-stage mode. However, only
-revision 0 is affected by the race condition.
+> This is only used during the probe sequence, you can simply pass it as
+> function parameters, this avoids using up memory to store that :)
 
-Read the revision field from W_IIDR and enable the workaround only for
-MediaTek watchdogs with revision 0 in single-stage mode. This avoids
-unnecessarily restricting the minimum timeout and adjusting the
-keepalive interval on unaffected revisions.
-
-Signed-off-by: Zexin Wang <ot_zexin.wang@mediatek.com>
----
- drivers/watchdog/sbsa_gwdt.c | 20 +++++++++++++-------
- 1 file changed, 13 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/watchdog/sbsa_gwdt.c b/drivers/watchdog/sbsa_gwdt.c
-index 3c5bfd8641c6..eb79c8049f95 100644
---- a/drivers/watchdog/sbsa_gwdt.c
-+++ b/drivers/watchdog/sbsa_gwdt.c
-@@ -71,12 +71,16 @@
- #define SBSA_GWDT_WCS_WS0	BIT(1)
- #define SBSA_GWDT_WCS_WS1	BIT(2)
- 
--#define SBSA_GWDT_VERSION_MASK  GENMASK(3, 0)
--#define SBSA_GWDT_VERSION_SHIFT 16
-+#define SBSA_GWDT_VERSION_MASK		GENMASK(3, 0)
-+#define SBSA_GWDT_VERSION_SHIFT		16
- 
--#define SBSA_GWDT_IMPL_MASK	GENMASK(11, 0)
--#define SBSA_GWDT_IMPL_SHIFT	0
--#define SBSA_GWDT_IMPL_MEDIATEK	0x426
-+#define SBSA_GWDT_REVISION_MASK		GENMASK(3, 0)
-+#define SBSA_GWDT_REVISION_SHIFT	12
-+#define SBSA_GWDT_REV_RACE_WA		0x0
-+
-+#define SBSA_GWDT_IMPL_MASK			GENMASK(11, 0)
-+#define SBSA_GWDT_IMPL_SHIFT		0
-+#define SBSA_GWDT_IMPL_MEDIATEK		0x426
- 
- /**
-  * struct sbsa_gwdt - Internal representation of the SBSA GWDT
-@@ -238,15 +242,17 @@ static int sbsa_gwdt_keepalive(struct watchdog_device *wdd)
- static void sbsa_gwdt_get_version(struct watchdog_device *wdd)
- {
- 	struct sbsa_gwdt *gwdt = watchdog_get_drvdata(wdd);
--	int iidr, ver, impl;
-+	int iidr, ver, rev, impl;
- 
- 	iidr = readl(gwdt->control_base + SBSA_GWDT_W_IIDR);
- 	ver = (iidr >> SBSA_GWDT_VERSION_SHIFT) & SBSA_GWDT_VERSION_MASK;
-+	rev = (iidr >> SBSA_GWDT_REVISION_SHIFT) & SBSA_GWDT_REVISION_MASK;
- 	impl = (iidr >> SBSA_GWDT_IMPL_SHIFT) & SBSA_GWDT_IMPL_MASK;
- 
- 	gwdt->version = ver;
- 	gwdt->need_ws0_race_workaround =
--		!action && (impl == SBSA_GWDT_IMPL_MEDIATEK);
-+		!action && (impl == SBSA_GWDT_IMPL_MEDIATEK) &&
-+		(rev == SBSA_GWDT_REV_RACE_WA);
- }
- 
- static int sbsa_gwdt_start(struct watchdog_device *wdd)
--- 
-2.45.2
-
+Thanks, v2 will pass the device to the delay helpers and drop the
+member.
 
