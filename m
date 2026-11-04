@@ -2,80 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28990606D808
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 16:08:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA80F606A33E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 16:08:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ttgIBfm7;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=qWjx2hVR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3BGmzyse;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ValPuVqO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=s2fEH/wxEuoGYvwcDbZc1Q0HCduy5caX2JlssWH0y1Y=; b=ttgIBfm7/ydsahoPOqaWkAOW2I
-	pmnjzpMrOxFjQPOKvdrf8E7cDAhq5lF9jpkmhhc/oVrk6hE+nBjr+U4OkMkT7osJvAXX7ZsK1vzHW
-	VIEJ2HAHxKY6FFKDucCPysysNAX3Gpwi2QNnBBcxE5fbom+NtUY8B7KFeArxkhvybTtl4JnDtvcCY
-	g/u+TP8DpgxEwK201stKhm2oinY9k/5BKh8Fp+N/BkwqWqI+4ektN2/pSXVJaIt5Wrvsj4mViSryk
-	Uyb4wGh/HsovLJ51rloxnlXOngEWVnqyPEMhkf7jvLHvRYyaGl8zGVt/DYoEq7fW8UC9441+mkbHw
-	sHjUcNqg==;
+	bh=zcZDpjepUQX+LaEyemriJWEf9v0V4tH2ON1ySVGwDQw=; b=3BGmzyse1jlsjldwC06ahARyqP
+	+uDc4GyyuW7lLSYdVJgI6nYFrE6shk5NnLe0zZ6dxodCsXOE02IhtTLavdQXsqbGv5Q69lGwSo+1H
+	UHuBatMVyNIeNSi2JYSwAm4XGtJ0EM+SfRl2r+qVf5e6QzdPz4o6+i3as4r1XJ2mErOkKg20Y9FJJ
+	i1Bh8YiMzql1+NTgqujwHuBEZlDWbpbTXchRxOsZ2T4ZsW/ypF0/+jMX1SifKWZrIITm3BPJKv3Fv
+	YBhDljO/Ja7FJ1TNhwaV243p3BMULJKcQvoQqggGC85QKNCVpZwLqaE+lFnJLGXrfufRga5N2oz2J
+	loHLPUYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOdWx-00000005t30-1dMF;
-	Wed, 04 Nov 2026 16:08:07 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1xOdXI-00000005t7S-2Ohu;
+	Wed, 04 Nov 2026 16:08:28 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOdWu-00000005t1k-0lEv
+	id 1xOdXF-00000005t5w-2Hu5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 16:08:05 +0000
+	Wed, 04 Nov 2026 16:08:27 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UGAubwkwMwSrNgNR6PADkPRbB4IuSH71AFbKKmsQzsOZpiZdbw2dqc26+gJohgC7Tqykh/M7GdVK01ibXHQl9tOL8fiL3apPh7Icn/WAoMjzwKeOg/iMiiKVqUbztkhxuLls+6pg3S2ZUw8YTQ6CutFBmSAmeC6lZ2/fCd3Om+3PRPNZRmbWPusOnHnzI35erSUZI5+TPnPYfPtCqIzjXEWOHpkuzOuEyejYP1GNK//x0t77Q+KzUcCEdvWZb4zjDurAWYZ5hdyxR8VClRo3IN4xOTDdQ+37aF/agucytO9rRMBUqgKqxyEI6hgKkonJ6VcpVWJN2uxgq1sxkOltzQ==
+ b=TD9TSxVphcefiOLefkPIgvrOrH+yYsXFkvU9FDffaqfptuwFRdy0VC3Xm4fWQhuqpjN32xvF0qaR54U40WRfuRJxidLGCsJReZcH6wv1xQSp+bHmRayTTHqCWncaTeKyYVn9y9bOx1F+E8ZANlUCr2kK7mHj6ZuHiwNRJcAFj2AOYNziQ3zcdXLei39ZDlq++LEguDjPAr1rVs785M66+ltVXVscoW3DxCO9QrHu3ZzD6FNrwS5mWngQQ17aOk2h9+40zM3OREtt/60DRGPAmZLhfWTuSMTKMUuho64VNTxXbjVX3Im+Bag0hPSktdc63AjOZVn+pH13Vw6XHW+Y/g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=s2fEH/wxEuoGYvwcDbZc1Q0HCduy5caX2JlssWH0y1Y=;
- b=Za2uqPIamnOtbKM3mF2T++PCvRFrp3Y11K+rMDCbWhma9Nv+7mA/3oxLVjPdzndsS01f3/vbeeVWnP2Y1l8sL7e0+A0edi+wwyPHG76jLE6JTookcnTMmZJZHoLd1cnMle2O5PHjUGltbLJGflaZKX07niemidsJcbwWLyMN947HVgnNnIBB89aImQX0KpM57zUS9kMw+mDZt2FNBSO7Y8AoNlMM0H/XpwpWONZRBbHOJ+pZEEqSFyjV4RVfJl+6QbLsgwQYTJVN9O9gQTfahBCWnEMHvtJVCt8kFAipl+VBy1sW2J1pUKMYgzCmrChZdc39GaS3078tBQ4VmRmRiA==
+ bh=zcZDpjepUQX+LaEyemriJWEf9v0V4tH2ON1ySVGwDQw=;
+ b=flwxLL2PcreL08WMH7BZr5O9tU9RGakdvOUabsasDfqD14EPpEBQ1y35hnI+4vfZmMaiKNdPftTYZivDmCpJIji9uwKUs4nO5RKZWeqcgNQmAgRC7BYCqdomq42tSAyDTXx66g5MwXnN9aEkdxCgA4O+F8kKtl7I628XCI2tCE08aLbqzmNfObcATnCAIeKEvQZTi8NJBd3w0/Pex7MHMVyTe6+EDfKnN1ZNwVjAh+/YyxuW+Tl9nyv4af+wYXQweybX++hoRvj0+c2vgsBUMIo5UO8JK1MNG2wE7PAHQ/ySN2AuYtK+nsIN5Lz0+1gko6nY0j3lgd8sOgmf5lcRrQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=s2fEH/wxEuoGYvwcDbZc1Q0HCduy5caX2JlssWH0y1Y=;
- b=qWjx2hVRgrdF8OuJgzta8gJB0/HDjtLLOeVZJlh6Qi1y/ip1/EvfL1Kf9NpkGq7q2FVHDXt70WO9N7JnzEi2ReTa/5X1bHgeEMgV3YekgexfkmscvBFVTlkSbath4m0e5cXzaVZK4CZ++eBCVn+W6zeMBeA7HIJoWmwr0P6eb6zfm1IUCv3RhcYxD/COLa56iZ3+TmmKBG6yd9TAJlCC7VxFshYH52zwAfI/6u2YUMgLgGroU99/KqWBLyu/ZC4obMgxILOWSz+4aJTUzOBZyS27kjXgkUP9zgqT5FOIY+yXbY8oudKyhnpo+XLV+dbE6zIdLp42NLo9lyUzIMABTA==
-Received: from DS1PR02CA0017.namprd02.prod.outlook.com (2603:10b6:8:44a::12)
- by SN7PR12MB8169.namprd12.prod.outlook.com (2603:10b6:806:32f::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.9; Wed, 4 Nov 2026
- 16:07:57 +0000
-Received: from CY4PEPF000392DC.namprd03.prod.outlook.com
- (2603:10b6:8:44a:cafe::86) by DS1PR02CA0017.outlook.office365.com
- (2603:10b6:8:44a::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.17 via Frontend Transport; Wed, 4
- Nov 2026 16:07:57 +0000
+ bh=zcZDpjepUQX+LaEyemriJWEf9v0V4tH2ON1ySVGwDQw=;
+ b=ValPuVqObnkbq63kVM6TqwsOf/DcNhRR8q+S0oHF9I3sX6HND0IvdV8+HkJA/BzQK5xFYWt014EnG5IvG941GMurvdnZdQR21/CJPs3U3xqxLTEu8LYl72ZnmGkHRSzVHJX2BUtm5udf54btqPOKU1p+3Fn+2Bnd4TWojmoGQu/3am/GCcY8s3+SRg5Zw5kGsruh6P+HD6MDbE1bNYsjWPxDkLJ1NmclEyEqiiLCMRsEow7rsDog0hr8vnD9Gg3TXvpoJ4iex8pR3MRkGdRJ48V/Trs2i0ZAW4MyMSq2S31H/5bxxsJq60iEhQC9RjDcmq57nfZ1BBCqlH9bhU24cw==
+Received: from DS7PR06CA0052.namprd06.prod.outlook.com (2603:10b6:8:54::30) by
+ DM6PR12MB4089.namprd12.prod.outlook.com (2603:10b6:5:213::19) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.569.10; Wed, 4 Nov 2026 16:08:17 +0000
+Received: from CH01EPF000BE94D.namprd02.prod.outlook.com
+ (2603:10b6:8:54:cafe::53) by DS7PR06CA0052.outlook.office365.com
+ (2603:10b6:8:54::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.10 via Frontend Transport; Wed, 4
+ Nov 2026 16:08:17 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
 Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CY4PEPF000392DC.mail.protection.outlook.com (10.167.247.122) with Microsoft
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ CH01EPF000BE94D.mail.protection.outlook.com (10.167.244.202) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.592.5 via Frontend Transport; Wed, 4 Nov 2026 16:07:56 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.592.5 via Frontend Transport; Wed, 4 Nov 2026 16:08:17 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 4 Nov
- 2026 08:07:34 -0800
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 08:07:54 -0800
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 4 Nov
- 2026 08:07:34 -0800
+ 2026 08:07:53 -0800
 Received: from build-bwicaksono-noble-20260804.internal (10.127.8.11) by
  mail.nvidia.com (10.129.68.6) with Microsoft SMTP Server id 15.2.2562.56 via
- Frontend Transport; Wed, 4 Nov 2026 08:07:32 -0800
+ Frontend Transport; Wed, 4 Nov 2026 08:07:52 -0800
 From: Besar Wicaksono <bwicaksono@nvidia.com>
 To: <acme@kernel.org>, <namhyung@kernel.org>, <irogers@google.com>,
 	<ctshao@google.com>
@@ -88,10 +87,12 @@ CC: <linux-tegra@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<mark.rutland@arm.com>, <alexander.shishkin@linux.intel.com>,
 	<jolsa@kernel.org>, <adrian.hunter@intel.com>, Besar Wicaksono
 	<bwicaksono@nvidia.com>
-Subject: [PATCH v3 0/7] perf: Add NVIDIA Tegra410 uncore PMU events and metrics
-Date: Wed, 4 Nov 2026 16:07:09 +0000
-Message-ID: <20261104160716.2910873-1-bwicaksono@nvidia.com>
+Subject: [PATCH v3 2/7] perf jevents: Add support for NVIDIA Tegra410 PCIE PMU aliasing
+Date: Wed, 4 Nov 2026 16:07:11 +0000
+Message-ID: <20261104160716.2910873-3-bwicaksono@nvidia.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261104160716.2910873-1-bwicaksono@nvidia.com>
+References: <20261104160716.2910873-1-bwicaksono@nvidia.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -99,28 +100,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF000392DC:EE_|SN7PR12MB8169:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9d17350c-06ff-49e5-d271-08df3a8dca69
+X-MS-TrafficTypeDiagnostic: CH01EPF000BE94D:EE_|DM6PR12MB4089:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3a0f8b3a-ce52-4f30-a263-08df3a8dd69b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|7416014|1800799024|23010399003|6133799003|10067099003|18002099003|5023799004|11063799006|261022105027099003|261026140227099003|261102123227099003|261028144727099003|261026121527099003|261021121427099003|56012099006|261021123027099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info: cL2rTDcn4HwMu7CFwOlmcYq0/21J1C1SKeYRFnX5hNFM+AZMMAXkQS+VJXiyUAMpG720JpAYLOrqT8Zsk/EZ4WyiLY/b7TnfPoA5c2xE9sS2Oh4WMBPh1KZvyFTMMF9QkSkLoamRsndDRv8YlN3HP8Wz8/eQOSNY9am/NM6TjV5s3weoMeTnnOzRZ4f5ovSuKARlS+3CkJRX/Iah+7fhA17V8LEdQoHy2E/8LEPIxxWzXMjfKCZMZtTrcUwRn2E9PSeT8mOe86rbsSGaXGOFTHbl12thVyAFgxRjpE6qG2pBV5B3sH3Hi4n5Rhb9h9quqOvo/GQIfsSroiaJ3n450fPTNvQhRSASqtDjT6W61fn5Qp0vijwABSWWjI6LCGfENI7nxoZ3NYqTFLE1UBLf8xpy26hGPQ06ByCthatIU7BL5W/4tELR/HfA/J5TB+C83fuittEXY9VTf1kXxlzry8fEZgtzYfQFRNOb9KmKzsBt5TLyKYRQpbWSTDLAlHo+YRW81es3fHU7HtY+EbstuHllYrGsHxROpnkcY77lbmA3IoYFObg3O10zniJFaWSPikWaZbwS3H7PNgyFt6MC65JMDpEfdJ8lFLAZpjp+IGjMYXRiViYGQmkCmqIRUHAgspD0fDpHfgOSjMEurr/WBUvJvU6uC5cV5bmVxJhEMvSSpEMpsabVCvVaiwqhuUv1dY7fBkiuzQ/XDOXM90C1sQ==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(7416014)(1800799024)(23010399003)(6133799003)(10067099003)(18002099003)(5023799004)(11063799006)(261022105027099003)(261026140227099003)(261102123227099003)(261028144727099003)(261026121527099003)(261021121427099003)(56012099006)(261021123027099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|23010399003|7416014|82310400026|36860700016|56012099006|261022105027099003|10067099003|261021121427099003|11063799006|261022075727099003|261009223027099003|261028144727099003|261026140227099003|18002099003|22082099003|261102123227099003|6133799003;
+X-Microsoft-Antispam-Message-Info: yBc4yvcUDQ8Fbgl2YadkHgIJmsOM6iSp7eSNR47siCPotgE3o+0K6aQXYkBg60YE6BUyFpv54Q/Vrz9mnFSzxXrBS4Ase4YRSk1rtQMq1kc/7rv/mitbn8XbUAXhSL3b1yk5Mz7rYnJkhD5P8G7xfcDyWQ76GsLijF/14JUZ6C22higHvagi171FYuPFSy9kozOXfT4yHiN8QQF+5W7YR+CIZWXIf/c6qV0z7MsGVR0nWyIjFLtQ4NzCVfQOxD1oN+wnHwD5d6H242kow7YnTBRkHuIkVAN9CDuh6XyT4oAWEmJAiOCxPj67cY4Zs6RewER+cxKv8qqJtGmsHwhDfYVzENy+EuyLtlvmFdxKhShnTxrthvqw/maty6laI168OOJZpon14uX7AD3lIzHapE+dwy3T5h2b9PZWNbBZ0rgl+o33wr+F51RGFwnNwfa8VprtqmuvcX4KXGVCH+FLg2pEyk3CHrKLjoJy2ifGVyxWVkmE+agAynQ5RAztzexQSO1+dlGKykx2xtIvssB+rdpXEpe+DtVDe4Z+XbWIUQ2XJmYLa/pheKCjBCZz9MWWCy7q0aOh5OROUElse6R5Va7TYs6If6wFO/Ai2TRHSSaO5JSfZI+xPJFOVSFLuQXhFXaaoCavUlR5M1pmcBAyaW75iZDm+moKKrZB/IOy7+MKU2k1QvmaUcQZi4Ff3SEcmB1CjPIzcYfz8bv8HboPWQ==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(7416014)(82310400026)(36860700016)(56012099006)(261022105027099003)(10067099003)(261021121427099003)(11063799006)(261022075727099003)(261009223027099003)(261028144727099003)(261026140227099003)(18002099003)(22082099003)(261102123227099003)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: edh9QUkJ29w/pkFHZux0q4/rvrZhp5oUdhwIJVRt5rKbqdbASauBzQNGgP3RWevd71h9gXc+pKq2oL0peLtkI69QUS9yt43whexbwRN6dPvUD5IOgom08vvGVD4NuG0yOexyn/+LNVBpz/ZPlwiYxHtR78dX6Ukv7n4Er4uSReL2deEyZ1lxg5aofsdKDUNzW3TsJXOLsqEw60xqYryDrdtWyoiMpxlVvwfqaB57y05dTSWqL1YrkH/IPE9CIPUY5mnNhAeh4Edfkm8pqd4s/5Y4LPUfLADij+FqrXCnjuQyTEBXUUuBhE/dnw1Nyv77lje4mXdl9yHsyjC8IpgfC7TMFEoeuQ8udAZdvfd86o+hTVbc4/XYjVSW2JmAip8DBVHSjfMZduDGAxUq0HOBxvzHSfs3qr3TDTUIn7sfJngUW+OfTV5rdiTf9+tMMII1
+X-MS-Exchange-AntiSpam-MessageData-0: LrOgPDPnqmwQv+nFWQh/CYfQ62vD1AWqs0qimiEE4u7SSaZJFta7Sj5TmvQgDtKssNOt856dE1/f2U+n7zVZkKKQJgRSe4VU8bBVEbKMAikH+RrslJaIyWBt6GYnE5X0qyl+tiB6l6JOxmvOxtDO26RrSSC+ndbFash/uPngPDUTb2KKU+bJ1n+M2bY7f+nSuJ370NAUMTcrT7qrioi/oidOzdMr3qQR5cxdIrFnFr8OVviaNoDQEFEH//Z3Rjbb/OWikAXXkE/7UlOQesNj6kqpDPce6fXFYma5b/fg/+LxNdJQ8Km9wKtQY4bBnJjhwdCc+LF+HzNZoXdeWibmB49tNrWHEPPfHE/C+Voh3UDV0p7wcDKrM7kjX67EbKCQy2sL4eKLeCNzQhIaZ6dq2KigtYRXM/hf1wBF8Yr7qzaNcZf7i11ei5I1k3+l3jvr
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 16:07:56.9646
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 16:08:17.3793
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9d17350c-06ff-49e5-d271-08df3a8dca69
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3a0f8b3a-ce52-4f30-a263-08df3a8dd69b
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF000392DC.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH01EPF000BE94D.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB8169
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4089
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_080804_229841_43E07391 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20261104_080825_665917_11BD1698 
+X-CRM114-Status: GOOD (  14.87  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -132,90 +133,277 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add event aliases and derived metrics for the NVIDIA Tegra410 uncore
-PMUs, and fix perf's aggregation of the Tegra410 PCIe PMU instances.
+Add alias support for NVIDIA Tegra410 PCIE PMU events and metrics.
 
-The series covers the UCF, PCIe, PCIe target, CPU memory latency, and
-chip-to-chip interconnect PMUs. It provides symbolic names for the raw
-event encodings and metrics for bandwidth, frequency, and average read
-latency.
-
-The PCIe and PCIe target PMUs are named nvidia_pcie_pmu_<socket>_rc_<rc>
-and nvidia_pcie_tgt_pmu_<socket>_rc_<rc>. perf only strips the number at
-the end of a PMU name, so the instances of each socket were treated as a
-different PMU, and these events and metrics gave one result per socket
-and were reported incorrectly (e.g. with --metric-only), as discussed in
-v1 and v2. Patches 6 and 7 fix this:
-
-- Patch 6 adds a check of the cpumasks of all merged PMU instances to the
-  zero-count skip in perf stat, so a socket that counts nothing shows 0
-  instead of having its row hidden.
-- Patch 7 treats both numbers of the NVIDIA PCIe PMU names as the
-  suffix, so the instances on all sockets are merged as nvidia_pcie_pmu
-  or nvidia_pcie_tgt_pmu. Per-RC results are still available with
-  --no-aggr or -A.
-
-Changes in v3:
-- Replace v2 patches 7-9 (merging PMU instances that match the same
-  comma-separated json Unit, naming a merged counter after all of its
-  PMUs, and the ABI document) with a special case for the NVIDIA PCIe
-  PMU names in pmu_name_len_no_suffix(), perf_pmu__match_wildcard() and
-  pmu_name_cmp(). Thanks to Ian Rogers for the suggestion.
-
-Changes in v2:
-- Move the uncore JSON out of the sys directory and remove the
-  "Compat" fields. Thanks to Ian Rogers for the feedback.
-- Drop "perf jevents: Process model files before sys subdirectories",
-  which this series no longer needs.
-- Add UCF SLC and memory bandwidth metrics from all sources to local
-  CMEM (read, write and read+write) and from local sources to local
-  CMEM and to remote memory, PCIe bandwidth metrics to local
-  destinations, and read+write bandwidth metrics for UCF SLC, UCF
-  memory and PCIe. Thanks to Chun-Tse Shao for the suggestion.
-- Add patches 6-9 to fix the PCIe instance aggregation. Thanks to Ian
-  Rogers and Chun-Tse Shao for the pointers.
-
-v2: https://lore.kernel.org/all/20261030174816.1544471-1-bwicaksono@nvidia.com/
-v1: https://lore.kernel.org/all/20261019164241.403644-1-bwicaksono@nvidia.com/
-
-Besar Wicaksono (7):
-  perf jevents: Add support for NVIDIA Tegra410 UCF PMU aliasing
-  perf jevents: Add support for NVIDIA Tegra410 PCIE PMU aliasing
-  perf jevents: Add support for NVIDIA Tegra410 PCIE-TGT PMU aliasing
-  perf jevents: Add support for NVIDIA Tegra410 CPU Memory Latency PMU
-    aliasing
-  perf jevents: Add support for NVIDIA Tegra410 C2C PMU aliasing
-  perf stat: Check merged PMU instance's cpumasks when skipping zero
-    counts
-  perf pmus: Treat both numbers of NVIDIA PCIe PMU names as suffix
-
- .../arm64/nvidia/t410/uncore-cpu_mem.json     |  43 +
- .../arm64/nvidia/t410/uncore-nvclink.json     |  67 ++
- .../arm64/nvidia/t410/uncore-nvdlink.json     |  43 +
- .../arm64/nvidia/t410/uncore-nvlink_c2c.json  | 115 +++
- .../arch/arm64/nvidia/t410/uncore-pcie.json   | 249 ++++++
- .../arm64/nvidia/t410/uncore-pcie_tgt.json    |  83 ++
- .../arch/arm64/nvidia/t410/uncore-ucf.json    | 764 ++++++++++++++++++
- tools/perf/util/pmu.c                         |   9 +
- tools/perf/util/pmus.c                        |  23 +
- tools/perf/util/stat-display.c                |  20 +
- 10 files changed, 1416 insertions(+)
- create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-cpu_mem.json
- create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-nvclink.json
- create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-nvdlink.json
- create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-nvlink_c2c.json
+Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
+---
+ .../arch/arm64/nvidia/t410/uncore-pcie.json   | 249 ++++++++++++++++++
+ 1 file changed, 249 insertions(+)
  create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-pcie.json
- create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-pcie_tgt.json
- create mode 100644 tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-ucf.json
 
+diff --git a/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-pcie.json b/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-pcie.json
+new file mode 100644
+index 000000000000..3fbf1799a8bb
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/arm64/nvidia/t410/uncore-pcie.json
+@@ -0,0 +1,249 @@
++[
++    {
++        "EventCode": "0x100000000",
++        "EventName": "PCIE_CYCLES",
++        "BriefDescription": "Counts cycles at the PCIe interface to the Tegra SoC data fabric.",
++        "PublicDescription": "Counts cycles at the PCIe interface to the Tegra SoC data fabric.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "EventCode": "0x2",
++        "EventName": "PCIE_RD_REQ",
++        "BriefDescription": "Counts read requests from PCIe devices under this PCIe root complex to memory or another PCIe device.",
++        "PublicDescription": "Counts read requests from PCIe devices under this PCIe root complex to memory or another PCIe device, where the target responds with data. Request size can be from 1 to 256 bytes. Filters: src_rp_mask selects the requesting root ports. Alternatively, src_bdf with src_bdf_en selects one requesting device (BDF); it cannot be combined with src_rp_mask and applies to all counters of this PMU. Destination filters select the memory type of the request address: dst_loc_cmem local CMEM, dst_loc_gmem local GMEM, dst_loc_pcie_p2p local PCIe peer addresses, dst_loc_pcie_cxl local CXL memory, dst_rem remote memory. This is the address's home type, not where the data currently resides; local or remote is determined by the home socket of the address. An unset source filter counts all root ports; an unset destination filter counts all destinations.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "EventCode": "0x3",
++        "EventName": "PCIE_WR_REQ",
++        "BriefDescription": "Counts write requests from PCIe devices under this PCIe root complex to memory or another PCIe device.",
++        "PublicDescription": "Counts write requests from PCIe devices under this PCIe root complex to memory or another PCIe device, where the PCIe device sends data. Request size can be from 1 to 256 bytes. Filters: src_rp_mask selects the requesting root ports. Alternatively, src_bdf with src_bdf_en selects one requesting device (BDF); it cannot be combined with src_rp_mask and applies to all counters of this PMU. Destination filters select the memory type of the request address: dst_loc_cmem local CMEM, dst_loc_gmem local GMEM, dst_loc_pcie_p2p local PCIe peer addresses, dst_loc_pcie_cxl local CXL memory, dst_rem remote memory. This is the address's home type, not where the data currently resides; local or remote is determined by the home socket of the address. An unset source filter counts all root ports; an unset destination filter counts all destinations.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "EventCode": "0x0",
++        "EventName": "PCIE_RD_BYTES",
++        "BriefDescription": "Counts bytes transferred by the read requests counted by PCIE_RD_REQ.",
++        "PublicDescription": "Counts bytes transferred by the read requests counted by PCIE_RD_REQ. Source and destination filters work as described for PCIE_RD_REQ.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "EventCode": "0x1",
++        "EventName": "PCIE_WR_BYTES",
++        "BriefDescription": "Counts bytes transferred by the write requests counted by PCIE_WR_REQ.",
++        "PublicDescription": "Counts bytes transferred by the write requests counted by PCIE_WR_REQ. Source and destination filters work as described for PCIE_WR_REQ.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "EventCode": "0x4",
++        "EventName": "PCIE_RD_CUM_OUTS",
++        "BriefDescription": "Accumulates the outstanding read requests counted by PCIE_RD_REQ each cycle at the PCIe interface.",
++        "PublicDescription": "Accumulates the outstanding read requests counted by PCIE_RD_REQ each cycle at the PCIe interface. Pair the two under the same filters for the average read latency. Source and destination filters work as described for PCIE_RD_REQ.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_freq",
++        "MetricGroup": "PCIE_Frequency;PCIE_Read_Latency",
++        "MetricConstraint": "NO_GROUP_EVENTS",
++        "MetricExpr": "(PCIE_CYCLES / aggr_nr(PCIE_CYCLES)) / 1e9 / duration_time",
++        "ScaleUnit": "1GHz",
++        "BriefDescription": "Frequency of the cycles at the PCIe interface to the Tegra SoC data fabric.",
++        "PublicDescription": "Average frequency of the cycles at the PCIe interface to the Tegra SoC data fabric over the measurement interval.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_rd_bandwidth_to_all_dst",
++        "MetricGroup": "PCIE_Bandwidth;PCIE_To_All_Destinations",
++        "MetricExpr": "PCIE_RD_BYTES@dst_loc_cmem=1,dst_loc_gmem=1,dst_loc_pcie_p2p=1,dst_loc_pcie_cxl=1,dst_rem=1@ / 1e6 / duration_time",
++        "ScaleUnit": "1MB/s",
++        "BriefDescription": "Average read bandwidth from PCIe devices under this PCIe root complex to all destinations.",
++        "PublicDescription": "Average read bandwidth of requests from all PCIe devices under this PCIe root complex to all destinations: local CMEM, local GMEM, local PCIe peer addresses, local CXL memory and remote memory.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_wr_bandwidth_to_all_dst",
++        "MetricGroup": "PCIE_Bandwidth;PCIE_To_All_Destinations",
++        "MetricExpr": "PCIE_WR_BYTES@dst_loc_cmem=1,dst_loc_gmem=1,dst_loc_pcie_p2p=1,dst_loc_pcie_cxl=1,dst_rem=1@ / 1e6 / duration_time",
++        "ScaleUnit": "1MB/s",
++        "BriefDescription": "Average write bandwidth from PCIe devices under this PCIe root complex to all destinations.",
++        "PublicDescription": "Average write bandwidth of requests from all PCIe devices under this PCIe root complex to all destinations: local CMEM, local GMEM, local PCIe peer addresses, local CXL memory and remote memory.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_bandwidth_to_all_dst",
++        "MetricGroup": "PCIE_Bandwidth;PCIE_To_All_Destinations",
++        "MetricExpr": "pcie_avg_rd_bandwidth_to_all_dst + pcie_avg_wr_bandwidth_to_all_dst",
++        "ScaleUnit": "1MB/s",
++        "BriefDescription": "Average read and write bandwidth from PCIe devices under this PCIe root complex to all destinations.",
++        "PublicDescription": "Average read and write bandwidth of requests from all PCIe devices under this PCIe root complex to all destinations: local CMEM, local GMEM, local PCIe peer addresses, local CXL memory and remote memory.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_rd_latency_to_all_dst",
++        "MetricGroup": "PCIE_Read_Latency;PCIE_To_All_Destinations",
++        "MetricConstraint": "NO_GROUP_EVENTS",
++        "MetricExpr": "(PCIE_RD_CUM_OUTS@dst_loc_cmem=1,dst_loc_gmem=1,dst_loc_pcie_p2p=1,dst_loc_pcie_cxl=1,dst_rem=1@ / PCIE_RD_REQ@dst_loc_cmem=1,dst_loc_gmem=1,dst_loc_pcie_p2p=1,dst_loc_pcie_cxl=1,dst_rem=1@) / pcie_freq",
++        "ScaleUnit": "1ns/request",
++        "BriefDescription": "Average read latency from PCIe devices under this PCIe root complex to all destinations.",
++        "PublicDescription": "Average latency of read requests from all PCIe devices under this PCIe root complex to all destinations: local CMEM, local GMEM, local PCIe peer addresses, local CXL memory and remote memory.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_rd_bandwidth_to_local_dst",
++        "MetricGroup": "PCIE_Bandwidth;PCIE_To_Local_Destinations",
++        "MetricExpr": "pcie_avg_rd_bandwidth_to_local_cmem + pcie_avg_rd_bandwidth_to_local_gmem + pcie_avg_rd_bandwidth_to_local_pcie_peer + pcie_avg_rd_bandwidth_to_local_cxlmem",
++        "ScaleUnit": "1MB/s",
++        "BriefDescription": "Average read bandwidth from PCIe devices under this PCIe root complex to local destinations.",
++        "PublicDescription": "Average read bandwidth of requests from all PCIe devices under this PCIe root complex to local destinations: local CMEM, local GMEM, local PCIe peer addresses and local CXL memory.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_wr_bandwidth_to_local_dst",
++        "MetricGroup": "PCIE_Bandwidth;PCIE_To_Local_Destinations",
++        "MetricExpr": "pcie_avg_wr_bandwidth_to_local_cmem + pcie_avg_wr_bandwidth_to_local_gmem + pcie_avg_wr_bandwidth_to_local_pcie_peer + pcie_avg_wr_bandwidth_to_local_cxlmem",
++        "ScaleUnit": "1MB/s",
++        "BriefDescription": "Average write bandwidth from PCIe devices under this PCIe root complex to local destinations.",
++        "PublicDescription": "Average write bandwidth of requests from all PCIe devices under this PCIe root complex to local destinations: local CMEM, local GMEM, local PCIe peer addresses and local CXL memory.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_rd_bandwidth_to_local_cmem",
++        "MetricGroup": "PCIE_Bandwidth;PCIE_Read;PCIE_To_Local_CMEM",
++        "MetricExpr": "PCIE_RD_BYTES@dst_loc_cmem=1@ / 1e6 / duration_time",
++        "ScaleUnit": "1MB/s",
++        "BriefDescription": "Average read bandwidth from PCIe devices under this PCIe root complex to local CMEM.",
++        "PublicDescription": "Average read bandwidth of requests from all PCIe devices under this PCIe root complex to local CMEM.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_wr_bandwidth_to_local_cmem",
++        "MetricGroup": "PCIE_Bandwidth;PCIE_Write;PCIE_To_Local_CMEM",
++        "MetricExpr": "PCIE_WR_BYTES@dst_loc_cmem=1@ / 1e6 / duration_time",
++        "ScaleUnit": "1MB/s",
++        "BriefDescription": "Average write bandwidth from PCIe devices under this PCIe root complex to local CMEM.",
++        "PublicDescription": "Average write bandwidth of requests from all PCIe devices under this PCIe root complex to local CMEM.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_rd_latency_to_local_cmem",
++        "MetricGroup": "PCIE_Read_Latency;PCIE_Read;PCIE_To_Local_CMEM",
++        "MetricConstraint": "NO_GROUP_EVENTS",
++        "MetricExpr": "(PCIE_RD_CUM_OUTS@dst_loc_cmem=1@ / PCIE_RD_REQ@dst_loc_cmem=1@) / pcie_freq",
++        "ScaleUnit": "1ns/request",
++        "BriefDescription": "Average read latency from PCIe devices under this PCIe root complex to local CMEM.",
++        "PublicDescription": "Average latency of read requests from all PCIe devices under this PCIe root complex to local CMEM.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_rd_bandwidth_to_local_gmem",
++        "MetricGroup": "PCIE_Bandwidth;PCIE_Read;PCIE_To_Local_GMEM",
++        "MetricExpr": "PCIE_RD_BYTES@dst_loc_gmem=1@ / 1e6 / duration_time",
++        "ScaleUnit": "1MB/s",
++        "BriefDescription": "Average read bandwidth from PCIe devices under this PCIe root complex to local GMEM.",
++        "PublicDescription": "Average read bandwidth of requests from all PCIe devices under this PCIe root complex to local GMEM.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_wr_bandwidth_to_local_gmem",
++        "MetricGroup": "PCIE_Bandwidth;PCIE_Write;PCIE_To_Local_GMEM",
++        "MetricExpr": "PCIE_WR_BYTES@dst_loc_gmem=1@ / 1e6 / duration_time",
++        "ScaleUnit": "1MB/s",
++        "BriefDescription": "Average write bandwidth from PCIe devices under this PCIe root complex to local GMEM.",
++        "PublicDescription": "Average write bandwidth of requests from all PCIe devices under this PCIe root complex to local GMEM.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_rd_latency_to_local_gmem",
++        "MetricGroup": "PCIE_Read_Latency;PCIE_Read;PCIE_To_Local_GMEM",
++        "MetricConstraint": "NO_GROUP_EVENTS",
++        "MetricExpr": "(PCIE_RD_CUM_OUTS@dst_loc_gmem=1@ / PCIE_RD_REQ@dst_loc_gmem=1@) / pcie_freq",
++        "ScaleUnit": "1ns/request",
++        "BriefDescription": "Average read latency from PCIe devices under this PCIe root complex to local GMEM.",
++        "PublicDescription": "Average latency of read requests from all PCIe devices under this PCIe root complex to local GMEM.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_rd_bandwidth_to_local_cxlmem",
++        "MetricGroup": "PCIE_Bandwidth;PCIE_Read;PCIE_To_Local_CXLMEM",
++        "MetricExpr": "PCIE_RD_BYTES@dst_loc_pcie_cxl=1@ / 1e6 / duration_time",
++        "ScaleUnit": "1MB/s",
++        "BriefDescription": "Average read bandwidth from PCIe devices under this PCIe root complex to local CXL memory.",
++        "PublicDescription": "Average read bandwidth of requests from all PCIe devices under this PCIe root complex to local CXL memory.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_wr_bandwidth_to_local_cxlmem",
++        "MetricGroup": "PCIE_Bandwidth;PCIE_Write;PCIE_To_Local_CXLMEM",
++        "MetricExpr": "PCIE_WR_BYTES@dst_loc_pcie_cxl=1@ / 1e6 / duration_time",
++        "ScaleUnit": "1MB/s",
++        "BriefDescription": "Average write bandwidth from PCIe devices under this PCIe root complex to local CXL memory.",
++        "PublicDescription": "Average write bandwidth of requests from all PCIe devices under this PCIe root complex to local CXL memory.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_rd_latency_to_local_cxlmem",
++        "MetricGroup": "PCIE_Read_Latency;PCIE_Read;PCIE_To_Local_CXLMEM",
++        "MetricConstraint": "NO_GROUP_EVENTS",
++        "MetricExpr": "(PCIE_RD_CUM_OUTS@dst_loc_pcie_cxl=1@ / PCIE_RD_REQ@dst_loc_pcie_cxl=1@) / pcie_freq",
++        "ScaleUnit": "1ns/request",
++        "BriefDescription": "Average read latency from PCIe devices under this PCIe root complex to local CXL memory.",
++        "PublicDescription": "Average latency of read requests from all PCIe devices under this PCIe root complex to local CXL memory.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_rd_bandwidth_to_remote_mem",
++        "MetricGroup": "PCIE_Bandwidth;PCIE_Read;PCIE_To_Remote_Memory",
++        "MetricExpr": "PCIE_RD_BYTES@dst_rem=1@ / 1e6 / duration_time",
++        "ScaleUnit": "1MB/s",
++        "BriefDescription": "Average read bandwidth from PCIe devices under this PCIe root complex to remote memory.",
++        "PublicDescription": "Average read bandwidth of requests from all PCIe devices under this PCIe root complex to remote memory.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_wr_bandwidth_to_remote_mem",
++        "MetricGroup": "PCIE_Bandwidth;PCIE_Write;PCIE_To_Remote_Memory",
++        "MetricExpr": "PCIE_WR_BYTES@dst_rem=1@ / 1e6 / duration_time",
++        "ScaleUnit": "1MB/s",
++        "BriefDescription": "Average write bandwidth from PCIe devices under this PCIe root complex to remote memory.",
++        "PublicDescription": "Average write bandwidth of requests from all PCIe devices under this PCIe root complex to remote memory.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_rd_latency_to_remote_mem",
++        "MetricGroup": "PCIE_Read_Latency;PCIE_Read;PCIE_To_Remote_Memory",
++        "MetricConstraint": "NO_GROUP_EVENTS",
++        "MetricExpr": "(PCIE_RD_CUM_OUTS@dst_rem=1@ / PCIE_RD_REQ@dst_rem=1@) / pcie_freq",
++        "ScaleUnit": "1ns/request",
++        "BriefDescription": "Average read latency from PCIe devices under this PCIe root complex to remote memory.",
++        "PublicDescription": "Average latency of read requests from all PCIe devices under this PCIe root complex to remote memory.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_rd_bandwidth_to_local_pcie_peer",
++        "MetricGroup": "PCIE_Bandwidth;PCIE_Read;PCIE_To_Local_PCIE_Peer",
++        "MetricExpr": "PCIE_RD_BYTES@dst_loc_pcie_p2p=1@ / 1e6 / duration_time",
++        "ScaleUnit": "1MB/s",
++        "BriefDescription": "Average read bandwidth from PCIe devices under this PCIe root complex to local PCIe peer addresses.",
++        "PublicDescription": "Average read bandwidth of requests from all PCIe devices under this PCIe root complex to local PCIe peer addresses.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_wr_bandwidth_to_local_pcie_peer",
++        "MetricGroup": "PCIE_Bandwidth;PCIE_Write;PCIE_To_Local_PCIE_Peer",
++        "MetricExpr": "PCIE_WR_BYTES@dst_loc_pcie_p2p=1@ / 1e6 / duration_time",
++        "ScaleUnit": "1MB/s",
++        "BriefDescription": "Average write bandwidth from PCIe devices under this PCIe root complex to local PCIe peer addresses.",
++        "PublicDescription": "Average write bandwidth of requests from all PCIe devices under this PCIe root complex to local PCIe peer addresses.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    },
++    {
++        "MetricName": "pcie_avg_rd_latency_to_local_pcie_peer",
++        "MetricGroup": "PCIE_Read_Latency;PCIE_Read;PCIE_To_Local_PCIE_Peer",
++        "MetricConstraint": "NO_GROUP_EVENTS",
++        "MetricExpr": "(PCIE_RD_CUM_OUTS@dst_loc_pcie_p2p=1@ / PCIE_RD_REQ@dst_loc_pcie_p2p=1@) / pcie_freq",
++        "ScaleUnit": "1ns/request",
++        "BriefDescription": "Average read latency from PCIe devices under this PCIe root complex to local PCIe peer addresses.",
++        "PublicDescription": "Average latency of read requests from all PCIe devices under this PCIe root complex to local PCIe peer addresses.",
++        "Unit": "nvidia_pcie_pmu_,rc_"
++    }
++]
 -- 
 2.43.0
 
