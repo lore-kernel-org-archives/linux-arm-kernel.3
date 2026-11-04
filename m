@@ -2,77 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2D50606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 22:43:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 211E3606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 22:44:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xuoi45Ot;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JB5gLwpc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GAJ3Wcmw;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=iav.lv header.i=@iav.lv header.a=rsa-sha256 header.s=zoho header.b=BYGnZrOn
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=xfCUcWF5iTPTTtnt+wRlptQerZfB/hTrl+o+h8x0xIw=; b=xuoi45OtAvBapI
-	FRsiL2DUGxZTBUS1Mh1ZO39uV4atvTCLsyF0IYr+t3ffGL7Pd4yofQ5ISUTeWePHocVI2AJG/NHVZ
-	IXdAJtaNUwsYxieRtkKZhyQlbDmSzkUHrL+2Zq3cXqCOfWlMp58+wKAMEAgMgIkpntmOvUdpraIAk
-	Fx0zZisZixe+LItgdg4CUJoEfxTVu3kTTQ26sz3tdc5dDxap3AApzMzI7FrpjRMrf9LNXTu1ZXiiZ
-	2QymV+4ZcDxPCRfLAIVSSt07NrcRblFE+ir1aGm/NsQYk1FnnRd78sRx2g4j6wdAeTY+uT1kSNh7F
-	yWVwmyHuQRx9zfcT2Xow==;
+	List-Owner; bh=hfEBpFMF8c5rPBNt+LYZXTPFb+iq379xlL3xl7YzuZI=; b=GAJ3WcmwD7nAiW
+	31UN7ZufO+kdZTMQrh84WePb5083JiHu6vCcRdjUdhK9iYWTNVk/krrbGDZIBLVVvJzeEOmwxlJjY
+	o+ccIIkGGIvQCNBHLAzsNYyt4XyUS/PAzikCIQ29I8rUzRyaD0WtiaYrYF1zj6bGIUCOyDSTjSzeB
+	mokGHagLviIFEkNPvvDyRq3T8ZSYEZ4igFZKByeyxiEEBDVlw0+5/CQe6G44dDmpEpSSroZUSgO88
+	vIPNRCoZ5URNF8Ps5Su7g5UelLycQhxvdE/AqMKTS2RdzYUPPZm7MNmiKpsVIdbm/yR+MomhjCGsH
+	Uoej9ItQiFebMvrwC1ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOjhA-00000007Alb-2rj1;
-	Wed, 04 Nov 2026 22:43:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOjiM-00000007At5-3wXK;
+	Wed, 04 Nov 2026 22:44:18 +0000
+Received: from sender-op-o17.zoho.eu ([136.143.169.17])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOjh9-00000007AlT-0cVT
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 22:43:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 89F9C4089E;
-	Wed,  4 Nov 2026 22:43:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BABA1F000C1;
-	Wed,  4 Nov 2026 22:43:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793832182;
-	bh=xfCUcWF5iTPTTtnt+wRlptQerZfB/hTrl+o+h8x0xIw=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=JB5gLwpcA3pgkb82ntBESuCnMulwhHa3nhr+vKR8DTw65EDkCuATnnz8DzOJz1DRt
-	 JBfggSISEgJMnu/r3PJHzyeDDftzzCTVYvrfzRLxXxenZnUQ+A95F5LelVkNe4/J/S
-	 jM/RZfwMDFSZkVZISVs51qFdNHhb+RroAEzr6GYNEDIY7OA3XfMUU9vGe0+0OTnQyE
-	 CHqMIoghRj+quG3YzCPCiMvx1j4HlMDOUHUxYcddwtEtPIIMGP7GLpUpbIWfhZRl8n
-	 QytCd2kSgVia3wGEsY10TJE/vIoL1wmHjrXRXy/9AR4+oEE2/vnux38cZJKNnIQx5Z
-	 mM/+J8SIAyK7g==
-From: Brian Masney <masneyb@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-Cc: linux-clk@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Antonio Borneo <antonio.borneo@foss.st.com>, 
- Brian Masney <masneyb@kernel.org>
-In-Reply-To: <20261020-ups_mp15_clk_update-v1-0-67da20111b08@foss.st.com>
-References: <20261020-ups_mp15_clk_update-v1-0-67da20111b08@foss.st.com>
-Subject: Re: [PATCH 0/3] Subject: [PATCH 0/3] clk: stm32mp1: add I2S_CKIN
- as PLL4 source and keep boot-enabled clocks running
-Message-Id: <179383216216.724795.5427816189505409179.b4-ty@b4>
-Date: Wed, 04 Nov 2026 17:42:42 -0500
+	id 1xOjiJ-00000007AsV-0zvQ;
+	Wed, 04 Nov 2026 22:44:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1793832249; cv=none; 
+	d=zohomail.eu; s=zohoarc; 
+	b=czcY0hthCcdpo/TlC7/oZP4c135oFGtQ2rnKgsYDTGav7RHuFWvzSIB8gBH+4RqdF8p3m8thmeULrUAHhoTL7ier9zAPyzgvlbZiyXTAgp/rXnyN/plx4tk0+gHb1P1tRV6nP1YrB+v5WIXaz+VmKoprHzQS1yIjVuaqFXFA1Pk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
+	t=1793832249; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=hfEBpFMF8c5rPBNt+LYZXTPFb+iq379xlL3xl7YzuZI=; 
+	b=Q34j5cG7k69XSj0S0HCHtiAe/peBNU75X9Aiz2NvI1AAlUD5GqTJLP5kE8EZocGWbAcXKK3csinOTR7jxcIgwVUkPErq+GIP8Bs6+gj+8mrh83nXALy74OZhf0Twet/xhwHre1Gf1qaAcw5AHiDBkgse4uoX0ZhBPVKdkN/WAiM=
+ARC-Authentication-Results: i=1; mx.zohomail.eu;
+	dkim=pass  header.i=iav.lv;
+	spf=pass  smtp.mailfrom=iav@iav.lv;
+	dmarc=pass header.from=<iav@iav.lv>
+DKIM-Signature: a=rsa-sha256; b=BYGnZrOnNsNC8iSfDlWmzPc8iCkDgbyVP6wke9/Tg6vGPoDBXjKcMBHOrIgEaZOBnlLUWq/3MxG4ZLYhfmnTpuistWJZqMH8GjbPJhzTa8wU+YNAAt5fRY90rc0Yujiym9mf5TAXC22v6wvJcJhTx57MXLcuvbsIw9GNv1S7Lzo=; c=relaxed/relaxed; s=zoho; d=iav.lv; v=1; bh=hfEBpFMF8c5rPBNt+LYZXTPFb+iq379xlL3xl7YzuZI=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zoho.eu with SMTPS id 1793832247813832.2603239285348;
+	Wed, 4 Nov 2026 23:44:07 +0100 (CET)
+Date: Thu, 05 Nov 2026 00:44:06 +0200
+From: Igor Velkov <iav@iav.lv>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: iav@iav.lv, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>,
+ Shawn Lin <shawn.lin@rock-chips.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, "Yury Norov (NVIDIA)" <yury.norov@gmail.com>,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Alexey Charkov <alchark@flipper.net>, linux-pci@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kernel@collabora.com
+Subject: Re: [PATCH v7 00/10] PCI: dw-rockchip: add system suspend support
+Message-ID: <20261105-dw-rockchip-suspend-v7-tested-by-1@iav.lv>
+In-Reply-To: <20261104-rockchip-pcie-system-suspend-v7-0-6ae6875939a2@collabora.com>
+References: <20261104-rockchip-pcie-system-suspend-v7-0-6ae6875939a2@collabora.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev-7ca47
-X-Developer-Signature: v=1; a=openpgp-sha256; l=820; i=masneyb@kernel.org;
- s=20250903; h=from:subject:message-id;
- bh=lPLBBMLRBSUJePs+9+cbHKp8v+ePqO1f7Zw5/dLhgrk=;
- b=kA0DAAoWt9LdJ11+wIcByyZiAGrrtPChydHrW6O3SfTo3tMmeplujPzk2w4/aI39D1Rh52Ib8
- 4h1BAAWCgAdFiEEpG0ycFhlqj3e3CkEt9LdJ11+wIcFAmrrtPAACgkQt9LdJ11+wIdM0gEAtdso
- FXC0bKFk9Qv2+QrKD+x6t2EGwngkfuDTOuN4A6MBAN3reACYmINUNE+/46n7+ttTDKixFvVIIa9
- wmKI4pvUE
-X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261104_144415_553300_995BFAA6 
+X-CRM114-Status: UNSURE (   5.96  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,37 +78,17 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Tested on ODROID-M1 (RK3568, NVMe on pcie3x2) with 7.3.1, Jonas'
+EHCI/OHCI clock patch and f845c1e2d2d4 ("PCI: dwc: Add suspend_poweroff
+flag for platforms with RC power loss") backported: s2idle 10/10,
+deep 10/10, the NVMe stays usable after resume.
 
-On Tue, 20 Oct 2026 11:48:52 +0200, Gabriel Fernandez wrote:
-> Subject: [PATCH 0/3] clk: stm32mp1: add I2S_CKIN as PLL4 source and keep boot-enabled clocks running
-> 
-> This series contains three small, independent improvements to the
-> STM32MP15 clock driver:
-> 
->  - Patch 1 adds I2S_CKIN to the possible PLL4 reference clocks
->    (PLL4SRC = 3).
-> 
-> [...]
-
-Applied, thanks!
-
-[1/3] clk: stm32mp1: add i2s_ckin as a clock source of PLL4
-      https://git.kernel.org/clk/linux/c/57f8b36fb36c
-[2/3] clk: stm32mp1: don't disable a PLL while its P/Q/R outputs are enabled
-      https://git.kernel.org/clk/linux/c/fce4f8da5a6e
-[3/3] clk: stm32mp1: don't disable the ck_trace clock when unused
-      https://git.kernel.org/clk/linux/c/f9296c2513e8
-
-Best regards,
--- 
-Brian Masney <masneyb@kernel.org>
-
+Tested-by: Igor Velkov <iav@iav.lv>
 
