@@ -2,102 +2,127 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 614A2606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 00:32:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D9CE606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 00:41:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TRchubrT;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=EV5pIRmA
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qt/odofu;
+	dkim=pass (2048-bit key, unprotected) header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=QUGb8K8u
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=ia3DNRbB3tzN83nGHEc/6FKqQVPdb5ypWXD/ZK/mfh0=; b=TRchubrTPBDGGhvPLYrHZTcEAP
-	zgJA3pqTOAqkdyUjoX1p1dUpLAsh8wkZzvK2yK/ABpDeGyWSd+REkCDiE/QMR+NnAOsT+7tjXQrO3
-	cvI3qG0MCUK9G/AHcgQAwwklhicdT9ZgGM7voSskC+b/ZNdqJajL1YRzuOBYtnID2hlo1pM//C6gH
-	J67bqaOUX56I2EAXCCAiZsNzBY4DlGHZDZW1KB69xWFw3D8YdK0QzNWAIauSblgKwhPVRl6E7D5yv
-	I5kC+p1cXAB/w2yOlKiAZ3VgmT1mlWeM1QkUYPfKrVBQjDzgvBruOzKyQ+N98qdjxtrm260s/NCRN
-	MELd5NOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=fPNnZyQIDXSKNoVkiNoUdoJZWsQu0g4dBkxCnrIJvKA=; b=qt/odofutUoCif
+	T6O/rKFXgT16WFckDmdz/Vx7Ry54bnPSefMAprbzy+glaOtlzGuC4Xm4BRqs6ncag1aMORZLJBdZk
+	D8u9HNbdAUWczMTpNuQLZCoOuv/tGgcUoidslSrKw7BoZlKUKuPjbee5p2MblBtpFH+lp3zJkb7pq
+	X++uTpXdDoQlL+ZeITqNI9K2PKxw+vWbBrbriBcwFjfnMdz3uFqWBz6E0XEBCFUsobgadbltBOSzJ
+	jJD0qDoW+FzJjFIPLD1SyIlxKpP/vypD7uJUOWmleP+RNhGU0m2fFyUk1U9/qhmY8e7nbwYYJH+SR
+	+dGFeNoPlYzHdttR6BXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOOvr-0000000404R-1RWJ;
-	Wed, 04 Nov 2026 00:32:51 +0000
-Received: from mail-dy1-x1333.google.com ([2607:f8b0:4864:20::1333])
+	id 1xOP3s-000000040Uk-0pq6;
+	Wed, 04 Nov 2026 00:41:08 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOOvp-00000004041-0Y2J
+	id 1xOP3o-000000040Ts-3Biq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 00:32:50 +0000
-Received: by mail-dy1-x1333.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso283620eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 16:32:48 -0800 (PST)
+	Wed, 04 Nov 2026 00:41:06 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-8a05b210703so114374b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Nov 2026 16:41:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1793752863; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ABvlNIYGOJ8PCTscAjhnGBDy9DLd+lEv2wgDO8DiQJI3h4txCzJ+2erUpY2cj3daw5
+         MaMhbB0y1dZC6sFEQvmPrN2KaR0bU2c/5E8xGTX+Mp8IAfXNJxYm6BJ0nHgKCmtz220i
+         /r/7xviRVuSyRC9Qxn6fR0F72F7aJL4JdoPM2npnSoIrgZIHsOvCBlFN+pGbl+CmZow6
+         /RIqCLzfzottYc1Rgjg+5vYfdgzvUc/4JRNIAzIO4Sln2bo4EuLffMfu7sZJRqy5gZya
+         Pvq+X6dnTB/kQ4Xi2lxJfKL+dOJ89GS3v3WP9NpSRh/th4wMiuVi58TSqySlq6Wp/AeB
+         4LwA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=fPNnZyQIDXSKNoVkiNoUdoJZWsQu0g4dBkxCnrIJvKA=;
+        fh=cGcnt7dew1eaqi4ijpIL8EbbqgOLqYDMizJI51Milag=;
+        b=HMbS0ebBIwXAnWZh3wmUbCEAgyYORzwecPHbNvS5xy+mqtg5z0dwoErr5Q39OcQ0t6
+         kXBabT4feq6Cj7pJyLtu8AtTl0NWhHi2qGFbT6EXiAlPBkK0geYPmV4raOFMhvJcUpBB
+         yJwKQCbDfnjtdYfQnwwobIWlrhcB/2xMJ4vsGthvbneUB2pMLauf6+cXB2d/v6nWWyd+
+         nyQfr+FR1Jn69tRIny+0byDEUe+Uf6LqgXDUa1AW9cO5tURnzwRuB3XyAfYBlDT1jfPi
+         7Mx9pp0dW3nnY3DFROYwTq6qfvHF/ojLcF+bltxmtdpYql7app8exaAm5ymsE+caXqNC
+         l/cQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1793752368; x=1794357168; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=paul-moore.com; s=google; t=1793752863; x=1794357663; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=ia3DNRbB3tzN83nGHEc/6FKqQVPdb5ypWXD/ZK/mfh0=;
-        b=EV5pIRmAVYM9YcMTkXiQdRQssXkTX4LuBimlzyMDsLONJascKE0+P+5QXt1NAFjSqQ
-         bB3gc/B80cO2Oy/inavwd95ykTudTYA29H8CIPR9/cm0ruFWpsxJ8LUHfNyspuHSdUAR
-         UnXbfsCtBvA4V8E+K9BSKnJAM3nUhQYXUfBLc=
+        bh=fPNnZyQIDXSKNoVkiNoUdoJZWsQu0g4dBkxCnrIJvKA=;
+        b=QUGb8K8umTn2hWfFZYytEB+qhak/mfmfyIHYnpbI9DKFoFmzq1DZWmx7rScW2aEaCn
+         YBWm/DuOHGdfK8p3p8+n466BrY5PZBo+nC+dKIjhHuk8A/jF/GpQK/gA7JF8DraTmAqc
+         mQBuGfqxkcoxkM8jLKU+0dBQ9MeVKY3QbnWWR03eBVQkxuxQjF/J5iKuNJwyjFe16Jic
+         pjQYAJsuD8WyvcnNMPXF2bgJb37ebs/Sb6KJFf71AvDIEbWfHeNIulOgwymq+yBOc/yE
+         ojMbDaZS+Ul16aOXuosa16i4sOredb30MAJyCmSIuB93cTM872a75TLumx8zJ51OC8Nc
+         mmkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793752368; x=1794357168;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1793752863; x=1794357663;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ia3DNRbB3tzN83nGHEc/6FKqQVPdb5ypWXD/ZK/mfh0=;
-        b=rWPi6eK/LCx4G3xqhuX/1LdFPSyP9Tdytxb9osawiQ2I/dldn0vBAM+o6xuk6AGqIG
-         /k/04nlx9NryNiRmvuFy7iY5efmZCGowwuNIhvlU+Rf+PYx8UDDcv8FhB2dvSKguq5en
-         kscFb8AH/2p+ZdwCPlzSz8jdKqHdhH725wB34ACovmiUkuBcOOX2HZOFiv52WYeBkei+
-         /KzeAf7lIRdYw+uM0OhUY1i1rVdC/myNtGdypFb45gR9n2tDGwvx9/xVId1P8wvA0fu/
-         uojKWeofD68xQGlsLeUkEn/cvJTTtqOFNZ55chak77boUoDwewiQh3/47Nmjd9AqdfZ5
-         UrVA==
-X-Forwarded-Encrypted: i=1; AKwUvBzmgp+vN5b/RNrtj/nvxjIjyJ+yxMI18bHDekJArK3SkAcDT5LuuvvUu8AZ9BL6lheC/gMuWVfdQj1QevGitDNU@lists.infradead.org
-X-Gm-Message-State: APuU4Z9+mbI+GzgXpI0gKOEx6N7RiR+1YDU9KNVMVMfgcfw9gawhNlvu
-	CvT5VwPrhDItszM1K2H2iqoBEOt/+Tdspc7yEvHFsJCH8b6G/OxsP9/U10xrjK0vRwAiZWG309f
-	b4Ao=
-X-Gm-Gg: AYBFou188hrN3V3dj3nbzh9M8dknB4+WxevQvLZnb3n1JAVEOOdfOqVmwe1qYvj4Jgb
-	3wTe+4/2+++Aq1DnMKFBUE6X0Apg/tZBS97SvgnAQhr8G0YDWEZ1rmLSADUhRddOMIwtjuKLBXe
-	2D8LupnKnhHJ0tpNFd0P/B9p+cBwexYqymbnePLpQW4c8sqB+t5RzcTfl+Oh742NZojzhr7ZMiw
-	AUoF9T3eOrnd5lpSXXL6CtGs3S/l5iUEiHBkmnlBrnrcuZefgMHl8/eqIr63lcqbmD1WcWON0Y7
-	MjgQn1h8uiWuLn8+QhOOa+Yx/QEgHIjt6SjNsqiodmtLg2hxGTG06LxHTWvFTQiZB8ZWtkyOCCF
-	iV9AvSX5QC26OCggbbgdVuQgWQfqZNx86WNF25NXGyzJxahJSb+YVGW3388lxOOMX+sAqvo1+zM
-	E4TWhcdJ665Sj6uNyUjlaeWACdrI8ArqyGBG2Lm2lxS0pwsYMI6Rmuz++CFnZtLWP1oDs43ZBWs
-	1kXWZmYgCS+FMp4UKGUFnzvzMy//12iFLNPR/mB2Uwhc1qTEjyB+y9DCIuPb5AgC65/uVjxKTY0
-	Wu/GfFw/r0gvNDySGfs3/ocrZD1aMGZz8lgYpWMG7W+VRjEJKT4mvmp68zO/J8ay5cQ=
-X-Received: by 2002:a05:7300:c39f:b0:366:6644:2839 with SMTP id 5a478bee46e88-36a42203e90mr22173192eec.3.1793752367673;
-        Tue, 03 Nov 2026 16:32:47 -0800 (PST)
-Received: from localhost ([2a00:79e0:2e7c:8:ab71:b3df:693a:fbf2])
-        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-36ca38a54ccsm2074587eec.4.2026.11.03.16.32.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 03 Nov 2026 16:32:46 -0800 (PST)
-Date: Tue, 3 Nov 2026 16:32:44 -0800
-From: Brian Norris <briannorris@chromium.org>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Fabrice Gasnier <fabrice.gasnier@st.com>, linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Ulf Hansson <ulfh@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org,
-	Andy Shevchenko <andy@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Subject: Re: [PATCH v2 3/5] PM: runtime: Propagate last_busy from dependent
- to dependency
-Message-ID: <aup9LKewaLr2B5cR@google.com>
-References: <20261103221717.3840215-1-briannorris@chromium.org>
- <20261103141442.v2.3.I40c0bc917fa0b13111251844e9a54feb1d9cd7d2@changeid>
- <20261103231719.486a18de@jic23-hlaptop>
+        bh=fPNnZyQIDXSKNoVkiNoUdoJZWsQu0g4dBkxCnrIJvKA=;
+        b=SAUUr1TdldXjH5ZJdfnv0ZC+9tCPr9A/ppG/ju12b/o4+CfrH6dkT15d0FuptyqOqY
+         Ux1y8sMdh1NE3XmIVUEshQutwaol7lx9OplcU7j4kC+AEYNl+/BYlZRulBZN+Se5vCnE
+         wUvfn+k4RA8EyIr9mL5ekNis4w7wx4g0GnvLcE122Bw0edqHplfGWsuABJPe0yFZvVhf
+         BYZG+BxAJIKzS5IRYoc6LXmPlVtaXfniHDHmM8Mqbz7YpKx0deteUFv+muW4YC5mB6Oy
+         Oaq6ESq8tZ/gvPkMgrZm55b7LP6Mp6XGWDcWfuPuRIdNIqDasp3vDeNXH3zPcQgOz++2
+         YJHA==
+X-Forwarded-Encrypted: i=1; AKwUvBw2jBs5WFOyewJF0jO8Hs0gPtBKKMxY+qJtbPiUxzdZEDYyxT+K/tNqhG3c7IGtwN1hpBGygWxX3OQx8jykoIzm@lists.infradead.org
+X-Gm-Message-State: APuU4Z/OQvAiQNUlzXVu8Kkjfw0JSlc13NMJkouQLta4vSI5RLqgF7Pi
+	pfet/5FggymjbBHxtpLGSvo2CkEHi8DG5KP+AyzwddH7IsaSLz+ytlARMgfGK6AwnTyL1mtZoMq
+	cVfbbcAtU8hpctZZ5lAwDoLfwpA0SvJw3YBI50Pjy
+X-Gm-Gg: AYBFou2GIq72ls4w0zb0u1/o3TAuwgIoOJr7NiuVxfVhvo4sKbGkiaMPHoJdmCh0Osk
+	K1zC7+XqKHuOSKo6QyOgBjAdWkgcPZ8X+GEb2jWTsB2XTK4pAswUQiGKCDR9oLKHdWJv0ZdXOIM
+	zwUHSiawl1YhEH7FPh+R3K7o340yST1SB4ABYQm2vrHWtOkqFdmHgsKjCXKydy6e5vloxfQLCg9
+	jXrWoOxGTm8HnZwwSbWZoDTTiV6LdKfOZa4HBpM4V5PIazctkQ5xTl9577ZYULmN5bs5GSXX2jG
+	hAui3CwUr1nX24GBNzJzAarG7oP2yAnrbAXfEhyzBMkx0zuSeZXJZEdTDt3x23ZvPGPx1MNF6pC
+	UUzBQ2gF14vk0JY+xVCijlC9kls95UcfNuYDyHU61B9XYNoSmFEBYZC2t/wJYccyFcRn1
+X-Received: by 2002:a05:6a00:2d96:b0:88d:4b30:1c11 with SMTP id
+ d2e1a72fcca58-8a9ba703bc9mr11394030b3a.6.1793752863107; Tue, 03 Nov 2026
+ 16:41:03 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261103231719.486a18de@jic23-hlaptop>
+References: <cover.1790088067.git.rrobaina@redhat.com> <CAHC9VhQ=FFYVNmQdiMsqg+5KDDrSC3SZS+H2=r_GkhfwQox8tg@mail.gmail.com>
+ <CAABTaaBL=TScs8Qqu3b8F6KZPGMyvwy6cBC3teDaBL6MGMucNg@mail.gmail.com>
+ <CAHC9VhROsmzbm+AP63Sm7mqCokgEy6Zu0AVMY0gxp8qY75Pqiw@mail.gmail.com> <CAABTaaBOrPknzdxc5S6L9hGu7hbFu2e1RZG=Sxjb_B1Cs4Sixw@mail.gmail.com>
+In-Reply-To: <CAABTaaBOrPknzdxc5S6L9hGu7hbFu2e1RZG=Sxjb_B1Cs4Sixw@mail.gmail.com>
+From: Paul Moore <paul@paul-moore.com>
+Date: Tue, 3 Nov 2026 19:40:51 -0500
+X-Gm-Features: AclHuK_mzIhdjHPxjnkTYRthyfMgrzjS55JZuNf6mZPYYsQQvO81kKGlvJUv8_0
+Message-ID: <CAHC9VhQ4U-Z2KkGurfMihJgzGgwD3miWSW4wWAjWvUdDxLpH7Q@mail.gmail.com>
+Subject: Re: [PATCH v3 00/14] audit: log all six syscall arguments in the
+ SYSCALL record
+To: Ricardo Robaina <rrobaina@redhat.com>
+Cc: audit@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-mips@vger.kernel.org, 
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-um@lists.infradead.org, bpf@vger.kernel.org, eparis@redhat.com, 
+	sgrubb@redhat.com, oleg@redhat.com, richard.henderson@linaro.org, 
+	mattst88@gmail.com, linmag7@gmail.com, linux@armlinux.org.uk, 
+	catalin.marinas@arm.com, will@kernel.org, guoren@kernel.org, monstr@monstr.eu, 
+	tsbogend@alpha.franken.de, jonas@southpole.se, 
+	stefan.kristiansson@saunalahti.fi, shorne@gmail.com, 
+	James.Bottomley@hansenpartnership.com, deller@gmx.de, 
+	ysato@users.sourceforge.jp, dalias@libc.org, glaubitz@physik.fu-berlin.de, 
+	davem@davemloft.net, andreas@gaisler.com, richard@nod.at, 
+	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net, chris@zankel.net, 
+	jcmvbkbc@gmail.com, tglx@kernel.org, peterz@infradead.org, luto@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_163249_239699_6B299507 
-X-CRM114-Status: GOOD (  59.26  )
+X-CRM114-CacheID: sfid-20261103_164104_796157_AE4E1C76 
+X-CRM114-Status: GOOD (  25.60  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,185 +134,68 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Jonathan,
+On Fri, Oct 23, 2026 at 8:45=E2=80=AFAM Ricardo Robaina <rrobaina@redhat.co=
+m> wrote:
+> On Tue, Oct 20, 2026 at 1:39=E2=80=AFPM Paul Moore <paul@paul-moore.com> =
+wrote:
+> > On Tue, Oct 13, 2026 at 8:36=E2=80=AFAM Ricardo Robaina <rrobaina@redha=
+t.com> wrote:
+> > > On Thu, Oct 1, 2026 at 6:06=E2=80=AFPM Paul Moore <paul@paul-moore.co=
+m> wrote:
+> > > > On Tue, Sep 22, 2026 at 3:21=E2=80=AFPM Ricardo Robaina <rrobaina@r=
+edhat.com> wrote:
+> >
+> > ...
+> >
+> > > > * As pointed out by Sashiko, when you were converting all of the
+> > > > arches, it looks like you missed alpha.  I took a quick look and it
+> > > > appears that it should be a pretty straightforward conversion like
+> > > > most of the others.
+> > >
+> > > I've actually dropped the alpha patch as per Magnus's request [1].
+> > >
+> > > [1] https://lore.kernel.org/audit/CA+=3DFv5T4826T2sd0Gbh-nfZsqcWK_phd=
+BKy4BLWOvDTt92t5Eg@mail.gmail.com/
+> >
+> > The problem is that as things stand, this patchset breaks the build on
+> > Alpha.  Perhaps this gets resolved during the current merge window,
+> > but as you know we can't break the kernel build ...
+> >
+> > https://lore.kernel.org/oe-kbuild-all/202610041836.6TatRQSm-lkp@intel.c=
+om
+>
+> Of course, you're absolutely right that we can't break the build. I
+> was afraid that this dependency might cause trouble.
+>
+> I noticed Magnus posted a pull request a few days ago containing the
+> "alpha: enable GENERIC_ENTRY" series [1]. It seems this will get
+> resolved during the current merge window.
 
-On Tue, Nov 03, 2026 at 11:17:19PM +0000, Jonathan Cameron wrote:
-> On Tue,  3 Nov 2026 14:14:41 -0800
-> Brian Norris <briannorris@chromium.org> wrote:
-> 
-> > When a child device suspends, it does not update the last_busy timestamp
-> > for its parent. If that parent configured autosuspend and didn't
-> > otherwise maintain its last_busy timestamp, it may now be immediately
-> > eligible to suspend. This is probably not expected -- the parent should
-> > wait for its autosuspend delay before suspending.
-> 
-> So reading this again - I wonder if this text is describing the
-> expected behaviour.
+... and it has, or at least it appears to me to be resolved.  I
+rebased the audit/dev-staging branch against v7.4-rc1 and Alpha does
+indeed appear to be using the generic syscall entry/exit code in v7.4.
+I think we should be all set here wrt Alpha, thanks.
 
-Agreed, this might give the wrong impression, depending on the
-assumptions the reader makes about autosuspend delay. (I think I had a
-particular problem scenario in mind, but didn't translate that properly
-here.)
+> For future reference, what's the best way to handle dependencies on
+> other subsystem changes like this?
 
-> If the child is also using autosupend then, in extreme case, that time
-> might be longer than the autosuspend time of the parent.
-> If so it seems odd the parent still waits.
+Generally speaking communication and coordination :)  Talk with the
+subsystem devs/maintainers to understand what they are doing, let them
+know what you want to do, and find the best way to order things so
+that it all lands in Linus' tree without making a mess.  In this
+particular case, with the syscall arg audit patchset not being ready
+(missing maintainer ACKs) and the Alpha changes going into v7.4 it
+turns out to be quite easy, which is an important lesson: sometimes it
+is better to defer a new feature for a release just to ease the
+coordination burden, enable better testing, etc.
 
-Right, that seems wrong, and indeed that's not what this patch does.
-
-> So most expected to me
-> would be if the parent were to suspend it's autosuspend time after
-> the parent or child was last used for something that indicate a
-> desire not to suspend (that shouldn't include actions the child
-> did whilst suspending).
-
-(Not sure I'm parsing this sentence quite right, but...)
-
-The point is that last_busy should propagate (rather than, say, the
-expiration time). So each device still gets its own-delay-based
-autosuspend timer expiration. That may mean the parent waits longer than
-the child, but it may not, if the child's delay was longer than the
-parent's.
-
-> Maybe there isn't a sensible way to deal with this and what you have here
-> is the best we can do.  Note that this is just commenting on this
-> statement in the commit description.  From what follows I think
-> this is just a commit description thing rather than functional.
-
-If I'm understanding what you're saying correctly: maybe it would be an
-improvement here to say:
-
-  If that parent configured an autosuspend delay longer than its child's
-  and didn't otherwise maintain its last_busy timestamp, it may now be
-  immediately eligible to suspend.
-
-I think that would more accurately describe the target problem, even if
-it doesn't cover all cases (such as when the parent delay is shorter).
-
-> > The effect of this behavior is that a parent device may suspend sooner
-> > than its autosuspend delay, simply because its usage was accounted by
-> > its children, and not by direct references to the parent device.
-> 
-> Sooner is indeed bad.
-> 
-> > 
-> > This was noticed in several cases, and some have implemented
-> > workarounds, such as in commit c537d3457542 ("iio: adc: stm32-adc: fix
-> > runtime autosuspend delay when slow polling"). At the same time, Ulf
-> > suggested these problems "should be solved in the runtime PM core" [1].
-> > 
-> > Instead of working around the problem in drivers, we propagate last_busy
-> > timestamps from a dependent device to its dependencies any time it may
-> > allow a dependency to suspend -- i.e., when releasing a refcount for its
-> > parent or suppliers. We take care to only propagate the timestamp if it
-> > is larger than the existing busy timestamp.
-> 
-> So this sounds fine but I don't think aligns with that first paragraph.
-> 
-> > 
-> > Note that this works best if the dependent device is using autosuspend
-> > (and therefore updates its last_busy timestamps appropriately), but even
-> > for a non-autosuspend child, this is still somewhat useful --
-> > non-autosuspend devices still automatically update their last_busy every
-> > time they resume.
-> 
-> Can we set the last busy on the suspend of child devices that aren't
-> suspending as a result of autosuspend timeout but for other reasons?
-> (may be some fiddly corners!)
-
-Do you have concrete use cases in mind, or do you bring this up simply
-because of my note?
-
-For one, I feel like for devices with power.use_autosuspend==true, it's
-reasonable to expect drivers to use the appropriate helpers to update
-last_busy at the appropriate times, and so any "corner cases" are from
-misuse.
-
-But if you mean non-use_autosuspend devices: I suppose it'd be possible
-but I haven't reasoned through the implementation very far yet. It
-almost seems like we'd need to plumb pm_runtime_mark_last_busy() into
-*all* the put() helpers, including the non-autosuspend ones
-(pm_runtime_put(), pm_runtime_put_sync()). I'm not quite sure if that's
-desirable. But I could try to look a bit more, if you think there are
-important use cases that would need this.
-
-Brian
-
-> > Link: https://lore.kernel.org/all/CAPDyKFp=KTf8=zGBSzPYqhjnZpY8xwvjCeM1e-WTKT1QLSxaDA@mail.gmail.com/ [1]
-> > Signed-off-by: Brian Norris <briannorris@chromium.org>
-> > ---
-> > Cc: Ulf Hansson <ulfh@kernel.org>
-> > 
-> > Changes in v2:
-> >  * Update comments to explain when/why rpm_propagate_last_busy()
-> >    performs the update
-> > 
-> >  drivers/base/power/runtime.c | 23 ++++++++++++++++++++++-
-> >  1 file changed, 22 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/base/power/runtime.c b/drivers/base/power/runtime.c
-> > index 2a117d6a776f..dd306cbabcd3 100644
-> > --- a/drivers/base/power/runtime.c
-> > +++ b/drivers/base/power/runtime.c
-> > @@ -318,6 +318,22 @@ static int rpm_get_suppliers(struct device *dev)
-> >  	return 0;
-> >  }
-> >  
-> > +/*
-> > + * Propagate last_busy timestamp from one device to another, typically when a
-> > + * device (@dev) releases a reference count on a dependency (@target) and might
-> > + * allow it to (auto)suspend. This can, for example, prevent overactive suspend
-> > + * when a dependency's usage is primarily driven by one of its dependents.
-> > + */
-> > +static void rpm_propagate_last_busy(struct device *dev, struct device *target)
-> > +{
-> > +	s64 busy = atomic64_read(&dev->power.last_busy);
-> > +	s64 target_busy = atomic64_read(&target->power.last_busy);
-> > +
-> > +	while (target_busy < busy)
-> > +		if (atomic64_try_cmpxchg(&target->power.last_busy, &target_busy, busy))
-> > +			return;
-> > +}
-> > +
-> >  /**
-> >   * pm_runtime_release_supplier - Drop references to device link's supplier.
-> >   * @link: Target device link.
-> > @@ -348,6 +364,7 @@ static void __rpm_put_suppliers(struct device *dev, bool try_to_suspend)
-> >  		if (!device_link_test(link, DL_FLAG_PM_RUNTIME))
-> >  			continue;
-> >  
-> > +		rpm_propagate_last_busy(dev, link->supplier);
-> >  		pm_runtime_release_supplier(link);
-> >  		if (try_to_suspend)
-> >  			pm_request_idle(link->supplier);
-> > @@ -710,6 +727,8 @@ static int rpm_suspend(struct device *dev, int rpmflags)
-> >  
-> >  	if (dev->parent) {
-> >  		parent = dev->parent;
-> > +		if (!parent->power.ignore_children)
-> > +			rpm_propagate_last_busy(dev, parent);
-> >  		atomic_add_unless(&parent->power.child_count, -1, 0);
-> >  	}
-> >  	wake_up_all(&dev->power.wait_queue);
-> > @@ -1368,8 +1387,10 @@ int __pm_runtime_set_status(struct device *dev, unsigned int status)
-> >  		goto out_set;
-> >  
-> >  	if (status == RPM_SUSPENDED) {
-> > -		atomic_add_unless(&parent->power.child_count, -1, 0);
-> >  		notify_parent = !parent->power.ignore_children;
-> > +		if (notify_parent)
-> > +			rpm_propagate_last_busy(dev, parent);
-> > +		atomic_add_unless(&parent->power.child_count, -1, 0);
-> >  	} else {
-> >  		spin_lock_nested(&parent->power.lock, SINGLE_DEPTH_NESTING);
-> >  
-> 
+--=20
+paul-moore.com
 
