@@ -2,156 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5976D606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84A1F606A333
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 09:03:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=E6EiTrXt;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gy/VpIhK
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NIAMA/lR;
+	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=bY/HWDAQ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=JQJlu4Eu705KNYlVvd6QIRtjIbYoI9QZx5iQyxAATKw=; b=E6EiTrXtxaKfkienZfJenOHLqC
-	yH2x9WgAXVzWs1ytTl3xA/EKkYgmKtbMS/wVAw1SQQQzBiAf8iOc2eavXYxO+rq25iLqK4LKKUE8b
-	M58+o38MmBi6DRcPzZTuIrHufA2S9LwQ0/JmWiIv+0r//4ZZDKGQNQ0VC3xnp1MKYMjHew6tfoxOZ
-	9r7MfAJXOJpmtOCu17gPTX36rjgRt2Q+HFgngsHccNdI40lt3Y5Bq+LM4fhzHHVbVI5ulsUmhID71
-	wBWgu6KLcXXUuRe8zO435iyilOGNhO2e40Et2b2lwCNXP3jryCZJoidGMDHn+VMafk78/X6IkGwgV
-	pu3NpdAw==;
+	bh=iHYdHhRmbjQcxscHDcCpZ8acQ3uHnfxu23ktn4nG4Lg=; b=NIAMA/lRSIyKb2+x7c0ZiafuuL
+	HQwrXVGAB0beePzsZZwtfgHkm/5jopKgnrkh22iE8izaHTLC6UVDZyYPf69Ls+Crd6vKlaMBBavRs
+	YCGIApsL+hkKIixPd7wO6aSynIewHl0Jcv79RBpV2bDd2tXfLhzcZkgQ0sYLePUP3O+06BvhVyjGX
+	xeKZKD/Aqlyo1arJ7Qf5vASt3HjSTdRPVv6OosnKT6guZ5giUlXjYCPpPArsqNH3YkUUXkiLG6bTD
+	yW92mADtDJdFCG4SPcDOFUc+dc/CQSeiT4HLGHbM9kDuKljHUpX+ts2PhXTSVQf7MJjyIqg8sDjDc
+	ovj3w0HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOWuN-00000004p9h-3pgb;
-	Wed, 04 Nov 2026 09:03:51 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1xOWuK-00000004p7q-3HTd;
+	Wed, 04 Nov 2026 09:03:48 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOWuL-00000004p7T-0QAH
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 09:03:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aL6ip/AFaVBANiB+UB6HcktYhM0FXUBzhXTJeaY7cSS3Jriw5218IBQu0rp77wblmj/Sk1FBJSg5gesAVIvQBNjrvT3ese1FzD1WXh3nfkbRsPd0RCnGEe7ShYa7qEda+apMuAW5MBQrJpKJfQe32k2T7VuCxwSC0fVzNuEcvxLCDWSLL+oN0S+lSWCRSXb6qcNQ/a4FHNvytBHHng8ZsxMhZwvY4c2M60yvaPULDQwhsTgGaHMLKFXzVmcvWJTJWX23xc1D3fiu50jjLNX65SWndtucsJGfKEvKbOzKrQGLfhn8ivAxzhzFypHp94/9BttohOM8t/4hGmYS4dlTbA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JQJlu4Eu705KNYlVvd6QIRtjIbYoI9QZx5iQyxAATKw=;
- b=GS5LVuGvdmbGdd6j7m/a/3q8+HXGfm3GQJKLhZ6Q2QWMc2tTESSs6KQHYVO0ZF7DRuBcphYflW0mVAWLF+SvoyAe+5az+C7CTRatJs3q1ftcfN5efilm+rHazkzeDBlGniXmjgxWvZ5QyChH7v8jNQWNx2Jqk5zEOenc3DiLEr3kZqviYcNMY7XFHH0Av5YDSk3opjYtVk+1SXkNy08IFKuTLTPE/8WEXjXAr1JkjR7CJpFh62FHbZypIhHDW0My40B8uXl7r9n+Nx3TiNbe4hYqqCP/QxjWuR4jFKMyPTsKFS9Vt4eg0o90PuP6ddNZA6/VERQOA2zaURhw0nVmdQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JQJlu4Eu705KNYlVvd6QIRtjIbYoI9QZx5iQyxAATKw=;
- b=gy/VpIhKcbHb1VdZfl4GmJf9Lpk266ZvjK1xJFIevwherGeQYOyYxMyOA0awvf/WX0ev4nT1XQ0Maiz3m7f1scK05/H4Pr+xMpzl0f/GOjk7M3H5QTmDkJq1orHhJYiP8NqTGyvI+Ney4Bu/gDsaUBYm+LnbmunW5KzOnkS9sd8=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SA1PR12MB6798.namprd12.prod.outlook.com (2603:10b6:806:25a::22)
- by DSVPR12MB999123.namprd12.prod.outlook.com (2603:10b6:8:388::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Wed, 4 Nov 2026
- 09:03:44 +0000
-Received: from SA1PR12MB6798.namprd12.prod.outlook.com
- ([fe80::e317:e4a3:6ae9:8c54]) by SA1PR12MB6798.namprd12.prod.outlook.com
- ([fe80::e317:e4a3:6ae9:8c54%5]) with mapi id 15.21.0592.009; Wed, 4 Nov 2026
- 09:03:44 +0000
-Message-ID: <00010302-9cce-4733-942d-bc4930dcc3c7@amd.com>
-Date: Wed, 4 Nov 2026 14:33:17 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] net: dma: use dmaengine_desc_set_callback()
-To: Frank.Li@oss.nxp.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
- Michal Simek <michal.simek@amd.com>, Stephan Gerhold <stephan@gerhold.net>,
- Loic Poulain <loic.poulain@oss.qualcomm.com>,
- Sergey Ryazanov <ryazanov.s.a@gmail.com>,
- Johannes Berg <johannes@sipsolutions.net>, Frank Li <Frank.Li@nxp.com>,
- Andre Przywara <andre.przywara@arm.com>, Li Youhong <liyouhong@kylinos.cn>,
- Joe Damato <joe@dama.to>, Arnd Bergmann <arnd@arndb.de>,
- bui duc phuc <phucduc.bui@gmail.com>, Yicong Hui <yiconghui@gmail.com>,
- Simon Horman <horms@kernel.org>,
- "open list:NETWORKING DRIVERS" <netdev@vger.kernel.org>,
- "moderated list:ARM/Allwinner sunXi SoC support"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
- open list <linux-kernel@vger.kernel.org>,
- "open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>
-Cc: imx@lists.linux.dev, vkoul@kernel.org
-References: <20261102191922.4044912-1-Frank.Li@oss.nxp.com>
-Content-Language: en-US
-From: "Gupta, Suraj" <suraj.gupta2@amd.com>
-In-Reply-To: <20261102191922.4044912-1-Frank.Li@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PN0PR01CA0031.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:4e::21) To SA1PR12MB6798.namprd12.prod.outlook.com
- (2603:10b6:806:25a::22)
+	id 1xOWuI-00000004p5y-02B4;
+	Wed, 04 Nov 2026 09:03:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=iHYdHhRmbjQcxscHDcCpZ8acQ3uHnfxu23ktn4nG4Lg=; b=bY/HWDAQ7lHwSJ9XPB6FqUu/AE
+	wcwm0H9izENxVo4LThMrAkZiy0MutIj7mridbKtjUB3BXxoXTqd1q6nuQFEl2B3wIxvkpluq2tK7h
+	pVO6dlRzHH+P+5d1XYcb6OlVt051mRhfQYqPAY7F6utvBprm6uu6mZ5Jkx1c8k1+sl2WtTucsh2oe
+	FdDM0O5rcTV0AeBawde/oLUHPdbiVLYPOsywJ1HSpzpvxwgpvZE/OR3Nj2QG/ALgcj9oj8+KU3rU6
+	LUe92DhkYZlooqVoC4MNJsgAdXUVODrATFTqm9MaZKE1hxd6QqKPDda3HdNKgIyYUBK+XnkpK6b0X
+	n1jdwV1Q==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Oded Gabbay <ogabbay@kernel.org>,
+ Igor Paunovic <royalnet026@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jeff Hugo <jeff.hugo@oss.qualcomm.com>,
+ Robert Foss <rfoss@kernel.org>, Sidong Yang <sidong.yang@furiosa.ai>,
+ Diederik de Haas <diederik@cknow-tech.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Jiaxing Hu <gahing@gahingwoo.com>, Nicolas Dufresne <nicolas@ndufresne.ca>,
+ Jonas Karlman <jonas@kwiboo.se>, Guangshuo Li <lgs201920130244@gmail.com>,
+ =?UTF-8?B?SMO8c2V5aW4=?= BIYIK <boogiepop@gmx.com>,
+ dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Igor Paunovic <royalnet026@gmail.com>
+Subject: Re: [PATCH v2 01/11] accel/rocket: search every core slot when a core is
+ removed
+Date: Wed, 04 Nov 2026 10:03:13 +0100
+Message-ID: <49835528.XUcTiDjVJD@diego>
+In-Reply-To: <20260922080114.44662-2-royalnet026@gmail.com>
+References: <20260922080114.44662-1-royalnet026@gmail.com>
+ <20260922080114.44662-2-royalnet026@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA1PR12MB6798:EE_|DSVPR12MB999123:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6bc5995b-b626-4759-c6a9-08df3a528723
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|23010399003|10067099003|22082099003|18002099003|56012099006|261022105027099003|11063799006|921020|261021121427099003|261028144727099003|261026140227099003|261102123227099003|261026121527099003|261009223027099003|261021123027099003;
-X-Microsoft-Antispam-Message-Info: M1096serL62Mr5LrqmYsBUO9j7CTc5w331ZWFxam9Fb5NBtK3qgnzokKyEJRFndIc78SdABnS6DmbT5rmRfI8SEcekUprUGo0JT6qeZqYrxVMhCBMpD/BuaqDoB03PGCyYczswZ6DObzQ2NGWR4hRpYENXkthcLpCHGvNgVvYgweKc0aUIWUpSdS8diII3G9OlEGhd56FA/YNZNwB8IsewgnQxXk6tmafsZhOg1pUVIczFJ5uC8bLzenri5qMU2461Cy3Dv/pW3ytileZ2r5poH1WVGDmk4CYuEJYH9eRNv5MN/qNByKHrDsNY+LRqe620aPaXzIc82gnrL3toEYI+3ZLkXqLLA4rj1lU2ziJUMPw/hUhBvKatQFjsWqc6DFdmATXitBzHl85/hC7/EoMDiZ4NNj08abWtSmupNAeyxADrH4I75ooJHxr2b8JyynE6th7UMtsX6wmfLortcheTkah+nCim25KoR/IQvTnmgXerOwDCSJ9wzBs1RTgP48pan63DksjBMRVvUcwXCurJwS8bzb6XnqPfAPPDl6GGXP7n7w/t/X0FoliYzGB4N02hHXxPMuI5z2X3TOTxKnif1AKnzEM3dgA33G4t6BulKU2EPrfzaN+7a2z4CFnvMP6ll8MoVYNmOC7VIBICgz2wTq932DjTXfalhp/3K/YeKGW+dS/wWWCIs//5q1dSTFUHTYVKiA3hkSs0rkLwAZfQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB6798.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(23010399003)(10067099003)(22082099003)(18002099003)(56012099006)(261022105027099003)(11063799006)(921020)(261021121427099003)(261028144727099003)(261026140227099003)(261102123227099003)(261026121527099003)(261009223027099003)(261021123027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RStkRWJQdHVZM3IzUjR5ejRIeEovZ1ZWdWF4eUhtYVpXbWNyTGZzTVBvMCtX?=
- =?utf-8?B?S3N4UEpRYWdoZWdXMjVmM3ZCcWl1ZDhaYjI4RHhONkFBSC9Ubm5TdEJ1eDg4?=
- =?utf-8?B?ZXFBaEJBRG8xK05jbWJENW9USFNicVF6c2xKRjVVek93bWdlbjh2RUJBNFA0?=
- =?utf-8?B?Z01laHp0aysvZk10ekdmRldmbWJYWElSYlJibVV5cjRXZGhWOVJiR0N0NEhP?=
- =?utf-8?B?M0UrWjFUdXQxUUxPdkF3SHVNNXlWZEVUVGlvVGVXY1AwTDUzSWRta0xWOENa?=
- =?utf-8?B?cGhSMEROR2ZhUjBGWm9LOFdJVloxSE1MdmVnU2wvanUyclNBdVVJZ0M2WmRo?=
- =?utf-8?B?NmwwNXc4djVsYVNMaHN0OEVkeUdlNGtzWWlGTkQwck5vRUUyWEJyVUVhMEVx?=
- =?utf-8?B?bFBjb1BMYUNFQnlMYlRLVUxOTTgzeEJzU2NsMnZwNFhHaFIxbDZwSk1wMy9z?=
- =?utf-8?B?RE13U01kcU1qbEhaY0J4b09pOUFwSWJybEtQdjV2YkM5MzdYc0ZjaHhyTmh5?=
- =?utf-8?B?eVROU081Y0xSQmtFRXVnUURuejNmQ3ZxOFdtQlh0V253WXY3U040ZzM5eVcr?=
- =?utf-8?B?c0ZhanpscmxVQ3pORUNSemkxYVVwZGxQTzhoNUZ1amtUQVJqcDBFNDcrcE9E?=
- =?utf-8?B?bG1aOWt3MkJ4K0FPbkNqN2N3aHBqZy9RdUhCZzdBWHZkOVhoc0t5eHBaL1o4?=
- =?utf-8?B?QUlIUTBYYVlyQ3lRdXYwQlFmTjFBOEJ2TnNXZ0ZKV1cvbFlVZ3N1RVZlWXhF?=
- =?utf-8?B?S3lIL3owakcvZ09QOWNmSFVHdzJTc0V5ejJIbHFlK2gweXlsTnVYZlRLT2ho?=
- =?utf-8?B?WVhEK05WbHlLOXJUS3A5ekYwWWxMU3g4MWdBUHlzeXFNdlgxZ3dLNXZFYTJi?=
- =?utf-8?B?RElsOXh2dHgzTjM4dkdYZ1k2M2hJVm15L09GcWc2b3JRY1FzdndmS1lRKzB4?=
- =?utf-8?B?NmRPWXZSb0NCN3JINjJsRGpwQnB1NTRiVXdIYmJlOTE3Z0tNeHZ6QnRJaXlL?=
- =?utf-8?B?Uk1xS1RoZmpNSnZOdzFrcmlYaXFsV1dDbHkvTlpTOVMxd0ZTSitDU1NFdlZh?=
- =?utf-8?B?RWVoV0xBVVd6UnVXbHhvN1lOZlFnVEc4M3BMc1UySEVSbFNRTjMraVljbldJ?=
- =?utf-8?B?K3ZYc1VrYzZ4OUE1WUtNdHpDMzNSMDQrbkVtNTRsdkZDZ2Q4Y1lYVGVEYnZt?=
- =?utf-8?B?YlArL0FoSUhtRGNoSzdhWTJXUFRYRFliRUw5L3U0a3JwNzhENkZkWlQ1V0wx?=
- =?utf-8?B?VEYxTlZuUFh1aDFsdkg5WHFwU0d3TG5nNndPYjBZSGpRaDBmNEd1ZmYwb0NO?=
- =?utf-8?B?M1gyRlExbTB1bXdDU0RmNEwrY3JzaTJNNFBOdXc2TDM3VE15Z1VDeXBjeUh0?=
- =?utf-8?B?ejRTUSsrNERDbWQ2dndtUTNhVEFBVkFzQnpYWmVoNS9JendWYWxPaG00TU5r?=
- =?utf-8?B?dG1SMHJqaXdPWFdGaVBKY1d0UkdhcHcxSjU0bDRnVktNU1JmSjRJRE9LT3JF?=
- =?utf-8?B?cUFPakpESHJaMGdyWTZtcXdlc3J2R2FFaXJBMHRvelNWN3dvNDUzcGQxQ25L?=
- =?utf-8?B?ZWxsRDZRam45T1ZpZU9DeE02Q2I2dGZ0TjdrSHRnQU12UG9ZSi9NYVY4OW9O?=
- =?utf-8?B?KzlUQ0ZjWG1YVGJCWGp0MVJKemVzTkZCczJ6VWF5bCtsL3RvU0ZteVJTTjdS?=
- =?utf-8?B?SGxnNy9FTGFHSVdlb3A2emxDRHh2eEl3V2IxTGl0ODhFL2VheDRuWHJpOGZE?=
- =?utf-8?B?SSt4TkRHdVFJSHNjSExncGluM28xZDZsc29zcVJqS0tXdS9XbkNYbkxlUFhl?=
- =?utf-8?B?ZnVnRVNIYUUzMmV6MVl6VVdlUE1mTDJQbnhUb3JTblpKME9TYm92WlRwangx?=
- =?utf-8?B?SlBGcjFxNERISWliQmtiRG9SS3NNYXhKMkdOVXM2QTl2Ky9waHdhMFpSMzJ4?=
- =?utf-8?B?TlpJSXpnZW1NRENzQVBnV003YnloczlFd3hLWU5MOWhaWExtZmxnTXFITFBm?=
- =?utf-8?B?a2pLNFZmYld4RUtTMXhncWNDaVdwcTdmL0lPdjlrZmZBaVZSY1NndE1jZ1o3?=
- =?utf-8?B?bjZwczFPNXNUOTFuNlVvWWd0RTRtV1Jpb1dxcFRHSU9rMjlQNWxKalp2SXg1?=
- =?utf-8?B?YmF1b1lsamRkVTlQNmtJSlZxNWxNSkY3QklHSDdBSGN3Y2V3ZHN0eUpzcFcw?=
- =?utf-8?B?V0ZGak0vaHpaSGoxdU1qQ1lNWWJhQ2FPckJOQTFNeFhqRnZzTFJJdUNzblR4?=
- =?utf-8?B?cjJJbGJuUTVzK3psZzdpTG52aWdqTk9LVGgzNlhoeS9qSDhYWGxMWGNDdDlL?=
- =?utf-8?Q?F1gzSlDrwOCBQTq3yx?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6bc5995b-b626-4759-c6a9-08df3a528723
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB6798.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Nov 2026 09:03:44.2307
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sfSVdhtF5bNMlwpeCoPnQ0hAKMVsXri2bh+izg60ItUCS9ZoyMjwnpgs8fBUpoglBjBCVOyMpWMelcz5qyIKCw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSVPR12MB999123
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_010349_162829_8D578ABE 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20261104_010346_073262_A2E6690F 
+X-CRM114-Status: GOOD (  17.32  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -163,129 +76,50 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Am Dienstag, 22. September 2026, 10:01:04 Mitteleurop=C3=A4ische Normalzeit=
+ schrieb Igor Paunovic:
+> rocket_remove() decrements rdev->num_cores for each core it removes,
+> while find_core_for_dev() searches slots 0 to num_cores - 1. Unbinding
+> the cores in the order they were bound therefore loses the last one: by
+> the time it is removed the search range has already shrunk past its
+> slot, so find_core_for_dev() returns -1 and rocket_remove() gives up
+> without doing anything.
+
+[...]
+
+> Two paragraphs changed from the standalone posting, which this series
+> supersedes: the one on unbinding a single core now points at patch 4
+> instead of saying what is left, and the round counts are dropped from
+> the last one. Posting:
+> https://lore.kernel.org/r/20260904125936.26234-1-royalnet026@gmail.com
+> The two Tested-by tags are from that thread. The round counts were
+> taken on a kernel that carried the use-after-free fixed in 8/11; they
+> were re-measured with the whole series applied, see the notes on patch
+> 4 and the cover letter. The single-core unbind and rocket_open() cases
+> in that paragraph are 2/2 of the lifecycle series, now rebased into
+> this one as patch 4:
+> https://lore.kernel.org/r/20260731064933.12548-3-royalnet026@gmail.com
+
+Seems like I merged the standalone version in [0].
+
+The code change is the same, so I guess we'll just have to live with
+the older commit description :-) .
+
+TL;DR this has been merged in 7.3 already now.
 
 
-On 11/3/2026 12:49 AM, Frank.Li@oss.nxp.com wrote:
-> From: Frank Li <Frank.Li@nxp.com>
-> 
-> Replace open-coded assignments to callback and callback_param fields
-> of struct dma_async_tx_descriptor with calls to the
-> dmaengine_desc_set_callback() helper across net drivers.
-> 
-> No functional change intended. Prepare to make struct
-> dma_async_tx_descriptor private to the DMA engine.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Heiko
 
-Reviewed-by: Suraj Gupta <suraj.gupta2@amd.com>
 
-Thanks!
-Suraj
+[0] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/comm=
+it/?id=3D6eff1d69dae808a1518aee5a58d0853a8db3f1be
 
-> ---
->   drivers/net/ethernet/allwinner/sun4i-emac.c       |  3 +--
->   drivers/net/ethernet/micrel/ks8842.c              |  6 ++----
->   drivers/net/ethernet/xilinx/xilinx_axienet_main.c |  6 ++----
->   drivers/net/wwan/qcom_bam_dmux.c                  | 10 ++++------
->   4 files changed, 9 insertions(+), 16 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/allwinner/sun4i-emac.c b/drivers/net/ethernet/allwinner/sun4i-emac.c
-> index 09b2abdfc9e84..d7ee42b2c1976 100644
-> --- a/drivers/net/ethernet/allwinner/sun4i-emac.c
-> +++ b/drivers/net/ethernet/allwinner/sun4i-emac.c
-> @@ -303,8 +303,7 @@ static int emac_dma_inblk_32bit(struct emac_board_info *db,
->   		goto prepare_err;
->   	}
->   
-> -	desc->callback_param = req;
-> -	desc->callback = emac_dma_done_callback;
-> +	dmaengine_desc_set_callback(desc, emac_dma_done_callback, NULL, req);
->   
->   	cookie = dmaengine_submit(desc);
->   	ret = dma_submit_error(cookie);
-> diff --git a/drivers/net/ethernet/micrel/ks8842.c b/drivers/net/ethernet/micrel/ks8842.c
-> index f0d6bfc6025ca..c68abd4643e72 100644
-> --- a/drivers/net/ethernet/micrel/ks8842.c
-> +++ b/drivers/net/ethernet/micrel/ks8842.c
-> @@ -453,8 +453,7 @@ static int ks8842_tx_frame_dma(struct sk_buff *skb, struct net_device *netdev)
->   	if (!ctl->adesc)
->   		return NETDEV_TX_BUSY;
->   
-> -	ctl->adesc->callback_param = netdev;
-> -	ctl->adesc->callback = ks8842_dma_tx_cb;
-> +	dmaengine_desc_set_callback(ctl->adesc, ks8842_dma_tx_cb, NULL, netdev);
->   	dmaengine_submit(ctl->adesc);
->   
->   	netdev->stats.tx_bytes += skb->len;
-> @@ -567,8 +566,7 @@ static int __ks8842_start_new_rx_dma(struct net_device *netdev)
->   			goto out;
->   		}
->   
-> -		ctl->adesc->callback_param = netdev;
-> -		ctl->adesc->callback = ks8842_dma_rx_cb;
-> +		dmaengine_desc_set_callback(ctl->adesc, ks8842_dma_rx_cb, NULL, netdev);
->   		dmaengine_submit(ctl->adesc);
->   	} else {
->   		err = -ENOMEM;
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index 8a50cad1c104f..7e83c4b5f1931 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -1014,8 +1014,7 @@ axienet_start_xmit_dmaengine(struct sk_buff *skb, struct net_device *ndev)
->   
->   	skbuf_dma->skb = skb;
->   	skbuf_dma->sg_len = sg_len;
-> -	dma_tx_desc->callback_param = lp;
-> -	dma_tx_desc->callback_result = axienet_dma_tx_cb;
-> +	dmaengine_desc_set_callback(dma_tx_desc, NULL, axienet_dma_tx_cb, lp);
->   	/* Claim the ring slot only after the steps above that can fail.  The
->   	 * completion callback can't run before dmaengine_submit().
->   	 */
-> @@ -1565,8 +1564,7 @@ static void axienet_rx_submit_desc(struct net_device *ndev)
->   	skbuf_dma->skb = skb;
->   	skbuf_dma->dma_address = sg_dma_address(skbuf_dma->sgl);
->   	skbuf_dma->desc = dma_rx_desc;
-> -	dma_rx_desc->callback_param = lp;
-> -	dma_rx_desc->callback_result = axienet_dma_rx_cb;
-> +	dmaengine_desc_set_callback(dma_rx_desc, NULL, axienet_dma_rx_cb, lp);
->   	lp->rx_ring_head++;
->   	dmaengine_submit(dma_rx_desc);
->   
-> diff --git a/drivers/net/wwan/qcom_bam_dmux.c b/drivers/net/wwan/qcom_bam_dmux.c
-> index cc6ace8d64371..1479f8362e04e 100644
-> --- a/drivers/net/wwan/qcom_bam_dmux.c
-> +++ b/drivers/net/wwan/qcom_bam_dmux.c
-> @@ -195,9 +195,8 @@ static bool bam_dmux_skb_dma_submit_tx(struct bam_dmux_skb_dma *skb_dma)
->   		return false;
->   	}
->   
-> -	desc->callback = bam_dmux_tx_callback;
-> -	desc->callback_param = skb_dma;
-> -	desc->cookie = dmaengine_submit(desc);
-> +	dmaengine_desc_set_callback(desc, bam_dmux_tx_callback, NULL, skb_dma);
-> +	dmaengine_submit(desc);
->   	return true;
->   }
->   
-> @@ -477,9 +476,8 @@ static bool bam_dmux_skb_dma_submit_rx(struct bam_dmux_skb_dma *skb_dma)
->   		return false;
->   	}
->   
-> -	desc->callback = bam_dmux_rx_callback;
-> -	desc->callback_param = skb_dma;
-> -	desc->cookie = dmaengine_submit(desc);
-> +	dmaengine_desc_set_callback(desc, bam_dmux_rx_callback, NULL, skb_dma);
-> +	dmaengine_submit(desc);
->   	return true;
->   }
->   
 
 
