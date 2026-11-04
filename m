@@ -2,103 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DBA3606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 02:40:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20CDC606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 02:40:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NileKY6N;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=Biti4XDN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RIn5/7Q+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=2xE1Al8wj2vlLQSBshL2OcXzRsXJVItNZxoz+0qsrmw=; b=NileKY6NM5M6M0
-	ZR6WoGHjkWirxfg+NH59FFpUuogpm9peiwhlsR/6Tvcjy0sCZwAndC3ai2eAzQ4NB8xtCkY7B8B0E
-	1vG6T90l+jafivDQssn6KhyiaNxpJ7nw8/CXMV2gEVvOqIRGav1NeNpjqutMJZYB7nr9L4Bf4DWRc
-	BPM5PWoCv3iNEUcv/Kg0G1wIKPKqRCyl7aSXrDtcGAzLK2kDOugYQoOq0bHioF2M1bYUIuCIU/Gin
-	LXr43LiWajZAFxlb+WaKT9zk4gM1J3e0AbW5cpZy33zAKfduOjV7jib+oiOJIffRBisArBxsNq3a8
-	aFPbuKZ5sYV04ea03yVg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=4su+3Bl8vVam/9rCmV8G+HuWhRUmzj07h5fXyjgVyto=; b=RIn5/7Q+Nv4K7SJ57Qe7QipQOq
+	17OxVAaTNP0Ifinv3f3VwkTf1ZH5ggimSvqupwt2VhXOJ+uxbzv0OqqjeJhOd8dq2u8KWr0ZGBt3u
+	bvmDZkBT3eQaMSl01TzJgEfPjl6BnKA8LRNZ6hjVJr3wa6BrY5u5cJ7A8arsp/tqA42oj7ut/lsrg
+	8ZtVH/nLI1hH2kW5R0eNBdjTeMnRXLCZz0L/iZ94hv432g0PPQgVgNdFtUE3+fc8NTzhQqL2N9m8z
+	XdUBQABbFIaDqyX5txo4HqA9P77sbsSjIXPsKF1xV+vmFWdoKosPe5PV/mIcsVbs2XPaFeAZ5CoyA
+	ufmFACVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOQv6-00000004B89-2QrG;
-	Wed, 04 Nov 2026 02:40:12 +0000
-Received: from mail-m1063.netease.com ([154.81.10.63])
+	id 1xOQva-00000004BGW-3ZFe;
+	Wed, 04 Nov 2026 02:40:42 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOQv1-00000004B5u-3KFe;
-	Wed, 04 Nov 2026 02:40:10 +0000
-Received: from [172.16.12.48] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5368a9cf8;
-	Wed, 4 Nov 2026 10:40:01 +0800 (GMT+08:00)
-Message-ID: <55255451-4778-4bf0-83bf-eac4176947d6@rock-chips.com>
-Date: Wed, 4 Nov 2026 10:40:01 +0800
+	id 1xOQvX-00000004BEv-0edC
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Nov 2026 02:40:41 +0000
+Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
+	by APP-01 (Coremail) with SMTP id qwCowADXxf8km+pqJ7k+AA--.9867S2;
+	Wed, 04 Nov 2026 10:40:36 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Xiubo Li <Xiubo.Lee@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Nicolin Chen <nicoleotsuka@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: linux-sound@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] ASoC: fsl: imx-audio-rpmsg: unregister platform devices on probe failure
+Date: Wed,  4 Nov 2026 02:40:45 +0000
+Message-Id: <20261104024045.1508542-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, vkoul@kernel.org
-Subject: Re: [PATCH 1/1] mmc: use dmaengine_desc_set_callback()
-To: Frank.Li@oss.nxp.com, Aubin Constans <aubin.constans@microchip.com>,
- Ulf Hansson <ulfh@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Jaehoon Chung <jh80.chung@samsung.com>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Aaro Koskinen <aaro.koskinen@iki.fi>,
- =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- Jesper Nilsson <jesper.nilsson@axis.com>,
- Lars Persson <lars.persson@axis.com>, John Garry <john.garry@linux.dev>,
- Hemanth Selam <hemanth.selam@gmail.com>, Pengpeng Hou
- <pengpeng@iscas.ac.cn>, Rosen Penev <rosenp@gmail.com>,
- Fan Wu <fanwu01@zju.edu.cn>, Marco Crivellari <marco.crivellari@suse.com>,
- Pan Chuang <panchuang@vivo.com>, Zhan Xusheng <zhanxusheng1024@gmail.com>,
- Rakuram Eswaran <rakuram.e96@gmail.com>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Ethan Nelson-Moore <enelsonmoore@gmail.com>,
- Bjorn Helgaas <bhelgaas@google.com>, Runyu Xiao <runyu.xiao@seu.edu.cn>,
- "open list:MULTIMEDIA CARD (MMC), SECURE DIGITAL (SD) AND..."
- <linux-mmc@vger.kernel.org>,
- "moderated list:ARM/Microchip (AT91) SoC support"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>,
- "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
- <linux-rpi-kernel@lists.infradead.org>,
- "open list:ARM/FREESCALE IMX / MXC / LAYERSCAPE ARM ARCHIT..."
- <imx@lists.linux.dev>,
- "open list:OMAP MMC SUPPORT" <linux-omap@vger.kernel.org>,
- "moderated list:ARM/ACTIONS SEMI ARCHITECTURE"
- <linux-actions@lists.infradead.org>,
- "open list:TMIO/SDHI MMC DRIVER" <linux-renesas-soc@vger.kernel.org>,
- "open list:ARM/ARTPEC MACHINE SUPPORT" <linux-arm-kernel@axis.com>
-References: <20261102172126.3890568-1-Frank.Li@oss.nxp.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20261102172126.3890568-1-Frank.Li@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa1a46d7f6503a4kunmc8d4954b6d561
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDGEodVk9OHRpIHU9IHRhOSlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQkxVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=Biti4XDNFXbuvNogqfGaU5N4HArvWpfvwOVNjSodcEYv0t0phcptB4QduFrWcRexuRTe/knwUsf0/yDB30GVNwoaPgfz++UAZ3rVuwD1APwWBcw7naO/XxLk837m4FMy4g/Fg85oMG9NPSG7H74raei5DBJ4+UegYTt0XNgCFTg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=2xE1Al8wj2vlLQSBshL2OcXzRsXJVItNZxoz+0qsrmw=;
-	h=date:mime-version:subject:message-id:from;
+X-CM-TRANSID: qwCowADXxf8km+pqJ7k+AA--.9867S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJr18Zw47GF1rArW3KF1Utrb_yoW8Zr4xpw
+	4DGa95Wry5K39FkF4UXr1xAas8Ca4xuw4rZw48Aw17Ka90gryku3yrXa4UJFW7trW8Ga15
+	tr4UWrW5Cr4ayr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBjb7Iv0xC_Kw4lb4IE77IF4wAFc2x0x2IEx4CE42xK8VAvwI8I
+	cIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2
+	AK021l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v2
+	6r4UJVWxJr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14
+	v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xf
+	McIj6xIIjxv20xvE14v26r1q6rW5McIj6I8E87Iv67AKxVW8Jr0_Cr1UMcvjeVCFs4IE7x
+	kEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kK
+	e7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCF04k20xvE74AGY7Cv6cx26r48ZrWUJr1UMx
+	C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
+	wI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20x
+	vE14v26r4j6ryUMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UMIIF0xvE42xK8VAv
+	wI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWxJVW8Jr1lIxAIcVC2z280aVCY1x0267
+	AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x07befHbUUUUU=
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAABA2rqY+TXGwABsE
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261103_184008_685312_4E1834F2 
-X-CRM114-Status: UNSURE (   7.99  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261103_184040_102754_C97B3F11 
+X-CRM114-Status: GOOD (  12.77  )
+X-Spam-Score: -0.9 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,30 +86,62 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-在 2026/11/03 星期二 1:21, Frank.Li@oss.nxp.com 写道:
-> From: Frank Li <Frank.Li@nxp.com>
-> 
-> Replace open-coded assignments to callback and callback_param fields
-> of struct dma_async_tx_descriptor with calls to the
-> dmaengine_desc_set_callback() helper across MMC host drivers.
-> 
-> No functional change intended. Prepare make to struct
-> dma_async_tx_descriptor private to the DMA engine.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+imx_audio_rpmsg_probe() registers the rpmsg platform device and the card
+platform device, but when a registration fails it only records the error
+code and continues to the next step. The rpmsg core does not call remove
+for a probe that failed, so a card device registered after the rpmsg
+device registration failed stays registered forever. The reverse case is
+just as bad: if the card registration fails, the already registered
+rpmsg device is never unregistered.
 
-...
+Return immediately when the rpmsg device cannot be registered, and
+unregister that device before returning when the card device cannot be
+registered.
 
->   drivers/mmc/host/dw_mmc.c                | 3 +--
-For dw_mmc.c,
+Fixes: c73524768e9e ("ASoC: fsl: Let imx-audio-rpmsg register platform device for card")
+Cc: stable@vger.kernel.org
+Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ sound/soc/fsl/imx-audio-rpmsg.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
+diff --git a/sound/soc/fsl/imx-audio-rpmsg.c b/sound/soc/fsl/imx-audio-rpmsg.c
+index b55dfbdb4502..950bf9e5b648 100644
+--- a/sound/soc/fsl/imx-audio-rpmsg.c
++++ b/sound/soc/fsl/imx-audio-rpmsg.c
+@@ -92,7 +92,7 @@ static int imx_audio_rpmsg_probe(struct rpmsg_device *rpdev)
+ 							 NULL, 0);
+ 	if (IS_ERR(data->rpmsg_pdev)) {
+ 		dev_err(&rpdev->dev, "failed to register rpmsg platform.\n");
+-		ret = PTR_ERR(data->rpmsg_pdev);
++		return PTR_ERR(data->rpmsg_pdev);
+ 	}
+ 
+ 	data->card_pdev = platform_device_register_data(&rpdev->dev,
+@@ -103,9 +103,12 @@ static int imx_audio_rpmsg_probe(struct rpmsg_device *rpdev)
+ 	if (IS_ERR(data->card_pdev)) {
+ 		dev_err(&rpdev->dev, "failed to register rpmsg card.\n");
+ 		ret = PTR_ERR(data->card_pdev);
++		platform_device_unregister(data->rpmsg_pdev);
++		data->rpmsg_pdev = NULL;
++		return ret;
+ 	}
+ 
+-	return ret;
++	return 0;
+ }
+ 
+ static void imx_audio_rpmsg_remove(struct rpmsg_device *rpdev)
+-- 
+2.34.1
+
 
