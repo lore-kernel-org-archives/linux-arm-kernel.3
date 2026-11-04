@@ -2,58 +2,58 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20F27606A332
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 23:49:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EEA5606A332
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 23:49:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qqVutWjh;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=RftiUDPw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=afO+rT6+;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=HVASworK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=craZvMOKShwQznguG90P50Ynv62UhMlNseXQqGecvgg=; b=qqVutWjh1IXOr0
-	33sjFwE08HnGpkefOI/CFUxN3MoBeABfBiVr89OZQUlbO1A6/wFvPhuHrL+XDGITVHpA4ozbUkoNj
-	/0XKH8dtwyxyRfWILCjcXBFY6DIiZE3D3REbiPDSiqimi0PMFBS8r+bQz79eDYKuMmAesfkQkRLp0
-	6ODZOBrg7qEtIh39psDgJsPqsixhtiSh/ZBzsBqjIDR0OXHFg49KAI3mWznG211Zo5S0CV+ikfK9W
-	RtIcK9XBQ6lbyFuvjw1pZNmYaLnH7hetPLVk9tZa4/r23A7v8F6sNt7zbhgpWDQ8sEEBkq94HaAxH
-	B2TifMX70d+IQnvOKRHg==;
+	List-Owner; bh=OmKsfl9uJsUWso+fMpxk/dFFuSVB9wUShIb6I86M6Xw=; b=afO+rT6+zPBGtf
+	JwrUkq+4kQ5o9DgZZP1jYosAmUYdCOTdr3f6tEFlGAjy4MQvPoYEpcfEQPnzP+zivDzLagIONvutV
+	yEFyjClD+oSqNXukO6xFzvl47HqYCjYJSjgCxsMQStS/uXlghL0VxuIkL0DvPtJyPV2AxTHmXytUp
+	WqZ8v15Fe/LIngpqscpDupzZ9XsyEm6mAbJOYiOA1JJUfXPQ7ohaZk7fT/vdM9UzLUr6cdMiY+nkt
+	PprnJ5U2/2W+2rLtdxRu3UwqWKJEL9vFysH2C6FMn9q7E3YqniMdYwTTSsqEDuS5K7WDQ80t+UGrL
+	cRmZI04ij+iM2DuV/nWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOkj8-00000007HCD-1Ai2;
-	Wed, 04 Nov 2026 23:49:10 +0000
+	id 1xOkjD-00000007HHR-3rDC;
+	Wed, 04 Nov 2026 23:49:15 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOkiz-00000007H68-2jOu;
-	Wed, 04 Nov 2026 23:49:04 +0000
+	id 1xOkj4-00000007H8H-1RcM;
+	Wed, 04 Nov 2026 23:49:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1793836139;
-	bh=GfAyb2KdZIf1ttG9EdRmi74euMuvmqM9ACQXbRgW0IQ=;
+	bh=NjKQZleP3GcYsDwf94ycTmT6FiH5od/S2dfJRexNKCE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=RftiUDPwSKfTskHKuK/mHz67+kpHqx12Jn2F/NJztC2SCx8+xR5f/86/KdFkRfrpC
-	 +xqyX3RWiUYG4DHOCeX8ytTHVbAQq8UCIK1MNapCpy/vqjICIkETH6+uE3Y0+RC2iF
-	 2NXq2u2prxWLzIrh4KDEMfayNJOvOmP7nBXea1OuyEFV1y9xYctzSmY7GFinCVDG+B
-	 gVw+IVisdFDxwMY4g6c7US8rsxEnZ2WEgzoaqD2FPHjpsjxe6dmWOYk39odXsUjpv6
-	 DVnqn56GPD0OLszSjLpGghdNaCXSpN0Yke+KCrgegiht5+uDaaHd/Oh/Ie/IgqHTgR
-	 OvCYGZTOyPFkg==
+	b=HVASworKWrHbgBeyxEUggCXTadYlAuf2oaPMT1BJT0sltNz34MQ6vse9e4MzedMpr
+	 A2tQIt9Z+5SDsUE/3Q8nPgpJQOYuGQpynR6hlBagEL8vjw4hMo79yPSH1omToEhtoc
+	 LczQ4SYQFIAfbWx3sgNtTCEPa9MMM2qc5wc5QzGJqzJXvw+z1HEbMWhOo+bTNbUxGj
+	 WyLUbfmOXwYlGcak9awaqG/smJIBRinc8CDqeptI7tWSLSL7RGVp6UDC9kSP3YKclC
+	 dwIOvX5d/ZwaNEDt0ERbxnGknpBKq7ce2Kpy4hGlR4iN170PMrP460lmwAXWn2ozrC
+	 5YbCaCE8UxpfQ==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2C11317E0D49;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 82CDA17E0D7E;
 	Thu, 05 Nov 2026 00:48:59 +0100 (CET)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id E18AD480030; Thu, 05 Nov 2026 00:48:58 +0100 (CET)
+	id EA7D948003D; Thu, 05 Nov 2026 00:48:58 +0100 (CET)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 05 Nov 2026 00:47:04 +0100
-Subject: [PATCH v8 3/9] PCI: dw-rockchip: Move devm_phy_get out of phy_init
+Date: Thu, 05 Nov 2026 00:47:09 +0100
+Subject: [PATCH v8 8/9] PCI: dw-rockchip: Set broken L1SS resume flag
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-rockchip-pcie-system-suspend-v8-3-0434b4f373bc@collabora.com>
+Message-Id: <20261105-rockchip-pcie-system-suspend-v8-8-0434b4f373bc@collabora.com>
 References: <20261105-rockchip-pcie-system-suspend-v8-0-0434b4f373bc@collabora.com>
 In-Reply-To: <20261105-rockchip-pcie-system-suspend-v8-0-0434b4f373bc@collabora.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
@@ -70,26 +70,26 @@ Cc: Alexey Charkov <alchark@flipper.net>, linux-pci@vger.kernel.org,
  linux-kernel@vger.kernel.org, kernel@collabora.com, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1616;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1696;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=GfAyb2KdZIf1ttG9EdRmi74euMuvmqM9ACQXbRgW0IQ=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGrrxGqMV+Xg9VX+SR6xfsjO6RAXuXVzfzGqS
- GrfO2RANO34VYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJq68RqAAoJENju1/PI
- O/qa/5oQAJNNMbQ7tKg5p9pWBgN7slbywdVLPjvhqUi9Fvbhn8QDU/AKN4MotbHrtRBzRw3e+Q7
- xUP+qukp33KYAytEw9h+VGfaHnqFvVgwkDPLeOtPJE5dDRKLlR8x1KFGC6CWPO/3/iP/Q4HPPXH
- NjZ/EpMOeGT9MfkoZqUK/3cz05WHlSI8J0SoJ0EDEEHBnPurZS8LYoddUeYEXs5bnWosk2bFHQI
- 31ZVC04FMOCHkXhTwwGqoG0L8ws3pSWN+AXVrFkCzmrhK1hM1WCSiuXcu6kXmY03qdPZ+ffPqXN
- 5zjyy2DCx74X4zuzeMQCLGl1JTsv9FzhFLzCsTcY3Z1WJ4rFcYVIBcVKxTJt2EsZ9szPhKjupfT
- uvHhcER4KYhcWQobYiKhtFP1AnXO5SfA9HuesZb0tpP27U27aB7SDyt6GeczSnObjeB7elAwaex
- 6FwcpHLaIrdglRrPIuqKgoj9NyV64POszjEfMJFBCecHBrB33i95jm2j33F2vOcpZH1tJi+/B+z
- /rTPVyS1H2MFwa2qbXlMXQX5HUWraP3Y9W6uPipfdMobRcYKIx9hW55jeZtm/LFOt059QD4AMfz
- 0DSpJbgOVh8QocAO/RU3OkulqQ68l4jwMLdZ9X6bbOZdEOdBhsfFLbv9R54wLoXrGwWCViBGim7
- iyX/8ZmGVLtWdNTS5FPQzvw==
+ bh=NjKQZleP3GcYsDwf94ycTmT6FiH5od/S2dfJRexNKCE=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGrrxGoHvZr0cSFoeS+VJ9o5szng4QW621TUw
+ Vk2qvOPnzLXQokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJq68RqAAoJENju1/PI
+ O/qa1usQAJOHCDfrJAH8J4H9h+WAwhi2xbEj/F1EHyCsHgL4ByhT/aXZC9nDwTpZpo1u6lMktVX
+ 049i8pQfSLvXKqmg969Ob9Senj26yp46SJ3gTlK3z5nKivHbj02ArhdMJYcZgH6IH+Aw2Ww9U4X
+ QiE7pPCO0NTLsaM4sFLQz9sig2gO3c6e1eV/aSpSwnkUSrVBzxOjx85JWwelp3tOFdaUSfqYkM2
+ 4tgCfEuqCZWYpQq0diwdQV9KtVHYhLOiJjCV5ZWbX4/s1VfTNJCRBq6hfv1xVOssYxPpTjVTPDM
+ gED87hoJjhpVoSWnsYToMcff9rbrxShg9Ole2P4wmqJRJJtaWWFXcPMMPvy5AD97Yzhf28PggDt
+ ai+3zgMOiLbXHVSqQQ6FpWygWLKNBBCnkzyBJ1i1CbQNsyRmiD1RcApV2WKHnSU/3ACb2HjI9rE
+ 54M06z0JYtL/vtRjj1brVRKqnc5uPAAFsltG8UFZ6P9fcCuuPbUpO5PoIhXrhEJnaqvzZYCb5mi
+ CrXQvfWJ8ao/ON10e/Dv6dkCJQKPpIDtzFdyv56LLhgl6XGM13++TbyXihPbVZOgjFK6OBG2PBH
+ 4ypCFQqp6NqmOZASYZA9BDQWrYL5hKXVIarvG4NbJRZylWT6mrCCTDWZUDqt+1fAyIwQIZ7u89p
+ JzHHuxkbRjDOv4G8p1RUwtg==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_154901_872274_2BAC6669 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20261104_154908_226184_C9B1A2B9 
+X-CRM114-Status: GOOD (  12.55  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,49 +109,46 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-By moving devm_phy_get() to the probe routine, rockchip_pcie_phy_init()
-can be used to re-initialize the PCIe PHY, which is for example needed
-after a system suspend/resume cycle.
+During system suspend, the Rockchip RC driver effectively powers off the
+controller. If the link is in L1SS and the endpoint asserts CLKREQ# to
+exit L1SS, the time required to wake the system and restore the
+PHY/REFCLK may exceed the L1SS exit timing (L10_REFCLK_ON +
+T_COMMONMODE), resulting in Link Down (LDn) and a reset of the endpoint.
+Set broken_l1ss_resume flag to indicate this limitation to the PCIe
+framework. This results in pci_suspend_retains_context() returning false
+and PCIe client can avoid relying on device state being preserved
+during system suspend.
 
 Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 13 +++++++------
- 1 file changed, 7 insertions(+), 6 deletions(-)
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 574d3dcfcf8b..a3b0fb918479 100644
+index 7933c50df340..9a2606748281 100644
 --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
 +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -599,14 +599,8 @@ static int rockchip_pcie_resource_get(struct platform_device *pdev,
+@@ -448,6 +448,11 @@ static int rockchip_pcie_host_init(struct dw_pcie_rp *pp)
+ 	return 0;
+ }
  
- static int rockchip_pcie_phy_init(struct rockchip_pcie *rockchip)
- {
--	struct device *dev = rockchip->pci.dev;
- 	int ret;
- 
--	rockchip->phy = devm_phy_get(dev, "pcie-phy");
--	if (IS_ERR(rockchip->phy))
--		return dev_err_probe(dev, PTR_ERR(rockchip->phy),
--				     "missing PHY\n");
--
- 	ret = phy_init(rockchip->phy);
- 	if (ret < 0)
- 		return ret;
-@@ -858,6 +852,13 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
- 					     "failed to enable vpcie3v3 regulator\n");
- 	}
- 
-+	rockchip->phy = devm_phy_get(dev, "pcie-phy");
-+	if (IS_ERR(rockchip->phy)) {
-+		ret = PTR_ERR(rockchip->phy);
-+		dev_err_probe(dev, ret, "missing PHY\n");
-+		goto disable_regulator;
-+	}
++static void rockchip_pcie_host_post_init(struct dw_pcie_rp *pp)
++{
++	pp->bridge->broken_l1ss_resume = true;
++}
 +
- 	ret = rockchip_pcie_phy_init(rockchip);
- 	if (ret) {
- 		dev_err_probe(dev, ret, "failed to initialize the phy\n");
+ static void rockchip_pcie_pme_turn_off(struct dw_pcie_rp *pp)
+ {
+ 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+@@ -487,6 +492,7 @@ static void rockchip_pcie_pme_turn_off(struct dw_pcie_rp *pp)
+ 
+ static const struct dw_pcie_host_ops rockchip_pcie_host_ops = {
+ 	.init = rockchip_pcie_host_init,
++	.post_init = rockchip_pcie_host_post_init,
+ 	.pme_turn_off = rockchip_pcie_pme_turn_off,
+ };
+ 
 
 -- 
 2.53.0
