@@ -2,44 +2,44 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C199606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 08:49:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC4DC606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 08:49:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dDWWMUR/;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=k8mGENjt
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Kx+wcL5I;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q0lFkMvJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=lHuHnqCqF6K6uaueK6Sr4c00lW3mD3+MLoiZXuZlni4=; b=dDWWMUR/Q6Fagy
-	eaIBL1MY8KHzVRhRivhsJuwsuQ4U33F14m8yyBnNhDmOmUXdmR8QSjYE59TFwgEBNfdW83vKKcYTy
-	H2xipj1Xb28SzwEAHp9UA3a4Pb7PCQW8D3pKzYW8PUalBly3yEa/nJyPA7CxckSwtMQUjzPj3wiPk
-	EHjUvYO+uBl65Z4GzrXY21rq6gU3rsFxZNkUF1dk0XVchdoX/gk7TCkwen/WrUQ5121VaWkgdSLl4
-	6xQ2ZtKXtOKHbokss9UvoRgxlW2NSOaFTVs3Qyuv0ZFHPFKhfZYlx/A79LCxOoag/8GuOKtgMafaa
-	ktiPg114ykBP7jCsCrrw==;
+	List-Owner; bh=Wgtb9kfhJDQT6OIlDEFANW5PARd8orgbcoPjl6TcZEI=; b=Kx+wcL5I2ZEs4K
+	gq5GbWBxs3JG3K8Xi1VGXNvG3ej9hg1ZDdarMCfEPOegrDi7T/dMUKiORw96FjQKTSiTlyEaX6u8B
+	ZKSExBxBwLoS2OoulB9V+i9cdiMEeSknRSuPGVwrMh3AEreAHDIX166wdxcgj0318s2LGVCKE7URC
+	ZX5P618F6qGP/F8JMvEmBBnfPHpfSONZoTNcSS9q56aI47clfOc5o2iX2qpvbZ44E71FkJtko7wLa
+	5/aS6dKZW5Pguws3KHwn7yrjSwo4F9vHJnbHKEIrynd2xAX4pSBZbSAmrlpGSkY4jBf1F4nAZymUb
+	K6P3+itcTJYIVCR8POhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOWg1-00000004l48-1iY8;
-	Wed, 04 Nov 2026 08:49:01 +0000
-Received: from out-187.mta0.migadu.com ([2001:41d0:1004:224b::bb] helo=mta0.migadu.com)
+	id 1xOWg3-00000004l5i-27YR;
+	Wed, 04 Nov 2026 08:49:03 +0000
+Received: from out-191.mta0.migadu.com ([2001:41d0:1004:224b::bf] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOWfz-00000004l2h-1nU6
+	id 1xOWg1-00000004l3A-00BX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 08:49:00 +0000
+	Wed, 04 Nov 2026 08:49:02 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=cCLqiN/2yb0grwWK9kGanBFuqdVWEkSHBIBzeKIBjnY=;
+DKIM-Signature: a=rsa-sha256; bh=zy9OoZoEVLZKrHt/PA6PNvYObGqJuDPk1PHvlEStbBI=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793782137; v=1; x=1794386937;
- b=k8mGENjt6dpqYvnBkvT/loF7Zxaf3ScEyYErTu3eE+QxXOcDNiFhEVco2fqWxrsACR0kKJa3
- 1R7OoXPvewqN2DBVVdOmm2wYkdK6PgiIcDMQ7W9OkmOD3cmvt0/KvI1IV8/toDTmyv/vBhvEU5i
- 9uav8D7+ZITB93Tnjtqs3nak=
+ t=1793782139; v=1; x=1794386939;
+ b=q0lFkMvJ6aldS90vGPX8Tae1McejmsXzlrjf3IcLe1lPgX422iXCunXCI26VYMDPQOUR5Gh4
+ rtcfT+rB+0SYffDNWlwahAWRYclzDTmXBA3zmFch3OLEhvvydC9wnrXaHsReMK6v68tqB6f8s4A
+ Jlz53TVC+NpFkWmEieQcwVl8=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id afd5417ac097421f;
-	Wed, 04 Nov 2026 08:48:57 +0000
-X-Mizu-Trace-ID: afd5417ac097421f
+Received: by smtp.migadu.com with ESMTPS id adf1661c24975b7e;
+	Wed, 04 Nov 2026 08:48:59 +0000
+X-Mizu-Trace-ID: adf1661c24975b7e
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -60,9 +60,9 @@ Cc: Will Deacon <will@kernel.org>,
 	kvm@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 02/16] KVM: selftests: Allow arm64 tests to create protected VMs
-Date: Wed,  4 Nov 2026 08:48:28 +0000
-Message-ID: <20261104084842.132944-3-fuad.tabba@linux.dev>
+Subject: [PATCH 03/16] tools: arm-smccc: Add the pKVM memory sharing function IDs
+Date: Wed,  4 Nov 2026 08:48:29 +0000
+Message-ID: <20261104084842.132944-4-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261104084842.132944-1-fuad.tabba@linux.dev>
 References: <20261104084842.132944-1-fuad.tabba@linux.dev>
@@ -70,8 +70,9 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_004859_605621_1DC95D9D 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20261104_004901_174605_E17633A0 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,36 +92,59 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On arm64, the VM type passed to KVM_CREATE_VM carries the IPA size,
-which the selftest library fills in. The library rejects any type a test
-provides in vm_shape.type. A protected VM is created by setting
-KVM_VM_TYPE_ARM_PROTECTED in that type, so a test can't create one.
+The tools copy of arm-smccc.h lacks the pKVM guest hypercalls that the
+protected-VM selftests make.
 
-Accept KVM_VM_TYPE_ARM_PROTECTED from the test, and add the IPA size to
-it as for any other VM.
+The kernel's arm-smccc.h defines the vendor-hyp UID with UUID_INIT(),
+which requires linux/uuid.h, and tools doesn't have one. So rather than
+sync the whole header, copy the function numbers and IDs of HYP_MEMINFO,
+MEM_SHARE and MEM_UNSHARE from include/linux/arm-smccc.h.
 
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- tools/testing/selftests/kvm/lib/kvm_util.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ tools/include/linux/arm-smccc.h | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index d42e201eba763..96c1e70dba3d3 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -400,9 +400,10 @@ struct kvm_vm *____vm_create(struct vm_shape shape)
- 	}
+diff --git a/tools/include/linux/arm-smccc.h b/tools/include/linux/arm-smccc.h
+index 63ce9bebccd32..8c8f4ad639018 100644
+--- a/tools/include/linux/arm-smccc.h
++++ b/tools/include/linux/arm-smccc.h
+@@ -111,6 +111,10 @@
+ /* KVM "vendor specific" services */
+ #define ARM_SMCCC_KVM_FUNC_FEATURES		0
+ #define ARM_SMCCC_KVM_FUNC_PTP			1
++/* Start of pKVM hypercall range */
++#define ARM_SMCCC_KVM_FUNC_HYP_MEMINFO		2
++#define ARM_SMCCC_KVM_FUNC_MEM_SHARE		3
++#define ARM_SMCCC_KVM_FUNC_MEM_UNSHARE		4
+ #define ARM_SMCCC_KVM_FUNC_FEATURES_2		127
+ #define ARM_SMCCC_KVM_NUM_FUNCS			128
  
- #ifdef __aarch64__
--	TEST_ASSERT(!vm->type, "ARM doesn't support test-provided types");
-+	TEST_ASSERT(!(vm->type & ~KVM_VM_TYPE_ARM_PROTECTED),
-+		    "ARM supports only KVM_VM_TYPE_ARM_PROTECTED as a test-provided type");
- 	if (vm->pa_bits != 40)
--		vm->type = KVM_VM_TYPE_ARM_IPA_SIZE(vm->pa_bits);
-+		vm->type |= KVM_VM_TYPE_ARM_IPA_SIZE(vm->pa_bits);
- #endif
+@@ -133,6 +137,24 @@
+ 			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
+ 			   ARM_SMCCC_KVM_FUNC_PTP)
  
- 	vm_open(vm);
++#define ARM_SMCCC_VENDOR_HYP_KVM_HYP_MEMINFO_FUNC_ID			\
++	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
++			   ARM_SMCCC_SMC_64,				\
++			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
++			   ARM_SMCCC_KVM_FUNC_HYP_MEMINFO)
++
++#define ARM_SMCCC_VENDOR_HYP_KVM_MEM_SHARE_FUNC_ID			\
++	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
++			   ARM_SMCCC_SMC_64,				\
++			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
++			   ARM_SMCCC_KVM_FUNC_MEM_SHARE)
++
++#define ARM_SMCCC_VENDOR_HYP_KVM_MEM_UNSHARE_FUNC_ID			\
++	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
++			   ARM_SMCCC_SMC_64,				\
++			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
++			   ARM_SMCCC_KVM_FUNC_MEM_UNSHARE)
++
+ /* ptp_kvm counter type ID */
+ #define KVM_PTP_VIRT_COUNTER			0
+ #define KVM_PTP_PHYS_COUNTER			1
 -- 
 2.47.3
 
