@@ -2,61 +2,101 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7F24606A337
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 18:59:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2221606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 18:59:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=g8quZ4bV;
-	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=ZSXPcTro
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PEEo4hVE;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qusBEhAY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=m7rHPBwaK2QnFjTfM9iOAm57zKhbpBduzc8crhMuhp8=; b=g8quZ4bVASRfFl
-	/Lb7wL4wgDwks++7LT/2Hu2t66XuDGk7Ntj2EkMyzyYlAFhJsqY0GkFcgleDp+u8U99o17zvsYw8D
-	Wq1qW6QOJMEndERLVe7tOzpNYR4tCwXhTFH5mtdS4pib4No04nyQ4zTxmL+GCgQ6bqXf8ICMvNn3w
-	g/4vfuhv08ZQa4pjA12VAp3igXPKmlhXrDEybrBS21xmjDo0SBIulCYey16irNWRxAn9GzBIEfq3g
-	aU2bfqBn/UaQOhUEMdt/Jy8M7Rf/0KaHaQyzVD+dSFi5fpt5hi0AaU1/dDHCp9nWBR5NYEPNJ9tM8
-	f2hxRkIljSGSzq88KmTg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=R3r6XsLge/zZ3OKpgQUjrLyEgNz14EMMNXZOviFfiAM=; b=PEEo4hVEC2z/0DHY/IiCl5rakw
+	Af20DcBYA3Sp0klSrrY6fxo0jLlLz/GeOmZQkOpYiTjJsuwLiJfT9LrN9TOFqFBr1TOYshlrtimTm
+	DUEZCPVxfr0NfQpoh2YdctK67wmPgWneaHvT08BIm2/U4MToQooI2Ldrz95M8tClvp9DEWfOdtgE0
+	L5cDEogGOibgR2DRJKLP9ejwL0oCkpZaMdZUusmCTO/ttiaCppNko1zra+WEXCHWIeSUl56Vbr/CZ
+	zgpvFtRS0QBkcR3/wkxWI+/9MpXhaw3uaYupf9Lm0j2eAG7+MkR4f5daAYM9TONrFx+i9IFHOTeb5
+	KuM+Umag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOgCu-00000006V6v-27iO;
-	Wed, 04 Nov 2026 18:59:36 +0000
-Received: from mail-4322.protonmail.ch ([185.70.43.22])
+	id 1xOgD2-00000006VCu-34RF;
+	Wed, 04 Nov 2026 18:59:44 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOgCs-00000006V58-05p1;
-	Wed, 04 Nov 2026 18:59:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1793818771; x=1794077971;
-	bh=m7rHPBwaK2QnFjTfM9iOAm57zKhbpBduzc8crhMuhp8=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=ZSXPcTrojU0nKPQ7wcqHAeV2ZoLT12SqXlgU//5hc5rMpnCKKFRMAFllbrCF3LYKP
-	 domxctA98X0SMSPXMMr+ueDPRlpjGteXvhusWkTNx0BQdCrF6z0OIYSHy19BKbo2/n
-	 4WY32gq8Bt6OFUNVd0afx9nmUf9ghE7koNV5hU0DZFZUuWkzDKTxb276tKL/9kpUXl
-	 p1Uj1O6l6Phlho0PoqcNnU5Fw/tlyKRcIU7IgmLrpWA92LNgFS66GvgLwMZ8E1Wxk+
-	 nhise5dBgYi7BLOHE5EeVKAq9r/0xzkf84V/k+3nRBX8Nm/TfF9eGcuzipcZkIJ3Se
-	 mgZ8pcy0DVPyw==
-Date: Wed, 04 Nov 2026 18:59:25 +0000
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-From: Roman Vivchar <rva333@protonmail.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, jitao.shi@mediatek.com, dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kernel@collabora.com, justin.yeh@mediatek.com, jason-jh.lin@mediatek.com, CK Hu <ck.hu@mediatek.com>
-Subject: Re: [PATCH v9 11/13] drm/mediatek: mtk_dsi: Enable PM Runtime on probe
-Message-ID: <F0G_dANYlJ1-UIb2SYBfD3M-Lf0LDESQ3_gls5cGALE1EXYHhZXJHfAibDIjbFR9Rc_rfmce8tk8vBoevtJ94X3inG6HVIVzzBBtWCyPTW0=@protonmail.com>
-In-Reply-To: <20260916110825.102631-12-angelogioacchino.delregno@collabora.com>
-References: <20260916110825.102631-1-angelogioacchino.delregno@collabora.com> <20260916110825.102631-12-angelogioacchino.delregno@collabora.com>
-Feedback-ID: 173184497:user:proton
-X-Pm-Message-ID: 72767cc76342ad316c8bf2f0e9abda7edd262961
+	id 1xOgCw-00000006V7d-1XOJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Nov 2026 18:59:42 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4a59100fa83so10096065e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 10:59:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793818776; x=1794423576; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=R3r6XsLge/zZ3OKpgQUjrLyEgNz14EMMNXZOviFfiAM=;
+        b=qusBEhAYYCVSuIsB0q2mvDd6/qEVaPsi5k7ltwvdtuNuSqIYYUd6nJx9WZL0yV5cc9
+         eijkLeCUIyEJQANTQJoM5lLQn2srbS4Boy2+Cd68COBDwD+4qm3td0k6obGzsSd0vPqn
+         F9yp4H8hxcki0w8Lt/VNt8UwHIEtgS6JhCyFa4lfDYz7FgXwuJw+bzE/2zu7MjM3864D
+         mPvbSd+3pXQ+hMBTQh4guPcaWD1sD3dNEwZ1Xy3HNoIBmDstGvutfHg3gI/2Hc7cvRU2
+         WJYgiw/cufYElDkgVxG/Iy87Cd3nT7T9QaNty8cFChuEnq94EvAq9e2ByncH7fYTCbVb
+         0eAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793818776; x=1794423576;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=R3r6XsLge/zZ3OKpgQUjrLyEgNz14EMMNXZOviFfiAM=;
+        b=akexv1vnba5bKA2oK0ZbSAMavSfzv7+M0sNb2dm7ZyyLSo9Y4QoFdkywxX/npdAYCW
+         TcOa9gse1KzMPN0gPfwF+0FObW7AuQTF33/wIbWZpyqa+Pohr1burwMLcJOikxlHKk5P
+         7jLZzOJq88ZAgx6P3qA26gjeCIoxmr2imlRYhaqgcoZxMwnMSR42ivo9dmbPIbVvu431
+         SiVYz/8w0wTQ+0hGcr0LYcQiWjP12gl99D5zygPe7lJWW1J3L2NgJvep2HtGF3FPD6Wb
+         70pHS2TcDsy97CXI2l/RM+aY7Sp4SfNi5WBJdcVAMN9I8AcjqMQXzguqtpKw39Sn6MKl
+         hzBg==
+X-Forwarded-Encrypted: i=1; AKwUvBwo/815s/pgPQbe/MrID5ZdlPDxfFICV4XNtf6+fz1Oi5BAZMwgDLkqh8E4h0Eayy4+fe3ALVUI3CCd0r/dWlbk@lists.infradead.org
+X-Gm-Message-State: APuU4Z8cK9SFKs3BL8kMmmLqgwojKR/bJ5m22CrZB6CIRJ9JRiaSKF4P
+	x8u/PWHgvY3m3ZZu4TXsAMI9A/Sm5yE60bZX68AJfCBVhKwtxs5+HjZd
+X-Gm-Gg: AYBFou0InQ5Gou3Cu2Wb7ajDqEms40p0ugae0lFe9hkmzDHwrp4Tbd8X//CrE5VGiTA
+	qLRfVo6sQgLBZRIj1O/iKPyKcY2ALO611R3/3HH8A5UstodlK6f5+eMXyzF73Zp8l3ZM58VXXas
+	VsXR8Yhy/hZu4dYQku/bkWfhig6XwC2a35LlwhT7ddhzs7WP0M++wLNfxT0gdlEgwd8wmk1U/9R
+	vjGe8BI6YVb85Y25xd19lZ/U0oM5vit/t1vW+gu7wd3890e+AdZIYz4owbEyehjlcqw9o4uOa+A
+	+lBeH1+MhWbcIIOBcsKV4otObrza0QwgV2k3cYbte+jvoQowfWXuf1QzHl2/0xsB7ryTnki0kDr
+	/piiBB/wK1vYYEucQIm2w9aYIvHDXV9PwqeUalGr5njJ5/IZz7JYQ0v0o3RqNL9AZzFr1bHjeIv
+	CffG6Nf7Qc5Ne37Fd2PXG9cPZjvSE4uFlIdotyW0mdM0Y834dnTH21Z+CFjhzPQuMtj66bKLhDa
+	HxCTHwRKUh8dhiJuhdPYulfhTwl44ia/NMvAazrSia+Xa5XqNxS4HVz/IatoQGhtA9Kk8iFJepk
+	+frsHY8i43uIVP9sB352e7jLB/8gzjP76eSWQpWkfowWYqUs/pL3ZwMC63iBhXlWDo59xYLHdK/
+	2nyZ/Vu5L7iyN9U7xliMzTHatRhIruC2plowUMWJyOFNhKGXWqwDZufDt8rUkyuBrTFus1x0EWX
+	0q9cItFBMhGVs46N/lx82eOnL8MRxT45ZukSkcmQsItx5/b0TFpp2TzGwvDbPG1Cq1UpixwNTTb
+	+PSR+HVJNc62rhiVTVEKQnlJGv+mHDodsES2bc0I1nP
+X-Received: by 2002:a05:600c:a00b:b0:4a7:b304:253e with SMTP id 5b1f17b1804b1-4ac1765d8abmr383629925e9.22.1793818776367;
+        Wed, 04 Nov 2026 10:59:36 -0800 (PST)
+Received: from jernej-laptop (APN-122-103-30-gprs.simobil.net. [46.122.103.30])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b572bba207sm3598795e9.10.2026.11.04.10.59.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Nov 2026 10:59:35 -0800 (PST)
+From: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>
+Cc: linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Subject: [PATCH] media: sun8i-di: Don't sleep while waiting for coefficient access
+Date: Wed,  4 Nov 2026 19:59:30 +0100
+Message-ID: <20261104185930.885203-1-jernej.skrabec@gmail.com>
+X-Mailer: git-send-email 2.56.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_105934_219691_4BBDAC80 
-X-CRM114-Status: GOOD (  14.39  )
-X-Spam-Score: -2.5 (--)
+X-CRM114-CacheID: sfid-20261104_105938_433737_C225EE93 
+X-CRM114-Status: GOOD (  13.56  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,62 +107,45 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
 	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=4.0.1
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wednesday, September 16th, 2026 at 2:09 PM, AngeloGioacchino Del Regno <=
-angelogioacchino.delregno@collabora.com> wrote:
+deinterlace_irq() calls deinterlace_device_run() to start processing
+the second field, so it runs in hard interrupt context. However,
+deinterlace_device_run() waits for coefficient access with
+readl_poll_timeout(), which may sleep.
 
-> Enable PM Runtime at the end of mtk_dsi_probe() so that the
-> mediatek-drm mtk_ddp_comp_power_on() function is able to do
-> pm_runtime_resume_and_get() and, analogously, the function
-> mtk_ddp_comp_power_off() to pm_runtime_put() for the DSI
-> device.
->=20
-> This makes sure that the power domains for the DSI IP are
-> turned on and off when necessary.
->=20
-> Reviewed-by: CK Hu <ck.hu@mediatek.com>
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
+Use readl_poll_timeout_atomic() instead.
 
-No regressions on mt6595 or mt6768 platform.
+Fixes: a4260ea49547 ("media: sun4i: Add H3 deinterlace driver")
+Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+---
+ drivers/media/platform/sunxi/sun8i-di/sun8i-di.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Tested-by: Roman Vivchar <rva333@protonmail.com> # mt6595, mt6768
+diff --git a/drivers/media/platform/sunxi/sun8i-di/sun8i-di.c b/drivers/media/platform/sunxi/sun8i-di/sun8i-di.c
+index 65bc426e5aac..bb90e0efa4d1 100644
+--- a/drivers/media/platform/sunxi/sun8i-di/sun8i-di.c
++++ b/drivers/media/platform/sunxi/sun8i-di/sun8i-di.c
+@@ -163,8 +163,8 @@ static void deinterlace_device_run(void *priv)
+ 	/* neutral filter coefficients */
+ 	deinterlace_set_bits(dev, DEINTERLACE_FRM_CTRL,
+ 			     DEINTERLACE_FRM_CTRL_COEF_ACCESS);
+-	readl_poll_timeout(dev->base + DEINTERLACE_STATUS, val,
+-			   val & DEINTERLACE_STATUS_COEF_STATUS, 2, 40);
++	readl_poll_timeout_atomic(dev->base + DEINTERLACE_STATUS, val,
++				  val & DEINTERLACE_STATUS_COEF_STATUS, 2, 40);
+ 
+ 	for (i = 0; i < 32; i++) {
+ 		deinterlace_write(dev, DEINTERLACE_CH0_HORZ_COEF0 + i * 4,
 
-Best regards,
-Roman
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+-- 
+2.43.0
 
-> ---
->  drivers/gpu/drm/mediatek/mtk_dsi.c | 4 ++++
->  1 file changed, 4 insertions(+)
->=20
-> diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediate=
-k/mtk_dsi.c
-> index 3b33419aee2d..4863d910511e 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-> @@ -1735,6 +1735,10 @@ static int mtk_dsi_probe(struct platform_device *p=
-dev)
->  =09if (ret)
->  =09=09return dev_err_probe(&pdev->dev, ret, "Failed to request DSI irq\n=
-");
->=20
-> +=09ret =3D devm_pm_runtime_enable(dev);
-> +=09if (ret)
-> +=09=09return ret;
-> +
->  =09ret =3D mipi_dsi_host_register(&dsi->host);
->  =09if (ret < 0)
->  =09=09return dev_err_probe(dev, ret, "Failed to register DSI host\n");
-> --
-> 2.55.0
->=20
->=20
-> 
 
