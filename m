@@ -2,68 +2,53 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E331606F97C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 15:55:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB9416070782
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 15:55:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Xgg3F+Cj;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=O68YjoBw;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=Zt2iw1oW
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xif7e+Ni;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=U2fsk3BW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=6/fwN93QKXlrtEMORZyL36eAUclAA0jiIqQ2lFOaVlU=; b=Xgg3F+Cj02mo+F
-	Q3rHbxl8mKDHBrRYpb+XnW4KuGd5c1JZE6qKZdpVIBuSv++lb0jqVVKWgf6tXj2M6Wy0zBxleeONv
-	kIPXNAGvfmau2cS6vOz9wnMxZwgoJCghlM9P8cCdxvBR5KQoxGuFwnJMu/S1lS1uj0P8yxbF+x1iI
-	/wk9GcKKgEFopS8EsN6hupSky2QI0eWPzP/zSaqeeyTT3RFvZj+2joPagBcnVX4UzR/uhGi9sSW2t
-	k99rTyvANfdhW4fe/JSg6nUATa3tghQDUusqmGBxnTCwnfE0QDhtDVSrXMoUHxtdOONT5XyB2XYFb
-	xx7jrqGm4S+Rv7n9Wstg==;
+	List-Owner; bh=+IFvGBiDHS/+wPz5FfqsRIQOtWki0vWdwd+Qq7+myMU=; b=xif7e+NitBYzHs
+	Yuzs4pTv0yCucRKSx4khHWnijagiNh6vlxQLYHriF89TLC9SgdqjyXuAi4yj+4IU0ICUeHqybAf2Y
+	Qd8b7RfUM5AUSyVf/k2+aRnRVI/ddhZzVZPZ55nsOvZhoAs5iYWeshi0QQyeyk5o8YDZBo3iaB88d
+	unzNHipCkuUzSkhJ0ytEGbNyPqsd8QkrmyU3lq17JLdbSRIq9RBZstnTJk5+J8VrKufmj8eD5e64i
+	EbI5G7w8QfUs0QyYLIqIoA+MnsOXuggihPZDo1YBD6lNiExyYWLV7FoUonySjBhAvdzXfF1zXBTRA
+	nFOvJQFrQPjxatp74TiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOznx-00000009Thh-0aix;
-	Thu, 05 Nov 2026 15:55:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOznZ-00000009TP8-19Ov;
-	Thu, 05 Nov 2026 15:54:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=6/fwN93QKXlrtEMORZyL36eAUclAA0jiIqQ2lFOaVlU=; b=O68YjoBw0pLWai9QyuMFAHcWzV
-	ryLz0dMLGBqC8MShoD9e7gvlPk8isv/wQH2Mj0PQFTQRpapN0jU6VcV+MhUiPtD61PgAat3dODYQ/
-	WdK3blsB6LHc6PNrnWzZYHwaKv5K6n6gl5+AMALMyMcH6NhhWVYL4XeXK9uQ2pV4tZJfLq2f9mMBD
-	iGupHFo/rUO8IcvvHaiWH09rdG+i8HBq/l/eCCsH62Tv63FkD9P0mpPUxcMBrebNR0fgtB81inRxn
-	bPfLsBGpgu1az4Xt55MF+eQMerwSLt7yicVorNUGj/3hV1jxJzNtm1jooevWhA6TKphc4KvXhgZJh
-	MSUQWq+w==;
+	id 1xOznw-00000009Tgd-2sGg;
+	Thu, 05 Nov 2026 15:55:08 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOznW-00000003CX2-2FI5;
-	Thu, 05 Nov 2026 15:54:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1793894029; cv=none; 
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOznH-00000009THg-485w;
+	Thu, 05 Nov 2026 15:54:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1793893978; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=H02ZAr5Vw9Gs31CTvx+lICyFIHdpMWyn56zfo1ZbTp7MeBADqoWSOs6ixHiX/sSnD62iZCVlC4TjfnteMCo+TCy2DaFkpzf4rkEQEtAI4PK/7mK0w7txf5Pdf/0YiY/GPZXa3hXfSeBPwHCB8hYa1vRB54VgyujhAYrINnMP1x4=
+	b=Q4f3MSalRIYdWoS7JT1p0KG481TBRMDwOFO6clo9A38Vwt4ppRF0k8v19UY5nNgC9qUCpx1/0EIHoyr1pgamdJiiqL4qln4gRwTIHP7FkFbcgPvoRF9C9qjyfZHbJjT0ugoiez7BsqNOiwSGAmyebcUAEQki7UkKSFR1G2KUZkU=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1793894029; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=6/fwN93QKXlrtEMORZyL36eAUclAA0jiIqQ2lFOaVlU=; 
-	b=dOwreIY/6IBxG4H2bL47N85ulMTOCgF9SbugYezL1iJsbP4uYRU4uVtFxjxztPXO8WY3koFNer3iToHObO5yjl8NIQEtsbxuq7ydJ/Tf9ATFcYFR9PhvMNtjbGwuLOCc6mUvWDgdS4ccEHU9t4qGWf5B6eeCFBjedfuE+vUwk84=
+	t=1793893978; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=+IFvGBiDHS/+wPz5FfqsRIQOtWki0vWdwd+Qq7+myMU=; 
+	b=Bct4KT+KnNnFTsPOn8mDZSfKd31jQl0XZ6DYzsWEqVy8zeArCV/kXSzPw6uF/o0WBpFl+cmQwQ9SX6GZ0nDYM6i1pyhVIA1QPkrpZs0VQGGRtOePCL7f7BnbtPiWtXetA0OpZFlRDZAkM2F0SF+Po8c8BcFmko8fimOg9Vv7TCM=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=Zt2iw1oWLewd89zpH9+Ru/LuCDkqphfaszhoj0X6axcHoAWm9w9rzkjx2LXUNK8BMstv8INg2EZoLYvPS3UCz3nzr4SBSfIhhaj9bjGXkyFVSCmnQ2yzNVW1z1Vzf067eFDUfFDuzAiM1FZ1g6wwFwsC1uGliaLYyzycvto+82k=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=6/fwN93QKXlrtEMORZyL36eAUclAA0jiIqQ2lFOaVlU=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1793894028283757.3938461427174;
-	Thu, 5 Nov 2026 07:53:48 -0800 (PST)
+DKIM-Signature: a=rsa-sha256; b=U2fsk3BWPqJSZNdlrYflk1UxPTCQ+a7YwA6gblr+h1eeX+HofxfGLiPi2LqWBng5sjjJM7X97hbGlfKT5Fn0YCUKS4litw8vgMJiIV1zHuwLnjAE4GEzctcRGA1AN2q/qwh6t+fUv9iZOnLBMwFIKFnUZ54b/TQXvEXksU76iuM=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=+IFvGBiDHS/+wPz5FfqsRIQOtWki0vWdwd+Qq7+myMU=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1793893977295617.0780215669394;
+	Thu, 5 Nov 2026 07:52:57 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Thu, 05 Nov 2026 16:52:03 +0100
-Subject: [PATCH v2 12/27] drm/rockchip: dw_hdmi_qp: Add VRR support
+Date: Thu, 05 Nov 2026 16:51:55 +0100
+Subject: [PATCH v2 04/27] drm/bridge: Add VTEM EMP support
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-vrr-limiter-uapi-v2-12-55f4215be2c2@collabora.com>
+Message-Id: <20261105-vrr-limiter-uapi-v2-4-55f4215be2c2@collabora.com>
 References: <20261105-vrr-limiter-uapi-v2-0-55f4215be2c2@collabora.com>
 In-Reply-To: <20261105-vrr-limiter-uapi-v2-0-55f4215be2c2@collabora.com>
 To: Xaver Hugl <xaver.hugl@gmail.com>, Vidith Madhu <vmadhu@nvidia.com>, 
@@ -89,9 +74,9 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_155442_762787_0813EEDC 
-X-CRM114-Status: GOOD (  16.07  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20261105_075429_401226_397F4407 
+X-CRM114-Status: GOOD (  15.25  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,94 +94,156 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Register the vrr_capable property on the connector for RK3588, where VRR
-is implemented, as well as the other VRR connector properties.
+From: Derek Foreman <derek.foreman@collabora.com>
 
-In the encoder's atomic_check callback, the vrr_capable property, if
-present, is then set to true if the sink supports VRR. The display limit
-properties are also updated accordingly there, using the helper.
+Add setters and support bit for VTEM emp to the bridge.
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Signed-off-by: Derek Foreman <derek.foreman@collabora.com>
 ---
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 30 ++++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ drivers/gpu/drm/display/drm_bridge_connector.c | 41 ++++++++++++++++++++++++++
+ include/drm/drm_bridge.h                       | 29 ++++++++++++++++++
+ include/drm/drm_connector.h                    |  8 +++++
+ 3 files changed, 78 insertions(+)
 
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index f2a1ea8dfefa..dcde50bca36b 100644
---- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -89,6 +89,9 @@
- #define RK_COLOR_FMT_YUV444		0x2
- #define RK_COLOR_FMT_YUV420		0x3
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index 2202e6044444..0fbdba584c1b 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -611,6 +611,33 @@ static int drm_bridge_connector_scrambler_disable(struct drm_connector *connecto
+ 	return bridge->funcs->hdmi_scrambler_disable(bridge);
+ }
  
-+#define RK_VRR_DISPLAY_MODES		(BIT(VRR_DISPLAY_MODE_GAME) | \
-+					 BIT(VRR_DISPLAY_MODE_OFF))
++static int drm_bridge_connector_clear_vtem_emp(struct drm_connector *connector)
++{
++	struct drm_bridge_connector *bridge_connector =
++		to_drm_bridge_connector(connector);
++	struct drm_bridge *bridge;
 +
- struct rockchip_hdmi_qp {
- 	struct device *dev;
- 	struct regmap *regmap;
-@@ -195,6 +198,7 @@ dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
- 					 struct drm_crtc_state *crtc_state,
- 					 struct drm_connector_state *conn_state)
++	bridge = bridge_connector->bridge_hdmi;
++	if (!bridge)
++		return -EINVAL;
++
++	return bridge->funcs->hdmi_clear_vtem_emp(bridge);
++}
++
++static int drm_bridge_connector_write_vtem_emp(struct drm_connector *connector,
++					       const u8 *buffer, size_t len)
++{
++	struct drm_bridge_connector *bridge_connector =
++		to_drm_bridge_connector(connector);
++	struct drm_bridge *bridge;
++
++	bridge = bridge_connector->bridge_hdmi;
++	if (!bridge)
++		return -EINVAL;
++
++	return bridge->funcs->hdmi_write_vtem_emp(bridge, buffer, len);
++}
++
+ static const struct drm_edid *
+ drm_bridge_connector_read_edid(struct drm_connector *connector)
  {
-+	struct drm_connector *connector = conn_state->connector;
- 	struct rockchip_crtc_state *s = to_rockchip_crtc_state(crtc_state);
- 	struct rockchip_hdmi_qp *hdmi = to_rockchip_hdmi_qp(encoder);
- 	union phy_configure_opts phy_cfg = {};
-@@ -205,6 +209,12 @@ dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
- 	if (ingest_fmt < 0)
- 		return -EINVAL;
- 
-+	if (connector->vrr_capable_property) {
-+		drm_connector_set_vrr_capable_property(connector,
-+			drm_display_info_is_vrr_capable(&connector->display_info));
-+		drm_connector_hdmi_update_vrr_limits(connector, &crtc_state->mode);
-+	}
-+
- 	if (hdmi->tmds_char_rate == conn_state->hdmi.tmds_char_rate &&
- 	    s->output_bpc == conn_state->hdmi.output_bpc &&
- 	    s->bus_format == ingest_fmt)
-@@ -552,6 +562,7 @@ struct rockchip_hdmi_qp_cfg {
- 	unsigned int port_ids[MAX_HDMI_PORT_NUM];
- 	const struct rockchip_hdmi_qp_ctrl_ops *ctrl_ops;
- 	const struct dw_hdmi_qp_phy_ops *phy_ops;
-+	bool supports_vrr;
+@@ -656,6 +683,11 @@ static const struct drm_connector_infoframe_funcs drm_bridge_connector_hdmi_spd_
+ 	.write_infoframe = drm_bridge_connector_write_spd_infoframe,
  };
  
- static const struct rockchip_hdmi_qp_cfg rk3576_hdmi_cfg = {
-@@ -571,6 +582,7 @@ static const struct rockchip_hdmi_qp_cfg rk3588_hdmi_cfg = {
- 	},
- 	.ctrl_ops = &rk3588_hdmi_ctrl_ops,
- 	.phy_ops = &rk3588_hdmi_phy_ops,
-+	.supports_vrr = true,
++static const struct drm_connector_infoframe_funcs drm_bridge_connector_hdmi_vtem_emp = {
++	.clear_infoframe = drm_bridge_connector_clear_vtem_emp,
++	.write_infoframe = drm_bridge_connector_write_vtem_emp,
++};
++
+ static int drm_bridge_connector_audio_startup(struct drm_connector *connector)
+ {
+ 	struct drm_bridge_connector *bridge_connector =
+@@ -947,6 +979,11 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
+ 			     !bridge->funcs->hdmi_scrambler_disable))
+ 				return ERR_PTR(-EINVAL);
+ 
++			if (bridge->ops & DRM_BRIDGE_OP_HDMI_VTEM_EMP &&
++			    (!bridge->funcs->hdmi_write_vtem_emp ||
++			     !bridge->funcs->hdmi_clear_vtem_emp))
++				return ERR_PTR(-EINVAL);
++
+ 			bridge_connector->bridge_hdmi = drm_bridge_get(bridge);
+ 		}
+ 
+@@ -1073,6 +1110,10 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
+ 				drm_bridge_connector_scrambler_disable;
+ 		}
+ 
++		if (bridge_connector->bridge_hdmi->ops & DRM_BRIDGE_OP_HDMI_VTEM_EMP)
++			bridge_connector->hdmi_funcs.vtem =
++				drm_bridge_connector_hdmi_vtem_emp;
++
+ 		ret = drmm_connector_hdmi_init(drm, connector,
+ 					       &drm_bridge_connector_funcs,
+ 					       &bridge_connector->hdmi_funcs,
+diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
+index 1981d24a700d..6913662023ca 100644
+--- a/include/drm/drm_bridge.h
++++ b/include/drm/drm_bridge.h
+@@ -684,6 +684,29 @@ struct drm_bridge_funcs {
+ 	int (*hdmi_write_spd_infoframe)(struct drm_bridge *bridge,
+ 					const u8 *buffer, size_t len);
+ 
++	/**
++	 * @hdmi_clear_vtem_emp:
++	 *
++	 * This callback clears the emp in the hardware during commit.
++	 *
++	 * This callback is optional but it must be implemented by bridges that
++	 * set the DRM_BRIDGE_OP_HDMI_VTEM_EMP flag in their
++	 * &drm_bridge->ops.
++	 */
++	int (*hdmi_clear_vtem_emp)(struct drm_bridge *bridge);
++
++	/**
++	 * @hdmi_write_spd_infoframe:
++	 *
++	 * Program the emp into the hardware.
++	 *
++	 * This callback is optional but it must be implemented by bridges that
++	 * set the DRM_BRIDGE_OP_HDMI_VTEM_EMP flag in their
++	 * &drm_bridge->ops.
++	 */
++	int (*hdmi_write_vtem_emp)(struct drm_bridge *bridge,
++				   const u8 *buffer, size_t len);
++
+ 	/**
+ 	 * @hdmi_clear_audio_infoframe:
+ 	 *
+@@ -1021,6 +1044,12 @@ enum drm_bridge_ops {
+ 	 * &drm_bridge_funcs->hdmi_clear_spd_infoframe callbacks.
+ 	 */
+ 	DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME = BIT(10),
++	/**
++	 * @DRM_BRIDGE_OP_HDMI_VTEM_EMP: The bridge supports
++	 * &drm_bridge_funcs->hdmi_write_vtem_emp and
++	 * &drm_bridge_funcs->hdmi_clear_vtem_emp callbacks.
++	 */
++	DRM_BRIDGE_OP_HDMI_VTEM_EMP = BIT(11),
  };
  
- static const struct of_device_id dw_hdmi_qp_rockchip_dt_ids[] = {
-@@ -729,6 +741,24 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 		return dev_err_probe(dev, PTR_ERR(connector),
- 				     "Failed to init bridge connector\n");
+ /**
+diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+index 8699f35cafcb..184b10c89508 100644
+--- a/include/drm/drm_connector.h
++++ b/include/drm/drm_connector.h
+@@ -1645,6 +1645,14 @@ struct drm_connector_hdmi_funcs {
+ 	 * optional.
+ 	 */
+ 	struct drm_connector_infoframe_funcs spd;
++
++	/**
++	 * @vtem:
++	 *
++	 * Set of callbacks for handling the VTEM EMP. These callbacks are
++	 * optional.
++	 */
++	struct drm_connector_infoframe_funcs vtem;
+ };
  
-+	if (cfg->supports_vrr) {
-+		ret = drm_connector_attach_vrr_capable_property(connector);
-+		if (ret)
-+			return dev_err_probe(hdmi->dev, ret,
-+					     "Failed to attach 'vrr_capable' property\n");
-+
-+		ret = drm_connector_attach_vrr_display_mode_property(connector,
-+								     RK_VRR_DISPLAY_MODES);
-+		if (ret)
-+			return dev_err_probe(hdmi->dev, ret,
-+					     "Failed to attach 'vrr_display_mode' property\n");
-+
-+		ret = drm_connector_attach_vrr_display_limits_properties(connector);
-+		if (ret)
-+			return dev_err_probe(hdmi->dev, ret,
-+					     "Failed to attach VRR display limits properties\n");
-+	}
-+
- 	platform_set_drvdata(pdev, hdmi);
- 
- 	return 0;
+ /**
 
 -- 
 2.56.0
