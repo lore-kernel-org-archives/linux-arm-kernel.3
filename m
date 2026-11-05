@@ -2,74 +2,154 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEAF3606A33A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:53:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB303606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:53:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=On6OLvMS;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tp5COg9e
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Puiav2xc;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=NtK1jRhQ;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=DPqcvoA7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=M/kDgzAlqHjxLUPza8aSEnwmJgf7ioPTzemjTUlAEYo=; b=On6OLvMSAJw6k0qg95582DgeKT
-	9P+fc9gkPQ4BD2Sc2bbKNjim4QClz1jehpU2ujaDUWq86TkKSVFDC7ccCrKLUqq+vgRYjiyGdJFGe
-	KChPiOgAw1wGMamXfHFW6OSiDernGU2d/f5hEzm4+D1OUxu0pq34CmotVv/O/cH7YYHXA8gevX4X2
-	AG2SKh+OeOwEVb/brKd3KOPhDIteDacMwg/ZFp0/qIL1ez3OwkAVGEuvDDjDNbrfs2vVl8g6AdHBn
-	D06oxAbulL+Dd73w+f4tQ/Mp+Dqvv9Y0JBEDwEX3SayP78ADFF7hj3J+SqxYZptefE+7cizwJZIUS
-	ngh9Bfcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=tEANdsClCEwLq0xOueOCh3MDRD/bgmIT1TCSuqme95o=; b=Puiav2xcGIquLY
+	hULgwsflOiHmNT3Cj/sra0ijiLfN3yE+LHeoCTZjEOsFz9ab5jJveDzaGEWYs0o+FrHYzdL8odpKB
+	QU7+RnObFDPU6tt3xeJyAENTpsNdpGXAOeX+b1kTQ+CnWrC2mTkVT6pVxt8Ly/WzmEykOVE1a7Jm2
+	eTxF+Ov1nwV0+B/xi9wF5YB8EeLHw37rkh51XnaDzSXkP6a0cSVEzxY85gMR94qbzf0aJ4m+DxM2c
+	dfpELFsEPzo9Z7H21oPcFO9ndagbrvz6iKNGrtiQmKXR0Fzwqr5X/ft01GIksAvtrEsr0mJnrr0ax
+	Woijy7hMMxG8lx9b+KKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtDs-00000008Cr3-3lQL;
-	Thu, 05 Nov 2026 08:53:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xOtEH-00000008Cvs-0BvG;
+	Thu, 05 Nov 2026 08:53:53 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtDs-00000008Cqq-1oJL
+	id 1xOtEE-00000008Cuz-0hrT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 08:53:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9D7DC60DA0;
-	Thu,  5 Nov 2026 08:53:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F8981F00919;
-	Thu,  5 Nov 2026 08:53:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793868807;
-	bh=M/kDgzAlqHjxLUPza8aSEnwmJgf7ioPTzemjTUlAEYo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Tp5COg9ea+pwc+JaE/ure9QOIXPVPTd+MK5k/FscIjDFsajZLRotk8KfK3H9HbMpP
-	 zoqKvnPJcRZDOt8Fi6cGkmTY5Na61BcOHm9Sy/mortW9VlrD3rO6/8nZHAS6zyYd2N
-	 SPw2rIgC6lkD6oNjwRqw6ZN4Ii0WOro6kDZqay19kVukaQeqEAtkTpY2hPSfvd7gcb
-	 YZUoI2IQasW60N5JnwGKtdSaP8tNBEEsyzrKzY5rvoVEgpaJZuODZMsENU9F/zRRjB
-	 3EswgSP4O1koRAJJmIHkSxRGzbxRewJtlqgbZMHVC8pRXmXzAgKtuiPuWZeQGlbxHU
-	 MsJDMLL95VVTg==
-Date: Thu, 5 Nov 2026 08:53:21 +0000
-From: Lee Jones <lee@kernel.org>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Mark Brown <broonie@kernel.org>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>,
-	mfd@lists.linux.dev, linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, patches@opensource.cirrus.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/4] mfd: wm831x: Support software nodes for DCDC
- regulators
-Message-ID: <20261105085321.GG1650678@google.com>
-References: <20261024-samsung-kp-v4-0-e21253295e68@gmail.com>
- <20261024-samsung-kp-v4-1-e21253295e68@gmail.com>
- <20261104181429.GE1650678@google.com>
- <ad02069b0cdede7ae191e4a3df57f33a@gmail.com>
+	Thu, 05 Nov 2026 08:53:51 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A56UAQK3819639
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 5 Nov 2026 08:53:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	tEANdsClCEwLq0xOueOCh3MDRD/bgmIT1TCSuqme95o=; b=NtK1jRhQDPmPfLbl
+	lJRI9GXWkIjGe+ZXQIAyuuMwPV+w9sqhkbyijOxMRAOEPCF8wVttPc9wAE+UJv+s
+	TDqIFpQmcKYTxDWBW7lAhNyZWZEviTOPcfBrHCnmAxpUtI2xfTqCCqFDJ4KtfU9a
+	FSQlNTe8IJ957w51Wzw9AgndJLObJ/VwjK4dUBlF2CYMNItf8mBnfET2vi5IlcUn
+	kQRWYMEJWtUxGDAio0XYqccg8SBZFBo7a4/2XMYePw8/C4JGkkQ2CJmH+YtrOS8X
+	mle8yLeEz6aZnzaC7/fJmzgkaCtXvJlIo/uam7OlocQFtuyz/QJ/ae1h93ShDaTW
+	7ZTYNQ==
+Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hra5tk20v-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 08:53:48 +0000 (GMT)
+Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-7bf71bbf197so1278304137.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 00:53:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1793868828; x=1794473628; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=tEANdsClCEwLq0xOueOCh3MDRD/bgmIT1TCSuqme95o=;
+        b=DPqcvoA7KsmqNYcyfrHML5N+P9KxxtZuvJg+RV4j7sOtvhmrE5j3YDn9zhv77d9yIN
+         8l/4C8khiIF2nOh9nKWCRoVedbl8xCcuRhCLF1xDHZUz64+P85gyLnqJg4EKtE+SbTLq
+         UVzUt/Vqt5pyy56RQROqJgksTmKQ4+tGdCxyF+aPAfAzPWaW9Fla2CK3js+DQLLoZJx/
+         Fqq/E4X9wISNOOljpoCybLIB7ZW8gAtRd1gX+TuTnBavlwCFX2E6/beX3wYb+ecukEyu
+         /3i2yR/LHEPL++07fEi9AtSBVwu1lR3zGk5dPyIEqYdTVVnSgQ41gl03Pd44lUPrzlPk
+         O5ZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793868828; x=1794473628;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tEANdsClCEwLq0xOueOCh3MDRD/bgmIT1TCSuqme95o=;
+        b=PQAOIb0PPUPMtr4CEJjcKw4xWe5BWqM4mPu85/ISrGnIliM9Y+qvdYZo0zZS6HAUEl
+         08bQ3mUseY0CMILbXuT6Lke13Gn00KDMtKQAyc/Raauww1GKNmr5EgUm4jhX+2GG5lJE
+         pGyl6FAomSbl8/3qdO9RyXGvObetBPQS3U6BSKkYxHbHz+oWLuN28RwYSVy8Q4jXAiXE
+         jC/ezH67ckQ4Zf6BKYTUEceHKVygRR5YjG6OlwtlP1zQAvaM7mNyw3galVJ24qhTq/Ip
+         zuSwOXBThjdR+YDc5TpS2vyPOdET3wSGkqO5YLHNSmqrzmPLpCjQ17v9r4XVtzfo6yFt
+         Nj9Q==
+X-Forwarded-Encrypted: i=1; AKwUvByE/q7unHpyDSymYTVU39xdNUBDIwCU+bxo3VAmgp9nzNx4hs1zIFPmHs6+5nr28nWHbNYlVSnrfzsveF6E8f11@lists.infradead.org
+X-Gm-Message-State: APuU4Z8sLSPztOBaDHMJrpe16T2kPWifLjTENJABLtgAZTmnl9PS67p8
+	9kMJ5Y6UZMZdr8O/IemHA/bGK5aUNgKC8vOb+PchQ2eo6YbO10rJGYA1a5kEzo2jG+byfL6q2iG
+	wmgZbe09ChrIE1khTWEvn7mxyYY1wcTiiWuVF781ByUGTQxE7Xmateb4hhvLWGTwA+euGvcRGYl
+	Xp2Q==
+X-Gm-Gg: AYBFou1EakpnZd6ozeEin7CqKwJmh1SOSO3/OgUDToG++LqwsOvWjg9ebftSqRmv/Vo
+	3XCKF+QVIUhz3mpN/i7zBe16SmOS6llG8JM1JBvXF7SsD9mrsiNn3sm6oJS6AFohO55rjUIF39g
+	Z+mO+ZQzewztz99JKMkqas0Hb5DUjvDvaNjmiCyui+urxdD9Xw+wCsd4BNsEIaGvKL+Y96ulDId
+	xLOt4VbT9mQLajWIbVwRvCuA6ttl8iAscZPyvHNe7e1GRCYMIT9NLRKfWdlhxo8VZPQ5G2oKFnu
+	Q+ZKe3cgWhFHaZU38EU8bdiNMtY+8LJwNDXc0/w5jwb0bKfGIkODOAcb5YTJJ4M58tvXSKF85sj
+	K/2Lr4AacViSmWYShpVkdrd6B/An87l2yfgPanoEfZx3BFkxdBmc8962dlYxkdZ4icOYkFd0vn7
+	lE
+X-Received: by 2002:a05:6102:80a4:b0:7d2:7827:c03 with SMTP id ada2fe7eead31-7d278270d6fmr2667816137.25.1793868827864;
+        Thu, 05 Nov 2026 00:53:47 -0800 (PST)
+X-Received: by 2002:a05:6102:80a4:b0:7d2:7827:c03 with SMTP id ada2fe7eead31-7d278270d6fmr2667808137.25.1793868827489;
+        Thu, 05 Nov 2026 00:53:47 -0800 (PST)
+Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:8916:7b9b:97a2:6c96])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48fecf8e341sm8972866f8f.25.2026.11.05.00.53.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Nov 2026 00:53:46 -0800 (PST)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: Adrian Ng <adrianhoyin.ng@altera.com>, Linus Walleij <linusw@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Support Opensource <support.opensource@diasemi.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+        Srinivas Neeli <srinivas.neeli@amd.com>,
+        Michal Simek <michal.simek@amd.com>,
+        "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, patches@opensource.cirrus.com
+Subject: Re: [PATCH] gpio: Convert to subsys_platform_driver()
+Date: Thu,  5 Nov 2026 09:53:44 +0100
+Message-ID: <179386882212.12982.11268787304162434768.b4-ty@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261104113309.1634121-1-peng.fan@oss.nxp.com>
+References: <20261104113309.1634121-1-peng.fan@oss.nxp.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ad02069b0cdede7ae191e4a3df57f33a@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTA1MDAzNSBTYWx0ZWRfX0FEJPktPwQe7
+ FKYOFBJ3lM//uZYRJxFmGoU2569s5kv+9XmKhHEd2VAhqT82i0Txgqn3T/vR7Up2XZXdTxg91Zy
+ yhPpX7U7NyV9ufhs8Syb2OLwA4BfDpQ=
+X-Proofpoint-ORIG-GUID: 43xnrjQgu5Rqrot_IWLdL2ZiJwyvmegd
+X-Authority-Analysis: v=2.4 cv=P/6vFSAu c=1 sm=1 tr=0 ts=6aec441c cx=c_pps
+ a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=DqZYlRkov0yPPlpfqKoA:9 a=QEXdDO2ut3YA:10
+ a=gYDTvv6II1OnSo0itH1n:22
+X-Proofpoint-GUID: 43xnrjQgu5Rqrot_IWLdL2ZiJwyvmegd
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTA1MDAzNSBTYWx0ZWRfX9DIxpiXMEE48
+ 1uJH1ptg/kQm7jsfMBfNXQ7TfmRqdrcLWFOmrgQJeo/p6iKjPC+6yV9ifGSqVHP2ViPZVtGziWQ
+ S9JtRhMsSSmxlz7UqAMKIRTicVHAMklvkdjX4xrPXDbd4Ofb9heX/cn6RN55MuglL/UDrIrt+YA
+ b1sNza5XwhhtyXOn9k5OKxIzdXhyYAJs6G+2uC3SJPqfjNqVaYAfWg8VM94fRGLomwZROiEuJKB
+ PzEiF4vnFnqE6mBes6mRpVEVBpN3NJD9wLlOgJQYAJvq277gQsMX5hq+ulxHipTrCWDIl4+y6yE
+ PUvAAiT2EM2HP25Y0ax0B1bRklCihnBsXf0VLsj9Q0xk1p9QwtYjXNCO+f9Jd8ZO0r04Aw3HnRd
+ l00Jxm0ZJZOIMzFS6cjpyJ6+OiPqdO9OuY4pudytWk07Jy/UvW/t0XZeZB50aQQFTopiExuCBKM
+ hBSzZgUcNOOA/8kEZ0A==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-05_02,2026-11-04_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 clxscore=1015 priorityscore=1501 impostorscore=0
+ suspectscore=0 adultscore=0 bulkscore=0 malwarescore=0 phishscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2610300000
+ definitions=main-2611050035
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261105_005350_319697_FF6F9B4C 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,234 +160,29 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, 04 Nov 2026, Dmitry Torokhov wrote:
 
-> Hi Lee,
+On Wed, 04 Nov 2026 19:33:09 +0800, Peng Fan (OSS) wrote:
+> Replace the open-coded subsys_initcall()/module_exit() platform driver
+> registration with subsys_platform_driver().
 > 
-> On Wed, Nov 04, 2026 at 06:14:29PM +0000, Lee Jones wrote:
-> > On Sat, 24 Oct 2026, Dmitry Torokhov wrote:
-> > > +static int wm831x_add_devices(struct wm831x *wm831x, int wm831x_num,
-> > > +			      const struct mfd_cell *cells, int num_cells)
-> > > +{
-> > > +	struct wm831x_pdata *pdata = &wm831x->pdata;
-> > > +	int i;
-> > > +
-> > > +	struct mfd_cell *local_cells __free(kfree) =
-> > > +		kmemdup_array(cells, num_cells, sizeof(*cells), GFP_KERNEL);
-> > > +	if (!local_cells)
-> > > +		return -ENOMEM;
-> > > +
-> > > +	for (i = 0; i < num_cells; i++) {
-> > > +		struct mfd_cell *cell = &local_cells[i];
-> > > +
-> > > +		if (strcmp(cell->name, "wm831x-buckv") == 0) {
-> > > +			int id = cell->id - 1;
-> > > +
-> > > +			if (id >= 0 && id < WM831X_MAX_DCDC)
-> > > +				cell->swnode = pdata->dcdc_swnodes[id];
-> > > +		}
-> > > +	}
-> >
-> > I can't begin to tell you how much I hate this.
-> >
-> > Why are we duplicating massive static const structs just to add a S/W
-> > node?  Is there no other way we can do this statically?
+> No functional change.
 > 
-> The software node itself is defined statically in the board file
-> (crag_dcdc1_swnode in arch/arm/mach-s3c/mach-crag6410.c in patch 2/4),
-> as it describes board-specific and PMIC-instance-specific wiring -
-> specifically the host SoC GPIO wired to the PMIC's DVS pin (GPK(0) on
-> Cragganmore 6410).
 > 
-> Because wm831x-core.c is a generic PMIC driver that can be instantiated
-> on different boards or even multiple times on the same board (for
-> example, Cragganmore 6410 has two WM831x PMIC instances, only one of
-> which has a DVS GPIO wired to DCDC1), the shared static mfd_cell arrays
-> in wm831x-core.c cannot point to a board's software node at compile
-> time.
-> 
-> Note that local_cells is annotated with __free(kfree), so the duplicate
-> array only lives for the duration of the mfd_add_devices() call (which
-> makes its own per-device copy of each mfd_cell anyway) and is freed
-> immediately before wm831x_add_devices() returns.
-> 
-> > Since pdata is being populated already, why not just pass that on to the
-> > consuming child device (the regulator)?
-> 
-> The regulator driver (wm831x_buckv_dvs_init() in
-> drivers/regulator/wm831x-dcdc.c) acquires the DVS GPIO using
-> devm_gpiod_get(&pdev->dev, "dvs", ...). When converting the board file
-> away from legacy gpiod_lookup_table to software nodes (to drop the
-> fragile MFD device name matching and fix the GPIO chip label lookup),
-> gpiolib resolves the "dvs-gpios" property against the consumer device's
-> fwnode (&pdev->dev), so the software node needs to be attached to the
-> wm831x-buckv platform device.
-> 
-> In v2 of this series I actually tried passing the software_node pointer
-> through wm831x_buckv_pdata and attaching it to &pdev->dev inside the
-> regulator driver's probe() [1]. However, attaching a software node to
-> an already-registered platform device inside probe() is awkward and
-> requires manual teardown in the child driver, whereas mfd-core already
-> has built-in support for cell->swnode in mfd_add_device() (attaching
-> the node via device_add_software_node() before platform_device_add(),
-> and cleaning it up via device_remove_software_node() on error or
-> removal). Populating cell->swnode lets mfd-core manage the software
-> node lifecycle cleanly and keeps the regulator driver untouched.
 
-Why do you need to attach the software_node to &pdev->dev at all?
+Applied, thanks!
 
-All of the other DVS configuration (dvs_control_src, dvs_init_state) is
-already passed to wm831x_buckv_dvs_init() via pdata.  If you put the
-software node pointer in 'wm831x_buckv_pdata' (with the rest of the DVS
-parameters, where it belongs), wm831x_buckv_dvs_init() can simply use
-devm_fwnode_gpiod_get() to fetch it.
+[1/1] gpio: Convert to subsys_platform_driver()
+      https://git.kernel.org/brgl/c/123be56be13ca95f5bd5f143bc2d6edf0fe71221
 
-This then requires no device_add_software_node(), no manual tear-down in
-the regulator driver and no "middle-man" changes to MFD at all.
-
-> If you prefer not to kmemdup the full cell table, another option would
-> be to split the buckv cells out of the main wm831x cell arrays and
-> register them via a separate mfd_add_devices() call, though that seemed
-> more intrusive across wm8310/wm8311/wm8312/wm8320. Please let me know
-> what you would prefer here.
-
-If there is a good reason why the above cannot be done in the regulator
-driver (which I doubt), then yes, factoring the two identical
-wm831x-buckv cells out of wm8310_devs/wm8311_devs/wm8312_devs/wm8320_devs
-(just like touch_devs, rtc_devs and backlight_devs already are) is still
-far better than kmemdup'ing the static const tables and matching cell
-names with strcmp() in a loop.
-
-> [1] https://lore.kernel.org/all/20260708-samsung-kp-v2-7-3c6ed4c9b3b6@gmail.com/
-
-[2] Code talks, BS walks  =:-)
-
-diff --git a/arch/arm/mach-s3c/mach-crag6410.c b/arch/arm/mach-s3c/mach-crag6410.c
-index 2264beef6dda..9657d74ca0c5 100644
---- a/arch/arm/mach-s3c/mach-crag6410.c
-+++ b/arch/arm/mach-s3c/mach-crag6410.c
-@@ -456,9 +456,21 @@ static struct pca953x_platform_data crag6410_pca_data = {
- 	.irq_base	= -1,
- };
- 
-+static const struct property_entry crag_dcdc1_properties[] = {
-+	PROPERTY_ENTRY_GPIO("dvs-gpios", SAMSUNG_GPIO_NODE('K'), 0, GPIO_ACTIVE_HIGH),
-+	{ }
-+};
-+
-+static const struct software_node crag_dcdc1_swnode = {
-+	.name = "wm831x-buckv-dcdc1",
-+	.properties = crag_dcdc1_properties,
-+};
-+
- /* VDDARM is controlled by DVS1 connected to GPK(0) */
- static struct wm831x_buckv_pdata vddarm_pdata = {
- 	.dvs_control_src = 1,
-+	.swnode = &crag_dcdc1_swnode,
- };
- 
- static struct regulator_consumer_supply vddarm_consumers[] = {
-@@ -656,24 +668,6 @@ static struct wm831x_pdata crag_pmic_pdata = {
- 	.touch = &touch_pdata,
- };
- 
--/*
-- * VDDARM is eventually ending up as a regulator hanging on the MFD cell device
-- * "wm831x-buckv.1" spawn from drivers/mfd/wm831x-core.c.
-- *
-- * From the note on the platform data we can see that this is clearly DVS1
-- * and assigned as dcdc1 resource to the MFD core which sets .id of the cell
-- * spawning the DVS1 platform device to 1, then the cell platform device
-- * name is calculated from 10*instance + id resulting in the device name
-- * "wm831x-buckv.11"
-- */
--static struct gpiod_lookup_table crag_pmic_gpiod_table = {
--	.dev_id = "wm831x-buckv.11",
--	.table = {
--		GPIO_LOOKUP("GPIOK", 0, "dvs", GPIO_ACTIVE_HIGH),
--		{ },
--	},
--};
--
- static struct i2c_board_info i2c_devs0[] = {
- 	{ I2C_BOARD_INFO("24c08", 0x50), },
- 	{ I2C_BOARD_INFO("tca6408", 0x20),
-@@ -931,7 +925,7 @@ static void __init crag6410_machine_init(void)
- 	s3c_fb_set_platdata(&crag6410_lcd_pdata);
- 	dwc2_hsotg_set_platdata(&crag6410_hsotg_pdata);
- 
--	gpiod_add_lookup_table(&crag_pmic_gpiod_table);
-+	software_node_register(&crag_dcdc1_swnode);
- 	i2c_register_board_info(0, i2c_devs0, ARRAY_SIZE(i2c_devs0));
- 	gpiod_add_lookup_table(&crag_wm1250_ev1_gpiod_table);
- 	i2c_register_board_info(1, i2c_devs1, ARRAY_SIZE(i2c_devs1));
-diff --git a/drivers/regulator/wm831x-dcdc.c b/drivers/regulator/wm831x-dcdc.c
-index 834d7c181971..957da3195974 100644
---- a/drivers/regulator/wm831x-dcdc.c
-+++ b/drivers/regulator/wm831x-dcdc.c
-@@ -16,6 +16,7 @@
- #include <linux/regulator/driver.h>
- #include <linux/regulator/machine.h>
- #include <linux/gpio/consumer.h>
-+#include <linux/property.h>
- #include <linux/slab.h>
- 
- #include <linux/mfd/wm831x/core.h>
-@@ -330,6 +331,8 @@ static void wm831x_buckv_dvs_init(struct platform_device *pdev,
- 				 struct wm831x_buckv_pdata *pdata)
- {
- 	struct wm831x *wm831x = dcdc->wm831x;
-+	struct fwnode_handle *fwnode;
-+	enum gpiod_flags flags;
- 	int ret;
- 	u16 ctrl;
- 
-@@ -341,8 +344,15 @@ static void wm831x_buckv_dvs_init(struct platform_device *pdev,
- 	*/
- 	dcdc->dvs_gpio_state = pdata->dvs_init_state;
- 
--	dcdc->dvs_gpiod = devm_gpiod_get(&pdev->dev, "dvs",
--			dcdc->dvs_gpio_state ? GPIOD_OUT_HIGH : GPIOD_OUT_LOW);
-+	flags = dcdc->dvs_gpio_state ? GPIOD_OUT_HIGH : GPIOD_OUT_LOW;
-+	if (pdata->swnode) {
-+		fwnode = software_node_fwnode(pdata->swnode);
-+		dcdc->dvs_gpiod = devm_fwnode_gpiod_get(&pdev->dev, fwnode,
-+						"dvs", flags, dcdc->name);
-+	} else {
-+		dcdc->dvs_gpiod = devm_gpiod_get(&pdev->dev, "dvs", flags);
-+	}
-+
- 	if (IS_ERR(dcdc->dvs_gpiod)) {
- 		dev_err(wm831x->dev, "Failed to get %s DVS GPIO: %ld\n",
- 			dcdc->name, PTR_ERR(dcdc->dvs_gpiod));
-diff --git a/include/linux/mfd/wm831x/pdata.h b/include/linux/mfd/wm831x/pdata.h
-index 75aa94dadf1c..49501f155cc5 100644
---- a/include/linux/mfd/wm831x/pdata.h
-+++ b/include/linux/mfd/wm831x/pdata.h
-@@ -12,6 +12,7 @@
- 
- struct wm831x;
- struct regulator_init_data;
-+struct software_node;
- 
- struct wm831x_backlight_pdata {
- 	int isink;     /** ISINK to use, 1 or 2 */
-@@ -50,6 +51,7 @@ struct wm831x_buckv_pdata {
- 	int dvs_control_src; /** Hardware DVS source to use (1 or 2) */
- 	int dvs_init_state;  /** DVS state to expect on startup */
- 	int dvs_state_gpio;  /** CPU GPIO to use for monitoring status */
-+	const struct software_node *swnode; /** Software node for DVS GPIOs */
- };
- 
- /* Sources for status LED configuration.  Values are register values
-
+Best regards,
 -- 
-Lee Jones
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
