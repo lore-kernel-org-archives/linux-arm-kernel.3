@@ -2,113 +2,106 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54FB6606A33D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:42:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 603D6606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:47:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bCrZjWrV;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bcogTeHL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CyErUkd6;
+	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=SyJmyiem
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=ZL/hz+Nepjx94olTOPhIcVJMRm52prSBkVRVs4qZOx8=; b=bCrZjWrVl5coTZ
-	y3z03N+ZKb/tjofiGn67dwzhwx/0m797JQel9dgvvAe7JZxxEkolZEYC2+8vXwInV3iqAS69Kpdgj
-	kSJgL8Ujv6TSAzzqbEBnJaITWdoMSXhoX0UQdTGoXikfjIgUH036UAKFEVXkeDFTkZslFPvs/Qs+g
-	sn92xn0T9e9qgVZyZ7fBP41QcbULXLgl0Uh78DCv0JW9hMsUkw8nLrC9fXDPnq+sYglIJSdg74+nj
-	OUpaUyZEkJ97ZDWS95s8GEakP4S4SI8PXJIH4QyGoeeg+c6Ooc27Eai08yZ8knig8G6AuoHiefR8k
-	vkPr6OxF9yMvjbeG6SDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=jhh3rOfmt9+8e7tXOxSG5bPIHbOH/EzZ/+Q3I0eOuA4=; b=CyErUkd6cBrdysTOCGZtSjFz5f
+	Q53BL02J+fuKbyj9FYxxFh/Il7M/3W2mK8H4c4GI102o4tFUB6cl9aGebvVan2GFYWKVIyAlqv9aA
+	FuCknKz7W+YBh+kj2xrPNwmkqWlWFbHlfVyQmZM34Pvdff8huwpDqDToTTOqpOQV9SU2hqP368Nwy
+	FoLF3kO51MoEKv2UC0hOsUwiCgz+hGpCQGcY3bF1Bhb1e/zP8elD9UydoFDrpNZhbRvcmM9HSocID
+	UIthcujo/cjDH9nzWviN98gTnW/i0C836BAc5vBH7eRA3VY4VbTG2K+KHtIXQyjmK3HORUZOPMos7
+	ZzzHBTkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyfv-00000009JtA-2c8D;
-	Thu, 05 Nov 2026 14:42:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xOykO-00000009KJ4-2fP4;
+	Thu, 05 Nov 2026 14:47:24 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyfu-00000009Jsq-2BwI
+	id 1xOykL-00000009KHp-25cM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 14:42:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3C04B42459;
-	Thu,  5 Nov 2026 14:42:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D05CF1F000C1;
-	Thu,  5 Nov 2026 14:42:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793889766;
-	bh=ZL/hz+Nepjx94olTOPhIcVJMRm52prSBkVRVs4qZOx8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=bcogTeHLSTgb7MGVcVWzpGaT1TgIE1ugPGn42mKAPnsuNTSU9bznghrb7qV8nPFaz
-	 DSh+6UuDLpahP5tjLiW0DxYesTxk8FQb6MARS3orD0j6ZL+nytLslzfP7tcGP6OElr
-	 uLt24cj79V54XbXWhaJRMYlmkss3GtwppzfIhKDd9K9un+2FZNtpjMxtyacvO3ZvZY
-	 7RftsFFXAwry/QBFzpwJeAt1uMtlnc8ANQKd3lNQ5WroEqUjJ5DbWpKYrduZMRAUov
-	 MdwaC05/ls/aMIuc5cRY02pDO0XcUKA5gv+A8xPh75VgxiGQhNPPTS/oRHowDAE7GL
-	 nDVESWQYF07Ow==
-Message-ID: <5c1c0b7f-392e-4ce2-9852-63cf8454520a@kernel.org>
-Date: Thu, 5 Nov 2026 15:42:37 +0100
+	Thu, 05 Nov 2026 14:47:23 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4a208d93758so22658415e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 06:47:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1793890039; x=1794494839; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=jhh3rOfmt9+8e7tXOxSG5bPIHbOH/EzZ/+Q3I0eOuA4=;
+        b=SyJmyiemqqMZzPmX7y8ZMnTGhHtCHP1Cp6LkRxSHgLa/59CqmONeEuDczT8fIZVz6K
+         LCfuPjszGgk6XeNFq+GZrk94KNC4ayyjMob0X1hXOrIKBJfHlfiqGxdpAr575zx5u5Lk
+         bm2frMm9fnXt7m+/sS5A4btuoLTC354fSx+iH2bCjbd3aVm66dZVwDPx1atMRDTpkgwq
+         ILneeTTUxlxmINAJy05agnZxYEl8lOkHlHDnG4EzsgolE7Om2T1759hz++0fypmMqRlm
+         css+j7mcOr+eio1t23RJCcJWkTAa1QXOc7DpEMVkUkrO2Cke079rxYWWD9WzIWziuac9
+         TF5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793890039; x=1794494839;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jhh3rOfmt9+8e7tXOxSG5bPIHbOH/EzZ/+Q3I0eOuA4=;
+        b=GgPSFqiWHqqNpco6UwyqxOsHuE4AQxYoDYqSLZ+vsxdWpLelXp63Yyspy+0YHI69E0
+         ULOrnS65NUf39SSW2yEq6itm3i7DRrfPv6B2Qp+rsqct/kyk7z5odWkHKnYM0EJugwki
+         Su9/SYAq15yW6q1N+IsShq2/n7JX4uhrDb86G2JZSwQqMZJ1uCSSa5nhW9q660NB627d
+         kpe6O0MXd3///ROxHs3zza0KPxKrClUV7/NgB/jtoxzgHIhgKhbDife86fGW8rfZA23a
+         Od5uA4H79o6xXBf97iDQsg/ZyS8zomV9qo1zCIressnLbBpXT8ifEI/Fo2aMj2FaXynr
+         tZ2g==
+X-Forwarded-Encrypted: i=1; AKwUvBxl+d0Ub9F0Tx8vVN+/83Gyqb3yZz76TKEvpQtNpw8iQhTrVAInCEf3gJgAUG2OxMz6N8yI6OuQw2UjJSkdmPWg@lists.infradead.org
+X-Gm-Message-State: APuU4Z8X0KYBJ8npfWz20wVtLkMzySYfvCLLk+KFDDl5aDRag/8pwDBN
+	lRpkmIsvjstcH1LAHUhilmjjumAqlnV7G29DAmSPumBK9S494Z48faPW6lCHNR+4Jns=
+X-Gm-Gg: AYBFou3ew+gcffFVQKQcryaYjBXVYQ91RBvMLgOtfzRFoOpmiOZUgyS8/FFUuX1jtFZ
+	6veKilNI/mmLAxJ1mA6Zq3xxDRf3TGPGDuBWcS+QAtOVvLtutHHgTrrJx51FkKZMl1FEl0Im6aT
+	WEPJYuzAv5830QaOkShFVY1Nzy27E7T+iHI24PZuqMGSc852gD6YQG6kJsyizLIksmDodOEs10X
+	Ltag2GfYQo8nryGCVgKkjhdhkOdri6ZamLIXqGDLTMAVYhdCZ+Z/QqMEVwHV2YkuAx/WiDYcVGI
+	ZmkJJ7mVcDa9WecYj0YPzICFXFvg9TIKqo0I4QIIJRohuIIjlUTfd9wDHW1sK3nKbYOyvxEvKwV
+	FOZhMEpcBW4io/+0PZZD7VP6JenxPWm03wLxN+wU6z1X9EndFolb1VM4/Ju0TolrHQFPhliQCo9
+	UBS7nJ4rV6eO2VOVB3AQqSlscxLtI0GaOO+YgTYKc5QT6UuVM9EpBCTb+DX6zyUPFlH2KNOrjQQ
+	3ojVi0H0mxJX0UioyPATouyWSOwDSvQRASSlsZbO4lAwP7OoZDL5DpB7kKt/JZRGPp7t2I/mGHL
+	NRDB/EUpScEpA6WyJvZpDuZoFjZJutYK/JsqSzilqc6cGdd/s0HnybE=
+X-Received: by 2002:a05:600c:3556:b0:4a1:c6fd:4db0 with SMTP id 5b1f17b1804b1-4ac187a80b4mr460893955e9.19.1793890039475;
+        Thu, 05 Nov 2026 06:47:19 -0800 (PST)
+Received: from localhost (p50915710.dip0.t-ipconnect.de. [80.145.87.16])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4b56eb4da1esm115774655e9.6.2026.11.05.06.47.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Nov 2026 06:47:18 -0800 (PST)
+Date: Thu, 5 Nov 2026 15:42:56 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	William Zhang <william.zhang@broadcom.com>, Anand Gore <anand.gore@broadcom.com>, 
+	Kursad Oney <kursad.oney@broadcom.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
+	Guenter Roeck <linux@roeck-us.net>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, 
+	Benjamin Larsson <benjamin.larsson@genexis.eu>, mfd@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-hwmon@vger.kernel.org
+Subject: Re: [PATCH v2 3/7] mfd: Add a shared BCMBCA PMC3 PMB transport
+Message-ID: <auyL6UF8WWwXsXrS@monoceros>
+References: <20261101-xg6846b-bcmbca-xrdp-reset-v2-0-455fe9eed5ee@kernel.org>
+ <20261101-xg6846b-bcmbca-xrdp-reset-v2-3-455fe9eed5ee@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 02/14] dt-bindings: clock: exynos8855: add top & peric
- clock definitions
-To: Raghav Sharma <raghav.s@samsung.com>, s.nawrocki@samsung.com,
- cw00.choi@samsung.com, peter.griffin@linaro.org, alim.akhtar@samsung.com,
- sboyd@kernel.org, bmasney+clk@redhat.com, jbrunet+clk@baylibre.com,
- robh@kernel.org, conor+dt@kernel.org
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, is.gandhi@samsung.com, ts.amit@samsung.com,
- pokala.reddy@samsung.com, cpgs@samsung.com,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <CGME20261020065546epcas5p35f2faba15dd3ba959a66cc9b7df8daa8@epcas5p3.samsung.com>
- <973576304.21792479783510.JavaMail.epsvc@epcpadp2new>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <973576304.21792479783510.JavaMail.epsvc@epcpadp2new>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="mag5oduzqhp4hkyd"
+Content-Disposition: inline
+In-Reply-To: <20261101-xg6846b-bcmbca-xrdp-reset-v2-3-455fe9eed5ee@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261105_064721_559162_0807C76F 
+X-CRM114-Status: GOOD (  12.06  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,23 +112,53 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 20/10/2026 09:13, Raghav Sharma wrote:
-> Add device tree clock binding definitions for CMU_TOP & CMU_PERIC
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Signed-off-by: Raghav Sharma <raghav.s@samsung.com>
 
-Two weeks, I am still waiting on a proper resend... Your posting misses
-threading.
+--mag5oduzqhp4hkyd
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH v2 3/7] mfd: Add a shared BCMBCA PMC3 PMB transport
+MIME-Version: 1.0
 
-Best regards,
-Krzysztof
+Hello Linus,
+
+On Sun, Nov 01, 2026 at 11:14:36PM +0100, Linus Walleij wrote:
+> +#include <linux/mod_devicetable.h>
+> [...]
+> +#include <linux/platform_device.h>
+
+Please don't include <linux/mod_devicetable.h>.
+<linux/platform_device.h> already provides of_device_id. Alternatively
+if you insist on full iwyu, include <linux/device-id/of.h> instead.
+
+<linux/mod_devicetable.h> pulls in many definitions that are unused in
+this driver and thus introduces unneeded build dependencies.
+
+The same applies to several other patches in this series.
+
+Best regards
+Uwe
+
+--mag5oduzqhp4hkyd
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmrsle0ACgkQj4D7WH0S
+/k4ILwgAu4/aIJ4jmqqXgp8ctE1FUWAaormLaedGkha0tPWWUWZFCWXzzflrAPQp
+x3SQdXc7pbe9QPylO/FE1FtFum1V1mELFB8lRrsWaexQxDdOJtfgg9sa2EtNyzON
+d0vLNNlqRg+eDysFNiyOOcwYa8AN9IWbE+14HBuzIKAdtfixCwirKoJ07ZKtQEsb
+FghiifffoIz93iEIJWklhWkMmMWHCyo7KwUjlW+YCncCdVnLfqR8fbdBo+58IcXx
+2dgAHS38lq0GpaZqg7vx8x/QrRgOxOqj6KgK724ffND0DJzxlFGTTLCkDD4AgELB
+fCGGyZ3gyhvkLj7YEXBO+Gb9upim6w==
+=fVHs
+-----END PGP SIGNATURE-----
+
+--mag5oduzqhp4hkyd--
 
