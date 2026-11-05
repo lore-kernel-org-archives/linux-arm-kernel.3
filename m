@@ -2,54 +2,54 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89603606D814
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 896BC606EE9C
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 20:07:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oyX04h2G;
-	dkim=pass (2048-bit key, unprotected) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=cvvhDEbi
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3lNmwvcW;
+	dkim=pass (2048-bit key, unprotected) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=sp2JDZTE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=L7svFljblYiTK4kK5H5XiTJiOf5f3bWHWj0lw93O9Rc=; b=oyX04h2GsN7xkv
-	Y7EocuuIdKt0WfOmjbvgrc6Cvcdf66pAMAICUFdDNJiZv3kyVZG7QwcUiQpTu+rezYBiuOe9ZoD4S
-	J2NbwVSxHDKtPn2++auaHq3NAd/n0Q5z8ecuEag4Ri3eRGXPgHvq+Sg2Yko+UKrqUrvoWFPhaNEjs
-	IPzCbAetjBBT9vLaew52ttBy7phlKOgzz+8A1OYK3TdAoxn/XlM4C0nkXfem79YTQOjzI5fgZ6Cfy
-	DE0shmzE6cLsJ3Oy1q5QPmE8EkVxjNNWVm3iMqOjq6kZl2Q2N0lMz6ZeziUKZs5/z7y7Hm1J2vT9h
-	JcgqLR4ijPgLURtAhB7Q==;
+	List-Owner; bh=XBoDNkj8Cq94G4H4wOo3RFCe630bVSgYY6+2WlgI/M4=; b=3lNmwvcWGJvnn/
+	JIpFurxddsPG2ayyhKxKJzg6y9JX2gh1uXxlZEwL2+TbGhYxuY1h5/bKRRSttn5Y20goaOWrXlkR4
+	6f3Q/19xnggQ+oHeVRIJzjWFY4o3dSCiIJo/rBAebG7cI2S92YIMefMIKoduoxF2pbTKv7uUV8KQh
+	9O1BIKgjzJSE8L45UUhCbIY1xzBuEAHA6CmCYiDPuk5RkoEG/T6CcdqDbulY2MpAOJl98IGGW4RjY
+	noBRQQj1d4ndLj8zC2RqTB/04XWtx0Q1mWgm51igHRbaz1AclU9gREeoeQuxJPWU0ljxzS863JN8O
+	veRC0BSxFLQwMkpXlfjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP3k1-0000000AVhE-1JCS;
+	id 1xP3k1-0000000AVhd-21qu;
 	Thu, 05 Nov 2026 20:07:21 +0000
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP3jP-0000000AVGk-28bs
+	id 1xP3jM-0000000AVEM-1s7L
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 20:06:44 +0000
+	Thu, 05 Nov 2026 20:06:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
 	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=L7svFljblYiTK4kK5H5XiTJiOf5f3bWHWj0lw93O9Rc=; t=1793909203; x=2109269203; 
-	b=cvvhDEbiR7//AE/Lpjm7GwWt9v1BgVUmthlioGCoQyAd1+rryNB42SjYtdP28ZeAfF21YGkkGrQ
-	//cQ0dgC1FSbfT8dBPaWLDhltH8IrF9ISMQxLoz+d8vzDFI7HDLyHHfVtDttqUnhIuxSMexKWSE2M
-	bM4UYeOQlfXTr78shqCpoqjlUdFoiBAahb5ZCMmKt7RU86nr7OCih1NuSRBtQo2wWUIMMs9tz41sC
-	W+VWqna2vpJ+oG7Eyyl9gBg0KB/F/FwhG00PbbISQ3Iy2zAPhCidCIMJOEjOpl7r9qRVcSqj3hQSm
-	C/4NrObxJixFyKgz/UGEBY5X6JZhEW76YHHQ==;
+	bh=XBoDNkj8Cq94G4H4wOo3RFCe630bVSgYY6+2WlgI/M4=; t=1793909200; x=2109269200; 
+	b=sp2JDZTEuKIn5zb1QEH+qb0jf5IehRwFSJEJ31RT469gpKO/ETNJGVCIjWHPJkt0/K88av68nE3
+	unQNj2CdOlPgOtwUNZSfe8RLbewq+g4iolOBUSnzLehMMMv3gPUMzugHi13y6r8c7yeLCZc0yY+7X
+	qlM+6rc8bvtCPijsBRRONHVIl7ycMaKgSUHwxzJDzA/qH3+fckWzscZKrWVBRTx9CdgZxAduSjGPr
+	lV86q7r/eX5+hqpOcs4U0qd61CfCMVgP66H1ae2VnsOk0QPX8a8Nm2JzS3GMEfGyXLt1vX6JNfgE8
+	rwVcna+snhfj7JUjjk+joXe5LbxHmvnSqJrA==;
 Received: from [177.172.122.137] (helo=[192.168.15.100])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1xP3jL-003hS1-6M; Thu, 05 Nov 2026 21:06:39 +0100
+	id 1xP3jH-003hS1-Ki; Thu, 05 Nov 2026 21:06:35 +0100
 From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Thu, 05 Nov 2026 17:05:45 -0300
-Subject: [PATCH v9 10/15] alpha: Define entry point for
- set_mempolicy_home_node syscall
+Date: Thu, 05 Nov 2026 17:05:44 -0300
+Subject: [PATCH v9 09/15] syscalls: Add an option for offsetting the common
+ table
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20261105-tonyk-syscall_table-v9-10-8d1275885d9c@igalia.com>
+Message-Id: <20261105-tonyk-syscall_table-v9-9-8d1275885d9c@igalia.com>
 References: <20261105-tonyk-syscall_table-v9-0-8d1275885d9c@igalia.com>
 In-Reply-To: <20261105-tonyk-syscall_table-v9-0-8d1275885d9c@igalia.com>
 To: Masami Hiramatsu <mhiramat@kernel.org>, Arnd Bergmanon <arnd@arndb.de>
@@ -59,13 +59,11 @@ Cc: Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org,
  linux-alpha@vger.kernel.org, linux-s390@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, 
  linux-mips@vger.kernel.org, sparclinux@vger.kernel.org, 
- Magnus Lindholm <linmag7@gmail.com>, 
  =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_120643_577056_3A83B6E6 
-X-CRM114-Status: UNSURE (   9.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261105_120640_517518_C31B23F3 
+X-CRM114-Status: GOOD (  12.07  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,35 +83,168 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Instead of explicitly defining set_mempolicy_home_node as sys_ni_sycall in
-the syscall table, define it as the real syscall entry point,
-sys_set_mempolicy_home_node. As per commit fdb7d9b7acd0 ("alpha: remove
-DISCONTIGMEM and NUMA"), alpha doesn't have NUMA support, so none of the
-mempolicy sycalls will ever be compiled for alpha, resulting in the
-COND_SYSCALL() fallback being used to result in the sys_ni_syscall.
+To better support architectures that doesn't share the same syscall
+numbers, but have them in the same sequence, add an new option to offset
+the common syscall table numbers by a value. This make it possible to reuse
+the common syscall table for alpha.
 
-There's no function change here, but this step helps to unify the syscall
-tables and create a common table to rule them all.
-
-Acked-by: Magnus Lindholm <linmag7@gmail.com>
 Signed-off-by: André Almeida <andrealmeid@igalia.com>
 ---
- arch/alpha/kernel/syscalls/syscall.tbl | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes from v4:
+ - I was reusing the logic from --offset to apply the --common-offset, but
+ the logic is different: --offset does a string concat, and --common-offset
+ does a addition to the number
+---
+ scripts/syscallhdr.sh | 26 ++++++++++++++++++--------
+ scripts/syscalltbl.sh | 20 +++++++++++++++-----
+ 2 files changed, 33 insertions(+), 13 deletions(-)
 
-diff --git a/arch/alpha/kernel/syscalls/syscall.tbl b/arch/alpha/kernel/syscalls/syscall.tbl
-index 52e3538cc7df..8fc4701a6328 100644
---- a/arch/alpha/kernel/syscalls/syscall.tbl
-+++ b/arch/alpha/kernel/syscalls/syscall.tbl
-@@ -489,7 +489,7 @@
- # 557 reserved for memfd_secret
- 558	common	process_mrelease		sys_process_mrelease
- 559	common  futex_waitv                     sys_futex_waitv
--560	common	set_mempolicy_home_node		sys_ni_syscall
-+560	common	set_mempolicy_home_node		sys_set_mempolicy_home_node
- 561	common	cachestat			sys_cachestat
- 562	common	fchmodat2			sys_fchmodat2
- 563	common	map_shadow_stack		sys_map_shadow_stack
+diff --git a/scripts/syscallhdr.sh b/scripts/syscallhdr.sh
+index 8f7dfcf19a4c..cf6bba3019b1 100755
+--- a/scripts/syscallhdr.sh
++++ b/scripts/syscallhdr.sh
+@@ -16,17 +16,18 @@
+ set -e
+ 
+ usage() {
+-	echo >&2 "usage: $0 [--abis ABIS] [--emit-nr] [--offset OFFSET] [--prefix PREFIX] [--common-tbl PATH] INFILE OUTFILE" >&2
++	echo >&2 "usage: $0 [--abis ABIS] [--emit-nr] [--offset OFFSET] [--prefix PREFIX] [--common-tbl PATH] [--common-offset NR] INFILE OUTFILE" >&2
+ 	echo >&2
+ 	echo >&2 "  INFILE    input syscall table"
+ 	echo >&2 "  OUTFILE   output header file"
+ 	echo >&2
+ 	echo >&2 "options:"
+-	echo >&2 "  --abis ABIS        ABI(s) to handle (By default, all lines are handled)"
+-	echo >&2 "  --emit-nr          Emit the macro of the number of syscalls (__NR_syscalls)"
+-	echo >&2 "  --offset OFFSET    The offset of syscall numbers"
+-	echo >&2 "  --prefix PREFIX    The prefix to the macro like __NR_<PREFIX><NAME>"
+-	echo >&2 "  --common-tbl PATH  Use the common number table"
++	echo >&2 "  --abis ABIS             ABI(s) to handle (By default, all lines are handled)"
++	echo >&2 "  --emit-nr               Emit the macro of the number of syscalls (__NR_syscalls)"
++	echo >&2 "  --offset OFFSET         The offset of syscall numbers"
++	echo >&2 "  --prefix PREFIX         The prefix to the macro like __NR_<PREFIX><NAME>"
++	echo >&2 "  --common-tbl PATH       Use the common number table"
++	echo >&2 "  --common-offset NR      Add an offset for the numbers of the common table"
+ 	exit 1
+ }
+ 
+@@ -34,6 +35,7 @@ usage() {
+ abis=
+ emit_nr=
+ offset=
++common_offset=
+ prefix=
+ common_tbl=
+ common_tbl_path=
+@@ -57,6 +59,9 @@ do
+ 		common_tbl=1
+ 		common_tbl_path=$2
+ 		shift 2;;
++	--common-offset)
++		common_offset=$2
++		shift 2;;
+ 	-*)
+ 		echo "$1: unknown option" >&2
+ 		usage;;
+@@ -98,14 +103,19 @@ emit_end_guard() {
+ }
+ 
+ max=0
+-# gen_hdr(infile)
++# gen_hdr(infile, offset_nr)
+ gen_hdr() {
+ 	input=$1
+ 	tmpfile=$(mktemp)
++	offset_nr=$2
+ 
+ 	grep -E "^[0-9A-Fa-fXx]+[[:space:]]+$abis" "$input" > $tmpfile
+ 	while read nr abi name native compat; do
+ 
++		if [ -n "$offset_nr" ]; then
++			nr=$((nr + offset_nr))
++		fi
++
+ 		max=$nr
+ 
+ 		if [ -n "$offset" ]; then
+@@ -123,7 +133,7 @@ emit_start_guard > $outfile
+ gen_hdr $infile >> $outfile
+ 
+ if [ -n "$common_tbl" ]; then
+-	gen_hdr $common_tbl_path  >> "$outfile"
++	gen_hdr $common_tbl_path $common_offset >> "$outfile"
+ fi
+ 
+ if [ -n "$emit_nr" ]; then
+diff --git a/scripts/syscalltbl.sh b/scripts/syscalltbl.sh
+index 70da0039ab22..1e9cac32c02d 100755
+--- a/scripts/syscalltbl.sh
++++ b/scripts/syscalltbl.sh
+@@ -16,14 +16,15 @@
+ set -e
+ 
+ usage() {
+-	echo >&2 "usage: $0 [--abis ABIS] [--common-tbl PATH] INFILE OUTFILE" >&2
++	echo >&2 "usage: $0 [--abis ABIS] [--common-tbl PATH] [--common-offset NR] INFILE OUTFILE" >&2
+ 	echo >&2
+ 	echo >&2 "  INFILE    input syscall table"
+ 	echo >&2 "  OUTFILE   output header file"
+ 	echo >&2
+ 	echo >&2 "options:"
+-	echo >&2 "  --abis ABIS        ABI(s) to handle (By default, all lines are handled)"
+-	echo >&2 "  --common-tbl PATH  Use the common syscall number table"
++	echo >&2 "  --abis ABIS             ABI(s) to handle (By default, all lines are handled)"
++	echo >&2 "  --common-tbl PATH       Use the common syscall number table"
++	echo >&2 "  --common-offset OFFSET  Add an offset for the numbers of the common table"
+ 	exit 1
+ }
+ 
+@@ -31,6 +32,7 @@ usage() {
+ abis=
+ common_tbl=
+ common_tbl_path=
++common_offset=
+ 
+ while [ $# -gt 0 ]
+ do
+@@ -42,6 +44,9 @@ do
+ 		common_tbl=1
+ 		common_tbl_path=$2
+ 		shift 2;;
++	--common-offset)
++		common_offset=$2
++		shift 2;;
+ 	-*)
+ 		echo "$1: unknown option" >&2
+ 		usage;;
+@@ -59,14 +64,19 @@ outfile="$2"
+ 
+ nxt=0
+ 
+-# gen_tbl(infile)
++# gen_tbl(infile, offset_nr)
+ gen_tbl() {
+ 	input=$1
+ 	tmpfile=$(mktemp)
++	offset_nr=$2
+ 
+ 	grep -E "^[0-9A-Fa-fXx]+[[:space:]]+$abis" "$input" > $tmpfile
+ 	while read nr abi name native compat noreturn; do
+ 
++                if [ -n "$offset_nr" ]; then
++                        nr=$((nr + offset_nr))
++                fi
++
+ 		if [ $nxt -gt $nr ]; then
+ 			echo "error: $input: syscall table is not sorted or duplicates the same syscall number" >&2
+ 			exit 1
+@@ -108,5 +118,5 @@ gen_tbl() {
+ gen_tbl $infile  > "$outfile"
+ 
+ if [ -n "$common_tbl" ]; then
+-	gen_tbl $common_tbl_path >> "$outfile"
++	gen_tbl $common_tbl_path $common_offset >> "$outfile"
+ fi
 
 -- 
 2.56.0
