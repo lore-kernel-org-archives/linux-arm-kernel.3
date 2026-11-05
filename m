@@ -2,150 +2,57 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D64C5606D80E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 20:11:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D279E606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 20:19:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1XKsbkz3;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=fDQYx2CO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=s+QqvEj8;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OHx6Tdho
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:To:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=WGA0hw5MEFWlovqQB0+2ufb8dch4lzXQdzsSegL88hM=; b=1XKsbkz35MJJqpwuIa6eusThfQ
-	tb0bVL7YAavzMd5NXzjW/Jd2/OOaZtTdItObN7yu4+yy4Ylfh2Eg5OIAe8Lg3pJq5nbPyWFBk7C4f
-	PzmrSAZ3XDx+y4VE/bHSC4hftVEo0S44IczYVEjnEe6Og5DzUMQjWBP0ipKkpp+xdPT41t6nX4+Tv
-	6TiuGROEh/d9+bsXklBHiTZ8TtT1pBnnMySdn6DSkcW0DYY6lA8E5aPhlONuIm78KkUtlXu6d+IyW
-	TwM+Awt6p4F3p3SC5Bt7EHrTuMwNyUrDwVLg4LItUBeRCXs0P5uWuv6Fvy+YYI4P/8TbwpGgs9aRq
-	TyExq0fw==;
+	bh=ijWY+Z2NJRFFaxPZ787h43DbKEzbnR08iWE8GXg21g8=; b=s+QqvEj8nRSKNiIpWGP4qRhaR6
+	Z52efIV+8Cp1lrrxKpK/OqHK0FxIMu9qEEyuIdF0EmqlzTA0N1lxn8SVtIG4nYRlXYl4U7dTH3fjE
+	/bnFcTKmVVjVDN5YmS11nBSqISGjm9iDDMb+GYWkBJt+MBVAaVD9gd+q9l+uRmripbOHWKwUPWlR6
+	irPpy7ruuTlEsks6+Cm2Uonq9rOz+skctpycQnS7JTeTpFof1YAa9YKj/luShjYQM65+uyMM/7CD2
+	S4p4yAAFSuil4PO95pNgpLatAWCWT7i9tQZ9/zh+G3g4xweg1aurK5PjoiLFAb+zIkG+nmmEoQAj3
+	yKxWA6MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP3nO-0000000AWwy-1rE8;
-	Thu, 05 Nov 2026 20:10:50 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1xP3w6-0000000AXw5-08o5;
+	Thu, 05 Nov 2026 20:19:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP3nK-0000000AWvg-0zWa
+	id 1xP3w3-0000000AXvv-3CN1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 20:10:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Kkc6BbPObVX9+CZ8T76pNmbbce5VqukjfJVLj6H3fOQ2oGPw1SVRISTk0q1p28DbmM8CaQ0upnDAcGwoV+C5uutSabQHOhVRx8aZWGAugp9KKXqr13C28wZXRNJuQbvgKFtxVYtahUYmcGuzbp31QcCCOe8h+1jMRZOStmdt8ulmFdSOoMgBMy0G0SY5GiBZePndiMfwF/eq7vghlPvnJmcqGfJRTtM8HMM2D6d4zga4VnbYqouc4W6onaVv9AjHcpcZclJk6v3XurE/JXwABGUoYRUPMaQROBkmXzqrHdotKFkuYIuMxHp3hXjLvAzZKuVjKp3kr3tZhjb0/cigOg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WGA0hw5MEFWlovqQB0+2ufb8dch4lzXQdzsSegL88hM=;
- b=MY+PxzFTFRMAeetMrK4S7FIzJ+c05FqhzQN1f7fWRFpWHD/HVte7oJHpVS7lBXwf9/kY+Ipd9xdNoOSXYQSO5ehxAGtx+VEU2zlJFwWAKLXfUt1am0XLPRKMnph+92NnyCOvDsKidJPr6FgCcn0YKTnfnl/p27NZgKO0eQ1Ies8dM0z6/g5ib1zjem3ssZvC9cmGzPGEGWt3U2/WvK09i/d95rKToccvbOARXwMER5MG13YGr6uTmb2u0LJw6qK8UC7VBDQFobPcRpdhyAME2QrKCWE0bVDG8LBObsP5Jg9nB//dozwX/rdvtQaXxqWhsRnYR1IhweaUliDqmhjodg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WGA0hw5MEFWlovqQB0+2ufb8dch4lzXQdzsSegL88hM=;
- b=fDQYx2COt4L3gYxVqSs1XoMpne3tW8Y4W25tA3qWxql5YpoeuZFEF66rhTPPB/xd2VQkwJJQXY+2ReICkO3cMAmeczqHBaRqID6/9arB/H6RQKjvNNG9Yx2Bf/dudPjjNMLNklcJwueb0ERmo/cdWNjRP7WXuHacUAKyzW/n8d/PymBj10czA9iQVka4E+g4qG6uUOxTlMqnNd8ZZbPHHl7sDYfroCRqvoFfG8BCt7OSoy1kOe+Qfc/cVpdwrRejHlhwBh16+n0rd7y/oeSlo7lyh0HaAa0E7H9pBzG6oHFsYG3Jsdx/JVZtbVcW9zJ0Phx/V6dVhgUZ2IVSLnHEvA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AMBPR04MB12445.eurprd04.prod.outlook.com
- (2603:10a6:20b:75e::21) by AM9PR04MB8763.eurprd04.prod.outlook.com
- (2603:10a6:20b:40a::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Thu, 5 Nov
- 2026 20:10:42 +0000
-Received: from AMBPR04MB12445.eurprd04.prod.outlook.com
- ([fe80::ba23:1fa4:ce58:ff06]) by AMBPR04MB12445.eurprd04.prod.outlook.com
- ([fe80::ba23:1fa4:ce58:ff06%3]) with mapi id 15.21.0592.009; Thu, 5 Nov 2026
- 20:10:42 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank.Li@oss.nxp.com
-Cc: Frank Li <Frank.Li@nxp.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 00/13] ARM: dts: imx: cleanup some CHECK_DTBS warnings
-Date: Thu,  5 Nov 2026 15:10:33 -0500
-Message-ID: <179390941004.1697539.3517538199289414599.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261019-arm_dts_cleanup2-v2-0-dcdcbe6389c1@nxp.com>
-References: <20261019-arm_dts_cleanup2-v2-0-dcdcbe6389c1@nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH7P222CA0026.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:33a::29) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	Thu, 05 Nov 2026 20:19:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with UTF8SMTP id CD45E60147;
+	Thu,  5 Nov 2026 20:19:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 08E651F0089F;
+	Thu,  5 Nov 2026 20:19:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793909986;
+	bh=ijWY+Z2NJRFFaxPZ787h43DbKEzbnR08iWE8GXg21g8=;
+	h=From:To:Cc:Subject:Date;
+	b=OHx6TdhotcaC6TMSXEfvA2ru0DsBB+t/DOejKXSp2mkAmUYBKLHRVWJCtBlfEbmMs
+	 UO5WgoIsMcp1pw/OP7RjzZEoPBLC4xPS2DHY+Y9KYDiMHPValbhEoSOFxDyz030Kuz
+	 a2dsVVjIV5/FHVGQGAfCu/ePxoUtz1OOGXx7oHb0egzINwi7wLQMM9tt4Oi4q7HQVi
+	 1IlPKM0PXkbVcHeEiudoYKUlfgJylyMqyrkrIO7Ao28UWsq53/WeN/OhE8Iwv4zyrO
+	 OhqMbP0NmhRVSiT2klGIBeJxM0SxiejpXbjmdiCOBndevLwvib6FjySd0xvs+SSI3u
+	 j0Mn74sQCjKHA==
+From: "syzbot" <syzbot@kernel.org>
+To: syzkaller-bugs@googlegroups.com, Uladzislau Zhauniarovich <uladzislau.zhauniarovich@gmail.com>, "Catalin Marinas" <catalin.marinas@arm.com>, <linux-arm-kernel@lists.infradead.org>, "Will Deacon" <will@kernel.org>, "Peter Zijlstra" <peterz@infradead.org>
+Subject: [PATCH] arm64: suspend: Only track cpuidle context for idle tasks
+Message-ID: <c49d0138-9e6d-40d4-b46c-518240685bf1@mail.kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMBPR04MB12445:EE_|AM9PR04MB8763:EE_
-X-MS-Office365-Filtering-Correlation-Id: 994b1dc8-6162-4d93-2a15-08df3b78dddd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|19092799006|366016|56012099006|11063799006|261009223027099003|261026121527099003|261022075727099003|22082099003|18002099003|10067099003;
-X-Microsoft-Antispam-Message-Info: V92deGp9L42pGgj4QXmqZxWtQcQVTANR5YXMUCqg64rw/qBitxvgfoOCPUcrUSuh/9pfddhzUJdB4tjNVBQXfA69G9bti26RKHRUjPjuaRhAA8Q2wO7OIl/G1vsVVqQlxr6gG28hrhPPEawAnqfsZ+AXKtCA0aT9X7wp0NmiH09izrxw1Ea0iZqlNNH6Ch7oTeTBYDGYocOeG+1dC260piCE8qDPtEzoPVILOKLJYuPawxrNkuEBHZNW0d7f4hvfZH4zhW/Dngy30CH+9PgvlmDo2TvdPHyZwAeilOU5NDfcEJLtaLlrZb8GZZqll9KUPk6Fc9yeYpdbQL1kGVGE8ZcOoRcmFVexGxTPXWYxuuxVnGcIh79xyl4bBEAN3qPwjuCpsVcMPB7iLRvsZGWjdKNjMY7uJq6W83yOZhhpmm6CpVWoa22J30jC7btAkEyKt4OUihLqwq5WAJQm2Q/1wZ48/dfyJ5eYYvPwQsLvEHmiFqj0rJ3ONk1YKUvfVQ3pFBKD6J5Vm9yZf3eiG46HZJ11MRa9Oip7H4SfVT4FUN6mWexnDte2Mpqnqa4n80mDPeGvEY39OuvBezl1GBcfb6Swbx66fDRfKKLcxqfMl5yK61enUUdl8AYXbtoY3BiEYQfIVnY+isRkOeIwzIhomB76boNIWHzPDKMYERsr7gk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR04MB12445.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(19092799006)(366016)(56012099006)(11063799006)(261009223027099003)(261026121527099003)(261022075727099003)(22082099003)(18002099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TkpNU3pNbWFVTHg3cWZLWjBhUlppMGFGSUl1Sm5PTDExNE45ZnVOQkNRYXh5?=
- =?utf-8?B?WG5xWks2UlJRVXVnQU1CajNmSWJRYlRvVEpHS0xYL2RQdmNjVllFam1VYy9Q?=
- =?utf-8?B?ZFptcDBTdnd4VFluS0Z0Y3VPTU1OSGRKZEZxNjlRS0pvR29LTUZmYURKUEZj?=
- =?utf-8?B?U1Ruc1U4a2RLMUxxdnBVdHpzWUhKam9Oc3ZWRlFQdHk3UTZDTTRjZmkwaWhX?=
- =?utf-8?B?MTVvWi9sbzhzek5meWJnVTd6Q0RPdDZOWElmSyt3cjM0N3piNmRNWnEyZlo0?=
- =?utf-8?B?UXBYdXQwRnZOWnQ1aEJzOXlSN2dqakcwSkdqVmVqaWpVVkdlVk5nOHgwcGNa?=
- =?utf-8?B?T3NoODdpQ2lwRGc5a0NaWGsvZG40dWd5by9rMGhpSkRneTQ1bVdkUVFVcGxa?=
- =?utf-8?B?OGtDRG12Y2JGWkxXdi8rTGFsUFBaWllFWDRzY1dHZ0p5OTdZRVI1dEJGTEZM?=
- =?utf-8?B?UVpYM3c0c0ZOclc0MVV5dXdHRzhlMlBaTGlUR2xtdDU2UGNlT21kVXdpNE44?=
- =?utf-8?B?UVM5a3lTdE9RZ3BqeW4xV1BlaDdLUUpNTFF4dXBuY0QwZXZMU1M4N3RuRjk3?=
- =?utf-8?B?TkV4R0VaUHRTUGFOL2QzSkRZWXFLSnJEU1FYNnBTMXE5RUdmZ3VxWnlRZ0xX?=
- =?utf-8?B?UnVUU0hVWkhWbnRKZjdZQWFTZVlFWlR4UDN2emhZejdqNTFtRGtjMTdTYUZE?=
- =?utf-8?B?MnpQVXdJTDl2RDJ0TGl3RkxPWDdPR3lKRlljK3dxY3RoYllkVE94L3R0TTV3?=
- =?utf-8?B?RGZhUVpIUFVhd09WQ1dhQlU2S3hFSGxOUlFQVncxZlB0c05odDRhY3R1NDVH?=
- =?utf-8?B?dUZqZElDWnFOL3E3Q1NEWitqMDFoWGVQM1hDK3Z2QVRiQmI0NEdUYW1qT1hi?=
- =?utf-8?B?SXh6Rm1Zb21nZE9mVHhpeFlUN04wa3JoN2Y2MmI3c1pEcnhaSDFnVjlTR2Rj?=
- =?utf-8?B?blp3TlRQS2I4Z0NaQUVZbDBWRm0zYkJjSEtJc3J1RGpvQUJkZzE2WE50MFZ1?=
- =?utf-8?B?ZS9HWnBueE9SZVovR0NKVEJ0eVZhYzlKdFZzalN1NjNDYld1SVVnK0FUVExC?=
- =?utf-8?B?UGVNZFF1c1hESjRLdHEwd1pHMVM3empUOVhsYTIxMnRQaWlOWkhSV1JveXUv?=
- =?utf-8?B?UUtoTWVqVVpUQVpmTG1nM0RxUWFudmRINW1xYXJiWS8renhMMGk2cjZ6emh2?=
- =?utf-8?B?YmI2WnhrMmVYRUp0TlBZL0h6MVVnSkE2SzY4aVF0YllIVEFicXR3a0ZENDBi?=
- =?utf-8?B?MWJDWHhoMGtDd2JYcTQ4VHB4NXRNblErRURTQk1pSmR1VzdSeGxmQ1pvVUNL?=
- =?utf-8?B?eGVDeXNUb2hqaWpYV1JJeGFWRlB6ZkJVaFVDTEZYSVE1WVpOSDNKNlZ3TDJE?=
- =?utf-8?B?Y1RMU01GSVg4NXZ2Y2xCNVNwR3FNUUN1NmxTNUtEWTNkNFhaSFJ2RzBDWTNN?=
- =?utf-8?B?bzFhVHE2NUUvOUxhM2FOVERWdGt1K24vclJhMVdxUjkweUszMDJrY1ZQVi8y?=
- =?utf-8?B?Z0hOYlhDdC9TWmpiaytuK3FUeStiQmhPMER6TE9JWTZwMEhya1A4enpyYVdx?=
- =?utf-8?B?M1ZTaEZXNTBNUWwxQm43aGQ3SjZWVGo4VlEvOVZIOCsrMnN3RVQ5SlRuRTJZ?=
- =?utf-8?B?VWFNSkxPTnMyVFhad0hGbnJtQ2t6b1F6YmlycWVCQit5TU1zZXkxV3FCcVh2?=
- =?utf-8?B?Y0ZURnphRUhkUnBxQzV1Q2dveWJubVRFWEx2VnZsNnJwS3BFMjUyMldtWTNn?=
- =?utf-8?B?RG1kV1JkZ2I3a3hQek4vWnJNWDArdzUvci9uU0U4dG1ta05UQktMRk10M1h3?=
- =?utf-8?B?OC83Q21Lc2ZmZ2syV1BxVVZ4TWJsN09CWi9GOGxGK2wvVFhnekhDcjMyS3RB?=
- =?utf-8?B?MmJlWVBBQmlUV3preC9TdDhxRFpCZ0l2UDJGTlRUTEdObDNmZm42ME9HM21p?=
- =?utf-8?B?ZWwzc3crbTZkZGR5dnBlR0wwdWwwUDlSYjYvZjBVNFYyK1Z1SzIzL0ZKRTJk?=
- =?utf-8?B?a2xVWVZQYkdtUVBlaDFQVzNNdXo2T0JSaWFlSHY1eTQyNFluR2JLQ2Qrd05F?=
- =?utf-8?B?YU1YYmg1d2N6a0ZoeHlvSnhaZUIrclRSbC9GMWdBcFpESzcyUEFoRHVCeHNW?=
- =?utf-8?B?UkNzQmdsZEVEbWc1bGFLbm8vVlBlU3BHdEtESU9DZXZURWlxSDZQS0JqaWpZ?=
- =?utf-8?B?ZFRlODMwN1lEWm1NSm5FWTlObmt2ekoyaXhma3pPbTZkcmxDUGVtemNlOUw1?=
- =?utf-8?B?Y1ZpUW9UdmJtQjI2Wk5TRU1hOU9QcmhmNGVzV0xIem91Um40YkJLODhQQXJE?=
- =?utf-8?B?bTdRc200dk9MeDRYVTBJT0FRejRsS0lUK1ZKcFBRRkVGUHhIVTk4c2dSakwz?=
- =?utf-8?Q?52rAU2jhSNSvPadY0Wl5mWIdkc35XMt3KBlec?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 994b1dc8-6162-4d93-2a15-08df3b78dddd
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 20:10:42.0822
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2atFegLc7Q0RXk4DXKcCMvIR6RoJ3/j8fJ6NwTTqP+otJMmlAO1XY6uo8fuWWDhNCXv4AN/fxkrX2iOomt5AedizLqLVJ04QzlFQHVhQ/M+5dfTGJLXRjJbhGYnD1T7+
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8763
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_121046_283228_D274860D 
-X-CRM114-Status: UNSURE (   6.79  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.0 (/)
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Date: Thu,  5 Nov 2026 20:19:45 +0000 (UTC)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,51 +62,115 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, syzbot@lists.linux.dev, ruanjinjie@huawei.com, linux-kernel@vger.kernel.org, vladimir.murzin@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Frank Li <Frank.Li@nxp.com>
+From: Uladzislau Zhauniarovich <uladzislau.zhauniarovich@gmail.com>
+
+Commit 19235e472798 ("cpuidle, arm64: Fix the ARM64 cpuidle logic") moved
+the calls to ct_cpuidle_enter() and ct_cpuidle_exit() into cpu_suspend() so
+that arm64 cpuidle could keep RCU watching longer and manage context
+tracking internally. However, cpu_suspend() is called not only by cpuidle
+via psci_cpu_suspend_enter() (which runs in the context of the idle task),
+but also during system suspend via psci_system_suspend_enter() (which runs
+in the context of the task initiating suspend, such as a process writing to
+/sys/power/state).
+
+When entering system suspend, current is a non-idle task. Calling
+ct_cpuidle_enter() invokes ct_kernel_exit() from kernel space (!user) on a
+non-idle task. With CONFIG_RCU_EQS_DEBUG enabled, this violates context
+tracking invariants and triggers a warning:
+
+WARNING: kernel/context_tracking.c:120 at ct_kernel_exit+0x1b4/0x1f4
+kernel/context_tracking.c:118
+Call trace:
+ ct_kernel_exit+0x1b4/0x1f4 kernel/context_tracking.c:118
+ ct_idle_enter+0x20/0x34 kernel/context_tracking.c:299
+ ct_cpuidle_enter include/linux/cpuidle.h:134 [inline]
+ cpu_suspend+0x264/0x474 arch/arm64/kernel/suspend.c:136
+ psci_system_suspend_enter+0x4c/0x80 drivers/firmware/psci/psci.c:544
+ suspend_enter kernel/power/suspend.c:468 [inline]
+ suspend_devices_and_enter+0x88c/0xd0c kernel/power/suspend.c:533
+ enter_state kernel/power/suspend.c:618 [inline]
+ pm_suspend+0x498/0x698 kernel/power/suspend.c:644
+ state_store+0x14c/0x1fc kernel/power/main.c:819
+ kobj_attr_store+0x6c/0x90 lib/kobject.c:842
+ sysfs_kf_write+0xe0/0x108 fs/sysfs/file.c:145
+ kernfs_fop_write_iter+0x260/0x3b8 fs/kernfs/file.c:345
+ vfs_write+0x51c/0xa0c fs/read_write.c:687
+ ksys_write+0x12c/0x228 fs/read_write.c:739
+
+A corresponding warning is subsequently triggered in ct_kernel_enter() via
+ct_cpuidle_exit() upon resume.
+
+Fix this by checking is_idle_task(current) in cpu_suspend() and only
+invoking ct_cpuidle_enter() and ct_cpuidle_exit() when executing in the
+context of an idle task.
+
+Fixes: 19235e472798 ("cpuidle, arm64: Fix the ARM64 cpuidle logic")
+Assisted-by: Gemini:gemini-3.8-flash Gemini:gemini-3.1-pro-preview syzbot
+Reported-by: syzbot+79883955da3a62652a80@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=79883955da3a62652a80
+Link: https://syzkaller.appspot.com/ai_job?id=5359e16f-013b-4850-9cbc-ddfb3bac95e5
+Signed-off-by: Uladzislau Zhauniarovich <uladzislau.zhauniarovich@gmail.com>
+
+---
+diff --git a/arch/arm64/kernel/suspend.c b/arch/arm64/kernel/suspend.c
+index c41724a40..cde0b8c19 100644
+--- a/arch/arm64/kernel/suspend.c
++++ b/arch/arm64/kernel/suspend.c
+@@ -5,6 +5,7 @@
+ #include <linux/uaccess.h>
+ #include <linux/pgtable.h>
+ #include <linux/cpuidle.h>
++#include <linux/sched.h>
+ #include <asm/alternative.h>
+ #include <asm/cacheflush.h>
+ #include <asm/cpufeature.h>
+@@ -99,6 +100,7 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
+ 	int ret = 0;
+ 	unsigned long flags;
+ 	struct sleep_stack_data state;
++	bool idle = is_idle_task(current);
+ 
+ 	/*
+ 	 * Some portions of CPU state (e.g. PSTATE.{PAN,DIT}) are initialized
+@@ -133,7 +135,8 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
+ 	 */
+ 	pause_graph_tracing();
+ 
+-	ct_cpuidle_enter();
++	if (idle)
++		ct_cpuidle_enter();
+ 
+ 	if (__cpu_suspend_enter(&state)) {
+ 		/* Call the suspend finisher */
+@@ -149,9 +152,11 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
+ 		if (!ret)
+ 			ret = -EOPNOTSUPP;
+ 
+-		ct_cpuidle_exit();
++		if (idle)
++			ct_cpuidle_exit();
+ 	} else {
+-		ct_cpuidle_exit();
++		if (idle)
++			ct_cpuidle_exit();
+ 		__cpu_suspend_exit();
+ 	}
+ 
 
 
-On Mon, 19 Oct 2026 14:26:15 -0400, Frank.Li@oss.nxp.com wrote:
-> cleanup more CHECK_DTBS warnings.
-> less than 90 line warns left, from 267 line.
-
-Applied, thanks!
-
-[01/13] ARM: dts: imx6q-dms-ba16: remove undocumented property fsl,receive-dpll-mode
-        commit: 41862ecb7fa5ae640a6fe92ede8af34240b48a2d
-[02/13] ARM: dts: imx50-amazon-yoshi: remove undocument property min-frequency
-        commit: 25ca9d9319f8015b9b2dd8b29566e59cd0150435
-[03/13] ARM: dts: imx6dl-b155v2: add touchscreen size properties
-        commit: 837cf5110b272799fe55a282f6281a70621eef16
-[04/13] ARM: dts: imx6q-gw5400-a: fix SPI NOR flash vendor prefix
-        commit: 2821dabbaa483be4665834d170a4c38bbe881eee
-[05/13] ARM: dts: imx6dl-prtmvt: remove redundant panel compatible fallback
-        commit: 8e58551804d5ceac9fb8a414b69740529df0fdf9
-[06/13] ARM: dts: imx53-smd: change compatible string to dlg,da9053-aa
-        commit: 46b3bb4a6b2a6d431e1beac9743d52b42b413cf9
-[07/13] ARM: dts: imx6qdl-savageboard: remove undocument avic,tm097tdh02
-        commit: 6ff97f0b9625a08b6b522d8625a5a5db0eff11df
-[08/13] ARM: dts: imx6ul-tx6ul: remove front compatible string karo,imx6ul-tx6ul-sgtl5000
-        commit: 9efa8bbaf817382b29c42c95a2d4c1187bf261f8
-[09/13] ARM: dts: imx6qdl-tx6-mb7: remove redundant pixelclk-active for simple panel
-        commit: 65da26fbc79b0498ce7bf5ca9fc1fe00fdc53864
-[10/13] ARM: dts: imx6q-h100: rename port to port@0 for mipi_csi
-        commit: b2b4068cceb31a2a93fc5c1cc5fc24cb4a859e12
-[11/13] ARM: dts: imx6qdl-sabrelite: fix typo vync-active
-        commit: f14b604536ae82a2a5543765a437313cc7eaf190
-[12/13] ARM: dts: imx6q-novena: use interrupts replace irq-gpio
-        commit: 27a89535f51ec1b39b4cb65e50b4567fdf0f2249
-[13/13] ARM: dts: imx6sx-sdb-mqs: remove pinctrl-0 and pinctrl-names
-        commit: eb5579bd8186c9921b570344e704609cf5f40a84
-
-Best regards,
+base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
 -- 
-Frank Li <Frank.Li@nxp.com>
+See https://goo.gle/syzbot-ai-patches for information about AI-generated patches.
+The person who has signed off on the patch is responsible for
+addressing comments.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
 
