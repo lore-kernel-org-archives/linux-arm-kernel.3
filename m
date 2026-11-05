@@ -2,77 +2,78 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD666606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:00:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 294E1606D809
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:03:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YavL3BVT;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=EHEVG93S
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RG9/nOpP;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=pmNLQSFO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=C7KvMZPRU76PPXEPvoU8lYiUrmsq36mfhVdKnn0oTEA=; b=YavL3BVTds1pWp
-	63mO2fL8eTyPBzP/yktzUD6bd10malHE8xT+CvJ3dgJfvJGd+qqSa/W7f4PA1FgaNVtJzKwj15H6K
-	P/bf1myKVz9DuIvfucs1Uofcds/XInmOjIUYfkgHtpHXS0Ch/KIrLrSzEPrMLQQFtR+wcXLgD03nN
-	FtBnEZf9o3CTimuhajdlVj5VEN1/kftdjgELdOh+vt49ZCTCiJ/ZyYCZZDNLKlmWuJsNbRlcG8BLe
-	rPewS2sHq4dJ7Y16sSMfVJOtaLKaU7BzyIeoX33ObPtD8vwI5UbyRjAEVc1Y0vq8GxFeeL0/81KbW
-	XRQHAUSCSOipbytBiaow==;
+	List-Owner; bh=1NYk/R+AjvZfblsV7HCmGu0xMESmf/3Rl3LdxJTF5qY=; b=RG9/nOpPJCP7+X
+	QtTWQLMkT/0wYFo7j7RMwznTbEiVfad9qQIp2a3OnfCmb5XNrQE0mBMIUtlzrf0wEy+TGXASjVcGS
+	7NkkCigagMSdKu6rKviOLIW1KeshhQe1nmijj25lALtpf/nq5JaPARKG2Snkk+TJAlLqYk8uD5HS6
+	Jd8G+EP4naVZvXTa72vjI4d42pHjFqRUVhS4UJfecBrEJB0xUKdRljIswYKrqS9F1is4Hr/TkILQ4
+	0j306NyAMdx0v/f5oYYBS52SOZvmgntoxG9jXoZcgR4fh+v8szE+w8Sk34iVSTJiv3YV8sDWb1TSC
+	Jk800lSy62o8n9T3TZfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtKm-00000008EEz-3uqP;
-	Thu, 05 Nov 2026 09:00:36 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1xOtNV-00000008Ei4-2J99;
+	Thu, 05 Nov 2026 09:03:25 +0000
+Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtKh-00000008ECE-3D9B;
-	Thu, 05 Nov 2026 09:00:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1793869229;
-	bh=xUW3p4976DC2PBpXz3aw+f2y1/CP/AUXZ42/p8PrJHQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EHEVG93SvO2MRQ9DqlNGT69xnJHgOChAl4GvABrnxnu6DRTM20aBAKXu0iZVBoxNv
-	 KgRR9dSB3fYPc+YlhHcfxLX53M6BHsy/9oQDScMSfFjYaYHhL2nSglo49d9x5GErIe
-	 bQPFlOCxfeacr6lrbh0FDCh/6J0IY9bN95uq0FkOij2bqZgIRQcnEDeERmlMx4Yf7p
-	 wloqNvk9ClFSjuJgZ0+3R8wa2SXSqfgUdwfST9EG9SNAQBV5kEmWnnQeutK/smBy07
-	 Q8MYyN30HYpN1yHXJh2+b01UP275QGYgKs441XpqVuQTXTXbqW1wgvWODZ8itTSBls
-	 Ti1iVBcoKMi1Q==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C676117E05D6;
-	Thu, 05 Nov 2026 10:00:28 +0100 (CET)
-Message-ID: <1c0e5b1a-b1a8-42a3-8dd1-75fceee078a2@collabora.com>
-Date: Thu, 5 Nov 2026 10:00:28 +0100
+	id 1xOtNR-00000008EhU-2q9f;
+	Thu, 05 Nov 2026 09:03:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1793869399; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=1NYk/R+AjvZfblsV7HCmGu0xMESmf/3Rl3LdxJTF5qY=;
+	b=pmNLQSFOpq/RuRuhP0vzWZQi+r2DSovBx8mbaVk24pezHXtwBKmp9/8XAPGE4gUt5nNM5gtVYmEo7HW6q/uzke4zADGtHy2IriKE+h6xZfOzrVwLbt12RwIY9O8luJNn4U7bqlbiLt4H19tTsSrH6vK432upsOL+i6+b125lCWM=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R141e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=23;SR=0;TI=SMTPD_---0XE8DYxW_1793869381;
+Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XE8DYxW_1793869381 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 05 Nov 2026 17:03:17 +0800
+From: Chen Pei <cp0613@linux.alibaba.com>
+To: acme@kernel.org
+Cc: adrian.hunter@intel.com,
+	alexander.shishkin@linux.intel.com,
+	anup@brainfault.org,
+	david.laight.linux@gmail.com,
+	guoren@kernel.org,
+	irogers@google.com,
+	james.clark@linaro.org,
+	john.g.garry@oracle.com,
+	jolsa@kernel.org,
+	leo.yan@linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	mark.rutland@arm.com,
+	mike.leach@arm.com,
+	mingo@redhat.com,
+	namhyung@kernel.org,
+	palmer@dabbelt.com,
+	peterz@infradead.org,
+	pjw@kernel.org,
+	will@kernel.org
+Subject: Re: [PATCH v3 0/2] perf riscv: Implement rdtsc()
+Date: Thu,  5 Nov 2026 17:02:57 +0800
+Message-ID: <20261105090300.2889-1-cp0613@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261009032715.2841-1-cp0613@linux.alibaba.com>
+References: <20261009032715.2841-1-cp0613@linux.alibaba.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 05/13] drm/mediatek: mtk_dsi: Enable interrupt at
- component bind time
-To: Roman Vivchar <rva333@protonmail.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, matthias.bgg@gmail.com, jitao.shi@mediatek.com,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
- justin.yeh@mediatek.com, jason-jh.lin@mediatek.com,
- CK Hu <ck.hu@mediatek.com>
-References: <20260916110825.102631-1-angelogioacchino.delregno@collabora.com>
- <20260916110825.102631-6-angelogioacchino.delregno@collabora.com>
- <hXDHNenOxP_1Fjv3k-eSNDIFG2yGsdvlxFOCpn0SMdRImzGWQfDVFE-0px1K0-Z472dL3IuLWE5BWIQeOo_U12SjzZOeJ3FNLIxus-KoGNE=@protonmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <hXDHNenOxP_1Fjv3k-eSNDIFG2yGsdvlxFOCpn0SMdRImzGWQfDVFE-0px1K0-Z472dL3IuLWE5BWIQeOo_U12SjzZOeJ3FNLIxus-KoGNE=@protonmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_010032_001309_6AA56690 
-X-CRM114-Status: GOOD (  22.75  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261105_010323_209118_DFB584F5 
+X-CRM114-Status: UNSURE (   6.03  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -15.1 (---------------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,132 +84,23 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=unavailable autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT,USER_IN_DEF_DKIM_WL
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 11/4/26 19:56, Roman Vivchar wrote:
-> On Wednesday, September 16th, 2026 at 2:08 PM, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> wrote:
-> 
->> Having the DSI interrupt enabled before actually binding the DSI
->> component to the display controller driver is both useless and
->> dangerous: the main purpose of this interrupt is to signal CMD
->> done, LP RX data ready, or VideoMode done, or to reset the HW
->> engine if this doesn't come.
->>
->> Should this interrupt come too late (during probe), the HW will
->> be reset only at the next occurrence of a timeout, which slows
->> down boot and may render artifacts to the DSI display.
->>
->> Moreover, clearing the DSI interrupt while the display controller
->> is not ready yet, may result in an interrupt storm.
->>
->> In order to prevent this from happening, request the interrupt
->> with IRQF_NO_AUTOEN, and enable it only when binding DSI to its
->> display controller component master.
->>
->> Reviewed-by: CK Hu <ck.hu@mediatek.com>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> 
-> This was necessary on mt6595, otherwise it would get stuck.
-> 
+On Fri, Oct 09, 2026 at 11:27:13AM +0800, Chen Pei wrote:
+> [PATCH v3 0/2] perf riscv: Implement rdtsc()
 
-Yep, I guess it was getting stuck before this because your platform's bootloader
-has continuous splash functionality and leaves it on while booting Linux, right?
+Gentle ping on this series.
 
-Just a curiosity... ;-)
+Is there anything else you need from me to get it queued for the next
+perf-tools cycle? If you would rather see it resent on a newer base,
+or want a change I have not thought of, say the word and I will do that.
 
-Cheers,
-Angelo
-
-> Acked-by: Roman Vivchar <rva333@protonmail.com>
-> Tested-by: Roman Vivchar <rva333@protonmail.com> # mt6595, mt6768
-> 
->> ---
->>   drivers/gpu/drm/mediatek/mtk_dsi.c | 24 +++++++++++++-----------
->>   1 file changed, 13 insertions(+), 11 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
->> index 28ba532210ff..6ac6daa61e68 100644
->> --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
->> +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
->> @@ -225,6 +225,7 @@ struct mtk_dsi {
->>   	int refcount;
->>   	bool enabled;
->>   	bool lanes_ready;
->> +	int irq;
->>   	u32 irq_data;
->>   	wait_queue_head_t irq_wait_queue;
->>   	const struct mtk_dsi_driver_data *driver_data;
->> @@ -1101,6 +1102,8 @@ static int mtk_dsi_bind(struct device *dev, struct device *master, void *data)
->>   		return ret;
->>   	}
->>
->> +	enable_irq(dsi->irq);
->> +
->>   	return 0;
->>   }
->>
->> @@ -1109,6 +1112,8 @@ static void mtk_dsi_unbind(struct device *dev, struct device *master,
->>   {
->>   	struct mtk_dsi *dsi = dev_get_drvdata(dev);
->>
->> +	disable_irq(dsi->irq);
->> +
->>   	drm_encoder_cleanup(&dsi->encoder);
->>   }
->>
->> @@ -1342,7 +1347,6 @@ static int mtk_dsi_probe(struct platform_device *pdev)
->>   {
->>   	struct mtk_dsi *dsi;
->>   	struct device *dev = &pdev->dev;
->> -	int irq_num;
->>   	int ret;
->>
->>   	dsi = devm_drm_bridge_alloc(dev, struct mtk_dsi, bridge,
->> @@ -1375,9 +1379,9 @@ static int mtk_dsi_probe(struct platform_device *pdev)
->>   	if (IS_ERR(dsi->phy))
->>   		return dev_err_probe(dev, PTR_ERR(dsi->phy), "Failed to get MIPI-DPHY\n");
->>
->> -	irq_num = platform_get_irq(pdev, 0);
->> -	if (irq_num < 0)
->> -		return irq_num;
->> +	dsi->irq = platform_get_irq(pdev, 0);
->> +	if (dsi->irq < 0)
->> +		return dsi->irq;
->>
->>   	dsi->host.ops = &mtk_dsi_ops;
->>   	dsi->host.dev = dev;
->> @@ -1386,17 +1390,15 @@ static int mtk_dsi_probe(struct platform_device *pdev)
->>
->>   	platform_set_drvdata(pdev, dsi);
->>
->> +	ret = devm_request_irq(&pdev->dev, dsi->irq, mtk_dsi_irq,
->> +			       IRQF_NO_AUTOEN, dev_name(&pdev->dev), dsi);
->> +	if (ret)
->> +		return dev_err_probe(&pdev->dev, ret, "Failed to request DSI irq\n");
->> +
->>   	ret = mipi_dsi_host_register(&dsi->host);
->>   	if (ret < 0)
->>   		return dev_err_probe(dev, ret, "Failed to register DSI host\n");
->>
->> -	ret = devm_request_irq(&pdev->dev, irq_num, mtk_dsi_irq,
->> -			       IRQF_TRIGGER_NONE, dev_name(&pdev->dev), dsi);
->> -	if (ret) {
->> -		mipi_dsi_host_unregister(&dsi->host);
->> -		return dev_err_probe(&pdev->dev, ret, "Failed to request DSI irq\n");
->> -	}
->> -
->>   	dsi->bridge.of_node = dev->of_node;
->>   	dsi->bridge.type = DRM_MODE_CONNECTOR_DSI;
->>
->> --
->> 2.55.0
->>
->>
->>
+Best regards,
+Chen
 
