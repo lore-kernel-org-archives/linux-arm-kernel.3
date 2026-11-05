@@ -2,68 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51206606D839
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Nov 2026 23:55:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52448606A32E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 00:02:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pQRSUXt5;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mvi8mwQk
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2Bfm06kM;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iPEYS9Wa
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=IdsyS82S9xmEux1Z7p//48MeApymfROqKvbsztaBC5Y=; b=pQRSUXt5SQJKo4oV/AbNOJUadz
-	j6u1I+42AY2KVx6pH09oBwRzlz657khyE/6UZkqXJrfIHWuS7au6XAIq3Ht3SwFrNCIwjfQXZPz8p
-	n5OnSYBOUZ3KEovAnar7zdfUkEY8zLw7uS0b/hEOaCni9+pxP/EUCJsYuiQAu5dwOyVWRznn2GY/x
-	CIYXP/EO2VM1CWOOA0gipEsO7I95w965Ngyv4Mf8VFBd0UrW/JRnysCECUyEVwVLCSBGmYzgejEKh
-	9gzm+iO5UPviOzJChfEXdVO+8M7i0DVWT5xPiSkOKsoNa8i7Xt8ogz731fJ5qDT5v9F2yrr6yG27l
-	r7V8zp5g==;
+	bh=I0dLEy0/RWH1lm8d6zJOmiHKcDSiY13O6lAZIBvefJE=; b=2Bfm06kMdXVOAdnoiRjPfBYFQq
+	HHaLVIfjTxNhgMXU0BSllewTfgmMvnTPf9o48Jd/mI0t0DvqaOOD/K5voFwmEKO6/DmKexzCDJNiX
+	GHfA0iUhqm89o9Q12sD/OwRdXybnkCW1iMOOc15Wn6+55kNDGur4XaahdCL6s5cKqg8DWRHEwEM9p
+	XZIeIXKnsGW95PVNf7/gfb6reCfLp/cUQfMMYmQxT405ACSoUlSXxR2d4VBoT9eeb2VGipRR6siP+
+	UUOxefdEtEdy2gELvhVdRP446b/K+NBzl2UpqrpaTUo6rHfDCqxjqNPWL0vv24U18JUE7c9pNWG9p
+	39Fj36Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOkor-00000007Iww-0lTL;
-	Wed, 04 Nov 2026 23:55:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xOkwE-00000007JcO-0DHp;
+	Thu, 05 Nov 2026 00:02:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOkop-00000007Iwd-0omH
+	id 1xOkwD-00000007JcI-0ADW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Nov 2026 23:55:03 +0000
+	Thu, 05 Nov 2026 00:02:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 58C344068E;
-	Wed,  4 Nov 2026 23:55:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B1061F000C1;
-	Wed,  4 Nov 2026 23:55:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6C2954068B;
+	Thu,  5 Nov 2026 00:02:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A2471F000C1;
+	Thu,  5 Nov 2026 00:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793836502;
-	bh=IdsyS82S9xmEux1Z7p//48MeApymfROqKvbsztaBC5Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=mvi8mwQkbBCz1G8u+WsLGD2et7mREaqQJRVO2phq/i6ayqccFRl8LXutTZ+rFZi+d
-	 golFdWhlzEcOiUR8yOuCXOU55n9Zgc9jsYhVAf4aY5D44zXaXhvWWyXfBxEs6m3MoA
-	 P94Yx31Gdivl/UaUaGVlY4twI7tXiNTnGjaU6SyOLwcWtaXA9pBGksWJoiSSCxbP79
-	 mldFp9P8J6COVJS3NnLJAVzx7BgYUpGU/0uyHtHQvTUq2wYAafsRZAJbBFtpA3WOzl
-	 jXlo9SqRqt2yAxScV/n4ptBh26+98j/xrV8MqxRSYmelR7eefqr2eLvbJNgk1u63gK
-	 nacOVLl4F3jMA==
-Date: Wed, 4 Nov 2026 17:55:00 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
-	"Rafael J. Wysocki" <rafael@kernel.org>, lenb@kernel.org,
-	bhelgaas@google.com, alex@shazbot.org, jgg@nvidia.com,
-	kevin.tian@intel.com, baolu.lu@linux.intel.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, kvm@vger.kernel.org,
-	patches@lists.linux.dev, pjaroszynski@nvidia.com, vsethi@nvidia.com,
-	etzhao1900@gmail.com, Danny Gonzalez <digonzal@google.com>
-Subject: Re: [PATCH v8 5/5] PCI: Suspend iommu function prior to resetting a
- device
-Message-ID: <20261104235238.GA1469671@bhelgaas>
+	s=k20260515; t=1793836960;
+	bh=I0dLEy0/RWH1lm8d6zJOmiHKcDSiY13O6lAZIBvefJE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=iPEYS9Wae8NoW+oX6Hkt3rDqmoP7Q+RYJgafe8t9g1bg7bX/lH9LlbruhkAVMD6EU
+	 he03MHr98J3B96Z1F/5ezqmQDqLFg0JAl7n4F601WZaTiIYaxTydBaaegdUUQ1e2vK
+	 Fhctx1r+c3QgGppAgn2Dyw8NpD9YoL9OsbEmQWttu63phMklwnnbXCr5Ddmo8DJ9yQ
+	 pXpbBhg+OHJrTE7UyhGHrPp1mrAfwZ6z8X/ooOoJQY8FcqIjmUuO5Y05EuPw29x2Tf
+	 fszcxTccXjCrdEr9g09MkKT9eBqxn2P+OD3DCmPaOv5HfeJbgDGz1DKp75EsaEeWx7
+	 z38y5eSlK4Aug==
+Date: Wed, 4 Nov 2026 16:02:38 -0800
+From: Oliver Upton <oupton@kernel.org>
+To: Sascha Bischoff <sascha.bischoff@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	peter.maydell@linaro.org, lpieralisi@kernel.org,
+	timothy.hayes@arm.com, fuad.tabba@linux.dev
+Subject: Re: [PATCH v2 07/16] KVM: arm64: gic-v5: Add ITS guest table
+ translation emulation
+Message-ID: <auvHnnymzccd9OaF@kernel.org>
+References: <20261102194454.4086911-1-sascha.bischoff@arm.com>
+ <20261102194454.4086911-8-sascha.bischoff@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <348c50ab6e95b5ec6d48ee3fa05d529a784a34c3.1765834788.git.nicolinc@nvidia.com>
+In-Reply-To: <20261102194454.4086911-8-sascha.bischoff@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,73 +72,113 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-[+cc Danny; this question was prompted by sashiko review of a
-pci_ats_supported() patch at
-https://lore.kernel.org/all/20261020181053.2646782-1-digonzal@google.com]
+On Mon, Nov 02, 2026 at 07:44:45PM +0000, Sascha Bischoff wrote:
+> +static int parse_linear_dt(struct kvm *kvm, gpa_t dt_base, u32 device_id,
+> +			   gpa_t *itt_base, bool *two_level_itt,
+> +			   unsigned int *event_id_bits, unsigned int *itt_l2sz)
+> +{
+> +	__le64 dt_l2_entry;
+> +	gpa_t entry_addr;
+> +	u64 val;
+> +	int ret;
+> +
 
-On Mon, Dec 15, 2025 at 01:42:20PM -0800, Nicolin Chen wrote:
-> PCIe permits a device to ignore ATS invalidation TLPs while processing a
-> reset. This creates a problem visible to the OS where an ATS invalidation
-> command will time out: e.g. an SVA domain will have no coordination with a
-> reset event and can racily issue ATS invalidations to a resetting device.
-> 
-> The PCIe r6.0, sec 10.3.1 IMPLEMENTATION NOTE recommends SW to disable and
-> block ATS before initiating a Function Level Reset. It also mentions that
-> other reset methods could have the same vulnerability as well.
-> 
-> The IOMMU subsystem provides pci_dev_reset_iommu_prepare/done() callback
-> helpers for this matter. Use them in all the existing reset functions.
-> 
-> This will attach the device to its iommu_group->blocking_domain during the
-> device reset, so as to allow IOMMU driver to:
->  - invoke pci_disable_ats() and pci_enable_ats(), if necessary
->  - wait for all ATS invalidations to complete
->  - stop issuing new ATS invalidations
->  - fence any incoming ATS queries
-> ...
+<snip>
 
-> @@ -4885,10 +4919,20 @@ static int pci_reset_bus_function(struct pci_dev *dev, bool probe)
->  		return -ENOTTY;
->  	}
->  
-> +	rc = pci_dev_reset_iommu_prepare(dev);
-> +	if (rc) {
-> +		pci_err(dev, "failed to stop IOMMU for a PCI reset: %d\n", rc);
-> +		return rc;
+> +	entry_addr = dt_base + device_id * sizeof(__le64);
+> +	ret = kvm_read_guest_lock(kvm, entry_addr, &dt_l2_entry,
+> +				  sizeof(dt_l2_entry));
+> +	if (ret) {
+> +		kvm_debug("Failed to read guest memory for L2 DT\n");
+
+99% chance of this being either the guest or userspace's fault. I don't
+see any reason why we need to carry a pr_debug() here.
+
+What would be nice is some preparatory return codes or helpers for
+recording the SWERR that caused an ITS operation to fail so we can add
+support for ITS_IDR0.SWE later on.
+
+The GICv3 ITS made a half-attempt at doing this. Even though it never
+conveyed that information to the guest, I think it was a net-win in
+terms of readability.
+
+> +		return ret;
+> +	}
+> +
+> +	val = le64_to_cpu(dt_l2_entry);
+
+</snip>
+
+Feels like "read the Nth entry from this table out of guest memory"
+should be done in a helper shared with the other callsites. On top of
+that, arm64 is little-endian only as of 7.4.
+
+While I'm not saying we should go tear out every instance of byteorder
+twiddling, I think that shared helper would be an excellent spot to
+either do the le_to_cpu() or document the fact that both the kernel and
+the ITS are LE-only.
+
+> +	if (!FIELD_GET(GICV5_DTL2E_VALID, val)) {
+> +		kvm_debug("Guest DT entry is invalid\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	*itt_base = FIELD_GET(GICV5_DTL2E_ITT_ADDR_MASK, val) << 3;
+> +	*two_level_itt = FIELD_GET(GICV5_DTL2E_ITT_STRUCTURE, val);
+> +	*event_id_bits = FIELD_GET(GICV5_DTL2E_EVENT_ID_BITS, val);
+> +	*itt_l2sz = FIELD_GET(GICV5_DTL2E_ITT_L2SZ, val);
+
+Same sense brewing here about the parsing, with the added gripe that
+multiple out pointers can be a bit annoying to cope with. I'd rather see
+the literal DTE get passed around or we use a struct containing all the
+extracted fields we care about.
+
+> +static int parse_two_level_dt(struct kvm *kvm, gpa_t dt_base,
+> +			      unsigned int dt_l2sz, u32 device_id,
+> +			      gpa_t *itt_base, bool *two_level_itt,
+> +			      unsigned int *event_id_bits,
+> +			      unsigned int *itt_l2sz)
+
+Any reason why this can't be anchored on a pointer to the ITS? Because
+you're passing down a lot of state that's just per-ITS context.
+
+> +	if (device_id >= 1UL << device_id_bits) {
+
+BIT_ULL()?
+
+> +static int parse_two_level_itt(struct kvm *kvm, u32 event_id, gpa_t itt_base,
+> +			       unsigned int itt_l2sz, __le64 *itt_l2_entry)
+> +{
+> +	unsigned int itt_split_bits, l2_event_id_bits;
+> +	gpa_t itt_l2_base, entry_addr;
+> +	u32 l1_event_id, l2_event_id;
+> +	__le64 itt_l1_entry;
+> +	u64 val;
+> +	int ret;
+> +
+> +	switch (itt_l2sz) {
+> +	case 0:
+> +		itt_split_bits = 9;
+> +		break;
+> +	case 1:
+> +		itt_split_bits = 11;
+> +		break;
+> +	case 2:
+> +		itt_split_bits = 13;
+> +		break;
+> +	default:
+> +		return -EINVAL;
 > +	}
 
-Unlike the other reset functions, this one calls
-pci_dev_reset_iommu_prepare() even when probe==true, i.e., we don't
-want to actually perform the reset, we just want to know whether the
-reset method might work.
+this should be a shared helper
 
-It's at least unnecessary to call pci_dev_reset_iommu_prepare() and
-pci_dev_reset_iommu_done() in that case, and maybe even problematic
-because the pci_init_reset_methods() probe happens from
-pci_init_capabilities(), which is pretty early during PCI enumeration
-of the device.
-
-I know this has already been merged as f5b16b802174 ("PCI: Suspend
-iommu function prior to resetting a device"), and I'm not sure whether
-we should do anything about it.  I wonder if we should just skip the
-prepare/done when probe==true?
-
->  	rc = pci_dev_reset_slot_function(dev, probe);
->  	if (rc != -ENOTTY)
-> -		return rc;
-> -	return pci_parent_bus_reset(dev, probe);
-> +		goto done;
-> +
-> +	rc = pci_parent_bus_reset(dev, probe);
-> +done:
-> +	pci_dev_reset_iommu_done(dev);
-> +	return rc;
->  }
+Thanks,
+Oliver
 
