@@ -2,104 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A044F606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:07:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 106E1606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:14:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Plscvsm4;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0rauaIkc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Y5s5+Gsw;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=WFc4big3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=nPodO5AP64Dsdsqfhq9Y2o6KomJ/G83kxL2GrW1whbI=; b=Plscvsm4MxDRGX
-	3s6e3u1th0wI0GaNuc8mn5b34JUSH0rIk+Zmswzq8IZc+lIcWVidM3YEDgMy+8f1K+N86u+lr0bBj
-	81+zeQQq/v6n9vtUIoCXK0A9qwWqnpDayXlB9EjN2Ax0wFqg5qOS9etNgnNOlFCgbhmcoiqvUE0J9
-	X3hpX1ohjfRKIAdJ8qwFEpeUdJLq5zN5BumS+nXyHvVX3vVw2KlosPpRjp4V8ZoYerv1ACnIKvPBA
-	3Wf7w0QCWKMpLB8VN1x7Qo7O5wH7krMMqD2ZnOUFYp6C8qvjvE3rT+Cz85GaXkhg0xdyjUYYCGfSa
-	OcceW+GDSjetcJ89PB0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=slAjwWQDYVO39KamLXHsue/lfUEBTiuulu/3jpX05gc=; b=Y5s5+GswMmKbSI7vAql5PUrKek
+	cRzUSho/5+jkL7GHHd0cjNXsF3BpxxhUwex/yE/ESN5MrqDHwmYnQ5CHN+RjGCM2heCQ9L7vC+wAz
+	rFCAagDZaClMYSTcEBePoPuczdtJgrLntXdi/n/mgafsM0TNdXFLbeXuRbxKgK46QjjzvkkMiyvKZ
+	uH73WCsvg4tN1HnZKQtp060+vyZQUAOS+OhGsM+dJV/gVjPjeGYVcFB6rrPeXv0YXce4SNBfhbOdr
+	cIPjNWcytM4fP/O0H22aK7J3JEHUL1tSd1Eqb45Kcfw5meRwfh0josR/eLksb5Ar0OnwYd8FESZb7
+	5Du3XDcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOsVU-000000086G9-1p4V;
-	Thu, 05 Nov 2026 08:07:36 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1xOsc3-000000086jQ-2bhO;
+	Thu, 05 Nov 2026 08:14:23 +0000
+Received: from out-164.mta1.migadu.com ([95.215.58.164] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOsVR-000000086FP-46bo
+	id 1xOsc0-000000086i9-1lge
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 08:07:35 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-3b0b3754f57so313596a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 00:07:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793866053; x=1794470853; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=nPodO5AP64Dsdsqfhq9Y2o6KomJ/G83kxL2GrW1whbI=;
-        b=0rauaIkcDvqG0XWFwfygnPVbXTNhDAUUBOubPM5fZ31eoXtjwsr4H2JVsTEVwPIKxM
-         Hq+GNluXEsiSa4/vpnS3p5P4WMNXxwVuDM7Rzio2uk0Eg6oxsilw/9F0wbFktHLgtRIq
-         eKKEScTCaiuaqsnRB6hqnW4VYZcVAfyEDRH+KKHKvkvwu+Vzuf3yrF/NrjcROpR3EfnF
-         BbQ9wuz1HaK72G/3ZLJgWCnm92VDvwS5YHsQbKR/gEi5Pal73UpZ2Puem9UI83wzA84u
-         XVKxj7FPUE9SgMeOj3TKaqf1asaSjo6T2FpUuwTK6fogkQPBCzq2jBXC246UdoPFcM5U
-         YDxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793866053; x=1794470853;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nPodO5AP64Dsdsqfhq9Y2o6KomJ/G83kxL2GrW1whbI=;
-        b=T8FpRfJAa7LHQtGJAqua4ALvKnucdtUaGPjiDySnhtaiJauGG+yy/9PCEKee6UOkF7
-         fXcD8YL4HuJMOegpk/K7/Jx7Z1s3fEMAPUs2/GYYTLohQ00ftMQXaL2HccDIdNizasZK
-         FkuYR5dLqfMOHSonKvpBnWOvGJcIXuU2AuOxKcR+2yOZHzbmR+i6qwTU0Vqx+1HmfKhZ
-         V+RxerMw0lcyGor/+TOCX1+1AvmiT9ON4iNMwGijw/m9WIZg7THntTE3I9urXTZi+tM+
-         3EUZGVP7oggfgySMB0kC56i6VyiW7fyubXKokfF0LgTwmmltS6O1apzWb3xNV/GUZLyN
-         xspA==
-X-Forwarded-Encrypted: i=1; AKwUvBy2yd3H007GeOqLow/cYr7vjlKvehAM5Zg1I8TgMtSnSDkR0MQszfaAjK3iikVXOVHq0nbTK9MG7fh9lg68CTC9@lists.infradead.org
-X-Gm-Message-State: APuU4Z/sGBu+nAjeZtEGFOJQm4UGgUm//kL79LRcmzFM/uRap2PMJJJi
-	BVfXOJCgZksqVqe3/tPzP9l1gGSZfXKTSfQjUWLkzHZNG7o6wd/xnvYfEDyVirA=
-X-Gm-Gg: AYBFou0ozc6AXaBWzFv7USdOHaI6LxzOAU2UrDRYNYPl4eQqX1MWyuzg2R5VcxFwN/F
-	A73cVqNj+XQzdH2WcNSEBErFP84xwkjzru+/6YkBeb7RH2Avqp2L6KNfDDpTrh+u+QpEoVGdnRl
-	DNN2dGvzn5H3qtrrKy3dMl1haoeu/T19vqlNLCS20+E2g4zLGMS/aZ5v9/SxSA+Y0RHS/Rm1e2q
-	hy4747z2TAJPL24IFXyCDGdrQLpqRVtGhR3kCYjtxjXqmHHU3luDX+WiHJ/WxjV7T6skaF7XQeJ
-	haAYE6X9EM62+BITU+uorPSDMx9cse5a2u5ri4/0vx4uabkOvi4I2TVlaNjkwJS2i5jfvWFPWE6
-	nkjrRH810/42vFYgagPmoXtLqw/WLZgdLExSg5zW/CnnWQ3YOCVnSSEbsfu4ls9t+N5XlLjwlx+
-	Rb2WaQjyjbl6Tq+G3LFfSE8o2iCkBffGWUgRtyM8qzlovPLXpWPSC6puemoIwjr3vAdnOCFUaGi
-	xLbHu6ePTmTXvwKAAjt+t//s8uTfzXECjD30stEzH8igdTYszwCCOHJdoxQM3gDzUPvWAz6+o8u
-	j+viv2KyB7hdJWKdS+nSAUvoUo6IiY2svpE7W1BITMeekyEjFDLslHJXoA==
-X-Received: by 2002:a17:90b:3bd0:b0:3b0:ad59:7199 with SMTP id 98e67ed59e1d1-3b0ad59732fmr2113248a91.32.1793866053007;
-        Thu, 05 Nov 2026 00:07:33 -0800 (PST)
-Received: from localhost.localdomain ([202.51.247.22])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0b3163383sm2689684a91.7.2026.11.05.00.07.29
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 05 Nov 2026 00:07:32 -0800 (PST)
-From: Yige Jiang <yigejiang86@gmail.com>
-To: dri-devel@lists.freedesktop.org
-Cc: Yige Jiang <yigejiang86@gmail.com>,
-	Inki Dae <inki.dae@samsung.com>,
-	Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>
-Subject: [PATCH] drm/exynos: dpi: release the node after looking up the panel
-Date: Thu,  5 Nov 2026 16:07:24 +0800
-Message-ID: <rc-review-20261105-14-00955ac4adbd@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260916072012.1967169-1-vulab@iscas.ac.cn>
-References: <20260916072012.1967169-1-vulab@iscas.ac.cn>
+	Thu, 05 Nov 2026 08:14:22 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=5dNzhcTaPSPAHoNbodXyj+zv2hdRrCEJXr1Y2dhrWX8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1793866456; v=1; x=1794471256;
+ b=WFc4big3zhaMRqLsJpcpWz6AzjcGnU7DIsWQe212eR0UXyRpD1jDQmKjNiKI6XS8vtVZ2f/l
+ fgQdx5Rdg0QqnGt2NWDCLurrzj8JuKVwHEx8QNTdQwC9UGh18HNYDXHVy2BC8F/3VokeNoMHvwx
+ foZm4RxFn83z3PLnPIY0F68k=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id fd2e72678ecd5b02;
+	Thu, 05 Nov 2026 08:08:05 +0000
+X-Mizu-Trace-ID: fd2e72678ecd5b02
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5be3b2f17c1so3781e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 00:08:01 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AKwUvBw91dU8tLqqS0qikTmfyy2RHWudjqyoVexIEfzC+Zhc/b1w9ARC57EjbyVlnNhGuNlxQajTUZU0GM9H6HRPHDAW@lists.infradead.org
+X-Gm-Message-State: APuU4Z/ARDTv9ZqyzsUHhN5IJxg+ekRdAnPrAC4AWGmHd1NBV0RmQFFj
+	0MgBALcFSjV0orAXi+aw1SdVVtIjRLxYI+Cgk1Re9bEiF1r9NNmZqZZ/4xKx++1SZij7zcCTqkv
+	EdhrvkA44DFlUIAPyzUTnbDKzZn8LR3vdxuu60VyV
+X-Received: by 2002:a05:6512:3e02:b0:5bf:f0fb:2c9c with SMTP id
+ 2adb3069b0e04-5bffb1dc195mr77268e87.5.1793866080846; Thu, 05 Nov 2026
+ 00:08:00 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261104124451.2148724-1-fuad.tabba@linux.dev>
+ <20261104124451.2148724-2-fuad.tabba@linux.dev> <aut5t605onnuBWfk@kernel.org>
+In-Reply-To: <aut5t605onnuBWfk@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Thu, 5 Nov 2026 08:07:24 +0000
+X-Gmail-Original-Message-ID: <CA+EHjTzEa-VZZ7TffdR0dY=92-iqX68yWkPR1zz7uzEX+c+f3A@mail.gmail.com>
+X-Gm-Features: AclHuK__AB0z6apl_Wv0YuqPm4x2AvnN93O1z8V4Fr2KgOylyOBS-uUCz6gu5jo
+Message-ID: <CA+EHjTzEa-VZZ7TffdR0dY=92-iqX68yWkPR1zz7uzEX+c+f3A@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] KVM: arm64: Resume stage-2 teardown where the walk stopped
+To: Oliver Upton <oupton@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Raghavendra Rao Ananta <rananta@google.com>, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_000734_040689_E7606844 
-X-CRM114-Status: GOOD (  13.26  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261105_001420_605869_A504E918 
+X-CRM114-Status: GOOD (  10.58  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,55 +85,29 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-exynos_dpi_parse_dt() acquires the remote panel node. The posted
-display-timings fix releases it on that branch, but the panel lookup
-path still retains it on success and failure, including deferred
-probe. of_drm_find_panel() does not consume the node reference.
+On Wed, 4 Nov 2026 at 18:30, Oliver Upton <oupton@kernel.org> wrote:
+>
+> Hi Fuad,
+>
+> On Wed, Nov 04, 2026 at 12:44:50PM +0000, Fuad Tabba wrote:
+> > +u64 kvm_pgtable_stage2_destroy_range(struct kvm_pgtable *pgt,
+> > +                                  u64 addr, u64 size)
+>
+> Returning a signed value here would be a good idea so you can percolate
+> walk failures back up to the caller. Since that WARN_ON() below may as
+> well be a BUG_ON() in hyp code.
 
-Put the node immediately after the lookup and clear the unused
-pointer. This covers both lookup outcomes while leaving the
-separate panel reference and its existing remove-time put unchanged.
+Ack.
 
-Fixes: 14b6873a0198 ("drm/exynos: restore parallel output interface support")
-Link: https://patchwork.kernel.org/series/1166158/
-Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
----
-Based on linux-next next-20261102 (2637bdec0535).
-Compile-tested: arm64, GCC 14.2.0, W=1, CONFIG_OF_DYNAMIC=y.
-COMPILE_TEST=y.
-Baseline and patched target objects built from this exact base.
-No full kernel/module-link, hardware or runtime test was performed.
-AI assistance was used for analysis and patch preparation.
+> Otherwise, rest looks good.
 
-This is an incremental patch based on the following posted fixes:
-  [PATCH 10/20] drm/exynos: dpi: Fix OF node leak in exynos_dpi_parse_dt()
-  <20260916072012.1967169-1-vulab@iscas.ac.cn>
-
- drivers/gpu/drm/exynos/exynos_drm_dpi.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_dpi.c b/drivers/gpu/drm/exynos/exynos_drm_dpi.c
-index 92e8bbe9d35b..e98a9be0a705 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_dpi.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_dpi.c
-@@ -243,6 +243,8 @@ struct drm_encoder *exynos_dpi_probe(struct device *dev)
- 
- 	if (ctx->panel_node) {
- 		ctx->panel = of_drm_find_panel(ctx->panel_node);
-+		of_node_put(ctx->panel_node);
-+		ctx->panel_node = NULL;
- 		if (IS_ERR(ctx->panel))
- 			return ERR_CAST(ctx->panel);
- 	}
-
-base-commit: 2637bdec0535a2044cd830eba9a79363651d9043
-prerequisite-patch-id: 8f90819fd9f71f55560dc3af57c5a0bad07bc568
+Thanks Oliver!
+/fuad
 
