@@ -2,56 +2,56 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 636B3606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:14:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DF27606D801
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:14:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vfJ5VyaN;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dd7Sla9k
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=D+oGjx/a;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IdVRU0Ws
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=1eNs2HQmPLiDjSiZ3s0FNJwEwtww+7IyFoHujvnoR4M=; b=vfJ5VyaN7+WwNE
-	IJYqC+dOVg+AE3AaESKmphn0L6HMP8CQ/779D+7Ii6RH2EratIhnCW/no5QiZbBuFUwfWKMOnoE7Z
-	5IysliooiGQRMQo6hVlJszcg6v6kBo5PeBIUA94VxDjEsr9e6zhaUGVPpQwQPUk8Wi+LnQAcvGpug
-	z35e7mzSmCAWFlVV+Xi6vewldoXM0Jc0oMUyu9EO1VA2BHu//JkApHjevj/Gx4p8UEswDwqtXTuxn
-	bFWPUOT5BiXvuwernvD4cEaL5cg5+rdzCz7W9UsojcuNLVlwXoBEpLRUxQgj/VOrB8L+AqUWLbi4/
-	QjxKn/8QZ2BZFUBx3FPQ==;
+	List-Owner; bh=THbpDPbbYpeEzEvt4/1B8C87Int4ybsMYNsa0r/4B/U=; b=D+oGjx/amw1qUV
+	mamHbPBFlYXRMLPTy9nlEyDEJb35BNaG/QVM76rC58FXvGJLwbGHTzqkRpwngNUu5eboeFD3JZQPj
+	HtSy9K05WRz7KgFvi5lipQpKzz/BYHTQtGCgbm7gLksB+0wTlsR6JcZCqEW61TQlcbup+lzLOqF+E
+	F+58vjuLAYdh82VPQFnxiRNyrLnMLepGfyvRkptjxdft02lZxAVZWQc/iwYG9mH3UYw4yVV9lVg/k
+	UjE5UChIbdxp3LSrRvnhBLVA+JnEAzQhdlikJZuXt3zcaPycod8Sl/uJAMhJuIGEeRu5P4xvW3OVs
+	Xb48+WkEry42g9NdMrYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyEE-00000009E9V-403d;
-	Thu, 05 Nov 2026 14:14:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xOyEI-00000009EAx-0vkd;
+	Thu, 05 Nov 2026 14:14:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyEC-00000009E7l-2wVF
+	id 1xOyEE-00000009E9I-3B1n
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 14:14:08 +0000
+	Thu, 05 Nov 2026 14:14:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2943760C0A;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8398342CBF;
+	Thu,  5 Nov 2026 14:14:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48B9F1F00919;
 	Thu,  5 Nov 2026 14:14:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDFF01F000C1;
-	Thu,  5 Nov 2026 14:14:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793888047;
-	bh=1eNs2HQmPLiDjSiZ3s0FNJwEwtww+7IyFoHujvnoR4M=;
+	s=k20260515; t=1793888050;
+	bh=THbpDPbbYpeEzEvt4/1B8C87Int4ybsMYNsa0r/4B/U=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=dd7Sla9k/M51jfVSL6DdmbOgXz246kcXWwyrecE/1nULnakRnhleRokQO48/Aq/X3
-	 ZqnMqsLKtocQ50yvrabfbOrUxtWq/AjL0p3XUEHGEHAPmD6yno919h6pghhnSXKUtA
-	 D2xGNrEe5dt7f9/Diq6Vds3WghQuE7lH0k90Bnz/8p8Qb2Ntsgut/uR+CKBse4qb2/
-	 SC1MaUspAeCY4OXsvPcQJwt2Zbv/61YtiEe5iG9ZWIN5NcJ+4zDZ+SeIXTl/+G+7sb
-	 ElfIZLJE/m0HubPCkihkVnutcOSgj9XVTMIGu/qMSv9X2y/j0w0THibYKnv61iInl0
-	 N7VUkDrVUKynw==
+	b=IdVRU0WsuEAfDP0wtB10DA0it6GhL6NovU93t5zGyhOPddhtcprZw628+RZiX3F3/
+	 VMsJQp4S2VVJfuuiH/gK5s6UCq4I0+/HLdYgq7o8JAKQa7Ku0tAO64BMAtKPShPB5z
+	 y6PCszGlEgA/6eanwR+8Bg8jLf8vW9NAXvg6xpeZhcnN+DMzVbB7TnGuW8tPbV1w4C
+	 IFQg+nfg61C4XohNzYP9rJn/k6GN5XVTS/GlCx993XhvKm+PSNn0H281oq/SbgeXTG
+	 82mTGAD1NlbSROTV1ltjMN1/HzjvXqP4jS+9Sdzue3iCKrH0xrDWWS9xKKjun5QUxR
+	 pcWie2djpCmXg==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 05 Nov 2026 14:01:14 +0000
-Subject: [PATCH v2 01/11] kselftest/arm64: Factor Linux syscalls out of
- asm-utils.S
+Date: Thu, 05 Nov 2026 14:01:15 +0000
+Subject: [PATCH v2 02/11] kselftest/arm64: Factor shared signal handlers
+ out of fp-stress loads
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-arm64-fp-stress-kvm-v2-1-81a5172468f0@kernel.org>
+Message-Id: <20261105-arm64-fp-stress-kvm-v2-2-81a5172468f0@kernel.org>
 References: <20261105-arm64-fp-stress-kvm-v2-0-81a5172468f0@kernel.org>
 In-Reply-To: <20261105-arm64-fp-stress-kvm-v2-0-81a5172468f0@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -62,12 +62,12 @@ Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
  linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5000; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Y+BTJzhHc/37sRLFKtDWKMLORopVyDJW0jaxke4d/qg=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLe9Gt4/J+8+US56wOzAs4Xywr4Yxal8RhqrNjxNeXw0
- gTDa11SHaUsDGJcDLJiiixxWdwv60ter+E7uLANZg4rE8gQBi5OAZhI2ROGfwbHbjlFvzbs9l+g
- +iw+0/5D8E4Nr1C9M7OtnHc8Vtw2ZQ/D//zEjB7mhfWOdu94twprTPlX/e31YeGi5y8y++RPcpr
- osQMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6061; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=UBKnFOIQAcrAazCRamLNIRRtMttXvJYS8Eu5Nk5XQEw=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLe9GvkHFrlFL43onnp7jmK2+bd1Hlhtnel48zDaTkPb
+ oiKbDm8oaOUhUGMi0FWTJElLov7ZX3J6zV8Bxe2wcxhZQIZwsDFKQATeTufkeEwu2qH8E6Fu6wP
+ l4a9mTH52pq/mxa3MXm2iT+onzFFlOkYI8ND0a/Tr0uo9SdPPO3yvUzCvrrHMl+q7XDMrZMMr9w
+ Oq/MBAA==
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -88,166 +88,236 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-In preparation for building versions of the load programs for fp-stress
-that run as bare metal KVM guests move the functions that perform
-syscalls out of the shared code assembly code in asm-utils.S into a new
-Linux specific file asm-utils-linux.S.
+The assembly programs run by fp-stress all have identical signal
+handlers for cleanly exiting the program and simply count signal
+deliveries, consolidate them into a single copy in asm-utils-linux.S.
 
 No functional change.
 
 Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/fp/Makefile          | 17 +++++----
  tools/testing/selftests/arm64/fp/asm-utils-linux.S | 43 ++++++++++++++++++++++
- tools/testing/selftests/arm64/fp/asm-utils.S       | 36 ------------------
- 3 files changed, 53 insertions(+), 43 deletions(-)
+ tools/testing/selftests/arm64/fp/fpsimd-test.S     | 28 --------------
+ tools/testing/selftests/arm64/fp/sve-test.S        | 28 --------------
+ tools/testing/selftests/arm64/fp/za-test.S         | 28 --------------
+ tools/testing/selftests/arm64/fp/zt-test.S         | 28 --------------
+ 5 files changed, 43 insertions(+), 112 deletions(-)
 
-diff --git a/tools/testing/selftests/arm64/fp/Makefile b/tools/testing/selftests/arm64/fp/Makefile
-index d171021e4cdd..d92a755837ff 100644
---- a/tools/testing/selftests/arm64/fp/Makefile
-+++ b/tools/testing/selftests/arm64/fp/Makefile
-@@ -22,21 +22,24 @@ TEST_GEN_PROGS_EXTENDED := fp-pidbench fpsimd-test \
- 	vlset
- TEST_PROGS_EXTENDED := fpsimd-stress sve-stress ssve-stress za-stress
- 
--EXTRA_CLEAN += $(OUTPUT)/asm-utils.o $(OUTPUT)/rdvl.o $(OUTPUT)/za-fork-asm.o
-+EXTRA_CLEAN += $(OUTPUT)/asm-utils.o $(OUTPUT)/asm-utils-linux.o \
-+	$(OUTPUT)/rdvl.o $(OUTPUT)/za-fork-asm.o
-+
-+ASM_UTILS_LINUX := $(OUTPUT)/asm-utils.o $(OUTPUT)/asm-utils-linux.o
- 
- # Build with nolibc to avoid effects due to libc's clone() support
--$(OUTPUT)/fp-pidbench: fp-pidbench.S $(OUTPUT)/asm-utils.o
-+$(OUTPUT)/fp-pidbench: fp-pidbench.S $(ASM_UTILS_LINUX)
- 	$(CC) -nostdlib $^ -o $@
- $(OUTPUT)/fp-ptrace: fp-ptrace.c fp-ptrace-asm.S
--$(OUTPUT)/fpsimd-test: fpsimd-test.S $(OUTPUT)/asm-utils.o
-+$(OUTPUT)/fpsimd-test: fpsimd-test.S $(ASM_UTILS_LINUX)
- 	$(CC) -nostdlib $^ -o $@
- $(OUTPUT)/rdvl-sve: rdvl-sve.c $(OUTPUT)/rdvl.o
- $(OUTPUT)/rdvl-sme: rdvl-sme.c $(OUTPUT)/rdvl.o
- $(OUTPUT)/sve-ptrace: sve-ptrace.c
- $(OUTPUT)/sve-probe-vls: sve-probe-vls.c $(OUTPUT)/rdvl.o
--$(OUTPUT)/sve-test: sve-test.S $(OUTPUT)/asm-utils.o
-+$(OUTPUT)/sve-test: sve-test.S $(ASM_UTILS_LINUX)
- 	$(CC) -nostdlib $^ -o $@
--$(OUTPUT)/ssve-test: sve-test.S $(OUTPUT)/asm-utils.o
-+$(OUTPUT)/ssve-test: sve-test.S $(ASM_UTILS_LINUX)
- 	$(CC) -DSSVE -nostdlib $^ -o $@
- $(OUTPUT)/vec-syscfg: vec-syscfg.c $(OUTPUT)/rdvl.o
- $(OUTPUT)/vlset: vlset.c
-@@ -45,10 +48,10 @@ $(OUTPUT)/za-fork: za-fork.c $(OUTPUT)/za-fork-asm.o
- 		-include ../../../../include/nolibc/nolibc.h -I../..\
- 		-static -ffreestanding -Wall $^ -o $@
- $(OUTPUT)/za-ptrace: za-ptrace.c
--$(OUTPUT)/za-test: za-test.S $(OUTPUT)/asm-utils.o
-+$(OUTPUT)/za-test: za-test.S $(ASM_UTILS_LINUX)
- 	$(CC) -nostdlib $^ -o $@
- $(OUTPUT)/zt-ptrace: zt-ptrace.c
--$(OUTPUT)/zt-test: zt-test.S $(OUTPUT)/asm-utils.o
-+$(OUTPUT)/zt-test: zt-test.S $(ASM_UTILS_LINUX)
- 	$(CC) -nostdlib $^ -o $@
- 
- include ../../lib.mk
 diff --git a/tools/testing/selftests/arm64/fp/asm-utils-linux.S b/tools/testing/selftests/arm64/fp/asm-utils-linux.S
-new file mode 100644
-index 000000000000..e6c22b41dc5e
---- /dev/null
+index e6c22b41dc5e..3effeb1fbf50 100644
+--- a/tools/testing/selftests/arm64/fp/asm-utils-linux.S
 +++ b/tools/testing/selftests/arm64/fp/asm-utils-linux.S
-@@ -0,0 +1,43 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+// Copyright (C) 2015-2021 ARM Limited.
-+// Original author: Dave Martin <Dave.Martin@arm.com>
-+//
-+// Utility functions for assembly code which use Linux syscalls.
-+
-+#include <asm/unistd.h>
-+#include "assembler.h"
-+
-+// Print a single character x0 to stdout
-+// Clobbers x0-x2,x8
-+function putc
-+	str	x0, [sp, #-16]!
-+
-+	mov	x0, #1			// STDOUT_FILENO
-+	mov	x1, sp
-+	mov	x2, #1
-+	mov	x8, #__NR_write
-+	svc	#0
-+
-+	add	sp, sp, #16
-+	ret
-+endfunction
-+.globl	putc
-+
-+// Print a NUL-terminated string starting at address x0 to stdout
-+// Clobbers x0-x3,x8
-+function puts
-+	mov	x1, x0
-+
-+	mov	x2, #0
-+0:	ldrb	w3, [x0], #1
-+	cbz	w3, 1f
-+	add	x2, x2, #1
-+	b	0b
-+
-+1:	mov	w0, #1			// STDOUT_FILENO
-+	mov	x8, #__NR_write
-+	svc	#0
-+
-+	ret
-+endfunction
-+.globl	puts
-diff --git a/tools/testing/selftests/arm64/fp/asm-utils.S b/tools/testing/selftests/arm64/fp/asm-utils.S
-index 4b9728efc18d..6d43eb10e01f 100644
---- a/tools/testing/selftests/arm64/fp/asm-utils.S
-+++ b/tools/testing/selftests/arm64/fp/asm-utils.S
-@@ -4,44 +4,8 @@
- //
- // Utility functions for assembly code.
+@@ -6,6 +6,7 @@
  
--#include <asm/unistd.h>
+ #include <asm/unistd.h>
  #include "assembler.h"
++#include "asm-offsets.h"
  
--// Print a single character x0 to stdout
--// Clobbers x0-x2,x8
--function putc
--	str	x0, [sp, #-16]!
+ // Print a single character x0 to stdout
+ // Clobbers x0-x2,x8
+@@ -41,3 +42,45 @@ function puts
+ 	ret
+ endfunction
+ .globl	puts
++
++// Signal handler which reports a clean exit and terminates the program.
++// The tests keep their iteration count in x22 and their signal count in
++// x23, report those from the interrupted context.
++//
++// w0: signal number
++// x2: ucontext
++function terminate_handler
++	mov	w21, w0
++	mov	x20, x2
++
++	puts	"Terminated by signal "
++	mov	w0, w21
++	bl	putdec
++	puts	", no error, iterations="
++	ldr	x0, [x20, #ucontext_regs + 8 * 22]
++	bl	putdec
++	puts	", signals="
++	ldr	x0, [x20, #ucontext_regs + 8 * 23]
++	bl	putdecn
++
++	mov	x0, #0
++	mov	x8, #__NR_exit
++	svc	#0
++endfunction
++.globl	terminate_handler
++
++// Signal handler which only records that the program was interrupted.
++// The tests keep their signal count in x23, update that in the
++// interrupted context.
++//
++// w0: signal number
++// x2: ucontext
++function tickle_handler
++	// Increment the signal count (x23):
++	ldr	x0, [x2, #ucontext_regs + 8 * 23]
++	add	x0, x0, #1
++	str	x0, [x2, #ucontext_regs + 8 * 23]
++
++	ret
++endfunction
++.globl	tickle_handler
+diff --git a/tools/testing/selftests/arm64/fp/fpsimd-test.S b/tools/testing/selftests/arm64/fp/fpsimd-test.S
+index f89d67894c2e..9db7b5419397 100644
+--- a/tools/testing/selftests/arm64/fp/fpsimd-test.S
++++ b/tools/testing/selftests/arm64/fp/fpsimd-test.S
+@@ -149,34 +149,6 @@ function irritator_handler
+ 	ret
+ endfunction
+ 
+-function tickle_handler
+-	// Increment the signal count (x23):
+-	ldr	x0, [x2, #ucontext_regs + 8 * 23]
+-	add	x0, x0, #1
+-	str	x0, [x2, #ucontext_regs + 8 * 23]
 -
--	mov	x0, #1			// STDOUT_FILENO
--	mov	x1, sp
--	mov	x2, #1
--	mov	x8, #__NR_write
--	svc	#0
--
--	add	sp, sp, #16
 -	ret
 -endfunction
--.globl	putc
--	
--// Print a NUL-terminated string starting at address x0 to stdout
--// Clobbers x0-x3,x8
--function puts
--	mov	x1, x0
 -
--	mov	x2, #0
--0:	ldrb	w3, [x0], #1
--	cbz	w3, 1f
--	add	x2, x2, #1
--	b	0b
+-function terminate_handler
+-	mov	w21, w0
+-	mov	x20, x2
 -
--1:	mov	w0, #1			// STDOUT_FILENO
--	mov	x8, #__NR_write
+-	puts	"Terminated by signal "
+-	mov	w0, w21
+-	bl	putdec
+-	puts	", no error, iterations="
+-	ldr	x0, [x20, #ucontext_regs + 8 * 22]
+-	bl	putdec
+-	puts	", signals="
+-	ldr	x0, [x20, #ucontext_regs + 8 * 23]
+-	bl	putdecn
+-
+-	mov	x0, #0
+-	mov	x8, #__NR_exit
 -	svc	#0
+-endfunction
+-
+ // w0: signal number
+ // x1: sa_action
+ // w2: sa_flags
+diff --git a/tools/testing/selftests/arm64/fp/sve-test.S b/tools/testing/selftests/arm64/fp/sve-test.S
+index 7ef7835389e7..2aadb5c3c0f3 100644
+--- a/tools/testing/selftests/arm64/fp/sve-test.S
++++ b/tools/testing/selftests/arm64/fp/sve-test.S
+@@ -317,34 +317,6 @@ function irritator_handler
+ 	ret
+ endfunction
+ 
+-function tickle_handler
+-	// Increment the signal count (x23):
+-	ldr	x0, [x2, #ucontext_regs + 8 * 23]
+-	add	x0, x0, #1
+-	str	x0, [x2, #ucontext_regs + 8 * 23]
 -
 -	ret
 -endfunction
--.globl	puts
 -
- // Print an unsigned decimal number x0 to stdout
- // Clobbers x0-x4,x8
- function putdec
+-function terminate_handler
+-	mov	w21, w0
+-	mov	x20, x2
+-
+-	puts	"Terminated by signal "
+-	mov	w0, w21
+-	bl	putdec
+-	puts	", no error, iterations="
+-	ldr	x0, [x20, #ucontext_regs + 8 * 22]
+-	bl	putdec
+-	puts	", signals="
+-	ldr	x0, [x20, #ucontext_regs + 8 * 23]
+-	bl	putdecn
+-
+-	mov	x0, #0
+-	mov	x8, #__NR_exit
+-	svc	#0
+-endfunction
+-
+ // w0: signal number
+ // x1: sa_action
+ // w2: sa_flags
+diff --git a/tools/testing/selftests/arm64/fp/za-test.S b/tools/testing/selftests/arm64/fp/za-test.S
+index 9c33e13e9dc4..84e63e510f23 100644
+--- a/tools/testing/selftests/arm64/fp/za-test.S
++++ b/tools/testing/selftests/arm64/fp/za-test.S
+@@ -162,34 +162,6 @@ function irritator_handler
+ 	ret
+ endfunction
+ 
+-function tickle_handler
+-	// Increment the signal count (x23):
+-	ldr	x0, [x2, #ucontext_regs + 8 * 23]
+-	add	x0, x0, #1
+-	str	x0, [x2, #ucontext_regs + 8 * 23]
+-
+-	ret
+-endfunction
+-
+-function terminate_handler
+-	mov	w21, w0
+-	mov	x20, x2
+-
+-	puts	"Terminated by signal "
+-	mov	w0, w21
+-	bl	putdec
+-	puts	", no error, iterations="
+-	ldr	x0, [x20, #ucontext_regs + 8 * 22]
+-	bl	putdec
+-	puts	", signals="
+-	ldr	x0, [x20, #ucontext_regs + 8 * 23]
+-	bl	putdecn
+-
+-	mov	x0, #0
+-	mov	x8, #__NR_exit
+-	svc	#0
+-endfunction
+-
+ // w0: signal number
+ // x1: sa_action
+ // w2: sa_flags
+diff --git a/tools/testing/selftests/arm64/fp/zt-test.S b/tools/testing/selftests/arm64/fp/zt-test.S
+index a8df05771670..afcadb5aff23 100644
+--- a/tools/testing/selftests/arm64/fp/zt-test.S
++++ b/tools/testing/selftests/arm64/fp/zt-test.S
+@@ -131,34 +131,6 @@ function irritator_handler
+ 	ret
+ endfunction
+ 
+-function tickle_handler
+-	// Increment the signal count (x23):
+-	ldr	x0, [x2, #ucontext_regs + 8 * 23]
+-	add	x0, x0, #1
+-	str	x0, [x2, #ucontext_regs + 8 * 23]
+-
+-	ret
+-endfunction
+-
+-function terminate_handler
+-	mov	w21, w0
+-	mov	x20, x2
+-
+-	puts	"Terminated by signal "
+-	mov	w0, w21
+-	bl	putdec
+-	puts	", no error, iterations="
+-	ldr	x0, [x20, #ucontext_regs + 8 * 22]
+-	bl	putdec
+-	puts	", signals="
+-	ldr	x0, [x20, #ucontext_regs + 8 * 23]
+-	bl	putdecn
+-
+-	mov	x0, #0
+-	mov	x8, #__NR_exit
+-	svc	#0
+-endfunction
+-
+ // w0: signal number
+ // x1: sa_action
+ // w2: sa_flags
 
 -- 
 2.47.3
