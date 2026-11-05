@@ -2,111 +2,149 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60A2A606EE8D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:51:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD7C9606A33B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:52:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Vz4BJixU;
-	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=hkJd/cGT
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hNHrla/J;
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hUpRSQHQ;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=R/hjEnbS
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=ntbAVzKKszvhnnecyjPK9p4OIP/hmO9ZcKNX919vInk=; b=Vz4BJixUv7YPLl
-	SrTZnSwPuLowG1x/6ypt3UJXX0RkOWZtvOvfaLCkoqJ8lTlP0iF86gBJ2JQdzvBBl5rW0NkhJJWMi
-	z4yUcgFkzevTI+j+lAv2aKDcOn2ScLKbAJrh/s9KUWFc7aEa1+i1VyuigaSzGGQ+tT2MM/qVVlWHa
-	/h0gHx499RCUTUyjoLUHtH2LRo2SgD3iFh8pq9x11JWDCtPWN/gNcUjSofSap2IjBdeFUnEqWlRUC
-	GS4ehKoGEPvXb9iLp3kOKmlf+ik8Gf9LXFebqBXZOcZ9igM7OJRopFI4lWAtn+LbeYGZZ4vTm/k3u
-	GEpqUVbro60N+jx6bN1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=E+qJ0z0fXRRbniKVccRo08SFzpNX7/DEea7wwix12bk=; b=hNHrla/JCa5KDrEaAaBUVgW7Uv
+	dcUoXf63brzFyhslylLjKbtsxsX7fmbJlnoIZB0o8o8Vj5hSF8FhiQXz9Wj0FZNo3i2rL+/aLTl85
+	TgboAQvH8EiikgXu1p2aEcbOdyN+Z/eANqHtpsvOj8sU+D/pA1hwy4G3wxDiPvFXVu4CBbNi7fCtJ
+	v4miWyqoTiyZZRG5tXpeNrAWuDzB8y912pQYtY5mI4EgDQUj4ylFe7IDA9XZ5X6QORgDXrPQQxiqv
+	9tydGO5nMToS7attY82F4TQ6aXvoNvNq9BI6Ccesx+YDTA+89A1y2HDd9+VjNJGpmsDltspN5Ah1a
+	9Y/dPK3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOu8B-00000008Mar-2Fng;
-	Thu, 05 Nov 2026 09:51:39 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1xOu90-00000008Mkj-3Nun;
+	Thu, 05 Nov 2026 09:52:30 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOu87-00000008MaB-2es9
+	id 1xOu8y-00000008Mjo-13cf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 09:51:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1793872294;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ntbAVzKKszvhnnecyjPK9p4OIP/hmO9ZcKNX919vInk=;
-	b=hkJd/cGTXQf8gONRmfwGMkSqjAveIZ2oxKo788DmB8g8svaAgniC90naYOBMKiCvn1B6Mx
-	raORHnBkVLr43IxM4qE0lmHX2twwUd1EAqEkjUXAnyOSMmN26WdNdZkl9g67PDisED2uJQ
-	2HAvQLOv/S2WIdx9mE4acaLPG2JbjSE=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-391-HxNX0loKNO6Id6iglsNAhw-1; Thu, 05 Nov 2026 04:51:33 -0500
-X-MC-Unique: HxNX0loKNO6Id6iglsNAhw-1
-X-Mimecast-MFC-AGG-ID: HxNX0loKNO6Id6iglsNAhw_1793872292
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-4903fc8537aso1063755f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 01:51:33 -0800 (PST)
+	Thu, 05 Nov 2026 09:52:29 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A56Tuct3223158
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 5 Nov 2026 09:52:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=E+qJ0z0fXRRbniKVccRo08SF
+	zpNX7/DEea7wwix12bk=; b=hUpRSQHQNYfzfC83FLjaF9kiN+vrTNClTs2yMHLr
+	V6U3/TFCDDuLfmA0v8TEcFYuBIc82veg0J/8uS8cQlbl7w7xhbaq5SNZVoA5PmWu
+	dqi7rikyjTxN1viRfD7UGdZLuBBBa7t6Yv/mdF5kBHYjQ9kOczrzWlmcifJmnQBv
+	nHZ3aHFDDIc7X0HnsSGD8Sl8VTl0roeSJuBw96nLMc2j0iLQw7OYGxUS9KPZD9+y
+	TMZ/vajwlTI5PHq/BkyRlVH4sDSfcKvOiYkjM/LYrBi3JsTTj2iyazdeWcC010Gq
+	gf39GtswjHYrSwOH71Q/qInyj2dBsdIcjU3DL5asIJXFeg==
+Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hrj43he7q-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 09:52:27 +0000 (GMT)
+Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5ec21d5bf78so441833e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 01:52:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1793872346; x=1794477146; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=E+qJ0z0fXRRbniKVccRo08SFzpNX7/DEea7wwix12bk=;
+        b=R/hjEnbSGkVxPa2196Kjdi98qgOClhI0nAwzR1QovKJnYayM4IDMzjijgJM8hbZd4I
+         mXUBoPtnrascmlmPjF+V6BLcWKmIFMYDJQCRmmv7JvtlPYIijklk4aK120ef+cJzn8QF
+         0vOyq6TSHVcA70y+U2VkXRhtub6GuUtK42ZUUV/O1R4lf/jxxhqqmad+nQ+Pb9Qm9w1f
+         Cv2jJS69Io5MY6RQcvx5nxJYzmIysSQblIFgX3jGeODzDT5Tuf4mFXuCVfxxv7yG8cS4
+         r9GLl6ZHgJ598TJv9ygQ8goc19vQs9eskCuoQsgkZwkeM/Iy1OXme6nmgqJZ4bJFXm7E
+         C58A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793872292; x=1794477092;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ntbAVzKKszvhnnecyjPK9p4OIP/hmO9ZcKNX919vInk=;
-        b=L1p9g0RNRifqqD6hPmTD6D1x/P/J98zDx6bmnUNLJ50Tdd52gXVj2i6gnZ7yN0pR0Y
-         MALYWUXgfK6bOROaJfVa75Cy0SUWex/ANbz8MHA5jbmKZIBpRD6FZWdbyXSqflmQqt1x
-         4+fPbiq5ICr3SdgBDT3cnsalUdJQQbo5SuDrffbvUxLhDmzs6/kEl21xUqYn10OVBcNq
-         L2T0yB1p8ybiMOQPMZ6wgfFxm1YKOSzrbpO+ZqPasOWmQ4gS7X59IoxbDHrqeObC6i4N
-         zocCXWi7zTV95HLwSACtd8kxZxgU0eXIu77+VdFbf+qp/BJJCKW3jOYTtdKvhsSUZjiM
-         0Oyg==
-X-Forwarded-Encrypted: i=1; AKwUvBycPPP5zOfJxomJGkbh8F+vIyVBUYJtpAtUudVit1Uoq39ERiiXeHPkwpnsvpL7w5hmNJrjBtYfP8vNnaJlz69F@lists.infradead.org
-X-Gm-Message-State: APuU4Z8LF+TNz+WOE2QVXW9Stx1EMYSl67DXVgi1j+nvVNUZYylo+gKy
-	OKy+UmMpiRcqP5XfAt1cfUFQSTA4dMLg7ACw7w2gjpTNtvvekM5xgnaXI54u5+9WrpIBeBrNOl5
-	JbPrD0I9fPBxh6Q6teSDlSsupoRwHF84PuZqL2dsArwFdBL+xq5fAVp/x3TaAnnSlavPQ5IAb7C
-	Wg
-X-Gm-Gg: AYBFou0zpuNJgivvxrA8i7SX4doubVvPZ4N5U+zHYyfUxP19iMjgGrdVW2oecemyqYS
-	AGHYExH+y6OaSDVLXqnfgL+D2+ope2S/oNye2puxEpzsIWElqqWLY7LUNoV16wt3Mbu0ZnXQodb
-	GXPlQ4Huqxd4NPULMrVHQyEaHwLjgHyI5Mybb+WC0zGO1P7rTEvVqbS5B9TFf3gX0I0YMYhzwlN
-	0J1z7+hDkjiSN6KlMPrbo1UQBFsYNMYc7NdPDt3Zzt6kPa+4YqDfhkQBtn30LAdgvRv/urT8y3a
-	wUJVIt9ZjqyuIn2KC1OnlnQblOIRDUG9kd834gc+LR44vnOO6T7jgt5bSAytcqUAdjNfvmY+HuI
-	l+mtffqvEi7WXwOPPG/wMx40I0tb2TA8rd2men2B4vxWlvtbQYduZHOH+0MDmZWbo3i9ECMF15W
-	vzN2Ye9efdqiFghNifHPdmGM9EHzVc973ho8X1ESllhLw=
-X-Received: by 2002:a05:6000:430d:b0:490:da85:7aee with SMTP id ffacd0b85a97d-490da857cbemr5409712f8f.24.1793872292007;
-        Thu, 05 Nov 2026 01:51:32 -0800 (PST)
-X-Received: by 2002:a05:6000:430d:b0:490:da85:7aee with SMTP id ffacd0b85a97d-490da857cbemr5409669f8f.24.1793872291556;
-        Thu, 05 Nov 2026 01:51:31 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48fea1811c4sm8980486f8f.3.2026.11.05.01.51.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Nov 2026 01:51:31 -0800 (PST)
-Message-ID: <6810d4c3-a3b9-4da5-97fe-27cfd92563c1@redhat.com>
-Date: Thu, 5 Nov 2026 10:51:30 +0100
+        d=1e100.net; s=20260707; t=1793872346; x=1794477146;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=E+qJ0z0fXRRbniKVccRo08SFzpNX7/DEea7wwix12bk=;
+        b=qvmJq9J6aD40FvesBTXmDCJdLNW2eekbd7VhacmRcrlvG8rtLWzuCT6e0s2KiYg5SE
+         J7a+0xqDoIphO2m+OYzoMsQMWVDq4CSSaTLb0PXyD5mNTo9+2KGKbVWDzCUr2dv9aZDW
+         9d3kKR3xpQOevZGklgbgnOPuxHojLM6ad7pzmEI1ISuaTEqodrtQsjjSAdsfcIL5KEVE
+         jKJ5Tf/VOlhHFFM9uiLqEoLAP19QvH9XB5DFlCDF67008+K7vYACF/hUakJuQ/BeLIN9
+         51hhFUapDpE0VEEbIMCh9t1zL8CUPpEv3T0Tgufk/yEILlnY2yVKH5+Xj/rrqW1NrAFU
+         IaNQ==
+X-Forwarded-Encrypted: i=1; AKwUvByHB8q9f4QzlLYPlPVXakfWTHSV3bS5ZYDQUisthYd/z8U5mcDEnm4MUhd+bUhWnCrV+yFc5JSuHdSzWI5/zpof@lists.infradead.org
+X-Gm-Message-State: APuU4Z9JvQLSPGDMyowpJXKb+qovIJxErSFDVjpFdBPO6Lr3Bp2Ie4tB
+	/pfRfQiXrOlHfyPDtMpih04pIxHuzG/Oam+C15LBlt0CicvmqpbY+6NdNSdNeeQVqd+aW3qM2bS
+	sJx9Xk4HabDy262d2gOPCAo8kPOrV0jTfxuM7KB/mgevT4DAFTTGD/qTN3yeKzenBCym93amhCj
+	cXvg==
+X-Gm-Gg: AYBFou3PpQpirV0FMEE73AYyBMQPJbk3LCOhtO5FfDKPXe+K+edfvDkXIy9lqB9KCXq
+	8Og6iFHjFWNmnCpPkpG4NJIA3kJa71sG+SOd/eBqa5kzagwv5kaLwU6l4GBCXTtLI+sY5RmtplZ
+	Pv4/D+hBBtHXT9XCPVhNukT0Su6k22eZ+9BPrtJzUqdnozZR4eIUMS6CefoiQEHrrD+TdOjfdQg
+	6ZeOSzc0/UJKRrb/8iZXEMlXexQfwbLgTcP2FCQEEG5u8GyrBmNwsn7E4hJdkv6hiuDFOufNKiO
+	MOfs8wu32WR6yTTBVT4ind5dqLy5X/KUFarsBqFQ0qIEcSK7C12bxajOVBKt8dh6F80ZUXaubdJ
+	LbUlxW2K1OTrUKmv9DPPRrqiB6DMBbICnp0/jclhPhShNRkCSks49av38t/9hjg==
+X-Received: by 2002:a05:6102:32d4:b0:7d0:3ed0:c61d with SMTP id ada2fe7eead31-7d07227ce39mr7822341137.2.1793872346267;
+        Thu, 05 Nov 2026 01:52:26 -0800 (PST)
+X-Received: by 2002:a05:6102:32d4:b0:7d0:3ed0:c61d with SMTP id ada2fe7eead31-7d07227ce39mr7822312137.2.1793872345655;
+        Thu, 05 Nov 2026 01:52:25 -0800 (PST)
+Received: from localhost ([93.66.104.131])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48fee968763sm8898539f8f.56.2026.11.05.01.52.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Nov 2026 01:52:24 -0800 (PST)
+Date: Thu, 5 Nov 2026 10:52:23 +0100
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net] net: stmmac: keep est_lock across PTP clock
+ adjustment
+Message-ID: <auxR19bfAdOc288M@lore-desk>
+References: <20261102-stmmac-ptp-est-lock-v1-1-76fbc0cb230d@oss.qualcomm.com>
+ <b7102713-8bc6-4a5a-bf33-b79a646f4126@bootlin.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 0/5] net: sparx5: add tc matchall port policer
- offload
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>,
- Steen Hegelund <Steen.Hegelund@microchip.com>, UNGLinuxDriver@microchip.com,
- robert.marko@sartura.hr, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261102-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v2-0-3bd47ec1b227@microchip.com>
- <679b8dcf-0aac-4674-a006-5af0156a82ae@redhat.com>
- <20261105093905.ln6tdot26wyej7pi@DEN-DL-M70577>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261105093905.ln6tdot26wyej7pi@DEN-DL-M70577>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: C5II_cHntmPazD966MmKqObpbR7aqomSfefNUhpLcTs_1793872292
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="rMRGzwt2sRAw4qTo"
+Content-Disposition: inline
+In-Reply-To: <b7102713-8bc6-4a5a-bf33-b79a646f4126@bootlin.com>
+X-Proofpoint-ORIG-GUID: b0PsVcxKADl9yu2oOa269W0Ix0dWbVaJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTA1MDAzOSBTYWx0ZWRfX6tvSz3yYbrBt
+ Ut/LRlk0YgH/nSqo6oB2+xdiX6B3nZH7LQjKGZcpzoB6MqYXC6S/GMGsN+Lz2CjqvnTJ4Kc4IO6
+ WwEJYvAgoXd4rWoEs/PlDGQoLXlqRhLsbDyzbCmnnLv60bUBvfepQKvQ8MQvMGcLWVPIzVkVrfn
+ Iia0+R7Y0HLQLPDxAjaqetMH9GzWiIcAKtEsWUFcsVPf16suY4XDz+yRoDDRFGW05lheGT/H0Ny
+ YJKZximytHFqLXlxYRpd22wl9kaFTEl3gkYk6Q6E+rgdZkDj8l0KKvQZfOZ8gJPq1GBERytWKpE
+ iHBqvepMUNyoNZBY/hX+AYvxzx7/6V14OCRAvVAWQgIhkHB1ZviPnUk/ZvNWsbaPgvcwx4Zu7RE
+ ebdOyA15vaODlVVBlUHjTrey2Esv1Bv7F0iYX8hJJZMvWvO3Mz/tPnpDHzjjl55qil5GaI2f1dj
+ /bQFsJKn9Q4zTT9sc1A==
+X-Proofpoint-GUID: b0PsVcxKADl9yu2oOa269W0Ix0dWbVaJ
+X-Authority-Analysis: v=2.4 cv=SZdi5fRu c=1 sm=1 tr=0 ts=6aec51db cx=c_pps
+ a=+D9SDfe9YZWTjADjLiQY5g==:117 a=cAAIdyqZgEis9HJxay2Blw==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8
+ a=P-IC7800AAAA:8 a=yEE8vCkc6EYpfAGo-GYA:9 a=CjuIK1q_8ugA:10
+ a=bkY8HCoThClCxJ_FmXcA:9 a=vmgOmaN-Xu0dpDh8OwbV:22 a=d3PnA9EDa4IxuAV0gXij:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTA1MDAzOSBTYWx0ZWRfX7BvgHWHWJDKn
+ TOoIoRP2KCzDcBt8WOW1mXqdglJXHhxJnN2OP0LmGc76KpVCYgDvK+ODYwGBZgWFVbWV65FmYPc
+ hFBmIFBMd7MQNd/S76hQ1DYY0J2agPQ=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-05_02,2026-11-04_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 spamscore=0 adultscore=0 bulkscore=0
+ suspectscore=0 priorityscore=1501 malwarescore=0 impostorscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2610300000
+ definitions=main-2611050039
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_015135_763188_E182AFC9 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20261105_015228_293176_6376C740 
+X-CRM114-Status: GOOD (  25.01  )
 X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,69 +156,75 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 11/5/26 10:39, Daniel Machon wrote:
->>> This series adds offload of tc matchall filters with a police action to
->>> the ingress port policers of Sparx5 and lan969x, which are both served
->>> by the sparx5 driver.
->>>
->>> In hardware, each ingress port has four single-rate leaky bucket
->>> policers. A policer drops the frames that exceed its rate and burst.
->>> The four policers of a port share the pass and drop statistics counters
->>> of the port.
->>>
->>> The driver uses one policer per port, because with more than one, the
->>> statistics reported to tc could not be attributed to the right policer.
->>> This matches lan966x and ocelot. The policer meters each frame without
->>> preamble and inter-frame gap, so the configured rate is a data rate, as
->>> tc police expects and as on lan966x and ocelot.
->>>
->>> Since the policer meters all ingress frames on the port, only filters on
->>> chain 0 with protocol all are offloaded, and filters on shared blocks
->>> are rejected. A police action that is already offloaded as a port
->>> policer on another port is rejected too, since in software it is a
->>> single bucket for all of its users. Only drop is supported as the exceed
->>> action, and the police overhead parameter is not supported.
->>>
->>> Patch #1 drops a redundant prefix from the existing POL_UPD_INT_CFG
->>> register macros.
->>>
->>> Patch #2 adds the registers used by the port policer.
->>>
->>> Patch #3 tracks whether the ingress block of a port is shared, and adds
->>> the per-port policer state.
->>>
->>> Patch #4 adds the hardware programming of the port policer.
->>>
->>> Patch #5 adds the tc matchall offload.
->>>
->>> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
->> I understand the following will be very frustrating, but for unknown
->> reason AI review did not kick on this series.
-> 
-> Yes, I noticed that. I thought you maybe had some magic button you could push,
-> in order to trigger the review manually.
+--rMRGzwt2sRAw4qTo
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Unfortunately, I personally don't have it. AI review is sponsored by meta,
-only Jakub has direct access to that piece of the infra, and he is AFK for a bit.
+> Hi,
+>=20
+> On 11/2/26 18:37, Lorenzo Bianconi wrote:
+> > stmmac_adjust_time() disables EST, drops est_lock to step the PTP clock,
+> > and then reacquires the lock to reprogram EST using a base time computed
+> > from the new clock value.
+> >=20
+> > That leaves a window where a concurrent tc_taprio_configure() can progr=
+am
+> > EST enabled with a base time derived from the pre-step clock.  The gate
+> > schedule then runs across the PTP step with a stale base time until
+> > stmmac_adjust_time() reprograms it.
+> >=20
+> > Keep est_lock held for the whole disable/step/reprogram sequence so no
+> > other EST user can program the block while the clock is being stepped.
+> >=20
+> > This does not introduce a new lock ordering: __stmmac_setup_est() alrea=
+dy
+> > takes ptp_lock through gettimex64() while holding est_lock, and
+> > stmmac_adjust_systime() uses readl_poll_timeout_atomic(), so it does not
+> > sleep under ptp_lock.
+> >=20
+> > Fixes: 23d96de472f7 ("net: stmmac: re-apply taprio offload in __stmmac_=
+open() and stmmac_resume()")
+> > Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+>=20
+> I couldn't really figure out why the lock was released in the first
+> place, LGTM :)
 
->> The changes looks sane to me, and addressing points raised on v1, but
->> I think nowadays we need an explicit AI feedback.
-> 
-> Ack. I think the missing sashiko-nipa check is not isolated to this patchset
-> alone. Just FYI.
-Indeed I hit more patches/series without AI review. In some cases I can run
-the model locally (for single patch, due to many constraints).
+same here :)
 
-Thanks,
+>=20
+> Do you plan on addressing the sashiko pre-existing stuff ? seems to be
+> rare conditions but still :( sorry you end up having to deal with these...
 
-Paolo
+yes, I am planning to post a fix for it, I am just awaiting to avoid to post
+new patches on the ML before these ones are applied.
 
+Regards,
+Lorenzo
+
+>=20
+> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+>=20
+> Maxime
+>=20
+
+--rMRGzwt2sRAw4qTo
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCauxR1wAKCRA6cBh0uS2t
+rE67AP4p7uxcDSU+u+UHizM3E7eioXxcsdqqYLpWaO+hcHviZgD9HdVMiBiy8Iav
+M8tJFGknKjS0Sl1s04n16G8Y29tblwI=
+=6ZuU
+-----END PGP SIGNATURE-----
+
+--rMRGzwt2sRAw4qTo--
 
