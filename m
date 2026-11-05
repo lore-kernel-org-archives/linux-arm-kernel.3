@@ -2,62 +2,58 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF587606D821
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:14:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 636B3606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:14:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1y5InwUT;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WJSt6zZL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vfJ5VyaN;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dd7Sla9k
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=U7Elc9Ca9CCw10cEZQAP3d/XvP5VfP/2arZ71z5tLOA=; b=1y5InwUTxexqVxmSuoHKY5jfsx
-	jVe9eozZ1IiPCfA0sbdFaSOrnAESswFT2YWDcRm9pIlfVch6LHa/VeNllKiAzOOQ9q8w8bX3Ogz3v
-	xwwuL+9dhOq31x9nFGMJiqQM6djnhhBWfNpIVgjAZ5c4wsR//F/F+pk6tczadPa452NrpJ68qckXA
-	z6Md9dj54BOaIutFah2g1CkC62GsBXmWRUEttj0zvPncImhM+9bpPCuQhYWWQYn/TXNWTL0Ttd6OY
-	ROAaNnwaz145S4mG1wbv7I9g3XAJCKzMEt2CdzJCnAnKpT4X9SbqPRuAxcIv2w1jt0IuTT2oO4WlX
-	0lNhaU8w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=1eNs2HQmPLiDjSiZ3s0FNJwEwtww+7IyFoHujvnoR4M=; b=vfJ5VyaN7+WwNE
+	IJYqC+dOVg+AE3AaESKmphn0L6HMP8CQ/779D+7Ii6RH2EratIhnCW/no5QiZbBuFUwfWKMOnoE7Z
+	5IysliooiGQRMQo6hVlJszcg6v6kBo5PeBIUA94VxDjEsr9e6zhaUGVPpQwQPUk8Wi+LnQAcvGpug
+	z35e7mzSmCAWFlVV+Xi6vewldoXM0Jc0oMUyu9EO1VA2BHu//JkApHjevj/Gx4p8UEswDwqtXTuxn
+	bFWPUOT5BiXvuwernvD4cEaL5cg5+rdzCz7W9UsojcuNLVlwXoBEpLRUxQgj/VOrB8L+AqUWLbi4/
+	QjxKn/8QZ2BZFUBx3FPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyEC-00000009E7x-2lyc;
-	Thu, 05 Nov 2026 14:14:08 +0000
+	id 1xOyEE-00000009E9V-403d;
+	Thu, 05 Nov 2026 14:14:10 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyEA-00000009E74-2e7J
+	id 1xOyEC-00000009E7l-2wVF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 14:14:07 +0000
+	Thu, 05 Nov 2026 14:14:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9FC33609F8;
+	by tor.source.kernel.org (Postfix) with ESMTP id 2943760C0A;
+	Thu,  5 Nov 2026 14:14:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDFF01F000C1;
 	Thu,  5 Nov 2026 14:14:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3931E1F00A1B;
-	Thu,  5 Nov 2026 14:14:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793888045;
-	bh=U7Elc9Ca9CCw10cEZQAP3d/XvP5VfP/2arZ71z5tLOA=;
-	h=From:Subject:Date:To:Cc;
-	b=WJSt6zZL/OAzzw/dcVXPixMrqtdaynBtkwFcqnO2e1KdBnJbfDOipFhTfftwfOa/4
-	 X8ryjUyKy/+IL6TnoDsZhnBjx4/grGrbQezmmujrXjMBQzkYCcOnhcLthp+Sjw0Zm0
-	 CsUCHIsyq0u8JM6nDlkUwwLeJHblMvkxa9cDIwv7+d50rN04T6TMgkyA95Tnc5ER1G
-	 sGl8hI++IbQVzEH6l1Hn42pyRIfgkBrBZKTLOjErxmf5IrFx6DsbM3uGmzmvr4ywkS
-	 5JRa/VbRaueKx1SqfHBJ31y12ii/6dgpu+Wk1ZaTqqnoksjeTkoH8nV4Gac9qbjz2Y
-	 4XQjD7Hhv8LaQ==
+	s=k20260515; t=1793888047;
+	bh=1eNs2HQmPLiDjSiZ3s0FNJwEwtww+7IyFoHujvnoR4M=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=dd7Sla9k/M51jfVSL6DdmbOgXz246kcXWwyrecE/1nULnakRnhleRokQO48/Aq/X3
+	 ZqnMqsLKtocQ50yvrabfbOrUxtWq/AjL0p3XUEHGEHAPmD6yno919h6pghhnSXKUtA
+	 D2xGNrEe5dt7f9/Diq6Vds3WghQuE7lH0k90Bnz/8p8Qb2Ntsgut/uR+CKBse4qb2/
+	 SC1MaUspAeCY4OXsvPcQJwt2Zbv/61YtiEe5iG9ZWIN5NcJ+4zDZ+SeIXTl/+G+7sb
+	 ElfIZLJE/m0HubPCkihkVnutcOSgj9XVTMIGu/qMSv9X2y/j0w0THibYKnv61iInl0
+	 N7VUkDrVUKynw==
 From: Mark Brown <broonie@kernel.org>
-Subject: [PATCH v2 00/11] kselftest/arm64: Add coverage of interactions
- with KVM to fp-stress
-Date: Thu, 05 Nov 2026 14:01:13 +0000
-Message-Id: <20261105-arm64-fp-stress-kvm-v2-0-81a5172468f0@kernel.org>
+Date: Thu, 05 Nov 2026 14:01:14 +0000
+Subject: [PATCH v2 01/11] kselftest/arm64: Factor Linux syscalls out of
+ asm-utils.S
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIACuM7GoC/3WNQQqDMBBFryKz7pQkRiVd9R7FRdRRg9XIREKLe
- PdG912+B//9HQKxowCPbAem6ILzSwJ1y6Ad7TIQui4xKKEKoYVEy3OpsV8xbEwh4BRn1JUSrc1
- F1VkNabky9e5zVV914tGFzfP3OonytGevFOZPL0oUmMumJWOKRpvmOREv9L57HqA+juMHtmBcY
- 7cAAAA=
-X-Change-ID: 20250401-arm64-fp-stress-kvm-4720ca307da4
+Message-Id: <20261105-arm64-fp-stress-kvm-v2-1-81a5172468f0@kernel.org>
+References: <20261105-arm64-fp-stress-kvm-v2-0-81a5172468f0@kernel.org>
+In-Reply-To: <20261105-arm64-fp-stress-kvm-v2-0-81a5172468f0@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>
 Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
@@ -66,12 +62,12 @@ Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
  linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4234; i=broonie@kernel.org;
- h=from:subject:message-id; bh=4uN4Ugc+doQyPxPQqbqNc6UtdGHQIH0dj2aTXPLzWDk=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLe9GuIRvFuEU7zPX9RaduxV5ccdzMu/CZ+0H/LxL8Ln
- B15M5XPdZSyMIhxMciKKbLEZXG/rC95vYbv4MI2mDmsTCBDGLg4BWAivncY/mncZ/gyzT6VQ5pV
- hK80812sfP6jZ1yVn1Y1O15ZcMrjXzUjQ+cbpo9hJXVHLWLvWh39ECa9XUnA+/SNp2ZTj4nuDKj
- +zAMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5000; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Y+BTJzhHc/37sRLFKtDWKMLORopVyDJW0jaxke4d/qg=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLe9Gt4/J+8+US56wOzAs4Xywr4Yxal8RhqrNjxNeXw0
+ gTDa11SHaUsDGJcDLJiiixxWdwv60ter+E7uLANZg4rE8gQBi5OAZhI2ROGfwbHbjlFvzbs9l+g
+ +iw+0/5D8E4Nr1C9M7OtnHc8Vtw2ZQ/D//zEjB7mhfWOdu94twprTPlX/e31YeGi5y8y++RPcpr
+ osQMA
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -84,95 +80,176 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-23.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Presently we don't have any automatic stress testing for the handling of
-floating point save and restore with KVM, nor it's interaction with the
-host's management of the floating point registers.  The majority of the
-focused stress testing has been done by running the existing fp-stress
-selftest on the host, starting a guest and then running fp-stress in
-there too but this has been a manual process rather than something done
-as a matter of routine by CI.
+In preparation for building versions of the load programs for fp-stress
+that run as bare metal KVM guests move the functions that perform
+syscalls out of the shared code assembly code in asm-utils.S into a new
+Linux specific file asm-utils-linux.S.
 
-Plug this gap by reworking the test loads so that they can be run as KVM
-guests, using a simple VMM that provides the interface that fp-stress
-expects from it's test loads.  We run the FPSIMD and SVE tests in KVM
-guests for half the CPUs, if EL2 is available then half the KVM tests
-will use it.  The tests run in a minimal environment with the VMM and
-test binaries tightly coupled to each other.
+No functional change.
 
-There's more coverage could be added, but this is an improvement over
-the current situation and can be built on in future.  Off the top of my
-head:
-
- - We only test nested guests running at EL2 with E2H set.
- - We only run the guests at the highest VL they support.
- - Enabling the MMU would avoid surprises due to the performance
-   differences.
- - We do not run any protected guests (this currently taints the kernel
-   so should wait until the pKVM support is less experimental).
- - It might be useful to have the VMM signal handler save and restore
-   the guest register state to exercise that path.
- - Possibly it would be useful to disable irrelevant features so less
-   time is spent context switching non-FP state?
-
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
-Changes in v2:
-- Rebase onto v7.4-rc1.
-- Use PHDRS in the linker script rather than suppressing RWX warnings.
-- Use SMC to invoke PSCI at EL2.
-- Commit mesage clarifications.
-- Rename ASM_UTILS to ASM_UTILS_LINUX in the first patch to reduce
-  churn.
-- Remove more commented out dead code.
-- Fix cross build of the guest code with LLVM, use llvm-objcopy.
-- Drop protected guest support, we were only working due to missing
-  permission checks.
-- Link to v1: https://patch.msgid.link/20260901-arm64-fp-stress-kvm-v1-0-31bce995b49b@kernel.org
+ tools/testing/selftests/arm64/fp/Makefile          | 17 +++++----
+ tools/testing/selftests/arm64/fp/asm-utils-linux.S | 43 ++++++++++++++++++++++
+ tools/testing/selftests/arm64/fp/asm-utils.S       | 36 ------------------
+ 3 files changed, 53 insertions(+), 43 deletions(-)
 
----
-Mark Brown (11):
-      kselftest/arm64: Factor Linux syscalls out of asm-utils.S
-      kselftest/arm64: Factor shared signal handlers out of fp-stress loads
-      kselftest/arm64: Move exit calls out of fp-stress loads
-      kselftest/arm64: Use exit_error() rather than SIGABRT in fp-stress
-      kselftest/arm64: Exit with an error code on data mismatches in fp-stress
-      kselftest/arm64: Factor startup code out of fp-stress load programs
-      kselftest/arm64: Remove the sched_yield()s from the fp-stress loads
-      kselftest/arm64: Add a very simple VMM for use in fp-stress
-      kselftest/arm64: Build KVM guest versions of the fp-stress loads
-      kselftest/arm64: Use execv() to start fp-stress test loads
-      kselftest/arm64: Run KVM guests from fp-stress
+diff --git a/tools/testing/selftests/arm64/fp/Makefile b/tools/testing/selftests/arm64/fp/Makefile
+index d171021e4cdd..d92a755837ff 100644
+--- a/tools/testing/selftests/arm64/fp/Makefile
++++ b/tools/testing/selftests/arm64/fp/Makefile
+@@ -22,21 +22,24 @@ TEST_GEN_PROGS_EXTENDED := fp-pidbench fpsimd-test \
+ 	vlset
+ TEST_PROGS_EXTENDED := fpsimd-stress sve-stress ssve-stress za-stress
+ 
+-EXTRA_CLEAN += $(OUTPUT)/asm-utils.o $(OUTPUT)/rdvl.o $(OUTPUT)/za-fork-asm.o
++EXTRA_CLEAN += $(OUTPUT)/asm-utils.o $(OUTPUT)/asm-utils-linux.o \
++	$(OUTPUT)/rdvl.o $(OUTPUT)/za-fork-asm.o
++
++ASM_UTILS_LINUX := $(OUTPUT)/asm-utils.o $(OUTPUT)/asm-utils-linux.o
+ 
+ # Build with nolibc to avoid effects due to libc's clone() support
+-$(OUTPUT)/fp-pidbench: fp-pidbench.S $(OUTPUT)/asm-utils.o
++$(OUTPUT)/fp-pidbench: fp-pidbench.S $(ASM_UTILS_LINUX)
+ 	$(CC) -nostdlib $^ -o $@
+ $(OUTPUT)/fp-ptrace: fp-ptrace.c fp-ptrace-asm.S
+-$(OUTPUT)/fpsimd-test: fpsimd-test.S $(OUTPUT)/asm-utils.o
++$(OUTPUT)/fpsimd-test: fpsimd-test.S $(ASM_UTILS_LINUX)
+ 	$(CC) -nostdlib $^ -o $@
+ $(OUTPUT)/rdvl-sve: rdvl-sve.c $(OUTPUT)/rdvl.o
+ $(OUTPUT)/rdvl-sme: rdvl-sme.c $(OUTPUT)/rdvl.o
+ $(OUTPUT)/sve-ptrace: sve-ptrace.c
+ $(OUTPUT)/sve-probe-vls: sve-probe-vls.c $(OUTPUT)/rdvl.o
+-$(OUTPUT)/sve-test: sve-test.S $(OUTPUT)/asm-utils.o
++$(OUTPUT)/sve-test: sve-test.S $(ASM_UTILS_LINUX)
+ 	$(CC) -nostdlib $^ -o $@
+-$(OUTPUT)/ssve-test: sve-test.S $(OUTPUT)/asm-utils.o
++$(OUTPUT)/ssve-test: sve-test.S $(ASM_UTILS_LINUX)
+ 	$(CC) -DSSVE -nostdlib $^ -o $@
+ $(OUTPUT)/vec-syscfg: vec-syscfg.c $(OUTPUT)/rdvl.o
+ $(OUTPUT)/vlset: vlset.c
+@@ -45,10 +48,10 @@ $(OUTPUT)/za-fork: za-fork.c $(OUTPUT)/za-fork-asm.o
+ 		-include ../../../../include/nolibc/nolibc.h -I../..\
+ 		-static -ffreestanding -Wall $^ -o $@
+ $(OUTPUT)/za-ptrace: za-ptrace.c
+-$(OUTPUT)/za-test: za-test.S $(OUTPUT)/asm-utils.o
++$(OUTPUT)/za-test: za-test.S $(ASM_UTILS_LINUX)
+ 	$(CC) -nostdlib $^ -o $@
+ $(OUTPUT)/zt-ptrace: zt-ptrace.c
+-$(OUTPUT)/zt-test: zt-test.S $(OUTPUT)/asm-utils.o
++$(OUTPUT)/zt-test: zt-test.S $(ASM_UTILS_LINUX)
+ 	$(CC) -nostdlib $^ -o $@
+ 
+ include ../../lib.mk
+diff --git a/tools/testing/selftests/arm64/fp/asm-utils-linux.S b/tools/testing/selftests/arm64/fp/asm-utils-linux.S
+new file mode 100644
+index 000000000000..e6c22b41dc5e
+--- /dev/null
++++ b/tools/testing/selftests/arm64/fp/asm-utils-linux.S
+@@ -0,0 +1,43 @@
++// SPDX-License-Identifier: GPL-2.0-only
++// Copyright (C) 2015-2021 ARM Limited.
++// Original author: Dave Martin <Dave.Martin@arm.com>
++//
++// Utility functions for assembly code which use Linux syscalls.
++
++#include <asm/unistd.h>
++#include "assembler.h"
++
++// Print a single character x0 to stdout
++// Clobbers x0-x2,x8
++function putc
++	str	x0, [sp, #-16]!
++
++	mov	x0, #1			// STDOUT_FILENO
++	mov	x1, sp
++	mov	x2, #1
++	mov	x8, #__NR_write
++	svc	#0
++
++	add	sp, sp, #16
++	ret
++endfunction
++.globl	putc
++
++// Print a NUL-terminated string starting at address x0 to stdout
++// Clobbers x0-x3,x8
++function puts
++	mov	x1, x0
++
++	mov	x2, #0
++0:	ldrb	w3, [x0], #1
++	cbz	w3, 1f
++	add	x2, x2, #1
++	b	0b
++
++1:	mov	w0, #1			// STDOUT_FILENO
++	mov	x8, #__NR_write
++	svc	#0
++
++	ret
++endfunction
++.globl	puts
+diff --git a/tools/testing/selftests/arm64/fp/asm-utils.S b/tools/testing/selftests/arm64/fp/asm-utils.S
+index 4b9728efc18d..6d43eb10e01f 100644
+--- a/tools/testing/selftests/arm64/fp/asm-utils.S
++++ b/tools/testing/selftests/arm64/fp/asm-utils.S
+@@ -4,44 +4,8 @@
+ //
+ // Utility functions for assembly code.
+ 
+-#include <asm/unistd.h>
+ #include "assembler.h"
+ 
+-// Print a single character x0 to stdout
+-// Clobbers x0-x2,x8
+-function putc
+-	str	x0, [sp, #-16]!
+-
+-	mov	x0, #1			// STDOUT_FILENO
+-	mov	x1, sp
+-	mov	x2, #1
+-	mov	x8, #__NR_write
+-	svc	#0
+-
+-	add	sp, sp, #16
+-	ret
+-endfunction
+-.globl	putc
+-	
+-// Print a NUL-terminated string starting at address x0 to stdout
+-// Clobbers x0-x3,x8
+-function puts
+-	mov	x1, x0
+-
+-	mov	x2, #0
+-0:	ldrb	w3, [x0], #1
+-	cbz	w3, 1f
+-	add	x2, x2, #1
+-	b	0b
+-
+-1:	mov	w0, #1			// STDOUT_FILENO
+-	mov	x8, #__NR_write
+-	svc	#0
+-
+-	ret
+-endfunction
+-.globl	puts
+-
+ // Print an unsigned decimal number x0 to stdout
+ // Clobbers x0-x4,x8
+ function putdec
 
- tools/testing/selftests/arm64/fp/.gitignore        |   4 +
- tools/testing/selftests/arm64/fp/Makefile          |  66 ++-
- tools/testing/selftests/arm64/fp/asm-utils-kvm.S   |  93 ++++
- tools/testing/selftests/arm64/fp/asm-utils-linux.S | 181 +++++++
- tools/testing/selftests/arm64/fp/asm-utils.S       |  36 --
- tools/testing/selftests/arm64/fp/fp-pidbench.S     |   6 +-
- .../testing/selftests/arm64/fp/fp-stress-kvm.lds.S |  65 +++
- tools/testing/selftests/arm64/fp/fp-stress-vmm.c   | 586 +++++++++++++++++++++
- tools/testing/selftests/arm64/fp/fp-stress-vmm.h   |  17 +
- tools/testing/selftests/arm64/fp/fp-stress.c       | 230 +++++++-
- tools/testing/selftests/arm64/fp/fpsimd-test.S     | 121 +----
- tools/testing/selftests/arm64/fp/sve-test.S        | 144 +----
- tools/testing/selftests/arm64/fp/za-test.S         | 144 +----
- tools/testing/selftests/arm64/fp/zt-test.S         | 137 +----
- 14 files changed, 1250 insertions(+), 580 deletions(-)
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm master
-change-id: 20250401-arm64-fp-stress-kvm-4720ca307da4
-
-Best regards,
---  
-Mark Brown <broonie@kernel.org>
+-- 
+2.47.3
 
 
