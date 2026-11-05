@@ -2,12 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8B3F606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:56:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C55A606D80F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:57:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EeH7yVpz;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=H/Yx1tU3;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=kvWm3ELs
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EjZH/TmY;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MTkmDUel
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -15,82 +14,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=EolUrwZQiSAM3PJ9+udGnUgOcc9Wxy4cF8sTcB/x8RU=; b=EeH7yVpzQxuWD+2q+Cch78n1LX
-	m5sztjwJ++rvGPflB7laslJd6FZ9Z8Ln4Ex5rXwDdlPhCdDLS0+zTu3hyvu6pQ5mdphiRqwK7WDAH
-	7KboYMHkcZgDORoe7s+rKoyWQKHw1acaFfiMvHAKeGBRnXWsjmhe1Jn/TkAW77UWqXG+83j2p4RF3
-	Us5eQtz8s4kRonT2DSrF/xIDLqHg6ZB2BF4LQLy9k+zAdSOlEslY/4ct8zZSPN2xYbOivXwfVcZYp
-	BigshEmibgx76ycCoCkDB/pThbu4bf1fRGF7CuKj85r23JOf6thryCFvO1fY0wpRAJLwHiRxLBMKb
-	f3areuZg==;
+	bh=r6Zmr2w7yD8Ip+j9uCT09/R1QkyDYQmRF/et5N9k+lg=; b=EjZH/TmYk0u8saADD84KPimlV8
+	U8f285UlicxPSfHM2DlfpFyw/Ac9qrizK8sFZNZ/UvQYqxqfv62I6F2XzuaVKXxsjs/02LDXkaWDM
+	CSZWZJfMoCHqIXkN8DAAmwT9P6LpaPh5Ac+AlaQViLc54RM4bN+OqGPPDfrb9QwI6JVKW4dIkheIh
+	McTYhLw8kP4wReQ6vllCa7cvhuYVWSdmIhO8W1i11Q6b4SwFjuFs1qFkEolDgbX6+NDpAZwJ7Bi2g
+	EY0M19w648I74MLq55oWCRrwsSem1Kbjyf5GZXcGKj6iOaTpPtfSZlkiS3Smsqg+r4HDDJ59+ORpi
+	vIeohXJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOw51-00000008n2t-35uI;
-	Thu, 05 Nov 2026 11:56:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xOw5n-00000008nG9-0xbm;
+	Thu, 05 Nov 2026 11:57:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOw4z-00000008n1i-1eZE
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Nov 2026 11:56:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=EolUrwZQiSAM3PJ9+udGnUgOcc9Wxy4cF8sTcB/x8RU=; b=H/Yx1tU3IrOEUZZ2TxWDh8/TiR
-	huTYHMamEY3UgT6J/BcSonB1tQ8QP5vt7MrVnAPu4T/AxyH8YMomgN3tKATPFxxDG4atrV1wWuqdW
-	fzXEUAVnXfxlUkrULg7D4WqyLkFF3HkMXBWHFNf4lB/riHAQahYUmFpWapJ+X/xke/2AvpSlZnxIe
-	UubSmN86aywMeCErB8GKx4ubtDXwd51sXQupemo023hWmeMF0Knmia3mpbaYlFf4j1QWAOkcUntvk
-	jMB2/nRU09y/dvnhtm8nB1Z6A7Q3PYGXotJfd/C8pm+YCVVl8hMNG+f+mtUxJhqxtft03pOmITwXH
-	43NNaX3g==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOw4q-00000002vPV-1ED6
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 11:56:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2818419F6;
-	Thu,  5 Nov 2026 03:56:14 -0800 (PST)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D9F0E3F628;
-	Thu,  5 Nov 2026 03:56:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793879777; bh=uUU6WeGNbp8M9D1RIW4g77izG8IRnf63cU3yGo6J/dk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kvWm3ELsUjqKVzgkvpVtDptptSL4Njbe3RH8DGaRRtTXzqka5gd1HBJYbMtiX/K3o
-	 PztZdmeNuezuXoUYnyvcj/TbSJ0RGqeAR6gawSmV0f17+CDWwgfXKb5pgpc+7VObw3
-	 S4c3wtZ9Xx3hjxqN4IYHBija3RB4SMUiBZ/xTr5Y=
-Date: Thu, 5 Nov 2026 11:56:14 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Leo Yan <leo.yan@linux.dev>, Adrian Hunter <adrian.hunter@intel.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>, Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
-	linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	linux-doc@vger.kernel.org, John Garry <john.garry@linux.dev>
-Subject: Re: [PATCH v4 19/19] perf test: cs-etm: Increase snapshot size
-Message-ID: <20261105115614.GU9176@e132581.arm.com>
-References: <20261105-james-cs-unformatted-per-thread-fix-v4-0-7759e0ce2449@linaro.org>
- <20261105-james-cs-unformatted-per-thread-fix-v4-19-7759e0ce2449@linaro.org>
+	id 1xOw5k-00000008nFL-1n6S;
+	Thu, 05 Nov 2026 11:57:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CC7ED4181D;
+	Thu,  5 Nov 2026 11:57:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D883C1F00919;
+	Thu,  5 Nov 2026 11:57:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793879835;
+	bh=r6Zmr2w7yD8Ip+j9uCT09/R1QkyDYQmRF/et5N9k+lg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MTkmDUel1hF5mX4WG1FDvygwC/sBvJsmKJkN64N5mS8ZMC5a+f8oTJ3ISN3ZVOWL4
+	 mTwQMwzNLuNL7ibPktJ939U+6EknlJPb0RQVm9fvpkbNjMuxnqCH7Z+5s3SKedkLpT
+	 tswdGkv5+25IksudFLaP9sdC1WSzb8JDtPh7MzFwtmHvzKcXsA1dA8Ay8B8ABMhFWG
+	 SBQloVwIXjSJYDGz//5Ki3wtQ1USwZTIyRLvva27DNrEnEtZbQdtOQyP1+Ys7fKuq5
+	 odxSGWc/CcDNvfIH+EqM0668iEdTHRVt8TUj1HyDVWyCpAIp4XxyD68l97DnZ8xdfK
+	 kovsJbSrlHQGw==
+Date: Thu, 5 Nov 2026 12:57:12 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Lucas Tanure <tanure@linux.com>
+Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	davem@davemloft.net, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/7] dt-bindings: net: amlogic,meson-dwmac: add
+ amlogic,t7-dwmac
+Message-ID: <20261105-stoic-cricket-of-tolerance-cb3014@quoll>
+References: <20261103163715.385394-1-tanure@linux.com>
+ <20261103163715.385394-3-tanure@linux.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261105-james-cs-unformatted-per-thread-fix-v4-19-7759e0ce2449@linaro.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_115625_549195_AA9AE118 
-X-CRM114-Status: GOOD (  10.18  )
-X-Spam-Score: -2.5 (--)
+In-Reply-To: <20261103163715.385394-3-tanure@linux.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,18 +75,122 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Nov 05, 2026 at 11:45:07AM +0000, James Clark wrote:
-> AUX maps require at least two pages, so for machines with 64K pages,
-> 128K is the minimum.
+On Tue, Nov 03, 2026 at 04:37:10PM +0000, Lucas Tanure wrote:
 > 
-> Signed-off-by: James Clark <james.clark@linaro.org>
+> Assisted-by: LLM
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+Drop this one.
+
+> Signed-off-by: Lucas Tanure <tanure@linux.com>
+> ---
+>  .../bindings/net/amlogic,meson-dwmac.yaml     | 59 +++++++++++++++++++
+>  1 file changed, 59 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+> index e769c9bb70d8..6de013e3e8f6 100644
+> --- a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+> @@ -23,6 +23,7 @@ select:
+>            - amlogic,meson-gxbb-dwmac
+>            - amlogic,meson-axg-dwmac
+>            - amlogic,meson-g12a-dwmac
+> +          - amlogic,t7-dwmac
+>    required:
+>      - compatible
+>  
+> @@ -57,6 +58,59 @@ allOf:
+>              - const: clkin1
+>              - const: timing-adjustment
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: amlogic,t7-dwmac
+> +    then:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: GMAC main clock
+> +            - description: First parent clock of the internal mux
+> +            - description: Second parent clock of the internal mux
+> +            - description:
+> +                clock of the pipeline stage inserted in the bus path between
+> +                the controller and the DRAM. Without it, the controller cannot
+> +                complete DMA transfers.
+> +            - description:
+> +                clock of the register block holding PRG_ETH0 and PRG_ETH1.
+> +                Without it, the block reads as zero and ignores writes.
+
+This sounds like you take clock from other block. That's wrong, that
+device should take its own clock.
+
+
+> +
+> +        clock-names:
+> +          items:
+> +            - const: stmmaceth
+> +            - const: clkin0
+> +            - const: clkin1
+> +            - const: pipeline
+> +            - const: pclk
+> +
+> +        # The PHY adds the 2ns RGMII delays, see ethernet-controller.yaml.
+> +        # The RX delay line of this glue is fine tuning in 200ps steps,
+> +        # added on top of what phy-mode describes. The TX side has no fine
+> +        # tuning: its only step is a quarter of the clock period, the full
+> +        # 2ns at 1Gbit/s, so the TX property is not accepted.
+> +        tx-internal-delay-ps: false
+> +
+> +        # Deprecated: new SoCs use the standard *-internal-delay-ps
+> +        # properties instead.
+> +        amlogic,tx-delay-ns: false
+> +        amlogic,rx-delay-ns: false
+> +
+> +  # Delay definitions for Meson8b and newer
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - amlogic,meson8b-dwmac
+> +              - amlogic,meson8m2-dwmac
+> +              - amlogic,meson-gxbb-dwmac
+> +              - amlogic,meson-axg-dwmac
+> +              - amlogic,meson-g12a-dwmac
+> +    then:
+> +      properties:
+>          amlogic,tx-delay-ns:
+>            enum: [0, 2, 4, 6]
+>            default: 2
+> @@ -106,6 +160,7 @@ allOf:
+>            contains:
+>              enum:
+>                - amlogic,meson-g12a-dwmac
+> +              - amlogic,t7-dwmac
+>      then:
+>        properties:
+>          rx-internal-delay-ps:
+> @@ -142,6 +197,10 @@ properties:
+>        - items:
+>            - const: amlogic,meson6-dwmac
+>            - const: snps,dwmac
+> +      - items:
+> +          - const: amlogic,t7-dwmac
+> +          - const: snps,dwmac-5.10a
+> +          - const: snps,dwmac
+
+I see no such hunk in the code, so not sure how to review this.
+
+Best regards,
+Krzysztof
+
 
