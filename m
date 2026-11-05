@@ -2,87 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BEDA606A330
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 15:51:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF3F6606D807
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 15:52:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sOfZaibg;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fsF/iGTp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UZfGMwr2;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h4FefPg/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=JlZRfD4ZREhpAxrw9xeaU8MVoetONHyCHUwkAyQ15R8=; b=sOfZaibgxU88rVeClpzpsbSNqq
-	V7LXlsIobDs6NtZo+F6p4pdZmj1YQqmZgTbJ1wVMnmt25S8waAi5Zc+wPTJWbbue5H3yZKe3E5i17
-	jQCPTtZezAvFpcWLi1yXej1sL06QsmXcLojE/N7LF+RCFhq31r5wYC6ZivfMVQkshN68Ji2JcPVei
-	33DdWX/GfVNjpVdOdgOi3uJ9Vn1foOI1WeEx90mjbc/pumvg4W8X2HToRSE/+qk3pKokpusK6QqSR
-	SWjQzuZbTl8qtXFoxPyD4RQZx7oQRXw8fbbzSA+WcMgtbn9jF+jHk0MmFPfYBwdp2Sr34n+Lq0Iwa
-	U+mWuFoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=ofpeVWI3consGDzBWqgjB78mylADRIbQBjF1c/ZhASw=; b=UZfGMwr2rP618r
+	0LYg+OKz+V60XIuvDrlO+E24Sz3I562zwNnFsyfU0AB5atyPai3EXQgd3paY9JY3qbIkvGa0uhqTn
+	YezeX+Q4WgtUdlqTaGlPrxd+55uoMgoNr8aJWUrRCKl2w7DMCNs075xHSMClTDYDN7Xe8NG243jd+
+	HJs+K3z5bXLTxgc29NeAmBefEN29qiMy+fs1iwNI2xOhsKBAJl7gIhiSDX/FjZEQh9fmOA0mtGwFY
+	ySPBDaaLwrxqD7934e3PNLfbA838fdIyizvpduL2llKE+0OQFAYt4GWmUd+a/Qe7HuHbLz2OhoH4C
+	lxgGvvuaSPclXER+5rwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOzk9-00000009SLr-242n;
-	Thu, 05 Nov 2026 15:51:13 +0000
+	id 1xOzgK-00000009RQK-3S54;
+	Thu, 05 Nov 2026 15:47:17 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOzk7-00000009SLH-2UtF
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 15:51:11 +0000
+	id 1xOzgJ-00000009RPu-3C62;
+	Thu, 05 Nov 2026 15:47:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 74B8C60621;
-	Thu,  5 Nov 2026 15:51:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 286161F000C1;
-	Thu,  5 Nov 2026 15:51:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 369D56062A;
+	Thu,  5 Nov 2026 15:47:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B5771F0093A;
+	Thu,  5 Nov 2026 15:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793893870;
-	bh=JlZRfD4ZREhpAxrw9xeaU8MVoetONHyCHUwkAyQ15R8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=fsF/iGTpRfOVUfabdwqhgoRoJoZ+dzJ/MSNshdfDijkZRCRy/0Tn/PcWwS+x89ziS
-	 g5LUoigM8KmW7PGQV4zJAJbkE651I98LWLbIiVU1rAPD2D0KABjU+kfHu1vA4sgHbi
-	 Lz/HjyaGSErE1VZQHHXzdCw91q2VfLxO1zr1+prxzYf8zKQ/ju7vRyul09YQv4j+ko
-	 ArAkAUQFAmyO9Gmwz+C9JNSjcpJsFEqJZUSa2IdHz8AgZqwsS9mfsPzVW8WIjQOavs
-	 EKZqI/eQ44gE/r6UCmN7NguAFuzWrYnll3TaEDf4vwp2cKyPonM6tUZqaHnRjx4CxN
-	 jqRAarJhdHLaQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xOzk3-0000000Bi3U-3VL1;
-	Thu, 05 Nov 2026 15:51:07 +0000
-Date: Thu, 05 Nov 2026 15:51:07 +0000
-Message-ID: <861p8z2s5w.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Yuchao Zhang <ndaugoing@gmail.com>,
-	Fuad Tabba <tabba@google.com>,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/3] KVM: arm64: vgic: Drop stale LPI pending state
-In-Reply-To: <20261105110050.1244525-1-fuad.tabba@linux.dev>
-References: <20261105110050.1244525-1-fuad.tabba@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	s=k20260515; t=1793893634;
+	bh=ofpeVWI3consGDzBWqgjB78mylADRIbQBjF1c/ZhASw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=h4FefPg/tCKfPxSNxbyzPRZaXt1/xvRCcjqzNiVIlnWnpX2M6KY8sfo+UcynUXX0f
+	 3UVQI7oIKdgTP9qeDN1bCi759hX4PmzikSt/fGtYGAxEQ8wYmneKz7WGwhgTa7gUQa
+	 BL3YjPD/sxdR1PLFV8U/ZzJLYQiong/qcZNQlxoSNUTB1E9qBUAt5585VTHKuYCsub
+	 MWBY+MKhM7NRdvusgjVsuB0A+5tAqcLYvvdzDwQlb0F7z9+eHmmKlX1stdNFqA4+L5
+	 GkFM1vM0bESYfsSH0wWbrRMLW6a41afoWRHCOeDnjepj2aAUzZq3GKvNtm0OZPXkNG
+	 dUElBpUJoIBsA==
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Cc: angelogioacchino.delregno@collabora.com, bhelgaas@google.com, 
+ kwilczynski@kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-pci@vger.kernel.org, lpieralisi@kernel.org, matthias.bgg@gmail.com, 
+ robh@kernel.org, ryder.lee@mediatek.com
+In-Reply-To: <20261028113453.2599-1-sreekuttan2156239@gmail.com>
+References: <20261028113453.2599-1-sreekuttan2156239@gmail.com>
+Subject: Re: [PATCH v6] PCI: mediatek: Fix integer truncation and handle
+ oversized resources
+Message-Id: <179389361906.20463.1092137538074974205.b4-ty@b4>
+Date: Thu, 05 Nov 2026 21:16:59 +0530
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, seiden@linux.ibm.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, andre.przywara@arm.com, eric.auger@redhat.com, ndaugoing@gmail.com, tabba@google.com, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=362;
+ i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
+ bh=/1VoRA0E/iREIYQ2KlRfA9WVvI28uaBTMEbmFin8Rz4=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBq7KUBL9pngpeeZERhCqQgGAZZWRNID/qto5z6U
+ BAN9sYMiQeJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCauylAQAKCRBVnxHm/pHO
+ 9UIRB/0cfs+uBOQN+I4FfZQqp9Y9Zm1HUrlhmtZ4uf7IUrC53DnL/ef1ErkkHDfA9y1Tufx/8w0
+ xXZpjOvnOKFIE2WNMa7Ugwsa7oMuB+4p7PbqLEj91JdPfngrBdrOvOSGG9G31tGnJMpL2vO+ejt
+ dmQZANpReW00TBYvu8EAE1MHptSsgQdzXFYj0yvWi6hW9it5NedZkzvDgphvEYSi1z4PgJcVk7D
+ 1C85TZQ3fYLZYFvCo8zj94mjWtNX4cVXwzS4q9nABWav0YWQRiuwPWhmPWAdR7BR023XV3Fpvk/
+ 01AglaQHIMq1hCblhGcj6hHgY2ZBb+uALmbE4YV9WybYywF0
+X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,31 +82,26 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, 05 Nov 2026 11:00:47 +0000,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> Hi folks,
-> 
-> The GIC just keeps on giving. Three follow-ups to my LPI fixes for
-> redistributors with LPIs disabled [1], to fix pre-existing bugs Sashiko
-> found.
 
-Can you *please* come up with a full series rather than this constant
-"here's another set of patches" that address the same thing, one
-pothole at a time?
+On Wed, 28 Oct 2026 11:34:53 +0000, Sreeraj S Kurup wrote:
+> PCI: mediatek: Fix integer truncation and handle oversized resources
 
-I'm now really tempted to drop all the patches I have queued on this
-so far, and wait for the "one true series".
+Applied, thanks!
 
-	M.
+[1/1] PCI: mediatek: Fix integer truncation and handle oversized resources
+      commit: 0abd664998828adc30df21c1ca052d3a5de910d9
 
+Best regards,
 -- 
-Without deviation from the norm, progress is not possible.
+மணிவண்ணன் சதாசிவம்
+
+
 
