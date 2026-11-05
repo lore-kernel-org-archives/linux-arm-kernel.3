@@ -2,57 +2,57 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0765360A262B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 01:01:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E7F260A2630
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 01:01:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0zzz6zj/;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=DeROcM54
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kRe7V+b5;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=KUfR5Obr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=QIq0rQCDyZ1HUILqWdzswTceAmoKhJFBIk2NC1hgA7M=; b=0zzz6zj/wyM1hf
-	qIdKhAjzSH59mkpFJ0FbmelJTcoltL5RnZQWnRMyAu/XbmNIywAo6qhcuI+x76dKms1YVITy/E6Er
-	u/E+6zncbhsQVqzX4dr9O7bL390KcfU2nVev82c9Dqs/KB1igZMVKp8HruccePVa4FAeu7W37WR4p
-	UYbjECM8ngcLFTDYTjHyql8C8SjORe/3a6i1jTVz3fCQIIb4KrihwIXiNlqzXq32wqDnuqnQXNkk6
-	54po2QHFASdGVg0ytOMNLJnnqf+VFVnjNXmfs+EPaAIHoHOboKRok36qW58QvtZVkO8HjLfKGjjvT
-	2WSxfU9n/18K6S1mU+kA==;
+	List-Owner; bh=SYtilPzqPXCnIDuAgNHfH0KQUIcCbca4y5FMXD8c9rs=; b=kRe7V+b5yklla0
+	gGusBGlvNkSzujK3yauana4tzC+o7WezC6BqLiBIAigOfvPuDDGQNcn8VMBg8ENGDU+x6X87HypUZ
+	97UsxTjJoobb3wW0kGg6WK99fkjyHe/9puwmC3OpyEvTxXIWTpLwFI+jmw1tYOsKl2xlefSN7TyXW
+	XsqzYvjoqxdJFXJ+xiZu5bvHm4ltFDFG1oFW/TbKmjOQG6BIUdkZrwZd78axBB36DbWVNXNiK9HZY
+	mdwaUT7JQoYrkEdzhRC2iZkTeAWbjOJkyPr65To0pi5yZps6JbOgvp4jet+hqc4uC/mzdo/WvZo8u
+	iVKMm+NvkuZPhPWs+bNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOlqy-00000007Oea-2HN0;
-	Thu, 05 Nov 2026 01:01:20 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1xOlr3-00000007OtP-36dd;
+	Thu, 05 Nov 2026 01:01:25 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOlqs-00000007OTL-0m1b;
-	Thu, 05 Nov 2026 01:01:16 +0000
+	id 1xOlqw-00000007OXQ-06ww;
+	Thu, 05 Nov 2026 01:01:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1793840472;
-	bh=9ArlfghBrJdwW0nP4zg0k3Av6BQeQyflO3wXjVsY0As=;
+	s=mail; t=1793840475;
+	bh=t4xm3scI4l7rWR2iBzxLstmE0RTUxpACdTblDz3oXNQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=DeROcM54jjDIyHjvbYu4F7UIzTzJTZFRckMugNbacLFlEjKtWgRfQdnjv9YINRl5Q
-	 q82qV2vGy57/LleuqjBLrMCZ6V3FUgZuw56hVyj9d5drP9lGL8mlTvGoYRhtGpBoun
-	 NckatM3ZmD8wKnGiTGBp1bT/44t3ut3yRL5Vq9nrzwciVjfRVWvxubz2wK4uGUu1Rr
-	 jULTePNFjgashxm77dFh/Kf+FaHFNzQBtj2SSIssvzRQhRFzV1GCa1F5ezs2yqtK3q
-	 g/jyZX9NIoK8BiGjpYJks7ED23KisvWlsM7sLB3nKVP19A6IV1+1TrTpdCyMOkGpzs
-	 nCIT1uAMLAynA==
+	b=KUfR5ObrP8jFka/2UPUUWjo5o+FDtK93b3osH2OAYgNva3uJp9kGslkH1OJPda5Zf
+	 15X8CZOFNP1JNd9dCYuNZEnWFFVWRV3JrpqciB3HKcITk1exygNn1GPePk2JiLZIqy
+	 6LiQEhNSQKDr4q5w8frc2zPmaLmytXKMtIYys4O7CaqzfsjbFZfi+PKeGal9ZXjTR8
+	 2aOHtllwVzPI6ymja4nt2se6eWSmqQrg96a6lqDvy0zSfwfzPdLW84D9dTz2l55iyb
+	 As6jY4tda6vDPVLhwlAfVOQybrhbMNzJC/cveKrTF6i433O+G7wby2GR2vUOTHaOmq
+	 KvkFfAhG1aXCw==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EA80917E0D5D;
-	Thu, 05 Nov 2026 02:01:11 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 038DD17E0CE8;
+	Thu, 05 Nov 2026 02:01:15 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 05 Nov 2026 03:00:42 +0200
-Subject: [PATCH v6 08/15] drm/rockchip: vop2: Consolidate HDMI PHY PLL
- clock parent switch
+Date: Thu, 05 Nov 2026 03:00:46 +0200
+Subject: [PATCH v6 12/15] drm/rockchip: dw_hdmi_qp: Do not mask error code
+ in atomic_check()
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-dw-hdmi-qp-yuv-v6-8-1bb63ef5766e@collabora.com>
+Message-Id: <20261105-dw-hdmi-qp-yuv-v6-12-1bb63ef5766e@collabora.com>
 References: <20261105-dw-hdmi-qp-yuv-v6-0-1bb63ef5766e@collabora.com>
 In-Reply-To: <20261105-dw-hdmi-qp-yuv-v6-0-1bb63ef5766e@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -75,11 +75,11 @@ To: Sandy Huang <hjc@rock-chips.com>,
 Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
  linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Igor Paunovic <royalnet026@gmail.com>
+ Sashiko <sashiko-bot@kernel.org>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_170114_402132_75ABE0FB 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20261104_170118_869731_58A6DB24 
+X-CRM114-Status: GOOD (  12.38  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,92 +99,41 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The DCLK parent switch logic for HDMI0 and HDMI1 PHY PLLs was
-duplicated, with each endpoint repeating the same clk_get_parent(),
-clk_set_parent() and error handling calls.
+dw_hdmi_qp_rockchip_get_vop_format() calls
+drm_atomic_get_bridge_state(), which takes the bridge private object
+lock through the atomic state's ww acquire context and may therefore
+fail with -EDEADLK when the lock is contended.
 
-Refactor this by first selecting the appropriate PHY PLL clock handle
-based on the active HDMI endpoint, then performing the parent switch in
-a single shared code path.
+The DRM core expects -EDEADLK to be propagated up from atomic_check()
+so it can drop all held locks and restart the commit.  Replacing it
+with a hardcoded -EINVAL defeats this backoff mechanism, making
+otherwise valid commits fail spuriously when multiple threads perform
+atomic commits concurrently.
 
-While at it, retrieve the original DCLK parent at init time, along with
-the rest of the clocks, instead of lazily on the first switch to a PHY
-PLL.
+Propagate the error code returned by the helper instead of
+unnecessarily overriding it.
 
-Tested-by: Igor Paunovic <royalnet026@gmail.com>
-Reviewed-by: Daniel Stone <daniels@collabora.com>
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/20260902230603.AF5C61F000E9@smtp.kernel.org/
+Fixes: a18aa0dd7a0b ("drm/rockchip: dw_hdmi_qp: Implement "color format" DRM property")
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 35 +++++++++++-----------------
- 1 file changed, 13 insertions(+), 22 deletions(-)
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 98430587a7ab..ab6ced49ae40 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -1956,42 +1956,31 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
- 	if (vop2->pll_hdmiphy0 || vop2->pll_hdmiphy1) {
- 		unsigned int bpc = vcstate->output_bpc ?: 8;
- 		unsigned long max_dclk = DIV_ROUND_CLOSEST_ULL(VOP2_MAX_DCLK_RATE * 8, bpc);
-+		struct clk *pll_hdmiphy = NULL;
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+index f2a1ea8dfefa..db1933d75ced 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+@@ -203,7 +203,7 @@ dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
  
- 		if (clock <= max_dclk) {
- 			drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_mask) {
- 				struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
+ 	ingest_fmt = dw_hdmi_qp_rockchip_get_vop_format(encoder, conn_state);
+ 	if (ingest_fmt < 0)
+-		return -EINVAL;
++		return ingest_fmt;
  
- 				if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI0) {
--					if (!vop2->pll_hdmiphy0)
--						break;
--
--					if (!vp->dclk_src)
--						vp->dclk_src = clk_get_parent(vp->dclk);
--
--					ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
--					if (ret < 0)
--						drm_warn(vop2->drm,
--							 "Could not switch to HDMI0 PHY PLL: %d\n",
--							 ret);
-+					pll_hdmiphy = vop2->pll_hdmiphy0;
- 					break;
- 				}
- 
- 				if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI1) {
--					if (!vop2->pll_hdmiphy1)
--						break;
--
--					if (!vp->dclk_src)
--						vp->dclk_src = clk_get_parent(vp->dclk);
--
--					ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy1);
--					if (ret < 0)
--						drm_warn(vop2->drm,
--							 "Could not switch to HDMI1 PHY PLL: %d\n",
--							 ret);
-+					pll_hdmiphy = vop2->pll_hdmiphy1;
- 					break;
- 				}
- 			}
- 		}
-+
-+		if (pll_hdmiphy) {
-+			ret = clk_set_parent(vp->dclk, pll_hdmiphy);
-+			if (ret < 0)
-+				drm_warn(vop2->drm,
-+					 "Failed to switch DCLK to HDMI PHY PLL: %d\n",
-+					 ret);
-+		}
- 	}
- 
- 	clk_set_rate(vp->dclk, clock);
-@@ -2610,6 +2599,8 @@ static int vop2_create_crtcs(struct vop2 *vop2)
- 			return dev_err_probe(drm->dev, PTR_ERR(vp->dclk),
- 					     "failed to get %s\n", dclk_name);
- 
-+		vp->dclk_src = clk_get_parent(vp->dclk);
-+
- 		vp->dclk_rst = devm_reset_control_get_optional_exclusive(vop2->dev,
- 									 dclk_name);
- 		if (IS_ERR(vp->dclk_rst))
+ 	if (hdmi->tmds_char_rate == conn_state->hdmi.tmds_char_rate &&
+ 	    s->output_bpc == conn_state->hdmi.output_bpc &&
 
 -- 
 2.55.0
