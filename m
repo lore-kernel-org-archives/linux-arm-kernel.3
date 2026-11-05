@@ -2,86 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E95B0606A926
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:46:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B527606A929
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:46:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mIbtQCdN;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=e02FAbj7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4NE7wRDR;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=axm+WJwL
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=o1EbclO0CpwqePVCV1L0T+e9zUmbTQ8j93ZAYJlyj8s=; b=mIbtQCdNPk8bBG
-	dpapxsM0/EqMEjlDeGQf3JZ1pcjsNlnzfi3oar2L6LJ1VpbZL/U4kaBaTTxpRhTyAcdx9j8yv9MTI
-	jlnMfVIW/I293Nl8Hwf78HnfLgY2SvqVcyg+gO6IssnEXkCATntkCFRx+VSrd9jssKFmNTCB6ocTP
-	pQaoJAqsyKazAnak6krk8NgaOHEgZhrWNh7gzteMoWM1zizpZWGGQVnzPIgjPOqG017P/cYCut+Lh
-	dlvOg7/VYf3lQk1zSPOULSGzXTg9jYry/Ss4M+Hob/pyqm5XiXyJzJQsL989KsYvCEtmFonFKKGo6
-	cB9w3hxFjExGL809Sw8A==;
+	List-Owner; bh=YBXbNjgUg+UURoPn7/k5hFGZ3UtlzmwcEk29veboZWk=; b=4NE7wRDRSDyFwJ
+	xaNsDk1GMogv1dXIYkLwFissyRXgyC6DVWdVrOrmh/Zz8yI0FWY8BK8pvMjEyArlHaOtm/qnrRyZh
+	OVa40u6/BPviFMwe1F8FOd2JUIj/tbP8JmRT5WryCnlodKo9l07H11UbI15hyw0noDlb+U4DPMC7s
+	5wjoKplQFPDaP+dfxCxvmYM//hVmkAXSp+B6PvntkT5JdXNeUXyUkDMUGd3yZQDX6UEVXwmDVKhg6
+	0bGsuJiuR0YOFVCcemmltcBUpmaMmJlmj6V4kU9wBXGDeQ/DFR0WHPbK6tb6Nd6PpOOHLDa6xzcTU
+	2wE0IzZQdk3ogaTV23oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvul-00000008jUp-21fl;
+	id 1xOvul-00000008jW7-3nFS;
 	Thu, 05 Nov 2026 11:45:55 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvuV-00000008iz7-3DJ4
+	id 1xOvua-00000008j9o-2QMn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 11:45:41 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4a1fbd52ab6so12472745e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 03:45:39 -0800 (PST)
+	Thu, 05 Nov 2026 11:45:46 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a2000d5fb1so10726225e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 03:45:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1793879138; x=1794483938; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1793879143; x=1794483943; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=o1EbclO0CpwqePVCV1L0T+e9zUmbTQ8j93ZAYJlyj8s=;
-        b=e02FAbj7FhuXPZGHBNClIGcgzRtU/PIzUtZxeJETWJm02y6ZuiBYxTBFRFhinu6iHq
-         AsGTagQaXZtFXDIop/YC4Dpz4xs7FDvPsNVIrWvqg4rQdu95lIrpjwtmqOCiqw67ffL5
-         z9KhFaUJ0D0JYCwwVKv0+0nuf6nbdPY8bKCpxFsJ+qoTp/VKm2yO9KcjoVuLFF7HqXZB
-         ncuT2K0d1Ez6EVFz7A2o8NIDz3alxCGOq3ghRGfRSMRagU+R7G/w/TAKOwJA2nffl307
-         yfA2UrNJiDRmD7D578vcYBeZ0oaG758mLWbMuaEUqMHZVBG7jAgI8s0cbRuPNacP4R/2
-         hi1g==
+        bh=YBXbNjgUg+UURoPn7/k5hFGZ3UtlzmwcEk29veboZWk=;
+        b=axm+WJwL808fmMFObGSZ4926ieu6gbBP1Fsl9xTAHKkltf2VAq88sweAvVb6lhjCFf
+         wBWdmbxywj29DYDSE+/EDtm0fkEeHZQgmZ/g8Btwt9OUuqq7IImiJY46d35dk7W0B5eG
+         bzWDZO4Ftj2qRG9rsdd8Fta3AESg4a/S7rJaVg+BxnejjNEjVdyXf6Cz9MmgIAt+5iub
+         Zwn+djVA1IEkLm4MJh66QT2fa6QmnIkNRWL9QpSXgNZ6rqAnpkp0jYShsU43CImIgTib
+         C2PtJZs3kHpJ8/WRXPH43ZGsSt29X3DtsM+R3F2S927Q/Xc4rXcghJ7Q2FX43Aoz80SL
+         brHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793879138; x=1794483938;
+        d=1e100.net; s=20260707; t=1793879143; x=1794483943;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=o1EbclO0CpwqePVCV1L0T+e9zUmbTQ8j93ZAYJlyj8s=;
-        b=fJgEQMTCc+oC16lYEuoawLOUZj5Ne5/2fDwhMAmezBnZIQtWOgtWoqZCKJpGdbWNlE
-         a0RzoodWaeUwkQ4AUkKP2tMZSUefhd/QlOkMXI3n97uuarDZXav6/U6JaB15K2Ov0zJT
-         ro2jiDv2qsw+aDDZXYIjuNswgkRs4OJ5lWcqyraeLbRa6vY9wbt07flnwZY/0GdN+75E
-         kIL3WAa5AugBc19/uhnI2fSf2FGYpvycmKD1Dytoim4NqtEWBPUe5wz78fCpcBznCYcR
-         iPS8NLI5Uul57CLrUdKeocuLeIP+9Vjyzcu6nzYoOMpQ6Go0N/PHLs3pHHV0PbP4eyzs
-         aO1w==
-X-Forwarded-Encrypted: i=1; AKwUvBzjycI4HPpe24tfgzjkXO6bnXmc4psAkJSoJ17a8sq9gv5NWmvIake7uFnEc0YANGxplSpRmDJfXd0ltz2X0yNZ@lists.infradead.org
-X-Gm-Message-State: APuU4Z9WM+RiRlvISMV+DShvuk/gCZxyjqr4CA04kiBEB2vNzYgw1/WA
-	hSrInIBjDael0sfd8EhbbgejpF9No5Dka/DUOS6s9KHkq2ZQ9Q1AA367tQ8sJ4CN2to=
-X-Gm-Gg: AYBFou1uyjBXSHFyOqZxv+oAMG+Oii5Ee2q54VpjpfUPVtkziSligVFemwvbe88dwHL
-	pg668blEU2xgl5s0PMtTE8LFZcCqdvQBVDPgJ+pEtzc7YAVuG/XwGXYm6d7BUFVVmN7A5TDZU7W
-	MjUelv8epzq9ufGWnpxp2OY9cgLOlRTEvJ3K4uUGizNBLPa45OtMeqdJOTQLUsFHGoZBfhywycC
-	Z1lySWqU1Ny+WpDG5I3qKza9rOv34kSyIB9lEZpCKANWjPSx1T0IK+6GEpYrBdB9Y4x9OWYzWTx
-	Gob7NKSjY5eeiJWllZsdoIvJOAhgM5BgaCprQxoXriqqA/1xk96ZDdby9FIqLrSI19OjFOL8Kuq
-	U7TQRdYyaguVmLypecXado4NDPlEZ7brmu2hJEJLcxPOAf3DpI0NUOHlCe1jgBP9b4vsVYdnCVK
-	k2xRNcVJgvsTwh9ubZ5At6LZNMsG7PVWsLE5a1BKOslpn14LllSvolF8k6SwtHM5yssXQduaYGG
-	y8FhqF7OJ0W8CJt1ayTaZuAbYkAShrsi9x2a+q0ZWIgqu98icljaRPIf5njSnBLHOcwY5BHLunG
-	zEDVZJQKhN4PP6oH0pK+gBEWKK207HqS
-X-Received: by 2002:a05:600c:5295:b0:4a1:e92b:ae4a with SMTP id 5b1f17b1804b1-4b3c3545146mr113538265e9.21.1793879138032;
-        Thu, 05 Nov 2026 03:45:38 -0800 (PST)
+        bh=YBXbNjgUg+UURoPn7/k5hFGZ3UtlzmwcEk29veboZWk=;
+        b=ilFjA2CnzGnGJckfGbqj+b1IBKSfZzZRA2P+YAUl7U1h87MqKfwpz3mVJbA6q2ZB/Q
+         M4E7orcUQ+C6AIddWT+YnB6NUqmqsw1qtr7IyRtFoUY2tyHYR4zTu11ykzVFMRxTIGg9
+         n+rlQ1uFVdXwXrShtKYMxthBkhQrEUidLSne2M169owgAYY8QXeJotE+PRuDmX5S74wU
+         t3jhFZ1bWjeZMGyoUmsN9Q/XwfRRianeDzTqOhE3JS5OMMKQtF6d4rjCQG0AWA4M1GgK
+         DkylxRDnz7UMaT4Y7vB7nqpIIDN6K1KFHn1x31qx8K9I5A1FQaeEDqEyG2knvMWv5/Ss
+         3S8A==
+X-Forwarded-Encrypted: i=1; AKwUvBz37Fqc3hPwQ84a0161UCFObf+HH6+/S2NGvlbBeGOlM50o+5FcSZg8f7Ku9Uip2TigZKRs3z3U9/fdSTxbZTLb@lists.infradead.org
+X-Gm-Message-State: APuU4Z+blsKFCazt1TF7ojb2rnEZ2Ly8byQtvMcBGEKRUhFsP6p4Aoqd
+	BYYTL8/7jxSTl8bqzdv21Ny77Lsu3Po3zjC6IDJfq6Vz8TZ24ue8h55A9g06eUkZR1I=
+X-Gm-Gg: AYBFou0+nxb1Hvnfc9aa11AWnNHmBogFgLrmMgPJf7dnMn/eNNJoV0WSq2Sbrn3BO2Y
+	6U9a8jnbFDnW1QVMvfNyFym0X2yg2/BjaHbpBe6h+CRsjDywz8Oh8eOCX9jdQHA62YMhWdVM2bJ
+	xkojMoyBAHSwunarcvlqJyyEcwykx9mGGhwMTqrNy0TrLVeh36hQrnOgyVwzpu8b2iezOVyrEuk
+	9QrwpWZJ4CTskSmPCvIXbKdqTfPNG6u37LCT5BfAsil/CZVnVeMGt1SlL5xaEfVMpoE9DARUlh8
+	ulhV3nkyxvyZGXqc5ZNmKOfSrPfFs/n/s6lFqttAMtU/z6Rtive4olgtHbCNRU6uZ+6x5Y+0c0Q
+	FSenE5GIP2mC54uAqmCJntTW3kmKcOmcLB4+q+3hvPDDv4CzDq+evH0munHRhHbEVLwMdtjqvJn
+	VuLuYWk7ZPukm05h6SOW5hE5XayHfxYT89PYx4hBG7+R7LRCp8zptwVmOP2dg1DoXJDupHCzOgK
+	B3EQelcIN6kv7nAZ823yjNOBzW2Zf32FV80Ll0kS07pirvAiHZp6X3jx9QdA9vLoROosCfH2Ekf
+	iA94WGJf4S6quZttx6+frukNlM/aIkmA
+X-Received: by 2002:a05:600c:348d:b0:4a1:fbf8:55c9 with SMTP id 5b1f17b1804b1-4ac19234acbmr385559145e9.33.1793879143001;
+        Thu, 05 Nov 2026 03:45:43 -0800 (PST)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b571f46538sm56679525e9.5.2026.11.05.03.45.36
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b571f46538sm56679525e9.5.2026.11.05.03.45.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 03:45:37 -0800 (PST)
+        Thu, 05 Nov 2026 03:45:42 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Thu, 05 Nov 2026 11:45:02 +0000
-Subject: [PATCH v4 14/19] perf cs-etm: Don't print missing buffers in
- snapshot mode
+Date: Thu, 05 Nov 2026 11:45:04 +0000
+Subject: [PATCH v4 16/19] perf test: Allow infinite named_thread loops
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-james-cs-unformatted-per-thread-fix-v4-14-7759e0ce2449@linaro.org>
+Message-Id: <20261105-james-cs-unformatted-per-thread-fix-v4-16-7759e0ce2449@linaro.org>
 References: <20261105-james-cs-unformatted-per-thread-fix-v4-0-7759e0ce2449@linaro.org>
 In-Reply-To: <20261105-james-cs-unformatted-per-thread-fix-v4-0-7759e0ce2449@linaro.org>
 To: Leo Yan <leo.yan@linux.dev>, Adrian Hunter <adrian.hunter@intel.com>
@@ -101,8 +100,8 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
  James Clark <james.clark@linaro.org>, John Garry <john.garry@linux.dev>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_034539_876603_4BAA8FED 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20261105_034544_716378_9D70B306 
+X-CRM114-Status: GOOD (  13.97  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,44 +121,64 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The driver produces lots of AUX records for trace data that was never
-captured in snapshot mode. Downgrade this to a pr_debug3 message as it's
-only an error in normal mode.
+The following test will want this to run forever, so add support by
+treating 0 loops as infinite.
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+Convert i and named_threads_work to be unsigned to avoid undefined
+signed overflow behavior in infinite loop mode.
+
 Tested-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/util/cs-etm.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ tools/perf/Documentation/perf-test.txt     | 2 +-
+ tools/perf/tests/workloads/named_threads.c | 7 ++++---
+ 2 files changed, 5 insertions(+), 4 deletions(-)
 
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 320164645f61..51431a4d5db7 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -3361,6 +3361,9 @@ static int cs_etm__queue_aux_records_cb(struct perf_session *session, union perf
- 	struct perf_sample sample;
- 	int ret;
- 	struct auxtrace_index_entry *ent;
-+	struct cs_etm_auxtrace *etm = container_of(session->auxtrace,
-+						   struct cs_etm_auxtrace,
-+						   auxtrace);
- 	struct auxtrace_index *auxtrace_index;
- 	struct evsel *evsel;
- 	size_t i;
-@@ -3414,8 +3417,10 @@ static int cs_etm__queue_aux_records_cb(struct perf_session *session, union perf
- 	 * don't exit with an error because it will still be possible to decode other aux records.
- 	 */
- 	if (!found) {
--		pr_err("CS ETM: Couldn't find auxtrace buffer for aux_offset: %#"PRI_lx64
--		       " tid: %d cpu: %d\n", event->aux.aux_offset, sample.tid, sample.cpu);
-+		int level = etm->snapshot_mode ? 3 : 0;
-+
-+		pr_debugN(level, "CS ETM: Couldn't find auxtrace buffer for aux_offset: %#"PRI_lx64
-+			  " tid: %d cpu: %d\n", event->aux.aux_offset, sample.tid, sample.cpu);
- 	}
- 	ret = 0;
- out:
+diff --git a/tools/perf/Documentation/perf-test.txt b/tools/perf/Documentation/perf-test.txt
+index f66ccd77bfe7..9fbfe7819a61 100644
+--- a/tools/perf/Documentation/perf-test.txt
++++ b/tools/perf/Documentation/perf-test.txt
+@@ -98,7 +98,7 @@ OPTIONS
+ 		nrloops: brstack, context_switch_loop
+ 
+ 	'named_threads' accepts the number of threads and the number of loops to
+-	do in each thread.
++	do in each thread. Use 0 for an infinite loop.
+ 
+ 	The datasym, landlock, deterministic and callchain workloads don't accept
+ 	any.
+diff --git a/tools/perf/tests/workloads/named_threads.c b/tools/perf/tests/workloads/named_threads.c
+index d051d41a3cfe..6672c2f77684 100644
+--- a/tools/perf/tests/workloads/named_threads.c
++++ b/tools/perf/tests/workloads/named_threads.c
+@@ -11,7 +11,7 @@
+ #define MAX_THREADS 25
+ 
+ static int iterations = 500;
+-int named_threads_work = 1234;
++unsigned int named_threads_work = 1234;
+ 
+ typedef void *(*thread_fn_t)(void *);
+ 
+@@ -19,7 +19,8 @@ typedef void *(*thread_fn_t)(void *);
+ noinline void *named_threads_thread##n(void *arg __maybe_unused)	\
+ {									\
+ 	pthread_setname_np(pthread_self(), "thread" #n);		\
+-	for (int i = 0; i < iterations; i++)				\
++	for (unsigned int i = 0;					\
++	     i < (unsigned int) iterations || iterations == 0; i++)	\
+ 		named_threads_work += 3;				\
+ 									\
+ 	return NULL;							\
+@@ -65,7 +66,7 @@ static thread_fn_t thread_fns[MAX_THREADS] = {
+ 
+ /*
+  * Creates argv[0] threads that run a unique function named "thread[x]" which performs
+- * a multiplication in a loop for argv[1] loops.
++ * a multiplication in a loop for argv[1] loops (use 0 for infinite loop).
+  */
+ static int named_threads(int argc, const char **argv)
+ {
 
 -- 
 2.43.0
