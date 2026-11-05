@@ -2,72 +2,84 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B313F606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 00:51:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 271E6606D811
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 01:01:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XH+V1AOx;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=ed/W9pMI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fSHV9hc4;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=d0faX+pE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=+2E6dr27WqMqCaaLamwNn6gQm66M2Zv099gvqTnexrw=; b=XH+V1AOxgf7oQj
-	Kt86ifO9HqdF7A7dgpQHHmUXNx0nEa5NTbtKL/Trl/lLEZCokUApPI9UM+gmRPDlDBssSVQHZX6a1
-	5csRAt8xCszs35qC4HS19krAAvx+B3ZDsRMAEpKuOTnez1xL/Y29Uc7QsseMT872VaPUGoIqtCpRm
-	tomPSglV8u8GzSSDH+NpqIV3Mly8b7yYs/hPPglm61EQKD1NHnrrDuortsb3JaG0cGUtJH9UTXDqb
-	rBwVgdFWNNHh+ixruVCl4kO7F40Pn1EUGNFahvIKW9SU3uDbdzPwZ+hsILKaAvLDXaFu2J/mlxDRx
-	p+5D24pi9aftT1gWcoHw==;
+	List-Owner; bh=uoBTdifLpvxmmcyonv/Pm5zpeptfc89qcxTcSRIHC1o=; b=fSHV9hc4Tpr/tg
+	ynqr1T2MTKWm/rYQPJpZsrN6zX2VDC8fLhgh29/ab64+mtXiFYScYGeTKK3vAx3Yv7hRepoUcBSEM
+	1ALy+iumCG5oHpGuCCzp7orGDPiU+dvBz4qRLjCq7asr3uF5z5l0A71r9WgtogEw976FUaakqynkW
+	eI8hQ8+Csv8rKHUI5tzQVMzpDuEn2uve9y+B97wQq0hoYaJsQLGt56YzDUKB7G0hAt1JfCl+IG2QX
+	QOI7Km33iEcDyQTlkTMNZ4wvfiGMU3bVZrSC5A84uPcGGzNv7RGDe5wQTrjgQbut+3VPo9NOvlgFY
+	GmvPFEmLaUSnGJEULuxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOlhW-00000007NgN-3tbb;
-	Thu, 05 Nov 2026 00:51:34 +0000
-Received: from mail-m12853.netease.com ([103.209.128.53])
+	id 1xOlqq-00000007OTO-2Yvv;
+	Thu, 05 Nov 2026 01:01:12 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOlhT-00000007Nf9-1H8l;
-	Thu, 05 Nov 2026 00:51:33 +0000
-Received: from [172.16.12.48] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 53894dd57;
-	Thu, 5 Nov 2026 08:51:18 +0800 (GMT+08:00)
-Message-ID: <f047dcbe-efa2-4c60-8436-6d001c936467@rock-chips.com>
-Date: Thu, 5 Nov 2026 08:51:14 +0800
+	id 1xOlqn-00000007ORb-3YOb;
+	Thu, 05 Nov 2026 01:01:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1793840466;
+	bh=nePb0kyyjWqyo41M5uZpRKK5NGs/j1qWip36phnEELk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=d0faX+pEzYv3EKcFMAdxI9LWlYNLSeCWO4ZQ7jPGBLoqWkyPfW+4enbqGiscicO80
+	 IG0DlGOCuhC2/dbLEr4E6vzkVZY5pzox26QLSYNwqjtVU6HWyrrg9I2kfAjHgdUT2w
+	 BXKmEPd1IVChDxTTDCeWbM7SAzwDmT1ffFvfYOqjsTgru6haKhZ7aPkxpjpj96K5Mo
+	 wo8tW1SBmfAa76bhmi0U7EFE2dBFKjr/qdz5fP4v8QFPO54q4Pma4xe7DJOCH1X/SF
+	 OFI0QNANPmktsl93k+o1SfvjX4uw+6I50LFcas9wSRH5bkX30fDJs1QSMhntE167lc
+	 JaT7EhNCQkKTg==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AFE1D17E0CE8;
+	Thu, 05 Nov 2026 02:01:06 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 05 Nov 2026 03:00:35 +0200
+Subject: [PATCH v6 01/15] dt-bindings: display: vop2: Add missing reset
+ properties
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Alexey Charkov <alchark@flipper.net>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- kernel@collabora.com
-Subject: Re: [PATCH v8 7/9] PCI: dw-rockchip: Add pme_turn_off support
-To: Sebastian Reichel <sebastian.reichel@collabora.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
- Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- "Yury Norov (NVIDIA)" <yury.norov@gmail.com>,
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261105-dw-hdmi-qp-yuv-v6-1-1bb63ef5766e@collabora.com>
+References: <20261105-dw-hdmi-qp-yuv-v6-0-1bb63ef5766e@collabora.com>
+In-Reply-To: <20261105-dw-hdmi-qp-yuv-v6-0-1bb63ef5766e@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andyshrk@163.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Daniel Stone <daniels@collabora.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Daniel Stone <daniel@fooishbar.org>, 
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-References: <20261105-rockchip-pcie-system-suspend-v8-0-0434b4f373bc@collabora.com>
- <20261105-rockchip-pcie-system-suspend-v8-7-0434b4f373bc@collabora.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20261105-rockchip-pcie-system-suspend-v8-7-0434b4f373bc@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa1a930507d03a4kunm7b7b2c6111ce48
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDSBlJVkgaQkNKTR9MSR5CHlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=ed/W9pMIXtu5yRJRX83WEULDuzONtKh2KGDEcb97UklFlrvv5C3CMhCccjEFUhMlchyOLJAprM686mxfc7tWjHzWqBUhRRM8shTlsrCQnZUsxYIU1rtFwSDJojCUXPr6oPLLxEocusN0/jY3UmO7AmWWmEB0XONgEidRDNO+fjc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=+2E6dr27WqMqCaaLamwNn6gQm66M2Zv099gvqTnexrw=;
-	h=date:mime-version:subject:message-id:from;
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_165132_063978_D52C4275 
-X-CRM114-Status: GOOD (  21.86  )
+X-CRM114-CacheID: sfid-20261104_170110_069620_0848D7CC 
+X-CRM114-Status: GOOD (  10.12  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,121 +91,115 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-在 2026/11/05 星期四 7:47, Sebastian Reichel 写道:
-> Prepare Rockchip PCIe controller for system suspend support by
-> adding the PME turn off operation.
-> 
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
->   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 47 +++++++++++++++++++++++++++
->   1 file changed, 47 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index 0e26abc50920..7933c50df340 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -47,6 +47,10 @@
->   #define  PCIE_CLIENT_ENABLE_LTSSM	FIELD_PREP_WM16(BIT(2), 1)
->   #define  PCIE_CLIENT_DISABLE_LTSSM	FIELD_PREP_WM16(BIT(2), 0)
->   
-> +/* Interrupt Status Register for Received Messages */
-> +#define PCIE_CLIENT_INTR_STATUS_MSG_RX	0x04
-> +#define  PME_TO_ACK			BIT(9)
-> +
->   /* Interrupt Status Register Related to Legacy Interrupt */
->   #define PCIE_CLIENT_INTR_STATUS_LEGACY	0x8
->   
-> @@ -71,6 +75,11 @@
->   #define  PCIE_CLKREQ_READY		FIELD_PREP_WM16(BIT(0), 1)
->   #define  PCIE_CLKREQ_NOT_READY		FIELD_PREP_WM16(BIT(0), 0)
->   #define  PCIE_CLKREQ_PULL_DOWN		FIELD_PREP_WM16(GENMASK(13, 12), 1)
-> +#define  PME_READY_ENTER_L23		BIT(3)
-> +
-> +/* Message Request Register */
-> +#define PCIE_CLIENT_MSG_GEN		0x34
-> +#define  PME_TURN_OFF			FIELD_PREP_WM16(BIT(4), 1)
->   
->   /* RASDES TBA information */
->   #define PCIE_CLIENT_CDM_RASDES_TBA_INFO_CMN	0x154
-> @@ -439,8 +448,46 @@ static int rockchip_pcie_host_init(struct dw_pcie_rp *pp)
->   	return 0;
->   }
->   
-> +static void rockchip_pcie_pme_turn_off(struct dw_pcie_rp *pp)
-> +{
-> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> +	struct rockchip_pcie *rockchip = to_rockchip_pcie(pci);
-> +	struct device *dev = rockchip->pci.dev;
-> +	u32 status;
-> +	int ret;
-> +
-> +	/* 1. Broadcast PME_Turn_Off Message, bit 4 self-clear once done */
-> +	rockchip_pcie_writel_apb(rockchip, PME_TURN_OFF, PCIE_CLIENT_MSG_GEN);
-> +	ret = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_MSG_GEN,
-> +				 status, !(status & BIT(4)), PCIE_PME_TO_L2_TIMEOUT_US / 10,
-> +				 PCIE_PME_TO_L2_TIMEOUT_US);
-> +	if (ret) {
-> +		dev_warn(dev, "Failed to send PME_Turn_Off\n");
-> +		return;
-> +	}
-> +
-> +	/* 2. Wait for PME_TO_Ack, bit 9 will be set once received */
-> +	ret = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_INTR_STATUS_MSG_RX,
-> +				 status, status & BIT(9), PCIE_PME_TO_L2_TIMEOUT_US / 10,
-> +				 PCIE_PME_TO_L2_TIMEOUT_US);
-> +	if (ret) {
-> +		dev_warn(dev, "Failed to receive PME_TO_Ack\n");
-> +		return;
-> +	}
-> +
-> +	/* 3. Clear PME_TO_Ack and Wait for ready to enter L23 message */
-> +	rockchip_pcie_writel_apb(rockchip, PME_TO_ACK, PCIE_CLIENT_INTR_STATUS_MSG_RX);
-> +	ret = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_POWER_CON,
-> +				 status, status & PME_READY_ENTER_L23,
-> +				 PCIE_PME_TO_L2_TIMEOUT_US / 10,
-> +				 PCIE_PME_TO_L2_TIMEOUT_US);
-> +	if (ret)
-> +		dev_err(dev, "Failed to get ready to enter L23 message\n");
-> +}
+Document the VOP2 resets corresponding to the AXI, AHB and DCLK_VP0..2
+clocks, which are common to all supported SoCs, plus DCLK_VP3 which is
+provided only on RK3588.
 
+While at it, move 'iommus' in the example up into the expected position
+to keep the properties in alphabetical order.
 
-This is a question for the DWC core: should we change
-dw_pcie_host_ops::pme_turn_off() to return a value instead of silently
-ignoring a failure?
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ .../bindings/display/rockchip/rockchip-vop2.yaml   | 46 +++++++++++++++++++++-
+ 1 file changed, 44 insertions(+), 2 deletions(-)
 
-Looking at pcie-designware-host.c, we have:
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+index 93da1fb9adc4..f993cef0323b 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+@@ -82,6 +82,20 @@ properties:
+       - {}
+       - {}
+ 
++  resets:
++    minItems: 5
++    maxItems: 6
++
++  reset-names:
++    minItems: 5
++    items:
++      - const: axi
++      - const: ahb
++      - const: dclk_vp0
++      - const: dclk_vp1
++      - const: dclk_vp2
++      - const: dclk_vp3
++
+   rockchip,grf:
+     $ref: /schemas/types.yaml#/definitions/phandle
+     description:
+@@ -148,6 +162,12 @@ allOf:
+         clock-names:
+           maxItems: 5
+ 
++        resets:
++          maxItems: 5
++
++        reset-names:
++          maxItems: 5
++
+         interrupts:
+           maxItems: 1
+ 
+@@ -194,6 +214,12 @@ allOf:
+             - {}
+             - const: pll_hdmiphy0
+ 
++        resets:
++          maxItems: 5
++
++        reset-names:
++          maxItems: 5
++
+         interrupts:
+           minItems: 4
+ 
+@@ -246,6 +272,12 @@ allOf:
+             - const: pll_hdmiphy0
+             - const: pll_hdmiphy1
+ 
++        resets:
++          minItems: 6
++
++        reset-names:
++          minItems: 6
++
+         interrupts:
+           maxItems: 1
+ 
+@@ -289,9 +321,19 @@ examples:
+                               "dclk_vp0",
+                               "dclk_vp1",
+                               "dclk_vp2";
+-                power-domains = <&power RK3568_PD_VO>;
+-                rockchip,grf = <&grf>;
+                 iommus = <&vop_mmu>;
++                power-domains = <&power RK3568_PD_VO>;
++                resets = <&cru SRST_A_VOP>,
++                         <&cru SRST_H_VOP>,
++                         <&cru SRST_VOP0>,
++                         <&cru SRST_VOP1>,
++                         <&cru SRST_VOP2>;
++                reset-names = "axi",
++                              "ahb",
++                              "dclk_vp0",
++                              "dclk_vp1",
++                              "dclk_vp2";
++                rockchip,grf = <&grf>;
+                 vop_out: ports {
+                     #address-cells = <1>;
+                     #size-cells = <0>;
 
-if (pci->pp.ops->pme_turn_off) {
-     pci->pp.ops->pme_turn_off(&pci->pp);
-} else {
-     ret = dw_pcie_pme_turn_off(pci);
-     if (ret)
-         return ret;
-}
-
-The handling feels asymmetric. If ->pme_turn_off fails, shouldn't we 
-abort dw_pcie_suspend_noirq as well?
-
-Other than that, this patch looks good to me in current shape,
-Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
-
-We can further discuss the callback's return value issue on top.
-
-> +
->   static const struct dw_pcie_host_ops rockchip_pcie_host_ops = {
->   	.init = rockchip_pcie_host_init,
-> +	.pme_turn_off = rockchip_pcie_pme_turn_off,
->   };
->   
->   /*
-> 
+-- 
+2.55.0
 
 
