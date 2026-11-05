@@ -2,54 +2,53 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A69B60707AD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 15:55:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DF3D606E55C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 15:56:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yTHbHvqi;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=WXbRKlsK
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nmURKr0l;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=NFdow1Mz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=X5Z7qcMwD7blBfeK0v/J475OEl1PgkfNhhezrgvSE88=; b=yTHbHvqiWpxAg1
-	kGgYLqb45vNoeWVmXs5inL4lIzg7fjvh/nLUGgwlosv7Eoko7zzerpGIb3P5+j1h6ibFAGeQDQqqh
-	9EPvUIeIZijlMphxjFcD4aGQzRlMOHff3+j6+NYAqVoIvPQTKLw0waEOtYZt8TzYeaXCIs2VfM5yO
-	t/V6UTqR0VcvdshqMqIdUYEC3upCot6BOGD8DaiEJIMXVHCSVBQiSOFQ0m/bBySXYLRZIMId+8/cx
-	k69dBYnPX56vHgjzqzntJbz03t8rZozoTvILZVrIz/15yDehArdOqYrnkO0ht3KyTbOqA6Eltikew
-	4dcfgFdgnehZHiOjOcNA==;
+	List-Owner; bh=W2FNCl6kD+yG1An6J1qP2q3ElD4JbRyD4zLE3KUhfnA=; b=nmURKr0lxG6Fe+
+	Qnle3WExZHArh551GkdpwlYxel+xDo+CsOWwF6ERK55o/bY1a7cMjZ2W8ueWjHSm/HMimOcktjLue
+	y0RgcKMP3Xg7KrLFTOViZuzM5EAwYDP3xh9jTa/PbPlKOv4C4C9bXkj8JP6/TIhZlrG7dM9v3+OTS
+	jGGrrMcp1M9ybOKO7cmoNY+d0S6jrDWXKy0lub0vzY50bi25cRlpkmcuU2z+/kWdHLlUQxUi9Atgi
+	PgdJiNFkPi0lkVVpaP9NPmJU9TuQXsNQ95xjtq7H7ECcc/zeL242FbKAVOcHmOLKsGUCwIar15D/m
+	NXjbHpBr5DPuAULoooeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOzoI-00000009Tzh-04cW;
-	Thu, 05 Nov 2026 15:55:30 +0000
+	id 1xOzoR-00000009UAj-1YsX;
+	Thu, 05 Nov 2026 15:55:39 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOznP-00000009TKK-2fYo;
-	Thu, 05 Nov 2026 15:54:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1793894035; cv=none; 
+	id 1xOznj-00000009TWG-09Ye;
+	Thu, 05 Nov 2026 15:55:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1793894023; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=f1GG34Z5y1R9kEj027n5ViHkhVVjQQ3h2qJNnolFhPnbBzPUViU2JpfT1NfkLBoYSyd2N8S3z2s+iNgVyZjmvsGyHDeNKZ8jvx4z2gYknOtiEt64I3+kg5HBO5+SWrJSAix0GDVw2oHNuoo6w21/bOtVF0moTTMJkw5t5LZz3Co=
+	b=OmTeZTxAqlmANhnjCngef9pdUbuHsK9RH5SpmpXV1RgDOCNLK5Zyg0iJ/c4cd7yzlkxR/VW07bmL0Vp6qchKfggrqQwjJuMuE8eY0cB8Qw7HS+Uny+J6E7R95stUXxr1ie2C70XWnR2t/Zj1ZV5EiPIZoeSOGkyBMzKk9U6rSTE=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1793894035; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=X5Z7qcMwD7blBfeK0v/J475OEl1PgkfNhhezrgvSE88=; 
-	b=fsW7zFL9EPhwqK+6Y7wip34C1En/t6OzF2RV42BpImgvjZilQQnJQ46rGDAkwUaZVTzg+XvAzW/J9JCI5zIHGb3+rAznOhSXoXTMuYM/goJieh6UULIb1NoRr/WLlpCbJToOGzMsLzv39DaIUX8HtAN1MRtTjwTww7uGWt6G8vA=
+	t=1793894023; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=W2FNCl6kD+yG1An6J1qP2q3ElD4JbRyD4zLE3KUhfnA=; 
+	b=ccBnVQySOrUKamhS/52N58N3U9nGb1bvD3M9449W7kZ0zw2Mdb4xXWVzJdFs4pF8lkiaCcYk+cj1LZSuuXay23rVtVLbQQV2h8UVzdM89vduSktWd2RUzOwGpDJQdmELH1BaBEIIdaOvT3wm+/FLwJQC+OfSCCc940bT0sutibI=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=WXbRKlsKHBc1R30c81R8lCa4x2UNdAyyXxMagZUxw1pDNA1KQco1vmR5ksXMs5XZ2dmzyd0iqGeD+pWlVz1rwBHvki7TtM35FQIQDQSlOuhlBWBZmLlZoKJKumtF3iIFmc7T1IVYeFcI3WGOmOxiCBw9PmDAvyyQ15zHqH9InXQ=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=X5Z7qcMwD7blBfeK0v/J475OEl1PgkfNhhezrgvSE88=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1793894034502964.1810565741954;
-	Thu, 5 Nov 2026 07:53:54 -0800 (PST)
+DKIM-Signature: a=rsa-sha256; b=NFdow1MzCjpa+Omtv1/OlQOn4J+aKeVH5qOLCmAUD1FMeB2Y8kLKnZOdIT6r21LYC/cCHLDxAt/50cRovCMtqCynQBA7f7ruG5YKZdHMbDplJRf9IxcbZVBXZ+mQufBVVyymOy8YC0bgYsd6tgeV2MUoQdM2aSO300uYhMyXkKM=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=W2FNCl6kD+yG1An6J1qP2q3ElD4JbRyD4zLE3KUhfnA=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 179389402211268.39076411374003;
+	Thu, 5 Nov 2026 07:53:42 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Thu, 05 Nov 2026 16:52:04 +0100
-Subject: [PATCH v2 13/27] drm/rockchip: Set mode_changed on vrr_enabled
- change
+Date: Thu, 05 Nov 2026 16:52:02 +0100
+Subject: [PATCH v2 11/27] drm: Implement VRR rate limiting
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-vrr-limiter-uapi-v2-13-55f4215be2c2@collabora.com>
+Message-Id: <20261105-vrr-limiter-uapi-v2-11-55f4215be2c2@collabora.com>
 References: <20261105-vrr-limiter-uapi-v2-0-55f4215be2c2@collabora.com>
 In-Reply-To: <20261105-vrr-limiter-uapi-v2-0-55f4215be2c2@collabora.com>
 To: Xaver Hugl <xaver.hugl@gmail.com>, Vidith Madhu <vmadhu@nvidia.com>, 
@@ -75,8 +74,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_075436_959712_C220E093 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20261105_075456_684769_4D0EEB9E 
+X-CRM114-Status: GOOD (  26.06  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,55 +94,317 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-RK3588 (and likely other Rockchip hardware) requires a full modeset when
-VRR is enabled in order for it to function properly.
+Currently, VRR is allowed to use the entire range advertised by the
+sink's EDID. Userspace may find it desirable, however, to limit this
+range, or set a fixed target rate entirely. The latter is mainly useful
+for multimedia playback applications, where judder can be avoided by
+matching the content's frame rate precisely.
 
-Set mode_changed during the atomic check phase to do this.
+With the new VRR target frame rate properties, the necessary
+infrastructure is in place to allow implementing this.
 
+Add the necessary logic to hdmi_validate_vrr, as well as the VRR
+helpers. Since not every target rate can be reached precisely, the
+per-frame error is calculated, and dithered one row at a time across
+subsequent frames. This means some frames are one vtotal larger than
+others, so that averaged over the frames, the desired target rate is
+achieved. Such dithering is explicitly permitted by HDMI, and is still
+considered a constant target frame rate.
+
+Co-developed-by: Derek Foreman <derek.foreman@collabora.com>
+Signed-off-by: Derek Foreman <derek.foreman@collabora.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/rockchip/rockchip_drm_fb.c | 20 +++++++++++++++++++-
- 1 file changed, 19 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c | 134 +++++++++++++++++++++---
+ drivers/gpu/drm/drm_crtc_helper.c               |  34 +++++-
+ include/drm/drm_crtc.h                          |   3 +
+ include/drm/drm_crtc_helper.h                   |   2 +
+ 4 files changed, 156 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_fb.c b/drivers/gpu/drm/rockchip/rockchip_drm_fb.c
-index 45588b79b3d4..e3aad75b88b4 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_fb.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_fb.c
-@@ -13,6 +13,7 @@
- #include <drm/drm_framebuffer.h>
- #include <drm/drm_gem_framebuffer_helper.h>
- #include <drm/drm_probe_helper.h>
-+#include <drm/drm_print.h>
+diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+index ce680eaa5047..846f7a72fddc 100644
+--- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
++++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+@@ -5,6 +5,7 @@
  
- #include "rockchip_drm_drv.h"
- #include "rockchip_drm_fb.h"
-@@ -59,9 +60,26 @@ rockchip_fb_create(struct drm_device *dev, struct drm_file *file,
- 	return &afbc_fb->base;
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_connector.h>
++#include <drm/drm_crtc_helper.h>
+ #include <drm/drm_edid.h>
+ #include <drm/drm_modes.h>
+ #include <drm/drm_print.h>
+@@ -1051,15 +1052,60 @@ static int hdmi_calculate_vtotal(const struct drm_display_mode *mode,
+ 	return 0;
  }
  
-+static int rockchip_drm_atomic_check(struct drm_device *dev, struct drm_atomic_commit *state)
++static int hdmi_validate_vrr_limits(struct drm_crtc_state *crtc_state, u16 vrr_min)
 +{
-+	struct drm_crtc_state *old_crtc_state, *new_crtc_state;
-+	struct drm_crtc *crtc;
-+	int i;
++	struct drm_crtc_vrr_state *vrr_state = &crtc_state->vrr_state;
++	const struct drm_display_mode *mode = &crtc_state->mode;
++	u32 limit_d;
++	u8 round;
++	int ret;
 +
-+	for_each_oldnew_crtc_in_state(state, crtc, old_crtc_state, new_crtc_state, i) {
-+		if (old_crtc_state->vrr_enabled != new_crtc_state->vrr_enabled) {
-+			new_crtc_state->mode_changed = true;
-+			drm_dbg_driver(dev, "[CRTC:%d:%s] VRR changed\n",
-+				       crtc->base.id, crtc->name);
-+		}
++	/* No limiter, don't need to validate, but reset the error */
++	if (!drm_crtc_helper_vrr_is_fixed_rate(vrr_state)) {
++		vrr_state->per_frame_err = 0;
++		vrr_state->cur_err = 0;
++		return 0;
 +	}
 +
-+	return drm_atomic_helper_check(dev, state);
++	/* Don't allow rates equal to or below the minimum VRR rate / 1.001 */
++	if (cmp_fraction(vrr_state->vrr_min_n, vrr_state->vrr_min_d,
++			 vrr_min * 1000, 1001) < 0)
++		return -EINVAL;
++
++	if (check_mul_overflow(mode->crtc_htotal, vrr_state->vrr_min_n, &limit_d))
++		return -ERANGE;
++
++	ret = hdmi_calculate_vtotal(&crtc_state->mode, vrr_state->vrr_min_n,
++				    vrr_state->vrr_min_d, &vrr_state->base_vtotal,
++				    &vrr_state->denom, &vrr_state->per_frame_err);
++	if (ret)
++		return ret;
++
++	/* Allow rounding up for the vtotal check below */
++	if (vrr_state->per_frame_err >= vrr_state->denom / 2)
++		round = 1;
++	else
++		round = 0;
++
++	if (vrr_state->base_vtotal + round < mode->crtc_vtotal)
++		return -EINVAL;
++
++	return 0;
 +}
 +
- static const struct drm_mode_config_funcs rockchip_drm_mode_config_funcs = {
- 	.fb_create = rockchip_fb_create,
--	.atomic_check = drm_atomic_helper_check,
-+	.atomic_check = rockchip_drm_atomic_check,
- 	.atomic_commit = drm_atomic_helper_commit,
+ static int hdmi_validate_vrr(struct drm_connector *connector,
+ 			     struct drm_atomic_commit *state)
+ {
+ 	struct drm_connector_state *new_conn_state =
+ 		drm_atomic_get_new_connector_state(state, connector);
++	struct drm_connector_state *old_conn_state =
++		drm_atomic_get_old_connector_state(state, connector);
+ 	struct drm_crtc_state *new_crtc_state =
+ 		drm_atomic_get_new_crtc_state(state, new_conn_state->crtc);
+ 	struct drm_crtc_vrr_state *vrr_state =
+ 		&new_crtc_state->vrr_state;
++	struct drm_crtc_vrr_state *old_vrr_state;
++	struct drm_crtc_state *old_crtc_state = NULL;
+ 	struct drm_display_info *info = &connector->display_info;
+ 	const struct drm_display_mode *mode = &new_crtc_state->mode;
+ 	struct drm_device *dev = connector->dev;
+@@ -1068,10 +1114,14 @@ static int hdmi_validate_vrr(struct drm_connector *connector,
+ 	u32 min_vfreq_d = 1;
+ 	u32 max_vfreq_n = info->hdmi.vrr_cap.vrr_max;
+ 	u32 max_vfreq_d = 1;
++	bool is_fixed;
+ 
+ 	if (!new_crtc_state->vrr_enabled)
+ 		return 0;
+ 
++	if (old_conn_state)
++		old_crtc_state = drm_atomic_get_old_crtc_state(state, old_conn_state->crtc);
++
+ 	if (!info->hdmi.vrr_cap.supported)
+ 		return -EOPNOTSUPP;
+ 
+@@ -1087,6 +1137,21 @@ static int hdmi_validate_vrr(struct drm_connector *connector,
+ 	if (!max_vfreq_n || max_vfreq_n > mode_refresh)
+ 		max_vfreq_n = mode_refresh;
+ 
++	is_fixed = drm_crtc_helper_vrr_is_fixed_rate(vrr_state);
++	if (is_fixed && info->hdmi.vrr_cap.cinema_vrr)
++		min_vfreq_n = 24;
++
++	/* If the VRR target changed, make sure to reset the error accumulator */
++	if (old_crtc_state) {
++		old_vrr_state = &old_crtc_state->vrr_state;
++		if (drm_crtc_helper_vrr_is_fixed_rate(old_vrr_state) != is_fixed ||
++		    cmp_fraction(vrr_state->vrr_min_n, vrr_state->vrr_min_d,
++				 old_vrr_state->vrr_min_n, old_vrr_state->vrr_min_d) ||
++		    cmp_fraction(vrr_state->vrr_max_n, vrr_state->vrr_max_d,
++				 old_vrr_state->vrr_max_n, old_vrr_state->vrr_max_d))
++			vrr_state->cur_err = 0;
++	}
++
+ 	if (!min_vfreq_n) {
+ 		drm_dbg_kms(dev, "Could not get minimum VRR rate from sink\n");
+ 		return -EINVAL;
+@@ -1098,25 +1163,64 @@ static int hdmi_validate_vrr(struct drm_connector *connector,
+ 		return -EINVAL;
+ 	}
+ 
+-	if (cmp_fraction(min_vfreq_n, min_vfreq_d, max_vfreq_n, max_vfreq_d) > 0) {
+-		drm_dbg_kms(dev, "Target max (%u/%u) > target min (%u/%u)\n",
+-			    max_vfreq_n, max_vfreq_d, min_vfreq_n, min_vfreq_d);
+-		return -EINVAL;
+-	}
+-
+-	ret = hdmi_calculate_vtotal(mode, max_vfreq_n, max_vfreq_d,
+-				    &vrr_state->base_vtotal, NULL, NULL);
++	ret = hdmi_validate_vrr_limits(new_crtc_state, min_vfreq_n);
+ 	if (ret) {
+-		drm_dbg_kms(dev, "Couldn't calculate base_vtotal: %pe\n", ERR_PTR(ret));
++		drm_dbg_kms(dev, "Invalid VRR fixed target rate: %pe\n", ERR_PTR(ret));
+ 		return ret;
+ 	}
+ 
+-	/*
+-	 * Even at its fastest, it can't go faster than the mode, so
+-	 * clamp to avoid imprecisely rounded mode_refresh values we
+-	 * can't do anything about from ruining our day.
+-	 */
+-	vrr_state->base_vtotal = max(vrr_state->base_vtotal, mode->crtc_vtotal);
++	if (!is_fixed) {
++		vrr_state->dynamic = true;
++
++		if (vrr_state->vrr_min_n) {
++			if (!vrr_state->vrr_min_d)
++				return -EINVAL;
++
++			if (cmp_fraction(vrr_state->vrr_min_n, vrr_state->vrr_min_d,
++					 min_vfreq_n * 1000, 1001) < 0) {
++				drm_dbg_kms(dev, "Target min (%u/%u) < supported min (%u/%u)\n",
++					    vrr_state->vrr_min_n, vrr_state->vrr_min_d,
++					    min_vfreq_n, min_vfreq_d);
++				return -EINVAL;
++			}
++			min_vfreq_n = vrr_state->vrr_min_n;
++			min_vfreq_d = vrr_state->vrr_min_d;
++		}
++		if (vrr_state->vrr_max_n) {
++			if (!vrr_state->vrr_max_d)
++				return -EINVAL;
++
++			if (cmp_fraction(vrr_state->vrr_max_n, vrr_state->vrr_max_d,
++					 max_vfreq_n, max_vfreq_d) > 0) {
++				drm_dbg_kms(dev, "Target max (%u/%u) > supported max (%u/%u)\n",
++					    vrr_state->vrr_max_n, vrr_state->vrr_max_d,
++					    max_vfreq_n, max_vfreq_d);
++				return -EINVAL;
++			}
++			max_vfreq_n = vrr_state->vrr_max_n;
++			max_vfreq_d = vrr_state->vrr_max_d;
++		}
++		if (cmp_fraction(min_vfreq_n, min_vfreq_d, max_vfreq_n, max_vfreq_d) > 0) {
++			drm_dbg_kms(dev, "Target max (%u/%u) > target min (%u/%u)\n",
++				    max_vfreq_n, max_vfreq_d, min_vfreq_n, min_vfreq_d);
++			return -EINVAL;
++		}
++
++		ret = hdmi_calculate_vtotal(mode, max_vfreq_n, max_vfreq_d,
++					    &vrr_state->base_vtotal, NULL, NULL);
++		if (ret) {
++			drm_dbg_kms(dev, "Couldn't calculate base_vtotal: %pe\n", ERR_PTR(ret));
++			return ret;
++		}
++
++		/*
++		 * Even at its fastest, it can't go faster than the mode, so
++		 * clamp to avoid imprecisely rounded mode_refresh values we
++		 * can't do anything about from ruining our day.
++		 */
++		vrr_state->base_vtotal = max(vrr_state->base_vtotal,
++					     mode->crtc_vtotal);
++	}
+ 
+ 	if (cmp_fraction(min_vfreq_n, min_vfreq_d, mode_refresh, 1) >= 0) {
+ 		/* refresh <= VRR min, don't do VRR vtotal adjustment */
+diff --git a/drivers/gpu/drm/drm_crtc_helper.c b/drivers/gpu/drm/drm_crtc_helper.c
+index 4ffb3b0b7878..dd696f0c5016 100644
+--- a/drivers/gpu/drm/drm_crtc_helper.c
++++ b/drivers/gpu/drm/drm_crtc_helper.c
+@@ -838,6 +838,22 @@ int drm_crtc_helper_set_config(struct drm_mode_set *set,
+ }
+ EXPORT_SYMBOL(drm_crtc_helper_set_config);
+ 
++bool drm_crtc_helper_vrr_is_fixed_rate(const struct drm_crtc_vrr_state *vrr)
++{
++	if (!vrr->vrr_min_n)
++		return false;
++
++	if (!vrr->vrr_min_d || !vrr->vrr_max_d)
++		return false;
++
++	if (mul_u32_u32(vrr->vrr_min_n, vrr->vrr_max_d) ==
++	    mul_u32_u32(vrr->vrr_min_d, vrr->vrr_max_n))
++		return true;
++
++	return false;
++}
++EXPORT_SYMBOL(drm_crtc_helper_vrr_is_fixed_rate);
++
+ /**
+  * drm_crtc_helper_vrr_flush - Update VRR state on frame ready
+  * @crtc_state: pointer to &struct drm_crtc_state of CRTC that has a new frame ready
+@@ -864,6 +880,9 @@ bool drm_crtc_helper_vrr_flush(struct drm_crtc_state *crtc_state)
+ 		return false;
+ 	}
+ 
++	if (drm_crtc_helper_vrr_is_fixed_rate(vrr))
++		return false;
++
+ 	if (vrr->cur_vtotal == vrr->base_vtotal)
+ 		return false;
+ 
+@@ -889,10 +908,21 @@ bool drm_crtc_helper_vrr_vsync(struct drm_crtc_state *crtc_state)
+ 	struct drm_crtc_vrr_state *vrr = &crtc_state->vrr_state;
+ 	u16 old_vtotal = vrr->cur_vtotal;
+ 
+-	if (!crtc_state->vrr_enabled)
++	if (!crtc_state->vrr_enabled) {
+ 		vrr->cur_vtotal = 0;
+-	else
++		vrr->cur_err = 0;
++	} else if (drm_crtc_helper_vrr_is_fixed_rate(vrr)) {
++		if (vrr->cur_err >= (int) (vrr->denom / 2)) {
++			vrr->cur_err -= vrr->denom;
++			vrr->cur_vtotal = vrr->base_vtotal + 1;
++		} else {
++			vrr->cur_vtotal = vrr->base_vtotal;
++		}
++
++		vrr->cur_err += vrr->per_frame_err;
++	} else {
+ 		vrr->cur_vtotal = vrr->max_vtotal;
++	}
+ 
+ 	if (abs_diff(vrr->cur_vtotal, old_vtotal) > 1)
+ 		vrr->dynamic = true;
+diff --git a/include/drm/drm_crtc.h b/include/drm/drm_crtc.h
+index 9004f7c2f21e..cfd051ccbd2e 100644
+--- a/include/drm/drm_crtc.h
++++ b/include/drm/drm_crtc.h
+@@ -70,6 +70,9 @@ struct drm_crtc_vrr_state {
+ 	u32 vrr_min_d;
+ 	u32 vrr_max_n;
+ 	u32 vrr_max_d;
++	u32 denom;
++	u32 per_frame_err;
++	int cur_err;
+ 	u16 base_vtotal;
+ 	bool dynamic;
  };
+diff --git a/include/drm/drm_crtc_helper.h b/include/drm/drm_crtc_helper.h
+index 0c8c11ea36dd..7d7b75045bd9 100644
+--- a/include/drm/drm_crtc_helper.h
++++ b/include/drm/drm_crtc_helper.h
+@@ -45,6 +45,7 @@ struct drm_framebuffer;
+ struct drm_mode_set;
+ struct drm_modeset_acquire_ctx;
+ struct drm_crtc_state;
++struct drm_crtc_vrr_state;
+ 
+ void drm_helper_disable_unused_functions(struct drm_device *dev);
+ int drm_crtc_helper_set_config(struct drm_mode_set *set,
+@@ -63,6 +64,7 @@ int drm_helper_connector_dpms(struct drm_connector *connector, int mode);
+ void drm_helper_resume_force_mode(struct drm_device *dev);
+ int drm_helper_force_disable_all(struct drm_device *dev);
+ 
++bool drm_crtc_helper_vrr_is_fixed_rate(const struct drm_crtc_vrr_state *vrr);
+ bool drm_crtc_helper_vrr_flush(struct drm_crtc_state *crtc_state);
+ bool drm_crtc_helper_vrr_vsync(struct drm_crtc_state *crtc_state);
  
 
 -- 
