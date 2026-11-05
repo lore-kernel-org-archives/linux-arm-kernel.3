@@ -2,54 +2,53 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1672606EE87
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 20:08:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 799846083615
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 20:08:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Khwn7a2N;
-	dkim=pass (2048-bit key, unprotected) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=XmFwDud7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NVgHFbpZ;
+	dkim=pass (2048-bit key, unprotected) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=M7yPg2K3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=5/O6S5F6K46OQur9n0bT3iNtLUJrm6oFeJA2UzjFbHs=; b=Khwn7a2Ni8GYqy
-	SBQtzxXd34pJzAR53sthb0p9oULmYpbgW81tC0Sn2x5LRMOfuLSewyMel8EtywEPUaSf0N15OVx6m
-	Z/kL86IEnkp80AIWS1jO0ajKiGxFJid51ty/DNsNFN5c1XOvdykzna/kI4KGKe5XSLgoTyuB2G6DS
-	r6JC39EC5S77lBjFvdmpcfgp4Mg3Jo66j8NEhAh0Nd6NYMq+cUP5ofIU0w1YCcmbCRwJ3Iatb32jx
-	JstZFxLSO/KQDJNuCBHTb27FV1XlDY2NPBoFd2XykgfQzXszztuJv2n9Deq8Cab60kKpyr/iVflvO
-	7zsIbgwN3wqKZRPQmeiA==;
+	List-Owner; bh=ROUzdzUH66I0Ac1ZNv0cko9EZBaiQh8ahnlkEy5fNQc=; b=NVgHFbpZpi7mvl
+	Wx253niERAI6I8w05FH6O6JHJqTup/iAEuRtbTtVEyzkSXK98IfA/qYepB4UMnV2tKR7bjjxKf2EK
+	qE5208cWtceBnwWZZFDIE4yzOOnErVl8eAzvPx/ejhES7/z7eU+LMQjXa7FVkWrROrYV9b9ajSzEW
+	OGC+jjmFmWFtW0rhX95uEqNBGdeIoP/+/xghk0079mSvVyF/hmQUzkY0fxazChetsc9OfuM185o2c
+	KJo43O1K+DlpkUFBJ0rdX8uZtBFMCEszP+mre9BRja9vO6EyaGsYNxaPoCMhmkLkL0iPargqxr3gd
+	oo/TjhxXjFNzStX/A6AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP3kM-0000000AVtc-1Zhb;
-	Thu, 05 Nov 2026 20:07:42 +0000
+	id 1xP3ke-0000000AW12-29gG;
+	Thu, 05 Nov 2026 20:08:01 +0000
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP3jd-0000000AVOj-2rkC
+	id 1xP3jg-0000000AVV5-31jM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 20:07:01 +0000
+	Thu, 05 Nov 2026 20:07:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
 	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=5/O6S5F6K46OQur9n0bT3iNtLUJrm6oFeJA2UzjFbHs=; t=1793909217; x=2109269217; 
-	b=XmFwDud7PAcKo6+F1yRmmSx0wrKzmk8/lCf2e4FI2N1TMqdWYFV2xKU2XBjI3sFz1IxAIlz+DH2
-	+PUOrBZTtgTYk178dJO0CTaLDGB1Ibw6awDPduoTbe7iLj0A0ClBTaIgI0WkEJ0nObfeO4OQ/dRJU
-	QxECSn/zQdxRH+6JZ8ODIBthcCDahRtf6qlpDvhaCJVOwhqn7AxDHgj/k3zubscU1UL8xPGP1WEvq
-	r/YaN6gu7XPxXpX8kY+GVsfrz4cQhkQYl7sokVDYg/ej9D9MuIuIPO1qYdl1c8WLnSE/XjtcyrMnF
-	iIl6cj2WvPv1BlGuZuO+xhyxW/u6KoP9LQyw==;
+	bh=ROUzdzUH66I0Ac1ZNv0cko9EZBaiQh8ahnlkEy5fNQc=; t=1793909220; x=2109269220; 
+	b=M7yPg2K3j/w+JJi2kGeWLL5IfHjw53WoILsnc9b0uSvh794VFZm5XsTmksECRzH6pa4UaHjtXtM
+	8E6T2Vam8i6f37OwGJzFc8Gc4M6Otj+RcSRAzEkmXnevi+B7zINBmrjRClMqnSlTKE6dDqMBU1/QB
+	WhdejCW9O97ABPEZVf4dzvWMclcKG2sHDHLja1z9A9VqhDLxk5rc9cSSttvQ9r2TBIvMOWz29v3/M
+	URNdFQ/kxA3K1K/bPsONgu+x+HDcUBZOxGnLP5BzPCKXICv84UOBjPiEsRBV57bw83BDE5oQcK/m2
+	dyNF+cqjOLK5H+Jw0c+vFSLYRlpn9k800S2Q==;
 Received: from [177.172.122.137] (helo=[192.168.15.100])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1xP3jY-003hS1-O5; Thu, 05 Nov 2026 21:06:52 +0100
+	id 1xP3jc-003hS1-2J; Thu, 05 Nov 2026 21:06:56 +0100
 From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Thu, 05 Nov 2026 17:05:49 -0300
-Subject: [PATCH v9 14/15] arm: Reorganize syscall table and separated the
- ABIs
+Date: Thu, 05 Nov 2026 17:05:50 -0300
+Subject: [PATCH v9 15/15] arm: Use common syscall table
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20261105-tonyk-syscall_table-v9-14-8d1275885d9c@igalia.com>
+Message-Id: <20261105-tonyk-syscall_table-v9-15-8d1275885d9c@igalia.com>
 References: <20261105-tonyk-syscall_table-v9-0-8d1275885d9c@igalia.com>
 In-Reply-To: <20261105-tonyk-syscall_table-v9-0-8d1275885d9c@igalia.com>
 To: Masami Hiramatsu <mhiramat@kernel.org>, Arnd Bergmanon <arnd@arndb.de>
@@ -62,8 +61,9 @@ Cc: Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org,
  =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_120657_914861_614F6934 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20261105_120700_854774_94DFF317 
+X-CRM114-Status: UNSURE (   6.55  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,269 +83,133 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-arm has three ABIs: EABI, OABI and OABI with compat (OABIC). Those ABIs
-shares almost every syscall, but have a few exceptions: some syscalls only
-have an entry point for OABI/C (e.g. sys_alarm), and some syscalls have a
-special entry point for OABIC (e.g. sys_oabi_pwrite64).
-
-Currently, the syscall table uses the compat column to specify when such
-OABI syscall needs an OABIC entry point. However, this makes tricky to move
-arm to use the common syscall table: arm doesn't use the compat entry
-points for time64 (e.g. compat_sys_pselect6_time64) and rely on the normal
-entry point (e.g. sys_pselect6). Given that the build system will generate
-the same __SYSCALL_WITH_COMPAT() macro for the whole table, this would
-create inconsistency where some syscalls would point to the wrong entry.
-
-To avoid this problem and prepare the architecture to move to the common
-table, separate explicitly the ABIs in the local syscall table and drop all
-entries for the compat column. Make sure that __SYSCALL_WITH_COMPAT()
-always points to the native option.
+Remove some of the duplicated code by using the common syscall number
+table.
 
 Signed-off-by: André Almeida <andrealmeid@igalia.com>
 ---
-This patch was tested comparing the results of `$ strings
-arch/arm/kernel/entry-common.o` before and after this patch.
----
- arch/arm/kernel/entry-common.S |  4 +-
- arch/arm/tools/Makefile        |  1 +
- arch/arm/tools/syscall.tbl     | 83 ++++++++++++++++++++++++++++++++----------
- 3 files changed, 67 insertions(+), 21 deletions(-)
+ arch/arm/tools/Makefile    | 14 ++++++----
+ arch/arm/tools/syscall.tbl | 69 ----------------------------------------------
+ 2 files changed, 9 insertions(+), 74 deletions(-)
 
-diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
-index 88336a1292bb..088317cee039 100644
---- a/arch/arm/kernel/entry-common.S
-+++ b/arch/arm/kernel/entry-common.S
-@@ -456,8 +456,8 @@ ENDPROC(sys_oabi_readahead)
-  */
- 	syscall_table_start sys_oabi_call_table
- #undef __SYSCALL_WITH_COMPAT
--#define __SYSCALL_WITH_COMPAT(nr, native, compat)	__SYSCALL(nr, compat)
--#include <calls-oabi.S>
-+#define __SYSCALL_WITH_COMPAT(nr, native, compat)	__SYSCALL(nr, native)
-+#include <calls-oabic.S>
- 	syscall_table_end sys_oabi_call_table
- 
- #endif
 diff --git a/arch/arm/tools/Makefile b/arch/arm/tools/Makefile
-index 28b6da8ac5f6..cde235b382bd 100644
+index cde235b382bd..6fed368c3df7 100644
 --- a/arch/arm/tools/Makefile
 +++ b/arch/arm/tools/Makefile
-@@ -14,6 +14,7 @@ systbl := $(srctree)/scripts/syscalltbl.sh
+@@ -12,6 +12,8 @@ syshdr := $(srctree)/scripts/syscallhdr.sh
+ sysnr := $(src)/syscallnr.sh
+ systbl := $(srctree)/scripts/syscalltbl.sh
  syscall := $(src)/syscall.tbl
++syscalltbl_common := $(srctree)/scripts/syscall_common.tbl
++abis := common,clone3,32
  
  gen-y := $(gen)/calls-oabi.S
-+gen-y := $(gen)/calls-oabic.S
- gen-y += $(gen)/calls-eabi.S
- kapi-hdrs-y := $(kapi)/unistd-nr.h
- kapi-hdrs-y += $(kapi)/mach-types.h
+ gen-y := $(gen)/calls-oabic.S
+@@ -39,20 +41,22 @@ $(kapi)/mach-types.h: $(src)/gen-mach-types $(src)/mach-types FORCE
+ 	$(call if_changed,gen_mach)
+ 
+ quiet_cmd_syshdr = SYSHDR  $@
+-      cmd_syshdr = $(CONFIG_SHELL) $(syshdr) --abis common,$* \
++      cmd_syshdr = $(CONFIG_SHELL) $(syshdr) --abis $(abis),$* \
++		   --common-tbl $(syscalltbl_common) \
+ 		   --offset __NR_SYSCALL_BASE $< $@
+ 
+ quiet_cmd_systbl = SYSTBL  $@
+-      cmd_systbl = $(CONFIG_SHELL) $(systbl) --abis common,$* $< $@
++      cmd_systbl = $(CONFIG_SHELL) $(systbl) --abis $(abis),$* \
++		   --common-tbl $(syscalltbl_common) $< $@
+ 
+ quiet_cmd_sysnr  = SYSNR   $@
+       cmd_sysnr  = $(CONFIG_SHELL) $(sysnr) $< $@
+ 
+-$(uapi)/unistd-%.h: $(syscall) $(syshdr) FORCE
++$(uapi)/unistd-%.h: $(syscall) $(syscalltbl_common) $(syshdr) FORCE
+ 	$(call if_changed,syshdr)
+ 
+-$(kapi)/unistd-nr.h: $(syscall) $(sysnr) FORCE
++$(kapi)/unistd-nr.h: $(syscalltbl_common) $(syscall) $(sysnr) FORCE
+ 	$(call if_changed,sysnr)
+ 
+-$(gen)/calls-%.S: $(syscall) $(systbl) FORCE
++$(gen)/calls-%.S: $(syscall) $(syscalltbl_common) $(systbl) FORCE
+ 	$(call if_changed,systbl)
 diff --git a/arch/arm/tools/syscall.tbl b/arch/arm/tools/syscall.tbl
-index 55717ed32c27..944f11030ab4 100644
+index 944f11030ab4..36c1e5cc3e02 100644
 --- a/arch/arm/tools/syscall.tbl
 +++ b/arch/arm/tools/syscall.tbl
-@@ -26,6 +26,7 @@
- 11	common	execve			sys_execve
- 12	common	chdir			sys_chdir
- 13	oabi	time			sys_time32
-+13	oabic	time			sys_time32
- 14	common	mknod			sys_mknod
- 15	common	chmod			sys_chmod
- 16	common	lchown			sys_lchown16
-@@ -35,14 +36,18 @@
- 20	common	getpid			sys_getpid
- 21	common	mount			sys_mount
- 22	oabi	umount			sys_oldumount
-+22	oabic	umount			sys_oldumount
- 23	common	setuid			sys_setuid16
- 24	common	getuid			sys_getuid16
- 25	oabi	stime			sys_stime32
-+25	oabic	stime			sys_stime32
- 26	common	ptrace			sys_ptrace
- 27	oabi	alarm			sys_alarm
-+27	oabic	alarm			sys_alarm
- # 28 was sys_fstat
- 29	common	pause			sys_pause
- 30	oabi	utime			sys_utime32
-+30	oabic	utime			sys_utime32
- # 31 was sys_stty
- # 32 was sys_gtty
- 33	common	access			sys_access
-@@ -90,12 +95,14 @@
- 75	common	setrlimit		sys_setrlimit
- # Back compat 2GB limited rlimit
- 76	oabi	getrlimit		sys_old_getrlimit
-+76	oabic	getrlimit		sys_old_getrlimit
- 77	common	getrusage		sys_getrusage
- 78	common	gettimeofday		sys_gettimeofday
- 79	common	settimeofday		sys_settimeofday
- 80	common	getgroups		sys_getgroups16
- 81	common	setgroups		sys_setgroups16
- 82	oabi	select			sys_old_select
-+82	oabic	select			sys_old_select
- 83	common	symlink			sys_symlink
- # 84 was sys_lstat
- 85	common	readlink		sys_readlink
-@@ -103,7 +110,9 @@
- 87	common	swapon			sys_swapon
- 88	common	reboot			sys_reboot
- 89	oabi	readdir			sys_old_readdir
-+89	oabic	readdir			sys_old_readdir
- 90	oabi	mmap			sys_old_mmap
-+90	oabic	mmap			sys_old_mmap
- 91	common	munmap			sys_munmap
- 92	common	truncate		sys_truncate
- 93	common	ftruncate		sys_ftruncate
-@@ -115,7 +124,8 @@
- 99	common	statfs			sys_statfs
- 100	common	fstatfs			sys_fstatfs
- # 101 was sys_ioperm
--102	oabi	socketcall		sys_socketcall		sys_oabi_socketcall
-+102	oabi	socketcall		sys_socketcall
-+102	oabic	socketcall		sys_oabi_socketcall
- 103	common	syslog			sys_syslog
- 104	common	setitimer		sys_setitimer
- 105	common	getitimer		sys_getitimer
-@@ -131,7 +141,8 @@
- 114	common	wait4			sys_wait4
- 115	common	swapoff			sys_swapoff
- 116	common	sysinfo			sys_sysinfo
--117	oabi	ipc			sys_ipc			sys_oabi_ipc
-+117	oabi	ipc			sys_ipc
-+117	oabic	ipc			sys_oabi_ipc
- 118	common	fsync			sys_fsync
- 119	common	sigreturn		sys_sigreturn_wrapper
- 120	common	clone			sys_clone
-@@ -194,8 +205,12 @@
- 177	common	rt_sigtimedwait		sys_rt_sigtimedwait_time32
- 178	common	rt_sigqueueinfo		sys_rt_sigqueueinfo
- 179	common	rt_sigsuspend		sys_rt_sigsuspend
--180	common	pread64			sys_pread64		sys_oabi_pread64
--181	common	pwrite64		sys_pwrite64		sys_oabi_pwrite64
-+180	eabi	pread64			sys_pread64
-+180	oabi	pread64			sys_pread64
-+180	oabic	pread64			sys_oabi_pread64
-+181	eabi	pwrite64		sys_pwrite64
-+181	oabi	pwrite64		sys_pwrite64
-+181	oabic	pwrite64		sys_oabi_pwrite64
- 182	common	chown			sys_chown16
- 183	common	getcwd			sys_getcwd
- 184	common	capget			sys_capget
-@@ -208,11 +223,21 @@
- # SuS compliant getrlimit
- 191	common	ugetrlimit		sys_getrlimit
- 192	common	mmap2			sys_mmap2
--193	common	truncate64		sys_truncate64		sys_oabi_truncate64
--194	common	ftruncate64		sys_ftruncate64		sys_oabi_ftruncate64
--195	common	stat64			sys_stat64		sys_oabi_stat64
--196	common	lstat64			sys_lstat64		sys_oabi_lstat64
--197	common	fstat64			sys_fstat64		sys_oabi_fstat64
-+193	eabi	truncate64		sys_truncate64
-+193	oabi	truncate64		sys_truncate64
-+193	oabic	truncate64		sys_oabi_truncate64
-+194	eabi	ftruncate64		sys_ftruncate64
-+194	oabi	ftruncate64		sys_ftruncate64
-+194	oabic	ftruncate64		sys_oabi_ftruncate64
-+195	eabi	stat64			sys_stat64
-+195	oabi	stat64			sys_stat64
-+195	oabic	stat64			sys_oabi_stat64
-+196	eabi	lstat64			sys_lstat64
-+196	oabi	lstat64			sys_lstat64
-+196	oabic	lstat64			sys_oabi_lstat64
-+197	eabi	fstat64			sys_fstat64
-+197	oabi	fstat64			sys_fstat64
-+197	oabic	fstat64			sys_oabi_fstat64
- 198	common	lchown32		sys_lchown
- 199	common	getuid32		sys_getuid
- 200	common	getgid32		sys_getgid
-@@ -236,11 +261,15 @@
- 218	common	pivot_root		sys_pivot_root
- 219	common	mincore			sys_mincore
- 220	common	madvise			sys_madvise
--221	common	fcntl64			sys_fcntl64		sys_oabi_fcntl64
-+221	oabi	fcntl64			sys_fcntl64
-+221	eabi	fcntl64			sys_fcntl64
-+221	oabic	fcntl64			sys_oabi_fcntl64
- # 222 for tux
- # 223 is unused
- 224	common	gettid			sys_gettid
--225	common	readahead		sys_readahead		sys_oabi_readahead
-+225	oabi	readahead		sys_readahead
-+225	eabi	readahead		sys_readahead
-+225	oabic	readahead		sys_oabi_readahead
- 226	common	setxattr		sys_setxattr
- 227	common	lsetxattr		sys_lsetxattr
- 228	common	fsetxattr		sys_fsetxattr
-@@ -266,7 +295,9 @@
- 248	common	exit_group		sys_exit_group
- 249	common	lookup_dcookie		sys_ni_syscall
- 250	common	epoll_create		sys_epoll_create
--251	common	epoll_ctl		sys_epoll_ctl		sys_oabi_epoll_ctl
-+251	oabi	epoll_ctl		sys_epoll_ctl
-+251	eabi	epoll_ctl		sys_epoll_ctl
-+251	oabic	epoll_ctl		sys_oabi_epoll_ctl
- 252	common	epoll_wait		sys_epoll_wait
- 253	common	remap_file_pages	sys_remap_file_pages
- # 254 for set_thread_area
-@@ -297,23 +328,33 @@
- 279	common	mq_getsetattr		sys_mq_getsetattr
- 280	common	waitid			sys_waitid
- 281	common	socket			sys_socket
--282	common	bind			sys_bind		sys_oabi_bind
--283	common	connect			sys_connect		sys_oabi_connect
-+282	eabi	bind			sys_bind
-+282	oabi	bind			sys_bind
-+282	oabic	bind			sys_oabi_bind
-+283	eabi	connect			sys_connect
-+283	oabi	connect			sys_connect
-+283	oabic	connect			sys_oabi_connect
- 284	common	listen			sys_listen
- 285	common	accept			sys_accept
- 286	common	getsockname		sys_getsockname
- 287	common	getpeername		sys_getpeername
- 288	common	socketpair		sys_socketpair
- 289	common	send			sys_send
--290	common	sendto			sys_sendto		sys_oabi_sendto
-+290	eabi	sendto			sys_sendto
-+290	oabi	sendto			sys_sendto
-+290	oabic	sendto			sys_oabi_sendto
- 291	common	recv			sys_recv
- 292	common	recvfrom		sys_recvfrom
- 293	common	shutdown		sys_shutdown
- 294	common	setsockopt		sys_setsockopt
- 295	common	getsockopt		sys_getsockopt
--296	common	sendmsg			sys_sendmsg		sys_oabi_sendmsg
-+296	eabi	sendmsg			sys_sendmsg
-+296	oabi	sendmsg			sys_sendmsg
-+296	oabic	sendmsg			sys_oabi_sendmsg
- 297	common	recvmsg			sys_recvmsg
--298	common	semop			sys_semop		sys_oabi_semop
-+298	eabi	semop			sys_semop
-+298	oabi	semop			sys_semop
-+298	oabic	semop			sys_oabi_semop
- 299	common	semget			sys_semget
- 300	common	semctl			sys_old_semctl
- 301	common	msgsnd			sys_msgsnd
-@@ -327,7 +368,9 @@
- 309	common	add_key			sys_add_key
- 310	common	request_key		sys_request_key
- 311	common	keyctl			sys_keyctl
--312	common	semtimedop		sys_semtimedop_time32	sys_oabi_semtimedop
-+312	eabi	semtimedop		sys_semtimedop_time32
-+312	oabi	semtimedop		sys_semtimedop_time32
-+312	oabic	semtimedop		sys_oabi_semtimedop
- 313	common	vserver
- 314	common	ioprio_set		sys_ioprio_set
- 315	common	ioprio_get		sys_ioprio_get
-@@ -342,7 +385,9 @@
- 324	common	mknodat			sys_mknodat
- 325	common	fchownat		sys_fchownat
- 326	common	futimesat		sys_futimesat_time32
--327	common	fstatat64		sys_fstatat64		sys_oabi_fstatat64
-+327	eabi	fstatat64		sys_fstatat64
-+327	oabi	fstatat64		sys_fstatat64
-+327	oabic	fstatat64		sys_oabi_fstatat64
- 328	common	unlinkat		sys_unlinkat
- 329	common	renameat		sys_renameat
- 330	common	linkat			sys_linkat
+@@ -463,72 +463,3 @@
+ 400	common	migrate_pages		sys_migrate_pages
+ 401	common	kexec_file_load		sys_kexec_file_load
+ # 402 is unused
+-403	common	clock_gettime64			sys_clock_gettime
+-404	common	clock_settime64			sys_clock_settime
+-405	common	clock_adjtime64			sys_clock_adjtime
+-406	common	clock_getres_time64		sys_clock_getres
+-407	common	clock_nanosleep_time64		sys_clock_nanosleep
+-408	common	timer_gettime64			sys_timer_gettime
+-409	common	timer_settime64			sys_timer_settime
+-410	common	timerfd_gettime64		sys_timerfd_gettime
+-411	common	timerfd_settime64		sys_timerfd_settime
+-412	common	utimensat_time64		sys_utimensat
+-413	common	pselect6_time64			sys_pselect6
+-414	common	ppoll_time64			sys_ppoll
+-416	common	io_pgetevents_time64		sys_io_pgetevents
+-417	common	recvmmsg_time64			sys_recvmmsg
+-418	common	mq_timedsend_time64		sys_mq_timedsend
+-419	common	mq_timedreceive_time64		sys_mq_timedreceive
+-420	common	semtimedop_time64		sys_semtimedop
+-421	common	rt_sigtimedwait_time64		sys_rt_sigtimedwait
+-422	common	futex_time64			sys_futex
+-423	common	sched_rr_get_interval_time64	sys_sched_rr_get_interval
+-424	common	pidfd_send_signal		sys_pidfd_send_signal
+-425	common	io_uring_setup			sys_io_uring_setup
+-426	common	io_uring_enter			sys_io_uring_enter
+-427	common	io_uring_register		sys_io_uring_register
+-428	common	open_tree			sys_open_tree
+-429	common	move_mount			sys_move_mount
+-430	common	fsopen				sys_fsopen
+-431	common	fsconfig			sys_fsconfig
+-432	common	fsmount				sys_fsmount
+-433	common	fspick				sys_fspick
+-434	common	pidfd_open			sys_pidfd_open
+-435	common	clone3				sys_clone3
+-436	common	close_range			sys_close_range
+-437	common	openat2				sys_openat2
+-438	common	pidfd_getfd			sys_pidfd_getfd
+-439	common	faccessat2			sys_faccessat2
+-440	common	process_madvise			sys_process_madvise
+-441	common	epoll_pwait2			sys_epoll_pwait2
+-442	common	mount_setattr			sys_mount_setattr
+-443	common	quotactl_fd			sys_quotactl_fd
+-444	common	landlock_create_ruleset		sys_landlock_create_ruleset
+-445	common	landlock_add_rule		sys_landlock_add_rule
+-446	common	landlock_restrict_self		sys_landlock_restrict_self
+-# 447 reserved for memfd_secret
+-448	common	process_mrelease		sys_process_mrelease
+-449	common	futex_waitv			sys_futex_waitv
+-450	common	set_mempolicy_home_node		sys_set_mempolicy_home_node
+-451	common	cachestat			sys_cachestat
+-452	common	fchmodat2			sys_fchmodat2
+-453	common	map_shadow_stack		sys_map_shadow_stack
+-454	common	futex_wake			sys_futex_wake
+-455	common	futex_wait			sys_futex_wait
+-456	common	futex_requeue			sys_futex_requeue
+-457	common	statmount			sys_statmount
+-458	common	listmount			sys_listmount
+-459	common	lsm_get_self_attr		sys_lsm_get_self_attr
+-460	common	lsm_set_self_attr		sys_lsm_set_self_attr
+-461	common	lsm_list_modules		sys_lsm_list_modules
+-462	common	mseal				sys_mseal
+-463	common	setxattrat			sys_setxattrat
+-464	common	getxattrat			sys_getxattrat
+-465	common	listxattrat			sys_listxattrat
+-466	common	removexattrat			sys_removexattrat
+-467	common	open_tree_attr			sys_open_tree_attr
+-468	common	file_getattr			sys_file_getattr
+-469	common	file_setattr			sys_file_setattr
+-470	common	listns				sys_listns
+-471	common	rseq_slice_yield		sys_rseq_slice_yield
+-472	common	fchroot				sys_fchroot
 
 -- 
 2.56.0
