@@ -2,71 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E8E9606A332
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 01:25:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90B4D606D802
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 01:26:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cLi9tS9I;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=Jke6lpX2
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1oX+jpDJ;
+	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=g3zKO2fI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=47pBX+XIRrJ0Jv29ifqJcO1ihQ9vYRFpgynj99Xgx+U=; b=cLi9tS9IHyTy1b
-	xBppgOfl/CSiJH3RLxgPoJXD3KxeVuqD7VuPU1QdjMJL9jviX7idWCvtVAvom590K+yMYJZh1LkVI
-	7ffNrbDcYn+YdftaGeFrSMgRrCHGjFndzajv1l57P9Zt1mcEdNAXS5uXxeKWvtxtU+5bmC0z5V4HW
-	3FZHvQCyJd/gQyf0OD/z+qVGcvVoYdDKSgo3Fdiw7r/N/SezAxR7HdLnV/wY1X78M0nb3iJXiQH9/
-	0K2jiCIDQET8/wpjsZ8OPzICend+6ZaeMdQNshk4eJGuS/VUnqhVTbpaYCHWdPjXWkYQQaFBVVVac
-	tTNuHNl3WbjyASwXMMmw==;
+	List-Owner; bh=wYPlcYxWEFPPxDzllayWHKcttt65f1mLVtY971TaG9g=; b=1oX+jpDJXcLaqO
+	oiNZuwHTAJY1jnjjTZ9nFIaE0dfEuP45JbUffOeTRkBAk4ChQWrS7WHLUmwCLkfM6Bn7CG8ncQhYb
+	bQV51vJu928eWZDA/Vg2gCj3Xsckd8ZeI67LoWCjgr1iMFzOjsunsPfUykKem5yf/QW44Zy8GxH11
+	5NcnjgQdogstlRj0cAed5MqIwqA5kZMSznzJiLAzCcq7a2fflOhN9QDttiZA/Ns+UCs4zGw6Ev29g
+	jglQGDnbUcMihByLopnKplPGzh0Ix5LU7dWFm3YWg+zL9a0qqBuDp7vRWy3wc3dwXeJ4v5FU4dAqY
+	7ZNwy8DKVSS2N9P8om9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOmEJ-00000007TYY-0YLD;
-	Thu, 05 Nov 2026 01:25:27 +0000
-Received: from mail-m128236.netease.com ([103.209.128.236])
+	id 1xOmEs-00000007ThD-1ffy;
+	Thu, 05 Nov 2026 01:26:02 +0000
+Received: from mail-m1602365393.xmail.ntesmail.com ([160.236.53.93])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOmEG-00000007TVd-1vj8;
-	Thu, 05 Nov 2026 01:25:26 +0000
+	id 1xOmEl-00000007TfB-1B2Y;
+	Thu, 05 Nov 2026 01:26:01 +0000
 Received: from [192.168.10.59] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 538ad90f8;
-	Thu, 5 Nov 2026 09:25:14 +0800 (GMT+08:00)
-Message-ID: <b7a8d79a-e7aa-47fd-8e13-fcab3c569f3d@rock-chips.com>
-Date: Thu, 5 Nov 2026 09:25:14 +0800
+	by smtp.qiye.163.com (Hmail) with ESMTP id 538ad91db;
+	Thu, 5 Nov 2026 09:25:51 +0800 (GMT+08:00)
+Message-ID: <8ab021df-dd10-4f29-bacf-9c01c22c7202@rock-chips.com>
+Date: Thu, 5 Nov 2026 09:25:50 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 1/3] ASoC: dt-bindings: rk3308-codec: describe
  detection and ADC routing
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: broonie@kernel.org, heiko@sntech.de, linux-sound@vger.kernel.org,
- luca.ceresoli@bootlin.com, lgirdwood@gmail.com, perex@perex.cz,
- tiwai@suse.com, linux-kernel@vger.kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
+To: Mark Brown <broonie@kernel.org>
+Cc: heiko@sntech.de, linux-sound@vger.kernel.org, luca.ceresoli@bootlin.com,
+ lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com,
+ linux-kernel@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
  huangtao@rock-chips.com, sugar.zhang@rock-chips.com, lxt@rock-chips.com,
  xing.zheng@rock-chips.com
 References: <20261101040125.1864141-1-zhengxing@rock-chips.com>
  <20261101044149.2018744-1-zhengxing@rock-chips.com>
  <20261101044149.2018744-2-zhengxing@rock-chips.com>
- <20261104-russet-stingray-of-penetration-fef32e@quoll>
+ <aufBA7-uC7udM0qa@sirena.org.uk>
 Content-Language: en-US
 From: Xing Zheng <zhengxing@rock-chips.com>
-In-Reply-To: <20261104-russet-stingray-of-penetration-fef32e@quoll>
+In-Reply-To: <aufBA7-uC7udM0qa@sirena.org.uk>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa1a94f62d503a8kunm3302c1553a4f86
+X-HM-Tid: 0aa1a94ff11e03a8kunmeffaf22e3a50de
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaGUlLVkIeTE5DSEJLTh8YHVYVFA
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZT0NKVk0dTEofQk0dHhodGVYVFA
 	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUJCSU
 	5LVUpLS1VKQktCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=Jke6lpX2hUcGBQW1uErFR7KPQfm1ZK26Tvfeft14fFOY+YOyR9WysNPgbUfvBBcCjye0a7+VabPo7cPaOqAIXAMF6SBhy/HScjGv77ILivjZ+Xyn0hHa/ItBbISUtyQ15qhOP2qnhMuSji9ndwVqdavDGA/wDAmGYjWwUhriFWw=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=47pBX+XIRrJ0Jv29ifqJcO1ihQ9vYRFpgynj99Xgx+U=;
+	b=g3zKO2fILayjVdGEZOCwKOnfIp7jt4rjJRF3J5aD3fldQeIQB47CNsGCkR6dKMnPT7odmhpFizQdvM2Ru9irAIQkLfADKCosoYb/99wAonx6O+0VOOdiq2L5clqxymPBnknZlowa8rtF1891us3q0aWT1/Tegbm9s8U1vtnTETs=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=wYPlcYxWEFPPxDzllayWHKcttt65f1mLVtY971TaG9g=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_172525_071691_5D799DEE 
-X-CRM114-Status: GOOD (  25.43  )
+X-CRM114-CacheID: sfid-20261104_172556_063219_6985F6ED 
+X-CRM114-Status: GOOD (  14.62  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,124 +78,30 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Krzysztof,
+Hi Mark,
 
-On 11/4/26 21:10, Krzysztof Kozlowski wrote:
+On 11/2/26 06:45, Mark Brown wrote:
 > On Sun, Nov 01, 2026 at 12:41:47PM +0800, Xing Zheng wrote:
 >> Describe the optional detect-GRF phandle and named interrupt resources
 >> used by the B/C headphone detector. Retain the legacy interrupt order
 >> and index-based lookup when names are absent. Document the detector
 >> disable and reversed-jack properties and their resource dependencies.
->>
->> Describe the ADC stereo-group routing consumed by the codec driver.
->> Require four unique group IDs in the range 0-3, in I2S2 SDI order,
->> matching the driver's validation. Leave GRF routing unchanged when
->> the property is absent.
->>
->> Extend the example with headphone-detection resources and ADC routing.
->> Keep machine-driver amplifier GPIOs and debug interfaces outside this
->> codec binding.
->>
->> Signed-off-by: Xing Zheng <zhengxing@rock-chips.com>
->> ---
->> Changes in v2:
->> - Retain the original detection descriptions and legacy IRQ ordering.
->> - Keep the binding change in its own patch before the codec change.
->>
->>   .../bindings/sound/rockchip,rk3308-codec.yaml | 55 +++++++++++++++++++
->>   1 file changed, 55 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/sound/rockchip,rk3308-codec.yaml b/Documentation/devicetree/bindings/sound/rockchip,rk3308-codec.yaml
->> index 2cf229a076f0..60c6140dc5df 100644
->> --- a/Documentation/devicetree/bindings/sound/rockchip,rk3308-codec.yaml
->> +++ b/Documentation/devicetree/bindings/sound/rockchip,rk3308-codec.yaml
->> @@ -36,6 +36,49 @@ properties:
->>       description:
->>         Phandle to the General Register Files (GRF)
->>   
->> +  rockchip,detect-grf:
->> +    $ref: /schemas/types.yaml#/definitions/phandle
->> +    description:
->> +      Phandle to the detection GRF used for headphone insertion and
->> +      removal interrupts on codec revisions B and C.
->> +
->> +  interrupts:
->> +    description:
->> +      Keep the legacy interrupt order. If interrupt-names is omitted,
-> What is legacy interrupt order? There are no interrupts here, so how
-> could there be anything legacy?
-You are right. This ordering came from the downstream BSP, not from
-an existing upstream binding. There is no upstream compatibility
-requirement for it, and calling it "legacy" here was misleading.
->> +      the driver uses the second interrupt for B/C headphone detection.
->> +    items:
->> +      - description: Legacy codec headphone detection interrupt
->> +      - description: Detection GRF headphone interrupt for revisions B and C
->> +
->> +  interrupt-names:
->> +    items:
->> +      - const: codec
->> +      - const: hpdet
-> Why same device has both GRF to detect headphones and interrupts?
-In the proposed B/C detector implementation, the detect-GRF phandle
-provides access to the detector's configuration, status and interrupt
-acknowledgement registers. The hpdet IRQ notifies the driver of an
-event, after which it reads and acknowledges the status through that
-regmap. These are register access and event notification for the same
-detector, rather than two independent detection mechanisms.
+> Please don't send new patches in reply to old patches or serieses, this
+> makes it harder for both people and tools to understand what is going
+> on - it can bury things in mailboxes and make it difficult to keep track
+> of what current patches are, both for the new patches and the old ones.
 
-Separately, the two-interrupt layout was copied from the downstream
-DT. The proposed driver only requests hpdet (or index 1 without names)
-and skips detector setup on revision A; it does not use the first
-"codec" IRQ. Retaining that layout merely for downstream index
-compatibility was not a sufficient justification for a new binding.
->> +
->> +  rockchip,no-hp-det:
->> +    type: boolean
->> +    description: Disable the internal headphone detector.
->> +
->> +  rockchip,hp-jack-reversed:
->> +    type: boolean
->> +    description: Reverse the headphone detection polarity.
->> +
->> +  rockchip,adc-grps-route:
->> +    $ref: /schemas/types.yaml#/definitions/uint32-array
->> +    description: |
->> +      ADC stereo-group mapping to the four I2S2 SDI inputs. Each entry
->> +      selects the ADC group connected to the corresponding SDI input,
->> +      in SDI0 through SDI3 order. Group IDs 0 through 3 represent
->> +      MIC1/MIC2, MIC3/MIC4, MIC5/MIC6 and MIC7/MIC8 respectively.
->> +      All four groups must appear exactly once. For example, <1 2 3 0>
->> +      connects groups 1, 2, 3 and 0 to SDI0, SDI1, SDI2 and SDI3.
->> +      If omitted, the GRF routing is left unchanged.
->> +    minItems: 4
->> +    maxItems: 4
->> +    uniqueItems: true
->> +    items:
->> +      enum: [ 0, 1, 2, 3 ]
-> Why are all the rockchip properties before clocks, not next to other
-> rockchip properties? What logic drives this placement?
-There was no good reason for that placement. The vendor properties
-should be grouped consistently with the other rockchip properties,
-with the standard interrupt properties kept separate.
->> +
->>     clocks:
->>       items:
->>         - description: clock for TX
->> @@ -72,6 +115,12 @@ properties:
->>   
->>       enum: [ 50, 55, 60, 65, 70, 75, 80, 85 ]
-> Best regards,
-> Krzysztof
->
+Understood. Any future patch series or revision I submit will start
+its own thread, with links to earlier versions in the cover letter.
+
 I am putting this series on hold while I investigate playback and
 capture problems observed on our EVB with upstream codec changes
 backported to our downstream 6.12 kernel.
@@ -224,12 +130,10 @@ this series or a separate, focused patch or series. In either case,
 the submission will start a new thread and reference the earlier
 series where relevant.
 
-Any binding changes retained in a future submission will address your
-comments above and include the relevant hardware justification.
-
-Thanks again for your time.
+Thank you for the review and the threading guidance.
 
 Best Regards
 Xing Zheng
+
 
 
