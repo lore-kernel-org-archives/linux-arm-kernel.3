@@ -2,68 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76BB4606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:58:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CE54606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:59:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QfgLtKw/;
-	dkim=pass (2048-bit key, unprotected) header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=cbGVGSKj
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SIyCfcaf;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=D8hkm7cL
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=6UOkymQhnfOrj2yAZv17rmW+xuQ+0zZXE06/CQLTSww=; b=QfgLtKw/P7KhLR
-	T/JYSTwawNFI0NLKDwSp8Q2t2pq/bd6FEU2Bvd2+NCL6M4GgEjEtGnuBNwhtY/DDdi5VUQ27lOzmc
-	72hibKR73cn2vEWDoa8IOBHxCbfKwQvO17nvioW6su2/nEoaeGpLK18wOEqXIPPhufXUb2YLU1lOH
-	MhX84as4YqetqlLvd2Jk9K5fE7XDvdh17z6nfb5uo1BJKXiGbpygJru869zKJveOyoEzk0WoTu34J
-	Jy7NlVw8FtYwJXA9HbWZPCU4zOJKy1tGrhDf3HZoTqyiZJqAUPNy51DNXxM0grAYq/1rA3PnWvq94
-	WRkIRWOkf8eOWGSmrPew==;
+	List-Owner; bh=bBn1ykyRQWqMly5VMYEBKX4QjwJ5XVSM4rfTKbZt6Os=; b=SIyCfcafgIOjuK
+	oFhs+25MSGvnndndHzAHAWcEzLGVOkRb2DiFq8J37nK1JMB9CGQU/h5pRB5mW6Gh2rrzWJ4SCdZKW
+	1QzYviV0mvHIUnHL60fTSVevjo2nCsyRMMX3cuP4xxzhqHJocAuXq/cuRhOIc9xfR1yj+EguTSuC/
+	4ftNwtus4PL/nAlGoaXV80Cmfgjj4FUYQjPvFKVbaqD3aRTUaz+VqZ1BMT8fYbgBTFi52+BwOxcl1
+	sZqMbbc0C4BgsBL+4e9hqxl84WFWwBcxMGNSwMayGDXpUSRg20LWUefNuBPU8adtXJYRssOYNa7Wp
+	XgnS6deex0CZakfr64Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtIN-00000008DcK-2isH;
-	Thu, 05 Nov 2026 08:58:07 +0000
-Received: from bulk0.mail-out.lima-city.de ([91.216.248.212])
+	id 1xOtJd-00000008Dv3-3Zha;
+	Thu, 05 Nov 2026 08:59:25 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtII-00000008DZa-1cQb
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 08:58:05 +0000
-From: Andre Eikmeyer <dev@deq.rocks>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=deq.rocks;
-	s=securedbylima-20251205; t=1793869079;
-	bh=AlntEjGZGdpJydOR7xazAe3mieEGTxbT1NLXNTsDkjY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cbGVGSKjSlLWifvxO0qrhgHm2nn1svRBdsFavoAUjaVD7q5UqCRG4z/V75mVI/6a4
-	 jlyqAKYQAY+rZqxFunTLXcylQ3O0rSxOPXT6UrU4GdqoMtzEQNLD+maF5j1tawaB/U
-	 fS6LtVJ8jrUDq6UfE6hqnIKuRPY9kmDk1Pm4xZw+wb3yNuNAgJNurn0YDarmiihN8U
-	 4Lsz9/dzZp7SLvZs0xDfqueoCDOvVx8H2ZiJ1niRiqSG3ahJ2aTLMDCreGu3OJVC0F
-	 1pv1SpPCWUIOiI6gmb4okeTXIRiuY33yZetuU2NZ4C1sPufQBGlC83lsrtKglvf0AK
-	 15Fn9UO9skexQ==
-To: marcel@holtmann.org,
-	luiz.dentz@gmail.com
-Cc: linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	sven@kernel.org,
-	j@jannau.net,
-	neal@gompa.dev,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Andre Eikmeyer <dev@deq.rocks>,
-	Yossef Osman <Yossef.Osman@proton.me>,
-	Aditya Garg <aditya.garg@linux.dev>
-Subject: [PATCH v2 2/2] Bluetooth: set the strict duplicate filter quirk on Apple Broadcom controllers
-Date: Thu,  5 Nov 2026 09:57:50 +0100
-Message-ID: <20261105085750.120392-3-dev@deq.rocks>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261105085750.120392-1-dev@deq.rocks>
-References: <20261105085750.120392-1-dev@deq.rocks>
+	id 1xOtJb-00000008Dtz-1PVt;
+	Thu, 05 Nov 2026 08:59:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1793869160;
+	bh=ZKaZFFHipOBBEL4aN3JZCurDbr471IQ5mAHx+yt6YDI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=D8hkm7cLJ7S+YmF4PZLUoJwECskt1Lx2wBGPwMxKGB7U+y+B1ib+bRRjrhTYsxFfw
+	 uIHzv5kGUcdqzY7GQvciwIRUnjE6E1bjhIAm02/rvqjKZ4cMuSbwVViK78+8ioi4mp
+	 eds24T+OXz4w10VRzgrjCm/MNXaYzxHaTm/CjNuYotXypSNeel73uJThZZWhRkrGHb
+	 zYQghiYqQPaW8FT/Oc+6gAA7+/0J7UQTy9aPUips21sAW2f9qfwXovX73eEfDlXyK2
+	 qEJkPV5RCAnKVk4ouAglPbYCYECNTQKSLvYyyHXgWUEYrEZ4891C0BvrPwQ6SfXsc0
+	 LF7orzWiVgBsQ==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 50DF617E05D6;
+	Thu, 05 Nov 2026 09:59:19 +0100 (CET)
+Message-ID: <bff71c8f-9ea0-45a9-96ed-e66fc0896f3f@collabora.com>
+Date: Thu, 5 Nov 2026 09:59:18 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 02/13] drm/mediatek: Implement Display Stream
+ Compression support
+To: Roman Vivchar <rva333@protonmail.com>, chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, jitao.shi@mediatek.com,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+ justin.yeh@mediatek.com, jason-jh.lin@mediatek.com
+References: <8fcdd2fa-7c9c-4af5-a7b4-45fb881d88a8@protonmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <8fcdd2fa-7c9c-4af5-a7b4-45fb881d88a8@protonmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_005803_233801_767DDEBA 
-X-CRM114-Status: GOOD (  11.99  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261105_005923_987688_EE4F0550 
+X-CRM114-Status: GOOD (  27.12  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,64 +80,119 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-btbcm_finalize() sets HCI_QUIRK_STRICT_DUPLICATE_FILTER, but bcm_setup()
-returns before it when no patch file was loaded. The MacBookPro15,1 has
-none for its BCM4364B0 ("BCM: firmware Patch file not found").
-hci_bcm4377 does not use btbcm_finalize() and never sets the quirk. A
-service discovery then scans with "Filter duplicates: Enabled", and the
-controller reports an address once per discovery cycle of about 10.7 s.
-A Mac that changed its advertisement data on the same address was
-reported 6 s after the change, at the next cycle.
+On 11/4/26 19:51, Roman Vivchar wrote:
+> Hi Angelo,
+> 
+> I have tested this series with my out-of-tree mt6595 (command mode
+> panel) and mt6768 (video mode) DRM. There's no regressions, but I
+> spotted an issue with kconfig.
+> 
+> On 9/16/26 14:08, AngeloGioacchino Del Regno wrote:
+>> Add a real driver for the Display Stream Compression (DSC) Display
+>> Controller IP, implementing support for DSC v1.1 to v1.2.
+>>
+>> In order to do this, it was necessary to remove the basic DSC IP
+>> bypass setup from mtk_ddp_comp: this functionality is retained in
+>> the new mtk_disp_dsc driver, which checks if DSC was actually
+>> requested by other components (with the only one that currently
+>> supports this being DSI) and, if not, it will set BYPASS mode in
+>> the DSC IP.
+>>
+>> Like before, the BYPASS mode is set before starting the DSC IP,
+>> but unlike before, this is being done in the component start
+>> callback instead of the config one.
+>> Notably, the config callback is called by mtk_crtc always
+>> immediately before the calling start callback, so the order of
+>> register writes is retained.
+>> The only real difference is that now this is being done through
+>> CPU writes instead of CMDQ, but since that's called only once
+>> and since it's just three registers, the performance impact will
+>> not be minimal and not even measurable.
+>>
+>> As anticipated, DSC handling was also introduced in the mtk_dsi
+>> driver: when performing dsi_host_attach, the driver now checks
+>> if the DSI panel adds the DSC configuration structure to the
+>> mipi_dsi_device structure and, if it does, it will store a
+>> pointer in the driver-local mtk_dsi structure's `dsc` member.
+>>
+>> The DSI driver will then check whether the DSC configuration
+>> that comes from the panel is valid (in regard to MediaTek DSI)
+>> and will call the DRM API's DSC helpers to calculate and set
+>> all of the const and RC parameters for the actual DSC setup.
+>>
+>> For the time being, even though the latest MediaTek SoCs do
+>> support DSC v1.2, only DSC v1.1 pre-scr support is implemented
+>> as an initial contribution (which is rather big, and 1.2 would
+>> make it even bigger - but that can anyway be implemented later).
+>>
+>> As a last step for validation of DSC parameters in DSI, a check
+>> for the hdisplay against DSC slice sidth and one for vdisplay
+>> against DSC slice height was added to the mode_valid callback,
+>> making sure that H/V are, as expected, multiples of slice W/H.
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> 
+> ...
+> 
+>> --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
+>> +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+>> @@ -18,6 +18,8 @@
+>>    #include <video/mipi_display.h>
+>>    #include <video/videomode.h>
+>>    
+>> +#include <drm/display/drm_dsc.h>
+>> +#include <drm/display/drm_dsc_helper.h>
+> 
+> ...
+> 
+>>    static void mtk_dsi_config_vdo_timing_per_frame_lp(struct mtk_dsi *dsi)
+>> @@ -565,26 +610,68 @@ static void mtk_dsi_config_vdo_timing_per_line_lp(struct mtk_dsi *dsi)
+>>    	writel(horizontal_frontporch_byte, dsi->regs + DSI_HFP_WC);
+>>    }
+>>    
+>> -static void mtk_dsi_config_vdo_timing(struct mtk_dsi *dsi)
+>> +static int mtk_dsi_set_dsc_params(struct mtk_dsi *dsi)
+>> +{
+>> +	struct drm_dsc_config *dsc = dsi->dsc;
+>> +	struct device *dev = dsi->host.dev;
+>> +	int ret;
+>> +
+>> +	if (dsc->bits_per_pixel & GENMASK(3, 0)) {
+>> +		dev_err(dev, "Fractional bits_per_pixel not supported\n");
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	if (dsc->bits_per_component != 8) {
+>> +		dev_err(dev, "%u bits per component is not supported\n",
+>> +			dsc->bits_per_component);
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	dsc->simple_422 = false;
+>> +	dsc->convert_rgb = true;
+>> +	dsc->vbr_enable = false;
+>> +
+>> +	drm_dsc_set_const_params(dsc);
+>> +	drm_dsc_set_rc_buf_thresh(dsc);
+>> +
+>> +	ret = drm_dsc_setup_rc_params(dsc, DRM_DSC_1_2_444);
+> 
+> If config doesn't have DRM_DISPLAY_DSC_HELPER (selected by few panels),
+> linking will fail with "error: undefined symbol: drm_dsc_set_const_params".
+> Should MediaTek DRM select it?
+> 
 
-Set the quirk in hci_bcm on that path and in hci_bcm4377.
+Yes it should. I already spotted this a bit of time ago and fixed it locally, but
+hey, thanks a lot for that.
 
-Tested-by: Yossef Osman <Yossef.Osman@proton.me>
-Tested-by: Aditya Garg <aditya.garg@linux.dev>
-Signed-off-by: Andre Eikmeyer <dev@deq.rocks>
----
- drivers/bluetooth/hci_bcm.c     | 5 ++++-
- drivers/bluetooth/hci_bcm4377.c | 5 +++++
- 2 files changed, 9 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/bluetooth/hci_bcm.c b/drivers/bluetooth/hci_bcm.c
-index cf4f1455cf9..9eeeaf5d6b0 100644
---- a/drivers/bluetooth/hci_bcm.c
-+++ b/drivers/bluetooth/hci_bcm.c
-@@ -596,8 +596,11 @@ static int bcm_setup(struct hci_uart *hu)
- 	if (err)
- 		return err;
- 
--	if (!fw_load_done)
-+	if (!fw_load_done) {
-+		/* btbcm_finalize() sets this after loading a patch file */
-+		hci_set_quirk(hu->hdev, HCI_QUIRK_STRICT_DUPLICATE_FILTER);
- 		return 0;
-+	}
- 
- 	/* Init speed if any */
- 	if (bcm->dev && bcm->dev->init_speed)
-diff --git a/drivers/bluetooth/hci_bcm4377.c b/drivers/bluetooth/hci_bcm4377.c
-index 30fcadfae3f..66cdd896c95 100644
---- a/drivers/bluetooth/hci_bcm4377.c
-+++ b/drivers/bluetooth/hci_bcm4377.c
-@@ -2391,6 +2391,11 @@ static int bcm4377_probe(struct pci_dev *pdev, const struct pci_device_id *id)
- 	hdev->set_bdaddr = bcm4377_hci_set_bdaddr;
- 	hdev->setup = bcm4377_hci_setup;
- 
-+	/* The controller reports an address once per scan with duplicate
-+	 * filtering, also after its advertisement data changed.
-+	 */
-+	hci_set_quirk(hdev, HCI_QUIRK_STRICT_DUPLICATE_FILTER);
-+
- 	if (bcm4377->hw->broken_mws_transport_config)
- 		hci_set_quirk(hdev, HCI_QUIRK_BROKEN_MWS_TRANSPORT_CONFIG);
- 	if (bcm4377->hw->broken_ext_scan)
+Cheers,
+Angelo
 
