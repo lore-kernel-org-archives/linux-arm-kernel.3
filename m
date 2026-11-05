@@ -2,114 +2,175 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 542F7606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 03:36:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EEE9606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 03:38:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EWc4jZkq;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lVVJkrcu
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BdAF2p1W;
+	dkim=pass (2048-bit key, unprotected) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=aY68+vry;
+	dkim=pass (1024-bit key, unprotected) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=WNIJa8dc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=5B9lX6DZI5S1tAfFM57GnAbiozq6dSyTVBcFVL3BszE=; b=EWc4jZkqcA/7vc
-	9QBNbFGphGfZXovVJo7ot/5INyQzpPaKXLoBt3S8iV5SGwWl2C5p+biKlc+ziRe0FN1iJF4xvBc64
-	6cSIrnrT0BpqMttBzJ+qbUGm5CGDeWseRd5bNwFKDcyZIyw/T3oQxC3zLYIJZTURhRFfKpGfOQUOo
-	40j+kLIUKuqgj9F4+Kuk4rTcxVEjzM4CvZtst3ZpD8A5WzAsJjS/j1QqCVOSJZccaqnDEzS/s/GyQ
-	3JoxsreN5inHPPgMt3Fx+YrwRXgdTXwbaazBJN8HL6hT+kXi4LXIoXuM9YWcAdtPQylGApFiKD3Rh
-	Fe0X858X/qfzGmpXec2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=aofu+YF+u9fex9PXiQhmE9ORXXKYW+Y6mz/BHqT86p0=; b=BdAF2p1WSPKxIcKLucaZQr2uxU
+	VhZDT1o9N/H4SdINXw0mJrxR0u2HEQStOTgoXuRiG1gOKxtmMs3xdThMwtDyEBuqEnCS91ecNzY64
+	AKmv54ie2aElfbAvD+WZiYEGFwneuaV14u5kuVXD6vnS2wPDs4jecB4zqVVqpmPMrYVuOJxZvMcfS
+	cZmDjcUUqmUxdkBJG9FvYEFsVGZ2b9qPbcn1XAz5VsnrVlGJlJZaGQEjm8oyuZCp6hbDw18LsIIdD
+	Qp0MJ+6wErO0e1FBQoh5cgQsp3dY7N9SHoPVaBRfe347P2NXHPxODUMl7TmuGPb71S3p+3av4+oQt
+	tL4b89eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOoH2-00000007gJw-1Xx1;
-	Thu, 05 Nov 2026 03:36:24 +0000
-Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
+	id 1xOoJ7-00000007gZn-3TCL;
+	Thu, 05 Nov 2026 03:38:33 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOoH0-00000007gJK-16rK
+	id 1xOoJ5-00000007gZT-1B5T
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 03:36:23 +0000
-Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-8b32bbd39d5so2450257b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 19:36:21 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1793849780; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ijXLrwY+BZhpv9b1Tq27EMVH2zo1Sr6LnZV8GA1h8eYnqQBF4qchAdvS41XjZvVOGg
-         K3vKyh8QWOZjBHD+259ReB4gIhY7n6Jm0wi2Ff7RYkSA+m4GeBqkKkxifpMc/PmdYnj+
-         5YhzQ8DAjpoC+0ICyA6j7gUuA2PK1IWJu7eTI7aH7KYpXQd+rgoCCEZdANj7eE/4DOFd
-         9Jgre8XqwD2r6tGGegHIEFxIKNq0FrA0y9opnrpBs1OaueUnwMvXUD+v0PddOm8NXfX9
-         rpmkEvKHxbPtkobv05oF8ILglEVrxGDe7HhPErrALroxCn2GsS3kN10EBE7EshT3S5HB
-         /AfQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=5B9lX6DZI5S1tAfFM57GnAbiozq6dSyTVBcFVL3BszE=;
-        fh=bwaU6mtfW78Fiz9BHUp1LAZeHsPLCRCRZzy53ECJmBY=;
-        b=WONP5gMLEcfv8LeD2Jq9gZDowVmmr+e4O2szLXMWksW8dcqpyC/IByEO6wgvYqd8sB
-         UGYqL3ck0uUjOJvtbJHfqTdzYArypotIU3y/wBycsy0ECU1uoPp3x12odgUkkJkHOxRW
-         t2u7o8x9RgtY0OaN/qfTWZWi9wmmawhdebnLMPihPU5mzLTQcSCgj6Ropvz0DpLPeWSb
-         DpULUQRlzf3z1HAlrWq18gb615Dxc1vdfofzaxPW1hwLFtQro17sgj59OD5HLGK8eO5e
-         2sjk2nJozyq5isG9BT2y9e2KIvxydjmH6WUR7zeOTfQrnmCxt90YjeFRSvyDYwnfWmKY
-         q/vQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 05 Nov 2026 03:38:32 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 6A522mgt3750872;
+	Wed, 4 Nov 2026 21:38:25 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=proofpoint-05-2026; bh=aofu+YF+u9fex
+	9PXiQhmE9ORXXKYW+Y6mz/BHqT86p0=; b=aY68+vryStRwei05APiiK+z0+JFZD
+	vLkHxe902clEVk/KTbvQ7Vu+ZmbexZX/NjRruY+RX06FMpnuaagYYdlwLV+40znd
+	saJ6oTnBS2BJUfyMx29lE0LdMHwoXNn3nUelopLXHSEz5WLUuFHVpMkDEjIBzIHa
+	gWjDgYJDhULO5/1ndnbzB1xVafIpgmKfbfQWqxMr0WDokVCaQzOBpjsHyQxd00EH
+	73b+VyFIZNdj96Xs+MWsFyka00yddKCGJj+LORwPQdFT8557sriVopcR4AvjqJzp
+	xObF7nkLJUtv96xLiYgkDPOWqQEq4XvxFq8o0DTyg9ezxXcyOJxdCUlyQ==
+Received: from bl2pr02cu003.outbound.protection.outlook.com (mail-eastusazon11011041.outbound.protection.outlook.com [52.101.52.41])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4hrgp1gfsu-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 04 Nov 2026 21:38:25 -0600 (CST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sysTYZyMrWjxG5A03N3PyTQD6iS0nX2ZzpeqxBRGXju/OAHs7Ux+6hJL6s3iwOMXZ4nH3yeriD43jwAHyTU/9myMxZs7XSOHka85GixoHJRD4LNuYTWs/NKIzKFLS1TsHX8jfQXwNFfc4eMXvgQ/QJDCUJVrcdoa7xzScMo3jWAvaKuV4d/kKu1VBL2HYukVsYTat9ra9x8KLzM8oh36sWXROS3DJKttOMgz7PL8/C11/lXcksPnSrJSFuX0xNvr3Ias5vNuQR7Zn8T1vQ4nM8z6HSOKKJ5pLWseh3s2fgkWv2V42YJb75tBUHfBiPbA8p+6WWWfR9SCMMLy+m9lUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aofu+YF+u9fex9PXiQhmE9ORXXKYW+Y6mz/BHqT86p0=;
+ b=rwaZGXYQ3LfNSZEsYXVF5n7c/w7jXML1/ylZL+aO7GDKHxfJwy9y5yqcOr8cFbfdU1R1rA8dmmk3QXGZvvfEavTt1LotjKLf3ShMkP3DxiDln75V/gw6ZHFeLNSfajpnDNbYwVlJ6lH9EOZmZPnT3/4yrUjqDLz5M5pt5+Dq646xJSF8LWBpjNfy3LijdS4B+AckDuTPpdoaEE+8viZ3rf1mOwJQ1cAAk//VWSPyE6bJrcI71GhsTW/BQMpPN3jQtrcQsB2f+rCM5DmSJLqrnMELrv7xPDDKVWEOb0K1Ts/f7I8hxIRqZ2drq5yNetxM0E6eeD9grQXBPoIaB5nAaw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793849780; x=1794454580; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=5B9lX6DZI5S1tAfFM57GnAbiozq6dSyTVBcFVL3BszE=;
-        b=lVVJkrcucPB93V1iPTOBvwynhCBmAmFiSKAeI1KG8gilA554NQ4X4yWAGO7RrFPfIy
-         WtlUgunhypi+e2RFC8G29I11J54BNu11n61GlC4djRqUJyx7E5HNh2a9Xb5hy1fyikoq
-         b2dJ4w4JlwfEfpQLiqtBM8P0YXLT5RpKwiuOvKQFFecqSzEa0mRP4vxV/HkoSTralK8k
-         AraIo0OJYh0Z/d08yMvF3yjFNdLpRK/Ky4K1vBMKSOS5JxJn5ctdXU+nRCj29OiMxvzi
-         qxJtBYGiFM1vm7nnMFJ6H0AG+FxCH5ARRdYs8WVXYArEYGz2wBw/grYqeFrt0JIL7R1A
-         Vt4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793849780; x=1794454580;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5B9lX6DZI5S1tAfFM57GnAbiozq6dSyTVBcFVL3BszE=;
-        b=unWXmP/gJT02Ps0Fy3o8djhLRDsmhO2W2XdRpo3MRfaFESw8s2zxrLMIgabQmyTtrE
-         KGEI9bDdCvrHL47lOp7+zGLatXXbMQflekxm6beI3CpXsp0w5uEZJr09Re5sN9XP08/8
-         Qa2KKV3hrY0EH0YUp5m+Yj2omKny2YwmOQJxnsgZz1GKM9+y3TF/an1QLmqexj0H2WRX
-         65vLA3MbLDiuoKU3NiX39rs5dpeTOKn9knQ4MiORxOHbaVPWQ45VQDntkZdfqyhD2uvk
-         U8YUb8P6pkDc+B/6TABRcfnd/i5O73rvITGgHZ38EoWku2l5UQsit8AVPViVq+ljz3D6
-         mKug==
-X-Forwarded-Encrypted: i=1; AKwUvBwvz8cdhKrRXst6vrCBtF0jUvso8a/exed2KkYhaAM9Fl/5sUAnlI7w+cXzyXBVApYA90GsXQipCOKx/p7cZVJg@lists.infradead.org
-X-Gm-Message-State: APuU4Z+hMs11fNRz83cDVQT76mCsG1n94lwfcBGNLe/nwHSb015xFDIq
-	KpNDkFD4ReZtZXROInpXhoPFzBYVA4BuFUOAtDAIoiSSalomn7J2guBKxpLNnBY8V7KPsZx5nwS
-	la7cZ8akMbsOgeT2PqzhVekQdvSWkouM=
-X-Gm-Gg: AYBFou1+rT/t3WRWmT81ni03uKAXzes88J2IbLREM9cySIegB/F0jmfDVhFxdTvGZeN
-	OP/JAl1WiXvO7zryt/QK2aV7tX0bYEYH2Jotivk2A+DFU09nFWjsh3LMEJSaePgI6txW7GNXrSO
-	N8CAClET40v51T64gT0hoav4fr8ymmvoKwzSzQ+/7eOanN8rU650MA+mzNI/X4NmAjK4ZnjdufQ
-	uq+GAgTqIFgdF1YHoaUthe2/gPZH6YQzN0wQYT+RuUb7ZQJbr+JLZmUQQbyq0B6dVG0CNRQ08Mu
-	DmBRrnYuZTVOXq4nETFZC+sWbL++78/R7Ob/m2e6d+++HAzEsdiw6KgovRvZ6sQAStLljbw2pYT
-	vF2sU8M3CX7CVQVZwjEaEf7y5wjtu4+bQ1LTrUg==
-X-Received: by 2002:a05:690c:e3cb:b0:8b0:e385:edc3 with SMTP id
- 00721157ae682-8b2b6719311mr132765087b3.33.1793849779988; Wed, 04 Nov 2026
- 19:36:19 -0800 (PST)
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aofu+YF+u9fex9PXiQhmE9ORXXKYW+Y6mz/BHqT86p0=;
+ b=WNIJa8dcf4X1v1I9R8fvkdXCzGvegpBtKUbg6shYjme9TY5Dx+xJXl5QwVKaEWW0plfQVuZzSVxfI9C0DHiu2Yk2gPGLTUuwl0DuF7FV+yzdstDh0SV2GS7SZX2SrqnJYl6BTa0+3ZRwSfSElhbGxGBrKUdNp2tu7c1N2lzlJ+w=
+Received: from SJ0PR03CA0150.namprd03.prod.outlook.com (2603:10b6:a03:33c::35)
+ by SA1PR10MB6614.namprd10.prod.outlook.com (2603:10b6:806:2b9::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Thu, 5 Nov
+ 2026 03:38:17 +0000
+Received: from PH4PEPF0000B60E.namprd21.prod.outlook.com
+ (2603:10b6:a03:33c:cafe::88) by SJ0PR03CA0150.outlook.office365.com
+ (2603:10b6:a03:33c::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.19 via Frontend Transport; Thu, 5
+ Nov 2026 03:38:17 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.21.195) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ PH4PEPF0000B60E.mail.protection.outlook.com (10.167.243.89) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.569.0 via Frontend Transport; Thu, 5 Nov 2026 03:38:16 +0000
+Received: from DFLE211.ent.ti.com (10.64.6.69) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 4 Nov
+ 2026 21:37:54 -0600
+Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE211.ent.ti.com
+ (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 4 Nov
+ 2026 21:37:53 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Wed, 4 Nov 2026 21:37:53 -0600
+Received: from udba0500997.dhcp.ti.com (udba0500997.dhcp.ti.com [128.247.75.222])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6A53brIn3465179;
+	Wed, 4 Nov 2026 21:37:53 -0600
+From: Thorsten Lannynd <t-lannynd@ti.com>
+To: <linux-arm-kernel@lists.infradead.org>
+CC: <b-brnich@ti.com>, <praneeth@ti.com>, <r-donadkar@ti.com>,
+        <devarsht@ti.com>, <kieran.bingham@ideasonboard.com>,
+        <jai.luthra@ideasonboard.com>, Nishanth Menon <nm@ti.com>,
+        "Vignesh
+ Raghavendra" <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH v2] arm64: dts: ti: k3-am62x-sk: Add orientation to IMX219 sensor node
+Date: Wed, 4 Nov 2026 21:32:24 -0600
+Message-ID: <20261105033224.2880607-1-t-lannynd@ti.com>
+X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261015035118.9495-1-prasanth.padarthi10@gmail.com> <CAD++jLkx4oQ2ZuUSUQE1Qtrk-1XSMdnDjfLG0rrOm=gt9VD3VA@mail.gmail.com>
-In-Reply-To: <CAD++jLkx4oQ2ZuUSUQE1Qtrk-1XSMdnDjfLG0rrOm=gt9VD3VA@mail.gmail.com>
-From: Prasanth <prasanth.padarthi10@gmail.com>
-Date: Thu, 5 Nov 2026 09:06:09 +0530
-X-Gm-Features: AclHuK9YMOK-xz_gxOFW3IfSoWRvHeDrckSu5fgcWiOJM4mFO9QGiU-P0B7A4RY
-Message-ID: <CAMFFDGhD4K6PN8G+c-hQAL6RG9sVkjo6SXHB5===bYswHh0aTQ@mail.gmail.com>
-Subject: Re: [RFC PATCH] pinctrl: aspeed: Handle GPIOZ6 pass-through strap on
- GPIO requests
-To: Linus Walleij <linusw@kernel.org>
-Cc: andrew@codeconstruct.com.au, joel@jms.id.au, brgl@kernel.org, 
-	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH4PEPF0000B60E:EE_|SA1PR10MB6614:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1014a63b-50f4-458b-0506-08df3aee3a37
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|23010399003|1800799024|6133799003|10067099003|18002099003|56012099006|261021121427099003|261022075727099003|261022105027099003|261026140227099003|261009223027099003|261102123227099003|261028144727099003;
+X-Microsoft-Antispam-Message-Info: yGvedluIyNV9nEGfSiiMc2HJlP4b9Cs0Y1oyVtBqIKKXVn8Hyrn/OvvVN3DhAEIsJBLBgTvnwwfqqn9QsvFCFABEkkep4qQaLaxgPN7p3qfJNWijzS42Jm3pALA1HVsXpHVyaNQ48w7N3gTkeW2giVBjWwj5VAEVvPR+wDgWcSV2eNRrsIBktgvuRRVCvOFLyMoRpu5pb5katXpDusWRwqyZYynmyQ4d0+8S3PQup/lGu91ImRf2QEsVgVoFJNU6n3ol9qDT0kC8cfzClkivpvU+8j2FphMP/WyVm9aaDrNukh957YFEzKPETQpMQJ85Hz1zHM5NJFMDaoDIgYMae29uRVYeUugYtU1Mt59fTIVW4NawnRKSBgZcMDTP6q4Triu3oMM/fe1xFcZ+CRggkUuaxifsWbCx56e6vEQ4DI59EmDbnqc3A5N+SyMGsHVLp7cySEo+e59vWf8JKkmbygL0cvJgMPoMCHlO8uXeCRXa01NPKBTAIh2FH1wYMjkk9WiK+9UendAZYcBcbjaxf0PtnmkgNBGkeNwI6WUORofb0WNiqOUCRNpY/XP1uUeJP9LpJHKIS6kJAq6amLC5YHZOWAZ/4BdC67dij6aa8KMpRQnI95VQJ8YcaN4DuxFSyVzlhKBk0URyEr8bYFuyGJ5UpTgS8a80Q6MDgVYrEl8CX2YRd+yyZIkNYDC22Lxf/bZJHoNYtdaLTClCIW0qGw==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(23010399003)(1800799024)(6133799003)(10067099003)(18002099003)(56012099006)(261021121427099003)(261022075727099003)(261022105027099003)(261026140227099003)(261009223027099003)(261102123227099003)(261028144727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 1XleC4lKKWOmxnAeYLVy3+sOAb5yLKJ6gsxjp+RriPILeQedmIfmkm2Rfa3yKv5eUtwcqMmybryLK1jIY6bwnEkHPWJPuUEH85dzFU2XpNzkC/EQZwfh8lHKUaLdMEjpZ92Q54cH9OWaqHqIUE5G/vsSCBQdmlw0hwhOrkBcdD1psQifFcj/eu9ZQva+NbHrEOzW9pcz/m72n9JtLqKW0omG+3crVL2pnYoMI3QQTTUD/R0mULzkwdNDwPGsK995N4XVjQdi6m37Ygna/cxYshShuuXP8p1Ouk18iwHo1jfKyJMUsctPS/G2UsFWrnnf9fuI4tXUVhgXCZGMXgPSRLBfYclT2iyXTWGMZWP2mmmUYycNMT/84JE7IMAj6K/or32vD3DFDJ6St7RaXFUkktr5guUbBns1XUVR/+x5gr4EUwzQMCBx2z6wa9KDWzQP
+X-Exchange-RoutingPolicyChecked: huQSqbPP4r2rlFc+5lUpKOsSLL3SSMLqG392986vWEBnSnTpWhK+9Ughdn4QKIAWpo9qQp7jyWonll+DkRniOYvmhHmisVHXMuH2KIowydRpFNUpZ6Pi4EE2n2/qII0kjb3YZiv554I/2Anuo7CR2WJPqf18yFunZDC+1l+p6uUnELiGVQtuthTxhkEy/L6VoR8iP65BftQ5Ace0ppREK6mYfUywUda8RBmK4Intx3iYf1yjDY6z54S6yJtLF+/IFym58rDn7wHCIiWFFmAOevHQ5gjOtifjaDIZU1Fyrh7S+HXJFLvJZ5jWzKXd1gsARFvaMk55WYTuGapYnZFGyQ==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 03:38:16.2203
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1014a63b-50f4-458b-0506-08df3aee3a37
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: PH4PEPF0000B60E.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB6614
+X-Authority-Analysis: v=2.4 cv=Ub/E26SN c=1 sm=1 tr=0 ts=6aebfa31 cx=c_pps
+ a=0/xasGIuH+87ciDr1HSmcQ==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=zJRp6_cAMcgA:10 a=AlMIdn_sM9wA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22
+ a=sozttTNsAAAA:8 a=3dYW9F_wfRP4hc-uYg8A:9
+X-Proofpoint-GUID: O4fyekuLba03jIIaopflbkxVyUMhvt29
+X-Proofpoint-ORIG-GUID: O4fyekuLba03jIIaopflbkxVyUMhvt29
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTA1MDAxNCBTYWx0ZWRfX05C6mOmMI5n8
+ V5TRL2J/A9DI6RYUz03eCaAafA2kcZqrNxYVQT4Qut7/5ZiWItW055Hi7J8VhwWbnn7YNqhioRJ
+ jP+RYEZHxjvlXsDsBkAMiWUtsUDUsH8=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTA1MDAxNCBTYWx0ZWRfX0UwIg45F5SnZ
+ m+3k8keWVU0syT9ndJhh1B+aDN8BlZdGH+ErjoPj+dIqpAPaiXtjaGD23uSOeyScNy1MH9qZTY3
+ coA5t3uPMEmnoW+sALX8CeaDB6iLOI33TY4lOwGcGstcwwXC5YK5vv/hddEPniAFfHdEE171DUC
+ SWXDz10V2F5/RCh5hsMryDGb4b24CoI8f9sUauX2QHlbt7Um4+FeKkGlycNWDzIOl0WB0wEd1fn
+ QdMr/SYCKWShMdnPtbH1a48V2Pj+JU/K8oJQtiVD90XgjaGO4mkNdNdF83w70pPNapP5/TglM3P
+ Zr2n/hTKFRiJ+iQCB+B2tmEKnxcOvWkQ6Z/fwL62aLXHV1VTTvPeZujMiShKqbnL2Wjtzv6upT/
+ 765zXumHMu8GxlG6toyCET8Txx5WaMjWiS0ifxEJhHf0LV5qSK9/NbQcSOlEPq3hd4T0u3RWKIQ
+ FKSWk9cQKRkmaLJXLcw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-05_01,2026-11-04_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 spamscore=0 bulkscore=0 suspectscore=0 lowpriorityscore=0
+ priorityscore=1501 adultscore=0 clxscore=1011 impostorscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2610300000 definitions=main-2611050014
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_193622_343871_1887A7EB 
-X-CRM114-Status: GOOD (  30.71  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261104_193831_431873_D48D4242 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,125 +181,52 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Linus,
+The IMX219 CSI2 expansion module is externally attached. Without the
+orientation property, V4L2_CID_CAMERA_ORIENTATION (0x009a0922) is not
+exposed and libcamera fails with:
 
-Thanks for following up. This work is still active.
+  ERROR CameraSensor camera_sensor_raw.cpp:465 'imx219 4-0010':
+  Mandatory V4L2 control 0x009a0922 not available
 
-The October 15 GPIO-request callback was superseded by RFC v2,
-submitted on October 22:
+Set orientation = <MEDIA_ORIENTATION_EXTERNAL> to fix this.
 
-[RFC PATCH v2 0/1] AST2600 global GPIOP passthrough handover experiment
+Signed-off-by: Thorsten Lannynd <t-lannynd@ti.com>
+---
+v2:
+  - Use MEDIA_ORIENTATION_EXTERNAL instead of <2> (Kieran Bingham)
+  - Add #include <dt-bindings/media/video-interface-devices.h>
 
-October 22 RFC v2 cover letter:
-https://lore.kernel.org/r/20261022024314.48623-1-prasanth.padarthi10@gmail.=
-com
+ arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-imx219.dtso | 2 ++
+ 1 file changed, 2 insertions(+)
 
-V2 transfers the global pass-through selection to per-pin SCU4BC
-controls before pinctrl registration. It also handles SCU510[28]
-through SCU514 and restricts affected requests if handover fails.
+diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-imx219.dtso b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-imx219.dtso
+index 149c59c07182..70c2a197f1dd 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-imx219.dtso
++++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-imx219.dtso
+@@ -8,6 +8,7 @@
+ /plugin/;
+ 
+ #include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/media/video-interface-devices.h>
+ 
+ &{/} {
+ 	clk_imx219_fixed: imx219-xclk {
+@@ -72,6 +73,7 @@ ov5640: camera@10 {
+ 				VDDL-supply = <&reg_1p2v>;
+ 
+ 				reset-gpios = <&exp1 13 GPIO_ACTIVE_HIGH>;
++				orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+ 
+ 				port {
+ 					csi2_cam0: endpoint {
+-- 
+2.34.1
 
-I have retested this implementation on B650D4U with a newly built
-image and GPIO-only x86-power-control. Remote power-on, remote
-graceful power-off and physical-button power-on passed, with
-power-good transitions recorded in the journal.
-
-SCU4BC remained 0x30000000 and SCU51C remained 0x1c80 across the
-remote power-on/off tests. Electrical continuity, mixed-pair
-forwarding and fault-path behavior remain unvalidated.
-
-I will verify the requested base, rebase the October 22 version
-and resend it as RFC v3 for renewed review.
-
-Regards,
-Prasanth
-
-On Wed, Nov 4, 2026 at 5:49=E2=80=AFPM Linus Walleij <linusw@kernel.org> wr=
-ote:
->
-> Hi Prasanth,
->
-> On Thu, Oct 15, 2026 at 5:51=E2=80=AFAM Prasanth Kumar Padarthi
-> <prasanth.padarthi10@gmail.com> wrote:
->
-> > On the ASRock Rack B650D4U, requesting GPIOP3 through gpiolib does
-> > not provide working host power control when the GPIOZ6 pass-through
-> > strap in SCU51C[9] is set.
-> >
-> > With the existing GPIO request path, SCU4BC reads zero, but a host
-> > power-on request through x86-power-control times out waiting for
-> > power-good:
-> >
-> >   SCU4BC =3D 0x00000000
-> >   SCU510 =3D 0x00000000
-> >   SCU51C =3D 0x00001e80
-> >
-> > The AST2600 A3 datasheet describes SCU51C[9] as an additional
-> > pass-through enable for GPIOP0/P1, GPIOP2/P3 and GPIOP4/P5 when
-> > SCU510[30] is clear.
-> >
-> > A diagnostic experiment that cleared only SCU51C[9], preserving all
-> > other bits, allowed the same GPIO-only power-control implementation
-> > to power on the host:
-> >
-> >   SCU51C: 0x00001e80 -> 0x00001c80
-> >
-> > SCU4BC and SCU510 remained zero. No per-operation THRU1 switching
-> > or additional userspace delay was required.
-> >
-> > Add an AST2600-specific GPIO request callback that performs the
-> > existing GPIO mux configuration and clears SCU51C[9] for GPIOP0-P5
-> > when SCU510[30] is clear. Check register access errors and verify
-> > that the strap bit cleared. Other GPIOs retain the existing path.
-> >
-> > This RFC handles only the GPIOZ6 strap source. It leaves SCU51C
-> > unchanged when SCU510[30] is set and returns -EOPNOTSUPP for
-> > GPIOP0-P5 requests when SCU510[28] is set.
-> >
-> > Hardware testing on B650D4U with this pinctrl candidate confirmed:
-> >
-> >   - Remote power-on: power-good asserted.
-> >   - Remote graceful power-off: power-good deasserted.
-> >   - Physical power-button power-on.
-> >   - Physical power-button shutdown.
-> >
-> > These tests used x86-power-control with software button forwarding.
-> > The earlier board-specific SoC driver, its DT node, custom sysfs
-> > interface and diagnostic boot parameter were not used.
-> >
-> > This replaces the approach explored in the withdrawn B650D4U
-> > power-passthrough RFC. The new proposal changes the existing pinctrl
-> > driver and introduces no DT binding or userspace interface.
-> >
-> > Feedback is requested on two unresolved issues:
-> >
-> >   1. SCU51C[9] is shared by all three GPIOP pass-through pairs.
-> >      Clearing it for one GPIO request may affect forwarding on
-> >      another pair. How should that shared control be represented
-> >      and coordinated with existing mux ownership?
-> >
-> >   2. The SCU510[28] enable path has not been validated. Returning
-> >      -EOPNOTSUPP is a limitation of this candidate, not a proposed
-> >      complete solution for every AST2600 configuration.
-> >
-> > Is the GPIO request callback the appropriate place to handle this
-> > strap interaction, or should it be modeled through the existing
-> > signal-expression mechanism?
-> >
-> >
-> > Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
->
-> I don't quite understand the status of this patch, if it is still up for
-> grabs, please rebase it on v7.4-rc1 and resend so we can restart
-> the review.
->
-> Yours,
-> Linus Walleij
 
