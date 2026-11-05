@@ -2,140 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C7F5606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 17:35:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74ACA606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 17:39:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yl2LMGuM;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=k69JB8DM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=L4bwetiJ;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=baRLamw0
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=1DgMHIR2mFjIjK/g5iY+FS6IE43xTl91T2FOHt27/Qg=; b=yl2LMGuM7j1th2zaN0fB0WitKm
-	KHjX2RuGbrBAnrxXGkin9PUyATnbY+qUD0sl1zIKbbNtVdi7f1yXvYqVP1gUawCsI2Nt5V8ogTjXI
-	aPZT65Xplf6O4Ds+6jxlrXy4lw2hW5g4mNXE4LkNaIdqNW0F3/t9K7d+ObekC0FwPcPVsfhOMTmTW
-	wWXoZw2xCkCazTAmvA6bt1agGm2OJqi+0TPR0MyBDuAma+4BesRsMPFYg5k6HbJtn+hMLAd7QB1Y8
-	UVKwm1egQ25iwQmJQtyOUjinY+e8I7Mnih9gtF0IgE1Kc4uXCcJTi4GfTnGSM+moE2tzmwSZWIak7
-	1czHM4uA==;
+	bh=8fz6RmNx4rsL9ZO9RoSk+toa+/2KKetNvBTZ87Q/PdE=; b=L4bwetiJ8nx8Fx2yBRAk81m+5W
+	1OhNBOQnHfmA56a3qQiK685WDKYYuw7PMDhXdoCzb3jC/Hxtz//ZJdUEiYyJLZ+WWYtJT1LgxhGA4
+	OHyBynPruauX9bFtWOa0S6tRicwTZP+gMYyB7SuGngLaGTpfjj7aKHwl/555DaaxcdxfS9e5Lxzni
+	ETcZVD15lnRb5xgBXrd7qX3ozRD8kOk24twJI+woTYa3tuh7d7AqTewQnwVFiqs/e7N6J1WE28hye
+	aVJgek1V51/3F+aOe6GWtAnptChKfR2nMSjbAz1y77IU69MxbRwuu3JHJsd7ovd0gaXlr7EQol3RU
+	KXlzLl8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP1Mu-00000009xJr-29vx;
-	Thu, 05 Nov 2026 17:35:21 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP1Mh-00000009xEb-0KSJ
+	id 1xP1QR-00000009yLg-2uAB;
+	Thu, 05 Nov 2026 17:38:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xP1Q2-00000009yHC-3d9z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 17:35:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HRBjVH38HOcGQaOTY5Ei37AF72IN14sF6zNdAHeHxwo48bl4ZUVPpb9Xzr/b0C45oP01QlhdyFoQlnm/P3025QslcOM7xDu9sIytrhdC7xnia5kwv8qdmoyGbZmE1UtxTD+JRK4NmQE1QNKMr9vbo0Vm+vCgUiwlRL9mXJeI7epIU7IdOrmIIJk9mm9/28TVZceYamTKcRgUgQUuldV7fiAu0jtJJhZkBXtX7M0fbbXql0p2WEK2quvvkpL+HbrEnstVKS70yAZN3Dc7Fozkc5P0FigX6sLdwVGApVRzy9i//4k2FJmnea37Vi1kBIRfZHIv5UOQoKSmrrTHH10mfQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1DgMHIR2mFjIjK/g5iY+FS6IE43xTl91T2FOHt27/Qg=;
- b=MJNchjXBorHTRkdsn1Jj3ytF5A1JTXXMbtr2roU4jYDaI02CCbaQUEKmpSfE+ggJU5ZWqkWIm89+oXheLRo0y/z+X/GmmWI6iIa49aA2dN7xtdJlCPO8+GfboIgs2uvSAe65x32pIoRuYnN9VTjJDfGvEFZDdJmbNyjZ1wP++GsmHrMn11tykahF5ZD+f7g6sIik1IOk/yYGm5zNh7IGWA92uhx3iEXbdFIrHIxeA9C86rpk8qu2aXxSD+WADwYH36WKeCBM3grF/+sTcZRnEb1XC5o3+u9t8rcQM+VqayPe+1jFofPbyJJtZQDdIOqwHYc9wkH17uj3TSwx0Vw/rQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1DgMHIR2mFjIjK/g5iY+FS6IE43xTl91T2FOHt27/Qg=;
- b=k69JB8DM+rPTlDVtNUlO9s4+NVMOmxi90Fbj5DzzozbbnOnzgDXTLay4SXbg3qD1kj7lOrGtpBKgEq8YMH69xnBUZ2aglifXvsvOrbDwvKDTalxPZaEKNCX587/p9hg4Wf6wySL576Bc5jf8u+k5Hj0AV4rqUY2uE1k+Ez1hek2zaFsz6OqLFoKDgcd2TULlJxAhmwxYrKz2S6GM6il61jOapxxrcCDseVMHu92cQt1dgBcasy65PZ4oLL067TizyZABTlDMFs1X4uDAHCN3jGJU8JJ4ITeDadaXr21H1wmFmzI3hoAuGMy44cEXk3xs49I6TLt4XVa/+3tqP24c9Q==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by PAXPR04MB8158.eurprd04.prod.outlook.com (2603:10a6:102:1c3::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Thu, 5 Nov
- 2026 17:35:02 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0592.007; Thu, 5 Nov 2026
- 17:35:01 +0000
-Date: Thu, 5 Nov 2026 11:34:49 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com,
-	Nate.D@variscite.com, Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [PATCH v1 1/1] arm64: dts: freescale: Move Variscite Ethernet
- LEDs to carrier boards
-Message-ID: <auy-OW_td7N8oHK_@SMW015318>
-References: <20261105101739.10614-1-stefano.r@variscite.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261105101739.10614-1-stefano.r@variscite.com>
-X-ClientProxiedBy: PH8PR22CA0002.namprd22.prod.outlook.com
- (2603:10b6:510:2d1::26) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	Thu, 05 Nov 2026 17:38:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B4D3B168F;
+	Thu,  5 Nov 2026 09:38:29 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7F9CA3F628;
+	Thu,  5 Nov 2026 09:38:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793900312; bh=kQasTs69GJMYTewLpWCOSipBS9yqMY8wtuGqJ6c4A5I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=baRLamw0BEo+tFUEnaSWrk8Nev4Q5y0Y6eyDS+bv2ePivPxrN/r6dmXeVJw6EAruG
+	 LmVvAwErn2pWSVM95ht9FO1Jat+mG0L3qVd816hE8H5/fdYhC/yFe8eoYfW8dKF/Dp
+	 GuOi21pPZk+MOhq3hVAGBNMbSd7yiVE5q6xXpyWA=
+Date: Thu, 5 Nov 2026 17:38:20 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org,
+	sudeep.holla@kernel.org, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+	d-gole@ti.com, elif.topuz@arm.com, lukasz.luba@arm.com,
+	philip.radford@arm.com, david@kernel.org,
+	souvik.chakravarty@arm.com, leitao@kernel.org, kas@kernel.org,
+	puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com
+Subject: Re: [PATCH v14 03/32] firmware: arm_scmi: Refactor
+ __scmi_event_handler_get_ops helper
+Message-ID: <auy_DP2okO9o7Yee@pluto>
+References: <20261016185553.2794459-1-cristian.marussi@arm.com>
+ <20261016185553.2794459-4-cristian.marussi@arm.com>
+ <20261019134657.0000624a@oss.qualcomm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|PAXPR04MB8158:EE_
-X-MS-Office365-Filtering-Correlation-Id: faccd0dc-db34-4c0a-fb9b-08df3b631ef9
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|23010399003|7416014|376014|18002099003|22082099003|10067099003|56012099006|11063799006|261022075727099003;
-X-Microsoft-Antispam-Message-Info: a7vvkPMAoUKkHMZhlKV63P2AavtpQrEYaPvHbXbD+5OrIcSWs5OAa7CYu9JiyfevQVqU28rJrK8xcGwmDHEQxA2hD6jDCelEmiqNLYVf9GKJEKImwuC/xeSj1qI/tjjWr0ZJXemlWZc4ocCCUQo86zWc6GFUA0vW3LEPyJE1+U4sNoOK5TW95LVpcr3Ucqbfaud6dYcKTx7oOYpEuWSoCshenb28MTXZTfVjPqzk5XO2ykehJDuSy7Uxk3mmfM7eCSWuh+Nb4Y0woPpCy0ApG8e9tRbEBO6jgWgWFNf2Ep393t9k+wChuwbDZTZ9n36+epWeoee9o4NeEOfdqhP3SUk9Y7PxV23DuLPYnNmlY7698DAMDuEhchRIRZtMhhY303/XEzleLVKqSYU63wiv4TglQXQ22S4FvyZuvgYNiZe7ZJJQinSbSW1/0tInfnKHwli7pBiavAIWwLLBbL2HLW57kwM+/vBQYt/l6acGScx3+Ve8yp/cEc84Hzn6qOKhMU7n6eG5E/RpL21t4rLVkshUf+3Xcq0hlZbsIqEhQk3aFUt+3SjUZCpctWDnVyTgx08jGtZdN4MgZZDTSd5G0cCEqNFWT9IHuMdQOcDslZe8ud1eBOuAePCtz7Q+/0Uzf6236kTqxRcZmThOGWhvuwcGlG0izR0jxKvm37rIRDk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(23010399003)(7416014)(376014)(18002099003)(22082099003)(10067099003)(56012099006)(11063799006)(261022075727099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3GPFtHYGLJxTOvWuLT3uOTFawrVmcC+dA4ZXhMWjhLFCEklXnop7qRdQpS0q?=
- =?us-ascii?Q?KLjiF76sbKmxKplB9ymU3NY9YL5jZB7KoufBfXN1grAFxWCti037mHch8tMi?=
- =?us-ascii?Q?REm/P1U1/s0XVmGGC5R88kk2/W6ugsXiKqL47w5HvHq61R0fggMAiDSDeGpz?=
- =?us-ascii?Q?feEW/GWyG4SALxYxpoNnBa667GBN2Xk55hCyeQJjxdByaXTeakOAhiaA8wRE?=
- =?us-ascii?Q?OjuDXykrw/M/ngvdvnShL5FqkrLAuHmyuvTmtlC6u8XI+9nlPpEdNN08CNG5?=
- =?us-ascii?Q?AaL+PdmTw5+TSX+1pNvp0D0JSObcQSPqomLDcZYTr3fQYUeUUnJOPYueTl0u?=
- =?us-ascii?Q?M4/x/v/p/esp4WKThEO/G2Hd8Xbwbznu9ii9hhhaelF7xwMu3SM4Ei1c1lGL?=
- =?us-ascii?Q?ghKBvi6yTm31FFIp6vBlA3S2gyEhlczApQ5C0H3C0GCDhxtNr94ZzX+c2SQI?=
- =?us-ascii?Q?ujV9S3mqhBwU23GManw0PQfo8Zwuz72PzXsrIJnf/WB1mPh0NlUjMQdhKam1?=
- =?us-ascii?Q?7yQwoQUl+3jv2pd+X7xy14InzE0dAHr2U82SxZFZ49ByWIXImpCPn0vmCThR?=
- =?us-ascii?Q?tj8JO+qICu5DdQf0IYf9Crxksin++rPpcmG0iFFDI9U9AH9/ZXwWP91xo431?=
- =?us-ascii?Q?8xtsYRlsyaYt+Knh9poDU/5mnIXEPv9W6JW15y8NcRTJJRvvpV1SFsguKgo7?=
- =?us-ascii?Q?VPo9rc6mmhFTrZ1vukjuwlYb9UCDpUwpemcunT9C16UQ+AAzEu0g2YGX30Qg?=
- =?us-ascii?Q?rNXrj4gBC4mZW5deJVEIjqErbva2Q/kzR0L/RBNwnvhHUspyTNtc2p0kKpKb?=
- =?us-ascii?Q?B8eOMHxvfWv+YT6/0Lrz5lrQYXMBYxP+jvB/Q9OWp15LTbmV6dKNFxZ2EOV5?=
- =?us-ascii?Q?0292fSxiHAK2Tq6P0PayetL7BJ/q4bVDvJOuMWQ8CttEp7ixT2KTY3qKRPBK?=
- =?us-ascii?Q?uorNDZtkGDQATr+3U3p9OEC9pWPbXMMSKcXKZfZMJGvWCIFZ4/L7mBoAa6Wt?=
- =?us-ascii?Q?EtXNw1vmL6BWohpX/zXv1RPBwedUdS2lvXUklD6LqfOhBWSeVfuAvqd/M5Av?=
- =?us-ascii?Q?QDjMkuX5XsVlwDddbmRZYbsPYb6iQosSRx85guOlJz7T6qZuiy4oRprbupBk?=
- =?us-ascii?Q?iHGqLlNqwNOQEUEbCylFkGdIqaSCdGD6ZlHLHDuFA2TR2Ised6RYN+yVv4nF?=
- =?us-ascii?Q?1RzLyZTKq/Mj3liFvkl54tsPs+UxCKPJeHFBStRl0BRl45TdUCh2EElN3A+z?=
- =?us-ascii?Q?tPTOR8E1/K6hPqygIL5SMHEc8yyfBJA3OsqaT1JYRyG2qtN2qdl+OkxjpmJF?=
- =?us-ascii?Q?rLJOCwjzTTdtHBuyMHRTN2npsJOK/HpEzxl0YEFh4n/pXdU+TPbDVH0gNxST?=
- =?us-ascii?Q?btVYwujELDnmaGzXC4m5vsafdgjcD+i8oJBIdg/Z936z8LFYscqGAOWMV9Sq?=
- =?us-ascii?Q?zCh8En5t51WqYfDhTZMuDI+6fGNnr8e9Gv1NakOJY+vB6F6XQVPEHhBkmWkN?=
- =?us-ascii?Q?MmLvGKNW9V1izNBd/ABBdygip59DtvXbvEyYJjs7wsz4/WjLS3S/R1Hg/Uyo?=
- =?us-ascii?Q?nIrxRZP6s3o8BFKkxbtcMjtprokUOSS0ZhepE3AfJVughMD9ziGpXKtxwfGa?=
- =?us-ascii?Q?AsgMElmx3JyZO0ZUI4p8T8Rg9dfbH2/Kpp0HhJnnLlMLdPZoAh623hXPHisr?=
- =?us-ascii?Q?CjQW7EHEvcV00Okcffo6ywomFPa/9ymVCq/mwbFMw0O+PQUujfRxfYdTDY/D?=
- =?us-ascii?Q?cIqwYquZNrhO6P8M2Hwz6guSMpGal5b8TCoN2DdL/i7cBySL63tP?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: faccd0dc-db34-4c0a-fb9b-08df3b631ef9
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 17:35:01.8103
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XDk07I0zb4XFE0fDcs/PPAnoHH26VOkt7I72aB06Gkoor0w10PVBmMD9ZQPCiTg3ekTS0xUOJU9lTNhnfsKN3kzJRaWhA2Wstxotetk4mBxHQdtAOxiBkMVivKnQZzoZ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8158
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261019134657.0000624a@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_093509_865091_E2225A9A 
-X-CRM114-Status: UNSURE (   9.16  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20261105_093835_750054_A5598327 
+X-CRM114-Status: GOOD (  23.22  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,22 +79,100 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Nov 05, 2026 at 11:17:39AM +0100, Stefano Radaelli wrote:
-> From: Stefano Radaelli <stefano.r@variscite.com>
->
-> The Ethernet LEDs are physically on the carrier boards, but the
-> VAR-SOM-MX8MP, DART-MX91, VAR-SOM-MX93 and DART-MX95 module descriptions
-> include their LED nodes. Other carriers therefore inherit LED definitions
-> that may not match their wiring.
+On Mon, Oct 19, 2026 at 01:46:57PM -0700, Jonathan Cameron wrote:
+> On Fri, 16 Oct 2026 19:55:24 +0100
+> Cristian Marussi <cristian.marussi@arm.com> wrote:
+> 
+> > Refactor the __scmi_event_handler_get_ops notification helper to simplify
+> > its logic and make use of guards for locking.
+> > 
+> > Mostly no functional change, in the sense that while the functionality
+> > remained the same, a richer set of errors is returned where before was
+> > always a -EINVAL.
+> 
+> Maybe mention why scmi_allocate_event_handler() is now wrapped in
+> an scmi_allocate_pending_event_handler()
+> 
+> I like the change but beyond logical division of activities it
+> isn't immediately obvious why that split exists.
 
-what's impact?
+I'll do.
 
-Frank
+> 
+> One really minor thing inline that I don't care that much about.
+> 
+> Anyhow, both trivial so
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> 
+> > 
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> > ---
+> >  drivers/firmware/arm_scmi/notify.c | 73 +++++++++++++++++++-----------
+> >  1 file changed, 46 insertions(+), 27 deletions(-)
+> > 
+> > diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
+> > index 7d1bb424a723..2bc2e03df639 100644
+> > --- a/drivers/firmware/arm_scmi/notify.c
+> > +++ b/drivers/firmware/arm_scmi/notify.c
+> > @@ -890,7 +890,6 @@ void scmi_deregister_protocol_events(const struct scmi_handle *handle,
+> >  
+> >  /**
+> >   * scmi_allocate_event_handler()  - Allocate Event handler
+> > - * @ni: A reference to the notification instance to use
+> >   * @evt_key: 32bit key uniquely bind to the event identified by the tuple
+> >   *	     (proto_id, evt_id, src_id)
+> >   *
+> > @@ -903,8 +902,7 @@ void scmi_deregister_protocol_events(const struct scmi_handle *handle,
+> >   * Context: Assumes to be called with @pending_mtx already acquired.
+> >   * Return: the freshly allocated structure on Success
+> >   */
+> > -static struct scmi_event_handler *
+> > -scmi_allocate_event_handler(struct scmi_notify_instance *ni, u32 evt_key)
+> > +static struct scmi_event_handler *scmi_allocate_event_handler(u32 evt_key)
+> >  {
+> >  	struct scmi_event_handler *hndl;
+> >  
+> > @@ -914,8 +912,20 @@ scmi_allocate_event_handler(struct scmi_notify_instance *ni, u32 evt_key)
+> >  	hndl->key = evt_key;
+> >  	BLOCKING_INIT_NOTIFIER_HEAD(&hndl->chain);
+> >  	refcount_set(&hndl->users, 1);
+> > -	/* New handlers are created pending */
+> > -	hash_add(ni->pending_events_handlers, &hndl->hash, hndl->key);
+> > +
+> > +	return hndl;
+> > +}
+> > +
+> > +static struct scmi_event_handler *
+> > +scmi_allocate_pending_event_handler(struct scmi_notify_instance *ni,
+> > +				    u32 evt_key)
+> > +{
+> > +	struct scmi_event_handler *hndl;
+> > +
+> > +	lockdep_assert_held(&ni->pending_mtx);
+> > +	hndl =  scmi_allocate_event_handler(evt_key);
+> > +	if (hndl)
+> > +		hash_add(ni->pending_events_handlers, &hndl->hash, hndl->key);
+> Trivial but I'd keep to a strict errors out of line
+> 	if (!hndl)
+> 		return NULL
+> 
+> 	hash_add(ni->...
+> 	
+> 	return hndl;
+> 
+> It burns a few lines be saves a few brain cells.
+> 
+
+yes, I prefer this too...I'll do.
+
+Thanks,
+Cristian
 
