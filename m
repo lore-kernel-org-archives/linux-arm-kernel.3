@@ -2,107 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 996EC606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 23:35:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9D62606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 23:41:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2EfKErpt;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UzgDizeQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ghCDdvTP;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BCm4NjP2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
-	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=uW24Oo6SzxhmQfdFBJWhZnZ3z5QiPA441Ft/BalVdAE=; b=2EfKErpt68B6XapwbIVvCTwY8A
-	9PmMNDe3nKSXz3beN9nHtaTBaQ2M7adhCOJ1psdPekRYsiJjERllpu7TPR7fUmRudKEBKfnGxQNqt
-	XXWNHnxYfroiRMRo6t0huDYQq2LBfKauulI+TI9QdjgO8/bx1Ri0XKprCi9aX2mr24AqyD6U6cyuj
-	EF11ButWy5B9CcyHlcz54clskEuWInHg1SsR3RMtL+XVrK2a+lcOsByXR2fQzqZnEbGXmq7D4JsUV
-	aqUWyxQYWLxx1Z5uG4d4S0EIb0JZcZDZOj9Bkm2QqAvegsa2taYO81LxtzdNLeHbUob01MXafxWCm
-	ISqGqgmg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=DALcyRp0vjX3To2DbsLGpJo7XYxiod9b2pPkFTmQfLk=; b=ghCDdvTPhUADCz
+	eKO8+qowreep5IMZOTG7WKzx2HRFbsbM2DNYYA2faCqFAuhotAU0TmQtf4A2qYvyeTojt36E1915c
+	bIAuZqI5mhBwAjcKqLfRn1/7WNVQka6Ub6Pf7cKJ6u7/f32Q/Z+52YRb1lFSqjSlQdtLHPFF9a9uP
+	4DpCSIObA9UV+3SFnG1/gISTG2TQPxiw71+BKVhD31ImGyZIa4k3KEVWxcn43QvghLHipATERhNBS
+	QB6s30XoKsZaoq+A12K8UWC31IQTmiKOpXMfqTT2L207bFtp1Q4g6yY7Rf69qpamsM5g7XdcxWCqn
+	ZV2iZehs5kO1DStR9Yjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP6yv-0000000Asf4-3kxA;
-	Thu, 05 Nov 2026 23:34:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xP74d-0000000At2N-2Xgb;
+	Thu, 05 Nov 2026 23:40:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP6yu-0000000Asex-3y4l
+	id 1xP74b-0000000At2D-0CT2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 23:34:57 +0000
+	Thu, 05 Nov 2026 23:40:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4E4AD41479;
-	Thu,  5 Nov 2026 23:34:56 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793921696;
-	b=Jc3VnRNug1FfZnUV1rT6TvzHuqCy59Ln8BraD9M8FOa6XXDBBQaP4h6iKnL/hGGrdQ5K
-	 SwgdbkDoqElTxBXj+vBA26hnrgnx0wMOrCOeT0SDrIrJWswc8eOAcWTISNlUEAG0p8Uv0
-	 ezORHvJNIpyBQhO2o1yejhnJmFQRwxY1POvdP7oHyGbGjENnB25DPvWnzOgeFuJ+JmhQ6
-	 gaKaB63Hux840YDqFN10pd2nbf0GkJNAbfiXhYhb6QrPYW5dsHwkodWKchhaj1hiCrhpI
-	 Z2QtM6F42nnU5T42DKztidvKysc+/DmOXvW+sphgRNLVUArPG8sisUy/WuCJhxqoOYg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793921696;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=uW24Oo6SzxhmQfdFBJWhZnZ3z5QiPA441Ft/BalVdAE=;
-	b=icxuiiw4wxZUWJt+pwgOATnxZzwptozXPpwEwoMt43cmqld+iTDLjkeh2zNCNdOWZpYe
-	 Q+iLb2JvvmLlQXtPgKFdjm38+IpqSx/2iQAhOdsBQwl+a9fgICp4YqkIB3/hbgKiPbrOk
-	 K2SziBTYxIPb5dSRR2g9Vpqf0k0KMEu4LiktoWbz+aS7SypKNFUk+g3FsZ0QM1ZftGJ74
-	 SHzD8PUxYOiSQc+BEtLu1teJRtbWkFSit/HeEdA0SxM9FilwE8khiurp7kFd0N9cwzbTk
-	 S52RzLGoMeTPnvj6OXgOz6FJGpgKHcGJq3YEBPX6ZaTveZUgiU0KcFWb7Y1Z5NdCgwQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 789611F0089F;
-	Thu,  5 Nov 2026 23:34:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6D15641FCD;
+	Thu,  5 Nov 2026 23:40:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF4A31F0089F;
+	Thu,  5 Nov 2026 23:40:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793921696;
-	bh=uW24Oo6SzxhmQfdFBJWhZnZ3z5QiPA441Ft/BalVdAE=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=UzgDizeQYbDUaC3v4t2iVebuTaQGdRjO/KFU4nH/F7naRQgpDUhML41q/rFt6s4bc
-	 +S3lvegkxz6sCDTIG7Ptks+ge3+Rqid0Y648Vbay2baW7jZJM3iuffQ1iyX2ozWhRR
-	 5wkn1qp/GY0oEdXclb116u+X8bvGfGLkPaUgwhEGZwbXaR3D14nwrAfcuqy7W5yrUg
-	 5G9odG9u6SFkiCxJ+5A0syXeWrQjJ6SYULLgAQaNo2pTvVHzFAZtt842myaHyJYZfh
-	 bB+g4iEpIt+m0+TqwOxHkep2p0kPVAU5W4OaV2yGkRwleCWoV8c9sftzbAztbCUAAb
-	 2bu8V+TwXHe3w==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id CDEF645AEA;
-	Thu,  5 Nov 2026 23:34:54 +0000 (UTC)
-From: Xuheng Li via B4 Relay <devnull+xuheng.cs.columbia.edu@kernel.org>
-Date: Thu, 05 Nov 2026 23:34:55 +0000
-Subject: [PATCH RFC] KVM: arm64: Document that overlapping MEM_SHARE and
- MEM_UNSHARE are unordered
+	s=k20260515; t=1793922048;
+	bh=DALcyRp0vjX3To2DbsLGpJo7XYxiod9b2pPkFTmQfLk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=BCm4NjP2zzmaYQx55nDTiQotiZ0+FHR5odVzEn4z99P23s+3u9VzGxonfB4eoH0XA
+	 JaF3F08tmQfJK6/YdAkOMkyWnj2v9T5KPud/rUx4E4TG9kMBZE0+A4qYHoIWlzRYsk
+	 pYlg00lhrz+D1WXDg+jAanxy3Bodf/rKe8UdAxXevAQVYPDZxNp3TOJzDg2juGV6bS
+	 4mwTbwhPXtKAD5OzKhGNKUyM3JW0MM7tIUe7Nkwtzc2BYR+l0piz5q7AspMbKeeKtt
+	 XL/i/rnwksQ0EPyJsg4T4nvNjulAUFF3dozdsT33aKtsin6UzrBLNJn09dmFJQmZz1
+	 BniPbdkSVVZzw==
+Date: Thu, 5 Nov 2026 15:40:47 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Akhila Kavi <akavi@axiado.com>
+Cc: Sammai Chakravarthy <schakravarthy@axiado.com>, Prasad Bolisetty
+ <pbolisetty@axiado.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo
+ Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Tzu-Hao
+ Wei <twei@axiado.com>, Karthikeyan Mitran <kmitran@axiado.com>, Jeremy Kerr
+ <jk@codeconstruct.com.au>, Matt Johnston <matt@codeconstruct.com.au>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ openbmc@lists.ozlabs.org
+Subject: Re: [PATCH net-next 0/2] net: mctp: Add MCTP transport for the
+ Axiado AX3005 IRoT
+Message-ID: <20261105154047.079c5eae@kernel.org>
+In-Reply-To: <20261101-mctp-transport-irot-ax3005-v1-0-36ceb822f01e@axiado.com>
+References: <20261101-mctp-transport-irot-ax3005-v1-0-36ceb822f01e@axiado.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261105-mem-share-unshare-v1-1-e4c7d12d5d1d@cs.columbia.edu>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQwNT3dzUXN3ijMSiVN3SPAhtYWSSbGSWbJScYpCkBNRXUJSallkBNjN
- aKcjNWSm2thYALP9kbWgAAAA=
-X-Change-ID: 20261105-mem-share-unshare-824c26c2cd0b
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>, 
- Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, kvmarm@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Xuheng Li <xuheng@cs.columbia.edu>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793921694; l=3950;
- i=xuheng@cs.columbia.edu; s=20261028; h=from:subject:message-id;
- bh=OzLNUOC4vto8JqdWrzx35j81FrnSzjGjA2GXE09YggQ=;
- b=HUDjW/ZmysBcCBXniSKFPhnOhTavoITcJ1jjduOTg6SJw1V4bsVs6djzi+v4ELA5KYPjC9do7
- QBWylx+J0kMAZ4tYY1lgRngualFHsjiqY6MtYKLtE3nDpZwes4PjOHQ
-X-Developer-Key: i=xuheng@cs.columbia.edu; a=ed25519;
- pk=L1HVV+goqxYmEMO/OXakL6uf9isSpgk2QrLlFqyZ2Qs=
-X-Endpoint-Received: by B4 Relay for xuheng@cs.columbia.edu/20261028 with
- auth_id=1349
-X-Original-From: Xuheng Li <xuheng@cs.columbia.edu>
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,94 +74,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xuheng@cs.columbia.edu
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Xuheng Li <xuheng@cs.columbia.edu>
+On Sun, 01 Nov 2026 06:00:56 -0800 Akhila Kavi wrote:
+> The Axiado AX3005 SoC has an integrated root-of-trust (IRoT)
+> co-processor next to the application processor. Security protocols such
+> as SPDM and PLDM run between the two over MCTP. This series adds a
+> transport for that link, so the host side uses ordinary AF_MCTP
+> sockets.
+> 
+> The link is built from two channels of the AX3005 mailbox controller,
+> which is already supported (drivers/mailbox/axiado-mailbox.c, in the
+> base of this series), and a no-map reserved-memory carve-out. The
+> mailbox carries small doorbell and ACK messages. The packets
+> themselves go through two windows in the carve-out, one per direction,
+> which the IRoT firmware allocates and reports at probe time. Each
+> direction has one packet in flight, and every packet is acknowledged
+> with a counter.
+> 
+> Patch 1 adds the devicetree binding and a MAINTAINERS entry.
+> Patch 2 adds the driver.
 
-The pKVM guest interface does not say what happens when a protected
-guest issues MEM_SHARE and MEM_UNSHARE for the same page concurrently,
-for example on two vCPUs.  The two calls are not ordered: a MEM_SHARE
-that has not returned yet may take effect after a MEM_UNSHARE of the
-same page has returned, and leave the page shared although the vCPU
-that unshared it saw SUCCESS.
+net-next was still closed when you posted this. It only opened after:
 
-  vCPU A                         vCPU B
-  ------                         ------
-  MEM_SHARE(P) issued ...
-                                 MEM_SHARE(P)    -> SUCCESS
-                                 MEM_UNSHARE(P)  -> SUCCESS
-                                 write private data to P
-  ... MEM_SHARE(P) takes effect  -> SUCCESS: P is shared again
-
-How long a share can stay pending is up to the host.  When the page is
-not yet mapped in the guest's stage-2, pkvm_memshare_call() turns the
-call into a data abort for the host (__pkvm_memshare_page_req()),
-rewinds the guest's PC and exits; the share is performed from scratch
-only when the host runs the vCPU again, with no record of the suspended
-call and no lock held across it.  So the host can make vCPU A's share
-complete after vCPU B's unshare, and read what B wrote to P.
-
-Document that such calls are unordered, so that a guest knows it must
-wait for all its shares of a region to return before treating the
-region as private.
-
-Signed-off-by: Xuheng Li <xuheng@cs.columbia.edu>
----
-We noticed this while studying pKVM's guest memory-sharing interface as
-part of our research project, and are not sure whether documenting it is
-the right answer.
-
-A guest racing MEM_SHARE and MEM_UNSHARE of the same page on two vCPUs
-is arguably asking for trouble, and Linux guests don't do it today.  But
-nothing in the interface tells a guest when a page is private again,
-and because a share of an unmapped page is suspended until the host
-runs the vCPU again, the host controls how long the window stays open.
-The alternative to this documentation change would be to record a
-suspended MEM_SHARE (for example in the hyp vCPU) so that a later
-MEM_UNSHARE of the same page cancels it, or to fail the unshare while a
-share of that page is pending.  We'd be happy to work on either if you
-prefer a code change.
----
- Documentation/virt/kvm/arm/hypercalls.rst | 10 ++++++++++
- 1 file changed, 10 insertions(+)
-
-diff --git a/Documentation/virt/kvm/arm/hypercalls.rst b/Documentation/virt/kvm/arm/hypercalls.rst
-index 7400a89aa..ad7082da1 100644
---- a/Documentation/virt/kvm/arm/hypercalls.rst
-+++ b/Documentation/virt/kvm/arm/hypercalls.rst
-@@ -99,6 +99,16 @@ Revoke access permission from the KVM host to a memory region previously shared
- with ``ARM_SMCCC_KVM_FUNC_MEM_SHARE``. The size of the region is equal to the
- memory protection granule advertised by ``ARM_SMCCC_KVM_FUNC_HYP_MEMINFO``.
- 
-+Calls to ``ARM_SMCCC_KVM_FUNC_MEM_SHARE`` and ``ARM_SMCCC_KVM_FUNC_MEM_UNSHARE``
-+for the same region that overlap in time, for example on different vCPUs, are
-+not ordered with respect to each other: a share that has not yet returned may
-+take effect after an unshare of the region has returned, leaving the region
-+shared. A share of a region that is not yet mapped is restarted after the host
-+has mapped it, so such a share can remain pending for as long as the host
-+delays the vCPU. A guest must therefore not treat a region as private again
-+until every ``ARM_SMCCC_KVM_FUNC_MEM_SHARE`` it issued for the region has
-+returned.
-+
- +---------------------+-------------------------------------------------------------+
- | Presence:           | Optional; pKVM protected guests only.                       |
- +---------------------+-------------------------------------------------------------+
-
----
-base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
-change-id: 20261105-mem-share-unshare-824c26c2cd0b
-
-Best regards,
--- 
-Xuheng Li <xuheng@cs.columbia.edu>
-
-
+https://lore.kernel.org/all/66b35989-9195-4e96-99bb-df383a52aa5d@redhat.com/
 
