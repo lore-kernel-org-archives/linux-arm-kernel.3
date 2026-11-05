@@ -2,103 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 854D6606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:04:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A044F606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:07:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Xy0cjllq;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AheSl2z7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Plscvsm4;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0rauaIkc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=yd94sB33j+7uHnUeucF6H8CRpAAVi5CgN1RGqzbz/fI=; b=Xy0cjllqMsDAju
-	xMYMuzLaZlRc+p5rGIBX5QuFAjjk16FWHlYNIhF5sX/8v9ZV93MPp4RUAKCA/soHQiJkA+4lJ+zUw
-	Y7F7Zo1zw4i1ZUQaEgByu91OQDOz4kPnO4takanIpqGHGBKIr4424g6IuXocdPU5D6vRL5wS/yhxY
-	mX09Sen+Xa2ebX9Bt5sckbFiI+1qD6A63R9fYdiFWctOj1f0k9UKiTBwI32Kk5k816/5ZKMXBhO9R
-	Oox51GCYe/0COk1/XoQX6ndqMukuYSO834yoKDSO/R0KGxKjYdMCYfrLSPOb/LpNL2YN0wHnaBt+H
-	6fyywFLN0kyMGzjzZzEw==;
+	List-Owner; bh=nPodO5AP64Dsdsqfhq9Y2o6KomJ/G83kxL2GrW1whbI=; b=Plscvsm4MxDRGX
+	3s6e3u1th0wI0GaNuc8mn5b34JUSH0rIk+Zmswzq8IZc+lIcWVidM3YEDgMy+8f1K+N86u+lr0bBj
+	81+zeQQq/v6n9vtUIoCXK0A9qwWqnpDayXlB9EjN2Ax0wFqg5qOS9etNgnNOlFCgbhmcoiqvUE0J9
+	X3hpX1ohjfRKIAdJ8qwFEpeUdJLq5zN5BumS+nXyHvVX3vVw2KlosPpRjp4V8ZoYerv1ACnIKvPBA
+	3Wf7w0QCWKMpLB8VN1x7Qo7O5wH7krMMqD2ZnOUFYp6C8qvjvE3rT+Cz85GaXkhg0xdyjUYYCGfSa
+	OcceW+GDSjetcJ89PB0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOsSP-000000085gb-1kjO;
-	Thu, 05 Nov 2026 08:04:25 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1xOsVU-000000086G9-1p4V;
+	Thu, 05 Nov 2026 08:07:36 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOsSN-000000085g8-0tuZ
+	id 1xOsVR-000000086FP-46bo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 08:04:24 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-3acdcfa2bd3so1396056a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 00:04:22 -0800 (PST)
+	Thu, 05 Nov 2026 08:07:35 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-3b0b3754f57so313596a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 00:07:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793865862; x=1794470662; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793866053; x=1794470853; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=yd94sB33j+7uHnUeucF6H8CRpAAVi5CgN1RGqzbz/fI=;
-        b=AheSl2z7Jnrbf7byPZmO69QA2kt00uWZXm0F0r9I9NvcEaT13gAuUZe2dmvssv5DS5
-         2/gZhj6w7tKvR1qHD2WSlz0R4/O0c2JqGEIysS5S8StH2UHtndsgRFPExwerbrMlKYay
-         rDQ1tVcYpMwcfCR8bC/66LgaOYCpyvdeJKDqIaNMwNpp2cPnYkKORqY+0AnBksWabsiP
-         O3sO7A8vI5Xa78Vyszs7wK1ldR8bSOoHso+d2YyZv200MnH21re9FvSg+lm0GmCINhkP
-         0Xdl5y2Ncc/tDcaQECEmoPtO/ziOoypKXQCvxWTXqd91bN6SGZ841FPllxC97Yz95ClA
-         uHDg==
+        bh=nPodO5AP64Dsdsqfhq9Y2o6KomJ/G83kxL2GrW1whbI=;
+        b=0rauaIkcDvqG0XWFwfygnPVbXTNhDAUUBOubPM5fZ31eoXtjwsr4H2JVsTEVwPIKxM
+         Hq+GNluXEsiSa4/vpnS3p5P4WMNXxwVuDM7Rzio2uk0Eg6oxsilw/9F0wbFktHLgtRIq
+         eKKEScTCaiuaqsnRB6hqnW4VYZcVAfyEDRH+KKHKvkvwu+Vzuf3yrF/NrjcROpR3EfnF
+         BbQ9wuz1HaK72G/3ZLJgWCnm92VDvwS5YHsQbKR/gEi5Pal73UpZ2Puem9UI83wzA84u
+         XVKxj7FPUE9SgMeOj3TKaqf1asaSjo6T2FpUuwTK6fogkQPBCzq2jBXC246UdoPFcM5U
+         YDxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793865862; x=1794470662;
+        d=1e100.net; s=20260707; t=1793866053; x=1794470853;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yd94sB33j+7uHnUeucF6H8CRpAAVi5CgN1RGqzbz/fI=;
-        b=Ml9O6KjBjb7tPvIe0V7d5mFnkY//qUv1II4NYozEpQEs4z9MrPKE3g00JqMPv+gs2c
-         suW4NGVJd5n1qS51H1CybG1N0XbrPphN+YD+vq4bLVVrVKBkywphiaChyJXkGrjK5lNm
-         qg3l1LDRCAX1f5sYJqA3ixDgI9Un0uJucgmluNbsJWm/mTj5V71TiDPE4yc7/AVGmyIS
-         jDXlJtpazZMXTMTq4RZqNQQ5jKcaXedAkXbDlF4ZdVpP42C6ags4Cm0bvsdzX5RjAXn0
-         HaVhxwcgPLmm58L4vqkerL1BRUe19SYKSvZLAVQbdt7f2rmo24lO0Jatgt9MHsMaYnGF
-         37LA==
-X-Forwarded-Encrypted: i=1; AKwUvBxo92vFaJ/Npe9x3KpC0723kLU1ZaPFF3VCnGbCBlwKB1F11PfwWIkb4yCTmv9TTIu+LWmJtq4pn8bihHlwATe4@lists.infradead.org
-X-Gm-Message-State: APuU4Z9UKc2BrOwYn1zvRIVzECkuSZc3mKqv02ubCjoh1JrxyBebYZk0
-	CHwo+eRtwxEtv7BmL7LfHT8D1OLMR+bfFRS7hIXTSOphqiL3giTGWO4=
-X-Gm-Gg: AYBFou2NSjyWoI9emsPYGg876VgVSnE+N44kIOuMDONQ0zYOaUh9f3Y2cjg2pIE95XL
-	EfSQSpZ28iDuQ1h7ASY/9l1gqJXaE5hpRPrcAFu8eFshMoMJY8WyZSKQb65iGIk1L+JAyCVLzE3
-	wrInDzYnYYRJJ57jgY7o5Dih4PqDoIjxe1zrkHRbHq9KXw3q4f46kvC+qEIFVMVWGzZ84b2r2/1
-	QEsTINJNLgDiEPIrUFQphPAE5i3u08PZuPzvWTRO7AUmF/toQSJAyF6G8sD4KrKKmVBtL1CeZKr
-	3CWEeJqUdy4kPTkDss0GXmGw+JJZa3NqJ6W77pf7mfAcx4MfjTudMfO9FEmb754rwrOok3EBdcP
-	M9SUxlWG7wLVKvZTzAFU6mWeBca/AAQGAZv8LlTvwjHrzVMFdiRjXvm+ai4WJLZodgrTcVO7IhL
-	SC3u6u/BdxwDVZ72f8Ii0BIqz2/n5EVlsVRoxmn411wGSjEVYWq0ZfUvdCtdobGX/oxkN2Y9xhf
-	IoEiqkLRHbii7puIzEkRPvhyaU6HQJNms257VT38TulFIzypwAJvZsnz9CQb886VaCY1AMRe6yU
-	iH9qMYzWlhB9qNluDLEX1Jfw/jg9njjC/XEKpYO63qFRJBMuBjQ0
-X-Received: by 2002:a17:90b:2e52:b0:3ab:24b2:9016 with SMTP id 98e67ed59e1d1-3ae897ec759mr15992932a91.25.1793865862020;
-        Thu, 05 Nov 2026 00:04:22 -0800 (PST)
+        bh=nPodO5AP64Dsdsqfhq9Y2o6KomJ/G83kxL2GrW1whbI=;
+        b=T8FpRfJAa7LHQtGJAqua4ALvKnucdtUaGPjiDySnhtaiJauGG+yy/9PCEKee6UOkF7
+         fXcD8YL4HuJMOegpk/K7/Jx7Z1s3fEMAPUs2/GYYTLohQ00ftMQXaL2HccDIdNizasZK
+         FkuYR5dLqfMOHSonKvpBnWOvGJcIXuU2AuOxKcR+2yOZHzbmR+i6qwTU0Vqx+1HmfKhZ
+         V+RxerMw0lcyGor/+TOCX1+1AvmiT9ON4iNMwGijw/m9WIZg7THntTE3I9urXTZi+tM+
+         3EUZGVP7oggfgySMB0kC56i6VyiW7fyubXKokfF0LgTwmmltS6O1apzWb3xNV/GUZLyN
+         xspA==
+X-Forwarded-Encrypted: i=1; AKwUvBy2yd3H007GeOqLow/cYr7vjlKvehAM5Zg1I8TgMtSnSDkR0MQszfaAjK3iikVXOVHq0nbTK9MG7fh9lg68CTC9@lists.infradead.org
+X-Gm-Message-State: APuU4Z/sGBu+nAjeZtEGFOJQm4UGgUm//kL79LRcmzFM/uRap2PMJJJi
+	BVfXOJCgZksqVqe3/tPzP9l1gGSZfXKTSfQjUWLkzHZNG7o6wd/xnvYfEDyVirA=
+X-Gm-Gg: AYBFou0ozc6AXaBWzFv7USdOHaI6LxzOAU2UrDRYNYPl4eQqX1MWyuzg2R5VcxFwN/F
+	A73cVqNj+XQzdH2WcNSEBErFP84xwkjzru+/6YkBeb7RH2Avqp2L6KNfDDpTrh+u+QpEoVGdnRl
+	DNN2dGvzn5H3qtrrKy3dMl1haoeu/T19vqlNLCS20+E2g4zLGMS/aZ5v9/SxSA+Y0RHS/Rm1e2q
+	hy4747z2TAJPL24IFXyCDGdrQLpqRVtGhR3kCYjtxjXqmHHU3luDX+WiHJ/WxjV7T6skaF7XQeJ
+	haAYE6X9EM62+BITU+uorPSDMx9cse5a2u5ri4/0vx4uabkOvi4I2TVlaNjkwJS2i5jfvWFPWE6
+	nkjrRH810/42vFYgagPmoXtLqw/WLZgdLExSg5zW/CnnWQ3YOCVnSSEbsfu4ls9t+N5XlLjwlx+
+	Rb2WaQjyjbl6Tq+G3LFfSE8o2iCkBffGWUgRtyM8qzlovPLXpWPSC6puemoIwjr3vAdnOCFUaGi
+	xLbHu6ePTmTXvwKAAjt+t//s8uTfzXECjD30stEzH8igdTYszwCCOHJdoxQM3gDzUPvWAz6+o8u
+	j+viv2KyB7hdJWKdS+nSAUvoUo6IiY2svpE7W1BITMeekyEjFDLslHJXoA==
+X-Received: by 2002:a17:90b:3bd0:b0:3b0:ad59:7199 with SMTP id 98e67ed59e1d1-3b0ad59732fmr2113248a91.32.1793866053007;
+        Thu, 05 Nov 2026 00:07:33 -0800 (PST)
 Received: from localhost.localdomain ([202.51.247.22])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0b328a04asm2617818a91.14.2026.11.05.00.04.18
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0b3163383sm2689684a91.7.2026.11.05.00.07.29
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 05 Nov 2026 00:04:21 -0800 (PST)
+        Thu, 05 Nov 2026 00:07:32 -0800 (PST)
 From: Yige Jiang <yigejiang86@gmail.com>
-To: linux-fsi@lists.ozlabs.org
+To: dri-devel@lists.freedesktop.org
 Cc: Yige Jiang <yigejiang86@gmail.com>,
-	Eddie James <eajames@linux.ibm.com>,
-	Ninad Palsule <ninad@linux.ibm.com>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Ryan Chen <ryan_chen@aspeedtech.com>,
-	Billy Tsai <billy_tsai@aspeedtech.com>,
+	Inki Dae <inki.dae@samsung.com>,
+	Seung-Woo Kim <sw0312.kim@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
+	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	Guangshuo Li <lgs201920130244@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: [PATCH] fsi: aspeed: release the master device node with the device
-Date: Thu,  5 Nov 2026 16:04:14 +0800
-Message-ID: <rc-review-20261105-32-59f96c1fdaf1@gmail.com>
+	Wentao Liang <vulab@iscas.ac.cn>
+Subject: [PATCH] drm/exynos: dpi: release the node after looking up the panel
+Date: Thu,  5 Nov 2026 16:07:24 +0800
+Message-ID: <rc-review-20261105-14-00955ac4adbd@gmail.com>
 X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260913060242.1426845-1-lgs201920130244@gmail.com>
-References: <20260916093914.2005582-1-vulab@iscas.ac.cn> <20260913060242.1426845-1-lgs201920130244@gmail.com>
+In-Reply-To: <20260916072012.1967169-1-vulab@iscas.ac.cn>
+References: <20260916072012.1967169-1-vulab@iscas.ac.cn>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_000423_258350_7425FA5A 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20261105_000734_040689_E7606844 
+X-CRM114-Status: GOOD (  13.26  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,19 +118,17 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-fsi_master_aspeed_probe() takes a node reference for master.dev.
-The posted error-path fix releases it before directly freeing the
-allocation, but the successful registration path still retains it
-when the master device is finally released.
+exynos_dpi_parse_dt() acquires the remote panel node. The posted
+display-timings fix releases it on that branch, but the panel lookup
+path still retains it on success and failure, including deferred
+probe. of_drm_find_panel() does not consume the node reference.
 
-Put the node in aspeed_master_release() before freeing the containing
-object. With the posted remove-path device put, this keeps the node
-valid until the last master-device user is gone and balances the
-successful path without repeating the error-path put.
+Put the node immediately after the lookup and clear the unused
+pointer. This covers both lookup outcomes while leaving the
+separate panel reference and its existing remove-time put unchanged.
 
-Fixes: 606397d67f41 ("fsi: Add ast2600 master driver")
-Link: https://patchwork.kernel.org/series/1166294/
-Link: https://patchwork.kernel.org/series/1163700/
+Fixes: 14b6873a0198 ("drm/exynos: restore parallel output interface support")
+Link: https://patchwork.kernel.org/series/1166158/
 Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
 ---
 Based on linux-next next-20261102 (2637bdec0535).
@@ -141,28 +139,26 @@ No full kernel/module-link, hardware or runtime test was performed.
 AI assistance was used for analysis and patch preparation.
 
 This is an incremental patch based on the following posted fixes:
-  [PATCH] fsi: master-aspeed: Fix of_node reference leak in fsi_master_aspeed_probe()
-  <20260916093914.2005582-1-vulab@iscas.ac.cn>
-  [PATCH] fsi: aspeed: fix memory leak on remove
-  <20260913060242.1426845-1-lgs201920130244@gmail.com>
+  [PATCH 10/20] drm/exynos: dpi: Fix OF node leak in exynos_dpi_parse_dt()
+  <20260916072012.1967169-1-vulab@iscas.ac.cn>
 
- drivers/fsi/fsi-master-aspeed.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/exynos/exynos_drm_dpi.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/fsi/fsi-master-aspeed.c b/drivers/fsi/fsi-master-aspeed.c
-index f0bd760fa78b..cac0a8c73043 100644
---- a/drivers/fsi/fsi-master-aspeed.c
-+++ b/drivers/fsi/fsi-master-aspeed.c
-@@ -378,6 +378,7 @@ static void aspeed_master_release(struct device *dev)
- 	struct fsi_master_aspeed *aspeed =
- 		to_fsi_master_aspeed(to_fsi_master(dev));
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_dpi.c b/drivers/gpu/drm/exynos/exynos_drm_dpi.c
+index 92e8bbe9d35b..e98a9be0a705 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_dpi.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_dpi.c
+@@ -243,6 +243,8 @@ struct drm_encoder *exynos_dpi_probe(struct device *dev)
  
-+	of_node_put(dev->of_node);
- 	kfree(aspeed);
- }
- 
+ 	if (ctx->panel_node) {
+ 		ctx->panel = of_drm_find_panel(ctx->panel_node);
++		of_node_put(ctx->panel_node);
++		ctx->panel_node = NULL;
+ 		if (IS_ERR(ctx->panel))
+ 			return ERR_CAST(ctx->panel);
+ 	}
 
 base-commit: 2637bdec0535a2044cd830eba9a79363651d9043
-prerequisite-patch-id: 0d97a848987c2bd4195686f43f69a0d0c0f69608
-prerequisite-patch-id: 00d7444e3a96e93c967d233b9c7c3a79c54647e9
+prerequisite-patch-id: 8f90819fd9f71f55560dc3af57c5a0bad07bc568
 
