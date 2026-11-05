@@ -2,49 +2,49 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65C37606EA22
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D80C606EA25
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:49:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1wq2bH3R;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VlzrjAG6
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=P6yXzUAs;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aAW1KUUe
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=uaayokCbVv4A1cXEEvxZH+uDqBX0dAowaGyg2mb9XGE=; b=1wq2bH3RZ/CbrW
-	98zpGEyK1VwGgXFg2jYTA6CNgCFjZo0pk5miBFV1qOH5f9o2FkV/xRbK8d23HVpg2cTUcuxRmxYYI
-	xa/bD+e6exA7ROibLQAr4BanpyGRYU16QozAn5L13ETHiWTm3MIUZUYGUdzGsIP4K1UiIx/sTCyfH
-	bVd5s9/mXUujcz+9uMWSliR83AhOYoizAsAnSx7IltDBogJaiob75y0mxBeq5kzwO5b/6sxfkRdDr
-	4IXLcUe8CwE6fhsCv7e1vxn3vhAYesSYhxq3LBeE2fwzNHTPLZdKs4DFTpSzkPGnRy0TpP2nY9oQO
-	epxtycACk1DqFzUha9jg==;
+	List-Owner; bh=/jC5d0rS+q4cmxCF0m5PTk+OxcNoBs/3lqvduRzrOxM=; b=P6yXzUAsrBny2j
+	X8Fu8ocqadFDR1UaRD2Z4YcZrhLIzrTwMp9A062LbJHnInWCng+iWveMBjUPyMmklf1jLOBrXfpcf
+	8abTok1Z2NDmADvnCTUonatdxhIrQky9q5o3qlmmTG6sOIjMQXuKwVjHQQ5sQ99Cqx8JOcN8dYpxs
+	+kr1iotTQtAFV67HnQGIzyDPu6ztQ8PYIDeYjrrzhnUylHkq2I7unykxSCgsgcOdTfZrkhPPD0Srf
+	XUwGGcdHoxL/wHM40DHTDDt+T87sb6DjVxqX1Pz4LtXjc7OFFSp4mV6OV8/HQkwuM7H6FTOrV8H+V
+	g8blI20dPiJWRVf8xYoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvxo-00000008lU6-1eOG;
+	id 1xOvxo-00000008lUQ-24lr;
 	Thu, 05 Nov 2026 11:49:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvxn-00000008lTK-1UrG
+	id 1xOvxn-00000008lTJ-2NbW
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 05 Nov 2026 11:49:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DCFCF41B1C;
+	by tor.source.kernel.org (Postfix) with ESMTP id AB29E605F4;
 	Thu,  5 Nov 2026 11:49:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3DD61F00919;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48AFD1F000C1;
 	Thu,  5 Nov 2026 11:49:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1793879342;
-	bh=uaayokCbVv4A1cXEEvxZH+uDqBX0dAowaGyg2mb9XGE=;
+	bh=/jC5d0rS+q4cmxCF0m5PTk+OxcNoBs/3lqvduRzrOxM=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=VlzrjAG6sSMU6/B47taid7cNtATcwGb/YZBNLb0kTEkIovnLvfxXJZ5AaFkpyQAWR
-	 ERalTfZ7mReUasMFW32jlz8YwIh4pLflfSXW9g2QmhqoLtn9cUnvSX3Vx+NYy0/qsN
-	 jwXijCNswfFXXAy7UA3K3HlC2dMXrHTXiJUii+IIqR7rn/QEVcE+EnxyQKUtYnUxCd
-	 ADYMeWP4s+/BxFUEmy3y2cJog62v4I2dVnEhLXHIcpToQihMLSXs1A752aZ681njzv
-	 OY/B9S7IFjn5xOGebzsDV9Phw+jw4fdS59ZL3ueglFJtyVDRgqFownDiEeKJ5750Zc
-	 IHzEnFgOIgVGg==
+	b=aAW1KUUemLZXtLiBscLQMkwARKKI2/aCuLMFxQSgl5oGf4UH7b0ZE5F7dgXXx+uZq
+	 i1rn4ANcWOW1sksF9sSPcSWshA9NN69aiXUsdNheSiI2ynrZiP5znuFSwxtnxE5iQp
+	 uwvI43SzVYNEwLfkjWnCWPfwnOhFqfI3W+XTr80TSQMuj1sYxnb9F3mCNXjLmOAmlI
+	 1CGONkKd5v44c7O0aehmvrpdwY3YHOjbHhxnLq3A1IEH5fHUvwqSjXXFtFYcLMXHFc
+	 vIxV65dXJY2lkNDVVKjyyi0YCUB0CI0umuMrVNpWIvnDtgRBuDAH3Ei+bfYsOuvgiK
+	 Vtwfu4x51L8Rg==
 Received: from traversing.sirena.org.uk (localhost [IPv6:::1])
-	by traversing.sirena.org.uk (Postfix) with ESMTP id E4842272EB49;
+	by traversing.sirena.org.uk (Postfix) with ESMTP id 3C27B272EB3A;
 	Thu, 05 Nov 2026 11:49:00 +0000 (GMT)
 From: Mark Brown <broonie@kernel.org>
 To: Shengjiu Wang <shengjiu.wang@gmail.com>, Xiubo Li <Xiubo.Lee@gmail.com>, 
@@ -53,26 +53,26 @@ To: Shengjiu Wang <shengjiu.wang@gmail.com>, Xiubo Li <Xiubo.Lee@gmail.com>,
  Takashi Iwai <tiwai@suse.com>, Frank Li <Frank.Li@nxp.com>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
  Pengutronix Kernel Team <kernel@pengutronix.de>, 
- "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+ Wentao Liang <vulab@iscas.ac.cn>
 Cc: linux-sound@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261104113228.1634005-1-peng.fan@oss.nxp.com>
-References: <20261104113228.1634005-1-peng.fan@oss.nxp.com>
-Subject: Re: [PATCH] ASoC: imx-audmux: Convert to subsys_platform_driver()
-Message-Id: <179384086702.2186205.11117953235004783694.b4-ty@b4>
-Date: Thu, 05 Nov 2026 01:07:47 +0000
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20261104022815.1484320-1-vulab@iscas.ac.cn>
+References: <20261104022815.1484320-1-vulab@iscas.ac.cn>
+Subject: Re: [PATCH] ASoC: fsl: imx-sgtl5000: drop codec device reference
+ after probe
+Message-Id: <179384023780.2186205.14628179165151508431.b4-ty@b4>
+Date: Thu, 05 Nov 2026 00:57:17 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1126; i=broonie@kernel.org;
- h=from:subject:message-id; bh=dsgrxpy2KP6cvgFm7+hbIpNnopwMFJSlB/+wS/jcktA=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLe5OqEc28Rqo8MWMv8aadtytRZQvO/HDeev/z8jnn3z
- hW9byid0FHKwiDGxSArpsgSl8X9sr7k9Rq+gwvbYOawMoEMYeDiFICJcDQx/FMMedHTplIk+11d
- Sycw7LCUhuT0Wu/v4u5ZD17plMzfyc7wT7/S+ehC2XM6DD4T1jpU+zt3fnJ82/T7rM0zkR/htzp
- k+QE=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1146; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=9xMAwbkFcOKEheJ4m/qgkj5cYKA3wwz80aPGGbWSH9Y=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLe5OrMXRK/fmPJnCNHdi4wPSZSwylZPO1fVFHWxOZUh
+ jP1lpasHaUsDGJcDLJiiixxWdwv60ter+E7uLANZg4rE8gQBi5OAZjIhkMMf7j9L22TvfX1jODt
+ 4IVXlAuWOq+TdPVeuG7+5hAV6VKOvWcY/gpvZwzN+Bx3fkrxn5VVkl3zFZ+UOm8+rtk2N/HuUmt
+ 5CS4A
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -93,8 +93,8 @@ X-Spam-Status: No, score=-12.3 required=3.0 tests=BAYES_00,DATE_IN_PAST_06_12,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, 04 Nov 2026 19:32:28 +0800, Peng Fan (OSS) wrote:
-> ASoC: imx-audmux: Convert to subsys_platform_driver()
+On Wed, 04 Nov 2026 02:28:15 +0000, Wentao Liang wrote:
+> ASoC: fsl: imx-sgtl5000: drop codec device reference after probe
 
 Applied to
 
@@ -102,8 +102,8 @@ Applied to
 
 Thanks!
 
-[1/1] ASoC: imx-audmux: Convert to subsys_platform_driver()
-      https://git.kernel.org/broonie/sound/c/aa56acd47629
+[1/1] ASoC: fsl: imx-sgtl5000: drop codec device reference after probe
+      https://git.kernel.org/broonie/sound/c/53865f2d4974
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
