@@ -2,78 +2,118 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4160B606D801
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:58:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEC71606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:58:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3iGxR8ZB;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cQrjd+q6
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0WF+d2Bm;
+	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=T9XQP6Eu
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Nyw4uo1UMx2UMwcj5/86TrpcocSt85lTij3scmNGbos=; b=3iGxR8ZBXSYa8M
-	//Y0iGPo7mQqy8dBNzcIs61ioTQlKdJZnkMIQ6fFso+Rc9HQVisYo2/TNpI6VhVDJNz+v2f1VEVAd
-	RJmeJquF5DJFlU5Fgc5AUCs6MgZJ4jX6xSa1mN6Tj7Om+St5tShyyWx5rVMVSx/ZPrEgCW9veJlcc
-	EDlxPH387CMlsj3lH7Euy8zqNoI9Pvi02NDHIYJ9hY8Mhgu9ATrfiv+0gvI5XY0MtxSQM02gg3oBs
-	0YLkbEAzE1FLcTDs+s+ByhT41S62yFITgYaOmGzZVGxAmV1uWaGe4GHpNVZ+j7n4teSA6R3Z8V0wK
-	DwgaymKzZLeTBbJkq1iQ==;
+	List-Owner; bh=30cvqab0GneMjzQY9b3Yhah4cXyfQoNJoQir3EuyP94=; b=0WF+d2BmKLjzIp
+	KY3PUG64r27d0ItPE8MpRd+d3IQeRhrGLC6sIzSEoaa6tciFxhmTnFWib+lUkKqcc+qitKBCBlr9a
+	nbl3o/NW/ToFy1eXmIOEvE0uEiUo6hFyrWyL2xLyMcKIW7rKQn9OcIHaFvqjbAXgFK85HMTVFReCt
+	aJUdiQcM4apK62z3hJodZJJDDLg4GXiK+R70hxuBB9bEyRxxjfKZXWDDcnua5OnwH+z3blpcqkVQP
+	y6E+sOKgom8hgs/iNvkdijYvdvwLsBsTOLVbSOiQVHB8gnyWQeFENTJaHkuPzJvjnuF0WhEPDbkt3
+	Dp26Vf62ZUeG4bgtii9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOx2V-000000092N6-0j9f;
-	Thu, 05 Nov 2026 12:57:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOx3K-000000092Yv-1mIV;
+	Thu, 05 Nov 2026 12:58:50 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOx2T-000000092Mb-212N
+	id 1xOx3H-000000092Y4-3aGI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 12:57:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4199743241
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 12:57:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 263321F0093A
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 12:57:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793883477;
-	bh=Nyw4uo1UMx2UMwcj5/86TrpcocSt85lTij3scmNGbos=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=cQrjd+q6nNpH2xoYNC3OC/u9iIITjUzXz6ZPttJw7Yk1JV+VJxUNiRy6fOdG4bo9h
-	 GFL0O6lgYfzlBm/5jsmbAw21QmT0Eh8QxIptTWVhMwkCm4qXVZz/CshS+7P4QBCqq8
-	 gW+LQNqBud8EGNAJrdghHpvGnQ4zBjEQH/6kSAzl4d1gRk88I0MYMfGmyR6M9rWkRX
-	 UVdzwh0ZHGw+rb+WR7LAKULmUgS6ZY2jnsiYd6BSzAQRB9fL9iLfnR9M5XDOTbZ0wD
-	 Lh4aQYThFILqsEH6JCp+daJ9LvCemhjVrSJ8c3hux1kPtLmdfD5BBANf0wCmCtwJUW
-	 V/IbQPTgfpjvA==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5bcb4f23ddeso1718041e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 04:57:57 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvBxwH9UtPi1WZyVQibZcKG1+k2vN7s9clRlqBKf1PQVqZ/QOUKQlFea4+RldUk4QniGEId4Ou33ooEuYpgFldQDi@lists.infradead.org
-X-Gm-Message-State: APuU4Z9sQnrR0Yr7ZhKabyrNQeqFda5Z8h/gxow338bo3TiMVPK5WUvL
-	97gfeh3mx7ynkeBX7cAgVaWLUQPmUkoYvFU106T9LpxiZ6KPxrufxaFBFVSOZiH6DUFidvPSN3V
-	b/5l5HG33opVlZxUNy8A2tTe6ELSBO+A=
-X-Received: by 2002:ac2:4e0f:0:b0:5be:536e:cfbc with SMTP id
- 2adb3069b0e04-5bfd9562ac4mr7119062e87.17.1793883475976; Thu, 05 Nov 2026
- 04:57:55 -0800 (PST)
+	Thu, 05 Nov 2026 12:58:49 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4a2167bd087so15767505e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 04:58:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1793883525; x=1794488325; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=30cvqab0GneMjzQY9b3Yhah4cXyfQoNJoQir3EuyP94=;
+        b=T9XQP6EuVjldm4J5rZhqZGHkMY1tjFrMmAbsDJh3svOhqs54GWc5OztZkuzxHUhXQn
+         hSQLs6Y5/Q71kic7ou1I/4gCyK9me1RJwVE/L66msAwNL4q3/kMsXynxe4o4Td4Tuggf
+         3e9Yvl/1iqz0D9VzzYyNPF7U5YG69c56ySeI3V4vvq2UOw84o/KHrVvJ0SwWiEhwew5z
+         d0EeJXDdJQAr2PHdYcU5TXMVnmEm8tq6lUaNxAc9EGE+qS8Sxq2sNQAtYr5Dx0AaSXQz
+         +8vIp8GF9cUbBKauGkrWemOfFWFKAUMsCGn8g8EIrjqJznFwY9CN1jnLSkQCU2k3SA9/
+         lbvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793883525; x=1794488325;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=30cvqab0GneMjzQY9b3Yhah4cXyfQoNJoQir3EuyP94=;
+        b=OitXWrREKFHp7eJQjjrJLOnJpq+0Tios7gFoqn08FN3sXZeNoBhmJ6d1Tqxj4KCQOD
+         wCc75teSmc72OCnvncAFgT1s6Emjhv3tj9hoyH21jOK/hqovo1mzI+r5ThtyQNmyF0m6
+         rB3O5SejgGwpiAUoWpSok11+hcBIg41yNWJ6EOaSaj1Jd2MTMbdeMSFE+UFcMdcSZ19p
+         Bd2Csk6CemDfIJ7Ni+71yvAZ0KXS0CmpADChuTXzzQt/HK3jhff2Jb2NpS1R95ctK2TF
+         JmLUy3Zk0Ovi6HS7TXMlE9+Ii6yTo5Ob6GugscVf3zV3HQcsoauDh3Hb91l+GCJNjvHT
+         SAfg==
+X-Forwarded-Encrypted: i=1; AKwUvBwCUAiqxssrAJgXPmNHYGXKVc5QJeTLGkYQPRUSnCukPFfvB1SEE0VdZRD6ndvhUC4zMrtvc3IFSMGzLy+l3Fgm@lists.infradead.org
+X-Gm-Message-State: APuU4Z9f9S3riRsUJh3U5HpYkOrDspVPgDcbJdDUQJXtIFRxR01n10jI
+	01x3KslUMV8ZBrOvx+2WL1AnNoJvk5Lph8VUEdeWRB2lGfpRxrmLsN1zeljhz55sZlo=
+X-Gm-Gg: AYBFou2HJpg7P9boxzzYA658bWRzUy0HkU43b4CiQGgAX9ww11nI/ahiAwHM5Xlps+8
+	hlTYKDWq2OhDeXFUSakFJ8p7OwsJtGio0AwGw2JoaZ13thfHYPU6tzSgPvOainQ67Bf56Afw69G
+	sQRM1CYOlHKG7EJA1IypK1OxxQhrK0Zo0Da2Y6/kpjtQoQrYI+SnydLlV9IXYo1UtNI7lDJwdf3
+	0YSJylFxqjOupR//9yynSL+tqOH/EXuNsJBnBeym6O+4iDYjRPxVqqr2AicxwUcXAIgkr3EQJiD
+	H64yYgvjxwdqhz9AJ9v2ZyTk3H+fdWhUT844wFQVPOLci4O2gfaDk9oLXhvO6FyaGew42kHw2Uo
+	oSWr41kjbVAvUloHS3ut9coKD1F3EXWwQOIqz3o2XBuYSupwXewkY5oFDsWo4G1pFNQDiva93Eh
+	As/A2anxhplx5t9W6UTnfVQERUy6TGelTrOdY0Mt71N0V2uKLPZ/jmj0XH+VL4lrvu9xFTJB9Nl
+	MlePRLLpC67ZkAIOefADIBt/Q6S9qovdfSedck6KeqO6Hya5RyXSpTRbpHVvQnlVFTie0hLwZRl
+	dLjHQWX2/w/WuqvNbsPrmRTT4Xeq7SYx4djI+qyPHYa9wzq4Ux2TJu6f
+X-Received: by 2002:a05:600c:6212:b0:4a4:de70:2ad4 with SMTP id 5b1f17b1804b1-4ac17ffa395mr401888755e9.22.1793883525271;
+        Thu, 05 Nov 2026 04:58:45 -0800 (PST)
+Received: from [192.168.1.62] (140.30.66.37.rev.sfr.net. [37.66.30.140])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b63863d490sm27861675e9.2.2026.11.05.04.58.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Nov 2026 04:58:44 -0800 (PST)
+Message-ID: <56932f47-2e35-4152-afc6-6cd41c8393cf@baylibre.com>
+Date: Thu, 5 Nov 2026 13:58:44 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261104152657.14909-1-mateusz.nowicki@posteo.net> <20261104152657.14909-2-mateusz.nowicki@posteo.net>
-In-Reply-To: <20261104152657.14909-2-mateusz.nowicki@posteo.net>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 5 Nov 2026 13:57:43 +0100
-X-Gmail-Original-Message-ID: <CAD++jLkYxFR89WGnQKvPgCLYaE7Le06U45Cqn9yR05fa5C_xTA@mail.gmail.com>
-X-Gm-Features: AclHuK-1e9C4sXwoHJ54MvMjIKaAAfliTo1iA6pakb6j7gBlL_TeQYZIIK87yhs
-Message-ID: <CAD++jLkYxFR89WGnQKvPgCLYaE7Le06U45Cqn9yR05fa5C_xTA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/5] mmc: mmci: do not count a data CRC error as a
- complete transfer
-To: Mateusz Nowicki <mateusz.nowicki@posteo.net>
-Cc: Ulf Hansson <ulfh@kernel.org>, linux-mmc@vger.kernel.org, 
-	Russell King <linux@armlinux.org.uk>, Yann Gautier <yann.gautier@foss.st.com>, 
-	Christophe Kerello <christophe.kerello@foss.st.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 11/11] pinctrl: scmi: select the GPIO function on GPIO
+ requests
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+ Cristian Marussi <cristian.marussi@arm.com>,
+ Linus Walleij <linusw@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ Oleksii Moisieiev <oleksii_moisieiev@epam.com>,
+ Andy Shevchenko <andy@kernel.org>, Dhruva Gole <d-gole@ti.com>,
+ Bartosz Golaszewski <brgl@kernel.org>, arm-scmi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261030-clegoffic-pinctrl-scmi-gpio-v1-0-52d92843ad97@baylibre.com>
+ <20261030-clegoffic-pinctrl-scmi-gpio-v1-11-52d92843ad97@baylibre.com>
+ <aunIVW4JeM_P2WOa@ashevche-desk.local>
+ <73888927-18ec-44b1-bb14-72e72860bfc2@baylibre.com>
+ <ausPFWOj-usp084X@ashevche-desk.local>
+Content-Language: en-US, fr
+From: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>
+Autocrypt: addr=clegoffic@baylibre.com; keydata=
+ xjMEafx9bxYJKwYBBAHaRw8BAQdAtc85GIwDXLz0rh9thWXC80Lji0otVDVncXT4qaS4j1fN
+ K0Nsw6ltZW50IExlIEdvZmZpYyA8Y2xlZ29mZmljQGJheWxpYnJlLmNvbT7ClgQTFgoAPhYh
+ BJjMiHuM4ZUwFqUPr36EW4KtCh6TBQJp/H1vAhsDBQkJZgGABQsJCAcCBhUKCQgLAgQWAgMB
+ Ah4BAheAAAoJEH6EW4KtCh6Tt+sA/jVC35rY1npFlOy7YnncTdrID8Qf855JA78IzXgvzpGp
+ AP9FkuuT80m66PP3DvgYX9kVnG17mSDKO0+v2W18v6ZgCM44BGn8fW8SCisGAQQBl1UBBQEB
+ B0DMwF4u//aQyzsFlO8rPJ/cqsAuPH80IeIA3HOEo5mlVgMBCAfCfgQYFgoAJhYhBJjMiHuM
+ 4ZUwFqUPr36EW4KtCh6TBQJp/H1vAhsMBQkJZgGAAAoJEH6EW4KtCh6TdSgBAMDS0MiWCivt
+ LjzZc9bs+P/xdXywUjDKq3lpQGJ6vZ0GAP9vI6DnN7vwVK6jt6/+0aBGkog5Ura9+WwRFEdM
+ vLfPDQ==
+In-Reply-To: <ausPFWOj-usp084X@ashevche-desk.local>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261105_045847_906909_1C4C0168 
+X-CRM114-Status: GOOD (  11.54  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,33 +124,38 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 4, 2026 at 4:27=E2=80=AFPM Mateusz Nowicki
-<mateusz.nowicki@posteo.net> wrote:
+On 11/4/26 11:55 AM, Andy Shevchenko wrote:
+> On Wed, Nov 04, 2026 at 10:38:11AM +0100, Clément Le Goffic wrote:
+>> On 11/3/26 12:41 PM, Andy Shevchenko wrote:
+>>> On Fri, Oct 30, 2026 at 04:58:42PM +0100, Clément Le Goffic wrote:
+> 
+> ...
+> 
+>>>> +	int nr_functions, func, ret;
+>>>> +
+>>>> +	nr_functions = pinctrl_ops->count_get(pmx->ph, FUNCTION_TYPE);
+>>>
+>>> Is nr_functions signed for a purpose? Can it hold an error code?
+>>
+>> No indeed, will fix in v2.
+> 
+>>>> +	for (func = 0; func < nr_functions; func++) {
+>>>
+>>> 	for (int func = 0; func < nr_functions; func++) {
+> 
+> With the above in mind, the type of func has to be adjusted accordingly.
+> 
 
-> With datacnt_useless (STM32 variants) success is 0 on a data error and
-> a CRC error subtracts one from it. bytes_xfered becomes 0xfffffe00 and
-> mmc_blk completes the whole request as successful, although the
-> controller stopped at the failing block. Reads return stale data and
-> writes are lost without any error.
->
-> Tested on the STM32MP257F-DK eMMC in HS200 with a forced bad tuning:
-> without this change 5 of 14 reads returned zeros, with it all 10 reads
-> were correct.
->
-> Fixes: b79220b3e0af ("mmc: mmci: add variant property to not read datacnt=
-")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Mateusz Nowicki <mateusz.nowicki@posteo.net>
+Yes will do
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-
-Yours,
-Linus Walleij
+Best regards,
+Clément
 
