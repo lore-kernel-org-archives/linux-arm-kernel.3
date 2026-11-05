@@ -2,56 +2,56 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3E73606EE91
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:14:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EAF9A606D816
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:14:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HskmFvzs;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DTH+wFxC
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UqrMu6P5;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C5E4noKP
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Zl4zcjQaew3f7yJ/IqqdyTpPy7p13iqyV5dL8PG0RfM=; b=HskmFvzshnYBjd
-	8DvtBygsxFGabuiVNkxkpjSVkMzws2Lr5+c6FkFvKQehBhDYDfghJyHbhC36XsGI5lcnmOBKQoe+/
-	fwy1eDq21oLcfViiqILIktWuZZXjB0rwVCFYi31NAMrTsKYACJ5zNcFMb5V3gJpyxs+ZWG1Wcxl3x
-	AOirz/TYt9D4QIJrVE+Gg073hnmz2oq3xFU/dweoXnhbPHSTIrPwNxOQM74hg26mdYtT4u8kNJZaL
-	p0j8oGcl5z7JOKy3i4nbtf0hGOVXLzz1nl00pGHzQK3MYuw45mQm7waDh2NNI4cWlCYA64IXj7Jnn
-	705PquYExGzvtuo1eHbw==;
+	List-Owner; bh=ByEnk8nMNqCzJm/evBrs6o2hhpCWKZBrJlQlHPA57Lk=; b=UqrMu6P5sKqfvo
+	GOhszfiu2kP7hwcIx6VRWKHdJgqNJKBcrkyXfnA0VkOah5IS0Rds8AsuLIfQubMJ6o2fCeszll7L+
+	gRxfO4s6iXTBPclMIvtfuHJJjbZc3D5f5oARXYX5AfDSVABnW0w85llh8YQljfZl+0TN52n7rONlm
+	RW0u0QpRLJab4K0fwWWfwOxiDqMQV+kl6aIL1yrx3tjBKbxOyHkhA8jvNIUjW1s57nYotUkyqXsy8
+	1PSZPtQ/RY0B4sF31U54tqh/wmXrStyXCRwNGN1LxRsHSZ043ycDpekXYidRT8j76i/S0/mUufw+I
+	ydr9ZA9pC4mNjjeiPk0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyEK-00000009ECt-263o;
-	Thu, 05 Nov 2026 14:14:16 +0000
+	id 1xOyEN-00000009EFg-3Hx0;
+	Thu, 05 Nov 2026 14:14:19 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyEH-00000009EAQ-1FnW
+	id 1xOyEM-00000009EEY-1PfY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 14:14:13 +0000
+	Thu, 05 Nov 2026 14:14:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 12DAF43D88;
-	Thu,  5 Nov 2026 14:14:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCEBC1F000C1;
-	Thu,  5 Nov 2026 14:14:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1B939400D8;
+	Thu,  5 Nov 2026 14:14:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9A3F1F00A17;
+	Thu,  5 Nov 2026 14:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793888053;
-	bh=Zl4zcjQaew3f7yJ/IqqdyTpPy7p13iqyV5dL8PG0RfM=;
+	s=k20260515; t=1793888058;
+	bh=ByEnk8nMNqCzJm/evBrs6o2hhpCWKZBrJlQlHPA57Lk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=DTH+wFxCisQmpU/QtATllxNBGmKPOrn9tDyRxMqJk7wjubdFS/4s1zpu1ls448R6F
-	 0L/XMPCKv8/UniiyrXXNACbTMdEtRtzKPf3Af2dILd96cFZUV2Tk6NUjBPHGwiAhR/
-	 ayHHR8DFLcW6eu3FwGDWf8DhPa41siQeb8ao/Czus1gSe2oaYX+Z3TIvo2hRNS3+hy
-	 pTlhh0HlNqsBLjH979xuaOFtxLbpMCAOZdLlLFJ/KJWATawBJxYPXrS2HaXD32KCju
-	 eOpHWfUERcWilDQjxS8ZBZempixDjGUQksXyg9MH1I3mzQY+OepXtnXIqgQ4RC35II
-	 CWG17TTmOtlXA==
+	b=C5E4noKPcRZSOyvH4/JDe/ZnnXu17CxbYA9IRo9mXLZF4GjRFQk1Oc0epNj0GnbXt
+	 Njl6MG0QMvFaSvwrNFLYlLUChl3uJA5iw4Q/whgFcTbEIUMS0GNubk29jCTTdtdu3R
+	 eToTbE7U1QDyCA2CJUiLUAeNNeSzBLc8aiQL9gYw5T++glX9znxyPZYuXz70prjlRp
+	 RCJ2oToor6oW0WCd3oviGcAe2xugawp6mWKL4lcUjo8rfyQ11XDITEzyPE+WYqLCc9
+	 Al2Awsw/7P2gusu0XcqM1eR7HQetFws/a1jv1yNpHTHt22vmJ/t8V8HEH+hk675JNc
+	 5d8jGKV+GNo8A==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 05 Nov 2026 14:01:16 +0000
-Subject: [PATCH v2 03/11] kselftest/arm64: Move exit calls out of fp-stress
- loads
+Date: Thu, 05 Nov 2026 14:01:18 +0000
+Subject: [PATCH v2 05/11] kselftest/arm64: Exit with an error code on data
+ mismatches in fp-stress
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-arm64-fp-stress-kvm-v2-3-81a5172468f0@kernel.org>
+Message-Id: <20261105-arm64-fp-stress-kvm-v2-5-81a5172468f0@kernel.org>
 References: <20261105-arm64-fp-stress-kvm-v2-0-81a5172468f0@kernel.org>
 In-Reply-To: <20261105-arm64-fp-stress-kvm-v2-0-81a5172468f0@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -62,12 +62,12 @@ Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
  linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3766; i=broonie@kernel.org;
- h=from:subject:message-id; bh=qjxu/5RIE28bIxXQDoZnPILxTHbpIszFwwnTqg6oCfI=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLe9Guoc/VGnGX+uWjBqpvzlG/VCb36k2akrPiba9e/4
- BUKJzpNOkpZGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjCRSFeG/wE83M82/Nc8EsHq
- 6HUkO/Nsw7w98lp/4lUelVwvq/vSE8nI8PBvNNuWWYtv3Oe9eNqtavHihrvysa1fpc66b/7LFjO
- RkwUA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3633; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=B/wiVzqMsKKQjQD0tXgLQZUYsmzwz0h2eEJ53nNGjEo=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLe9GtE3H12pFba2CvlZFk9Y/IpSZUJBolFdVv/z/lYF
+ 14wQY+zo5SFQYyLQVZMkSUui/tlfcnrNXwHF7bBzGFlAhnCwMUpABN5p87I0HBtk2DcD+7FIgd9
+ s3p8rFU45BfynrQ4yfx0jYXkt6zUhQy/2cT3Xdu/Z46ZCAebtPiltl7FI7eU5s94du5trV2+g2k
+ XEwA=
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -88,120 +88,137 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-When they detect corruption the fp-stress test loads print load specific
-diagnostics and exits with a failure status.  In preparation for
-building versions intended to run as simple bare metal KVM guests factor
-the exits into asm-utils-linux.S.
-
-In the process we fix the call to the exit syscall in many of the
-locations to pass an initialised value as the exit code in x0, rather
-than setting x1 and letting whatever random value happened to already be
-in x0 be the exit code.  This happened to work in context since
-fp-stress only checks for non-zero values and we always print a
-diagnostic before exiting, the return value of the write syscall doing
-the print would be either a non-zero length or a negative errno leaving
-the low 8 bits non-zero and in all cases nothing resets x0 before we exit.
+Several of the fp-stress test loads have blocks at the end of their barf
+functions with a range of commented out options for how to exit the program
+after logging an error. Comments indicate that these were intended to
+interact with some long gone debugging code in the kernel. At the minute
+the option selected by all the programs is to deliver a SIGABRT to
+themselves but there is no need to do this over a normal exit with a non
+zero status. In order to facilitate running as a simple bare metal KVM
+guest replace these repeated blocks with calls to exit_error(), this
+will integrate just as well with the fp-stress harness.
 
 Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/fp/asm-utils-linux.S | 8 ++++++++
- tools/testing/selftests/arm64/fp/fpsimd-test.S     | 4 +---
- tools/testing/selftests/arm64/fp/sve-test.S        | 8 ++------
- tools/testing/selftests/arm64/fp/za-test.S         | 8 ++------
- tools/testing/selftests/arm64/fp/zt-test.S         | 4 +---
- 5 files changed, 14 insertions(+), 18 deletions(-)
+ tools/testing/selftests/arm64/fp/sve-test.S | 19 +------------------
+ tools/testing/selftests/arm64/fp/za-test.S  | 20 +-------------------
+ tools/testing/selftests/arm64/fp/zt-test.S  | 20 +-------------------
+ 3 files changed, 3 insertions(+), 56 deletions(-)
 
-diff --git a/tools/testing/selftests/arm64/fp/asm-utils-linux.S b/tools/testing/selftests/arm64/fp/asm-utils-linux.S
-index 3effeb1fbf50..9cd31dc47709 100644
---- a/tools/testing/selftests/arm64/fp/asm-utils-linux.S
-+++ b/tools/testing/selftests/arm64/fp/asm-utils-linux.S
-@@ -84,3 +84,11 @@ function tickle_handler
- 	ret
- endfunction
- .globl	tickle_handler
-+
-+// Terminate the program, reporting failure.  Does not return.
-+function exit_error
-+	mov	x0, #1
-+	mov	x8, #__NR_exit
-+	svc	#0
-+endfunction
-+.globl	exit_error
-diff --git a/tools/testing/selftests/arm64/fp/fpsimd-test.S b/tools/testing/selftests/arm64/fp/fpsimd-test.S
-index 9db7b5419397..5ee8ef51ea4e 100644
---- a/tools/testing/selftests/arm64/fp/fpsimd-test.S
-+++ b/tools/testing/selftests/arm64/fp/fpsimd-test.S
-@@ -298,7 +298,5 @@ function barf
- 	bl	dumphex
- 	puts	"]\n"
- 
--	mov	x8, #__NR_exit
--	mov	x1, #1
--	svc	#0
-+	b	exit_error
- endfunction
 diff --git a/tools/testing/selftests/arm64/fp/sve-test.S b/tools/testing/selftests/arm64/fp/sve-test.S
-index 2aadb5c3c0f3..3447fe0e5554 100644
+index 26efdbdd88f9..d2ed2a44bdb5 100644
 --- a/tools/testing/selftests/arm64/fp/sve-test.S
 +++ b/tools/testing/selftests/arm64/fp/sve-test.S
-@@ -543,9 +543,7 @@ function vl_barf
- 	mov	x0, x10
- 	bl	putdecn
+@@ -477,11 +477,6 @@ function _start
+ endfunction
  
--	mov	x8, #__NR_exit
--	mov	x1, #1
+ function barf
+-// fpsimd.c acitivty log dump hack
+-//	ldr	w0, =0xdeadc0de
+-//	mov	w8, #__NR_exit
+-//	svc	#0
+-// end hack
+ 	mov	x10, x0	// expected data
+ 	mov	x11, x1	// actual data
+ 	mov	x12, x2	// data size
+@@ -515,19 +510,7 @@ function barf
+ 	bl	putdecn
+ #endif
+ 
+-	mov	x8, #__NR_getpid
 -	svc	#0
+-// fpsimd.c acitivty log dump hack
+-//	ldr	w0, =0xdeadc0de
+-//	mov	w8, #__NR_exit
+-//	svc	#0
+-// ^ end of hack
+-	mov	x1, #SIGABRT
+-	mov	x8, #__NR_kill
+-	svc	#0
+-//	mov	x8, #__NR_exit
+-//	mov	x1, #1
+-//	svc	#0
 +	b	exit_error
  endfunction
  
- function svcr_barf
-@@ -555,7 +553,5 @@ function svcr_barf
- 	mov	x0, x10
- 	bl	putdecn
- 
--	mov	x8, #__NR_exit
--	mov	x1, #1
--	svc	#0
-+	b	exit_error
- endfunction
+ function vl_barf
 diff --git a/tools/testing/selftests/arm64/fp/za-test.S b/tools/testing/selftests/arm64/fp/za-test.S
-index 84e63e510f23..33dc4ce8bfa1 100644
+index 7208bb2db9f1..e1ba559b66e9 100644
 --- a/tools/testing/selftests/arm64/fp/za-test.S
 +++ b/tools/testing/selftests/arm64/fp/za-test.S
-@@ -354,9 +354,7 @@ function vl_barf
- 	mov	x0, x10
+@@ -291,12 +291,6 @@ function _start
+ endfunction
+ 
+ function barf
+-// fpsimd.c acitivty log dump hack
+-//	ldr	w0, =0xdeadc0de
+-//	mov	w8, #__NR_exit
+-//	svc	#0
+-// end hack
+-
+ 	mrs	x13, S3_3_C4_C2_2
+ 
+ 	smstop
+@@ -326,19 +320,7 @@ function barf
+ 	mov	x0, x13
  	bl	putdecn
  
--	mov	x8, #__NR_exit
--	mov	x1, #1
+-	mov	x8, #__NR_getpid
 -	svc	#0
+-// fpsimd.c acitivty log dump hack
+-//	ldr	w0, =0xdeadc0de
+-//	mov	w8, #__NR_exit
+-//	svc	#0
+-// ^ end of hack
+-	mov	x1, #SIGABRT
+-	mov	x8, #__NR_kill
+-	svc	#0
+-//	mov	x8, #__NR_exit
+-//	mov	x1, #1
+-//	svc	#0
++	b	exit_error
+ endfunction
+ 
+ function vl_barf
+diff --git a/tools/testing/selftests/arm64/fp/zt-test.S b/tools/testing/selftests/arm64/fp/zt-test.S
+index c6cfbdeb2f0c..7fbd96face01 100644
+--- a/tools/testing/selftests/arm64/fp/zt-test.S
++++ b/tools/testing/selftests/arm64/fp/zt-test.S
+@@ -225,12 +225,6 @@ function _start
+ endfunction
+ 
+ function barf
+-// fpsimd.c acitivty log dump hack
+-//	ldr	w0, =0xdeadc0de
+-//	mov	w8, #__NR_exit
+-//	svc	#0
+-// end hack
+-
+ 	mrs	x13, S3_3_C4_C2_2
+ 	smstop
+ 	mov	x10, x0	// expected data
+@@ -256,19 +250,7 @@ function barf
+ 	mov	x0, x13
+ 	bl	putdecn
+ 
+-	mov	x8, #__NR_getpid
+-	svc	#0
+-// fpsimd.c acitivty log dump hack
+-//	ldr	w0, =0xdeadc0de
+-//	mov	w8, #__NR_exit
+-//	svc	#0
+-// ^ end of hack
+-	mov	x1, #SIGABRT
+-	mov	x8, #__NR_kill
+-	svc	#0
+-//	mov	x8, #__NR_exit
+-//	mov	x1, #1
+-//	svc	#0
 +	b	exit_error
  endfunction
  
  function svcr_barf
-@@ -366,7 +364,5 @@ function svcr_barf
- 	mov	x0, x10
- 	bl	putdecn
- 
--	mov	x8, #__NR_exit
--	mov	x1, #1
--	svc	#0
-+	b	exit_error
- endfunction
-diff --git a/tools/testing/selftests/arm64/fp/zt-test.S b/tools/testing/selftests/arm64/fp/zt-test.S
-index afcadb5aff23..c67242c2d5ab 100644
---- a/tools/testing/selftests/arm64/fp/zt-test.S
-+++ b/tools/testing/selftests/arm64/fp/zt-test.S
-@@ -284,7 +284,5 @@ function svcr_barf
- 	mov	x0, x10
- 	bl	putdecn
- 
--	mov	x8, #__NR_exit
--	mov	x1, #1
--	svc	#0
-+	b	exit_error
- endfunction
 
 -- 
 2.47.3
