@@ -2,152 +2,111 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 848E4606B9D3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 19:53:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A17AF606B9F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 19:54:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lU/StxgG;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=tPo1XaVL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hqoan9Bb;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mDcjKIzy
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=+x/mepePPF2MrqTVLqRo4ZUvfYti5CeyvZn8wNeKnaY=; b=lU/StxgGm/bcRQ+xioAIMplK9l
-	RuGqSm35CH1q8Ip3OFtKofMJzaSj3eUodv5IRNzEuhiAUndvZ2vKYgBCkO0f0QHVh+/PXhHjYpXfK
-	VXxSeNFr+6a7YcG3/lfjJIaOW/9iyh6ks06gaq87WM9perYKozeZ6tWwkRI+YAdNudo1pvZ46cSSA
-	X4SRIBA28y8zsmpSOxfbGF6NDcJ+yO1wrpHnr78QHM5jB6x44lpABsHobE7EVzPNrIGSNsJlOeUWQ
-	vG7FDDyNDsbsj9ZUYkE4uGBRu+E0LxGo+9Y9TUkFVt55tiw/kpcqcLwA2Bd0WLCV3pVfbLPLktOvC
-	YeiaprOA==;
+	bh=F23t8iLTcn/LXqN2lEEgBTUnPAkeyO0taUnuYVGHe48=; b=hqoan9BbBSl0pIxk4Lv46mhe0s
+	WQAmtHDYJuXxqHUh06c8Sr6QYJoKe+3fdYGH7pVRVRXem9+pNJEP3v8ws8Ax6umm1uvdN/2MwHt4v
+	LFj9XuDzanuMvo+pBRpKFgdVZdBG/L7Aic7LxlTFoCtPdsvga2PC7M/7nTQ/w3A58NBlBORkCAYFj
+	Dz89Q9kLy8C56yQXcbU8v3gSKfij8ge9Vg0fcOQRFWvBCfCBg2rgBtuEAB1diYmBuQSVgbfTyNiGv
+	oMN/u7lC0CINqIIzGrVirqksh5vdeQIxqCV9PySc5FL/9V4gIkNG4q+PI0J8TxAgFozgdMkNOb1N9
+	QW0pYKbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP3WT-0000000AR6M-1Qkg;
-	Thu, 05 Nov 2026 19:53:21 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1xP3XQ-0000000ARO5-2GxE;
+	Thu, 05 Nov 2026 19:54:20 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP3WJ-0000000AR3u-2XO2
+	id 1xP3XN-0000000ARMH-1tNT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 19:53:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BgSIDegPcWQlk+doR0WGdRecYu8cTJcLboKfLKsJjZBlolK68aExS25bUpR4UlIoPrHpdM8lx1DrN7a/ycXIi7GW5xem9mqRd3DuD2BG6fRhtGzAr2McCXRHZFmuXKDTvIXkfmlpjfui5c3xl+9WuF6cV44FAfKBWvybr3XcrxzWBybATYeukmh3JN9OQlSHBy1RZnHziZi4mvZnQF4hPBN+T16fium+713JAbrOlBDz6rLWOEh6NyzXq3U1Y3Eh+0SdVdrGdYbxetYZaBa2UGEAkgB4wHzA7MsziSF38rJehvi4rGcwGmy+eG6D7JUtRjAF0+equ5qh8g0jEYoRpg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+x/mepePPF2MrqTVLqRo4ZUvfYti5CeyvZn8wNeKnaY=;
- b=aAVilq0hSVARglyAP4V8d9/+3uTqhc4VkaGtBo3TFvEbrB9C/B8Sf5OnL85zVvLVm+DR3AhHuvGzseNtSoBRzT0I1TIReipeHIIx+qOQJ3Qg+qh31sZG8IliWa4j9sz2MUrj82KaQXWl0E3FaIfwz8biRcvcuICZvoOepJJckOGKBpynoHigGsaauN7vt+i6duUQRHgigS7qi1opmXp+iPS9Z2HczrNXTvy9dN15bgaynVVFMYf24CWriPwqc4I2efpuv7UQwTqWkVWergXmf8YIlWSGZxLwmGl6uGgbD0TBDlTsSCzb2kIephSsnZ4y6Q29IvzEMLmiNu3sqJq5Tg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+x/mepePPF2MrqTVLqRo4ZUvfYti5CeyvZn8wNeKnaY=;
- b=tPo1XaVLexNPQ8ua7k6YQhYr8v07MwUc+r85nRYT9ZsLsrRVv3aiyEvJ2tmgpkwgy3v0+dnSsPIvISGCDxtTTrxhNqksHO4b2ma82YZFiyJViODg0jqvguqyPJ12xIQ8eXCySoRm+QRBdTJBrY4nJzu8U4Xjk0Pmymx4gf2leiVxXvLTU+m+oizlIq+lWp3qG2wlg3GjF5mhaCXYNVLz7nMW9SRomvdNHmZ/XZFd4csB0u/9SyGC8EBl7UOE3F8ON3muizvxirX3LE1D41LgqNNHdLVNr5WGDakNkc4Im9ry6+CG7y+JiFnXe0LdsgdiVNsVecDRY9pO6ygu6DX2wA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AMBPR04MB12445.eurprd04.prod.outlook.com
- (2603:10a6:20b:75e::21) by FRWPR04MB11199.eurprd04.prod.outlook.com
- (2603:10a6:d10:172::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Thu, 5 Nov
- 2026 19:53:07 +0000
-Received: from AMBPR04MB12445.eurprd04.prod.outlook.com
- ([fe80::ba23:1fa4:ce58:ff06]) by AMBPR04MB12445.eurprd04.prod.outlook.com
- ([fe80::ba23:1fa4:ce58:ff06%3]) with mapi id 15.21.0592.009; Thu, 5 Nov 2026
- 19:53:07 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
+	Thu, 05 Nov 2026 19:54:18 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4a60f9474c4so22346145e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 11:54:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793908455; x=1794513255; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=F23t8iLTcn/LXqN2lEEgBTUnPAkeyO0taUnuYVGHe48=;
+        b=mDcjKIzyGaV0yB5vB89xUkoHnhqjau2zb4okRPB2aBJJaylI2zx5hCOFI4MF1sgf0x
+         kWjVzGbtagd8mCHvUecAWIvMLpn0/VullLYsoU28ybt446h+NhR/czf2rUutE0KOUW+n
+         eqcgOzjqIWfpl/wotjCCbKJS2qC3pCAz97G9O0L3pAnhVaJ8gaUKQOPz2EtxbHsSU+xY
+         DieKlvINg9q/8HudbqeiqbVgiU4d2V70HK3HocniQk4phaG9jRyn3vpAKbYCug0wl37T
+         XtUV19nlwlL2dkR1w0R/vc2nxsbmqe15CZJDkw+qzVZ8K8gXkfagi4KB7vPC90LqsIOQ
+         ojZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793908455; x=1794513255;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=F23t8iLTcn/LXqN2lEEgBTUnPAkeyO0taUnuYVGHe48=;
+        b=xlcR5PEmGz95M8k5JrxKwcKHAUj1dHrXT3RDO0PGL4Dnp/7jmJqk4b33BN3bnPUW3O
+         t/i9G7gJWBPqlgdGFGDtcOst39/KDg8BXWOyQ8cEM5fIWxoMaNFuBYhfJwmYXnmha3/8
+         tTRZPXZ8YfQLqPKAXlIgr9sX2O4VygsdXY1f2pTqIk8twrSXpi9wjNkC+uu/9swz+R3y
+         lygRIdSHXZkkgx/LNSIEHKOu8wLWuwfCl2Q9vWx88Ihh6x2XhUOTif+/3gE88whkuY7J
+         mqm02IEQbP1pXbQNY7awj5R1+1pAnehoXqk2IgAkEML99NUvD1zj853rMvF4eGEyidHN
+         QonA==
+X-Forwarded-Encrypted: i=1; AKwUvByNXQqLoCaFKhjE0OjpzpwfvKbBALWIo1/SqnXvVw3z0r+OIisBM9LVdF2/axdT5yg94NFF/C6OrksLMIA37Bcm@lists.infradead.org
+X-Gm-Message-State: APuU4Z9Xm8dk/YdOumK6cQDFPak9mbjtSQVThhxNzvmFcy5dvWRwOD+k
+	4ipgr/QHrOMwsn0gwr7gEcrflE7cQWRA0VxHD4AXmrOM3Y8zflObCkBB
+X-Gm-Gg: AYBFou0j+6Ho55Ho70fH1DDSgcvXgYjN13KE6ExHQnOj0+POzcGfljq88xkpJVTCxd5
+	DVTurqw+PzI6shpgrhpxFBkzn2Z1COZb36sJvjttE/BXVFuvYTNyQ1aSgEmcUkz8zsZgcq+EBj2
+	XRsa2SpRzAzeC4eVeuIbPGV6GzJ9E2Y+3dWp3jjWxjUHMcq2Yb0U9bWmG6IQ7xhSeZ1Y0famyJS
+	jtTiGC2qvETj7FdIcSbNOQWXxiX9SP9utyzZrwGgaZ0Vd1s/ftEzJauLOw1PnBOZtn07vLSEylN
+	UsSTxx5lK/ds9hj918r+XNRB90npCZP4J0sYQI6DyowuS5s7paf1JREqltvjzv9wnv0ZUI+J0C/
+	8sbredVYOnsn1/0xc8Q99TqMYF09EgjY6LxazoA/DMnWpCcms/DFk+kQugql7W/OQRdXSnYNO1L
+	3xdzL7p/wz8Xgp/+A53j3gA4FIBetZVn3r6YEtcd6zgRnAmw8v1j+aRAvbTtj7mEJxx6a9s2LVt
+	E8qCHdO4jpHG8LLBCr232fhqm8bIa4XKO4iTU3VUNFoJQS4Q+S1x45vFbg+xhgtS6k5rDEsPkYe
+	4TxYJyTUOyFLHzGL1Eu3KX1AuA+g2ySTcZk5khh93r4bjQ==
+X-Received: by 2002:a05:600c:3f10:b0:4a1:777b:8a12 with SMTP id 5b1f17b1804b1-4b6dea69280mr3035835e9.14.1793908455226;
+        Thu, 05 Nov 2026 11:54:15 -0800 (PST)
+Received: from luca-vm.lan ([154.61.61.58])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b5725fb0d1sm83862895e9.8.2026.11.05.11.54.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Nov 2026 11:54:14 -0800 (PST)
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+To: linux-mediatek@lists.infradead.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Francesco Dolcini <francesco@dolcini.it>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Lee Jones <lee@kernel.org>,
+	Sean Wang <sean.wang@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Val Packett <val@packett.cool>,
+	Fabien Parent <parent.f@gmail.com>,
+	Akari Tsuyukusa <akkun11.open@gmail.com>,
+	linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: freescale: imx952: Add GPIO5 lines 18 to 20
-Date: Thu,  5 Nov 2026 14:53:00 -0500
-Message-ID: <179390837687.1654031.13234650905983591985.b4-ty@b4>
+	linux-input@vger.kernel.org,
+	mfd@lists.linux.dev,
+	linux-gpio@vger.kernel.org
+Subject: [PATCH v12 3/8] regulator: dt-bindings: Add MediaTek MT6392 PMIC
+Date: Thu,  5 Nov 2026 20:50:23 +0100
+Message-ID: <20261105195206.3440-1-l.scorcia@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261005172622.135725-1-francesco@dolcini.it>
-References: <20261005172622.135725-1-francesco@dolcini.it>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SA1P222CA0066.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:2c1::21) To AMBPR04MB12445.eurprd04.prod.outlook.com
- (2603:10a6:20b:75e::21)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMBPR04MB12445:EE_|FRWPR04MB11199:EE_
-X-MS-Office365-Filtering-Correlation-Id: 816a0cd9-f515-4040-a626-08df3b766993
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|23010399003|7416014|376014|22082099003|18002099003|10067099003|56012099006|11063799006|261026121527099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info: frmJGWnTC8+ffeKMsxAxPbDv66EFi9QRN8D9oNFCYAbfz8PejTSwfxks5Zjo32OY0oeNrDmYnvGAvOILumc0iExlMgaX3TVsfgv5BRAXnHGF6j6GClizBO8uMhQyFx979jV1I5c6Q7hY98rMI29XHcsA5c6ALNDHzokJuexWdnqAzm92FvztocJ4nyKRP19lKC7d/sM4UzDrhXwzk/YMJuu6CCz9LvxWD/SJuTnRqUi8X/G6pNqIkHblM1OPH6WNY05GQRJjE0WzBegWVQPlMej/sYxnFONM9GN66/UJE15u7kYIKElZiDOzS1g4t6nSP6JEj4E/hOy72bAh6uL0jr/MgtfWpyrWvw46puC0cK4gkuwdAyRp7vIQxv19My1U7YsvLBuHq29Cxtei10ftWXUoAIx3sOMcmSwMiaus4R4vsYKyMbk36HxQ9lw8Jt9hPf5ESMAfGBChT1sCYHvPxtTdX4UOA8I/fWLB+vAfRekYeF1YsXzkZ8wMOOMpZH/Xd+gEjAW59y9fQmm0O6FUSQ39TIOkpUgqBZiolhRN1uo/b0DSamQ1iEDv2JTz3XUJozj15bbQ8a9bu+8S6j24YZSG/RokS99oC2+R/6KmygyNhH9VOl2iJiHvMYMcTq2pVkaV+pKzAf2N9GsetYJldljID2DVwF6PWBEObS1jZOo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR04MB12445.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(23010399003)(7416014)(376014)(22082099003)(18002099003)(10067099003)(56012099006)(11063799006)(261026121527099003)(261009223027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MHd2ZVBpcWdpUmFJMEN3Q1l1MWNHdkRsUHFQdndPNGp3c0xRVG9hckV0TVFE?=
- =?utf-8?B?Lys0bDA0cDA2MFhHSmRyMVI4eENNTkgvOW5QY3phZnB5dm1OQ1ltVjZHZG41?=
- =?utf-8?B?WmgzQzFkUXZqZTMxZVRTbjhuK0M3ZXNTNjIwRkVKWnkwV3NkOEZHeXBkM0Rl?=
- =?utf-8?B?aDY2ekhVeEtNamVMdm53MjhjYS9VWS9uemVMVDBnQVE2c00vZUdUaG9wdkhT?=
- =?utf-8?B?c2c4RWlIVHlBc2NTVVBwcGhHQlNIVHhUK0JCNlZqNVp3Zi9yUDM1Z2NJVk52?=
- =?utf-8?B?akRkcUlCcy8rdU1SN1g0ZldLWmJmRm84OEJmM2JtNm5TcHpDb05HU1RqWWZV?=
- =?utf-8?B?RlFKVHZ0TjNCbUg0NGMzQ2pEeTZHQkg4VjlQYnI5N0MvSXlFaVFORTN6RnhT?=
- =?utf-8?B?eGJMRjVjRVhRU3ArdEpxc05Sa3VJVHZ5Y1NOUnZXT3IyZG4rNHFXVU1venJK?=
- =?utf-8?B?KytiQ2kxMEljeHNnWVE4c2V2VmpyQnNIaHZXaFhXZWJ3U042YWIzTjF6M3pN?=
- =?utf-8?B?d0NGeklDRmtwcEhLa3hyRVRjajAyR0xkalhFYnVGK01RbkhOTFJCMzhoZnhP?=
- =?utf-8?B?dktaZEhWYmtVTVdrbHVYcWM1OUhjVnY5YzAwLzkwRCtUM1hLa0NQemNOK0NH?=
- =?utf-8?B?U1FWbUZLN3FQeE5LR2xUWDJHV1hVTk5SZGhYcEVRNTJjbXIydzlFRmRHV00r?=
- =?utf-8?B?TjhObTlDdEVqQ2k0T3JYQjBFaGQxRnBvVXk0NzIvUnpra1UwM1JHc2ZNdHBp?=
- =?utf-8?B?UitkYTRHOVVhczFJQ243YlFIQ1VPZThpaElVQWRnK3lBMU90T2xyRHB5MUpm?=
- =?utf-8?B?OVFHUEtXSThWN0taY3NadGpIZy83VFp4UHZoRFR6RFZyQWZsR0F6OHVaRS8x?=
- =?utf-8?B?T1ZKMHg3eEZZNDRTQ3FQVTN0NSs4UDA0ZzJpWVVtRzhIbTFVeVdJRllHVjZX?=
- =?utf-8?B?OFBVR0l6cmUwSDNNbGYrazN5M1JxMnVndGZLTVg4bi9pUTlDaGFiT2JnVEQr?=
- =?utf-8?B?SEdqQ2gyaFNqVzloSEJSSENla2dTUlNrck1WbG1yVzU3T3RZY2FRMlRpb0pu?=
- =?utf-8?B?b21EL05wYk12UVJVaEdIMUdPQi93cGtjc3dtdEVySk4xbWNJWVN1S1ZBQWJT?=
- =?utf-8?B?aVE2a0wrQStqMVFiclI5WXIyaDRtWnE2Ui9aMy9FMDRzaTk2Y1JJMVNHT1Zw?=
- =?utf-8?B?bVBPK0o3SkEwZ2tTRUpCZmVnMkNFMU1rMTJsVVVwbTBLNU14S1dhb2FTSXFJ?=
- =?utf-8?B?MkdXUE85OE8yZ21IWExxQ0JuNGFHVUlhZXJBa0JPUmUrcDZxbGRLWEd1S1ZO?=
- =?utf-8?B?Qmt4T1Z2OG9HdG5pYzJCTjRJcVdjZW9wNGpRZEx2MnBndXUrcGhPQ2I3aVhs?=
- =?utf-8?B?YWFqTDJEZWh5VU81WG9zR3g5ZnVvNDM5R0MwV1BaMGJpdTlINWhNTyt3VXBJ?=
- =?utf-8?B?bEJQZXozWjNxYkc0cTNrUEN4ZWgzb09YNzFQWEdjdklMNllhc0kyK1RJY05m?=
- =?utf-8?B?OUxycldZc25ZdWJ2YmViZFZQQzgzcEcrQ0xRUnQyMUc1QXRjZHozZnRGYktH?=
- =?utf-8?B?YmU2MUFMNmJmbmExcytCS1lOV3ViV0ExQ1V2N1JHN1JPVGpmVDhZOTBoQ2tt?=
- =?utf-8?B?Sm9iRzVVU1lQVTVEbm0yQlF2WllMQ3BaRkhQZzZvR3p0YytCK2c2RW5RZmts?=
- =?utf-8?B?RWlHV2doYVJtZ0x3VFd4ZXRLVnV3L3ZZRmgwNzIyR0ZjM0Jvd2xQQzAxRHYz?=
- =?utf-8?B?N3NlRUplUHRVUXpVODhJR3pkQVQ2M0RGN0QwSUpXRm51dmdkOWhWMkVWM3Ba?=
- =?utf-8?B?aVF4c1Mzd1dyL1lIODI1dHJld2krN3B0U2pLWDBWdVJLTUd4Vy90VkREdG4x?=
- =?utf-8?B?bDVtK0VHU3BFc1lQZWx1ZXlxMkRZNkhvSGYybFh3bHA5dVNnL1l2UE9IYWdU?=
- =?utf-8?B?M0M3YzhvdUM2SjgxM3RYa2h5bG5VTUpINFBRN0hYbWVJQUZob21McHFFLy81?=
- =?utf-8?B?clVua3FNQ2h6SnhUVDFLN3RpMlBXYVhHTmFSMkpxL3laVlF1TCtaeFRDYUxr?=
- =?utf-8?B?cWlpNVZTRVBGRVMxcDhvYkY3QVFuVGhGYUVoWVpyY25nRnZkM3h4dExJYVFt?=
- =?utf-8?B?ZEhLN1JzQ0lsQWVJQ29WdTRiRFJ0c1oyRWM4d1hYWGp3UnRyVWd5cmhIdHlP?=
- =?utf-8?B?dUk4aXZCUGtxMCthM3QwTVdxdStXOGMrUmRBR3ZqSG1UMXNGd28wNlE2d1FI?=
- =?utf-8?B?RXB5SEtXYlJudUkzWUEreHdrL1BUOEdYMUk0LzM1VVMxNGZiV1JIcHJUZGdK?=
- =?utf-8?B?VkR2dlQ0bTZVUkZJN2h0Uy9Wcnd5VVJMaUxwMUhTRUgyYVdqWllFdDF6RXdl?=
- =?utf-8?Q?eqRtk8u9DeKHovLOr3S6+u1HxcBHPyR0cU+ch?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 816a0cd9-f515-4040-a626-08df3b766993
-X-MS-Exchange-CrossTenant-AuthSource: AMBPR04MB12445.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 19:53:07.4242
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4Ha8RPP+4lZMo6UP/zpoQPCyLA4hxwTErR+CEXxV1rUiTAwZuw285N0+pUat6KilISjpitxgS8ZZiZVZAqeiWoe7Gox9SjX0LtF8Yd7/c6zyS4CiwspeZL5CIszjdqHN
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWPR04MB11199
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_115312_493065_58DF22F3 
-X-CRM114-Status: UNSURE (   7.46  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20261105_115417_523524_4FEA8C6F 
+X-CRM114-Status: GOOD (  16.36  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,28 +117,175 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Frank Li <Frank.Li@nxp.com>
+Add bindings for the regulators found in the MediaTek MT6392 PMIC,
+usually found in board designs using the MediaTek MT8516/MT8167 SoCs.
 
+Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ .../regulator/mediatek,mt6392-regulator.yaml  | 112 ++++++++++++++++++
+ .../regulator/mediatek,mt6392-regulator.h     |  23 ++++
+ 2 files changed, 135 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml
+ create mode 100644 include/dt-bindings/regulator/mediatek,mt6392-regulator.h
 
-On Mon, 05 Oct 2026 19:26:21 +0200, Francesco Dolcini wrote:
-> Add missing GPIO5 lines, GPIO_IO38, GPIO_IO39 and GPIO_IO40 are
-> GPIO-only pads fixed to GPIO5[18:20], their SW_MUX_CTL registers have no
-> MUX_MODE field (IMX952RM Rev.1, 2026-07-08, sections 33.3.2.44-46 and
-> 33.3.2.184-186).
-
-Applied, thanks!
-
-[1/1] arm64: dts: freescale: imx952: Add GPIO5 lines 18 to 20
-      commit: 62c2671594cec8ef17d70d876753dff4f78e5ce6
-
-Best regards,
+diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml
+new file mode 100644
+index 000000000000..d74721d8f2ff
+--- /dev/null
++++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml
+@@ -0,0 +1,112 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/regulator/mediatek,mt6392-regulator.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek MT6392 regulator
++
++maintainers:
++  - Luca Leonardo Scorcia <l.scorcia@gmail.com>
++
++description:
++  MT6392 is a power management system chip containing three buck converters and
++  23 LDOs. All voltage regulators provided by the PMIC are described as
++  sub-nodes of this node.
++
++properties:
++  compatible:
++    items:
++      - const: mediatek,mt6392-regulator
++
++  vproc-supply:
++    description: Supply for buck regulator vproc
++  vcore-supply:
++    description: Supply for buck regulator vcore
++  vsys-supply:
++    description: Supply for buck regulator vsys
++  avddldo-supply:
++    description:
++      Supply for AVDD LDOs (vm, vio18, vcn18, vcamd, vcamio). According to the data sheet
++      this is an internal supply derived from vsys.
++  ldo1-supply:
++    description: Supply for LDOs group 1 (vaud28, vxo22, vaud22, vadc18, vcama, vrtc)
++  ldo2-supply:
++    description: Supply for LDOs group 2 (vcn35, vio28, vmc, vmch, vefuse, vdig18)
++  ldo3-supply:
++    description: Supply for LDOs group 3 (vusb, vemc3v3, vcamaf, vgp1, vgp2, vm25)
++
++patternProperties:
++  "^v(core|proc|sys)$":
++    description: Buck regulators
++    type: object
++    $ref: regulator.yaml#
++    unevaluatedProperties: false
++    properties:
++      regulator-allowed-modes:
++        description:
++          BUCK regulators can set regulator-allowed-modes to values specified in
++          dt-bindings/regulator/mediatek,mt6392-regulator.h
++        items:
++          enum: [0, 1]
++        minItems: 1
++        maxItems: 2
++      regulator-initial-mode:
++        description:
++          BUCK regulators can set regulator-initial-mode to values specified in
++          dt-bindings/regulator/mediatek,mt6392-regulator.h
++        enum: [0, 1]
++
++  "^v(adc18|camio|cn18|io18|xo22|m25|aud28|io28|usb)$":
++    description: LDOs with fixed output and mode setting
++    type: object
++    $ref: regulator.yaml#
++    unevaluatedProperties: false
++    properties:
++      regulator-allowed-modes:
++        description:
++          LDO regulators can set regulator-allowed-modes to values specified in
++          dt-bindings/regulator/mediatek,mt6392-regulator.h
++        items:
++          enum: [0, 2]
++        minItems: 1
++        maxItems: 2
++      regulator-initial-mode:
++        description:
++          LDO regulators can set regulator-initial-mode to values specified in
++          dt-bindings/regulator/mediatek,mt6392-regulator.h
++        enum: [0, 2]
++
++  "^v(cama|dig18|rtc)$":
++    description: LDOs with fixed output without mode setting
++    type: object
++    $ref: regulator.yaml#
++    unevaluatedProperties: false
++    properties:
++      regulator-allowed-modes: false
++      regulator-initial-mode: false
++
++  "^v(aud22|camaf|camd|cn35|efuse|emc3v3|gp1|gp2|m|mc|mch)$":
++    description: LDOs with adjustable output and mode setting
++    type: object
++    $ref: regulator.yaml#
++    unevaluatedProperties: false
++    properties:
++      regulator-allowed-modes:
++        description:
++          LDO regulators can set regulator-allowed-modes to values specified in
++          dt-bindings/regulator/mediatek,mt6392-regulator.h
++        items:
++          enum: [0, 2]
++        minItems: 1
++        maxItems: 2
++      regulator-initial-mode:
++        description:
++          LDO regulators can set regulator-initial-mode to values specified in
++          dt-bindings/regulator/mediatek,mt6392-regulator.h
++        enum: [0, 2]
++
++required:
++  - compatible
++
++additionalProperties: false
+diff --git a/include/dt-bindings/regulator/mediatek,mt6392-regulator.h b/include/dt-bindings/regulator/mediatek,mt6392-regulator.h
+new file mode 100644
+index 000000000000..2e1f41e0ebfe
+--- /dev/null
++++ b/include/dt-bindings/regulator/mediatek,mt6392-regulator.h
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++
++#ifndef _DT_BINDINGS_REGULATOR_MEDIATEK_MT6392_H_
++#define _DT_BINDINGS_REGULATOR_MEDIATEK_MT6392_H_
++
++/*
++ * Buck mode constants which may be used in devicetree properties (eg.
++ * regulator-initial-mode, regulator-allowed-modes).
++ * See the manufacturer's datasheet for more information on these modes.
++ */
++
++#define MT6392_REGULATOR_MODE_NORMAL	0
++#define MT6392_BUCK_MODE_FORCE_PWM	1
++
++/*
++ * LDO mode constants which may be used in devicetree properties (eg.
++ * regulator-initial-mode, regulator-allowed-modes).
++ * See the manufacturer's datasheet for more information on these modes.
++ */
++
++#define MT6392_LDO_MODE_LP		2
++
++#endif
 -- 
-Frank Li <Frank.Li@nxp.com>
+2.43.0
+
 
