@@ -2,68 +2,64 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D3A4606D811
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:15:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97548606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:26:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=q/S30LTX
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=V0+bNUdB;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kLZbEpUR
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=hhYHORyyMEe9WzmKHSw5na7G0AtsvbFkX50GoyW9BPo=; b=q/S30LTXgDb3j1
-	XF9sK7J+FOIseuwfkbvZ6m218Q2W0R69zCCCpPgKltrwUrt1SBkAXVHrxqRvUmODXuQ+Q0Ond0Q3z
-	EEmkgLxiWNQE33qmt7uGC1fnNNth5RSwZGrlGcbjzbtOpsFL47j/+WZeESviP5Ip22NotB/s7Uib4
-	bRWTHRwu0xGhSiLwpxFGq2x98bQKTs+ZgR8LtLseVnR/1jWrvyat3fNdHuksUCsOGLTjg+iiKXeRP
-	onqDRJZpyIwD7S5uAplOXFMgXr8Se001njrHHnjBOkEcVEVzXSIG2R4yeti7P75yPM2FWFt0b0A2f
-	v/mU6ev5nJMX7yziewTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=bB115A0rMOTqlvXkN/AIzQNgK8qZfXA7IorSb9CX7io=; b=V0+bNUdByNEYLhV1Ys3js1gjna
+	u8PYfA+KgyJxjZO7ERyXOtPycFarR4ZyhjgZl6qbd2VfQFzR+BT3pYks1c05o6ru3qCjha8f33RPq
+	dE4YNub/wsM18/LrCC/7ndB3Na/KYwUmNn1kul00pmDw5KGC4Jdouao5Ouvlq4tZuZPa1vu9bO3uZ
+	3CJXC3tBg660i3Xvdqt4v2Basyw6KccQ76HuSPBKwuJQ6DBYR5ft0c2TYJZN+SdjOD7V79EPDAR90
+	kOS11Hvrk951TgdEU1XvkZphjLT/RG3njr7srykqubM9EPVWCNnGH4E7aUDkMH5wf/zk2d8xbtHKG
+	Hgdv/ZUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyF8-00000009F4u-2sNz;
-	Thu, 05 Nov 2026 14:15:06 +0000
+	id 1xOyQK-00000009GLv-0Ps7;
+	Thu, 05 Nov 2026 14:26:40 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyF6-00000009F3a-37zu
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 14:15:04 +0000
+	id 1xOyQI-00000009GLm-495r;
+	Thu, 05 Nov 2026 14:26:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3867A43500;
-	Thu,  5 Nov 2026 14:15:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72CD31F00919;
-	Thu,  5 Nov 2026 14:15:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 84AED41A2D;
+	Thu,  5 Nov 2026 14:26:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 141081F000C1;
+	Thu,  5 Nov 2026 14:26:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793888798;
+	bh=bB115A0rMOTqlvXkN/AIzQNgK8qZfXA7IorSb9CX7io=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=kLZbEpUR7tlo+ZWC3OftlZigeROV+G/S2MWiAUwnAhPdaCJM4iLo5A1awAhxavhsK
+	 ODjt8ZKDP88satnWbUD6GyJ4WG7eLo0fcKsRBdewiQXCYKDQoZBgmWtygUXii0VkeL
+	 ShvkzBiNtiL8sf6hl04MO5SbTW7/GJVdVyI1b/pui/+wRkbFAza9ODH+jrtyPohyka
+	 dbCoChO6ac7g5lWxqnMOdWvoT2FaIXl2YzLeZYbMMwkKpAJW7TTjS4qMR9oAGRctuP
+	 EXSy3J89Bl1d90+lV7gUPTfQ2Zb65/zQZiFuc8RLOnMhxIu49FPToTDTH59SakH3pB
+	 t2ru7Bf2Hxzuw==
+Date: Thu, 5 Nov 2026 14:26:34 +0000
+From: Simon Horman <horms@kernel.org>
+To: Sandeep Haemoon <sandeeph@loljews.com>
+Cc: netdev@vger.kernel.org, Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 1/2] net: ethernet: mtk_eth_soc: add 9K jumbo
+ frame
+Message-ID: <20261105142634.GT865646@horms.kernel.org>
+References: <patch-4f863a941889f0bceca1c082f2d79624@loljews.com>
+ <patch-f1b04513b0fe3fb0a35ac744799fb0f3@loljews.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] PCI: mobiveil: Fix device_node leak in
- ls_g4_pcie_probe()
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-To: Vishal Satle <vishalsatleit24@gmail.com>
-Cc: Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Rob Herring <robh@kernel.org>, 
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-In-Reply-To: <20261027094427.143733-1-vishalsatleit24@gmail.com>
-References: <20261027094427.143733-1-vishalsatleit24@gmail.com>
-Date: Thu, 05 Nov 2026 19:44:57 +0530
-Message-Id: <179388809743.2730.8434004843297816557.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2015;
- i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=GsF7syF+nFLWXE9m7kFav4xxaz1L9DMmDNF5rgbPuko=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBq7I9ielNJs9cOVzbu7dfV03fSaAXcVw3Efl3/5
- MGgqL6r9OaJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCauyPYgAKCRBVnxHm/pHO
- 9fY2B/0UPbAnwhZVOulWyTLwWcwDtH8wPKAnl5TZjBlx3KJzWpzJ8vD6Z65kcgD5Nhy2kAh15mh
- kcX3dJ6RX16WpVlt/j8mjwHCI9X9edGJzjZkxEpZSF0STCMpQRqbaeQ26kd4djn6c+NTDXYWhcL
- O/ESpuFr3emaYHxI1XySbdSiApOfTLYBhhg2z43KuQRQ9gxqJd1FxR4ntrc4TIUCl2Rx1GisfXP
- 5kybBO8xDPRfApUElgiIyhD9uvYJCkqEDKjQVDkJtIJcU9YCIV0JRWS6vLy9J44vMhiZ4kE21Zr
- 4JUqyBfyU+RGlGwKbRM3yqZYGx+uwUPonaIe2MV8tzOGrd87
-X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <patch-f1b04513b0fe3fb0a35ac744799fb0f3@loljews.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,62 +70,43 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 2026-10-27 15:14 +0530, Vishal Satle wrote:
-> ls_g4_pcie_probe() calls of_parse_phandle() to verify the presence of
-> the "msi-parent" device node. of_parse_phandle() increments the reference
-> count of the returned device_node.
+On Mon, Nov 02, 2026 at 12:48:45AM +0200, Sandeep Haemoon wrote:
+> The driver caps max_mtu at 2030 bytes and programs the MAC max-rx field
+> for at most 2048-byte frames, so MTU > 2K is rejected and 9K jumbo
+> frames are not usable on the 10G XGMII MACs.
 > 
-> Because the return value was evaluated directly as a boolean condition,
-> the acquired reference was never released, leaking the MSI controller node
-> reference count on probe.
+> Add a MTK_NETSYS_RX_9K capability for MT7988 and:
+> - advertise 9K max_mtu on XGMII MACs, derived from the DT phy_mode at
+>   probe time so DSA can raise the conduit MTU before the netdev is
+>   opened;
+> - program XMAC_RX_CFG2 on the XGMII MACs;
+> - derive the shared RX buffer length from the largest MTU and size the
+>   RX rings from it;
+> - program the PDMA RX SDL max frame so the DMA engine accepts jumbo
+>   frames;
+> - reject a runtime MTU change that would need a different ring buffer
+>   size while DMA is running; the rings are sized at the next open.
 > 
-> Assign the resolved node to a local variable and call of_node_put() once
-> the existence check is complete.
+> This is a forward-port of the MediaTek downstream jumbo series:
+> Mason Chang's "change default rx buffer length", "add 9k jumbo frame
+> support" and "add dynamic rx buffer adjustment support" (MediaTek
+> OpenWrt feed 999-eth-30/31/33, carried in
+> frank-w/BPI-Router-Linux 92bfdbdd4de1/b4c6cb1d5532/ca4c976dce22),
+> plus Frank Wunderlich's "try to fix crash the right way"
+> (a3207a383794).
 > 
-> Cc: stable@vger.kernel.org
-> 
+> Link: https://github.com/frank-w/BPI-Router-Linux/commit/b4c6cb1d5532
+> Link: https://github.com/mediatek/mtk-openwrt-feeds
+> Signed-off-by: Sandeep Haemoon <sandeeph@loljews.com>
 
-Why? This is not a critical bug fix to backport.
-
-> Signed-off-by: Vishal Satle <vishalsatleit24@gmail.com>
-> ---
->  drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c b/drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c
-> index 4919b27ea..5b1862fe0 100644
-> --- a/drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c
-> +++ b/drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c
-> @@ -199,12 +199,15 @@ static int __init ls_g4_pcie_probe(struct platform_device *pdev)
->  	struct mobiveil_pcie *mv_pci;
->  	struct ls_g4_pcie *pcie;
->  	struct device_node *np = dev->of_node;
-> +	struct device_node *msi_node;
->  	int ret;
->  
-> -	if (!of_parse_phandle(np, "msi-parent", 0)) {
-> +	msi_node = of_parse_phandle(np, "msi-parent", 0);
-> +	if (!msi_node) {
-
-You should just use of_property_present() and be done with it. The driver is not
-using the phandle and it shouldn't care if it resolves to a proper node or not
-as it will be verified by the irqchip layer.
-
-But that being said, I really doubt whether we need this check or not. None of
-the other controller drivers are having this check. If this property is absent,
-then MSIs won't work, but INTx will continue to work. So the controller wouldn't
-be broken altogether.
-
-So this check can be dropped.
-
-- Mani
-
+Reviewed-by: Simon Horman <horms@kernel.org>
 
 
