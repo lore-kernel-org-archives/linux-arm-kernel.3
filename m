@@ -2,57 +2,105 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D279E606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 20:19:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D85C3606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 20:21:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=s+QqvEj8;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OHx6Tdho
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vL5uqwyC;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=gRX3x3r/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:To:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ijWY+Z2NJRFFaxPZ787h43DbKEzbnR08iWE8GXg21g8=; b=s+QqvEj8nRSKNiIpWGP4qRhaR6
-	Z52efIV+8Cp1lrrxKpK/OqHK0FxIMu9qEEyuIdF0EmqlzTA0N1lxn8SVtIG4nYRlXYl4U7dTH3fjE
-	/bnFcTKmVVjVDN5YmS11nBSqISGjm9iDDMb+GYWkBJt+MBVAaVD9gd+q9l+uRmripbOHWKwUPWlR6
-	irPpy7ruuTlEsks6+Cm2Uonq9rOz+skctpycQnS7JTeTpFof1YAa9YKj/luShjYQM65+uyMM/7CD2
-	S4p4yAAFSuil4PO95pNgpLatAWCWT7i9tQZ9/zh+G3g4xweg1aurK5PjoiLFAb+zIkG+nmmEoQAj3
-	yKxWA6MA==;
+	bh=AMtCKx/5mnMTAZ9wh6V8t6oGE9S2neOjVqV5wKKM7ME=; b=vL5uqwyCOe9AKOHdo40QT4GSkV
+	dbi48CDXs/KywhZn38e/f6HxHQ/TgQ2VFdgwkH7Hlv/FlQrWZZEnIVZaAfDwRWTQu36uqPhDS+9Vo
+	N9zLl8OVTI2xuy94rfvwP0mqWkX3GuoNdiiWNpzAZZWE9WU3nfy1V/mJ8kY/Jiw2vId8UpbC0ZzS7
+	VItTf+uMJu7BtmFKsLD4IJF8uAWQ65P0iSCwrNKMFBQIAQC+LzVjqhmzEmMF5p5W3RptYXzdFhecO
+	VvT/OsOj4fEPIdlviOBXrmOSC3m20nCXKV2l8L0kCPDUn7ukSNnpndp16C5+125Mm/+oO1saLa1+1
+	uRLTs+kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP3w6-0000000AXw5-08o5;
-	Thu, 05 Nov 2026 20:19:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xP3xX-0000000AYAA-0OBl;
+	Thu, 05 Nov 2026 20:21:19 +0000
+Received: from mail-dl1-x1230.google.com ([2607:f8b0:4864:20::1230])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP3w3-0000000AXvv-3CN1
+	id 1xP3xM-0000000AY8s-4AKJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 20:19:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with UTF8SMTP id CD45E60147;
-	Thu,  5 Nov 2026 20:19:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 08E651F0089F;
-	Thu,  5 Nov 2026 20:19:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793909986;
-	bh=ijWY+Z2NJRFFaxPZ787h43DbKEzbnR08iWE8GXg21g8=;
-	h=From:To:Cc:Subject:Date;
-	b=OHx6TdhotcaC6TMSXEfvA2ru0DsBB+t/DOejKXSp2mkAmUYBKLHRVWJCtBlfEbmMs
-	 UO5WgoIsMcp1pw/OP7RjzZEoPBLC4xPS2DHY+Y9KYDiMHPValbhEoSOFxDyz030Kuz
-	 a2dsVVjIV5/FHVGQGAfCu/ePxoUtz1OOGXx7oHb0egzINwi7wLQMM9tt4Oi4q7HQVi
-	 1IlPKM0PXkbVcHeEiudoYKUlfgJylyMqyrkrIO7Ao28UWsq53/WeN/OhE8Iwv4zyrO
-	 OhqMbP0NmhRVSiT2klGIBeJxM0SxiejpXbjmdiCOBndevLwvib6FjySd0xvs+SSI3u
-	 j0Mn74sQCjKHA==
-From: "syzbot" <syzbot@kernel.org>
-To: syzkaller-bugs@googlegroups.com, Uladzislau Zhauniarovich <uladzislau.zhauniarovich@gmail.com>, "Catalin Marinas" <catalin.marinas@arm.com>, <linux-arm-kernel@lists.infradead.org>, "Will Deacon" <will@kernel.org>, "Peter Zijlstra" <peterz@infradead.org>
-Subject: [PATCH] arm64: suspend: Only track cpuidle context for idle tasks
-Message-ID: <c49d0138-9e6d-40d4-b46c-518240685bf1@mail.kernel.org>
+	Thu, 05 Nov 2026 20:21:17 +0000
+Received: by mail-dl1-x1230.google.com with SMTP id a92af1059eb24-1ae18eb9ad0so2743711c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 12:21:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1793910066; x=1794514866; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=AMtCKx/5mnMTAZ9wh6V8t6oGE9S2neOjVqV5wKKM7ME=;
+        b=gRX3x3r/0WBTyJEddVnUzeCLchzSTMiCGaFAk4Fpi6G1jdrI/lqrm0KmNYvc0EOKAl
+         fOw2IeClttq6gaDnX+waNnzRqe/d2zOa92zwKO7W5LCS4SO5KLjMw5UAeSp/iZ/y1e/C
+         e4XfWWkVPAz57Jw5AI7uvr4aTm7LBmQBIYj1E=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793910066; x=1794514866;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=AMtCKx/5mnMTAZ9wh6V8t6oGE9S2neOjVqV5wKKM7ME=;
+        b=d8mUVBEB1J5o/lnhJzQVF22clXXRoql0tHpT2orOhjHNQDsnPsqe/p6FMPqU+3NAlE
+         Qfi0uLmZXSCI1KxoqlmZNnT2/lFCsx58ZNUOWhqiGSFKuOq3B6fhavuncG+nh5xoY/H3
+         TCislcZwiV9jrc8Nsy2Og+Ci4+ZRH46LaCNxi7QmooeAtvElwsK6kdcnCk61tQWgRvsh
+         S5SWoEMhIUQ52FZs6vKJWjwT90L++aNixVBJMu1yW3vugdXaQHuOIJ1/05BaGcx/V6Xa
+         I8Lg1VGbUPzxt3taNt6VyagK3gI5DlKcSl1MMNimjaXdBVKRjjBbGm3XnT5+MsfvHLgY
+         U4lg==
+X-Forwarded-Encrypted: i=1; AKwUvBxLFRNTu5haPpgFP+ihk0pLwnCFE2p99ydr05yAfHA7gv+TB5vsybC9f+SE3nCUiOfGUx+F4zbRoKPA5f/c5VcR@lists.infradead.org
+X-Gm-Message-State: APuU4Z9C4+U7X+iiLNpMahJQBY8DJ8Fy4jKuI3mCzrR8BMqCZRcu0VIm
+	3Zx6vv0zWnMn2z7E/SSnhSKTo+TPmXLdBnsn3Xyv7LZR5+Fqs5FXXu1vDFOI0BVfRg==
+X-Gm-Gg: AYBFou318lfbQfDJf90opP551K4YgUky3cuRZ+jR3Qg663M0KrcV9gPw8gHqQ7xx/Bw
+	PE998FyC/CrUsGVYU67giLOKCnt+zfDFi3h2T+35FwEuNZ//esCTP/hzkpvnvQLSAfA5no1NUDp
+	2QDF9BTbmYd/no7ZNGqsJvNkygzm1/K7X205dNx9qB4vUjOnvNBz8iDy/oPCVkzkJiKf1tM/dsV
+	TBo8p9bKkLVBq4Wf/friPeXyIQLet7Uau6/41Eq8Q4Ld0AwbqUYXQoLKTIzJRnYI/h9a66+CGkf
+	tQ7RpUjUv8eThHrLKMwkFM2Jj5axhkr2IDcPh43kNMC5ui4vwdUh/YkXC3KHo3HCTRGuINJyF/0
+	QVKCoD3IuLOlWGbT6E7FG+5uEfmPyOx0Dw2W07kYAzWJ0lrqLfxISIXPOf1Y0ns4pdV3cJlJzPm
+	VFgDD7IQcQsRgXZmG7FCQsEs5DgnC5HmgmatzgpokZJnfQOjIEws61yLZ/00XHcVzRVQZd/wl/l
+	epjC3JzvcoyTPbcQv7eAwnyWVZRIsDU5voXKCLcO+3Zrq4GJQqFEUOhSM6/eYdBtD2xUue3jscF
+	T8F8SXhOlcRJ8uwsZl+VSLO/83V29S+H5cxd22uwmWqcnByHjsTkYZd2ig+dkfEgp6o=
+X-Received: by 2002:a05:701b:4588:10b0:164:4e36:f956 with SMTP id a92af1059eb24-1b25d3154a0mr121510c88.16.1793910066119;
+        Thu, 05 Nov 2026 12:21:06 -0800 (PST)
+Received: from localhost ([2a00:79e0:2e7c:8:bb6d:e00d:d359:7933])
+        by smtp.gmail.com with UTF8SMTPSA id a92af1059eb24-1b245c2d69asm17800921c88.11.2026.11.05.12.21.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Nov 2026 12:21:05 -0800 (PST)
+Date: Thu, 5 Nov 2026 12:21:03 -0800
+From: Brian Norris <briannorris@chromium.org>
+To: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Cc: Fabrice Gasnier <fabrice.gasnier@st.com>, linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Ulf Hansson <ulfh@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org,
+	Andy Shevchenko <andy@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Subject: Re: [PATCH v2 3/5] PM: runtime: Propagate last_busy from dependent
+ to dependency
+Message-ID: <auzlLwlleGLPsLcw@google.com>
+References: <20261103221717.3840215-1-briannorris@chromium.org>
+ <20261103141442.v2.3.I40c0bc917fa0b13111251844e9a54feb1d9cd7d2@changeid>
+ <CAJZ5v0jWCz0XDgzeETbmMfGOmvh2G9qcx7xLODrpQ9NiwsddKA@mail.gmail.com>
+ <auuICAm4BC_8Pzs5@google.com>
+ <CAJZ5v0jTX1FgeS9FCV=+V4uacSgLQBVsSPnU27ybgUGg57GUOA@mail.gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Date: Thu,  5 Nov 2026 20:19:45 +0000 (UTC)
+In-Reply-To: <CAJZ5v0jTX1FgeS9FCV=+V4uacSgLQBVsSPnU27ybgUGg57GUOA@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261105_122112_863970_A65F7768 
+X-CRM114-Status: GOOD (  74.18  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,115 +110,539 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, syzbot@lists.linux.dev, ruanjinjie@huawei.com, linux-kernel@vger.kernel.org, vladimir.murzin@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Uladzislau Zhauniarovich <uladzislau.zhauniarovich@gmail.com>
+Hi Rafael,
 
-Commit 19235e472798 ("cpuidle, arm64: Fix the ARM64 cpuidle logic") moved
-the calls to ct_cpuidle_enter() and ct_cpuidle_exit() into cpu_suspend() so
-that arm64 cpuidle could keep RCU watching longer and manage context
-tracking internally. However, cpu_suspend() is called not only by cpuidle
-via psci_cpu_suspend_enter() (which runs in the context of the idle task),
-but also during system suspend via psci_system_suspend_enter() (which runs
-in the context of the task initiating suspend, such as a process writing to
-/sys/power/state).
+On Thu, Nov 05, 2026 at 12:59:24PM +0100, Rafael J. Wysocki (Intel) wrote:
+> On Wed, Nov 4, 2026 at 8:31 PM Brian Norris <briannorris@chromium.org> wrote:
+> >
+> > On Wed, Nov 04, 2026 at 02:34:22PM +0100, Rafael J. Wysocki (Intel) wrote:
+> > > I should have responded to the v1 of this, but didn't manage to get to
+> > > it.  Sorry about that.
+> >
+> > Hehe, well that's what v2 is for :)
+> >
+> > Thanks for looking.
+> >
+> > > On Tue, Nov 3, 2026 at 11:23 PM Brian Norris <briannorris@chromium.org> wrote:
+> > > >
+> > > > When a child device suspends, it does not update the last_busy timestamp
+> > > > for its parent. If that parent configured autosuspend and didn't
+> > > > otherwise maintain its last_busy timestamp, it may now be immediately
+> > > > eligible to suspend. This is probably not expected -- the parent should
+> > > > wait for its autosuspend delay before suspending.
+> > >
+> > > Let's first talk about what autosuspend is for: My understanding is
+> > > that it is there to avoid incurring the runtime PM suspend and resume
+> > > latency (and cost in terms of energy) in the cases when the device is
+> > > known or at least is expected to be needed in the near future.  IOW,
+> > > we want to defer the runtime suspend of the device because if it
+> > > suspended, it would be resumed shortly thereafter.
+> > >
+> > > I'm not sure if that is always the case when a dependent device
+> > > suspends and its reference to the parent/supplier is dropped.
+> >
+> > To be clear: dropping a reference is not the point at which we extend
+> > the timer -- it's simply the point at which we propagate the last_busy
+> > timestamp.
+> >
+> > The naive algorithm is:
+> > Every time a device updates its last_busy, sync that timestamp to all
+> > its dependencies.
+> >
+> > My proposal modifies that naive algorithm so that it avoids additional
+> > graph walks -- it defers that "sync" step until later. (Now that I'm
+> > spelling this out, I feel like I should have included this in the commit
+> > message...)
+> 
+> OK, thanks for explaining!
+> 
+> You seem to be arguing that the current behavior is counter-intuitive
+> because people would generally expect the parent's (or supplier's)
+> last_busy to be automatically advanced to the last "busy" time of its
+> last active child (or consumer).
 
-When entering system suspend, current is a non-idle task. Calling
-ct_cpuidle_enter() invokes ct_kernel_exit() from kernel space (!user) on a
-non-idle task. With CONFIG_RCU_EQS_DEBUG enabled, this violates context
-tracking invariants and triggers a warning:
+More or less. Or, I don't see why "child was recently busy and may be
+busy again soon" should not translate to "everything the child uses
+might be needed again soon".
 
-WARNING: kernel/context_tracking.c:120 at ct_kernel_exit+0x1b4/0x1f4
-kernel/context_tracking.c:118
-Call trace:
- ct_kernel_exit+0x1b4/0x1f4 kernel/context_tracking.c:118
- ct_idle_enter+0x20/0x34 kernel/context_tracking.c:299
- ct_cpuidle_enter include/linux/cpuidle.h:134 [inline]
- cpu_suspend+0x264/0x474 arch/arm64/kernel/suspend.c:136
- psci_system_suspend_enter+0x4c/0x80 drivers/firmware/psci/psci.c:544
- suspend_enter kernel/power/suspend.c:468 [inline]
- suspend_devices_and_enter+0x88c/0xd0c kernel/power/suspend.c:533
- enter_state kernel/power/suspend.c:618 [inline]
- pm_suspend+0x498/0x698 kernel/power/suspend.c:644
- state_store+0x14c/0x1fc kernel/power/main.c:819
- kobj_attr_store+0x6c/0x90 lib/kobject.c:842
- sysfs_kf_write+0xe0/0x108 fs/sysfs/file.c:145
- kernfs_fop_write_iter+0x260/0x3b8 fs/kernfs/file.c:345
- vfs_write+0x51c/0xa0c fs/read_write.c:687
- ksys_write+0x12c/0x228 fs/read_write.c:739
+> That is a bit far-fetched IMV because the child's last "busy" time
+> need not be the same as the parent's last "busy" time, at least in
+> principle (of course, that is debatable, but that debate can be had
+> later).
 
-A corresponding warning is subsequently triggered in ct_kernel_enter() via
-ct_cpuidle_exit() upon resume.
+I don't get this -- I'm very much asking for that debate right now,
+because so far, I disagree :)
 
-Fix this by checking is_idle_task(current) in cpu_suspend() and only
-invoking ct_cpuidle_enter() and ct_cpuidle_exit() when executing in the
-context of an idle task.
+> Still, the underlying observation seems to be that if the child
+> suspends and then resumes relatively shortly, it may not make sense to
+> suspend and resume the parent in the meantime, which is fair enough.
+> Of course, advancing the parent's last_busy will only help here if its
+> autosuspend delay is long enough though.
 
-Fixes: 19235e472798 ("cpuidle, arm64: Fix the ARM64 cpuidle logic")
-Assisted-by: Gemini:gemini-3.8-flash Gemini:gemini-3.1-pro-preview syzbot
-Reported-by: syzbot+79883955da3a62652a80@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=79883955da3a62652a80
-Link: https://syzkaller.appspot.com/ai_job?id=5359e16f-013b-4850-9cbc-ddfb3bac95e5
-Signed-off-by: Uladzislau Zhauniarovich <uladzislau.zhauniarovich@gmail.com>
+Right. But that's the whole point of this argument -- if all autosuspend
+delays were the same, this wouldn't really matter. But the presumption
+is that the parent wants delay because it's more costly -- it will be
+imposing extra wakeup cost for its children if it's not accounted
+properly.
 
----
-diff --git a/arch/arm64/kernel/suspend.c b/arch/arm64/kernel/suspend.c
-index c41724a40..cde0b8c19 100644
---- a/arch/arm64/kernel/suspend.c
-+++ b/arch/arm64/kernel/suspend.c
-@@ -5,6 +5,7 @@
- #include <linux/uaccess.h>
- #include <linux/pgtable.h>
- #include <linux/cpuidle.h>
-+#include <linux/sched.h>
- #include <asm/alternative.h>
- #include <asm/cacheflush.h>
- #include <asm/cpufeature.h>
-@@ -99,6 +100,7 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
- 	int ret = 0;
- 	unsigned long flags;
- 	struct sleep_stack_data state;
-+	bool idle = is_idle_task(current);
+> So you can argue that if the parent's autosuspend delay is long
+> enough, then it should prevent the parent from suspending across
+> relatively short periods of child suspension.  Again, this is fair
+> enough, so why does it not happen at times?
+> 
+> It certainly does happen when the parent actually has to resume
+> because rpm_resume() calls pm_runtime_mark_last_busy() for it then and
+> (given a sufficiently long autosuspend delay) it will stay active if
+> the child resumes a short enough time after suspending.  However, when
+> the child resumes, the parent is still active, so rpm_resume()
+> triggered by the child does not advance its last_busy timestamp, so at
+> one point in the future it will suspend when the child suspends.
+> 
+> This arguably is inconsistent, so my approach to addressing the
+> problem at hand would be the attached patch (sorry for the attachment,
+> but GMail is generally not good at handling appended patches).  If I'm
+> not mistaken, it should be sufficient to address the particular issue
+> that triggered commit c537d3457542.
+
+It's only sufficient if the child is not active for "too long". Suppose
+the child stays active for 2s and then suspends briefly; your solution
+does not work.
+
+In commit c537d3457542, I imagine the 0.2s polling example is just an
+example; what if that period was 0.1s, with some natural variance up or
+down? Then I could easily see how the child remains active for longer
+than 2s, and then occasionally is inactive for longer than 0.1s,
+allowing both the child and parent to autosuspend.
+
+Or in concrete terms: see the appended test diff, which attempts to
+emulate:
+
+ - 200 cycles of child get/put
+ - delay in between each put -> get cycle
+ - delay of approximately 100ms, with a configurable +/- variation
+ - apply the shorter variation (e.g., 90ms) most of the time, with a
+   longer variation approximately every 2s
+
+So for example, that looks something like:
+
+ cycle 0 to 22:   delay 90ms
+ cycle 23:        delay 110ms
+ cycle 24 to 46:  delay 90ms
+ ...
+
+With your patch:
+
+   0ms variation == PASS (child suspends 200 times, parent suspends 0 times)
+  10ms variation == FAIL (child suspends 21 times, parent suspends 4 times)
+  20ms variation == FAIL (child suspends 7 times, parent suspends 7 times)
+  30ms variation == FAIL (child suspends 6 times, parent suspends 6 times)
+  40ms variation == FAIL (child suspends 5 times, parent suspends 5 times)
+  50ms variation == FAIL (child suspends 4 times, parent suspends 4 times)
+  60ms variation == FAIL (child suspends 3 times, parent suspends 3 times)
+  70ms variation == FAIL (child suspends 2 times, parent suspends 2 times)
+  80ms variation == FAIL (child suspends 1 time, parent suspends 1 time)
+  90ms variation == PASS (test didn't run long enough to fail)
+
+With my patch, all cases pass. (The child suspends in the same pattern,
+but the parent does not suspend in between.)
+
+For comparison, with neither patch:
+
+   0ms variation == FAIL (child suspends 200 times, parent suspends 10 times)
+  10ms variation == FAIL (child suspends 14 times, parent suspends 8 times)
+  20ms variation == FAIL (child suspends 7 times, parent suspends 7 times)
+  30ms variation == FAIL (child suspends 6 times, parent suspends 6 times)
+  40ms variation == FAIL (child suspends 5 times, parent suspends 5 times)
+  50ms variation == FAIL (child suspends 4 times, parent suspends 4 times)
+  60ms variation == FAIL (child suspends 3 times, parent suspends 3 times)
+  70ms variation == FAIL (child suspends 2 times, parent suspends 2 times)
+  80ms variation == FAIL (child suspends 1 time, parent suspends 1 time)
+  90ms variation == PASS (test didn't run long enough to fail)
+
+So, your patch makes an improvement, but it doesn't handle this kind of
+variation very well.
  
- 	/*
- 	 * Some portions of CPU state (e.g. PSTATE.{PAN,DIT}) are initialized
-@@ -133,7 +135,8 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
- 	 */
- 	pause_graph_tracing();
- 
--	ct_cpuidle_enter();
-+	if (idle)
-+		ct_cpuidle_enter();
- 
- 	if (__cpu_suspend_enter(&state)) {
- 		/* Call the suspend finisher */
-@@ -149,9 +152,11 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
- 		if (!ret)
- 			ret = -EOPNOTSUPP;
- 
--		ct_cpuidle_exit();
-+		if (idle)
-+			ct_cpuidle_exit();
- 	} else {
--		ct_cpuidle_exit();
-+		if (idle)
-+			ct_cpuidle_exit();
- 		__cpu_suspend_exit();
- 	}
- 
+> Note that I'm not worried about the potential raciness of this new
+> last_busy update with other possible concurrent updates of last_busy
+> because they all use approximations of the current time and if they
+> are close enough to each other, it should not matter who wins the
+> race.
 
+Ack, that's one advantage in your style of solution, because you're only
+handling timestamps "in the moment."
 
-base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
--- 
-See https://goo.gle/syzbot-ai-patches for information about AI-generated patches.
-The person who has signed off on the patch is responsible for
-addressing comments.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
+> > With that said:
+> >
+> > > The core calls pm_runtime_mark_last_busy() for resuming devices under
+> > > the assumption that they are resumed for a reason and so it is likely
+> > > that they will be needed in near future, but I'm not sure if that
+> > > assumption can be extended to a child suspend case.
+> >
+> > But that's not what I'm doing: I'm not calling mark_last_busy() -- I'm
+> > just making mark_last_busy() transitive to all dependencies. So any time
+> > we *already* say the child is busy, I also extend that to the parent --
+> > I'm not generating any new timestamps; I only reuse the timestamps we
+> > already selected.
+> >
+> > My view on the logic (using your terms above): when a child calls
+> > mark_last_busy(), it suggests that child might be needed in the near
+> > future. Whenever a child device is needed, so is its parent (barring
+> > ignore_children). Thus, mark_last_busy() should also refresh the
+> > parent's busy timestamp.
+> 
+> Of course, it can be argued this way though there are
+> counter-arguments (probably not worth discussing in detail at this
+> point) and there is the question how much of a difference this would
+> make after addressing the rpm_resume() inconsistency mentioned above
+> (which IMV needs to be address regardless because it is not limited to
+> the parent-child or supplier-consumer situations).
+
+I would love to hear your counterarguments. I don't believe your
+solution solves the problem, and my solution does while also handling
+the inconsistency you mention.
+
+> > Importantly (in the same topic Jonathan was already asking about): this
+> > does *not* mean the parent gets a whole new autosuspend delay period --
+> > but it *does* mean that if the parent has a longer delay period
+> > (presumably because it has a more expensive/slow suspend/resume latency)
+> > it waits a bit longer (in case the child wakes back up, for one) to
+> > autosuspend.
+> >
+> > In concrete terms of commit c537d3457542 ("iio: adc: stm32-adc: fix
+> > runtime autosuspend delay when slow polling"):
+> >
+> >  * child device has 100ms delay
+> >  * parent devices has 2s delay
+> >
+> > SEQUENCE:
+> >  1) child is active for longer than 2 seconds
+> >  2) [timestamp N] child finishes I/O, drops reference with put_autosuspend()
+> >  3) [N + 100ms] child suspends
+> >
+> > CURRENT BEHVIOR:
+> >  4) [N + 100ms] parent suspends immediately after #3
+> >
+> > PROPOSAL:
+> >  4) [N + 2s] parent suspends (if there was no other last_busy update)
+> >
+> > The only last_busy timestamp is N; we just use it in more places,
+> > because the parent was, in fact, busy at timestamp N.
+> >
+> > > One might argue
+> > > though that extending it to the child/consumer resume case would make
+> > > sense.
+> > >
+> > > > The effect of this behavior is that a parent device may suspend sooner
+> > > > than its autosuspend delay, simply because its usage was accounted by
+> > > > its children, and not by direct references to the parent device.
+> > >
+> > > The distinction between "direct references to the parent device" and
+> > > "usage accounted for by its children" is not clear to me TBH.
+> >
+> > "Direct reference" is to mean "pm_runtime_put_autosuspend()" or anything
+> > similar that updates last_busy. We expect that when the device in
+> > question is the target object for I/O or whatever is keeping the device
+> > busy.
+> >
+> > But if the I/O is performed by a child, then it's no longer "direct
+> > reference" -- it's "usage accounted by its children".
+> >
+> > > There are references to the parent device in both cases and it is not
+> > > like drivers can always expect all runtime PM references to come from
+> > > specific code paths updating last_busy.  There is at least one
+> > > reference controlled by user space (the "control" attribute in sysfs)
+> > > and dropping it may also cause the device to suspend immediately if
+> > > last_busy has not been updated recently.  How is this situation
+> > > different from the one related to child/consumer suspend?
+> >
+> > I think I've improperly directed you to focus on the "reference" part,
+> > which IMO is a bit of a distraction. The point is: when was the device
+> > "busy" (or "last used")? The 'control' attribute does not represent
+> > "last used"; it just represents some unrelated policy to prevent
+> > suspension.
+> 
+> Or not, depending on why user space flips the "control" attribute
+> which is not known to the kernel.
+> 
+> > > > This was noticed in several cases, and some have implemented
+> > > > workarounds, such as in commit c537d3457542 ("iio: adc: stm32-adc: fix
+> > > > runtime autosuspend delay when slow polling"). At the same time, Ulf
+> > > > suggested these problems "should be solved in the runtime PM core" [1].
+> > >
+> > > So I need to be explained how commit 9bdbb1139ca1 ("iio: adc:
+> > > stm32-adc: add power management support") works because ATM I don't
+> > > seem to understand it.  It looks to me like the .runtime_idle()
+> > > callback updates last_busy for the device for which it is called, not
+> > > for its parent.
+> >
+> > Note: stm32-adc-core (drivers/iio/adc/stm32-adc-core.c) is the parent.
+> > stm32-adc (drivers/iio/adc/stm32-adc.c) is the child.
+> 
+> It would really have helped if that had been described properly in the
+> changelog of commit c537d3457542.  Oh well.
+> 
+> > When the child suspends, the parent checks .runtime_idle(). This updates
+> > last_busy but still falls through to autosuspend -- that means we get a
+> > slightly suboptimal sequence like the following:
+> >
+> >  1) child is active for longer than 2 seconds
+> >  2) [timestamp N] child finishes I/O, drops reference with put_autosuspend()
+> >  3) [N + 100ms] child suspends
+> >  4) parent runtime_idle() updates last_busy to [P = approx N + 100ms]
+> >  5) [P + 2s] parent suspends
+> >
+> > Step 5 happens approximately 100ms later than it really should, but it's
+> > good enough.
+> >
+> > NB: I think this is also why greybus (gb_bundle_idle(),
+> > gb_interface_runtime_idle(), etc.) and USB (usb_runtime_idle(),
+> > dwc3_runtime_idle()) look the way they do, with a built-in
+> > mark_last_busy() in runtime_idle().
+> 
+> So I'm wondering how much of this will still be needed with the
+> attached patch applied.
+> 
+> > I also think that some other areas could use some logic like this. For
+> > example, drivers/pci/pcie/portdrv.c has a 100ms autosuspend delay so
+> > that lspci doesn't cause repeated suspend/resume. But suppose config
+> > access for a child of a port are slow ... then the port still might
+> > suspend immediately, between config accesses. (Never mind that
+> > pci_config_pm_runtime_put() doesn't update last_busy...)
+> 
+> But at the point when the first config space access takes place, it is
+> unclear that the next one will happen, which is part of the problem
+> here: The child resume needs to be expected to happen shortly for all
+> of this to make sense.
+
+I don't understand this argument. Sure, "it is unclear" ... but that's
+still the whole point of mark_last_busy() -- the autosuspend algorithm
+suggests, "if we recently used the device, we might use it again soon."
+Yes, that's not guaranteed ("might"), but it's still the whole design,
+because predicting the future is hard, and getting the answer wrong
+occasionally (small additional suspend delay) is not too expensive.
+
+If we didn't want to make predictions based on last-use (but instead
+only "last resume"), pm_runtime_mark_last_busy() would largely be an
+internal detail within the runtime PM core; and it should most certainly
+not be baked into pm_runtime_put_autosuspend() and similar.
+
+Or, why did you apply commit b3db492e8335 ("PM: runtime: Mark last busy
+stamp in pm_runtime_put_autosuspend()")? Or why (prior to that commit)
+did the documentation say "Drivers should call
+pm_runtime_mark_last_busy() to update this field after carrying out
+I/O"?
+
+And why, with all that, does PCI config access need to differ from that
+advice? To me, it seems like an accident, and not intention.
+
+> ---
+>  drivers/base/power/runtime.c |    6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> --- a/drivers/base/power/runtime.c
+> +++ b/drivers/base/power/runtime.c
+> @@ -819,6 +819,12 @@ static int rpm_resume(struct device *dev
+>  		pm_runtime_deactivate_timer(dev);
+>  
+>  	if (dev->power.runtime_status == RPM_ACTIVE) {
+> +		/*
+> +		 * An attempt to resume the device means that it is needed for
+> +		 * something, so update its last_busy timestamp in analogy with
+> +		 * the case in which it actually resumes below.
+> +		 */
+> +		pm_runtime_mark_last_busy(dev);
+>  		retval = 1;
+>  		goto out;
+>  	}
+
+Brian
+
+Test patch follows. Example use:
+
+  ## get()/put the child 200 times, with varied delay in between:
+  ##   100ms +/- 0ms
+  ##   100ms +/- 10m
+  ##   ...
+  ## We purposely use the shorter delay most of the time, with the
+  ## longer variation occurring approximately every 2000ms
+  ##
+  ## This test usually produces excess parent-suspend with Rafael's
+  ## patch.
+
+  $ for i in $(seq 0 10 90); do
+    tools/testing/kunit/kunit.py run \
+      --kconfig_add CONFIG_PM=y \
+      pm_runtime_test_cases.pm_runtime_parent_periodic_use_test \
+      --kernel_args runtime-test.period_variation=$i; \
+    done
+
+diff --git a/drivers/base/power/runtime-test.c b/drivers/base/power/runtime-test.c
+index 685a3504cd7b..12b8eb1d10c9 100644
+--- a/drivers/base/power/runtime-test.c
++++ b/drivers/base/power/runtime-test.c
+@@ -5,10 +5,12 @@
+ 
+ #include <linux/cleanup.h>
+ #include <linux/delay.h>
++#include <linux/moduleparam.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/workqueue.h>
+ #include <kunit/device.h>
+ #include <kunit/test.h>
++#include <kunit/test-bug.h>
+ 
+ #define DEVICE_NAME "pm_runtime_test_device"
+ 
+@@ -386,6 +388,127 @@ static void pm_runtime_supplier_last_used_test(struct kunit *test)
+ 	KUNIT_EXPECT_GT(test, expiry2, expiry1);
+ }
+ 
++struct pm_runtime_test_data {
++	struct device_driver *driver;
++};
++
++struct pm_runtime_device_data {
++	int suspend_count;
++};
++
++static int test_runtime_suspend(struct device *dev)
++{
++	struct pm_runtime_device_data *data = dev_get_drvdata(dev);
++
++	data->suspend_count++;
++
++	return 0;
++}
++
++static DEFINE_RUNTIME_DEV_PM_OPS(test_ops, test_runtime_suspend, NULL, NULL);
++
++static int test_runtime_probe(struct device *dev)
++{
++	struct kunit *test = kunit_get_current_test();
++	struct pm_runtime_device_data *data;
++
++	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, data);
++
++	dev_set_drvdata(dev, data);
++
++	return 0;
++}
++
++static int pm_runtime_test_init(struct kunit *test)
++{
++	struct pm_runtime_test_data *priv;
++
++	priv = kunit_kzalloc(test, sizeof(*priv), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, priv);
++
++	priv->driver = kunit_driver_create(test, "pm_runtime_test_driver");
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, priv->driver);
++
++	priv->driver->pm = &test_ops;
++	priv->driver->probe = &test_runtime_probe;
++	test->priv = priv;
++
++	return 0;
++}
++
++static void pm_runtime_test_exit(struct kunit *test)
++{
++	struct pm_runtime_test_data *priv = test->priv;
++
++	priv->driver->pm = NULL;
++}
++
++/* Default: delay 100ms, variation +-50ms */
++static const unsigned int child_delay = 100;
++static unsigned int period_variation = 50;
++module_param(period_variation, uint, 0444);
++
++static void pm_runtime_parent_periodic_use_test(struct kunit *test)
++{
++	struct device *parent, *dev;
++	struct pm_runtime_test_data *priv = test->priv;
++	struct pm_runtime_device_data *parent_data, *child_data;
++
++	parent = kunit_device_register_with_driver(test, DEVICE_NAME "_parent", priv->driver);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, parent);
++
++	parent_data = dev_get_drvdata(parent);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, parent_data);
++
++	dev = kunit_device_register(test, DEVICE_NAME);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, dev);
++
++	child_data = dev_get_drvdata(dev);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, child_data);
++
++	KUNIT_ASSERT_EQ(test, 0, device_move(dev, parent, DPM_ORDER_NONE));
++
++	pm_runtime_set_active(parent);
++	pm_runtime_set_active(dev);
++	pm_runtime_use_autosuspend(parent);
++	pm_runtime_use_autosuspend(dev);
++
++	pm_runtime_set_autosuspend_delay(dev, child_delay); /* default 100 */
++	pm_runtime_set_autosuspend_delay(parent, 2000);
++
++	KUNIT_ASSERT_GT(test, child_delay, period_variation);
++
++	pm_runtime_enable(parent);
++	pm_runtime_enable(dev);
++
++	/* Aim for 1 variation every 2000ms */
++	const unsigned int variation_interval = 2000 / (child_delay - period_variation) + 1;
++
++	for (int i = 0; i < 200; i++) {
++		KUNIT_EXPECT_EQ(test, 0, pm_runtime_resume_and_get(dev));
++
++		/* do some I/O */
++
++		pm_runtime_put_autosuspend(dev);
++
++		if ((i + 1) % variation_interval == 0)
++			msleep(child_delay + period_variation);
++		else
++			msleep(child_delay - period_variation);
++
++		flush_workqueue(pm_wq);
++	}
++
++	pm_runtime_disable(dev);
++	pm_runtime_disable(parent);
++
++	KUNIT_EXPECT_EQ(test, 0, parent_data->suspend_count);
++	kunit_info(test, "Test params: delay %u +/- %u; variation interval %u\n", child_delay, period_variation, variation_interval);
++	kunit_info(test, "Parent suspend executions: %d\n", parent_data->suspend_count);
++	kunit_info(test, "Child suspend executions: %d\n", child_data->suspend_count);
++}
++
+ static struct kunit_case pm_runtime_test_cases[] = {
+ 	KUNIT_CASE(pm_runtime_depth_test),
+ 	KUNIT_CASE(pm_runtime_already_suspended_test),
+@@ -396,12 +519,15 @@ static struct kunit_case pm_runtime_test_cases[] = {
+ 	KUNIT_CASE(pm_runtime_supplier_suspend_test),
+ 	KUNIT_CASE(pm_runtime_parent_last_used_test),
+ 	KUNIT_CASE(pm_runtime_supplier_last_used_test),
++	KUNIT_CASE_SLOW(pm_runtime_parent_periodic_use_test),
+ 	{}
+ };
+ 
+ static struct kunit_suite pm_runtime_test_suite = {
+ 	.name = "pm_runtime_test_cases",
+ 	.test_cases = pm_runtime_test_cases,
++	.init = pm_runtime_test_init,
++	.exit = pm_runtime_test_exit,
+ };
+ 
+ kunit_test_suite(pm_runtime_test_suite);
 
