@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22E66606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 13:59:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F5E4606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:00:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=O99hJvaJ;
-	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=IWeHFbpu
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3zxz5Zdi;
+	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=pImwK7ff
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,68 +14,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=XP2sPyfb4drUGyU1lXjbZR0XesYSs81x4qP77e4f+vA=; b=O99hJvaJ2/LU80qqQFY46P56Gl
-	w8oYH/5gzfrgrMtiQxorECbbYYFG9jV14mUL63JmH4oPGpC4g+UWF7Vy+odfx+rQb9JqBGaSufxPW
-	0FDewxYe5U06jnAFMs9iSMQCyqxNfAs0SvEjUReu5O7AZTQ2dax2Az9Ot4dYSYEB01IZJSL4LcACO
-	4bDMPSc9YwbLsB89PQEI/T0RTKYLwKLDnCd/MRvTVFm2LFSo13UDB7oqhUyQcs8lrnMtlWm4GmwWZ
-	Qsps1N7AOE75x9iHwpi8YRkOrWG2aQ/GsNZef8ZmnEIYehmSeoEY0+v5GEu7QAf63PFGgEzM4YDPH
-	IwDqzy6w==;
+	bh=0bb3vYa61fFM02QV8RwA3NSPnIkcy66WcHx7ncn336Y=; b=3zxz5ZditFlOQFkdsEKGWQtclX
+	RRRgQO88URMmT7UnN0rDsyfZP+djgkfOvdYDlKrqezACN7Nlu1dIMsr0eubcSPZnia7YhmO1mqpuf
+	wXvhU5oboNkaJ9uxsYdMAaTVm+Pk9SPU16SSn9FW407CwIa3OO0woJJUmnbgWnPOpFSMNF2JqQCFB
+	bqHanOLEIDUWuunbaxoOJGMBDqt7pXzHk3KnnSSzvCHofLAJdWzyIJ3GVFpkXiqklUOc63CbpY6B/
+	O7iVUQwl1jadzEKsgWG5tS5vuT+LaffWgvbN/32U6/GGxfGwKLRwzSUAZ9npIa1rCKAE8LVhlF5ag
+	W+ffIEig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxzT-00000009Cfl-3O8H;
-	Thu, 05 Nov 2026 13:58:55 +0000
+	id 1xOy0U-00000009CnR-0ARO;
+	Thu, 05 Nov 2026 13:59:58 +0000
 Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxzP-00000009CfH-26gv
+	id 1xOy0S-00000009Cmz-0q5Q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 13:58:54 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4a214af2076so13828295e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 05:58:51 -0800 (PST)
+	Thu, 05 Nov 2026 13:59:57 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4a2d6cf958bso9237855e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 05:59:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1793887129; x=1794491929; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1793887194; x=1794491994; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=XP2sPyfb4drUGyU1lXjbZR0XesYSs81x4qP77e4f+vA=;
-        b=IWeHFbpuVLCgLkQHj+M17u2Tr4HzU/jvIqljsjiNcLWiYB5p8YschYUHLWlNXWnF0q
-         7gvZXO6+AvRAJdMC8OqHlOUX30TI+q3Oh8789F3wU2/kIirVkJrkRpGG87hHTbiMDvmN
-         b6iFk/iJmwO7+G39/pqaJ8RMWTo7CHf3SynpYtCXWVHzaD2BFDFQfnTFfzCKfHOw/6LI
-         mLa2yI2C6wmjEygVKyOJv11tn9AqAbD7XUvp+rVliEdcT8A372CO71UCFTGStWYRDlhj
-         sjAYNAXyf+Ync/qrbXM78RC5Z89BhMysYxG2XBYcRaSrMdaKMrIBPgg1o1XhnnOv21fK
-         v52A==
+        bh=0bb3vYa61fFM02QV8RwA3NSPnIkcy66WcHx7ncn336Y=;
+        b=pImwK7ffXScK9rsyZ9xLFuwZWDu0jiuCA7o/iyCwQaXv8j1XmmtItT2cq64E0qPFpV
+         w88lpKg+AYa/XkzfSn6bGbZluDOC5OgCdmFUXDV21riUgbSql+mp8XYQZZ3SlTqvZacO
+         DsBiXNm5xdczcXrqWMlOr4e+tKF8YVl91N403ssTK8tQbXH5J2K+Ohy4+qMITL7jV/K5
+         osq2hKHv8zFhnhUrH+3ZM6IUcCrh4NsAVpZeaUmKxnQFWFF4m7mQMhogbj9eZB4gZoDT
+         ykac4EpnZbSxvvr2edfTQdkCKdfQLmEhi6EBXKbXVywSCSBb77nqFW2YI3iEX9bsqgmS
+         l51g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793887129; x=1794491929;
+        d=1e100.net; s=20260707; t=1793887194; x=1794491994;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=XP2sPyfb4drUGyU1lXjbZR0XesYSs81x4qP77e4f+vA=;
-        b=KLmPqq9oDLzgsCLbEDIz6zMksuazCHtN/AR/gVpfIoosOLcnfd67mJJGClo4kO6nkF
-         JdV5DWhP4ruGMKhx2TfrRPbR00w3oXWsdf+xbxT1TH0dUFufH0nvX6chbR9pcSXmzSsy
-         lhp3wBiUpa+F2Vs645trXMmtFy0Xh9UCSAs9fTl8QiS7q5E69SByJUQ8UsOxGUW9R0zS
-         XticdlTiUZTVJpkamysr7LvLENFiWbqSrC/g24++JQH7m9rDjKNlkmw148JbqW5+4XfB
-         kIUJYsdWTPSs+DYezqI+vTGtseh+ZXczDAElx+GNyuARhP8y90/ORsy3ojIn5iJxvgwG
-         plpg==
-X-Forwarded-Encrypted: i=1; AKwUvBzuq7QkGwfLORmUmsOy0HbGrXMU63ah+U8rVVxRNkO2c94+TKRm63IphOnDRURpWV2jwGE5MRKM5T+qjjXrky8D@lists.infradead.org
-X-Gm-Message-State: APuU4Z+9Rk+wyOFFeQTi8GX/RO/Y9PVpcuxvOE+x7twqmaIRA70JVhyp
-	AKNcsfizItBs+t9ZuYv5nWpkGXzzpwtir7+7xX/psupCO1OFhVqQAfnjElWeFSsQdhy2KzYJffC
-	PEJbKrFY=
-X-Gm-Gg: AYBFou2fuOpDwj/y3NPcj0ULQ9AmEZbvvK2FWC6GvD6c77pIfZX+gPdw7qXBEnfU3Em
-	dOP+5jwGv9guvxxquBO6/qePG9VtWCP7o1ipGEdq+5T89ztL/QbPD8vqN8mdqELoGQNsgtvuSwN
-	Z3PeA0SAkGo2PX/LZg0NQ+/vfKrafYH5U+FYz0284XDMCzOESJdwP4kF6dHKnuhEhLpKDb/A7No
-	TWmJTiNIo6py5UGtJd3Jp5EwdkM14fOnEaI7/PyqP+HG2eOxs8GPoefi6joLJ8PjexAtm5POptT
-	e/Jm1uG6lZKHZ+lgiPjwWtoG3GSSC5AxPxlSE1LjaqEuk2YaUN7YJluBT/HMtLki1mlXbYW+g5o
-	vmgI7WuYZ1abPkOz0UvviRaFBhx+cjbKTiGTxh4Zs1w5K1PkeERFjrq/wCdJqXElnextxN1AMY/
-	Y/GtF7csylihTKRcWUqD6KI+Y2W4kbyRn52MNhWr3UQOiBFzkTCWf2geDF6I82LYrpMSK1om++4
-	zUllyH2j7otzOVEf4zzM68lvuFgYEGZcirHzAwdfSslwHrPLSEHcstnhqE6rF07dqpgTiRWspOT
-	NECCnd5q21ceylaonpwqgxxLts2D
-X-Received: by 2002:a05:600c:6095:b0:49e:7c8c:361d with SMTP id 5b1f17b1804b1-4ac182dc30fmr375702725e9.22.1793887129505;
-        Thu, 05 Nov 2026 05:58:49 -0800 (PST)
-Received: from localhost ([194.213.108.8])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4b56ba6bc36sm75097435e9.0.2026.11.05.05.58.47
+        bh=0bb3vYa61fFM02QV8RwA3NSPnIkcy66WcHx7ncn336Y=;
+        b=FXNxUXmK5sA0kpRl9cxdpGs8WQwngsEiaXZMeDP7TnLyhhzUONsUgoNoOeB8avheLs
+         swbct3up7KiO1+TkaePRgc+4JE60zaEw8eDmRhbWutV+Zq+1dK2me5wtWeh9rgwpRssw
+         FwoSDUGrhBone1tq27Hatn7SZr4wuy1BibvWbDGD00nPH2A3Uv/0Iippe43oNMlDdjuB
+         w8qKrGC7dPRKALOD0F4bJitcjZc4rqzALQUZsqbeMLVnmVhhIPYVYM7jkjgKCDEvmu2t
+         23CuJJRnxnTU2gh/8LOhOrRX/XTzbhFzTIRq3xMVss2dmSEh54Nd85fIEWA/qxgbjyq6
+         zt8w==
+X-Forwarded-Encrypted: i=1; AKwUvBxP5KABlUBkcTjQ/PBBo9It+tyEot2N8M91Be9zNy1qgmVst3rx3aI4ubdor9xBp736IrEXQM0i8VJRQP5SRtsR@lists.infradead.org
+X-Gm-Message-State: APuU4Z/btpNHv0NseWyIY+VtT7LtdTgjRuHCDzk3zBXXz5kDQ07OdygX
+	5phSgNKtpWtAhY1ODNpw/2ADe0KBL3FWgXHo4H48avN/wTXfaHQnSJTyc14uMxOphZA=
+X-Gm-Gg: AYBFou349buI1NhQ5xerXHg2eZEZPsmpQlqbl1jTqDUceIzOrTbAwr7jpKuPL2HmvLW
+	W2RuD6gyax3DNJJE8C3IdYT2WfA/lsRi1mvMBYeBkka39H9eDvSbwiEG4IFtaHY2UeS39KCRyiW
+	HOikwA3zatcxQbpqW73c27EACpXxxctxK6fyaTKM+Pm/FfjbvW6Wv7U8O3hP024U1Ogu+Boji8d
+	vzG1WUUiDREZU9FEFsLX3m/s1l0B7qqPV3oN+Jx41rqceFT09gVPlCil83++1EOYRyS726nM6fX
+	E3uQmucNSM22bjAACNot/8OkSRGjq1BcpULEdlZ1btNjHMHaEvec4gDyeoVMCOCbnlxfHrVq0Yt
+	ckjxss9kxsYCpOzBfLPK+JRbqX4zgmYsPPaT3nTwXiVqcgHjN/gbuoLfz2+jj/V/0qg6mvRUdDu
+	uEU/I9bKcX1iTsIbWPNUxlK59bRnkgVyCpPdyhf9LH02Kl9bS1nP181BzzA722A556XFeMP19Bn
+	sF3cgQ2ENqOS8xnChl+GGTDdimXW4eW5AnaHpGFyyZnVhhCDvHX0Wvn75q9W4TpevuyoMBSrpvu
+	5dAH6STDpyao0xKbPuwpCMJnhIY=
+X-Received: by 2002:a05:600d:c:b0:4af:83ad:8f70 with SMTP id 5b1f17b1804b1-4af83ad8fa7mr259029715e9.35.1793887194037;
+        Thu, 05 Nov 2026 05:59:54 -0800 (PST)
+Received: from localhost ([194.213.108.9])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4b56e2ae73csm69855805e9.1.2026.11.05.05.59.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 05:58:48 -0800 (PST)
-Date: Thu, 5 Nov 2026 14:58:45 +0100
+        Thu, 05 Nov 2026 05:59:53 -0800 (PST)
+Date: Thu, 5 Nov 2026 14:59:49 +0100
 From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 To: Tim Michals <tcmichals@gmail.com>
 Cc: Jassi Brar <jassisinghbrar@gmail.com>, 
@@ -85,20 +84,20 @@ Cc: Jassi Brar <jassisinghbrar@gmail.com>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
 	linux-sunxi@lists.linux.dev, linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/7] mailbox: sun55i: Add Allwinner A523 message box
- driver
-Message-ID: <auyLOc4djmm29Bnz@monoceros>
+Subject: Re: [PATCH v3 4/7] remoteproc: sunxi: Add Allwinner A523 XuanTie
+ E906 driver
+Message-ID: <auyLnRhPv0jz1roG@monoceros>
 References: <20261101185735.762559-1-tcmichals@gmail.com>
- <20261101185735.762559-3-tcmichals@gmail.com>
+ <20261101185735.762559-5-tcmichals@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6jfoalgweekh6k4p"
+	protocol="application/pgp-signature"; boundary="bvyb3kuhcvop66ue"
 Content-Disposition: inline
-In-Reply-To: <20261101185735.762559-3-tcmichals@gmail.com>
+In-Reply-To: <20261101185735.762559-5-tcmichals@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_055851_564557_80B26427 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20261105_055956_314768_5B1D7575 
+X-CRM114-Status: GOOD (  10.75  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,42 +117,40 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 
---6jfoalgweekh6k4p
+--bvyb3kuhcvop66ue
 Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
-Subject: Re: [PATCH v3 2/7] mailbox: sun55i: Add Allwinner A523 message box
- driver
+Subject: Re: [PATCH v3 4/7] remoteproc: sunxi: Add Allwinner A523 XuanTie
+ E906 driver
 MIME-Version: 1.0
 
-On Sun, Nov 01, 2026 at 12:57:30PM -0600, Tim Michals wrote:
+Hello,
+
+On Sun, Nov 01, 2026 at 12:57:32PM -0600, Tim Michals wrote:
 > +#include <linux/mod_devicetable.h>
 > [...]
 > +#include <linux/platform_device.h>
 
-Please don't include <linux/mod_devicetable.h> as this pulls in a lot of
-unneeded build dependencies.
-
-<linux/platform_device.h> already provides of_device_id which is all you
-seem to use here. If you want full iwyu include <linux/device-id/of.h>
-instead.
+As for patch 2: Please don't use <linux/mod_devicetable.h> and rely on
+<linux/platform_device.h> to provide of_device_id.
 
 Best regards
 Uwe
 
---6jfoalgweekh6k4p
+--bvyb3kuhcvop66ue
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmrsi5EACgkQj4D7WH0S
-/k5vhQf+JI5oqB8wirr4Mfq53+EuIcbqVBMYKSJ4VvYsL5NgmUbk5OmelFsyFXLh
-1cTpKfp/pSXjaY74bSTdw8Wzj26UAD6h5WcL7M+Y0R76ERavh1U/j83g7GfDBxJr
-eHota1nXeLkRvpDqW7tWDBWn66eu0IeVsO8nlokpZTVhmLk/uFlIIITHp+IbJSUS
-oBmB5o0SK31zlNe1wrqwI8jCXjAUPyVcVouZEhNQ5mtIja4FE782+wlnw7agZe69
-vl3MG/TIihE7J63RC8U2iKs7BsfN9oB5xF5H8YMQYZ8/3uAj4eNkgFSjpbU8xXtp
-IDWe63lnv5ShurGsD35Z20wJbKGEKA==
-=hD40
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmrsi9IACgkQj4D7WH0S
+/k5Wggf/YfIQ7WHmvvey+xjJQnqBBC6pD6WMGs1N8zOjBs47xKTlmoiTy704ncA/
+SHYjg0IkCpwOICXXvfiXJZFK8h5M7+y5jrB6VR4gKwnHKcUzaD8baV2tzCTRxFzk
+q7fKaeI3n7fNH1aRrXWMimidD77eQ9VgIocGQaE05rZOFLWYznwN1IejorHjVYp/
+vlaPrjtYabWXJydNPSHUrC4QQNwhhpon6qjxkgmEXkcW4zWORnfjI58d7MJv7jNd
+i46zZKPpVOXafx2kCKmbSiggE5i1cPr6O3e+3Muw64B0kJenSgxjkPD0kzt1TMDL
+MrWyYaGIU8+0pgKPYFIeJQiOoD98Ww==
+=7Net
 -----END PGP SIGNATURE-----
 
---6jfoalgweekh6k4p--
+--bvyb3kuhcvop66ue--
 
