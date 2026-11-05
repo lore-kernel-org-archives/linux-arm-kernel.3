@@ -2,73 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8B62606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:40:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F688606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:41:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=bjDd2h4b;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kpSPsDb0
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0cb+awie;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DtcmsLPf
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=J5gXWu5vrhC9QDJv+VoLu5Rd6y7WbcJ3q2qRfmo4/U4=; b=bjDd2h4bSxOu3e
-	ojLK22MsnbXTv3d77tiIofJrOJOwIjYodIgWSi3NAW6Gn4WOgZGM3OnNvIK0aU55rq+FJbV41loxF
-	y7SGJmjZgjechKeXqG/bVa4VckQG0j4ZY29G7zxPGpw+CX/38nOrOPWtAXxveMvWpuiwNDYKPqbfA
-	ZA8oTrEI+SB/NBkbJkEZhhTnAwTViIwUE22XcnF5WLtQRTzvpTX/xoX3HPQSbRihK2ZTWDfeTCA+l
-	omv4L1EuFb9/zzkOEK1sL12DCiuAOXJ/SCmbU1+KI+YoCyjZIBOcbjKz2NxOBmQhOsFWg/vs3KaTK
-	6J1r4ZEyiiRDB5gkjRqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=EyS1Vaex1qh0ymGPOrjfqXS9hLerdXLqS1mjQFe74nk=; b=0cb+awieJFDy9XVvre7nfkd9jG
+	8O6Mx6EfdzPwO01HBf3THcfxf45k+ABUObSZsNgn4tSIH/GpFpPei5pmeDwkVrJfqFa7Imm+dqfpr
+	os2iJGzbXyRP2zJynmoG0ezaBs+2fG3Qd2k3CsSWcLmvrDzsu4VamTlIRnpXVbh51Gxbm5Lp4SLde
+	VF8AveMUVSGEJVNqEtJ/pAhUFoepbW/2FQcUgKW890mSmKQiNIKA2x4AtIzZ50HzXOdBlVZ9HLl5v
+	K9SiK9Uu5cHqPif4Yq97aO5v/bl3de8mFVRWyodMlW6Et7RTcXNbVe5JG5WMGmP1QJyr5JiFl8jcg
+	KFhR3elQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOt1W-00000008Azt-2nuK;
-	Thu, 05 Nov 2026 08:40:42 +0000
+	id 1xOt1y-00000008B4s-1K7b;
+	Thu, 05 Nov 2026 08:41:11 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOt1V-00000008Azj-07cj
+	id 1xOt1t-00000008B3N-3VsY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 08:40:41 +0000
+	Thu, 05 Nov 2026 08:41:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2101160D91
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 08:40:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFDBF1F00A17
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 08:40:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with UTF8SMTP id 3C2CB601F7;
+	Thu,  5 Nov 2026 08:41:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 693161F000C1;
+	Thu,  5 Nov 2026 08:41:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793868039;
-	bh=J5gXWu5vrhC9QDJv+VoLu5Rd6y7WbcJ3q2qRfmo4/U4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=kpSPsDb0yPQzspx+pqXsOCUHH+PRE6+AJ0v+Slnebfzq6r6tdzfzzHoYsr5YsL5dH
-	 e6Ow5CnNiAsuUEYZnq1+XUDNFXZuN7lKEoIoiAp3mXjJF5sIlRy5ARHl3LFYs1NVzz
-	 SvJ5wEm/2nD4A2mG5+XvFKYG3KzUdbW+OjZ5TvnRrOhch6tab3o4uDz1URd+clau5/
-	 LAtJlmietwPFF0Q6o7oE2+m3++OMc/iFdLqWBZai6FPcjRToNXZPC6NjBQOOaikJMT
-	 tTVw7wloZkwDxq45GG8x8B88azC3zj7gqG5IyaC376xYKKH4PKnnJrFHI4IeoyLFUS
-	 xBk+E5aNQPgMQ==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5be416e603cso1066986e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 00:40:39 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvBwtLn9z2PI0R7HddJBNjtoqQ3geLtn5SlUa8IJLqqDDhUgdyAWsqQqvGks0kFVuCZez+arySdMFg49PujZpPU0K@lists.infradead.org
-X-Gm-Message-State: APuU4Z+XTSNKtfq4xdukmYGRRDKnQtyYVlJMJwUU2TKmLvRWgsV/FXRr
-	lMbrcP72NrJIKxRIRNKqM0fE9cf5G4jHxPOFm9alTc1HWiMEKP4+qOxslAbL2ynXwPotJ2alnCv
-	Xl6cwIrAkCk3WzT/RdgPEnQsm2FuCvfw=
-X-Received: by 2002:a05:6512:3b2c:b0:5bf:fbe4:4b2 with SMTP id
- 2adb3069b0e04-5bffbe406admr445427e87.30.1793868038566; Thu, 05 Nov 2026
- 00:40:38 -0800 (PST)
+	s=k20260515; t=1793868065;
+	bh=EyS1Vaex1qh0ymGPOrjfqXS9hLerdXLqS1mjQFe74nk=;
+	h=Date:Subject:Cc:From:To:References:In-Reply-To;
+	b=DtcmsLPfZkmEcY5AarenNSNJXh7GTf+Js3l8r5iueA1ACJ1FSoRyYXPrl4qK35qG1
+	 HSkGuxQZlyrYbLwVEws86T0zoiAsLXBiPk6mpQojhjl2EJnSzs96Sxspo75s9jtg12
+	 E3I6YJgUDAMsbIteWO1LKwHsW0wKoRb1M+0LmzxYqFg7LUChO5gVQe1izV7DeAhd+s
+	 dAPsSGsXNenHPCi8YzaNMHHSwfkmuVq4UToXR0u7l/GkNykhgsvj7XgNA+KFWodKZE
+	 LC8J8s+tT6AtZOzl+Y3ASw22eEj4x0jk08jNKtOGQvpIHZ+1aQ8KdiULR+IQZMUAjb
+	 +PEmGyBVM9oPg==
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-References: <20261103-i2c-nomadik-fixes-v1-0-655c6af2cb70@mobileye.com> <20261103-i2c-nomadik-fixes-v1-5-655c6af2cb70@mobileye.com>
-In-Reply-To: <20261103-i2c-nomadik-fixes-v1-5-655c6af2cb70@mobileye.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 5 Nov 2026 09:40:27 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=9tVg=mAr=hcJuSKwFdCoRfrH792VUQ7m21avp_-ei4Q@mail.gmail.com>
-X-Gm-Features: AclHuK_dYZjPrUpcWVPYkjWE1wavAEhVwWZvTK26ps86c6G9B9jsBZbaCvbMhQI
-Message-ID: <CAD++jL=9tVg=mAr=hcJuSKwFdCoRfrH792VUQ7m21avp_-ei4Q@mail.gmail.com>
-Subject: Re: [PATCH 5/8] i2c: nomadik: add quirks max_len=2047 and no_zero_len_read
-To: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
-Cc: Andi Shyti <andi.shyti@kernel.org>, 
-	srinidhi kasagar <srinidhi.kasagar@stericsson.com>, Ben Dooks <ben-linux@fluff.org>, 
-	Andrea Gallo <andrea.gallo@stericsson.com>, linux-i2c@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=be7b4e5d39c5489a31f05dbd21d857bce5195eedfb88e8c4c34fff550383;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Thu, 05 Nov 2026 09:41:00 +0100
+Message-Id: <DMN55MF5SLDY.21QNY4T1VJ4IQ@kernel.org>
+Subject: Re: [PATCH 1/2] i2c: imx-lpi2c: fix SMBus block read with PEC
+Cc: "Carlos Song" <carlos.song@nxp.com>, "Wolfram Sang"
+ <wsa+renesas@sang-engineering.com>, <linux-i2c@vger.kernel.org>,
+ <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Carlos Song" <carlos.song@oss.nxp.com>, "Dong Aisheng"
+ <aisheng.dong@nxp.com>, "Andi Shyti" <andi.shyti@kernel.org>, "Frank Li"
+ <Frank.Li@nxp.com>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>
+X-Mailer: aerc 0.20.0
+References: <20261104121108.659820-1-mwalle@kernel.org>
+ <e0094b33-f73d-43f5-bd07-19bc0e88aaa5@oss.nxp.com>
+In-Reply-To: <e0094b33-f73d-43f5-bd07-19bc0e88aaa5@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,29 +75,107 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Nov 3, 2026 at 9:29=E2=80=AFAM Dmitry Guzman <Dmitry.Guzman@mobiley=
-e.com> wrote:
+--be7b4e5d39c5489a31f05dbd21d857bce5195eedfb88e8c4c34fff550383
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-> In Nomadik I2c controller, register I2C_MCR has 11-bit wide LENGTH
-> field. Its maximum value is 2047, so this is the maximum length of a
-> single message. It is less than the common maximum I2C message length in
-> I2C subsystem (8192), so define a quirk in order to report the
-> unsupported message without any attempt to transfer it.
+Hi Carlos,
+
+On Thu Nov 5, 2026 at 9:29 AM CET, Carlos Song wrote:
 >
-> Zero length reading doesn't work properly on this controller, so add
-> `I2C_AQ_NO_ZERO_LEN_READ` quirk flag.
 >
-> Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
+>> If PEC is enabled, the I2C core sets msgs->len to 2 instead of 1. The
+>> length calculation for the second receive command assumes it's always
+>> 1. This will lead to a short read and eventually a timeout because the
+>> PEC byte is never received.
+>>=20
+>> Take msgs->len into account when calculating the remaining bytes.
+>>=20
+>> This was tested on a board which uses an IPMI SSIF BMC.
+>>=20
+>> Fixes: efdc383d1cc2 ("i2c: imx-lpi2c: fix SMBus block read NACK after by=
+te count")
+>> Signed-off-by: Michael Walle <mwalle@kernel.org>
+>> ---
+>>  drivers/i2c/busses/i2c-imx-lpi2c.c | 10 +++++++---
+>>  1 file changed, 7 insertions(+), 3 deletions(-)
+>>=20
+>> diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c=
+-imx-lpi2c.c
+>> index 7302464c371a..f57e800ac3b5 100644
+>> --- a/drivers/i2c/busses/i2c-imx-lpi2c.c
+>> +++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
+>> @@ -563,7 +563,7 @@ static unsigned int lpi2c_SMBus_block_read_length_by=
+te(struct lpi2c_imx_struct *
+>>  static int lpi2c_imx_read_init(struct lpi2c_imx_struct *lpi2c_imx,
+>>  			       struct i2c_msg *msgs)
+>>  {
+>> -	unsigned int temp, val, block_len;
+>> +	unsigned int temp, val, block_len, remaining;
+>>  	int ret;
+>> =20
+>>  	lpi2c_imx->rx_buf =3D msgs->buf;
+>> @@ -612,9 +612,13 @@ static int lpi2c_imx_read_init(struct lpi2c_imx_str=
+uct *lpi2c_imx,
+>>  		 * keep MTDR non-empty and ensuring continuous ACKs. Only update comm=
+and register
+>>  		 * here. All block bytes will be read out at IRQ handler or lpi2c_imx=
+_read_atomic()
+>>  		 * function.
+>> +		 *
+>> +		 * msgs->len is 1 - or if PEC enabled msgs->len is 2. Two bytes
+>> +		 * have already been requested.
+>>  		 */
+>> -		if (block_len > 1)
+>> -			writel((RECV_DATA << 8) | (block_len - 2), lpi2c_imx->base + LPI2C_M=
+TDR);
+>> +		remaining =3D msgs->len + block_len - 2;
+>> +		if (remaining)
+>> +			writel((RECV_DATA << 8) | (remaining - 1), lpi2c_imx->base + LPI2C_M=
+TDR);
+>
+> Hi Michael,
+>
+> Just to confirm my understanding:
+>
+> For SMBus block read with PEC enabled, the PEC (CRC-8) byte is appended
+> at the end of the transfer. In that case the I2C core sets msgs->len to
+> 2 instead of 1.
+>
+> The previous code still calculated the remaining receive count assuming
+> msgs->len =3D=3D 1, which means the PEC byte was not included in the tota=
+l
+> number of bytes requested from the controller.
+>
+> As a result, the last PEC byte was never read out, leading to a short
+> read and eventually a timeout.
+>
+> Is that the issue this patch is fixing?
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-Yours,
-Linus Walleij
+Yes exactly.
+
+-michael
+
+--be7b4e5d39c5489a31f05dbd21d857bce5195eedfb88e8c4c34fff550383
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCauxBHRIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/hpmAGA7NYvq+xpxg+2/2QVA9m4GNTNFDpS+4x/
+0W5UOIiTMaupw5X9BSdyNznrickkvakGAYCK8XtgVS2/9dfE1Ux0lx7UZSZDT4+T
+bjWi7Cvu54ACiyfU2Fmo4GKjsy0++bfnqzc=
+=I6KU
+-----END PGP SIGNATURE-----
+
+--be7b4e5d39c5489a31f05dbd21d857bce5195eedfb88e8c4c34fff550383--
 
