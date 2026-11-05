@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97548606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:26:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A62FA606D817
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:27:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=V0+bNUdB;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kLZbEpUR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YyHm5Xv7;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rk5o+f1O
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,52 +14,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bB115A0rMOTqlvXkN/AIzQNgK8qZfXA7IorSb9CX7io=; b=V0+bNUdByNEYLhV1Ys3js1gjna
-	u8PYfA+KgyJxjZO7ERyXOtPycFarR4ZyhjgZl6qbd2VfQFzR+BT3pYks1c05o6ru3qCjha8f33RPq
-	dE4YNub/wsM18/LrCC/7ndB3Na/KYwUmNn1kul00pmDw5KGC4Jdouao5Ouvlq4tZuZPa1vu9bO3uZ
-	3CJXC3tBg660i3Xvdqt4v2Basyw6KccQ76HuSPBKwuJQ6DBYR5ft0c2TYJZN+SdjOD7V79EPDAR90
-	kOS11Hvrk951TgdEU1XvkZphjLT/RG3njr7srykqubM9EPVWCNnGH4E7aUDkMH5wf/zk2d8xbtHKG
-	Hgdv/ZUQ==;
+	bh=rYHcTddsMGFJxoooXt9bGT/cprdRwsLwfNyq5sklZCs=; b=YyHm5Xv7BIDYFQUQUaNW1OVS+g
+	zj7uAyo3GgZd9P/YyDs+JRD4j4IuZImPDvRHt/iZ8e3Qzhn9dxFTRKrahfCR2/o3zhYi+fPq+evXF
+	yMOpVVIsuzQZFpbZJED6ynsKFpa+j735TefRKIldZkjUh+q2sLNMhQJbXHPgZciGSUfJAeVjf/6Co
+	8/rQSa4nxiGfbs9raaqYjPUVAO4HaVJQ8oMFdVC4ILirXlDONsf97RM15qBIa3nAESv/35hc8R1oO
+	nSd8vkiQFLVSRJdT+UzSkZcNW1UaqN00xtLZ9eaqBlWwsRjIhnO3k9xZ1eSdAukkVyvMrluHzn0gq
+	IAZk/gwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyQK-00000009GLv-0Ps7;
-	Thu, 05 Nov 2026 14:26:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xOyRQ-00000009GV1-2MIn;
+	Thu, 05 Nov 2026 14:27:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyQI-00000009GLm-495r;
-	Thu, 05 Nov 2026 14:26:39 +0000
+	id 1xOyRO-00000009GUl-2IX5;
+	Thu, 05 Nov 2026 14:27:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 84AED41A2D;
-	Thu,  5 Nov 2026 14:26:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 141081F000C1;
-	Thu,  5 Nov 2026 14:26:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CB6D8600AA;
+	Thu,  5 Nov 2026 14:27:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 305201F000C1;
+	Thu,  5 Nov 2026 14:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793888798;
-	bh=bB115A0rMOTqlvXkN/AIzQNgK8qZfXA7IorSb9CX7io=;
+	s=k20260515; t=1793888865;
+	bh=rYHcTddsMGFJxoooXt9bGT/cprdRwsLwfNyq5sklZCs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kLZbEpUR7tlo+ZWC3OftlZigeROV+G/S2MWiAUwnAhPdaCJM4iLo5A1awAhxavhsK
-	 ODjt8ZKDP88satnWbUD6GyJ4WG7eLo0fcKsRBdewiQXCYKDQoZBgmWtygUXii0VkeL
-	 ShvkzBiNtiL8sf6hl04MO5SbTW7/GJVdVyI1b/pui/+wRkbFAza9ODH+jrtyPohyka
-	 dbCoChO6ac7g5lWxqnMOdWvoT2FaIXl2YzLeZYbMMwkKpAJW7TTjS4qMR9oAGRctuP
-	 EXSy3J89Bl1d90+lV7gUPTfQ2Zb65/zQZiFuc8RLOnMhxIu49FPToTDTH59SakH3pB
-	 t2ru7Bf2Hxzuw==
-Date: Thu, 5 Nov 2026 14:26:34 +0000
+	b=Rk5o+f1O6peQxQ9MqrF1F0MAgBXS1+MgHM1NL5rXIJ26rX2a7K/cTEaoepPELDyrj
+	 eqj6eQtTFCOr6fANT/YDv7PBY8qUn+sqP87GUD6Xa73W4qRHUy4vbGr0Ltycf8T8jg
+	 vEsW3D83z0t7XuVMbr/tGJ1QgCBxjDRSaCzNFZzs9CYyvmZBAk8BarpROmU+k1U1bs
+	 4xxI3zTbSNdX1BNJMAq2u0FF8p8pDQDkDo0kHZnAcoZBUs8F0u4eirZmnzteFm0Rr2
+	 lchBU6uFjD3odeJIkkNYZt3sUGSuaX479mgI4BRJt+YqJ1++38R9a9SHY4wIp8B2OP
+	 XiMELJIEKt/zw==
+Date: Thu, 5 Nov 2026 14:27:42 +0000
 From: Simon Horman <horms@kernel.org>
 To: Sandeep Haemoon <sandeeph@loljews.com>
 Cc: netdev@vger.kernel.org, Felix Fietkau <nbd@nbd.name>,
 	Lorenzo Bianconi <lorenzo@kernel.org>,
 	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 1/2] net: ethernet: mtk_eth_soc: add 9K jumbo
- frame
-Message-ID: <20261105142634.GT865646@horms.kernel.org>
+Subject: Re: [PATCH net-next 2/2] net: ethernet: mtk_eth_soc: skip page_pool
+ for
+Message-ID: <20261105142742.GU865646@horms.kernel.org>
 References: <patch-4f863a941889f0bceca1c082f2d79624@loljews.com>
  <patch-f1b04513b0fe3fb0a35ac744799fb0f3@loljews.com>
+ <patch-fdfc120d5c46c3e5d484cbff30f63316@loljews.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <patch-f1b04513b0fe3fb0a35ac744799fb0f3@loljews.com>
+In-Reply-To: <patch-fdfc120d5c46c3e5d484cbff30f63316@loljews.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,34 +79,26 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 02, 2026 at 12:48:45AM +0200, Sandeep Haemoon wrote:
-> The driver caps max_mtu at 2030 bytes and programs the MAC max-rx field
-> for at most 2048-byte frames, so MTU > 2K is rejected and 9K jumbo
-> frames are not usable on the 10G XGMII MACs.
+On Mon, Nov 02, 2026 at 12:48:46AM +0200, Sandeep Haemoon wrote:
+> page_pool allocates order-0 pages and the pool is created with
+> MTK_PP_MAX_BUF_SIZE.  Rings that need larger buffers (9K jumbo or the
+> HW-LRO rings) cannot use it.  Only create/use a page_pool when
+> ring->frag_size fits in a page; the large-buffer path already uses
+> mtk_max_buf_alloc().
 > 
-> Add a MTK_NETSYS_RX_9K capability for MT7988 and:
-> - advertise 9K max_mtu on XGMII MACs, derived from the DT phy_mode at
->   probe time so DSA can raise the conduit MTU before the netdev is
->   opened;
-> - program XMAC_RX_CFG2 on the XGMII MACs;
-> - derive the shared RX buffer length from the largest MTU and size the
->   RX rings from it;
-> - program the PDMA RX SDL max frame so the DMA engine accepts jumbo
->   frames;
-> - reject a runtime MTU change that would need a different ring buffer
->   size while DMA is running; the rings are sized at the next open.
+> This is required by the 9K support in the previous patch; the
+> large-buffer path it relies on comes from the MediaTek downstream
+> series.
 > 
-> This is a forward-port of the MediaTek downstream jumbo series:
-> Mason Chang's "change default rx buffer length", "add 9k jumbo frame
-> support" and "add dynamic rx buffer adjustment support" (MediaTek
-> OpenWrt feed 999-eth-30/31/33, carried in
-> frank-w/BPI-Router-Linux 92bfdbdd4de1/b4c6cb1d5532/ca4c976dce22),
-> plus Frank Wunderlich's "try to fix crash the right way"
-> (a3207a383794).
-> 
-> Link: https://github.com/frank-w/BPI-Router-Linux/commit/b4c6cb1d5532
 > Link: https://github.com/mediatek/mtk-openwrt-feeds
 > Signed-off-by: Sandeep Haemoon <sandeeph@loljews.com>
+
+It may not be particularly important, but I do wonder
+if the order of the patches in this patch-set should
+be reversed: as it is 9k support seems to be added by 1/2
+and fixed in 2/2.
+
+That notwithstanding:
 
 Reviewed-by: Simon Horman <horms@kernel.org>
 
