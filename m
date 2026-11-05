@@ -2,85 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83D25606A926
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:46:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8ACA606A926
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:46:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t/JKpZyc;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=EsUIt984
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xUKz8Tj8;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=SbpvMrFY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=6POGoe9GP/LfncNNPmyOb3NHHZhyrYu1RabNz3eag4o=; b=t/JKpZycg17+h9
-	3ag2owkivRPJ6m8Ei/JLdMk38lER0Rrg8FSQ2LalgHZlNrXgFnREUD/kQU6prB04t7J+UqwoWeI3e
-	vv6A21YzQQht5vZTqA3Pate0jxbYQMPoRdmKScMx7qanGFgBXSxoEKZufR+fe86m8AIbhmWiZqR6Z
-	+bWTVDb7EgoJuRQvUDBv2TsJz4EL1TTWjNNarhbOT+bnY1EUiDUd+BHbFPvsuMF8ZIquFuN88VrMn
-	RA1zd4NdUmvIDVGGvtPUKstYC7WWX2SSenEDbLbWVMt5m6rgqtuC1bSSG7Eq5dyC6I3RZrzQZhYfv
-	qUKf612s3LItmgBOZHPA==;
+	List-Owner; bh=urrgTOdhrZbA2FGtYgxftgMNBud/Y8/6+LuWZZfe/7k=; b=xUKz8Tj8HMcDmP
+	ielga1VhRDh+Rld/HQnLfFBTu0pVdzTkAQb8uHyXp/n6BeedLM2wba+l0bVb2tvZr0Ss20ZMq4jAG
+	k4G3WDvYLeW+pBjHIGQxblXD5hAZvFRiE3wReuo01Dyxt40hnF8uspX8EMrAjDhVm7uv8CWQZJhbP
+	hohuqWXu7fXmzdKB1segaEib1+DvzDte09+JXeEIViWlv8wvWngHndjstS9IUqqd4JfdWVubmFeMW
+	jm7QrWOJtr6+/EaaUOJvbNOM79p89v8szmrUS0DuvuqM/J6SDySKp/wBtxf/J204YcyLx/de6pcw0
+	hKa+Uu4D9E5bHSCww3LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvul-00000008jVR-35tQ;
-	Thu, 05 Nov 2026 11:45:55 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1xOvum-00000008jX2-1RL5;
+	Thu, 05 Nov 2026 11:45:56 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvuZ-00000008j5l-1jbF
+	id 1xOvuf-00000008jHK-0LHS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 11:45:44 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so6046975e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 03:45:42 -0800 (PST)
+	Thu, 05 Nov 2026 11:45:50 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4a5036bbac7so10754825e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 03:45:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1793879141; x=1794483941; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1793879147; x=1794483947; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6POGoe9GP/LfncNNPmyOb3NHHZhyrYu1RabNz3eag4o=;
-        b=EsUIt9840J0UDvnGf+dzWd+ZI1j7UaHWB2zg+FMgq8Ym6qESLMsNO/12HeXvmFXu+Z
-         ch8rIWoiiXn7Jq4bXwa5F65roHjmUFL882D+fG9uxT/COmYCxSwzwlDeP0HP4Ipv5s/O
-         i+Odlz6D77biBWx9oNH/FL92+t4+hkZAYZQE8TdUZ15iwU1oXMtx23Jcl1iphW7cTUy2
-         dyoG0TtODn9tLsA3A14MmAfMlNx+xe/s0eKXhHk0ebJ194rKutW3xUPLkIfO18dhJ6ZR
-         yuxzQxjEAXuKIN0FDZ1kI7r7e6BngOKzYTYDxgZUeaxKqU3Gu7GcX+ySyxapb1suo3WG
-         Dy0w==
+        bh=urrgTOdhrZbA2FGtYgxftgMNBud/Y8/6+LuWZZfe/7k=;
+        b=SbpvMrFYfHqp0Y8E9iiT72YDIjuec5nNVG6QlhAkAlO1R5FmU0taqjSJfN0xBIgH5V
+         I/7PvEhDjFBboGZhXwRQYvDgf+6r0zhBTg7l4q9PSgXRFG/MSlSuwiTuYvX/M1dtLzoK
+         XKFDFbkXPxU9qcVuhTVwcfizWkE8E1np3wyPPegP88QixVbM1Kv0YSLIoN8ahW8ZcAwT
+         XREQ16BE80GjZIAwBgjWp4Z0yfKTGe9SIcsmTrz2+lganK8wbpVDVwtZww3b7ni5ijAH
+         SXaTYJqTPNO2E/EJYWnB25R5zcAvUCFSfuWxcQ/9PvmjqSETGNGgWgi/K44JtYgumwfj
+         WXNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793879141; x=1794483941;
+        d=1e100.net; s=20260707; t=1793879147; x=1794483947;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=6POGoe9GP/LfncNNPmyOb3NHHZhyrYu1RabNz3eag4o=;
-        b=q2sApfma/a8PXijhokCEYu3QDEJsGF+extW7cXDJehIEFme4QAHOywl1rJ2HiRN/Vl
-         ZZL3WvC/G2VyC6KZzVjRPzSZw+RTAKnamY24u5PomO7YSyYBqwxx/WJ+wKyS+mkqr0VF
-         dQZVCoSuaXCjDK+JuyqzyDQMR4xejyg2mTWWwn9UgOO0nlMSuyZfkk2v3fZtHjrrCyne
-         MH1QQqeRFwjgek3phWymVA+IEc4+icm5kOT5V3r01nMoKGT1MeOZWhXUmArljlE28sW+
-         ufduTb2Gyu0HAy1sgX9aRsOtcrUHbYy1OLClIzdgiCCQaoffWm5M2xa5dROFhRzXYzpx
-         AGWA==
-X-Forwarded-Encrypted: i=1; AKwUvBxwlY/aPMyeCA1PkrRHW3gs2kxPTZDlmf56vPkE4tIxPQ6/gSS87RgNAzu5oMLvXJjop67w0hCqg6D9RKU2k3jG@lists.infradead.org
-X-Gm-Message-State: APuU4Z+YtuVICBNMJkFeH0exjbLmTgj8/OTtrZaDp4CXa254xX4Q6mDK
-	0fHzwKqGSbgfTT4wOiyeDq590leH5P1wPe4EQ55Hz3SQYn8r7et+k68RDNnmrzxgiAk=
-X-Gm-Gg: AYBFou2c2NMClwfwlArKmBiRaS2grAGqeuEbKELonOQqhVyz8rA+xOR8gARmamRFiY/
-	XY+311xs9005MsHWCK2x/Y3TvSO6TrWKdM9Jy8cc7jTK1cOGBbVhJcliRLM8mU4lLSB5W8Wz28p
-	gGOsdmbGfZWaRn1cKOdTufxiBdL/PYrLdS4dbGm8lfk7uVVcJsS7aSdR2+e2Uu5IFRcYTQkULHQ
-	hVqNg02P4mGD+ShwT88mnFwhwEdAKoPWFIImO6er8j63neHrfsoj7xRgBFUD3UaG9vb4z9jpLYC
-	bkxBiM1fwCHFAmRleeQN1/seSN8xcDozLCq90mW89PmSNq9y+l80tM8gmPusWS7m0ZhXVU+BV5L
-	iSS63nhP8NdJzCNRZtEV9jYtw3aeZNtvKmQLFvM1zP6Gdw5E6RdoGlR5FOQBueUUxijRMKHpPkb
-	PGNOeKyBz0BudI3kpSxqogrzpZ/o9ZeJLxP01wvm1onf1yJ0GB59R7rgdCzfaECXTByDMVzMGV3
-	ZpAZfOjQWcEUKF2HdqmmhgRsF6N2pAoSy5wQc18CGN3n2hWN4zHeU/0w7FNsq2pmDfbpJjb/Hm5
-	+xiZEw47UMNzqoOON0aKBoXcC8Ze3BAswZrRCCbcEN8lj43N+cCtiZY=
-X-Received: by 2002:a05:600c:34d2:b0:4a0:20b4:ba93 with SMTP id 5b1f17b1804b1-4b55e07e6d5mr40258725e9.16.1793879141088;
-        Thu, 05 Nov 2026 03:45:41 -0800 (PST)
+        bh=urrgTOdhrZbA2FGtYgxftgMNBud/Y8/6+LuWZZfe/7k=;
+        b=aJgPBF7goAWN4Cyhj5mrnnlG0V25jw4fqXhqbLlWmV2RfYsKLv/A2fD1nbyF3T1pQN
+         qjHy/GFWWE+8fldE8qnjDE6GYxq2zv0uYl0yV3c3HBFm0SxHblga8xGYAXpillEStqg/
+         F/NVFFOUdyz7hNQY5qiOTCBfEeGinIDspONv9JsUI19oqjzaSrx2m3b+ESmAWM76arTU
+         9tUavi7U/kfvZJXzhcqtf9kn8dXp3VNGDqRbNiNfHIvnuTZaTzXHari2rITeMWYz4HlJ
+         vSsdKa1ynBt9yUct2PKbzp7wMs9PM4krSsrpCQlQ58/2ySDAv/RtKRb/mi8tNCZXk1OM
+         tjoA==
+X-Forwarded-Encrypted: i=1; AKwUvBzPTew6gA7J4UaX6CBpODlg5zK7DQlJ+xBvnY8TvsUMTdRRZXXsJqzZZMG11CCzoTzB8fLqMPls/nvwqKvfb7vm@lists.infradead.org
+X-Gm-Message-State: APuU4Z9kTPG1uqZ45z+pMuA2CJqKLocVu5FvR8pC/fLeW4TV6ejWbohb
+	+yGAMvHIco7SobWXhb9xZwIPzZg5ZkKtoEojAT/iTFHqQTcOQh0Ye+R5e1hxMCFmqcc=
+X-Gm-Gg: AYBFou0dQZZ5qtd6JaWf+bw31KWKmzCvei/BBe849r+H20l3Sl34G4WntdHsNaM6L1X
+	Q6axgYCrS3wAiaQTfc7BMaWAka+q7PzYW57X9AYIS0sY3Y5bK+HqeK7OOFXyDpGn04d2bBEo0zK
+	SI+Ui/H6RFxl4qTe58tsHR6ZD1xNXdtK8hpyk2+iGDMIlHupSGIivq8plYxAMpuOf4Mh9/62hez
+	+Ge3aX0nycLqr2hc0WnONBpsqq4m3iHmUVnUmYe+hyn/FQRcKPQIFZEEKjuKhZD+ta9smBmxlZM
+	GVmByU8LUIADzeSpvSwp0Ux2HmVBI4FgsV+EicpwPB7W5Lfj3eNi5X6znu9C7DkpBxsbsHg3xCs
+	ZPAMH3sOVW5w0XMfAa6sk3RxKuPz0KPrHNnC7EAo8gAtccWGctKBRMXqX6uxnEj1hJgwYXKQWHe
+	+avGDkTCA2Il61bWf10sShsfkxA+Lkoog6u6+BWDDOlp2FTpHcbnLnJUk8CDWRrx1+QV3L+vAX3
+	MeCIjGFMpSjti+DLe71yaPQl0z6kRoNcScCzAJfDVixDx1bdua+M/MbzghWSNPOuoUazVcAdxVn
+	gyaUbhhiZFgJ2B9tSCoyDqBOUwnXtX1D
+X-Received: by 2002:a05:600c:608d:b0:4a2:1197:1de0 with SMTP id 5b1f17b1804b1-4ac18b7dcdbmr405802955e9.19.1793879147059;
+        Thu, 05 Nov 2026 03:45:47 -0800 (PST)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b571f46538sm56679525e9.5.2026.11.05.03.45.38
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b571f46538sm56679525e9.5.2026.11.05.03.45.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 03:45:39 -0800 (PST)
+        Thu, 05 Nov 2026 03:45:46 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Thu, 05 Nov 2026 11:45:03 +0000
-Subject: [PATCH v4 15/19] perf auxtrace: cs-etm: Capture wrapped snapshots
+Date: Thu, 05 Nov 2026 11:45:06 +0000
+Subject: [PATCH v4 18/19] perf test: cs-etm: Test multiple per-thread
+ threads
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-james-cs-unformatted-per-thread-fix-v4-15-7759e0ce2449@linaro.org>
+Message-Id: <20261105-james-cs-unformatted-per-thread-fix-v4-18-7759e0ce2449@linaro.org>
 References: <20261105-james-cs-unformatted-per-thread-fix-v4-0-7759e0ce2449@linaro.org>
 In-Reply-To: <20261105-james-cs-unformatted-per-thread-fix-v4-0-7759e0ce2449@linaro.org>
 To: Leo Yan <leo.yan@linux.dev>, Adrian Hunter <adrian.hunter@intel.com>
@@ -100,8 +101,8 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
  James Clark <james.clark@linaro.org>, John Garry <john.garry@linux.dev>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_034543_506958_1AD6D8F5 
-X-CRM114-Status: GOOD (  24.20  )
+X-CRM114-CacheID: sfid-20261105_034549_279186_C403360C 
+X-CRM114-Status: GOOD (  16.44  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,122 +122,104 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-find_snapshot() isn't implemented for Coresight, so when a wrap occurs
-we only save from offset 0 to current head, modulo buffer size, rather
-than capturing the whole buffer. Coresight drivers currently use a
-monotonic head pointer even in snapshot mode, which gives a lot more
-information for taking snapshots than a wrapped pointer. It means we
-don't need to search for data at the end of the buffer to guess if a
-wrap has occurred, and we can go back to saving partial buffers after a
-wrap by checking if the next size to take is less than the buffer
-size.
+Launch something that has multiple child threads, attach to it and
+make sure that all child threads are present in the samples
 
-The drivers will always be able to generate a monotonic head because
-TRBE has a bytes written counter, so even if we stop generating an AUX
-record on every overflow, we can check if the counter indicated an
-overwrite and offset head by a whole buffer size if it wrapped. This
-forces userspace to read the whole buffer rather than between last and
-current head. ETR and other sinks use software double buffering, so can
-continue as they are.
+This will only work with 1:1 sinks/sources, and looking for TRBE is an
+easy way to guarantee this. In theory this could also work for ETR
+sinks, but we'd have to attempt to record and skip if that fails, which
+would make the test silently skip if the record command started failing
+on TRBE too.
 
-Add auxtrace_record__monotonic_find_snapshot() and use it for Coresight.
-A monotonic head can't be auto-detected in the default find_snapshot()
-by checking if head > buffer size, because before the first wrap a
-monotonic head looks the same as a wrapped one. The search would then
-falsely detect a wrap when head is near the end of the buffer, and the
-wrapped pointer fixup moves 'old' and 'head' a whole buffer ahead of the
-driver's head. With a wrapped head that doesn't matter because only the
-offset within the buffer is used, but with a monotonic head the next
-snapshot would either save already saved data again or drop up to a
-buffer's worth of new data.
-
-Reviewed-by: Leo Yan <leo.yan@arm.com>
 Tested-by: Leo Yan <leo.yan@arm.com>
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/arch/arm/util/cs-etm.c                  |  1 +
- .../perf/tests/shell/coresight/raw_dump_stress.sh  |  5 -----
- tools/perf/util/auxtrace.c                         | 23 ++++++++++++++++++++++
- tools/perf/util/auxtrace.h                         |  4 ++++
- 4 files changed, 28 insertions(+), 5 deletions(-)
+ .../perf/tests/shell/coresight/per-thread-multi.sh | 76 ++++++++++++++++++++++
+ 1 file changed, 76 insertions(+)
 
-diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
-index 5e7d09b7170c..84a5d7392a5f 100644
---- a/tools/perf/arch/arm/util/cs-etm.c
-+++ b/tools/perf/arch/arm/util/cs-etm.c
-@@ -922,6 +922,7 @@ struct auxtrace_record *cs_etm_record_init(int *err)
- 	ptr->itr.info_fill		= cs_etm_info_fill;
- 	ptr->itr.snapshot_start		= cs_etm_snapshot_start;
- 	ptr->itr.snapshot_finish	= cs_etm_snapshot_finish;
-+	ptr->itr.find_snapshot		= auxtrace_record__monotonic_find_snapshot;
- 	ptr->itr.reference		= cs_etm_reference;
- 	ptr->itr.free			= cs_etm_recording_free;
- 	ptr->itr.read_finish		= auxtrace_record__read_finish;
-diff --git a/tools/perf/tests/shell/coresight/raw_dump_stress.sh b/tools/perf/tests/shell/coresight/raw_dump_stress.sh
-index bea70d825596..c9459ded4cbe 100755
---- a/tools/perf/tests/shell/coresight/raw_dump_stress.sh
-+++ b/tools/perf/tests/shell/coresight/raw_dump_stress.sh
-@@ -48,11 +48,6 @@ read -r size offset last_idx <<< "$(awk '
- # everything was dumped. Allow 48 bytes difference to cover 3 frames: current
- # frame length, a partial frame and a final empty one, all of which aren't
- # dumped.
--#
--# TODO: for a single snapshot, offset should always be zero. However, we
--# currently output AUX records in snapshot mode when we shouldn't, which
--# increments the offset. Allow for that until it's fixed so we can test raw
--# dumping.
- decode_size=$((1 + last_idx - offset))
- if [ "$decode_size" -gt "$((size - 48))" ] && [ "$decode_size" -le "$((size))" ]; then
- 	echo "PASS: AUXTRACE buffer length matches dumped packet index"
-diff --git a/tools/perf/util/auxtrace.c b/tools/perf/util/auxtrace.c
-index c613efd83223..3aabf2f4bd47 100644
---- a/tools/perf/util/auxtrace.c
-+++ b/tools/perf/util/auxtrace.c
-@@ -750,6 +750,29 @@ int auxtrace_record__default_find_snapshot(struct auxtrace_record *itr, int idx,
- 	return 0;
- }
- 
-+/*
-+ * auxtrace_record::find_snapshot() implementation for drivers that don't wrap
-+ * 'head' in snapshot mode, so it's already monotonic like in full trace mode.
-+ * No search is needed, only force a full buffer read if more than a buffer's
-+ * worth of data was written since the last read.
-+ */
-+int auxtrace_record__monotonic_find_snapshot(struct auxtrace_record *itr __maybe_unused,
-+					     int idx, struct auxtrace_mmap *mm,
-+					     unsigned char *data __maybe_unused,
-+					     u64 *head, u64 *old)
+diff --git a/tools/perf/tests/shell/coresight/per-thread-multi.sh b/tools/perf/tests/shell/coresight/per-thread-multi.sh
+new file mode 100755
+index 000000000000..bace76cb6a51
+--- /dev/null
++++ b/tools/perf/tests/shell/coresight/per-thread-multi.sh
+@@ -0,0 +1,76 @@
++#!/bin/bash -e
++# CoreSight per-thread multiple threads (exclusive)
++
++# SPDX-License-Identifier: GPL-2.0
++
++# If CoreSight is not available, skip the test
++perf list pmu | grep -q cs_etm || exit 2
++
++if ! tmpdir=$(mktemp -d /tmp/perf-cs-per-thread-multi-test.XXXXXX); then
++	echo "mktemp failed"
++	exit 1
++fi
++
++cleanup_files()
 +{
-+	pr_debug3("%s: mmap index %d old head 0x%"PRIx64" new head 0x%"PRIx64"\n",
-+		  __func__, idx, *old, *head);
-+
-+	if (*head - *old > mm->len) {
-+		*old = *head - mm->len;
-+		pr_debug3("%s: wrap-around detected, adjusted old head 0x%"PRIx64"\n",
-+			  __func__, *old);
-+	}
-+
-+	return 0;
++	if [[ $parent ]]; then
++		kill -9 $parent
++		wait $parent || true
++	fi
++	if [[ $perf ]]; then
++		kill -9 $perf
++		wait $perf || true
++	fi
++	rm -rf "$tmpdir"
++	trap - EXIT TERM INT
 +}
 +
- int auxtrace_record__options(struct auxtrace_record *itr,
- 			     struct evlist *evlist,
- 			     struct record_opts *opts)
-diff --git a/tools/perf/util/auxtrace.h b/tools/perf/util/auxtrace.h
-index 9d86f8366ad7..980acb2dc687 100644
---- a/tools/perf/util/auxtrace.h
-+++ b/tools/perf/util/auxtrace.h
-@@ -607,6 +607,10 @@ int auxtrace_record__default_find_snapshot(struct auxtrace_record *itr, int idx,
- 					   struct auxtrace_mmap *mm,
- 					   unsigned char *data, u64 *head,
- 					   u64 *old);
-+int auxtrace_record__monotonic_find_snapshot(struct auxtrace_record *itr,
-+					     int idx, struct auxtrace_mmap *mm,
-+					     unsigned char *data, u64 *head,
-+					     u64 *old);
- void auxtrace_record__snapshot_fixup(struct auxtrace_mmap *mm, bool wrapped,
- 				     u64 *head, u64 *old);
- u64 auxtrace_record__reference(struct auxtrace_record *itr);
++trap cleanup_files EXIT
++trap 'cleanup_files; exit 1' TERM INT
++
++# Multiple --per-thread events are only supported with 1:1 sinks/sources
++if ! ls /sys/bus/coresight/devices/trbe* > /dev/null 2>&1; then
++	echo "No TRBE sinks, skipping"
++	exit 2
++fi
++
++# Launch 2 threads to run indefinitely
++nthreads=2
++perf test -w named_threads $nthreads 0 &
++parent=$!
++
++# While parent still exists, wait for the 2 children to spawn
++while kill -0 "$parent" 2>/dev/null; do
++  threads=(/proc/"$parent"/task/*)
++
++  if (( ${#threads[@]} >= $(($nthreads + 1)))); then
++    break
++  fi
++
++  sleep 0.1
++done
++
++echo "Recording..."
++perf record -o "$tmpdir/data" -e cs_etm//u --per-thread -Se -m,128K --pid $parent > /dev/null 2>&1 &
++perf=$!
++
++sleep 1
++
++kill $parent
++wait $parent || true
++unset parent
++wait $perf
++unset perf
++
++echo "Decoding..."
++perf script -i "$tmpdir/data" > "$tmpdir/script" 2>/dev/null
++
++# Check all threads were traced and they have the correct thread name and symbol
++for i in $(seq 1 $nthreads); do
++	if ! grep -q "thread${i} .* named_threads_thread${i}" "$tmpdir/script"; then
++		echo "Error: thread${i} missing" >&2
++		exit 1
++	fi
++done
++
++exit 0
 
 -- 
 2.43.0
