@@ -2,81 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC7F0606D805
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 13:20:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4F75606A33E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 13:22:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pR1bzuDy;
-	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=TRlL8Ue1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ae4IIBdZ;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LAr2QT90
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=qF6cFUTLgGehWGCvGtVcbUf7HKscHyyzCRDr0R3QGqo=; b=pR1bzuDyA3GhCC
-	HgWrsnaPjv3gsl9qqX1f5dwOdCPk1vcH/QCBiUlwe8iBwZfKu7D0NG1op6oU2V1KasZCH3sCHwJSG
-	20CO7bMQ6QphlGAU9rTjr43yqIQLN7OFKQg9FUubQwp2Q62ybFncwzKwsqKH2IDdxsApuNssgn7K2
-	N20XeP7MKHhQ8SK8NMHG6N1kbeF/xZHyzVkxEMTcSrsXjwM81dr2uUiTh3NDo6JxVLovt5gIrw1ON
-	oFc/nrAoT5BKPUKd+TBv3BxhocVm6buRqCiyHV9QTbGn0C8oI90q0rYlLC5QmUQUUasEq8H4lIxIL
-	ORgTc/SJrx2CDLwxc0FQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=PmLgfONm0B9kDi1GLc/kUSc/oZ1yeBtj5KqaQkDNgWE=; b=ae4IIBdZ6ZSxsVni/SXDMNQxYm
+	tJ0gX7N3qXtz87qEo0AfZXbnJrqycFjLSUDVAMM5iDpsoTpQNpQs2w+vx1dEdl+LYhs8uWeze1L/b
+	Y730Hj59T9449nO1wEWC0tqHonf7kTLJnjOexUJbdRGAAFlMB4SrdWmNkpQMQxSW/7gVHhUFh+6xA
+	05K2UJeSk0Xx2iiAso5tx9HBJdFfH4c9u1oSuc+udh7qsLuhxBAk1QjS7hMNE2f2WH/LAjlv/5WHc
+	d496mbVeQOwbW2zCKezzGos1FIikzOX0US0x72UmTg6rQM9b7rS2pbnadndrK6PU77cF2ukzXpWHM
+	UcyOf6tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxNp-00000009632-3bcB;
-	Thu, 05 Nov 2026 13:20:01 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1xOxQW-000000096bT-1wye;
+	Thu, 05 Nov 2026 13:22:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxNl-000000095zC-2ma3
+	id 1xOxQV-000000096bG-1i3M
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 13:19:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1793884804; x=1825420804;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=Cq/v8RVQ1OpaQOEC36yieTOeZyrja5SYKVwBt6+3Qyg=;
-  b=TRlL8Ue1EtS1hk7aO8Ul6+hAfGPuZhY/dAStCP5QBWWYUZzyNAVztSpF
-   eB4/wNQgGjVNc9Pi9N01k2x+xhAyJlRD+rsHZ1EZoESsEW8ITqnIkoXvP
-   HJzClo9KHlV9ZaCHrIy/jICRc5s3J0Z4+IqoQQ4SLqob97iHShTiWz/et
-   6ekg1EIa/1R2QCe5GulqXnn9tItgxbYJsKYzQzoQaTu5eV02w4me0DahR
-   qJ71ltc/p97MThwfiB0Kj6XARZB2K5q16ZDiplja1GsBg/U+QUV/smIlq
-   ooPO69qWnTWgVYqym/DIovQ9cNOj1exbBaVAHpR+y7yxfqa05eUqmr4K3
-   w==;
-X-CSE-ConnectionGUID: eMNILcxmQYipmVKmzTvfhQ==
-X-CSE-MsgGUID: ZY2Pf+XfRgCyQJ4aELRNSQ==
-X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
-   d="scan'208";a="233135322"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 06:20:03 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.56; Thu, 5 Nov 2026 06:19:56 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Thu, 5 Nov 2026 06:19:54 -0700
-From: Daniel Machon <daniel.machon@microchip.com>
-Date: Thu, 5 Nov 2026 14:19:38 +0100
-Subject: [PATCH net-next v3 4/5] net: sparx5: Add hardware programming for
- the port policer
+	Thu, 05 Nov 2026 13:22:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DAEF743773;
+	Thu,  5 Nov 2026 13:22:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A3E91F000C1;
+	Thu,  5 Nov 2026 13:22:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793884966;
+	bh=PmLgfONm0B9kDi1GLc/kUSc/oZ1yeBtj5KqaQkDNgWE=;
+	h=From:Subject:Date:To:Cc;
+	b=LAr2QT901Y+36f6XoQd0SRA85p3FJ5jGKt2xU4Ssz3ZjhjVbPECQwBJy8IHcQYN3s
+	 YGSqQNxmcgmcCzYi1UPxVmWcqqTKo5BmOwJ7iJifK57Z42cElH0mHHJ/ZUl+usKsck
+	 SuNMxgPsBGmrDorl0FNK8opSAjhQPTQMKwcRTfGNBj05rUrDRjNf1tq+lk/RYhEBFh
+	 wBWHhfVL9kGWmJ8gi2w/YzbsGa38ZOUwP4fDTpge/m5G+9XUg02Y4WCkw5V6PRS7Hd
+	 dRtFxPXBY28tM0nTLicnqyF5+v7xFcehUNytj5HBuCEi5FYczmbIv2+8KJRe21Qczk
+	 nNkJXWO9KYhMw==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH v2 0/3] arm64/gcs: Store the GCSCRE0_EL1 register value not
+ userspace mode
+Date: Thu, 05 Nov 2026 13:00:11 +0000
+Message-Id: <20261105-arm64-gcs-store-gcscre0-v2-0-954d5bffd69f@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261105-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v3-4-b45a3a26bed5@microchip.com>
-References: <20261105-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v3-0-b45a3a26bed5@microchip.com>
-In-Reply-To: <20261105-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v3-0-b45a3a26bed5@microchip.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
-	<Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>
-CC: <robert.marko@sartura.hr>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_051957_861126_D65A674B 
-X-CRM114-Status: GOOD (  29.54  )
-X-Spam-Score: -4.4 (----)
+X-B4-Tracking: v=1; b=H4sIAN197GoC/3WOyw6CMBBFf4XM2iG0EAiu/A/DotQBqkJ1Co2G8
+ O+Wx9bdvcm5jxkcsSEH52gGJm+csUMw8hSB7tTQEppb8CATmSelEKi4zzNstUM3WqZVaaYEJaU
+ ks5zyplAQ0i+mxny25mu1ezfVd9LjWncQTO8pTI47BrVyhNr2vRnPkS/iDFkLWNOdWde+200vN
+ vh4VPx95AUmmOqyUaUUaa305UE80DO23EK1LMsPUVRK+P0AAAA=
+X-Change-ID: 20260911-arm64-gcs-store-gcscre0-2e3e246e6f7a
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>, stable@vger.kernel.org
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1938; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Fp7oPz3FzNcGX9WflaVw2B2izesgMMHdYL9LcvF2wwU=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLeNCv/bTxpOfdDDcOVe0Xlz5fcm2NWoMy0sylv05QvZ
+ /Q8Sm+VdJSyMIhxMciKKbLEZXG/rC95vYbv4MI2mDmsTCBDGLg4BWAiVe8Y/tmkSLywWrjq3fv/
+ +ho5qV8UmLkedipZrXe016g+6LrNv4aR4YullsdzjuzknQIfonU/uMn5S3Aw3Yw8JHzm5do1M4u
+ XMwMA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,591 +81,55 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-23.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Each ingress port has four single-rate leaky bucket policers in
-ANA_AC_POL. A policer is configured with a rate, in units of
-25040 bit/s, and a burst, in units of 8192 bytes, and drops the frames
-that exceed it. The four policers of a port share the pass and drop
-statistics counters of the port, which are 40 bits wide. Before use,
-all policers must be initialized through the force-init bits in
-POL_ALL_CFG.
+At present we store the userspace GCS mode for a task using the prctl()
+value set by userspace rather than the mode configuration written to
+GCSCRE0_EL1 which means the register value needs to be generated on each
+task switch when the new task uses GCS.  Since the mapping between the
+two is easily reversable switch things around and store the value that
+we need in the context switch path.
 
-Add support for programming a port policer, and for reading back its
-pass and drop counts. Do not include preamble and inter-frame gap in the
-metered frame size, so that the configured rate is a data rate, as tc
-police expects and as on lan966x and ocelot. Since the statistics
-counters are shared, use only one policer per port. Initialize the
-policers and select the events counted by the shared counters at probe.
+While reviewing this Catalin noticed a bug with handling of mode during
+signal restore so fix that, then do a small refactoring to move code out
+of the header, and finally make the switch.
 
-Read the counters from the periodic stats worker as well, and accumulate
-them into 64-bit totals, so that a wrap of the 40-bit counters is not
-lost between two reads of the tc stats. Take queue_stats_lock around the
-existing ethtool read of the shared counter 0, since reading the LSB of
-a counter latches its MSB.
-
-The port policer is not reachable from tc yet; the next patch adds
-that.
-
-Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- .../net/ethernet/microchip/sparx5/sparx5_ethtool.c |   6 +
- .../net/ethernet/microchip/sparx5/sparx5_main.h    |  22 +-
- .../net/ethernet/microchip/sparx5/sparx5_police.c  | 404 ++++++++++++++++++++-
- drivers/net/ethernet/microchip/sparx5/sparx5_qos.c |   4 +
- 4 files changed, 432 insertions(+), 4 deletions(-)
+Changes in v2:
+- Add a fix for failing to update the GCS mode.
+- Always write GCSCRE0_EL1 when setting it for the current task.
+- Use u64 rather than unsigned int to store the register value.
+- WRITE_ONCE() when updating the stored register value.
+- Link to v1: https://patch.msgid.link/20260917-arm64-gcs-store-gcscre0-v1-0-3c9fa9213bac@kernel.org
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c b/drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c
-index d42c57bead89d..9db3682afa955 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c
-@@ -231,9 +231,14 @@ static void sparx5_get_ana_ac_stats_stats(struct sparx5 *sparx5, int portno)
- {
- 	u64 *portstats = &sparx5->stats[portno * sparx5->num_stats];
- 
-+	/* Serialize with the port policer, which reads the LSB and MSB of the
-+	 * port stat counters as a pair.
-+	 */
-+	mutex_lock(&sparx5->queue_stats_lock);
- 	sparx5_update_counter(&portstats[spx5_stats_ana_ac_port_stat_lsb_cnt],
- 			      spx5_rd(sparx5, ANA_AC_PORT_STAT_LSB_CNT(portno,
- 								       SPX5_PORT_POLICER_DROPS)));
-+	mutex_unlock(&sparx5->queue_stats_lock);
- }
- 
- static void sparx5_get_dev_phy_stats(u64 *portstats, void __iomem *inst, u32
-@@ -1116,6 +1121,7 @@ static void sparx5_update_port_stats(struct sparx5 *sparx5, int portno)
- 		sparx5_get_asm_stats(sparx5, portno);
- 	sparx5_get_ana_ac_stats_stats(sparx5, portno);
- 	sparx5_get_queue_sys_stats(sparx5, portno);
-+	sparx5_port_policer_stats_poll(sparx5->ports[portno]);
- }
- 
- static void sparx5_update_stats(struct sparx5 *sparx5)
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-index 19217d443cc74..93df90a62a9c8 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-@@ -19,6 +19,7 @@
- #include <linux/hrtimer.h>
- #include <linux/debugfs.h>
- #include <net/flow_offload.h>
-+#include <net/pkt_cls.h>
- 
- #include <fdma_api.h>
- 
-@@ -210,8 +211,11 @@ struct sparx5_port_config {
- #define SPX5_POLICERS_PER_PORT 4 /* Number of ingress port policers */
- 
- struct sparx5_port_policer {
--	struct flow_stats prev;
-+	/* Last raw values of the 40-bit hardware counters */
-+	struct flow_stats raw;
-+	/* 64-bit totals, and the totals last reported to tc */
- 	struct flow_stats stats;
-+	struct flow_stats prev;
- 	/* Port policers hold the client reference (cookie) */
- 	unsigned long policer;
- };
-@@ -298,6 +302,10 @@ struct sparx5_mall_mirror_entry {
- 	struct sparx5_port *port;
- };
- 
-+struct sparx5_mall_port_policer_entry {
-+	struct flow_action_police police;
-+};
-+
- struct sparx5_mall_entry {
- 	struct list_head list;
- 	struct sparx5_port *port;
-@@ -306,6 +314,7 @@ struct sparx5_mall_entry {
- 	bool ingress;
- 	union {
- 		struct sparx5_mall_mirror_entry mirror;
-+		struct sparx5_mall_port_policer_entry port_policer;
- 	};
- };
- 
-@@ -655,8 +664,8 @@ void sparx5_sdlb_group_init(struct sparx5 *sparx5, u64 max_rate, u32 min_burst,
- 
- /* sparx5_police.c */
- enum {
--	/* More policer types will be added later */
--	SPX5_POL_SERVICE
-+	SPX5_POL_SERVICE,
-+	SPX5_POL_PORT,
- };
- 
- struct sparx5_policer {
-@@ -669,6 +678,13 @@ struct sparx5_policer {
- };
- 
- int sparx5_policer_conf_set(struct sparx5 *sparx5, struct sparx5_policer *pol);
-+int sparx5_port_policer_init(struct sparx5 *sparx5);
-+int sparx5_add_port_policer(struct sparx5_mall_entry *entry,
-+			    struct netlink_ext_ack *extack);
-+int sparx5_delete_port_policer(struct sparx5_mall_entry *entry);
-+int sparx5_update_port_policer_stats(struct net_device *ndev,
-+				     struct tc_cls_matchall_offload *tmo);
-+void sparx5_port_policer_stats_poll(struct sparx5_port *port);
- 
- /* sparx5_psfp.c */
- #define SPX5_PSFP_GCE_CNT 4
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_police.c b/drivers/net/ethernet/microchip/sparx5/sparx5_police.c
-index c88820e83812c..0fb1003e1b189 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_police.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_police.c
-@@ -4,9 +4,47 @@
-  * Copyright (c) 2023 Microchip Technology Inc. and its subsidiaries.
-  */
- 
-+#include <linux/iopoll.h>
-+
- #include "sparx5_main_regs.h"
- #include "sparx5_main.h"
- 
-+#define SPX5_PORT_POLICER_FILTER_COUNTER 1
-+#define SPX5_PORT_POLICER_PASS_COUNTER 2
-+
-+/* The port policer statistics counters are 40 bits wide (32-bit LSB + 8-bit
-+ * MSB register pair).
-+ */
-+#define SPX5_PORT_STAT_CNT_MASK GENMASK_ULL(39, 0)
-+
-+#define SPX5_PORT_POLICER_0_FILTER_EVENT BIT(4)
-+#define SPX5_PORT_POLICER_1_FILTER_EVENT BIT(5)
-+#define SPX5_PORT_POLICER_2_FILTER_EVENT BIT(6)
-+#define SPX5_PORT_POLICER_3_FILTER_EVENT BIT(7)
-+#define SPX5_PORT_POLICER_0_PASS_EVENT BIT(8)
-+#define SPX5_PORT_POLICER_1_PASS_EVENT BIT(9)
-+#define SPX5_PORT_POLICER_2_PASS_EVENT BIT(10)
-+#define SPX5_PORT_POLICER_3_PASS_EVENT BIT(11)
-+
-+/* Do not add preamble and inter-frame gap to the metered frame size, so that
-+ * the rate is a data rate, as tc police expects.
-+ */
-+#define SPX5_POLICER_DATA_RATE_GAP 0
-+
-+/* Bit rate unit for the port policer (bits/sec) */
-+#define SPX5_POLICER_RATE_UNIT 25040
-+/* Burst size unit for the port policer (bytes) */
-+#define SPX5_POLICER_BYTE_BURST_UNIT 8192
-+
-+enum sparx5_port_policer_stat_event_mask {
-+	SPX5_PPEM_NONE,
-+	SPX5_PPEM_EVENT_NO_ERROR,
-+	SPX5_PPEM_EVENT_AND_ERROR,
-+	SPX5_PPEM_EVENT,
-+	SPX5_PPEM_ERROR_NO_EVENT,
-+	SPX5_PPEM_ERROR,
-+};
-+
- static int sparx5_policer_service_conf_set(struct sparx5 *sparx5,
- 					   struct sparx5_policer *pol)
- {
-@@ -40,10 +78,65 @@ static int sparx5_policer_service_conf_set(struct sparx5 *sparx5,
- 	return 0;
- }
- 
-+static int sparx5_port_policer_conf_set(struct sparx5 *sparx5,
-+					struct sparx5_policer *pol)
-+{
-+	u32 portno = pol->idx / SPX5_POLICERS_PER_PORT;
-+	u32 polidx = pol->idx % SPX5_POLICERS_PER_PORT;
-+	u32 rate, burst, mask, cfg;
-+	int cnt;
-+
-+	rate = DIV_ROUND_UP_ULL(pol->rate, SPX5_POLICER_RATE_UNIT);
-+	burst = DIV_ROUND_UP(pol->burst, SPX5_POLICER_BYTE_BURST_UNIT);
-+
-+	/* Disable the policer when rate and burst are both zero, otherwise
-+	 * police known and unknown unicast, multicast and broadcast frames.
-+	 */
-+	mask = (rate == 0 && burst == 0) ? 0 : 0x7f;
-+	if (mask) {
-+		/* Program the bucket before enabling the policer */
-+		spx5_wr(rate, sparx5, ANA_AC_POL_PORT_RATE_CFG(pol->idx));
-+		spx5_wr(burst, sparx5, ANA_AC_POL_PORT_THRES_CFG_0(pol->idx));
-+		spx5_rmw(ANA_AC_POL_PORT_CFG_TRAFFIC_TYPE_MASK_SET(mask),
-+			 ANA_AC_POL_PORT_CFG_TRAFFIC_TYPE_MASK,
-+			 sparx5, ANA_AC_POL_PORT_CFG(portno, polidx));
-+	} else {
-+		/* Disable the policer before zeroing the bucket */
-+		spx5_rmw(ANA_AC_POL_PORT_CFG_TRAFFIC_TYPE_MASK_SET(0),
-+			 ANA_AC_POL_PORT_CFG_TRAFFIC_TYPE_MASK,
-+			 sparx5, ANA_AC_POL_PORT_CFG(portno, polidx));
-+		spx5_wr(rate, sparx5, ANA_AC_POL_PORT_RATE_CFG(pol->idx));
-+		spx5_wr(burst, sparx5, ANA_AC_POL_PORT_THRES_CFG_0(pol->idx));
-+	}
-+
-+	/* Count policer events, not bytes, for all eight priorities on the
-+	 * port's filter and pass counters, which are shared by all of the
-+	 * port's policer instances.
-+	 */
-+	cfg = ANA_AC_PORT_STAT_CFG_CFG_PRIO_MASK_SET(0xff) |
-+	      ANA_AC_PORT_STAT_CFG_CFG_CNT_FRM_TYPE_SET(SPX5_PPEM_EVENT) |
-+	      ANA_AC_PORT_STAT_CFG_CFG_CNT_BYTE_SET(0);
-+
-+	for (cnt = SPX5_PORT_POLICER_FILTER_COUNTER;
-+	     cnt <= SPX5_PORT_POLICER_PASS_COUNTER; cnt++)
-+		spx5_rmw(cfg,
-+			 ANA_AC_PORT_STAT_CFG_CFG_PRIO_MASK |
-+			 ANA_AC_PORT_STAT_CFG_CFG_CNT_FRM_TYPE |
-+			 ANA_AC_PORT_STAT_CFG_CFG_CNT_BYTE,
-+			 sparx5, ANA_AC_PORT_STAT_CFG(portno, cnt));
-+
-+	spx5_rmw(ANA_AC_POL_PORT_GAP_GAP_VALUE_SET(SPX5_POLICER_DATA_RATE_GAP),
-+		 ANA_AC_POL_PORT_GAP_GAP_VALUE,
-+		 sparx5, ANA_AC_POL_PORT_GAP(portno));
-+
-+	return 0;
-+}
-+
- int sparx5_policer_conf_set(struct sparx5 *sparx5, struct sparx5_policer *pol)
- {
--	/* More policer types will be added later */
- 	switch (pol->type) {
-+	case SPX5_POL_PORT:
-+		return sparx5_port_policer_conf_set(sparx5, pol);
- 	case SPX5_POL_SERVICE:
- 		return sparx5_policer_service_conf_set(sparx5, pol);
- 	default:
-@@ -52,3 +145,312 @@ int sparx5_policer_conf_set(struct sparx5 *sparx5, struct sparx5_policer *pol)
- 
- 	return 0;
- }
-+
-+static u64 sparx5_port_policer_cnt_get(struct sparx5_port *port, u32 cnt)
-+{
-+	struct sparx5 *sparx5 = port->sparx5;
-+	u32 lsb, msb;
-+
-+	/* The MSB is latched when the LSB is read, so read the LSB first */
-+	lsb = spx5_rd(sparx5, ANA_AC_PORT_STAT_LSB_CNT(port->portno, cnt));
-+	msb = spx5_rd(sparx5, ANA_AC_PORT_STAT_MSB_CNT(port->portno, cnt));
-+
-+	return (u64)msb << 32 | lsb;
-+}
-+
-+static void sparx5_port_policer_cnt_accum(struct sparx5_port *port, u32 cnt,
-+					  u64 *raw, u64 *total)
-+{
-+	u64 cur = sparx5_port_policer_cnt_get(port, cnt);
-+
-+	*total += (cur - *raw) & SPX5_PORT_STAT_CNT_MASK;
-+	*raw = cur;
-+}
-+
-+static void sparx5_port_policer_stats_update(struct sparx5_port *port,
-+					     int polidx)
-+{
-+	struct sparx5_port_policer *pp = &port->tc.port_policer[polidx];
-+
-+	lockdep_assert_held(&port->sparx5->queue_stats_lock);
-+
-+	sparx5_port_policer_cnt_accum(port, SPX5_PORT_POLICER_FILTER_COUNTER,
-+				      &pp->raw.drops, &pp->stats.drops);
-+	sparx5_port_policer_cnt_accum(port, SPX5_PORT_POLICER_PASS_COUNTER,
-+				      &pp->raw.pkts, &pp->stats.pkts);
-+}
-+
-+static void sparx5_policer_stats_update(struct sparx5 *sparx5,
-+					struct sparx5_policer *pol)
-+{
-+	u32 portno, polidx;
-+
-+	switch (pol->type) {
-+	case SPX5_POL_PORT:
-+		portno = pol->idx / SPX5_POLICERS_PER_PORT;
-+		polidx = pol->idx % SPX5_POLICERS_PER_PORT;
-+
-+		sparx5_port_policer_stats_update(sparx5->ports[portno], polidx);
-+		break;
-+	default:
-+		break;
-+	}
-+}
-+
-+static int sparx5_get_port_policer_idx(struct sparx5_port *port,
-+				       unsigned long cookie)
-+{
-+	if (port->tc.port_policer[0].policer == cookie)
-+		return 0;
-+
-+	return -ENOENT;
-+}
-+
-+static int sparx5_alloc_port_policer_idx(struct sparx5_port *port,
-+					 unsigned long cookie)
-+{
-+	/* Only one port policer per port is supported: the port's filter
-+	 * and pass statistics counters are shared by all four hardware
-+	 * policer instances, so stats can only be attributed correctly to
-+	 * a single active policer.
-+	 */
-+	if (!port->tc.port_policer[0].policer ||
-+	    port->tc.port_policer[0].policer == cookie)
-+		return 0;
-+
-+	return -EEXIST;
-+}
-+
-+static void sparx5_get_port_policer_stats(struct sparx5_port *port,
-+					  int polidx)
-+{
-+	struct sparx5_policer pol = { 0 };
-+
-+	pol.type = SPX5_POL_PORT;
-+	pol.idx = port->portno * SPX5_POLICERS_PER_PORT + polidx;
-+
-+	sparx5_policer_stats_update(port->sparx5, &pol);
-+}
-+
-+static void sparx5_init_port_policer_stats(struct sparx5_port *port,
-+					   int polidx)
-+{
-+	struct sparx5_port_policer *pp = &port->tc.port_policer[polidx];
-+
-+	mutex_lock(&port->sparx5->queue_stats_lock);
-+
-+	pp->raw.drops = sparx5_port_policer_cnt_get(port,
-+						    SPX5_PORT_POLICER_FILTER_COUNTER);
-+	pp->raw.pkts = sparx5_port_policer_cnt_get(port,
-+						   SPX5_PORT_POLICER_PASS_COUNTER);
-+
-+	memset(&pp->stats, 0, sizeof(pp->stats));
-+	memset(&pp->prev, 0, sizeof(pp->prev));
-+
-+	mutex_unlock(&port->sparx5->queue_stats_lock);
-+}
-+
-+/* Called once a second from the stats worker, so that a wrap of the 40-bit
-+ * counters is never missed. Only one port policer per port is used.
-+ */
-+void sparx5_port_policer_stats_poll(struct sparx5_port *port)
-+{
-+	mutex_lock(&port->sparx5->queue_stats_lock);
-+	sparx5_get_port_policer_stats(port, 0);
-+	mutex_unlock(&port->sparx5->queue_stats_lock);
-+}
-+
-+int sparx5_update_port_policer_stats(struct net_device *ndev,
-+				     struct tc_cls_matchall_offload *tmo)
-+{
-+	struct sparx5_port *port = netdev_priv(ndev);
-+	struct flow_stats *prev_stats;
-+	struct flow_stats *stats;
-+	u64 pkts, drops;
-+	int polidx;
-+
-+	polidx = sparx5_get_port_policer_idx(port, tmo->cookie);
-+	if (polidx < 0)
-+		return polidx;
-+
-+	stats = &port->tc.port_policer[polidx].stats;
-+	prev_stats = &port->tc.port_policer[polidx].prev;
-+
-+	mutex_lock(&port->sparx5->queue_stats_lock);
-+
-+	sparx5_get_port_policer_stats(port, polidx);
-+
-+	pkts = stats->pkts - prev_stats->pkts;
-+	drops = stats->drops - prev_stats->drops;
-+
-+	prev_stats->pkts = stats->pkts;
-+	prev_stats->drops = stats->drops;
-+
-+	mutex_unlock(&port->sparx5->queue_stats_lock);
-+
-+	if (!pkts && !drops)
-+		return 0;
-+
-+	flow_stats_update(&tmo->stats,
-+			  0,
-+			  pkts + drops,
-+			  drops,
-+			  jiffies,
-+			  FLOW_ACTION_HW_STATS_IMMEDIATE);
-+
-+	return 0;
-+}
-+
-+int sparx5_add_port_policer(struct sparx5_mall_entry *entry,
-+			    struct netlink_ext_ack *extack)
-+{
-+	struct flow_action_police *police = &entry->port_policer.police;
-+	struct sparx5_port *port = entry->port;
-+	struct sparx5 *sparx5 = port->sparx5;
-+	struct sparx5_policer pol = { 0 };
-+	int idx, err;
-+
-+	if (!entry->ingress) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "Policer is not supported on egress");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (entry->port->tc.ingress_block_shared) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "Policer is not supported on shared ingress blocks");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (police->exceed.act_id != FLOW_ACTION_DROP) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "Policer parameters are not supported");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (police->notexceed.act_id != FLOW_ACTION_PIPE &&
-+	    police->notexceed.act_id != FLOW_ACTION_ACCEPT) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "Policer parameters are not supported");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (police->peakrate_bytes_ps || police->avrate ||
-+	    police->overhead) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "Policer parameters are not supported");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (police->rate_pkt_ps) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "Policer parameters are not supported");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (!police->rate_bytes_ps) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "Policer requires a rate");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (police->burst > ANA_AC_POL_PORT_THRES_CFG_0_PORT_THRES0 *
-+			    SPX5_POLICER_BYTE_BURST_UNIT) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "Policer parameters are not supported");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	if (police->rate_bytes_ps >
-+	    div_u64((u64)ANA_AC_POL_PORT_RATE_CFG_PORT_RATE *
-+		    SPX5_POLICER_RATE_UNIT, BITS_PER_BYTE)) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "Policer parameters are not supported");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	idx = sparx5_alloc_port_policer_idx(port, entry->cookie);
-+	if (idx < 0) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "Only one port policer per port is supported");
-+		return idx;
-+	}
-+
-+	pol.type = SPX5_POL_PORT;
-+	pol.rate = police->rate_bytes_ps * BITS_PER_BYTE;
-+	pol.burst = police->burst;
-+	pol.idx = port->portno * SPX5_POLICERS_PER_PORT + idx;
-+
-+	sparx5_init_port_policer_stats(port, idx);
-+
-+	err = sparx5_policer_conf_set(sparx5, &pol);
-+	if (err)
-+		return err;
-+
-+	port->tc.port_policer[idx].policer = entry->cookie;
-+
-+	return 0;
-+}
-+
-+int sparx5_delete_port_policer(struct sparx5_mall_entry *entry)
-+{
-+	struct sparx5_port *port = entry->port;
-+	struct sparx5 *sparx5 = port->sparx5;
-+	struct sparx5_policer pol = { 0 };
-+	int idx, err;
-+
-+	if (!entry->ingress)
-+		return -EINVAL;
-+
-+	idx = sparx5_get_port_policer_idx(port, entry->cookie);
-+	if (idx < 0)
-+		return idx;
-+
-+	pol.type = SPX5_POL_PORT;
-+	pol.idx = port->portno * SPX5_POLICERS_PER_PORT + idx;
-+
-+	err = sparx5_policer_conf_set(sparx5, &pol);
-+	if (err)
-+		return err;
-+
-+	port->tc.port_policer[idx].policer = 0;
-+
-+	return 0;
-+}
-+
-+int sparx5_port_policer_init(struct sparx5 *sparx5)
-+{
-+	u32 value;
-+	int err;
-+
-+	/* Initialize all port policers before usage */
-+	spx5_rmw(ANA_AC_POL_ALL_CFG_ACL_FORCE_INIT_SET(1) |
-+		 ANA_AC_POL_ALL_CFG_FORCE_INIT_SET(1),
-+		 ANA_AC_POL_ALL_CFG_ACL_FORCE_INIT |
-+		 ANA_AC_POL_ALL_CFG_FORCE_INIT,
-+		 sparx5, ANA_AC_POL_ALL_CFG);
-+
-+	err = read_poll_timeout(spx5_rd, value,
-+				!(ANA_AC_POL_ALL_CFG_ACL_FORCE_INIT_GET(value) |
-+				  ANA_AC_POL_ALL_CFG_FORCE_INIT_GET(value)),
-+				500, 10000, false, sparx5, ANA_AC_POL_ALL_CFG);
-+	if (err)
-+		return err;
-+
-+	/* Configure the port policer filter and pass statistics counters.
-+	 * Counter 0 is owned by sparx5_ethtool.c (SPX5_PORT_POLICER_DROPS).
-+	 */
-+	spx5_wr(SPX5_PORT_POLICER_0_FILTER_EVENT |
-+		SPX5_PORT_POLICER_1_FILTER_EVENT |
-+		SPX5_PORT_POLICER_2_FILTER_EVENT |
-+		SPX5_PORT_POLICER_3_FILTER_EVENT,
-+		sparx5, ANA_AC_PORT_SGE_CFG(SPX5_PORT_POLICER_FILTER_COUNTER));
-+
-+	spx5_wr(SPX5_PORT_POLICER_0_PASS_EVENT |
-+		SPX5_PORT_POLICER_1_PASS_EVENT |
-+		SPX5_PORT_POLICER_2_PASS_EVENT |
-+		SPX5_PORT_POLICER_3_PASS_EVENT,
-+		sparx5, ANA_AC_PORT_SGE_CFG(SPX5_PORT_POLICER_PASS_COUNTER));
-+
-+	return 0;
-+}
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_qos.c b/drivers/net/ethernet/microchip/sparx5/sparx5_qos.c
-index 7370533243b6b..06412078bc651 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_qos.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_qos.c
-@@ -449,6 +449,10 @@ int sparx5_qos_init(struct sparx5 *sparx5)
- {
- 	int ret;
- 
-+	ret = sparx5_port_policer_init(sparx5);
-+	if (ret)
-+		return ret;
-+
- 	ret = sparx5_leak_groups_init(sparx5);
- 	if (ret < 0)
- 		return ret;
+---
+Mark Brown (3):
+      arm64/gcs: Ignore attempts to change GCS mode during signal return
+      arm64/gcs: Move gcs_check_locked() out of the header
+      arm64/gcs: Store GCSCRE0_EL1 values instead of userspace mode
 
--- 
-2.34.1
+ Documentation/arch/arm64/gcs.rst   | 13 +++------
+ arch/arm64/include/asm/gcs.h       | 25 +++++-------------
+ arch/arm64/include/asm/processor.h |  2 +-
+ arch/arm64/kernel/process.c        | 11 ++++----
+ arch/arm64/kernel/ptrace.c         |  4 +--
+ arch/arm64/kernel/signal.c         | 28 +++-----------------
+ arch/arm64/mm/gcs.c                | 54 +++++++++++++++++++++++++++++---------
+ 7 files changed, 63 insertions(+), 74 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm master
+change-id: 20260911-arm64-gcs-store-gcscre0-2e3e246e6f7a
+
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
 
 
