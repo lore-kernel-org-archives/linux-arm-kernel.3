@@ -2,81 +2,67 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50B66606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:09:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9A00606A332
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:12:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Fgz1m6Xi;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gEIc2vgX
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hufZGbv3;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=TGIpi0Pg
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=uWZDC+jKR50KkuL/m90FaOZS23uCXLeIovjpwO7U69c=; b=Fgz1m6XiNfoNG8
-	T8xCCcHkPe9wnpadERVhjkbxeslAUwt0ppfKUeMrNQXiD/NvwN5m1eeKpD7srP+AIx0PsaOfk9KBU
-	JF8axqj9OS1gClBm4hpxoYJ+6frDxSR8ZvdJEBhrgMhECJd33eKXde5w/4uj1oY1Kb8kAEGC0RBH0
-	9aSMhaIqtdJp+kiWlFna+OtqpxuuahAeLC9mdjDd3Fa6hqvu5fLUHg4tDwxIsa8uN4KirntMgaTf5
-	2uY/S9D1iXK+HnwH0VH1mW4Tkwin4YhlhIr8DzGQbm/EyNw3xN4y8S7HSoA7nbhv66I6UEn0g+TgQ
-	p2U5BiC7Hvc7Gx+RT4Qw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=QZS6sDYWGRUn7zjDgPJZkQJIObyWy22cKBGFN8aMRqU=; b=hufZGbv36fILhk
+	m2ZTSF/uL2/aAKHotyJbG6GUbPZpkw6X2yK5ngolkzGs2YMUC2tLHbLO4tXIfGiA+YUC6M7aTPBGt
+	DlVHKz7rLvzdz+GGPiQRnXMeSTNknMHaDuBQm7/sd8g/s8pnU+QBuRHP/vxFI+LyfSZ9iiX2uAcsC
+	BN65M+60EHWMs21BryROU0ViC7wU/412DRNXJf1bRpWGvFF9WQY8ox+fuIWGrj4NGi6vD0Ed92SHC
+	CVKaiCdkvcqvPBNk7hdvWKZeLrURqNJi26/PHHzB4KrtxlhwrlN9VaBgMYW/s42wYsCwz8Lv38WgY
+	p611t1P7PDXOe9vZGkBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOy9k-00000009DP8-0j2F;
-	Thu, 05 Nov 2026 14:09:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOy9h-00000009DOj-3cR8
+	id 1xOyCu-00000009Di3-0liX;
+	Thu, 05 Nov 2026 14:12:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOyCp-00000009Dhf-3yAZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 14:09:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 382C743D65
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 14:09:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D4E31F000C1
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 14:09:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793887769;
-	bh=uWZDC+jKR50KkuL/m90FaOZS23uCXLeIovjpwO7U69c=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=gEIc2vgXojaI7fLQe2A1eMM5vENRX6IJ9jAXk4+aXPqJGYuaF7IslkQbHL19df884
-	 ogA2YlzVBJKq2xnUxIwT1vmileZSCUoP1Nb4OgxAHNwO2RzJsk9lTMbvDwDc5fgHQl
-	 ZiHGw3Z578ERPzNkl7ZstfGTIRDC1lITQD9Z7NoTSmkKtWwmz76no80L39/9Tdn4fH
-	 CE3/T5QKcatW/sO/NVg2JBzw13sqs0aJxutYOy0W7YD7OcZUXpXGOATS397JiaKLRj
-	 5Zw+lrJk41UK6dR4VxKg6dzeNJFlI9s+G+G5QwR7JUL2GXg4d3Iw2VVKl9RlldTTqF
-	 OFNr/26fZ/2Tg==
-Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-3a1f628b1d1so14954481fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 06:09:29 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvByChkUedwXyok3I9k18S63bVHlDj/yEE1/s/vv2L91YMCwvOlc6OI3b2w6mthdWVdzbtB9KOs/8K6roqZ5eQDBE@lists.infradead.org
-X-Gm-Message-State: APuU4Z+thFJubdsDVf7v84fI7S5dQ5X1ft/HleqdltexD/34QGDGD7cT
-	QgG2UGYXWczNvARyhtlFs/2qiIJbZnfbtJqWPzxGpwkE+Q3JSh5iDi99Qn/yGEEceRBXnEe/MBG
-	hw7MXNQFjIKBxcUogK+1xIrEQ3XpwbfM=
-X-Received: by 2002:a05:6512:688b:20b0:5bf:e4e6:7f78 with SMTP id
- 2adb3069b0e04-5bfe4e68c03mr2949831e87.39.1793887767615; Thu, 05 Nov 2026
- 06:09:27 -0800 (PST)
+	Thu, 05 Nov 2026 14:12:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E89871650;
+	Thu,  5 Nov 2026 06:12:38 -0800 (PST)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C08E73F673;
+	Thu,  5 Nov 2026 06:12:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793887962; bh=7IV3GnazZQUXVEnb2lbkppwOqoF/LZfMHwSTUnUOzGM=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=TGIpi0Pgs8wyFZwHLYydEax/pX6Ke1ifMuQ1VIT5FvsMnein1yhBtLXupf8L9ox7N
+	 mCpCDxvY/+oLTVgNQQr67ZHboVWzYfG25mtidbVknV7+MqB/IOzkgD55dupgH84se1
+	 eBOjp5KGha0iUkrnrbT+CiKkgMKQQtzmuDo8LEOs=
+Message-ID: <676991f4-6ddd-4cd0-a3f5-880cef369f62@arm.com>
+Date: Thu, 5 Nov 2026 14:12:38 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261101-xg6846b-bcmbca-xrdp-reset-v2-0-455fe9eed5ee@kernel.org>
- <20261101-xg6846b-bcmbca-xrdp-reset-v2-4-455fe9eed5ee@kernel.org> <340843f896db387a7c3ff4d6a06ef7c2155d1f98.camel@pengutronix.de>
-In-Reply-To: <340843f896db387a7c3ff4d6a06ef7c2155d1f98.camel@pengutronix.de>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 5 Nov 2026 15:09:14 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=sYc2_Pj5k-5d4QqcqNpFjQkcTKJFv4oDhXCHo9kymSw@mail.gmail.com>
-X-Gm-Features: AclHuK-xb4f0QrVUB5hiQs77kNWFtdOJD63XyBZhuUtDoapdcW_U4E9f6qqA4pg
-Message-ID: <CAD++jL=sYc2_Pj5k-5d4QqcqNpFjQkcTKJFv4oDhXCHo9kymSw@mail.gmail.com>
-Subject: Re: [PATCH v2 4/7] reset: Add BCMBCA block resets through the PMB
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	William Zhang <william.zhang@broadcom.com>, Anand Gore <anand.gore@broadcom.com>, 
-	Kursad Oney <kursad.oney@broadcom.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
-	Guenter Roeck <linux@roeck-us.net>, Jonathan Corbet <corbet@lwn.net>, 
-	Randy Dunlap <rdunlap@infradead.org>, Benjamin Larsson <benjamin.larsson@genexis.eu>, mfd@lists.linux.dev, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-clk@vger.kernel.org, linux-hwmon@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm_mpam: resctrl: Limit num_rmids to the CLOSIDs in
+ use
+To: Jinjie Ruan <ruanjinjie@huawei.com>, tony.luck@intel.com,
+ reinette.chatre@intel.com, Dave.Martin@arm.com, james.morse@arm.com,
+ babu.moger@amd.com, tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, fenghuay@nvidia.com,
+ jic23@kernel.org, zengheng4@huawei.com, gshan@redhat.com, x86@kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20261105123304.2281987-1-ruanjinjie@huawei.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20261105123304.2281987-1-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261105_061244_073426_48F61086 
+X-CRM114-Status: GOOD (  40.16  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,45 +73,164 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Nov 3, 2026 at 12:28=E2=80=AFPM Philipp Zabel <p.zabel@pengutronix.=
-de> wrote:
+Hi Jinjie,
 
-> > +     unsigned int i, zone;
-> > +     int ret;
-> > +
-> > +     for (i =3D 0; i < ARRAY_SIZE(power); i++) {
-> > +             for (zone =3D 0; zone < power[i].zones; zone++) {
-> > +                     ret =3D bcm6846_power_on_zone(rst, power[i].devic=
-e, zone);
-> > +                     if (ret) {
-> > +                             dev_err(rst->rcdev.dev,
-> > +                                     "XRDP power-up failed at PMB bus =
-1 device %u zone %u: %d\n",
-> > +                                     power[i].device, zone, ret);
-> > +                             bcmbca_pmb_reset_cleanup(rst, group);
-> > +                             return ret;
-> > +                     }
-> > +             }
-> > +     }
->
-> This doesn't look like it belongs in the reset controller driver.
-> Are these power domains?
+For patches that touch mpam and fs/resctrl the conventional prefix, as I understand it, should be
+arm,fs/resctrl: and if it also touches the x86 rdt code it should then be arm,x86,fs/resctrl:.
+Although, if possible please try and make separate patches for each.
 
-Indeed.
 
-I was trying several times to restrict the scope of the MFD subdrivers
-but they have this tendency to all require each other so I'll just bite the
-bullet and implement the power domains too :D
+On 05/11/2026 12:33, Jinjie Ruan wrote:
+> On MPAM an RMID is a PMG within a PARTID, so resctrl can only allocate
+> the PMGs of the CLOSIDs it uses. info/L3_MON/num_rmids is instead set
+> to the whole PARTID and PMG space when the monitors are initialised,
+> and halved when CDP is enabled. It reports more RMIDs than resctrl can
+> allocate in two cases:
+> 
+> - With CDP each CLOSID takes two PARTIDs, and resctrl halves the
+>   CLOSID count rounding down, while MPAM halves the whole RMID space.
+>   With 5 PARTIDs and 2 PMGs resctrl has 2 CLOSIDs and 4 RMIDs, but
+>   num_rmids reads 5. The count is too high whenever the number of
+>   PARTIDs is odd and there is more than one PMG.
+> 
+> - On a monitor-only system there are no control groups and resctrl
+>   only uses the default CLOSID, but num_rmids still covers every
+>   PARTID. With 5 PARTIDs and 2 PMGs it reads 10 while only 2 RMIDs
+>   can be allocated.
+> 
+> RMID allocation is limited to the CLOSIDs in use, so only the value
+> reported to userspace is too high. Creating as many monitor groups as
+> num_rmids allows fails with -ENOSPC before that number is reached.
+> 
+> Let resctrl tell the architecture how many CLOSIDs it uses on every
+> mount. Add resctrl_arch_set_mon_rmid_count(), called after closid_init()
 
-I'll fix the rest of the review comments.
+Is it really necessary for resctrl to tell the MPAM driver the number of CLOSIDs? Is there any case
+where the MPAM driver doesn't just know how many CLOSIDs there will be?
 
-Yours,
-Linus Walleij
+Thanks,
+
+Ben
+
+
+> and before the info files are created, and have MPAM report
+> (pmg_max + 1) RMIDs for each CLOSID. The CLOSID count already accounts
+> for CDP, as schemata_list_add() halves it when CDP is enabled, so drop
+> the halving in resctrl_arch_set_cdp_enabled(). A monitor-only system
+> passes 1 for the default CLOSID. On x86 the RMIDs do not depend on the
+> CLOSIDs and the hook does nothing.
+> 
+> Fixes: 264c285999fc ("arm_mpam: resctrl: Add monitor initialisation and domain boilerplate")
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: <stable@vger.kernel.org> # 7.1.x
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Ben Horgan <ben.horgan@arm.com>
+> Cc: Reinette Chatre <reinette.chatre@intel.com>
+> Cc: Fenghua Yu <fenghuay@nvidia.com>
+> ---
+> v2:
+> - Use the "arm_mpam: resctrl:" prefix.
+> - Also fix num_rmids on monitor-only systems, as Ben suggested: add
+>   resctrl_arch_set_mon_rmid_count() so resctrl reports the number of
+>   CLOSIDs it uses, and remove the CDP-only rounding.
+> - Retitle from "arm_mpam: Round the CDP RMID count down to whole CLOSIDs".
+> - v1: https://lore.kernel.org/all/20261104101622.563280-1-ruanjinjie@huawei.com/
+> ---
+>  arch/x86/include/asm/resctrl.h |  3 +++
+>  drivers/resctrl/mpam_resctrl.c | 18 ++++++++++++------
+>  fs/resctrl/rdtgroup.c          |  2 ++
+>  include/linux/resctrl.h        |  1 +
+>  4 files changed, 18 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/x86/include/asm/resctrl.h b/arch/x86/include/asm/resctrl.h
+> index 8f6edcdcfd87..50165027b92d 100644
+> --- a/arch/x86/include/asm/resctrl.h
+> +++ b/arch/x86/include/asm/resctrl.h
+> @@ -164,6 +164,9 @@ static inline bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 ignored,
+>  	return READ_ONCE(tsk->rmid) == rmid;
+>  }
+>  
+> +/* RMIDs are independent of CLOSIDs on x86. */
+> +static inline void resctrl_arch_set_mon_rmid_count(u32 num_closid) { }
+> +
+>  static inline void resctrl_arch_sched_in(struct task_struct *tsk)
+>  {
+>  	if (static_branch_likely(&rdt_enable_key))
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index 5468367776e2..cca9568bab70 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -217,11 +217,6 @@ int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
+>  	cdp_enabled = enable;
+>  	mpam_resctrl_controls[rid].cdp_enabled = enable;
+>  
+> -	if (enable)
+> -		l3->mon.num_rmid = resctrl_arch_system_num_rmid_idx() / 2;
+> -	else
+> -		l3->mon.num_rmid = resctrl_arch_system_num_rmid_idx();
+> -
+>  	/* The mbw_max feature can't hide cdp as it's a per-partid maximum. */
+>  	if (cdp_enabled && !mpam_resctrl_controls[RDT_RESOURCE_MBA].cdp_enabled)
+>  		mpam_resctrl_controls[RDT_RESOURCE_MBA].resctrl_res.alloc_capable = false;
+> @@ -279,6 +274,16 @@ u32 resctrl_arch_system_num_rmid_idx(void)
+>  	return (mpam_pmg_max + 1) * (mpam_partid_max + 1);
+>  }
+>  
+> +void resctrl_arch_set_mon_rmid_count(u32 num_closid)
+> +{
+> +	struct rdt_resource *l3 = &mpam_resctrl_controls[RDT_RESOURCE_L3].resctrl_res;
+> +
+> +	if (!l3->mon_capable)
+> +		return;
+> +
+> +	l3->mon.num_rmid = (mpam_pmg_max + 1) * num_closid;
+> +}
+> +
+>  u32 resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid)
+>  {
+>  	return closid * (mpam_pmg_max + 1) + rmid;
+> @@ -1350,7 +1355,8 @@ static int mpam_resctrl_monitor_init(struct mpam_resctrl_mon *mon,
+>  	 * each control group. Hence, advertise the whole rmid_idx space even
+>  	 * though each control group has its own pmg/rmid space. Unfortunately,
+>  	 * this does mean userspace needs to know the architecture to correctly
+> -	 * interpret this value.
+> +	 * interpret this value. resctrl_arch_set_mon_rmid_count() replaces it
+> +	 * with the RMIDs of the CLOSIDs in use when resctrl is mounted.
+>  	 */
+>  	l3->mon.num_rmid = resctrl_arch_system_num_rmid_idx();
+>  
+> diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
+> index 106e78fb1f1d..2335dd7054ca 100644
+> --- a/fs/resctrl/rdtgroup.c
+> +++ b/fs/resctrl/rdtgroup.c
+> @@ -3214,6 +3214,8 @@ static int rdt_get_tree(struct fs_context *fc)
+>  	if (ret)
+>  		goto out_schemata_free;
+>  
+> +	resctrl_arch_set_mon_rmid_count(closids_supported() ?: 1);
+> +
+>  	if (resctrl_arch_mon_capable())
+>  		flags |= RFTYPE_MON;
+>  
+> diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
+> index 10dfdca7f4bf..4a78f2e60bdf 100644
+> --- a/include/linux/resctrl.h
+> +++ b/include/linux/resctrl.h
+> @@ -417,6 +417,7 @@ static inline u32 resctrl_get_default_ctrl(struct rdt_resource *r)
+>  /* The number of closid supported by this resource regardless of CDP */
+>  u32 resctrl_arch_get_num_closid(struct rdt_resource *r);
+>  u32 resctrl_arch_system_num_rmid_idx(void);
+> +void resctrl_arch_set_mon_rmid_count(u32 num_closid);
+>  int resctrl_arch_update_domains(struct rdt_resource *r, u32 closid);
+>  
+>  bool resctrl_enable_mon_event(enum resctrl_event_id eventid, bool any_cpu,
+
 
