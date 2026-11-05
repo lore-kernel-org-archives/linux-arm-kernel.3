@@ -2,151 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46616606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 16:15:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5D89606A331
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 16:17:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MSLZ83cT;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=F3bvxBvw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pAQDRUZV;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MqS68onA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=EVOaY6lzupMU17CGEp/mLo45HJwn4/IzgMCVwxJi9Rs=; b=MSLZ83cTU1Y9P6XDa9oOZF4Q3L
-	+ISkDQnnMeCI3fxlxSCTOStdRpSZhYtWAu7Jnjxc003g9HV6OUXvhd7zx0kjbgaAVi01ezFVWXeU4
-	jeW+wdJbxp45RmmskZ6y2r0jdTLTIa+pqsuRWxEu7AES6l3BiqWfcDnUhtQwhd1Z7U3G5NFAmvHx5
-	V1I3mM0zGJgY1Ek2pSk6lnwdDKllLANo8EOv6t5G+nPEVLtb1P/Xo80WPErZWkPQwDj9elojqmTIM
-	72JQKXacPa3t2LX/opqPrNtg7JmRrQjFNnPwVt98D+srG6wZerMaIQCHPoyjP3i+hohukm5isKx/C
-	zhfdf6ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=F9GcNTDieh7QxkZrb/eoI09mZxtvLJXvzF3NFjQWsTM=; b=pAQDRUZVfTgFkI
+	DVu28sxEU12tJ3Ku7r81IxV6CV3bpkkkOlAPzsNeU4lxi83A8AqR3P9N21FjpCHyc/q/1nmVc/VgC
+	9u1RFEvWxRL47mMj5u2/+V6MDriY0JhLUBpxRIfMCeUQ5B6zNKHvogcRiyDy2a3ygpxs9eOnhdjAA
+	mNVOtvCcToJfjtuLbj7px/A2vdLi8wBYE1yKJipTU+xo1Xxm6YFeO12ku3e+cyN8PsILE1PBcTqF/
+	rvQMfGWneR/cvDlPN9ie3+SgS4fI/B69ZY//4GYYlSKsDpz0GTW6FTZthGGopVxjSH4Z4uGqihB3b
+	xS9QkZ5FFMNrEkx6CNEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyE7-00000009E5n-1gCh;
-	Thu, 05 Nov 2026 14:14:03 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1xP09C-00000009Z3S-0sjh;
+	Thu, 05 Nov 2026 16:17:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyE3-00000009E3T-3cjJ
+	id 1xP099-00000009Z31-3uLr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 14:14:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QQCJ/EAXZFxy+/y7x8IGMP8sYo1QOa5gg6e8QbIl43/H22GH+IMlUbhcX4HpJuTqixdo/VufHJqvhdN1g9ggAxLEevssFwCvc7D+tbozGwtpf/txkw9wcJhUQ5mkHt3SaboEsekgyleBaiCRURCoWF207xYOggRFyvSHPiOFUi7m0kzpQFMD1ErGEGOmUYn7FhB/WIm8JRgGuisZm4uV1x8pFt3717StsIT7ireFn5enQSzBYH9oKNNWTm6/dGxz86V5b3UWtF11LiqCgtjK7fhMvZxPmJ6YMwDDRHjB1Oy6NVQz4Qp2k9z3An79SMYDyjyaQaluxGeMiVfJSEfVFA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EVOaY6lzupMU17CGEp/mLo45HJwn4/IzgMCVwxJi9Rs=;
- b=Yb6k+nDctsmiSSLF2MHy2IBPGatgVZkbiSWb0pnyeMMGjbkgsV9w4BxB5cmw6pwP998Rx7Lo6e357uFlk7arLqTZUz8Nvng83KPU3szHdZrMOVUc9MEZMT/OAPQfjeNG4JFUlL9IBSS7nn5dyxD+iuRF7mbMu1rWSOOOpTXajILaXdODoBwcuoSmEhf+6UhJN+WGefF4UwYuZX+X7HXrDdSEcW40MkQpB7Fe0BawPp/+5uZ8fJutVoc+uMWO8AMW+MlmhhE8xz8OZ/sSh+pRZLPzfQj/5TsvE9rFnZfePs0H5ovznulEnaJey42RxUTU1u/dYbPIv3Xgt2tYDsb4Xg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EVOaY6lzupMU17CGEp/mLo45HJwn4/IzgMCVwxJi9Rs=;
- b=F3bvxBvwB1sUsLd2vDhbr8wMMRfRlHOu9MCaEcgZF4meRZAzEAetzIJEzWfDnkq0acjZ4inQaZ0DxhjBBD10yDHo5TgirO3je2ztpePEMuCpgYwoo0+hldc9fHxE2yED+37VpN152sbe8z0dz+CDmiv5J6R8ONOtn7tOaG1H3Oao9QXLyHUPBlKmsybCt+TUl6d/J9A0OZ1Hw4+M5fkkvR9RPJrOrcI+Qv0lqfgHNcsz4itoztADBUfy8OsEbxebZlhcJ0334a3B5hhckOBJRbKbeso8Us4qTywO9vUONe/H65OnaUO7D0KZS/3GnfIKwz2Yzh+h7qkn5PubbrpsVg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
- by DU4PR04MB11029.eurprd04.prod.outlook.com (2603:10a6:10:590::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.9; Thu, 5 Nov 2026
- 14:13:49 +0000
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85%5]) with mapi id 15.21.0592.009; Thu, 5 Nov 2026
- 14:13:49 +0000
-From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-To: Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>,
+	Thu, 05 Nov 2026 16:17:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id F10AA601DE;
+	Thu,  5 Nov 2026 16:17:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2AE51F00A02;
+	Thu,  5 Nov 2026 16:16:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793895422;
+	bh=F9GcNTDieh7QxkZrb/eoI09mZxtvLJXvzF3NFjQWsTM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=MqS68onAEUCKLcBvYVt5QBRjA/8e9X/XYU5cabedf1Ungg9ErA00cRtuvD/IRALK9
+	 8Fan7/i7wd/knDNt7dPpATW0Bb2YI1oU6LpxhUUoLA6RiQeNLYQMxLkBknljJxuim0
+	 HIXYdD6JNDj2c2fNmhWQIcPTJp8NIahTrGDaTdDCwpTUbCuL9Bcn3+5i9yklBAmCbf
+	 mTJpCmFnfO55/mbfaa61I9EKQxYYYCcmPs1Bv+rC5TSqwweLeLfim4mQMn+PqI03Hs
+	 PQtX+ba7+F6pL/ISGWfnXxhlF5vKlZD6QKmjykd0+fz+kowAUNFMiRHuxnKWhjMEhn
+	 GZYmLwTg2XIcQ==
+From: Sven Peter <sven@kernel.org>
+To: Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Linus Walleij <linusw@kernel.org>
-Cc: Chester Lin <chester62515@gmail.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Sven Peter <sven@kernel.org>
+Cc: Joshua Peisach <jpeisach@ubuntu.com>,
+	asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Matthias Brugger <mbrugger@suse.com>,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH v3] pinctrl: nxp: s32g2: Enable by default on ARCH_S32
-Date: Thu,  5 Nov 2026 15:13:47 +0100
-Message-Id: <20261105141347.488850-1-khristineandreea.barbulescu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4PR09CA0025.eurprd09.prod.outlook.com
- (2603:10a6:20b:5d4::15) To AM9PR04MB8179.eurprd04.prod.outlook.com
- (2603:10a6:20b:3b5::20)
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: (subset) [PATCH v3 0/3] Apple SoC CIO (USB4/Thunderbolt) reset controller
+Date: Thu,  5 Nov 2026 17:16:47 +0100
+Message-ID: <179389539199.15122.3605196731930502187.b4-ty@b4>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261003-b4-cio-reset-v3-0-e605f9e5c8a4@kernel.org>
+References: <20261003-b4-cio-reset-v3-0-e605f9e5c8a4@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|DU4PR04MB11029:EE_
-X-MS-Office365-Filtering-Correlation-Id: f96b80f0-f326-4a90-91cc-08df3b470353
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|23010399003|366016|1800799024|6133799003|10067099003|18002099003|261102123227099003|11063799006|261021121427099003|261022075727099003|56012099006|261009223027099003|261021123027099003;
-X-Microsoft-Antispam-Message-Info: rIsxZWT91HoLN81a3JztVy2/7O7PmkPYsbTNP3WEQd6OwMnYX0jsNkR0lh8bgFQqRazAaM6dSwTYeAmm8GXQI8D62cvly9lTrgtxRi4+ya9XtYu3FVmVhf6Naq0rIyZbWZityWB+xz/oHPzBxbypOWdc8JooFKJsyPpSLXVV7O8GAvRP+tGPOFs194OtiLTX365nfv85CxN9bI1wcJ6t+6TcQm/QJW3iEdx7bFhhzzMB8FSh9LWrOUdsUm7NuoGKaXZHloCOpg4yp9QYRhmp9/UWX+MOnjlmsILWhjMufrtC7OASVJ35Cgq7VWtNUykDTwDelehgfhrBF/qc50pNAZzckP//kqLDIqEBD8JwuBwgGgucpEWpTYOS7Si5NdqkLmN3ypqIoSbubq+J/bSArIt5vcXiVbUEL6qZDJPp+c6hz5MohGP4usuPGdQGyg6fi9V8dCSFfC1zVJ+UK9SSrY6Pk4QeWz2bTY+eApiLL5ZxlDkUGxf9BQjLngy0o+6+lbFLcoh4eQfAOuCdWcHRp547/gurNNyCx7Pz7ZYONqZE24VjLtgxSR17ByoJ672bESbqKADZ0gf90KhXv0WvigT1AQ0JZMXp418cccY+AtKH7isyAbmQLLqfU189WxwjLgHVCf2rSZkpNsK5RumjFQHpbhxQ0DGHC10rgd9imKI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(23010399003)(366016)(1800799024)(6133799003)(10067099003)(18002099003)(261102123227099003)(11063799006)(261021121427099003)(261022075727099003)(56012099006)(261009223027099003)(261021123027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y0lwMEs2ODUyL1VrYzZoVnhIaDkxZjRQR0tFZ1JLZFlTRmE4ajU2Mjg0SHR1?=
- =?utf-8?B?OTRBWER6aWV6S0poelluZlVXSEx4SXdCbHpVeitWUHd2WEs1ZTlYdm1VbU8x?=
- =?utf-8?B?djc3RGZxT3JQOEcvWndMWHVHamFQT0J0djVqbzMxN3BQemhaUElCbmNuVHd1?=
- =?utf-8?B?Z3p6TTZCbnRPb1BCSU9FSm9MeWg4N2JucmI2RlBXeVBoT2tsaVdONzczVDhV?=
- =?utf-8?B?bmhXdVVoWEhYdEo1Ukh1OFp5K25ncWdmK21pSVNPc2dLTlFSTUFtZ2Uvc0xG?=
- =?utf-8?B?TnRjQXByZk5HT2o1VER5Um1nNEFZaytXSjRKSlZzRXZZMGxobXFUb0lSdFd3?=
- =?utf-8?B?bjRsdnVQWmxSMFYxTXBZTVpwbkJESnVEWDJHRHhNcFUxVjhqdGdhYmpCS05Y?=
- =?utf-8?B?cUYvUWlxTUNBbkhueHhqbUtSZHpmZjdiWDI4Tk1MTlhmSGtHOUNFTk0vSjF0?=
- =?utf-8?B?Qmg0RHc5VFlBOU9BaGlwNEgraTlUeHV5ZG9adXFFaWJ3NHlNMUhVQUJjVDNl?=
- =?utf-8?B?RXRuQnA5UEZ1Qm4wcm1qN3N6cGg0cXVveVZXenloSVlDTURDek1VekFEMHJ0?=
- =?utf-8?B?WkRMMk5aWVlibC9SbWtyK1FPQVJaR3p6WVlkVE1pM3JYYUVEeVFFVUJXR1dS?=
- =?utf-8?B?aEhtYUdaQkthZWhnMGtLT2xtZlNSKzU0dEhqTDVmZ3ZXeXJuY1FZQTlTd3BM?=
- =?utf-8?B?b24zZmVwZEw1NWl2NUtnOEFXUzZDQmlXUldtUDRIaitFVFVvTldRMnBxVzlD?=
- =?utf-8?B?UDQ3OUhnMGdCcjc3MXM0NGN1NGk5ZHlZeGRnZUJVSzdab0N1WmVCNFhsZGhO?=
- =?utf-8?B?TW9XR2dmWEtLT0Nrd1NNMnJDUXd1K0UvbXlMZDRTRW5odm9DTXZYTWRvU2Jw?=
- =?utf-8?B?Ym1ZOGhGUGUwNDRhUGJSWnBxbURoTHJ3OFZaYXhhZ3NWcjNRWFF5alBwZ1dt?=
- =?utf-8?B?b29KaFJEdjJuTlc0ME1yY0dETklYNnNscjRiZWh5Qjl3azRENFFkbkxyeU1L?=
- =?utf-8?B?eHQyZkdmU0NYUU45eWRoSXdvcGlqQ2laODN6TCtMTmdNQzFOcW0xNjAzU1M2?=
- =?utf-8?B?UHVFTHBZNU5vR1hpbVQ0Y1lMNG5vVzExbzNyWjBYMVB3V2JoVDEyMy9SWThT?=
- =?utf-8?B?dXU0RHZZMHdud2NFQVNZZTRncVNJME9KNU05ZVVVSFJOVkV6NXNSbmdFQk5T?=
- =?utf-8?B?QTR1NkRObkxCcmw3OTlWTnl4N0ltNVVtSVp1OFlyRUtmMUdZY05Nek5oZ01Z?=
- =?utf-8?B?U2R4TUFVWVVEUlRaaVA4a0ZJYllTc3hiTWUrb0tsZDVUYnRobm53YkthZjNq?=
- =?utf-8?B?ZWR4S0lacUJqaGwvc3RtTW5wMWJ4SUErWVlaSmlxRnowM1JRak04TkVrQVI3?=
- =?utf-8?B?NFMrSnJ0Tzc0SjJpbk5lSW1CZkRDcU9MUXU0S2FlcDh6dG9HVlgwdlBoVmNu?=
- =?utf-8?B?bkhjb1N4QkdNcmtjRlBOQTd4dUJ4RDRjZFhkaEM1RGNTdlRtWHdLZWtBeHhS?=
- =?utf-8?B?dWVCOE1ZelVmaW0rVFpjem5sK1UrWC9LdE02VnBTaHc2c3RIbnBoZlZGYTdP?=
- =?utf-8?B?aklVMldGVWZXUVNEWTcrdWVKRy9ldlYvNU9sOUhPSmxReFFxOExWeEMxK3dx?=
- =?utf-8?B?bENuK0dROWhUODhCanRMdVdNOHBpeExVTjVFcStZTzUzc29wdi9HeExaOVJ5?=
- =?utf-8?B?V1pPSGp6UUh3M281N2RmZlZBU1VIdTVUd1NPeHFuTkVTejl6bFdoSjNNM1M3?=
- =?utf-8?B?cmgzc2NKeEludVFTYm54OHYzY1ZYa255RFVWZ3pOb1VhMFJCbys3WnJNRERE?=
- =?utf-8?B?NjdVVTRDdjFYdkZrYzNMa1ZzTVc5cEpTamlFcVNmZGFRMHRHNnp6S052b3lJ?=
- =?utf-8?B?d1EveENzWGJmUnNGRVZjV0w5QUFOK2pjMVFXcHBGZG1vb25aRzR0WWNmMjVH?=
- =?utf-8?B?SHNjYkxOQ1cyTUg0d0hqTVNkNS85QS91UGlqdWxQajVsUFIwT0svbkpCcWtC?=
- =?utf-8?B?eEpDUko3K2t5T3laZkdHSW5MeUN5dkM1Y0RtNDMzbGd6WEprU3RBR2dOWDdD?=
- =?utf-8?B?YmpRRnVYK2M4WURhNDBiVCtBMVFhZjNyVWVRMWdsbWRUNlVRN0hEQlE3akY0?=
- =?utf-8?B?RitxTStyc1hMZkNkMnZETitrMFpvTEpGSG9MOWs4TS9Tc3NTQVNFRDFnSjkw?=
- =?utf-8?B?Q0RnTEpBcVNYRUlkSTlFMC95N2xsb29EY1FvUDc2aE1mTzRKdktMdVZva2xD?=
- =?utf-8?B?dVJsSVdjUWVvTmdXVVNKRHBUV1M1SzNKbDRldlpPTDV1dDlUeFhSUmVQU2N2?=
- =?utf-8?B?NW9BTktLWDhydFZ1QlJ1SHF1bjVtcXpTMnBDTkUzZjhKOXZMd09DZXlJT0Nl?=
- =?utf-8?Q?kc4f80t5BXmFwiFhNwk0F6rYFzCAHHeqeU3Iu?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f96b80f0-f326-4a90-91cc-08df3b470353
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 14:13:49.6099
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Mo6K/PypW9csTNDofDtwePb0bM7Ukvphu19oUemDNTfa3u+UFP1oxlmY/0kHsDe1OWg2HeiWZE3cJLfb7P93qsWLD8UWjcT0Jxrc3PxFtQMTwvOlaKwuomEmzjM23iAm
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11029
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_061359_985104_4DB94A28 
-X-CRM114-Status: GOOD (  13.43  )
-X-Spam-Score: 0.0 (/)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,59 +77,31 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The SIUL2 pin controller provides the pin muxing used by peripherals on
-the supported S32G boards: the S32G2-based S32G274A-EVB and
-S32G274A-RDB2, and the S32G3-based S32G399A-RDB3. Without the driver
-some peripherals never finish probing and a defconfig kernel cannot
-boot to rootfs on these boards.
+On Sat, 03 Oct 2026 22:50:59 +0200, Sven Peter wrote:
+> The CIO blocks used for USB4/Thunderbolt on Apple Silicon SoCs have a
+> reset inside the power manager that has to be deasserted before their
+> co-processor can be booted. On t8103 and t8112 each port comes with a
+> dedicated register page while t600x and t602x use a single register
+> with one request bit per port shared by all ports of a die in the
+> middle of the PMGR MMIO region.
+> 
+> [...]
 
-As the driver is required by every supported S32G board rather than
-being optional, make PINCTRL_S32G2 default to ARCH_S32 and keep the
-user prompt only under COMPILE_TEST.
+Applied to git@github.com:AsahiLinux/linux.git (apple-soc/dt-7.5), thanks!
 
-Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
----
-v3 -> v2:
-- add the Signed-off-by tag
+[3/3] arm64: dts: apple: Add CIO reset controllers
+      https://github.com/AsahiLinux/linux/commit/9055977102a4
 
-v2 -> v1:
-- list the S32G boards that need the pinctrl driver
-in the commit message
-- drop the v1 arm64 defconfig change
-- default to ARCH_S32 in Kconfig instead
-
- drivers/pinctrl/nxp/Kconfig | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/pinctrl/nxp/Kconfig b/drivers/pinctrl/nxp/Kconfig
-index abca7ef97003..d6d97c944b94 100644
---- a/drivers/pinctrl/nxp/Kconfig
-+++ b/drivers/pinctrl/nxp/Kconfig
-@@ -8,8 +8,14 @@ config PINCTRL_S32CC
- 	select REGMAP_MMIO
- 
- config PINCTRL_S32G2
-+	bool "NXP S32G2 pinctrl driver" if COMPILE_TEST
- 	depends on ARCH_S32 && OF
--	bool "NXP S32G2 pinctrl driver"
-+	default ARCH_S32
- 	select PINCTRL_S32CC
- 	help
--	  Say Y here to enable the pinctrl driver for NXP S32G2 family SoCs
-+	  Enable the SIUL2 pin controller driver for NXP S32G2 family SoCs.
-+
-+	  This controller provides the pin muxing and configuration needed by
-+	  peripherals on the S32G274A-EVB, S32G274A-RDB2 and S32G399A-RDB3
-+	  boards, so every S32G defconfig build requires it to reach rootfs.
-+	  It is therefore enabled by default on ARCH_S32.
+Best regards,
 -- 
-2.34.1
+Sven Peter <sven@kernel.org>
 
 
