@@ -2,145 +2,103 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BA7B606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:00:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 854D6606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:04:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WzYyO8Mz;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=od0i8JBS
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Xy0cjllq;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AheSl2z7
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=W8Z7YXD40AfhGC00Czb8SpL27TWFTuphFDJztwZ+Izo=; b=WzYyO8MzaygwAeWYOx4Zfsd58n
-	70yG5ajKp0Y6MClfpvwEH9hXlFPcvOUKrqRvYd231b3sKGo2Y6bUDdvilTznfaOjpBK9QvLufGqX6
-	lcxjEC6/IMQQEl9DBQcViNleHXfQQ2vorr00NAX6V8uS4/fqR8d7/oRu/maMc07HmInoUXBMqI/Q/
-	nuHCfPg/dur/yVM1S1J8tQis1Ai/hvk2sWindslhy9li0K4bR3auS5/clNCMKpqZdXcIRMnJR1GOm
-	Wm8XN/6E2QS9PNSMrr3Cv2G0RM1Ux5DigPebEDlLLo06s4VCklVn+M3LKYknl9hn6fn09lGoz1f0W
-	HqEl0tvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=yd94sB33j+7uHnUeucF6H8CRpAAVi5CgN1RGqzbz/fI=; b=Xy0cjllqMsDAju
+	xMYMuzLaZlRc+p5rGIBX5QuFAjjk16FWHlYNIhF5sX/8v9ZV93MPp4RUAKCA/soHQiJkA+4lJ+zUw
+	Y7F7Zo1zw4i1ZUQaEgByu91OQDOz4kPnO4takanIpqGHGBKIr4424g6IuXocdPU5D6vRL5wS/yhxY
+	mX09Sen+Xa2ebX9Bt5sckbFiI+1qD6A63R9fYdiFWctOj1f0k9UKiTBwI32Kk5k816/5ZKMXBhO9R
+	Oox51GCYe/0COk1/XoQX6ndqMukuYSO834yoKDSO/R0KGxKjYdMCYfrLSPOb/LpNL2YN0wHnaBt+H
+	6fyywFLN0kyMGzjzZzEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOsOY-000000085OR-3Uth;
-	Thu, 05 Nov 2026 08:00:26 +0000
-Received: from mail-northeuropeazon11012058.outbound.protection.outlook.com ([52.101.66.58] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1xOsSP-000000085gb-1kjO;
+	Thu, 05 Nov 2026 08:04:25 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOsOW-000000085Np-1OyB
+	id 1xOsSN-000000085g8-0tuZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 08:00:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JlrRTgdgF/ls4cT7bdohAVUPikzVRG1Za+VclNPIUZHm0gqUgvpbW53ZQnSqoTz3ybOHgnPn5fRu4KNGXLPoCB5yhNhYJVOq0FC6wy5omX7dxQ8wcfCZM8uJfE7Q2uR39a6nIjUI28oku2wyoZIxJ7stBR6ipeaVXBsZGNA/v3fKIIz0DdWCsVxHe9M9uu5agh6vkRD+vobsViDZWrj1epTbqLQ8DJQiz7Jpl86qraAeIkHwBs3EalPXHOqnNZKJbFQTIyUo+XtMK8S104vVAwx0zbFEH2qRmIfz26YisRPTByVmhNbJQvX+wGnhIT9AEgok3o8n2QH0bSSTPuKWmQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=W8Z7YXD40AfhGC00Czb8SpL27TWFTuphFDJztwZ+Izo=;
- b=MfLsqbri8QGNee5EJjqfRBHK4cVesgVKW8oyhO3at94IIjK89Pm7yAN0Y+IqAm4zHbvoVmlZZaoT3LfdDarIFNJl0nIhKukOOGOfrsQ41cT6cSi2ng7H+6wYWJUwVIdg17io5aL7txY2AWClHLXbMrnWTCa+eCZjTjHBvQCa4JmBEcByTJ0DY8hafYYd49tDJIMizPsFh0lwjKpyCTws7ee/WeLl0kPK5X1XdRHoj8shinQ4X3i7eIsysPhvKyz1ORuE1Ew1IQPEbD+usEnGipkOnBWZo6x6DYJ+fSavGyzFi01PPXCUaSdV+MfP8rXib+mryxnKYw4Ilexfevcarg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=W8Z7YXD40AfhGC00Czb8SpL27TWFTuphFDJztwZ+Izo=;
- b=od0i8JBSEmmgxddfiBMBpf7RgS4ekbI1xgrEmvUpRdUqzdQLnLcle4ut2lPqWJ2vGaSnGKepMST1d4CQrgEmULtwMQ9oTTIakZcUSiPi8I2vtIkuVYTXdJMkyNgLcDA7vKRtvRf2OQPazgyadjPaO2hpWynC8ujPVhcrdCpkU29zGGb7GWm3jbjJe7pgx04HagIk13N1JuBTTcCssP0ere9AOTbw3u2xpFMu2Oc2mxwRM9IrW3ei8D0jFlhohMal0sPfRGY14KWrSWt5utsoM+tuOD0jh7HmdmYrmXMpAerSXrOHS7g6P9v353IHYMV1VqMu7Pa0+YY15fQ0GIo0vQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
- by VI2PR04MB10593.eurprd04.prod.outlook.com (2603:10a6:800:275::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Thu, 5 Nov
- 2026 08:00:06 +0000
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51%6]) with mapi id 15.21.0592.009; Thu, 5 Nov 2026
- 08:00:06 +0000
-Message-ID: <93667d47-794c-45d1-b72a-a463d5289a29@oss.nxp.com>
-Date: Thu, 5 Nov 2026 15:59:53 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] i2c: imx: honour I2C_M_IGNORE_NAK
-To: Haobin Jiang <lemonoutput@foxmail.com>, Andi Shyti
- <andi.shyti@kernel.org>, Oleksij Rempel <o.rempel@pengutronix.de>,
- linux-i2c@vger.kernel.org
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Vincent Jardin <vjardin@free.fr>,
- dillon.minfei@gmail.com, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <tencent_E6D69775D91AD9FE45C994B3755CB1452506@qq.com>
-From: Carlos Song <carlos.song@oss.nxp.com>
-In-Reply-To: <tencent_E6D69775D91AD9FE45C994B3755CB1452506@qq.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2PR01CA0027.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::7) To AM0PR04MB6802.eurprd04.prod.outlook.com
- (2603:10a6:208:184::17)
+	Thu, 05 Nov 2026 08:04:24 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-3acdcfa2bd3so1396056a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 00:04:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793865862; x=1794470662; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yd94sB33j+7uHnUeucF6H8CRpAAVi5CgN1RGqzbz/fI=;
+        b=AheSl2z7Jnrbf7byPZmO69QA2kt00uWZXm0F0r9I9NvcEaT13gAuUZe2dmvssv5DS5
+         2/gZhj6w7tKvR1qHD2WSlz0R4/O0c2JqGEIysS5S8StH2UHtndsgRFPExwerbrMlKYay
+         rDQ1tVcYpMwcfCR8bC/66LgaOYCpyvdeJKDqIaNMwNpp2cPnYkKORqY+0AnBksWabsiP
+         O3sO7A8vI5Xa78Vyszs7wK1ldR8bSOoHso+d2YyZv200MnH21re9FvSg+lm0GmCINhkP
+         0Xdl5y2Ncc/tDcaQECEmoPtO/ziOoypKXQCvxWTXqd91bN6SGZ841FPllxC97Yz95ClA
+         uHDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793865862; x=1794470662;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yd94sB33j+7uHnUeucF6H8CRpAAVi5CgN1RGqzbz/fI=;
+        b=Ml9O6KjBjb7tPvIe0V7d5mFnkY//qUv1II4NYozEpQEs4z9MrPKE3g00JqMPv+gs2c
+         suW4NGVJd5n1qS51H1CybG1N0XbrPphN+YD+vq4bLVVrVKBkywphiaChyJXkGrjK5lNm
+         qg3l1LDRCAX1f5sYJqA3ixDgI9Un0uJucgmluNbsJWm/mTj5V71TiDPE4yc7/AVGmyIS
+         jDXlJtpazZMXTMTq4RZqNQQ5jKcaXedAkXbDlF4ZdVpP42C6ags4Cm0bvsdzX5RjAXn0
+         HaVhxwcgPLmm58L4vqkerL1BRUe19SYKSvZLAVQbdt7f2rmo24lO0Jatgt9MHsMaYnGF
+         37LA==
+X-Forwarded-Encrypted: i=1; AKwUvBxo92vFaJ/Npe9x3KpC0723kLU1ZaPFF3VCnGbCBlwKB1F11PfwWIkb4yCTmv9TTIu+LWmJtq4pn8bihHlwATe4@lists.infradead.org
+X-Gm-Message-State: APuU4Z9UKc2BrOwYn1zvRIVzECkuSZc3mKqv02ubCjoh1JrxyBebYZk0
+	CHwo+eRtwxEtv7BmL7LfHT8D1OLMR+bfFRS7hIXTSOphqiL3giTGWO4=
+X-Gm-Gg: AYBFou2NSjyWoI9emsPYGg876VgVSnE+N44kIOuMDONQ0zYOaUh9f3Y2cjg2pIE95XL
+	EfSQSpZ28iDuQ1h7ASY/9l1gqJXaE5hpRPrcAFu8eFshMoMJY8WyZSKQb65iGIk1L+JAyCVLzE3
+	wrInDzYnYYRJJ57jgY7o5Dih4PqDoIjxe1zrkHRbHq9KXw3q4f46kvC+qEIFVMVWGzZ84b2r2/1
+	QEsTINJNLgDiEPIrUFQphPAE5i3u08PZuPzvWTRO7AUmF/toQSJAyF6G8sD4KrKKmVBtL1CeZKr
+	3CWEeJqUdy4kPTkDss0GXmGw+JJZa3NqJ6W77pf7mfAcx4MfjTudMfO9FEmb754rwrOok3EBdcP
+	M9SUxlWG7wLVKvZTzAFU6mWeBca/AAQGAZv8LlTvwjHrzVMFdiRjXvm+ai4WJLZodgrTcVO7IhL
+	SC3u6u/BdxwDVZ72f8Ii0BIqz2/n5EVlsVRoxmn411wGSjEVYWq0ZfUvdCtdobGX/oxkN2Y9xhf
+	IoEiqkLRHbii7puIzEkRPvhyaU6HQJNms257VT38TulFIzypwAJvZsnz9CQb886VaCY1AMRe6yU
+	iH9qMYzWlhB9qNluDLEX1Jfw/jg9njjC/XEKpYO63qFRJBMuBjQ0
+X-Received: by 2002:a17:90b:2e52:b0:3ab:24b2:9016 with SMTP id 98e67ed59e1d1-3ae897ec759mr15992932a91.25.1793865862020;
+        Thu, 05 Nov 2026 00:04:22 -0800 (PST)
+Received: from localhost.localdomain ([202.51.247.22])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0b328a04asm2617818a91.14.2026.11.05.00.04.18
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 05 Nov 2026 00:04:21 -0800 (PST)
+From: Yige Jiang <yigejiang86@gmail.com>
+To: linux-fsi@lists.ozlabs.org
+Cc: Yige Jiang <yigejiang86@gmail.com>,
+	Eddie James <eajames@linux.ibm.com>,
+	Ninad Palsule <ninad@linux.ibm.com>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	Guangshuo Li <lgs201920130244@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: [PATCH] fsi: aspeed: release the master device node with the device
+Date: Thu,  5 Nov 2026 16:04:14 +0800
+Message-ID: <rc-review-20261105-32-59f96c1fdaf1@gmail.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260913060242.1426845-1-lgs201920130244@gmail.com>
+References: <20260916093914.2005582-1-vulab@iscas.ac.cn> <20260913060242.1426845-1-lgs201920130244@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB6802:EE_|VI2PR04MB10593:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7c725a1b-d8c2-4f7a-6669-08df3b12cd85
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|23010399003|7416014|1800799024|18002099003|10067099003|22082099003|3023799007|56012099006|11063799006|261028144727099003|261026121527099003|261026140227099003|261022075727099003|261102123227099003|261009221227099003|261021121427099003|261009223027099003|261022105027099003|261021123027099003|41080700001;
-X-Microsoft-Antispam-Message-Info: SZ2kg7eXzXQK1T9P3ulnGpoYh+DNCCl2hax7PfGzmwrvnNg1vdLVbyqFBCusUqJkmYSaqX2UPUV61QDbHSw59/jtuyG6mZQAwWFcGMiobM+ToZ4FEgjLuQLWOIt9wPTja0AxHs+MtBJYSOndrpkqH3tOAl0L3SOptogft8EPpGMSsqLOx4Dug3drNRh+FeGakRd1uY2+q+2ccnSTZdZDNB1qgLk/BlkEaF2SDhzyKFHVYh1FZ5KvP1jKKIeYybeQq8ktHF4SKVL5SiwLDAxhZHlbNqqfMk2oso5IwrA4mJxFDdYIVIYHylGlbuOa7a0Qmt89413YAvSvoqYBIPHfJ9uZPpYlSBlcxLojNBQ/A+1DeOltFyqeaKKSaUftkYS8VUKC7ylVjt/yI1ETQ3Tfg+GuLNRuskdetqkiyD030D2a3GlT+jVkOs4qtAVDVYlNQ8WxlnGrmD4YFi/XDHUAbOYqg2smxHGNkURlrIILqGD8fo9YjRQLOT0GEyJOTvG2UplX3jkGFae/CDBEGJlr4SeLVtelBZ8YlRiCxPuiUGXGFpK8HXqnzeexYBG3NGbcUT9smP4pbqjY3561sVyaar4bgPq6p/S35k8Qzyom/6i6Vn0FPFGNHV2xffRek1Cg2NCTwR6BQ92rlMH/7zzp71vp2RSrNxWZLmjGH1asigk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(23010399003)(7416014)(1800799024)(18002099003)(10067099003)(22082099003)(3023799007)(56012099006)(11063799006)(261028144727099003)(261026121527099003)(261026140227099003)(261022075727099003)(261102123227099003)(261009221227099003)(261021121427099003)(261009223027099003)(261022105027099003)(261021123027099003)(41080700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?elZCbEQ0b3NzSEc0a0VhaTl0ckNMcTFOa24zbFZ6Rlh1RHR6YU0yYVlPVTJB?=
- =?utf-8?B?MFFUdWNKV2NzYTg2cTNtbkVqdU1DRUdMVEVKUC81VkxWVGxCa3JvZXJ6Y0Jj?=
- =?utf-8?B?VDByNUtnWFpDNjRXUVJHTEdWZ1VqbUdMR3RGbE84ZkJnZ0lmdGpzMzg2THVO?=
- =?utf-8?B?WE9pT3AvdlVjY2R2UXlZNEFZdGtEaFZJa0JXRlpMQjhuL1kxajhzeGRzUVEr?=
- =?utf-8?B?dXdVbkxsMUU3WHliSkdLWmF5blY3c2J0cTlJTmVjQkF4Q0xBMUVGQnhpMFNN?=
- =?utf-8?B?d204SXNmUVdMKy9OalQrL3FJc0RMSVg0VEhCd3NBNndFclpzYkVvY3pXYWdM?=
- =?utf-8?B?M1c2N1pJaEE1S1MvRTg4T0UvdDU5WnNSK3hnOThGby80ajJ3NFFmZzRKZWli?=
- =?utf-8?B?UkNGZzBkVmJMdDJmbHkwNUdubmlwVUJ0VjQzOEh2SXdpZjhld295RGpaNzZP?=
- =?utf-8?B?N2NNK2pCSXB5QjV1ZWlMVm5FRG5VbUVVN2duMGMwOVhtSTNSMkpzZmZlQkZW?=
- =?utf-8?B?Wk1rakJSTW9ocUgycWhVYmFuSmdPZ09QVk9DL241R29tRWR5a2RTNEs3WkFi?=
- =?utf-8?B?KzhjNHYwd2NxN0d5TnBlWkJNQzdmUmZUV1lRVERsT3ZIalBPWk52K1luWTRp?=
- =?utf-8?B?Zlk0NU9kVWFIazlJYkxRc1c4aXVOZEpud3NOZDNqZVFZMnpkL0ltM1c3SEFD?=
- =?utf-8?B?dWUyK1ZUdnlyeGpyNWdUT25RQkVsdjBXUlBFa1lQWFpGT1htaU4vdkFLUS8r?=
- =?utf-8?B?WUJtOG9EVVRBMFExdTVrejRiRlgyYWxwMjZLK1dHVUdXRlZEc3lybkVLQlV0?=
- =?utf-8?B?SVJQMWM4eGV1U0lEWURFTXA1VkgzUlhmREFQbnlpdzNEYkVqbk5Eay9pWWgv?=
- =?utf-8?B?a3ZiTW9wKzlabVE1SHo5QUMyNmVVekF4TjlIWTkzQmhSam5ha1MzakNzUXZQ?=
- =?utf-8?B?cU8yZ0xoTVdqL0VLeEUyKzNLdGxFQjdrM3BQSnA1RGQxZ0dVdlJ3bmNDYUlP?=
- =?utf-8?B?aFVIeWxjR0hxZDNjekxLS1RqTmMxN1Z3Q2ZBQTVCWUxsVjNFT0tGSlRZM2FS?=
- =?utf-8?B?TmVsQUVxcnBzMXFqR21ycWFxeEJNc1JuNzZvQURjY3cwWC9rQUhwMi9lNE9k?=
- =?utf-8?B?M0pwRTNqVkliaVdqRWVOZE83L2tzOXp2WjZleDRVM25wUHFqbEZhMzBTNGhG?=
- =?utf-8?B?dCtSbFBPcUlqWGdMNW5TMjlPU1NwanJFbHhVNSs5Zit5Um5LOTJETTdHVE5U?=
- =?utf-8?B?eGh0bk0rSEZ4OEIzb3g1bllsMGY3WTJrZEViK2lENnZDWDVwRFYxQ2FQM01P?=
- =?utf-8?B?SVVURjMyNlZDaTAwRlpIOFZPVUtZK3o0eTM3U3BBcHpGM1hXMGJjcktld1RC?=
- =?utf-8?B?VmZmUUJhOUFJd1J1SGhiN3lkVUQrZC8vS0FKS0ZUZkpDZHdoVjZuZkovellF?=
- =?utf-8?B?dVRYN3JBS1lIaXVBekw3THl0czk2ZElBSEM0a1p4dlRSa3QvNlhidnVUdFZL?=
- =?utf-8?B?NmtCWEtkYzczclJ1bDEySXRKNmdGRlNuRHc5N0QzdW4vTm9VUEJtZlJSbXFa?=
- =?utf-8?B?bE40SUkwZ1JNUTBGQmhvWDlHbjZ5d3psZGhFNlFyZ2RZQjhDZm5NaHVZNWhi?=
- =?utf-8?B?Znh2OGp5bjFuSStaL1AwcXBLL0RGUThyRksrRG93NVJSRDJJQXZOR00yNUFi?=
- =?utf-8?B?US9BVW10QlVOZjVkeWI1NUM0Q2NsRmE0ZmxGRm52alFjR0N6cXNoRmhUS2I4?=
- =?utf-8?B?cE5JdUZPdjVlaXRCbmpoRjJFUEgvU3F1VTN6V3g3ZURObnRPZzVWWW5zS2Qw?=
- =?utf-8?B?VU5tcEVnQjFlMTEybkM4dGpScnNhSzV1VkIvakhDeFBTU24xQlovSVVtcWRN?=
- =?utf-8?B?R0lHR3NydjZnZEltK0VRQTR3cE5DQ2ZGalRaK0dZTDJQbENhTHZhSGZValBj?=
- =?utf-8?B?WERDbm14eFNKVEpzVjgxODc0WHNEMjZmWmMrOTd5K3FhRkFCeTQyMW0rTzZ2?=
- =?utf-8?B?RVJHTlJleU5IUDNFTU9KTklkVU11dGZIT2Y4M2tLZEFZWngxRjJHd2llYnVK?=
- =?utf-8?B?UmhXaDErS1pmcnJnT25tdTV3VHc4RTlFOTQ0b3RwdDREK1dKR09IWkhFbWxW?=
- =?utf-8?B?U2tvRHpzWWFlTFMwT2psWkFvSlNpSmhxWjl0Vk9ObFBFN1NaUWZONm55eDVS?=
- =?utf-8?B?bGJCTU40VUltNW8zaFp3aS8vdU5vT3JOckwrLzlnQTRwdjg2MFhTVHlKVEZC?=
- =?utf-8?B?azd5TWdJb0RpU0hNblpGbEhnNFdKbmhlQURaYmZXV295ODUzaHdkNElWYXhr?=
- =?utf-8?B?dEZNY3FESG9QZDE0bjlJU0VnY1dOMjExZHd1a0dGUmMxeWJPVTZvQT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7c725a1b-d8c2-4f7a-6669-08df3b12cd85
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 08:00:05.9983
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2xcp0WbYV0Hq3cFOIzIAaaRHiR5bDwlhfTT34FVNKBsa/Cor640W20qPseaH32bkq+aLDRpsuFjxkUhO7pC8Jw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10593
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_000024_532181_FD2F3EA8 
-X-CRM114-Status: GOOD (  23.18  )
+X-CRM114-CacheID: sfid-20261105_000423_258350_7425FA5A 
+X-CRM114-Status: GOOD (  11.41  )
 X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -152,195 +110,59 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
+fsi_master_aspeed_probe() takes a node reference for master.dev.
+The posted error-path fix releases it before directly freeing the
+allocation, but the successful registration path still retains it
+when the master device is finally released.
 
-Why not follow community rule to make patch...?
+Put the node in aspeed_master_release() before freeing the containing
+object. With the posted remove-path device put, this keeps the node
+valid until the last master-device user is gone and balances the
+successful path without repeating the error-path put.
 
-At higher version, better commit log and put change to commit log bottom
-with extra lines like your V3 patch[2].
+Fixes: 606397d67f41 ("fsi: Add ast2600 master driver")
+Link: https://patchwork.kernel.org/series/1166294/
+Link: https://patchwork.kernel.org/series/1163700/
+Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
+---
+Based on linux-next next-20261102 (2637bdec0535).
+Compile-tested: arm64, GCC 14.2.0, W=1, CONFIG_OF_DYNAMIC=y.
+COMPILE_TEST=y.
+Baseline and patched target objects built from this exact base.
+No full kernel/module-link, hardware or runtime test was performed.
+AI assistance was used for analysis and patch preparation.
 
-I think V5 patch commit log should be better with shorter and clearer
-problem description, reproduction, resolution, verification based on V2
-patch[1] and V3 patch[2].
+This is an incremental patch based on the following posted fixes:
+  [PATCH] fsi: master-aspeed: Fix of_node reference leak in fsi_master_aspeed_probe()
+  <20260916093914.2005582-1-vulab@iscas.ac.cn>
+  [PATCH] fsi: aspeed: fix memory leak on remove
+  <20260913060242.1426845-1-lgs201920130244@gmail.com>
 
-But abviously, this patch is generated by AI, and it dropped most commit
-and discussion details from previous patches. No one wants to review
-such a haphazard submission.
+ drivers/fsi/fsi-master-aspeed.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-AI-generated patches should be subject to more rigorous review and
-testing. Remember that AI is a tool, the AI patches should has higher
-Standards and greater Professionalism than patch created by humans.
-Wharever humans must always remain in control in whole flow.
+diff --git a/drivers/fsi/fsi-master-aspeed.c b/drivers/fsi/fsi-master-aspeed.c
+index f0bd760fa78b..cac0a8c73043 100644
+--- a/drivers/fsi/fsi-master-aspeed.c
++++ b/drivers/fsi/fsi-master-aspeed.c
+@@ -378,6 +378,7 @@ static void aspeed_master_release(struct device *dev)
+ 	struct fsi_master_aspeed *aspeed =
+ 		to_fsi_master_aspeed(to_fsi_master(dev));
+ 
++	of_node_put(dev->of_node);
+ 	kfree(aspeed);
+ }
+ 
 
-High quality over high speed!
-
-[1]
-https://lore.kernel.org/linux-i2c/tencent_E6A52FBBB25132C90B8E296FEB96E2C8CA07@qq.com/
-[2]
-https://lore.kernel.org/linux-i2c/tencent_342A87BFCECA70C9982E68A79AAD878B6909@qq.com/
-
-Thanks,
-Carlos Song
-
-
-> Honour I2C_M_IGNORE_NAK for supported PIO transfers and keep flagged
-> messages out of DMA.
-> 
-> Following Sashiko's review, reject zero-length reads carrying
-> I2C_M_IGNORE_NAK before START. This prevents the newly supported flag
-> from exposing an existing receive-path bug, without changing unflagged
-> zero-length reads.
-> 
-> Link: https://lore.kernel.org/linux-i2c/tencent_877C99956190215D644EB959DF1663542A0A@qq.com/ # [1]
-> 
-> Signed-off-by: Haobin Jiang <lemonoutput@foxmail.com>
-> 
-> ---
-> v4 -> v5:
-> 	- Add a scoped zero-length read guard following Sashiko's review.
-> 	- Previous version: [1].
-> ---
->  drivers/i2c/busses/i2c-imx.c | 37 ++++++++++++++++++++++++++++---------
->  1 file changed, 28 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-> index ccf08cd63151f25581dd3059ee874b606d0dc94c..1e2fd699f4fc658f4a9298cd1852455966018e37 100644
-> --- a/drivers/i2c/busses/i2c-imx.c
-> +++ b/drivers/i2c/busses/i2c-imx.c
-> @@ -612,9 +612,12 @@ static int i2c_imx_trx_complete(struct imx_i2c_struct *i2c_imx, bool atomic)
->  	return 0;
->  }
->  
-> -static int i2c_imx_acked(struct imx_i2c_struct *i2c_imx)
-> +static int i2c_imx_acked(struct imx_i2c_struct *i2c_imx, bool ignore_nak)
->  {
->  	if (imx_i2c_read_reg(i2c_imx, IMX_I2C_I2SR) & I2SR_RXAK) {
-> +		if (ignore_nak)
-> +			return 0;
-> +
->  		dev_dbg(&i2c_imx->adapter.dev, "<%s> No ACK\n", __func__);
->  		return -ENXIO;  /* No ACK */
->  	}
-> @@ -971,11 +974,15 @@ static int i2c_imx_unreg_slave(struct i2c_client *client)
->  	return ret;
->  }
->  
-> -static inline int i2c_imx_isr_acked(struct imx_i2c_struct *i2c_imx)
-> +static inline int i2c_imx_isr_acked(struct imx_i2c_struct *i2c_imx,
-> +				    bool ignore_nak)
->  {
->  	i2c_imx->isr_result = 0;
->  
->  	if (imx_i2c_read_reg(i2c_imx, IMX_I2C_I2SR) & I2SR_RXAK) {
-> +		if (ignore_nak)
-> +			return 0;
-> +
->  		i2c_imx->state = IMX_I2C_STATE_FAILED;
->  		i2c_imx->isr_result = -ENXIO;
->  		wake_up(&i2c_imx->queue);
-> @@ -988,7 +995,7 @@ static inline int i2c_imx_isr_write(struct imx_i2c_struct *i2c_imx)
->  {
->  	int result;
->  
-> -	result = i2c_imx_isr_acked(i2c_imx);
-> +	result = i2c_imx_isr_acked(i2c_imx, i2c_imx->msg->flags & I2C_M_IGNORE_NAK);
->  	if (result)
->  		return result;
->  
-> @@ -1017,7 +1024,7 @@ static inline int i2c_imx_isr_read(struct imx_i2c_struct *i2c_imx)
->  {
->  	int result;
->  
-> -	result = i2c_imx_isr_acked(i2c_imx);
-> +	result = i2c_imx_isr_acked(i2c_imx, i2c_imx->msg->flags & I2C_M_IGNORE_NAK);
->  	if (result)
->  		return result;
->  
-> @@ -1249,7 +1256,8 @@ static int i2c_imx_dma_write(struct imx_i2c_struct *i2c_imx,
->  	if (result)
->  		return result;
->  
-> -	return i2c_imx_acked(i2c_imx);
-> +	/* I2C_M_IGNORE_NAK messages never take the DMA path. */
-> +	return i2c_imx_acked(i2c_imx, false);
->  }
->  
->  static int i2c_imx_prepare_read(struct imx_i2c_struct *i2c_imx,
-> @@ -1268,7 +1276,7 @@ static int i2c_imx_prepare_read(struct imx_i2c_struct *i2c_imx,
->  		result = i2c_imx_trx_complete(i2c_imx, !use_dma);
->  		if (result)
->  			return result;
-> -		result = i2c_imx_acked(i2c_imx);
-> +		result = i2c_imx_acked(i2c_imx, msgs->flags & I2C_M_IGNORE_NAK);
->  		if (result)
->  			return result;
->  	}
-> @@ -1401,7 +1409,7 @@ static int i2c_imx_atomic_write(struct imx_i2c_struct *i2c_imx,
->  		result = i2c_imx_trx_complete(i2c_imx, true);
->  		if (result)
->  			return result;
-> -		result = i2c_imx_acked(i2c_imx);
-> +		result = i2c_imx_acked(i2c_imx, msgs->flags & I2C_M_IGNORE_NAK);
->  		if (result)
->  			return result;
->  	}
-> @@ -1416,7 +1424,7 @@ static int i2c_imx_atomic_write(struct imx_i2c_struct *i2c_imx,
->  		result = i2c_imx_trx_complete(i2c_imx, true);
->  		if (result)
->  			return result;
-> -		result = i2c_imx_acked(i2c_imx);
-> +		result = i2c_imx_acked(i2c_imx, msgs->flags & I2C_M_IGNORE_NAK);
->  		if (result)
->  			return result;
->  	}
-> @@ -1613,8 +1621,9 @@ static int i2c_imx_read(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs,
->  	return ret;
->  }
->  
-> +/* I2C_M_STOP is the controller's native behaviour; don't reject it. */
->  #define I2C_IMX_UNSUPPORTED_PROTOCOL_MANGLING_FLAGS \
-> -	(I2C_M_IGNORE_NAK | I2C_M_NO_RD_ACK | I2C_M_STOP)
-> +	I2C_M_NO_RD_ACK
->  
->  static int i2c_imx_check_msgs(struct i2c_msg *msgs, int num)
->  {
-> @@ -1625,6 +1634,12 @@ static int i2c_imx_check_msgs(struct i2c_msg *msgs, int num)
->  		if (msgs[i].flags & I2C_IMX_UNSUPPORTED_PROTOCOL_MANGLING_FLAGS)
->  			return -EOPNOTSUPP;
->  
-> +		/* The receive path cannot handle zero-length reads. */
-> +		if ((msgs[i].flags & I2C_M_RD) &&
-> +		    (msgs[i].flags & I2C_M_IGNORE_NAK) &&
-> +		    msgs[i].len == 0)
-> +			return -EOPNOTSUPP;
-> +
->  		if (msgs[i].flags & I2C_M_NOSTART) {
->  			/*
->  			 * NOSTART continues an already open frame. The first
-> @@ -1712,6 +1727,10 @@ static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
->  		use_dma = i2c_imx->dma && msgs[i].len >= DMA_THRESHOLD &&
->  			msgs[i].flags & I2C_M_DMA_SAFE &&
->  			!(msgs[i].flags & I2C_M_NOSTART);
-> +
-> +		/* A NAK'd byte may not generate a further DMA request. */
-> +		if (msgs[i].flags & I2C_M_IGNORE_NAK)
-> +			use_dma = false;
->  		if (msgs[i].flags & I2C_M_RD) {
->  			int block_data = msgs->flags & I2C_M_RECV_LEN;
->  
-> 
-> base-commit: 123cffeca4a33d770c29ff8d3f22453a5fd59c32
-
--- 
-Best Regards,
-Carlos
-
+base-commit: 2637bdec0535a2044cd830eba9a79363651d9043
+prerequisite-patch-id: 0d97a848987c2bd4195686f43f69a0d0c0f69608
+prerequisite-patch-id: 00d7444e3a96e93c967d233b9c7c3a79c54647e9
 
