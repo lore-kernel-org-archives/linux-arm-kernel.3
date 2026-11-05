@@ -2,113 +2,94 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11B8F606EEBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 04:41:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 958BB606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 04:54:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=E+DTckM5;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ecmzfAII
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aIB+bmmX;
+	dkim=fail reason="signature verification failed" (4096-bit key, unprotected) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=ZAa4Q1Y8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
-	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=rH9b+qonWYU0U9xuZioxm6lWLILfzoQKLx37tFS+/zY=; b=E+DTckM5tjg5wAaW9lfyceWpld
-	arcHvZqnJZaRDi92Poy854qFYP+ZDtP06UpRNlIBJ14MvZCtC7v2HEhjBvKXIjy+pZONTpQLvgbNx
-	cL6i1uQ//pRhltEfXz5o2B1Aw2hjwwQEh+ibdjfoj10WujmPRwOPdfFtsVEafv4aGKGZQoAzX7Yk/
-	AhaNTZ6GaoDtG39B+KDnVDIzbSXtyH8pdE8FASa+Rvpp2LK4Q1cQdae8jzk0D0ElrGVionwLUXBX6
-	VPNSEm7KF4l1pCRVnfABHPHbpYl1goqu0KzmjwwWtz3a9IhAoYBI7Q24Zdo91bLBrBh2ncJSvTh9s
-	lXZasppg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=ZDNxzWK7YpZlxTsXfg5V1qkMa52zlYAF5ggUQoqT++c=; b=aIB+bmmX8mAtk6
+	I1BowUMhqGdisOoiWnUEPRUDo5YrlMh5T61uJXWb185vBkHgW0ZobwnmWf5g9Py6R2OmJ+rWHm7Qi
+	kjn4P/SjN7/5P5Jb8vllfcwDLoOYuqFl2JqGegZCtH7p3jrw4NsseVumkYbH2ymevqkDImHSXC7yb
+	MNLSv4YO4uP1rHNKHApTOpXJALrFpJhVfGG7NokrWC8A/85v/QugzUMEuNBdEZbm3E/I3iBQmzVR3
+	Gl98g1ii016mx//9Brp2/3FYY3VkK3fFWx155KV9p9omB12uYX8NEmtC8qvTCZV6E3LhdI/azkNWf
+	11VofogS1LuNuNuhNrzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOpHg-00000007nBB-2xt7;
-	Thu, 05 Nov 2026 04:41:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xOpU3-00000007pGj-2mAK;
+	Thu, 05 Nov 2026 04:53:55 +0000
+Received: from mail.alien8.de ([65.109.113.108])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOpHc-00000007n5R-19Zk
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 04:41:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B760740643;
-	Thu,  5 Nov 2026 04:41:03 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793853663;
-	b=O7FLfZ46QptknCKIlDfjWo+AghJsHUTi+1Jn5mBpr3ogZiBOAmSjhFk0Ofst0OjbPPrl
-	 5E5jm/ScULxnyeB6oDwlb2YcryNe+/tvgY+jv8W7NeilBbJW1CcEUi6c+J0yMuL97Oxk2
-	 gXYeZwnFI1YAByGapjMuVC9ktf7JfHIkMVhf2Z1ig3+5lTUdyKBcE+pyXrcQrTJjZzu/a
-	 NdHaNrRwiBvsFKuxfSCdBIWclbowk8NXz8KVh73e9vI40rw691A4kr2VNgwrfHl3phwIg
-	 cvK/H9H2d9m06GV01sCmovab6RSwFeBCJGtSvZHctF6jlJcUNW4qqPzUT49letsugHA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793853663;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=rH9b+qonWYU0U9xuZioxm6lWLILfzoQKLx37tFS+/zY=;
-	b=DxqcyKbn9dKhnbMD7EyTdGQXfk6vfgZ3TEpZh6uUxoXh+U2CmM99mwCLjS3pSJP2E+8Y
-	 BQsyJt+lP+efuWK0Ve5KSM/pD6Z29YLPF2IDL51p8XywTmijU3mV4mXPx5vn/ksd7tbhA
-	 QauyiTtZi20XR/QRSSUvMKpnkKWXF2dvdaEBClg6ex6lbRWn3MQVyoGqw+L59LIBPPa1X
-	 X5DfAdHkkxQd5cmvOUDbc/9m95APi2kAGXK+Ixibu2fSBXzPDG4JvrrTqKSlC+nrf15v3
-	 nEbzy9sxe2WyEzT8YwkWMoKGyT3cUdYTa1ne33U+PG6c7AGn/yUb6LJMd8B+Ma0/nOw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	id 1xOpU0-00000007pFk-0jvY;
+	Thu, 05 Nov 2026 04:53:54 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 292CF40E0184;
+	Thu,  5 Nov 2026 04:53:42 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=fail (4096-bit key)
+	reason="fail (body has been altered)" header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id 3_rAxhbUVBXB; Thu,  5 Nov 2026 04:53:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1793854419; bh=nrGcHTqOtpGTvsPDx/bmdCPRbhy65nSxqLA3PtWK+ls=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZAa4Q1Y8uQOXS99gQyK/P+nRvFObN5CmOSyDOcaLr6q1SB8IU/8HE3M6sZ4VuZJ4B
+	 73VVrzRHKqbpbY/X431R7SgZQedtdjQZwk/3UftOatv7Uofdon0kp8b+Rhh/U1yGVB
+	 EEvngoxgPANcXZByYcr53QyfmdgVxO9RNVaWYB6Q4EotX1ROx5/CoQSjixD12k9WYn
+	 mCWXFSGsv/cUAWZ9MeprBYbaAwEI5TEDJFw9POJxJGEKJzwwf996qYNsc0hTwnMvE4
+	 ru72pCqArlOUIBNN5kzpH/0sNMYnqzf9JTX/C6e6GkVWACV9HwvFVj6gp+6bPjOnYW
+	 mJlsoc6ajm9xpZinAyjjNE5Hi/ym02fvHms3yU1WDzJhJmh7gxYjQpwbVr1qqocNiD
+	 SKARca8kHjOBQkVdoyrMW0mEx6sOPk09mvZkVd7oiVTP1RNQQN/XLV8ezEZCZDqECq
+	 m4XujHyiwZ71dCL75nSJenlHOlMZIGj7zVWyprgk/ZzP4XzfovI0RunDXuvbGOEJKe
+	 1g80Wn7noaqHuR/UeifpTFad0i1om4GoxFdsKlxWhPHrzR967Q9oebORecZvBu7VCa
+	 JbzJet6ww2paUI8ZSqg1IznlG1sk1Lw2eR7zoaoJNoaZrJj1kOsgFWjLqd3FHoWj2f
+	 6pD0KqNRAexvx6Gz9rCr2VLA=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::42])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 0550C1F00A29;
-	Thu,  5 Nov 2026 04:41:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793853663;
-	bh=rH9b+qonWYU0U9xuZioxm6lWLILfzoQKLx37tFS+/zY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=ecmzfAIIHeVK1xB9coAJNocts1Mk41gB9gnOIJs4mCI6Q4ojE8RtIEc2W1o8Xf04S
-	 U1H99VSmr8WeMpAhw6p7prmD0wjNEJsWRgf4l3ATpmFxVhKN0PTvtuZu/32JN2wjiZ
-	 Q6tWuSAi8ke4zUi7tvjUEq1ILA4yfADvsPBInj2c6M5Th4JNGENBYX5IUvgUeiufXb
-	 BjX7pIvKKMuiPdOQA7NpYNqSyqPpWBFJ/8v/wXNqPZ1rdbbaVFhuDUY/HHHRpse3s7
-	 dng/KXBnr7IVwaMNmQ8PQuc6ng74Ja6yarH4YJuZScfbz8HbHWN2V/BtgziHj2Xtcc
-	 keJEKTGIZWIww==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 23DC7470AB;
-	Thu,  5 Nov 2026 04:40:58 +0000 (UTC)
-From: Rajan Yadav via B4 Relay <devnull+rajanyadav0307.gmail.com@kernel.org>
-Date: Wed, 04 Nov 2026 22:41:01 -0600
-Subject: [PATCH 6/6] arm64: dts: allwinner: a133: Use the A133 CPU OPP
- table
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 52B6C40E0140;
+	Thu,  5 Nov 2026 04:53:24 +0000 (UTC)
+Date: Wed, 4 Nov 2026 20:53:21 -0800
+From: Borislav Petkov <bp@alien8.de>
+To: Santino Wang =?utf-8?B?KOeOi+S/iuWCkSk=?= <Santino.Wang@mediatek.com>
+Cc: "jonathan.cameron@oss.qualcomm.com" <jonathan.cameron@oss.qualcomm.com>,
+	"linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
+	Sidney Chang =?utf-8?B?KOW8teWxpeW5syk=?= <Sidney.Chang@mediatek.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Fred-WY Chen =?utf-8?B?KOmZs+WogeWuhyk=?= <Fred-WY.Chen@mediatek.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Light Chen =?utf-8?B?KOmZs+aYseWFiSk=?= <Light.Chen@mediatek.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"tony.luck@intel.com" <tony.luck@intel.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"mchehab@kernel.org" <mchehab@kernel.org>,
+	Arnab Layek <Arnab.Layek@mediatek.com>
+Subject: Re: [RFC PATCH 00/11] soc: mediatek: add a DRAM ECC error handling
+ driver
+Message-ID: <20261105045321.GAauwLwdk2PSruRAcw@fat_crate.local>
+References: <20261102092334.138759-1-santino.wang@mediatek.com>
+ <20261102123642.000044cf@oss.qualcomm.com>
+ <20261102124434.00007741@oss.qualcomm.com>
+ <78ce4a6ef441cb9836466e9ae5e72ffe21a88242.camel@mediatek.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261104-a133-series-v1-6-58217cb33a87@gmail.com>
-References: <20261104-a133-series-v1-0-58217cb33a87@gmail.com>
-In-Reply-To: <20261104-a133-series-v1-0-58217cb33a87@gmail.com>
-To: Yangtao Li <tiny.windzz@gmail.com>, Viresh Kumar <vireshk@kernel.org>, 
- Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Viresh Kumar <viresh.kumar@linaro.org>, 
- Andre Przywara <andre.przywara@arm.com>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Cody Eksal <masterr3c0rd@epochal.quest>, 
- Alexander Sverdlin <alex@sverdlin.org>, 
- Rajan Yadav <rajanyadav0307@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793853656; l=3324;
- i=rajanyadav0307@gmail.com; s=20261103; h=from:subject:message-id;
- bh=x5FE0Mhj6qYPFUq6zvVIYk5BeSBjVopTztLIpG1kUCM=;
- b=piOPG5YLJZp9HRQREOhbgGNTbR72tV2osHC80xB2c/s04EqF2pecIuVVvVFrmA7bNITkzMaP1
- rEp1ItCY4kyCpCPkzegLvgQs+BLD8k0cHTkALKaQm76R1ezINQbZfyN
-X-Developer-Key: i=rajanyadav0307@gmail.com; a=ed25519;
- pk=4ZPeiP5qrv2b44q/Obxi2koUS70Q6npbttJnpUoTlgg=
-X-Endpoint-Received: by B4 Relay for rajanyadav0307@gmail.com/20261103 with
- auth_id=1391
-X-Original-From: Rajan Yadav <rajanyadav0307@gmail.com>
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <78ce4a6ef441cb9836466e9ae5e72ffe21a88242.camel@mediatek.com>
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261104_205352_383979_0BE0BE2F 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.7 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,96 +99,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rajanyadav0307@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	FREEMAIL_REPLYTO_END_DIGIT,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Rajan Yadav <rajanyadav0307@gmail.com>
+On Thu, Nov 05, 2026 at 04:19:27AM +0000, Santino Wang (=E7=8E=8B=E4=BF=8A=
+=E5=82=91) wrote:
+> Which existing interfaces would you recommend for obtaining retirement
+> status from each memory owner? With that information available, can ite=
+ms
+> 5=E2=80=937 be maintained in userspace, or would they require support f=
+rom an MTK
+> driver?
 
-Switch the three A133 boards in mainline (Baijie Helperboard A133,
-Liontron H-A133L and Teclast P80) from the A100 OPP table to the A133
-one, so the speed grade is selected as the vendor does it.
+mm/memory-failure.c
 
-What changes depends on the chip:
-- revision A-E parts with a normal marking ID get a0-a2 from the bin
-  field, as they get speed0-2 today, with the same voltages; only
-  1080 MHz becomes 1008 MHz. The exception is a part whose ICPU and
-  PCPU values are in the range for which the BSP forces a0.
-- revision F and later parts with a normal marking ID get the a3-a6
-  voltages: higher at 408 and 600 MHz, equal or lower from 1008 MHz,
-  and 1008 instead of 1080 MHz.
-- "high speed" parts get the b grades, with 1416 and 1512 MHz instead
-  of 1464 MHz.
-- if the firmware does not provide SMCCC SOC_ID, the driver keeps the
-  A100 selection, adds the BSP's a0 rule for normal parts and warns at
-  boot.
+Look how the others use it.
 
-All three boards supply the CPUs from AXP803 DCDC2 with a 0.81-1.2 V
-range, which covers every new voltage. Without the A133 support in
-sun50i-cpufreq-nvmem the A100 fallback applies. The Teclast P80 also
-needs "cpufreq: sun50i: Handle boards with the allwinner,sun50i-a133
-compatible" to get cpufreq at all.
+What you write above sounds like you need an EDAC driver which collects a=
+nd
+reports errors. Look at examples in drivers/edac/ and there's some
+documentation in Documentation/edac/. Perhaps ask AI too.
 
-Claude Code (Anthropic) drafted this change and its message; I
-reviewed it. I tested the A133 table on a KickPi K5C; I cannot test
-these three boards.
+If the stuff you need is not there, you can extend the existing interface=
+s by
+justifying the extensions properly.
 
-Suggested-by: Andre Przywara <andre.przywara@arm.com>
-Signed-off-by: Rajan Yadav <rajanyadav0307@gmail.com>
----
- arch/arm64/boot/dts/allwinner/sun50i-a133-helperboard-core.dtsi | 2 +-
- arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts  | 2 +-
- arch/arm64/boot/dts/allwinner/sun50i-a133-teclast-p80.dts       | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
+But what you have - a completely separate RAS implementation, homegrown
+somewhere else in the kernel doesn't fly. I'm actually wondering how you =
+even
+managed to do this driver without *finding* all the RAS/EDAC glue we have=
+ in
+the kernel. Googling for it would've told you that there's something...
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-helperboard-core.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a133-helperboard-core.dtsi
-index 545972d2324..3a89d3f74b3 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-a133-helperboard-core.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-helperboard-core.dtsi
-@@ -7,7 +7,7 @@
- /dts-v1/;
- 
- #include "sun50i-a100.dtsi"
--#include "sun50i-a100-cpu-opp.dtsi"
-+#include "sun50i-a133-cpu-opp.dtsi"
- 
- /{
- 	model = "Baijie A133 HelperBoard Core";
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts b/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
-index 90a50910f07..1b9cbcbe5f3 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
-@@ -6,7 +6,7 @@
- /dts-v1/;
- 
- #include "sun50i-a100.dtsi"
--#include "sun50i-a100-cpu-opp.dtsi"
-+#include "sun50i-a133-cpu-opp.dtsi"
- 
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/leds/common.h>
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-teclast-p80.dts b/arch/arm64/boot/dts/allwinner/sun50i-a133-teclast-p80.dts
-index 47b5f2ac824..7d4c346276e 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-a133-teclast-p80.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-teclast-p80.dts
-@@ -6,7 +6,7 @@
- /dts-v1/;
- 
- #include "sun50i-a100.dtsi"
--#include "sun50i-a100-cpu-opp.dtsi"
-+#include "sun50i-a133-cpu-opp.dtsi"
- 
- #include <dt-bindings/gpio/gpio.h>
- 
+HTH.
 
--- 
-2.34.1
+--=20
+Regards/Gruss,
+    Boris.
 
-
+https://people.kernel.org/tglx/notes-about-netiquette
 
