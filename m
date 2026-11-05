@@ -2,169 +2,112 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF788606D804
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 18:00:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4A8C606A32E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 18:03:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=M5upyW2l;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=l14XjqE4;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=A+43Nol+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=l84K5Ujh;
+	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=nQWnKx48
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=hcIGtKJGIA7HEdXy4JiUyk2jk93QxytfweWjrnaJdwM=; b=M5upyW2lSqrT0z
-	qtBa2W2ZVAXh/rzUhaU/dQphApkcBGAuy0wEZqhiQcfa9bz27uDd2uXr20Ja2FiPz1u4GOd9NpYTd
-	1J5yOKCds9Wxbk4QojJ4TDpKQfj5j2I/l6Vxp1c/TfAgorYlPaMd9KEJqQUE5xoSsUfLO/1UPPxQe
-	naDzoIj6OmGWS3TkDQ9w/SpGATWYpsrgQ3jU8QfzlTI4Rj9bTUSxXYlnwquVapt5P0VwzkTTq0lCN
-	mGDBylGMpSFBk2pEHRWmtRdvCKRKO/nahWj0ch2o6x5/O0CRdf/qAm8sRrckzfph9MFYXCh/YSNt2
-	c7bknrs8uQyViBc7udUg==;
+	List-Owner; bh=LA8AvLGyexZbtAf4veVlwI7D/EBoHlL13GOji2GbHxQ=; b=l84K5UjhBZKdbD
+	1MaRrPe+FLUb6bkx97xuXidZDRljnOWiewjzjHjdIWORSTKRMuJBJTh2tjlkXcudlqb2hi21lZUs4
+	SSqGLwbDoej99td3MqaZVvfZWgHwW9onIFijnCUT/BWO4NXNE+Hx6WaYp5fc+EH/itcNBzG8PNeX7
+	do5ESED0vTquD0P+Rqi+ZvqVyNrjMCF0E2gj8vkq9qXu55BapwAW7ZyBL7RLLTbV6CqsDzDmWqQ3y
+	ZcoAMfTEja4mV8chfR28S3i5f20vP492DFw/3I2/5q2Z1f+tAcSnHhBdRsKe3jajX6IU/AdlNFPCc
+	fwuUtlMJ3pluhXQ2SPzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP1km-0000000A2u8-1mkv;
-	Thu, 05 Nov 2026 18:00:00 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1xP1c1-0000000A0j2-1Poq;
+	Thu, 05 Nov 2026 17:50:57 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP1kj-0000000A2sJ-2rqW
+	id 1xP1bs-0000000A0fV-2zZr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 17:59:59 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6A5HeVox373828
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 5 Nov 2026 17:59:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	hcIGtKJGIA7HEdXy4JiUyk2jk93QxytfweWjrnaJdwM=; b=l14XjqE4iAeaylTw
-	udgrt5Fz/NBNSZujhmgBHfQbVeUdVAnfcdzy+5JxCYMrm8RwQiUY4dvtYrvyPFNE
-	O+7HSqjZCGjLWJz0keLVrobm+Pig1cRLkWSZ494lXWuJ26XaPzR12dIdmaI3P3Qz
-	/Sfuqnc2UoIs8f0s8NRrDvr7t6BEWqaLstla7bVvVVohMCxMa9bmEDKZbqSQTO6u
-	Rk67HNB+/VS7G7eobiJHoZAEg32daNlxHV2zNnBOZRXrspsOLFr9ooaBn1snM9DV
-	Lw/gFGIkrAB91na7p6PrgBoyMjY3yXD5RzOgm+aSxmZscf1phwp8jjMG6Yd1O9uc
-	IEnxxg==
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hrksqb3s7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 17:59:56 +0000 (GMT)
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-3662e7a9299so928114eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 09:59:56 -0800 (PST)
+	Thu, 05 Nov 2026 17:50:51 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-490f38e9688so893829f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 09:50:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1793901596; x=1794506396; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=hcIGtKJGIA7HEdXy4JiUyk2jk93QxytfweWjrnaJdwM=;
-        b=A+43Nol+lAvxl1FNLmGKF7jHZvhdCrqRgOYyFUr08vgFiDd4Hdu+y32gvZN4SZcbst
-         W/7hhcfj287TpUnjiCwrPYDv0omgd11ssYM6GXYRvuRCskWowXBVs3/RaTkEPu5xfGuo
-         bMpl+iovg6gdGmOmDd3COKYwwWNrr1jjmOgQuIsjwGRmkrcJFSmpnh5pZWx+N5MrMuD/
-         7VY9VSFNg1twr/5sguWviY7wtD20h3KL0rWXdt2U4NpoNr7n2Xg25tqEjz7mZYkZeXYs
-         px5Pqd1PDTHW1PvYBfPahUVsaw/82jfG7N4Z/mY84k59xtSf4+wamMpMfg1wWqs0YClw
-         eY+w==
+        d=baylibre.com; s=google; t=1793901047; x=1794505847; darn=lists.infradead.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=LA8AvLGyexZbtAf4veVlwI7D/EBoHlL13GOji2GbHxQ=;
+        b=nQWnKx485zJpvWxbnDcJXoziaaf0V5DQoXgjecPNfqg6odLep7m8r/fsmZVHZBUynx
+         jLghzLosPyF0iOQRnSB6ELpkPTOSlXryyu6ILMuAz8BlGf3g06O60h8L6XIcg0py9sSv
+         MjWYLDIx5Hlv+nDjmK9IEYVlfF8T+GHu8uhfqLjyP58Lr3o2lCuf2nWZygWdhYmHbpME
+         QsxxuztkEOV/8XTvcm792DBtOjkm+dGXYO6WfPhhDzUTfQe+RoZoINyoBSq8HZktLoBb
+         CgFztUCiTi0m3fqzK8KsnyisadfMUYm9C4EJkiFwC40tSqlx6uzzyN5AtC1m8b8H6V+t
+         VKPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793901596; x=1794506396;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1793901047; x=1794505847;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=hcIGtKJGIA7HEdXy4JiUyk2jk93QxytfweWjrnaJdwM=;
-        b=MPgZLTjyron3I4EVji1uqXdk4HNeL+9isZCSe93kaGTpoQXJpbbs4bNNRTTXtRjSlg
-         vejA0dx2qeJtIljdmnMzjkNATrjGgL6M3yKw+PerdVXGy7uAipjaMvBsU+1AfdXEMpHo
-         HwLpOD1lkVH+1rO46ELS07PdyCmRXofvKimpSaSnLbvnGlrSVT/yN2Dk7TDhyyfqd3MN
-         3J6e14IXyDvWucaHwjnakDMtyDoQhZGRilRRNwH+ZBFGD6JLiu0VJPZ0O9Zj9DE9SHyY
-         GTvEVTk7MKuY4HEeFCDHuCceqF87QHSmC/QZuRd4Y1B4Zan9KABGfn2IYoqzJKorE2PR
-         4y6w==
-X-Forwarded-Encrypted: i=1; AKwUvBymeXKVUDhDv0j4mEEA0B+EKyGjAEpF5Se35wUzoHXcGKV3ESRWhQZtWAd9mYGdhwAH1HYDLDOEFXdCPEJdOKl2@lists.infradead.org
-X-Gm-Message-State: APuU4Z//iNCnNkvGkGSqQL3ARV0n2auWwl5Rs1JKyAissES1DGzidOFW
-	5hi1HdlzOxTie7u4TW0x2pubkEGdUWHlakbZNtUYR5PYbEaNlTl+e3VpN81HSmaeu6Qp69RAYqJ
-	lpyKxX9qMS4rWcW0xGlPBBc9Xuq5aUX/chG09T5NklyuhpEBKEzc3WcZql7WDjUvwSl12qIV/y6
-	FmWQ==
-X-Gm-Gg: AYBFou1MHD1jsY69uzC9mmrBJ41rUqyK6GMtZN9PRUPNj6nwlIDq/JTNLAmy7B0fv1u
-	EtaIpsh+PMnZGPhsFpEamnPPmzQ8iTB71PIXF5gmocZ8BADStndXUgV5VsAyLIvkPv44QBhzIUG
-	DZky6PDOGJB3qw8ccfQLKxv/hXmkop9gvxmG5faI2k43ZCfsOymbUSt3Q4rDba7FuxK9NBdnA/q
-	g5k5fWdQ2m2EyHXOQbTnqSVPHOPb0eDcKgzsBhcZLxOYjl6DWjOVxXJKojZZOv323f+KqN7nKrA
-	elAJdIXX49/egy9yGlrsRdADq4WnD8XEyYUN/iqjJRA7q+L83UhpW4z35Pilu4BuEgwY7dIfmYb
-	Fp1YbN30ldX7LAo0RXoz7aaHxnc/VTMLio8dqUgzoBMC2qcH9wizUnhQDyoPQW9O43oMM9JzzQa
-	Y7Nzp4CUqlY/E2K0QXnOUOwXWpxw==
-X-Received: by 2002:a05:7301:619b:10b0:36a:1d6f:917c with SMTP id 5a478bee46e88-36a423c3380mr31476054eec.22.1793901595371;
-        Thu, 05 Nov 2026 09:59:55 -0800 (PST)
-X-Received: by 2002:a05:7301:619b:10b0:36a:1d6f:917c with SMTP id 5a478bee46e88-36a423c3380mr31476004eec.22.1793901594753;
-        Thu, 05 Nov 2026 09:59:54 -0800 (PST)
-Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36ca38fa273sm21151517eec.16.2026.11.05.09.59.53
+        bh=LA8AvLGyexZbtAf4veVlwI7D/EBoHlL13GOji2GbHxQ=;
+        b=hN/PHixt1QGsPMO8KR5ov3gLmPxuPinStTksWRuteROcbobqjzAtgifn+yO3hgJRAC
+         8AtRCMgppvNnXvULHD9VmROwC0kIuUXFvIxxUr65i+K9j4OO1uKhYCgjmq2jGaxFWPeA
+         t7ja/KqG8h9s0yHURkMCJ4cn1iEYimP1SV4Nm0/u+K6cISwMQwJrty+gmKRzb8nSw++Y
+         HAxLTix4ISkvl+uE0mk2gwfdyiZeAJ4HH9h208MJlKlX+/FiQHwNsvNqEcdwH42+59wO
+         nWMgbtE7iivEXnMzqD/QJzTyfEpJlslcjo5CzS5ddT9R6Qj4HO0aeN3aKDpIXn1+ZJUr
+         VaGA==
+X-Forwarded-Encrypted: i=1; AKwUvBxcU+fJRk/4JcaZioH/B9KBBvrU/azoIRNZVO9cW5C64+H/qbiavg+HZOMdupCV1xIhM//glYDRBz16SUQpyAbe@lists.infradead.org
+X-Gm-Message-State: APuU4Z8MeoiFmPanJ5TZo1yA9a4DduVW/hThGp1cPHhXqfGJ5od0awNv
+	pN9V5uKaCck62IqH77gZ7f2BuIyO8h7m0dpfIgjrgvEFiWBMRDrhMGB+MyYjXEzDuXw=
+X-Gm-Gg: AYBFou1S1SduniO42rHTxe7wsCG+3XqV3XGYd2PC3K+gGEsoUW+9FpQY46MJUq9kcTs
+	8onzAcg0tnC9f3+/P0rbXGKFQXje8OW0Fngc4X22r9N/CN5e7RhI5AB7wyU4ibmKT/VK/v7fkwJ
+	yT8JN7tI4XkWf7ExUx/d6iGzusEoodNm5A0aH/lL1DleeJq6Ozeg6d6j8HyZsU3XfleeVca25a7
+	Wx+9Z5B6JjRCBQltkUi5yPLvUyIFGTVux8weQOqFEdNenJRwKXO51ep+AvnTkNz4buR3Xa58Z5h
+	ucp9D8RLwDCUeBv2fHVNdF3c21WLzEQimy/EYrPjMpPuXFXvzhZhDjyJMSekuuEhpcE/cmYf5eN
+	HvN5KgAX7VZifn87wZrrjVpaX47ufLBCs7WiRHNcxjo7DD9lcJrXtwl1G49QzcG8nT6QkbM3XDD
+	bVdyOfVjipK1JzPt4IcdlrUL2vwuPxT/eLpQH7GzG7VJBIDpltuwvkW0suy9mmAqJtb0i/1yJus
+	g4+vpUZzTC5nC1Ttm86fgjEPetkK9Kw81kII8FlU6pKEJnC5FAgCtKnGqwQ1CZdyGhpVHYhEcc0
+	/1dLihCunVRMyv3mLwKPw/9LspDfMZ34FvAM5wtWEGFKsU89
+X-Received: by 2002:a05:6000:2f87:b0:491:eb12:e133 with SMTP id ffacd0b85a97d-4927835f4a0mr739128f8f.11.1793901046808;
+        Thu, 05 Nov 2026 09:50:46 -0800 (PST)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48fed551dbasm10843690f8f.37.2026.11.05.09.50.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 09:59:54 -0800 (PST)
-Date: Thu, 5 Nov 2026 09:59:48 -0800
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Borislav Petkov <bp@alien8.de>
-Cc: "Santino Wang (=?utf-8?Q?=E7=8E=8B=E4=BF=8A=E5=82=91?=)"
- <Santino.Wang@mediatek.com>,
-        "linux-edac@vger.kernel.org"
- <linux-edac@vger.kernel.org>,
-        "Sidney Chang (=?utf-8?Q?=E5=BC=B5=E5=B1=A5?=
- =?utf-8?Q?=E5=B9=B3?=)" <Sidney.Chang@mediatek.com>,
-        AngeloGioacchino Del
- Regno <angelogioacchino.delregno@collabora.com>,
-        "Fred-WY Chen (
- =?utf-8?Q?=E9=99=B3=E5=A8=81=E5=AE=87?=)" <Fred-WY.Chen@mediatek.com>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "Light Chen
- (=?utf-8?Q?=E9=99=B3=E6=98=B1=E5=85=89?=)" <Light.Chen@mediatek.com>,
-        "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
-        "tony.luck@intel.com"
- <tony.luck@intel.com>,
-        "linux-mediatek@lists.infradead.org"
- <linux-mediatek@lists.infradead.org>,
-        "matthias.bgg@gmail.com"
- <matthias.bgg@gmail.com>,
-        "mchehab@kernel.org" <mchehab@kernel.org>,
-        Arnab
- Layek <Arnab.Layek@mediatek.com>
-Subject: Re: [RFC PATCH 00/11] soc: mediatek: add a DRAM ECC error handling
- driver
-Message-ID: <20261105095948.000013c0@oss.qualcomm.com>
-In-Reply-To: <20261105045321.GAauwLwdk2PSruRAcw@fat_crate.local>
-References: <20261102092334.138759-1-santino.wang@mediatek.com>
-	<20261102123642.000044cf@oss.qualcomm.com>
-	<20261102124434.00007741@oss.qualcomm.com>
-	<78ce4a6ef441cb9836466e9ae5e72ffe21a88242.camel@mediatek.com>
-	<20261105045321.GAauwLwdk2PSruRAcw@fat_crate.local>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+        Thu, 05 Nov 2026 09:50:45 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTA1MDA3MSBTYWx0ZWRfX8K0ALNNx5wfq
- tJI7CCEH1/oAX8mSL/m/eFet9/c2qbQUBhWpUZ+8GzhZumim7MCXOt1todYCaAtCWdJzjCPCtjy
- MnFUL5iIFTc/58UM6x0abRpCxff8/ir+ZHuVQG2ewx61HPC3U+ZyKfy+IMJAP7Zh93fAF/GNbx3
- uks3+ihF0mn1UzCnYjgkZXPW/+zJut1FRptJsuO1AW2f8WXJcQTtRKEbsEo8SxL5ehMOT1GJdet
- UOFMQqznkW/uZAHdsreBiLqgSS1F6h7vem6CZ7Ri38PpNsePRXc71xjY5QVHAqGMp2wySU+rILS
- OjT/jOOSK+D4i2eysMu3mCIr3wTlGk36vGQZvBAtTZAnBoTf7bN6PtHRJ5xaZio4k4v/lYGYwYJ
- EjK9B/WHhBbim/E6TB1OX/spqvX1yEnIFOYXcya6jSfbPKZ7LC67/VAQQhr6oF2GtSko+oZzgSu
- Dkh8T1y+ymWkyAmjUiw==
-X-Proofpoint-ORIG-GUID: Buw3hne1FrCrLeSQ8M4ePLMhN4OLBMrO
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTA1MDA3MSBTYWx0ZWRfX8ucnEjbS83ck
- ieZIhaoPul66SgYHwyWnzyJUXBRYstGTbuvL8wdTLFtWHKnV3qszoldpC+QnAqH3etndG6vHdT0
- a5Dap3F8+Rskf8DakRtyUc/vgxPqJz8=
-X-Authority-Analysis: v=2.4 cv=CIe/zhrD c=1 sm=1 tr=0 ts=6aecc41c cx=c_pps
- a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=xlvtQj9HLH9P9y80AtsA:9 a=QEXdDO2ut3YA:10 a=6Ab_bkdmUrQuMsNx7PHu:22
-X-Proofpoint-GUID: Buw3hne1FrCrLeSQ8M4ePLMhN4OLBMrO
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-05_05,2026-11-04_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 bulkscore=0 suspectscore=0 adultscore=0
- lowpriorityscore=0 phishscore=0 impostorscore=0 malwarescore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2610300000 definitions=main-2611050071
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH RFC RFT v2 2/3] clk: divider: add
+ CLK_DIVIDER_INVALID_ZERO flag
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Jian Hu <jian.hu@amlogic.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jerome Brunet <jbrunet@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney+clk@redhat.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-amlogic@lists.infradead.org, 
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+In-Reply-To: <20261029-meson_refactor_n-v2-2-ff4ac74e527b@amlogic.com>
+References: <20261029-meson_refactor_n-v2-0-ff4ac74e527b@amlogic.com>
+ <20261029-meson_refactor_n-v2-2-ff4ac74e527b@amlogic.com>
+Date: Thu, 05 Nov 2026 18:50:40 +0100
+Message-Id: <179390104085.2573818.16461908615505096359.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2894; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=hgYik+Icrd5okmeAAVTfYYP6BAFK/E7hkpa3L1tnww0=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFlvDn6+tSd8/d2dfKabnr0/9+ZojuLnxzpVp+oKOPje3
+ 5/O/X3Czo5SFgYxLgZZMUWWGu5q8XeSWl9mTde5DTOHlQlkCAMXpwBMZPM/hv950Q9jiq+4WW0u
+ twi6Je18bN4hBs7Yuf9YynYukVx3RvoyI8NyJb9zV89lp9wubMhs2XQwac7TDN05otvuafDUtZ/
+ jeMsPAA==
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_095958_042749_63A907F4 
-X-CRM114-Status: GOOD (  21.92  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261105_095049_821920_DD67C74F 
+X-CRM114-Status: GOOD (  25.60  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,64 +118,79 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_2 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, 4 Nov 2026 20:53:21 -0800
-Borislav Petkov <bp@alien8.de> wrote:
+> When a divider register reads zero, divider_recalc_rate() currently
+> emits a warning (unless CLK_DIVIDER_ALLOW_ZERO is set) and returns
+> the parent rate.
+> 
+> This behaviour assumes a zero divisor acts as a pass-through, which
+> does not apply to all hardware. Some dividers, for example PLL
+> pre-dividers on Amlogic SoCs, come out of reset with a zero value
+> that does not produce a usable clock. Returning the parent rate
+> hides this fault behind an incorrect, plausible value.
+> 
+> CLK_DIVIDER_ALLOW_ZERO only suppresses the warning while still
+> reporting the parent rate, so it cannot represent this hardware
+> behaviour.
+> 
+> Add CLK_DIVIDER_INVALID_ZERO for dividers where a zero divisor value
+> is invalid. When this flag is set, recalc_rate() returns 0, making
+> the faulty state visible to the clock framework rather than hiding it
+> as a pass-through.
+> 
+> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+> ---
+>  drivers/clk/clk-divider.c    | 3 +++
+>  include/linux/clk-provider.h | 6 ++++++
+>  2 files changed, 9 insertions(+)
+>
+> diff --git a/drivers/clk/clk-divider.c b/drivers/clk/clk-divider.c
+> index f68216c65d3d..6c1523d22477 100644
+> --- a/drivers/clk/clk-divider.c
+> +++ b/drivers/clk/clk-divider.c
+> @@ -143,6 +143,9 @@ unsigned long divider_recalc_rate(struct clk_hw *hw, unsigned long parent_rate,
+>  
+>  	div = _get_div(table, val, flags, width);
+>  	if (!div) {
+> +		if (flags & CLK_DIVIDER_INVALID_ZERO)
+> +			return 0;
 
-> On Thu, Nov 05, 2026 at 04:19:27AM +0000, Santino Wang (=E7=8E=8B=E4=BF=
-=8A=E5=82=91) wrote:
-> > Which existing interfaces would you recommend for obtaining retirement
-> > status from each memory owner? With that information available, can ite=
-ms
-> > 5=E2=80=937 be maintained in userspace, or would they require support f=
-rom an MTK
-> > driver? =20
->=20
-> mm/memory-failure.c
->=20
-> Look how the others use it.
->=20
-> What you write above sounds like you need an EDAC driver which collects a=
-nd
-> reports errors. Look at examples in drivers/edac/ and there's some
-> documentation in Documentation/edac/. Perhaps ask AI too.
->=20
-> If the stuff you need is not there, you can extend the existing interface=
-s by
-> justifying the extensions properly.
->=20
-> But what you have - a completely separate RAS implementation, homegrown
-> somewhere else in the kernel doesn't fly. I'm actually wondering how you =
-even
-> managed to do this driver without *finding* all the RAS/EDAC glue we have=
- in
-> the kernel. Googling for it would've told you that there's something...
->=20
+While I think CLK_DIVIDER_INVALID_ZERO really makes sense for a writeable divider
+only, to gracefully handle a reset value at zero that we would later correct,
+we should still handle all paths correctly. This include a RO divider and its
+determine rate path. I'll try to send something for this soon.
 
-I would add to this that if the standards don't work for you, consider chan=
-ging
-them.  These days it isn't that hard to get ACPI changed and they have a ni=
-ce
-code first path so discussion can take place on kernel mailing lists to ref=
-ine
-the idea before going to the standards org.
+> +
+>  		WARN(!(flags & CLK_DIVIDER_ALLOW_ZERO),
+>  			"%s: Zero divisor and CLK_DIVIDER_ALLOW_ZERO not set\n",
+>  			clk_hw_get_name(hw));
+> diff --git a/include/linux/clk-provider.h b/include/linux/clk-provider.h
+> index dc8e161f9c2c..fe2dbbba49e3 100644
+> --- a/include/linux/clk-provider.h
+> +++ b/include/linux/clk-provider.h
+> @@ -744,6 +744,11 @@ struct clk_div_table {
+>   *	big endian.
+>   * CLK_DIVIDER_EVEN_INTEGERS - clock divisor is 2, 4, 6, 8, 10, etc.
+>   *	Formula is 2 * (value read from hardware + 1).
+> + * CLK_DIVIDER_INVALID_ZERO - a zero value read from the register is not a
+> + *	divide by one / bypass but an invalid setting which does not produce
+> + *	a usable clock.  recalc_rate() returns 0 so that the broken state is
+> + *	reported to the framework instead of the parent rate, without
+> + *	triggering the CLK_DIVIDER_ALLOW_ZERO warning.
 
-There is some overlap with things we will probably be proposing for ACPI in
-the next few weeks. I'll make sure to +CC everyone in this thread on that
-discussion.  Inputs form Mediatek (and ideally Borislav, Tony etc!)
-should help refine that and avoid pitfalls that have made previous RAS ACPI
-stuff less than ideal.
 
-Jonathan
+ CLK_DIVIDER_INVALID_ZERO - a zero divisor is an invalid setting with no
+ 	usable output. recalc_rate() returns 0 instead of the parent rate.
+	Takes precedence over CLK_DIVIDER_ALLOW_ZERO.
 
-> HTH.
->=20
+-- 
+Jerome
 
 
