@@ -2,69 +2,149 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09B65606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:31:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 504F6606A333
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:33:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MaumSbi3;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UdpAjSX1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=233fZ3AA;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=M6CDprrJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=VTYeLaYKKNnR4GNV/TaYDsoMFc7kD+xhaqkactUd/3g=; b=MaumSbi3CMFhFj1IUc98ngeEW+
-	0O2vWVRXbtu/9nwQPTIU48HVrn7gbwQGyz4iaTUKR6pTt9jNRSgEJb9SYryuKdPP8xps3qWG/hYR6
-	fjNaz+usFgNY+MSJdAVZN5c8egZScG9DsKzKzG6y61+geZQsp7EUcdu5hhmq6W26ufREGkBTNIt3Z
-	2iiIFJZ2eA6IBqw04tlOArbXIeo5Mt4LoNfGuzb9o+zMZjegl1Vd+fwiXSoUyP/v6HVCb0coCszAg
-	Zo+dhiGGJrMo+SegRH8HNqc0Vv1H6436blSikSGw0agNojKmzOifbwpo0dbanoHM4zetxFmYAtLJt
-	PzpXtnMg==;
+	bh=wSooqy2lgDg08+BJ5KWjg19MGmedysf6SsH0A6O+b10=; b=233fZ3AAn/1SdBgnENHmTLY7NC
+	J/f84k7EmNgnnClAJiaFFbOJOpIzcXxSz9hMfRkqvkxd4+D2BbnaTz24uofCloudmbcDyWTxDtbJm
+	68oUWJDXtlYsd29hy6tiqWL5/Mc7+qkiHHiwRpfb7voPp0I3mZDpXsZqdEL7Nw3k+//UjEyZr+HgJ
+	v9Un3Ev2JFiAXo5zxiuVf7eYc5SB6B+4I6nQ3+S+QGpGsoWELijgr28WhajGBJLTEu1hOSruzrG4N
+	BGCLCFnQlSgGYfGTt+5dxZ0tQUO0BFnaXrZFJ6jNHswNvgfJXg44HRcCtm0BSzTiyHrsdYVgPNJo+
+	OLHj/Jcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOssn-00000008AJw-02wF;
-	Thu, 05 Nov 2026 08:31:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOsun-00000008AcD-3dbF;
+	Thu, 05 Nov 2026 08:33:45 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOssk-00000008AIm-2WFs
+	id 1xOsug-00000008Abr-2TCZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 08:31:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2985E403BF;
-	Thu,  5 Nov 2026 08:31:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BB8D1F000C1;
-	Thu,  5 Nov 2026 08:31:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793867498;
-	bh=VTYeLaYKKNnR4GNV/TaYDsoMFc7kD+xhaqkactUd/3g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UdpAjSX1Ro0Jx1+rM9vTzFKPs+jUr4o3qyZkDKLIoulXlVpD2YPlJvVvDOWjHASuj
-	 +yLcDwbbQPABVdze7sA2RY2GN+t3teeLFEJcaSC5bmEF9fM7fbjoBsvCyqLsk8DA9F
-	 oqGyrhiP3CXAZdK9WEQhAlOhKvWrj8WMFcK70NhUkfMNODpoH7l30kifsigPUx5G4q
-	 lcNj2sBFDmdqf/qNvyEDHAmIKn+zvcpiE1VSDExndt3rZv5LIew1oIRX1dgqUvxZuo
-	 qjrmtbfPGHJJ9Pi708oRJOadeqNITHmJ39z7dBeJWrVb6u7Dbqpg93qCgBE+LAgLRN
-	 6JkFfr9Qa4PYA==
-Date: Thu, 5 Nov 2026 09:31:32 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Sascha Bischoff <sascha.bischoff@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Radu Rendec <radu@rendec.net>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Sashiko AI <sashiko-bot@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v2 04/10] irqchip/gic-v5: Serialise ITS invalidation
- commands
-Message-ID: <auw-5EyY_aifcv1N@red-moon>
-References: <20261104-host_gicv5_fixes-v2-0-e47ad20ea3c8@arm.com>
- <20261104-host_gicv5_fixes-v2-4-e47ad20ea3c8@arm.com>
+	Thu, 05 Nov 2026 08:33:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gZDvQ0Q8ZB3k204Zd/x+oGj9+lvDdoGdE1ItxeJTb/kloL4u+oeGBBkhaq+cfksCtQnt/7cZcWPvo/WZkG2zX+qEY+w73fncvqEja7dhMhwrp7zj1N+IrJty0qMmiuehJHkaasei7id2q1M3DG+UCl2ujq1+uOS2GqGq9Du0dxV9ew5tXmR+K84flLfBei7znBFbF+/14Lb29b5xU7Ueazh9Go6eRAecBgd2/eauU9+XKicYjpNN5pGOggh0f0INb35XBCmn4sVUSZRhm3+9CKYw6md995pI3B6cL5oxkZcsaW01/TCys2QEnKV0zQvQXrJ6MWAYnQe3vqYMdC1xkw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wSooqy2lgDg08+BJ5KWjg19MGmedysf6SsH0A6O+b10=;
+ b=aIVVMMvZEWXOEzSgxzOGjA5aiwb072DZsD3zFoGKW/mbZDUlk6FDHrKh27hSr2jELDuWbIieUtq3wTVaeemTkvdKq441CYxJAxs7eDiE0oIJ4YGur1tLQ37O8mVYGMd1A5GJh/jsKtlJBexxhXdzbYyv0uO8ZwQq1hK3Nn1Vry2S+5WIdL22HUlX7LylbmlFhy6k28vjJLg86qnyrM9J7SSbKGkMUBqcMC8GNd0fqBQ2FXojPsS2GFgw6/OfbrnPXZlpHa+si2TmHF0A7Mf28LUkB4x3nQSnpQndROJEW7cLalFw7ha7KtRBZlSpuZO7do3UwlJTNx9AL/1nNMdrng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wSooqy2lgDg08+BJ5KWjg19MGmedysf6SsH0A6O+b10=;
+ b=M6CDprrJMWOieHBkzqvHcwIJIZAJt0e98Vlv0DIbTaH2Cqi0fMJxbH6oQ9dE51w8b4Vyel9NgJUjkHCxgKMxYNx1pAjpq/Q/Y43xiSDWr2YKSiPrqHU8HkmFbK3uLLeFrFsP1ogSi058k82QWGOuELrlWmktvM1B00ehk2IJd7LzJkHIEadOHZWSMydPRskdrpXMIMYqjnugExv9xt90sifeqcE4+uJAIfEQ6ZGvFTKl1cteZCz7bhdQQGrrKiUResGH8zm80DAO33ixOCHrMKN2Hr/fWsirAitBKdrOH/CEs2qP2JOsnLDDJozFBBJEN2BIimsCF2QFSxmQ1rNKzw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
+ by AS8PR04MB9077.eurprd04.prod.outlook.com (2603:10a6:20b:444::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Thu, 5 Nov
+ 2026 08:33:32 +0000
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51%6]) with mapi id 15.21.0592.009; Thu, 5 Nov 2026
+ 08:33:32 +0000
+Message-ID: <aa852e02-41f9-4d06-ba65-3a4145475628@oss.nxp.com>
+Date: Thu, 5 Nov 2026 16:33:23 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] i2c: imx-lpi2c: don't treat a NACK in SMBus block
+ read as an error
+To: Michael Walle <mwalle@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: Carlos Song <carlos.song@nxp.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>, linux-i2c@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261104121108.659820-1-mwalle@kernel.org>
+ <20261104121108.659820-2-mwalle@kernel.org>
+From: Carlos Song <carlos.song@oss.nxp.com>
+In-Reply-To: <20261104121108.659820-2-mwalle@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2PR02CA0027.apcprd02.prod.outlook.com
+ (2603:1096:4:195::14) To AM0PR04MB6802.eurprd04.prod.outlook.com
+ (2603:10a6:208:184::17)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261104-host_gicv5_fixes-v2-4-e47ad20ea3c8@arm.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB6802:EE_|AS8PR04MB9077:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7f93f437-5571-4752-5a2a-08df3b1779bb
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|376014|7416014|23010399003|10067099003|22082099003|18002099003|56012099006|11063799006|261026140227099003|4143699003|261022105027099003|261028144727099003|261102123227099003|261009223027099003|261021123027099003|261021121427099003;
+X-Microsoft-Antispam-Message-Info: eHJwf22Rqne14/Qabyz0vgRxPeg6YoRKynEVovK+cnvocveTqGZEaUXAouOK+nlWwkSD1AdpYC4sFT6IuOge0UrprsGyHdz4EzKhzSRrB7n6UvAOHNozPQZSSOvemvcyS7ANedq2l3k4JKt4nceKMXGZEByywawvnNocFfaBDYjz2UaNFVHn2xGoJI0Rj/f6V9F3GgHmOlzqf2vXYVYrG5b7Dx8iwYVp8cV3pAbNEwZkkeXDVjm/xn7pdA+7G12VWdOcoHZBv+ndp957LIFSoeYuA9sV7/qZirtny6bEYAsCu0dMdHIHsFsYwhuvEezmsQCiXMKweDpc3Qw80xafPy+Va3fLU7A8VHkimNVvgm3cZoqdB/4Sg0OFYw6zDL196v2EcywwVK7RszYlzvjkbPT2BFLS2oJfUWmOdyWE9osQDM5FOZRf6XAFJOqSPvpBErFNR0ExaURsaBrSyn4wSEx2ZV2AWdZQt+KNs2+C+nJQlazzE/iA1U/AbknmXqI2YNXKg4a1WH7EqFrnfpsjLp1WB6Aq+JgcVgKl4Okhja4DSI9thxdVkMM08awoqJtPl4jqJY1m+daBc7Eg6AxAcDFM2Pcm6nSz8/IIga76XJ0ITtDJZhGiSAr/gp7MwgZ5RpzJqpiTEiuUUWGSH2T2tehaBInjaHL0arAmzvCzHc0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(376014)(7416014)(23010399003)(10067099003)(22082099003)(18002099003)(56012099006)(11063799006)(261026140227099003)(4143699003)(261022105027099003)(261028144727099003)(261102123227099003)(261009223027099003)(261021123027099003)(261021121427099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YlY1L3ZNTXFOSXVmb1dacHpRM1FQVU0rODh6YXNRQUdteDFpUzNETEt5Tk5O?=
+ =?utf-8?B?WWg4ZUFRN3Z6MmJwYmxibHEva0VneFBBeEFTK3V4NzVaeHJRMXVpdE5MNmxl?=
+ =?utf-8?B?RnB1cU1SSW1uZmRGazRTQkFOOVZWZXQrUjVabzhnaGlEZ21rY0FXWDNlemx0?=
+ =?utf-8?B?bmFKbW1zMmNyR3g5U2doczVkR2ovL3lFNUVmK0FON0VITGMzNjA4R0JyYVJ2?=
+ =?utf-8?B?Q0pqYjNOQUxYK2RCZFBTcDA5azQvazlPUUZmRTRxbWNoQ1BrWkE4a3ZGTHBM?=
+ =?utf-8?B?dEE0UU8yL2t6MlVIdE8veHlkamJpV0taSHBMSlRVb0ttMk1XM0F6Q1NpdzBJ?=
+ =?utf-8?B?ZGxXd0Q5ZWhzU3IwMXJFM1RsUjd4OW5zMjNDNXZUOXBnQVNzcnVxN0xoU3ZV?=
+ =?utf-8?B?Rm9zNGN4bjc0cUQ4UjhIUTQzODQrbTBqUUFmeSs4YTAxN2FJVHR1ZklsdS80?=
+ =?utf-8?B?UnhNelNCVkFXYkc1OUZJbW95RXJOTmJnbFFFWlFOOWhSUnVhU3FQUXJJMjFw?=
+ =?utf-8?B?T3NKMVUxSkZrRzBDRllpOW9LMWNhU1ZTZlN5TkorWlRCa1pYbkI5cFkyTC9x?=
+ =?utf-8?B?dGhCajBNZ1NHZnZBNFpOdGloMWU5QnhBUVV4ZUwwMlN3Qks0TGxSRUczaDg0?=
+ =?utf-8?B?NXdia0F3MFplVlNNbk9jMEgyTzhqWkRZcDhFejh4aEtVYWRUMnhSVmtJU1VB?=
+ =?utf-8?B?Vnp4M0hOd05YL3NRV1kxTG8xMFBBUnJ2ZjdEVENoa0pPSUFrdHY3WnZnbXlr?=
+ =?utf-8?B?RTNBbnpwN0JZdXcvSG5UOUN6SlNZRlB0TTVNMTM1WUIrSTUyRnRvYU1naE5j?=
+ =?utf-8?B?UTEyQ0VDUzlPMUdtSjE5Vmdvb0tSRjhpMXZDQ0N4WXAzNnFaYjh4a2tvc0N3?=
+ =?utf-8?B?eUhYTW1ReHpYVnpIejlKZ21xZ3dwbWJsdTlBbG5HVFRrbFJxVGxxNGZEblM5?=
+ =?utf-8?B?emNULzFTWHlpNjN1eWMyMjFxWElVMTloaWlpWXY1MW5LZTMvc0RMWXBZeU1Q?=
+ =?utf-8?B?VU40dUIreU01OXVPcnFtdVEyZzhWNzR0cnRIUVYwRk0zYjZKNHJvYmdpV05y?=
+ =?utf-8?B?OEQ4YXZPaDB6T04rQkx6bElzZUp2eHV6b2N2NUFCMWtsUEFCN0hFK2lpSVdP?=
+ =?utf-8?B?aXhSWmZOTm51ZktpS2ZvRWdwcy9vYzh3emtjM1FDY2pMdHBMMlBHOTdYeUly?=
+ =?utf-8?B?Q0NqS2tOTU0zdVBZRXZkT3lvQ0g4bytnaVk0cXI1WXNHU1VWdUlzalRCVXkr?=
+ =?utf-8?B?ZmhOMTBOSS9NTC94TlhWbjJ2VkFKQjJIRHR0NE5kVHpXNWYvanN1c09JdkRQ?=
+ =?utf-8?B?VEZJc09NYjdYM2RGTUFPNjE0OVJmaExTd2svVnM2V2tibHBQZ3ppVE1XU09F?=
+ =?utf-8?B?TTU3YW5hY0ZnMFN0eUk1dGJDVXg5T242YWQxOEQzY0U1dWpWNGx3L1A0aExI?=
+ =?utf-8?B?MytOVU1ObHlvMURqdDJBL093VzcvZ054RzBVUTJRZHk4b29uY1p0TGlVV0gy?=
+ =?utf-8?B?dUp6NUxsSVo1ajAwTUtiVHByK3gwYjlnaHNNMFB1QkhOcVV1Qi9sR3MyMUV6?=
+ =?utf-8?B?a2EyNW5VODJ1dCtmYml3RGowek14WnVpZFBlSUdEeTlaYnQ5eFJZY1Jwd1hY?=
+ =?utf-8?B?bG8xeUdXUnpOSWloVDRlTGtxVWpkeTJYMGpXekMxVmx4dU5FQThuci9sb1kz?=
+ =?utf-8?B?NGlxbmp3VkpUR1l6ekJ4TFpKOHlQRUVrWExJSzA1L0I3UmlOSlloQ0NoemNM?=
+ =?utf-8?B?cXJSL2YwbmlTcWM3Wjdpdm9KQ3RHT2xSZmN2Y3pPbG1qbFBFREFibXBmVUUr?=
+ =?utf-8?B?Mm0xUURoMzZOclBHY0dtOGNza2ZObkZFNDlRdnJlTDdFbVBtNUJhZXpxMjRQ?=
+ =?utf-8?B?R0RlanNQeGxUOElQcWJWVUdka0xWTVRFZ2FXQ2lwNW9QZnp5V2tnWnF1RWN5?=
+ =?utf-8?B?c3NuTUdyNlNXa0ExZG1EMk9GeFpTNE9BWDh5ZWpNL3dUSmZ6NkhkZEQvVGdw?=
+ =?utf-8?B?RUszT25Hcm0yNjhNQTFqOFFXckZaZlJlamlGdGd0RW05REVLVzdDNVhTOXp5?=
+ =?utf-8?B?eWV4ek42aG51YmlyNTcrOUk2RXNXS0tOa3JJT3JqZEZkeC9SMS9JQjM2STJl?=
+ =?utf-8?B?S05RbysrZnVVMHBDT1VRazl5MkRVZTEyS2xYU3owV0I1Zy9LbDVXejgrSnNW?=
+ =?utf-8?B?eXd2ckVxSGtRN3dvN0hEVGxYaXhNUDJ0SmljT3VNcDkyZXprZ01UMDNuNmdt?=
+ =?utf-8?B?MmxMb1YvcDRmNHpkMDY2ZjhCdU9wSFgxZEhhUDBMTlhab09CZ3R1RWc1dEJT?=
+ =?utf-8?B?bk5xemFPampUTGFLbXBGWHRtZG5OQUxXQW1zZThJQ1dUYzFvMVVJdz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7f93f437-5571-4752-5a2a-08df3b1779bb
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 08:33:32.5870
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: szhQsz7CDY84Ow/fiWUCxnTVvU103HiWcn+e42GTAOwWlWOzVsVhvQuvewkBq0XTfK1JS/m31ZeUzgHwt0z1Kg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9077
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261105_003339_770597_46F0D7E3 
+X-CRM114-Status: GOOD (  18.18  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,98 +155,66 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 04, 2026 at 05:47:58PM +0000, Sascha Bischoff wrote:
-> The ITS uses the shared DIDR and EIDR registers to select the DeviceID
-> and EventID whose translation is to be invalidated. Event
-> invalidations for different IRQs can overlap, as can an event
-> invalidation and a device invalidation. The per-IRQ descriptor lock
-> does not serialise these commands, so writes can interleave and cause
-> an invalidation to use the DeviceID or EventID of another IRQ being
-> invalidated concurrently on a different CPU.
+
+
+
+
+
+
+> An SMBus device might indicate that a value isn't ready yet by asserting
+> a NACK.
+> This will lead to the following error message which will flood the
+> kernel log for some device like an IPMI SSIF BMC:
 > 
-> Serialise the command register writes and STATUSR.IDLE polls for both
-> invalidation paths with a per-ITS raw spinlock. The KVM
-> gicv5_its_set_vcpu_affinity() callback calls the event invalidation
-> helper via irq_set_vcpu_affinity(), which holds the IRQ descriptor
-> lock. This path cannot sleep, so use atomic polling.
-
-Same comment here as IRS sync. This one though looks like a host
-driver bug that can happen regardless of KVM, so I'd just fix it
-and remove/rephrase this paragraph.
-
-> Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
-> Reported-by: Sashiko AI <sashiko-bot@kernel.org>
-> Link: https://sashiko.dev/#/patchset/20261016155741.979985-1-sascha.bischoff@arm.com?part=11
-
-Again, this is linking to a report on a series that wasn't merged
-yet but probably it makes sense to leave it there for context.
-
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+>    [    4.277005] i2c i2c-5: SMBus read count failed -110
+> 
+> Stop the polling if NDF is set and return -EIO, just like everywhere
+> else. While at it, drop the MSR_RDF_ASSERTED() macro, it's just one bit,
+> no need for FIELD_GET.
+> 
+> Fixes: efdc383d1cc2 ("i2c: imx-lpi2c: fix SMBus block read NACK after byte count")
+> Signed-off-by: Michael Walle <mwalle@kernel.org>
 > ---
->  drivers/irqchip/irq-gic-v5-its.c | 9 +++++++++
->  1 file changed, 9 insertions(+)
-
-Acked-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-
-> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
-> index 28e39b065de0e..6d98f3dbe34b6 100644
-> --- a/drivers/irqchip/irq-gic-v5-its.c
-> +++ b/drivers/irqchip/irq-gic-v5-its.c
-> @@ -16,6 +16,7 @@
->  #include <linux/of_address.h>
->  #include <linux/of_irq.h>
->  #include <linux/slab.h>
-> +#include <linux/spinlock.h>
->  
->  #include <linux/irqchip.h>
->  #include <linux/irqchip/arm-gic-v5.h>
-> @@ -28,6 +29,8 @@
->  struct gicv5_its_chip_data {
->  	struct	xarray			its_devices;
->  	struct	mutex			dev_alloc_lock;
-> +	/* Event and device invalidation commands share DIDR. */
-> +	raw_spinlock_t			inv_lock;
->  	struct	fwnode_handle		*fwnode;
->  	struct gicv5_its_devtab_cfg	devtab_cfgr;
->  	void	__iomem			*its_base;
-> @@ -129,6 +132,8 @@ static int gicv5_its_itt_cache_inv(struct gicv5_its_chip_data *its, u32 device_i
->  	eidr = FIELD_PREP(GICV5_ITS_EIDR_EVENTID, event_id);
->  	eventr = FIELD_PREP(GICV5_ITS_INV_EVENTR_I, 0x1);
->  
-> +	guard(raw_spinlock_irqsave)(&its->inv_lock);
-> +
->  	its_writeq_relaxed(its, didr, GICV5_ITS_DIDR);
->  	its_writel_relaxed(its, eidr, GICV5_ITS_EIDR);
->  	its_writel_relaxed(its, eventr, GICV5_ITS_INV_EVENTR);
-> @@ -371,6 +376,9 @@ static int gicv5_its_device_cache_inv(struct gicv5_its_chip_data *its,
->  		  FIELD_PREP(GICV5_ITS_INV_DEVICER_EVENTID_BITS,
->  			     its_dev->itt_cfg.event_id_bits)	|
->  		  FIELD_PREP(GICV5_ITS_INV_DEVICER_L1, 0x0);
-> +
-> +	guard(raw_spinlock_irqsave)(&its->inv_lock);
-> +
->  	its_writeq_relaxed(its, didr, GICV5_ITS_DIDR);
->  	its_writel_relaxed(its, devicer, GICV5_ITS_INV_DEVICER);
->  
-> @@ -1112,6 +1120,7 @@ static int __init gicv5_its_init_bases(void __iomem *its_base, struct fwnode_han
->  		return -ENOMEM;
->  
->  	mutex_init(&its_node->dev_alloc_lock);
-> +	raw_spin_lock_init(&its_node->inv_lock);
->  	xa_init(&its_node->its_devices);
->  	its_node->fwnode = handle;
->  	its_node->its_base = its_base;
+>  drivers/i2c/busses/i2c-imx-lpi2c.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
 > 
-> -- 
-> 2.34.1
-> 
+> diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
+> index f57e800ac3b5..583155802e8a 100644
+> --- a/drivers/i2c/busses/i2c-imx-lpi2c.c
+> +++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
+> @@ -92,7 +92,6 @@
+>  #define MRDR_RXEMPTY	BIT(14)
+>  #define MDER_TDDE	BIT(0)
+>  #define MDER_RDDE	BIT(1)
+> -#define MSR_RDF_ASSERTED(x) FIELD_GET(MSR_RDF, (x))
+>  
+>  #define SCR_SEN		BIT(0)
+>  #define SCR_RST		BIT(1)
+> @@ -594,7 +593,10 @@ static int lpi2c_imx_read_init(struct lpi2c_imx_struct *lpi2c_imx,
+>  		writel((RECV_DATA << 8) | 0x01, lpi2c_imx->base + LPI2C_MTDR);
+>  
+>  		ret = readl_poll_timeout(lpi2c_imx->base + LPI2C_MSR, val,
+> -					 MSR_RDF_ASSERTED(val), 1, 1000);
+> +					 (val & (MSR_RDF | MSR_NDF)), 1, 1000);
+> +		if (val & MSR_NDF)
+> +			return -EIO;
+> +
+>  		if (ret) {
+>  			dev_err(&lpi2c_imx->adapter.dev, "SMBus read count failed %d\n", ret);
+>  			return ret;
+
+LGTM,
+Acked-by: Carlos Song <carlos.song@nxp.com>
+-- 
+Best Regards,
+Carlos
+
 
