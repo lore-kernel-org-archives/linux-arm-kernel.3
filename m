@@ -2,66 +2,129 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52448606A32E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 00:02:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22229606A33F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 00:04:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2Bfm06kM;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iPEYS9Wa
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IiHCDD+b;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=q1xUVWqz
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=I0dLEy0/RWH1lm8d6zJOmiHKcDSiY13O6lAZIBvefJE=; b=2Bfm06kMdXVOAdnoiRjPfBYFQq
-	HHaLVIfjTxNhgMXU0BSllewTfgmMvnTPf9o48Jd/mI0t0DvqaOOD/K5voFwmEKO6/DmKexzCDJNiX
-	GHfA0iUhqm89o9Q12sD/OwRdXybnkCW1iMOOc15Wn6+55kNDGur4XaahdCL6s5cKqg8DWRHEwEM9p
-	XZIeIXKnsGW95PVNf7/gfb6reCfLp/cUQfMMYmQxT405ACSoUlSXxR2d4VBoT9eeb2VGipRR6siP+
-	UUOxefdEtEdy2gELvhVdRP446b/K+NBzl2UpqrpaTUo6rHfDCqxjqNPWL0vv24U18JUE7c9pNWG9p
-	39Fj36Tg==;
+	bh=8/AzQ7jLvCG0TtYl3YDqzcWQaO8w7BzjtKTotUtwsR4=; b=IiHCDD+bIYJ592xv00oSE/GF0F
+	c6szirLGr1M3LqQ1NARUWikjuKBXVs6eqwtCJbkEChC8q3vnOiQoJlZbsudp4cefU5GJg9mxlUAUU
+	FBNxaqKFAA1N9mALrpXm+qHYCscUkY9vNCJTqC68wOUgxAFfun+voxGqbsCVou59wXTjn6TgeT5Ov
+	bz6PD9bptnB2nr4W9b9wVFvWjmK48ea5Jf8XxL+UxDIcQNvUjGVEF6Y7M4vJH7eUWIe+Yb9o3yBeX
+	yqIm4prPBhvap0UYDbjU3ytToo3bV6ctuFF0pK5Pvo60FuqZYy/hokHKvGyoGi8Hx0O9ktr3BjqZq
+	ZIBCmQ0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOkwE-00000007JcO-0DHp;
-	Thu, 05 Nov 2026 00:02:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOkxU-00000007JkG-0yxj;
+	Thu, 05 Nov 2026 00:04:00 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOkwD-00000007JcI-0ADW
+	id 1xOkxR-00000007Jjs-3C2L
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 00:02:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6C2954068B;
-	Thu,  5 Nov 2026 00:02:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A2471F000C1;
-	Thu,  5 Nov 2026 00:02:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793836960;
-	bh=I0dLEy0/RWH1lm8d6zJOmiHKcDSiY13O6lAZIBvefJE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iPEYS9Wae8NoW+oX6Hkt3rDqmoP7Q+RYJgafe8t9g1bg7bX/lH9LlbruhkAVMD6EU
-	 he03MHr98J3B96Z1F/5ezqmQDqLFg0JAl7n4F601WZaTiIYaxTydBaaegdUUQ1e2vK
-	 Fhctx1r+c3QgGppAgn2Dyw8NpD9YoL9OsbEmQWttu63phMklwnnbXCr5Ddmo8DJ9yQ
-	 pXpbBhg+OHJrTE7UyhGHrPp1mrAfwZ6z8X/ooOoJQY8FcqIjmUuO5Y05EuPw29x2Tf
-	 fszcxTccXjCrdEr9g09MkKT9eBqxn2P+OD3DCmPaOv5HfeJbgDGz1DKp75EsaEeWx7
-	 z38y5eSlK4Aug==
-Date: Wed, 4 Nov 2026 16:02:38 -0800
-From: Oliver Upton <oupton@kernel.org>
-To: Sascha Bischoff <sascha.bischoff@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	peter.maydell@linaro.org, lpieralisi@kernel.org,
-	timothy.hayes@arm.com, fuad.tabba@linux.dev
-Subject: Re: [PATCH v2 07/16] KVM: arm64: gic-v5: Add ITS guest table
- translation emulation
-Message-ID: <auvHnnymzccd9OaF@kernel.org>
-References: <20261102194454.4086911-1-sascha.bischoff@arm.com>
- <20261102194454.4086911-8-sascha.bischoff@arm.com>
+	Thu, 05 Nov 2026 00:03:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iv+ZgVLG0Zaaq86NimJWAYfy+KsDmO+5WZMSKVY+EqCYo3I9rDvENIsWpS/HmngvmQdvKjIUvyD8OPCjWWDNwxCGmAp5jCiReGFmu1XG5iQR+CmNDQnbEbD0AZNFqTUuCbRdhEiuoypUxCxcqXUncogPWSItwLssf5e1KJwWmgS4z8020sVIDFUmY3x54Q+3I/LeZ8gLYUV6s99Q+SKWsSuLQ7ln4BoBpqGcBixE5dwHsvQIfrUjw2wlsjTU/ETCYVK1Akr9LBZnFUr8wLPdXPvTxixVDXhUBB3eypXw9/Nr/gEXasQeWmAssOZ6QnnUoZM49jAXnUJec+cfT9uIaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8/AzQ7jLvCG0TtYl3YDqzcWQaO8w7BzjtKTotUtwsR4=;
+ b=Md60K8kneXlG3v6HS11VslDC4RHXmJiRut9IPd0GvMDPoSC3ua8GYjVxS5SLkQp2mJZ6xPmdufaf38caIUGHvhAY79HZC69Tzky4X3tD7/3i+qTWd7uT0h4DwkdW6+Q1RaeV6CJGpOApJ/0A50RemA4NHss+bvt1ocIyykOeArOVwiitY6CW8pQKBpkMGVFumQoiZI+ysXp5tL8eKIViH8M7O2aV7c7ju2JgoCPVNVRNUrVQGHdMo1oSYclfxfbuCpgZy3FmlmMjovGW2fmGfqznqoiDKj2KGpS02a2qi4YbkGxqpTDZL67DLvUwYpPRY2pyuhgg3A+u6AuE9njDcQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8/AzQ7jLvCG0TtYl3YDqzcWQaO8w7BzjtKTotUtwsR4=;
+ b=q1xUVWqz8XzOcUsoDRGtlyXcDixF0xwbCeiCjOpIAqUoGxfE25mIhTijX9x5u162w0EE1pZAMVcvcqYPbpYBJZ6qwLURQnsiGLIzoLswLS3Nm/VTtw+8R75ABXkGW64s/clI5hSroZznlZOzh99WiP5PuSJvVbQPiE1aq/o4UZzP6DL+EsKpTiGyxTh0z6KisvybA6TaR4XachrnqCg43LUcrXF9WWnvixMCIS+haU/cis4asS3LByjdtXJ/tKi2PxlFvFMmuNbMG6Io/JwS8oTzZkU2/AxOJcvFOChRsAvNQd/T/Xi+/PMuVAsDcDZGuqv53L4h0pE76amkh9XDaA==
+Received: from BN9P220CA0010.NAMP220.PROD.OUTLOOK.COM (2603:10b6:408:13e::15)
+ by PH7PR12MB6564.namprd12.prod.outlook.com (2603:10b6:510:210::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Thu, 5 Nov 2026
+ 00:03:51 +0000
+Received: from MN7PEPF0000014B.namprd04.prod.outlook.com
+ (2603:10b6:408:13e:cafe::41) by BN9P220CA0010.outlook.office365.com
+ (2603:10b6:408:13e::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.10 via Frontend Transport; Thu, 5
+ Nov 2026 00:03:51 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ MN7PEPF0000014B.mail.protection.outlook.com (10.167.254.37) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.592.5 via Frontend Transport; Thu, 5 Nov 2026 00:03:51 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 4 Nov
+ 2026 16:03:29 -0800
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Wed, 4 Nov 2026 16:03:28 -0800
+Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.126.190.182)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56 via Frontend
+ Transport; Wed, 4 Nov 2026 16:03:25 -0800
+Date: Wed, 4 Nov 2026 16:03:22 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+CC: <joro@8bytes.org>, <will@kernel.org>, <robin.murphy@arm.com>, "Rafael J.
+ Wysocki" <rafael@kernel.org>, <lenb@kernel.org>, <bhelgaas@google.com>,
+	<alex@shazbot.org>, <jgg@nvidia.com>, <kevin.tian@intel.com>,
+	<baolu.lu@linux.intel.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<kvm@vger.kernel.org>, <patches@lists.linux.dev>, <pjaroszynski@nvidia.com>,
+	<vsethi@nvidia.com>, <etzhao1900@gmail.com>, Danny Gonzalez
+	<digonzal@google.com>
+Subject: Re: [PATCH v8 5/5] PCI: Suspend iommu function prior to resetting a
+ device
+Message-ID: <auvHyrZmMXLTFyz9@nvidia.com>
+References: <348c50ab6e95b5ec6d48ee3fa05d529a784a34c3.1765834788.git.nicolinc@nvidia.com>
+ <20261104235238.GA1469671@bhelgaas>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20261102194454.4086911-8-sascha.bischoff@arm.com>
+In-Reply-To: <20261104235238.GA1469671@bhelgaas>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN7PEPF0000014B:EE_|PH7PR12MB6564:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7ce00e31-9d67-4c2f-b498-08df3ad04603
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|36860700016|82310400026|261009223027099003|261102123227099003|261021121427099003|260925021311599003|260925022911599003|260925021911599003|11063799006|4143699003|56012099006|261022075727099003|261022105027099003|261021135927099003|261028144727099003|261026121527099003|261026140227099003|10067099003|22082099003|18002099003|6133799003|13003099007;
+X-Microsoft-Antispam-Message-Info: 9BSttmEu0XCyNYiNg69zNKf5977Uuz0j7xw9uIoJtszIl91jcZ6FsskxBND7mVldJEd61OUGnXZuTImT0jDbUT6nJ+yt4Vlcm6Cq7GE5jPtv3TDw0kK9JzJGHGu2xe363zhJDDH9Dw+IjIfxE4vA1aB73UmvZQTuDlnhDKcS6t2+CYz6qJe/QU4hWKY6FjkSx+jkMmCwyHlIgdlexk+KFEBnSY9whRvvDrWKzG5MfzEWlTppW8p+NhkHls++9lAt4J0bigFndM0igkwBDIWDKS7SZqXmQMfX0Ql4KDMvyAP9ctMElpjdl9cxDjG8g3mIqHlNICu++1UV/sWMsddDvFrAAHaNxGTfyeYhxPcI5MYovhoxZvXSx6PRkBv69KOWkJJJeDhOAZXF0qMofhqCCo/B1j+A2GvBJB16Ua5G1imdYEQMfb3O8726JIteUnymH9PHnLWj9/q9nwnQ4t+EeXisWOc9NxAPAT9pqnSWJLaZkMQRhGPkuAa5+E+1nWQhjT2cPXDe4Fm7UwgY5Zouy6Z8fTGB/1uc7Qjt4v0upaEQixv3KBwprtxZyV4RuPMvS0fFIojq1m9pP/lOVtxo2OzVOn46pt6pydSRKzJ0LRDAccZMHOmsafJbNzDyKVtwStFpRq20HSNJx7xPr62R1iAQO8OsiqoVzCEsT07L5bPaw7P83I5quAPuLIPlVaFX75pLuuVKUL97zdwEZWL/iQ==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(36860700016)(82310400026)(261009223027099003)(261102123227099003)(261021121427099003)(260925021311599003)(260925022911599003)(260925021911599003)(11063799006)(4143699003)(56012099006)(261022075727099003)(261022105027099003)(261021135927099003)(261028144727099003)(261026121527099003)(261026140227099003)(10067099003)(22082099003)(18002099003)(6133799003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: onOSDIoz9ot3L8ycWqNl8QETnGGhhdQlUBpEMJGvv2/3OaE3dUxZewawv3+T79EtpFHs/qJg2WnNRIyUowPE7qu7AJyai0M/QDdc7alF+qQM2Qq6dhSpTyBJ94y2p8AOChET9E85qiUSwmd8Er2JPGhguLYhBAylqW2v6z4Yxt84pkBYxEKEx30GZliX3xIMIyIaK/d4HOagH3cNNzeE5/083hq8MPc/XBy9goJFD6JFWYL3PCtpYUYLD/ncN57sMvMvajBSh49k0nY0uMkZtxJDr5cWEiuluSSY6ZWrOOAVpYsWdjKrHpLhmymmPLAOrhZSey9vJXda+FFEOd6iaTRXKjLNG+YaiXHqQfTQmn1nHG5c+Jxiq+GHOvav1uI4FRRF1yNNPGh/kSSPum1lDPL2/hywldY8apFE9OdIfSO0WdO1gD4O24t5jch0wvw4
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 00:03:51.0294
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7ce00e31-9d67-4c2f-b498-08df3ad04603
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN7PEPF0000014B.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6564
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261104_160357_827092_44434611 
+X-CRM114-Status: GOOD (  21.36  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,113 +135,47 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 02, 2026 at 07:44:45PM +0000, Sascha Bischoff wrote:
-> +static int parse_linear_dt(struct kvm *kvm, gpa_t dt_base, u32 device_id,
-> +			   gpa_t *itt_base, bool *two_level_itt,
-> +			   unsigned int *event_id_bits, unsigned int *itt_l2sz)
-> +{
-> +	__le64 dt_l2_entry;
-> +	gpa_t entry_addr;
-> +	u64 val;
-> +	int ret;
-> +
+On Wed, Nov 04, 2026 at 05:55:00PM -0600, Bjorn Helgaas wrote:
+> On Mon, Dec 15, 2025 at 01:42:20PM -0800, Nicolin Chen wrote:
+> > @@ -4885,10 +4919,20 @@ static int pci_reset_bus_function(struct pci_dev *dev, bool probe)
+> >  		return -ENOTTY;
+> >  	}
+> >  
+> > +	rc = pci_dev_reset_iommu_prepare(dev);
+> > +	if (rc) {
+> > +		pci_err(dev, "failed to stop IOMMU for a PCI reset: %d\n", rc);
+> > +		return rc;
+> > +	}
+> 
+> Unlike the other reset functions, this one calls
+> pci_dev_reset_iommu_prepare() even when probe==true, i.e., we don't
+> want to actually perform the reset, we just want to know whether the
+> reset method might work.
+> 
+> It's at least unnecessary to call pci_dev_reset_iommu_prepare() and
+> pci_dev_reset_iommu_done() in that case, and maybe even problematic
+> because the pci_init_reset_methods() probe happens from
+> pci_init_capabilities(), which is pretty early during PCI enumeration
+> of the device.
+> 
+> I know this has already been merged as f5b16b802174 ("PCI: Suspend
+> iommu function prior to resetting a device"), and I'm not sure whether
+> we should do anything about it.  I wonder if we should just skip the
+> prepare/done when probe==true?
 
-<snip>
+I've posted a fix for a few times actually. The latest one was
+posted yesterday after a split:
+https://lore.kernel.org/linux-iommu/c66d5221a8e4356316d4f614c8584a80dc9d71b6.1793729707.git.nicolinc@nvidia.com/
 
-> +	entry_addr = dt_base + device_id * sizeof(__le64);
-> +	ret = kvm_read_guest_lock(kvm, entry_addr, &dt_l2_entry,
-> +				  sizeof(dt_l2_entry));
-> +	if (ret) {
-> +		kvm_debug("Failed to read guest memory for L2 DT\n");
+Please help review it (and the other PCI patch) as well.
 
-99% chance of this being either the guest or userspace's fault. I don't
-see any reason why we need to carry a pr_debug() here.
-
-What would be nice is some preparatory return codes or helpers for
-recording the SWERR that caused an ITS operation to fail so we can add
-support for ITS_IDR0.SWE later on.
-
-The GICv3 ITS made a half-attempt at doing this. Even though it never
-conveyed that information to the guest, I think it was a net-win in
-terms of readability.
-
-> +		return ret;
-> +	}
-> +
-> +	val = le64_to_cpu(dt_l2_entry);
-
-</snip>
-
-Feels like "read the Nth entry from this table out of guest memory"
-should be done in a helper shared with the other callsites. On top of
-that, arm64 is little-endian only as of 7.4.
-
-While I'm not saying we should go tear out every instance of byteorder
-twiddling, I think that shared helper would be an excellent spot to
-either do the le_to_cpu() or document the fact that both the kernel and
-the ITS are LE-only.
-
-> +	if (!FIELD_GET(GICV5_DTL2E_VALID, val)) {
-> +		kvm_debug("Guest DT entry is invalid\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	*itt_base = FIELD_GET(GICV5_DTL2E_ITT_ADDR_MASK, val) << 3;
-> +	*two_level_itt = FIELD_GET(GICV5_DTL2E_ITT_STRUCTURE, val);
-> +	*event_id_bits = FIELD_GET(GICV5_DTL2E_EVENT_ID_BITS, val);
-> +	*itt_l2sz = FIELD_GET(GICV5_DTL2E_ITT_L2SZ, val);
-
-Same sense brewing here about the parsing, with the added gripe that
-multiple out pointers can be a bit annoying to cope with. I'd rather see
-the literal DTE get passed around or we use a struct containing all the
-extracted fields we care about.
-
-> +static int parse_two_level_dt(struct kvm *kvm, gpa_t dt_base,
-> +			      unsigned int dt_l2sz, u32 device_id,
-> +			      gpa_t *itt_base, bool *two_level_itt,
-> +			      unsigned int *event_id_bits,
-> +			      unsigned int *itt_l2sz)
-
-Any reason why this can't be anchored on a pointer to the ITS? Because
-you're passing down a lot of state that's just per-ITS context.
-
-> +	if (device_id >= 1UL << device_id_bits) {
-
-BIT_ULL()?
-
-> +static int parse_two_level_itt(struct kvm *kvm, u32 event_id, gpa_t itt_base,
-> +			       unsigned int itt_l2sz, __le64 *itt_l2_entry)
-> +{
-> +	unsigned int itt_split_bits, l2_event_id_bits;
-> +	gpa_t itt_l2_base, entry_addr;
-> +	u32 l1_event_id, l2_event_id;
-> +	__le64 itt_l1_entry;
-> +	u64 val;
-> +	int ret;
-> +
-> +	switch (itt_l2sz) {
-> +	case 0:
-> +		itt_split_bits = 9;
-> +		break;
-> +	case 1:
-> +		itt_split_bits = 11;
-> +		break;
-> +	case 2:
-> +		itt_split_bits = 13;
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-
-this should be a shared helper
-
-Thanks,
-Oliver
+Thanks
+Nicolin
 
