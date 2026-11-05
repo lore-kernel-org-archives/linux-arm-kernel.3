@@ -2,75 +2,70 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CF4D606A33E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 13:19:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48316606D81E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 13:20:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ADzkqxCc;
-	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=YpequSpP
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RB6zZfOj;
+	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=JuJF7pdg
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=+m9RT7968WtHnxAjfDqAkmFJdjtt1Ew321JDDBClL2U=; b=ADzkqxCcctaSCGscLJoiNUsIiM
-	E2DTFqPEI27y+AiZCaQqJPdHvEK4yLDTGbp82SvuDseN/yeNkv2Ihi3eh5crcy6P9T4GOgxElX0h3
-	UkOgdXfCldNIaT0mSKNjH7dZPXXbNkXAJvbO8FE2e/UuFZRJA3eNEohD4VunxpIM+tPK+HQbRv9ND
-	gPZksc5g6SnJRZSo5hsvRHwEazSh7KhMIUFG4iaRFHEgDbhAb7ayndFKTtecEYcSlMzmsnWxQHl8+
-	GTLOMiztbvlZhfsmuYaxOda9aQUOGFos6sFM6AwGs+Qi4mtFXZrK44yHY/hQ966vIbScz+QNM2SBs
-	rgRNOjPg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=KyxfxjW/8VDPKJgBAnzu1y19pEFt/f6bAY6Eie7zFQ8=; b=RB6zZfOjXjJxPK
+	S2uoDLfD5pibE9+oQKdm12ml3Tz2nFi+YaZmIv94FcxP0N3i9KtsZEHh7VC4u28YavwAnIoGo8PcV
+	EA625mBOAikMVTPtT/M31qrLjopQ0Rs6pjCZwbgpMpiL3cIVwDM/VwyDO6dRnrHQ2hQWZhJXampZE
+	Skecc8Tig7c5RHtUAbfTynGICPMfUgjxMwaEIX4UIGp5bHj4u9vLiiVTyW19K1qUAf0EOpedzDQAB
+	iSogyvWkvwPMi8MG0aF734TriqFICFhtjDej4q7DZhaGp69nXQ6dKb9IAvlpqJpKsR4PjyIIMWX0m
+	zLJkHiJioxh50Ef32ExA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxNg-000000095wk-0KQX;
-	Thu, 05 Nov 2026 13:19:52 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1xOxNi-000000095xY-0l9I;
+	Thu, 05 Nov 2026 13:19:54 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxNc-000000095w8-3pua
+	id 1xOxNe-000000095wP-3nKK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 13:19:51 +0000
+	Thu, 05 Nov 2026 13:19:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1793884795; x=1825420795;
-  h=from:subject:date:message-id:mime-version:
-   content-transfer-encoding:to:cc;
-  bh=bP8qyqJblAFa/8/WKXRBh/BDhS3ZOxXRh6pYul7fS0I=;
-  b=YpequSpPjtgBdb6R6A5wD2mnpUVmIAEUnWIzLHBoh2cBjKKnob5Ffrbt
-   3mfz/NgJkaUpg7d0UZXQJqNC297xFrstgdk5PV44ZY185fwiM1nD10DeH
-   V7bUskkgHMjX0kjfM9We0n88w7FxtMUTokjJbcxt/OmqjQV02Cyr252/j
-   +2aGSMO2ikXGVz+erCjumuLhTyJF4o3xnJlv+Q6GG7CbFwNVp14Mm64FL
-   EQ9O85uRe9mipWDldiBDE5s+t4IiK6iAN+5eBfUww66juco6mP0CeAHoq
-   VDDCKAiiWHn7QG/Xn8iPqbhU+0A+lTKkeKCpCdUxz5Zs9DmH5de0FsjaR
+  t=1793884797; x=1825420797;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=jbs1hV8RpQNtB6iGB5BNnN+jReoKu4QeubwuJTVpu4I=;
+  b=JuJF7pdguGYQ7E6DLyw9J9/zBnvZnvT53cZG04QFQ2OJSSXd1/YOYQmJ
+   V/T8sVmFllUYdlN/Ko7Hl1aW4MlrqYJxWgg0D17L3Gx3htyVRxFNfPTGe
+   hQudwrYKCIrsN9VTNDblKbrgOc7pOtJU9u+UONyXOWwcJzrFCQocdIRmB
+   JtjDMgVvyRjuJgSq3KrmF4g+2i9tm4n2FygefxfpDYtdBYiBzBfPflvXL
+   bnucQFyCGCsbB0ELUT2jsVFqsCGfTyOgwacXqajT6KxNUFrNN9DPlw9ST
+   VJG7IVtQgt1MZDkw+h8NX8qNWFPKvRPKuU6MwowGHC/v4k+EVRUTPlmdE
    A==;
-X-CSE-ConnectionGUID: IEs8SPjMSvGA7kui+ZQDyg==
-X-CSE-MsgGUID: mXhmQBDTQsm7Rr3TrlWfkw==
+X-CSE-ConnectionGUID: l3viPxNyQEyhuYbassbLqA==
+X-CSE-MsgGUID: u9Ad0Q3eSLm1K1O6penkeg==
 X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
-   d="scan'208";a="233135318"
+   d="scan'208";a="76685348"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 06:19:54 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
- chn-vm-ex2.mchp-main.com (10.10.87.31) with Microsoft SMTP Server
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 05 Nov 2026 06:19:57 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.56; Thu, 5 Nov 2026 06:19:47 -0700
+ 15.1.2507.58; Thu, 5 Nov 2026 06:19:49 -0700
 Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Thu, 5 Nov 2026 06:19:45 -0700
+ 15.1.2507.58 via Frontend Transport; Thu, 5 Nov 2026 06:19:47 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Subject: [PATCH net-next v3 0/5] net: sparx5: add tc matchall port policer
- offload
-Date: Thu, 5 Nov 2026 14:19:34 +0100
-Message-ID: <20261105-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v3-0-b45a3a26bed5@microchip.com>
+Date: Thu, 5 Nov 2026 14:19:35 +0100
+Subject: [PATCH net-next v3 1/5] net: sparx5: Drop redundant POL_ prefix
+ from POL_UPD_INT_CFG
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGaC7GoC/53OwWrDMAwG4FcpPk9DVlx73mnvMXpwHHURNHawQ
- 8goefd62WGw23YR/PpBn+6qchGu6vV0V4VXqZJTC93TScUxpA8GGVpWhGTRdwi9gVtI3toN5ih
- wHaYAdQ5lO3/vfdvnsrRxk8ilgnHGanRny2RVOzsXvsp2kO8q8QKJt0VdWjNKXXL5PH5Z9dF/s
- RrR/51dNSAYr63Dl+A40NskseQ4yvwc83SAK/0gGukfCDWk6wfjOOqeyP1G9n1/AMKMmoBjAQA
- A
-X-Change-ID: 20260930-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-474610756e26
+Message-ID: <20261105-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v3-1-b45a3a26bed5@microchip.com>
+References: <20261105-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v3-0-b45a3a26bed5@microchip.com>
+In-Reply-To: <20261105-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v3-0-b45a3a26bed5@microchip.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
 	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
 	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
@@ -79,8 +74,8 @@ CC: <robert.marko@sartura.hr>, <netdev@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_051949_262260_D0662DB2 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20261105_051950_958998_16F0507F 
+X-CRM114-Status: GOOD (  10.41  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,85 +95,67 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This series adds offload of tc matchall filters with a police action to
-the ingress port policers of Sparx5 and lan969x, which are both served
-by the sparx5 driver.
+The macros for the ANA_AC_POL:POL_UPD_INT_CFG register are named
+ANA_AC_POL_POL_UPD_INT_CFG*, repeating the POL_ prefix that is already
+part of the target name.
 
-In hardware, each ingress port has four single-rate leaky bucket
-policers. A policer drops the frames that exceed its rate and burst.
-The four policers of a port share the pass and drop statistics counters
-of the port.
+Rename them to ANA_AC_POL_UPD_INT_CFG*, so that the port policer
+registers added in the next patch can use the same short form.
 
-The driver uses one policer per port, because with more than one, the
-statistics reported to tc could not be attributed to the right policer.
-This matches lan966x and ocelot. The policer meters each frame without
-preamble and inter-frame gap, so the configured rate is a data rate, as
-tc police expects and as on lan966x and ocelot.
-
-Since the policer meters all ingress frames on the port, only filters on
-chain 0 with protocol all are offloaded, and filters on shared blocks
-are rejected. A police action that is already offloaded as a port
-policer on another port is rejected too, since in software it is a
-single bucket for all of its users. Only drop is supported as the exceed
-action, and the police overhead parameter is not supported.
-
-Patch #1 drops a redundant prefix from the existing POL_UPD_INT_CFG
-register macros.
-
-Patch #2 adds the registers used by the port policer.
-
-Patch #3 tracks whether the ingress block of a port is shared, and adds
-the per-port policer state.
-
-Patch #4 adds the hardware programming of the port policer.
-
-Patch #5 adds the tc matchall offload.
+No functional change.
 
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
-Changes in v3:
-- No changes, resubmitted because of missing sashiko-nipa check on v2.
-- Link to v2: https://lore.kernel.org/r/20261102-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v2-0-3bd47ec1b227@microchip.com
+ drivers/net/ethernet/microchip/sparx5/sparx5_main.c      |  6 +++---
+ drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h | 12 ++++++------
+ 2 files changed, 9 insertions(+), 9 deletions(-)
 
-Changes in v2:
-- Patch #4: meter the data rate, not the line rate, by setting the gap
-  to 0 instead of 20 bytes. Fix the commit message, which wrongly said
-  that lan966x and ocelot meter the line rate.
-- Patch #4: take queue_stats_lock around the existing ethtool read of
-  port stat counter 0, since reading the LSB latches the MSB.
-- Patch #4: correct the comment on the traffic type mask.
-- Patch #4: reject a packets-per-second police as unsupported before
-  checking for a missing byte rate, so the right message is reported.
-- Patch #5: reject a police action that is already offloaded as a port
-  policer on another port.
-- Link to v1: https://lore.kernel.org/r/20261009-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v1-0-4916708a7ea2@microchip.com
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+index e039f5369b95e..68c80c63f9087 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+@@ -616,10 +616,10 @@ static int sparx5_init_coreclock(struct sparx5 *sparx5)
+ 		 sparx5,
+ 		 HSCH_TAS_STATEMACHINE_CFG);
+ 
+-	spx5_rmw(ANA_AC_POL_POL_UPD_INT_CFG_POL_UPD_INT_SET(pol_upd_int),
+-		 ANA_AC_POL_POL_UPD_INT_CFG_POL_UPD_INT,
++	spx5_rmw(ANA_AC_POL_UPD_INT_CFG_POL_UPD_INT_SET(pol_upd_int),
++		 ANA_AC_POL_UPD_INT_CFG_POL_UPD_INT,
+ 		 sparx5,
+-		 ANA_AC_POL_POL_UPD_INT_CFG);
++		 ANA_AC_POL_UPD_INT_CFG);
+ 
+ 	return 0;
+ }
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
+index 1464fd1a1d447..219c7f0e516e9 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
+@@ -939,15 +939,15 @@ extern const struct sparx5_regs *regs;
+ 	FIELD_GET(ANA_ACL_SEC_LOOKUP_STICKY_SEC_TYPE_MAC_ETYPE_STICKY, x)
+ 
+ /* ANA_AC_POL:POL_ALL_CFG:POL_UPD_INT_CFG */
+-#define ANA_AC_POL_POL_UPD_INT_CFG                                             \
++#define ANA_AC_POL_UPD_INT_CFG                                                 \
+ 	__REG(TARGET_ANA_AC_POL, 0, 1, regs->gaddr[GA_ANA_AC_POL_POL_ALL_CFG], \
+ 	      0, 1, 1160, 1148, 0, 1, 4)
+ 
+-#define ANA_AC_POL_POL_UPD_INT_CFG_POL_UPD_INT   GENMASK(9, 0)
+-#define ANA_AC_POL_POL_UPD_INT_CFG_POL_UPD_INT_SET(x)\
+-	FIELD_PREP(ANA_AC_POL_POL_UPD_INT_CFG_POL_UPD_INT, x)
+-#define ANA_AC_POL_POL_UPD_INT_CFG_POL_UPD_INT_GET(x)\
+-	FIELD_GET(ANA_AC_POL_POL_UPD_INT_CFG_POL_UPD_INT, x)
++#define ANA_AC_POL_UPD_INT_CFG_POL_UPD_INT       GENMASK(9, 0)
++#define ANA_AC_POL_UPD_INT_CFG_POL_UPD_INT_SET(x)\
++	FIELD_PREP(ANA_AC_POL_UPD_INT_CFG_POL_UPD_INT, x)
++#define ANA_AC_POL_UPD_INT_CFG_POL_UPD_INT_GET(x)\
++	FIELD_GET(ANA_AC_POL_UPD_INT_CFG_POL_UPD_INT, x)
+ 
+ /* ANA_AC_POL:COMMON_BDLB:DLB_CTRL */
+ #define ANA_AC_POL_BDLB_DLB_CTRL                                               \
 
----
-Daniel Machon (5):
-      net: sparx5: Drop redundant POL_ prefix from POL_UPD_INT_CFG
-      net: sparx5: Add registers used by the port policer
-      net: sparx5: Track shared tc blocks and per-port policer state
-      net: sparx5: Add hardware programming for the port policer
-      net: sparx5: Offload tc port policers via matchall
-
- .../microchip/sparx5/lan969x/lan969x_regs.c        |   7 +
- .../net/ethernet/microchip/sparx5/sparx5_ethtool.c |   6 +
- .../net/ethernet/microchip/sparx5/sparx5_main.c    |   6 +-
- .../net/ethernet/microchip/sparx5/sparx5_main.h    |  39 +-
- .../ethernet/microchip/sparx5/sparx5_main_regs.h   | 117 +++++-
- .../net/ethernet/microchip/sparx5/sparx5_police.c  | 431 ++++++++++++++++++++-
- drivers/net/ethernet/microchip/sparx5/sparx5_qos.c |   4 +
- .../net/ethernet/microchip/sparx5/sparx5_regs.c    |   7 +
- .../net/ethernet/microchip/sparx5/sparx5_regs.h    |   7 +
- drivers/net/ethernet/microchip/sparx5/sparx5_tc.c  |  14 +-
- .../ethernet/microchip/sparx5/sparx5_tc_matchall.c |  39 ++
- 11 files changed, 663 insertions(+), 14 deletions(-)
----
-base-commit: 7b6ab4dbc156e2f96419715130b3d5738a306c93
-change-id: 20260930-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-474610756e26
-
-Best regards,
 -- 
-Daniel Machon <daniel.machon@microchip.com>
+2.34.1
 
 
