@@ -2,110 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F1E6606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:27:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4ECE0606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:31:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=E8ODCloz;
-	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=b2pKC2Ub
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rM1TdVRx;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WncmyviE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=xZzKTf//DQYIAN9VwQEvMddExwcCW3dbdXpAj0Adyw8=; b=E8ODClozqULyN7
-	ssX/0QmkGQDJi40NQM2nocjQE+XoUND4xJIUiSsqzNENeHinKkCHClh5ckGk20yd4YIWt/UMHnryw
-	k1UU3hLabFp8G0UCpBAxHSlRzfGU/zK2yCTthHgQpsE82c5NPHZ1uw0tqxeA7kSISa3Q2Ya0e0oFf
-	j2Hb6pCNaP4rdMRrOukMcC6IanFii1S+lzPwmd1a3/wYQsGD3FR2qi9RdKKVQBtWeAkeQLJj9ikPe
-	2ZiPoMUDOZXgYZ5Pp3Qm4vnyRv8jc/X0eiyCY0BKyWpuFnDkXt5fNMA//cC00RNlkGjxB+pYjPeAf
-	1p3q0A/xqO9yToR7xzdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=I9JLPS56ZZVL6fhls448ofuLD4hZA1GtuHSD/NXbcJE=; b=rM1TdVRx1KcJ/2MErNIY8Ougxl
+	gMrGap1oi9Ds2LBXzVqm4Gn7cBekIv7WjDky30U+hkvVeDvOTvVij7XHDPYAgKwYQyEDZ/kKfJI3W
+	e+1iuK/6JRL2Vsbvv7Lznz2drCgXikdvvS+loaxbba0RXFJ4NNtS3nYxz3IH4pjPpewaEX++X/t2F
+	eeDt52644NrxKTxzcJePf/aG8zE/TAVYOoFLPArcAjN0d8jsRU4uIC84uhME70V3/PbhOpNIug9Yf
+	4N9CCKp/BaNWBjkhIRHs3PpyTcRgXpjJLB2F/pZcWgwLXGrAlwtuOOeQ5Ma71K/jvG+TCmzBoZ9Q1
+	K7sUrpyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtkS-00000008J5L-1qfR;
-	Thu, 05 Nov 2026 09:27:08 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1xOto6-00000008JZ9-3s2g;
+	Thu, 05 Nov 2026 09:30:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtkO-00000008J3J-0Iv6
+	id 1xOto5-00000008JZ1-0stP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 09:27:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1793870821;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xZzKTf//DQYIAN9VwQEvMddExwcCW3dbdXpAj0Adyw8=;
-	b=b2pKC2UbTlalxXeMydjDn4mD7Db7+cdC3bcjvHaiN4yUZZeoGNz/nLfZIn68iq+SSayXCB
-	bP7ZSWCLCNWLJj+kBNimNPdwjzhXdSGKv4V3dvcg3NkDwBm349HGLonEt2FotdfA+5R5D0
-	8bhGcr9YlrRqOQFka+6y2mSBbERyX/E=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-281-03OYSAgSP0maZe6ydHSMNg-1; Thu, 05 Nov 2026 04:27:00 -0500
-X-MC-Unique: 03OYSAgSP0maZe6ydHSMNg-1
-X-Mimecast-MFC-AGG-ID: 03OYSAgSP0maZe6ydHSMNg_1793870819
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-48e011829easo1016869f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 01:27:00 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793870819; x=1794475619;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xZzKTf//DQYIAN9VwQEvMddExwcCW3dbdXpAj0Adyw8=;
-        b=dYdVFCTT35S3Vu8nsDIvUvYvZLWZ0HoHPJcrLenNG2uIviBTiEuxMYXlvETFQwJwWG
-         TgbEVsRs7u2ipDCDsfG8Y1ThIyCIpDYqCs3n4icwV9ccHXTkfu6wks7hSt1tPwtIu8fB
-         wU7AsW5qyhms9ZtlTQ0r1vJoJjLwxVhP0O0N9aSEzH56wmUbuQdXxhy1nULP0kzH1Led
-         Eamw43ZYZJd3uow6UPFlr8pzTslYB60cqLDvD8mzefa+m+6utWzf6D2JW3Ur5sO4+9Ak
-         Gp0rMysjZJDwlSo6f9RUHsD6u1rCopkVR//hZ3/Hfp20p+yHz1PCEyitFm01vfFEr/Pt
-         2vvA==
-X-Forwarded-Encrypted: i=1; AKwUvBwjfr9D/pN4nqEQ9z0l7Rn4g0TupuPgg/mzD9NzQr78B/2xNZnAgTeIv6Z/+V17IDCEGrErHO7sKnOCIwSYl/qB@lists.infradead.org
-X-Gm-Message-State: APuU4Z+iIGccCJsMxP3WLG5ynOI5mwQgory/X9ALFIqPiwPOUPBgwzdM
-	E0shNAYUQi4B7GeL/IkJ7j15Iqd5ghHPoo0mAeZPpGSKzK0CrZ+ECQJs7IH9Z+sHTOvzP/t3giV
-	v1mxwYoo1UH4ZMpRBWclrXjgNq+f8MD4sbfzeobbo2XWuE9vT8bG0EiYuqJcF1se4RhQOEmTLUN
-	tnAsCuI8kR
-X-Gm-Gg: AYBFou3I/lrVzDvobCA13HHZWf4CSP5itg9mGDMePRIHZ2hoh60wxOXqlAX4Bg/oHY2
-	x4mquuwS57lOg1tqbbcDjLjDJ3IEJnM1guZdAgF/TT3KgPjBif/l8NWFDCRQ0u1pJMSdlWudS+n
-	P43UxWwiQLQXhShUAEuThyaMbZ7FggVlvcO2CgSa8T0bpNVXUorN5A0OCyDOGulLY/6bRGB3r7o
-	cqBtyx5YhH65wyVEbweToMhrEK/XFPcVkzVO1m9mdpIRJOV178Y5cpSBcS5xG7QiOPdKl+PW0tG
-	6GScVI8EH8pCHlKeopnbqGo4BDtR92mQlich1cLX1n00OZtojpBKTCyqTEHe9ZLG7KbBvcnSWmq
-	kK5SwRC8ApCG78pJdlFymibV9nInvBcfAIQCH7A1vLyn/S/v0B6ghZ6vlw97/mKhLn7YmojrtZA
-	KBdtPkPFuMeB3raHdsLXRgfI5bUV9qyv7YSOY/I39Uvqg=
-X-Received: by 2002:a5d:64e7:0:b0:48e:17d1:16c9 with SMTP id ffacd0b85a97d-48e6e4f5652mr39090748f8f.40.1793870819087;
-        Thu, 05 Nov 2026 01:26:59 -0800 (PST)
-X-Received: by 2002:a5d:64e7:0:b0:48e:17d1:16c9 with SMTP id ffacd0b85a97d-48e6e4f5652mr39090709f8f.40.1793870818660;
-        Thu, 05 Nov 2026 01:26:58 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48fece998absm9617108f8f.22.2026.11.05.01.26.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Nov 2026 01:26:58 -0800 (PST)
-Message-ID: <679b8dcf-0aac-4674-a006-5af0156a82ae@redhat.com>
-Date: Thu, 5 Nov 2026 10:26:57 +0100
+	Thu, 05 Nov 2026 09:30:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 720F660267;
+	Thu,  5 Nov 2026 09:30:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C09091F00919;
+	Thu,  5 Nov 2026 09:30:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793871052;
+	bh=I9JLPS56ZZVL6fhls448ofuLD4hZA1GtuHSD/NXbcJE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WncmyviEWHkSPITkRDk3Drb4VW0DO0UyjP87ZDT+EOdSmmUG5x+bs9CEbmPZaGCCn
+	 yXRw2HUtqtJGj7u90yEwwvuri3b0sQkQT1Rw2Mz7ueuBBEiu18EZIKCZODIqFbEdEn
+	 tcYVCt/tFM0O9QXZyxiUaP6nDjhDCV72EJvRoFVXlfe9SvsIn0G+9UsDaP1OUwqLdB
+	 eBxNN53qEqoAFr10ExNTwMGUG2vWruo7rhgJs/sIn8+rnuhZXR//6lt/iXPbaYlEqE
+	 SBGgrI32IPtzkb/rtITzdey4eaG693LKzMZAWoRYmq0AU4+x5+ZBEtrnfsYRQQ66cz
+	 ez5d8UdT6sdxQ==
+Date: Thu, 5 Nov 2026 09:30:46 +0000
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	"Rafael J. Wysocki (Intel)" <rafael@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, arm <arm@kernel.org>, soc@kernel.org,
+	Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Len Brown <lenb@kernel.org>,
+	linux-acpi@vger.kernel.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hans de Goede <hansg@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Mika Westerberg <westeri@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+	Sizhe Liu <liusizhe5@huawei.com>
+Subject: Re: [GIT PULL 4/7] firmware/tegra: Changes for v7.4-rc1
+Message-ID: <20261105-inventive-partridge-of-maturity-793a2e@sudeepholla>
+References: <20261003095924.1370238-1-thierry.reding@kernel.org>
+ <20261003095924.1370238-4-thierry.reding@kernel.org>
+ <928b3eaf-32da-43a9-9ca5-d59ef8a3b330@app.fastmail.com>
+ <auslF5pwDHtcNoCy@orome>
+ <bcad1d7e-387d-4251-8974-7f0dcd2f9734@app.fastmail.com>
+ <autADOKsSVVMn6r9@orome>
+ <CAJZ5v0iyaHGj2b7H8g0nqrxvz8GpXiE6hkVp9RM7KF+KDckjrA@mail.gmail.com>
+ <autmcaraWcXIoRfZ@ashevche-desk.local>
+ <20261104161125.00000523@oss.qualcomm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 0/5] net: sparx5: add tc matchall port policer
- offload
-To: Daniel Machon <daniel.machon@microchip.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>,
- Steen Hegelund <Steen.Hegelund@microchip.com>, UNGLinuxDriver@microchip.com
-Cc: robert.marko@sartura.hr, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261102-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v2-0-3bd47ec1b227@microchip.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261102-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v2-0-3bd47ec1b227@microchip.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: DAh6ydv7jX5Jb541_Z6C-JQm9iuoVc_CvuSj1YIEsr8_1793870819
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_012704_195596_8E462EE9 
-X-CRM114-Status: GOOD (  17.80  )
-X-Spam-Score: -2.8 (--)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261104161125.00000523@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,60 +88,76 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 11/2/26 13:21, Daniel Machon wrote:
-> This series adds offload of tc matchall filters with a police action to
-> the ingress port policers of Sparx5 and lan969x, which are both served
-> by the sparx5 driver.
-> 
-> In hardware, each ingress port has four single-rate leaky bucket
-> policers. A policer drops the frames that exceed its rate and burst.
-> The four policers of a port share the pass and drop statistics counters
-> of the port.
-> 
-> The driver uses one policer per port, because with more than one, the
-> statistics reported to tc could not be attributed to the right policer.
-> This matches lan966x and ocelot. The policer meters each frame without
-> preamble and inter-frame gap, so the configured rate is a data rate, as
-> tc police expects and as on lan966x and ocelot.
-> 
-> Since the policer meters all ingress frames on the port, only filters on
-> chain 0 with protocol all are offloaded, and filters on shared blocks
-> are rejected. A police action that is already offloaded as a port
-> policer on another port is rejected too, since in software it is a
-> single bucket for all of its users. Only drop is supported as the exceed
-> action, and the police overhead parameter is not supported.
-> 
-> Patch #1 drops a redundant prefix from the existing POL_UPD_INT_CFG
-> register macros.
-> 
-> Patch #2 adds the registers used by the port policer.
-> 
-> Patch #3 tracks whether the ingress block of a port is shared, and adds
-> the per-port policer state.
-> 
-> Patch #4 adds the hardware programming of the port policer.
-> 
-> Patch #5 adds the tc matchall offload.
-> 
-> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
-I understand the following will be very frustrating, but for unknown
-reason AI review did not kick on this series.
+Hi all,
 
-The changes looks sane to me, and addressing points raised on v1, but
-I think nowadays we need an explicit AI feedback.
+On Wed, Nov 04, 2026 at 04:11:25PM -0800, Jonathan Cameron wrote:
+> 
+> It is a bit of a guessing game to figure out who are the right people today
+> when it comes to ACPI and both ARM and x86 platforms. 
+> 
+> They fall into a few categories and it depends on what you are trying to
+> do.  Starting point is push back hard on your firmware folk wrt to shipping
+> something random without an upstream discussion first.  You wouldn't expect
+> that to work for dt, it shouldn't work for ACPI either. Features
+> will get rejected if people try to just do something that works for them
+> (same as a weird custom DT binding gets rejected).
+> 
+> 1) Basic stand alone driver stuff.  Mostly that's all pretty standard
+>    and follow the specs where possible.  If there are gaps start asking
+>    questions. Linux definitely  doesn't support all the stuff that has been
+>    added to the spec in recent years.  So this covers things like register
+>    addresses, interrupts etc.  All fine, hopefully a subsystem maintainer
+>    can take a look and will have enough of any idea.  If not ping the folk
+>    on this thread for help.  Things are a bit flexible for consumer type
+>    devices where fixed and bodges are common, generally less so if it is
+>    server grade hardware.
+> 
+> 2) Stuff that is an ACPI spec gap or place where we'd expect generalization.
+>    There are several examples of this on list this week and a few more in
+>    my inbox.  The particular series here might fall into this category.
+>    I've not figured out enough of the details yet to say definitively.
+> 
 
-Could you please re-submit the series?
+Nicely summarised or categorised Jonathan. Nothing much to add.
 
-Thanks!
+For most of the IP/devices/firmware associated with Arm, we are involved
+in any specification work if there are any. However that doesn't include
+3rd party IPs/devices used on Arm based platforms though.
 
-Paolo
+> I'd also expect a driver using AML as the target interface to either
+> point at a published spec doc, or to include some snippets
+> of the AML - that can be a lot easier to read than the driver code
+> (imagine reading DT by only looking at how drivers parse it).
+> 
 
+Ideally, it should be just HID that any vendor needs to publish unless
+they make use of any custom methods or something device specific like
+DSD/DSM. I would expect most of the devices to use standard methods and
+properties that are already well defined in the ACPI spec.
+
+> FWIW The driver feature in question looks like it is doing something a bit similar
+> to the PCI trace and tune driver Hisilicon has (though IIRC that has
+> a presence as a PCI driver) https://docs.kernel.org/trace/hisi-ptt.html
+> or if you squint at it differently resctrl / mpam fb.
+> 
+> Given that has new ABI etc, I'd expect that to have gotten broader review
+> as well.  Probably keeping it to linux-tegra and lkml alone wasn't
+> going to result in anyone noticing!
+> 
+> https://lore.kernel.org/all/?q=20260929095915.2215685-1-anrao@nvidia.com
+> 
+
+Agreed, it shouldn't hurt to cc linux-acpi for such driver ACPI enablement
+patches.
+
+-- 
+Regards,
+Sudeep
 
