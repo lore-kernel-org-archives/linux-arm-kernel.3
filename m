@@ -2,62 +2,96 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12AC7606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 18:38:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E19F4606A32D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 18:40:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Vzn+trmK;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=nifLGVmn
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EmFYerxb;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=AQ3Ee0zm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=42B23m+JIdyvXG0sW7UzXbkef8/A6+4jMboFfV5//zI=; b=Vzn+trmKCg97DOsujROzklMW2L
-	k7CzxU7TEADq03XFRf+AYnd4pUJgYe1QbkMbgzi8wAm4E8Gpip6HCztzA6KFpz/ij5QSsPNmlAPTY
-	3H/c1PdyiZq+WNfmPj/Eab3Vm5/7SBu7vFgbfV3XbVEAnK6C9cWZhMF7fDkrgK61iig+/haXxvNDE
-	HByIUeAROzpabpx+5k9A9ZPK3YWidHISMvlf2i/pihtcOBMjvOrqXjgFU8tIu75qXumwleQO8l1ww
-	5DTegubRONteTW+mibEV76gV2Fmh/tIDC4K2jfkXpbHHdhGJGZtnPWhgv8Dp8BZkYZZppjlS5AeVC
-	gEZQ9CIg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=lYBFuxLfjxEha3Zx3xH+M3FFSL5fyPFntbBy1o8Jggo=; b=EmFYerxbJu89ZI
+	5+++/4K0QznxQ8tIaIIhjAgqZspvXsvSEXdFgV0VA8SCYlsGcedwL7T+x9yHLWz0ce4YZey39+FVD
+	eSqvWgYvEunnN4F1olZSYFIq6ePJi296TFePgHUc2WDdPyHORD1ChxSP38qWpQkLHQHF6F0yfUqbe
+	+piHyhVV5s9FOW/uGCZ2jeuaoE1E0MTD/5huDdSm4Wcv4PgYOHBoMDq6Crqsb5I7tiUsg124mNNIM
+	kYP2SLkuttso5jHFSGJib2rprIRc9AfDKPUq1B17QLQDydFL3VZL4CH+6Ml1oFNvz/gZNPSpezTm2
+	lnIho3uZ/JWoLGjj231g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP2Ld-0000000A9vL-0fbi;
-	Thu, 05 Nov 2026 18:38:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP2LV-0000000A9tm-1B3R
+	id 1xP2Nj-0000000AAFP-4BCB;
+	Thu, 05 Nov 2026 18:40:17 +0000
+Received: from out-206.mta1.migadu.com ([95.215.58.206] helo=mta1.migadu.com)
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xP2Na-0000000AABI-0f0m
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 18:38:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BCC64168F;
-	Thu,  5 Nov 2026 10:37:49 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D67BD3F632;
-	Thu,  5 Nov 2026 10:37:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793903872; bh=9Qhj0s746e4V1R4BU+HoKxTE/pluQc6iZNeXaD38eeI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nifLGVmnqXYcirsAZF6IszdTwzH5oMaXh0Z+dSQ4QKp9pkzRNqjBRKUBp/25yWrCP
-	 xU8XxQQj3RD6yqa54ohcJh44ntqKmEEcuQXhu0YHvBCN4CC/iPNCv97/T6KqwD1+Wf
-	 0l8BtR9y/1prJ4J5hTD5yWGu2QSD3R6G3rPp7qo0=
-Date: Thu, 5 Nov 2026 18:37:46 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Kiryl Shutsemau <kirill@shutemov.name>
-Subject: Re: [PATCH v2 1/2] arm64: sdei: Run the event handler on the kernel
- vectors
-Message-ID: <auzM-l40BLsT3clg@arm.com>
-References: <20261105120835.3321912-1-kirill@shutemov.name>
- <20261105120835.3321912-2-kirill@shutemov.name>
+	Thu, 05 Nov 2026 18:40:12 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=XRcso4PQ7v/i8n+ltndwCCW38yTYyFOtjhZRQfQOu3s=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1793903999; v=1; x=1794508799;
+ b=AQ3Ee0zmoGLIrzFiqbNwH2X6z4iaE4E+ceCi77tS0EPnX4dETtsMFXi2XkALaPbkF5CBGMMy
+ Kdn7kPwMRZDlQSnK7ZZE3U30X8kBunbwyKCdhgzdzRqW1CENcx+pkRvpuoHq84DRccjbVL7mVny
+ VBCbRoF4lj6cxAjAaJn3j8cQ=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by mta11.migadu.com with ESMTPS id 2158ee7e6f7dbbd2;
+	Thu, 05 Nov 2026 18:39:59 +0000
+X-Mizu-Trace-ID: 2158ee7e6f7dbbd2
+X-Migadu-Flow: FLOW_OUT
+From: Usama Arif <usama.arif@linux.dev>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	david@kernel.org,
+	chrisl@kernel.org,
+	kasong@tencent.com,
+	ljs@kernel.org,
+	ziy@nvidia.com,
+	linux-mm@kvack.org
+Cc: chenhuacai@kernel.org,
+	ying.huang@linux.alibaba.com,
+	Baoquan He <baoquan.he@linux.dev>,
+	willy@infradead.org,
+	youngjun.park@lge.com,
+	hannes@cmpxchg.org,
+	riel@surriel.com,
+	shakeel.butt@linux.dev,
+	alex@ghiti.fr,
+	kas@kernel.org,
+	baohua@kernel.org,
+	dev.jain@arm.com,
+	baolin.wang@linux.alibaba.com,
+	Nico Pache <nico.pache@linux.dev>,
+	Liam R. Howlett <liam@infradead.org>,
+	ryan.roberts@arm.com,
+	Vlastimil Babka <vbabka@kernel.org>,
+	lance.yang@linux.dev,
+	linux-kernel@vger.kernel.org,
+	nphamcs@gmail.com,
+	shikemeng@huaweicloud.com,
+	yosry@kernel.org,
+	qi.zheng@linux.dev,
+	luizcap@redhat.com,
+	kernel-team@meta.com,
+	Usama Arif <usama.arif@linux.dev>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v9 02/32] arm64: mm: add PMD swap-exclusive helpers
+Date: Thu,  5 Nov 2026 10:38:46 -0800
+Message-ID: <20261105183940.2236717-3-usama.arif@linux.dev>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261105183940.2236717-1-usama.arif@linux.dev>
+References: <20261105183940.2236717-1-usama.arif@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261105120835.3321912-2-kirill@shutemov.name>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_103757_388836_DE83F100 
-X-CRM114-Status: GOOD (  19.35  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261105_104006_387257_09EDD300 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,57 +101,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, "Kiryl Shutsemau \(Meta\)" <kas@kernel.org>, Thomas Huth <thuth@redhat.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Usama Arif <usama.arif@linux.dev>, Peter Zijlstra <peterz@infradead.org>, Marc Zyngier <maz@kernel.org>, Jinjie Ruan <ruanjinjie@huawei.com>, kernel-team@meta.com, Doug Anderson <dianders@chromium.org>, stable@vger.kernel.org, linux-kernel@vger.kernel.org, James Morse <james.morse@arm.com>, linux-arm-kernel@lists.infradead.org, Breno Leitao <leitao@debian.org>, mrigendrachaubey <mrigendra.chaubey@gmail.com>, Will Deacon <will@kernel.org>, Linus Walleij <linusw@kernel.org>, Dawei Li <dawei.li@linux.dev>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Nov 05, 2026 at 12:08:33PM +0000, Kiryl Shutsemau wrote:
-> @@ -1065,10 +1067,27 @@ __sdei_handler(struct pt_regs *regs, struct sdei_registered_event *arg)
->  	else if (cpu_has_pan())
->  		set_pstate_pan(0);
->  
-> +	/*
-> +	 * With KPTI, VBAR_EL1 holds the trampoline vectors from the return to
-> +	 * EL0 until the next exception from EL0 maps the kernel. They only
-> +	 * handle exceptions from EL0: an exception taken here would run their
-> +	 * empty current-EL half and never come back. Switch to the kernel
-> +	 * vectors. The IRQ-like resume keeps using the interrupted VBAR, so it
-> +	 * still goes through the trampoline.
-> +	 */
-> +	vbar = read_sysreg(vbar_el1);
-> +	if (arm64_kernel_unmapped_at_el0() &&
-> +	    vbar == (unsigned long)__this_cpu_read(this_cpu_vector)) {
-> +		write_sysreg((unsigned long)vectors, vbar_el1);
-> +		isb();
-> +	}
+Prepare for keeping a PMD-mapped anonymous THP mapped by a PMD across the
+swap round-trip, which makes PG_anon_exclusive have to survive in a swap
+PMD and not just in a swap PTE.
 
-Sashiko had a comment that the above should be raw_cpu_read() since with
-preempt debugging and pseudo-NMIs, irqs_disabled() is false here and the
-check in __this_cpu_read() will warn.
+arm64 encodes a swap PMD exactly like a swap PTE, so the new helpers wrap
+the PTE ones and reuse PTE_SWP_EXCLUSIVE.
 
-Thinking about it, further down on the irqentry_nmi_enter() ->
-lockdep_hardirqs_off() we'll hit the irqs_disabled() issue again. We
-could just do a raw_local_irq_save/restore() around this function.
-Unnecessary for DAIF but useful with pseudo-NMIs.
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Signed-off-by: Usama Arif <usama.arif@linux.dev>
+---
+ arch/arm64/include/asm/pgtable.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Alternatively, __sdei_asm_handler() could save/restore PMR and change
-the priorities similar to the kernel_entry code. Actually, this may be
-better since do_sdei_event() also checks regs_irqs_disabled() and we
-don't have any regs->pmr populated.
-
-Worth a separate patch to fix SDEI handling with pseudo-NMI on and no
-changes to __this_cpu_read() above needed. So, for this patch:
-
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-
-(I'll probably queue it for -rc but waiting to see if there are more
-comments)
-
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index a474c9fb485ad..dfcb4b9e66f39 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -560,6 +560,12 @@ static inline int pmd_protnone(pmd_t pmd)
+ #define pmd_swp_clear_uffd(pmd) \
+ 				pte_pmd(pte_swp_clear_uffd(pmd_pte(pmd)))
+ #endif /* CONFIG_HAVE_ARCH_USERFAULTFD_WP */
++#ifdef CONFIG_ARCH_HAS_PMD_SOFTLEAVES
++#define pmd_swp_exclusive(pmd)	pte_swp_exclusive(pmd_pte(pmd))
++#define pmd_swp_mkexclusive(pmd)	pte_pmd(pte_swp_mkexclusive(pmd_pte(pmd)))
++#define pmd_swp_clear_exclusive(pmd) \
++				pte_pmd(pte_swp_clear_exclusive(pmd_pte(pmd)))
++#endif
+ 
+ #define pmd_write(pmd)		pte_write(pmd_pte(pmd))
+ 
 -- 
-Catalin
+2.53.0-Meta
+
 
