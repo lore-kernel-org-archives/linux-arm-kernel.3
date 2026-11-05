@@ -2,81 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E138606D801
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A27F3606EEBD
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 17:17:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xhEqtfzk;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=RgKOMqyM;
-	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=D0PUQsSG
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vaEfeRLt;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=GC1vZfQv;
+	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=IJPty0Vd
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=3tEx8KGrhtebJsZtllQQJuzn9Yar2KAyiVOpIFGqfZk=; b=xhEqtfzkR75+Yf
-	KiABa1oUN9kaY985Qbq8snx4yGLPg4nOEcKBjZ27IqPHLrxJYZdugdCWttKr585Db2M3boWHHgMlR
-	qe+qVTpkyOxLNkvUv9+ynN6BYnNHUBYz3Eceh0/eFvStq9TXMYMgp22bzweOyE1l7lUSzzzm7mL64
-	hVNDaaTakC/ysKQhKJICMbAMQGC3M95TkE5EYQeg8fVlUhoGFT3XZ/ZWns35LdfWtpwF8YqetITq3
-	cRHi1IOtevWrapFvrdNxX43tB9v1lxWali7njqMBNxgsuLHGmSQ1rV1l2YHko/fHJBhj79eCvhn9x
-	zsgwp7GwsmeL+Oqd+r+w==;
+	List-Owner; bh=UjMb22YoQ0tLzZ04yXcHLaoHfX3SrH8zs5UQo00NOrQ=; b=vaEfeRLtt+Go8X
+	Zpws+8nfna4VkAOL4O+zwfIn4IK1LXBD/exYJYmHSwtD7faU8cnEe/cCqc4VOZu8NulXf6S3f8arR
+	Cu+Hi+EML+QOVPzfnla5US+Fqqy2TpwWuxxo4vSsWZQsuPf+wKK4fWhQjU4JLdtfuIyN4t5Evv6//
+	UUg5ec3y4u8Q15WqS9uK6tciQ9DyrpzMtvqhhSIJyd7lcTCVXpvYaYg+L12qKt5/B/hY2x6BcsNZz
+	JEFiJ5J/GyQXrF8koSNFvJE5oCWknaPRmTM400Akd2ivSloyhP6lYrWpk/mWOpersn+pe1Aq1cyt7
+	cTZPe/PoG7STQ6EacAfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP15U-00000009r3S-1J7V;
-	Thu, 05 Nov 2026 17:17:21 +0000
+	id 1xP15e-00000009rBQ-3bg3;
+	Thu, 05 Nov 2026 17:17:30 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP14u-00000009qkO-1yqZ
+	id 1xP14u-00000009qkP-2gjj
 	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 05 Nov 2026 17:16:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=3tEx8KGrhtebJsZtllQQJuzn9Yar2KAyiVOpIFGqfZk=; b=RgKOMqyMIpgxz+wUu7VGUk60gG
-	LitOiFEBr75uhdHEVk1k2Hm1oGxvhJ2RwH12yUe+s5TwIcsvV686az6DF2y4eiKwYeaPrXmQds+hj
-	HlQJ+Dowch4ShRbxd5tDma9x0klDN8iXmiPptVl2EogbuSACIL5lGhVbPxB29VsO/gwC+QZ8Mu+VN
-	Hf5qTTM7iQqoLXPZxJo+xXDoNRo7V5IGoOU95UwbLEbgv6MrF9zbw0xtMlC4oyRPSNHrMSilXi+R2
-	kdvznls92ET3NMZq3ihoZ6dSXxPQeTO9zpMNSMsrGxSgwqT7zu5R/PZHBYEqwCFp0h9vjddciCULb
-	2sHEsEPg==;
-Received: from esa1.hc555-34.eu.iphmx.com ([23.90.104.144])
+	bh=UjMb22YoQ0tLzZ04yXcHLaoHfX3SrH8zs5UQo00NOrQ=; b=GC1vZfQvBdKMnsHYWqahFhR6ke
+	28uV68nACorLwuopB1Bhvs5g8gjfbIwCCF5p1lJNHW3LtsPrD9BFFO7S8aSHtxYK+pqaHyc9u+Rk0
+	f7ubZFqunXdzmvH9npo6aR6esD/cbBbftsk+hpuNsUzr+Efa8uQ97/RI6UaGtTSD/GnVDb09yzJxS
+	1QFnrByJf/Dx9D4LJMIn+CWNIlwapxLmXjsE9YicN41yjdsiGlBqujIw8RFGc70ENvtH+lOr59HOb
+	AMfUNrXAchH7YJNeUnffSjEWuKEKMseMLExwNi++Zo0B7oCdeIViXlqk5TvcCeA+EQZoGKou2uvul
+	jPAHa+Ow==;
+Received: from esa4.hc555-34.eu.iphmx.com ([207.54.77.171])
 	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP14p-00000003KQT-3YOW
+	id 1xP14r-00000003KTT-1iQB
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 05 Nov 2026 17:16:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1793898999; x=1825434999;
+  t=1793899002; x=1825435002;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=yJp8z0fUd0WqLNVGCeBa6CZScwSIESwkwvm1zwqw608=;
-  b=D0PUQsSGENGR5HVpR+R2Elrpd5z2oGjdndHPv9vqyrNLveHQh+gOyXYL
-   B/bCw1EPBpOCzdW+hL/Ett79dvOpQ2QmH7wLFsuSR0gI6LMDx42Dq5naI
-   frTGey2bBcHS6+gYab8l73Y8sjMtEwNsLJBr48rZxE0npCQC3nFsafLdX
-   6i/uHcwRnPCbvJDzmlRDSrielHcOyS4KHBuqu0ZPpkoZA7GAGz9P2F+ls
-   LbWsK+ptsALy3FDFzxCkjYKBHUPwUS6T2XdcI9EfsdfWwpfdHHklzqLgF
-   J0fwhfoNcdS4D8Fh9ov0VPlzV7lYPUdaAUIwtm4OQP52yxi7/lPXakCN1
-   A==;
-X-CSE-ConnectionGUID: r8XgZcLvSViWzkJ4LTFhqw==
-X-CSE-MsgGUID: 084N8sKPR5yY80xSsjuRPw==
+  bh=HVHfXTQiDPZZw3tnNbaGhNodlorPF1IZ5YA83GihI/M=;
+  b=IJPty0VdSsgMjcx3ntDQAQmZyzyq5lovdXdwHPyNXEJUUHtETR0V4ZUr
+   WD8yP4ptptWuKGqEHGOtab5h3JWJPwxLBTP1m5CtVFROWeaxoEu7PZKjS
+   FA+WSfPhHvKDWy79S+/RfqMZ5EuKnETrsw6c3mulHk3z/QOPXhL6BTEvo
+   Qntfc4wc9iMtilGO/qjSyijYBYgrK4K4hB3w0l0ktjFk6tRUaLkAiR2Q3
+   42QBwiV1Y7OJ5cx+/52C4eyTloW8BSc4PNoLgYSi4BiQWrjyYbZiTMPwk
+   q/XEkSeIg5nT+vbSNz/qb5+T35X094WNcC/9X6zwsVkYC+fsVsMlBcmyU
+   Q==;
+X-CSE-ConnectionGUID: v7RjAzLzRZyclLiaKGMzhA==
+X-CSE-MsgGUID: iEiEMNkiSkSbYnxrd251cw==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces02_data.me-corp.lan) ([146.255.191.134])
-  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 19:16:36 +0200
-X-CSE-ConnectionGUID: 6jLmpjNcQq+h2cqnXk79nA==
-X-CSE-MsgGUID: N/kq3xEZT/yWi+7MgDNLXw==
-Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.3])
-  by ces02_data.me-corp.lan with SMTP; 05 Nov 2026 19:24:34 +0200
-Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Thu, 05 Nov 2026 19:16:35 +0200
+Received: from unknown (HELO ces01_data.me-corp.lan) ([146.255.191.134])
+  by esa4.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 19:16:40 +0200
+X-CSE-ConnectionGUID: oxqlKXw/Q1mllKPZQYc7ng==
+X-CSE-MsgGUID: D83syo3ST6W5x+pdhQ871Q==
+Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.2])
+  by ces01_data.me-corp.lan with SMTP; 05 Nov 2026 19:24:42 +0200
+Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Thu, 05 Nov 2026 19:16:38 +0200
 From: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
-Date: Thu, 05 Nov 2026 19:15:30 +0200
-Subject: [PATCH RFC v3 09/14] i2c: core: implement I2C_RDWR_V2 ioctl -
- transfer with detailed report
+Date: Thu, 05 Nov 2026 19:15:33 +0200
+Subject: [PATCH RFC v3 12/14] i2c: nomadik: add support for I2C_XFER_V2 -
+ detailed fault reporting
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-i2c-fault-reporting-v3-9-515ad74ac4c9@mobileye.com>
+Message-Id: <20261105-i2c-fault-reporting-v3-12-515ad74ac4c9@mobileye.com>
 References: <20261105-i2c-fault-reporting-v3-0-515ad74ac4c9@mobileye.com>
 In-Reply-To: <20261105-i2c-fault-reporting-v3-0-515ad74ac4c9@mobileye.com>
 To: Andi Shyti <andi.shyti@kernel.org>, 
@@ -91,8 +91,8 @@ Cc: Dmitry Guzman <Dmitry.Guzman@mobileye.com>, linux-i2c@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_171639_821052_A0CC8CE3 
-X-CRM114-Status: GOOD (  26.50  )
+X-CRM114-CacheID: sfid-20261105_171641_335609_966E341E 
+X-CRM114-Status: GOOD (  26.64  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,236 +111,135 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-I2C_RDWR_V2 is a new ioctl for I2C controller devices. It has the same
-functionality as I2C_RDWR, with additional feature - in case of a fault
-during transfer, it provides information how many messages and bytes were
-successfully transferred and which message caused the fault. If there is
-any read data, it also may be used.
+I2C_XFER_V2 is a new API that allows I2C clients to get the detailed
+report in case of transmission failure. Previously, the only information
+returned by I2C bus controller was the error code; there was no way to
+find out how many messages or bytes in a certain message have been sent
+or received until the fault condition occurred.
 
-This feature is available on drivers that implement i2c_xfer_v2() method
-in their i2c_algorithm.
+This commit introduces support of this feature in i2c-nomadik driver.
 
 Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 ---
- drivers/i2c/i2c-dev.c | 123 ++++++++++++++++++++++++++++++++++++++++++--------
- 1 file changed, 104 insertions(+), 19 deletions(-)
+ drivers/i2c/busses/i2c-nomadik.c | 37 +++++++++++++++++++++++++++++++------
+ 1 file changed, 31 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/i2c/i2c-dev.c b/drivers/i2c/i2c-dev.c
-index d219eb89f978..14fe1dd7eecf 100644
---- a/drivers/i2c/i2c-dev.c
-+++ b/drivers/i2c/i2c-dev.c
-@@ -240,11 +240,19 @@ static int i2cdev_check_addr(struct i2c_adapter *adapter, unsigned int addr)
- 	return result;
- }
- 
--static noinline int i2cdev_ioctl_rdwr(struct i2c_client *client,
--		unsigned nmsgs, struct i2c_msg *msgs)
-+static noinline int i2cdev_ioctl_rdwr_v2(struct i2c_client *client,
-+					 unsigned int nmsgs, struct i2c_msg *msgs,
-+					 struct i2c_transfer_report __user *user_report)
- {
-+	struct i2c_transfer_report report;
- 	u8 __user **data_ptrs;
--	int i, res;
-+	int i, res, msgs_done;
-+
-+	i2c_transfer_report_init(&report);
-+
-+	if (user_report)
-+		if (copy_to_user(user_report, &report, sizeof(report)))
-+			return -EFAULT;
- 
- 	/* Adapter must support I2C transfers */
- 	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C))
-@@ -259,6 +267,7 @@ static noinline int i2cdev_ioctl_rdwr(struct i2c_client *client,
- 		/* Limit the size of the message to a sane amount */
- 		if (msgs[i].len > 8192) {
- 			res = -EINVAL;
-+			i2c_transfer_report_bad_msg(&report, i);
- 			break;
- 		}
- 
-@@ -266,6 +275,7 @@ static noinline int i2cdev_ioctl_rdwr(struct i2c_client *client,
- 		msgs[i].buf = memdup_user(data_ptrs[i], msgs[i].len);
- 		if (IS_ERR(msgs[i].buf)) {
- 			res = PTR_ERR(msgs[i].buf);
-+			i2c_transfer_report_bad_msg(&report, i);
- 			break;
- 		}
- 		/* memdup_user allocates with GFP_KERNEL, so DMA is ok */
-@@ -287,6 +297,7 @@ static noinline int i2cdev_ioctl_rdwr(struct i2c_client *client,
- 			    msgs[i].len < 1 || msgs[i].buf[0] < 1 ||
- 			    msgs[i].len < msgs[i].buf[0] +
- 					     I2C_SMBUS_BLOCK_MAX) {
-+				i2c_transfer_report_bad_msg(&report, i);
- 				i++;
- 				res = -EINVAL;
- 				break;
-@@ -300,12 +311,44 @@ static noinline int i2cdev_ioctl_rdwr(struct i2c_client *client,
- 		for (j = 0; j < i; ++j)
- 			kfree(msgs[j].buf);
- 		kfree(data_ptrs);
-+		if (user_report && copy_to_user(user_report, &report, sizeof(report)))
-+			res = -EFAULT;
- 		return res;
- 	}
- 
--	res = i2c_transfer(client->adapter, msgs, nmsgs);
-+	if (user_report) {
-+		res = i2c_transfer_v2(client->adapter, msgs, nmsgs, &report);
-+		msgs_done = report.msgs_cplt;
-+	} else {
-+		res = i2c_transfer(client->adapter, msgs, nmsgs);
-+		if (res < 0)
-+			msgs_done = 0;
-+		else
-+			msgs_done = nmsgs;
-+	}
-+
-+	if (user_report && copy_to_user(user_report, &report, sizeof(report)))
-+		res = -EFAULT;
-+
-+	if (msgs_done > (int)nmsgs) {
-+		//fixme - use dev_err?
-+		pr_err("Bad i2c_transfer_report: msgs_cplt = %i, bytes_cplt = %i, nmsgs = %i\n",
-+		       report.msgs_cplt, report.bytes_cplt, nmsgs);
-+		msgs_done = nmsgs;
-+	}
-+
-+	if (report.bytes_cplt > 0) {
-+		if (msgs_done < nmsgs && msgs_done >= 0) {
-+			msgs[msgs_done].len = report.bytes_cplt;
-+			msgs_done++;
-+		} else {
-+			pr_err("Bad i2c_transfer_report: msgs_cplt = %i, bytes_cplt = %i, nmsgs = %i\n",
-+				report.msgs_cplt, report.bytes_cplt, nmsgs);
-+		}
-+	}
-+
- 	while (i-- > 0) {
--		if (res >= 0 && (msgs[i].flags & I2C_M_RD)) {
-+		if (msgs[i].flags & I2C_M_RD && i < msgs_done) {
- 			if (copy_to_user(data_ptrs[i], msgs[i].buf,
- 					 msgs[i].len))
- 				res = -EFAULT;
-@@ -439,18 +482,39 @@ static long i2cdev_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
- 		funcs = i2c_get_functionality(client->adapter);
- 		return put_user(funcs, (unsigned long __user *)arg);
- 
--	case I2C_RDWR: {
-+	case I2C_RDWR:
-+	case I2C_RDWR_V2:
-+	{
-+		struct i2c_rdwr_ioctl_data __user *user_arg;
-+		struct i2c_transfer_report __user *user_rep;
- 		struct i2c_rdwr_ioctl_data rdwr_arg;
- 		struct i2c_msg *rdwr_pa;
- 		int res;
- 
--		if (copy_from_user(&rdwr_arg,
--				   (struct i2c_rdwr_ioctl_data __user *)arg,
--				   sizeof(rdwr_arg)))
-+		if (cmd == I2C_RDWR_V2) {
-+			user_arg = &((struct i2c_rdwr_v2_ioctl_data __user *)arg)->rdwr_data;
-+			user_rep = &((struct i2c_rdwr_v2_ioctl_data __user *)arg)->report;
-+		} else {
-+			user_arg = (struct i2c_rdwr_ioctl_data __user *)arg;
-+			user_rep = NULL;
-+		}
-+
-+		if (copy_from_user(&rdwr_arg, user_arg, sizeof(rdwr_arg)))
- 			return -EFAULT;
- 
--		if (!rdwr_arg.msgs || rdwr_arg.nmsgs == 0)
--			return -EINVAL;
-+		if (!rdwr_arg.msgs || rdwr_arg.nmsgs == 0) {
-+			/*
-+			 * I2C_RDWR_V2 ioctl with nmsgs == 0 is used for
-+			 * discovering of the controller capability to return
-+			 * detailed fault reports.
-+			 */
-+			if (cmd == I2C_RDWR)
-+				return -EINVAL;
-+			if (client->adapter->algo->xfer_v2)
-+				return 0;
-+			else
-+				return -EOPNOTSUPP;
-+		}
- 
- 		/*
- 		 * Put an arbitrary limit on the number of messages that can
-@@ -464,7 +528,7 @@ static long i2cdev_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
- 		if (IS_ERR(rdwr_pa))
- 			return PTR_ERR(rdwr_pa);
- 
--		res = i2cdev_ioctl_rdwr(client, rdwr_arg.nmsgs, rdwr_pa);
-+		res = i2cdev_ioctl_rdwr_v2(client, rdwr_arg.nmsgs, rdwr_pa, user_rep);
- 		kfree(rdwr_pa);
- 		return res;
- 	}
-@@ -531,6 +595,11 @@ struct i2c_rdwr_ioctl_data32 {
- 	u32 nmsgs;
+diff --git a/drivers/i2c/busses/i2c-nomadik.c b/drivers/i2c/busses/i2c-nomadik.c
+index f68d4cf7c0e7..9f43ab792ae2 100644
+--- a/drivers/i2c/busses/i2c-nomadik.c
++++ b/drivers/i2c/busses/i2c-nomadik.c
+@@ -198,6 +198,7 @@ struct i2c_nmk_client {
+  * @stop: stop condition.
+  * @xfer_wq: xfer done wait queue.
+  * @result: controller propogated result.
++ * @bytes_cplt: number of bytes completed in the message that caused a fault.
+  */
+ struct nmk_i2c_dev {
+ 	struct i2c_vendor_data		*vendor;
+@@ -218,6 +219,7 @@ struct nmk_i2c_dev {
+ 	int				stop;
+ 	struct wait_queue_head		xfer_wq;
+ 	int				result;
++	int				bytes_cplt;
  };
  
-+struct i2c_rdwr_v2_ioctl_data32 {
-+	struct i2c_rdwr_ioctl_data32 rdwr_data;
-+	struct i2c_transfer_report report;
-+};
+ /* controller's abort causes */
+@@ -530,6 +532,8 @@ static int read_i2c(struct nmk_i2c_dev *priv, u16 flags)
+ 	int status = 0;
+ 	bool xfer_done;
+ 
++	priv->cli.xfer_bytes = 0;
 +
- static long compat_i2cdev_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
- {
- 	struct i2c_client *client = file->private_data;
-@@ -539,19 +608,35 @@ static long compat_i2cdev_ioctl(struct file *file, unsigned int cmd, unsigned lo
- 	case I2C_FUNCS:
- 		funcs = i2c_get_functionality(client->adapter);
- 		return put_user(funcs, (compat_ulong_t __user *)arg);
--	case I2C_RDWR: {
-+	case I2C_RDWR:
-+	case I2C_RDWR_V2:
-+	{
-+		struct i2c_rdwr_ioctl_data32 __user *user_arg;
-+		struct i2c_transfer_report __user *user_rep;
- 		struct i2c_rdwr_ioctl_data32 rdwr_arg;
- 		struct i2c_msg32 __user *p;
- 		struct i2c_msg *rdwr_pa;
- 		int i, res;
+ 	mcr = load_i2c_mcr_reg(priv, flags);
+ 	writel(mcr, priv->virtbase + I2C_MCR);
  
--		if (copy_from_user(&rdwr_arg,
--				   (struct i2c_rdwr_ioctl_data32 __user *)arg,
--				   sizeof(rdwr_arg)))
-+		if (cmd == I2C_RDWR_V2) {
-+			user_arg = &((struct i2c_rdwr_v2_ioctl_data32 __user *)arg)->rdwr_data;
-+			user_rep = &((struct i2c_rdwr_v2_ioctl_data32 __user *)arg)->report;
-+		} else {
-+			user_arg = (struct i2c_rdwr_ioctl_data32 __user *)arg;
-+			user_rep = NULL;
-+		}
-+
-+		if (copy_from_user(&rdwr_arg, user_arg, sizeof(rdwr_arg)))
- 			return -EFAULT;
+@@ -655,6 +659,7 @@ static int nmk_i2c_xfer_one(struct nmk_i2c_dev *priv, u16 flags)
+ 	int status;
  
--		if (!rdwr_arg.msgs || rdwr_arg.nmsgs == 0)
--			return -EINVAL;
-+		if (!rdwr_arg.msgs || rdwr_arg.nmsgs == 0) {
-+			if (cmd == I2C_RDWR)
-+				return -EINVAL;
-+			if (client->adapter->algo->xfer_v2)
-+				return 0;
-+			else
-+				return -EOPNOTSUPP;
-+		}
- 
- 		if (rdwr_arg.nmsgs > I2C_RDWR_IOCTL_MAX_MSGS)
- 			return -EINVAL;
-@@ -575,7 +660,7 @@ static long compat_i2cdev_ioctl(struct file *file, unsigned int cmd, unsigned lo
- 			};
+ 	priv->i2c_sr = 0;
++	priv->bytes_cplt = 0;
+ 	if (flags & I2C_M_RD) {
+ 		/* read operation */
+ 		priv->cli.operation = I2C_READ;
+@@ -690,6 +695,16 @@ static int nmk_i2c_xfer_one(struct nmk_i2c_dev *priv, u16 flags)
+ 			status = priv->result;
  		}
  
--		res = i2cdev_ioctl_rdwr(client, rdwr_arg.nmsgs, rdwr_pa);
-+		res = i2cdev_ioctl_rdwr_v2(client, rdwr_arg.nmsgs, rdwr_pa, user_rep);
- 		kfree(rdwr_pa);
- 		return res;
- 	}
++		if (flags & I2C_M_RD) {
++			/* For READ messages, return the number of bytes read from FIFO */
++			priv->bytes_cplt = priv->cli.xfer_bytes;
++		} else {
++			/* For WRITE messages, return the number of bytes sent on bus */
++			priv->bytes_cplt = FIELD_GET(I2C_SR_LENGTH, priv->i2c_sr);
++			/* LENGTH value includes the last byte that has not been sent or ACKed */
++			if (priv->bytes_cplt > 0)
++				priv->bytes_cplt--;
++		}
+ 		init_hw(priv);
+ 
+ 		status = status ? status : priv->result;
+@@ -699,10 +714,11 @@ static int nmk_i2c_xfer_one(struct nmk_i2c_dev *priv, u16 flags)
+ }
+ 
+ /**
+- * nmk_i2c_xfer() - I2C transfer function used by kernel framework
++ * nmk_i2c_xfer_v2() - I2C transfer function used by kernel framework
+  * @i2c_adap: Adapter pointer to the controller
+  * @msgs: Pointer to data to be written.
+  * @num_msgs: Number of messages to be executed
++ * @report: Pointer to transfer report to be written.
+  *
+  * This is the function called by the generic kernel i2c_transfer()
+  * or i2c_smbus...() API calls. Note that this code is protected by the
+@@ -745,8 +761,9 @@ static int nmk_i2c_xfer_one(struct nmk_i2c_dev *priv, u16 flags)
+  * please use the i2c_smbus_read_i2c_block_data()
+  * or i2c_smbus_write_i2c_block_data() API
+  */
+-static int nmk_i2c_xfer(struct i2c_adapter *i2c_adap,
+-		struct i2c_msg msgs[], int num_msgs)
++static int nmk_i2c_xfer_v2(struct i2c_adapter *i2c_adap,
++		struct i2c_msg msgs[], int num_msgs,
++		struct i2c_transfer_report *report)
+ {
+ 	int status = 0;
+ 	int i;
+@@ -756,6 +773,8 @@ static int nmk_i2c_xfer(struct i2c_adapter *i2c_adap,
+ 	if (i)
+ 		return i;
+ 
++	priv->bytes_cplt = 0;
++
+ 	/* setup the i2c controller */
+ 	setup_i2c_controller(priv);
+ 
+@@ -774,10 +793,15 @@ static int nmk_i2c_xfer(struct i2c_adapter *i2c_adap,
+ 	pm_runtime_put_sync(&priv->adev->dev);
+ 
+ 	/* return the no. messages processed */
+-	if (status)
++	if (status) {
++		report->msgs_cplt = i;
++		report->bytes_cplt = priv->bytes_cplt;
++		report->fault_msg_idx = i;
+ 		return status;
+-	else
++	} else {
++		i2c_transfer_report_success(report, num_msgs);
+ 		return num_msgs;
++	}
+ }
+ 
+ /**
+@@ -1029,7 +1053,8 @@ static unsigned int nmk_i2c_functionality(struct i2c_adapter *adap)
+ }
+ 
+ static const struct i2c_algorithm nmk_i2c_algo = {
+-	.xfer = nmk_i2c_xfer,
++	.xfer = i2c_xfer_to_xfer_v2,
++	.xfer_v2 = nmk_i2c_xfer_v2,
+ 	.functionality = nmk_i2c_functionality
+ };
+ 
 
 -- 
 2.43.0
