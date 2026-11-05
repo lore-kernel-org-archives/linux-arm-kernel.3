@@ -2,128 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9527D606A330
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 01:13:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35BC4606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 01:16:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=D/+AMkEZ;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=hA1H/Doc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3teXiUG0;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZaP8xPb+
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=TyFvSUTyjkoHJH/xQeMvHXtCfqi5ncDEReaRkf6yS+k=; b=D/+AMkEZqXgvDbqB4IHqbPlmu7
-	ADi5sjwwiZM5xGq1809FDzT11VYIDnmSbU1HW1E2DI/KEh5awXdBoPI3EyCKgWa2pZb1utJw7k422
-	PLRaHFiQNLiXDCHvx0QkN0vmUQBf7cELk85fEplWyI3DtfHj+D4qK2HX+fpWzAQUmwvT1Uapb+9C6
-	6qWvQodxtfQjl9OZO3q7WE4X3AIMPnGAzTsoSA38CgPec+OjCaM8EEwE6RJkUCAYdptGUZ1sbsY3Z
-	RVKDYzglt/P9vShtPY4kNdSaqtOzBw9ISbe6y0nkUWhmFfMYfuM8seFJUe3TLYGDS+6+4dZrKHY6Q
-	O/f6iZCg==;
+	bh=hofK0JryGgKL/fZhmAQm61x9/fz9wA6S77HE9ruycGk=; b=3teXiUG0H2x8WLadSWn/k43FFd
+	1v+4ZvnYifhjYvBOgaQou6iB8/FsZbbwBh0TKyKvhwZ+ELtB8eDZI1yyCfBkbXtTNMPT/s7r6EzbT
+	NDX3BpLtWK9Tqz1h2564+WY3oUzSHOUrlPZGPYeUjFyjnhF4KTu2LE9gLn7h8HaAE+aqn8+bB72cH
+	AzrLFWagbNCoNCOO7XIpMKyaW0AEZdfSqWzMu4Ai+COSofB0AG73f+qcd/fa1IJmhG+zOr8BxXg2+
+	PP4CuUHd/2Z3H1x1r9Zp9ACWWh7+7o8UH3vQAOyXG7yWLjsNi2GDYfKiM/xC7dEyPOuxaw+g5l8LR
+	Z7BNKNTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOm2Z-00000007ROC-3D0L;
-	Thu, 05 Nov 2026 01:13:20 +0000
-Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1xOm51-00000007Rem-3VfY;
+	Thu, 05 Nov 2026 01:15:55 +0000
+Received: from mail-dl1-x122d.google.com ([2607:f8b0:4864:20::122d])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOm2W-00000007RNq-3Sak
+	id 1xOm4w-00000007Re6-0T4x
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 01:13:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JrGu3+yrZT6FB56m4vHvG6ajRhJB/9RrEFrHPuM/mT1MW5/8wAaNevW38K40AwPTpziMYesXZUoKvOuG23mXfQD4NSiLHjMqw1H5h42D4ngsrluEUDfQ9lZBHT1cQFLLS2W5WHrJCkLUPepBtL8ZTxzfXFMXfc8rlpnz4gYAz5t/NXLTFbvhGdZ3SmFqqDTRnE3e2VS93xdPZPt2dOV86wPP+omDtmzsZqoqOK8B3BxkSmpG1YjkHbKp0pg80g/qSDSg70rmdrdzBU/HxIuLiRpBG0/fegSXrpp4bomaAoP/DZi9hcEf46M7wsOavpkDL5cQhnxhSjZYt2g8/7lv8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TyFvSUTyjkoHJH/xQeMvHXtCfqi5ncDEReaRkf6yS+k=;
- b=tJcy0ensnmGDX351a8gA6eZ/xaaavphgELnAew5duh5P5zHGLNurZ5tZIqimxvMUHQKJJfsKsQ2mPtyrfnT4DX0VZCjV136kCos9UqrBtRMmGTz0Cwb1W78npMk0tkP0xsNd/IyIDDqZTvGn9smjhekMSyrsCJHtGvaZZYnS2CelrELJOwS5bYfueO2vQ/1tkvRzqy6OVLlUkJ1QIHsxlprQtG8AujZLpnbp61/uLmW7NL8Fz2TjKWOIQ12c9yw8cnLm3/ZGPGtpznbZRLzLYkELWmJWInAVOiEbQssF15LMYhoKuaVOY731dLIY/BTP32QWF2II3plCgKCYwygamA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TyFvSUTyjkoHJH/xQeMvHXtCfqi5ncDEReaRkf6yS+k=;
- b=hA1H/DocKiXIN0SOT184JZAoA+EbjjuWQi+r1a4re/sxiKTfOUKRlZ2MKqfCbRBY3GCzhXDc3xDblYNd6ZSokvrg+LyUqhFs1TsQFKhid8NxIoWZK97Elrtx1ElFs9grnPuNM44CYVythTO8dACZ/IEqHRIIePL5iVDPj+iFTnOVxRXFqu7/69EqqFb9mgzhhX0W3CvRQXpacLvID1ACnCZaqtqcTtwIlzHzurl/EpfaA6H3uq2MN41VoNRYtrmx73EIQz9GxnDdL/VbhddTQqY9QjeWcrX9Znq+IYRJ96DO26ZLf7zxk9rQ/FxfhihYgySeBn44qJznobzKshIOmg==
-Received: from BN9PR03CA0302.namprd03.prod.outlook.com (2603:10b6:408:112::7)
- by SN7PR12MB6671.namprd12.prod.outlook.com (2603:10b6:806:26d::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.9; Thu, 5 Nov 2026
- 01:13:09 +0000
-Received: from BN6PEPF00000070.namprd03.prod.outlook.com
- (2603:10b6:408:112:cafe::98) by BN9PR03CA0302.outlook.office365.com
- (2603:10b6:408:112::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.10 via Frontend Transport; Thu, 5
- Nov 2026 01:13:09 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN6PEPF00000070.mail.protection.outlook.com (10.167.248.197) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.592.5 via Frontend Transport; Thu, 5 Nov 2026 01:13:09 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 4 Nov
- 2026 17:12:53 -0800
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 4 Nov
- 2026 17:12:52 -0800
-Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.129.68.9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56 via Frontend
- Transport; Wed, 4 Nov 2026 17:12:49 -0800
-Date: Wed, 4 Nov 2026 17:12:46 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: <joro@8bytes.org>, <will@kernel.org>, <robin.murphy@arm.com>, "Rafael J.
- Wysocki" <rafael@kernel.org>, <lenb@kernel.org>, <bhelgaas@google.com>,
-	<alex@shazbot.org>, <jgg@nvidia.com>, <kevin.tian@intel.com>,
-	<baolu.lu@linux.intel.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-acpi@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<kvm@vger.kernel.org>, <patches@lists.linux.dev>, <pjaroszynski@nvidia.com>,
-	<vsethi@nvidia.com>, <etzhao1900@gmail.com>, Danny Gonzalez
-	<digonzal@google.com>
-Subject: Re: [PATCH v8 5/5] PCI: Suspend iommu function prior to resetting a
- device
-Message-ID: <auvYDgFO3IZiUV9r@nvidia.com>
-References: <auvHyrZmMXLTFyz9@nvidia.com>
- <20261105001333.GA1478880@bhelgaas>
+	Thu, 05 Nov 2026 01:15:50 +0000
+Received: by mail-dl1-x122d.google.com with SMTP id a92af1059eb24-1ae18eb9b69so1322976c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 17:15:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793841345; x=1794446145; darn=lists.infradead.org;
+        h=content-disposition:content-transfer-encoding:content-type
+         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hofK0JryGgKL/fZhmAQm61x9/fz9wA6S77HE9ruycGk=;
+        b=ZaP8xPb+rTNdf55giLndS/vXCM1Zn4Zq4UdmnIRN7BauoYd1uzdDe+Rwxaw9IIvPdj
+         aPqOSTk8oi6pn/7q/XMnk0VKRPieeeeLvgDSvMyz55NHCYxXpV5a6KFUoJzA6VEqGxnS
+         ElR78Ann2ABef8SEyHhRQBS2Usv3sV+jj16magk2cZhovnAfYbPXHYbzm5/eMC3/2MXM
+         XIP3hyps+TAmS6vmJ3BD81855RNABRhyGiotWeCB2CBbRAP0nEjOWtlnjtIeULqqn9YS
+         KPKMlN8r9WulmrHuTr0zqoQGrHj23FdxCrx3+LBThMZ7KbnZqQr2u0YagrA4IDRJuUur
+         BrtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793841345; x=1794446145;
+        h=content-disposition:content-transfer-encoding:content-type
+         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=hofK0JryGgKL/fZhmAQm61x9/fz9wA6S77HE9ruycGk=;
+        b=wnTthPADFBT87Xsz4Uihim0caIEAQdBm4Qi3VvP23d6YAWYswWnn3RK0i4BKzcN5XP
+         EaBhMOojnxp5+8grFYlQkum8YzgZQ0uzDlJfTGxoGDsLIYMwHzPjqG/kFSPzMLOPboKo
+         VZ+ywdPatVjDJ2tI6lRsaXKqcQXCIFD0/6rq2YMXub0FSlGdrCf6J/p7e/XB6ebM2/vY
+         Jx3xaLbuIfrL9/pQlzAtqaR0PRTXuOapB4o0KC3+SotSqjtNkR1ffTEaf6Wp13g5S23V
+         875xAE+jzZTr9e8lq0+1oGm+NskV2JXPP2y74jfwuk3glFJZcIvsNnpVxtW3IgBBArK1
+         xLFw==
+X-Forwarded-Encrypted: i=1; AKwUvBxig+U8KC2C8/9HJ1QfBChHse3CeJWMlDibOwpkLkYOj+RcaDH2DtC2Zmdy//g33/X2FUr3QR01g5rrbAEBtmOL@lists.infradead.org
+X-Gm-Message-State: APuU4Z/9NZJHqoBeIB/ZiPdnxvEMcxGTAmnumZsA3GH66rMY3WSACuBL
+	wJp8fdYTwFMxV8fhb1rH2fjhn2IaRjSQq8rYCYthQf54TORFGYa6iGn2
+X-Gm-Gg: AYBFou1n0cJTw0sKkX8xyMcGlsfWXYRFMwtI9bkex3WzMtqlywo8ISZjtCadYk7eOzn
+	TokiFIftxtmzOQyIWJrLzpYeIpogY3mffqh7+vl0m4FQBpjBP4tW4HBsmEjQlCodp7K9tjCCSBI
+	dOBmdeasUEsEkN0xXz554iKRS31nkuxK9P7WhwMjiPiPXE8WAZruBbwiVL4urannub7mpEFQqYZ
+	9X2kvaOKmkqVuuvXWfjx8QhCzMy6K6SHI2SHIBC7Ksu5hhc31Gkj6i6NoyorEeANGhGHpVf/w3I
+	Pz8c1PnTbmBYzw+mpDxgpWRUsgfUugx+d3H6eKjm1/OTewX2QXuZbyOGXeHWmau5xoDrAwFKocB
+	dl4Zrvvc5PSdqyITBlgxF35WC4AdkQ4ndSQd0gPAvuQ4K7xz0rGDNXZqYmiXgoYyKVRRZDolVmz
+	TdCZap6ynT25+gb7i+WIBYiqUztCu0+WCc9e3hSOpJ4vYLcF0JDbbcy6ugCNJWZ/9XRI/fQBbzG
+	NcmiyQLyKoanyzEeOENnh1QpUWlLPd9Pfniinek61r32isqjLTtJ6zzoZAgJfbU6QLr3rEv7Ycr
+	EdI4c82RStOhn+nnewIOMmcUlOa9cZR0cCvvwFa1wQzczDuIVUvt/K/cenyEhs7dx2Gy4g==
+X-Received: by 2002:a05:7022:3c87:b0:1ad:4ef5:ffed with SMTP id a92af1059eb24-1aea05f4bcfmr18283181c88.38.1793841344539;
+        Wed, 04 Nov 2026 17:15:44 -0800 (PST)
+Received: from localhost ([2a00:79e0:2ebe:8:c8f4:b7d9:252f:4483])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b245c1c283sm12146627c88.4.2026.11.04.17.15.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Nov 2026 17:15:43 -0800 (PST)
+Date: Wed, 04 Nov 2026 17:15:42 -0800
+Message-ID: <ad02069b0cdede7ae191e4a3df57f33a@gmail.com>
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Mark Brown <broonie@kernel.org>,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Arnd Bergmann <arnd@arndb.de>,
+	mfd@lists.linux.dev,
+	linux-samsung-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	patches@opensource.cirrus.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/4] mfd: wm831x: Support software nodes for DCDC regulators
+In-Reply-To: <20261104181429.GE1650678@google.com>
+References: <20261024-samsung-kp-v4-0-e21253295e68@gmail.com> <20261024-samsung-kp-v4-1-e21253295e68@gmail.com> <20261104181429.GE1650678@google.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 Content-Disposition: inline
-In-Reply-To: <20261105001333.GA1478880@bhelgaas>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN6PEPF00000070:EE_|SN7PR12MB6671:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3013f8e3-1783-491c-45a2-08df3ad9f471
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|1800799024|82310400026|376014|7416014|261022075727099003|261022105027099003|261021121427099003|261021135927099003|261026140227099003|261026121527099003|261028144727099003|261102123227099003|4143699003|11063799006|56012099006|10067099003|260925021311599003|260925021911599003|18002099003|22082099003|261009223027099003|6133799003|260925022911599003;
-X-Microsoft-Antispam-Message-Info: z3RG96APyyZDlab9qghSLri/DYcHjaoqCqeAMLzvzk3T1op0oSY1H9q8gsmvQTz7002Y3uvQLb3ncef4G8NlUMY6Nt2ncnwkBJV0615JdWoEw5GigtEx9JpNUJU7wveOFkNi/r2nTv5a+Ry+F+7pX8yTvwXJvXhhbH95KhrlCJcUdo5oYpMr/w5z3JwnCcyeYo+K00KHbJnRKv80xWYstYIqIqzHb0DS4toVomVVf8uWLfkaeCEc/B3Y/tT/Nze3QGPzjlxm8CT7BKCmcAW2NtVb9La4rxm54s+3M4RnNL8yyF+bnSRE3Af+hMGaVb04lYT4xCKJegwVvo7Q7cutS++/UCos8r9D0W/V99bP2OXIqtVZhRZf+ZfaPNKW6xVaZJg8rO/2Z+V4CN+6KEIkePkpGFX3MzAVq1s//l3UugU5XDMpn8ng5quztZzi71rFIPl/01YTb9v0NRSj45FGVZhbegpBKi/tqUaBzKWjx3nHGbL+P8/H3FALlqrE6czRdn7SL/ngapnJxvmM8dhKzZI2LUeBXxtIqiX3k+cD2jFI/oVcdntmVLeVTJ5pxN7Rne3N6Oa2hRKFb2qqE/QwXR13gAcvfyhhwY0Ta5TO/Vih1F8W40x5pQJb0PxuuiHoYbDFloc+KoCGciCMLFCxTIhpG7XGIv++xNGnThosNdokN1ZZdSYvP77jiwv/JT9t32TsKGDB/I/c6ovYZgxIbQ==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(1800799024)(82310400026)(376014)(7416014)(261022075727099003)(261022105027099003)(261021121427099003)(261021135927099003)(261026140227099003)(261026121527099003)(261028144727099003)(261102123227099003)(4143699003)(11063799006)(56012099006)(10067099003)(260925021311599003)(260925021911599003)(18002099003)(22082099003)(261009223027099003)(6133799003)(260925022911599003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: lvx8WWDsdT/k+dpo7nnJdrK2wXlEU3lWWwgafbJ6Q0H0sNXWy8RC4HI1ufac2VuX11IjqY+aMdN2IbfyUJV8Y2OH6WaIAmUSzbNF9Z0WFw98OVppGj9dyy8vdDj+rmeH8h6e06eegfmtO4nhfmQD1F/lHljR1u5zcktXhEpGIii0oZBwgwtX/jzz/8m9qodsygKnry7mbQJZqTlqpkAaNqmiMGThLfkF0m9lWo4HNMMS86E2erR7Zwh7ryLV8cdEYhjdWnR/1AkH675AXqT2LmGHZGISMA5y95tkfLykAq4945ZA1O1LAYxj+fR5wPVD6m/AP8yCy2UnaKoZ6jMBGOhPGXVnvBgycmZ3Pre0f9drcadShh9pjc3mdHbnktv+jiTodyDw7YZJRyAmv/kOz6ewsOmwtnabyes0T195rBjY/tXD3qCH3/wos+wDQZdd
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 01:13:09.1514
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3013f8e3-1783-491c-45a2-08df3ad9f471
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN6PEPF00000070.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6671
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_171316_885152_571BFC70 
-X-CRM114-Status: GOOD (  28.03  )
+X-CRM114-CacheID: sfid-20261104_171546_197756_7F908F80 
+X-CRM114-Status: GOOD (  26.17  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -135,53 +114,95 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-2.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 04, 2026 at 06:13:33PM -0600, Bjorn Helgaas wrote:
-> On Wed, Nov 04, 2026 at 04:03:22PM -0800, Nicolin Chen wrote:
-> > On Wed, Nov 04, 2026 at 05:55:00PM -0600, Bjorn Helgaas wrote:
-> > > On Mon, Dec 15, 2025 at 01:42:20PM -0800, Nicolin Chen wrote:
-> > > > @@ -4885,10 +4919,20 @@ static int pci_reset_bus_function(struct pci_dev *dev, bool probe)
-> > > >  		return -ENOTTY;
-> > > >  	}
-> > > >  
-> > > > +	rc = pci_dev_reset_iommu_prepare(dev);
-> > > > +	if (rc) {
-> > > > +		pci_err(dev, "failed to stop IOMMU for a PCI reset: %d\n", rc);
-> > > > +		return rc;
-> > > > +	}
-> > > 
-> > > Unlike the other reset functions, this one calls
-> > > pci_dev_reset_iommu_prepare() even when probe==true, i.e., we don't
-> > > want to actually perform the reset, we just want to know whether the
-> > > reset method might work.
-> > > 
-> > > It's at least unnecessary to call pci_dev_reset_iommu_prepare() and
-> > > pci_dev_reset_iommu_done() in that case, and maybe even problematic
-> > > because the pci_init_reset_methods() probe happens from
-> > > pci_init_capabilities(), which is pretty early during PCI enumeration
-> > > of the device.
-> > > 
-> > > I know this has already been merged as f5b16b802174 ("PCI: Suspend
-> > > iommu function prior to resetting a device"), and I'm not sure whether
-> > > we should do anything about it.  I wonder if we should just skip the
-> > > prepare/done when probe==true?
-> > 
-> > I've posted a fix for a few times actually. The latest one was
-> > posted yesterday after a split:
-> > https://lore.kernel.org/linux-iommu/c66d5221a8e4356316d4f614c8584a80dc9d71b6.1793729707.git.nicolinc@nvidia.com/
-> 
-> Well, that's embarrassing ;)
-> 
-> I acked the PCI patches there on the assumption that they'll go via
-> the IOMMU tree since the interesting bits are there.
+Hi Lee,
 
-Thanks! The acks are in time.
+On Wed, Nov 04, 2026 at 06:14:29PM +0000, Lee Jones wrote:
+> On Sat, 24 Oct 2026, Dmitry Torokhov wrote:
+> > +static int wm831x_add_devices(struct wm831x *wm831x, int wm831x_num,
+> > +			      const struct mfd_cell *cells, int num_cells)
+> > +{
+> > +	struct wm831x_pdata *pdata = &wm831x->pdata;
+> > +	int i;
+> > +
+> > +	struct mfd_cell *local_cells __free(kfree) =
+> > +		kmemdup_array(cells, num_cells, sizeof(*cells), GFP_KERNEL);
+> > +	if (!local_cells)
+> > +		return -ENOMEM;
+> > +
+> > +	for (i = 0; i < num_cells; i++) {
+> > +		struct mfd_cell *cell = &local_cells[i];
+> > +
+> > +		if (strcmp(cell->name, "wm831x-buckv") == 0) {
+> > +			int id = cell->id - 1;
+> > +
+> > +			if (id >= 0 && id < WM831X_MAX_DCDC)
+> > +				cell->swnode = pdata->dcdc_swnodes[id];
+> > +		}
+> > +	}
+>
+> I can't begin to tell you how much I hate this.
+>
+> Why are we duplicating massive static const structs just to add a S/W
+> node?  Is there no other way we can do this statically?
 
-Nicolin
+The software node itself is defined statically in the board file
+(crag_dcdc1_swnode in arch/arm/mach-s3c/mach-crag6410.c in patch 2/4),
+as it describes board-specific and PMIC-instance-specific wiring -
+specifically the host SoC GPIO wired to the PMIC's DVS pin (GPK(0) on
+Cragganmore 6410).
+
+Because wm831x-core.c is a generic PMIC driver that can be instantiated
+on different boards or even multiple times on the same board (for
+example, Cragganmore 6410 has two WM831x PMIC instances, only one of
+which has a DVS GPIO wired to DCDC1), the shared static mfd_cell arrays
+in wm831x-core.c cannot point to a board's software node at compile
+time.
+
+Note that local_cells is annotated with __free(kfree), so the duplicate
+array only lives for the duration of the mfd_add_devices() call (which
+makes its own per-device copy of each mfd_cell anyway) and is freed
+immediately before wm831x_add_devices() returns.
+
+> Since pdata is being populated already, why not just pass that on to the
+> consuming child device (the regulator)?
+
+The regulator driver (wm831x_buckv_dvs_init() in
+drivers/regulator/wm831x-dcdc.c) acquires the DVS GPIO using
+devm_gpiod_get(&pdev->dev, "dvs", ...). When converting the board file
+away from legacy gpiod_lookup_table to software nodes (to drop the
+fragile MFD device name matching and fix the GPIO chip label lookup),
+gpiolib resolves the "dvs-gpios" property against the consumer device's
+fwnode (&pdev->dev), so the software node needs to be attached to the
+wm831x-buckv platform device.
+
+In v2 of this series I actually tried passing the software_node pointer
+through wm831x_buckv_pdata and attaching it to &pdev->dev inside the
+regulator driver's probe() [1]. However, attaching a software node to
+an already-registered platform device inside probe() is awkward and
+requires manual teardown in the child driver, whereas mfd-core already
+has built-in support for cell->swnode in mfd_add_device() (attaching
+the node via device_add_software_node() before platform_device_add(),
+and cleaning it up via device_remove_software_node() on error or
+removal). Populating cell->swnode lets mfd-core manage the software
+node lifecycle cleanly and keeps the regulator driver untouched.
+
+If you prefer not to kmemdup the full cell table, another option would
+be to split the buckv cells out of the main wm831x cell arrays and
+register them via a separate mfd_add_devices() call, though that seemed
+more intrusive across wm8310/wm8311/wm8312/wm8320. Please let me know
+what you would prefer here.
+
+[1] https://lore.kernel.org/all/20260708-samsung-kp-v2-7-3c6ed4c9b3b6@gmail.com/
+
+Thanks.
+
+-- 
+Dmitry
 
