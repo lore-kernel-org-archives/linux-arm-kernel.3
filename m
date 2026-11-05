@@ -2,106 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1900606A330
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:00:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77D38606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:02:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qliWDpvA;
-	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=jIIrsYBN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=U+002MHA;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=YLIpO1iD
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=mGr7t/EAFXFSUA+jAEctWicl0dyfbpawNQjldrWR+2E=; b=qliWDpvAN2mOLC
-	BoqIFwNKPVTSsDU/HiWBJo/V7rzVTgLPYjdgDSgMnoyjl5SpB4BJ9W+vxS5PZTNkjqxmmMlq/6WWd
-	lybXLmsKfBZbjLe5ZxOwpu8+kjsoK4b+uKaWWxl2Nsrgo8dOKj/xVW8oVAMXcbFpnUW5gv9KibxFx
-	Fh+sYeFy2uVz1eWomnSTUbOb541bB1mFuU4zX1yAVFU2pbXUaOBNPB615exPOgOOdoe3D9hvT0/Ha
-	SeA+GWp2dhHviddbRVZeD0FMZDS66yeSlzwCXpULnfDYsmBH0xnSbxQrG9wK6gyPdFyfMxLr4WEaW
-	NUs9dFPGlpQxtFM5/iVQ==;
+	List-Owner; bh=gZd6e2ni20P+OpySwPpNrzuCEe/t8gUcg0pg0WzBYrI=; b=U+002MHA9DwWtK
+	ioyFCleFKf211mZoVsth23e4+rwvXm6xe749rESjgXfcjH4pnOpM0UdAu746qD947rT4eSX5G8v4I
+	1Odo+sSN1HZvu6X4BHhzrlDj+h5e9Xqg6zOTFq90nuob55K9uwUOK4bnk8nRlal/NOWzyk7vhz7JM
+	jJu2A785a72LB+Kf8L9E3Ke9fRY8KyrTPfJfIFJXiUMuZlibC/gGsUy1gvpaoEbpaZLQ2zqYUqVEF
+	OkG3Me3cZkLy5mpQjFhadTuQJMF6B21wtT4JWpknVgl4YzCwP9dgefT5zYqXym/rDwNXDWMRxQydU
+	pf+M90NzH8Yhd94Mo4yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOw8a-00000008noF-3VdM;
-	Thu, 05 Nov 2026 12:00:12 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1xOvuK-00000008ilA-36k0;
+	Thu, 05 Nov 2026 11:45:28 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOw8Y-00000008nlP-08Us
+	id 1xOvuI-00000008ihd-0cXq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 12:00:11 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4b4571ff080so19057175e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 04:00:09 -0800 (PST)
+	Thu, 05 Nov 2026 11:45:27 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4ac95761c85so12629015e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 03:45:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1793880008; x=1794484808; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mGr7t/EAFXFSUA+jAEctWicl0dyfbpawNQjldrWR+2E=;
-        b=jIIrsYBNI8hsvMHbdkIklxMMLhIxC/YNCz8YVDukzUQFZkpY98M7Zu85EaOTAzouxx
-         8QeT9ViP9sJoQIdvoDeKFkBPUSCk7UTRweH+vDloX65JIRN3AeOyN4VOg52k94Qo9rwD
-         HXRgoKb0KgC6mt5SnYYhwzES8sIqJxgvzJiD23G0xl7KoVRGVZ7OdBHslFOF8Uzat+rP
-         Rl3uXLqdNfXT5guPjFFca7rppf+ZGS9f7hzIOp4nv8uq+HWznzDvLiiJLSkKdu4kmljb
-         0n6gSwSvGEnk/c9nMWifyVpZDp+3MPEI+udDnzzG9v2NpVQp7JrPupzFlNDml0C6LxM4
-         eo5Q==
+        d=linaro.org; s=google; t=1793879124; x=1794483924; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=gZd6e2ni20P+OpySwPpNrzuCEe/t8gUcg0pg0WzBYrI=;
+        b=YLIpO1iDg0I6rJJ0v09idnNfAxa1IVMhGyPdDhEMvThb5L25QCWypd7nvI1d+Q6gAq
+         jB01+rvyUpgriDJA4Wzt7/Bp+f8Gm7UloQuYby8nGnQdrQmgh6G+jyS4vMnaxJ0awYDE
+         mL+MA1RU1+4Wk3TwY5QhX5Q+dIT3OSggRFrT0kTQ6QuPE+Grue8sScU0t7t90EJKgx6i
+         pzXTTazP6q/JpaTBTDjETkVKxBWEirvUQrU6V/xOeu8BLGQiUYvGuL16OTaozUTmkrHW
+         eWy/gWR1JFrkGCns4R2g0YlvpLrvmd4TDLmxNxODvFvSAXQDUQkEa4hkiPy+CE5BxPxk
+         7tOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793880008; x=1794484808;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1793879124; x=1794483924;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=mGr7t/EAFXFSUA+jAEctWicl0dyfbpawNQjldrWR+2E=;
-        b=Ww5XNAeSIVewjXYo81WA3ZSkNrcTTkx/nLTx+4c3ShBnpUa/nZqrlBHjNHejFWucXR
-         WhAd/YeiZtRswru2Poii04bz28e5vDN6hoUhBtQAhiW65C1Z16l258noVrmhsacRJzax
-         tJnGVInNZ6nefjG9otUExi4nE/eDlQx8FZYoBTTqgAooVNuSFIaOlOh+VStvgMC7xqfP
-         z2Q4d0W7KJJxk09VlKuXCh3e0jISMvZbZlo1lICtsvPngBONY+VjVQGTgvlw88qr0I1b
-         v5nFTXKAwNuXEDTIMJZBdnbTXqk8tKCNPiRG/ka1nNjpZtv95ltzvc/TN4hJMGLd0FOk
-         vs3A==
-X-Forwarded-Encrypted: i=1; AKwUvBxL3n1m8haRnZ6DVxnLLBcitrJntpMnMIICZBPv0EZ8FawsEOfdiTEOGbehtiehCRLzUHyEsBwbA6pl3JwSF6O0@lists.infradead.org
-X-Gm-Message-State: APuU4Z+qcLaQyCsX4aJdtDjmtDmzovADl3gZeApfk4LjlbodxJcI5iLT
-	nbiNqR5LTEx29AMK/imUiA1gt3IxMiP/N0dB+hQJk0alDd9wdD6Wv3AnVMJLChEC4nY=
-X-Gm-Gg: AYBFou2Z/DTa+idPPL2GAUbYZwkqu4oXt7k2cgDxdziP6LGyZiydrOKfOVQDb6Zbn5K
-	4WgyV/BO0Py6iyUv7Z0zLqKBGEGeoy04lptQOIna+yiDbbQJFeL34O/d3EB1MBkMbQC6fzt6Sfc
-	83s11uZXNCwwHp/c7BDub9NETUMtMeHGmp/uN2DOmOOI+b9RatGp9BGrqUOQqs/S0hEtSMTKn7T
-	9l0lTX18xlLqlCyYdl5xFFoGRDMX+lCoSMzPP1GQ+MB/VoKuF1JwCYBRjbdekIJd5cYsFIM+E2P
-	/ZFxsTol9nbtS832J1TNpWrnxjBEm41wIWAxhaAf4LoUTd6+KxFQCr4jCCRj2Jte7BWxTa2KtvC
-	cQyQl/it5umhjJWKzqPnJ45cRlRddhumnqb+cOflxBNpnvVrn2Aveyonw+KZbAx70spLOxy/rUc
-	8JYHVEBnhqdpRbNMIRbDxwEWsF8gR+ZG4qOXSgxrypOMFCdrEVo6kUZgqCXVaZHCW/L2GPepYon
-	hJOCQ1cuK8TXUNvnBo6lPI8WSXQUmTjfpnOI/EjTetBpfCL4VS/SVe9DU1hkVf+LFCxxEqGUkHD
-	NIP4grqVwAyiEkIo7kB9fNaiZXBQR4s/4p5H4w+fCtacjS37/WlqT7Qs3o2VeF1BR6kEVEvy3V6
-	TCAVAysBTtoVL4Dqz
-X-Received: by 2002:a05:600c:8b54:b0:4a1:fa21:fd90 with SMTP id 5b1f17b1804b1-4ac16bc547dmr439771995e9.9.1793880007587;
-        Thu, 05 Nov 2026 04:00:07 -0800 (PST)
-Received: from localhost (p200300f65f19a904ae40ca5165ccacb8.dip0.t-ipconnect.de. [2003:f6:5f19:a904:ae40:ca51:65cc:acb8])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4b572bba207sm57515205e9.10.2026.11.05.04.00.06
+        bh=gZd6e2ni20P+OpySwPpNrzuCEe/t8gUcg0pg0WzBYrI=;
+        b=AHcBjlCLrKLZW1Hbvon7GCt5fc1g5gXnBtIXkXOvE3jM5+sTE3ZZGmhWK8CX6QVXby
+         brpqhSlUhQw2MMnE5ET7mfQX83JK0m1JO78fpUwsR42uxZ+D0cAccIJQBhGP+NhavTWv
+         ectWcb8BsKaI7aCrHvV2NVcjkpVM818eWCy/iSMYVw3bNGSTs6cSixk6UVK8GrR6HEC0
+         qcbAfPVJLuZ5HkABwqVIACt82wXMs+WwKlEYxT3RphJylRL7Nh9SlB5NFA9MZWmM4tu6
+         y5gYllS/CpONLoVMsOjMAP8KQUD2470yqF8RDzbTE8uhpZGedBoK+PSet51kAKaXei5E
+         kvUQ==
+X-Forwarded-Encrypted: i=1; AKwUvBztSTJwnI+beIyJMCEpY9k/IEO9hBisJJ7lhoB1VNp2PeFs/ZdwzzchZu6ARmLoXVRdyi+Pe5EeHlT0yi6RU+FJ@lists.infradead.org
+X-Gm-Message-State: APuU4Z86Gzau7tEP0StzwuU2IS8SfR+1jAEhRPPK5nc0bhzyZZI4Q5T8
+	AUSwB36FwtjinBhnhPhCBOut6sJ7HheNkv/RGBxddwrZwhXv6X6wfERxOBVql97b1Q4=
+X-Gm-Gg: AYBFou0/V5UV1gikM6U1xlhXRHnrTUbPBWQNVpJ4LweVbgFs2h9Tze45eunj6GMDiBD
+	fH/rW4XSgHmm7Xk+AsTCUN58woX0m7X/UvoB0xE9d1VenxNODDJRT2mYQegkrx8CPj9QZrKO5lE
+	Jxpm6+VYvR0/IHWLNqmk8toxAsOHX/kWy1K3vBhLdJp2cKjcfYaFauXA3jAeWs2gWbVsDUkXgaE
+	ibVv+qVSjjJGnefdBVb4b+5h1RSZGUELlLkELVF+JBsyVNmyHInOehvmGrlMjhNrQKf445a6gTt
+	AbYVHi/jIHrzAa1GGB1tvayAavBSiJLexA5lLQ0pwa47nxu5bHKluIiwAFd1OiD0ozXUul+lW85
+	IoPTIGVzzo8jFmdL/sIWk4uYYkP7YvhAf4s0SA/s5jXe1rG7gS3AF6pc9j4fJeUGQb22nU1O5Hu
+	vdLwEXNR5nMXTawSqZMooUUGfmtVNEqIpllPhRQr2tcGYGFak1aHXSUJnvamtdo5rTAB/NEnr0G
+	E0tMxMpe1IPYpGyHvJlasBPAjEBzI9XgIDX3p6rVnMParoryadjUam5JqXE0z5tQ7/P01YP4vQE
+	m8H8h8H+/an1Z/TEkR3MiPllUI84W3Ct
+X-Received: by 2002:a05:600c:4704:b0:4a3:12fb:1ef1 with SMTP id 5b1f17b1804b1-4ac18992a21mr378217845e9.29.1793879124465;
+        Thu, 05 Nov 2026 03:45:24 -0800 (PST)
+Received: from pop-os.local ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b571f46538sm56679525e9.5.2026.11.05.03.45.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 04:00:06 -0800 (PST)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: [PATCH v3 2/2] remoteproc: imx_dsp_rproc: Implement .memcpy_tova()
-Date: Thu,  5 Nov 2026 12:59:52 +0100
-Message-ID: <5e187f338148963ab46454f367551aab8209c3c4.1793879714.git.u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1793879714.git.u.kleine-koenig@baylibre.com>
-References: <cover.1793879714.git.u.kleine-koenig@baylibre.com>
+        Thu, 05 Nov 2026 03:45:24 -0800 (PST)
+From: James Clark <james.clark@linaro.org>
+Date: Thu, 05 Nov 2026 11:44:52 +0000
+Subject: [PATCH v4 04/19] perf cs-etm: Use per-CPU queues for per-thread
+ mode
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5297; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=zxEn3GKmjIkApottOw2da7a+5Ym3eFer8LHtbjoIoLM=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBq7G+7DhnDwRRIC8qtXfVeHqm4pTsPOGhHrwGyK IdEPSeorwmJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCauxvuwAKCRCPgPtYfRL+ TjXBB/wNMNXXTvWrrWPBibs4j3OlIMqcZVQ19fZYj8o76ykEh9/YhJfVtNSsaRnc6GF483NVwwH kzY+UoSVFv12D9Zj9anjy2qrzG5EhQMNwUSC+VXgMmssVLYNj0dsq7cppE08gx7Q0qDGqmDebMB IV66y0m7uifq3HOpcxlVI447ZR0jT330UVNWsHnULm7Ji5PbnMFCXicR3EAvIRgg0ylcXQ6GXX2 S5v+Q5Yr+uKRCLNRLmMez32Ltl2FtVcFxGXmcDbhDXt+g/DXc/ss6MHD754CbOmuLQRGi6urIGw VbImt9FKYfcOLqKB5BIZ1k/zwKYD2BriV38Ql+K27vJZj3HZ
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261105-james-cs-unformatted-per-thread-fix-v4-4-7759e0ce2449@linaro.org>
+References: <20261105-james-cs-unformatted-per-thread-fix-v4-0-7759e0ce2449@linaro.org>
+In-Reply-To: <20261105-james-cs-unformatted-per-thread-fix-v4-0-7759e0ce2449@linaro.org>
+To: Leo Yan <leo.yan@linux.dev>, Adrian Hunter <adrian.hunter@intel.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>, 
+ Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>, 
+ linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Arnaldo Carvalho de Melo <acme@redhat.com>, linux-doc@vger.kernel.org, 
+ James Clark <james.clark@linaro.org>, John Garry <john.garry@linux.dev>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_040010_122015_A2D6E99F 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20261105_034526_240901_7EAF13B2 
+X-CRM114-Status: GOOD (  19.66  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,175 +122,117 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This callback allows to use the core's rproc_elf_load_segments()
-function instead of reimplementing it for very minor changes.
+This makes it easier to support multiple threads without creating a
+decode tree for every CPU for every thread. It also fixes the CPU field
+of synthesised samples being incorrect when the CPU can't be retrieved
+using the trace ID in unformatted mode.
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+It also simplifies by removing a special case in the decode path for
+per-thread mode. Per-thread mode is now decoded in exactly the same way
+as per-CPU (apart from pre-initialising the context).
+
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+Tested-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- drivers/remoteproc/imx_dsp_rproc.c | 120 ++++++++---------------------
- 1 file changed, 30 insertions(+), 90 deletions(-)
+ tools/perf/util/cs-etm.c | 40 ++++++++++++++++++++++++++++++----------
+ 1 file changed, 30 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-index 96d619daf3f5..324c10f18507 100644
---- a/drivers/remoteproc/imx_dsp_rproc.c
-+++ b/drivers/remoteproc/imx_dsp_rproc.c
-@@ -864,97 +864,41 @@ static int imx_dsp_rproc_memset(void *addr, u8 value, size_t size)
- 	return 0;
- }
+diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+index 5abdd726c6d2..966261429da6 100644
+--- a/tools/perf/util/cs-etm.c
++++ b/tools/perf/util/cs-etm.c
+@@ -296,9 +296,6 @@ static int cs_etm__map_trace_id(struct cs_etm_queue *etmq, u8 trace_chan_id,
  
--/*
-- * imx_dsp_rproc_elf_load_segments() - load firmware segments to memory
-- * @rproc: remote processor which will be booted using these fw segments
-- * @fw: the ELF firmware image
-- *
-- * This function loads the firmware segments to memory, where the remote
-- * processor expects them.
-- *
-- * Return: 0 on success and an appropriate error code otherwise
-- */
--static int imx_dsp_rproc_elf_load_segments(struct rproc *rproc, const struct firmware *fw)
-+static int imx_dsp_rproc_memcpy_tova(struct rproc *rproc, u64 da, const void *src,
-+				     size_t filesz, size_t memsz)
+ static struct cs_etm_queue *cs_etm__get_queue(struct cs_etm_auxtrace *etm, int cpu)
  {
- 	struct device *dev = &rproc->dev;
--	const void *ehdr, *phdr;
--	int i, ret = 0;
--	u16 phnum;
--	const u8 *elf_data = fw->data;
--	u8 class = fw_elf_get_class(fw);
--	u32 elf_phdr_get_size = elf_size_of_phdr(class);
-+	void *ptr;
-+	int ret;
+-	if (etm->per_thread_decoding)
+-		return etm->queues.queue_array[0].priv;
+-
+ 	if (cpu < 0 || cpu >= (int)etm->queues.nr_queues)
+ 		return NULL;
  
--	ehdr = elf_data;
--	phnum = elf_hdr_get_e_phnum(class, ehdr);
--	phdr = elf_data + elf_hdr_get_e_phoff(class, ehdr);
-+	/* grab the kernel address for this device address */
-+	ptr = rproc_da_to_va(rproc, da, memsz, NULL);
-+	if (!ptr) {
-+		dev_err(dev, "bad phdr da 0x%llx mem 0x%zx\n", da, memsz);
-+		return -EINVAL;
-+	}
- 
--	/* go through the available ELF segments */
--	for (i = 0; i < phnum; i++, phdr += elf_phdr_get_size) {
--		u64 da = elf_phdr_get_p_paddr(class, phdr);
--		u64 memsz = elf_phdr_get_p_memsz(class, phdr);
--		u64 filesz = elf_phdr_get_p_filesz(class, phdr);
--		u64 offset = elf_phdr_get_p_offset(class, phdr);
--		u32 type = elf_phdr_get_p_type(class, phdr);
--		void *ptr;
--
--		if (type != PT_LOAD || !memsz)
--			continue;
--
--		dev_dbg(dev, "phdr: type %d da 0x%llx memsz 0x%llx filesz 0x%llx\n",
--			type, da, memsz, filesz);
--
--		if (filesz > memsz) {
--			dev_err(dev, "bad phdr filesz 0x%llx memsz 0x%llx\n",
--				filesz, memsz);
--			ret = -EINVAL;
--			break;
--		}
--
--		if (offset + filesz > fw->size) {
--			dev_err(dev, "truncated fw: need 0x%llx avail 0x%zx\n",
--				offset + filesz, fw->size);
--			ret = -EINVAL;
--			break;
--		}
--
--		if (!rproc_u64_fit_in_size_t(memsz)) {
--			dev_err(dev, "size (%llx) does not fit in size_t type\n",
--				memsz);
--			ret = -EOVERFLOW;
--			break;
--		}
--
--		/* grab the kernel address for this device address */
--		ptr = rproc_da_to_va(rproc, da, memsz, NULL);
--		if (!ptr) {
--			dev_err(dev, "bad phdr da 0x%llx mem 0x%llx\n", da,
--				memsz);
--			ret = -EINVAL;
--			break;
--		}
--
--		/* put the segment where the remote processor expects it */
--		if (filesz) {
--			ret = imx_dsp_rproc_memcpy(ptr, elf_data + offset, filesz);
--			if (ret) {
--				dev_err(dev, "memory copy failed for da 0x%llx memsz 0x%llx\n",
--					da, memsz);
--				break;
--			}
--		}
--
--		/* zero out remaining memory for this segment */
--		if (memsz > filesz) {
--			ret = imx_dsp_rproc_memset(ptr + filesz, 0, memsz - filesz);
--			if (ret) {
--				dev_err(dev, "memset failed for da 0x%llx memsz 0x%llx\n",
--					da, memsz);
--				break;
--			}
-+	/* put the segment where the remote processor expects it */
-+	if (filesz) {
-+		ret = imx_dsp_rproc_memcpy(ptr, src, filesz);
-+		if (ret) {
-+			dev_err(dev, "memory copy failed for da 0x%llx memsz 0x%zx\n",
-+				da, memsz);
-+			return ret;
+@@ -436,11 +433,7 @@ static int cs_etm__map_unformatted_trace_ids(struct cs_etm_auxtrace *etm)
+ 			return -EINVAL;
  		}
- 	}
  
--	return ret;
-+	/* zero out remaining memory for this segment */
-+	if (memsz > filesz) {
-+		ret = imx_dsp_rproc_memset(ptr + filesz, 0, memsz - filesz);
-+		if (ret) {
-+			dev_err(dev, "memset failed for da 0x%llx memsz 0x%zx\n",
-+				da, memsz);
-+			return ret;
+-		if (etm->per_thread_decoding)
+-			cpu_data = etm->metadata[0];
+-		else
+-			cpu_data = get_cpu_data(etm, queue->cpu);
+-
++		cpu_data = get_cpu_data(etm, queue->cpu);
+ 		if (!cpu_data) {
+ 			pr_err("CS_ETM: Unformatted queue missing CPU metadata\n");
+ 			return -EINVAL;
+@@ -1301,7 +1294,7 @@ static int cs_etm__setup_queue(struct cs_etm_auxtrace *etm,
+ 	queue->priv = etmq;
+ 	etmq->etm = etm;
+ 	etmq->queue_nr = queue_nr;
+-	queue->cpu = queue_nr; /* Placeholder, may be reset to -1 in per-thread mode */
++	queue->cpu = queue_nr;
+ 	etmq->offset = 0;
+ 	etmq->sink_id = SINK_UNSET;
+ 
+@@ -2187,6 +2180,7 @@ static void cs_etm__flush_all_stack(struct cs_etm_queue *etmq)
+  */
+ static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
+ {
++	struct cs_etm_auxtrace *etm = etmq->etm;
+ 	int ret;
+ 
+ 	/* The current block is not finished */
+@@ -2215,6 +2209,29 @@ static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
+ 	 */
+ 	cs_etm__flush_all_stack(etmq);
+ 
++	/*
++	 * Per-thread mode still uses a queue for each CPU, but that CPU can run
++	 * different threads. When the TID from the AUX record on a CPU changes,
++	 * re-initialize the thread using the AUX record/buffer fragment TID so
++	 * we can start decoding even if the context ID packet was cropped or
++	 * they're disabled.
++	 */
++	if (etm->per_thread_decoding) {
++		struct cs_etm_traceid_queue *tidq = cs_etm__etmq_get_traceid_queue(etmq,
++							CS_ETM_PER_THREAD_TRACEID);
++
++		if (thread__tid(tidq->decode_thread) != etmq->buffer->tid) {
++			thread__zput(tidq->frontend_thread);
++			thread__zput(tidq->decode_thread);
++			tidq->frontend_thread = machine__findnew_thread(
++				&etm->session->machines.host, -1,
++				etmq->buffer->tid);
++			tidq->decode_thread = machine__findnew_thread(
++				&etm->session->machines.host, -1,
++				etmq->buffer->tid);
 +		}
 +	}
 +
-+	return 0;
+ 	return 1;
  }
  
- static int imx_dsp_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-@@ -969,7 +913,6 @@ static int imx_dsp_rproc_load(struct rproc *rproc, const struct firmware *fw)
- 	struct imx_dsp_rproc *priv = rproc->priv;
- 	const struct imx_dsp_rproc_dcfg *dsp_dcfg = priv->dsp_dcfg;
- 	struct rproc_mem_entry *carveout;
--	int ret;
+@@ -3288,7 +3305,9 @@ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_o
  
- 	/* Reset DSP if needed */
- 	if (dsp_dcfg->reset)
-@@ -985,11 +928,7 @@ static int imx_dsp_rproc_load(struct rproc *rproc, const struct firmware *fw)
- 		}
- 	}
+ 	if (aux_offset >= auxtrace_event->offset &&
+ 	    aux_offset + aux_size <= auxtrace_event->offset + auxtrace_event->size) {
+-		struct cs_etm_queue *etmq = cs_etm__get_queue(etm, auxtrace_event->cpu);
++		/* Old per-thread files have no CPU (before v6.4) */
++		int queue_idx = sample->cpu == (u32)-1 ? 0 : sample->cpu;
++		struct cs_etm_queue *etmq = cs_etm__get_queue(etm, queue_idx);
  
--	ret = imx_dsp_rproc_elf_load_segments(rproc, fw);
--	if (ret)
--		return ret;
--
--	return 0;
-+	return rproc_elf_load_segments(rproc, fw);
- }
+ 		if (!etmq)
+ 			return -EINVAL;
+@@ -3301,6 +3320,7 @@ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_o
+ 		auxtrace_fragment.auxtrace.size = aux_size;
+ 		auxtrace_fragment.auxtrace.offset = aux_offset;
+ 		auxtrace_fragment.auxtrace.idx = etmq->queue_nr;
++		auxtrace_fragment.auxtrace.cpu = etmq->queue_nr;
+ 		file_offset += aux_offset - auxtrace_event->offset + auxtrace_event->header.size;
  
- static const struct rproc_ops imx_dsp_rproc_ops = {
-@@ -998,6 +937,7 @@ static const struct rproc_ops imx_dsp_rproc_ops = {
- 	.start		= imx_dsp_rproc_start,
- 	.stop		= imx_dsp_rproc_stop,
- 	.kick		= imx_dsp_rproc_kick,
-+	.memcpy_tova	= imx_dsp_rproc_memcpy_tova,
- 	.load		= imx_dsp_rproc_load,
- 	.parse_fw	= imx_dsp_rproc_parse_fw,
- 	.handle_rsc	= imx_dsp_rproc_handle_rsc,
+ 		pr_debug3("CS ETM: Queue buffer size: %#"PRI_lx64" offset: %#"PRI_lx64
+
 -- 
-2.47.3
+2.43.0
 
 
