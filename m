@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF0BE606D81A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 04:41:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11B8F606EEBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 04:41:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OVADoTNH;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kGW4TkTc
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=E+DTckM5;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ecmzfAII
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
@@ -14,72 +14,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=0zwPeQp6dUlaCXVekZRsNO6Eo2NKdROfCYjJe7dvpFY=; b=OVADoTNHxHtei8fobkBBiJuAYB
-	LouPHBr3i9EOBTtb4TADWph/vAB2Of23HY42YLcFNDdp6QBVw3c0tSPJrtQLfYSOMmgMg9w2sjHpF
-	5y6AeDQlZhhb5xwXKt+3gMwEMGZjhj0h5Uj1CghAE0+5DxT0TtnbkJqPxMFjcmhlLvToXGPHoEowt
-	3WEcyNJVJuUFHS5j4qTJ3PuTIqLVTevNUSRp/dfp8yibW3kjs8lcSEEgFRMCkCdsbBpr+GT3KBAIP
-	CIVAc5EGKxMqTXySYVTuOqch2CrvWV1jPM8qfVxmrsg5k+m8HryoRhK974l+X96si7bsCtoYF2Xea
-	GQKZRJCg==;
+	bh=rH9b+qonWYU0U9xuZioxm6lWLILfzoQKLx37tFS+/zY=; b=E+DTckM5tjg5wAaW9lfyceWpld
+	arcHvZqnJZaRDi92Poy854qFYP+ZDtP06UpRNlIBJ14MvZCtC7v2HEhjBvKXIjy+pZONTpQLvgbNx
+	cL6i1uQ//pRhltEfXz5o2B1Aw2hjwwQEh+ibdjfoj10WujmPRwOPdfFtsVEafv4aGKGZQoAzX7Yk/
+	AhaNTZ6GaoDtG39B+KDnVDIzbSXtyH8pdE8FASa+Rvpp2LK4Q1cQdae8jzk0D0ElrGVionwLUXBX6
+	VPNSEm7KF4l1pCRVnfABHPHbpYl1goqu0KzmjwwWtz3a9IhAoYBI7Q24Zdo91bLBrBh2ncJSvTh9s
+	lXZasppg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOpHg-00000007nAr-2Jjx;
+	id 1xOpHg-00000007nBB-2xt7;
 	Thu, 05 Nov 2026 04:41:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOpHb-00000007n52-40GA
+	id 1xOpHc-00000007n5R-19Zk
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 05 Nov 2026 04:41:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2093460D8E;
+	by sea.source.kernel.org (Postfix) with ESMTP id B760740643;
 	Thu,  5 Nov 2026 04:41:03 +0000 (UTC)
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793853662;
-	b=PkvL/cewj8KioAI9emVtBNt0KXhwReBRksfuVS8bWgwWj247PjdMRkM7YhWCkllpzTZY
-	 SPftrB9K6On4Sj3Cw/QLYPg/lXwau6I18/46AhNXoiIoWTGpDD+vxA7E/76fecXAzm0Iz
-	 IzPTOlQNxhZo9+2t5w1c5LXZ1q3M6DKUIECAtWqQdMlqoYvi5ab/eJMywLYM6Mp47xlJg
-	 Chm62QTgi8NcIpwFSAQ6orE2Sr8xR6z3KqBhuuJTMhD5hsKEbsoOcYnY1Z+aKqgZR/uon
-	 ylpnZOh6ba4hww8ZgRyXTsfbdbgigM1Z8Tp/jDDqoIvUAJOI9kHiW6Q6Q61Y4nk3DGg==
+	t=1793853663;
+	b=O7FLfZ46QptknCKIlDfjWo+AghJsHUTi+1Jn5mBpr3ogZiBOAmSjhFk0Ofst0OjbPPrl
+	 5E5jm/ScULxnyeB6oDwlb2YcryNe+/tvgY+jv8W7NeilBbJW1CcEUi6c+J0yMuL97Oxk2
+	 gXYeZwnFI1YAByGapjMuVC9ktf7JfHIkMVhf2Z1ig3+5lTUdyKBcE+pyXrcQrTJjZzu/a
+	 NdHaNrRwiBvsFKuxfSCdBIWclbowk8NXz8KVh73e9vI40rw691A4kr2VNgwrfHl3phwIg
+	 cvK/H9H2d9m06GV01sCmovab6RSwFeBCJGtSvZHctF6jlJcUNW4qqPzUT49letsugHA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793853662;
+	c=relaxed/relaxed; t=1793853663;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=0zwPeQp6dUlaCXVekZRsNO6Eo2NKdROfCYjJe7dvpFY=;
-	b=3pumTXxqbRYy7ZsW2ZdBX6T1nxrqQyS1E7NXJfYhfLLLnkVp0CasVDcyu8SOmSEzvwi+
-	 ZxFA87uLvKbYMJIBgG+eRqv1E2TM42fTPBQXzb08yzly6pSmKeeWiuCbEbHZIbmnEcuFQ
-	 zR0mUD5zN5SehSjw3zWomxxRq/6wWaPyvuk69Mp4wfb0HzgXQ1Re41VtZiPMsxNgL7kqY
-	 Yyhh8JCDlxbRfow1+jos28+6Mckux6r16qD5HYIFD5p3vJeqzCVA+0zoUVK0exPN2yIcv
-	 8C0OU+QhRkqbzKYhwaRxDkUau5BWaZ9bhgXhTBqOn/T21c+cV8ZfcX+KMTfgRpLmcHQ==
+	bh=rH9b+qonWYU0U9xuZioxm6lWLILfzoQKLx37tFS+/zY=;
+	b=DxqcyKbn9dKhnbMD7EyTdGQXfk6vfgZ3TEpZh6uUxoXh+U2CmM99mwCLjS3pSJP2E+8Y
+	 BQsyJt+lP+efuWK0Ve5KSM/pD6Z29YLPF2IDL51p8XywTmijU3mV4mXPx5vn/ksd7tbhA
+	 QauyiTtZi20XR/QRSSUvMKpnkKWXF2dvdaEBClg6ex6lbRWn3MQVyoGqw+L59LIBPPa1X
+	 X5DfAdHkkxQd5cmvOUDbc/9m95APi2kAGXK+Ixibu2fSBXzPDG4JvrrTqKSlC+nrf15v3
+	 nEbzy9sxe2WyEzT8YwkWMoKGyT3cUdYTa1ne33U+PG6c7AGn/yUb6LJMd8B+Ma0/nOw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 635B01F00A16;
-	Thu,  5 Nov 2026 04:40:58 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 0550C1F00A29;
+	Thu,  5 Nov 2026 04:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793853662;
-	bh=0zwPeQp6dUlaCXVekZRsNO6Eo2NKdROfCYjJe7dvpFY=;
+	s=k20260515; t=1793853663;
+	bh=rH9b+qonWYU0U9xuZioxm6lWLILfzoQKLx37tFS+/zY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=kGW4TkTcRc2kUeo2NiUhuUXk7ysDhdbf/n3gQpKGwNA6XTtXkw06EVrEwc+0OCvee
-	 Dnc/W19wYQdj5M+FCVRv2fRdmX+ahaEYSrJXcHoxpMtvYDjZ4VZhXWvsqvC1+UBFU5
-	 KgJ0Qhzdho428xyzYZlPZzFBKZz7x8nNTGCWA0Bs/tPFMZ/BZQ9bHVlzOjQqCzLdYO
-	 B3niuOuWmF1iRp+DcwBMnonAtMWqN0zVDztiFvKCLoxeItyMJOm0SNZrsGENL+tJwB
-	 FsYWQnLNIolD7AEcp8YfmPx4fBDM8ya9dsESKbtAWPIgTvFyCVkbjF3rb82+02BiZG
-	 uaJ1/uhKZWH7A==
+	b=ecmzfAIIHeVK1xB9coAJNocts1Mk41gB9gnOIJs4mCI6Q4ojE8RtIEc2W1o8Xf04S
+	 U1H99VSmr8WeMpAhw6p7prmD0wjNEJsWRgf4l3ATpmFxVhKN0PTvtuZu/32JN2wjiZ
+	 Q6tWuSAi8ke4zUi7tvjUEq1ILA4yfADvsPBInj2c6M5Th4JNGENBYX5IUvgUeiufXb
+	 BjX7pIvKKMuiPdOQA7NpYNqSyqPpWBFJ/8v/wXNqPZ1rdbbaVFhuDUY/HHHRpse3s7
+	 dng/KXBnr7IVwaMNmQ8PQuc6ng74Ja6yarH4YJuZScfbz8HbHWN2V/BtgziHj2Xtcc
+	 keJEKTGIZWIww==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id E3BE84709B;
-	Thu,  5 Nov 2026 04:40:57 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 23DC7470AB;
+	Thu,  5 Nov 2026 04:40:58 +0000 (UTC)
 From: Rajan Yadav via B4 Relay <devnull+rajanyadav0307.gmail.com@kernel.org>
-Date: Wed, 04 Nov 2026 22:40:57 -0600
-Subject: [PATCH 2/6] cpufreq: sun50i: Move nvmem cell reading into a helper
+Date: Wed, 04 Nov 2026 22:41:01 -0600
+Subject: [PATCH 6/6] arm64: dts: allwinner: a133: Use the A133 CPU OPP
+ table
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261104-a133-series-v1-2-58217cb33a87@gmail.com>
+Message-Id: <20261104-a133-series-v1-6-58217cb33a87@gmail.com>
 References: <20261104-a133-series-v1-0-58217cb33a87@gmail.com>
 In-Reply-To: <20261104-a133-series-v1-0-58217cb33a87@gmail.com>
 To: Yangtao Li <tiny.windzz@gmail.com>, Viresh Kumar <vireshk@kernel.org>, 
@@ -94,14 +95,14 @@ To: Yangtao Li <tiny.windzz@gmail.com>, Viresh Kumar <vireshk@kernel.org>,
 Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
  linux-kernel@vger.kernel.org, Cody Eksal <masterr3c0rd@epochal.quest>, 
- Alexander Sverdlin <alex@sverdlin.org>, kernel test robot <lkp@intel.com>, 
+ Alexander Sverdlin <alex@sverdlin.org>, 
  Rajan Yadav <rajanyadav0307@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793853656; l=3211;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793853656; l=3324;
  i=rajanyadav0307@gmail.com; s=20261103; h=from:subject:message-id;
- bh=jug1cYQuSv5vtD26KyGAcWUzxwXZeSilBxENXC4nAHg=;
- b=k0dIIHjmW7+QmHhHfNI7sv6p4fN6fPT5z/URspyr/6RQHO8f1lmPqeO5DKL27skarbEWmIzqG
- dyveJDl+NJ4BHE0MldP9sop/vfM5Jg6T/yKTwlavNrJkql/F2zTG5q/
+ bh=x5FE0Mhj6qYPFUq6zvVIYk5BeSBjVopTztLIpG1kUCM=;
+ b=piOPG5YLJZp9HRQREOhbgGNTbR72tV2osHC80xB2c/s04EqF2pecIuVVvVFrmA7bNITkzMaP1
+ rEp1ItCY4kyCpCPkzegLvgQs+BLD8k0cHTkALKaQm76R1ezINQbZfyN
 X-Developer-Key: i=rajanyadav0307@gmail.com; a=ed25519;
  pk=4ZPeiP5qrv2b44q/Obxi2koUS70Q6npbttJnpUoTlgg=
 X-Endpoint-Received: by B4 Relay for rajanyadav0307@gmail.com/20261103 with
@@ -129,110 +130,81 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Rajan Yadav <rajanyadav0307@gmail.com>
 
-The A133 speed grade needs several efuse cells, but the cell reading
-is open coded in sun50i_cpufreq_get_efuse() for a single cell. Move it
-into sun50i_cpufreq_read_cell(), which takes the cell name, so the next
-patch can read the A133 cells by name.
+Switch the three A133 boards in mainline (Baijie Helperboard A133,
+Liontron H-A133L and Teclast P80) from the A100 OPP table to the A133
+one, so the speed grade is selected as the vendor does it.
 
-No functional change: the existing users read the first cell, as
-before, with the same length check, byte order and error message. The
-raw bytes are now held in a __le32, the type le32_to_cpu() expects,
-which also removes the sparse warning "cast to restricted __le32" that
-the kernel test robot reported.
+What changes depends on the chip:
+- revision A-E parts with a normal marking ID get a0-a2 from the bin
+  field, as they get speed0-2 today, with the same voltages; only
+  1080 MHz becomes 1008 MHz. The exception is a part whose ICPU and
+  PCPU values are in the range for which the BSP forces a0.
+- revision F and later parts with a normal marking ID get the a3-a6
+  voltages: higher at 408 and 600 MHz, equal or lower from 1008 MHz,
+  and 1008 instead of 1080 MHz.
+- "high speed" parts get the b grades, with 1416 and 1512 MHz instead
+  of 1464 MHz.
+- if the firmware does not provide SMCCC SOC_ID, the driver keeps the
+  A100 selection, adds the BSP's a0 rule for normal parts and warns at
+  boot.
 
-Claude Code (Anthropic) drafted this refactor and its message; I
-reviewed and tested it.
+All three boards supply the CPUs from AXP803 DCDC2 with a 0.81-1.2 V
+range, which covers every new voltage. Without the A133 support in
+sun50i-cpufreq-nvmem the A100 fallback applies. The Teclast P80 also
+needs "cpufreq: sun50i: Handle boards with the allwinner,sun50i-a133
+compatible" to get cpufreq at all.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202603021703.aBD0w99y-lkp@intel.com/
+Claude Code (Anthropic) drafted this change and its message; I
+reviewed it. I tested the A133 table on a KickPi K5C; I cannot test
+these three boards.
+
+Suggested-by: Andre Przywara <andre.przywara@arm.com>
 Signed-off-by: Rajan Yadav <rajanyadav0307@gmail.com>
 ---
- drivers/cpufreq/sun50i-cpufreq-nvmem.c | 55 ++++++++++++++++++++--------------
- 1 file changed, 33 insertions(+), 22 deletions(-)
+ arch/arm64/boot/dts/allwinner/sun50i-a133-helperboard-core.dtsi | 2 +-
+ arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts  | 2 +-
+ arch/arm64/boot/dts/allwinner/sun50i-a133-teclast-p80.dts       | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/cpufreq/sun50i-cpufreq-nvmem.c b/drivers/cpufreq/sun50i-cpufreq-nvmem.c
-index 9261d148a16..34c0897c22c 100644
---- a/drivers/cpufreq/sun50i-cpufreq-nvmem.c
-+++ b/drivers/cpufreq/sun50i-cpufreq-nvmem.c
-@@ -31,6 +31,34 @@ struct sunxi_cpufreq_data {
- 	u32 (*efuse_xlate)(u32 speedbin);
- };
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-helperboard-core.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a133-helperboard-core.dtsi
+index 545972d2324..3a89d3f74b3 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-a133-helperboard-core.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-helperboard-core.dtsi
+@@ -7,7 +7,7 @@
+ /dts-v1/;
  
-+static int sun50i_cpufreq_read_cell(struct device *cpu_dev,
-+				    struct device_node *np, const char *id,
-+				    u32 *value)
-+{
-+	struct nvmem_cell *cell;
-+	void *buf;
-+	size_t len;
-+	__le32 tmp = 0;
-+
-+	cell = of_nvmem_cell_get(np, id);
-+	if (IS_ERR(cell))
-+		return dev_err_probe(cpu_dev, PTR_ERR(cell),
-+				     "Could not get nvmem cell\n");
-+
-+	buf = nvmem_cell_read(cell, &len);
-+	nvmem_cell_put(cell);
-+	if (IS_ERR(buf))
-+		return PTR_ERR(buf);
-+
-+	if (len <= 4)
-+		memcpy(&tmp, buf, len);
-+	*value = le32_to_cpu(tmp);
-+
-+	kfree(buf);
-+
-+	return 0;
-+}
-+
- static u32 sun50i_h6_efuse_xlate(u32 speedbin)
- {
- 	u32 efuse_value;
-@@ -191,12 +219,9 @@ static bool dt_has_supported_hw(void)
- static int sun50i_cpufreq_get_efuse(void)
- {
- 	const struct sunxi_cpufreq_data *opp_data;
--	struct nvmem_cell *speedbin_nvmem;
- 	const struct of_device_id *match;
- 	struct device *cpu_dev;
--	void *speedbin_ptr;
--	u32 speedbin = 0;
--	size_t len;
-+	u32 speedbin;
- 	int ret;
+ #include "sun50i-a100.dtsi"
+-#include "sun50i-a100-cpu-opp.dtsi"
++#include "sun50i-a133-cpu-opp.dtsi"
  
- 	cpu_dev = get_cpu_device(0);
-@@ -214,25 +239,11 @@ static int sun50i_cpufreq_get_efuse(void)
+ /{
+ 	model = "Baijie A133 HelperBoard Core";
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts b/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
+index 90a50910f07..1b9cbcbe5f3 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
+@@ -6,7 +6,7 @@
+ /dts-v1/;
  
- 	opp_data = match->data;
+ #include "sun50i-a100.dtsi"
+-#include "sun50i-a100-cpu-opp.dtsi"
++#include "sun50i-a133-cpu-opp.dtsi"
  
--	speedbin_nvmem = of_nvmem_cell_get(np, NULL);
--	if (IS_ERR(speedbin_nvmem))
--		return dev_err_probe(cpu_dev, PTR_ERR(speedbin_nvmem),
--				     "Could not get nvmem cell\n");
--
--	speedbin_ptr = nvmem_cell_read(speedbin_nvmem, &len);
--	nvmem_cell_put(speedbin_nvmem);
--	if (IS_ERR(speedbin_ptr))
--		return PTR_ERR(speedbin_ptr);
--
--	if (len <= 4)
--		memcpy(&speedbin, speedbin_ptr, len);
--	speedbin = le32_to_cpu(speedbin);
--
--	ret = opp_data->efuse_xlate(speedbin);
--
--	kfree(speedbin_ptr);
-+	ret = sun50i_cpufreq_read_cell(cpu_dev, np, NULL, &speedbin);
-+	if (ret)
-+		return ret;
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/leds/common.h>
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-teclast-p80.dts b/arch/arm64/boot/dts/allwinner/sun50i-a133-teclast-p80.dts
+index 47b5f2ac824..7d4c346276e 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-a133-teclast-p80.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-teclast-p80.dts
+@@ -6,7 +6,7 @@
+ /dts-v1/;
  
--	return ret;
-+	return opp_data->efuse_xlate(speedbin);
- };
+ #include "sun50i-a100.dtsi"
+-#include "sun50i-a100-cpu-opp.dtsi"
++#include "sun50i-a133-cpu-opp.dtsi"
  
- static int sun50i_cpufreq_nvmem_probe(struct platform_device *pdev)
+ #include <dt-bindings/gpio/gpio.h>
+ 
 
 -- 
 2.34.1
