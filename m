@@ -2,74 +2,116 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DF6F606A331
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 04:40:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 611DF606D819
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 04:41:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Eh+PhL2a;
-	dkim=pass (2048-bit key, unprotected) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=J5/mxXhh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YZH9O0BO;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IPrBjIxj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=5OwW+SfjYYUJ0QH9yKR4JOcy3/2WNa736ug8KBYjC3w=; b=Eh+PhL2aRnUI+/
-	sD+/2jutJzHlZDnIkB1OP8eCXZ1ELV1wWx+um+/vUOPMdAAYN3sWBKjsdWpOYsQBmMzVGSZcrXLKk
-	7CORxqWWRtYawxV9FUFBf2KUJi00oTWNNUuXGdjtc1S6tqK1sMECsxHeKTIwiO7x0cjz6yN34202a
-	jlMIH0B4gv1ROTIY6pGpKEjKMplr1RxD5HfvS75vs7XGMuroy6LgC5fFENtR8iqE+Su0Of5vEBGGy
-	17IXS2XgZq+XnpdlHQ3TYGNAopRc9BdPMPLRuGk1mPzm7yQ/NFJybHOYpSO3hgf042wLME8FjXJX6
-	nZK1ugDLucVc1AhL2dYQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=i5luQ0+OjMOx/669VWt6qpGHUV7L6cwwXafy/JZFHnc=; b=YZH9O0BOnW2t7wr8OLt881t1XD
+	h34J6gI217fX10sgi1XV0sZ6BQ+Q3BaZYN7rkXV7aPKbzWT7iP+xWVNnO2TkMSDvGUTfKXbbLZajg
+	J13y1f2jadlSSNcEzlFwVoMi7uO4t1NfEr6bt4nUu4U0HuQCLda6psvz5JksWAlL5TwNgNKuVeUBX
+	l1sN5hzhbnvXWrS3flPpc8P+hmVgAQwu7blbfgt6nmRZ1tFevFJGCjxPJLEN4Zx51h6TQxwkVcMDE
+	R4MO4dPg2vbWmR38tBb4wS/LXiqd7RE1CsfH1rdesi3lAaZxTZ2UiV86Nw0WFUkzIzp8BRTn3nRxE
+	F2LsNl6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOpHO-00000007mzr-1kBy;
-	Thu, 05 Nov 2026 04:40:50 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1xOpHZ-00000007n3r-2yZE;
+	Thu, 05 Nov 2026 04:41:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOpHM-00000007mzB-22yC
+	id 1xOpHY-00000007n3E-0Rej
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 04:40:49 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1E85C108F80;
-	Thu, 05 Nov 2026 05:40:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1793853638;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=5OwW+SfjYYUJ0QH9yKR4JOcy3/2WNa736ug8KBYjC3w=;
-	b=J5/mxXhhDH5mkybAcMGCNjxsdyk3bX4hRAXXnSF4YQDcHTnHBs0vEtw/Ose/80IkaQRvNK
-	7/NutXm+nhU8ut5+MbW7br2rgqiqCVL+V+OnjOKY9KxrXGXGpZvCnOLqv6JfdEsq17tplX
-	EIK7fkMvTGaHHBTohnRbYaiY+42ACbokya+DEl682O8XaRnMTScmT+Z1zbLRl2lRmGqNqD
-	Gjl4I/JRPTxGV4s/JJ4PoUQQ/wG7/2owL85e7aTJ6qF3ES7DPONafp4xHEDATCy2bereZf
-	JIbF+kjggqjacSgcyKRpin5KocQj7ii7VrzbGdEo0fvPXlbOMRQLT4dg4ck76Q==
-Message-ID: <43352a45-1f0e-4d16-8846-63861e4ebda9@nabladev.com>
-Date: Wed, 4 Nov 2026 17:46:44 +0100
+	Thu, 05 Nov 2026 04:41:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7480544506;
+	Thu,  5 Nov 2026 04:40:59 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1793853659;
+	b=vAOz+BMOTThOQAzLyzAka2QvIUhKuQC1vRGUol10AALwvxmcrus4EZeLWG09ZkkQUBiO
+	 HgCSvWFa2Kx6xvajJsMfGt4xkUZIRyXfkG8xcgXPZvkt4DK+pIxa6AUmvAtuq3LfjwVhI
+	 cge+vG7tLG50cpJZAW+MbW9qnakCEdEAYh9Y1QXLKzvFdoLT3FUMrUujDMHmqPi/qATYr
+	 H36U8dafSCMjwuY0aOGXCI9KLRjpASd0+6zt7AoSfAvAdj0mULZlBD24WOQR9rV8s4gtV
+	 J2MhAcW/9coDWrus+LGgwSZEgl6me2AUj+y+OMG3IdnC1miyatBgj9czvF6v8+sVgrQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1793853659;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=i5luQ0+OjMOx/669VWt6qpGHUV7L6cwwXafy/JZFHnc=;
+	b=Cvl12ISpiSMGQ9vmUaqKR0gSfn+oe8C2FAgGGZLrmZnMJeH4prNgswbAKjW07KLKlF0n
+	 4lke1kS81bUkqK55BBKtM8qm1M1Thq3KS1RLWexZUvle6fqPMe3cJFc7VWjv20iGhr0co
+	 DG+AgYFeKzr930Y1n8RfMaHSR3Lgb1X+8DkTeYkBOmyOTqeDAJcNjwijgq6LohSajeriV
+	 UCKhCgewv5TAkFNPNg3HTgPO73FF28VnB6eNIU8IOrSDlotpF0Qfvs2iBDxW/8sb0naLs
+	 yiofeWbfaEdDqB2Xq0MygVwzRyZsO2/SU+2nHJJH8EHagO2gsBLqvm/CNY2iFD2TpOQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 1EB961F00919;
+	Thu,  5 Nov 2026 04:40:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793853659;
+	bh=i5luQ0+OjMOx/669VWt6qpGHUV7L6cwwXafy/JZFHnc=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=IPrBjIxjz06NkOqL936THrJjzBDcync4UIILEgVEBWkXcnxytTL3Y/w/mRqBd1K5o
+	 AIFB6EGkqrB22e1yabChDMCu73Z64GfPll3/mq2j8/xBYVbimhfPGVmYgL7BYUY7zY
+	 EfMR4a8ydineSoD0BTaTsbXiKpeb0O0JT8MReScIQuuxYSyxRbT/KszhsMeViDkq0x
+	 xfH2D5KhpdoZjGLeamSjSgJPeFFkJh5u6yfC6jjqcuJIuW369XufGCeKWMZ9vyqoOl
+	 3WKBufEuOotTQyTHxAwQwHbxjCYVNTYjJKKDvm4eNO5OeFho5aUL6FyawHrz9je1Hg
+	 oETgAhPg3D7eA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 71D1147097;
+	Thu,  5 Nov 2026 04:40:57 +0000 (UTC)
+From: Rajan Yadav via B4 Relay <devnull+rajanyadav0307.gmail.com@kernel.org>
+Subject: [PATCH 0/6] sunxi: A133: Add CPU speed grade detection and OPP
+ table
+Date: Wed, 04 Nov 2026 22:40:55 -0600
+Message-Id: <20261104-a133-series-v1-0-58217cb33a87@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 0/3] watchdog: arm_smc_wdt: allow a list of SMC
- function ids
-To: Guenter Roeck <linux@roeck-us.net>,
- Mateusz Nowicki <mateusz.nowicki@posteo.net>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, linux-watchdog@vger.kernel.org
-Cc: Julius Werner <jwerner@chromium.org>, Evan Benn <evanbenn@chromium.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Antonio Borneo <antonio.borneo@foss.st.com>, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261104161553.30115-1-mateusz.nowicki@posteo.net>
- <c742c878-d4b2-48d8-972e-a09aa4d215c7@roeck-us.net>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <c742c878-d4b2-48d8-972e-a09aa4d215c7@roeck-us.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_204048_771412_A92A6079 
-X-CRM114-Status: GOOD (  22.18  )
-X-Spam-Score: -0.6 (/)
+X-B4-Tracking: v=1; b=H4sIANgI7GoC/1WNwQ6CMBAFf4X0bE23LQWJMf6H4bBtF6wRVIrEx
+ PjvFvDicZJ5894s0hAosip7s4GmEMOtTwCbjLkz9i3x4BMzKaQBEJojKMXXEW+sccKT0sY5lhb
+ 3gZrwWmqneuX4tBdy45z4GQM9nulmXDXWUYy43FTZ/v8ltfgEHLgXNkevvHa5P7YdhuvW3brDH
+ LQYiSfowlhlxsiSiqQZK3NXeigbUDonhVJ4CaXcIVJBmtWfzxdDlZTe+gAAAA==
+X-Change-ID: 20261104-a133-series-fb6c0de346cc
+To: Yangtao Li <tiny.windzz@gmail.com>, Viresh Kumar <vireshk@kernel.org>, 
+ Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, 
+ Andre Przywara <andre.przywara@arm.com>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Cody Eksal <masterr3c0rd@epochal.quest>, 
+ Alexander Sverdlin <alex@sverdlin.org>, 
+ Rajan Yadav <rajanyadav0307@gmail.com>, kernel test robot <lkp@intel.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793853656; l=9856;
+ i=rajanyadav0307@gmail.com; s=20261103; h=from:subject:message-id;
+ bh=JzlzVQevyB3luTQC9Vvd4h8wQVoshWS6n/bxaB0NczI=;
+ b=r0rref4Kp7NrxXI5v7O2qA+WvyqjQKRXmVIzT9riIlmQPaPRH0pcilYNHve9bXVwTeEvpyS2P
+ yuRfN84US40Dhu/dilWdfVsTPGyLjvAZ51q4ievsCYk0A88dvkABEPw
+X-Developer-Key: i=rajanyadav0307@gmail.com; a=ed25519;
+ pk=4ZPeiP5qrv2b44q/Obxi2koUS70Q6npbttJnpUoTlgg=
+X-Endpoint-Received: by B4 Relay for rajanyadav0307@gmail.com/20261103 with
+ auth_id=1391
+X-Original-From: Rajan Yadav <rajanyadav0307@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,56 +121,191 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rajanyadav0307@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DATE_IN_PAST_06_12,
-	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-11.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	FREEMAIL_REPLYTO_END_DIGIT,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 11/4/26 5:39 PM, Guenter Roeck wrote:
-> On 11/4/26 08:16, Mateusz Nowicki wrote:
->> Hi all,
->>
->> this follows up on Marek's report about the stm32mp2 watchdog [1].
->>
->> A quick recap: the arm,smc-wdt driver talks to the firmware through one
->> SMC function id that it reads from the device tree, and there is no way
->> to ask the firmware which id it uses. On the STM32MP2 SoCs that id
->> changed over time. ST's OP-TEE from ecosystem v5 expects 0xb200005a,
->> their 4.0.0 fork accepts both, and the 4.8.0 fork as well as upstream
->> OP-TEE only accept 0xbc000000.
->>
->> My earlier patch, commit ae4d08bbe3f4 ("arm64: dts: st: fix arm,smc-id
->> of the SMC watchdog on stm32mp2"), switched the dtsi to 0xbc000000. That
->> made the watchdog work with current OP-TEE, but it broke boards that run
->> the older firmware. So today 6.18.y uses one id and 7.4 the other. When
->> the kernel and the firmware disagree, nobody pets the watchdog that the
->> bootloader started, and the board resets after 32 seconds. Marek hit
->> this even with a recovery kernel, which is about the worst place for it.
->>
-> 
-> So the DT on the board is updated to use the new ID but the firmware itself
-> isn't ? That seems a bit odd; I would have assumed that the DT on a board
-> is kept in sync with its firmware. Is that not the case here ?
+Andre asked [1], in his review of my A100 thermal trips patch [2], to
+look at the A133 speed bin selection and OPPs. Mainline treats the A133
+as an A100: it reads only the CPU bin field and picks one of three A100
+voltage tables. The vendor BSP for this family (sun50iw10, KickPi A133
+Linux SDK, linux-4.9) picks one of 11 grades from the chip marking ID,
+the CPU bin, the ICPU current, a field it calls PCPU, a bin extension
+bit and the die revision.
 
-That is not necessarily the case, no. Consider a scenario where the 
-firmware is old, kernel is new. Bootloader is not always updated in 
-devices deployed in field.
+The A100 rule in mainline turns out to be the BSP rule for one group of
+parts: revision A-E parts with a normal marking ID get a0-a2 from the
+same bin rule and with the same voltages as the A100 table, apart from
+a small ICPU/PCPU range that the BSP forces to a0. It is wrong for
+revision F and later parts (a3-a6) and for the "high speed" marking IDs
+(b0-b3).
 
->> The idea from that thread: let arm,smc-id be a list. The driver tries
->> the ids one by one and keeps the first one the firmware accepts. Older
->> kernels only read the first cell, so they behave exactly as they do
->> now. For stm32mp2 the list is <0xbc000000 0xb200005a>. Calling an id
->> that belongs to some other firmware service would be bad, so the
->> binding says the list may only hold ids known to be this watchdog.
->>
-> 
-> Would it possibly make sense to check keep a list of known IDs in the
-> driver ? It already checks 0x82003D06, so it might as well check a 
-> sequence.
-I am unsure whether there are any standardized IDs, but yes, this would 
-be good.
+My KickPi K5C (A133, PCB V1.3) is such a high speed part of revision F:
+the BSP rules select b2, up to 1512 MHz at 1.10 V. Mainline selects
+A100 speed1, so the chip runs 40 mV below the vendor voltage at
+408-816 MHz and 40 mV above it at 1200 and 1320 MHz, and tops out at
+1464 MHz at 1.18 V.
+
+Patch 1 adds the binding, patch 2 prepares the driver without
+functional change, patch 3 adds the grade selection, patch 4 adds the
+efuse cells (no effect on its own), patch 5 adds the A133 OPP table and
+patch 6 switches the three A133 boards in mainline to it.
+
+Dependencies and merge path:
+- On the Teclast P80, cpufreq also needs "cpufreq: sun50i: Handle
+  boards with the allwinner,sun50i-a133 compatible" [3], which I sent
+  separately as a fix for 7.4. The other boards do not need it.
+- Patches 1-3 are meant for the cpufreq tree, as the A100 binding and
+  driver changes went last time; patches 4-6 are for the sunxi tree.
+- The A133 table keeps the A100 compatible as a fallback, with the
+  speed bin as its first cell. So patches 5-6 do not break anything if
+  they land before patch 3: a kernel without patch 3 gets today's A100
+  selection and voltages (with 1008 instead of 1080 MHz).
+- The thermal trips patch [2] should land first. All my thermal runs
+  had it, and without it patch 6 raises the top OPP of the high speed
+  grades with no passive trip.
+
+The die revision comes from SMCCC SOC_ID, as for the H616. On the A133
+only TF-A master provides it so far (sun50i_a133 platform, commit
+a584e8632a7a, not in a release yet). I did not guess a grade without
+it: for the same bin, the revision A-E grades are mostly lower or equal
+up to 816 MHz and higher or equal from 1008 MHz. So the driver then
+keeps the A100 selection, adds the BSP's a0 rule for normal parts
+(which never lowers a voltage) and warns. Revision F parts then still
+run 20-40 mV below the vendor voltage at 408 and 600 MHz, some of them
+also at 816 MHz, which is why it is a warning; tell me if you prefer a
+notice, since owners of some boards may not be able to update their
+firmware.
+
+Measurements on the K5C (no heatsink, room temperature not controlled,
+4 cores at full load, the 90 C passive trip from [2] in every run):
+
+  OPPs         kernel   top OPP          steady  1 h at full load
+  A100 speed1  6.18     1464 MHz 1.18 V  85.6 C  near 90 C from ~20 min,
+                                                 throttled at ~33 min
+  A133 b2      6.18     1512 MHz 1.10 V  78.2 C  1512 MHz, max 83.7 C
+  this series  7.4-rc1  1512 MHz 1.10 V  -       1512 MHz, max 79.4 C
+
+"steady" is the temperature after 10 minutes in a separate run. The b2
+row on 6.18 used a test DTB with the b2 voltages. Over the hour, b2 did
+3.7% more work (md5 loops) than A100 speed1. At the same 1200 MHz, the
+b2 voltage (0.98 V instead of 1.02 V) ran about 2 C cooler. These are
+single runs on one board, so take them as indications only.
+
+Questions:
+
+1. 1.6 GHz. Andre mentioned the nominal 1.6 GHz OPP. The SDK's code
+   and table select b2 for this chip and stop at 1512 MHz. The factory
+   kernel on this board (built January 2026) has a newer table: there
+   1608 MHz exists only for b0 and b1, the revision A-E high speed
+   grades, at the same voltage as their 1512 MHz OPP (1.18 V and
+   1.13 V), and 1416 MHz is added for a0-a2. That kernel selects b0 for
+   this revision F chip; its boot log suggests that its cpufreq code
+   does not read the revision (the revision is first read about 110 s
+   after boot). With the series' rules this board stays b2, so adding
+   1608 MHz for b0/b1 would not change it, and I have no revision A-E
+   part to test. With the b0 voltages forced by a test DTB (6.18), the
+   K5C was stable for an hour but sat at the 90 C trip, cycling between
+   1416 and 1608 MHz, with less than 1% more work than b2. The A133
+   datasheet says 1.6 GHz in V1.1 and 1.5 GHz in V1.5. Should 1608 MHz
+   be added for speed6/7 (b0/b1), as in the factory table?
+2. A100. The BSP uses the same rules for the A100, and the mainline A100
+   table has the a0-a2 voltages, but at 1080 MHz where the BSP has
+   1008 MHz. U-Boot starts the CPU at 1008 MHz, so mainline now logs
+   "unlisted initial frequency". Should the A100 table move to
+   1008 MHz too, or the A100 board to the new compatible? I can only
+   test an A133.
+3. SOC_ID. Would you rather have the driver read the revision from
+   SYSCON+0x24 itself (the system controller is already in the DT)?
+   Then it would not depend on the firmware, and parts would never run
+   below the vendor voltage for lack of it. And do the Teclast P80 and
+   the Helperboard run a TF-A with SOC_ID?
+4. A133P. My SDK has no A133P data, and Andre expects it to go
+   higher. An A133P whose marking ID is in the BSP's high speed list
+   gets b grades with A133 voltages; otherwise it gets a grades (at
+   most 1464 MHz). If someone has a newer BSP (5.4) with A133P tables
+   and marking IDs, I can add them.
+5. Testing. Patch 6 changes the Helperboard A133, Liontron H-A133L and
+   Teclast P80, which I cannot test. A boot log with
+   dyndbg="file sun50i-cpufreq-nvmem.c +p" on the kernel command line,
+   and the contents of
+   /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies,
+   from those boards would be very welcome; no fuse dump is needed. On
+   the P80 (secure boot), could someone also check SID bytes 0-1 (the
+   marking ID)? If they read as 0 from Linux, a high speed part is
+   treated as a normal one: it gets 1464 MHz instead of 1416 and
+   1512 MHz and, if its bin extension bit is set, up to 20 mV less than
+   its b grade would give.
+
+As agreed with Chen-Yu on the thermal trips thread [2], the
+dynamic-power-coefficient for the power allocator will follow as a
+separate patch on top of these OPPs.
+
+AI assistance: I used Claude Code (Anthropic, Claude Opus 5.5)
+throughout. It read the vendor BSP sources, the datasheets and my board
+logs, drafted the code, the DT table and the commit messages, and wrote
+the test scripts. I asked it to extract the vendor's selection rules,
+to propose a design that fits the existing binding, to review the
+series, and to write tests that compare the code with the BSP rules.
+No vendor code was copied; only the rules and numbers were taken. I
+reviewed every patch, ran all tests myself, and take responsibility
+for the series.
+
+Testing:
+- host: the grade function, built from the driver source, matches the
+  BSP rules for 120,960 combinations of boundary and typical field
+  values, reaches all 11 grades and gives the A100 selection with the
+  BSP's a0 rule when the revision is unknown; a second harness,
+  written separately (also with Claude Code) from the BSP sources,
+  checked 161,280,000 combinations with no difference
+- host: a script compared every voltage and the frequency set of every
+  grade with the BSP table: no difference
+- each patch on its own: checkpatch --strict (one expected warning:
+  the new OPP dtsi is covered by the existing MAINTAINERS entry), W=1
+  build, sparse (patch 2 removes the one existing warning in the
+  driver), dt_binding_check, and dtbs_check W=1 on the A100 perf1 and
+  the three A133 boards; the binding rejects malformed test tables
+- K5C: grade, OPPs and measured regulator voltages, a 1 h soak, the
+  revision forced to unknown, the A100 table on the patched kernel, the
+  new DTB on a kernel without patch 3 (fallback), the a133-only root
+  compatible, and a missing efuse cell
+
+[1] https://lore.kernel.org/all/85dc4135-4684-4e17-95e4-833cf8753b64@arm.com/
+[2] https://lore.kernel.org/all/20261103-a100-thermal-trips-v1-1-73bce7ff0767@gmail.com/
+[3] https://lore.kernel.org/all/20261104-a133-fix-v1-1-d0b5ad3d4c5d@gmail.com/
+
+---
+Rajan Yadav (6):
+      dt-bindings: opp: h6: Add A133 operating points
+      cpufreq: sun50i: Move nvmem cell reading into a helper
+      cpufreq: sun50i: Add A133 speed grade detection
+      arm64: dts: allwinner: a100: Add A133 speed grade efuse cells
+      arm64: dts: allwinner: a133: Add CPU OPP table
+      arm64: dts: allwinner: a133: Use the A133 CPU OPP table
+
+ .../opp/allwinner,sun50i-h6-operating-points.yaml  |  94 ++++++++-
+ arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi     |  12 ++
+ .../boot/dts/allwinner/sun50i-a133-cpu-opp.dtsi    | 172 +++++++++++++++++
+ .../allwinner/sun50i-a133-helperboard-core.dtsi    |   2 +-
+ .../dts/allwinner/sun50i-a133-liontron-h-a133l.dts |   2 +-
+ .../boot/dts/allwinner/sun50i-a133-teclast-p80.dts |   2 +-
+ drivers/cpufreq/sun50i-cpufreq-nvmem.c             | 213 +++++++++++++++++++--
+ 7 files changed, 465 insertions(+), 32 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261104-a133-series-fb6c0de346cc
+prerequisite-message-id: <20261104-a133-fix-v1-1-d0b5ad3d4c5d@gmail.com>
+prerequisite-patch-id: 24b8eeb24a7f228410c3453027ff79fc785eb38d
+
+Best regards,
+--  
+Rajan Yadav <rajanyadav0307@gmail.com>
+
+
 
