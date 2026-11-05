@@ -2,108 +2,136 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E8F7606A330
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:49:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05C896082BF1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:51:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KNLVfIZS;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bTYMuv1C
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TZQ7euXs;
+	dkim=pass (2048-bit key, unprotected) header.d=jannau.net header.i=@jannau.net header.a=rsa-sha256 header.s=fm1 header.b=vlChj5hA;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=uwWBP3kN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=xklg3CjbZrUzyh4Xo0rBGxi7VDiGIt84+18sPwP1vr8=; b=KNLVfIZS1mkAjMfCQriFGAM3KE
-	+ojCjpc5g13gWRPbVTomulieZ+mJEdehDNiDhcSMePYPY0bHYC+Mbe7AY1ZWLUGR/SrUvrjncadBO
-	q0bjWyXSag8nD3vLqG65Bj48bc1no/zPEIYL2XhYjtvf2AiW5sOHbLNL8pbTOrHRU95Kt6GdHk75O
-	1eFJ6DFTGQVWs6IC5ha+Qiv9rC/IhifQj2ws1lZ0ZCchXALeJH1UOGFIL9vhk7W7YA0R2MkPrty33
-	QUOU1ywkTeVReXd0CfkWm3u/MPYhkLE1x7HDpn/2N0tG76Mbv+q4dnYFhsfDOXG9gimVJhrEoPIGt
-	SEfqr8Hg==;
+	bh=tdN8BYMaeX7sTpIs2KSSI8cpoUWm37wgO48E1qU6ekw=; b=TZQ7euXsiMZyL6RV22vt9gFvAP
+	+WOQAG80DEhxoJB+nqP7MvV779beF9h8NT8bEtpdspV+W8tawot6lQ8tpbJf3rUxvZuAV60333XXX
+	TjrGB0gqIMj/uq3yMXLQw6ZejJzV7xGBkM/VJ9anHWehEkiaSzSPTMA8XIIeX+q3W9KOA66EKgY+L
+	+j888ISSUbvIjA02qlR7aJKOgZ4QTTNLr4VaBwddTG3qpHMY3hWvw4i3M2WSu7vSV4bWPK/Vevflp
+	cbaQDwAnXK1ASsO6hbPPNKsQhhFCCX8Vy1jFObisJoTTq4EDSRLTSQP6rqHjDby0iu76k2L0TL1Te
+	iZ1eBb3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOu61-00000008MNe-10g9;
-	Thu, 05 Nov 2026 09:49:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xOu7V-00000008MVE-1W5f;
+	Thu, 05 Nov 2026 09:50:57 +0000
+Received: from fhigh-b4-smtp.messagingengine.com ([202.12.124.155])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOu60-00000008MNY-05m1
+	id 1xOu7P-00000008MUs-38Fg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 09:49:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2AB2B60D90;
-	Thu,  5 Nov 2026 09:49:23 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793872162;
-	b=k6PNlmSXBSlArn+tCnzDgrPUy4GWcHKtOJtK0gViGki9l0CwJgRcLvt3oTuLswEqLDIr
-	 Nd0AnSCjO4H0Yhb4E/XM8eS26IfHimbDikinWDqri1StKGP6o95bsCzst69td1Emmk0SB
-	 85FSYjv36igYeJhvOg5ZIKEyoF0rOCvMh7638r2z387WrGNhFfwSTMAnbZ+O9rCM41A5x
-	 Vgd7GIAdsB3cnYkQQ9Yd/2244T5VLx/LVdPKSN4/oQKFhyJq/8LMaorO6CWBxBFQ/EZln
-	 VapOD26Bjf+w7fZhNpSADq/1OXRuMn/dcxB80CVzbYn8IMslF2gdVdTNukDlmN5uj1g==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793872162;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=xklg3CjbZrUzyh4Xo0rBGxi7VDiGIt84+18sPwP1vr8=;
-	b=aBWqPXSj65S5ntVjv7NFFiM65IoEVRbkLzQhaJ/FkGEK6fjGF3316GVglvQW1o/0aMYQ
-	 7eFo3Mng8sD6CBpCC1uRLVDfNGfx5B261og0BeD85dMNptf5Rs4PE4OlAFPrtONkgaYYL
-	 xR3nqW88CEAmTvnYsdrzwCXblDg2PA+mQkyndwFFj2P23L/mWT59KT1mHSK0nIYCL4JII
-	 m4ciTca8mq/Hwtgzt5nyBRbYVDw3TkRMCD12gQsESx3B3ac8JyHjqSbj7H5Li8cYIhmG6
-	 bNzJA5QEl4xLcAetIGyOLcDd9Oqjoa5xbboaZtVp7Zxi2jAall/28VTaeBVNk/aFefQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4221D1F000C1;
-	Thu,  5 Nov 2026 09:49:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793872162;
-	bh=xklg3CjbZrUzyh4Xo0rBGxi7VDiGIt84+18sPwP1vr8=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=bTYMuv1CC/lOhj7xCXmd/z+E6F6qXaHfVZmkFzTZQlaf0SrOIGa1uPna5H3VhTpUX
-	 +TUw2rPOlN89xq1BlW+L1P2tD2bBYnpPe0hV/r7fDa0O49rEi24An/sMEvmz2RFpHl
-	 kuc4NZEITO+dYQ4dQERIgYPwG1RFlMR0Qhu0PDoNJ73mCxnM25hKJ93lVTEFMI0oRe
-	 DBUHHvxkMrXEroO026uRElgwVzRpj5juade5Bp6ZpmvqnP+oiQyDo3ufaB6Ig/4z5H
-	 h0pqBBmtcsJHcU7iRT5oeiu47nnK2IGZWlj6o+9La8dMmRxKafC0EaUAmVH5XvDqlJ
-	 FRG3ukbJmH4TQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 9750E471A6;
-	Thu,  5 Nov 2026 09:49:21 +0000 (UTC)
-From: Eric Yang via B4 Relay <devnull+eric.yang.wiwynn.gmail.com@kernel.org>
-Date: Thu, 05 Nov 2026 09:49:21 +0000
-Subject: [PATCH] ARM: dts: aspeed: yosemite4: Remove Floating Falls board
- nodes
+	Thu, 05 Nov 2026 09:50:53 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 51B657A016E
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 04:50:50 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Thu, 05 Nov 2026 04:50:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm1; t=1793872247; x=1793958647; bh=tdN8BYMaeX
+	7sTpIs2KSSI8cpoUWm37wgO48E1qU6ekw=; b=vlChj5hAm+yauxECvQLZD4ueJs
+	sXpm11K2nkX/7f5Crn29If2tk6Wt7FCq/GUQf9ulMVw5pDGgrCXnSbqPGSfi/lGQ
+	fAgGhES4B2KCieRLE3g6TgLvXfM97cI5EZPW3IQg41ATQMOG0IsVDOPEaQX34if7
+	ZLcmLDjOcEsyG7OPpsktGZ6IWTxrRSvkKnu67H5+mwpF4g7+7zOFoF1+aZDnROp8
+	nILDggqf/5VZq5DqEVhyVhyExhLurP8DqhuoivPCb7vrAbdI36fmJAYK4qWTQTm0
+	EeUzcmKUdlPmDTXKn5mnLRzoFC/aHr++c7+33I29TG+Aheau7K5rKKhoN/4g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1793872247; x=1793958647; bh=tdN8BYMaeX7sTpIs2KSSI8cpoUWm37wgO48
+	E1qU6ekw=; b=uwWBP3kN9w+75gBPbfgDC+qAvB7SNgPm8dkgsbCxW/RzBoBur/V
+	NSBmgCU5cN35/JXpkIyE48u3PaOkO9Us1CcJ4z7+cr5enGaSj4nmF3bAhrcwF1u+
+	DywjCfPk5FJFUn2/hceggfJJoAYo7E0sIFH9g3qb4hP0UNv6YRnzijd8PW3cBitC
+	hZpPsvc0vQC0fcZHRcqYGzYfW1Dbe3zL+CVMlVQ7wE5qZP2ghMssrQcFtukF0AaH
+	BmZPq39xM4wn2FQKC74UxAoTMqGxwwtp9QYNvFNkWGUUJtxA1r1aw7vQ+8Frr7Xl
+	3xmjr4oRbT6gOJ06JYPdCYOOaKXIVWQucxQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=jannau.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1793872247; d=jannau.net;
+	mf=PGpAamFubmF1Lm5ldD4=;
+	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
+	s=fm1:rsa-sha256:CRzCfc3AWCv9C5s5MsT+gQxWUksLuqb6Ugama6brOc3s70C
+	iOVs9xRamncpHvDs6UlN9oN+X0QzxlTyGP63pN5PtrEE9BuPCLzV8j2geECiTpaz
+	6G/99BXnZCk/H0ZW0VkMqsf++6zAzuMEAJEkZlxbnOjlkwfX5/kVuT8QZkw1J1jC
+	F29b6CHv+y1aHwHTAD0gAcYi7mrIWXlPm4M3qGME3CwgWgd37w0RSaP4w/rKWOBd
+	UAu0hl9uUt1HEiPP6/biRey54HIeXP8lxr8Er/cF3atv9vuPdnhAvbulDHaQnthu
+	QNnP3wal9PUl8VMWsNkin2/C/YMhq7ndDIEg6rQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-disposition,content-type,date,feedback-id,from,
+	in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:hcUY8h0j0LtFuIHMfF1T4A4PydzG7IsIpufK/aUTZRo=:y5J/XCGySFoLlnfhT9D2Nb1VIKNEe959FeusWkn1xjk=;
+X-ME-Sender: <xms:dlHsal-q-K4FO4cmAyi5YW6TQMGK3CVH7r1TMqWp5ZoxAkDK5Smqhw>
+    <xme:dlHsalL2zlmmZsYiTmVyRKTz8xEqu1aYCoLum_LeUNVmemMRYQxbvfjqbICktkBtY
+    x-HoAkYv_RkLUUqwnDU_pLXiVydNMxEyEv_kblaKwUk3amn4TuZwks>
+X-ME-Received: <xmr:dlHsahuz9a2sjqykIAMdqM4w9ZJYpxNbam8HwzbJmZXa4bm5DLmpo322LAakrI_-cN6jdZUVcSnTnk0szW1GJc3CB0D3NgoNN64>
+X-ME-Proxy-Cause: dmFkZTEWcDtu48AJclumAXMuoDVfzxGvw7WtcS7yPKlNeJeV7eS+ZMxg1/1zWE7bQKaaOk
+    D+TVX5AK/lO0Cf9aYmJ8QhYH9+qyl6KBZmLipS4bkViJE6/5Jeg8VZQnE6Y8OYycqhqLch
+    LWnimMTskM/ox+ldUNwjnkD63GBRi7SqBT32NYbZiBfiRjOR55w7mh6zO952HKwwP6BVeD
+    drvSOo8XpSDd5sskTY1zD73tvg8h9WVnE7glblYAk7kQ+WF6i66Z2G8frYTGDnyh9/EKqJ
+    +4+NntgA49kqO/jZg/+P9b9C4mLch6UI3o8MiiDVTT+qleOgJxiQqJ5GcSELQerQYqgxLh
+    7nWxfqV2Elgs2P98haba3C5bXb/hTXnVUwPe5KzxzIJmAtIRL7GB+mIaSxgYJ/jZmJMjpk
+    Y8VxwAJqhXs83HkDPPx3XqnGDGF0M/CUpT/AHetEHXunhWhhPVQ6YvZ5D+F4Q7kZv+xXNT
+    fQ3EWfn5+qnzstWLO/KaQwrlZJzdS40iBHfCkpNNeHUXgsKN5Dx4TvBibXEcJ0OHLzuTpn
+    VsbhOn/2ST6YBmYKXV1cf92AHzZAvXHh93SbPAckMBfwkwUdMcP7wTv5I+glV2f/AHY4V1
+    OlYBftkinl11LqeiIvwlFnbXUf1lokb+LtTU2ORCRsKPjIHtsyHEq/v3Yeyw
+X-ME-Proxy: <xmx:dlHsammzDbBgauPWNfWLqQLkF3r43NGFKnY02OMrGjvz8uB8ZJT0Iw>
+    <xmx:dlHsagkGHOD1j8KDc506ERhHc0iMoORsNWS33QPKvsf0swBGYZVvXg>
+    <xmx:dlHsahhDA4sXid3ylCG2QjfVg3lX4GOklxpqwfMU0zrMxkIwOS4Yxg>
+    <xmx:dlHsaiHSycWMrphYKELCoOtP6T6OeX5m7PjixscIA8fQegj51AOFFA>
+    <xmx:d1HsapZRIsrkinl_cSM2IRw6H6SoL0p2qGSJyXKaXPTs6un01ZHvmYCN>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 5 Nov 2026 04:50:46 -0500 (EST)
+Date: Thu, 5 Nov 2026 10:50:44 +0100
+From: Janne Grunau <j@jannau.net>
+To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hector Martin <marcan@marcan.st>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Jiri Kosina <jikos@kernel.org>,
+	Benjamin Tissoires <bentiss@kernel.org>,
+	Michael Reeves <michael.reeves077@gmail.com>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	iommu@lists.linux.dev, linux-input@vger.kernel.org,
+	Yureka Lilian <yureka@cyberchaos.dev>,
+	Julian Braha <julianbraha@gmail.com>,
+	Sasha Finkelstein <k@chaosmail.tech>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: (subset) [PATCH v4 00/10] Add support for Apple Silicon
+ DockChannel internal keyboards
+Message-ID: <20261105095044.GA1421246@robin.jannau.net>
+References: <20260925-apple-mtp-keyboard-final-v4-0-304c267518f4@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-yv4-remove-ff-nodes-v1-1-aa707a9577b7@gmail.com>
-X-B4-Tracking: v=1; b=H4sIACBR7GoC/x3MQQqDMBBG4auEWXcgGUWwVxEXxfxpZ2FSEghK8
- O4Gl9/ivUYFWVHobRplVC2aYod7Gdp+n/gFq+8msTI5Zwc+68gZe6rgEDgmj8IzxDo7ehkmoV7
- +M4Iez3VZr+sGsiT61WUAAAA=
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Ryan Chen <ryan_chen@aspeedtech.com>, 
- Billy Tsai <billy_tsai@aspeedtech.com>, patrick@stwcx.xyz
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Sean He <sean.he.wiwynn@gmail.com>, Eric Yang <eric.yang.wiwynn@gmail.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793872161; l=4662;
- i=eric.yang.wiwynn@gmail.com; s=20260911; h=from:subject:message-id;
- bh=T4XeuvV+KGamPG2baiyhX3Us0yn42pCuMdWIPVBaYz8=;
- b=L/oFlGYm96Adbk9JS+0cKrrf3+UCzEcvN0mp8Rny3aSD0XxKxLi5JYtosxQ6OaB05Ra+llXYm
- vmNZ0Uw3r65CjqW8GIlH6H/vGm8XPD3/HCNcfF8oaSDnA0xgoNGXcAX
-X-Developer-Key: i=eric.yang.wiwynn@gmail.com; a=ed25519;
- pk=XYQiwgPZNUCt1JCbsO7zX8ODEiRKocz7fYwt+aWnXBs=
-X-Endpoint-Received: by B4 Relay for eric.yang.wiwynn@gmail.com/20260911
- with auth_id=1023
-X-Original-From: Eric Yang <eric.yang.wiwynn@gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260925-apple-mtp-keyboard-final-v4-0-304c267518f4@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261105_015052_166487_40E05E46 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,205 +141,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: eric.yang.wiwynn@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Sean He <sean.he.wiwynn@gmail.com>
 
-The Floating Falls (FF) board carries a pca9537 GPIO expander at address
-0x49 and a FRU EEPROM at address 0x50 on each slot I2C bus. FF was
-planned in the early Yosemite 4 design but has not been used since the
-DVT stage, so these addresses never acknowledge. The pca953x driver
-fails to probe all eight pca9537 nodes on every boot, and the at24
-driver does not bind to the eight EEPROM nodes either. Remove the nodes
-for both devices.
+On Fri, 25 Sep 2026 22:09:27 +1000, Michael Reeves wrote:
+> This series introduces support for the internal keyboards on Apple
+> Silicon M2 and M3 MacBook models.
+> 
+> On these platforms, built-in input devices are managed by a dedicated
+> coprocessor running an RTKit-based operating system. Communication
+> between this coprocessor and the main processor is carried out over a
+> low-latency hardware byte FIFO interface called DockChannel.
+> 
+> [...]
 
-Signed-off-by: Sean He <sean.he.wiwynn@gmail.com>
-Signed-off-by: Eric Yang <eric.yang.wiwynn@gmail.com>
----
-The changelog was drafted with an AI assistant (Claude Code) and
-reviewed by the submitter.
+Applied to local tree (apple-soc/dt-7.5), thanks!
 
-Tested on two Yosemite 4 BMCs, baseline vs patched image: the eight
-pca9537 nodes and the sixteen 0x49/0x50 slot-bus clients are gone, while
-the 0x51/0x54 clients, gpio chips and FRU objects are unchanged.
-CHECK_DTBS=y W=1 shows no new warnings and the DTB diff is exactly the
-sixteen removed nodes.
----
- .../dts/aspeed/aspeed-bmc-facebook-yosemite4.dts   | 96 ----------------------
- 1 file changed, 96 deletions(-)
+[03/10] dt-bindings: iommu: apple,dart: Add M3 compatibles
+        commit: 6c799b8c0df41869fa0d059f7e54f8f84b3989ee
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-index e4172be84..4c7c96ce4 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-@@ -604,18 +604,6 @@ imux16: i2c@0 {
- 			reg = <0>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
--			gpio@49 {
--				compatible = "nxp,pca9537";
--				reg = <0x49>;
--				gpio-controller;
--				#gpio-cells = <2>;
--			};
--
--			eeprom@50 {
--				compatible = "atmel,24c128";
--				reg = <0x50>;
--			};
--
- 			eeprom@51 {
- 				compatible = "atmel,24c128";
- 				reg = <0x51>;
-@@ -631,18 +619,6 @@ imux17: i2c@1 {
- 			reg = <1>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
--			gpio@49 {
--				compatible = "nxp,pca9537";
--				reg = <0x49>;
--				gpio-controller;
--				#gpio-cells = <2>;
--			};
--
--			eeprom@50 {
--				compatible = "atmel,24c128";
--				reg = <0x50>;
--			};
--
- 			eeprom@51 {
- 				compatible = "atmel,24c128";
- 				reg = <0x51>;
-@@ -658,18 +634,6 @@ imux18: i2c@2 {
- 			reg = <2>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
--			gpio@49 {
--				compatible = "nxp,pca9537";
--				reg = <0x49>;
--				gpio-controller;
--				#gpio-cells = <2>;
--			};
--
--			eeprom@50 {
--				compatible = "atmel,24c128";
--				reg = <0x50>;
--			};
--
- 			eeprom@51 {
- 				compatible = "atmel,24c128";
- 				reg = <0x51>;
-@@ -685,18 +649,6 @@ imux19: i2c@3 {
- 			reg = <3>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
--			gpio@49 {
--				compatible = "nxp,pca9537";
--				reg = <0x49>;
--				gpio-controller;
--				#gpio-cells = <2>;
--			};
--
--			eeprom@50 {
--				compatible = "atmel,24c128";
--				reg = <0x50>;
--			};
--
- 			eeprom@51 {
- 				compatible = "atmel,24c128";
- 				reg = <0x51>;
-@@ -726,18 +678,6 @@ imux20: i2c@0 {
- 			reg = <0>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
--			gpio@49 {
--				compatible = "nxp,pca9537";
--				reg = <0x49>;
--				gpio-controller;
--				#gpio-cells = <2>;
--			};
--
--			eeprom@50 {
--				compatible = "atmel,24c128";
--				reg = <0x50>;
--			};
--
- 			eeprom@51 {
- 				compatible = "atmel,24c128";
- 				reg = <0x51>;
-@@ -753,18 +693,6 @@ imux21: i2c@1 {
- 			reg = <1>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
--			gpio@49 {
--				compatible = "nxp,pca9537";
--				reg = <0x49>;
--				gpio-controller;
--				#gpio-cells = <2>;
--			};
--
--			eeprom@50 {
--				compatible = "atmel,24c128";
--				reg = <0x50>;
--			};
--
- 			eeprom@51 {
- 				compatible = "atmel,24c128";
- 				reg = <0x51>;
-@@ -780,18 +708,6 @@ imux22: i2c@2 {
- 			reg = <2>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
--			gpio@49 {
--				compatible = "nxp,pca9537";
--				reg = <0x49>;
--				gpio-controller;
--				#gpio-cells = <2>;
--			};
--
--			eeprom@50 {
--				compatible = "atmel,24c128";
--				reg = <0x50>;
--			};
--
- 			eeprom@51 {
- 				compatible = "atmel,24c128";
- 				reg = <0x51>;
-@@ -807,18 +723,6 @@ imux23: i2c@3 {
- 			reg = <3>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
--			gpio@49 {
--				compatible = "nxp,pca9537";
--				reg = <0x49>;
--				gpio-controller;
--				#gpio-cells = <2>;
--			};
--
--			eeprom@50 {
--				compatible = "atmel,24c128";
--				reg = <0x50>;
--			};
--
- 			eeprom@51 {
- 				compatible = "atmel,24c128";
- 				reg = <0x51>;
+the changes from
+[01/10] dt-bindings: mailbox: apple: Add M3 ASC mailbox compatibles
 
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261103-yv4-remove-ff-nodes-9e20104d2362
+were picked up via "NVMe support for Apple M3, M3 Pro and M3 Max/Ultra devices" [1]
+
+Link: https://lore.kernel.org/asahi/20260925-apple-m3-nvme-v1-0-5e832e2f4aa9@jannau.net/ [1]
 
 Best regards,
 -- 
-Eric Yang <eric.yang.wiwynn@gmail.com>
-
-
+Janne Grunau <j@jannau.net>
 
