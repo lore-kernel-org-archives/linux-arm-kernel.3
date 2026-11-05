@@ -2,78 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 294E1606D809
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:03:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFBD5606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:10:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RG9/nOpP;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=pmNLQSFO
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=n0kPeoj4;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DAR24fhg
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=1NYk/R+AjvZfblsV7HCmGu0xMESmf/3Rl3LdxJTF5qY=; b=RG9/nOpPJCP7+X
-	QtTWQLMkT/0wYFo7j7RMwznTbEiVfad9qQIp2a3OnfCmb5XNrQE0mBMIUtlzrf0wEy+TGXASjVcGS
-	7NkkCigagMSdKu6rKviOLIW1KeshhQe1nmijj25lALtpf/nq5JaPARKG2Snkk+TJAlLqYk8uD5HS6
-	Jd8G+EP4naVZvXTa72vjI4d42pHjFqRUVhS4UJfecBrEJB0xUKdRljIswYKrqS9F1is4Hr/TkILQ4
-	0j306NyAMdx0v/f5oYYBS52SOZvmgntoxG9jXoZcgR4fh+v8szE+w8Sk34iVSTJiv3YV8sDWb1TSC
-	Jk800lSy62o8n9T3TZfg==;
+	List-Owner; bh=l8FVoARO3j3t6Swl/r4USV4n/IIP1DJGnmzvtDWkxwE=; b=n0kPeoj4jRsdYi
+	NlaAHhRIgS4Kq73Rtu6BwGLYLfMjIx54fVwDNheC1WSU+eOr3imMqrh+ei276oY5MJVktVbNb42Ba
+	HaxELufSddr2Mc6oE7xlz729eRgHdcu66S8X+Hb3Nd3myHy02kMNnhgn7yxsl9PVMKnMpOGJxOxTG
+	dj+mWCbN0x5vXC8+KRdUY+F4uw8Fo7STFr5AbrF8iBdfwazqgViE/GuWSviz9c8ki7wKMfHiL9nNI
+	8e6IgHQ8udQrPXg8Bd1IqGLzy8eDkFIzn8S3xE1rmDC4ob8dTRcxUe4BWh5rn6m6/sy1/UCxO8CqH
+	moBiEqGa5VldKK1wkERA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtNV-00000008Ei4-2J99;
-	Thu, 05 Nov 2026 09:03:25 +0000
-Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
+	id 1xOtUR-00000008FoC-1GYG;
+	Thu, 05 Nov 2026 09:10:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtNR-00000008EhU-2q9f;
-	Thu, 05 Nov 2026 09:03:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1793869399; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=1NYk/R+AjvZfblsV7HCmGu0xMESmf/3Rl3LdxJTF5qY=;
-	b=pmNLQSFOpq/RuRuhP0vzWZQi+r2DSovBx8mbaVk24pezHXtwBKmp9/8XAPGE4gUt5nNM5gtVYmEo7HW6q/uzke4zADGtHy2IriKE+h6xZfOzrVwLbt12RwIY9O8luJNn4U7bqlbiLt4H19tTsSrH6vK432upsOL+i6+b125lCWM=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R141e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=cp0613@linux.alibaba.com;NM=1;PH=DS;RN=23;SR=0;TI=SMTPD_---0XE8DYxW_1793869381;
-Received: from DESKTOP-S9E58SO.localdomain(mailfrom:cp0613@linux.alibaba.com fp:SMTPD_---0XE8DYxW_1793869381 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 05 Nov 2026 17:03:17 +0800
-From: Chen Pei <cp0613@linux.alibaba.com>
-To: acme@kernel.org
-Cc: adrian.hunter@intel.com,
-	alexander.shishkin@linux.intel.com,
-	anup@brainfault.org,
-	david.laight.linux@gmail.com,
-	guoren@kernel.org,
-	irogers@google.com,
-	james.clark@linaro.org,
-	john.g.garry@oracle.com,
-	jolsa@kernel.org,
-	leo.yan@linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	mark.rutland@arm.com,
-	mike.leach@arm.com,
-	mingo@redhat.com,
-	namhyung@kernel.org,
-	palmer@dabbelt.com,
-	peterz@infradead.org,
-	pjw@kernel.org,
-	will@kernel.org
-Subject: Re: [PATCH v3 0/2] perf riscv: Implement rdtsc()
-Date: Thu,  5 Nov 2026 17:02:57 +0800
-Message-ID: <20261105090300.2889-1-cp0613@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261009032715.2841-1-cp0613@linux.alibaba.com>
-References: <20261009032715.2841-1-cp0613@linux.alibaba.com>
+	id 1xOtUO-00000008FnL-1qv8
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Nov 2026 09:10:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id BCFDB60F3F
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 09:10:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 671DE1F00A1B
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 09:10:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793869830;
+	bh=l8FVoARO3j3t6Swl/r4USV4n/IIP1DJGnmzvtDWkxwE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=DAR24fhg1o12QPYF8w+7b8HIwsxRutsHpEf4cTFEyfIe1ri9nazYsDIocFwx5ISJP
+	 /3zIPoK5gQ2uI+H1WEkOK0X8GhFfj+9hv4l19yz1q/DPecQzQz2d5wbU1n2ejd3hHg
+	 /zhtdfWlMuzov1tVk4nMgIA2qtMOnpO+yRJas9gvpgUs9txLGJr7ilihbpns5ihEDF
+	 4/2yV2xRNhSNdsLoCt6rVfexZqo5PI+2bh5Zb6srEz7QL1UDMhOmHpUYxCXABSTIqt
+	 wtkhqxb8Tr9xqccUmW68LmRoovBaE4sFySPUjEpNYZPRH5NW5iNUtVbG0K+6xqcnIW
+	 aiNZNsoA0p13Q==
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5bfbc67991cso1025371e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 01:10:30 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AKwUvBzj7XBKOjZtFAuN1OpafOp0+0Dghqgt3rabE4IimMcXQGxxbHKBEE0pZzAjx+A7IMu4nUcQu48uy6NFjSyDsARx@lists.infradead.org
+X-Gm-Message-State: APuU4Z/Ll1fJGiJNx59HtiRn6bX5wcxqeLWThGLU2FCcFamWRmk3YojM
+	ZieLTjzXMZjcD2kAdmDkJVUP+LBI1VdVhUniUa0kEeyReTRz7KpcYtb6MuryNzcWx3UihFVHvFb
+	wXSCpxKGom/AtmTKeiAEeXRuxcmeTsnQ=
+X-Received: by 2002:a05:6512:31ce:b0:5bf:be3c:6599 with SMTP id
+ 2adb3069b0e04-5bfd957cf17mr5726763e87.67.1793869829164; Thu, 05 Nov 2026
+ 01:10:29 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_010323_209118_DFB584F5 
-X-CRM114-Status: UNSURE (   6.03  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -15.1 (---------------)
+References: <20261103-for-upstream-lx2160a-rcw-pinmux-v1-v2-0-3aad0860b984@free.fr>
+ <20261103-for-upstream-lx2160a-rcw-pinmux-v1-v2-4-3aad0860b984@free.fr>
+In-Reply-To: <20261103-for-upstream-lx2160a-rcw-pinmux-v1-v2-4-3aad0860b984@free.fr>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 5 Nov 2026 10:10:16 +0100
+X-Gmail-Original-Message-ID: <CAD++jL=Np+_+wTkuLCiqjNY5EBqn5qq8zKTJB6F-=1G0R+7=Ww@mail.gmail.com>
+X-Gm-Features: AclHuK_7g7nY-8H8wprNfNKV8lgILSoOexV2IGLiXfskv9qSmIolBJEeTn_Fqx4
+Message-ID: <CAD++jL=Np+_+wTkuLCiqjNY5EBqn5qq8zKTJB6F-=1G0R+7=Ww@mail.gmail.com>
+Subject: Re: [PATCH v2 4/5] pinctrl: freescale: add the LX2160A RCW pad-mux driver
+To: vjardin@free.fr
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+	Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, Vladimir Oltean <vladimir.oltean@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,23 +85,41 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT,USER_IN_DEF_DKIM_WL
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Oct 09, 2026 at 11:27:13AM +0800, Chen Pei wrote:
-> [PATCH v3 0/2] perf riscv: Implement rdtsc()
+On Tue, Nov 3, 2026 at 7:12=E2=80=AFPM Vincent Jardin via B4 Relay
+<devnull+vjardin.free.fr@kernel.org> wrote:
 
-Gentle ping on this series.
+> From: Vincent Jardin <vjardin@free.fr>
+>
+> The LX2160A muxes its IIC, XSPI, SDHC, UART, IRQ and EVT pads from
+> fields of the RCW, read-only in RCWSR12..14 of DCFG and changed at
+> runtime through the same fields of the override registers in its DCSR
+> view, which read 0 until written.
+>
+> Since commit 8a1365c7bbc1 ("arm64: dts: lx2160a: add pinmux and i2c
+> gpio to support bus recovery") Linux drives them with pinctrl-single on
+> the override registers, so its first pin state clears every other field
+> of the word: a board whose RCW programs a non-zero pad mux loses those
+> pads at the first I2C probe.
+>
+> Add a driver for the pad mux as a child of the DCFG node: the fields
+> of RCWSR12..14 and their encoding.
+> Then pin states select them with the generic function and groups
+> properties, and every change goes through the RCW override
+> of fsl-guts, which reads the status register, writes the override and
+> waits for the status register to follow.
+>
+> Signed-off-by: Vincent Jardin <vjardin@free.fr>
 
-Is there anything else you need from me to get it queued for the next
-perf-tools cycle? If you would rather see it resent on a newer base,
-or want a change I have not thought of, say the word and I will do that.
+Can this be applied separately once reviewed?
 
-Best regards,
-Chen
+Yours,
+Linus Walleij
 
