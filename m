@@ -2,73 +2,120 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09CC3606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 18:47:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DD3E606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 18:54:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1ZyQ+NIh;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=fUlvmVNh
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NKLMJMZd;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WCGjVmcZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=+t9x54f1qNZZiubPPPnaR5/Crj4REu5MeZTCDboVOlA=; b=1ZyQ+NIhTJoYiBjThCxPKyWHil
-	d0sntdXOzjs1FxW0ZZtHX7v+DNX7RqPOWHtQpCgNo8G/5vgQY9YOZHywf7Q/v8QA3B+J0anR/EExP
-	0Mb/nBOuNoNtpeP5SLLxSVhEF1XFRgo+v7gBKnwvvUKM2YywSolP0HuwzVWQrR55xEtFlE6QYi679
-	6yu5yqZLZp5AC78GIV9PIi3kJb4/CZVwbhK5ZWY3fKB4vQCrtkBpDJF5jncKmCCZgWV1tSoPEVdbr
-	tL7TR0pipsED3qc8ldP6Ywn9cZ7OowhJCc3AnGstk+kwLDAVMkKXzacRSIgz+wlJr29LcyVJR4tf3
-	HY4AMc6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=UdclqZLMN8B5DrcYZKdaCch6tVOM2QIot5gM9jwffKU=; b=NKLMJMZdHcqo9W
+	zwtmYRcSvV5JsqdjCGvIj+VFgN9ZEopDqNd/vHsDk7BBAyaCdsaI1xcyOP4+wTQ385UA4iCKJmSOe
+	IKRSyrU+FZBkMcvEGR3mrymW4uIHBer4mc0FU6c0U9SbbVNwhiuYzKLoheFlOzbAeR7lJiSvwgOvJ
+	pH/HboANqGpBSieyombZOz7cVA5cMAJ7Z7yrAo15D+shTJ8D2nABHIau0g8VAhnYmYhLGuZ1TRhcb
+	SDzeA1RSeytUDj8zdvO7UpbreZAH5WGAtZ3dFB/WWmoim5vcX83OwL1rQj4YR+BBQbcEbi4AdNscU
+	qdMFzKmVfSaK2cjddPBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP2Ux-0000000AC1k-3gr7;
-	Thu, 05 Nov 2026 18:47:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP2Uj-0000000ABx9-1IFi
+	id 1xP2bb-0000000AD0W-04pt;
+	Thu, 05 Nov 2026 18:54:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xP2bZ-0000000ACzg-1E74
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 18:47:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE9A6168F;
-	Thu,  5 Nov 2026 10:47:24 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E685D3F632;
-	Thu,  5 Nov 2026 10:47:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793904447; bh=1i7yxbYF9bXMotNb+bc0f+0AFmxxA4a+FAdhjGiafzw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fUlvmVNhpgAIEPYzj5Q45phP2LBSIFMetTaOb/ZvXk0FE3u72ct8xjXhIPLoEOptW
-	 oM/0jO/P/82GdYj3utvssDmfegm4d+TpDNBONF14hnpaF3WAiHiX5VMsvJrF/49Yqo
-	 QDZ6T2Cm78vXmsEWA8b3nxqoD2qTUMgr+orbahV8=
-Date: Thu, 5 Nov 2026 18:47:21 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org,
-	sudeep.holla@kernel.org, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-	d-gole@ti.com, elif.topuz@arm.com, lukasz.luba@arm.com,
-	philip.radford@arm.com, david@kernel.org,
-	souvik.chakravarty@arm.com, leitao@kernel.org, kas@kernel.org,
-	puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v14 07/32] firmware: arm_scmi: Add Telemetry basic
- attributes enumeration
-Message-ID: <auzPOVaUqnyfAYjF@pluto>
-References: <20261016185553.2794459-1-cristian.marussi@arm.com>
- <20261016185553.2794459-8-cristian.marussi@arm.com>
- <20261019142719.00003b78@oss.qualcomm.com>
+	Thu, 05 Nov 2026 18:54:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 60DC0600B4;
+	Thu,  5 Nov 2026 18:54:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 644061F00919;
+	Thu,  5 Nov 2026 18:54:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793904872;
+	bh=UdclqZLMN8B5DrcYZKdaCch6tVOM2QIot5gM9jwffKU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=WCGjVmcZqY+BxtWg2dhw9Yy/V28eGIQkYuKoqsLQHtRAz3NuW7BuFuJhFX91MZ4X3
+	 i+mXrBQDbjXs9GjdrptYpEkMcV0ei6Nh8X5wz0Y5junD0G0NmwtDTZoA+wjkW9Fvxt
+	 nq3prAoEKk5RRGTz+tVQ1OGsn9QN5zeNJBf6LEVqxC5hyTnwE3krNryI2JJ3ke1T1w
+	 WYSQdSuDuIT/NFIXh3zy4RhkSXPmeeycjljDpdg8jGDH4BjzeDUAKO+yhYYSPyqFKP
+	 wKvdi8U7kCCZIFXadRTf1TQu+3DUjZNU7i1MpETgQwh932OpQzbfbnqNWVR7UJANRV
+	 C07pmgQ+1uU3w==
+Message-ID: <d4a430de-715a-4936-8adb-35ff57a52b5f@kernel.org>
+Date: Thu, 5 Nov 2026 19:54:22 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261019142719.00003b78@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_104730_940993_486F895B 
-X-CRM114-Status: GOOD (  32.08  )
-X-Spam-Score: -4.4 (----)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/9] dt-bindings: soc: google: Add Google Tensor CPM
+ binding
+To: Brian Norris <briannorris@chromium.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Thomas Gleixner <tglx@kernel.org>,
+ Ulf Hansson <ulfh@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Peter Griffin <peter.griffin@linaro.org>, devicetree@vger.kernel.org,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Radu Rendec <radu@rendec.net>,
+ linux-arm-kernel@lists.infradead.org,
+ Mariano Marciello <mmarciello@google.com>,
+ Douglas Anderson <dianders@chromium.org>, linux-clk@vger.kernel.org,
+ =?UTF-8?Q?Jakub_G=C5=82owacki?= <jglow@google.com>
+References: <20261026214359.3122870-1-briannorris@chromium.org>
+ <20261026144346.2.Ib692ddd35c1dbea1757d9b1db6c1c7e938fc4ea6@changeid>
+ <20261028-rapid-daffodil-rat-0adc6a@quoll> <aulIoq2oVjJ3DVzL@google.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <aulIoq2oVjJ3DVzL@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,142 +126,117 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Oct 19, 2026 at 02:27:19PM -0700, Jonathan Cameron wrote:
-> On Fri, 16 Oct 2026 19:55:28 +0100
-> Cristian Marussi <cristian.marussi@arm.com> wrote:
+On 03/11/2026 03:36, Brian Norris wrote:
+> On Wed, Oct 28, 2026 at 02:19:23PM +0100, Krzysztof Kozlowski wrote:
+>> On Mon, Oct 26, 2026 at 02:43:40PM -0700, Brian Norris wrote:
 > 
-> > Add SCMIv4.0 Telemetry basic support for minimal initialization and
-> > protocol attributes enumeration: expose telemetry instance descriptor
-> > via a simple information retrieval protocol operation.
-> > 
-> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+>>> --- /dev/null
+>>> +++ b/include/dt-bindings/interrupt-controller/irq-cpm-google.h
+>>> @@ -0,0 +1,16 @@
+>>> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+>>> +/*
+>>> + * This header provides constants for CPM IRQ.
+>>> + *
+>>> + * Copyright 2025-2026 Google LLC
+>>> + *
+>>> + */
+>>> +#ifndef _DT_BINDINGS_INTERRUPT_CONTROLLER_IRQ_CPM_H
+>>> +#define _DT_BINDINGS_INTERRUPT_CONTROLLER_IRQ_CPM_H
+>>> +
+>>> +#define CPM_IRQ_RTC_ALARM_NO			0
+>>
+>> Keep naming consistent. Clocks has _CLK suffix, so this should not use
+>> prefix.
+>>
+>>
+>>> +#define CPM_IRQ_AOC_MIN				7
+>>
+>> Anyway, ABI constants should be indexed from 0 and incremented by 1.
 > 
-> A few minor comments but nothing I care strongly about.
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> 
-> >  #endif /* _SCMI_PROTOCOLS_H */
-> > diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
-> > new file mode 100644
-> > index 000000000000..32f6f8d1106d
-> > --- /dev/null
-> > +++ b/drivers/firmware/arm_scmi/telemetry.c
-> > @@ -0,0 +1,148 @@
-> 
-> > +
-> > +enum scmi_telemetry_protocol_cmd {
-> 
-> Perhaps add a comment on enum scmi_common_cmd containing additional values
-> that apply to telemetry.
+> What do you mean by this? Do I need to make up names for the
+> unused IDs between 0 and 7? On an initial search, I don't believe they
+> have any meaning at all. Does that mean I should make up some kind of
+> "RESERVED_<N>" naming here?
 
-I'll do.
-
-> 
-> > +	TELEMETRY_LIST_SHMTI = 0x3,
-> 
-> > +
-> > +struct telemetry_info {
-> > +	bool streaming_mode;
-> 
-> I'd bring fields of internal tracking structures in only when
-> they are used (even if that is just setting them).
-> 
-
-I agree....but it has become a bit overwhelming to split this series
-while taking care to introduce stuff only at the very last point in time
-when it is used...I will try to improve anyway
-
-> > +	unsigned int num_shmti;
-> > +	unsigned int num_des_tstamp;
-> > +	unsigned int default_blk_ts_rate;
-> > +	const struct scmi_protocol_handle *ph;
-> > +	struct scmi_telemetry_info info;
-> > +};
-> > +
-> > +static int
-> > +scmi_telemetry_protocol_attributes_get(struct telemetry_info *ti)
-> > +{
-> > +	struct scmi_msg_resp_telemetry_protocol_attributes *resp;
-> > +	const struct scmi_protocol_handle *ph = ti->ph;
-> > +	struct scmi_xfer *t;
-> > +	int ret;
-> > +
-> > +	ret = ph->xops->xfer_get_init(ph, PROTOCOL_ATTRIBUTES, 0,
-> > +				      sizeof(*resp), &t);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	resp = t->rx.buf;
-> > +	ret = ph->xops->do_xfer(ph, t);
-> > +	if (!ret) {
-> > +		__le32 attr = resp->attributes_1;
-> > +		__be32 de_impl_version[SCMI_TLM_DE_IMPL_NUM_DWORDS];
-> > +
-> 
-> > +		for (int i = 0; i < SCMI_TLM_DE_IMPL_NUM_DWORDS; i++)
-> > +			de_impl_version[i] =
-> > +				cpu_to_be32(le32_to_cpu(resp->de_implem_rev_dword[i]));
-> 
-> That dance is a swap as data is stored le but UUID fields are be.
-> Maybe going via cpu endian is fine as would be silly to have le32_to_be32()
-> so it perhaps has documentation value.  Fair enough - I argued myself around
-> with agreeing with how you did it here, but left the discussion for anyone
-> else who has similar thoughts.
-
-Yes indeed it is awkward but I did not really know how else to do it while
-making it clear what was going on...by the spec the UUIDs are BEs in memory
-(i.e. when laid out in the SHMTI/TDCF areas) and they are also BE in uuid_t
-when 'at rest',  BUT when they are carried in a message payload they have
-to be LE since all the SCMI messages payloads are LEs...
+No, I meant CPM_IRQ_AOC_MIN is 1.
 
 > 
-> > +		import_uuid(&ti->info.base.primary_revision, (const __u8 *)&de_impl_version);
-> > +		ti->info.single_read_support = SUPPORTS_SINGLE_READ(attr);
-> > +		ti->info.continuous_update_support = SUPPORTS_CONTINUOS_UPDATE(attr);
-> > +		ti->info.per_group_config_support = SUPPORTS_PER_GROUP_CONFIG(attr);
-> > +		ti->info.reset_support = SUPPORTS_RESET(attr);
-> > +		ti->info.fc_support = SUPPORTS_FC(attr);
-> > +		ti->num_shmti = le32_get_bits(attr, GENMASK(15, 0));
-> > +		ti->default_blk_ts_rate = le32_to_cpu(resp->default_blk_ts_rate);
-> > +	}
-> > +
-> > +	ph->xops->xfer_put(ph, t);
-> > +
-> > +	return ret;
-> > +}
+> Between 7 and 156, these are just ... 150 different "service numbers"
+> within the AOC (Always On Connectivity) subsystem. I can name them
+> AOC_0, AOC_1, ... AOC_149 if that helps.
 > 
-> > diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-> > index 5ab73b1ab9aa..121c83e1c6d8 100644
-> > --- a/include/linux/scmi_protocol.h
-> > +++ b/include/linux/scmi_protocol.h
-> 
-> ...
-> 
-> 
-> > +/**
-> > + * struct scmi_telemetry_proto_ops - represents the various operations provided
-> > + *	by SCMI Telemetry Protocol
-> > + *
-> > + * @info_get: get the general Telemetry information.
-> > + */
-> > +struct scmi_telemetry_proto_ops {
-> info> +	const struct scmi_telemetry_info __must_check *(*info_get)
-> > +		(const struct scmi_protocol_handle *ph);
-> 
-> Why __must_check?  Be a bit crazy if no one did anything with the
-> info they just requested, so that seems overkill and doesn't help with
-> the long line.
-> 
+> Or are you suggesting that I pack the actual use cases (so, 0 and 7-157)
+> into 0-151? I thought it was valuable to directly use the firmware
+> indexing where possible; if I change those, then the indexing loses its
+> inherent meaning, and we also have to add another layer of translation.
 
-... indeed this is silly...it cannot even be NULL...I will drop it..
+We do not use hardware numbers as bindings and ABI, because that's
+pointless - no benefits, only risks. Similarly you do not define GIC
+interrupt numbers, pinctrl pin numbers, MMIO addresses as bindings. None
+of these bind anything between DTS and software, so not a binding.
 
-Thanks !
-Cristian
+There are some exceptions like SCMI firmware, but that's not the case here.
+
+> 
+>>> +#define CPM_IRQ_AOC_MAX				156
+>>> +#define CPM_IRQ_AP_GDMC_WAKE			157
+>>> +
+>>> +#endif  /* _DT_BINDINGS_INTERRUPT_CONTROLLER_IRQ_CPM_H */
+> 
+> 
+>>> --- /dev/null
+>>> +++ b/include/dt-bindings/soc/google,lga-lpcm.h
+>>> @@ -0,0 +1,54 @@
+>>> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+>>> +
+>>> +#ifndef __DT_BINDINGS_SOC_GOOGLE_LGA_LPCM_H
+>>> +#define __DT_BINDINGS_SOC_GOOGLE_LGA_LPCM_H
+>>> +
+>>> +/*
+>>> + * LPCM IDs of each SSWRP.
+>>> + */
+>>> +#define LGA_LPCM_CPM			0
+>>
+>> What are all these?
+> 
+> The binding doc says:
+> 
+>       Each reset is specified by an LPCM ID (cell 1) and a reset ID (cell 2).
+>       See <dt-bindings/soc/google,lga-lpcm.h> for LPCM IDs and
+>       <dt-bindings/reset/google,lga-cpm-reset.h> for reset IDs.
+> 
+> and
+> 
+>       Each clock is specified by an LPCM ID (cell 1) and a clock ID (cell
+>       2). See <dt-bindings/soc/google,lga-lpcm.h> for LPCM IDs and
+>       <dt-bindings/clock/google,lga-cpm.h> for clock IDs.
+> 
+> These are the IDs used in the firmware interface to talk about these
+> things, as many of the SoC resources involved (clocks, resets, power
+> domains) are grouped in this way (by subsystem (SSWRP / LPCM), and then
+> with indexing within each subsystem).
+> 
+> In reading again, I see that the definitions and explanation of these
+> terms and the SoC organization are split a bit between the pmdomain
+> commit message and the binding doc. Where would you prefer I elaborate
+> more? In the binding doc, the comments here, or both?
+
+I just try to understand their placement. Bindings should not be in the
+soc directory, except a few things without clear subsystem owner. If
+this applies for both clocks and resets, maybe this could be firmware,
+but another point is that you should not need these in DTS. Somehow you
+split one clock/reset ID into two - LPCM ID and clock/reset ID. Just
+don't, unless you want to say that for example LSION_CLI16_UART_CLK is
+in multiple LPCM places?
+
+Best regards,
+Krzysztof
 
