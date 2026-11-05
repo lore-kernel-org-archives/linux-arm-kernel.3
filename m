@@ -2,118 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEC71606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:58:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4BAD606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 13:01:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0WF+d2Bm;
-	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=T9XQP6Eu
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HbHJuS1t;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=A19P6xzE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=30cvqab0GneMjzQY9b3Yhah4cXyfQoNJoQir3EuyP94=; b=0WF+d2BmKLjzIp
-	KY3PUG64r27d0ItPE8MpRd+d3IQeRhrGLC6sIzSEoaa6tciFxhmTnFWib+lUkKqcc+qitKBCBlr9a
-	nbl3o/NW/ToFy1eXmIOEvE0uEiUo6hFyrWyL2xLyMcKIW7rKQn9OcIHaFvqjbAXgFK85HMTVFReCt
-	aJUdiQcM4apK62z3hJodZJJDDLg4GXiK+R70hxuBB9bEyRxxjfKZXWDDcnua5OnwH+z3blpcqkVQP
-	y6E+sOKgom8hgs/iNvkdijYvdvwLsBsTOLVbSOiQVHB8gnyWQeFENTJaHkuPzJvjnuF0WhEPDbkt3
-	Dp26Vf62ZUeG4bgtii9g==;
+	List-Owner; bh=TXkiYmKjLKAJ/dlWVLBxwVO/Mvm8wUpWYMxhKT2yAJw=; b=HbHJuS1tEC7n/5
+	datmtBeZoWQwvKylO+RtRso/Zfl38NBu8ib5o5GXTiYEwJFHak2+lUuLd3OYKDlcAFvys4diwB4pJ
+	qk9tyKYn0WQ3oy7VhdYYy82XH+DGK9K0fPwLbLvHn2R+ewv0B/Zzd551Nq+DPMABSF+Xnn63V6NNJ
+	lkiVNOq3SJsiokhxm+WRgZFZJTvGC1FK6iKbYS8W58q4JZ6kQNwawaUWnbVqnsTYRSCmTGzDrN7cD
+	YtKPFcOPMap+SCvqcgTYJsXRzjDdykuCuFw9TwKx1WIMpl2rL2RDRY4tnznmKC7w2A2MQ0aHDh3on
+	VbbBd9KqL/xTxmG+WzyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOx3K-000000092Yv-1mIV;
-	Thu, 05 Nov 2026 12:58:50 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOx3H-000000092Y4-3aGI
+	id 1xOx68-000000092vs-3tG4;
+	Thu, 05 Nov 2026 13:01:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOx63-000000092un-0DWo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 12:58:49 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4a2167bd087so15767505e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 04:58:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1793883525; x=1794488325; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=30cvqab0GneMjzQY9b3Yhah4cXyfQoNJoQir3EuyP94=;
-        b=T9XQP6EuVjldm4J5rZhqZGHkMY1tjFrMmAbsDJh3svOhqs54GWc5OztZkuzxHUhXQn
-         hSQLs6Y5/Q71kic7ou1I/4gCyK9me1RJwVE/L66msAwNL4q3/kMsXynxe4o4Td4Tuggf
-         3e9Yvl/1iqz0D9VzzYyNPF7U5YG69c56ySeI3V4vvq2UOw84o/KHrVvJ0SwWiEhwew5z
-         d0EeJXDdJQAr2PHdYcU5TXMVnmEm8tq6lUaNxAc9EGE+qS8Sxq2sNQAtYr5Dx0AaSXQz
-         +8vIp8GF9cUbBKauGkrWemOfFWFKAUMsCGn8g8EIrjqJznFwY9CN1jnLSkQCU2k3SA9/
-         lbvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793883525; x=1794488325;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=30cvqab0GneMjzQY9b3Yhah4cXyfQoNJoQir3EuyP94=;
-        b=OitXWrREKFHp7eJQjjrJLOnJpq+0Tios7gFoqn08FN3sXZeNoBhmJ6d1Tqxj4KCQOD
-         wCc75teSmc72OCnvncAFgT1s6Emjhv3tj9hoyH21jOK/hqovo1mzI+r5ThtyQNmyF0m6
-         rB3O5SejgGwpiAUoWpSok11+hcBIg41yNWJ6EOaSaj1Jd2MTMbdeMSFE+UFcMdcSZ19p
-         Bd2Csk6CemDfIJ7Ni+71yvAZ0KXS0CmpADChuTXzzQt/HK3jhff2Jb2NpS1R95ctK2TF
-         JmLUy3Zk0Ovi6HS7TXMlE9+Ii6yTo5Ob6GugscVf3zV3HQcsoauDh3Hb91l+GCJNjvHT
-         SAfg==
-X-Forwarded-Encrypted: i=1; AKwUvBwCUAiqxssrAJgXPmNHYGXKVc5QJeTLGkYQPRUSnCukPFfvB1SEE0VdZRD6ndvhUC4zMrtvc3IFSMGzLy+l3Fgm@lists.infradead.org
-X-Gm-Message-State: APuU4Z9f9S3riRsUJh3U5HpYkOrDspVPgDcbJdDUQJXtIFRxR01n10jI
-	01x3KslUMV8ZBrOvx+2WL1AnNoJvk5Lph8VUEdeWRB2lGfpRxrmLsN1zeljhz55sZlo=
-X-Gm-Gg: AYBFou2HJpg7P9boxzzYA658bWRzUy0HkU43b4CiQGgAX9ww11nI/ahiAwHM5Xlps+8
-	hlTYKDWq2OhDeXFUSakFJ8p7OwsJtGio0AwGw2JoaZ13thfHYPU6tzSgPvOainQ67Bf56Afw69G
-	sQRM1CYOlHKG7EJA1IypK1OxxQhrK0Zo0Da2Y6/kpjtQoQrYI+SnydLlV9IXYo1UtNI7lDJwdf3
-	0YSJylFxqjOupR//9yynSL+tqOH/EXuNsJBnBeym6O+4iDYjRPxVqqr2AicxwUcXAIgkr3EQJiD
-	H64yYgvjxwdqhz9AJ9v2ZyTk3H+fdWhUT844wFQVPOLci4O2gfaDk9oLXhvO6FyaGew42kHw2Uo
-	oSWr41kjbVAvUloHS3ut9coKD1F3EXWwQOIqz3o2XBuYSupwXewkY5oFDsWo4G1pFNQDiva93Eh
-	As/A2anxhplx5t9W6UTnfVQERUy6TGelTrOdY0Mt71N0V2uKLPZ/jmj0XH+VL4lrvu9xFTJB9Nl
-	MlePRLLpC67ZkAIOefADIBt/Q6S9qovdfSedck6KeqO6Hya5RyXSpTRbpHVvQnlVFTie0hLwZRl
-	dLjHQWX2/w/WuqvNbsPrmRTT4Xeq7SYx4djI+qyPHYa9wzq4Ux2TJu6f
-X-Received: by 2002:a05:600c:6212:b0:4a4:de70:2ad4 with SMTP id 5b1f17b1804b1-4ac17ffa395mr401888755e9.22.1793883525271;
-        Thu, 05 Nov 2026 04:58:45 -0800 (PST)
-Received: from [192.168.1.62] (140.30.66.37.rev.sfr.net. [37.66.30.140])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b63863d490sm27861675e9.2.2026.11.05.04.58.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Nov 2026 04:58:44 -0800 (PST)
-Message-ID: <56932f47-2e35-4152-afc6-6cd41c8393cf@baylibre.com>
-Date: Thu, 5 Nov 2026 13:58:44 +0100
+	Thu, 05 Nov 2026 13:01:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B7A852F;
+	Thu,  5 Nov 2026 05:01:34 -0800 (PST)
+Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC14E3F673;
+	Thu,  5 Nov 2026 05:01:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793883697; bh=vEh3zJqo/KGR30L6jPVxWFZR07rHwEaGECGJkVsECAs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=A19P6xzEj/ScejmvlfV+RMYMuBsgGpdaLAxrZVdyU3WH5jILvpXZc5lP5ZXvXUy71
+	 5VdKLLQljBXO8WGcNsJFWV2h2g/CxoT87xc1VcEAWUABDNLYt2u/R3Lbt01+U3HcQ4
+	 ijob0GDoWGyw2spRaTEhk/TX4XjVbL7eARpN8Wgg=
+Message-ID: <9d450f18-2300-4ead-981b-94bd9eea9126@arm.com>
+Date: Thu, 5 Nov 2026 13:01:34 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 11/11] pinctrl: scmi: select the GPIO function on GPIO
- requests
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
- Cristian Marussi <cristian.marussi@arm.com>,
- Linus Walleij <linusw@kernel.org>, Peng Fan <peng.fan@nxp.com>,
- Oleksii Moisieiev <oleksii_moisieiev@epam.com>,
- Andy Shevchenko <andy@kernel.org>, Dhruva Gole <d-gole@ti.com>,
- Bartosz Golaszewski <brgl@kernel.org>, arm-scmi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261030-clegoffic-pinctrl-scmi-gpio-v1-0-52d92843ad97@baylibre.com>
- <20261030-clegoffic-pinctrl-scmi-gpio-v1-11-52d92843ad97@baylibre.com>
- <aunIVW4JeM_P2WOa@ashevche-desk.local>
- <73888927-18ec-44b1-bb14-72e72860bfc2@baylibre.com>
- <ausPFWOj-usp084X@ashevche-desk.local>
-Content-Language: en-US, fr
-From: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>
-Autocrypt: addr=clegoffic@baylibre.com; keydata=
- xjMEafx9bxYJKwYBBAHaRw8BAQdAtc85GIwDXLz0rh9thWXC80Lji0otVDVncXT4qaS4j1fN
- K0Nsw6ltZW50IExlIEdvZmZpYyA8Y2xlZ29mZmljQGJheWxpYnJlLmNvbT7ClgQTFgoAPhYh
- BJjMiHuM4ZUwFqUPr36EW4KtCh6TBQJp/H1vAhsDBQkJZgGABQsJCAcCBhUKCQgLAgQWAgMB
- Ah4BAheAAAoJEH6EW4KtCh6Tt+sA/jVC35rY1npFlOy7YnncTdrID8Qf855JA78IzXgvzpGp
- AP9FkuuT80m66PP3DvgYX9kVnG17mSDKO0+v2W18v6ZgCM44BGn8fW8SCisGAQQBl1UBBQEB
- B0DMwF4u//aQyzsFlO8rPJ/cqsAuPH80IeIA3HOEo5mlVgMBCAfCfgQYFgoAJhYhBJjMiHuM
- 4ZUwFqUPr36EW4KtCh6TBQJp/H1vAhsMBQkJZgGAAAoJEH6EW4KtCh6TdSgBAMDS0MiWCivt
- LjzZc9bs+P/xdXywUjDKq3lpQGJ6vZ0GAP9vI6DnN7vwVK6jt6/+0aBGkog5Ura9+WwRFEdM
- vLfPDQ==
-In-Reply-To: <ausPFWOj-usp084X@ashevche-desk.local>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v16 3/7] qcom-tgu: Add signal priority support
+To: Songwei Chai <songwei.chai@oss.qualcomm.com>, andersson@kernel.org,
+ alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
+ konrad.dybcio@oss.qualcomm.com, james.clark@arm.com, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
+ devicetree@vger.kernel.org, gregkh@linuxfoundation.org,
+ Jie Gan <jie.gan@oss.qualcomm.com>
+References: <20260730080704.2903540-1-songwei.chai@oss.qualcomm.com>
+ <20260730080704.2903540-4-songwei.chai@oss.qualcomm.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260730080704.2903540-4-songwei.chai@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_045847_906909_1C4C0168 
-X-CRM114-Status: GOOD (  11.54  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261105_050139_475722_6F65E513 
+X-CRM114-Status: GOOD (  35.88  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,38 +75,499 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 11/4/26 11:55 AM, Andy Shevchenko wrote:
-> On Wed, Nov 04, 2026 at 10:38:11AM +0100, Clément Le Goffic wrote:
->> On 11/3/26 12:41 PM, Andy Shevchenko wrote:
->>> On Fri, Oct 30, 2026 at 04:58:42PM +0100, Clément Le Goffic wrote:
+On 30/07/2026 09:07, Songwei Chai wrote:
+> Like circuit of a Logic analyzer, in TGU, the requirement could be
+> configured in each step and the trigger will be created once the
+> requirements are met. Add priority functionality here to sort the
+> signals into different priorities. The signal which is wanted could
+> be configured in each step's priority node, the larger number means
+> the higher priority and the signal with higher priority will be sensed
+> more preferentially.
 > 
-> ...
+> Reviewed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
+> ---
+>   .../ABI/testing/sysfs-bus-amba-devices-tgu    |   7 +
+>   drivers/hwtracing/qcom/tgu.c                  | 189 +++++++++++++++++-
+>   drivers/hwtracing/qcom/tgu.h                  | 133 ++++++++++++
+>   3 files changed, 328 insertions(+), 1 deletion(-)
 > 
->>>> +	int nr_functions, func, ret;
->>>> +
->>>> +	nr_functions = pinctrl_ops->count_get(pmx->ph, FUNCTION_TYPE);
->>>
->>> Is nr_functions signed for a purpose? Can it hold an error code?
->>
->> No indeed, will fix in v2.
-> 
->>>> +	for (func = 0; func < nr_functions; func++) {
->>>
->>> 	for (int func = 0; func < nr_functions; func++) {
-> 
-> With the above in mind, the type of func has to be adjusted accordingly.
-> 
+> diff --git a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+> index 36ab64f1e301..7dd24314592d 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+> +++ b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+> @@ -7,3 +7,10 @@ Description:
+>   		Accepts only one of the 2 values -  0 or 1.
+>   		0 : disable TGU.
+>   		1 : enable TGU.
+> +
+> +What:		/sys/bus/amba/devices/<tgu-name>/step[0:7]_priority[0:3]/reg[0:17]
+> +Date:		August 2026
+> +KernelVersion:	7.2
+> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
+> +Description:
+> +		(RW) Set/Get the sensed signal with specific step and priority for TGU.
+> diff --git a/drivers/hwtracing/qcom/tgu.c b/drivers/hwtracing/qcom/tgu.c
+> index 9c7dd4a09f02..0e88b437f191 100644
+> --- a/drivers/hwtracing/qcom/tgu.c
+> +++ b/drivers/hwtracing/qcom/tgu.c
+> @@ -15,14 +15,144 @@
+>   
+>   #include "tgu.h"
+>   
+> +static int calculate_array_location(struct tgu_drvdata *drvdata,
+> +				    int step_index, int operation_index,
+> +				    int reg_index)
+> +{
+> +	return operation_index * (drvdata->num_step) * (drvdata->num_reg) +
+> +		step_index * (drvdata->num_reg) + reg_index;
+> +}
+> +
+> +static ssize_t tgu_dataset_show(struct device *dev,
+> +				struct device_attribute *attr, char *buf)
+> +{
+> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+> +	struct tgu_attribute *tgu_attr =
+> +			container_of(attr, struct tgu_attribute, attr);
+> +	int index;
+> +
+> +	index = calculate_array_location(drvdata, tgu_attr->step_index,
+> +					 tgu_attr->operation_index,
+> +					 tgu_attr->reg_num);
+> +
+> +	/*
+> +	 * Serialise against tgu_dataset_store() and tgu_enable(), which read
+> +	 * and write the same priority array, so the value is not observed
+> +	 * while being updated concurrently.
+> +	 */
+> +	guard(mutex)(&drvdata->lock);
+> +
+> +	return sysfs_emit(buf, "0x%x\n",
+> +			  drvdata->value_table->priority[index]);
+> +}
+> +
+> +static ssize_t tgu_dataset_store(struct device *dev,
+> +				 struct device_attribute *attr,
+> +				 const char *buf, size_t size)
+> +{
+> +	struct tgu_drvdata *tgu_drvdata = dev_get_drvdata(dev);
+> +	struct tgu_attribute *tgu_attr =
+> +		container_of(attr, struct tgu_attribute, attr);
+> +	unsigned long val;
+> +	int index;
+> +	int ret;
+> +
+> +	ret = kstrtoul(buf, 0, &val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	guard(mutex)(&tgu_drvdata->lock);
+> +	index = calculate_array_location(tgu_drvdata, tgu_attr->step_index,
+> +					 tgu_attr->operation_index,
+> +					 tgu_attr->reg_num);
+> +
+> +	tgu_drvdata->value_table->priority[index] = val;
+> +
+> +	return size;
+> +}
+> +
+> +static umode_t tgu_node_visible(struct kobject *kobject,
+> +				struct attribute *attr,
+> +				int n)
+> +{
+> +	struct device *dev = kobj_to_dev(kobject);
+> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+> +	struct device_attribute *dev_attr =
+> +		container_of(attr, struct device_attribute, attr);
+> +	struct tgu_attribute *tgu_attr =
+> +		container_of(dev_attr, struct tgu_attribute, attr);
+> +
+> +	if (tgu_attr->step_index >= drvdata->num_step)
+> +		return SYSFS_GROUP_INVISIBLE;
+> +
+> +	if (tgu_attr->reg_num >= drvdata->num_reg)
+> +		return 0;
+> +
+> +	return attr->mode;
+> +}
+> +
+>   static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
+>   {
+> +	int i, j, k, index;
+> +
+>   	TGU_UNLOCK(drvdata->base);
+> +	for (i = 0; i < drvdata->num_step; i++) {
+> +		for (j = 0; j < MAX_PRIORITY; j++) {
+> +			for (k = 0; k < drvdata->num_reg; k++) {
+> +				index = calculate_array_location(
+> +							drvdata, i, j, k);
+> +
+> +				writel(drvdata->value_table->priority[index],
+> +					drvdata->base +
+> +					PRIORITY_REG_STEP(i, j, k));
+> +			}
+> +		}
+> +	}
+>   	/* Enable TGU to program the triggers */
+>   	writel(1, drvdata->base + TGU_CONTROL);
+>   	TGU_LOCK(drvdata->base);
+>   }
+>   
+> +static void tgu_set_reg_number(struct tgu_drvdata *drvdata)
+> +{
+> +	int num_sense_input;
+> +	int num_reg;
+> +	u32 devid;
+> +
+> +	devid = readl(drvdata->base + TGU_DEVID);
+> +
+> +	num_sense_input = TGU_DEVID_SENSE_INPUT(devid);
+> +	num_reg = (num_sense_input * TGU_BITS_PER_SIGNAL) / LENGTH_REGISTER;
+> +
+> +	if ((num_sense_input * TGU_BITS_PER_SIGNAL) % LENGTH_REGISTER)
+> +		num_reg++;
+> +
+> +	if (num_reg > TGU_MAX_PRIORITY_REGS) {
+> +		dev_warn(drvdata->dev,
+> +			"DEVID reports %d priority regs, clamping to %d\n",
+> +			num_reg, TGU_MAX_PRIORITY_REGS);
+> +		num_reg = TGU_MAX_PRIORITY_REGS;
+> +	}
+> +
+> +	drvdata->num_reg = num_reg;
+> +}
+> +
+> +static void tgu_set_steps(struct tgu_drvdata *drvdata)
+> +{
+> +	u32 devid;
+> +
+> +	devid = readl(drvdata->base + TGU_DEVID);
+> +
+> +	drvdata->num_step = TGU_DEVID_STEPS(devid);
+> +
+> +	if (drvdata->num_step > TGU_MAX_STEPS) {
+> +		dev_warn(drvdata->dev,
+> +			"DEVID reports %d steps, clamping to %d\n",
+> +			drvdata->num_step, TGU_MAX_STEPS);
+> +		drvdata->num_step = TGU_MAX_STEPS;
+> +	}
+> +}
 
-Yes will do
+Why not combine setting the num_step and num_regs in one go ? You are 
+reading the DEVID anyways, and such macro level functional split is
+useless.
 
-Best regards,
-Clément
+
+> +
+>   static void tgu_enable(struct tgu_drvdata *drvdata)
+>   {
+>   	tgu_write_all_hw_regs(drvdata);
+> @@ -104,6 +234,38 @@ static const struct attribute_group tgu_common_grp = {
+>   
+>   static const struct attribute_group *tgu_attr_groups[] = {
+>   	&tgu_common_grp,
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(0, 0),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(0, 1),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(0, 2),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(0, 3),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(1, 0),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(1, 1),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(1, 2),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(1, 3),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(2, 0),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(2, 1),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(2, 2),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(2, 3),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(3, 0),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(3, 1),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(3, 2),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(3, 3),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(4, 0),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(4, 1),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(4, 2),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(4, 3),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(5, 0),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(5, 1),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(5, 2),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(5, 3),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(6, 0),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(6, 1),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(6, 2),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(6, 3),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(7, 0),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(7, 1),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(7, 2),
+> +	PRIORITY_ATTRIBUTE_GROUP_INIT(7, 3),
+>   	NULL,
+>   };
+>   
+> @@ -111,6 +273,8 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+>   {
+>   	struct device *dev = &adev->dev;
+>   	struct tgu_drvdata *drvdata;
+> +	unsigned int *priority;
+> +	size_t priority_size;
+>   	int ret;
+>   
+>   	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+> @@ -128,8 +292,31 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+>   	if (ret)
+>   		return ret;
+>   
+> -	drvdata->enabled = false;
+
+> +	tgu_set_reg_number(drvdata);
+> +	tgu_set_steps(drvdata);
+
+As mentioned above, combine both ?
+
+> +
+> +	drvdata->value_table =
+> +		devm_kzalloc(dev, sizeof(*drvdata->value_table), GFP_KERNEL);
+
+Could we not embed this in the drvdata without dynamic allocation ?
+> +	if (!drvdata->value_table)
+> +		return -ENOMEM;
+>   
+> +	priority_size = MAX_PRIORITY * drvdata->num_reg * drvdata->num_step;
+> +
+> +	priority = devm_kcalloc(dev, priority_size,
+> +				sizeof(*drvdata->value_table->priority),
+> +				GFP_KERNEL);
+> +	if (!priority)
+> +		return -ENOMEM;
+> +
+> +	drvdata->value_table->priority = priority;
+> +
+> +	drvdata->enabled = false;
+> +	/*
+> +	 * Create the sysfs groups only after the backing storage is fully
+> +	 * allocated, otherwise userspace could open a priority attribute and
+> +	 * have tgu_dataset_show() dereference an uninitialised value_table.
+> +	 * This also keeps the error paths above free of sysfs teardown.
+> +	 */
+>   	ret = sysfs_create_groups(&dev->kobj, tgu_attr_groups);
+>   	if (ret) {
+>   		dev_err(dev, "failed to create sysfs groups: %d\n", ret);
+> diff --git a/drivers/hwtracing/qcom/tgu.h b/drivers/hwtracing/qcom/tgu.h
+> index ebba49402a20..7a3e1161c4cf 100644
+> --- a/drivers/hwtracing/qcom/tgu.h
+> +++ b/drivers/hwtracing/qcom/tgu.h
+> @@ -6,10 +6,137 @@
+>   #ifndef _QCOM_TGU_H
+>   #define _QCOM_TGU_H
+>   
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +
+>   /* Register addresses */
+>   #define TGU_CONTROL		0x0000
+>   #define TGU_LAR		0xfb0
+>   #define TGU_UNLOCK_OFFSET	0xc5acce55
+> +#define TGU_DEVID		0xfc8
+> +
+> +#define TGU_DEVID_SENSE_INPUT(devid_val) \
+> +	((int)FIELD_GET(GENMASK(17, 10), devid_val))
+> +#define TGU_DEVID_STEPS(devid_val) \
+> +	((int)FIELD_GET(GENMASK(6, 3), devid_val))
+> +#define TGU_BITS_PER_SIGNAL 4
+> +#define LENGTH_REGISTER 32
+> +
+> +/*
+> + *  TGU configuration space                              Step configuration
+> + *  offset table                                         space layout
+> + * x-------------------------x$                          x-------------x$
+> + * |                         |$                          |             |$
+> + * |                         |                           |   reserve   |$
+> + * |                         |                           |             |$
+> + * |coresight management     |                           |-------------|base+n*0x1D8+0x1F4$
+> + * |     registers           |                     |---> |priority[3]  |$
+> + * |                         |                     |     |-------------|base+n*0x1D8+0x194$
+> + * |                         |                     |     |priority[2]  |$
+> + * |-------------------------|                     |     |-------------|base+n*0x1D8+0x134$
+> + * |                         |                     |     |priority[1]  |$
+> + * |         step[7]         |                     |     |-------------|base+n*0x1D8+0xD4$
+> + * |-------------------------|->base+0x40+7*0x1D8  |     |priority[0]  |$
+> + * |                         |                     |     |-------------|base+n*0x1D8+0x74$
+> + * |         ...             |                     |     |  condition  |$
+> + * |                         |                     |     |   select    |$
+> + * |-------------------------|->base+0x40+1*0x1D8  |     |-------------|base+n*0x1D8+0x60$
+
+minor nit:                       ^^^
+s/base+0x40+1*0x1D8/step[0] + 0x1D8 and so on, for the above
+
+> + * |                         |                     |     |  condition  |$
+> + * |         step[0]         |-------------------->      |   decode    |$
+> + * |-------------------------|-> base+0x40               |-------------|base+n*0x1D8+0x50$
+> + * |                         |                           |             |$
+> + * | Control and status space|                           |Timer/Counter|$
+> + * |        space            |                           |             |$
+> + * x-------------------------x->base                     x-------------x base+n*0x1D8+0x40$
+
+Also for each frame, you don't have to describe "base+n*..." that makes
+it unnecessarily crowded and complicated to read.
+
+> + *
+> + */
+> +#define STEP_OFFSET 0x1D8
+> +#define PRIORITY_START_OFFSET 0x0074
+> +#define PRIORITY_OFFSET 0x60
+
+ From the diagram, it is CONDITION_SELECT ? Having two offsets named 
+after PRIORITY is confusing.
+
+
+> +#define REG_OFFSET 0x4
+> +
+> +/*
+> + * Upper bounds on the DEVID/DEVID2-derived per-region counts. The TGU register
+> + * layout is fixed by the offset macros above and mirrored by the static sysfs
+> + * attribute tables in tgu.c, so these are the largest counts the driver can
+> + * both address within the mapped window and expose to userspace:
+> + *
+> + *   TGU_MAX_STEPS            static tables define step0..step7
+> + *   TGU_MAX_PRIORITY_REGS    STEP_PRIORITY_LIST defines reg0..reg17
+
+What are these ? PRIORITY regs is 0-3 ? Do you mean each priority has 
+0-17 registers ? (See, the description using base+n*.. for the "step" 
+frame is making this worse). You may move it down as a separate figure.
+
+ From my maths:
+For pritority[0] -> 0xD4-0x74 = 0x60 => 0x18 => 24 registers! not 18!
+
+What am I missing ?
+
+
+> + *
+> + * A device whose DEVID reports counts above these bounds is clamped, so writes
+> + * never fall outside the ioremap()'d window or spill into an adjacent region.
+> + */
+> +
+> +#define TGU_MAX_STEPS                  8
+> +#define TGU_MAX_PRIORITY_REGS          18
+> +
+> +/* Calculate compare step addresses */
+> +#define PRIORITY_REG_STEP(step, priority, reg)\
+> +	(PRIORITY_START_OFFSET + PRIORITY_OFFSET * priority +\
+> +	 REG_OFFSET * reg + STEP_OFFSET * step)
+> +
+> +#define tgu_dataset_rw(name, step_index, type, reg_num)                  \
+> +	(&((struct tgu_attribute[]){ {                                   \
+> +		__ATTR(name, 0644, tgu_dataset_show, tgu_dataset_store), \
+> +		step_index,                                              \
+> +		type,                                                    \
+> +		reg_num,                                                 \
+> +	} })[0].attr.attr)
+> +
+> +#define STEP_PRIORITY(step_index, reg_num, priority)                     \
+> +	tgu_dataset_rw(reg##reg_num, step_index, TGU_PRIORITY##priority, \
+> +			reg_num)
+> +
+> +#define STEP_PRIORITY_LIST(step_index, priority) \
+> +	{STEP_PRIORITY(step_index, 0, priority), \
+> +	 STEP_PRIORITY(step_index, 1, priority),  \
+> +	 STEP_PRIORITY(step_index, 2, priority),	 \
+> +	 STEP_PRIORITY(step_index, 3, priority),  \
+> +	 STEP_PRIORITY(step_index, 4, priority),  \
+> +	 STEP_PRIORITY(step_index, 5, priority),  \
+> +	 STEP_PRIORITY(step_index, 6, priority),  \
+> +	 STEP_PRIORITY(step_index, 7, priority),  \
+> +	 STEP_PRIORITY(step_index, 8, priority),  \
+> +	 STEP_PRIORITY(step_index, 9, priority),  \
+> +	 STEP_PRIORITY(step_index, 10, priority), \
+> +	 STEP_PRIORITY(step_index, 11, priority), \
+> +	 STEP_PRIORITY(step_index, 12, priority), \
+> +	 STEP_PRIORITY(step_index, 13, priority), \
+> +	 STEP_PRIORITY(step_index, 14, priority), \
+> +	 STEP_PRIORITY(step_index, 15, priority), \
+> +	 STEP_PRIORITY(step_index, 16, priority), \
+> +	 STEP_PRIORITY(step_index, 17, priority), \
+> +	 NULL                   \
+> +	}
+> +
+> +#define PRIORITY_ATTRIBUTE_GROUP_INIT(step, priority)\
+> +	(&(const struct attribute_group){\
+> +		.attrs = (struct attribute*[])STEP_PRIORITY_LIST(step, priority),\
+> +		.is_visible = tgu_node_visible,\
+> +		.name = "step" #step "_priority" #priority \
+> +	})
+
+Please could you move these macro magic to the .c file ?
+1. Nobody else reuses them ?
+2. It is really difficult to go back and forth to check what each macro 
+means, given how complex it is.
+
+> +
+> +enum operation_index {
+
+why are we calling it operation_index ?
+
+> +	TGU_PRIORITY0,
+> +	TGU_PRIORITY1,
+> +	TGU_PRIORITY2,
+> +	TGU_PRIORITY3,
+> +};
+> +
+> +/* Maximum priority that TGU supports */
+> +#define MAX_PRIORITY 4
+> +
+> +struct tgu_attribute {
+> +	struct device_attribute attr;
+> +	u32 step_index;
+> +	enum operation_index operation_index;
+
+u8 priority ?
+
+> +	u32 reg_num;
+
+u8 reg_num ?
+
+> +};
+> +
+> +struct value_table {
+> +	unsigned int *priority;
+> +};
+>   
+>   static inline void TGU_LOCK(void __iomem *addr)
+>   {
+> @@ -36,6 +163,9 @@ static inline void TGU_UNLOCK(void __iomem *addr)
+>    * @lock: Mutex serialising enable/disable and the associated PM runtime
+>    *        reference counting against concurrent sysfs access
+>    * @enabled: Flag indicating whether the TGU device is enabled
+> + * @value_table: Store given value based on relevant parameters
+> + * @num_reg: Maximum number of registers
+> + * @num_step: Maximum step size
+>    *
+>    * This structure defines the data associated with a TGU device,
+>    * including its base address, device pointer, the lock serialising
+> @@ -46,6 +176,9 @@ struct tgu_drvdata {
+>   	struct device *dev;
+>   	struct mutex lock;
+>   	bool enabled;
+> +	struct value_table *value_table;
+
+Why this ? why not
+
+	struct value_table value_table ?
+
+Surely, we seem to be dynamically allocating the priorities etc from 
+there. But do we need dynamic allocation for value_table field as
+such ?
+
+Suzuki
+
+> +	int num_reg;
+> +	int num_step;
+>   };
+>   
+>   #endif
+
 
