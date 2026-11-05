@@ -2,110 +2,148 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7F21606A6C0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 19:52:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFFA0606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 19:52:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xoSYou6q;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PFEiRR+6
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kCnaTPAW;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=fvRQDk3K
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
-	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=V4Id/aV3qkYtLSE7eXDy6LZshkWcet17PGfUIiAdWVA=; b=xoSYou6qBTXV4rc2dRQ0M7W0BW
-	TuQUXMW/nC30brR98P+3IUiIBJu7NocEWQjIb3XVXKXE0BqJikoaLHdrYRxHNqHhU8n4DyxyNU5bF
-	jg8hHwsz+FJAQpofK9SwJF7XyIskDwoeva9lnS0RoXhuvA2tz/IPLNhe8tT3FrVAYodHxB+V/+2RC
-	WsNXDuURkglodlzDYskbMAMu1tNeSeT0Fi84WzVwVMj2lAGeuuvZkduahSzURXqRbAKLG1D5QT1/Q
-	yR7tDmeQXn79MIvuZxrnCig7iW+AmNIhh+PCqGRaDzwsTqI8XPuKWLM1Kw/Y2MoufXTYR2WIHgSrs
-	PhjAU8Vw==;
+	bh=b/YdeIe3S04OQ4ZYTvPmBVIB4mwiU+hwwue6q+M2uuQ=; b=kCnaTPAW+rVB5ISkssfDBYfOJS
+	zLsk9Npo7IkKZPa/MkEiZ1aUYV8zv5Jvm5cgVTIQrHv94SfuIOslBM8rSzgYFe3Gy7Ic96sndGIye
+	H9nYWn+zN1DS7MzPxI0UldLtETYCB4w/2Lle/HjlohEoUkZHkdQi4q94Cz+EAk7wo/RkPyRTTmV8X
+	c2/wKP3FX9QcpGAd6w+GPczhIclw4zIGsce3+qKe2VCsf9fIOe68p2e2zWCnZIAtbC2mz/bIio+Di
+	mm9v+F2BrR6ljXlG49WkuWtF6DAU4hslgdPkjW9YWE2FRmxyjacNeVZh9/Hj9VCNtCXRKFqoPcSGv
+	QaO/ILwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP3Om-0000000AP3B-0wgO;
-	Thu, 05 Nov 2026 19:45:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xP3VE-0000000AQow-2IZP;
+	Thu, 05 Nov 2026 19:52:04 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP3Ok-0000000AP1T-1fjQ
+	id 1xP3Tr-0000000AQIE-2S8F
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 19:45:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1491B4363F;
-	Thu,  5 Nov 2026 19:45:22 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793907922;
-	b=oJsKdBOLlqtr0uJqN/3jOX+RZHDhimRTa7x9Ee28fwGi90sVn3XUmmbSZ77f6qz0kfXF
-	 cXPq3AYNwcYfdl3uG029d0UzFYcnkeiKvDP746O8DHEX9q+IDA55p+ugvpedAJj5P+Y6Q
-	 LCMguO907Hobqv1u1lPbXTCedUPfNu6Ioe2A+F2HDKRr5Ap/wMLUp4PLMlji9hQdtl6GK
-	 qkD2VkByVr//MkpEX7M/oRZiN/KkH1TY2NmOCTT8hNkHL9hYdO301d9Z662ugU1qSjlwg
-	 lSh979fePY5BiGW4PNM4TxL53MR01nnb3TusAwTMtjhMzWzFe+L8y7Vx46CMqJ/jEiQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793907922;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=V4Id/aV3qkYtLSE7eXDy6LZshkWcet17PGfUIiAdWVA=;
-	b=Yeo5N2+3uzbKb3TKSoZMUgBvbz437NtgCA0GCIofdgLcTpAWNY4XIv2wFxvssV4F2Hea
-	 LFaefNy08RO8mbjJ7LDbeu7VsMk97rTU3UzwVbq12+gnXr6zvUh6J98vfNIMTT4u07l4Y
-	 7D87dVmsXNJ0YdkK062Y/jOozxFOGYcXB+Gsu8wBne0aIB6Ji+5LmHamY5mKRr3mUmG+N
-	 pXGClRRuEshkW2X3WUlHSDM3AhSNGc6MnpjPybPzXtyClsRsVa0BjJ225nZnbnNz/++5d
-	 DfJ6cdQcYlGl355UgPmek53KfivaZGwZbevPwPErtIRzJHTqE9LGYNOJXrJd75gSh0w==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 628AD1F0089F;
-	Thu,  5 Nov 2026 19:45:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793907921;
-	bh=V4Id/aV3qkYtLSE7eXDy6LZshkWcet17PGfUIiAdWVA=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=PFEiRR+6lronJVEfBnil5zQpbsWLvbdI4V0ssFjuFVpYgwHYGn0Bva409dI13P/hw
-	 g34MJSesHu7f+hTf+KmVz3njNPbxfhUZkcsExMa5vJ4Y48/qtzBc1He7WKQkRy2ZQy
-	 45FUTe8CeaQj6mZqoH/fl70Nlgzsty9y+kJ/HL3HONpvv58SMxs68hF444F9SnIiuV
-	 ogK/JSY0LfsSczA66tc/KxJZeZeDYiCH5vXLfeBj5ZCbHUUOKYzgvFJK9WmsGohaI/
-	 QtVSEyHiyYsQxdcZHf31l7HvZ69MZfr7IMelHzEkbe8LEn6Y0Bo7/hfLfZF2KNaDzP
-	 YF6TrE9Nt6x/A==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id BA6D740367;
-	Thu,  5 Nov 2026 19:45:20 +0000 (UTC)
-From: Xuheng Li via B4 Relay <devnull+xuheng.cs.columbia.edu@kernel.org>
-Date: Thu, 05 Nov 2026 19:45:21 +0000
-Subject: [PATCH] KVM: arm64: Order a later pinner's accesses after the hyp
- mapping
+	Thu, 05 Nov 2026 19:50:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TO9qcs+Ry1BoLoTNmRULHuJZ9W7TC4DlgOvMgcUZT87z5kLdJeSI4zDk3NO+a4Z1cNPFjlGXyOMoqoRGnpwSwhbQjLlCB/aYj9MmxIK+YRXla5GZtwrHkv5h9J/HgY8zNQhtRI8Ssr8Fw9083eeg1OrrfIss8LilOrhx9BWPwCaA33U6IgIl4hV69tpJBtKjPoY5PGERZUyhDAyJ+nMDInhfmzspyV4DY+CrU1y48hVaae+l/w50Bk2yfMIPv+HS75NULpYKwhNvhJI48sQ7aYBgxkshPak/wXtFZ9yNC3mvuYw36f7K8GJ+3/DaNnJ93nlakvDT1MakEAKed4WMrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=b/YdeIe3S04OQ4ZYTvPmBVIB4mwiU+hwwue6q+M2uuQ=;
+ b=MOkf9kl5n6DGR1nuvnOstNuzWaNk6WD3jtXC8CxJITWkgSbUBn3Z/wAc1Alk//CO/Zzp+ZubJdAl2NeZ+IKAbiiHR7ZEkw18H0LjWR5AokdSHrLD+pAWGLyUeQ/lEZa3RITwEA350tqGAozB0vLy83vAHbCDCvhlzrntXxoCsF/qoe+2zHgpEbG414lg6thG9xcGr4yvIijzsSG6b985YF9PfzaRdGCstLxEeNCFknCaoc4/VP/Khb243ntzDvF0fvLsHkPd2k9XnNQ4LRQCelHUx5pGgHH7ep/tC4zmbVuBtqZmN1T+X8sw2TO3ui6+LpeoQtGhRUINXXPGWpCdZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=b/YdeIe3S04OQ4ZYTvPmBVIB4mwiU+hwwue6q+M2uuQ=;
+ b=fvRQDk3K3IP44KX/xBOeEqm1+w/rY3fTQnua6Vjr95KmjcCWoefy8HJ1tJOCMzl3LLlUabnXbEpklGUOUmaaLAOYnsu3VvujYzrxS29T8Bk8sgJBK8Pn3gUDEVse0fTclzsUMAy0fnjRleBNZTAHUX7aXIjZzeB6uR3/dgBw+yPHRNd1ypa/0BMEewgdTQRMaDtTbTwt6w7TtAvrhY+RKhX/q0osVd03eebJequosUIJK5S6RCAaQcnT1ggN1a7tYgHg+MXDPBk/34XX3fJEPN8LdmEqU2ix/3GqZVMQNwpGEnZKuPtEjK6V1+33UFlXEPUjyoa60yvlvm2cxAP58Q==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AMBPR04MB12445.eurprd04.prod.outlook.com
+ (2603:10a6:20b:75e::21) by MMZPR04MB483805.eurprd04.prod.outlook.com
+ (2603:10a6:190:45::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Thu, 5 Nov
+ 2026 19:50:35 +0000
+Received: from AMBPR04MB12445.eurprd04.prod.outlook.com
+ ([fe80::ba23:1fa4:ce58:ff06]) by AMBPR04MB12445.eurprd04.prod.outlook.com
+ ([fe80::ba23:1fa4:ce58:ff06%3]) with mapi id 15.21.0592.009; Thu, 5 Nov 2026
+ 19:50:35 +0000
+From: Frank.Li@oss.nxp.com
+To: imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Francesco Dolcini <francesco@dolcini.it>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	linux-kernel@vger.kernel.org,
+	linux-bsp@toradex.com
+Subject: Re: [PATCH] MAINTAINERS: Add entry for Toradex boards
+Date: Thu,  5 Nov 2026 14:50:05 -0500
+Message-ID: <179390820286.1646920.14350309115622219689.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261009064705.10116-1-francesco@dolcini.it>
+References: <20261009064705.10116-1-francesco@dolcini.it>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: DM6PR02CA0114.namprd02.prod.outlook.com
+ (2603:10b6:5:1b4::16) To GV2PR04MB12436.eurprd04.prod.outlook.com
+ (2603:10a6:150:343::11)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261105-pin-barrier-v1-1-04ebf118175a@cs.columbia.edu>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQwNT3YLMPN2kxCKgpiJdU4s0I2Mjy2RLQwsjJaCOgqLUtMwKsGnRsbW
- 1AHAag7RdAAAA
-X-Change-ID: 20261105-pin-barrier-58f2329c9182
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
-Cc: Quentin Perret <qperret@google.com>, Will Deacon <will@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, kvmarm@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Xuheng Li <xuheng@cs.columbia.edu>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793907920; l=4979;
- i=xuheng@cs.columbia.edu; s=20261028; h=from:subject:message-id;
- bh=VSD4GLblhd6azQKpEOEzqUEqojO3itNwjO/sVgeUiIo=;
- b=QTSVYgfFMuRB8xUVfGJEOEYn5PHpxm7RURrEUKvrivYUBnG4i8kkVU4ZFZfpoibktyqcqFCLM
- redV+d6YhMKClxjlcRUrICmxiCS1kKQL1FJrXBMRBJVHHUy8JOYyWfy
-X-Developer-Key: i=xuheng@cs.columbia.edu; a=ed25519;
- pk=L1HVV+goqxYmEMO/OXakL6uf9isSpgk2QrLlFqyZ2Qs=
-X-Endpoint-Received: by B4 Relay for xuheng@cs.columbia.edu/20261028 with
- auth_id=1349
-X-Original-From: Xuheng Li <xuheng@cs.columbia.edu>
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMBPR04MB12445:EE_|MMZPR04MB483805:EE_
+X-MS-Office365-Filtering-Correlation-Id: 66b0fcbd-a6d3-4c8d-e52d-08df3b760eaf
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|19092799006|11063799006|56012099006|261022105027099003|261022075727099003|261009223027099003|261028144727099003|261026140227099003|261026121527099003|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: URygD+0avJxHQpU9Qli3Qwta2s8eoeCh2e1kqcm6m16bSsmV+oEjhWoWftpAWVs3/PoP1Ci7///EBo2xU3hh2VPpR/687RUcW8ly9uFZLgtZOIZJzR9DWwJx8oh1cYzPOJZ4nsxzAfvSwVkumjuaSBAf/01+y7ES08fbuGmqbuBJKjMnoTg2fCyKoFElc/Xry6MIyn1PKY4Oq9HAsrbpAIOhvZCXNOEzFLh9WZGx8oRh+GZCUo9o0X4PlehqAlPQ2S3Id4JW+DJcT8JXP5wp31VQbZ+NFFiL3v6Nocqy4B8oEvLr5tZkRlvZ3KAYIWlU+10nOWt/PfN89YssNGBFUS/ojWpmAYuHHArfcaXA4SzudQC+QPkNpmA4feP6k3aTMjDfgcO2rvv/EkAGhNg6MM3vhWL1M1277Ony25VowQi/weLH1DPkUFPKdNe8m/vY3mvrilw3ulJXFwMiSwI+76rP4XdJa87j4xpsf0iB3JbP2XmLbz7p5YvbGHj7C6Wh6WObnD32iYEcHrfTTIOL9awEepuGY9vtVXCMC1jhEh0UTsYqE5pfsLD9i/8rhlgR//tVwInTOeZVCU8oebjjLkg2pDmqxsWdsab8gsgnKOU2XE3eGGthdRE/bbLUu5ftIN8M04SzXhO55+H2sI3LuDASXvLHl2yt/7DGKDMqjGA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR04MB12445.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(19092799006)(11063799006)(56012099006)(261022105027099003)(261022075727099003)(261009223027099003)(261028144727099003)(261026140227099003)(261026121527099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MjVHV0k5bE1pL2ovS0hUM3JQM2Jsay9ISTU4RlltVVpoWEs3SW9GRTBWc1Rm?=
+ =?utf-8?B?R3VJNG1IcUR1UE1JU3ArMHl4a2U5ZkxSSmVZdWJjSDRzVlpPbkZZZ0ZoZ1lj?=
+ =?utf-8?B?dkRJMS9Xc2NxQlFCZ2RrVm0vNkFFWnF2UU5VT3JKUDRWUGttVFJTRFp1T29q?=
+ =?utf-8?B?R2tsNkVOM09lSXlwQ1RDajFSVkEyUTRHZXM3QVFJSVAvL1JoYnJnZGNENHRu?=
+ =?utf-8?B?aTEyZ29Qa1BQcU1EQStxT0QvU1VybU9JSFNjRWp6NVNjSVdsTUtSNzZTbDRH?=
+ =?utf-8?B?V29QVGhjMkljZ0w0cDZNVnNwYTNjeVZnUzFCdmI2bXhwWGFVTlhFakR1Sks0?=
+ =?utf-8?B?dG1VVmh5MVhTTXViSGZHcXN4UUQ5ZFM2Z1V0R1Fka1RxaytTbGpadVB4aWhZ?=
+ =?utf-8?B?UlFJbk5OU1cwMUV6c2o5OGxYWHkrbkNzalFZMDNjT1hZUGl2dGpCSU1lZFNU?=
+ =?utf-8?B?Z0xoTHpxZjkzZzBiV0dod2kzVllud0VCSm9uZm54Vy9yWkVMVkZLaXRhU2xl?=
+ =?utf-8?B?VUFqTFliU2FwK0MrcXdSYXdRNVdCRzVtdUR4dGNnUkk4VUVlK2pQWHVsYUdv?=
+ =?utf-8?B?S3JmWlZCNVRqN1pLNzh2N3FabG4yYlI3OWp6WGZPYVA3YkZLaUFVWWx1M3NH?=
+ =?utf-8?B?RmdRbFU3TVpJMTlYeWY1MU1kUFFuUGthQU9iZU5FUkw5bGVLVEFxVGxMVkJK?=
+ =?utf-8?B?ZE1iTUFlTUxYS0t2ZlpaeCtydmpTNmR6eDltcXp0R2pQai9RcEw2TWZnYlFw?=
+ =?utf-8?B?L0Z2MkN0eHc5MmJUcXl3L2RMcit6bUdQVHVaN29KcFUrYVVQMjhFaUl4N3Bs?=
+ =?utf-8?B?d1kvQ2FRbG40aFNvclFUOXpqOTBCMEVWYXdYbVRRUTlGWDB2WnllakMvU05M?=
+ =?utf-8?B?eDJGYWYzQXNZM00zakxWS0sycENteEhTMzUxOGJJS3FoSUdtK0hld0dRQUdF?=
+ =?utf-8?B?eWtlSStxbDBGQ2JzbkNQQjZLOEwxby8zZ3BaOXBHWkFYWUNlK2Rrb3ExK04y?=
+ =?utf-8?B?U21vS2prQW1WYm9mdDRKV09sbWkzTldIZERoUVhkS082YzlJK1FYaktpc01x?=
+ =?utf-8?B?SWV3akxqTUJ3eUtDb29YcnBXanN2Zy9sbnNtSmgycmZqUVloQ2hkY0s1SWU4?=
+ =?utf-8?B?d1ZoZE1weUR1d2htWXNiTEtpWUhIdDc3c0liZk8vNUZ3Y09lbTdmYUZVcENh?=
+ =?utf-8?B?ZURIeGNuT0hLYzBxL29nVWFadVg1SmVYVVcxUjZaOXZSbllobW1CRzZZSkVt?=
+ =?utf-8?B?UWNWNW5uN1NnNjlXbXZISmh0WHF6aVZDWUxCTXNIN0Y4dWJ4VTdpemVsai9h?=
+ =?utf-8?B?YkZRUUZGYUpJQ0QzYTBNVE9ldkJFbnoxZ1dOaTd4NndMbG1JZlUrMmczZVF3?=
+ =?utf-8?B?Qk5JT01uaDc0SUxxdERUV0xuaTJjR3ZLZjJRY2RQVVJvWnBEUjYwdHdHQUlq?=
+ =?utf-8?B?Yng1R3Z6MGhCdENlVlZWcmY4MlpvbXBzMHhoQXFuL085bDNKemRHN0ZudmZO?=
+ =?utf-8?B?eXZkTk04bURRQmhiZ0ZMQ1VvSmJ5QjJKN2w1eDNkOWxTa1VQNCt1QW02cnp5?=
+ =?utf-8?B?QmZIbVdIbWVNMnJDcndZRERIM2lVWUNIc25qTityNkVnQmtYWkR2c0FiT05q?=
+ =?utf-8?B?YUNmUHVPSzVKcTM4YSthU2w5RVFoUHJ0QldRNW83Qmh6Y2NCekJyOHN0Q1dQ?=
+ =?utf-8?B?c0kxZWIwN3dleW1lOEd6b2hRTnZlTXloenlwS2VwTXpHeENMSndlWkFEV05X?=
+ =?utf-8?B?MXc0WVlHQWd1eGIrcDlKR1J0T3NFa2d4WC9XYUprUTZFVzUvU3ZHWU4zVFJZ?=
+ =?utf-8?B?M2gwQTJ6c1hGdEhnLzJiRU9ieVlwNDllNVJnYlFGcGdCRllFVys5clZCM2dz?=
+ =?utf-8?B?RmZXTitxOHd6VGtWajVWNE5mcVVPQlh6T3B6NkpvM1JHS2V1RWszdVBERlpH?=
+ =?utf-8?B?a2I2SEhCUTNZTUVSTWZLN1UwTTkxNXdqbFNZTldjZ2R2SlQrV0FxbzdUaG9O?=
+ =?utf-8?B?OFNUS29ldUNTVHZkNkNMQ2lQbE9OclAveTYvQkd0ZUpWd2hUSU9GSk1sNUVv?=
+ =?utf-8?B?SWpNTk1Xd2VCY00vMzVVd2xlZWRKQ0YvMDBJa2NmTGpkMGtjVHJ0YTdmeSsv?=
+ =?utf-8?B?a0Q0aW8veWxCUHhTVkVEVUU1ZXMwMVlVeVlTbXIzZncvb1RuZUQvT2tsWEpX?=
+ =?utf-8?B?d0V4dTk4Q3JOVTc0K2tDeE16N3BsZElYN2pKQjRnRE1VRkxHMjVFcXcxNWNB?=
+ =?utf-8?B?Qno4Y3NnSjNJNE9QQTdYWXMwcHN0Nmk4ZEZ3Zzg3bnowcmNRZ2NCc2VrTFNl?=
+ =?utf-8?B?d3JMT21GbzhnZHQvczVJT0J6MFQ5a01MTjlJYmZqbWpadXpOVlFuaXR5SURa?=
+ =?utf-8?Q?yMtTACNuiNu6k9mftKydiW9Cahd3VQrI0c/Yc?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 66b0fcbd-a6d3-4c8d-e52d-08df3b760eaf
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12436.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 19:50:35.7013
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IhFzFF1/iFXQxxeH3G39c/SL35EIZkvTCg/ES1FAJu4ESL/OfbDQARAhRZiTEij5NseVgCjof17ZmLGobbIe51IaKq0Oh2NJu4ezkjJwqDlqGCwP4AQAnQG1XB8lvskl
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MMZPR04MB483805
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261105_115041_301678_D8727B69 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,142 +153,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xuheng@cs.columbia.edu
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Xuheng Li <xuheng@cs.columbia.edu>
+From: Frank Li <Frank.Li@nxp.com>
 
-Since commit 48d848882395 ("KVM: arm64: Defer EL2 stage-1 mapping on
-share"), hyp_pin_shared_mem() maps a shared page into the hypervisor's
-stage-1 only when its refcount goes from 0 to 1.  The CPU that maps it
-runs dsb(ishst); isb() in kvm_pgtable_hyp_map(), which orders that CPU's
-own accesses.  A CPU that pins the page later sees refcount >= 1, maps
-nothing and runs no barrier.  It then accesses the page through an
-address it computed before taking the locks, so nothing orders its
-translation after the other CPU's PTE write.  The access can use a
-translation performed while the entry was still invalid, and fault.
 
-A host can do this with any pinning hypercall by passing the same page
-from two CPUs, for example __pkvm_init_vm() with the same struct kvm:
+On Fri, 09 Oct 2026 08:47:04 +0200, Francesco Dolcini wrote:
+> Add a MAINTAINERS entry for Toradex board device trees to ensure
+> that we are included in patch discussions and can provide reviews
+> and feedback on proposed changes.
+> 
+> Toradex has been developing and supporting its System on Modules and
+> carrier boards for many years, including their Linux mainline support.
+> 
+> [...]
 
-  CPU A                                CPU B
-  -----                                -----
-                                       host_kvm = kern_hyp_va_host(x1)
-                                       (host_kvm may be translated now,
-                                        while its entry is invalid)
-  __pkvm_init_vm(host_kvm)
-   hyp_pin_shared_mem()
-    host/hyp locks
-    refcount 0 -> 1
-    pkvm_create_mappings_locked()
-     kvm_pgtable_hyp_map()
-      write the valid PTE
-      dsb(ishst); isb()   <- CPU A only
-    unlock
-                                       __pkvm_init_vm(host_kvm)
-                                        hyp_pin_shared_mem()
-                                         host/hyp locks
-                                         refcount 1 -> 2: no mapping,
-                                         no barrier
-                                         unlock
-                                        READ_ONCE(host_kvm->created_vcpus)
-                                         uses the old translation:
-                                         translation fault -> hyp_panic()
+Applied, thanks!
 
-The lock hand-off orders CPU B's loads and stores after CPU A's PTE
-write, but not its translation table walks.  Arm's herd7 model with
--variant vmsa allows the fault for this shape: a mapping made and
-completed with DSB; ISB on one CPU, handed over through a
-release/acquire, then used on another CPU through an address it already
-held.  It forbids the fault once the second CPU runs DSB; ISB after the
-acquire.
-
-Make every successful pin end with dsb(ish); isb(), so that the pinning
-CPU's later accesses through the range are ordered after the mapping,
-whichever pin installed it.
-
-Fixes: 48d848882395 ("KVM: arm64: Defer EL2 stage-1 mapping on share")
-Cc: stable@vger.kernel.org
-Signed-off-by: Xuheng Li <xuheng@cs.columbia.edu>
----
-The fault was found with herd7 (herdtools7 7.58+1) and Arm's AArch64
-model with -variant vmsa,fatal.  The test reduces the host/hyp locks to
-an acquire of CPU A's release and the pin to its refcount check:
-
-AArch64 pin-maps-nothing
-{
-pte_x=(valid:0);
-0:X2=pte_x; 0:X1=(oa:phy_y);
-y=1;
-pte_z=(af:1,db:1); pte_r=(af:1,db:1);
-0:X8=z; 1:X8=z;
-0:X9=r; 1:X9=r;
-1:X3=x;
-}
- P0               | P1                ;
- MOV W5,#1        | LDAR W7,[X8]      ;
- STR W5,[X9]      | LDR W5,[X9]       ;
- STLR X1,[X2]     | ADD W5,W5,#1      ;
- DSB ISHST        | STR W5,[X9]       ;
- ISB              | CMP W5,#1         ;
- MOV W7,#1        | B.EQ LMAP         ;
- STLR W7,[X8]     | MOV W6,#2         ;
-                  | STLR W6,[X8]      ;
-                  | L0: LDR W4,[X3]   ;
-                  | LMAP:             ;
-exists (1:X7=1 /\ 1:X5=2 /\ fault(P1:L0,x))
-
-P0 is the pin that maps x (refcount 0 -> 1, PTE store, dsb(ishst);
-isb(), unlock).  P1 takes the lock after P0's unlock, sees refcount 2,
-maps nothing, and then loads through the address it already held in X3.
-
-  $ herd7 -variant vmsa,fatal pin-maps-nothing.litmus
-  ...
-  1:X5=2; 1:X7=1; Fault(P1:L0,x,D-MMU:Translation);
-  ...
-  Observation pin-maps-nothing Sometimes 1 7
-
-With DSB ISH; ISB on P1 after its acquire and before L0, as this patch
-adds, the result is Never (0 6).  It is also Never with
--variant vmsa,fatal,ets2, i.e. on CPUs with FEAT_ETS2.
----
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index d4c332a91..5cb1a1e1f 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -1210,6 +1210,14 @@ int hyp_pin_shared_mem(void *from, void *to)
- 							    PAGE_HYP));
- 	}
- 
-+	/*
-+	 * Only the first pin of a page maps it, and that CPU's barriers order
-+	 * only its own accesses. Order this CPU's accesses through the range
-+	 * after the mapping, whichever pin made it.
-+	 */
-+	dsb(ish);
-+	isb();
-+
- unlock:
- 	hyp_unlock_component();
- 	host_unlock_component();
-
----
-base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
-change-id: 20261105-pin-barrier-58f2329c9182
+[1/1] MAINTAINERS: Add entry for Toradex boards
+      commit: eaff1feb58b6241c7a6ac4db441ca26fdcfe359d
 
 Best regards,
 -- 
-Xuheng Li <xuheng@cs.columbia.edu>
-
-
+Frank Li <Frank.Li@nxp.com>
 
