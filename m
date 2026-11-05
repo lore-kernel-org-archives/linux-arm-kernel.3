@@ -2,75 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA137606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:22:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C08C606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:23:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=w6dFfFfA;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H6rcAFKo
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Nn8lGUAt;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=WjVvJR2t
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=38nZMeNznVKeupiqH5IxVPd4xUnhI8fUvfCaQKWMg2A=; b=w6dFfFfAjMDnFy
-	swEw7clO/Nz0iIKllW6TgegKEjrEhemuhSn0eR1h3ZIliG/R2CqgHQoomqkvxvUbPDPXPG+nd+q4M
-	WJq2GUyoAYMCpAf/1YaOZnefcRcBpRnLqD1+T8gCPoqZtn1A2YUdGhyLpBNXA9MekTBqDERn6yQ5n
-	mfrNq1NEiorc7FEdkZiPcQ3ltblYKa626vvybJ2P7vgcjmM66E5qEtoR6SQ5Kp3XCcscncV0fHlUV
-	EkQm2InkQ+K6rRWPa4q9TIQpoV/lF7ACE1ZGVuKXs/cCTj4qYzxFE90y9N4ympO39B2JoDGuUuDmZ
-	0D5Ju7TQzShWPKu/ykSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=3ADmQIxAo8HDM9v3jLMAtpR5tdAcgtAcz2GrlhHdH0M=; b=Nn8lGUAtmmzw/gbDbCX5DSeRw3
+	FvmfYKP5YVps5aiJJekcQdSg8TNCtTmuC8nS2B64fX4IJDMurz+oSdncMed6sDkVu4KHtECxSLiX5
+	S7YazgptmhBAHOs5RKDbAKlGj/j6ZXvkw1dsDMrw9vvu3u/Hu02OuMTqjglXtSomK5TMRLKGTbInY
+	BBEz5x818+5W/lfEOrFUMzA8YnmZ0lPxKI/AsT1WzREwBQ8vFoGiPLu10rHWKq5Bv7nsbYbjtVBTO
+	S/YXLnLZX2sItAsPoIn4b+XL46C5X6xOqS7gb5f25t5zERLDx3thta9ub03wG6YAG3x5k37i870SZ
+	anizBL7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtfw-00000008HbD-3n8N;
-	Thu, 05 Nov 2026 09:22:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtfr-00000008HZu-2DZq
+	id 1xOtgS-00000008Hjn-29G6;
+	Thu, 05 Nov 2026 09:23:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOtgP-00000008Hie-1Y3S
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 09:22:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F304843F2C
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 09:22:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7AE11F00919
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 09:22:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793870542;
-	bh=38nZMeNznVKeupiqH5IxVPd4xUnhI8fUvfCaQKWMg2A=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=H6rcAFKo+4gqVyPOhTaEkldRgXH0ytPgPp3wFiSJavm8fKl7xBo2iNAPeIKCvjvUB
-	 cvbq8/s4ee1bfehZxxSs4jCYqpIsRvRRtUhMyAZcqEANoHHC9/t299bmfA7vYPj5sG
-	 xJXZZUkQ8C/JSBDTj1c12SeE8708LYkyctwZOFUEriY/G40pGeni2VhYrq2TK0KTgl
-	 kTY2zoALYSnXskb3xcya7NaHInRQWoQsIg7glYviBojQbtR0hSRT2HmrGhpt7KGDDH
-	 wH7P3RZfXZh7GRyrE2CyLJxxdetwEt6HlmHRAEdajeWUixKxzlbMQkZS39nwC9zbEd
-	 FHUfFPLMF7cTg==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5bccecba199so1437176e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 01:22:22 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvBxyEvgIlJ6uDbTzPTksHx0HtoDXF4RSQX6uf/aY/7Be7iHGS+vCHlyUE+90Eecc1HylwVzdoEwsDJY3BekQFsEI@lists.infradead.org
-X-Gm-Message-State: APuU4Z8+YiKRZDTV5LfMIJkB58JVqCvlXtp0FDO0+JCw8n2St9MkL599
-	wfckPaq0Ryka3/w7hQXQ008/OP+KktArj7rB7bMhZzK3eMuRPLqWdlvnHn9vRqmgBoF4tF+JtGk
-	v7Sm4JBCxnWlBeLoRN+4/RJjcmLH1jd4=
-X-Received: by 2002:a05:6512:33d3:b0:5bf:b144:fd05 with SMTP id
- 2adb3069b0e04-5bfd957ec46mr6771787e87.54.1793870541701; Thu, 05 Nov 2026
- 01:22:21 -0800 (PST)
+	Thu, 05 Nov 2026 09:22:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C866E19F6;
+	Thu,  5 Nov 2026 01:22:52 -0800 (PST)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D05D3F628;
+	Thu,  5 Nov 2026 01:22:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793870575; bh=3ADmQIxAo8HDM9v3jLMAtpR5tdAcgtAcz2GrlhHdH0M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WjVvJR2tAoFJSufvpND4tfqyE+S7lXAB15rdV43IYRwoa05K89GDHf2rs4DM15kCe
+	 eK6nxhLWcUYRKamtKzGFDQHr8ywB/C86Ioujk6V61bYHa93TFkNhVnnrL6U+V9o6h9
+	 00JeJ1XMwFX1sgh7mCiAKJNbQSmjj95+kxrw+MR0=
+Date: Thu, 5 Nov 2026 09:22:53 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Leo Yan <leo.yan@linux.dev>, Adrian Hunter <adrian.hunter@intel.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>, Will Deacon <will@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
+	linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	linux-doc@vger.kernel.org, John Garry <john.garry@linux.dev>
+Subject: Re: [PATCH v3 15/18] perf auxtrace: cs-etm: Capture wrapped snapshots
+Message-ID: <20261105092253.GO9176@e132581.arm.com>
+References: <20261102-james-cs-unformatted-per-thread-fix-v3-0-dbcb0c281b9b@linaro.org>
+ <20261102-james-cs-unformatted-per-thread-fix-v3-15-dbcb0c281b9b@linaro.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261103213002.1673560-1-lee@kernel.org> <20261103213002.1673560-8-lee@kernel.org>
-In-Reply-To: <20261103213002.1673560-8-lee@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 5 Nov 2026 10:22:09 +0100
-X-Gmail-Original-Message-ID: <CAD++jLmF0U6ehFSuauqKDQiZRkuUnqpbZd--v2aqF2YZQF=HwA@mail.gmail.com>
-X-Gm-Features: AclHuK_usnBCJ7KUuM8edZVtpiEIeTbj7Pj1_drbEmXyfoNip4o1DLtzy4-1lMQ
-Message-ID: <CAD++jLmF0U6ehFSuauqKDQiZRkuUnqpbZd--v2aqF2YZQF=HwA@mail.gmail.com>
-Subject: Re: [PATCH 07/10] pinctrl: realtek: Initialise omitted offset fields
- to NA in config macros
-To: Lee Jones <lee@kernel.org>
-Cc: James Tai <james.tai@realtek.com>, Yu-Chun Lin <eleanor.lin@realtek.com>, 
-	=?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.com>, 
-	Tzuyi Chang <tychang@realtek.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-realtek-soc@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261102-james-cs-unformatted-per-thread-fix-v3-15-dbcb0c281b9b@linaro.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261105_012257_539912_48FA1203 
+X-CRM114-Status: GOOD (  15.20  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,30 +92,27 @@ X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Nov 3, 2026 at 10:31=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
+On Mon, Nov 02, 2026 at 12:15:29PM +0000, James Clark wrote:
 
-> The Realtek pinctrl driver uses NA (0xffffffff) as the sentinel for
-> unsupported pin configuration features.  However, RTK_PIN_CONFIG omits
-> input_volt_offset, slew_rate_offset, and hvil_offset, and
-> RTK_PIN_CONFIG_V2 omits slew_rate_offset and hvil_offset.  Because C99
-> designated initialisers zero-initialise omitted members, those fields
-> default to 0 instead of NA, causing rtd_pconf_parse_conf() to treat
-> unsupported features as valid at bit offset base_bit + 0 and corrupt
-> adjacent register bits.
->
-> Explicitly initialise the omitted offset fields to NA in RTK_PIN_CONFIG
-> and RTK_PIN_CONFIG_V2.
->
-> Fixes: dcc9334435b0 ("pinctrl: realtek: add support for slew rate, input =
-voltage and high VIL")
-> Fixes: e309dbd523b8 ("pinctrl: realtek: add rtd1625 pinctrl driver")
-> Closes: https://sashiko.dev/#/bug/linux-fbd0bf54-6dba-4652-9418-270b11fb6=
-d8b
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lee Jones <lee@kernel.org>
+> Add auxtrace_record__monotonic_find_snapshot() and use it for Coresight.
+> A monotonic head can't be auto-detected in the default find_snapshot()
+> by checking if head > buffer size, because before the first wrap a
+> monotonic head looks the same as a wrapped one. The search would then
+> falsely detect a wrap when head is near the end of the buffer, and the
+> wrapped pointer fixup moves 'old' and 'head' a whole buffer ahead of the
+> driver's head. With a wrapped head that doesn't matter because only the
+> offset within the buffer is used, but with a monotonic head the next
+> snapshot would either save already saved data again or drop up to a
+> buffer's worth of new data.
 
-This patch 7/10 applied to the pinctrl tree for fixes.
+As mentioned, the default find_snapshot() can falsely report a wrap,
+which now prevents us from using it for the monotonic-head case.
+However, I don't think this block consolidation; I see the decision
+not to consolidate as a design preference.
 
-Yours,
-Linus Walleij
+If an AUX driver transitions from an arbitrary head to a monotonic head
+in the future, we might still need to consolidate the find_snapshot()
+implementations.
+
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 
