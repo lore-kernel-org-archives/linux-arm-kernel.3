@@ -2,77 +2,77 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C541606A338
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 10:55:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F2F9606D807
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 10:55:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xYWb2DjM;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wrgwHfGx
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rmIgVsTZ;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cR0zOz0f
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=cuiQvGpP7mIIWVfV20CnrfdS2Zo6gYEGGpYZV+wdVCM=; b=xYWb2DjMJ3IgwR
-	DeKbBo4m09NOUGS7Uc+Fwokf4sIcvWFxAXUGpKyzoWntjorDXqiWfCAy9KUgk5h23OP9lMvFI+NDP
-	9WR2nEI4uaM+B5EVO1lRypd9a5hkgV61OW4pRluOv0JOlV6NUrn6pUbVGsGOnqPeQrKcnBMs3LVKK
-	rrlZd7toZYuzXTjGQim9UtiWWGzfaSVHF1UTglT+8h4a1deWHAyIiDhIk60e+Ub6bvPq07zxQ7jIC
-	u0dl0ffGSkktRJ/n1qDq3nOGxg+TqMylt+AUhFt+6VZ6IPrYDc+ZpWFPhPRkMHgFzJmQZQDw45N0C
-	mU0zp6fjqlfERX/8V4oA==;
+	List-Owner; bh=aFHl9iBgx/Mfi+s4BZBS+ijcqSNzZQXuaxbMC9IotGE=; b=rmIgVsTZ+3KGQC
+	DWaQIPDxRt2E9dyWmGyKExlDQc+vWSCPS5Yk5KplVqWrn2bxBO9y5XQBnWXU+T8lUAjUgdmj1dKxo
+	68hsQCugJvqcbRLMUt084zzs/cSBqpmGESo5Nq+XXLju8pBKo3Fq64XX3O8W04IlEsPViZQSd9xDE
+	+PsOWYr7HTMF2IhVy/UEzMET7Vdx5svBxVifSmdi/GYQgvzwe7riJ/AVTuIw4Es2gCyhgEBGf3voK
+	wqloeuGf/cbw/kXgbIjl1SBwuDQ0us+s0XRAY2JpUOAPKaoV1/2CzBrYm2lvj5BW3OaRgWXThkWnY
+	BTuZosKGGOszITAJW+Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOv80-00000008VxL-00e6;
-	Thu, 05 Nov 2026 10:55:32 +0000
+	id 1xOv86-00000008W3R-36yh;
+	Thu, 05 Nov 2026 10:55:38 +0000
 Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOv7k-00000008Ver-3y3w
+	id 1xOv7n-00000008Vj2-2pFm
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 05 Nov 2026 10:55:25 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a5177d78c7so15430335e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 02:55:16 -0800 (PST)
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a140e7405dso15823085e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 02:55:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793876115; x=1794480915; darn=lists.infradead.org;
+        d=gmail.com; s=20260707; t=1793876118; x=1794480918; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=cuiQvGpP7mIIWVfV20CnrfdS2Zo6gYEGGpYZV+wdVCM=;
-        b=wrgwHfGx8CglFJMpf5WuAjNqQr5scKmSH7t0Vb6LbLUFkfjVPB/3QYr1923Y7Gvx6u
-         iUyYHU1o2Bmu3NkCmY9HUUxNT2HC7lfWGgHfZBh3hcKTLafn1bnBqlAeexGQFu+www8N
-         uJ9Hl9al614bYqZREF7juWHb+qkDXieff3x67YKWFxhEJ28512g4WuSoW+JxcrDtfuhL
-         7OnuLRX4nlDYiT4aWm9sD6jd5ov3tT4vSrWVk3kdcZHksa1pMWkUTzk2QyaHM6LVZCc2
-         NBGI9pan4WprWO5/Z6hmK15J+bnNbK2DpURj5BUSsFzhP6TV6s9QV8+Tk6jhKcEIyFdg
-         UR5Q==
+        bh=aFHl9iBgx/Mfi+s4BZBS+ijcqSNzZQXuaxbMC9IotGE=;
+        b=cR0zOz0f4m6iCX08PJlryI7CNPiBoYZdFEytdlv5Us18X6AcD8rpG+13zd1Vj4ECho
+         VMD8n4vGW+4rfgYJNsFi+9WPlrefU7kXGE+REQ7bcX+3JP9/+av1JPfDpeeGUR0Y3VfS
+         HTo0HFdU/IVYKY6NS4tFo+fwepNpHYZQpUX2DYlgX6i3Zd5V8SmajzgJsqql32+fvdNU
+         2B/GsXOQiTY0Z4CW7hpAlNOO+8gJ7I/GCnfW/7l4S8LKra6VtGZcysXfYNM5T9sdrnue
+         uCpeCKCORTgtsNZW4DxDclBdwIyGDYtpMmEugSs9ARE2aVaPfV48FO64OWjHlZ3o3Ak8
+         Z+LA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793876115; x=1794480915;
+        d=1e100.net; s=20260707; t=1793876118; x=1794480918;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=cuiQvGpP7mIIWVfV20CnrfdS2Zo6gYEGGpYZV+wdVCM=;
-        b=Wj/mxoj7+fXaaQqcql0yrJxgf3adgAxHqZGQST2GqE81STo1hRZGKHhi3xDzoOF1pT
-         AtWYIKfoKbATqLxKE9LFSL/hb27Eacs/E6fdeIXwEE0vqxRLEiDz1nTN2D9Cu7GQs3vm
-         Kg1XoQGdSRzN2R84OFaUKMqyZFbGZkerWt+SGDDu5YQscuDI9jiiL1qIneRNChTrWg+j
-         75RHYZOt7z8xXetjiv0t2D05pG/42HcqDDMFxWzvXles9kq8hHL9hSJWtrzpJj9gDmq/
-         hk0tPjuLk6fkKZdCsGUhuDIzy54RZaTZr7TlJu4x+ZLA/Cl5KYKjiGjtyD5tgxhJuc0H
-         idsg==
-X-Forwarded-Encrypted: i=1; AKwUvBy+IauqiCUHM1ybBl/q2fqQIdwag8M8uLcqyOAPKaH4I6K8V7uRSrY+lgojG1ReTvJ2W1GYC1a08azkAm4k24wk@lists.infradead.org
-X-Gm-Message-State: APuU4Z8ra08Iaf+Wk5ThzI0lQxqyptTTIhalSnF3iEsRdyvD/6Q1OEGG
-	jYGJcvklutM2x3CFAQTr4fgkY2AyB0DBMqL3tKpqyDFWM4wRWeG2ZdRG
-X-Gm-Gg: AYBFou1MzDjuUNsg/Ljo7e0Jrs3IBm9XYpAXOTP0BaAXrrY7RQ/LbMdGZbcHG6oYjyU
-	qp7FIfoNY5FUefTihPmak+e7vyj/54Yl7bNMrIs/RgiX565vCc4XBPMvFajgJ+BVYM18ekbaP1m
-	HRdXaId6aimdsi0yVw9mLIHbWS0I+YYK4CRvTJcrna9p1DHILdTai9P4y0YJv6RTP9QBh67yZkF
-	WfNsoKTPBG2CEwoqZUHZF9nmHQiYNPUillWludXbb8pMHE+vpK1MqgLD9ggEep0G6XN69s0DZ5o
-	fQKY6XZwVmhmmwdSQE6XPwdrm1QLKR03SgXPyuf4xc3JkyduNGnpWjM3B5ho0H956b+npaJefmj
-	v1BEnGgH2xQte50Bpde7JLfU90DUzJ6guWcG964dpIEWNBUfysDSHmA22Exdkt/TpmCFymp2C5N
-	ZS0whOdixzKYCjs6wruErYvt0vrjNbnufiVOHOdYm4VgSH5RDKQECF4S9wLC9QYLRc/HFWzaK6p
-	+r3Ebpipi3jv2jVYIfk9IMnrGgyEZ8aFdJmbvY8GpQgCywpY+uQtqWZgeL7V9ytQgxHPIgR/jy0
-	1SppAsDDXazicIGx/saeHQN8VI/jAgUyngy7EJrTIHOpP9OTwd1oYt/FvWNT7shDziI36W8erty
-	0tCnB8lwzAnRWsdLc4i07KVc0
-X-Received: by 2002:a05:600c:1385:b0:4a3:5991:718 with SMTP id 5b1f17b1804b1-4ac182dc0a1mr445409305e9.16.1793876114784;
-        Thu, 05 Nov 2026 02:55:14 -0800 (PST)
+        bh=aFHl9iBgx/Mfi+s4BZBS+ijcqSNzZQXuaxbMC9IotGE=;
+        b=RpjAK0HRIFh00ZJYkiTyHYwNyxt/5BtRNv4iF1xlS5kFZ+O0z4xYYrjsCCBjKO0r7L
+         qEJwzrcqAioFzmPgCNjal/n6aJzZc8w/3PiNYwlFFHBvAM/NmJm7/6te3cbV03+8Al6d
+         l6Vdya0zLY75zZ3xifTkbNgSrp90D036eeGt04kTOQtGuGD3YupV5+Qbxy5D6sAkOKai
+         VKKOXde5qPdO7g+7AbF0P8K35MHOjGwnjoNqCFozjvDZ/qkt5py9a4HAULkCc7/U160i
+         k13ehcP4RKGsyC5OxAyEJmTYIDogsM05uSKcHRSSi5QyYKcSEm5Tp0zIRWZ2xEWM0vqd
+         ymkA==
+X-Forwarded-Encrypted: i=1; AKwUvBwaEXwsSqprKTGYdP4S8ZTezcF5G3MO799EEtXRvLKed0D/HmulRPhvXciDdkCqqHmJat5/Xm0ZndgU1kfUjSEA@lists.infradead.org
+X-Gm-Message-State: APuU4Z9ojy1dr86JoIweZI5+e2nCNn9SWXUpXSf6BhDXKR6+iwaKI0lv
+	5mTO+lZrM/B4FumVSL+yNmzb1Krs2X2eRgzPW/W6vYojbca+Wdt1/Jwb
+X-Gm-Gg: AYBFou1P1cSeJk0Wd0DsYpSHa3YdereCMRfcXwBbeTaGewwnaV3+JcBxxozd1AxfSY9
+	g0tKLBtoB0GAsgR2lORbsVHDuwCFoOysKctO5h4/jrcRBrfmoYa0MEkLKJdy5eX5S2QG/T3T1hk
+	M3pD7U+n/nUjuXdrvcyUAnJufa1pugZESXEGd/wgR6qCiQPhXJDwk3ZQilMyv6fZcaKfr0TwHaq
+	/zMsNv+X6OvNrl1GmPJvL3y89ZGf1NqSV9TTkEOmdaUyrDs6P4WUnD3SQP41p8FuXa0/7olUWTv
+	7f03hEXp3HsxzYjt6NHc6OAwt2k5yGDLk++KG6Jrb4fuQlxegB8NqRYAtiHAcQu8msU+q8W+aE/
+	ZeMzcyqNxvHR+T2tmeX48aPDJ12p0eGk8lqJ1/Pz0buJ0z7eElPQSn9Yqw2KdUjrHCDwGHZplOs
+	82B0rfjRzN1UrFvOmot8mgtelWRJes4FHOEtQl3Pn8LVubul9yIkTnOzBxEdVmKIzyxjwRQukZa
+	wQlbXeE1shdJg2ydHhcTnmiC8nxNmCTpdkrU6D20kNhorcRa0u2Cr2v0Hb3aZxLPhizoLPe2tM4
+	NesDjj7gQBb59NUTiC9qn4b0gS8EoUGXYOi2lxkNHvtO/AwRH60ueCR88fz+4jajbprcak1tIFP
+	eZbCtO5MRcWy5wJXqZl73EBgT
+X-Received: by 2002:a05:600c:674f:b0:4a2:1655:87db with SMTP id 5b1f17b1804b1-4ac1228a434mr433568835e9.0.1793876117760;
+        Thu, 05 Nov 2026 02:55:17 -0800 (PST)
 Received: from Ansuel-XPS24.lan (93-34-90-148.ip49.fastwebnet.it. [93.34.90.148])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4b57317cb8esm59576355e9.13.2026.11.05.02.55.13
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4b57317cb8esm59576355e9.13.2026.11.05.02.55.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 02:55:14 -0800 (PST)
+        Thu, 05 Nov 2026 02:55:17 -0800 (PST)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Heiner Kallweit <hkallweit1@gmail.com>,
@@ -93,9 +93,9 @@ To: Andrew Lunn <andrew@lunn.ch>,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH net-next v5 4/6] net: phy: mediatek: split Airoha code to dedicated source
-Date: Thu,  5 Nov 2026 11:55:00 +0100
-Message-ID: <20261105105504.1024-5-ansuelsmth@gmail.com>
+Subject: [PATCH net-next v5 6/6] net: phy: mediatek: add calibration logic for AN7583
+Date: Thu,  5 Nov 2026 11:55:02 +0100
+Message-ID: <20261105105504.1024-7-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261105105504.1024-1-ansuelsmth@gmail.com>
 References: <20261105105504.1024-1-ansuelsmth@gmail.com>
@@ -103,8 +103,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_025517_166406_CF78CD77 
-X-CRM114-Status: GOOD (  28.36  )
+X-CRM114-CacheID: sfid-20261105_025519_797721_4FF2EB42 
+X-CRM114-Status: GOOD (  19.39  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,554 +124,297 @@ X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-In preparation for Airoha PHYs software calibration support, split the
-Airoha code to dedicated source following Mediatek naming pattern of
-"ge-soc".
+Similar to Airoha AN7581 Switch PHY also the Airoha AN7583 SoC
+requires dedicated calibration and tuneup to make EEE correctly work.
 
-This is to tidy things up and not overload the mediatek driver of specific
-Airoha code and ship a bigger PHY kernel module with dead code.
-
-Move the shared LEDs function to mtk-phy-lib to permit the split instead of
-duplicating the code.
-
-Also add myself as MAINTAINER of the now new airoha-ge-soc driver.
+Airoha AN7583 differ from AN7581 by having a dedicated table for
+calibration and additional EEE logic tuneup.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 ---
- MAINTAINERS                              |   8 ++
- drivers/net/phy/mediatek/Kconfig         |  18 ++-
- drivers/net/phy/mediatek/Makefile        |   1 +
- drivers/net/phy/mediatek/airoha-ge-soc.c | 128 +++++++++++++++++
- drivers/net/phy/mediatek/mtk-ge-soc.c    | 172 -----------------------
- drivers/net/phy/mediatek/mtk-ge-soc.h    |   6 +-
- drivers/net/phy/mediatek/mtk-phy-lib.c   |  72 ++++++++++
- drivers/net/phy/mediatek/mtk.h           |  12 ++
- 8 files changed, 239 insertions(+), 178 deletions(-)
- create mode 100644 drivers/net/phy/mediatek/airoha-ge-soc.c
+ drivers/net/phy/mediatek/airoha-ge-soc.c | 232 ++++++++++++++++++++++-
+ drivers/net/phy/mediatek/mtk.h           |   1 +
+ 2 files changed, 230 insertions(+), 3 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 8add8b8cd306..8a3e84d7eff3 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -771,6 +771,14 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
- F:	drivers/net/ethernet/airoha/
- 
-+AIROHA ETHERNET PHY DRIVER
-+M:	Christian Marangi <ansuelsmth@gmail.com>
-+L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-+L:	linux-mediatek@lists.infradead.org (moderated for non-subscribers)
-+L:	netdev@vger.kernel.org
-+S:	Maintained
-+F:	drivers/net/phy/mediatek/airoha-ge-soc.c
-+
- AIROHA PCIE PHY DRIVER
- M:	Lorenzo Bianconi <lorenzo@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-diff --git a/drivers/net/phy/mediatek/Kconfig b/drivers/net/phy/mediatek/Kconfig
-index 3b9cf82c0cb2..5abf78202991 100644
---- a/drivers/net/phy/mediatek/Kconfig
-+++ b/drivers/net/phy/mediatek/Kconfig
-@@ -1,4 +1,17 @@
- # SPDX-License-Identifier: GPL-2.0-only
-+config AIROHA_GE_SOC_PHY
-+	tristate "Airoha SoC Gigabit Ethernet PHYs"
-+	depends on ARM64 || ECONET || COMPILE_TEST
-+	depends on ARCH_AIROHA || ECONET || COMPILE_TEST
-+	select MTK_NET_PHYLIB
-+	select PHY_PACKAGE
-+	help
-+	  Supports Airoha SoC built-in Gigabit Ethernet PHYs.
-+
-+	  Include support for built-in Ethernet PHYs which are present in
-+	  the AN7581 and AN7583 SoCs. These PHYs will dynamically
-+	  calibrate during startup.
-+
- config MEDIATEK_2P5GE_PHY
- 	tristate "MediaTek 2.5Gb Ethernet PHYs"
- 	depends on (ARM64 && ARCH_MEDIATEK) || COMPILE_TEST
-@@ -32,9 +45,8 @@ config MEDIATEK_FE_SOC_PHY
- 
- config MEDIATEK_GE_SOC_PHY
- 	tristate "MediaTek SoC Gigabit Ethernet PHYs"
--	depends on ARM64 || ECONET || COMPILE_TEST
--	depends on ARCH_AIROHA || (ARCH_MEDIATEK && NVMEM_MTK_EFUSE) || \
--		   ECONET || COMPILE_TEST
-+	depends on ARM64 || COMPILE_TEST
-+	depends on (ARCH_MEDIATEK && NVMEM_MTK_EFUSE) || COMPILE_TEST
- 	select MTK_NET_PHYLIB
- 	select PHY_PACKAGE
- 	help
-diff --git a/drivers/net/phy/mediatek/Makefile b/drivers/net/phy/mediatek/Makefile
-index 6f9cacf7f906..5594057f51d0 100644
---- a/drivers/net/phy/mediatek/Makefile
-+++ b/drivers/net/phy/mediatek/Makefile
-@@ -1,4 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_AIROHA_GE_SOC_PHY)		+= airoha-ge-soc.o
- obj-$(CONFIG_MEDIATEK_2P5GE_PHY)	+= mtk-2p5ge.o
- obj-$(CONFIG_MEDIATEK_FE_SOC_PHY)	+= mtk-fe-soc.o
- obj-$(CONFIG_MEDIATEK_GE_PHY)		+= mtk-ge.o
 diff --git a/drivers/net/phy/mediatek/airoha-ge-soc.c b/drivers/net/phy/mediatek/airoha-ge-soc.c
-new file mode 100644
-index 000000000000..e40e4597cd94
---- /dev/null
+index 18b9b6562f6d..089035bb3e9b 100644
+--- a/drivers/net/phy/mediatek/airoha-ge-soc.c
 +++ b/drivers/net/phy/mediatek/airoha-ge-soc.c
-@@ -0,0 +1,128 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+#include <linux/pinctrl/consumer.h>
-+#include <linux/phy.h>
+@@ -159,6 +159,106 @@ static u8 an7581_zcal_to_r45ohm[64] = {
+ 	 52,  50,  48,  46,  44,  42,  40,  39,  36,  35,  32,  32,  30,  28,  27,  25
+ };
+ 
++/*
++ * 2 chip revision
++ * TXMR or discrete
++ * 2 MDI type
++ * TX AMP test/TX AMP 1G/TX AMP 100M/TX AMP 10M/R50
++ * 4 PHY
++ */
++static int an7583_tx_amp_compensation_tbl[TRANSFORMER_TYPE_MAX][MDI_TYPE_MAX][CALIB_CONST_TYPE_MAX][4] = {
++	[DISCRETE] = {
++		[MDI_0R] = {
++			[TX_AMP_TEST_A] = { -3, -3, -3, -3 },
++			[TX_AMP_TEST_B] = { -3, -3, -3, -3 },
++			[TX_AMP_TEST_C] = { -3, -3, -3, -3 },
++			[TX_AMP_TEST_D] = { -3, -3, -3, -3 },
++			[TX_AMP_1G_A] = { 0, 0, 0, 0 },
++			[TX_AMP_1G_B] = { 0, 0, 0, 0 },
++			[TX_AMP_1G_C] = { 0, 0, 0, 0 },
++			[TX_AMP_1G_D] = { 0, 0, 0, 0 },
++			[TX_AMP_100M_A] = { 4, 4, 4, 4 },
++			[TX_AMP_100M_B] = { 4, 4, 4, 4 },
++			[TX_AMP_10M_A] = { 0, 0, 0, 0 },
++			[TX_AMP_10M_B] = { 0, 0, 0, 0 },
++			[R50_A] = { 4, 4, 4, 4 },
++			[R50_B] = { 4, 4, 4, 4 },
++			[R50_C] = { 6, 6, 6, 6 },
++			[R50_D] = { 4, 4, 4, 4 },
++		},
++		[MDI_5R] = {
++			[TX_AMP_TEST_A] = { -3, -3, -3, -3 },
++			[TX_AMP_TEST_B] = { -3, -3, -3, -3 },
++			[TX_AMP_TEST_C] = { -3, -3, -3, -3 },
++			[TX_AMP_TEST_D] = { -3, -3, -3, -3 },
++			[TX_AMP_1G_A] = { 0, 0, 0, 0 },
++			[TX_AMP_1G_B] = { 0, 0, 0, 0 },
++			[TX_AMP_1G_C] = { 0, 0, 0, 0 },
++			[TX_AMP_1G_D] = { 0, 0, 0, 0 },
++			[TX_AMP_100M_A] = { 4, 4, 4, 4 },
++			[TX_AMP_100M_B] = { 4, 4, 4, 4 },
++			[TX_AMP_10M_A] = { 0, 0, 0, 0 },
++			[TX_AMP_10M_B] = { 0, 0, 0, 0 },
++			[R50_A] = { 0, 0, 0, 0 },
++			[R50_B] = { 0, 0, 0, 0 },
++			[R50_C] = { 0, 0, 0, 0 },
++			[R50_D] = { 0, 0, 0, 0 },
++		},
++	},
++	[TXMR] = {
++		[MDI_0R] = {
++			[TX_AMP_TEST_A] = { -3, -3, -3, -3 },
++			[TX_AMP_TEST_B] = { -3, -3, -3, -3 },
++			[TX_AMP_TEST_C] = { -3, -3, -3, -3 },
++			[TX_AMP_TEST_D] = { -3, -3, -3, -3 },
++			[TX_AMP_1G_A] = { 0, 0, 0, 0 },
++			[TX_AMP_1G_B] = { 0, 0, 0, 0 },
++			[TX_AMP_1G_C] = { 0, 0, 0, 0 },
++			[TX_AMP_1G_D] = { 0, 0, 0, 0 },
++			[TX_AMP_100M_A] = { 4, 4, 4, 4 },
++			[TX_AMP_100M_B] = { 4, 4, 4, 4 },
++			[TX_AMP_10M_A] = { 0, 0, 0, 0 },
++			[TX_AMP_10M_B] = { 0, 0, 0, 0 },
++			[R50_A] = { 4, 4, 0, 0 },
++			[R50_B] = { 4, 4, 0, 0 },
++			[R50_C] = { 5, 5, 3, 4 },
++			[R50_D] = { 4, 4, 4, 0 },
++		},
++		[MDI_5R] = {
++			[TX_AMP_TEST_A] = { -3, -3, -3, -3 },
++			[TX_AMP_TEST_B] = { -3, -3, -3, -3 },
++			[TX_AMP_TEST_C] = { -3, -3, -3, -3 },
++			[TX_AMP_TEST_D] = { -3, -3, -3, -3 },
++			[TX_AMP_1G_A] = { 0, 0, 0, 0 },
++			[TX_AMP_1G_B] = { 0, 0, 0, 0 },
++			[TX_AMP_1G_C] = { 0, 0, 0, 0 },
++			[TX_AMP_1G_D] = { 0, 0, 0, 0 },
++			[TX_AMP_100M_A] = { 4, 4, 4, 4 },
++			[TX_AMP_100M_B] = { 4, 4, 4, 4 },
++			[TX_AMP_10M_A] = { 0, 0, 0, 0 },
++			[TX_AMP_10M_B] = { 0, 0, 0, 0 },
++			[R50_A] = { -4, -4, -4, -4 },
++			[R50_B] = { -4, -4, -4, -4 },
++			[R50_C] = { -2, -2, -2, -2 },
++			[R50_D] = { -3, -3, -2, -2 },
++		},
++	},
++};
 +
-+#include "mtk.h"
-+#include "mtk-ge-soc.h"
++static u8 an7583_zcal_to_r50ohm_0R[64] = {
++	127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127,
++	127, 127, 127, 122, 118, 114, 110, 106, 102,  98,  96,  92,  88,  85,  82,  80,
++	 76,  72,  70,  68,  64,  62,  60,  57,  55,  52,  50,  48,  46,  44,  41,  40,
++	 38,  36,  33,  32,  30,  28,  26,  24,  24,  22,  20,  18,  16,  16,  14,  12,
++};
 +
-+#define AIROHA_PHY_MAX_LEDS			2
++static u8 an7583_zcal_to_r50ohm_5R[64] = {
++	127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127,
++	127, 127, 127, 127, 127, 127, 127, 127, 127, 124, 120, 116, 112, 110, 106, 102,
++	 99,  96,  93,  90,  88,  84,  81,  79,  76,  73,  71,  68,  66,  64,  61,  59,
++	 56,  54,  52,  50,  48,  46,  44,  42,  40,  39,  37,  36,  33,  32,  31,  29,
++};
 +
-+static int an7581_phy_probe(struct phy_device *phydev)
+ /* One calibration cycle consists of:
+  * 1.Set DA_CALIN_FLAG high to start calibration. Keep it high
+  *   until AD_CAL_COMP is ready to output calibration result.
+@@ -824,8 +924,9 @@ static int airoha_rx_offset_cal_sw(struct phy_device *phydev)
+ 	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x100, 0x0);
+ 	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x145, 0x1000);
+ 
+-	phy_write_mmd(phydev, MDIO_MMD_VEND1, MTK_PHY_RG_ANA_CAL_RG6,
+-		      0x1);
++	if (phydev->drv->phy_id == AIROHA_GPHY_ID_AN7581)
++		phy_write_mmd(phydev, MDIO_MMD_VEND1,
++			      MTK_PHY_RG_ANA_CAL_RG6, 0x1);
+ 
+ 	return 0;
+ }
+@@ -1625,10 +1726,133 @@ static int en7528_phy_config_init(struct phy_device *phydev)
+ 				MTK_PHY_LED_BCR_EXT_CTRL);
+ }
+ 
++static int an7583_phy_package_config_init_once(struct phy_device *phydev)
 +{
-+	struct mtk_socphy_priv *priv;
-+	struct pinctrl *pinctrl;
++	struct airoha_socphy_shared *shared = phy_package_get_priv(phydev);
 +
-+	/* Toggle pinctrl to enable PHY LED */
-+	pinctrl = devm_pinctrl_get_select(&phydev->mdio.dev, "gbe-led");
-+	if (IS_ERR(pinctrl))
-+		dev_err(&phydev->mdio.bus->dev,
-+			"Failed to setup PHY LED pinctrl\n");
++	/* FIXME: Read SoC MDI Resister Type if available or default to 5R */
++	shared->mdi_resister_type = MDI_5R;
 +
-+	priv = devm_kzalloc(&phydev->mdio.dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	phydev->priv = priv;
++	if (shared->mdi_resister_type == MDI_0R)
++		shared->r50_cal_tbl = an7583_zcal_to_r50ohm_0R;
++	if (shared->mdi_resister_type == MDI_5R)
++		shared->r50_cal_tbl = an7583_zcal_to_r50ohm_5R;
++	shared->tx_amp_compensation_tbl = &an7583_tx_amp_compensation_tbl;
 +
 +	return 0;
 +}
 +
-+static int an7581_phy_led_polarity_set(struct phy_device *phydev, int index,
-+				       unsigned long modes)
-+{
-+	u16 val = 0;
-+	u32 mode;
+ static int an7583_phy_config_init(struct phy_device *phydev)
+ {
++	struct airoha_socphy_shared *shared = phy_package_get_priv(phydev);
++	u8 phy_offset;
++	int ret;
 +
-+	if (index >= AIROHA_PHY_MAX_LEDS)
-+		return -EINVAL;
+ 	/* BMCR_PDOWN is enabled by default */
+-	return phy_clear_bits(phydev, MII_BMCR, BMCR_PDOWN);
++	phy_clear_bits(phydev, MII_BMCR, BMCR_PDOWN);
 +
-+	for_each_set_bit(mode, &modes, __PHY_LED_MODES_NUM) {
-+		switch (mode) {
-+		case PHY_LED_ACTIVE_LOW:
-+			val = MTK_PHY_LED_ON_POLARITY;
-+			break;
-+		case PHY_LED_ACTIVE_HIGH:
-+			break;
-+		default:
-+			return -EINVAL;
++	phy_offset = phy_package_offset(phydev);
++
++	if (phy_package_init_once(phydev)) {
++		ret = an7583_phy_package_config_init_once(phydev);
++		if (ret)
++			return ret;
++	}
++
++	ret = airoha_phy_calib(phydev);
++	if (ret)
++		return ret;
++
++	ret = airoha_phy_auto_select_transformer(phydev);
++	if (ret)
++		return ret;
++
++	ret = airoha_phy_tx_amp_compensation(phydev);
++	if (ret)
++		return ret;
++
++	/* Enable Idle Mode Power Setting */
++	if (phy_offset == 0) {
++		phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x268, 0x07F1);
++		phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x703, 0x3111);
++		phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x271, 0x3C24);
++		phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x701, 0x1023);
++	}
++
++	if (shared->transformer_type[phy_offset] == TXMR) {
++		phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x23, 0x0881);
++		phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x24, 0x0881);
++		phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x25, 0x0881);
++		phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x26, 0x0881);
++
++		if (shared->mdi_resister_type == MDI_5R)
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x05, 0x0205);
++		else
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x05, 0x0200);
++	} else {
++		if (shared->mdi_resister_type == MDI_5R) {
++			/* RX setting for 5R_TXMR before AN setting */
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0xe7, 0x6666);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0xe9, 0x0003);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0xfe, 0x0006);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0xe6, 0x1111);
++			/* 100M sharp */
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x23, 0x0c86);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x24, 0x0c86);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x25, 0x0c86);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x26, 0x0c86);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x01, 0x01cb);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x02, 0x01c2);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x03, 0x0108);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x04, 0x0211);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x05, 0x0205);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x06, 0x0387);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x07, 0x03ce);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x08, 0x03c8);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x0b, 0x0005);
++		} else {
++			/* 100M sharp */
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x23, 0x0886);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x24, 0x0886);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x25, 0x0886);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x26, 0x0886);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x00, 0x0195);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x01, 0x01cb);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x02, 0x01c2);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x03, 0x0108);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x04, 0x0211);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x05, 0x0205);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x06, 0x0387);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x07, 0x03ce);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x08, 0x03c3);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x0a, 0x0010);
++			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x0b, 0x0005);
 +		}
 +	}
 +
-+	return phy_modify_mmd(phydev, MDIO_MMD_VEND2, index ?
-+			      MTK_PHY_LED1_ON_CTRL : MTK_PHY_LED0_ON_CTRL,
-+			      MTK_PHY_LED_ON_POLARITY, val);
-+}
++	/* RX Setting */
++	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x3c, 0xc000);
++	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x3d, 0x0000);
++	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x3e, 0xc000);
 +
-+static int en7528_phy_config_init(struct phy_device *phydev)
-+{
-+	/* The LED controller of the EN7528 powers up with its external
-+	 * control disabled, leaving the LED pins dark regardless of what is
-+	 * programmed into the LED control registers. Hand the pins over to
-+	 * the LED control registers the same way the air_en8811h driver
-+	 * does; the mode field of this register is already set out of reset.
-+	 */
-+	return phy_set_bits_mmd(phydev, MDIO_MMD_VEND2, MTK_PHY_LED_BCR,
-+				MTK_PHY_LED_BCR_CLK_EN |
-+				MTK_PHY_LED_BCR_EXT_CTRL);
-+}
++	/* EEE setting */
++	phy_write_mmd(phydev, MDIO_MMD_AN, 0x3c, 0x0000);
 +
-+static int an7583_phy_config_init(struct phy_device *phydev)
-+{
-+	/* BMCR_PDOWN is enabled by default */
-+	return phy_clear_bits(phydev, MII_BMCR, BMCR_PDOWN);
-+}
++	/* 10M settings */
++	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x1a3, 0x00d2);
++	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x1a4, 0x010e);
++	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x27b, 0x1177);
++	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x27c, 0x0808);
 +
-+static struct phy_driver mtk_socphy_driver[] = {
-+	{
-+		PHY_ID_MATCH_EXACT(AIROHA_GPHY_ID_EN7528),
-+		.name		= "EcoNet EN7528 PHY",
-+		.config_init	= en7528_phy_config_init,
-+		.probe		= an7581_phy_probe,
-+		.led_blink_set	= mt798x_phy_led_blink_set,
-+		.led_brightness_set = mt798x_phy_led_brightness_set,
-+		.led_hw_is_supported = mt798x_phy_led_hw_is_supported,
-+		.led_hw_control_set = mt798x_phy_led_hw_control_set,
-+		.led_hw_control_get = mt798x_phy_led_hw_control_get,
-+		.led_polarity_set = an7581_phy_led_polarity_set,
-+	},
-+	{
-+		PHY_ID_MATCH_EXACT(AIROHA_GPHY_ID_AN7581),
-+		.name		= "Airoha AN7581 PHY",
-+		.config_intr	= genphy_no_config_intr,
-+		.handle_interrupt = genphy_handle_interrupt_no_ack,
-+		.probe		= an7581_phy_probe,
-+		.led_blink_set	= mt798x_phy_led_blink_set,
-+		.led_brightness_set = mt798x_phy_led_brightness_set,
-+		.led_hw_is_supported = mt798x_phy_led_hw_is_supported,
-+		.led_hw_control_set = mt798x_phy_led_hw_control_set,
-+		.led_hw_control_get = mt798x_phy_led_hw_control_get,
-+		.led_polarity_set = an7581_phy_led_polarity_set,
-+	},
-+	{
-+		PHY_ID_MATCH_EXACT(AIROHA_GPHY_ID_AN7583),
-+		.name		= "Airoha AN7583 PHY",
-+		.config_init	= an7583_phy_config_init,
-+		.probe		= an7581_phy_probe,
-+		.led_blink_set	= mt798x_phy_led_blink_set,
-+		.led_brightness_set = mt798x_phy_led_brightness_set,
-+		.led_hw_is_supported = mt798x_phy_led_hw_is_supported,
-+		.led_hw_control_set = mt798x_phy_led_hw_control_set,
-+		.led_hw_control_get = mt798x_phy_led_hw_control_get,
-+		.led_polarity_set = an7581_phy_led_polarity_set,
-+	},
-+};
++	phy_write_paged(phydev, MTK_PHY_PAGE_EXTENDED_3, 0x14, 0x190);
++	phy_write_paged(phydev, MTK_PHY_PAGE_EXTENDED_1, 0x14, 0x3a18);
 +
-+module_phy_driver(mtk_socphy_driver);
++	phy_write(phydev, 0x9, 0x0600);
 +
-+static const struct mdio_device_id __maybe_unused airoha_socphy_tbl[] = {
-+	{ PHY_ID_MATCH_EXACT(AIROHA_GPHY_ID_EN7528) },
-+	{ PHY_ID_MATCH_EXACT(AIROHA_GPHY_ID_AN7581) },
-+	{ PHY_ID_MATCH_EXACT(AIROHA_GPHY_ID_AN7583) },
-+	{ }
-+};
++	/* EEE keep only Pair A ON */
++	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x630, 0x006E);
 +
-+MODULE_DESCRIPTION("Airoha SoC Gigabit Ethernet PHY driver");
-+MODULE_AUTHOR("Christian Marangi <ansuelsmth@gmail.com>");
-+MODULE_LICENSE("GPL");
-+
-+MODULE_DEVICE_TABLE(mdio, airoha_socphy_tbl);
-diff --git a/drivers/net/phy/mediatek/mtk-ge-soc.c b/drivers/net/phy/mediatek/mtk-ge-soc.c
-index 2b1e9923db98..239190678f6d 100644
---- a/drivers/net/phy/mediatek/mtk-ge-soc.c
-+++ b/drivers/net/phy/mediatek/mtk-ge-soc.c
-@@ -877,73 +877,6 @@ static int mt798x_phy_config_init(struct phy_device *phydev)
- 	return mt798x_phy_calibration(phydev);
++	return 0;
  }
  
--static int mt798x_phy_led_blink_set(struct phy_device *phydev, u8 index,
--				    unsigned long *delay_on,
--				    unsigned long *delay_off)
--{
--	bool blinking = false;
--	int err;
--
--	err = mtk_phy_led_num_dly_cfg(index, delay_on, delay_off, &blinking);
--	if (err < 0)
--		return err;
--
--	err = mtk_phy_hw_led_blink_set(phydev, index, blinking);
--	if (err)
--		return err;
--
--	return mtk_phy_hw_led_on_set(phydev, index, MTK_GPHY_LED_ON_MASK,
--				     false);
--}
--
--static int mt798x_phy_led_brightness_set(struct phy_device *phydev,
--					 u8 index, enum led_brightness value)
--{
--	int err;
--
--	err = mtk_phy_hw_led_blink_set(phydev, index, false);
--	if (err)
--		return err;
--
--	return mtk_phy_hw_led_on_set(phydev, index, MTK_GPHY_LED_ON_MASK,
--				     (value != LED_OFF));
--}
--
--static const unsigned long supported_triggers =
--	BIT(TRIGGER_NETDEV_FULL_DUPLEX) |
--	BIT(TRIGGER_NETDEV_HALF_DUPLEX) |
--	BIT(TRIGGER_NETDEV_LINK)        |
--	BIT(TRIGGER_NETDEV_LINK_10)     |
--	BIT(TRIGGER_NETDEV_LINK_100)    |
--	BIT(TRIGGER_NETDEV_LINK_1000)   |
--	BIT(TRIGGER_NETDEV_RX)          |
--	BIT(TRIGGER_NETDEV_TX);
--
--static int mt798x_phy_led_hw_is_supported(struct phy_device *phydev, u8 index,
--					  unsigned long rules)
--{
--	return mtk_phy_led_hw_is_supported(phydev, index, rules,
--					   supported_triggers);
--}
--
--static int mt798x_phy_led_hw_control_get(struct phy_device *phydev, u8 index,
--					 unsigned long *rules)
--{
--	return mtk_phy_led_hw_ctrl_get(phydev, index, rules,
--				       MTK_GPHY_LED_ON_SET,
--				       MTK_GPHY_LED_RX_BLINK_SET,
--				       MTK_GPHY_LED_TX_BLINK_SET);
--};
--
--static int mt798x_phy_led_hw_control_set(struct phy_device *phydev, u8 index,
--					 unsigned long rules)
--{
--	return mtk_phy_led_hw_ctrl_set(phydev, index, rules,
--				       MTK_GPHY_LED_ON_SET,
--				       MTK_GPHY_LED_RX_BLINK_SET,
--				       MTK_GPHY_LED_TX_BLINK_SET);
--};
--
- static bool mt7988_phy_led_get_polarity(struct phy_device *phydev, int led_num)
- {
- 	struct mtk_socphy_shared *priv = phy_package_get_priv(phydev);
-@@ -1080,71 +1013,6 @@ static int mt7981_phy_probe(struct phy_device *phydev)
- 	return mt798x_phy_calibration(phydev);
- }
- 
--static int an7581_phy_probe(struct phy_device *phydev)
--{
--	struct mtk_socphy_priv *priv;
--	struct pinctrl *pinctrl;
--
--	/* Toggle pinctrl to enable PHY LED */
--	pinctrl = devm_pinctrl_get_select(&phydev->mdio.dev, "gbe-led");
--	if (IS_ERR(pinctrl))
--		dev_err(&phydev->mdio.bus->dev,
--			"Failed to setup PHY LED pinctrl\n");
--
--	priv = devm_kzalloc(&phydev->mdio.dev, sizeof(*priv), GFP_KERNEL);
--	if (!priv)
--		return -ENOMEM;
--
--	phydev->priv = priv;
--
--	return 0;
--}
--
--static int an7581_phy_led_polarity_set(struct phy_device *phydev, int index,
--				       unsigned long modes)
--{
--	u16 val = 0;
--	u32 mode;
--
--	if (index >= MTK_PHY_MAX_LEDS)
--		return -EINVAL;
--
--	for_each_set_bit(mode, &modes, __PHY_LED_MODES_NUM) {
--		switch (mode) {
--		case PHY_LED_ACTIVE_LOW:
--			val = MTK_PHY_LED_ON_POLARITY;
--			break;
--		case PHY_LED_ACTIVE_HIGH:
--			break;
--		default:
--			return -EINVAL;
--		}
--	}
--
--	return phy_modify_mmd(phydev, MDIO_MMD_VEND2, index ?
--			      MTK_PHY_LED1_ON_CTRL : MTK_PHY_LED0_ON_CTRL,
--			      MTK_PHY_LED_ON_POLARITY, val);
--}
--
--static int an7583_phy_config_init(struct phy_device *phydev)
--{
--	/* BMCR_PDOWN is enabled by default */
--	return phy_clear_bits(phydev, MII_BMCR, BMCR_PDOWN);
--}
--
--static int en7528_phy_config_init(struct phy_device *phydev)
--{
--	/* The LED controller of the EN7528 powers up with its external
--	 * control disabled, leaving the LED pins dark regardless of what is
--	 * programmed into the LED control registers. Hand the pins over to
--	 * the LED control registers the same way the air_en8811h driver
--	 * does; the mode field of this register is already set out of reset.
--	 */
--	return phy_set_bits_mmd(phydev, MDIO_MMD_VEND2, MTK_PHY_LED_BCR,
--				MTK_PHY_LED_BCR_CLK_EN |
--				MTK_PHY_LED_BCR_EXT_CTRL);
--}
--
  static struct phy_driver mtk_socphy_driver[] = {
- 	{
- 		PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7981),
-@@ -1180,43 +1048,6 @@ static struct phy_driver mtk_socphy_driver[] = {
+@@ -1671,6 +1895,8 @@ static struct phy_driver mtk_socphy_driver[] = {
  		.led_hw_control_set = mt798x_phy_led_hw_control_set,
  		.led_hw_control_get = mt798x_phy_led_hw_control_get,
+ 		.led_polarity_set = an7581_phy_led_polarity_set,
++		.read_page	= mtk_phy_read_page,
++		.write_page	= mtk_phy_write_page,
  	},
--	{
--		PHY_ID_MATCH_EXACT(MTK_GPHY_ID_EN7528),
--		.name		= "EcoNet EN7528 PHY",
--		.config_init	= en7528_phy_config_init,
--		.probe		= an7581_phy_probe,
--		.led_blink_set	= mt798x_phy_led_blink_set,
--		.led_brightness_set = mt798x_phy_led_brightness_set,
--		.led_hw_is_supported = mt798x_phy_led_hw_is_supported,
--		.led_hw_control_set = mt798x_phy_led_hw_control_set,
--		.led_hw_control_get = mt798x_phy_led_hw_control_get,
--		.led_polarity_set = an7581_phy_led_polarity_set,
--	},
--	{
--		PHY_ID_MATCH_EXACT(MTK_GPHY_ID_AN7581),
--		.name		= "Airoha AN7581 PHY",
--		.config_intr	= genphy_no_config_intr,
--		.handle_interrupt = genphy_handle_interrupt_no_ack,
--		.probe		= an7581_phy_probe,
--		.led_blink_set	= mt798x_phy_led_blink_set,
--		.led_brightness_set = mt798x_phy_led_brightness_set,
--		.led_hw_is_supported = mt798x_phy_led_hw_is_supported,
--		.led_hw_control_set = mt798x_phy_led_hw_control_set,
--		.led_hw_control_get = mt798x_phy_led_hw_control_get,
--		.led_polarity_set = an7581_phy_led_polarity_set,
--	},
--	{
--		PHY_ID_MATCH_EXACT(MTK_GPHY_ID_AN7583),
--		.name		= "Airoha AN7583 PHY",
--		.config_init	= an7583_phy_config_init,
--		.probe		= an7581_phy_probe,
--		.led_blink_set	= mt798x_phy_led_blink_set,
--		.led_brightness_set = mt798x_phy_led_brightness_set,
--		.led_hw_is_supported = mt798x_phy_led_hw_is_supported,
--		.led_hw_control_set = mt798x_phy_led_hw_control_set,
--		.led_hw_control_get = mt798x_phy_led_hw_control_get,
--		.led_polarity_set = an7581_phy_led_polarity_set,
--	},
  };
  
- module_phy_driver(mtk_socphy_driver);
-@@ -1224,9 +1055,6 @@ module_phy_driver(mtk_socphy_driver);
- static const struct mdio_device_id __maybe_unused mtk_socphy_tbl[] = {
- 	{ PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7981) },
- 	{ PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7988) },
--	{ PHY_ID_MATCH_EXACT(MTK_GPHY_ID_EN7528) },
--	{ PHY_ID_MATCH_EXACT(MTK_GPHY_ID_AN7581) },
--	{ PHY_ID_MATCH_EXACT(MTK_GPHY_ID_AN7583) },
- 	{ }
- };
- 
-diff --git a/drivers/net/phy/mediatek/mtk-ge-soc.h b/drivers/net/phy/mediatek/mtk-ge-soc.h
-index 008efd148a2c..bcc4d0a435ef 100644
---- a/drivers/net/phy/mediatek/mtk-ge-soc.h
-+++ b/drivers/net/phy/mediatek/mtk-ge-soc.h
-@@ -7,9 +7,9 @@
- 
- #define MTK_GPHY_ID_MT7981			0x03a29461
- #define MTK_GPHY_ID_MT7988			0x03a29481
--#define MTK_GPHY_ID_EN7528			0x03a29491
--#define MTK_GPHY_ID_AN7581			0x03a294c1
--#define MTK_GPHY_ID_AN7583			0xc0ff0420
-+#define AIROHA_GPHY_ID_EN7528			0x03a29491
-+#define AIROHA_GPHY_ID_AN7581			0x03a294c1
-+#define AIROHA_GPHY_ID_AN7583			0xc0ff0420
- 
- #define MTK_EXT_PAGE_ACCESS			0x1f
- #define MTK_PHY_PAGE_STANDARD			0x0000
-diff --git a/drivers/net/phy/mediatek/mtk-phy-lib.c b/drivers/net/phy/mediatek/mtk-phy-lib.c
-index 3e4fb899a85b..dc4abd95d73f 100644
---- a/drivers/net/phy/mediatek/mtk-phy-lib.c
-+++ b/drivers/net/phy/mediatek/mtk-phy-lib.c
-@@ -339,6 +339,78 @@ void mtk_phy_leds_state_init(struct phy_device *phydev)
- }
- EXPORT_SYMBOL_GPL(mtk_phy_leds_state_init);
- 
-+int mt798x_phy_led_blink_set(struct phy_device *phydev, u8 index,
-+			     unsigned long *delay_on,
-+			     unsigned long *delay_off)
-+{
-+	bool blinking = false;
-+	int err;
-+
-+	err = mtk_phy_led_num_dly_cfg(index, delay_on, delay_off, &blinking);
-+	if (err < 0)
-+		return err;
-+
-+	err = mtk_phy_hw_led_blink_set(phydev, index, blinking);
-+	if (err)
-+		return err;
-+
-+	return mtk_phy_hw_led_on_set(phydev, index, MTK_GPHY_LED_ON_MASK,
-+				     false);
-+}
-+EXPORT_SYMBOL_GPL(mt798x_phy_led_blink_set);
-+
-+int mt798x_phy_led_brightness_set(struct phy_device *phydev,
-+				  u8 index, enum led_brightness value)
-+{
-+	int err;
-+
-+	err = mtk_phy_hw_led_blink_set(phydev, index, false);
-+	if (err)
-+		return err;
-+
-+	return mtk_phy_hw_led_on_set(phydev, index, MTK_GPHY_LED_ON_MASK,
-+				     (value != LED_OFF));
-+}
-+EXPORT_SYMBOL_GPL(mt798x_phy_led_brightness_set);
-+
-+static const unsigned long supported_triggers =
-+	BIT(TRIGGER_NETDEV_FULL_DUPLEX) |
-+	BIT(TRIGGER_NETDEV_HALF_DUPLEX) |
-+	BIT(TRIGGER_NETDEV_LINK)        |
-+	BIT(TRIGGER_NETDEV_LINK_10)     |
-+	BIT(TRIGGER_NETDEV_LINK_100)    |
-+	BIT(TRIGGER_NETDEV_LINK_1000)   |
-+	BIT(TRIGGER_NETDEV_RX)          |
-+	BIT(TRIGGER_NETDEV_TX);
-+
-+int mt798x_phy_led_hw_is_supported(struct phy_device *phydev, u8 index,
-+				   unsigned long rules)
-+{
-+	return mtk_phy_led_hw_is_supported(phydev, index, rules,
-+					   supported_triggers);
-+}
-+EXPORT_SYMBOL_GPL(mt798x_phy_led_hw_is_supported);
-+
-+int mt798x_phy_led_hw_control_get(struct phy_device *phydev, u8 index,
-+				  unsigned long *rules)
-+{
-+	return mtk_phy_led_hw_ctrl_get(phydev, index, rules,
-+				       MTK_GPHY_LED_ON_SET,
-+				       MTK_GPHY_LED_RX_BLINK_SET,
-+				       MTK_GPHY_LED_TX_BLINK_SET);
-+};
-+EXPORT_SYMBOL_GPL(mt798x_phy_led_hw_control_get);
-+
-+int mt798x_phy_led_hw_control_set(struct phy_device *phydev, u8 index,
-+				  unsigned long rules)
-+{
-+	return mtk_phy_led_hw_ctrl_set(phydev, index, rules,
-+				       MTK_GPHY_LED_ON_SET,
-+				       MTK_GPHY_LED_RX_BLINK_SET,
-+				       MTK_GPHY_LED_TX_BLINK_SET);
-+};
-+EXPORT_SYMBOL_GPL(mt798x_phy_led_hw_control_set);
-+
- MODULE_DESCRIPTION("MediaTek Ethernet PHY driver common");
- MODULE_AUTHOR("Sky Huang <SkyLake.Huang@mediatek.com>");
- MODULE_AUTHOR("Daniel Golle <daniel@makrotopia.org>");
 diff --git a/drivers/net/phy/mediatek/mtk.h b/drivers/net/phy/mediatek/mtk.h
-index 3565e39b96a8..bc46646a95fd 100644
+index bc46646a95fd..608e5e3d754f 100644
 --- a/drivers/net/phy/mediatek/mtk.h
 +++ b/drivers/net/phy/mediatek/mtk.h
-@@ -103,4 +103,16 @@ int mtk_phy_hw_led_blink_set(struct phy_device *phydev, u8 index,
- 			     bool blinking);
- void mtk_phy_leds_state_init(struct phy_device *phydev);
+@@ -13,6 +13,7 @@
  
-+int mt798x_phy_led_blink_set(struct phy_device *phydev, u8 index,
-+			     unsigned long *delay_on,
-+			     unsigned long *delay_off);
-+int mt798x_phy_led_brightness_set(struct phy_device *phydev,
-+				  u8 index, enum led_brightness value);
-+int mt798x_phy_led_hw_is_supported(struct phy_device *phydev, u8 index,
-+				   unsigned long rules);
-+int mt798x_phy_led_hw_control_get(struct phy_device *phydev, u8 index,
-+				  unsigned long *rules);
-+int mt798x_phy_led_hw_control_set(struct phy_device *phydev, u8 index,
-+				  unsigned long rules);
-+
- #endif /* _MTK_EPHY_H_ */
+ #define MTK_EXT_PAGE_ACCESS			0x1f
+ #define MTK_PHY_PAGE_EXTENDED_1			0x0001
++#define MTK_PHY_PAGE_EXTENDED_3			0x0003
+ #define MTK_PHY_PAGE_STANDARD			0x0000
+ #define MTK_PHY_PAGE_EXTENDED_52B5		0x52b5
+ 
 -- 
 2.55.0
 
