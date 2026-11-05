@@ -2,66 +2,140 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36525606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 17:35:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C7F5606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 17:35:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JAfkadef;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UYICIcj0
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yl2LMGuM;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=k69JB8DM
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=/26YBXWFWm1froW1+cYU1+1Lh2ctGusWN3pq79/bkJ0=; b=JAfkadef75O8ltSU3g+fxcimQ5
-	IjDY9u6SGCr9VQhvkHz8keesbsAlLBlfysSfHX+CL6SBK5kiu4hp6yHRWMndv3Mdxbx8pYdUb8eK7
-	RMoQLqCPuEeMQ5LqPGHZ5JAZQCXGX2lDAbOPegmh9R7MqZstv/NQHC5S3zlRDb+eEynPd9isMtHvb
-	0/BMMuS898SbM4aR3r/Arcas8TmRePTQr6/gWc40mQlJlb/WqYOxFKhlvOi0WETtTTruK2G5fiM4F
-	+YhgAd1Dhq2WRnK4naE45l1XZhzg+WLYm1kwWmIiSez83s3HkrkTUT3sOtHgvzVQIzpEObCmmZ1+D
-	TK/VDZRA==;
+	bh=1DgMHIR2mFjIjK/g5iY+FS6IE43xTl91T2FOHt27/Qg=; b=yl2LMGuM7j1th2zaN0fB0WitKm
+	KHjX2RuGbrBAnrxXGkin9PUyATnbY+qUD0sl1zIKbbNtVdi7f1yXvYqVP1gUawCsI2Nt5V8ogTjXI
+	aPZT65Xplf6O4Ds+6jxlrXy4lw2hW5g4mNXE4LkNaIdqNW0F3/t9K7d+ObekC0FwPcPVsfhOMTmTW
+	wWXoZw2xCkCazTAmvA6bt1agGm2OJqi+0TPR0MyBDuAma+4BesRsMPFYg5k6HbJtn+hMLAd7QB1Y8
+	UVKwm1egQ25iwQmJQtyOUjinY+e8I7Mnih9gtF0IgE1Kc4uXCcJTi4GfTnGSM+moE2tzmwSZWIak7
+	1czHM4uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP1Mq-00000009xIM-02w3;
-	Thu, 05 Nov 2026 17:35:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xP1Mu-00000009xJr-29vx;
+	Thu, 05 Nov 2026 17:35:21 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP1Mg-00000009xF4-1eSv
+	id 1xP1Mh-00000009xEb-0KSJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 17:35:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CC54743E4C;
-	Thu,  5 Nov 2026 17:35:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 152571F000C1;
-	Thu,  5 Nov 2026 17:35:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793900105;
-	bh=/26YBXWFWm1froW1+cYU1+1Lh2ctGusWN3pq79/bkJ0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UYICIcj0LVugcMgewI3mOPp3ew18+fQR2h3F3rZBbcqXqXjpvQ7ZMYAmgEXeZL7BC
-	 PIAumspvrqVLUylU/VzS1S89RUavAZfQ8ar0f5AYViAESWy0Yr7fshRXY40P5ks2kn
-	 Uso+/G4J4UcdJXhIMUeOHLVe85inNt/ccs8kP/zJu9iickKkTp7mRyqW1SwHhHfcW3
-	 5r8s9zuQyE7gT4sTTUd4dHDWUXwPZ8NpIfYbg2CmdXDQWnpO+0pRkQwhY1gp56wN9F
-	 MBdmB0cBWH1OmCJNj4Mlp9Wz/wUHLWoUuFfVowniFxlEYCz0+0bVN0T2qdX3Adtly6
-	 jIvIG/NVi0Zlg==
-Date: Thu, 5 Nov 2026 17:35:00 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: maz@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, 
-	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	will@kernel.org, mark.rutland@arm.com, linux-perf-users@vger.kernel.org, 
-	catalin.marinas@arm.com, james.clark@linaro.org
-Subject: Re: [RFC PATCH v7 27/28] KVM: arm64: Handle dirty page logging when
- SPE feature is set
-Message-ID: <auy4l2VD4ot18sED@gremlin>
-References: <20260903160623.315525-1-alexandru.elisei@arm.com>
- <20260903160623.315525-28-alexandru.elisei@arm.com>
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
+	Thu, 05 Nov 2026 17:35:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HRBjVH38HOcGQaOTY5Ei37AF72IN14sF6zNdAHeHxwo48bl4ZUVPpb9Xzr/b0C45oP01QlhdyFoQlnm/P3025QslcOM7xDu9sIytrhdC7xnia5kwv8qdmoyGbZmE1UtxTD+JRK4NmQE1QNKMr9vbo0Vm+vCgUiwlRL9mXJeI7epIU7IdOrmIIJk9mm9/28TVZceYamTKcRgUgQUuldV7fiAu0jtJJhZkBXtX7M0fbbXql0p2WEK2quvvkpL+HbrEnstVKS70yAZN3Dc7Fozkc5P0FigX6sLdwVGApVRzy9i//4k2FJmnea37Vi1kBIRfZHIv5UOQoKSmrrTHH10mfQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1DgMHIR2mFjIjK/g5iY+FS6IE43xTl91T2FOHt27/Qg=;
+ b=MJNchjXBorHTRkdsn1Jj3ytF5A1JTXXMbtr2roU4jYDaI02CCbaQUEKmpSfE+ggJU5ZWqkWIm89+oXheLRo0y/z+X/GmmWI6iIa49aA2dN7xtdJlCPO8+GfboIgs2uvSAe65x32pIoRuYnN9VTjJDfGvEFZDdJmbNyjZ1wP++GsmHrMn11tykahF5ZD+f7g6sIik1IOk/yYGm5zNh7IGWA92uhx3iEXbdFIrHIxeA9C86rpk8qu2aXxSD+WADwYH36WKeCBM3grF/+sTcZRnEb1XC5o3+u9t8rcQM+VqayPe+1jFofPbyJJtZQDdIOqwHYc9wkH17uj3TSwx0Vw/rQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1DgMHIR2mFjIjK/g5iY+FS6IE43xTl91T2FOHt27/Qg=;
+ b=k69JB8DM+rPTlDVtNUlO9s4+NVMOmxi90Fbj5DzzozbbnOnzgDXTLay4SXbg3qD1kj7lOrGtpBKgEq8YMH69xnBUZ2aglifXvsvOrbDwvKDTalxPZaEKNCX587/p9hg4Wf6wySL576Bc5jf8u+k5Hj0AV4rqUY2uE1k+Ez1hek2zaFsz6OqLFoKDgcd2TULlJxAhmwxYrKz2S6GM6il61jOapxxrcCDseVMHu92cQt1dgBcasy65PZ4oLL067TizyZABTlDMFs1X4uDAHCN3jGJU8JJ4ITeDadaXr21H1wmFmzI3hoAuGMy44cEXk3xs49I6TLt4XVa/+3tqP24c9Q==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by PAXPR04MB8158.eurprd04.prod.outlook.com (2603:10a6:102:1c3::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Thu, 5 Nov
+ 2026 17:35:02 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0592.007; Thu, 5 Nov 2026
+ 17:35:01 +0000
+Date: Thu, 5 Nov 2026 11:34:49 -0600
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com,
+	Nate.D@variscite.com, Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH v1 1/1] arm64: dts: freescale: Move Variscite Ethernet
+ LEDs to carrier boards
+Message-ID: <auy-OW_td7N8oHK_@SMW015318>
+References: <20261105101739.10614-1-stefano.r@variscite.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260903160623.315525-28-alexandru.elisei@arm.com>
+In-Reply-To: <20261105101739.10614-1-stefano.r@variscite.com>
+X-ClientProxiedBy: PH8PR22CA0002.namprd22.prod.outlook.com
+ (2603:10b6:510:2d1::26) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
+X-Archived-By: <archiver.kernel.org>
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|PAXPR04MB8158:EE_
+X-MS-Office365-Filtering-Correlation-Id: faccd0dc-db34-4c0a-fb9b-08df3b631ef9
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|23010399003|7416014|376014|18002099003|22082099003|10067099003|56012099006|11063799006|261022075727099003;
+X-Microsoft-Antispam-Message-Info: a7vvkPMAoUKkHMZhlKV63P2AavtpQrEYaPvHbXbD+5OrIcSWs5OAa7CYu9JiyfevQVqU28rJrK8xcGwmDHEQxA2hD6jDCelEmiqNLYVf9GKJEKImwuC/xeSj1qI/tjjWr0ZJXemlWZc4ocCCUQo86zWc6GFUA0vW3LEPyJE1+U4sNoOK5TW95LVpcr3Ucqbfaud6dYcKTx7oOYpEuWSoCshenb28MTXZTfVjPqzk5XO2ykehJDuSy7Uxk3mmfM7eCSWuh+Nb4Y0woPpCy0ApG8e9tRbEBO6jgWgWFNf2Ep393t9k+wChuwbDZTZ9n36+epWeoee9o4NeEOfdqhP3SUk9Y7PxV23DuLPYnNmlY7698DAMDuEhchRIRZtMhhY303/XEzleLVKqSYU63wiv4TglQXQ22S4FvyZuvgYNiZe7ZJJQinSbSW1/0tInfnKHwli7pBiavAIWwLLBbL2HLW57kwM+/vBQYt/l6acGScx3+Ve8yp/cEc84Hzn6qOKhMU7n6eG5E/RpL21t4rLVkshUf+3Xcq0hlZbsIqEhQk3aFUt+3SjUZCpctWDnVyTgx08jGtZdN4MgZZDTSd5G0cCEqNFWT9IHuMdQOcDslZe8ud1eBOuAePCtz7Q+/0Uzf6236kTqxRcZmThOGWhvuwcGlG0izR0jxKvm37rIRDk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(23010399003)(7416014)(376014)(18002099003)(22082099003)(10067099003)(56012099006)(11063799006)(261022075727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3GPFtHYGLJxTOvWuLT3uOTFawrVmcC+dA4ZXhMWjhLFCEklXnop7qRdQpS0q?=
+ =?us-ascii?Q?KLjiF76sbKmxKplB9ymU3NY9YL5jZB7KoufBfXN1grAFxWCti037mHch8tMi?=
+ =?us-ascii?Q?REm/P1U1/s0XVmGGC5R88kk2/W6ugsXiKqL47w5HvHq61R0fggMAiDSDeGpz?=
+ =?us-ascii?Q?feEW/GWyG4SALxYxpoNnBa667GBN2Xk55hCyeQJjxdByaXTeakOAhiaA8wRE?=
+ =?us-ascii?Q?OjuDXykrw/M/ngvdvnShL5FqkrLAuHmyuvTmtlC6u8XI+9nlPpEdNN08CNG5?=
+ =?us-ascii?Q?AaL+PdmTw5+TSX+1pNvp0D0JSObcQSPqomLDcZYTr3fQYUeUUnJOPYueTl0u?=
+ =?us-ascii?Q?M4/x/v/p/esp4WKThEO/G2Hd8Xbwbznu9ii9hhhaelF7xwMu3SM4Ei1c1lGL?=
+ =?us-ascii?Q?ghKBvi6yTm31FFIp6vBlA3S2gyEhlczApQ5C0H3C0GCDhxtNr94ZzX+c2SQI?=
+ =?us-ascii?Q?ujV9S3mqhBwU23GManw0PQfo8Zwuz72PzXsrIJnf/WB1mPh0NlUjMQdhKam1?=
+ =?us-ascii?Q?7yQwoQUl+3jv2pd+X7xy14InzE0dAHr2U82SxZFZ49ByWIXImpCPn0vmCThR?=
+ =?us-ascii?Q?tj8JO+qICu5DdQf0IYf9Crxksin++rPpcmG0iFFDI9U9AH9/ZXwWP91xo431?=
+ =?us-ascii?Q?8xtsYRlsyaYt+Knh9poDU/5mnIXEPv9W6JW15y8NcRTJJRvvpV1SFsguKgo7?=
+ =?us-ascii?Q?VPo9rc6mmhFTrZ1vukjuwlYb9UCDpUwpemcunT9C16UQ+AAzEu0g2YGX30Qg?=
+ =?us-ascii?Q?rNXrj4gBC4mZW5deJVEIjqErbva2Q/kzR0L/RBNwnvhHUspyTNtc2p0kKpKb?=
+ =?us-ascii?Q?B8eOMHxvfWv+YT6/0Lrz5lrQYXMBYxP+jvB/Q9OWp15LTbmV6dKNFxZ2EOV5?=
+ =?us-ascii?Q?0292fSxiHAK2Tq6P0PayetL7BJ/q4bVDvJOuMWQ8CttEp7ixT2KTY3qKRPBK?=
+ =?us-ascii?Q?uorNDZtkGDQATr+3U3p9OEC9pWPbXMMSKcXKZfZMJGvWCIFZ4/L7mBoAa6Wt?=
+ =?us-ascii?Q?EtXNw1vmL6BWohpX/zXv1RPBwedUdS2lvXUklD6LqfOhBWSeVfuAvqd/M5Av?=
+ =?us-ascii?Q?QDjMkuX5XsVlwDddbmRZYbsPYb6iQosSRx85guOlJz7T6qZuiy4oRprbupBk?=
+ =?us-ascii?Q?iHGqLlNqwNOQEUEbCylFkGdIqaSCdGD6ZlHLHDuFA2TR2Ised6RYN+yVv4nF?=
+ =?us-ascii?Q?1RzLyZTKq/Mj3liFvkl54tsPs+UxCKPJeHFBStRl0BRl45TdUCh2EElN3A+z?=
+ =?us-ascii?Q?tPTOR8E1/K6hPqygIL5SMHEc8yyfBJA3OsqaT1JYRyG2qtN2qdl+OkxjpmJF?=
+ =?us-ascii?Q?rLJOCwjzTTdtHBuyMHRTN2npsJOK/HpEzxl0YEFh4n/pXdU+TPbDVH0gNxST?=
+ =?us-ascii?Q?btVYwujELDnmaGzXC4m5vsafdgjcD+i8oJBIdg/Z936z8LFYscqGAOWMV9Sq?=
+ =?us-ascii?Q?zCh8En5t51WqYfDhTZMuDI+6fGNnr8e9Gv1NakOJY+vB6F6XQVPEHhBkmWkN?=
+ =?us-ascii?Q?MmLvGKNW9V1izNBd/ABBdygip59DtvXbvEyYJjs7wsz4/WjLS3S/R1Hg/Uyo?=
+ =?us-ascii?Q?nIrxRZP6s3o8BFKkxbtcMjtprokUOSS0ZhepE3AfJVughMD9ziGpXKtxwfGa?=
+ =?us-ascii?Q?AsgMElmx3JyZO0ZUI4p8T8Rg9dfbH2/Kpp0HhJnnLlMLdPZoAh623hXPHisr?=
+ =?us-ascii?Q?CjQW7EHEvcV00Okcffo6ywomFPa/9ymVCq/mwbFMw0O+PQUujfRxfYdTDY/D?=
+ =?us-ascii?Q?cIqwYquZNrhO6P8M2Hwz6guSMpGal5b8TCoN2DdL/i7cBySL63tP?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: faccd0dc-db34-4c0a-fb9b-08df3b631ef9
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 17:35:01.8103
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XDk07I0zb4XFE0fDcs/PPAnoHH26VOkt7I72aB06Gkoor0w10PVBmMD9ZQPCiTg3ekTS0xUOJU9lTNhnfsKN3kzJRaWhA2Wstxotetk4mBxHQdtAOxiBkMVivKnQZzoZ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8158
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261105_093509_865091_E2225A9A 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,591 +146,22 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, Sep 03, 2026 at 05:06:22PM +0100, Alexandru Elisei wrote:
-> Dirty page logging requires that memory is marked as read-only at stage 2,
-> to track when a guest writes to memory.
+On Thu, Nov 05, 2026 at 11:17:39AM +0100, Stefano Radaelli wrote:
+> From: Stefano Radaelli <stefano.r@variscite.com>
 >
-> For SPE, this will cause a stage 2 fault when a record is written to
-> memory, and a profiling blackout window. Avoid it by refusing to run a VCPU
-> with the buffer enabled when at least one memslot is logging dirty pages.
->
-> Though not prohibited by KVM, to avoid the aforementioned blackout window,
-> when the VCPU exits with KVM_EXIT_FAIL_ENTRY and
-> hardware_entry_failure_reason set to KVM_EXIT_FAIL_ENTRY_SPE_DIRTY_LOGGING,
-> userspace should not run that VCPU until dirty page logging is disabled.
+> The Ethernet LEDs are physically on the carrier boards, but the
+> VAR-SOM-MX8MP, DART-MX91, VAR-SOM-MX93 and DART-MX95 module descriptions
+> include their LED nodes. Other carriers therefore inherit LED definitions
+> that may not match their wiring.
 
-So it seems this change is predicated on the guestmemfd dirty page logging
-series [0] which is also RFC atm, and without it being merged, this patch
-isn't necessary AFAICT.
+what's impact?
 
-I think probably we need to figure out if SPE VM migration is useful - as I
-understand it, the entire VM needs to be pinned, pre-faulted guestmemfd
-memory, so I'd argue that, at least for a v1 implementation, that should be
-deferred.
-
-Which then means you don't this patch nor [0] AFAICT and that is a simpler
-road to SPE.
-
-But in any case, if you did want to go ahead with this you could send that
-as a follow up series, both the pre-requisite and this patch?
-
-I think probably this is the right way to go.
-
-[0]:https://lore.kernel.org/kvmarm/20260702142912.6395-1-alexandru.elisei@arm.com/
-
->
-> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
-> ---
->  Documentation/virt/kvm/api.rst                |  7 +-
->  arch/arm64/include/asm/kvm_asm.h              |  1 +
->  arch/arm64/include/asm/kvm_host.h             | 24 +++---
->  arch/arm64/include/asm/kvm_mmu.h              |  1 +
->  arch/arm64/include/asm/kvm_pgtable.h          | 19 +++++
->  arch/arm64/include/asm/kvm_pkvm.h             |  1 +
->  arch/arm64/include/asm/kvm_spe.h              | 16 ++++
->  arch/arm64/include/uapi/asm/kvm.h             |  1 +
->  arch/arm64/kvm/arm.c                          | 27 ++++++-
->  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  2 +-
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 34 +++++---
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c         |  7 +-
->  arch/arm64/kvm/hyp/pgtable.c                  |  8 ++
->  arch/arm64/kvm/mmu.c                          | 19 +++++
->  arch/arm64/kvm/pkvm.c                         | 27 +++++++
->  arch/arm64/kvm/spe.c                          | 79 +++++++++++++++++++
->  16 files changed, 246 insertions(+), 27 deletions(-)
->
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index 654736fac78c..00e85e79e145 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -1422,7 +1422,12 @@ pages in the host.
->  The flags field supports two flags: KVM_MEM_LOG_DIRTY_PAGES and
->  KVM_MEM_READONLY.  The former can be set to instruct KVM to keep track of
->  writes to memory within the slot.  See KVM_GET_DIRTY_LOG ioctl to know how to
-> -use it.  The latter can be set, if KVM_CAP_READONLY_MEM capability allows it,
-> +use it. For arm64, setting and then clearing KVM_MEM_LOG_DIRTY_PAGES before
-> +creating a VCPU with the KVM_ARM_VCPU_SPE feature can lead to profiling
-> +blackout windows in the guest, caused by SPE encountering stage 2 faults when
-> +attempting to write to memory.
-> +
-> +KVM_MEM_READONLY can be set if KVM_CAP_READONLY_MEM capability allows it,
->  to make a new slot read-only.  In this case, writes to this memory will be
->  posted to userspace as KVM_EXIT_MMIO exits.
->
-> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-> index e5b92ac09e69..6251cbc6b105 100644
-> --- a/arch/arm64/include/asm/kvm_asm.h
-> +++ b/arch/arm64/include/asm/kvm_asm.h
-> @@ -100,6 +100,7 @@ enum __kvm_host_smccc_func {
->  	__KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_guest,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_host_relax_perms_guest,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_host_wrprotect_guest,
-> +	__KVM_HOST_SMCCC_FUNC___pkvm_host_write_enable_guest,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_host_test_clear_young_guest,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_host_mkyoung_guest,
->  	__KVM_HOST_SMCCC_FUNC___pkvm_reserve_vm,
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 31be131c8486..ff77f6ac3adf 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -45,17 +45,19 @@
->
->  #define KVM_REQ_SLEEP \
->  	KVM_ARCH_REQ_FLAGS(0, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
-> -#define KVM_REQ_IRQ_PENDING		KVM_ARCH_REQ(1)
-> -#define KVM_REQ_VCPU_RESET		KVM_ARCH_REQ(2)
-> -#define KVM_REQ_RECORD_STEAL		KVM_ARCH_REQ(3)
-> -#define KVM_REQ_RELOAD_GICv4		KVM_ARCH_REQ(4)
-> -#define KVM_REQ_RELOAD_PMU		KVM_ARCH_REQ(5)
-> -#define KVM_REQ_SUSPEND			KVM_ARCH_REQ(6)
-> -#define KVM_REQ_RESYNC_PMU_EL0		KVM_ARCH_REQ(7)
-> -#define KVM_REQ_NESTED_S2_UNMAP		KVM_ARCH_REQ(8)
-> -#define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
-> -#define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
-> -#define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
-> +#define KVM_REQ_IRQ_PENDING			KVM_ARCH_REQ(1)
-> +#define KVM_REQ_VCPU_RESET			KVM_ARCH_REQ(2)
-> +#define KVM_REQ_RECORD_STEAL			KVM_ARCH_REQ(3)
-> +#define KVM_REQ_RELOAD_GICv4			KVM_ARCH_REQ(4)
-> +#define KVM_REQ_RELOAD_PMU			KVM_ARCH_REQ(5)
-> +#define KVM_REQ_SUSPEND				KVM_ARCH_REQ(6)
-> +#define KVM_REQ_RESYNC_PMU_EL0			KVM_ARCH_REQ(7)
-> +#define KVM_REQ_NESTED_S2_UNMAP			KVM_ARCH_REQ(8)
-> +#define KVM_REQ_GUEST_HYP_IRQ_PENDING		KVM_ARCH_REQ(9)
-> +#define KVM_REQ_MAP_L1_VNCR_EL2			KVM_ARCH_REQ(10)
-> +#define KVM_REQ_VGIC_PROCESS_UPDATE		KVM_ARCH_REQ(11)
-> +#define KVM_REQ_SPE_HANDLE_DIRTY_LOGGING	KVM_ARCH_REQ(12)
-> +#define KVM_REQ_SPE_EXIT_DIRTY_LOGGING		KVM_ARCH_REQ(13)
->
->  #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
->  				     KVM_DIRTY_LOG_INITIALLY_SET)
-> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-> index 6eae7e7e2a68..5509e3e64abc 100644
-> --- a/arch/arm64/include/asm/kvm_mmu.h
-> +++ b/arch/arm64/include/asm/kvm_mmu.h
-> @@ -173,6 +173,7 @@ void kvm_stage2_unmap_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
->  			    u64 size, bool may_block);
->  void kvm_stage2_flush_range(struct kvm_s2_mmu *mmu, phys_addr_t addr, phys_addr_t end);
->  void kvm_stage2_wp_range(struct kvm_s2_mmu *mmu, phys_addr_t addr, phys_addr_t end);
-> +void kvm_stage2_write_enable_range(struct kvm_s2_mmu *mmu, phys_addr_t addr, phys_addr_t end);
->
->  void stage2_unmap_vm(struct kvm *kvm);
->  int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long type);
-> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> index 41a8687938eb..53c8dd62dcd5 100644
-> --- a/arch/arm64/include/asm/kvm_pgtable.h
-> +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> @@ -735,6 +735,25 @@ int kvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
->   */
->  int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size);
->
-> +/**
-> + * kvm_pgtable_stage2_write_enable() - Grant write permission to the stage-2
-> + * 				       address range without TLB invalidation.
-> + * @pgt:	Page-table structure initialised by kvm_pgtable_stage2_init*().
-> + * @addr:	Intermediate physical address from which to write-enable.
-> + * @size:	Size of the range.
-> + *
-> + * The offset of @addr within a page is ignored and @size is rounded-up to
-> + * the next page boundary.
-> + *
-> + * Note that it is the caller's responsibility to invalidate the TLB after
-> + * calling this function to ensure that the updated permissions are visible
-> + * to the CPUs.
-> + *
-> + * Return: 0 on success, negative error code on failure.
-> + */
-> +int kvm_pgtable_stage2_write_enable(struct kvm_pgtable *pgt, u64 addr,
-> +				    u64 size);
-> +
->  /**
->   * kvm_pgtable_stage2_mkyoung() - Set the access flag in a page-table entry.
->   * @pgt:	Page-table structure initialised by kvm_pgtable_stage2_init*().
-> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-> index beea00e693a0..a1aa03d13937 100644
-> --- a/arch/arm64/include/asm/kvm_pkvm.h
-> +++ b/arch/arm64/include/asm/kvm_pkvm.h
-> @@ -215,6 +215,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size, u64 phy
->  			    enum kvm_pgtable_walk_flags flags);
->  int pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
->  int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size);
-> +int pkvm_pgtable_stage2_write_enable(struct kvm_pgtable *pgt, u64 addr, u64 size);
->  int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size);
->  bool pkvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64 size, bool mkold);
->  int pkvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr, enum kvm_pgtable_prot prot,
-> diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
-> index 88f8b1bb6864..d710f64e00be 100644
-> --- a/arch/arm64/include/asm/kvm_spe.h
-> +++ b/arch/arm64/include/asm/kvm_spe.h
-> @@ -9,6 +9,7 @@
->  struct kvm;
->  struct kvm_vcpu;
->  struct kvm_device_attr;
-> +struct kvm_memory_slot;
->
->  #ifdef CONFIG_KVM_ARM_SPE
->  struct arm_spe_pmu;
-> @@ -39,6 +40,10 @@ void kvm_spe_destroy_vm(struct kvm *kvm);
->
->  void kvm_spe_finalize_idregs(struct kvm *kvm);
->
-> +void kvm_spe_add_dirty_logging(struct kvm *kvm, const struct kvm_memory_slot *slot);
-> +void kvm_spe_remove_dirty_logging(struct kvm *kvm, const struct kvm_memory_slot *slot);
-> +void kvm_spe_handle_dirty_logging_request(struct kvm_vcpu *vcpu);
-> +
->  int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
->  int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
->  int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
-> @@ -86,6 +91,17 @@ static inline void kvm_spe_destroy_vm(struct kvm *kvm)
->  static inline void kvm_spe_finalize_idregs(struct kvm *kvm)
->  {
->  }
-> +static inline void kvm_spe_add_dirty_logging(struct kvm *kvm,
-> +					     const struct kvm_memory_slot *slot)
-> +{
-> +}
-> +static inline void kvm_spe_remove_dirty_logging(struct kvm *kvm,
-> +						const struct kvm_memory_slot *slot)
-> +{
-> +}
-> +static inline void kvm_spe_handle_dirty_logging_request(struct kvm_vcpu *vcpu)
-> +{
-> +}
->  static inline int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->  {
->  	return -ENXIO;
-> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-> index c695aae484d3..a86fa4f9d9e4 100644
-> --- a/arch/arm64/include/uapi/asm/kvm.h
-> +++ b/arch/arm64/include/uapi/asm/kvm.h
-> @@ -511,6 +511,7 @@ enum {
->
->  /* run->fail_entry.hardware_entry_failure_reason codes. */
->  #define KVM_EXIT_FAIL_ENTRY_CPU_UNSUPPORTED	(1ULL << 0)
-> +#define KVM_EXIT_FAIL_ENTRY_SPE_DIRTY_LOGGING	(1ULL << 1)
->
->  enum kvm_smccc_filter_action {
->  	KVM_SMCCC_FILTER_HANDLE = 0,
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 7c7d0616db53..73f321b3ed2d 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -1172,6 +1172,15 @@ static int kvm_vcpu_suspend(struct kvm_vcpu *vcpu)
->  	return 1;
->  }
->
-> +static void kvm_vcpu_prepare_exit_fail_entry(struct kvm_vcpu *vcpu, u64 reason)
-> +{
-> +	struct kvm_run *run = vcpu->run;
-> +
-> +	run->exit_reason = KVM_EXIT_FAIL_ENTRY;
-> +	run->fail_entry.hardware_entry_failure_reason = reason;
-> +	run->fail_entry.cpu = smp_processor_id();
-> +}
-> +
->  /**
->   * check_vcpu_requests - check and handle pending vCPU requests
->   * @vcpu:	the VCPU pointer
-> @@ -1223,6 +1232,20 @@ static int check_vcpu_requests(struct kvm_vcpu *vcpu)
->  		if (kvm_check_request(KVM_REQ_SUSPEND, vcpu))
->  			return kvm_vcpu_suspend(vcpu);
->
-> +		if (kvm_check_request(KVM_REQ_SPE_HANDLE_DIRTY_LOGGING, vcpu))
-> +			kvm_spe_handle_dirty_logging_request(vcpu);
-> +
-> +		/*
-> +		 * The request is consumed on purpose, to allow userspace to
-> +		 * resume the VCPU at the expense of profiling blackout windows
-> +		 * if it so wishes.
-> +		 */
-> +		if (kvm_check_request(KVM_REQ_SPE_EXIT_DIRTY_LOGGING, vcpu)) {
-> +			kvm_vcpu_prepare_exit_fail_entry(vcpu,
-> +					KVM_EXIT_FAIL_ENTRY_SPE_DIRTY_LOGGING);
-> +			return 0;
-> +		}
-> +
->  		if (kvm_dirty_ring_check_request(vcpu))
->  			return 0;
->
-> @@ -1285,9 +1308,7 @@ static bool kvm_vcpu_exit_request(struct kvm_vcpu *vcpu, int *ret)
->  	}
->
->  	if (unlikely(vcpu_on_unsupported_cpu(vcpu))) {
-> -		run->exit_reason = KVM_EXIT_FAIL_ENTRY;
-> -		run->fail_entry.hardware_entry_failure_reason = KVM_EXIT_FAIL_ENTRY_CPU_UNSUPPORTED;
-> -		run->fail_entry.cpu = smp_processor_id();
-> +		kvm_vcpu_prepare_exit_fail_entry(vcpu, KVM_EXIT_FAIL_ENTRY_CPU_UNSUPPORTED);
->  		*ret = 0;
->  		return true;
->  	}
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> index 29935c7da1de..dadb56d62820 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> @@ -47,7 +47,7 @@ int __pkvm_host_share_guest(u64 pfn, u64 gfn, u64 nr_pages, struct pkvm_hyp_vcpu
->  			    enum kvm_pgtable_prot prot);
->  int __pkvm_host_unshare_guest(u64 gfn, u64 nr_pages, struct pkvm_hyp_vm *hyp_vm);
->  int __pkvm_host_relax_perms_guest(u64 gfn, struct pkvm_hyp_vcpu *vcpu, enum kvm_pgtable_prot prot);
-> -int __pkvm_host_wrprotect_guest(u64 gfn, u64 nr_pages, struct pkvm_hyp_vm *hyp_vm);
-> +int __pkvm_host_toggle_wp_guest(u64 gfn, u64 nr_pages, struct pkvm_hyp_vm *hyp_vm, bool wp);
->  int __pkvm_host_test_clear_young_guest(u64 gfn, u64 nr_pages, bool mkold, struct pkvm_hyp_vm *vm);
->  int __pkvm_host_mkyoung_guest(u64 gfn, struct pkvm_hyp_vcpu *vcpu);
->
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index 9a3b92e626ad..34c442f1529b 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -487,22 +487,37 @@ static void handle___pkvm_host_relax_perms_guest(struct kvm_cpu_context *host_ct
->  	cpu_reg(host_ctxt, 1) = ret;
->  }
->
-> -static void handle___pkvm_host_wrprotect_guest(struct kvm_cpu_context *host_ctxt)
-> +static int host_toggle_wp_guest(pkvm_handle_t handle, u64 gfn, u64 nr_pages, bool wp)
->  {
-> -	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
-> -	DECLARE_REG(u64, gfn, host_ctxt, 2);
-> -	DECLARE_REG(u64, nr_pages, host_ctxt, 3);
->  	struct pkvm_hyp_vm *hyp_vm;
-> -	int ret = -EINVAL;
-> +	int ret;
->
->  	hyp_vm = get_np_pkvm_hyp_vm(handle);
->  	if (!hyp_vm)
-> -		goto out;
-> +		return -EINVAL;
->
-> -	ret = __pkvm_host_wrprotect_guest(gfn, nr_pages, hyp_vm);
-> +	ret = __pkvm_host_toggle_wp_guest(gfn, nr_pages, hyp_vm, wp);
->  	put_pkvm_hyp_vm(hyp_vm);
-> -out:
-> -	cpu_reg(host_ctxt, 1) = ret;
-> +
-> +	return ret;
-> +}
-> +
-> +static void handle___pkvm_host_wrprotect_guest(struct kvm_cpu_context *host_ctxt)
-> +{
-> +	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
-> +	DECLARE_REG(u64, gfn, host_ctxt, 2);
-> +	DECLARE_REG(u64, nr_pages, host_ctxt, 3);
-> +
-> +	cpu_reg(host_ctxt, 1) = host_toggle_wp_guest(handle, gfn, nr_pages, true);
-> +}
-> +
-> +static void handle___pkvm_host_write_enable_guest(struct kvm_cpu_context *host_ctxt)
-> +{
-> +	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
-> +	DECLARE_REG(u64, gfn, host_ctxt, 2);
-> +	DECLARE_REG(u64, nr_pages, host_ctxt, 3);
-> +
-> +	cpu_reg(host_ctxt, 1) = host_toggle_wp_guest(handle, gfn, nr_pages, false);
->  }
->
->  static void handle___pkvm_host_test_clear_young_guest(struct kvm_cpu_context *host_ctxt)
-> @@ -942,6 +957,7 @@ static const hcall_t host_hcall[] = {
->  	HANDLE_FUNC(__pkvm_host_unshare_guest),
->  	HANDLE_FUNC(__pkvm_host_relax_perms_guest),
->  	HANDLE_FUNC(__pkvm_host_wrprotect_guest),
-> +	HANDLE_FUNC(__pkvm_host_write_enable_guest),
->  	HANDLE_FUNC(__pkvm_host_test_clear_young_guest),
->  	HANDLE_FUNC(__pkvm_host_mkyoung_guest),
->  	HANDLE_FUNC(__pkvm_reserve_vm),
-> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> index 39aa8911f62c..8e5405280c9d 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> @@ -1650,7 +1650,7 @@ int __pkvm_host_relax_perms_guest(u64 gfn, struct pkvm_hyp_vcpu *vcpu, enum kvm_
->  	return ret;
->  }
->
-> -int __pkvm_host_wrprotect_guest(u64 gfn, u64 nr_pages, struct pkvm_hyp_vm *vm)
-> +int __pkvm_host_toggle_wp_guest(u64 gfn, u64 nr_pages, struct pkvm_hyp_vm *vm, bool wp)
->  {
->  	u64 size, ipa = hyp_pfn_to_phys(gfn);
->  	int ret;
-> @@ -1664,7 +1664,10 @@ int __pkvm_host_wrprotect_guest(u64 gfn, u64 nr_pages, struct pkvm_hyp_vm *vm)
->
->  	assert_host_shared_guest(vm, ipa, size);
->  	guest_lock_component(vm);
-> -	ret = kvm_pgtable_stage2_wrprotect(&vm->pgt, ipa, size);
-> +	if (wp)
-> +		ret = kvm_pgtable_stage2_wrprotect(&vm->pgt, ipa, size);
-> +	else
-> +		ret = kvm_pgtable_stage2_write_enable(&vm->pgt, ipa, size);
->  	guest_unlock_component(vm);
->
->  	return ret;
-> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> index b74dd5ce1efd..07e43f607eae 100644
-> --- a/arch/arm64/kvm/hyp/pgtable.c
-> +++ b/arch/arm64/kvm/hyp/pgtable.c
-> @@ -1293,6 +1293,14 @@ int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
->  					KVM_PGTABLE_WALK_IGNORE_EAGAIN);
->  }
->
-> +int kvm_pgtable_stage2_write_enable(struct kvm_pgtable *pgt, u64 addr, u64 size)
-> +{
-> +	return stage2_update_leaf_attrs(pgt, addr, size,
-> +					KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W, 0,
-> +					NULL, NULL,
-> +					KVM_PGTABLE_WALK_IGNORE_EAGAIN);
-> +}
-> +
->  void kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr,
->  				enum kvm_pgtable_walk_flags flags)
->  {
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index d7e7365c5c5a..e1dfc7d5db3e 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1240,6 +1240,17 @@ int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
->  	return ret;
->  }
->
-> +/**
-> + * kvm_stage2_write_enable_range() - grant write permision for the memory range
-> + * @mmu:        The KVM stage-2 MMU pointer
-> + * @addr:	Start address of range
-> + * @end:	End address of range
-> + */
-> +void kvm_stage2_write_enable_range(struct kvm_s2_mmu *mmu, phys_addr_t addr, phys_addr_t end)
-> +{
-> +	stage2_apply_range_resched(mmu, addr, end, KVM_PGT_FN(kvm_pgtable_stage2_write_enable));
-> +}
-> +
->  /**
->   * kvm_stage2_wp_range() - write protect stage2 memory region range
->   * @mmu:        The KVM stage-2 MMU pointer
-> @@ -2578,6 +2589,14 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
->  				   enum kvm_mr_change change)
->  {
->  	bool log_dirty_pages = new && new->flags & KVM_MEM_LOG_DIRTY_PAGES;
-> +	bool had_dirty_logging = old && old->flags & KVM_MEM_LOG_DIRTY_PAGES;
-> +
-> +	if (change != KVM_MR_DELETE && had_dirty_logging != log_dirty_pages) {
-> +		if (log_dirty_pages)
-> +			kvm_spe_add_dirty_logging(kvm, new);
-> +		else
-> +			kvm_spe_remove_dirty_logging(kvm, new);
-> +	}
->
->  	/*
->  	 * At this point memslot has been committed and there is an
-> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> index 8e4c6e4bec12..5ba2fa8010cc 100644
-> --- a/arch/arm64/kvm/pkvm.c
-> +++ b/arch/arm64/kvm/pkvm.c
-> @@ -488,6 +488,33 @@ int pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
->  	return __pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
->  }
->
-> +int pkvm_pgtable_stage2_write_enable(struct kvm_pgtable *pgt, u64 addr, u64 size)
-> +{
-> +	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
-> +	pkvm_handle_t handle = kvm->arch.pkvm.handle;
-> +	struct pkvm_mapping *mapping;
-> +	u64 gfn, end_gfn, nr_pages;
-> +	int ret = 0;
-> +
-> +	if (WARN_ON(kvm_vm_is_protected(kvm)))
-> +		return -EPERM;
-> +
-> +	end_gfn = (addr + size) >> PAGE_SHIFT;
-> +
-> +	lockdep_assert_held(&kvm->mmu_lock);
-> +	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
-> +		gfn = max(addr >> PAGE_SHIFT, mapping->gfn);
-> +		nr_pages = min_t(u64, end_gfn - gfn, mapping->nr_pages);
-> +		ret = kvm_call_hyp_nvhe(__pkvm_host_write_enable_guest, handle, gfn,
-> +					nr_pages);
-> +		if (WARN_ON(ret))
-> +			break;
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +
->  int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
->  {
->  	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
-> diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
-> index e5f3d0dea7c5..f3310465f40e 100644
-> --- a/arch/arm64/kvm/spe.c
-> +++ b/arch/arm64/kvm/spe.c
-> @@ -10,6 +10,7 @@
->  #include <linux/perf_event.h>
->
->  #include <asm/kvm_emulate.h>
-> +#include <asm/kvm_mmu.h>
->  #include <asm/kvm_nested.h>
->  #include <asm/kvm_spe.h>
->  #include <asm/sysreg.h>
-> @@ -141,6 +142,81 @@ void kvm_spe_destroy_vm(struct kvm *kvm)
->  	module_put(spe_pmu->pmu.module);
->  }
->
-> +void kvm_spe_add_dirty_logging(struct kvm *kvm, const struct kvm_memory_slot *slot)
-> +{
-> +	struct kvm_vcpu *vcpu;
-> +	unsigned long i;
-> +
-> +	lockdep_assert_held(&kvm->slots_lock);
-> +
-> +	/*
-> +	 * No point in handling a regular memslot, because they cannot guarantee
-> +	 * that memory remains mapped at stage 2.
-> +	 *
-> +	 * Memory described by a read-only memslot is always read-only, so SPE
-> +	 * cannot write to it anyway.
-> +	 */
-> +	if (!kvm_slot_has_gmem(slot) || (slot->flags & KVM_MEM_READONLY))
-> +		return;
-> +
-> +	kvm_for_each_vcpu(i, vcpu, kvm) {
-> +		if (!vcpu_has_spe(vcpu))
-> +			continue;
-> +		kvm_make_request(KVM_REQ_SPE_HANDLE_DIRTY_LOGGING, vcpu);
-> +		if (vcpu_has_run_once(vcpu))
-> +			__kvm_vcpu_kick(vcpu, true);
-> +	}
-> +}
-> +
-> +void kvm_spe_remove_dirty_logging(struct kvm *kvm, const struct kvm_memory_slot *slot)
-> +{
-> +	phys_addr_t start, end;
-> +	struct kvm_vcpu *vcpu;
-> +	unsigned long i;
-> +
-> +	lockdep_assert_held(&kvm->slots_lock);
-> +
-> +	if (!kvm_slot_has_gmem(slot) || (slot->flags & KVM_MEM_READONLY))
-> +		return;
-> +
-> +	kvm_for_each_vcpu(i, vcpu, kvm) {
-> +		/*
-> +		 * Write-enabling an entire memslot can be expensive, do it only
-> +		 * if the VM has SPE.
-> +		 */
-> +		if (vcpu_has_spe(vcpu)) {
-> +			start = slot->base_gfn << PAGE_SHIFT;
-> +			end = (slot->base_gfn + slot->npages) << PAGE_SHIFT;
-> +
-> +			write_lock(&kvm->mmu_lock);
-> +			kvm_stage2_write_enable_range(&kvm->arch.mmu, start, end);
-> +			write_unlock(&kvm->mmu_lock);
-> +			kvm_flush_remote_tlbs_memslot(kvm, slot);
-> +			return;
-> +		}
-> +	}
-> +}
-> +
-> +static bool kvm_spe_should_exit_dirty_logging(struct kvm_vcpu *vcpu)
-> +{
-> +	struct kvm *kvm = vcpu->kvm;
-> +	u64 pmblimitr, pmbsr;
-> +
-> +	if (!atomic_read(&kvm->nr_memslots_dirty_logging))
-> +		return false;
-> +
-> +	pmblimitr = __vcpu_sys_reg(vcpu, PMBLIMITR_EL1);
-> +	pmbsr = __vcpu_sys_reg(vcpu, PMBSR_EL1);
-> +
-> +	return FIELD_GET(PMBLIMITR_EL1_E, pmblimitr) && !FIELD_GET(PMBSR_EL1_S, pmbsr);
-> +}
-> +
-> +void kvm_spe_handle_dirty_logging_request(struct kvm_vcpu *vcpu)
-> +{
-> +	if (kvm_spe_should_exit_dirty_logging(vcpu))
-> +		kvm_make_request(KVM_REQ_SPE_EXIT_DIRTY_LOGGING, vcpu);
-> +}
-> +
->  bool kvm_spe_has_feat_spe_fds(struct kvm *kvm)
->  {
->  	struct arm_spe_pmu *spe_pmu = kvm->arch.kvm_spe.spe_pmu;
-> @@ -214,6 +290,9 @@ bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val)
->  		kvm_spe_update_irq_level(vcpu, FIELD_GET(PMBSR_EL1_S, val));
->  	}
->
-> +	if (kvm_spe_should_exit_dirty_logging(vcpu))
-> +		kvm_make_request(KVM_REQ_SPE_EXIT_DIRTY_LOGGING, vcpu);
-> +
->  	return true;
->  }
->
-> --
-> 2.43.0
->
->
-
---
-Cheers, Lorenzo
+Frank
 
