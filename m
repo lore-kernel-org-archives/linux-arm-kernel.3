@@ -2,68 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6141E606D825
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 13:57:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0DB4606EE89
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 13:57:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=r1VZzcdp;
-	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=HeQI0mfz
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BYz21oxe;
+	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=i7783GZc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=mV0eR3zcFL59/gKxALQPqK/kdG+NtDO8y5QoP7EPEfw=; b=r1VZzcdpCjcIhd
-	eoutzLGV7O4hxfoRJExDFmWDBuTmDW9PIDWF19Bt4zWwK0jq0cZR/xv8Muq/sRKt3jmu0rgiRGij3
-	EQKhW3nRXdVXtxP/ixJsn0PvuxkOd2KztlHSeO55mQuhi+fyI/jWHeWY9imUZaj+Edhmbvc+BaITk
-	qzvyhZGETF30q3xPoEIbH9+gjWAhEjgmikVo0L48w5rd1P1peWvktaQoLCC1Bm8JIopN3V6NZcdbO
-	YpydIESxSwHVCO9Fb6ex2j0tndS+vWqaHV5KuYXcw8cM6pDutlQQZJcsrMU8/LJUnxsaz6/ZpVBQV
-	cATHjxogmTMrtG0OMqJA==;
+	List-Owner; bh=hdB7q81mTRiafyTU90+Nru1Z7mdwITDPN9ZjuiDmuj4=; b=BYz21oxeOurD2e
+	MeNyWmYMVJH4CFJQjNmj4M4PKVqYQiVEMg6qTwsoATpj2Hp9z/+a+VBCMxzg5tugdCzzynVW1jHEN
+	JjRRbVuPMh7Ai3JSSQ1mmKm1hGTo6QhoqkEfBdXhWdDMn1cP+NkV1oby2TgI/VIraZGkaY3ZGwW4d
+	oPM0LCKzhht/ozyXwHVip7XMou8TI3z3aMhzzbf8+VHd0lvboCv63Dh4vw8WeWQgAovm3SqqfPRov
+	8sPjtvJx1Z/iAPeK9h3vm6A11+tqwN9solDKq7k86Ba4rIjkWdP/x1fKup1Fg5wD3WLsrHb/a36vu
+	OoibqkTTaGOc9pPNmljQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxxm-00000009BaT-0Mzh;
-	Thu, 05 Nov 2026 13:57:10 +0000
+	id 1xOxxp-00000009Bcl-0olI;
+	Thu, 05 Nov 2026 13:57:14 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxxg-00000009BXA-0Otx
+	id 1xOxxj-00000009BYp-0CSD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 13:57:05 +0000
+	Thu, 05 Nov 2026 13:57:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1793887023; x=1825423023;
+  t=1793887026; x=1825423026;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=88NXNcK6U6Tk7gXrhIP2CLooB+AZ9/2lOZ0n99JxOB0=;
-  b=HeQI0mfzYC0xamQ7sTWvKenF0LpnC0hUaQus85sHYNpMGFzT3WIy7cp2
-   r69cOXu0gG4VhpKVuSOFCrSF1K/mP10Pnq5J8cw2WucxecvUV81wx4D8o
-   U4SbFs93G58WI7kghR8Lf8EnmrtUK5y4osqdTJlYKBdrU/38TmTmUMjcn
-   14WmUKLDlQOQdof1S1mxy2Q6lpsk9jqtZyzCjo+SMrjEPSzTnuFl+B+H9
-   LmK+n+0qScjQ+KFUNahY7ZZ70YbkIM2kqiJR448nVfFbdCxC984U2JDoG
-   tfOlVpThBQa/93mW3TEXdmqNOt27P69UX3qdIAG3tjr5fmgl5zhHUX/IM
-   g==;
-X-CSE-ConnectionGUID: KkTdR4AuRu+n78BIXidZOw==
-X-CSE-MsgGUID: TZNWC1brQ7aCmVU9PFLTwQ==
+  bh=YyUtvcvn5oJhn+gogAh9fUM8vO0gq8//Wrd0z2MWH+g=;
+  b=i7783GZcf4+vzK25ls86IdTjE/pGtHscn5WxGwSu36v5qLcMni7WZOjS
+   ZXCl5QUV0525ca9avKv6/Niq/8L8hEe3ejpr17h+jZDCcMWm43vEMjrKQ
+   IKVVa9BY7OzmKao/SdLcEf8A5yE0ApBaAGitQ92GqZkE0NpYf/jZw6xxs
+   xXoikSY521u8R6FHviWvU8xnJf+HTgu/y7ILQuyK8ocK/5cjwDtnBXUqe
+   dbunv9TyjWTTT70VJkf2V9PlHw7ZKsj34pXOHWNpQegBsoNuCfZ8iZCfQ
+   6he+XBUyoeQjkZoCxcZQr0F2F5vjfr6klj6VnhKzxxmo9O4HH3h9R5QXr
+   w==;
+X-CSE-ConnectionGUID: I8o+1O/kTI+TII5nkTt4LQ==
+X-CSE-MsgGUID: uGUqt2EvTC2hBa8NXhFNyw==
 X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
-   d="scan'208";a="233136487"
+   d="scan'208";a="65112457"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 06:57:03 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex2.mchp-main.com (10.10.87.31) with Microsoft SMTP Server
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 05 Nov 2026 06:57:06 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.56; Thu, 5 Nov 2026 06:57:03 -0700
+ 15.1.2507.58; Thu, 5 Nov 2026 06:57:05 -0700
 Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Thu, 5 Nov 2026 06:57:00 -0700
+ 15.1.2507.58 via Frontend Transport; Thu, 5 Nov 2026 06:57:03 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Date: Thu, 5 Nov 2026 14:56:36 +0100
-Subject: [PATCH net-next 1/9] net: sparx5/lan969x: stop the FDMA channels
- properly
+Date: Thu, 5 Nov 2026 14:56:37 +0100
+Subject: [PATCH net-next 2/9] net: sparx5/lan969x: free the FDMA buffers on
+ init errors and deinit
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261105-sparx5-mtu-change-v1-1-f27bab580463@microchip.com>
+Message-ID: <20261105-sparx5-mtu-change-v1-2-f27bab580463@microchip.com>
 References: <20261105-sparx5-mtu-change-v1-0-f27bab580463@microchip.com>
 In-Reply-To: <20261105-sparx5-mtu-change-v1-0-f27bab580463@microchip.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
@@ -75,8 +75,8 @@ CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, Robert Marko <robert.marko@sartura.hr>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_055704_172348_20821FB6 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20261105_055707_145726_F734371C 
+X-CRM114-Status: GOOD (  21.13  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,148 +96,216 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The FDMA channels are activated by setting their bit in
-FDMA_CH_ACTIVATE, and are disabled through FDMA_CH_DISABLE, after which
-a channel finishes the DCB it is fetching before it becomes inactive,
-as shown by FDMA_CH_ACTIVE. The injection and extraction ports are
-stopped through INJ_STOP and XTR_STOP.
+The FDMA RX buffers are skbs on Sparx5, and pages from a page_pool on
+lan969x, which are handed to the FDMA through the RX DCBs. On lan969x,
+the TX DCBs also have an array holding the state of the TX buffers.
 
-sparx5_fdma_stop() tries to stop the channels by clearing their bit in
-FDMA_CH_ACTIVATE, which has no effect: the register only acts on the
-bits that are set, and its bits are cleared immediately by the
-hardware. It also never stops the injection port, and waits for
-XTR_BUF_IS_EMPTY to be 0, which means that the extraction buffer is not
-empty, instead of 1, so the wait always runs until it times out.
+These are not all freed. On Sparx5, the RX skbs are never freed, and
+if the TX buffers cannot be allocated, the RX DCBs are not freed. On
+lan969x, if the RX DCBs cannot be allocated, the page_pool is not
+destroyed, if the TX buffers cannot be allocated, only the RX DCBs are
+freed, and lan969x_fdma_deinit() never frees the TX buffer state. On
+both, the return value of fdma_dcbs_init() is also ignored for RX, so
+if a buffer cannot be allocated while filling the RX ring, the FDMA is
+started with a partly filled ring, and on lan969x,
+lan969x_fdma_free_pages() later puts the pages that were never
+allocated.
 
-Add the FDMA_CH_ACTIVE register, and make sparx5_fdma_stop() disable the
-channels and wait for them to become inactive, stop the injection port,
-and wait for the extraction buffer to be empty.
-
-The stop sequence is used by the FDMA deinit, and by the FDMA buffer
-resize added later in this series.
+In preparation for MTU support, add sparx5_fdma_rx_free(), which frees
+the RX skbs and DCBs, lan969x_fdma_rx_free(), which returns the pages to
+the page_pool and frees the page_pool and the RX DCBs, and
+lan969x_fdma_tx_free(), which frees the TX buffer state and the TX
+DCBs, and use them on the error paths and on deinit. Check the return
+value of fdma_dcbs_init() for RX. To know which RX buffers are still
+owned by the driver, clear the RX buffer slot once the buffer has been
+passed to the stack on Sparx5, and make lan969x_fdma_free_pages() skip
+and clear the empty slots of the ring.
 
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- .../net/ethernet/microchip/sparx5/sparx5_fdma.c    | 46 ++++++++++++++++------
- .../ethernet/microchip/sparx5/sparx5_main_regs.h   | 11 ++++++
- 2 files changed, 45 insertions(+), 12 deletions(-)
+ .../microchip/sparx5/lan969x/lan969x_fdma.c        | 54 ++++++++++++++++------
+ .../net/ethernet/microchip/sparx5/sparx5_fdma.c    | 30 ++++++++++--
+ 2 files changed, 65 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-index 15ec9b053824f..bcae0bbd5e44e 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-@@ -20,6 +20,8 @@
- 
- #define FDMA_XTR_BUFFER_SIZE		2048
- #define FDMA_WEIGHT			4
-+#define SPX5_FDMA_STOP_SLEEP_US		500
-+#define SPX5_FDMA_STOP_TIMEOUT_US	10000
- 
- static int sparx5_fdma_tx_dataptr_cb(struct fdma *fdma, int dcb, int db,
- 				     u64 *dataptr)
-@@ -86,10 +88,6 @@ static void sparx5_fdma_rx_deactivate(struct sparx5 *sparx5, struct sparx5_rx *r
- {
+diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
+index 053d125eda658..d162bea02cbfb 100644
+--- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
++++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
+@@ -90,12 +90,29 @@ static void lan969x_fdma_free_pages(struct sparx5_rx *rx)
  	struct fdma *fdma = &rx->fdma;
  
--	/* Deactivate the RX channel */
--	spx5_rmw(0, BIT(fdma->channel_id) & FDMA_CH_ACTIVATE_CH_ACTIVATE,
--		 sparx5, FDMA_CH_ACTIVATE);
--
- 	/* Disable RX channel DB interrupt */
- 	spx5_rmw(0, BIT(fdma->channel_id) & FDMA_INTR_DB_ENA_INTR_DB_ENA,
- 		 sparx5, FDMA_INTR_DB_ENA);
-@@ -125,9 +123,9 @@ static void sparx5_fdma_tx_activate(struct sparx5 *sparx5, struct sparx5_tx *tx)
- 
- static void sparx5_fdma_tx_deactivate(struct sparx5 *sparx5, struct sparx5_tx *tx)
- {
--	/* Disable the channel */
--	spx5_rmw(0, BIT(tx->fdma.channel_id) & FDMA_CH_ACTIVATE_CH_ACTIVATE,
--		 sparx5, FDMA_CH_ACTIVATE);
-+	/* Stop TX fdma */
-+	spx5_rmw(FDMA_PORT_CTRL_INJ_STOP_SET(1), FDMA_PORT_CTRL_INJ_STOP,
-+		 sparx5, FDMA_PORT_CTRL(0));
+ 	for (int i = 0; i < fdma->n_dcbs; ++i) {
+-		for (int j = 0; j < fdma->n_dbs; ++j)
++		for (int j = 0; j < fdma->n_dbs; ++j) {
++			if (!rx->page[i][j])
++				continue;
++
+ 			page_pool_put_full_page(rx->page_pool,
+ 						rx->page[i][j], false);
++			rx->page[i][j] = NULL;
++		}
+ 	}
  }
  
- void sparx5_fdma_reload(struct sparx5 *sparx5, struct fdma *fdma)
-@@ -447,6 +445,11 @@ static u32 sparx5_fdma_port_ctrl(struct sparx5 *sparx5)
- 	return spx5_rd(sparx5, FDMA_PORT_CTRL(0));
- }
- 
-+static u32 sparx5_fdma_ch_active(struct sparx5 *sparx5)
++/* Return the pages in the RX ring to the page_pool, and free the page_pool
++ * and the RX DCBs.
++ */
++static void lan969x_fdma_rx_free(struct sparx5 *sparx5)
 +{
-+	return spx5_rd(sparx5, FDMA_CH_ACTIVE);
++	struct sparx5_rx *rx = &sparx5->rx;
++
++	lan969x_fdma_free_pages(rx);
++	fdma_free_coherent(sparx5->dev, &rx->fdma);
++	page_pool_destroy(rx->page_pool);
 +}
 +
- int sparx5_fdma_start(struct sparx5 *sparx5)
+ static struct sk_buff *lan969x_fdma_rx_get_frame(struct sparx5 *sparx5,
+ 						 struct sparx5_rx *rx)
  {
- 	const struct sparx5_ops *ops = sparx5->data->ops;
-@@ -468,20 +471,39 @@ int sparx5_fdma_start(struct sparx5 *sparx5)
+@@ -169,14 +186,18 @@ static int lan969x_fdma_rx_alloc(struct sparx5 *sparx5)
+ 		return PTR_ERR(rx->page_pool);
  
- int sparx5_fdma_stop(struct sparx5 *sparx5)
+ 	err = fdma_alloc_coherent(sparx5->dev, fdma);
+-	if (err)
++	if (err) {
++		page_pool_destroy(rx->page_pool);
+ 		return err;
++	}
+ 
+-	fdma_dcbs_init(fdma,
+-		       FDMA_DCB_INFO_DATAL(fdma->db_size),
+-		       FDMA_DCB_STATUS_INTR);
++	err = fdma_dcbs_init(fdma,
++			     FDMA_DCB_INFO_DATAL(fdma->db_size),
++			     FDMA_DCB_STATUS_INTR);
++	if (err)
++		lan969x_fdma_rx_free(sparx5);
+ 
+-	return 0;
++	return err;
+ }
+ 
+ static int lan969x_fdma_tx_alloc(struct sparx5 *sparx5)
+@@ -202,6 +223,15 @@ static int lan969x_fdma_tx_alloc(struct sparx5 *sparx5)
+ 	return 0;
+ }
+ 
++/* Free the TX buffer state and the TX DCBs */
++static void lan969x_fdma_tx_free(struct sparx5 *sparx5)
++{
++	struct sparx5_tx *tx = &sparx5->tx;
++
++	fdma_free_coherent(sparx5->dev, &tx->fdma);
++	kfree(tx->dbs);
++}
++
+ static void lan969x_fdma_rx_init(struct sparx5 *sparx5)
  {
-+	u32 channels = BIT(sparx5->rx.fdma.channel_id) |
-+		       BIT(sparx5->tx.fdma.channel_id);
- 	struct sparx5_rx *rx = &sparx5->rx;
- 	struct sparx5_tx *tx = &sparx5->tx;
- 	u32 val;
+ 	struct fdma *fdma = &sparx5->rx.fdma;
+@@ -353,7 +383,6 @@ int lan969x_fdma_xmit(struct sparx5 *sparx5, u32 *ifh, struct sk_buff *skb,
  
- 	napi_disable(&rx->napi);
+ int lan969x_fdma_init(struct sparx5 *sparx5)
+ {
+-	struct sparx5_rx *rx = &sparx5->rx;
+ 	int err;
  
--	/* Stop the fdma and channel interrupts */
-+	/* Disable the channels, and wait for them to finish the current DCB */
-+	spx5_wr(FDMA_CH_DISABLE_CH_DISABLE_SET(channels), sparx5,
-+		FDMA_CH_DISABLE);
-+
-+	if (read_poll_timeout(sparx5_fdma_ch_active,
-+			      val,
-+			      !(FDMA_CH_ACTIVE_CH_ACTIVE_GET(val) & channels),
-+			      SPX5_FDMA_STOP_SLEEP_US,
-+			      SPX5_FDMA_STOP_TIMEOUT_US,
-+			      false,
-+			      sparx5))
-+		dev_warn(sparx5->dev, "Failed to stop FDMA channels\n");
-+
-+	/* Stop the fdma and the RX channel interrupt */
- 	sparx5_fdma_rx_deactivate(sparx5, rx);
- 	sparx5_fdma_tx_deactivate(sparx5, tx);
+ 	lan969x_fdma_rx_init(sparx5);
+@@ -375,7 +404,7 @@ int lan969x_fdma_init(struct sparx5 *sparx5)
  
--	/* Wait for the RX channel to stop */
--	read_poll_timeout(sparx5_fdma_port_ctrl, val,
--			  FDMA_PORT_CTRL_XTR_BUF_IS_EMPTY_GET(val) == 0,
--			  500, 10000, 0, sparx5);
-+	/* Wait for the extraction buffer to be empty */
-+	read_poll_timeout(sparx5_fdma_port_ctrl,
-+			  val,
-+			  FDMA_PORT_CTRL_XTR_BUF_IS_EMPTY_GET(val),
-+			  SPX5_FDMA_STOP_SLEEP_US,
-+			  SPX5_FDMA_STOP_TIMEOUT_US,
-+			  false,
-+			  sparx5);
+ 	err = lan969x_fdma_tx_alloc(sparx5);
+ 	if (err) {
+-		fdma_free_coherent(sparx5->dev, &rx->fdma);
++		lan969x_fdma_rx_free(sparx5);
+ 		dev_err(sparx5->dev, "Failed to allocate TX buffers: %d\n",
+ 			err);
+ 		return err;
+@@ -390,14 +419,9 @@ int lan969x_fdma_init(struct sparx5 *sparx5)
+ 
+ int lan969x_fdma_deinit(struct sparx5 *sparx5)
+ {
+-	struct sparx5_rx *rx = &sparx5->rx;
+-	struct sparx5_tx *tx = &sparx5->tx;
+-
+ 	sparx5_fdma_stop(sparx5);
+-	fdma_free_coherent(sparx5->dev, &tx->fdma);
+-	fdma_free_coherent(sparx5->dev, &rx->fdma);
+-	lan969x_fdma_free_pages(rx);
+-	page_pool_destroy(rx->page_pool);
++	lan969x_fdma_tx_free(sparx5);
++	lan969x_fdma_rx_free(sparx5);
  
  	return 0;
  }
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
-index 1464fd1a1d447..df438be0ec552 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
-@@ -4713,6 +4713,17 @@ extern const struct sparx5_regs *regs;
- 	__REG(TARGET_FDMA, 0, 1, 8, 0, 1, regs->gsize[GW_FDMA_FDMA], 148, r, 8,\
- 	      4)
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
+index bcae0bbd5e44e..f4e8ac00dbe2f 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
+@@ -174,6 +174,10 @@ static bool sparx5_fdma_rx_get_frame(struct sparx5 *sparx5, struct sparx5_rx *rx
+ 	skb->dev->stats.rx_bytes += skb->len;
+ 	skb->dev->stats.rx_packets++;
+ 	rx->packets++;
++	/* The skb is passed to the stack, so clear its slot in the ring, so
++	 * that sparx5_fdma_rx_free() does not free it.
++	 */
++	rx->skb[fdma->dcb_index][fdma->db_index] = NULL;
+ 	netif_receive_skb(skb);
+ 	return true;
+ }
+@@ -239,6 +243,21 @@ int sparx5_fdma_xmit(struct sparx5 *sparx5, u32 *ifh, struct sk_buff *skb,
+ 	return NETDEV_TX_OK;
+ }
  
-+/* FDMA:FDMA:FDMA_CH_ACTIVE */
-+#define FDMA_CH_ACTIVE                                                         \
-+	__REG(TARGET_FDMA, 0, 1, 8, 0, 1, regs->gsize[GW_FDMA_FDMA], 180, 0, 1,\
-+	      4)
++/* Free the RX skbs owned by the driver, and the RX DCBs */
++static void sparx5_fdma_rx_free(struct sparx5_rx *rx)
++{
++	struct fdma *fdma = &rx->fdma;
 +
-+#define FDMA_CH_ACTIVE_CH_ACTIVE                 GENMASK(7, 0)
-+#define FDMA_CH_ACTIVE_CH_ACTIVE_SET(x)\
-+	FIELD_PREP(FDMA_CH_ACTIVE_CH_ACTIVE, x)
-+#define FDMA_CH_ACTIVE_CH_ACTIVE_GET(x)\
-+	FIELD_GET(FDMA_CH_ACTIVE_CH_ACTIVE, x)
++	for (int i = 0; i < fdma->n_dcbs; i++) {
++		for (int j = 0; j < fdma->n_dbs; j++) {
++			consume_skb(rx->skb[i][j]);
++			rx->skb[i][j] = NULL;
++		}
++	}
 +
- /* FDMA:FDMA:FDMA_CH_CFG */
- #define FDMA_CH_CFG(r)                                                         \
- 	__REG(TARGET_FDMA, 0, 1, 8, 0, 1, regs->gsize[GW_FDMA_FDMA], 224, r, 8,\
++	fdma_free_phys(fdma);
++}
++
+ static int sparx5_fdma_rx_alloc(struct sparx5 *sparx5)
+ {
+ 	struct sparx5_rx *rx = &sparx5->rx;
+@@ -249,10 +268,12 @@ static int sparx5_fdma_rx_alloc(struct sparx5 *sparx5)
+ 	if (err)
+ 		return err;
+ 
+-	fdma_dcbs_init(fdma, FDMA_DCB_INFO_DATAL(fdma->db_size),
+-		       FDMA_DCB_STATUS_INTR);
++	err = fdma_dcbs_init(fdma, FDMA_DCB_INFO_DATAL(fdma->db_size),
++			     FDMA_DCB_STATUS_INTR);
++	if (err)
++		sparx5_fdma_rx_free(rx);
+ 
+-	return 0;
++	return err;
+ }
+ 
+ static int sparx5_fdma_tx_alloc(struct sparx5 *sparx5)
+@@ -425,6 +446,7 @@ int sparx5_fdma_init(struct sparx5 *sparx5)
+ 	}
+ 	err = sparx5_fdma_tx_alloc(sparx5);
+ 	if (err) {
++		sparx5_fdma_rx_free(&sparx5->rx);
+ 		dev_err(sparx5->dev, "Could not allocate TX buffers: %d\n", err);
+ 		return err;
+ 	}
+@@ -434,7 +456,7 @@ int sparx5_fdma_init(struct sparx5 *sparx5)
+ int sparx5_fdma_deinit(struct sparx5 *sparx5)
+ {
+ 	sparx5_fdma_stop(sparx5);
+-	fdma_free_phys(&sparx5->rx.fdma);
++	sparx5_fdma_rx_free(&sparx5->rx);
+ 	fdma_free_phys(&sparx5->tx.fdma);
+ 
+ 	return 0;
 
 -- 
 2.34.1
