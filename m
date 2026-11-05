@@ -2,70 +2,129 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03E60606A336
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:16:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A5C1606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:16:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hLIE5t8M;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P4HEJQmN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zrNPTWFw;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GkEDMbG3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=aCqimnZwAFGyowHxGlAlEMRT7cLaOWAjaF+PQzroRbY=; b=hLIE5t8MghkIKWbjlziLUauMWU
-	UIYmhVDsfyI2eBjrxrtEb6f/RUu7AlpVB21k7F2l7QVMaL3GDY4CLJ3f8nycbzqYKOFqTrSJWp6hr
-	UI4hJo4F0BeVjZAtHFo6e0yjCjAbLWKUze7smvXNaNdyzxHTL6T6EJNfFnk/lgfh7ZlfZsd4zYpCY
-	aDm88wFcc02/ifL/Sp+mZEuWRXLtwj/6DRnkYNNucytRq3WWHPhRsuNK7bWhGvnV9laO04rJlnkwW
-	bhaju+C/7I9wwd0j9er7bYSNiGMwQz+Cn97r/6klY6g5jiVhYCQPCv5UXvtba9pNv7e8Jio/JIXDS
-	mmHRaiVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=CuJQoyb7IoYC0y7UfGHpRmB84OJXh943j/1/oLn+lg0=; b=zrNPTWFwmEFbBI
+	uhWl2IgCp5dXi+RzxGjIC7UvqK3V6qkpC/z5v4JSRJGtSbOdrY66S4Z2036/NYhykTVKKUTO7+wlx
+	H36zooCu3ny4SF+sgQZscEAn+m0A6u7yjHOLjx+0enEJ/zer73IYgRHR3/d2oAHKUAlibTy3in94E
+	Z/8w517GBIiGB4VwkNHBLNByANIw5aTncmDw1jOdbvrpcKvpyOodGb1zyaWtOE6L1jpMv+IjCHnXB
+	OYlCKAoeEV2+RpC1d6Jfwkr3yobie/f9A1iNO3nops+uFUwQBvQgdAUL5Ij3wqOuKto9HFGjPl+7X
+	eHRKaNqUxT87zzUJVrYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOse2-000000086zK-04q3;
-	Thu, 05 Nov 2026 08:16:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xOseB-0000000871V-0UIz;
+	Thu, 05 Nov 2026 08:16:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOse1-000000086zE-04kG
+	id 1xOse4-00000008701-3z6y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 08:16:25 +0000
+	Thu, 05 Nov 2026 08:16:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with UTF8SMTP id 55C53601F7;
-	Thu,  5 Nov 2026 08:16:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 2CC5D1F000C1;
-	Thu,  5 Nov 2026 08:16:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B045640502;
+	Thu,  5 Nov 2026 08:16:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C49381F00A1D;
+	Thu,  5 Nov 2026 08:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793866584;
-	bh=aCqimnZwAFGyowHxGlAlEMRT7cLaOWAjaF+PQzroRbY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=P4HEJQmNW8JflOOJimMB1ufM60UtpVCT7i2H/JZMGolOesBwaicWwAoP+7XGeRUx5
-	 n4pPm2NgpYFgl8xhRPdq+GZqMLRk74kHgespXBg6iXwzQb/OovDkVOjTiLOT5dKzCW
-	 5e4JBWrs+16xt47L/Yx1qP16aZzUmeK2tyMet7MZUXIu9Kqxo1BNokGAgfkW+j2Fb6
-	 aOdOYy7K5Gsr30p32CUrIqdzpn+4AkzBT8527s1M2AwcbIIXYNNNSVqAooQ0yb92MA
-	 zJubGfq3ZRff9+jBPiN9WAJSSv0PJ2vk42DibQp6jsKIZq4E7ba0K1e/fB/1DHAii9
-	 abufRnmE2Ff0Q==
-Date: Thu, 5 Nov 2026 09:16:16 +0100
-From: Bartosz Golaszewski <brgl@kernel.org>
-To: Frank.Li@oss.nxp.com
-Cc: Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Jia Jie Ho <jiajie.ho@starfivetech.com>, William Qiu <william.qiu@starfivetech.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	T Pratham <t-pratham@ti.com>, Thorsten Blum <blum@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Pan Chuang <panchuang@vivo.com>, Maxime =?utf-8?B?TcOpcsOp?= <maxime.mere@foss.st.com>, 
-	"open list:CRYPTO API" <linux-crypto@vger.kernel.org>, 
-	"moderated list:ARM/Microchip (AT91) SoC support" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:QUALCOMM CRYPTO DRIVERS" <linux-arm-msm@vger.kernel.org>, 
-	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>, imx@lists.linux.dev, vkoul@kernel.org
-Subject: Re: [PATCH 1/1] crypto: use dmaengine_desc_set_callback()
-Message-ID: <rbrhsoidlozxq3fjrnoeqf6ehb75fmbs7tv7de6dehocc4thxi@5sfhcuwuda3o>
-References: <20261102164538.3834039-1-Frank.Li@oss.nxp.com>
+	s=k20260515; t=1793866588;
+	bh=CuJQoyb7IoYC0y7UfGHpRmB84OJXh943j/1/oLn+lg0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=GkEDMbG3pbvOmv5QL4XpIyruzvCSEfqqg7tw75JazXjzBE9yvyowMepOn3y6+Som6
+	 7bZHMUqOxbR+1afQEh4X82o+M7uBBtCmbmCrBd5nH38d+ZFUyy3I4KRFYRc88Lvm4d
+	 lBe8qw2bc/IRVFhNya7rKkiajtNroKwHTm0QOMzaSLnDW4zquT95X7oazy/nNUGhtl
+	 7Fnay1nN7tTQn++UjaZidM0Cz2h86y4vRunnxH3KU1Y2ZpxnqTDaoX7OjobZCB674s
+	 bolXu8ulBcO5NL7Vio6ysB8oYk1nctYzD7LDAhYQD/GU0KjZDgVyBeoqHqUz5uujYP
+	 2TsXd8gBTPirg==
+Message-ID: <c6664dd8-871e-4b38-8017-d4c1a02fd36e@kernel.org>
+Date: Thu, 5 Nov 2026 09:16:15 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261102164538.3834039-1-Frank.Li@oss.nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] i2c: Convert to subsys_platform_driver()
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+ Codrin Ciubotariu <codrin.ciubotariu@microchip.com>,
+ Andi Shyti <andi.shyti@kernel.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Bartosz Golaszewski <brgl@kernel.org>,
+ Mika Westerberg <mika.westerberg@linux.intel.com>,
+ Oleksij Rempel <o.rempel@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, Frank Li
+ <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Vignesh R <vigneshr@ti.com>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>,
+ Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>,
+ Roger Quadros <rogerq@kernel.org>, Vladimir Zapolskiy <vz@mleia.com>,
+ Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Linus Walleij <linusw@kernel.org>, linux-i2c@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-omap@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+References: <20261104113316.1634141-1-peng.fan@oss.nxp.com>
+ <93534aaf-00f3-45f4-982e-7fd44ab3799c@kernel.org>
+ <auuXnndiQOkEaOsj@ashevche-desk.local>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <auuXnndiQOkEaOsj@ashevche-desk.local>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,34 +135,75 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 02, 2026 at 11:45:30AM -0500, Frank.Li@oss.nxp.com wrote:
-> From: Frank Li <Frank.Li@nxp.com>
+On 04/11/2026 21:37, Andy Shevchenko wrote:
+> On Wed, Nov 04, 2026 at 06:38:40PM +0100, Krzysztof Kozlowski wrote:
+>> On 04/11/2026 12:33, Peng Fan (OSS) wrote:
+>>>
+>>> Replace the open-coded subsys_initcall()/module_exit() platform driver
+>>> registration with subsys_platform_driver().
+>>>
+>>> No functional change.
 > 
-> Replace open-coded assignments to callback and callback_param fields
-> of struct dma_async_tx_descriptor with calls to the
-> dmaengine_desc_set_callback() helper across various crypto drivers.
+> ...
 > 
-> No functional change intended. Prepare make to struct
-> dma_async_tx_descriptor private to the DMA engine.
+>>> -subsys_initcall(i2c_adap_pxa_init);
+>>> -module_exit(i2c_adap_pxa_exit);
+>>> +subsys_platform_driver(i2c_pxa_driver);
+>>> diff --git a/drivers/i2c/busses/i2c-s3c2410.c b/drivers/i2c/busses/i2c-s3c2410.c
+>>> index 15e14a6fe6dc..dd1f6f854a32 100644
+>>> --- a/drivers/i2c/busses/i2c-s3c2410.c
+>>> +++ b/drivers/i2c/busses/i2c-s3c2410.c
+>>> @@ -1188,18 +1188,7 @@ static struct platform_driver s3c24xx_i2c_driver = {
+>>>  		.of_match_table = of_match_ptr(s3c24xx_i2c_match),
+>>>  	},
+>>>  };
+>>> -
+>>> -static int __init i2c_adap_s3c_init(void)
+>>> -{
+>>> -	return platform_driver_register(&s3c24xx_i2c_driver);
+>>> -}
+>>> -subsys_initcall(i2c_adap_s3c_init);
+>>> -
+>>> -static void __exit i2c_adap_s3c_exit(void)
+>>> -{
+>>> -	platform_driver_unregister(&s3c24xx_i2c_driver);
+>>> -}
+>>> -module_exit(i2c_adap_s3c_exit);
+>>> +subsys_platform_driver(s3c24xx_i2c_driver);
+>>
+>> Apparently reviewing only a few lines out of 300 is still reviewing:
+>>
+>> https://lore.kernel.org/all/9e39502a-dd17-4fa2-98a3-9019523cb5e8@kernel.org/
+>>
+>> Therefore:
+>>
+>> Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
 > 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  drivers/crypto/atmel-aes.c            | 3 +--
->  drivers/crypto/atmel-sha.c            | 6 ++----
->  drivers/crypto/atmel-tdes.c           | 3 +--
->  drivers/crypto/img-hash.c             | 3 +--
->  drivers/crypto/omap-aes.c             | 8 +++-----
->  drivers/crypto/omap-des.c             | 5 ++---
->  drivers/crypto/omap-sham.c            | 3 +--
->  drivers/crypto/qce/dma.c              | 3 +--
+> In the similar way
+> 
+>   Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org> # s3c24xx
+> 
+> (Note, I specifically put double space in front to make this as an example and not overwrite your tags)
+> 
+> And to others, the problem with partial reviews are lying on the side of the
+> sender as it's not reviewer's fault that unrelated things are going in a bundle
+> and not in the proper per-driver series (where each of the driver may have
+> distinct maintainer).
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com> # QCE
+Re-iterating my earlier opinion, the reviewer is at fault as well
+because either should use Ack, because person did not review THE patch,
+or at least path-limiting comment like you pointed above.
+
+I'll send v2 of my patch for submitting patches mentioning this syntax.
+
+Best regards,
+Krzysztof
 
