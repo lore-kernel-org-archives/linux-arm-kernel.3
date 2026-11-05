@@ -2,86 +2,85 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFDE3606A90C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:45:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03BE2606A90D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:45:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NE87yu+e;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=KvMnZnAb
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3wDPVyCh;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=C9vbOoo9
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=SBB4E1cdIK6ypRojxJrVPdhDpxyA24gDAz038IMcsCE=; b=NE87yu+eNhfsh8
-	3cMvelTQ/KSjtyYvyRtEWL0knHUfdxe7VAHKqpm5rwDJBwP/unNCCRiYOiheyCuXECddB2b8upqFY
-	H6syXwoqm1ofZ8V65JloQWh9Q+neMAqDJgbHMARq66OHpsIRguQgGDOt9A3mcrwBgpN8X7dDTiKnE
-	CM4NeaoF3gvpBqnVUa6fbzfXaZ1dz7bcq+mVdlHoYVzfWg2O3abpMLTSNiVN5NjnG+F4UqPeHOZsU
-	/zp2/SQBNOXpbM4xAfIhxRty/Uh/v/UAGUgjYIroCKHoA2p+ZXTJVH3FT0EWB72rBC++tvNH8ajCC
-	l2uDSvjM5yVTfGqxi7EA==;
+	List-Owner; bh=hQ2y5T12ktAE5iaKWCwzlas8CkbZmdyxwRbpbd+A6KQ=; b=3wDPVyChlxuaEy
+	iTLxmi5kEdZ0+s0l6zV3+ao4jOkKHViBpf906KY4G0XpPnZ/eUMYL3m70OwM9c/yHJfJNWKPq1bx7
+	q7bdtz3IqCQZN9ES+S7xHUJ/40j/DAK8FsWCWWJMIO+0WREoAzHNKCJYGoyknMeWGbx5uiygH8Tcm
+	yP0G64IfeTg3H16nwrEYgfv1pGVthR0c3oOli2/+eA2/EhW2aCVOD0VQWTZssZv0iSlRW01M+KVWc
+	pOQrIEdQrZCLXw5zFrETL1a37+phh8KqA0XdhPetidXN6A+BYTni0FvQ7ypKgXHu7tJ43+usQ9xuH
+	KjAsUKBE/vpkmXRpfHkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvuT-00000008iwM-0p49;
-	Thu, 05 Nov 2026 11:45:37 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1xOvuW-00000008j1x-2yre;
+	Thu, 05 Nov 2026 11:45:40 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvuJ-00000008iip-3Y4k
+	id 1xOvuM-00000008ils-2Bwb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 11:45:29 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4b467581b98so12484385e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 03:45:27 -0800 (PST)
+	Thu, 05 Nov 2026 11:45:31 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4a549cd7fd2so5932325e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 03:45:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1793879126; x=1794483926; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1793879128; x=1794483928; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=SBB4E1cdIK6ypRojxJrVPdhDpxyA24gDAz038IMcsCE=;
-        b=KvMnZnAb9KC3aoL7VbFEc0ayGfVM6Etl+Mou3FDCtq15CfvfQBQgzqbuEVZYfseNQ8
-         AKbmsfGErjYQLuFFviHLozwRYatIodn31rUzvcdGBn8Ng1n0o9HV9stJAO+b+FLLwfBc
-         GF8Dxy5NAHTGWkJC1ZhaqPWfVnq2JHc6tAsYJ/J0gG0Qbt7KWvBC2iweNIuHhErwp0w5
-         hw4+DcSyZ7zyZFgv27voFTzGwi4R8IR3D3NpZe9LH/MRoMoCpocT4rkgAsOhS4W84MQw
-         M41qNJ4yTcjTqKpn6rl8IUhKEcpDVO3x8AqZkprraWyIs00se4d3yEamCI7JKV9oO5gU
-         yU8w==
+        bh=hQ2y5T12ktAE5iaKWCwzlas8CkbZmdyxwRbpbd+A6KQ=;
+        b=C9vbOoo92VKlfXpp1CuKKG2qh6qt/Bn0fpYWMaoyElX7b87aYZRbr0YXECiDiN7bfo
+         +gxdbZAJC+6HnWtFQ3ybV85QGWbTQhhUtCuF3KQvmHApn3gi8purBDgV4yh1EpB5Nsx2
+         2Rp3sXwVWRjFxJr7rXHlI0wgQRTcdibH18D7eJL5VA/8wF3thAGr/EHEYG7Sb0o1PnhJ
+         vZMVG8D7gRal9X8d0pkSonVhoeS6tjnm/yd0wmKd7N4z8OI7RfmuodzLnzQNd6LGFdKR
+         +coPa6PSrBXDGn+m3uC7Q/tS5zfFNajd3ZZK4fu3LIeGGHEXr00QymmljXguqzaHMo+G
+         BFug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793879126; x=1794483926;
+        d=1e100.net; s=20260707; t=1793879128; x=1794483928;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=SBB4E1cdIK6ypRojxJrVPdhDpxyA24gDAz038IMcsCE=;
-        b=Z9Y4J6O8EiQbinkocMDhWx1ZjlMsmxoA7osIG51aU+AV4GPYHhZumJHlgJt+F57/0g
-         EM6H05nr/oud3vqhTkRBOZ4BcHJ86NMKN3LKOx1EtyhVmd4XI/7+c+LIrBS0X6DFA7W0
-         oEa5XB1p3z1WNZnA+ImzdtUIzR8q0nq6YHVvPriEqWyU7xk6l83fTGDrWZZtDKPqv0NI
-         7B8DU7OosFu/my8vld6jMUfZMhmBCQ7DyDczl+shi1EaTBuE5OotlT2zsPdJURaVcyZ5
-         NO1Q7qfrqJ5g4bPvw9mZBhF1vTF58lmogAI0D8aMwO0ZKJy1Mg+Vqr5ocrA+QkKaceQR
-         cUFw==
-X-Forwarded-Encrypted: i=1; AKwUvBxLqlb/dnXYiDcxNWxLhimDnLDP0PhhZmVl2bhb2jz4Gy+Rqa55XyaV5cxLC95DIruSNBtEWdZEIGfy3D4ZCTEQ@lists.infradead.org
-X-Gm-Message-State: APuU4Z8joxEDHb6o70bBZ/MJFmacGJboy1QIg8Iy3FYg7yy3n2MRnIrg
-	p/yOhupyqMs3ETpWeR23ZU00ZyEwZoxljrwr/AR+MC9iTNhamZJJA9oUQFTN7oxxzNo=
-X-Gm-Gg: AYBFou2c6++3vgoR1ylD1hDLUdpx4JblJWQ8tly02jwk7MWkcaHdKje1QBAg88PyQCl
-	Ayhkl20ce3SIMX70s5FoQlcesLA2pFqKMtZK0RSfMtm2A4Rc16KNe4eRveo6x/ab+D2h7nP+43j
-	4eKH2fv+QXuVbffAOKjI7/AsDzIS7sKtMr3HUJxTziZ4HTxWgOdSlmG7IK7yrcVRVNzpFUPsMz4
-	utDvoJ85zUg0W9RnX5zTsx81m2s9ULUuuSkkSdKsfklThMsqmd9Qq2NdCVShUAmyxkLhpQYdV+e
-	EFJpuYeGoNhYQpaQb8pkJdLJ47qSMSnXlAPUQm0pdWImtAbl4kjEPjVvhZG0FkLl7tvM0loCzpW
-	8/0PhRGZURfnbbgE8xu+bhTAtDtHNLrO9GVECc77SIEZinee5CGehblE8DMm/m+85+5lKYVX6Zt
-	UgDZl+L3tA+tq6SnCDQ+dr6t0eP7t2ZufE7FebynbbshxAZbOO1vIMNScjs2MUFGXzUo31C+qNw
-	MjqSpyfj4rE6/HAhjM4bLdmhmp8+Dv2siMF8guh4foAHAwSEtj8nLOfsoq0Ux+En6A4w5EiJSzP
-	Rn7CzOmI2c9NFIcU/9/aSZhVzuNt9NEm
-X-Received: by 2002:a05:600c:4708:b0:4a2:167a:c93b with SMTP id 5b1f17b1804b1-4ac19234ad8mr417649255e9.30.1793879125831;
-        Thu, 05 Nov 2026 03:45:25 -0800 (PST)
+        bh=hQ2y5T12ktAE5iaKWCwzlas8CkbZmdyxwRbpbd+A6KQ=;
+        b=vZ6csKCre+tafwlr5516I/sue/4Dwg4TuDncDY3rud+yJY6TmQYzLsqeO/U36DkPiD
+         xL/YctGfVbSU1YWGk3BTGYfGGDI6XMXhFh74KIdqnwghPf+8nDjE7kIzSwFeH/hFZXip
+         An9R9oBGJbfg2fOMoqckoOFjbcD7NN5rEUVp9O8xK4zDqpNhdpPtxYVuujWWMJbDcNsB
+         Lhx69QhX0Op/DUevPZOMa4PD3pGG2co0pilEfgkb3Hzs7c3iqiXMzaOIKZYcaryz0XqW
+         tJBI+P+yeEVRWolJChnl4FbJfsn1tVcp7C3qKnyxio2XKBAzep+707XYUhcMel1WT3Xq
+         tQow==
+X-Forwarded-Encrypted: i=1; AKwUvBwU1rQB2Osr7djQpr+Tbr5YYAr8bvtpY8bX1QcxNI7wIfT6PaKnTk/VbJY+NDT+3XWcAplWe/uzRURusGI7LpF6@lists.infradead.org
+X-Gm-Message-State: APuU4Z8lZhWAf1ae7EWmrEu6ijv187sSxbKelz7so6CHkD6X46KubcUt
+	WRiRgpe+qJRXPU4RNTr/baaHuin/ByCB9dgV4hR8/FOpcmiKiJDERyvFzdi5uxwavC8=
+X-Gm-Gg: AYBFou20CZSia4l0AvFwYt8m6B1Gm9NWE+YgkTrE350e+TQSdU09y5CSDChPtbQHxm5
+	CSfyb57AAxQrCvIXHfzP3EOkH/nbxz0dC6kVDlsdhglmPI33L1z8AXl5hAR1QwrNYjt6nyJBVqc
+	QmReyVjQfXWnakkywT31HgIfMoF7BjrO2byhRZamFyriSba4XX9G8zTLdsFMaSLIv8RcQgTz4V5
+	tHWBGz3v8xcYcnPKcDwmTkANyuTybx9A1/F2r9wPvQ5SB/Vy9L8/T19exmvEMPZ7G14jUQQkgsX
+	oP4CDgcIGgpPIat4QTQ1D5XrS3ZnmipT++FTzKkq8va9OXQizcAgbsq7x4ByAJBwPocF03la+2C
+	OFLKKwYpQMwc66iO7/lMOaweFfRKimXrrWmd4p0/lOAf930DjVYWi2HNZEwJcu48fZ/g+p0jLWA
+	5NMmPJAH8NAVvPk5k/mULGdw75Z3AGQPa2TCd2JPg89Y3GMBrMWfpzBC9jkrPWI8gVHMfwA3yGB
+	mgSVpQMQo8egmV0EmTkmTDL+XjSLRS6aKRvmYo0YqERLTJfR1+b4NAvQ84zpo07tNxK2E3VJrjf
+	6VsKDuPbaqDccnnrSd+Waxoa/7pj7aNJ
+X-Received: by 2002:a05:600c:3e8c:b0:4a2:180a:3417 with SMTP id 5b1f17b1804b1-4b55c8743a7mr39562485e9.1.1793879128464;
+        Thu, 05 Nov 2026 03:45:28 -0800 (PST)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b571f46538sm56679525e9.5.2026.11.05.03.45.24
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b571f46538sm56679525e9.5.2026.11.05.03.45.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 03:45:25 -0800 (PST)
+        Thu, 05 Nov 2026 03:45:28 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Thu, 05 Nov 2026 11:44:53 +0000
-Subject: [PATCH v4 05/19] perf test: cs-etm: Increase window size in
- disassembly test
+Date: Thu, 05 Nov 2026 11:44:55 +0000
+Subject: [PATCH v4 07/19] perf python: Expose sample instruction length
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-james-cs-unformatted-per-thread-fix-v4-5-7759e0ce2449@linaro.org>
+Message-Id: <20261105-james-cs-unformatted-per-thread-fix-v4-7-7759e0ce2449@linaro.org>
 References: <20261105-james-cs-unformatted-per-thread-fix-v4-0-7759e0ce2449@linaro.org>
 In-Reply-To: <20261105-james-cs-unformatted-per-thread-fix-v4-0-7759e0ce2449@linaro.org>
 To: Leo Yan <leo.yan@linux.dev>, Adrian Hunter <adrian.hunter@intel.com>
@@ -101,8 +100,8 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
  James Clark <james.clark@linaro.org>, John Garry <john.garry@linux.dev>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_034527_915792_516FD376 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20261105_034530_643346_58552753 
+X-CRM114-Status: GOOD (  10.97  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,46 +121,44 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-When we increase the default timestamp interval in a later commit, less
-trace will be recorded. At the moment the amount of trace overflows the
-64K buffer, so the exit snapshot trace is what happened at the end of
-the process rather than the beginning. With the new default interval,
-the entire execution will be contained in one buffer and the first few
-samples are always various instruction and data faults. These go to the
-kernel so don't result in ranges that can be disassembled.
+Expose perf_sample::insn_len as a read-only insn_len attribute.
 
-Increase the window to 6 samples to ensure something with a branch can
-be disassembled even with the fault samples.
+Trace decoders supply instruction lengths on synthesized samples to
+indicate whether an instruction was executed or not during a call or
+exception. Let scripts read this value directly.
 
 Reviewed-by: Leo Yan <leo.yan@arm.com>
 Tested-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/tests/shell/coresight/test_arm_coresight_disasm.sh | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ tools/perf/python/perf.pyi | 1 +
+ tools/perf/util/python.c   | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/tools/perf/tests/shell/coresight/test_arm_coresight_disasm.sh b/tools/perf/tests/shell/coresight/test_arm_coresight_disasm.sh
-index d298b18154b2..236c4160e480 100755
---- a/tools/perf/tests/shell/coresight/test_arm_coresight_disasm.sh
-+++ b/tools/perf/tests/shell/coresight/test_arm_coresight_disasm.sh
-@@ -50,7 +50,7 @@ if [ "$(id -u)" == 0 ] && [ -e /proc/kcore ]; then
- 	echo "Testing kernel disassembly"
- 	perf record -o ${perfdata} -e cs_etm//k --kcore -Se -m,64K -- touch $file > /dev/null 2>&1
- 	perf script -i ${perfdata} arm-cs-trace-disasm -- \
--		-d --stop-sample=2 -k ${perfdata}/kcore_dir/kcore 2> /dev/null > ${file}
-+		-d --stop-sample=6 -k ${perfdata}/kcore_dir/kcore 2> /dev/null > ${file}
- 	grep -q -E ${branch_search} ${file}
- 	echo "Found kernel branches"
- else
-@@ -62,7 +62,7 @@ fi
- echo "Testing userspace disassembly"
- perf record -o ${perfdata} -e cs_etm//u -Se -m,64K -- touch $file > /dev/null 2>&1
- perf script -i ${perfdata} arm-cs-trace-disasm -- \
--	-d --stop-sample=2 2> /dev/null > ${file}
-+	-d --stop-sample=6 2> /dev/null > ${file}
- grep -q -E ${branch_search} ${file}
- echo "Found userspace branches"
- 
+diff --git a/tools/perf/python/perf.pyi b/tools/perf/python/perf.pyi
+index 087da00728fd..525d34ed08dc 100644
+--- a/tools/perf/python/perf.pyi
++++ b/tools/perf/python/perf.pyi
+@@ -215,6 +215,7 @@ class sample_event(_sample_members):
+     sample_data_src: int
+     sample_insn_count: int
+     sample_cyc_count: int
++    insn_len: int
+     type: int
+     raw_buf: bytes
+     dso: Optional[str]
+diff --git a/tools/perf/util/python.c b/tools/perf/util/python.c
+index 42c587cd54a5..a4f1e316e5b8 100644
+--- a/tools/perf/util/python.c
++++ b/tools/perf/util/python.c
+@@ -1380,6 +1380,7 @@ static PyGetSetDef pyrf_sample_event__getset[] = {
+ 	sample_member_def(sample_data_src, data_src, T_ULONGLONG, "event data source"),
+ 	sample_member_def(sample_insn_count, insn_cnt, T_ULONGLONG, "event instruction count"),
+ 	sample_member_def(sample_cyc_count, cyc_cnt, T_ULONGLONG, "event cycle count"),
++	sample_member_def(insn_len, insn_len, T_USHORT, "event instruction length"),
+ 	sample_member_def(flags, flags, T_UINT, "event flags"),
+ 	member_def(perf_event_header, type, T_UINT, "event type"),
+ 	{
 
 -- 
 2.43.0
