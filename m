@@ -2,82 +2,122 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6379E606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:08:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 298E1606EE92
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:08:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=L+gWZw8v
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=afdDlQ0C;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=shutemov.name header.i=@shutemov.name header.a=rsa-sha256 header.s=fm1 header.b=Vm7YVorB;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=kn3/d0l2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=P/GlmUjHdK49hN7w1Asyw8OwEiiwg391G3XQYJFs6CI=; b=L+gWZw8vZavaWiaI1miE5GwEmC
-	uRvdLfSao12qEmM03noqNf6soZh94w87/KSQ6XlK844N0LRHVLN1AasqmZOqANuK13GfcoDashfKC
-	xti9VcDfXP1pPHbXYpACbdEM+zh9eK6pYTDsvNdv4N28gvoijbQQggUiIligb3Ro4OInj1cvXDsPZ
-	AoGUvWyRf4eAIFSAhNuE67+NYvW24K6el/JYQM3RAaMFT1vD1s7kcIGNxphPsSVhaFIXbFCLwtaay
-	rSIjI9H4c9aOIFaDjjsVcZchp32sWHBfDLAUEB955nhDYTI5c407BkC+SFF+4hS+zzMPgm1GOf2Gm
-	zEPDCONg==;
+	bh=DL9PW3N9wxpDKHts6UkkO1Y+6aBnze5naNNjdY00sKY=; b=afdDlQ0C7G/zVsnGZ2JQNK6JX6
+	i/KTYbUFFfdaC7UXg9kGllOqbzDIZJf2+mSXzc80trZZC+zK9BwlAPnE8bcDEEwogsO1Cwy05BQih
+	HWI7uAlBO2C1C7bszhjdHkeQOqpwORpAjB6Np4NgcCHtfGoYoeWue4WIAftdcVV1cwid1cxzHNKC5
+	S1T/Lo/Yg5i4S7iBipukdE85/KjPy/kZFDWYN9Uj78BqBfEBsKzr9PXTF+kmBXyzXaZpt/QlCAG2q
+	mVFuJ2ZrJIyDBb7SDBOrFHZGyaj9OgXNjl4VqR/CsANvMWImDjF4XmjMEYjpjzLRkMxiyPHZH3O2c
+	dRF4lIVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOwG8-00000008puA-1EkK;
-	Thu, 05 Nov 2026 12:08:00 +0000
-Received: from mail-yw1-f179.google.com ([209.85.128.179])
+	id 1xOwGr-00000008q9d-3GXR;
+	Thu, 05 Nov 2026 12:08:45 +0000
+Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOwG4-00000008psj-3Red
+	id 1xOwGp-00000008q8q-0kSz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 12:07:58 +0000
-Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-8b335eeb340so2304547b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 04:07:54 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793880473; x=1794485273;
-        h=content-disposition:content-type:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=P/GlmUjHdK49hN7w1Asyw8OwEiiwg391G3XQYJFs6CI=;
-        b=HNiwky9b2eMtDcULWU5rcKFZYlbe8KRNLEdOP1yq7PPA4mwSn3Xpy6kt9v2Qd24jmn
-         Au7TdxvXhHWXNwL1oVf5SmrBgFRCSGIwQFzgkek23elr2nEJXuaNNA8p9+Fi5oZfxS7s
-         Z+SBRS2WpqOBp/qahK4hHZXWsHYQQU2Dv25WwM0YPKXH5ZLPSpWWGRhnmerg1sGGyxn+
-         7b6V0894HN2jxz3P0U20M+jU61tBv0vhSs++uv2Gu9bU84D2dyBlW7Cn94txE+KRJBAE
-         yptISGutxjx39QTpLIu2QfvR6YBDJqV72s+VaexzUzlgdeB+fDZvq7/G8Qp9/1O44WLH
-         5YiA==
-X-Forwarded-Encrypted: i=1; AKwUvBz17KTWK1yCJmCQKujw4j+OSl3lOBjP7EypZQ13RpDmGvDkp1j6NkLkQz6IjuKSUicvIw86hvE8BLngeriH8Wlh@lists.infradead.org
-X-Gm-Message-State: APuU4Z/tRiPNnnLgw6SUsgVx8KJGn3npzxFFc8CKmmt5u/fivsY//GFi
-	ilu0T0lduXwl5PRwFYu7CNuWem6u3xXACjJvSkL0EZEChAoqIJkKCJfv
-X-Gm-Gg: AYBFou3YVaG3rQNXe1zWs79DZdcQaVHa8985yfnrqZggOMD2ASWP16ByW9Xz7laSEfI
-	xKdrwWFnl77v7RuPVRfIbGEmZ3CQIvgj/SkUWwHc9iLfnAZ50YY6JeLrNpXnv4Lm2eDHTcBo/0c
-	ZU8SidJCvs0u8Npx8/01tdWElzrkMScASl+x82yh2g2q70RuwkJJ81BL6D4xsKXZ0QCbb9zil0b
-	SiNbSA78sZXLMOPrVmGiu4kY8bS4L4Zka4WTQ41st/Zgva0t1vhMR63pJkQN3m5vbgLRL6gWToB
-	wF0Uqx74FIt/k/0oX46A7GtTntLxPsycfq+/7EdHa3eLegJgCeIPkv3B+AoZ1gnZogrd5WeMU2d
-	Ptc63J9F+KcgDTCslFNrDoyyhNAf2Kw+HScJ9GYbTkG37eRdb+q5z30u3bfZdDSvnPapl/JX+34
-	05NX984irRWNiNpxc4NafW9t+rlCZRxnEswZrOzNxeKFxFQhLKN/0UamUTBtO+RpPAVljcU4lYV
-	FhIuMgR9WIy0962TLoCWqq6x2/brTKjme2NcI9sVTRCshhmxbjtgBwCEUvgb0LC5j5RSwPl39nw
-	HhscwutWryThOKfT/bM=
-X-Received: by 2002:a05:690e:1385:b0:67b:f101:ff2c with SMTP id 956f58d0204a3-67bf102166amr2388495d50.96.1793880471605;
-        Thu, 05 Nov 2026 04:07:51 -0800 (PST)
-Received: from gmail.com ([2a03:2880:24ff:8::])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67bedf232ccsm3306902d50.3.2026.11.05.04.07.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 04:07:51 -0800 (PST)
-Date: Thu, 5 Nov 2026 04:07:49 -0800
-From: Breno Leitao <leitao@debian.org>
-To: linux-btrfs@vger.kernel.org
-Cc: David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>, 
-	Qu Wenruo <wqu@suse.com>, Filipe Manana <fdmanana@kernel.org>, Boris Burkov <boris@bur.io>, 
-	Atish Patra <atish.patra@linux.dev>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, leitao@debian.org
-Subject: bug: btrfs: direct IO fallback racing with in-flight direct IO fails
- fsync
-Message-ID: <auxv7Tg0xSq5yHmb@gmail.com>
+	Thu, 05 Nov 2026 12:08:44 +0000
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 5E7EE14001C2
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 07:08:42 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Thu, 05 Nov 2026 07:08:42 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1793880522; x=
+	1793966922; bh=DL9PW3N9wxpDKHts6UkkO1Y+6aBnze5naNNjdY00sKY=; b=V
+	m7YVorBfIbxBdW5DzCOYOfbHtyHkIODze7YKJ/5I9XZD2osciL1N5ty6VHDIex9n
+	Lp0SI9B4F6Imsy/6IDlB79ac2n/HtRtoDpkFgPzE+PC4Peprtb6zlWUauSs/c/PX
+	G4cOU3Iys6Ojx3p2LPe1BqxIcF+QaZpZHeMVD93f90deULTf43uVbZzqIJdmp2KE
+	Kx9S3y0olRA0fi8uQDBAKe3UtgkyDJ5k6nRZuadKocbTTxZlV3NbltBBsavbEhL9
+	isjsYxTN4klXAQtyTKJWUT1U9qd0jgp22t4fYcn+HM/xBntc8z4+6AB7wZeD5SeC
+	xTEvlkYvArD7GJ0iKJ7jg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm3; t=1793880522; x=1793966922; bh=D
+	L9PW3N9wxpDKHts6UkkO1Y+6aBnze5naNNjdY00sKY=; b=kn3/d0l2kRMDe8laA
+	sv4UgrJpVzG/w2gSmhPGBfzRlkR0lIoR6YL+Fddjb2T5DtswnC/MqLO8ycWeV8ZE
+	Di0yEjJv8kZmO+lXehqg7yY2/xpGtpzeil19DjvwfTCNSNKW62+tgTAWVDbgYmqg
+	/IN+3pUsvNvZ3O0Kce5CzvQv9WpJwOPA6GWKpeTBKM1z5jCOzOvZ3qRZGPX2GKZ9
+	Ugr7zZeMwWyVnlCHLDY2ORUzQN1sjJAigqrNdfienAQCDWVUuXBhR/P7JpwoSyB3
+	cYHv4j80xeddrHpprUOO03n3/mv7Ng9lrin+1E4l9YtX7a5dX7W8/Qx0D+ABonUe
+	lQIAw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=shutemov.name a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1793880522; d=shutemov.name;
+	mf=PGtpcmlsbEBzaHV0ZW1vdi5uYW1lPg==;
+	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
+	s=fm1:rsa-sha256:TUD14ezyozeSpf7KlwiTkwOKbNtw0k12rmYNFkI5PFCOf6G
+	Qd7uIbZwSsxtcZYSgR2yrVS7hjWnABzoXsu/++nVj7wjdljiLSiOIpLzX/iIZbtu
+	oohA4KqvcdkRSO26A3mQ+iZ5KzgvyYT8k2nFE5ft1EKoEM1e4NWpOp96Jw860pfX
+	bh4t4yXJItCpXpbuGpow0IDECLCivv6nN/At4oU2zckAT5P0UDQBM9Pvm1t6BJZV
+	jiycBCznuuuGtlU9zbgZpe4WwaC917aiPDBJBUYEkplomgZiAG4fE4Vy/81pEiz6
+	tVsc4HRs/aJ8NVwVf9Kc23I7FIAYst0xvL845qg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=11;
+	hn=cc,content-transfer-encoding,date,feedback-id,from,
+	in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:8iMLtoLpbTNZews8dsGvL5ME/YOGMpK4WcHiqNxwPcQ=:Pat5jwtS1skgykp1ImBLoW6H+i2/s64YTaZlvjX45MM=;
+X-ME-Sender: <xms:yXHsatBpCZ2mP9l5XbWaN_wV0KpruVB3nICGFt-UHQhwBSS_Xuy0PQ>
+    <xme:yXHsaimELv419ls8GKKr4LMvbIQvGHKTg3XgqNw3_fEwc8GZdYAfA9EwmyKtJ__Ox
+    mm-WXqKMLgGaH1TqFN7y0lX8ZjH6kTHRb-n37g8UWKzxhMrvEwX_1t3>
+X-ME-Received: <xmr:yXHsagQ9IXKvjInz2oktha1IL5ekMddywjiY_rEwcA6gCngJicrf3kUTX9U>
+X-ME-Proxy-Cause: dmFkZTEHwup4BZFc52KRAGHxzOYIaa2sYBU6ww43+mB6HyAOvQAn3KBA0RSHS6jdPttSF6
+    ke/n8jn9qCNGZK4H6kDcJDi7MztZMGerFklonhOopPBRfA4DdR5ybNuh6LVe/sllVuQjEX
+    457oRixYUE4IWm3NC9j9YEvrxT6+ZpBIGvjfnrB9mFZyjx86HVaYbCMAs3ToPG+dYEw4s3
+    xP+KOABtHnivG4j1iJ8lUPKvqwjPu2Sfmm3BNmjq22yAylca4MJ8on46FIbHTCpcdf5Lnc
+    NVcN78iMJoniVTBvBCZWlgALX6fkwYU3bhAc16F0533stw+SXUDwcbSi2CpeYiOrCmfei0
+    vIy5WtmRsCySaNR7WXQSHSvuh1shKAm+24Ctn/m693nBaQIS1ml7BQA3WTaqKRukXddx+h
+    PQrUcCkxOO6mxRA4crFokuHVbGP5hMhTQhkv6CHalfMvAaobuKZCu/uMGQK0Fk5URx6LlO
+    iyXEZ4l295lsTmOH4M/81h8Zi+gB3Qs6mm4jb3rCX8QP9+9Rv6Ia7bcCa4hYeOVUCfgvrO
+    SibQl9WSiLH0jGVvJ0RBFd+WP0GUNAh+zf/t1X0Igzwbwb8THGR+T6BG7LWJdIdnZ7tCmC
+    DadK6OBknD1ZkvJjJuh2LyoImNL/Rs+LxjPfJBxIr0MSFBjdEDxqj75KYKUA
+X-ME-Proxy: <xmx:yXHsauJGt_Z2dUSAMu3Z0e7bbJozDf1daDXi8LWa-aNUGcVXV8o40A>
+    <xmx:yXHsau9HyohdO0_BwYnFZwjrEuivIrIB79iyzdIff4OYEwfdF0TlPw>
+    <xmx:yXHsagAM5yoPgqhNHQrWA5AhXO2PexloKgjzVX4AHJz4RmsX9BiGFg>
+    <xmx:yXHsaoogV4SRbBL7LYpeJ1O6PP0Z2Bw3UkQXROAx0xSkbv8edIxVBA>
+    <xmx:ynHsau687vKwwAUoY-hsOqWZeAeHNsp5tK9nkjjz5FlUEWI0XL9eSIaN>
+Feedback-ID: ie3994620:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 5 Nov 2026 07:08:41 -0500 (EST)
+From: Kiryl Shutsemau <kirill@shutemov.name>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	James Morse <james.morse@arm.com>,
+	Usama Arif <usama.arif@linux.dev>
+Subject: [PATCH v2 1/2] arm64: sdei: Run the event handler on the kernel vectors
+Date: Thu,  5 Nov 2026 12:08:33 +0000
+Message-ID: <20261105120835.3321912-2-kirill@shutemov.name>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261105120835.3321912-1-kirill@shutemov.name>
+References: <20261105120835.3321912-1-kirill@shutemov.name>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_040756_927972_0DE21ADD 
-X-CRM114-Status: GOOD (  24.46  )
-X-Spam-Score: -0.8 (/)
+X-CRM114-CacheID: sfid-20261105_040843_291524_9F820863 
+X-CRM114-Status: GOOD (  20.88  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,130 +127,143 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: "Kiryl Shutsemau \(Meta\)" <kas@kernel.org>, Thomas Huth <thuth@redhat.com>, Vladimir Murzin <vladimir.murzin@arm.com>, Peter Zijlstra <peterz@infradead.org>, Marc Zyngier <maz@kernel.org>, Jinjie Ruan <ruanjinjie@huawei.com>, kernel-team@meta.com, Doug Anderson <dianders@chromium.org>, stable@vger.kernel.org, linux-kernel@vger.kernel.org, mrigendrachaubey <mrigendra.chaubey@gmail.com>, linux-arm-kernel@lists.infradead.org, Breno Leitao <leitao@debian.org>, Linus Walleij <linusw@kernel.org>, Dawei Li <dawei.li@linux.dev>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
+From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
 
-Atish reported that arm64 production hosts (64K pages, 4K blocks) that
-keep VM disk images as NOCOW files on btrfs, opened with O_DIRECT, on
-7.x based kernels, and it still reproduces in linux-next as of
-next-20261104:
+With KPTI, VBAR_EL1 holds the trampoline vectors from the return to EL0
+until the next exception from EL0 maps the kernel and installs the
+kernel vectors. The trampoline vectors only handle exceptions from EL0;
+their current-EL half is zero-filled.
 
-  Page cache invalidation failure on direct I/O.  Possible data corruption due to collision with buffered I/O!
+An SDEI event is dispatched regardless of PSTATE.DAIF, so it lands there
+whenever the CPU is in user space. The SDEI entry trampoline maps the
+kernel but leaves VBAR_EL1 alone. An exception taken by the handler then
+executes the zeros, takes an undefined instruction exception to the same
+vector, and loops there forever. The event never completes and the CPU
+is lost; RCU stall reports are the first sign of it.
 
-Besides the message, dio_warn_stale_pagecache() records -EIO in the
-mapping, so the next fsync() on the image fails. The message blames the
-application for mixing buffered and direct IO, but every write here is
-O_DIRECT: the buffered writes come from btrfs itself, when it falls back
-for writes that are not 4K aligned.
+RAS notifications land in user space whenever a task consumes the
+error, and NMI backtraces land wherever the CPU happens to be. The GHES
+handler takes no exception on its own, but any exception in the handler
+path does it: a WARN, a kprobe hit, or a fault fixed up by a _nofault()
+accessor.
 
-It does not look like a regression, since the fallback never waited for
-in-flight direct IO. 64K pages make it easy to hit, as a folio then holds
-16 blocks. Since e9b7b9d9e78e5b ("btrfs: use IOMAP_DIO_BOUNCE flag
-instead of falling back to buffered IO"), COW files are exposed too.
+Install the kernel vectors in __sdei_handler() when VBAR_EL1 holds the
+trampoline vectors, and restore it before returning to firmware. The
+switch covers irqentry_nmi_enter() and irqentry_nmi_exit() too, as Usama
+Arif pointed out: their tracepoints and context tracking WARNs can take
+an exception as well.
 
-I was able to come up with a reproducer that hits the issue within
-seconds with 64K pages. With XFS on a loop device backed by such a file,
-standing in for the VM, XFS shuts down on "log I/O error -5":
+The IRQ-like resume into user space must still go through the
+trampoline to map the kernel. do_sdei_event() takes the interrupted
+VBAR_EL1 and keeps basing the resume address on it.
 
-        https://github.com/leitao/btrfs-dio-fallback
+Fixes: 79e9aa59dc29 ("arm64: sdei: Add trampoline code for remapping the kernel")
+Cc: stable@vger.kernel.org
+Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+---
+ arch/arm64/include/asm/sdei.h    |  3 ++-
+ arch/arm64/kernel/entry-common.c | 21 ++++++++++++++++++++-
+ arch/arm64/kernel/sdei.c         |  6 ++++--
+ 3 files changed, 26 insertions(+), 4 deletions(-)
 
-My robot identified this as the root cause:
-
-1. Task A has an async O_DIRECT write in flight to one 4K block of a 64K
-   folio. iomap invalidated the page cache before submitting it, and the
-   inode lock was dropped.
-2. Task B issues an O_DIRECT write whose offset, length or buffer is not
-   4K aligned. btrfs_direct_write() falls back to btrfs_buffered_write(),
-   which does not wait for in-flight direct IO, and dirties another block
-   of the same folio.
-3. Task A's write completes. kiocb_invalidate_post_direct_write() finds
-   the folio dirty, so invalidate_inode_pages2_range() fails with -EBUSY
-   and dio_warn_stale_pagecache() records -EIO. The next fsync() fails.
-
-ext4 fixed the same race in 15cdefd0c052 ("ext4: drain in-flight DIO
-before buffered write fallback"), and ext2, ntfs and exfat are getting
-the same fix. Doing the same in btrfs_buffered_write() for the fallback
-case makes the reproducer clean, and I can send that patch if it looks
-like the right direction.
-
-This patch is a copy of the fixes above (from other FS) and make the
-reproducer happy.
-
-commit 16cd17d1e8205f9f86b8da0a9b1ccefdb2665764
-Author: Breno Leitao <leitao@debian.org>
-Date:   Thu Nov 5 02:59:39 2026 -0800
-
-    btrfs: drain in-flight direct IO before buffered write fallback
-    
-    When btrfs_direct_write() cannot do a write as direct IO, because the
-    offset, the length or the user buffer is not aligned to the sectorsize,
-    or the range has compressed extents or page cache, it falls back to
-    btrfs_buffered_write(). That dirties the page cache without waiting for
-    direct IO still in flight from other tasks:
-    
-    1) Task A submits an async direct write to block 1 of a folio. iomap
-       invalidates the page cache in the range and submits the bio, and the
-       inode lock is dropped.
-    2) Task B issues a 512 byte O_DIRECT write to block 0 of the same folio.
-       btrfs_direct_write() falls back to btrfs_buffered_write(), which
-       dirties the folio.
-    3) Task A's write completes. kiocb_invalidate_post_direct_write() finds
-       the folio dirty, invalidate_inode_pages2_range() fails with -EBUSY,
-       and dio_warn_stale_pagecache() logs:
-    
-       [    2.048568] Page cache invalidation failure on direct I/O.  Possible data corruption due to collision with buffered I/O!
-       [    2.048574] File: /tmp/diorepro.JTCKpJ/block.img PID: 260 Comm: kworker/11:1
-    
-       It also records -EIO in the mapping, so the next fsync() fails.
-    
-    The two writes do not touch the same bytes, they only share a folio.
-    With 4K blocks on 64K pages a folio holds 16 blocks, so this is easy to
-    hit there. Meta's arm64 hosts with 64K pages hit it with VM disk images
-    that are NOCOW files on btrfs, opened with O_DIRECT. In a test, XFS on a
-    loop device with direct IO on such a file gets EIO on a log write and
-    shuts down within seconds.
-    
-    Wait for in-flight direct IO before the fallback dirties the page cache,
-    as ext4 does since commit 15cdefd0c052 ("ext4: drain in-flight DIO
-    before buffered write fallback"). btrfs_buffered_write() holds the inode
-    lock exclusively there, so no new direct IO can start until the write is
-    done. NOWAIT writes never get there, as btrfs_direct_write() returns
-    -EAGAIN for them before falling back.
-    
-    A reproducer that keeps 4K libaio O_DIRECT writes in flight while other
-    threads issue 512 byte O_DIRECT writes to the same folios of a NOCOW
-    file got 1123 fdatasync() EIOs in 10 seconds on a 64K page VM, and none
-    with this patch.
-    
-    Fixes: f85781fb505e ("btrfs: switch to iomap for direct IO")
-    Reported-by: Atish Patra <atish.patra@linux.dev>
-    Signed-off-by: Breno Leitao <leitao@debian.org>
-
-diff --git a/fs/btrfs/file.c b/fs/btrfs/file.c
-index f978c6524aa03f..2017a96814d857 100644
---- a/fs/btrfs/file.c
-+++ b/fs/btrfs/file.c
-@@ -1334,6 +1334,14 @@ ssize_t btrfs_buffered_write(struct kiocb *iocb, struct iov_iter *iter)
- 	if (ret < 0)
- 		return ret;
+diff --git a/arch/arm64/include/asm/sdei.h b/arch/arm64/include/asm/sdei.h
+index b2248bd3cb58..a78a5337ff85 100644
+--- a/arch/arm64/include/asm/sdei.h
++++ b/arch/arm64/include/asm/sdei.h
+@@ -44,7 +44,8 @@ asmlinkage unsigned long __sdei_handler(struct pt_regs *regs,
+ 					struct sdei_registered_event *arg);
+ 
+ unsigned long do_sdei_event(struct pt_regs *regs,
+-			    struct sdei_registered_event *arg);
++			    struct sdei_registered_event *arg,
++			    unsigned long vbar);
+ 
+ unsigned long sdei_arch_get_entry_point(int conduit);
+ #define sdei_arch_get_entry_point(x)	sdei_arch_get_entry_point(x)
+diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+index 11d3f888fcd8..8a17e3720f81 100644
+--- a/arch/arm64/kernel/entry-common.c
++++ b/arch/arm64/kernel/entry-common.c
+@@ -31,6 +31,7 @@
+ #include <asm/stacktrace.h>
+ #include <asm/sysreg.h>
+ #include <asm/system_misc.h>
++#include <asm/vectors.h>
+ 
+ /*
+  * Where the context being returned to had an active percpu GPR critical
+@@ -1040,6 +1041,7 @@ asmlinkage void noinstr __noreturn handle_bad_stack(struct pt_regs *regs)
+ asmlinkage noinstr unsigned long
+ __sdei_handler(struct pt_regs *regs, struct sdei_registered_event *arg)
+ {
++	unsigned long vbar;
+ 	irqentry_state_t state;
+ 	unsigned long ret;
+ 
+@@ -1065,10 +1067,27 @@ __sdei_handler(struct pt_regs *regs, struct sdei_registered_event *arg)
+ 	else if (cpu_has_pan())
+ 		set_pstate_pan(0);
  
 +	/*
-+	 * A direct write that fell back to buffered IO must not dirty folios
-+	 * while direct IO is in flight: its completion fails to invalidate
-+	 * them and records -EIO in the mapping.
++	 * With KPTI, VBAR_EL1 holds the trampoline vectors from the return to
++	 * EL0 until the next exception from EL0 maps the kernel. They only
++	 * handle exceptions from EL0: an exception taken here would run their
++	 * empty current-EL half and never come back. Switch to the kernel
++	 * vectors. The IRQ-like resume keeps using the interrupted VBAR, so it
++	 * still goes through the trampoline.
 +	 */
-+	if (iocb->ki_flags & IOCB_DIRECT)
-+		inode_dio_wait(inode);
++	vbar = read_sysreg(vbar_el1);
++	if (arm64_kernel_unmapped_at_el0() &&
++	    vbar == (unsigned long)__this_cpu_read(this_cpu_vector)) {
++		write_sysreg((unsigned long)vectors, vbar_el1);
++		isb();
++	}
 +
- 	/*
- 	 * We can only trust the isize with inode lock held, or it can race with
- 	 * other buffered writes and cause incorrect call of
+ 	state = irqentry_nmi_enter(regs);
+-	ret = do_sdei_event(regs, arg);
++	ret = do_sdei_event(regs, arg, vbar);
+ 	irqentry_nmi_exit(regs, state);
+ 
++	write_sysreg(vbar, vbar_el1);
++
+ 	return ret;
+ }
+ #endif /* CONFIG_ARM_SDE_INTERFACE */
+diff --git a/arch/arm64/kernel/sdei.c b/arch/arm64/kernel/sdei.c
+index 778f2a1faac8..260c13106009 100644
+--- a/arch/arm64/kernel/sdei.c
++++ b/arch/arm64/kernel/sdei.c
+@@ -200,16 +200,18 @@ unsigned long sdei_arch_get_entry_point(int conduit)
+  *  SDEI_EV_HANDLED -  success, return to the interrupted context.
+  *  SDEI_EV_FAILED  -  failure, return this error code to firmware.
+  *  virtual-address -  success, return to this address.
++ *
++ * vbar is the interrupted context's VBAR_EL1, for the IRQ-like resume.
+  */
+ unsigned long __kprobes do_sdei_event(struct pt_regs *regs,
+-				      struct sdei_registered_event *arg)
++				      struct sdei_registered_event *arg,
++				      unsigned long vbar)
+ {
+ 	u32 mode;
+ 	int i, err = 0;
+ 	int clobbered_registers = 4;
+ 	u64 elr = read_sysreg(elr_el1);
+ 	u32 kernel_mode = read_sysreg(CurrentEL) | 1;	/* +SPSel */
+-	unsigned long vbar = read_sysreg(vbar_el1);
+ 
+ 	if (arm64_kernel_unmapped_at_el0())
+ 		clobbered_registers++;
+-- 
+2.54.0
+
 
