@@ -2,73 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E699606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:50:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D6D2606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:51:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=D7ThDOVX;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ReL2UJWm
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=tkDM+ubF;
+	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=JKYwwhzG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=iXIfKUGJGkEnqn9QRpsp+DcwEv6yTAPnOh0Ju3Orv/4=; b=D7ThDOVXjQaHVr
-	jAOe4y6vE4Sm64pawr+kFrRz7xhXB3ru7XU9Zsn4lfDUXcPOI+37ejo/lnJHLB7/LQmmNk0u1rIDs
-	8wFstx/G19lJKidxEJkrcSmmAjaanim3imf2bn4kHRecS6TU6CINXmRthx6mirOrYwotFMj5hUeSG
-	95v7KTGDXfXc7Pr/ObxFiOykDPPkEmLFY9+hfIl7MFb+HHgYymawpVDvQ49hXDPsMMZe2dVX2FZkE
-	mZ55+OA3aCQdedKtS5FIxlyGzqVuwLnSbkRCJEafC3GqgdXWI0T+wCaIrIXLY5a6ojkiczdB8dIMu
-	KLbdeWcyzv/nQq8KGDdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=2Kob7YlwVM+xHHu2Uvpi+NLog2cKg/RBxEB5tTCs0Yk=; b=tkDM+ubF/CMresLFDgvibpSuPr
+	sNCvBqaG2DOym/JYS0syb5RYol6/B+FsjdKrQe4TWo3u6VvFYuCCtoYT1zcy4I+b7Nw4yWcORbpKp
+	2waJ1Pi9TdFbEEgQxZfDA1wBBEJwRPi3tiWuF/W1WiykmOz0Af+ma8F+IltzpxlfjaCxwQe4Meb7M
+	bvYSAFM2/il1XHbKS3gcT7P7qpRS12E36LwNaDTa93wCFIBiERCtyu7X4B5hJOGQ0GtzmkqkpySpz
+	P3TZGBoMo4o/DP9GhL2lEmaWEB+oS7YqXDzb1jSTwICkRONTS6iBZtegoKyq7BlE2kvPKcYiSWFn+
+	2WxJlqVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtAQ-00000008CDS-1azh;
-	Thu, 05 Nov 2026 08:49:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xOtBj-00000008CQw-2jWu;
+	Thu, 05 Nov 2026 08:51:19 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtAO-00000008CDL-2hhJ
+	id 1xOtBf-00000008CPv-2QjU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 08:49:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A4043601DE
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 08:49:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DF401F00A17
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 08:49:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793868591;
-	bh=iXIfKUGJGkEnqn9QRpsp+DcwEv6yTAPnOh0Ju3Orv/4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=ReL2UJWmNZ5TxcrGIpbnhGyNp15nEgfXjZNsOeS5W6sHxs5USw7+ZVbdKsZy09F1z
-	 pRSB/TuMSFPtsXMNDG1SsTLvPYkJZ0TsGP4FO5x1zVQgyB2mNOZu7nHyRKg0r2l9TI
-	 tWfYU/iKpxdFgbSDSfiBjvDXCoGYUKXe3cLUsYxx61v/U6cVmrY6/2l4dA2FZIfWZA
-	 0sjsdkJ/VvgkEU84ZRXCtJkq2gbT7exadCn5Pv9/lT9A3S8Hxv+7GKSMPeOLtyqz+z
-	 uJWk4bJnyJP7sadqT0trgPRv3UduGH/blDEYxmEGmQwQ9nqXW/rBCNws/cuGIrKTyi
-	 7URlnRPbQGTVQ==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5ba3fba0080so1221129e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 00:49:51 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvBykjrlz4/zFjVj4JMqeRyLeSwzCa+/cNVUf4Dze8XfgQkbBSiindP6GKrcMAHTBGnCtO1OGunGrLZ34HdAoiZHJ@lists.infradead.org
-X-Gm-Message-State: APuU4Z8unB0rbJNBMw75uW/ePuGLsNhWurGwki3JNyO99u2qmThfquhL
-	U7sz8q6fS5obcWouz6IHjKz2TUW0mKjEQJ2QuEQZHKxZlWIDbnjXxQkEYiEyIWUCEN07Z7O1s5M
-	gLyvOgSLfnLlyjpqG8XIMXaWkGckdeCM=
-X-Received: by 2002:a05:6512:688b:20b0:5bf:e4e6:7f78 with SMTP id
- 2adb3069b0e04-5bfe4e68c03mr2745563e87.39.1793868590127; Thu, 05 Nov 2026
- 00:49:50 -0800 (PST)
+	Thu, 05 Nov 2026 08:51:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:content-transfer-encoding
+	:in-reply-to; s=k1; bh=2Kob7YlwVM+xHHu2Uvpi+NLog2cKg/RBxEB5tTCs0
+	Yk=; b=JKYwwhzGpO7p0wD7j5WBusl+5uPKnIQr5LW27p1RaPjWrYpSh8yCRZb6U
+	+TmIjyOpHIfW9RrkNOELPIWVswKCRT5peC2xvMKYxwo7Ng5WVknGYbitD41LzJMi
+	3hQVAk4Cj9+lUC0vy0uDXkrVoNRuqCefqCT+K4YKSV5DGQGau+Ol4C2c78vMRz2P
+	4Ps+kCSSiHIryaR1trBC2kNtQA1NZuMqxJenGosSjaGB0o8sTiFFUo5lqVseKLR1
+	7GouPftCld2vLt1XOjEDx9/vbQBG78k62eQNNlgpQJRfSUkxQ7aPfmBO0GjFlLUR
+	p214tVN9oyOr/mp7dTaacE9WY10GQ==
+Received: (qmail 1074718 invoked from network); 5 Nov 2026 09:51:07 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 5 Nov 2026 09:51:07 +0100
+X-UD-Smtp-Session: l3s3148p1@BjyumINf3sTAwtcC
+Date: Thu, 5 Nov 2026 10:51:07 +0200
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Dmitry Guzman <Dmitry.Guzman@mobileye.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	srinidhi kasagar <srinidhi.kasagar@stericsson.com>,
+	Ben Dooks <ben-linux@fluff.org>,
+	Andrea Gallo <andrea.gallo@stericsson.com>,
+	linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 6/8] i2c: nomadik: handle pm_runtime errors
+Message-ID: <auxDe0lmVCDu_iXA@shikoro>
+References: <20261103-i2c-nomadik-fixes-v1-0-655c6af2cb70@mobileye.com>
+ <20261103-i2c-nomadik-fixes-v1-6-655c6af2cb70@mobileye.com>
+ <CAD++jLm+m+YNhTaUnTm=dwO4p8xYe8OjZ7qhQ9_u15dnxURiVQ@mail.gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261103104242.1373883-1-vulab@iscas.ac.cn>
-In-Reply-To: <20261103104242.1373883-1-vulab@iscas.ac.cn>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 5 Nov 2026 09:49:38 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=YuYS85WFBv-dHJLqMW1VMgoTo3YSnDU8Yqg1Tp3Vd=g@mail.gmail.com>
-X-Gm-Features: AclHuK-DqpeWMThWze48WguFPTy5w3muiNn0JsxnoY0aN27dGfjAgVQWa0g9Prk
-Message-ID: <CAD++jL=YuYS85WFBv-dHJLqMW1VMgoTo3YSnDU8Yqg1Tp3Vd=g@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: bcm: release the NS2 pinmux controller on detach
-To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAD++jLm+m+YNhTaUnTm=dwO4p8xYe8OjZ7qhQ9_u15dnxURiVQ@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261105_005113_301586_51ED4CDF 
+X-CRM114-Status: GOOD (  17.42  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,37 +77,35 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Wentao,
+On Thu, Nov 05, 2026 at 09:42:02AM +0100, Linus Walleij wrote:
+> On Tue, Nov 3, 2026 at 9:30 AM Dmitry Guzman <Dmitry.Guzman@mobileye.com> wrote:
+> 
+> > In nmk_i2c_xfer(), pm_runtime_get_sync() is called on start and then
+> > the controller registers are accessed without checking the return value.
+> > If pm_runtime_get_sync() fails, access to the register of the device that
+> > was not correctly powered on may cause a bus fault or other unpredictable
+> > system behavior.
+> >
+> > Check the return value of pm_runtime_get_sync() and it if is not 0,
+> > return the error immediately.
+> >
+> > Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
+> (...)
+> > -       pm_runtime_get_sync(&priv->adev->dev);
+> > +       i = pm_runtime_get_sync(&priv->adev->dev);
+> > +       if (i)
+> > +               return i;
+> 
+> It's a bit odd to reuse the i (= iterator...) variable for this.
+> I would just add an int ret or int err for this.
 
-On Tue, Nov 3, 2026 at 11:42=E2=80=AFAM Wentao Liang <vulab@iscas.ac.cn> wr=
-ote:
+Yes, please.
 
-> ns2_pinmux_probe() registers the pin controller with pinctrl_register()
-> and stores the returned pinctrl_dev in the driver data, but the driver
-> has no remove callback and never calls pinctrl_unregister().  The
-> controller is therefore never unregistered and its memory is leaked
-> when the platform device is unbound.
->
-> Use devm_pinctrl_register() instead so that the controller is released
-> automatically when the device is detached.
->
-> Fixes: b5aa1006e4a9 ("pinctrl: ns2: add pinmux driver support for Broadco=
-m NS2 SoC")
-> Cc: stable@vger.kernel.org
-
-??????
-
-What is regressing due to this?
-
-Don't add stable-tags like you add sugar to cereals.
-
-Yours,
-Linus Walleij
 
