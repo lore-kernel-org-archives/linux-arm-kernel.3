@@ -2,128 +2,115 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D119606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 02:42:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D9FF606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 02:52:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3nnsuXar;
-	dkim=pass (2048-bit key, unprotected) header.d=cn.bosch.com header.i=@cn.bosch.com header.a=rsa-sha256 header.s=selector2 header.b=iDK6Htbj
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=snVkvnhQ;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D8YVDOSp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=3EiSWqYW5qro8v5W+Nr83f4zTMRb1UlJSlM/AOmV9EU=; b=3nnsuXarzL7ERh
-	pOPFgHmz4syjoztR1+d97NHiR0+33T+eq9g9kaj7k363t6FuCDuIn9uwYu04ccAB6IOCgVgcdnIyA
-	Qb6e711NMDrm1ISY3GAuaHO0zd4GbWC29ux5OQtrK9OMjMnc3en4il9V5DsFoMPedLKSTVZysSP8o
-	BLc6/WzW/oVrm+A+povBADrwyvFLzVSRPrAsrB5IXa6FkLJl+SYjwiyMmPETs5sFObWivFlD4lDm1
-	RgXdrLrbeQYUpxw15ZxR46e21OGIRYsrGL3ng7FuOCznUvZRRfHDXulssKoD1X0HJ/lYx8Md4uuJl
-	thF4y9+0q79yONF2RjyQ==;
+	List-Owner; bh=Ey1iV8iQoLj7ydlNgUyOjkiFHdD4l+/Plkd+sDU6ZFc=; b=snVkvnhQIO5NHp
+	hyOTpgm0ByWuRbPoyFwa2/9tiHbrmsqvr3ZSkjvZe3pQePq5Jl47mFt//ReHQGTzdy85QQ6SPY6yj
+	kV0Q54OXeUg+cEfFix2UusChaMF6rvfI6vdbrTvoL/L003OrtMSx4rOhuDSMGOUgbRjB/4+Z4mK45
+	Ok0F08YW5IfIOVPFgsnPLERWD8UnYIK9J2GWPygzB9SQkQz9TcBsouG9jKDO/WmBPybvo6ltXJnP5
+	7X95qbi3997Y3tJE1v5/ri1fq7KucMIb84lTZYneS6evQItZu4dZLD/UqFBs8UeGBKJJY1UWX8VJA
+	LtVFlzyDM20PVT4zFRnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOnQd-00000007byI-39gz;
-	Thu, 05 Nov 2026 02:42:15 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1xOnap-00000007dBg-2qdg;
+	Thu, 05 Nov 2026 02:52:47 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOnQX-00000007bqc-40Ph
+	id 1xOnam-00000007dAz-3ASI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 02:42:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RxlCnih6uYL9WGA7iYDdwjdjv48HofIBKK0OsOkzHO1ZmczV9WBP6LELd++FwqkuwdMfKY9wwcJ19StuiQtTIAiLbBylj6VvaWHffEfChXPRBfv9X2N1g2HUPrqNXgW9HCPsqJZvhyrggTqoQEuj+8bJN3u7CWMz96nomkUzyLA20SSoTSDxihmaPzj3H/sJC9l+yXYp2ahMPL9JDoiHsjyja+N+ZospBs/VCWAATHJZOg7r1hJwfUNeeJbHZtR69WfRMcuWub2SnKVhZCEaXDOohQfVsTr3MOKGCuExIVPndcH1sJGRquOxUOc88F9Qf7MrRDqoLUq9jqKoBC/PZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3EiSWqYW5qro8v5W+Nr83f4zTMRb1UlJSlM/AOmV9EU=;
- b=LnBOBkKe5TVnJD0vuVbe8Iuk108v3mjC/dh/AVfDvMbQfJbfuud4JuekurOBiMNPs28iY5kkdVr73qyANkHNQSdO5gAYlGffkP1DWNzpVpr1cZWxQ31DgWIaSbDYK50cJdM7/wFpY5pbpPwoty/SArObL+9tV3bBKVVYAuLpwvIxwjlchujxaCbsmQnGfh5qP4MNUi3IWq27HD1xtjyYwNu+ZaZ5aZ0C+HAmm6mg9Fo8RUFD4w4dxyFaeYCm85NUL1BA/7wnq3hiiOokA3iiCwszHklY5NWV89HKwxOdKMGfFxd0Y90oCcfwu5t9hkrVO3T+haliBTtZHq0CHJZNuA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 139.15.153.205) smtp.rcpttodomain=kernel.org smtp.mailfrom=cn.bosch.com;
- dmarc=pass (p=reject sp=none pct=100) action=none header.from=cn.bosch.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cn.bosch.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3EiSWqYW5qro8v5W+Nr83f4zTMRb1UlJSlM/AOmV9EU=;
- b=iDK6HtbjljiXxMmOBUIOFaM0FgIWYI7j4i80zjHaeAdjDf89VMus3FpJUvF1Je7ONwBSh6WgXE+50HjdSvWgY7H1+Tj58qiCle8S9jWKARBKIKvEsXTlvrVgI75UoOqSzXpRSEdwxapTwtwd5e0py1hqIcq/3bBMvJWC2mkgXtLf50Xwr8LNrheSnlNZeWpRgAh58aRV3SMWzdFjG4pd3wKH13vD0HXwDr71CMjMO0wi7lAiJPFCQhK63Zfio2nGwjlPVOQYJ6pOu9vj0sDUXiZtGdnoG2gyVhnO75FYYLAaj9vfXEpJ6l6zNUL7WmxGsK6j+NKPeB2Vjjx47X3Z/Q==
-Received: from GV3PEPF0001DBEE.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:158:400::31b) by AS4PR10MB5895.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:517::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Thu, 5 Nov
- 2026 02:42:04 +0000
-Received: from WA1PEPF00009B3A.eurprd05.prod.outlook.com (2603:10a6:1d8::118)
- by GV3PEPF0001DBEE.outlook.office365.com (2603:10a6:158:400::31b) with
- Microsoft SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id
- 15.21.592.10 via Frontend Transport; Thu, 5 Nov 2026 02:42:04 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 139.15.153.205) smtp.mailfrom=cn.bosch.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=cn.bosch.com;
-Received-SPF: Pass (protection.outlook.com: domain of cn.bosch.com designates
- 139.15.153.205 as permitted sender) receiver=protection.outlook.com;
- client-ip=139.15.153.205; helo=eop.bosch-org.com; pr=C
-Received: from eop.bosch-org.com (139.15.153.205) by
- WA1PEPF00009B3A.mail.protection.outlook.com (10.167.242.40) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.592.5 via Frontend Transport; Thu, 5 Nov 2026 02:42:04 +0000
-Received: from RNGMBX3003.de.bosch.com (10.124.11.208) by eop.bosch-org.com
- (139.15.153.205) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Thu, 5 Nov
- 2026 03:42:01 +0100
-Received: from WX8-V-0008J.wx.apac.bosch.com (10.190.167.205) by
- smtp.app.bosch.com (10.124.11.208) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 5 Nov 2026 03:41:57 +0100
-From: Haoning Cheng <Haoning.CHENG@cn.bosch.com>
-Date: Thu, 5 Nov 2026 10:41:21 +0800
-Subject: [PATCH v2 7/8] ARM: dts: imx6ulz: Configure UART2 pins on BSH
- SMM-M2 variants
+	Thu, 05 Nov 2026 02:52:46 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-8a60f90a924so607431b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 18:52:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1793847163; cv=none;
+        d=google.com; s=arc-20260327;
+        b=HlL0WOXI8Dq/pJPVlH2LV+jnhp/9SlZleipxjPQCPj4GS9FZEPLChf6Ts11r+UOpa8
+         zSsDLMrk03f8hMPl2ggj2kmq749+iy2y+ekvGYQ4sFuvgOvhGmj5U9s2nmiRfrmMFA+v
+         XyA4p336Hq3JJnWqal/I9ox9LiKl2vlNNuJ7JGLbLUvd727qnMJ8muHyZBa6BpNw3Eaj
+         fQSqc6cG04UDdJ6YtSC290X7GgfuLQYqHbH+aaQYjUShv+ZFsf1Dw3PxfPAaINtkG5w+
+         ZX9stZ2031a9vne8LmMsb4JjHU3W6AFaIQzOsutfXVLdGu3oehfbdhhR6Q4WOOgat9Na
+         A4fQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Ey1iV8iQoLj7ydlNgUyOjkiFHdD4l+/Plkd+sDU6ZFc=;
+        fh=Il11xB7PTNjay+MmU8sr2Zpu8IXX8WxumhQfOjHS0/k=;
+        b=ov2l9Luu/NsTip6NE2fNj5MiNi9gNdPuA3C6tr7WnxqsVlIJSZPQTsaq6xJdu3hfAA
+         WzWEp6GIpklBUEOKqxCtDkQSAkfg+I8f95BLFbKJX/b0S8ME4HwIC6TJQKgsjWYDMScF
+         5UvbGK288cq2nGy6ImlYoZ83pcfBu0I8ZKfBHNFO/bjv/lXcNlvLod6ljbJj9NbyCIdn
+         uO+E2bcpyaZDu8Eew0AqnrjubeGL3H9qBAvbScxdG69XwRaK43vc6XUDy8Ol+EFCdcl0
+         kh0EZ0tQD7N5voick0ILn+C+SUayJb3yWacjygpVhudL2eP20krFpyC4GmbQcIbbO22l
+         XNPQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793847163; x=1794451963; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Ey1iV8iQoLj7ydlNgUyOjkiFHdD4l+/Plkd+sDU6ZFc=;
+        b=D8YVDOSp4pebiM6RHBwKEB/D2aAcxZARDG+HxIzvkeRXAjkqjt4zu++c8jd2GfnZyb
+         3SO6FwFFaXQpCOIAPqEoCfGiKWiuc2Rc+eVBgUr8qojJA0BBQrFLDcjGH+2bA7jYCA7R
+         Isl97TO1U9fS/9+KrEwAcKaJuoj1Xo+p9s7S6NmAJ84plOI6CI8IbllovTWYGCty/SU7
+         k5/fyPEi0fyIiDoIGC5J7RDT1vqNqIMyJjbr/i8LBluIzcJL+QQmyvZgKfpUYMNFyo+3
+         996vfiBBmqYCtsDhYJF/UCX1RXtoypVOTPjEPySJ9uKkU9RTpAVv1HlC29z++oxwJD61
+         2A5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793847163; x=1794451963;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Ey1iV8iQoLj7ydlNgUyOjkiFHdD4l+/Plkd+sDU6ZFc=;
+        b=rXrCDUhWstm0L8+wtzKxowXMqYC9WgZhcOlhFKVW3hMhK6EQYeq5EtbufjSiJHHf29
+         FlVsEwBL2b/KjMqrc1pPmg/CsiLhQkQ2rumtRcpswnFwZTmCQJ5wnPTX1qqPtJ359u9N
+         v0nSONaBpcTgD3ZHb/q8ecM8gXhxcUygWgH4kfAnnTX+TE+yRQcg+nDAfHJPhWGsjjLy
+         /NolYYnZy2uLl+nWgD7FbvdpjiMlPR4bW2t5YMfe/T1yVIQI5C/lAJIe9QYJUhYaBJ7/
+         DMDCW/bnz0CmcUlm+GTWw8BdNoI8ZLdtdk2TNMVwCP9yvl9t01qmNSoTroomnXmDjC2e
+         G9Jw==
+X-Forwarded-Encrypted: i=1; AKwUvBxRPiDedWWRq02zjsR2i7FWqRmDTcbwm82HA1g3GVjXFtO1C0np9OnMD6DVRMYkwMzAiuFNZ/sAYBTmg6r5nMfu@lists.infradead.org
+X-Gm-Message-State: APuU4Z+mzEN3vz1vMaEv0umFHrwJ67HjVF8zukOMfBEvkyZRwkasivRr
+	5IdMJ+Yy1kxPj0yMiWDs/h11Tz/BmBRsUyBJUZV+5ON8p2HABZfga2+38PQpOyTL7LwpOUvx0Mi
+	XUMz007uLzGozXmEAEx5OzEhMFHAC5yA=
+X-Gm-Gg: AYBFou0S+G0qXPUCqURFAlx03lgw8pnfnExMQ59KGrOfDccsoE2sNHeTe5yeJHUVgHz
+	fsQMtTC1HvdX+ctUTSD80k2ALB6Y9AQpbCa1Et5L49dCKofVmrZQJmeyv0Refkj+GUL3W4CB+gk
+	tyg/eyWDrwdKmOcO/yEjSN38C38KwO2Cl3GDFHbz/7Vld0cjcLVz2A3i5n3qb0OVIICaph1A6u1
+	cKO82lBr5L4/V09R7eJEtlUocveEbMcYZ0Fz0wpyZMkWrrK3X2WtWUg6dV+e3Z9GI8enDxataul
+	zrTl6V9EZzZgFyaC62vyk+gwpeBPKBb5AtEObxQbSC8V7J7SSdOmsYyL72begGzZOq5I0ciGgI7
+	+TCBdUJFsZt6Op3e6p32tOJxGG79vGNfYOO02
+X-Received: by 2002:a05:6a00:2d96:b0:8a0:5f63:5521 with SMTP id
+ d2e1a72fcca58-8a9ba703d12mr13438966b3a.8.1793847163495; Wed, 04 Nov 2026
+ 18:52:43 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261105-add-bsh-smm-m2-v2-7-fb5ffc7da486@cn.bosch.com>
-References: <20261105-add-bsh-smm-m2-v2-0-fb5ffc7da486@cn.bosch.com>
-In-Reply-To: <20261105-add-bsh-smm-m2-v2-0-fb5ffc7da486@cn.bosch.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Frank Li
-	<Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>, Haoning Cheng
-	<Haoning.CHENG@cn.bosch.com>, Akhil Narayanan <akhil.narayanan@in.bosch.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1075;
- i=Haoning.CHENG@cn.bosch.com; h=from:subject:message-id;
- bh=VqQvwx5DjvBuUeR/RiCBffb5oE02cLYBE8zFCfltHNk=;
- b=owGbwMvMwCV2Lz9jvnXEsVWMp9WSGLJev7kx4drOB7nxW9/GBpVp3Zh1dU+s0IPqu2vW7rv/f
- 9et4xsvp3aUsjCIcTHIiimyqCZ4n5W8GmA6bWY13BxWJpAhDFycAjARWx2Gf3Yf2VxiHl02uZfC
- Zymypfnkgun9O+Pzzm/6aMa6fG/0heMM/2wXS8ZyfnOMvuBbJ1SjsVnIaEFN5cpSrzdZPz8/lbN
- dyQIA
-X-Developer-Key: i=Haoning.CHENG@cn.bosch.com; a=openpgp;
- fpr=25604BCD19D5503596997B16DE6F689F3B58C6AA
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: WA1PEPF00009B3A:EE_|AS4PR10MB5895:EE_
-X-MS-Office365-Filtering-Correlation-Id: bdf9cb65-aebf-4403-55be-08df3ae66069
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|7416014|23010399003|1800799024|376014|10067099003|22082099003|18002099003|56012099006|11063799006|261102123227099003|261021121427099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info: gU7q2syMW+YHi6+QpEga5acqPBb1YaLWtqZem8sT6h72CAt2t0YDzPIQxFW5RM9eidJPUYflzPh66Xz4x9Wxd0aQDUhwXJJeo60CjMCjVeDFuhkwdKWuNYLFnMl9YGL6+liLYg+e1DsqMrwX/LoAsDZ4m0vO8l3/qStpzDVj4vMOo0rQxSqzvEMU8oj+OO6+XgDJmpngLQucTjI+slE4imZ1L6KrrJ48PuPXPdKZWWUCFRaYy1FWag/MM4iuCdr0MLxgzAYFLwgrx6rkk5peeDyjM0D0i0kec19X+ef941V4EwaBTgYXJlijWtB9f2UFctmu3EAc48+KXGPWjcJfpkMfTr8L2CcckIfYkcnm1n4n5vZ3KDCgbfKzslZ4LOTARXT1O8nmovA4H8+HcSHjrJo+nr+qnMenupZxXiP/+4t0kHONPsLnxBeqj+lsv9vr4MJpfhb7LlagWPoIJHz03PdHFC5v8wn6iRwMpk9fxao2/0KE5h1oHdVMhZ4/VcHi1K67ee9zSHpq2dgCEPycj2J7AJdlAEmYq97vjiLi/35ZXvSuTTpPQqz49nJngMS00QHPnSQr32qVuxrU++0CXA7DcG/5Og7iNEe83f47pJSP3xHlDcb6OjefASe1/LJX6I5oR+inKyjft3umbxIi5Z+hrKlBm3uFOE0Re8LQ92EPGb9h6Z4ZwvwaAjX3HNM7BJHtvTMStBzztT67nbPN9w==
-X-Forefront-Antispam-Report: CIP:139.15.153.205;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:eop.bosch-org.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(7416014)(23010399003)(1800799024)(376014)(10067099003)(22082099003)(18002099003)(56012099006)(11063799006)(261102123227099003)(261021121427099003)(261009223027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: o6S93i0lqndv+3MdQX8E6R4X3H/apbeDtocJFDOoHe2D9AKAqRW7kc4TbbTa1aUvtMGwqVIrxYBDr0FqgAOnsW2/fRilxHrc2Ri+I8dFdDNPSXpsApH+RdpR+WfrJic7maY9IOvcQVzpvMl4V5U3zZM6ZM+DfUNkiQm+duh60vbD8rGjnkwBJJGUcqokFy9y1IHtq+SqpJun2vSFMZtLHPXx0I5GwPgF1NAu9/JwRSjxjeA/OTiXMI2JNs0tT10U0CuvKfGuI8xSvr8LPxOKokXk2tHWlFLbFtjw6m07HoF8xKU2Ri1FYw6R4/CRo+QXfJ7dvw5ZXOf1Np5IojsM+b++GodqBCVDn1VWcHwJ/H3rUCOjjMFdrgzqbiFvvtLPvBrdPUMpXE3U4TS1A2YxY/GBe4U1A+ASlolBdJwG+0bWhaKMARNqIgX3WyWyRCfi
-X-OriginatorOrg: cn.bosch.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 02:42:04.3353
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: bdf9cb65-aebf-4403-55be-08df3ae66069
-X-MS-Exchange-CrossTenant-Id: 0ae51e19-07c8-4e4b-bb6d-648ee58410f4
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0ae51e19-07c8-4e4b-bb6d-648ee58410f4;Ip=[139.15.153.205];Helo=[eop.bosch-org.com]
-X-MS-Exchange-CrossTenant-AuthSource: WA1PEPF00009B3A.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR10MB5895
+References: <20261104113228.1634005-1-peng.fan@oss.nxp.com>
+In-Reply-To: <20261104113228.1634005-1-peng.fan@oss.nxp.com>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Thu, 5 Nov 2026 10:52:14 +0800
+X-Gm-Features: AclHuK8gtw_SYmYC4rZ2ec9F7qmZC5mmmsY7xqdrym-SeKMj27M0HT9x7LVxGTo
+Message-ID: <CAA+D8AM5Nr9vDzohQaz-XN=_F9dBfXoBJJv_3FS3jDeGQ_6G4Q@mail.gmail.com>
+Subject: Re: [PATCH] ASoC: imx-audmux: Convert to subsys_platform_driver()
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Xiubo Li <Xiubo.Lee@gmail.com>, Fabio Estevam <festevam@gmail.com>, 
+	Nicolin Chen <nicoleotsuka@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, linux-sound@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_184210_024623_A3EC8892 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261104_185244_797532_31EAED65 
+X-CRM114-Status: GOOD (  17.17  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -135,52 +122,60 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Akhil Narayanan <akhil.narayanan@in.bosch.com>
+On Wed, Nov 4, 2026 at 7:35=E2=80=AFPM Peng Fan (OSS) <peng.fan@oss.nxp.com=
+> wrote:
+>
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> Replace the open-coded subsys_initcall()/module_exit() platform driver
+> registration with subsys_platform_driver().
+>
+> No functional change.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-Configure the UART2 RX and TX pin multiplexing for the BSH SMM-M2
-variants.
+Reviewed-by: Shengjiu Wang <shengjiu.wang@gmail.com>
 
-Signed-off-by: Akhil Narayanan <akhil.narayanan@in.bosch.com>
-Signed-off-by: Haoning Cheng <Haoning.CHENG@cn.bosch.com>
----
- arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2-common.dtsi | 9 +++++++++
- 1 file changed, 9 insertions(+)
-
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2-common.dtsi
-index 83df5c696748..27c7b6acc658 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2-common.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2-common.dtsi
-@@ -25,6 +25,8 @@ &snvs_poweroff {
- };
- 
- &uart2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart2>;
- 	status = "okay";
- };
- 
-@@ -77,4 +79,11 @@ MX6UL_PAD_UART4_TX_DATA__UART4_DCE_TX	0x1b0b1
- 			MX6UL_PAD_UART4_RX_DATA__UART4_DCE_RX	0x1b0b1
- 		>;
- 	};
-+
-+	pinctrl_uart2: uart2grp {
-+		fsl,pins = <
-+			MX6UL_PAD_UART2_RX_DATA__UART2_DCE_RX	0x1b0b1
-+			MX6UL_PAD_UART2_TX_DATA__UART2_DCE_TX	0x1b0b1
-+		>;
-+	};
- };
-
--- 
-2.43.0
-
+Best regards
+Shengjiu Wang
+> ---
+>  sound/soc/fsl/imx-audmux.c | 13 +------------
+>  1 file changed, 1 insertion(+), 12 deletions(-)
+>
+> diff --git a/sound/soc/fsl/imx-audmux.c b/sound/soc/fsl/imx-audmux.c
+> index f8335a04595a..d46f43ab66cf 100644
+> --- a/sound/soc/fsl/imx-audmux.c
+> +++ b/sound/soc/fsl/imx-audmux.c
+> @@ -361,18 +361,7 @@ static struct platform_driver imx_audmux_driver =3D =
+{
+>                 .of_match_table =3D imx_audmux_dt_ids,
+>         }
+>  };
+> -
+> -static int __init imx_audmux_init(void)
+> -{
+> -       return platform_driver_register(&imx_audmux_driver);
+> -}
+> -subsys_initcall(imx_audmux_init);
+> -
+> -static void __exit imx_audmux_exit(void)
+> -{
+> -       platform_driver_unregister(&imx_audmux_driver);
+> -}
+> -module_exit(imx_audmux_exit);
+> +subsys_platform_driver(imx_audmux_driver);
+>
+>  MODULE_DESCRIPTION("Freescale i.MX AUDMUX driver");
+>  MODULE_AUTHOR("Sascha Hauer <s.hauer@pengutronix.de>");
+> --
+> 2.51.0
+>
 
