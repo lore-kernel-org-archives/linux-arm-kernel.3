@@ -2,106 +2,83 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 116F7606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 10:18:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0885606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 10:23:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OIGavLzE;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZY0mixJ+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=eeu8HUYA;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WrMJ9jdV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=NgGSt8h/WNnYW96twK1QcR8mvYOaOPJ4mg8us3LTyWY=; b=OIGavLzEapxdwzGG07yDF801ud
-	1sT4ZT55g35QqSSeG3a8n0vR3dJIp6dQAzGe/ZvxjzcrXxRQjv2eZcHLsuFvRJfRyaBWfa3snIkCb
-	EGGLDLAWVUpIQkvBSfNJJ3Egxz8wfcQtN1UrlLfwBX5Nue22r15pkVg3JFoRuhTTyAFoE2dOBCGXA
-	hjQm2Bbks0pGix3gFWsuJoazZnY5TCEI9AYk7BlU1CfF3kHeP5pCcoIAVPokZvGwe3ygH0CIxTPtR
-	dzuWrCa+25O2pE+JzIxPp8f9isQqrbpE84AU2hNBUpUskq43ryb9o+u1b+umNOoG+XxiUuL5mID/h
-	31xmqFhw==;
+	bh=EdnV/i4B0S0fh3g81bf4RkgqVZQyJPUIZHVCvawFMIg=; b=eeu8HUYAtqxQuEIVMEb2N8kbuw
+	rfnapHQyHYZ3DmZt/dwCQ/Sun2XgflZchLjA0NgoxMFINar93o1plV2/52bhjni9lRwMiElG1QQ2N
+	gALwHbGJ5i6iu4NxjHAWHXU3rG/6ryi+kkbhI/B+tVnLg27IUbaqHpO2VfQAoxQPtFINzNhgLKhQI
+	5/5u+A4ImE9GX+9v1q2a4ERvz066rC95Ctgoi/dh8gfFtswnYv3U9w500QRASgjE8HWRDvIBq7rRt
+	eeVY1gIP1WmQBVhIoJMf0uEPYcVS2IFHreCtLEPo8PZCW1Y/82gkubg27JSTOUOwcd8ia2G1/UYmY
+	aN5VuvNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOuXq-00000008RKs-1HdI;
-	Thu, 05 Nov 2026 10:18:10 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1xOud2-00000008Ru3-1dzg;
+	Thu, 05 Nov 2026 10:23:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOuXn-00000008RKB-1xcv
+	id 1xOud0-00000008Rtf-1KtF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 10:18:08 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4a214af2076so11946405e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 02:18:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793873885; x=1794478685; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NgGSt8h/WNnYW96twK1QcR8mvYOaOPJ4mg8us3LTyWY=;
-        b=ZY0mixJ+6umsCzCqphU7gHKdzdYVBqx6x/OIZxpmF3NHoQuJGHx+zsgeRv5vJegdg9
-         J+r59IKovPJxnDL/21faePTpGLTxb/htWnkRcJ9VOQwMPPMQFjBbs4JTs4IcEc66aKh6
-         rswowUeGiBEDmK53d0VmPcCr55Mcg3a8i/ogP4dZ0cIVYzIFpmUNpE24YEtQR77oHkAV
-         anAnusbGtnT78sVmDKR+px6P/HQoVochI84ykPvLKLwjMvf3TZTIIpqzbQdSNKHdoqZk
-         2zqwFDGOpJDujgPSj6VtB3Hto6cq+1u8svQI45OvYU96g54JFZPRgJi/vpt6BDDiA/MR
-         mJSw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793873885; x=1794478685;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NgGSt8h/WNnYW96twK1QcR8mvYOaOPJ4mg8us3LTyWY=;
-        b=IcfJuEgbnT6AMaArsLfOL1c6zkixI0S0Ajhf+VRbFmeqdGCtvY8853Px+qXPs2gmSF
-         RfGsS9x9d7zslNJBUwVAi3c22ihIybMlt6kkIAVRb6RnSS7vBwULvOHWmVYifglazibs
-         mLwaX7ee/Q1a09ISfAWplXWbpOXzEA/WcmMlsw3zY/sdaUsiuVQvPO/TdbmtO0ZfEa7N
-         hehmsmEx6XamgRvNHiN5uz5W7f7YnjyBZAjfcre9MC1eQRr7T/xj9x5Z34b9zLLd+qgg
-         rkuz16Q7HQVwfU8pr30qIKMI8gbzreYBR3ZU0lw+rdFzZuw2orv/SM/4HUY9qSt0O2Ex
-         CHow==
-X-Forwarded-Encrypted: i=1; AKwUvBxU5mzWIAADpyOrF1RP4lMm+UpT+J+vlCJU2D0SWFkjtK3ZQ6vHrgxb5po8wJMgJ5Z8/X8FkWdeaRDYE+1Fxk8J@lists.infradead.org
-X-Gm-Message-State: APuU4Z+ce0K+3uDjtGmY12CPQw0ONaxJfHxrzVDUpZhi43dm9YCnTKxd
-	wcwi9233vJrXROfP0O8jCMH8qJQCZSqL1jVYmkZ9VdSrIp2kfsGRqg2H
-X-Gm-Gg: AYBFou345221fu1wmQu/+lwwrEpJNAHq0p/4jwVg0cfyzB30d5ysPHy2aSxxf/Vrxxa
-	US+ZMqbeLGxam/z7ewZzYoNw07vQc/fS53g//GuLpfIKHON8tCHxB+wc6ZwU4AWg7PsaFtJYOcU
-	C5kOw6FxgxI58S2j1WolDcpOEiCCvAquDi4CVG+PQyjRo18j63KWZBby27r30fWV2VvEhG7tHiP
-	WrevATWVSqOA8cC1jbxf4Xp6lK8RVwvaLGhpgTaTFqJCfppf66NwfZrrX+D8ppdhFfOnU1Ixuzh
-	S1Hy3ny+KczYL/QzBOs36wKV19agSFGyN3V7nHqH61pQDnpxRasY0Azz1f/Qq0DZ/2X/LsnZ7vE
-	z+l7/NoyDUoNuGwU0ZqSU2Fv/RgUauFvcbpVRIZF9PJGu9qDKFADw67z5AOkJV7zGhcgc4Exvmr
-	f+k2QJe3wt0CGJ5fA//1TIqX9JveBD1SBp54+CA/cSkHCkqe6ibWmFFDJ47XluiNea6VQ5hQppc
-	0o0uv7uc+8u4Hm7CfIfQJknOEcqNcUpNaAlBUcoI7vvZt44h6uW81f55w9dPqev9dXm21BYOBld
-	VIssovLS9nSmVz427EXTuxMqKsBMWklOVEsUKL1hAuWweXEqFnxrxaf6XtzmqJZog3pyQQEZtsn
-	1ebjSoSKbDcUAZ1S6UPJp6Wo9NZFT5ZPKQGjtyGqxThYyH9qYxnvr
-X-Received: by 2002:a05:600c:4704:b0:4a3:12fb:1ef1 with SMTP id 5b1f17b1804b1-4ac18992a21mr374298825e9.29.1793873884933;
-        Thu, 05 Nov 2026 02:18:04 -0800 (PST)
-Received: from Lord-Beerus.station ([93.66.71.207])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4b56f5e59d3sm59305215e9.10.2026.11.05.02.18.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 02:18:04 -0800 (PST)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Nate.D@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Stefano Radaelli <stefano.radaelli21@gmail.com>
-Subject: [PATCH v1 1/1] arm64: dts: freescale: Move Variscite Ethernet LEDs to carrier boards
-Date: Thu,  5 Nov 2026 11:17:39 +0100
-Message-ID: <20261105101739.10614-1-stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
+	Thu, 05 Nov 2026 10:23:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8824D601DE;
+	Thu,  5 Nov 2026 10:23:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 369CA1F00A1B;
+	Thu,  5 Nov 2026 10:23:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793874209;
+	bh=EdnV/i4B0S0fh3g81bf4RkgqVZQyJPUIZHVCvawFMIg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WrMJ9jdVqMB/+klFKPsxQ8m9Q2qKNJQ3adCE8vFYfbB8tr1I9sCMmjMeKiFsoDP+c
+	 jkyGE/XGllGI0hhhPsCFf6PSiNCRk9M5As0SNQ2S7wBUSGFM00ff+nLkrkOamSzw2z
+	 A0NB72DU/XhVarz+wvVRKfXEwmHB+jcb8ey0j22y7WuAkaqnl20plErLAq1WgDfbII
+	 ph1KfxNXJkWN3ksj9oLixwTKgoMhvXgAoEWk3c6uqqwjm3oP6FHvGCp0/te1/DTr4b
+	 YaiIzx73dGgXfcTyuZamxewcAmxUAubZMNUIgaLp6xenLUpyOVAR8ySV1IJyijRCFT
+	 Y9SUG0gPpE4mQ==
+Date: Thu, 5 Nov 2026 10:23:24 +0000
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Thierry Reding <thierry.reding@kernel.org>, arm <arm@kernel.org>,
+	soc@kernel.org, Jon Hunter <jonathanh@nvidia.com>,
+	linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hans de Goede <hansg@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Mika Westerberg <westeri@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+	Sizhe Liu <liusizhe5@huawei.com>
+Subject: Re: [GIT PULL 4/7] firmware/tegra: Changes for v7.4-rc1
+Message-ID: <20261105-quizzical-wine-oryx-e6f91a@sudeepholla>
+References: <20261003095924.1370238-4-thierry.reding@kernel.org>
+ <928b3eaf-32da-43a9-9ca5-d59ef8a3b330@app.fastmail.com>
+ <auslF5pwDHtcNoCy@orome>
+ <bcad1d7e-387d-4251-8974-7f0dcd2f9734@app.fastmail.com>
+ <autADOKsSVVMn6r9@orome>
+ <CAJZ5v0iyaHGj2b7H8g0nqrxvz8GpXiE6hkVp9RM7KF+KDckjrA@mail.gmail.com>
+ <autmcaraWcXIoRfZ@ashevche-desk.local>
+ <20261104161125.00000523@oss.qualcomm.com>
+ <20261105-inventive-partridge-of-maturity-793a2e@sudeepholla>
+ <8f45711b-d415-4694-a47a-12d4b7427e0f@app.fastmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_021807_579952_018DA070 
-X-CRM114-Status: GOOD (  13.81  )
-X-Spam-Score: -1.9 (-)
+In-Reply-To: <8f45711b-d415-4694-a47a-12d4b7427e0f@app.fastmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,338 +89,95 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+On Thu, Nov 05, 2026 at 10:54:42AM +0100, Arnd Bergmann wrote:
+> On Thu, Nov 5, 2026, at 10:30, Sudeep Holla wrote:
+> > On Wed, Nov 04, 2026 at 04:11:25PM -0800, Jonathan Cameron wrote:
+> 
+> >> 1) Basic stand alone driver stuff.  Mostly that's all pretty standard
+> >>    and follow the specs where possible.  If there are gaps start asking
+> >>    questions. Linux definitely  doesn't support all the stuff that has been
+> >>    added to the spec in recent years.  So this covers things like register
+> >>    addresses, interrupts etc.  All fine, hopefully a subsystem maintainer
+> >>    can take a look and will have enough of any idea.  If not ping the folk
+> >>    on this thread for help.  Things are a bit flexible for consumer type
+> >>    devices where fixed and bodges are common, generally less so if it is
+> >>    server grade hardware.
+> >> 
+> >> 2) Stuff that is an ACPI spec gap or place where we'd expect generalization.
+> >>    There are several examples of this on list this week and a few more in
+> >>    my inbox.  The particular series here might fall into this category.
+> >>    I've not figured out enough of the details yet to say definitively.
+> >> 
+> >
+> > Nicely summarised or categorised Jonathan. Nothing much to add.
+> 
+> +1
+> 
+> >> I'd also expect a driver using AML as the target interface to either
+> >> point at a published spec doc, or to include some snippets
+> >> of the AML - that can be a lot easier to read than the driver code
+> >> (imagine reading DT by only looking at how drivers parse it).
+> >> 
+> >
+> > Ideally, it should be just HID that any vendor needs to publish unless
+> > they make use of any custom methods or something device specific like
+> > DSD/DSM. I would expect most of the devices to use standard methods and
+> > properties that are already well defined in the ACPI spec.
+> 
+> >> Given that has new ABI etc, I'd expect that to have gotten broader review
+> >> as well.  Probably keeping it to linux-tegra and lkml alone wasn't
+> >> going to result in anyone noticing!
+> >> 
+> >> https://lore.kernel.org/all/?q=20260929095915.2215685-1-anrao@nvidia.com
+> >> 
+> >
+> > Agreed, it shouldn't hurt to cc linux-acpi for such driver ACPI enablement
+> > patches.
+> 
+> Is the "BMRQ" in
+> https://lore.kernel.org/all/20260929095915.2215685-3-anrao@nvidia.com/
+> a custom method then? 
+> 
 
-The Ethernet LEDs are physically on the carrier boards, but the
-VAR-SOM-MX8MP, DART-MX91, VAR-SOM-MX93 and DART-MX95 module descriptions
-include their LED nodes. Other carriers therefore inherit LED definitions
-that may not match their wiring.
+I’ve quickly reviewed the patch; it does implements a custom method BMRQ
+rather than a standard or out-of-the-box solution. More details on this is
+used based on my understanding below.
 
-Move the LED nodes to the Symphony and Sonata board descriptions through
-ethphy0 references, along with the LED binding includes where needed.
-Keep the existing LED properties unchanged.
+> How does this relate to the EC and PCC interfaces in ACPI systems?
+> 
 
-Fixes: c277a3d535bb ("arm64: dts: freescale: imx8mp-var-som: Add EQoS support with MaxLinear PHY")
-Fixes: d3ad2ce2116f ("arm64: dts: freescale: Add support for Variscite DART-MX91")
-Fixes: 947771d00bdc ("arm64: dts: freescale: imx93-var-som: update eqos support for MaxLinear PHY")
-Fixes: bec2988b470e ("arm64: dts: freescale: Add support for Variscite DART-MX95")
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
- .../dts/freescale/imx8mp-var-som-symphony.dts | 22 +++++++++++++++++++
- .../boot/dts/freescale/imx8mp-var-som.dtsi    | 20 -----------------
- .../dts/freescale/imx91-var-dart-sonata.dts   | 22 +++++++++++++++++++
- .../boot/dts/freescale/imx91-var-dart.dtsi    | 20 -----------------
- .../dts/freescale/imx93-var-som-symphony.dts  | 21 ++++++++++++++++++
- .../boot/dts/freescale/imx93-var-som.dtsi     | 19 ----------------
- .../dts/freescale/imx95-var-dart-sonata.dts   | 22 +++++++++++++++++++
- .../boot/dts/freescale/imx95-var-dart.dtsi    | 20 -----------------
- 8 files changed, 87 insertions(+), 79 deletions(-)
+I am still evaluating how the BPMP driver is intended to operate on ACPI
+systems. In the meantime, I share the same questions noted above. The current
+commit message lists several driver features that may not be required for
+ACPI, which has introduced some clarity issues regarding the intended design.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
-index e928a3d44b1d..49d20db7de5f 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
-@@ -3,6 +3,7 @@
-  * Copyright 2024 Variscite Ltd.
-  */
- 
-+#include <dt-bindings/leds/common.h>
- #include "imx8mp-var-som.dtsi"
- 
- / {
-@@ -129,6 +130,27 @@ ethphy1: ethernet-phy@5 {
- 	};
- };
- 
-+&ethphy0 {
-+	leds {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		led@0 {
-+			reg = <0>;
-+			color = <LED_COLOR_ID_YELLOW>;
-+			function = LED_FUNCTION_LAN;
-+			linux,default-trigger = "netdev";
-+		};
-+
-+		led@1 {
-+			reg = <1>;
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_LAN;
-+			linux,default-trigger = "netdev";
-+		};
-+	};
-+};
-+
- &fec {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_fec>;
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
-index 61786eee0e82..cbf58aed180a 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
-@@ -8,7 +8,6 @@
- /dts-v1/;
- 
- #include <dt-bindings/phy/phy-imx8-pcie.h>
--#include <dt-bindings/leds/common.h>
- #include <dt-bindings/usb/pd.h>
- #include "imx8mp.dtsi"
- 
-@@ -155,25 +154,6 @@ ethphy0: ethernet-phy@4 {
- 			reset-assert-us = <10000>;
- 			reset-deassert-us = <100000>;
- 			vddio-supply = <&reg_phy_vddio>;
--
--			leds {
--				#address-cells = <1>;
--				#size-cells = <0>;
--
--				led@0 {
--					reg = <0>;
--					color = <LED_COLOR_ID_YELLOW>;
--					function = LED_FUNCTION_LAN;
--					linux,default-trigger = "netdev";
--				};
--
--				led@1 {
--					reg = <1>;
--					color = <LED_COLOR_ID_GREEN>;
--					function = LED_FUNCTION_LAN;
--					linux,default-trigger = "netdev";
--				};
--			};
- 		};
- 	};
- };
-diff --git a/arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts b/arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts
-index f7e32f9375f5..0f2be56ff7ca 100644
---- a/arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts
-+++ b/arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts
-@@ -10,6 +10,7 @@
- 
- /dts-v1/;
- 
-+#include <dt-bindings/leds/common.h>
- #include "imx91-var-dart.dtsi"
- 
- / {
-@@ -173,6 +174,27 @@ led@1 {
- 	};
- };
- 
-+&ethphy0 {
-+	leds {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		led@0 {
-+			reg = <0>;
-+			color = <LED_COLOR_ID_YELLOW>;
-+			function = LED_FUNCTION_LAN;
-+			linux,default-trigger = "netdev";
-+		};
-+
-+		led@1 {
-+			reg = <1>;
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_LAN;
-+			linux,default-trigger = "netdev";
-+		};
-+	};
-+};
-+
- &fec {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&pinctrl_fec>;
-diff --git a/arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi b/arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
-index a9e44efad13f..ec65cd42c195 100644
---- a/arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx91-var-dart.dtsi
-@@ -10,7 +10,6 @@
- 
- /dts-v1/;
- 
--#include <dt-bindings/leds/common.h>
- #include <dt-bindings/usb/pd.h>
- #include "imx91.dtsi"
- 
-@@ -81,25 +80,6 @@ ethphy0: ethernet-phy@0 {
- 			reset-gpios = <&gpio1 7 GPIO_ACTIVE_LOW>;
- 			reset-assert-us = <15000>;
- 			reset-deassert-us = <100000>;
--
--			leds {
--				#address-cells = <1>;
--				#size-cells = <0>;
--
--				led@0 {
--					reg = <0>;
--					color = <LED_COLOR_ID_YELLOW>;
--					function = LED_FUNCTION_LAN;
--					linux,default-trigger = "netdev";
--				};
--
--				led@1 {
--					reg = <1>;
--					color = <LED_COLOR_ID_GREEN>;
--					function = LED_FUNCTION_LAN;
--					linux,default-trigger = "netdev";
--				};
--			};
- 		};
- 	};
- };
-diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
-index 1f0954620195..477f31a4cf88 100644
---- a/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts
-@@ -189,6 +189,27 @@ vddio1: vddio-regulator {
- 	};
- };
- 
-+&ethphy0 {
-+	leds {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		led@0 {
-+			reg = <0>;
-+			color = <LED_COLOR_ID_YELLOW>;
-+			function = LED_FUNCTION_LAN;
-+			linux,default-trigger = "netdev";
-+		};
-+
-+		led@1 {
-+			reg = <1>;
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_LAN;
-+			linux,default-trigger = "netdev";
-+		};
-+	};
-+};
-+
- &fec {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_fec>;
-diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
-index b0ffcb534cb6..d9ecbc3e9a6d 100644
---- a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
-@@ -75,25 +75,6 @@ ethphy0: ethernet-phy@0 {
- 			reset-gpios = <&gpio1 7 GPIO_ACTIVE_LOW>;
- 			reset-assert-us = <10000>;
- 			reset-deassert-us = <100000>;
--
--			leds {
--				#address-cells = <1>;
--				#size-cells = <0>;
--
--				led@0 {
--					reg = <0>;
--					color = <LED_COLOR_ID_YELLOW>;
--					function = LED_FUNCTION_LAN;
--					linux,default-trigger = "netdev";
--				};
--
--				led@1 {
--					reg = <1>;
--					color = <LED_COLOR_ID_GREEN>;
--					function = LED_FUNCTION_LAN;
--					linux,default-trigger = "netdev";
--				};
--			};
- 		};
- 	};
- };
-diff --git a/arch/arm64/boot/dts/freescale/imx95-var-dart-sonata.dts b/arch/arm64/boot/dts/freescale/imx95-var-dart-sonata.dts
-index 9344a0d99418..ed3e2e1b995c 100644
---- a/arch/arm64/boot/dts/freescale/imx95-var-dart-sonata.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-var-dart-sonata.dts
-@@ -8,6 +8,7 @@
-  *
-  */
- 
-+#include <dt-bindings/leds/common.h>
- #include "imx95-var-dart.dtsi"
- 
- / {
-@@ -163,6 +164,27 @@ &enetc_port2 {
- 	status = "okay";
- };
- 
-+&ethphy0 {
-+	leds {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		led@0 {
-+			reg = <0>;
-+			color = <LED_COLOR_ID_YELLOW>;
-+			function = LED_FUNCTION_LAN;
-+			linux,default-trigger = "netdev";
-+		};
-+
-+		led@1 {
-+			reg = <1>;
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_LAN;
-+			linux,default-trigger = "netdev";
-+		};
-+	};
-+};
-+
- &flexcan1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_flexcan1>;
-diff --git a/arch/arm64/boot/dts/freescale/imx95-var-dart.dtsi b/arch/arm64/boot/dts/freescale/imx95-var-dart.dtsi
-index b4c55bd33858..92ff09fe64a7 100644
---- a/arch/arm64/boot/dts/freescale/imx95-var-dart.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95-var-dart.dtsi
-@@ -10,7 +10,6 @@
- 
- /dts-v1/;
- 
--#include <dt-bindings/leds/common.h>
- #include <dt-bindings/usb/pd.h>
- #include "imx95.dtsi"
- 
-@@ -193,25 +192,6 @@ ethphy0: ethernet-phy@0 {
- 		reset-gpios = <&gpio5 16 GPIO_ACTIVE_LOW>;
- 		reset-assert-us = <10000>;
- 		reset-deassert-us = <100000>;
--
--		leds {
--			#address-cells = <1>;
--			#size-cells = <0>;
--
--			led@0 {
--				reg = <0>;
--				color = <LED_COLOR_ID_YELLOW>;
--				function = LED_FUNCTION_LAN;
--				linux,default-trigger = "netdev";
--			};
--
--			led@1 {
--				reg = <1>;
--				color = <LED_COLOR_ID_GREEN>;
--				function = LED_FUNCTION_LAN;
--				linux,default-trigger = "netdev";
--			};
--		};
- 	};
- };
- 
+> In current mainline, I see that the bpmp driver is used on DT systems
+> by the tegra specific cpufreq, memory and pci drivers, but I would
+> expect that on ACPI those all use shared drivers. Are there any other
+> users that are not already covered on ACPI?
+> 
+
+For ACPI systems, CPUFreq operates through CPPC via PCC, MEMIO, or
+supported backends.
+
+My understanding is that the BMRQ method is called by tegra_bpmp_transfer(),
+which supports Tegra-specific drivers for power domains, clocks, resets,
+I2C, PCIe, and memory. On ACPI, these can be abstracted through PCC
+OpRegions as part of standard methods like _ON/_OFF or other device state
+methods. Although device/memory DVFS is trickier since the ACPI
+specification lacks standard methods for it today, the commit message
+implies these components are largely unused on ACPI systems.
+
+I have raised a query on the thread to clarify this.
+
 -- 
-2.47.3
-
+Regards,
+Sudeep
 
