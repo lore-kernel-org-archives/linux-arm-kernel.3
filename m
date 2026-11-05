@@ -2,114 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81A2B606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:55:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FC91606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:55:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OHa5tLk1;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ORwP2xj0
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PCjF3LE8;
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=AXmhRlh4
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=tOF6PS1JMi8W8WKP7mDpxXD9imSMAhXJwC00jGPmGBs=; b=OHa5tLk1Gesmeg
-	bST9jD+qBDhc4FoQ5dRApWf3y3px3Mn6js1c8pc2lHNheolK1jSwtpoIXN/tNOGbLMyb6iEeE8nNd
-	EiOWcC+TEn7jIZqlazjkasMQVa1PbSPMwzf/Z5S7xaQYcMaLl/VwqJBgXh7aS583xwpeFGPFr5T1e
-	P3qy2h2bQuKns3+ruohVcrMnomRWci2rSjhkDnWeO0rHbppzGH1hKfujNz7tN97n/4O3ZFu3Vz8F1
-	A2XDZio3R+XjG99xFIFFQfrJTdfH6j4Y4vHlZHAVES+ojJL9EqEOa+4U8Jm4Fn2kv3xzny1Rw/El+
-	aeKle98ukkSTXDppPl+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=W9x3jjuMW0enhWTlyFdgZKVCgl/js8bTZrtROBm22NA=; b=PCjF3LE8UDjDRog5bMyYuvsj+E
+	srrILQzP9AFdwcRFKjyI2vewE4L2bwPhXOJ3SpWmtrU7552lTqLrsKtnUUC5Dxx1MK7hLYWORByNt
+	Yz1BPnJXqjMohH+EBHmZsNlqzjuHKzXe8mms5/tYuykYEtsg3WXInb89OIme70WvZeMy3kwt6Zrn9
+	S3qNOMkbGiX3qsOzY9FxTTyt6khLPi3vYcuYBtx03BaEBhfsooftICqTCerMB9g7jhg/N3Cic2pZ3
+	9Hqn8gA80BETTaKKu+7xGjSI2Z0cFDEbQQqy/JHhLMvNvuQmOFzXHbsB4I7N9Iki0A4QQOBi/+ebf
+	LgCFCsPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOwzX-000000091Sy-0UqV;
-	Thu, 05 Nov 2026 12:54:55 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
+	id 1xOwzn-000000091XL-1HlF;
+	Thu, 05 Nov 2026 12:55:11 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOwzV-000000091SZ-0nle
+	id 1xOwzj-000000091VC-1Kc4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 12:54:54 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-55e02e89f78so578306b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 04:54:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1793883291; cv=none;
-        d=google.com; s=arc-20260327;
-        b=nLypijV16sF4PNl6Ts6sypIkGFdWbs7w4HeZI530wZ+5MMv5bG/B1cqfh4Bu8ay67r
-         WsjIuTvpxxAg9oHDmrYV1CW/JQrYruzL+SpjL2wKDWf+Y7032aIyq9UuavnWYWAmUJKk
-         uKSl8CsTN/gJzU2XZd4MFJuPsQplscuNi2nPm9JQKhRdOCXvsD8zqFEOgZwV1/8EgwwM
-         Uy1rsG8IGuSSWjT2ygy4JmAbig+5kK+HdBJ1WZDqnK1Cd8pOHG3lPhURyyPE0gj9+Ifh
-         2F9jYecrrAW7lqIqHNCOo2SmalsF5DtXMqr/ssevK7+X7WXuE5CefMG99yxpMIXJILx2
-         rAbA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=tOF6PS1JMi8W8WKP7mDpxXD9imSMAhXJwC00jGPmGBs=;
-        fh=ytTxLUnQUquGTJGr2hBV/jkmRaXAENkY/ni3VHO1yog=;
-        b=AANoiwp2h2/Mc4JPEIU84mqMHGdeOxCutDtJHgAy0dUFJH2ZNh7CotTvXdtHlSwOpv
-         V1HPS2VSOa4UkfTkIDzSPX53K3f/LhRX51/240YKwBhfCMwyq/KaK8S6873IBOSoFuU9
-         1h/XDBGC1p2YvJgehGvOTUkAvRq8WK41erLoUHmwrh2l/ySWlSysJkWpNViC0NYZ4X8n
-         +QO/uCOxFl+3zW0jAGt+4VDVzpdNTKixaxWAQJVINtND3rtEquQRDa0Ve+czbnbVPHOk
-         IqJL+ZCEqGlBrTX3zYq+7mdWExML2qajWgbYlrxXZJ6aSG9wYAxKvTnaslTZtTXCgwWm
-         T/Hw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793883291; x=1794488091; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=tOF6PS1JMi8W8WKP7mDpxXD9imSMAhXJwC00jGPmGBs=;
-        b=ORwP2xj0yCx4zCdmabE8ig97psZXAFSKtMHl+AdQUAuv6obX2r0qweqSEb8yGsFLpT
-         XVEP8yChWWbJjR8ZbaYzhpmAKd1OCgWYTjAXV3xNeI75qnsiroHM4KnyihQcKJPYx3mK
-         Jv9aumKCHDjPrU4ZKetJolORKI5kGicr9N4kHwNV7CZsUz8LNovzSnDJiUp67DBIY33u
-         lcZPbp0UXEOKMkJAfEOVLjx5kA0X71G63BmWRXZn2yH1Vc+dbhtWkSG4lyzSmoNXmTKh
-         NSIxlyqgT5/mgqINtt9+0K+ACWRPgFo9HEzQJYhWE86UisPqGJist8nsKvyzUEd9v7p/
-         jwUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793883291; x=1794488091;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tOF6PS1JMi8W8WKP7mDpxXD9imSMAhXJwC00jGPmGBs=;
-        b=Nk9fPKyhd8mDSEIMhGg5bpv0kdjc1z05IMRBc/spTQXY8NIRMBTS72AHWNxSm3ml6m
-         2G01TUXO6pb7yIkUqg4zjEED8y+WsSnXrWrOfhJsSDhJpOjd/FcuxrRJzx36dKbR8xhH
-         BDzJ1STlNqInqkpHnnntAYcmfswaQLOjAQhl4nXn66nCp4w0zRdQYuq/k5moO7gDxPBy
-         XCvzJuAyswy4fmU97QGyIwpua8cdRzf7bTz2yjLCwzbrDBtFZSRla15BxfPaVQL/DN8V
-         LO3FMkS3NqUnh+8C0z+GbSsHeoRtMnv557v2g61PKxjxHlyIWF+wj3B7/NF9djqJKPWs
-         BPFA==
-X-Forwarded-Encrypted: i=1; AKwUvBy0jXL3yDpdaNLtksQe+WPXxpcWJO9q2yNK+u6PU2mXlxsFsElfF2QHoNsM5ZwyM1VNBElD+32GDfVRIB3/faJV@lists.infradead.org
-X-Gm-Message-State: APuU4Z+xBmpf/DChlNaKDfLtrwp896c6h0zxIrfKa3eBWOHwMXLILEWL
-	qC26m2ZbPIqgsTUoIMJuOYfcnxFDk60gjQKV1laF1Iw54rk8yciktlrdR2/K+mVnHAFb3ocEcOc
-	MthdyrWG3yeYxBdt7CMW5dwMuqXcEZIg=
-X-Gm-Gg: AYBFou3stcOpJJX+0Vf3Mmde/3WMPqjFTMzgtMeOUtOCfa2irRHRV8gj+P0hhAzIMIp
-	1tQkFEe+di3yHKQUqY17CnCsPvjo7uGvDWzap+KdJay8zMrwaP6QpezGwwoIYjCi/uw9xf/yHcw
-	Q2aXe04BZ0nXf/nw1mJYlb8PqWXZJemjPn+oy2eJuFgt9YnqnrVkAF8vmQpu/FJSPMbNCtIHEme
-	FrrI8jnAL37E0DMJxXpRJbtpUuC2g40flcYOYPoh+OBthcHopuKnIEQRaqEErFHO0GjkUyWhLRM
-	7QemYK3MUElN/JJ1k0uxqHv7LSapsgZS5QjfFdgiggnKU6E9b0ZhxHvTo5vO8e1q7qddsDIS1OV
-	btXxPf0I1+n1CTE+dUjpKR4W9nR+ElJpePgE7wPRQWCAdZUY90A4z2BSNtMJaQynw+6UHup1X+J
-	4NbjBYEZX/CmcPYD0N39FT7ecdqSe+iM/LsekKSPbIf3w=
-X-Received: by 2002:a05:6808:6508:b0:53e:3b0b:fc1f with SMTP id
- 5614622812f47-5640dc2a803mr13971941b6e.22.1793883291559; Thu, 05 Nov 2026
- 04:54:51 -0800 (PST)
+	Thu, 05 Nov 2026 12:55:10 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=W9x3jjuMW0enhWTlyFdgZKVCgl/js8bTZrtROBm22NA=;
+	b=AXmhRlh4UfxROFuRVsIID2iazoIEl1RdMyRlDEEubF0QmuEwp1YLR95WsZOkHeNt8ipkI1OTu
+	gnFcBoh4grsEIsWX915VNIflUhYlbGQwmPV/2tgdstSGutpdwqJTpvYq1dDksuNUI0SVIWM0NC7
+	6+Rg3dMuXE5dCP/ev3OTGYs=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4jL2Mg4VfNzRhRx;
+	Thu,  5 Nov 2026 20:54:55 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8844E4056D;
+	Thu,  5 Nov 2026 20:55:02 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 5 Nov
+ 2026 20:55:01 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<pratyush@kernel.org>, <leitao@debian.org>, <mpilaniy@redhat.com>,
+	<yeoreum.yun@arm.com>, <graf@amazon.com>, <pasha.tatashin@soleen.com>,
+	<akpm@linux-foundation.org>, <baoquan.he@linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v8] arm64: kexec_file: Stop using the Image text_offset
+Date: Thu, 5 Nov 2026 20:54:42 +0800
+Message-ID: <20261105125442.2282987-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261016113846.8602-1-arash.golgol@gmail.com>
-In-Reply-To: <20261016113846.8602-1-arash.golgol@gmail.com>
-From: arash golgol <arash.golgol@gmail.com>
-Date: Fri, 6 Nov 2026 16:24:27 +0330
-X-Gm-Features: AclHuK_mK9V2l6M4jlS75n76fTlhzkP8UIpwt-w6idtrgAnrQy8Zvz7juL15y8o
-Message-ID: <CAMxPZkhRKB8uGL3L4K43aU4pqH+FdZdB829yaw6WDF-h4RW7oA@mail.gmail.com>
-Subject: Re: [PATCH v1 0/3] media: sun6i-csi: Improve capture and bridge
-To: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev
-Cc: yong.deng@magewell.com, paulk@sys-base.io, mchehab@kernel.org, 
-	wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, 
-	laurent.pinchart@ideasonboard.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_045453_257868_5B13F6CB 
-X-CRM114-Status: GOOD (  15.41  )
-X-Spam-Score: 1.1 (+)
+X-CRM114-CacheID: sfid-20261105_045508_044893_2A6E2A6B 
+X-CRM114-Status: GOOD (  15.09  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,60 +77,83 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-4.7 required=3.0 tests=BAYES_00,DATE_IN_FUTURE_12_24,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
+image_load() adds text_offset to kernel_segment->mem and subtracts it
+from kernel_segment->memsz.  For CMA backed segments this breaks the
+load path: the payload is copied to page_address(cma), which is the CMA
+base, while image->start is set to the adjusted address, so kexec jumps
+into the middle of the kernel.  kimage_map_segment() has the same
+mismatch when a segment has been moved.
 
-On Fri, Oct 16, 2026 at 3:08=E2=80=AFPM Arash Golgol <arash.golgol@gmail.co=
-m> wrote:
->
-> Hi,
->
-> This series improves sun6i-csi capture and bridge.
->
-> Patch 1 fixes sun6i_csi_capture_format_prepare() to align both width
-> and height to 16 for NV12_16L16, as its 16x16 tiles require.
->
-> Patch 2 adds vidioc_enum_framesizes() to sun6i-csi-capture, using the
-> same alignment.
->
-> Patch 3 removes duplicated mbus codes from sun6i-csi-bridge. It was
-> posted earlier and carries Paul's Reviewed-by.
-> Link: https://patchwork.linuxtv.org/project/linux-media/patch/20260527124=
-552.33815-1-arash.golgol@gmail.com/
->
-> Tested on LicheePi Zero Dock (Allwinner V3s) with:
->   ov5647 -> sun6i-mipi-csi2 -> sun6i-csi-bridge -> sun6i-csi-capture
->
-> As ov5647 only outputs Bayer, streaming HM12/NV12 is not possible on
-> this setup, so I did not test real streaming. I checked that
-> v4l2-ctl --try-fmt-video, --set-fmt-video, --get-fmt-video and
-> --list-framesizes report the expected sizes for HM12 (16 aligned) and
-> NV12 (2 aligned).
->
-> Arash Golgol (3):
->   media: sun6i-csi: capture: Align size to 16 for NV12_16L16
->   media: sun6i-csi: capture: Add enum_framesizes support
->   media: sun6i-csi: bridge: Remove duplicate mbus format entries
->
->  .../sunxi/sun6i-csi/sun6i_csi_bridge.c        | 12 -----
->  .../sunxi/sun6i-csi/sun6i_csi_capture.c       | 45 ++++++++++++++++---
->  2 files changed, 39 insertions(+), 18 deletions(-)
->
-> --
-> 2.34.1
+The adjusted memsz also breaks the release path: the CMA pages are
+freed using segment->memsz >> PAGE_SHIFT, which is fewer than were
+allocated, leaking the tail of the allocation.
 
-Just following up on this series.
-Link: https://patchwork.linuxtv.org/project/linux-media/list/?series=3D3216=
-1
+Since commit 751c263bb74f ("arm64: remove TEXT_OFFSET randomization")
+TEXT_OFFSET is always zero.  This has been upstream since v5.8, so no
+LTS kernel carries a non-zero text_offset.  Drop the adjustment and
+reject images with a non-zero value instead of booting them from a
+wrong address.  With the adjustment gone, segments stay at their CMA
+base and the release size matches the allocation.
 
---=20
-Regards,
-Arash Golgol
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Mike Rapoport <rppt@kernel.org>
+Link: https://lore.kernel.org/all/20260921090450.807575-2-ruanjinjie@huawei.com/
+Link: https://lore.kernel.org/all/20260921090450.807575-3-ruanjinjie@huawei.com/
+Fixes: 07d24902977e ("kexec: enable CMA based contiguous allocation")
+Suggested-by: Mike Rapoport <rppt@kernel.org>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+v2:
+- Split out from the patch set.
+- Link to v7: https://lore.kernel.org/all/20261026075201.699550-1-ruanjinjie@huawei.com/
+---
+ arch/arm64/kernel/kexec_image.c | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
+index 78b1f956d8d7..7d6baea3d28f 100644
+--- a/arch/arm64/kernel/kexec_image.c
++++ b/arch/arm64/kernel/kexec_image.c
+@@ -80,12 +80,17 @@ static void *image_load(struct kimage *image,
+ 	kbuf.bufsz = kernel_len;
+ 	kbuf.mem = KEXEC_BUF_MEM_UNKNOWN;
+ 	kbuf.memsz = le64_to_cpu(h->image_size);
++	/*
++	 * Pre-v5.8 images carry a non-zero text_offset, which is no longer
++	 * honored; reject them instead of loading them at a wrong address.
++	 */
+ 	text_offset = le64_to_cpu(h->text_offset);
++	if (text_offset) {
++		pr_err("Unsupported Image text_offset 0x%lx\n", text_offset);
++		return ERR_PTR(-ENOEXEC);
++	}
+ 	kbuf.buf_align = MIN_KIMG_ALIGN;
+ 
+-	/* Adjust kernel segment with TEXT_OFFSET */
+-	kbuf.memsz += text_offset;
+-
+ 	kernel_segment_number = image->nr_segments;
+ 
+ 	/*
+@@ -117,8 +122,6 @@ static void *image_load(struct kimage *image,
+ 	}
+ 
+ 	kernel_segment = &image->segment[kernel_segment_number];
+-	kernel_segment->mem += text_offset;
+-	kernel_segment->memsz -= text_offset;
+ 	image->start = kernel_segment->mem;
+ 
+ 	kexec_dprintk("Loaded kernel at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+-- 
+2.34.1
+
 
