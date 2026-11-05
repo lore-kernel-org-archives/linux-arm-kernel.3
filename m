@@ -2,108 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 952CF606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 22:29:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB261606D818
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 22:34:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=aYqre9al;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ReWuArwn
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PtYCCgaH;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IEz+b/MV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Cc:To:In-Reply-To:References:Message-Id:
-	Content-Type:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=clOx71cOsA26RUdAeVKpCY0AdtjlbFGk/TTkJ7LEcnk=; b=aYqre9al7tf2r1x1rkCWNMYOAd
-	3YJH1/l8IV9ZANdwpQMUN6fm+C7mQqfRRV8JbKvUTzPLJe+CQObuKYyEDrjXke0uaAZw9umS4pc+c
-	hu2DDDvCBwhHrLMgGVDed89UVDDSiFdP/E+TUBBSC+iED/3zUAyPFA1S3CLu+49HlPtyvEArNE42a
-	wa3Lq9ATqwqpjQbKkvs7LkLNt5omQ0fMonitziMEe4Ow8UAbr5N7ZzMa9c7HGapZ8vf43lAXkujsO
-	uVksjwlYYNBRHk754wf562sUvsJs3AIg6LXfp0iJuHLoKe6lwiqsGX1GckcDO9E4xP3TZVptCqU1a
-	hl4yiJLA==;
+	bh=79uHJ8ZCxEjX3Q9dAac97eiJ3y7h4HXgB24A6lnJl+k=; b=PtYCCgaH0aVMobRjpVN97gosrL
+	LVQPLj+vJUv0gQhLMPS867LVnhvHuoE3hOlcrFO6ivwO1eL8+w1TgH2N97sn23JMANOXyUvNsBDIa
+	1fOh90J9Axgk1th3o+qyKGtKcA7Jj3Ev7t6lMb0COYnHeBrt/cF95fVp99BmM8Vq0w0klMB10VOaa
+	uBO9TgIEQ8F7JGRAi/oEez4jKllix6YECQ7WlmnZfPiITLuO60/tYNT7H9lLh+g0lCF3dSMjRr9Y9
+	Bzjds9iFp35ha7JQrs5g00XUuUOmsCWCE40SMgKxRX9x+tI/ito8nsuENeeE8ED65U7un5Dinajq5
+	Y6jQDl7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP5x5-0000000AncD-2LUs;
-	Thu, 05 Nov 2026 22:28:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xP62R-0000000AoMe-1XS7;
+	Thu, 05 Nov 2026 22:34:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP5wz-0000000AnY9-0DEn
+	id 1xP62O-0000000AoLq-32ep
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 22:28:53 +0000
+	Thu, 05 Nov 2026 22:34:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7E60160204;
-	Thu,  5 Nov 2026 22:28:52 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793917732;
-	b=EJ5gd9UzY71FmtSTwEk+5BdYKQihEhXl/uuLVwj6kuRTivj9j3OMs+xQitSEsfBB9RvY
-	 haRj6wSmBh8p1QjtrWxTAYZkMnHZYXun1I0/c1TUAMigP5lPwqbojciCY+elXJs9+lHC3
-	 ARG3mCkIjZShdo1dhzPjFd8dMxKWam4E2x0yDIkkF4/NzL4vHH93zHnjd2+S2y6Jqz9bq
-	 Z548eaX9N74jwmuLNxeXZR+b7IPh48wdzJsfTab0zkkatRqKHfCHwyLbT/oEFqjz/eCLM
-	 f2ABECWvcOPbP8BVfGB6ZGVG70HI055JuU1pZBjJrPpGfDs3VYU6FOGso24EFq22fYA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793917732;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=clOx71cOsA26RUdAeVKpCY0AdtjlbFGk/TTkJ7LEcnk=;
-	b=pdr4pDxuSat+VWi4tnPYkqvRrtG2dpoqFeSWZvcjh4ahACla/IbfzRunxOxvoyRVH5xV
-	 0oMCoVUChevxOcpvcl7HfgWUhMFZphdjbh7NBoAKhaAD5kwtWTgkYJ6kLqzSFQSYQhvaP
-	 hWF30kHa6PNRyl/W4j6Ls2BW8ZtCCLhyQuHSdeN50Jqch5zwYMl8CuDG1E+K9c2bFXhDD
-	 gXZxs025B+P7OdaFTtf8S3RWtorFtd7lNT1op2+rc/dk5QXeGQbo1fKKZWpVlooMqgAew
-	 4TvqoV3TAN+Ho29BFJN29t+e40hsgPes7tvBbCBKObkOpSjJILH+P7Jo2+b3p/uVyDA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 88E161F008A3;
-	Thu,  5 Nov 2026 22:28:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 13820438E4;
+	Thu,  5 Nov 2026 22:34:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA0BC1F0089F;
+	Thu,  5 Nov 2026 22:34:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793917732;
-	bh=clOx71cOsA26RUdAeVKpCY0AdtjlbFGk/TTkJ7LEcnk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=ReWuArwnr+EHGAIVc8HAF+mBYh2t22rclI5IhGpedr+nV2jtfAuB5ukOGGleLAkGf
-	 maByrPA7bXglF6Gd8knsW6B+tA/UaS5mFwzG3fKlNmPgC9ZTeraTiVB8YDHtYbH9ik
-	 JOBiCpeomVOcUYjsJCUVG7oQKLv4TlcJA2NbE8vaOmIYYCZW29MjdMFbmvzGw0U9QI
-	 qR1xLuKwYF85MpCljOH1g1gI7/r7DfkiOksWKVRaw3bFZw9PlYguqE13WOCJTTbLwe
-	 f0bNmC5+l3H4YYWHIVNUJNDahOJQ2QBSaFDPl9h4GdrK6nHsiWi/byk4/ar+ORwZrr
-	 i/PxDxzl0d1jA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 14C5945ABF;
-	Thu,  5 Nov 2026 22:28:50 +0000 (UTC)
-From: Xuheng Li via B4 Relay <devnull+xuheng.cs.columbia.edu@kernel.org>
-Date: Thu, 05 Nov 2026 22:28:52 +0000
-Subject: [PATCH 3/3] KVM: arm64: Don't replace a valid hyp block mapping
- with a table
+	s=k20260515; t=1793918068;
+	bh=79uHJ8ZCxEjX3Q9dAac97eiJ3y7h4HXgB24A6lnJl+k=;
+	h=From:Subject:Date:To:Cc;
+	b=IEz+b/MVF5XZesrMeI3b/J/eDfZkVvdLpox3VH5vXAUu9elqCIOj9OEOddiDlZnh4
+	 Gshj294kL3EKJyhpgyiWSqHwqgZmEWTTWVGuY+bg3Z4OoTF9V2fCTmBI57Gl+StJEb
+	 XwSGm46iIMJMFwszRNa6wYljLvZ5TRmErqzsGFz6t2zECqvTDzTP52D+Lhot4fSI9P
+	 lozNCJKIVRjkGTXJ/MlRx3FL3q8R0iCdy60SMBWgshqrZODE+n8J+/zCcyXcGdsoIF
+	 5kCqVLiu81FF/HcNO/FwjOhgv4oq4EhccMTq2KysHroS+ItyiKiFYOB4PCk9TQlyYM
+	 lP/mZ34gXeXsQ==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Subject: [PATCH 0/7] ARM: dts: arm: Another batch of warning fixes
+Date: Thu, 05 Nov 2026 16:34:13 -0600
+Message-Id: <20261105-dt-vexpress-dts-fixes-v1-0-66615c3c8ec3@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261105-hyp-pool-and-map-v1-3-756bb5d8e067@cs.columbia.edu>
-References: <20261105-hyp-pool-and-map-v1-0-756bb5d8e067@cs.columbia.edu>
-In-Reply-To: <20261105-hyp-pool-and-map-v1-0-756bb5d8e067@cs.columbia.edu>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
-Cc: Quentin Perret <qperret@google.com>, Will Deacon <will@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, kvmarm@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Xuheng Li <xuheng@cs.columbia.edu>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793917729; l=1509;
- i=xuheng@cs.columbia.edu; s=20261028; h=from:subject:message-id;
- bh=UqwLIs4gUAaU1DFo5IEMy2L+DohqOBeFqpV1fxyeXnM=;
- b=FLN/1if17KjTwirD2Rz8VRHYWeTjz3nnWvVapf24PLDZ6KrUxmcPXokTdK/ubpqkdY/77p2E9
- 1RZwNGDprENAgXH5e7C9pN2Tbjy7DQw92MVuxGaz0HR/0ceepxq2bIW
-X-Developer-Key: i=xuheng@cs.columbia.edu; a=ed25519;
- pk=L1HVV+goqxYmEMO/OXakL6uf9isSpgk2QrLlFqyZ2Qs=
-X-Endpoint-Received: by B4 Relay for xuheng@cs.columbia.edu/20261028 with
- auth_id=1349
-X-Original-From: Xuheng Li <xuheng@cs.columbia.edu>
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMQQqDQBAEvyJzzoCrUcSvhBzctdXxoGFHRRD/7
+ hhvXRTVBymiQKlODorYRGWeDNwroTA0Uw+W1piyNCudSwtuF96w/yJUbSt3skO5qULw+du7DgV
+ Za/4vLP18H9bVjwjLfUbneQF6Dp8oeQAAAA==
+X-Change-ID: 20261105-dt-vexpress-dts-fixes-a8ccb34b1fe5
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>, 
+ Sudeep Holla <sudeep.holla@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Andre Przywara <andre.przywara@arm.com>, Linus Walleij <linusw@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16-dev
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,7 +73,6 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xuheng@cs.columbia.edu
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
@@ -123,47 +82,54 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Xuheng Li <xuheng@cs.columbia.edu>
+This is a batch of schema warning fixes mainly for 32-bit Arm, Ltd 
+boards. While all these are 32-bit Arm fixes, vexpress-v2m-rs1.dtsi is 
+included by vexpress-v2f-1xv7-ca53x2.dts which is 64-bit platform. Patch 
+2 fixes the last DT schema warning on 64-bit Arm Ltd boards. Yay! For 
+32-bit boards, this cuts the remaining warnings in ~half.
 
-When kvm_pgtable_hyp_map() is asked to map part of a range that a valid
-block mapping already covers, hyp_map_walker_try_leaf() declines, as the
-request cannot be a leaf at the block's level.  hyp_map_walker() then
-allocates a zeroed table and stores it over the valid block entry.  The
-walk descends into the new table and maps the requested pages, but the
-rest of the block is now unmapped, and the valid block was replaced
-without break-before-make.
+I verified the config-bus devices still probe after moving 'mcc' node 
+with arm/vexpress-v2p-ca15-tc1.dts on QEMU.
 
-No in-tree caller maps into an existing hyp block mapping today, so this
-cannot be triggered in mainline.  Fail such a request with -EEXIST
-instead, so that a future caller gets an error rather than silently
-losing the rest of the block.
-
-Signed-off-by: Xuheng Li <xuheng@cs.columbia.edu>
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- arch/arm64/kvm/hyp/pgtable.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+Rob Herring (Arm) (7):
+      dt-bindings: arm: vexpress-sysreg: Add "mcc" child node
+      ARM: dts: arm/vexpress: Move "arm,vexpress,config-bus" node into sysreg node
+      ARM: dts: arm/vexpress-v2m: Move regulator and led nodes out of bus
+      ARM: dts: arm: Use standard node names
+      ARM: dts: arm: Add missing "#dma-cells"
+      ARM: dts: arm/vexpress: Fix Cortex-A15 GIC compatibles
+      ARM: dts: arm-realview-eb-mp: Move "pmu" node to top-level
 
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index 9c83837b1..4c731b101 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -434,6 +434,13 @@ static int hyp_map_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	if (WARN_ON(ctx->level == KVM_PGTABLE_LAST_LEVEL))
- 		return -EINVAL;
- 
-+	/*
-+	 * Replacing a valid block with a table would need break-before-make,
-+	 * and the new table would leave the rest of the block unmapped.
-+	 */
-+	if (WARN_ON(kvm_pte_valid(ctx->old)))
-+		return -EEXIST;
-+
- 	childp = (kvm_pte_t *)mm_ops->zalloc_page(NULL);
- 	if (!childp)
- 		return -ENOMEM;
+ .../devicetree/bindings/arm/vexpress-sysreg.yaml   |   8 +
+ arch/arm/boot/dts/arm/arm-realview-eb-mp.dtsi      |  20 +-
+ arch/arm/boot/dts/arm/arm-realview-eb.dtsi         |   8 +-
+ arch/arm/boot/dts/arm/arm-realview-pb1176.dts      |   8 +-
+ arch/arm/boot/dts/arm/arm-realview-pb11mp.dts      |   6 +-
+ arch/arm/boot/dts/arm/arm-realview-pbx.dtsi        |  10 +-
+ arch/arm/boot/dts/arm/integrator.dtsi              |   2 +-
+ arch/arm/boot/dts/arm/integratorap-im-pd1.dts      |   2 +-
+ arch/arm/boot/dts/arm/integratorap.dts             |   2 +-
+ arch/arm/boot/dts/arm/integratorcp.dts             |   4 +-
+ arch/arm/boot/dts/arm/mps2-an385.dts               |   2 +-
+ arch/arm/boot/dts/arm/mps2-an399.dts               |   2 +-
+ arch/arm/boot/dts/arm/mps2.dtsi                    |   4 +-
+ arch/arm/boot/dts/arm/versatile-ab.dts             |  11 +-
+ arch/arm/boot/dts/arm/versatile-pb.dts             |   4 +-
+ arch/arm/boot/dts/arm/vexpress-v2m-rs1.dtsi        | 146 +++++-----
+ arch/arm/boot/dts/arm/vexpress-v2m.dtsi            | 322 ++++++++++-----------
+ arch/arm/boot/dts/arm/vexpress-v2p-ca15-tc1.dts    |   9 +-
+ arch/arm/boot/dts/arm/vexpress-v2p-ca15_a7.dts     |   9 +-
+ arch/arm/boot/dts/arm/vexpress-v2p-ca5s.dts        |   4 +-
+ arch/arm/boot/dts/arm/vexpress-v2p-ca9.dts         |   2 +-
+ 21 files changed, 298 insertions(+), 287 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261105-dt-vexpress-dts-fixes-a8ccb34b1fe5
 
--- 
-2.53.0
-
+Best regards,
+--  
+Rob Herring (Arm) <robh@kernel.org>
 
 
