@@ -2,144 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B123A606A33E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 01:19:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2966606A334
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 01:19:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cD0KfVIF
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WB5eSyNc;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KUVpWTTp
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=CMxOE8cRk9+SOvFR3xEmGCedeJsIHc27BIE/Df5h6rI=; b=cD0KfVIFFqaIzUHk6WLwT27f6z
-	zMhkSNpKroY+2ur+zcI0DK59ni+cr918lBye9XlH2xu4R/0oo6aACscZgFV5sNv9IZ7VhrbScRxfT
-	JEOUhg0TWsyLpqPHvK3rbRB+/qfX31prdhf4Q9DWZ8qZcGL+QYXMO15rvGDjcpzapYxNZGXoiGRak
-	+hWtFnDwHb7IYJ/dvl1nwkBY8W0UqAvLY7h5TRyyOLnFrRml9LIuzaDk9hJgoF6GOKdaNmB3erU3J
-	X4GZgHrPHFYDOrsmYbFZJNNQWNStKBiNVwHxDFaMI5ur10pxyPxq6XPeJcW/isG4VRUoPrxteNygq
-	tNeZDPBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=OkA2J4cWWfdO1QYKzzP5dgQJ3QPDgjBDtOkiI8OGYYs=; b=WB5eSyNcH8Hpcm
+	7B4IRNfgjNIcCeB5035cPLgDU/JIqGsrAxHoledycmjXs1NBtDs43hyRYceJEsLPV4EGb4IYPrDTj
+	o4fdAyDju1eThMaeAdmXF6H/eT2QABoiezqgjlNiZGmOox9NlA4HrzanbJDSGXP+lZpiq/2oiy8g9
+	SwqdTWJq7nc4toiiRBAwm5adwb7V3mvhNKT16s66LBLcheaNasMfAsdXBibJq3VjavdxI/qpgRxl5
+	uRa58gud0JVen1LU9fRtYbeQ2w3Zhhs2j6OhmDEZNL4U8rWhwe94vj3Wmyif+in2SkqA3RiX50RMd
+	UDWzXocpW0Rhw/XUSnrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOm81-00000007SHe-0jof;
-	Thu, 05 Nov 2026 01:18:57 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1xOm8O-00000007SYX-1AZJ;
+	Thu, 05 Nov 2026 01:19:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOm7k-00000007RqI-1YBi;
-	Thu, 05 Nov 2026 01:18:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mMvBqiDdyPcT8h+d/qWegC/hGPU/fI0cCGVSH04Aud/shSPxuduGilAyJcBs/P02W3ghlyIOm/06TX68qlr1WkxK5h1uQT2jPtlf5olsmy9QunVHJzQ+cqx6HA2KaYJ7+0LE7zoGUXEvdED90NjaLwLIt1TbehLTslcRHchvC/0RzGm1x09VXCSA0zexyseoMuMaNgN95sBQTqVMShr6dbd/A09ySWi4i413d0NUR0ew1mXOwio5ZIqHRrNBpR20IW+lhoukXYNWAOdouMCEvvDqzhUEOCS1J4rNcRArH8tWhvutl2K4dvp4EJiQduJZv34fNYILho3+MPiwjPNkTw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CMxOE8cRk9+SOvFR3xEmGCedeJsIHc27BIE/Df5h6rI=;
- b=Yxa0H4bYCLPzFH2viQGLROyd1uV1VVYbnQT2shWULHrB2IyrFgtWs9cQBcYYC3IDG69jBTfKhSoM5px89pqLtGn3qEcHD38fl+c7VnLpN1ixnWS2dwqpH/WHZnSYTLrcDcL2CHPW4zslYYghnRAUsPUXT6nMGcR3200RHbYzrOU9MlRru7rrsoY0ULe40XzjJ7bgHNIYt2oZbLvZnXVCHLuUilN2kgPY2s0nmiT1TKFOMTix0E45kZ+u6K2S8eJY+k+MmHgAFdlrnUMC8h2/eDi30g32BSlY92AgZnQgBqDzfRQ24zI8OLu/x4eH+g0Kdwte9Q3YAqEahmqK6kllUQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cixtech.com; dmarc=pass action=none header.from=cixtech.com;
- dkim=pass header.d=cixtech.com; arc=none
-Received: from PSAPR06MB4439.apcprd06.prod.outlook.com (2603:1096:301:80::7)
- by TYSPR06MB6921.apcprd06.prod.outlook.com (2603:1096:400:468::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Thu, 5 Nov 2026
- 01:18:30 +0000
-Received: from PSAPR06MB4439.apcprd06.prod.outlook.com
- ([fe80::c772:e1f:2c48:f9ac]) by PSAPR06MB4439.apcprd06.prod.outlook.com
- ([fe80::c772:e1f:2c48:f9ac%3]) with mapi id 15.21.0592.007; Thu, 5 Nov 2026
- 01:18:30 +0000
-From: =?utf-8?B?SG9uZ2xpYW5nIFlhbmcgKOadqOWuj+S6rik=?=
-	<hongliang.yang@cixtech.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-CC: =?utf-8?B?SG9uZ2xpYW5nIFlhbmcgKOadqOWuj+S6rik=?=
-	<hongliang.yang@cixtech.com>, "linux-phy@lists.infradead.org"
-	<linux-phy@lists.infradead.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, cix-kernel-upstream
-	<cix-kernel-upstream@cixtech.com>
-Subject: Re: [PATCH v5 2/3] phy: cix: Add CIX Sky1 USB3 PHY driver
-Thread-Topic: [PATCH v5 2/3] phy: cix: Add CIX Sky1 USB3 PHY driver
-Thread-Index: AQHda2fWWEMWb4+fB0qcKiINsZlp4LccCF6AgAKn7QA=
-Date: Thu, 5 Nov 2026 01:18:30 +0000
-Message-ID: <20261105011825.4058785-1-hongliang.yang@cixtech.com>
-References: <20261103074913.1971025-3-hongliang.yang@cixtech.com>
- <b717872c0f75e16980675d17a5fbbca91b9c8a3a.camel@pengutronix.de>
-In-Reply-To: <b717872c0f75e16980675d17a5fbbca91b9c8a3a.camel@pengutronix.de>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cixtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PSAPR06MB4439:EE_|TYSPR06MB6921:EE_
-x-ms-office365-filtering-correlation-id: dd0291f3-61dc-4234-95bc-08df3adab3ac
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|23010399003|366016|10067099003|18002099003|22082099003|56012099006|38070700021|4143699003;
-x-microsoft-antispam-message-info: 3/TNJoMeqXpdw+k8gVkRR46cFd5lNoe4NixnjkxlWjN634C8tVONmiwS9QIiM2UzpoEykdSDbyvcDF4GmAIOAYb5N5fAuZgbX5wF5uAg5ukOcoDEqu9J4vbMr/lDX/PLe3q0TolZvYz4TdLQN9SVFKOnt5Mmt3EFGdKgmE/ij0N9vYfE0ZGhIFRw2UqNFkOMZ1X33NwW+DAcwKU2UsNy5p5WPdf0Z3ru4cFDDoUKhWNL0hpfSFjVq+K8eJri4dugW6hQQmPUaFNHH3Beov3s081WzajVV6fLLtbpehKBMuiLaISvuiub4Vez1U6WAjLTZND5ftGb3GFcTwTn25s+8HtBdk5Y6syU1ch3IDgOrXo2JZV5bhgnEaGHX2yfDjMFrPIxbspqJypt/n59WTnomAhFc/N00pN6fWQuRVeSxXGg+uoCZekTRQQ93K1NW9Cgj2y/6Sh3/hVusygXi8RRQAZbX42s1xhnLMrhYNYWHMgiwz9QPS0mfIwhvXFpbFrn5kboiC4/MvE4JfsVUvhizh7bn9c7yzzx2qvyKqgH2KdJ3agvIWUljjmuxugh29UOueKhTWbbnY4nAznqUSmMQAHO1s733+6CXp959dxW/gNegZtwmYn2VdwO38QPxwoAV4ftOGEonLbb4jpJZSuMMZkH4FRYc0oEC5yP1isLFdWm7dYypzVqUv14+cL5HzOjayQVAi+sgtpu86txwnP5vCzEhk7z4XftKkL4W9kgxiU=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR06MB4439.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(366016)(10067099003)(18002099003)(22082099003)(56012099006)(38070700021)(4143699003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VkdKNzRmZDJjVXVXa1pqNXl0VlhTcytXVWhIU2dMeGNwMzVNeWtRc3EydnRC?=
- =?utf-8?B?dlA5eHJYcTZiZ0VhdXFHZlNqK2RLemRnSWN2aWhZM2pLUHpJbi9EMHN5Vzg4?=
- =?utf-8?B?c05hQ1YxRmRFNE04Vm85bGNGRVkwODlkZGd1U3c0ZGlhRmU0emNaV29OWTZs?=
- =?utf-8?B?cnNDQjRyODNFZDdQQVJYVVByMDBvTFVsRDR4bHRuWlhxbTZtclpqMUV6U1p5?=
- =?utf-8?B?bWI5eDNLdS9vVGF3akF4c3ZzUmZ0bEN4eW9JN2NLT1FNSXEzb0UrSjVpczNO?=
- =?utf-8?B?STRBQXljd2VBNEdLTS81b09meDBKV2NEc1QvbUZKZ1JnTzh5ZHlXd1plK1Zv?=
- =?utf-8?B?a3laTW9aM0lDU3hsVVZQWFRBVzdVcFhPRzZDTEhwZjBvZnJKV2ZseEhVOEt2?=
- =?utf-8?B?b1VMSHRQTnFzWHNldVBXTlJkY0RFejZScnA1WnBYUUhFSk8zN0N4QUVlM1Nn?=
- =?utf-8?B?dUE5TDNQb1k2TDN3UWlpQ0ovWVdUZWZ3N3daeDd1cXkrajNReHd3MU1scXBP?=
- =?utf-8?B?aC9tZ0E0d2R6SWRsbFZaL2Y1VW1HaWl4T2ZSczNEbWRhUk43UDF0UU5CRlZs?=
- =?utf-8?B?NFRaUWpXL0dETHRmSUo3V2NTTmFlaDh1OHhPc3RSdzZJTUxoTC9XaUF3R1lp?=
- =?utf-8?B?Y1JrbGpsaHJBZ3VDcm4xZ3lGbnF2YlZVWTdYeVFQY2RET3BhdjVyTXpJSVdn?=
- =?utf-8?B?Qm0ya3RJRWppNHh0RTFjdUo1Z3J5YTRCQXp1VVYrakhsMDE2dGFyQ1ZWZ3pm?=
- =?utf-8?B?UlNQSmlVbnpEZGZYMXlnTEdvaUtmUDBlY3JSS0RiVDh2SXVMSXo2Sm1Rd2Fq?=
- =?utf-8?B?TklhUTdpS01abEhMRGRTeUJseEVIdU5uTG12Zjl3RmRDamVZdWt0NmZ6R2tw?=
- =?utf-8?B?ZTBpVjIwZWt3b05OVkExK0lWR2dZZVRrblBnZFUxdm40d2IvM1FBYlpMWlQ4?=
- =?utf-8?B?VVdkdVUzRzIya2pIR2xKYWZtYkhHTEFSdDZ3dDV5d3dCVVZyQXFHMEZiSGt6?=
- =?utf-8?B?RFo1c2haYWQ4SmFpZjdmMGVUNlFRY2pGQ3NMOERwWjMxTFY0SDk1WTk1TFdn?=
- =?utf-8?B?TzVCK1JBS21oNkdCSWNxNG5NQ21GRjJmNDdXT213SE9tSzBZV1ZyaTE3K2h2?=
- =?utf-8?B?T09pc05ad0xhTlRsTFNQYlBQYk9veWdEZEVWdkc3ZE9WcGxGMjUzcitMcjZD?=
- =?utf-8?B?Ri9IZ3ZpdGlxOUZ4TGVEc0ZsT0VIZUI0MmllQWxsSndqeHNCQjROT0dRSkxX?=
- =?utf-8?B?U2dEeHJCbUtzdnp6cXl1T3JmQUZrbjJYS2JGdWtHL1VzcWRQcUVxbG94WXJv?=
- =?utf-8?B?WUwyOUJBZXMreTJPdVFpOWJZUmsrbm9nL2Z2MTRQZUVucDRxNzdkR1pUUUxt?=
- =?utf-8?B?UGsyZ09xUUlUR2oxUE5oS3JTM01Gb0lMaVlYRXJoUGJxOFlxNGlYNXF0L1Iv?=
- =?utf-8?B?MHI5N2pFUDF3NEphVDVDWkJtWTVhQnllalhYb09WazFCc29PU0NRaG1rblFY?=
- =?utf-8?B?UG50bENNblU2SWVxYTVIRTRrVkNQdmZudXp3V0dZTmdlYXBIdExRMW5aaEkv?=
- =?utf-8?B?WHlaUXVJR2R5Q1RhV0hlY09pZXNHNUpDWFh1dUVKUjNNbVBCNG8yUHFZaHBR?=
- =?utf-8?B?cE8rcFNJcU5ZWVdDalBFU3ZXclEybGtzWUVWVE5IMFdqU1hTblJyTDJHZWZ2?=
- =?utf-8?B?OEVlY1dzQjIzeU1NT3V1Zi8xdVdrM3N0UnA4NERlVzZuM0lYNnVWMVpMaW55?=
- =?utf-8?B?bWFRWDh5TVQ0TzlIcGY4WS9xa090NFlvWnVZZm9oTytqLyt6SGJxMUtPNzRW?=
- =?utf-8?B?N1FQWExnTzZWb1FIeDhpSjI5ZXhWN2M2N2JaTFo5aHdydmo3OVV5QmV1VkRR?=
- =?utf-8?B?Qk11bDY5NXQreDBodWc3UWNZWGx4eDVzZTQ4NVhJcGlwYWJOekxQQWJ0MGVt?=
- =?utf-8?B?YlJER1I3STFVZEEzd1ozcVd4T1AzTzlPYzd2SU1seGpmU2o0bTIrdGRWMDVP?=
- =?utf-8?B?Z3Fva2NRN2FXVUZ6V2hrU3ZUREpaRHRJRWRwWXQxdEF3dWUvN3FoUG45eVFk?=
- =?utf-8?B?b3BUbXg1aWVYWUtZckVuZy93ZjVhWXBXbzJWVGdBajl4b1d2ZWdmcDVzMExO?=
- =?utf-8?B?SzFnYjFkdjdFNjQ5bGt0NFJtL0wweUc1czhhbTZXQXJGNUkxN3RYdC9seGtq?=
- =?utf-8?B?TDlMNm5hQzBGV1ZmN0p3bER0am9QYmhxNm9OS3RMdzlqU0xYay9BMElZS2tp?=
- =?utf-8?B?bGJYQzNwNUFlR2tSVUpUMzU4di9aVWRlaFQxT0dvMEZiODJlQTVSaW14OEFX?=
- =?utf-8?B?NDFpS3Z0WktNa09QblFNRFdDZVBkMlZGNnh1QVRUSW9FeEM3Ly9na1Y3cmdE?=
- =?utf-8?Q?86YWZgShVV1HZcuY=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <ED078AE2E240F946BEEBC454425BCE31@apcprd06.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1xOm8G-00000007SUb-13O4
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Nov 2026 01:19:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A0A9D432AF;
+	Thu,  5 Nov 2026 01:19:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 902A41F000C1;
+	Thu,  5 Nov 2026 01:19:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793841551;
+	bh=OkA2J4cWWfdO1QYKzzP5dgQJ3QPDgjBDtOkiI8OGYYs=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=KUVpWTTp3Ji+rba/gwLYaE9B0XWKQrDEL4aXOHOe5oGVgGzxS5AxZPaxtcBhWPxqG
+	 gy97o8I3WPlqKyJMTwNBK6UEJPSDUn5qfM13olT2lLypgJQZiE8lKb49KglRTnlHee
+	 IjavHoyNvnN9BohmxPI+V+Jh6jVLrBLsIF4kkUZFLN1Uui8ZoeQb3sLSr/+TrTb9Z3
+	 JHAXP5tK2W0FxUb80Z1Cgo9+cFfUvNQ65rmDwrthzwCintC+OKH0U62CPApDaDlL0+
+	 eJmKYjs4ayCz2tGKIhQRRZC8JDrds0f2YAgeA+PwUUIkHaHNpCuQ2mDoZKGLKsnaUe
+	 4I2vCs7pa6EOg==
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PSAPR06MB4439.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dd0291f3-61dc-4234-95bc-08df3adab3ac
-X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Nov 2026 01:18:30.1002
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: nZU6nik+WlMcvBwyNkuYJ5JCLIGXzNHeCgkSiL06IW2eigkJFdvSz8NTVThFKGL5tmvjgWN7jvy0INaWDhbuglKO3h2fx3UloovTKwbIZYU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB6921
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_171840_845522_290A53C6 
-X-CRM114-Status: UNSURE (   5.09  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.9 (-)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v10 3/5] clk: ambarella: add CV75 RCT clock controller
+From: Brian Masney <masneyb@kernel.org>
+To: Long Zhao <longzhao@ambarella.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
+ linux-clk@vger.kernel.org, Brian Masney <masneyb@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, devicetree@vger.kernel.org, 
+ Long Zhao <zl020895@163.com>, linux-kernel@vger.kernel.org
+In-Reply-To: <20261019-cv75-soc-v10-3-d386065e2dd5@ambarella.com>
+References: <20261019-cv75-soc-v10-0-d386065e2dd5@ambarella.com>
+ <20261019-cv75-soc-v10-3-d386065e2dd5@ambarella.com>
+Date: Wed, 04 Nov 2026 20:18:50 -0500
+Message-Id: <179384153085.753765.4632795421510452040.b4-review@b4>
+X-Mailer: b4 0.17-dev-7ca47
+X-Developer-Signature: v=1; a=openpgp-sha256; l=13512; i=masneyb@kernel.org;
+ s=20250903; h=from:subject:message-id;
+ bh=Hk4NUB4ozzTPRRRYYlp0JI8mRe1gJmy5y0KHDDyC0HA=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLJe36wN+r0yddFXj04evle8x64y8Z14t29DYXHYwamTp
+ aN6u7dVdpSyMIhxMciKKbIsyTUqiEhdZXvvjiYLzBxWJpAhDFycAjCR++IM/1N8gj5EvfskfLGk
+ i91YMGPj11X31wnEO/CtUKo32u+x/zPD/yCzmc1fZIwtUv/sb37jK+yy/g3rG58b8eYm6eflWbe
+ LcAIA
+X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
+ fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,14 +88,462 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-VGhhbmtzLiBBbGwgcmVzZXQsIGNsb2NrIGFuZCByZWdtYXAgYWNxdWlzaXRpb24gZXJyb3IgcGF0
-aHMgaW4gdjYgcmV0dXJuDQpkZXZfZXJyX3Byb2JlKCk7IHRoZSBkZXZfZXJyKCkgKyBQVFJfRVJS
-KCkgcGF0dGVybiBpcyBnb25lLg0KDQpIb25nbGlhbmc=
+Hi Long,
+
+> Add a table-driven CCF driver for the CV75 root clock tree. Register
+> the core PLL, AHB/APB fixed factors and UART0 composite clock, with
+> osc supplied via clk_parent_data.
+> 
+> Signed-off-by: Long Zhao <longzhao@ambarella.com>
+> ---
+>  drivers/clk/Kconfig              |   1 +
+>  drivers/clk/Makefile             |   1 +
+>  drivers/clk/ambarella/Kconfig    |   9 +
+>  drivers/clk/ambarella/Makefile   |   3 +
+>  drivers/clk/ambarella/clk-cv75.c | 361 +++++++++++++++++++++++++++++++++++++++
+>  5 files changed, 375 insertions(+)
+>
+> diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+> index 37a8e35d4178..6bfa2c8fffe1 100644
+> --- a/drivers/clk/Kconfig
+> +++ b/drivers/clk/Kconfig
+> @@ -510,6 +510,7 @@ config COMMON_CLK_RPMI
+>  	  the RISC-V platform management interface (RPMI) specification.
+>  
+>  source "drivers/clk/actions/Kconfig"
+> +source "drivers/clk/ambarella/Kconfig"
+>  source "drivers/clk/analogbits/Kconfig"
+>  source "drivers/clk/anlogic/Kconfig"
+>  source "drivers/clk/aspeed/Kconfig"
+> diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+> index 52d138d4ffc8..99377a13ebc5 100644
+> --- a/drivers/clk/Makefile
+> +++ b/drivers/clk/Makefile
+> @@ -125,6 +125,7 @@ obj-$(CONFIG_COMMON_CLK_XGENE)		+= clk-xgene.o
+>  
+>  # please keep this section sorted lexicographically by directory path name
+>  obj-y					+= actions/
+> +obj-y					+= ambarella/
+>  obj-y					+= analogbits/
+>  obj-y					+= anlogic/
+>  obj-y					+= aspeed/
+> diff --git a/drivers/clk/ambarella/Kconfig b/drivers/clk/ambarella/Kconfig
+> new file mode 100644
+> index 000000000000..720eebdc5c9c
+> --- /dev/null
+> +++ b/drivers/clk/ambarella/Kconfig
+> @@ -0,0 +1,9 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +
+> +config CLK_AMBARELLA_CV75
+> +	bool "Ambarella CV75 RCT clock controller"
+
+This uses module_platform_driver(), so this should be a tristate here.
+Or this needs to use builtin_platform_driver().
+
+> +	depends on ARCH_AMBARELLA || COMPILE_TEST
+> +	default ARCH_AMBARELLA
+> +	help
+> +	  Say Y to enable the Ambarella CV75 RCT clock controller for
+> +	  early bring-up clocks (core PLL, AHB, APB, UART0).
+> diff --git a/drivers/clk/ambarella/Makefile b/drivers/clk/ambarella/Makefile
+> new file mode 100644
+> index 000000000000..29555e452441
+> --- /dev/null
+> +++ b/drivers/clk/ambarella/Makefile
+> @@ -0,0 +1,3 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +
+> +obj-$(CONFIG_CLK_AMBARELLA_CV75) += clk-cv75.o
+> diff --git a/drivers/clk/ambarella/clk-cv75.c b/drivers/clk/ambarella/clk-cv75.c
+> new file mode 100644
+> index 000000000000..6a8f80571958
+> --- /dev/null
+> +++ b/drivers/clk/ambarella/clk-cv75.c
+> @@ -0,0 +1,361 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Ambarella CV75 RCT clock controller
+> + *
+> + * Copyright (C) 2026 Ambarella, Inc.
+> + */
+> +
+> +#include <linux/array_size.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +#include <linux/clk-provider.h>
+> +#include <linux/container_of.h>
+> +#include <linux/device.h>
+> +#include <linux/err.h>
+> +#include <linux/io.h>
+> +#include <linux/math64.h>
+> +#include <linux/module.h>
+> +#include <linux/overflow.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/slab.h>
+> +#include <linux/spinlock.h>
+> +#include <linux/types.h>
+> +
+> +#include <dt-bindings/clock/ambarella,cv75-rct.h>
+> +
+> +#define CV75_NUM_CLKS		(CV75_GCLK_APB + 1)
+> +
+> +#define PLL_CTRL_BYPASS		BIT(2)
+> +#define PLL_CTRL_FRAC_MODE	BIT(3)
+> +#define PLL_CTRL_FORCE_RESET	BIT(4)
+> +#define PLL_CTRL_POWER_DOWN	BIT(5)
+> +#define PLL_CTRL_HALT_VCO	BIT(6)
+> +#define PLL_CTRL_SDIV		GENMASK(15, 12)
+> +#define PLL_CTRL_SOUT		GENMASK(19, 16)
+> +#define PLL_CTRL_INTP		GENMASK(30, 24)
+> +
+> +#define PLL_CTRL2_VCODIV_DIV2	BIT(8)
+> +#define PLL_CTRL2_FSDIV_DIV2	BIT(9)
+> +#define PLL_CTRL2_FSOUT_DIV2	BIT(11)
+> +#define PLL_CTRL2_BYPASS_HSDIV	BIT(12)
+> +
+> +struct cv75_pll_regs {
+> +	u32 ctrl;
+> +	u32 frac;
+> +	u32 ctrl2;
+> +};
+> +
+> +struct cv75_pll_hw {
+> +	struct clk_hw hw;
+> +	struct cv75_pll_regs regs;
+> +};
+> +
+> +struct cv75_clk {
+> +	void __iomem *base;
+> +	spinlock_t lock;
+> +	struct cv75_pll_hw core;
+> +	struct cv75_pll_hw enet;
+> +	struct cv75_pll_hw sd;
+> +};
+> +
+> +struct cv75_pll {
+> +	const char *name;
+> +	struct cv75_pll_hw *hw;
+> +	unsigned long flags;
+> +	struct cv75_pll_regs regs;
+> +	int id;
+> +};
+> +
+> +struct cv75_fixed_factor {
+> +	const char *name;
+> +	u32 id;
+> +	struct u16_fract ratio;
+> +};
+> +
+> +struct cv75_composite {
+> +	const char *name;
+> +	const struct clk_parent_data *parents;
+> +	unsigned long flags;
+> +	u32 id;
+> +	u16 mux_reg;
+> +	u16 div_reg;
+> +	u8 num_parents;
+> +	u8 mux_shift;
+> +	u8 mux_width;
+> +	u8 div_shift;
+> +	u8 div_width;
+> +};
+> +
+> +struct cv75_composite_hw {
+> +	struct clk_mux mux;
+> +	struct clk_divider div;
+> +	struct clk_gate gate;
+> +};
+> +
+> +static struct cv75_clk cv75_ccu;
+> +
+> +#define CV75_PLL(_id, _name, _ctrl, _frac, _ctrl2, _flags, _hw) {	\
+> +	.name	= _name,						\
+> +	.hw	= _hw,							\
+> +	.flags	= _flags,						\
+> +	.regs	= {							\
+> +		.ctrl = _ctrl,						\
+> +		.frac = _frac,						\
+> +		.ctrl2 = _ctrl2,					\
+> +	},								\
+> +	.id	= _id,							\
+> +}
+> +
+> +static const struct cv75_pll cv75_plls[] = {
+> +	CV75_PLL(CV75_GCLK_CORE, "core", 0x000, 0x004, 0x100,
+> +		 CLK_IS_CRITICAL, &cv75_ccu.core),
+
+cv75_pll_ops only implements .recalc_rate. With no .prepare/.enable ops,
+CLK_IS_CRITICAL has no effect.
+
+> +	CV75_PLL(-1, "pll_enet", 0x520, 0x524, 0x528,
+> +		 0, &cv75_ccu.enet),
+> +	CV75_PLL(-1, "pll_sd", 0x4ac, 0x4b0, 0x4b4,
+> +		 0, &cv75_ccu.sd),
+> +};
+> +
+> +static const struct cv75_fixed_factor cv75_fixed_factors[] = {
+> +	{ .id = CV75_GCLK_AHB, .name = "ahb", .ratio = { 1, 2 } },
+> +	{ .id = CV75_GCLK_APB, .name = "apb", .ratio = { 1, 4 } },
+> +};
+> +
+> +static const struct clk_parent_data cv75_uart_parents[] = {
+> +	{ .fw_name = "osc" },
+> +	{ .hw = &cv75_ccu.core.hw },
+> +	{ .hw = &cv75_ccu.enet.hw },
+> +	{ .hw = &cv75_ccu.sd.hw },
+> +};
+> +
+> +#define CV75_COMPOSITE(_id, _name, _parents, _mreg, _mshift, _mwidth,	\
+> +		       _dreg, _dshift, _dwidth, _flags)			\
+> +{									\
+> +	.id		= _id,						\
+> +	.name		= _name,					\
+> +	.parents	= _parents,					\
+> +	.num_parents	= ARRAY_SIZE(_parents),				\
+> +	.mux_reg	= _mreg,					\
+> +	.mux_shift	= _mshift,					\
+> +	.mux_width	= _mwidth,					\
+> +	.div_reg	= _dreg,					\
+> +	.div_shift	= _dshift,					\
+> +	.div_width	= _dwidth,					\
+> +	.flags		= _flags,					\
+> +}
+> +
+> +static const struct cv75_composite cv75_composites[] = {
+> +	CV75_COMPOSITE(CV75_GCLK_UART0, "uart0", cv75_uart_parents,
+> +		       0x1c8, 0, 2, 0x038, 0, 24,
+> +		       CLK_SET_RATE_NO_REPARENT),
+> +};
+> +
+> +#define to_cv75_pll(_hw) container_of(_hw, struct cv75_pll_hw, hw)
+> +
+> +static unsigned long cv75_pll_recalc_rate(struct clk_hw *hw,
+> +					  unsigned long parent_rate)
+> +{
+> +	struct cv75_pll_hw *pll = to_cv75_pll(hw);
+> +	u32 ctrl, ctrl2, frac_val;
+> +	u32 vcodiv, fsdiv, fsout;
+> +	u32 intp, sdiv, sout;
+> +	u64 vco, frac = 0;
+> +
+> +	ctrl = readl_relaxed(cv75_ccu.base + pll->regs.ctrl);
+> +	if (ctrl & (PLL_CTRL_POWER_DOWN | PLL_CTRL_HALT_VCO | PLL_CTRL_FORCE_RESET))
+> +		return 0;
+> +
+> +	if (ctrl & PLL_CTRL_BYPASS)
+> +		return parent_rate;
+> +
+> +	ctrl2 = readl_relaxed(cv75_ccu.base + pll->regs.ctrl2);
+> +	intp = FIELD_GET(PLL_CTRL_INTP, ctrl) + 1;
+> +	sdiv = FIELD_GET(PLL_CTRL_SDIV, ctrl) + 1;
+> +	sout = FIELD_GET(PLL_CTRL_SOUT, ctrl) + 1;
+> +	vcodiv = (ctrl2 & PLL_CTRL2_VCODIV_DIV2) ? 2 : 1;
+> +	fsdiv = (ctrl2 & PLL_CTRL2_FSDIV_DIV2) ? 2 : 1;
+> +	fsout = (ctrl2 & PLL_CTRL2_FSOUT_DIV2) ? 2 : 1;
+> +
+> +	vco = (u64)parent_rate * vcodiv * fsdiv * intp * sdiv;
+> +	if (ctrl & PLL_CTRL_FRAC_MODE) {
+> +		frac_val = readl_relaxed(cv75_ccu.base + pll->regs.frac);
+> +		frac = mul_u64_u32_shr((u64)parent_rate * vcodiv * fsdiv * sdiv,
+> +				       frac_val, 32);
+> +		vco += frac;
+> +	}
+> +
+> +	if (!(ctrl2 & PLL_CTRL2_BYPASS_HSDIV))
+> +		vco = div_u64(vco, (u64)vcodiv * fsout * sout);
+
+div_u64() takes a u32 divisor, so this (u64) cast is misleading.
+
+> +
+> +	return vco;
+> +}
+> +
+> +static const struct clk_ops cv75_pll_ops = {
+> +	.recalc_rate = cv75_pll_recalc_rate,
+> +};
+> +
+> +static int cv75_register_plls(struct device *dev,
+> +			      struct clk_hw_onecell_data *data)
+> +{
+> +	struct clk_parent_data parent_data = { .fw_name = "osc" };
+> +
+> +	for (unsigned int i = 0; i < ARRAY_SIZE(cv75_plls); i++) {
+> +		const struct cv75_pll *desc = &cv75_plls[i];
+> +		struct cv75_pll_hw *pll = desc->hw;
+> +		struct clk_init_data init = {};
+> +		int ret;
+> +
+> +		pll->regs = desc->regs;
+> +
+> +		init.name = desc->name;
+> +		init.ops = &cv75_pll_ops;
+> +		init.parent_data = &parent_data;
+> +		init.num_parents = 1;
+> +		init.flags = desc->flags;
+> +		pll->hw.init = &init;
+> +
+> +		ret = devm_clk_hw_register(dev, &pll->hw);
+> +		if (ret)
+> +			return ret;
+> +
+> +		if (desc->id >= 0)
+> +			data->hws[desc->id] = &pll->hw;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int cv75_register_fixed_factors(struct device *dev,
+> +				       struct clk_hw_onecell_data *data)
+> +{
+> +	for (unsigned int i = 0; i < ARRAY_SIZE(cv75_fixed_factors); i++) {
+> +		const struct cv75_fixed_factor *f = &cv75_fixed_factors[i];
+> +		struct clk_hw *hw;
+> +
+> +		hw = devm_clk_hw_register_fixed_factor_parent_hw(dev, f->name,
+> +								 &cv75_ccu.core.hw, 0,
+> +								 f->ratio.numerator,
+> +								 f->ratio.denominator);
+> +		if (IS_ERR(hw))
+> +			return PTR_ERR(hw);
+> +
+> +		data->hws[f->id] = hw;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static struct clk_hw *cv75_register_composite(struct device *dev,
+> +					      const struct cv75_composite *c)
+> +{
+> +	const struct clk_ops *mux_ops = NULL, *div_ops = NULL, *gate_ops = NULL;
+> +	struct clk_hw *mux_hw = NULL, *div_hw = NULL, *gate_hw = NULL;
+> +	struct cv75_composite_hw *comp;
+> +
+> +	comp = devm_kzalloc(dev, sizeof(*comp), GFP_KERNEL);
+> +	if (!comp)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	if (c->mux_width) {
+> +		comp->mux.reg = cv75_ccu.base + c->mux_reg;
+> +		comp->mux.shift = c->mux_shift;
+> +		comp->mux.mask = GENMASK(c->mux_width - 1, 0);
+> +		comp->mux.lock = &cv75_ccu.lock;
+> +		mux_hw = &comp->mux.hw;
+> +		mux_ops = &clk_mux_ops;
+> +	}
+> +
+> +	if (c->div_width) {
+> +		comp->div.reg = cv75_ccu.base + c->div_reg;
+> +		comp->div.shift = c->div_shift;
+> +		comp->div.width = c->div_width;
+> +		comp->div.flags = CLK_DIVIDER_ONE_BASED;
+> +		comp->div.lock = &cv75_ccu.lock;
+> +		div_hw = &comp->div.hw;
+> +		div_ops = &clk_divider_ops;
+> +
+> +		comp->gate.reg = cv75_ccu.base + c->div_reg;
+> +		comp->gate.bit_idx = c->div_shift + c->div_width;
+> +		comp->gate.flags = CLK_GATE_SET_TO_DISABLE;
+> +		comp->gate.lock = &cv75_ccu.lock;
+> +		gate_hw = &comp->gate.hw;
+> +		gate_ops = &clk_gate_ops;
+> +	}
+> +
+> +	return devm_clk_hw_register_composite_pdata(dev, c->name, c->parents,
+> +						    c->num_parents,
+> +						    mux_hw, mux_ops,
+> +						    div_hw, div_ops,
+> +						    gate_hw, gate_ops, c->flags);
+> +}
+> +
+> +static int cv75_register_composites(struct device *dev,
+> +				    struct clk_hw_onecell_data *data)
+> +{
+> +	for (unsigned int i = 0; i < ARRAY_SIZE(cv75_composites); i++) {
+> +		const struct cv75_composite *c = &cv75_composites[i];
+> +		struct clk_hw *hw;
+> +
+> +		hw = cv75_register_composite(dev, c);
+> +		if (IS_ERR(hw))
+> +			return PTR_ERR(hw);
+> +
+> +		data->hws[c->id] = hw;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int cv75_rct_probe(struct platform_device *pdev)
+> +{
+> +	struct clk_hw_onecell_data *data;
+> +	struct device *dev = &pdev->dev;
+> +	int ret;
+> +
+> +	cv75_ccu.base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(cv75_ccu.base))
+> +		return PTR_ERR(cv75_ccu.base);
+> +
+> +	data = devm_kzalloc(dev, struct_size(data, hws, CV75_NUM_CLKS), GFP_KERNEL);
+> +	if (!data)
+> +		return -ENOMEM;
+> +	data->num = CV75_NUM_CLKS;
+> +
+> +	spin_lock_init(&cv75_ccu.lock);
+> +
+> +	ret = cv75_register_plls(dev, data);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to register plls\n");
+> +
+> +	ret = cv75_register_fixed_factors(dev, data);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to register fixed factors\n");
+> +
+> +	ret = cv75_register_composites(dev, data);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to register composites\n");
+> +
+> +	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, data);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to add clock provider\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct of_device_id cv75_rct_match[] = {
+> +	{ .compatible = "ambarella,cv75-rct" },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, cv75_rct_match);
+> +
+> +static struct platform_driver cv75_rct_driver = {
+> +	.probe = cv75_rct_probe,
+> +	.driver = {
+> +		.name = "ambarella-cv75-rct",
+> +		.of_match_table = cv75_rct_match,
+
+.suppress_bind_attrs = true
+
+> +	},
+> +};
+> +module_platform_driver(cv75_rct_driver);
+> +
+> +MODULE_AUTHOR("Cao Rongrong <rrcao@ambarella.com>");
+
+I don't see a Co-Developed by and a Signed-off-by from Cao. Either that,
+or this line needs to be updated.
+
+Brian
+
+-- 
+Brian Masney <masneyb@kernel.org>
 
