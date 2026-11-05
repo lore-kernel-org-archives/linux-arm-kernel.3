@@ -2,75 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D69F9606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:52:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEAF3606A33A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:53:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wnTWoRMd;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Tjb6TUCQ
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=On6OLvMS;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tp5COg9e
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Msd07b8Kgx8v1VWINbHbc0sUGrkBbqikBSOBM45eS30=; b=wnTWoRMdzSHPmw
-	Etus4w/xAlLpzGxbQZNCFumBEwY4WzmB+B1nWkz6JrA1T/0Yk4yNMaLQxAHeQY7K52iWbOsVS7jPF
-	TJTAlTkGq4iAtmXi8RYY5PH9G2TRfB3ugvcbjrMkFz5aTk7YNrKCrgoj09mBXGdTitZy7XhyrSbJ/
-	D/AruZNcRElGISbONWRQ92RJt3vlqy4PtvKVYLNEgCVw0k08JFkwzV3I+YNnrr1dMpEndIVzMNPOU
-	NKAmb5DizmOSQh84HYYXItR7h0Dmy6pSRN4nIAtVl6sRVcePpHNvJHINHOjKL0i6bKvMztho9C8nt
-	yRTf6/9E9e/7YdJONANg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=M/kDgzAlqHjxLUPza8aSEnwmJgf7ioPTzemjTUlAEYo=; b=On6OLvMSAJw6k0qg95582DgeKT
+	9P+fc9gkPQ4BD2Sc2bbKNjim4QClz1jehpU2ujaDUWq86TkKSVFDC7ccCrKLUqq+vgRYjiyGdJFGe
+	KChPiOgAw1wGMamXfHFW6OSiDernGU2d/f5hEzm4+D1OUxu0pq34CmotVv/O/cH7YYHXA8gevX4X2
+	AG2SKh+OeOwEVb/brKd3KOPhDIteDacMwg/ZFp0/qIL1ez3OwkAVGEuvDDjDNbrfs2vVl8g6AdHBn
+	D06oxAbulL+Dd73w+f4tQ/Mp+Dqvv9Y0JBEDwEX3SayP78ADFF7hj3J+SqxYZptefE+7cizwJZIUS
+	ngh9Bfcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtCt-00000008Cf4-2d3w;
-	Thu, 05 Nov 2026 08:52:27 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1xOtDs-00000008Cr3-3lQL;
+	Thu, 05 Nov 2026 08:53:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtCp-00000008CdJ-0mXX;
-	Thu, 05 Nov 2026 08:52:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1793868740;
-	bh=zF4UneQYBw/Lw+DtqeKovavXzEG4vgp4Z2EEg+Ep6uw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Tjb6TUCQv7G3DF8S0DUoHTXD4RBLtwXZXUNLb8OZDjnopzJw1gVPlztewE6DXF3UA
-	 dyYleUyOOVLdxnw3YgsEVOFFUzqqlU8pz0IVngl7hqrT6UCw9vq3bo7l+yOZ+mfoMw
-	 fxYbeEZrIoh+PAIOuOz0Fdyn+RrUnUNGwIaG/D64yZF/wy+7o2joauYl/br2M2dei5
-	 pLEaRu/7XZG+xgenRXc2Fy9VZWkEyNTqTrrT4+K7MSNJyKymyHP6R3L07BXa736XpT
-	 EayyMhup1elnmA0avhgBmDdRSYj+qe2eEMJqDyEJxRaEfZaBSPtx8BqrlG9/1Lv+rK
-	 pU5dKp5/Xy5VA==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D64B117E05D6;
-	Thu, 05 Nov 2026 09:52:19 +0100 (CET)
-Message-ID: <f21d912a-48ea-4f0d-bab4-526e617f1769@collabora.com>
-Date: Thu, 5 Nov 2026 09:52:19 +0100
+	id 1xOtDs-00000008Cqq-1oJL
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Nov 2026 08:53:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9D7DC60DA0;
+	Thu,  5 Nov 2026 08:53:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F8981F00919;
+	Thu,  5 Nov 2026 08:53:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793868807;
+	bh=M/kDgzAlqHjxLUPza8aSEnwmJgf7ioPTzemjTUlAEYo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Tp5COg9ea+pwc+JaE/ure9QOIXPVPTd+MK5k/FscIjDFsajZLRotk8KfK3H9HbMpP
+	 zoqKvnPJcRZDOt8Fi6cGkmTY5Na61BcOHm9Sy/mortW9VlrD3rO6/8nZHAS6zyYd2N
+	 SPw2rIgC6lkD6oNjwRqw6ZN4Ii0WOro6kDZqay19kVukaQeqEAtkTpY2hPSfvd7gcb
+	 YZUoI2IQasW60N5JnwGKtdSaP8tNBEEsyzrKzY5rvoVEgpaJZuODZMsENU9F/zRRjB
+	 3EswgSP4O1koRAJJmIHkSxRGzbxRewJtlqgbZMHVC8pRXmXzAgKtuiPuWZeQGlbxHU
+	 MsJDMLL95VVTg==
+Date: Thu, 5 Nov 2026 08:53:21 +0000
+From: Lee Jones <lee@kernel.org>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Mark Brown <broonie@kernel.org>,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>,
+	mfd@lists.linux.dev, linux-samsung-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, patches@opensource.cirrus.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/4] mfd: wm831x: Support software nodes for DCDC
+ regulators
+Message-ID: <20261105085321.GG1650678@google.com>
+References: <20261024-samsung-kp-v4-0-e21253295e68@gmail.com>
+ <20261024-samsung-kp-v4-1-e21253295e68@gmail.com>
+ <20261104181429.GE1650678@google.com>
+ <ad02069b0cdede7ae191e4a3df57f33a@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] pmdomain: mediatek: Enable the GPU timestamp
- counter on MT8188
-To: =?UTF-8?B?TWljaGHFgiBLb3BlxIc=?= <michal@nozomi.space>,
- =?UTF-8?Q?Adri=C3=A1n_Larumbe?= <adrian.larumbe@collabora.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Daniel Stone <daniel.stone@collabora.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Steven Price <steven.price@arm.com>, ulfh@kernel.org,
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-References: <20261011184755.2058017-1-michal@nozomi.space>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20261011184755.2058017-1-michal@nozomi.space>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_005223_967114_C1006CC1 
-X-CRM114-Status: GOOD (  33.34  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ad02069b0cdede7ae191e4a3df57f33a@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,133 +80,234 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=unavailable
-	autolearn_force=no version=4.0.1
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/11/26 20:47, Michał Kopeć wrote:
-> On MT8188 the GPU timestamp counter reads zero until a register in the
-> MFGCFG block feeds it the SoC system timer, and MFGCFG loses that
-> setting whenever the MFG1 power domain is turned off. As a result, the
-> SYSTEM_TIMESTAMP query and the timestamps written by GPU jobs are always
-> zero, which breaks timestamp queries in userspace drivers.
+On Wed, 04 Nov 2026, Dmitry Torokhov wrote:
+
+> Hi Lee,
 > 
-> v1 restored the register from panfrost through a new mediatek,mfgcfg
-> phandle on the GPU node. As Krzysztof pointed out, the register is lost
-> by the power domain, so v2 restores it there instead: the power
-
-The register is not lost by the power domain, it's lost by the MFGCFG block
-getting unpowered and (all) its registers being reset to the defaults, where
-the defaults happen to be zero... and then the MFGCFG has a bus protection
-block yes (unused for us), but that's at offset 0x20, so if you define that
-as 0x130 it becomes plain wrong :-(
-
-Besides, get this:
-
-"MFG_TIMESTAMP_EN" is a register field that doesn't exist... so here are the
-correct definitions ;')
-
-#define MFG_TIMESTAMP		0x130
-#  define TOP_TSVALUEB_EN	BIT(0)
-#  define TIMER_SEL_SOC_TIMER	BIT(1) /* unset: MFG timer, set: SOC timer */
-
-The issue that you're talking about here is not specific to MT8188, but to all
-of the MediaTek SoCs with either Mali or PowerVR that are *not* using the GPUEB
-firmware (so all Chromebooks and Genio boards before MT8196/MT6991/MT8894).
-
-This doesn't belong to the power domain driver, as this is definitely not in any
-way related to powering on the MediaTek Flexible Graphics (:'D) block, so this
-has to be done somewhere else.
-
-That said, let's see what a good solution could be here...
-
-...so, the MFG Block has got a Hardware Timestamp Engine that needs to be kicked
-from the MFG Configuration register area, specifically from the the MFG IP
-Timestamp register.
-
-Once the timestamp engine's timer source is selected (TIMER_SEL) and you made sure
-that the actual timer source is running (eh, first make sure it's running, then
-select), you enable the MFG-Top (Top==Global) TimeStampValueB (TOP_TSVALUEB_EN).
-
-When those registers are set, your Hardware Timestamp Engine is fully ready and
-will start running when frames/commands/etc come, adding a timer time to each of
-the frames/commands/etc (which is why this is a timestamp engine) in a hardware
-assisted manner (and this is why it's a *hardware* timestamp engine).
-
-Now that we know what we're dealing with... we're pretty sure that this is a
-
-H T E  .... (drivers/hte hello)
-
-Documentation/devicetree/bindings/timestamp/hardware-timestamps-common.yaml
-
-Panfrost needs a hardware timestamp engine to do timestamp counting, right?
-Panthor would need the same.
-
-That's not MediaTek specific, because there's a generic hardware timestamp engine
-binding, so I'm sorry but you can go back implementing HTE support in Panfrost and
-Panthor - in a very-very-very generic way - using the HTE APIs.
-
-You'd have to write a (very small, really) HTE driver for the hte-mediatek-mfg.c
-but that's not a big deal, a first version of that driver, which can be upstreamed
-could do just:
-  1. Make sure that the MFG-TOP power domain is on (not the cores domain, just the
-     top one!), which is easy, it's just one line; and
-  2. Set the register fields in MFG_TIMESTAMP to the correct value when Panfrost
-     asks to start or initialize the HTE; and
-  3. UNset TOP_TSVALUEB_EN when going to sleep, or when Panfrost asks to stop/deinit
-     the HTE.
-
-It's a 50 lines driver, nothing more (well, I didn't write anything so I don't know
-but trust me it's going to be around that linecount).
-
-That's how this matter can be resolved.
-
-Btw, thanks for bringing this up, I didn't even realize this was an issue.
-
-Cheers!
-Angelo
-
-> controller lists MFGCFG in access-controllers and writes the register
-> every time MFG1 has been powered on.
+> On Wed, Nov 04, 2026 at 06:14:29PM +0000, Lee Jones wrote:
+> > On Sat, 24 Oct 2026, Dmitry Torokhov wrote:
+> > > +static int wm831x_add_devices(struct wm831x *wm831x, int wm831x_num,
+> > > +			      const struct mfd_cell *cells, int num_cells)
+> > > +{
+> > > +	struct wm831x_pdata *pdata = &wm831x->pdata;
+> > > +	int i;
+> > > +
+> > > +	struct mfd_cell *local_cells __free(kfree) =
+> > > +		kmemdup_array(cells, num_cells, sizeof(*cells), GFP_KERNEL);
+> > > +	if (!local_cells)
+> > > +		return -ENOMEM;
+> > > +
+> > > +	for (i = 0; i < num_cells; i++) {
+> > > +		struct mfd_cell *cell = &local_cells[i];
+> > > +
+> > > +		if (strcmp(cell->name, "wm831x-buckv") == 0) {
+> > > +			int id = cell->id - 1;
+> > > +
+> > > +			if (id >= 0 && id < WM831X_MAX_DCDC)
+> > > +				cell->swnode = pdata->dcdc_swnodes[id];
+> > > +		}
+> > > +	}
+> >
+> > I can't begin to tell you how much I hate this.
+> >
+> > Why are we duplicating massive static const structs just to add a S/W
+> > node?  Is there no other way we can do this statically?
 > 
-> Patch 4 converts mt8188.dtsi from the deprecated per-domain
-> mediatek,infracfg phandles to access-controllers. A devicetree with it
-> needs the driver changes of patches 2 and 3, because older kernels
-> expect exactly one access controller on MT8188 and fail to probe the
-> power controller otherwise. Older devicetrees keep working with the new
-> driver, without the timestamp.
+> The software node itself is defined statically in the board file
+> (crag_dcdc1_swnode in arch/arm/mach-s3c/mach-crag6410.c in patch 2/4),
+> as it describes board-specific and PMIC-instance-specific wiring -
+> specifically the host SoC GPIO wired to the PMIC's DVS pin (GPK(0) on
+> Cragganmore 6410).
 > 
-> MT8370 uses the MT8188 power controller and mt8188.dtsi, so it is
-> covered as well.
+> Because wm831x-core.c is a generic PMIC driver that can be instantiated
+> on different boards or even multiple times on the same board (for
+> example, Cragganmore 6410 has two WM831x PMIC instances, only one of
+> which has a DVS GPIO wired to DCDC1), the shared static mfd_cell arrays
+> in wm831x-core.c cannot point to a board's software node at compile
+> time.
 > 
-> Tested on the Lenovo Chromebook Duet (MT8188): the timestamp counts at
-> 13 MHz, also after suspend and resume.
+> Note that local_cells is annotated with __free(kfree), so the duplicate
+> array only lives for the duration of the mfd_add_devices() call (which
+> makes its own per-device copy of each mfd_cell anyway) and is freed
+> immediately before wm831x_add_devices() returns.
 > 
-> Changes in v2:
-> - Restore the register from the MFG1 power domain instead of panfrost,
->    and drop the GPU phandle (Krzysztof).
-> - Drop the panfrost patch, which makes the review comments about error
->    propagation and MT8370 moot.
+> > Since pdata is being populated already, why not just pass that on to the
+> > consuming child device (the regulator)?
 > 
-> v1: https://lore.kernel.org/all/20261003200132.866240-1-michal@nozomi.space/
+> The regulator driver (wm831x_buckv_dvs_init() in
+> drivers/regulator/wm831x-dcdc.c) acquires the DVS GPIO using
+> devm_gpiod_get(&pdev->dev, "dvs", ...). When converting the board file
+> away from legacy gpiod_lookup_table to software nodes (to drop the
+> fragile MFD device name matching and fix the GPIO chip label lookup),
+> gpiolib resolves the "dvs-gpios" property against the consumer device's
+> fwnode (&pdev->dev), so the software node needs to be attached to the
+> wm831x-buckv platform device.
 > 
-> Michał Kopeć (4):
->    dt-bindings: power: mediatek: Add the MT8188 access controllers
->    pmdomain: mediatek: Restore a register after powering a domain on
->    pmdomain: mediatek: mt8188: Enable the GPU timestamp counter
->    arm64: dts: mediatek: mt8188: Use access-controllers in the power
->      controller
-> 
->   .../power/mediatek,power-controller.yaml      | 16 +++++++++++++-
->   arch/arm64/boot/dts/mediatek/mt8188.dtsi      | 22 +------------------
->   drivers/pmdomain/mediatek/mt8188-pm-domains.h | 16 +++++++++++++-
->   drivers/pmdomain/mediatek/mtk-pm-domains.c    | 19 ++++++++++++++++
->   drivers/pmdomain/mediatek/mtk-pm-domains.h    | 15 +++++++++++++
->   5 files changed, 65 insertions(+), 23 deletions(-)
-> 
+> In v2 of this series I actually tried passing the software_node pointer
+> through wm831x_buckv_pdata and attaching it to &pdev->dev inside the
+> regulator driver's probe() [1]. However, attaching a software node to
+> an already-registered platform device inside probe() is awkward and
+> requires manual teardown in the child driver, whereas mfd-core already
+> has built-in support for cell->swnode in mfd_add_device() (attaching
+> the node via device_add_software_node() before platform_device_add(),
+> and cleaning it up via device_remove_software_node() on error or
+> removal). Populating cell->swnode lets mfd-core manage the software
+> node lifecycle cleanly and keeps the regulator driver untouched.
 
+Why do you need to attach the software_node to &pdev->dev at all?
+
+All of the other DVS configuration (dvs_control_src, dvs_init_state) is
+already passed to wm831x_buckv_dvs_init() via pdata.  If you put the
+software node pointer in 'wm831x_buckv_pdata' (with the rest of the DVS
+parameters, where it belongs), wm831x_buckv_dvs_init() can simply use
+devm_fwnode_gpiod_get() to fetch it.
+
+This then requires no device_add_software_node(), no manual tear-down in
+the regulator driver and no "middle-man" changes to MFD at all.
+
+> If you prefer not to kmemdup the full cell table, another option would
+> be to split the buckv cells out of the main wm831x cell arrays and
+> register them via a separate mfd_add_devices() call, though that seemed
+> more intrusive across wm8310/wm8311/wm8312/wm8320. Please let me know
+> what you would prefer here.
+
+If there is a good reason why the above cannot be done in the regulator
+driver (which I doubt), then yes, factoring the two identical
+wm831x-buckv cells out of wm8310_devs/wm8311_devs/wm8312_devs/wm8320_devs
+(just like touch_devs, rtc_devs and backlight_devs already are) is still
+far better than kmemdup'ing the static const tables and matching cell
+names with strcmp() in a loop.
+
+> [1] https://lore.kernel.org/all/20260708-samsung-kp-v2-7-3c6ed4c9b3b6@gmail.com/
+
+[2] Code talks, BS walks  =:-)
+
+diff --git a/arch/arm/mach-s3c/mach-crag6410.c b/arch/arm/mach-s3c/mach-crag6410.c
+index 2264beef6dda..9657d74ca0c5 100644
+--- a/arch/arm/mach-s3c/mach-crag6410.c
++++ b/arch/arm/mach-s3c/mach-crag6410.c
+@@ -456,9 +456,21 @@ static struct pca953x_platform_data crag6410_pca_data = {
+ 	.irq_base	= -1,
+ };
+ 
++static const struct property_entry crag_dcdc1_properties[] = {
++	PROPERTY_ENTRY_GPIO("dvs-gpios", SAMSUNG_GPIO_NODE('K'), 0, GPIO_ACTIVE_HIGH),
++	{ }
++};
++
++static const struct software_node crag_dcdc1_swnode = {
++	.name = "wm831x-buckv-dcdc1",
++	.properties = crag_dcdc1_properties,
++};
++
+ /* VDDARM is controlled by DVS1 connected to GPK(0) */
+ static struct wm831x_buckv_pdata vddarm_pdata = {
+ 	.dvs_control_src = 1,
++	.swnode = &crag_dcdc1_swnode,
+ };
+ 
+ static struct regulator_consumer_supply vddarm_consumers[] = {
+@@ -656,24 +668,6 @@ static struct wm831x_pdata crag_pmic_pdata = {
+ 	.touch = &touch_pdata,
+ };
+ 
+-/*
+- * VDDARM is eventually ending up as a regulator hanging on the MFD cell device
+- * "wm831x-buckv.1" spawn from drivers/mfd/wm831x-core.c.
+- *
+- * From the note on the platform data we can see that this is clearly DVS1
+- * and assigned as dcdc1 resource to the MFD core which sets .id of the cell
+- * spawning the DVS1 platform device to 1, then the cell platform device
+- * name is calculated from 10*instance + id resulting in the device name
+- * "wm831x-buckv.11"
+- */
+-static struct gpiod_lookup_table crag_pmic_gpiod_table = {
+-	.dev_id = "wm831x-buckv.11",
+-	.table = {
+-		GPIO_LOOKUP("GPIOK", 0, "dvs", GPIO_ACTIVE_HIGH),
+-		{ },
+-	},
+-};
+-
+ static struct i2c_board_info i2c_devs0[] = {
+ 	{ I2C_BOARD_INFO("24c08", 0x50), },
+ 	{ I2C_BOARD_INFO("tca6408", 0x20),
+@@ -931,7 +925,7 @@ static void __init crag6410_machine_init(void)
+ 	s3c_fb_set_platdata(&crag6410_lcd_pdata);
+ 	dwc2_hsotg_set_platdata(&crag6410_hsotg_pdata);
+ 
+-	gpiod_add_lookup_table(&crag_pmic_gpiod_table);
++	software_node_register(&crag_dcdc1_swnode);
+ 	i2c_register_board_info(0, i2c_devs0, ARRAY_SIZE(i2c_devs0));
+ 	gpiod_add_lookup_table(&crag_wm1250_ev1_gpiod_table);
+ 	i2c_register_board_info(1, i2c_devs1, ARRAY_SIZE(i2c_devs1));
+diff --git a/drivers/regulator/wm831x-dcdc.c b/drivers/regulator/wm831x-dcdc.c
+index 834d7c181971..957da3195974 100644
+--- a/drivers/regulator/wm831x-dcdc.c
++++ b/drivers/regulator/wm831x-dcdc.c
+@@ -16,6 +16,7 @@
+ #include <linux/regulator/driver.h>
+ #include <linux/regulator/machine.h>
+ #include <linux/gpio/consumer.h>
++#include <linux/property.h>
+ #include <linux/slab.h>
+ 
+ #include <linux/mfd/wm831x/core.h>
+@@ -330,6 +331,8 @@ static void wm831x_buckv_dvs_init(struct platform_device *pdev,
+ 				 struct wm831x_buckv_pdata *pdata)
+ {
+ 	struct wm831x *wm831x = dcdc->wm831x;
++	struct fwnode_handle *fwnode;
++	enum gpiod_flags flags;
+ 	int ret;
+ 	u16 ctrl;
+ 
+@@ -341,8 +344,15 @@ static void wm831x_buckv_dvs_init(struct platform_device *pdev,
+ 	*/
+ 	dcdc->dvs_gpio_state = pdata->dvs_init_state;
+ 
+-	dcdc->dvs_gpiod = devm_gpiod_get(&pdev->dev, "dvs",
+-			dcdc->dvs_gpio_state ? GPIOD_OUT_HIGH : GPIOD_OUT_LOW);
++	flags = dcdc->dvs_gpio_state ? GPIOD_OUT_HIGH : GPIOD_OUT_LOW;
++	if (pdata->swnode) {
++		fwnode = software_node_fwnode(pdata->swnode);
++		dcdc->dvs_gpiod = devm_fwnode_gpiod_get(&pdev->dev, fwnode,
++						"dvs", flags, dcdc->name);
++	} else {
++		dcdc->dvs_gpiod = devm_gpiod_get(&pdev->dev, "dvs", flags);
++	}
++
+ 	if (IS_ERR(dcdc->dvs_gpiod)) {
+ 		dev_err(wm831x->dev, "Failed to get %s DVS GPIO: %ld\n",
+ 			dcdc->name, PTR_ERR(dcdc->dvs_gpiod));
+diff --git a/include/linux/mfd/wm831x/pdata.h b/include/linux/mfd/wm831x/pdata.h
+index 75aa94dadf1c..49501f155cc5 100644
+--- a/include/linux/mfd/wm831x/pdata.h
++++ b/include/linux/mfd/wm831x/pdata.h
+@@ -12,6 +12,7 @@
+ 
+ struct wm831x;
+ struct regulator_init_data;
++struct software_node;
+ 
+ struct wm831x_backlight_pdata {
+ 	int isink;     /** ISINK to use, 1 or 2 */
+@@ -50,6 +51,7 @@ struct wm831x_buckv_pdata {
+ 	int dvs_control_src; /** Hardware DVS source to use (1 or 2) */
+ 	int dvs_init_state;  /** DVS state to expect on startup */
+ 	int dvs_state_gpio;  /** CPU GPIO to use for monitoring status */
++	const struct software_node *swnode; /** Software node for DVS GPIOs */
+ };
+ 
+ /* Sources for status LED configuration.  Values are register values
+
+-- 
+Lee Jones
 
