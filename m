@@ -2,99 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29A5B606EA1D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:48:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65C37606EA22
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:49:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LpEtMMwS;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=gTUeBLA2
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=1wq2bH3R;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VlzrjAG6
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=VDPNZAab1PM8LOjgIqFcAGmLTyOIwR5dfmB79CXKQsE=; b=LpEtMMwStvWo+p
-	AZ58ksFFd31ipd6XGp2WZ6AlHm7oat2ujPW8ovgZCjsB2XLSSW7jdfUOi0KJMscHo1uTiOyIP98gq
-	Ewts0a/LOrddLP1uWfR4RhiHJkdG1dEFgv64UbNnYkvuAlzMNddfG8NeQdCHo4Xq7o78vzshCf0zc
-	/9tDP/c86j2PQxTAjRWhZI4nRUNThwH2LrT62T5ABebqnjLP1QUyuW2S8mjChGSIGdEUDih48xIdY
-	ILoFTM97wITXspcEoytnTqzYOAB432kBHSNbUxhQnarTyKIUE+lagBj/1tJt5yfrBgd/qgCcfuI67
-	uC82SOe5cLqwFNCJj6dg==;
+	List-Owner; bh=uaayokCbVv4A1cXEEvxZH+uDqBX0dAowaGyg2mb9XGE=; b=1wq2bH3RZ/CbrW
+	98zpGEyK1VwGgXFg2jYTA6CNgCFjZo0pk5miBFV1qOH5f9o2FkV/xRbK8d23HVpg2cTUcuxRmxYYI
+	xa/bD+e6exA7ROibLQAr4BanpyGRYU16QozAn5L13ETHiWTm3MIUZUYGUdzGsIP4K1UiIx/sTCyfH
+	bVd5s9/mXUujcz+9uMWSliR83AhOYoizAsAnSx7IltDBogJaiob75y0mxBeq5kzwO5b/6sxfkRdDr
+	4IXLcUe8CwE6fhsCv7e1vxn3vhAYesSYhxq3LBeE2fwzNHTPLZdKs4DFTpSzkPGnRy0TpP2nY9oQO
+	epxtycACk1DqFzUha9jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvxW-00000008lHk-0Fhh;
-	Thu, 05 Nov 2026 11:48:46 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1xOvxo-00000008lU6-1eOG;
+	Thu, 05 Nov 2026 11:49:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvxT-00000008lDw-1Mmy
+	id 1xOvxn-00000008lTK-1UrG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 11:48:44 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id C19CE1A0C32;
-	Thu,  5 Nov 2026 11:48:41 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 92CCE5FF85;
-	Thu,  5 Nov 2026 11:48:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7D73E1032928A;
-	Thu,  5 Nov 2026 12:48:32 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1793879318; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=VDPNZAab1PM8LOjgIqFcAGmLTyOIwR5dfmB79CXKQsE=;
-	b=gTUeBLA2N/O/B+wx+ljwmMGwLW3XWpRyBwcJ1LUmbJ7FMJjwGp0PjVnKIwFXVqrf2sYxdm
-	/62NVGRIA64/9wvmhAQM3e36EOQXGzXPsq0Pbz4Tvf7HAr3lfnBvVua5pVenkzmXuhytq2
-	uk3ENuExjaGLtsdduVRr7OHoQ1rK6OFf0oBSC1tEAl6fOmK+PiP98AyRCRsq9vlYWq1Tvs
-	rKjoGBwt/j3gYp47YiBr01OjvqjJJz3WFs0Mp9Tivfx8xcKBZxEiYNIJyi1gmzjVbzdZd+
-	U8vxJ3TttmoVX94A1sKT4PQyMI+tje46ghusL5IPcunmBTbv0aPEgrmsjctS1w==
+	Thu, 05 Nov 2026 11:49:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DCFCF41B1C;
+	Thu,  5 Nov 2026 11:49:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3DD61F00919;
+	Thu,  5 Nov 2026 11:49:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793879342;
+	bh=uaayokCbVv4A1cXEEvxZH+uDqBX0dAowaGyg2mb9XGE=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=VlzrjAG6sSMU6/B47taid7cNtATcwGb/YZBNLb0kTEkIovnLvfxXJZ5AaFkpyQAWR
+	 ERalTfZ7mReUasMFW32jlz8YwIh4pLflfSXW9g2QmhqoLtn9cUnvSX3Vx+NYy0/qsN
+	 jwXijCNswfFXXAy7UA3K3HlC2dMXrHTXiJUii+IIqR7rn/QEVcE+EnxyQKUtYnUxCd
+	 ADYMeWP4s+/BxFUEmy3y2cJog62v4I2dVnEhLXHIcpToQihMLSXs1A752aZ681njzv
+	 OY/B9S7IFjn5xOGebzsDV9Phw+jw4fdS59ZL3ueglFJtyVDRgqFownDiEeKJ5750Zc
+	 IHzEnFgOIgVGg==
+Received: from traversing.sirena.org.uk (localhost [IPv6:::1])
+	by traversing.sirena.org.uk (Postfix) with ESMTP id E4842272EB49;
+	Thu, 05 Nov 2026 11:49:00 +0000 (GMT)
+From: Mark Brown <broonie@kernel.org>
+To: Shengjiu Wang <shengjiu.wang@gmail.com>, Xiubo Li <Xiubo.Lee@gmail.com>, 
+ Fabio Estevam <festevam@gmail.com>, Nicolin Chen <nicoleotsuka@gmail.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: linux-sound@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261104113228.1634005-1-peng.fan@oss.nxp.com>
+References: <20261104113228.1634005-1-peng.fan@oss.nxp.com>
+Subject: Re: [PATCH] ASoC: imx-audmux: Convert to subsys_platform_driver()
+Message-Id: <179384086702.2186205.11117953235004783694.b4-ty@b4>
+Date: Thu, 05 Nov 2026 01:07:47 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v8 9/9] usb: typec: ucsi: huawei-gaokun: pass down
- HPD_IRQ events
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Jani Nikula <jani.nikula@linux.intel.com>, 
- Rodrigo Vivi <rodrigo.vivi@intel.com>, 
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
- Tvrtko Ursulin <tursulin@ursulin.net>, 
- Francesco Dolcini <francesco@dolcini.it>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Rob Clark <robin.clark@oss.qualcomm.com>, 
- Dmitry Baryshkov <lumag@kernel.org>, 
- Abhinav Kumar <abhinav.kumar@linux.dev>, 
- Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>, 
- Marijn Suijten <marijn.suijten@somainline.org>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Pengyu Luo <mitltlatltl@gmail.com>, 
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
-In-Reply-To: <20261024-hpd-irq-events-v8-9-6ee949e7a384@oss.qualcomm.com>
-References: <20261024-hpd-irq-events-v8-0-6ee949e7a384@oss.qualcomm.com>
- <20261024-hpd-irq-events-v8-9-6ee949e7a384@oss.qualcomm.com>
-Date: Thu, 05 Nov 2026 12:47:24 +0100
-Message-Id: <179387924497.1025980.2920324286398089325.b4-review@b4>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_034843_503618_6872366D 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1126; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=dsgrxpy2KP6cvgFm7+hbIpNnopwMFJSlB/+wS/jcktA=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLe5OqEc28Rqo8MWMv8aadtytRZQvO/HDeev/z8jnn3z
+ hW9byid0FHKwiDGxSArpsgSl8X9sr7k9Rq+gwvbYOawMoEMYeDiFICJcDQx/FMMedHTplIk+11d
+ Sycw7LCUhuT0Wu/v4u5ZD17plMzfyc7wT7/S+ehC2XM6DD4T1jpU+zt3fnJ82/T7rM0zkR/htzp
+ k+QE=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,29 +85,43 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-12.3 required=3.0 tests=BAYES_00,DATE_IN_PAST_06_12,
+	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sat, 24 Oct 2026 03:35:25 +0300, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com> wrote:
-> The DisplayPort standard defines a special kind of HPD events called
-> IRQ_HPD. These events are used to notify DP Source about the events on
-> the Sink side.
-> 
-> Pass IRQ_HPD events from the EC to the HPD bridge, letting those
-> to be delivered to the DisplayPort driver.
-> 
-> [...]
+On Wed, 04 Nov 2026 19:32:28 +0800, Peng Fan (OSS) wrote:
+> ASoC: imx-audmux: Convert to subsys_platform_driver()
 
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Applied to
 
--- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
+
+Thanks!
+
+[1/1] ASoC: imx-audmux: Convert to subsys_platform_driver()
+      https://git.kernel.org/broonie/sound/c/aa56acd47629
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
