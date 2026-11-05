@@ -2,81 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DEC1606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 17:17:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BEB8606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 17:17:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gQE2loUf;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=LpALpXCW;
-	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=XWFXN0I+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kFs06yxP;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=Jcn46zKx;
+	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=UPiMuGXj
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=aMCwmK7IAjaOgwDNgsQ6uSYvpqNKNWbffcoWB8epJZc=; b=gQE2loUfAs2duj
-	bmxktJMqcnYfysROeCiAY3rX4qnmDofB+/GR4WXY+xh5xRfw6NCWcfrr+VJAthwgUKKBaUZ1mSJ3l
-	kbahTX/vRy8d47z/rCgW/clEopRcA1R+CFlVQRs6vdD6G8354nsdRvTIVFGOTrwNa6qGFSIotq1gn
-	2qdsDq3zNgpDzKpAHtZP8Qxhl1tWp1fwOYazln9OuExxrS2zYPCkc0VG+JcICsuW1jRkiE+JIICol
-	sQ6LStzhoYWIH0xLvELcUE3Hl73toqr/N4TeijrpFCa+ypmbCd9/b/SH2GCDov29kxcgEpwEGFfus
-	hjNSiQryYrx9VcyYeaLg==;
+	List-Owner; bh=L7PfW0w9w4vPHWcoJQq9wrlaGYaPvcqfDhLDkXUySZg=; b=kFs06yxP61ec/s
+	6v47fIEN6Mfsb5mSb7fwLVTlZx95oX/0U8zp3Pg01+QD119FDpGn6sjv76h3IXHOeseUtIA3ZmQin
+	zEozlpc6ZNHq8UH49KPeT75pFG4qAI9T8KzDgB3/AbOEsP685xkQHTYb2BLtO+euHYSx7zx+fdNyw
+	5DJwIjGSW1l1xa7ndSup957NRJNqYMhBAHxOKXuuyyts3AzgU3X5rLQW+Q9/l2At0w/pKemar3l8D
+	biNrXpdkrvEqqSlt8gqhb0B9HT+T9lNLChMG2l0iBvn1vkOOMJF3sDdzl0CZoPStzIgZ3mpg+5JTC
+	dPZLlCk80tIANhnP0TgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP155-00000009qsg-27ww;
-	Thu, 05 Nov 2026 17:16:55 +0000
+	id 1xP157-00000009quH-1QIR;
+	Thu, 05 Nov 2026 17:16:57 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP14q-00000009qk8-28Zu
+	id 1xP14s-00000009qkF-0Px1
 	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 05 Nov 2026 17:16:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=aMCwmK7IAjaOgwDNgsQ6uSYvpqNKNWbffcoWB8epJZc=; b=LpALpXCWpojbq/7/xkM2KFGLwT
-	nlw+UNiX44XYpQ32GYORZ5/nelt9MTft9nZ40W7vD8Pqqq8gO9fAY3DvPUdqeS81pGN8M5KUrZLcA
-	4/WhZW3BrvCYfELnd7EZrFQaKQO/s3yIKw8dw8uQ27UmpNpuLycI+OGsDKWsoziIxRfD3DYEd9GEZ
-	qsA2vhM4aDYopOO26sxvHSedX183hDP0Yw3kjs+BBJ9jCOKxieVeoHxZFUCz5IxzuJKRAYmGunJbK
-	v2u/fCo1+GvwEfFLbvCODlsmc5zHf9xa25/ZmisTQJX/a5WDBu8ItdRN20r6Maepp5yDwniBEmcc3
-	TXuw00xQ==;
-Received: from esa1.hc555-34.eu.iphmx.com ([23.90.104.144])
+	bh=L7PfW0w9w4vPHWcoJQq9wrlaGYaPvcqfDhLDkXUySZg=; b=Jcn46zKxvrbQKSpojnL1Q/geAz
+	NY9qb44n0OgxKCOdjqpgyGFX0lwEg0AQwaIXJ1bgFU6Hm0Y1YTBXCPJ8t7funtuHyIYpwZqHN6NoF
+	JX+h5cEsDGF190bt2Wp4NBTdNEy9KM4zuVHAMiWYNfE3IOQ7hZt7MiABcFjnrOtxiEQk40QweEUU4
+	GQvtl7O5E+vXW9jh/OzHo58/6ZXl8zT1q5UyJR2VTAXOEHfh91G4pZ6WUYuFads6555Z5iQd8nNN+
+	u5n5rI/COPdSTIaPUzRM7yV79OH7JMEBo2NDfTH5ktTHqEHKRqe7ZJ2iKSWyxU74HYiOez34kBaNQ
+	vVSEyFrA==;
+Received: from esa4.hc555-34.eu.iphmx.com ([207.54.77.171])
 	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP14m-00000003KQT-3a4s
+	id 1xP14n-00000003KTT-3QFr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 17:16:39 +0000
+	Thu, 05 Nov 2026 17:16:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1793898996; x=1825434996;
+  t=1793898998; x=1825434998;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=psyr/lUeMakXQMnhGy1IvLcaYp+5UjtFhzPF6MAmIho=;
-  b=XWFXN0I+6cjV0DT608c8Gzc60qafoxk9UiZp7U3PjFJUtQEL4S6mzFoD
-   N6/C1xOaHOV67igrZu5wNTcF1zWSXIPuVcV03HgfoYD48bGj4WxiWnqRh
-   rOwtFLf2WmgjiqYpudC0LJx4LARxnk4gnjpC+hYLOp8JFdv5JyJIXYh3g
-   FcMJHNrWMu88utL6qFG8VqH92fbQvWClS9CfJt9VE4c1SHOjtNViH7OJw
-   vd9zLmiG5XjqQVGf1dg9o1/ozeukDYCWMlSJKlCxsg9ciW14d9OLONeDb
-   l6xuWXAyNKGPQncIky78Jv3gAW0ygKYUiWD7Ndc4o/A+sGFDrJaWIVD/n
+  bh=mPXDpDXk7iYLdkJnXSbOYchRVsaiItuRno2Q6Q7CGuw=;
+  b=UPiMuGXjQQWOh6+fUfRj+1IZU5EyYVq+6a48ZmXdrUS+C3ZJJpa9Trmf
+   fVqspp4wjRld4/uJ59zoMz72gW8FWJj6FcgHoD57urEoRkJWegdqEszHp
+   SCvfpaP9hJNerJKGvg6GgpB/aGTOh/KdbZVQz6SQQ5pLNPxcN4dkWgCaE
+   pAFq+MefRLYz59YT3fLA/+eHLUIGVMzAwup8OBAFFcmzdiQ/S18QAkBLV
+   A+8lDMYPNdllbXlwprKEi6lRv8ZYFqPlnf7JvO4zZZQbaYhTRSzvcrVnb
+   BKF2YO/9HV0+ANtc/LR3z1OnYgWGGvUogtAaUdQGFwT2EO9sSLvFyzPAl
    A==;
-X-CSE-ConnectionGUID: aAugRUA5RiGCENGLCXMwcQ==
-X-CSE-MsgGUID: hh+p/Mw7R0qw0Wjp/o9w0g==
+X-CSE-ConnectionGUID: vAvYU0/7SbSwBl3NeJfhPQ==
+X-CSE-MsgGUID: Ul1owX+XQJGyMCT0bFAWWA==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
-  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 19:16:33 +0200
-X-CSE-ConnectionGUID: 4YFVb3OeR8aGzqWiMOi1DQ==
-X-CSE-MsgGUID: d+iiAsL0TGqIfNLPZBxwjQ==
-Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.3])
-  by ces04_data.me-crop.lan with SMTP; 05 Nov 2026 19:24:29 +0200
-Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Thu, 05 Nov 2026 19:16:32 +0200
+Received: from unknown (HELO ces03_data.me-corp.lan) ([146.255.191.134])
+  by esa4.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 19:16:36 +0200
+X-CSE-ConnectionGUID: 6gkyCM6BQdqLiTZNHvDv0A==
+X-CSE-MsgGUID: suYRD3d+RUKY/qNhMfdJ9A==
+Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.2])
+  by ces03_data.me-corp.lan with SMTP; 05 Nov 2026 19:24:23 +0200
+Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Thu, 05 Nov 2026 19:16:34 +0200
 From: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
-Date: Thu, 05 Nov 2026 19:15:27 +0200
-Subject: [PATCH RFC v3 06/14] i2c: core: make i2c_check_for_quirks() return
- pointer to the message
+Date: Thu, 05 Nov 2026 19:15:29 +0200
+Subject: [PATCH RFC v3 08/14] i2c: uapi: add I2C_XFER_V2 ioctl - detailed
+ fault reporting
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-i2c-fault-reporting-v3-6-515ad74ac4c9@mobileye.com>
+Message-Id: <20261105-i2c-fault-reporting-v3-8-515ad74ac4c9@mobileye.com>
 References: <20261105-i2c-fault-reporting-v3-0-515ad74ac4c9@mobileye.com>
 In-Reply-To: <20261105-i2c-fault-reporting-v3-0-515ad74ac4c9@mobileye.com>
 To: Andi Shyti <andi.shyti@kernel.org>, 
@@ -91,8 +91,8 @@ Cc: Dmitry Guzman <Dmitry.Guzman@mobileye.com>, linux-i2c@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_171636_834773_0B4B757E 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20261105_171637_787135_FAE31F6F 
+X-CRM114-Status: GOOD (  16.54  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,58 +111,58 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-i2c_check_for_quirks() checks if there are messages in msgs array that
-cannot be transferred by the adapter. If there is such a message, it
-returns -EOPNOTSUPP.
+For user-space access to I2C multi-message transfer with detailed
+reporting functionality, add I2C_XFER_V2 ioctl and corresponding
+struct i2c_rdwr_v2_ioctl_data.
 
-The error code in the return value is not needed because __i2c_transfer()
-does not use it and explicitly returns -EOPNOTSUPP if
-i2c_check_for_quirks() return value is not zero. So, instead of returning
-the error code, return the pointer to the first message that cannot be
-transferred by the controller, to provide the possibility to pass the
-message index to the client.
-
-This is preparation for implementation of detailed transfer reporting.
+The structure consists of struct i2c_rdwr_ioctl_data that used in the
+same way as in I2C_XFER, and struct i2c_transfer_report that the
+detailed transfer report is put in.
 
 Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 ---
- drivers/i2c/i2c-core-base.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ include/uapi/linux/i2c-dev.h | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/i2c/i2c-core-base.c b/drivers/i2c/i2c-core-base.c
-index 3dd7ef02c562..23ff02a1e532 100644
---- a/drivers/i2c/i2c-core-base.c
-+++ b/drivers/i2c/i2c-core-base.c
-@@ -2223,15 +2223,17 @@ module_exit(i2c_exit);
- /* Check if val is exceeding the quirk IFF quirk is non 0 */
- #define i2c_quirk_exceeded(val, quirk) ((quirk) && ((val) > (quirk)))
+diff --git a/include/uapi/linux/i2c-dev.h b/include/uapi/linux/i2c-dev.h
+index 1c4cec4ddd84..5097568a3149 100644
+--- a/include/uapi/linux/i2c-dev.h
++++ b/include/uapi/linux/i2c-dev.h
+@@ -11,11 +11,13 @@
  
--static int i2c_quirk_error(struct i2c_adapter *adap, struct i2c_msg *msg, char *err_msg)
-+static struct i2c_msg *i2c_quirk_error(struct i2c_adapter *adap,
-+				       struct i2c_msg *msg, char *err_msg)
- {
- 	dev_err_ratelimited(&adap->dev, "adapter quirk: %s (addr 0x%04x, size %u, %s)\n",
- 			    err_msg, msg->addr, msg->len,
- 			    str_read_write(msg->flags & I2C_M_RD));
--	return -EOPNOTSUPP;
-+	return msg;
- }
+ #include <linux/types.h>
+ #include <linux/compiler.h>
++#include <linux/i2c.h>
  
--static int i2c_check_for_quirks(struct i2c_adapter *adap, struct i2c_msg *msgs, int num)
-+static struct i2c_msg *i2c_check_for_quirks(struct i2c_adapter *adap,
-+					    struct i2c_msg *msgs, int num)
- {
- 	const struct i2c_adapter_quirks *q = adap->quirks;
- 	int max_num = q->max_num_msgs, i;
-@@ -2282,7 +2284,7 @@ static int i2c_check_for_quirks(struct i2c_adapter *adap, struct i2c_msg *msgs,
- 		}
- 	}
+ /* /dev/i2c-X ioctl commands.  The ioctl's parameter is always an
+  * unsigned long, except for:
+  *	- I2C_FUNCS, takes pointer to an unsigned long
+  *	- I2C_RDWR, takes pointer to struct i2c_rdwr_ioctl_data
++ *	- I2C_RDWR_V2, takes pointer to struct i2c_rdwr_v2_ioctl_data
+  *	- I2C_SMBUS, takes pointer to struct i2c_smbus_ioctl_data
+  */
+ #define I2C_RETRIES	0x0701	/* number of times a device address should
+@@ -33,6 +35,7 @@
+ #define I2C_FUNCS	0x0705	/* Get the adapter functionality mask */
  
--	return 0;
-+	return NULL;
- }
+ #define I2C_RDWR	0x0707	/* Combined R/W transfer (one STOP only) */
++#define I2C_RDWR_V2	0x0709  /* I2C_RDWR with detailed fault reporting */
  
- /**
+ #define I2C_PEC		0x0708	/* != 0 to use PEC with SMBus */
+ #define I2C_SMBUS	0x0720	/* SMBus transfer */
+@@ -52,6 +55,12 @@ struct i2c_rdwr_ioctl_data {
+ 	__u32 nmsgs;			/* number of i2c_msgs */
+ };
+ 
++/* This is the structure as used in the I2C_RDWR_V2 ioctl call */
++struct i2c_rdwr_v2_ioctl_data {
++	struct i2c_rdwr_ioctl_data rdwr_data;
++	struct i2c_transfer_report report;
++};
++
+ #define  I2C_RDWR_IOCTL_MAX_MSGS	42
+ /* Originally defined with a typo, keep it for compatibility */
+ #define  I2C_RDRW_IOCTL_MAX_MSGS	I2C_RDWR_IOCTL_MAX_MSGS
 
 -- 
 2.43.0
