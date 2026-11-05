@@ -2,78 +2,151 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2994E606CF90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 16:06:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46616606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 16:15:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LBjshcs+;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Pn7Wglhq
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MSLZ83cT;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=F3bvxBvw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=/cWlRZ8SCFwTMb55OqToMLGSlbLAYefJerAulPP2VEQ=; b=LBjshcs+AgndDpEv4nKJY2ODRE
-	7yqG4sQOg9wQSOtg17fxHciLrli0ql9BVchw6n68Sm6fTFp+tAJvs4sEmDuDh5xMzlwTxlc3banP4
-	EhCNOda6SxWVSXNJS1jCTFvbMp9l1vq0USmeI/0DkCwqMRXSAhiMt1qyFuNNIkeLjUg8rcFQagNPs
-	4Sbey5ELy5ajvnTnE7iyS7k0m4Urkm7ajxbTUq39fzuJETDlV9KAsdgobtqd18Epr1DNrJGRXFNqz
-	BbSsnltVkGUzpaztgEQiJJc5W0wz649UwRrCuoAiPBlh0rSwrSUNSf0rn53uIipVKHJN+saa0Lsql
-	0YAYGJhw==;
+	bh=EVOaY6lzupMU17CGEp/mLo45HJwn4/IzgMCVwxJi9Rs=; b=MSLZ83cTU1Y9P6XDa9oOZF4Q3L
+	+ISkDQnnMeCI3fxlxSCTOStdRpSZhYtWAu7Jnjxc003g9HV6OUXvhd7zx0kjbgaAVi01ezFVWXeU4
+	jeW+wdJbxp45RmmskZ6y2r0jdTLTIa+pqsuRWxEu7AES6l3BiqWfcDnUhtQwhd1Z7U3G5NFAmvHx5
+	V1I3mM0zGJgY1Ek2pSk6lnwdDKllLANo8EOv6t5G+nPEVLtb1P/Xo80WPErZWkPQwDj9elojqmTIM
+	72JQKXacPa3t2LX/opqPrNtg7JmRrQjFNnPwVt98D+srG6wZerMaIQCHPoyjP3i+hohukm5isKx/C
+	zhfdf6ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOzyr-00000009Y2X-2nLJ;
-	Thu, 05 Nov 2026 16:06:29 +0000
-Received: from out-21.mta0.migadu.com ([2001:41d0:1004:224b::15] helo=mta0.migadu.com)
+	id 1xOyE7-00000009E5n-1gCh;
+	Thu, 05 Nov 2026 14:14:03 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOzyj-00000009Y1K-2JfQ
+	id 1xOyE3-00000009E3T-3cjJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 16:06:23 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=q1Jd3oCj3wElY/Ramn8yIWwh5Mzi3hHTvnQWrqt1nCM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793894774; v=1; x=1794499574;
- b=Pn7WglhqBntRYHjdsQbqRKyn7lHBPxai6iNEYbabp74BJ0buTkHTvlcRsdFYufNFUBCZ07ha
- gR0aM2pCLAKCkT4oXTKrbWA3gGB8l4Ctz7xVtC/wLRmglYS4m3MlkAfjemeI+wYcI1vKCkv1N1W
- CeNntVi3a8pq/wDVMBt6LV5s=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id beac4f34c3a6bc1b;
-	Thu, 05 Nov 2026 16:06:14 +0000
-X-Mizu-Trace-ID: beac4f34c3a6bc1b
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5bfca2a2af4so9902e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 08:06:10 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvBxVdP9Y4q0XYPPML9pORk2uhycpUPL0M3XWLoTCIOfzkGEayRXE0p+A+lNx4dSecIIMrmjEc4cewBscMgph1tO2@lists.infradead.org
-X-Gm-Message-State: APuU4Z8ZIs2bi7Yqa84uFrGMb/P6dZRtyNLiSEgU7ytnDRQSYZUdOvFT
-	RQ+wdp5FAVeqFb61G8yFjGBD3zjSFxhkD6ZEGwJMNniFcMSTX997vKuOxTmVqqrftkWUOq4fLF/
-	4QV2C2MwYBuL0Fbu0eV48VS+8N7mGbvIoSZKvQlhJ
-X-Received: by 2002:a05:6512:6ce:b0:5bf:bec9:aaed with SMTP id
- 2adb3069b0e04-5bffabc3e5emr166519e87.8.1793894769045; Thu, 05 Nov 2026
- 08:06:09 -0800 (PST)
+	Thu, 05 Nov 2026 14:14:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QQCJ/EAXZFxy+/y7x8IGMP8sYo1QOa5gg6e8QbIl43/H22GH+IMlUbhcX4HpJuTqixdo/VufHJqvhdN1g9ggAxLEevssFwCvc7D+tbozGwtpf/txkw9wcJhUQ5mkHt3SaboEsekgyleBaiCRURCoWF207xYOggRFyvSHPiOFUi7m0kzpQFMD1ErGEGOmUYn7FhB/WIm8JRgGuisZm4uV1x8pFt3717StsIT7ireFn5enQSzBYH9oKNNWTm6/dGxz86V5b3UWtF11LiqCgtjK7fhMvZxPmJ6YMwDDRHjB1Oy6NVQz4Qp2k9z3An79SMYDyjyaQaluxGeMiVfJSEfVFA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EVOaY6lzupMU17CGEp/mLo45HJwn4/IzgMCVwxJi9Rs=;
+ b=Yb6k+nDctsmiSSLF2MHy2IBPGatgVZkbiSWb0pnyeMMGjbkgsV9w4BxB5cmw6pwP998Rx7Lo6e357uFlk7arLqTZUz8Nvng83KPU3szHdZrMOVUc9MEZMT/OAPQfjeNG4JFUlL9IBSS7nn5dyxD+iuRF7mbMu1rWSOOOpTXajILaXdODoBwcuoSmEhf+6UhJN+WGefF4UwYuZX+X7HXrDdSEcW40MkQpB7Fe0BawPp/+5uZ8fJutVoc+uMWO8AMW+MlmhhE8xz8OZ/sSh+pRZLPzfQj/5TsvE9rFnZfePs0H5ovznulEnaJey42RxUTU1u/dYbPIv3Xgt2tYDsb4Xg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EVOaY6lzupMU17CGEp/mLo45HJwn4/IzgMCVwxJi9Rs=;
+ b=F3bvxBvwB1sUsLd2vDhbr8wMMRfRlHOu9MCaEcgZF4meRZAzEAetzIJEzWfDnkq0acjZ4inQaZ0DxhjBBD10yDHo5TgirO3je2ztpePEMuCpgYwoo0+hldc9fHxE2yED+37VpN152sbe8z0dz+CDmiv5J6R8ONOtn7tOaG1H3Oao9QXLyHUPBlKmsybCt+TUl6d/J9A0OZ1Hw4+M5fkkvR9RPJrOrcI+Qv0lqfgHNcsz4itoztADBUfy8OsEbxebZlhcJ0334a3B5hhckOBJRbKbeso8Us4qTywO9vUONe/H65OnaUO7D0KZS/3GnfIKwz2Yzh+h7qkn5PubbrpsVg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
+ by DU4PR04MB11029.eurprd04.prod.outlook.com (2603:10a6:10:590::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.9; Thu, 5 Nov 2026
+ 14:13:49 +0000
+Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
+ ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
+ ([fe80::a551:cde0:6730:1d85%5]) with mapi id 15.21.0592.009; Thu, 5 Nov 2026
+ 14:13:49 +0000
+From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+To: Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Linus Walleij <linusw@kernel.org>
+Cc: Chester Lin <chester62515@gmail.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Matthias Brugger <mbrugger@suse.com>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: [PATCH v3] pinctrl: nxp: s32g2: Enable by default on ARCH_S32
+Date: Thu,  5 Nov 2026 15:13:47 +0100
+Message-Id: <20261105141347.488850-1-khristineandreea.barbulescu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AS4PR09CA0025.eurprd09.prod.outlook.com
+ (2603:10a6:20b:5d4::15) To AM9PR04MB8179.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3b5::20)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261105110050.1244525-1-fuad.tabba@linux.dev> <861p8z2s5w.wl-maz@kernel.org>
-In-Reply-To: <861p8z2s5w.wl-maz@kernel.org>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Thu, 5 Nov 2026 16:05:32 +0000
-X-Gmail-Original-Message-ID: <CA+EHjTyEOfDf4ynYuGz1ejE3s6R2syP4=zZMcq1oKAqFfDxCNA@mail.gmail.com>
-X-Gm-Features: AclHuK9sqVJFjm0gw0BfO1w3RU0O4-fEP04HRvITK947bPe5QzS5BG9idCL7ftg
-Message-ID: <CA+EHjTyEOfDf4ynYuGz1ejE3s6R2syP4=zZMcq1oKAqFfDxCNA@mail.gmail.com>
-Subject: Re: [PATCH 0/3] KVM: arm64: vgic: Drop stale LPI pending state
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Andre Przywara <andre.przywara@arm.com>, Eric Auger <eric.auger@redhat.com>, 
-	Yuchao Zhang <ndaugoing@gmail.com>, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|DU4PR04MB11029:EE_
+X-MS-Office365-Filtering-Correlation-Id: f96b80f0-f326-4a90-91cc-08df3b470353
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|23010399003|366016|1800799024|6133799003|10067099003|18002099003|261102123227099003|11063799006|261021121427099003|261022075727099003|56012099006|261009223027099003|261021123027099003;
+X-Microsoft-Antispam-Message-Info: rIsxZWT91HoLN81a3JztVy2/7O7PmkPYsbTNP3WEQd6OwMnYX0jsNkR0lh8bgFQqRazAaM6dSwTYeAmm8GXQI8D62cvly9lTrgtxRi4+ya9XtYu3FVmVhf6Naq0rIyZbWZityWB+xz/oHPzBxbypOWdc8JooFKJsyPpSLXVV7O8GAvRP+tGPOFs194OtiLTX365nfv85CxN9bI1wcJ6t+6TcQm/QJW3iEdx7bFhhzzMB8FSh9LWrOUdsUm7NuoGKaXZHloCOpg4yp9QYRhmp9/UWX+MOnjlmsILWhjMufrtC7OASVJ35Cgq7VWtNUykDTwDelehgfhrBF/qc50pNAZzckP//kqLDIqEBD8JwuBwgGgucpEWpTYOS7Si5NdqkLmN3ypqIoSbubq+J/bSArIt5vcXiVbUEL6qZDJPp+c6hz5MohGP4usuPGdQGyg6fi9V8dCSFfC1zVJ+UK9SSrY6Pk4QeWz2bTY+eApiLL5ZxlDkUGxf9BQjLngy0o+6+lbFLcoh4eQfAOuCdWcHRp547/gurNNyCx7Pz7ZYONqZE24VjLtgxSR17ByoJ672bESbqKADZ0gf90KhXv0WvigT1AQ0JZMXp418cccY+AtKH7isyAbmQLLqfU189WxwjLgHVCf2rSZkpNsK5RumjFQHpbhxQ0DGHC10rgd9imKI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(23010399003)(366016)(1800799024)(6133799003)(10067099003)(18002099003)(261102123227099003)(11063799006)(261021121427099003)(261022075727099003)(56012099006)(261009223027099003)(261021123027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y0lwMEs2ODUyL1VrYzZoVnhIaDkxZjRQR0tFZ1JLZFlTRmE4ajU2Mjg0SHR1?=
+ =?utf-8?B?OTRBWER6aWV6S0poelluZlVXSEx4SXdCbHpVeitWUHd2WEs1ZTlYdm1VbU8x?=
+ =?utf-8?B?djc3RGZxT3JQOEcvWndMWHVHamFQT0J0djVqbzMxN3BQemhaUElCbmNuVHd1?=
+ =?utf-8?B?Z3p6TTZCbnRPb1BCSU9FSm9MeWg4N2JucmI2RlBXeVBoT2tsaVdONzczVDhV?=
+ =?utf-8?B?bmhXdVVoWEhYdEo1Ukh1OFp5K25ncWdmK21pSVNPc2dLTlFSTUFtZ2Uvc0xG?=
+ =?utf-8?B?TnRjQXByZk5HT2o1VER5Um1nNEFZaytXSjRKSlZzRXZZMGxobXFUb0lSdFd3?=
+ =?utf-8?B?bjRsdnVQWmxSMFYxTXBZTVpwbkJESnVEWDJHRHhNcFUxVjhqdGdhYmpCS05Y?=
+ =?utf-8?B?cUYvUWlxTUNBbkhueHhqbUtSZHpmZjdiWDI4Tk1MTlhmSGtHOUNFTk0vSjF0?=
+ =?utf-8?B?Qmg0RHc5VFlBOU9BaGlwNEgraTlUeHV5ZG9adXFFaWJ3NHlNMUhVQUJjVDNl?=
+ =?utf-8?B?RXRuQnA5UEZ1Qm4wcm1qN3N6cGg0cXVveVZXenloSVlDTURDek1VekFEMHJ0?=
+ =?utf-8?B?WkRMMk5aWVlibC9SbWtyK1FPQVJaR3p6WVlkVE1pM3JYYUVEeVFFVUJXR1dS?=
+ =?utf-8?B?aEhtYUdaQkthZWhnMGtLT2xtZlNSKzU0dEhqTDVmZ3ZXeXJuY1FZQTlTd3BM?=
+ =?utf-8?B?b24zZmVwZEw1NWl2NUtnOEFXUzZDQmlXUldtUDRIaitFVFVvTldRMnBxVzlD?=
+ =?utf-8?B?UDQ3OUhnMGdCcjc3MXM0NGN1NGk5ZHlZeGRnZUJVSzdab0N1WmVCNFhsZGhO?=
+ =?utf-8?B?TW9XR2dmWEtLT0Nrd1NNMnJDUXd1K0UvbXlMZDRTRW5odm9DTXZYTWRvU2Jw?=
+ =?utf-8?B?Ym1ZOGhGUGUwNDRhUGJSWnBxbURoTHJ3OFZaYXhhZ3NWcjNRWFF5alBwZ1dt?=
+ =?utf-8?B?b29KaFJEdjJuTlc0ME1yY0dETklYNnNscjRiZWh5Qjl3azRENFFkbkxyeU1L?=
+ =?utf-8?B?eHQyZkdmU0NYUU45eWRoSXdvcGlqQ2laODN6TCtMTmdNQzFOcW0xNjAzU1M2?=
+ =?utf-8?B?UHVFTHBZNU5vR1hpbVQ0Y1lMNG5vVzExbzNyWjBYMVB3V2JoVDEyMy9SWThT?=
+ =?utf-8?B?dXU0RHZZMHdud2NFQVNZZTRncVNJME9KNU05ZVVVSFJOVkV6NXNSbmdFQk5T?=
+ =?utf-8?B?QTR1NkRObkxCcmw3OTlWTnl4N0ltNVVtSVp1OFlyRUtmMUdZY05Nek5oZ01Z?=
+ =?utf-8?B?U2R4TUFVWVVEUlRaaVA4a0ZJYllTc3hiTWUrb0tsZDVUYnRobm53YkthZjNq?=
+ =?utf-8?B?ZWR4S0lacUJqaGwvc3RtTW5wMWJ4SUErWVlaSmlxRnowM1JRak04TkVrQVI3?=
+ =?utf-8?B?NFMrSnJ0Tzc0SjJpbk5lSW1CZkRDcU9MUXU0S2FlcDh6dG9HVlgwdlBoVmNu?=
+ =?utf-8?B?bkhjb1N4QkdNcmtjRlBOQTd4dUJ4RDRjZFhkaEM1RGNTdlRtWHdLZWtBeHhS?=
+ =?utf-8?B?dWVCOE1ZelVmaW0rVFpjem5sK1UrWC9LdE02VnBTaHc2c3RIbnBoZlZGYTdP?=
+ =?utf-8?B?aklVMldGVWZXUVNEWTcrdWVKRy9ldlYvNU9sOUhPSmxReFFxOExWeEMxK3dx?=
+ =?utf-8?B?bENuK0dROWhUODhCanRMdVdNOHBpeExVTjVFcStZTzUzc29wdi9HeExaOVJ5?=
+ =?utf-8?B?V1pPSGp6UUh3M281N2RmZlZBU1VIdTVUd1NPeHFuTkVTejl6bFdoSjNNM1M3?=
+ =?utf-8?B?cmgzc2NKeEludVFTYm54OHYzY1ZYa255RFVWZ3pOb1VhMFJCbys3WnJNRERE?=
+ =?utf-8?B?NjdVVTRDdjFYdkZrYzNMa1ZzTVc5cEpTamlFcVNmZGFRMHRHNnp6S052b3lJ?=
+ =?utf-8?B?d1EveENzWGJmUnNGRVZjV0w5QUFOK2pjMVFXcHBGZG1vb25aRzR0WWNmMjVH?=
+ =?utf-8?B?SHNjYkxOQ1cyTUg0d0hqTVNkNS85QS91UGlqdWxQajVsUFIwT0svbkpCcWtC?=
+ =?utf-8?B?eEpDUko3K2t5T3laZkdHSW5MeUN5dkM1Y0RtNDMzbGd6WEprU3RBR2dOWDdD?=
+ =?utf-8?B?YmpRRnVYK2M4WURhNDBiVCtBMVFhZjNyVWVRMWdsbWRUNlVRN0hEQlE3akY0?=
+ =?utf-8?B?RitxTStyc1hMZkNkMnZETitrMFpvTEpGSG9MOWs4TS9Tc3NTQVNFRDFnSjkw?=
+ =?utf-8?B?Q0RnTEpBcVNYRUlkSTlFMC95N2xsb29EY1FvUDc2aE1mTzRKdktMdVZva2xD?=
+ =?utf-8?B?dVJsSVdjUWVvTmdXVVNKRHBUV1M1SzNKbDRldlpPTDV1dDlUeFhSUmVQU2N2?=
+ =?utf-8?B?NW9BTktLWDhydFZ1QlJ1SHF1bjVtcXpTMnBDTkUzZjhKOXZMd09DZXlJT0Nl?=
+ =?utf-8?Q?kc4f80t5BXmFwiFhNwk0F6rYFzCAHHeqeU3Iu?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f96b80f0-f326-4a90-91cc-08df3b470353
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 14:13:49.6099
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Mo6K/PypW9csTNDofDtwePb0bM7Ukvphu19oUemDNTfa3u+UFP1oxlmY/0kHsDe1OWg2HeiWZE3cJLfb7P93qsWLD8UWjcT0Jxrc3PxFtQMTwvOlaKwuomEmzjM23iAm
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11029
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_080622_229299_5FE7AA4A 
-X-CRM114-Status: GOOD (  14.89  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261105_061359_985104_4DB94A28 
+X-CRM114-Status: GOOD (  13.43  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,42 +157,59 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Thu, 5 Nov 2026 at 15:51, Marc Zyngier <maz@kernel.org> wrote:
->
-> On Thu, 05 Nov 2026 11:00:47 +0000,
-> Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> >
-> > Hi folks,
-> >
-> > The GIC just keeps on giving. Three follow-ups to my LPI fixes for
-> > redistributors with LPIs disabled [1], to fix pre-existing bugs Sashiko
-> > found.
->
-> Can you *please* come up with a full series rather than this constant
-> "here's another set of patches" that address the same thing, one
-> pothole at a time?
->
-> I'm now really tempted to drop all the patches I have queued on this
-> so far, and wait for the "one true series".
+The SIUL2 pin controller provides the pin muxing used by peripherals on
+the supported S32G boards: the S32G2-based S32G274A-EVB and
+S32G274A-RDB2, and the S32G3-based S32G399A-RDB3. Without the driver
+some peripherals never finish probing and a defconfig kernel cannot
+boot to rootfs on these boards.
 
-Sorry about that. Every time I think I'm done with it, Sashiko pokes more holes!
+As the driver is required by every supported S32G board rather than
+being optional, make PINCTRL_S32G2 default to ARCH_S32 and keep the
+user prompt only under COMPILE_TEST.
 
-I'll sit on this a bit more, make sure all the gaps are closed,
-Sashiko it locally, before I respin.
+Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+---
+v3 -> v2:
+- add the Signed-off-by tag
 
-Cheers,
-/fuad
+v2 -> v1:
+- list the S32G boards that need the pinctrl driver
+in the commit message
+- drop the v1 arm64 defconfig change
+- default to ARCH_S32 in Kconfig instead
 
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+ drivers/pinctrl/nxp/Kconfig | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/pinctrl/nxp/Kconfig b/drivers/pinctrl/nxp/Kconfig
+index abca7ef97003..d6d97c944b94 100644
+--- a/drivers/pinctrl/nxp/Kconfig
++++ b/drivers/pinctrl/nxp/Kconfig
+@@ -8,8 +8,14 @@ config PINCTRL_S32CC
+ 	select REGMAP_MMIO
+ 
+ config PINCTRL_S32G2
++	bool "NXP S32G2 pinctrl driver" if COMPILE_TEST
+ 	depends on ARCH_S32 && OF
+-	bool "NXP S32G2 pinctrl driver"
++	default ARCH_S32
+ 	select PINCTRL_S32CC
+ 	help
+-	  Say Y here to enable the pinctrl driver for NXP S32G2 family SoCs
++	  Enable the SIUL2 pin controller driver for NXP S32G2 family SoCs.
++
++	  This controller provides the pin muxing and configuration needed by
++	  peripherals on the S32G274A-EVB, S32G274A-RDB2 and S32G399A-RDB3
++	  boards, so every S32G defconfig build requires it to reach rootfs.
++	  It is therefore enabled by default on ARCH_S32.
+-- 
+2.34.1
+
 
