@@ -2,83 +2,102 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EB3A606A333
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:21:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E52A606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:22:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MbEpk9TC;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=uhn628jG
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=OJZpnudl;
+	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=HTtx2Z5m
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=KoW9DJjnrzqP9I0+l+Pc/VE++4f01tBPwLkQyhjmVA0=; b=MbEpk9TC7hV3Io
-	ycOnTfbhbE8ALHscJohowfE16+c7ZQwoqquWtnIhtIJgP4XQNE/Z0JzXWcK5YslJk6Vyhu+O/pl/+
-	CxoZ4yJVTI0xe7LrpDl6ZwngQDw1NI6VVJbGlT9i0BEw9vv9syN3flFTm0ZwVvx/82//r+AiECTlc
-	NGhUjh/VEO/QwI+JZuYwqfy5YB/JOMGB3rb2NcaVvr9FcDihgdffUkN5BEu3xlWhvlPS+ghOniRD9
-	9cq44i4vOK6zLaoGvEPzqdPxj7zqiCkuM7DFnLEJZ6YGyMoo7KgsPwkqPGIFgWKDRIlL+FEjnFNnV
-	hCUi6XH3dEYi0niLENhw==;
+	List-Owner; bh=cNjLxshjbldmtVi7ezW8lx2AJPpiQwNaAFoiNC9ElWA=; b=OJZpnudl8IqmQq
+	yGeREZsgZ3hqzSmkpZ5M0cvb+Meb9N0542yWifyXelrRduB6GOzMi5Xlyt7y3n80cQUyZx9HFtxBr
+	sr7lwg6snBci4vSaU4864cK4X0UYMInsfxX17DhwN509mXdAoH7axKipyEdCOshSrbGoccSNkAWlP
+	wxdcX6uEa5ycmLDi0gY07MHWITDHEXrlFVIm0nl2+079OX6q/CByGcySRleqaGz5yuViRNUBp+Gcs
+	NRh/SBraIScAyH6r/i5Crh4JAbrEThCOlcYE64PniHqG58XeZaGm0DrpDNu5rwk3ojjI1ZQS9VWNs
+	ftI3sfiz6zc6lgrdBPQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOwSp-00000008uoH-3uTl;
-	Thu, 05 Nov 2026 12:21:08 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1xOwTq-00000008v7L-28WY;
+	Thu, 05 Nov 2026 12:22:10 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOwSl-00000008ulN-4Blw
+	id 1xOwTk-00000008v4u-2wIm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 12:21:06 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=KoW9DJjnrzqP9I0+l+Pc/VE++4f01tBPwLkQyhjmVA0=;
-	b=uhn628jGcsP3vef2gLqMgu/DL/ieolPhOGb5xyCgo7VYl3vkX2Mc5AOeG8SV+gSwdp1jaSOig
-	ixsZ40fVsh7X/qMiFKaJE/ThpKf/DbopPw5LNsngJBrHkdvezG1dNqkww10ZPHcrFp0iioUbOFS
-	V7I900dwGWfWiCbUEbx8xHM=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4jL1c62NZczmVCM;
-	Thu,  5 Nov 2026 20:20:38 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id B398940578;
-	Thu,  5 Nov 2026 20:20:49 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 5 Nov
- 2026 20:20:48 +0800
-Message-ID: <145b3c09-ff33-4fd7-935a-fa4f4c3c07b2@huawei.com>
-Date: Thu, 5 Nov 2026 20:20:47 +0800
+	Thu, 05 Nov 2026 12:22:09 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20261105122200epoutp049df28378c7b38ad94e9e23677f184f79~lJY5qt6X32564725647epoutp04f
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 12:22:00 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20261105122200epoutp049df28378c7b38ad94e9e23677f184f79~lJY5qt6X32564725647epoutp04f
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1793881320;
+	bh=cNjLxshjbldmtVi7ezW8lx2AJPpiQwNaAFoiNC9ElWA=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=HTtx2Z5mL5rvw12jKQfhGYsXeW0lv32F1V8xMP3ap5FBhTtpo3kuHw1+yZzRg1wZV
+	 UwWZwe8TfhWpt3XO0P/UV0lTP43yhFt36z1VOjtPhD8H9td/Aus80y9xuD7TDgPfxt
+	 b9ohh/fSY/FipVYMt8BU/Qaqtfkr+dZWa1X0babg=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20261105122158epcas5p41fe17543c8abcd4c86815bcdcfa554d8~lJY4Xi13h2387123871epcas5p40;
+	Thu,  5 Nov 2026 12:21:58 +0000 (GMT)
+Received: from epcas5p3.samsung.com (unknown [182.195.38.89]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4jL1dd5nMXz3hhTC; Thu,  5 Nov
+	2026 12:21:57 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261105122157epcas5p1320966a69d34521faeaabda354501162~lJY2_W1Ae2240322403epcas5p1F;
+	Thu,  5 Nov 2026 12:21:57 +0000 (GMT)
+Received: from [107.122.5.126] (unknown [107.122.5.126]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261105122154epsmtip29c3fc114ce1213d5c87c233119230900~lJY0PNi8z0501305013epsmtip2l;
+	Thu,  5 Nov 2026 12:21:54 +0000 (GMT)
+Message-ID: <b68297b5-58cb-4dd6-ac2e-07d6bd408c1c@samsung.com>
+Date: Thu, 5 Nov 2026 17:51:46 +0530
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 06/40] arm64: mpam: Context switch the MPAM registers
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
-	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
-	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
-	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
-	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
-	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
-	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
-	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>,
-	<zengheng4@huawei.com>, <linux-doc@vger.kernel.org>, Shaopeng Tan
-	<tan.shaopeng@jp.fujitsu.com>
-References: <20260313144617.3420416-1-ben.horgan@arm.com>
- <20260313144617.3420416-7-ben.horgan@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260313144617.3420416-7-ben.horgan@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+Subject: Re: [PATCH v4 2/2] usb: dwc3: Add Exynos8855 to the generic
+ platform driver
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"peter.griffin@linaro.org" <peter.griffin@linaro.org>,
+	"alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-samsung-soc@vger.kernel.org"
+	<linux-samsung-soc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "jh0801.jung@samsung.com"
+	<jh0801.jung@samsung.com>, "h10.kim@samsung.com" <h10.kim@samsung.com>,
+	"dh10.jung@samsung.com" <dh10.jung@samsung.com>, "akash.m5@samsung.com"
+	<akash.m5@samsung.com>, "hongpooh.kim@samsung.com"
+	<hongpooh.kim@samsung.com>, "eomji.oh@samsung.com" <eomji.oh@samsung.com>,
+	"shijie.cai@samsung.com" <shijie.cai@samsung.com>,
+	"muhammed.ali@samsung.com" <muhammed.ali@samsung.com>,
+	"thiagu.r@samsung.com" <thiagu.r@samsung.com>
+Content-Language: en-US
+From: Selvarasu Ganesan <selvarasu.g@samsung.com>
+In-Reply-To: <auvcLYl-ZnagU-7H@vbox>
+Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20261105122157epcas5p1320966a69d34521faeaabda354501162
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20261026135755epcas5p4efa15a5e7540d91b4411a7b324aeaa5d
+References: <20261026135715.33071-1-selvarasu.g@samsung.com>
+	<CGME20261026135755epcas5p4efa15a5e7540d91b4411a7b324aeaa5d@epcas5p4.samsung.com>
+	<20261026135715.33071-3-selvarasu.g@samsung.com> <auvcLYl-ZnagU-7H@vbox>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_042104_807678_B7254163 
-X-CRM114-Status: GOOD (  48.48  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261105_042205_389985_89DB302D 
+X-CRM114-Status: GOOD (  19.22  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,303 +117,58 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 
+On 11/5/2026 7:04 AM, Thinh Nguyen wrote:
+> On Mon, Oct 26, 2026, Selvarasu Ganesan wrote:
+>> Add the "samsung,exynos8855-dwc3" compatible string to dwc3-generic-plat
+>> so the Exynos8855 DWC3 controller can probe through the generic DWC3
+>> platform glue. While at it, alphabetically reorder the existing entries.
+> Please split the reordering into a separate patch, or just add the new
+> entry without it. There are other pending additions to this driver, and
+> the reorder will likely cause conflicts.
+>
+> Thanks,
+> Thinh
 
-在 2026/3/13 22:45, Ben Horgan 写道:
-> From: James Morse <james.morse@arm.com>
-> 
-> MPAM allows traffic in the SoC to be labeled by the OS, these labels are
-> used to apply policy in caches and bandwidth regulators, and to monitor
-> traffic in the SoC. The label is made up of a PARTID and PMG value. The x86
-> equivalent calls these CLOSID and RMID, but they don't map precisely.
-> 
-> MPAM has two CPU system registers that is used to hold the PARTID and PMG
-> values that traffic generated at each exception level will use. These can
-> be set per-task by the resctrl file system. (resctrl is the defacto
-> interface for controlling this stuff).
-> 
-> Add a helper to switch this.
-> 
-> struct task_struct's separate CLOSID and RMID fields are insufficient to
-> implement resctrl using MPAM, as resctrl can change the PARTID (CLOSID) and
-> PMG (sort of like the RMID) separately. On x86, the rmid is an independent
-> number, so a race that writes a mismatched closid and rmid into hardware is
-> benign. On arm64, the pmg bits extend the partid.
-> (i.e. partid-5 has a pmg-0 that is not the same as partid-6's pmg-0).  In
-> this case, mismatching the values will 'dirty' a pmg value that resctrl
-> believes is clean, and is not tracking with its 'limbo' code.
-> 
-> To avoid this, the partid and pmg are always read and written as a
-> pair. This requires a new u64 field. In struct task_struct there are two
-> u32, rmid and closid for the x86 case, but as we can't use them here do
-> something else. Add this new field, mpam_partid_pmg, to struct thread_info
-> to avoid adding more architecture specific code to struct task_struct.
-> Always use READ_ONCE()/WRITE_ONCE() when accessing this field.
-> 
-> Resctrl allows a per-cpu 'default' value to be set, this overrides the
-> values when scheduling a task in the default control-group, which has
-> PARTID 0. The way 'code data prioritisation' gets emulated means the
-> register value for the default group needs to be a variable.
-> 
-> The current system register value is kept in a per-cpu variable to avoid
-> writing to the system register if the value isn't going to change.  Writes
-> to this register may reset the hardware state for regulating bandwidth.
-> 
-> Finally, there is no reason to context switch these registers unless there
-> is a driver changing the values in struct task_struct. Hide the whole thing
-> behind a static key. This also allows the driver to disable MPAM in
-> response to errors reported by hardware. Move the existing static key to
-> belong to the arch code, as in the future the MPAM driver may become a
-> loadable module.
-> 
-> All this should depend on whether there is an MPAM driver, hide it behind
-> CONFIG_ARM64_MPAM.
-> 
-> Tested-by: Gavin Shan <gshan@redhat.com>
-> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Tested-by: Peter Newman <peternewman@google.com>
-> Tested-by: Zeng Heng <zengheng4@huawei.com>
-> Tested-by: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-> CC: Amit Singh Tomar <amitsinght@marvell.com>
-> Reviewed-by: Zeng Heng <zengheng4@huawei.com>
-> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> ---
-> Changes since rfc:
-> CONFIG_MPAM -> CONFIG_ARM64_MPAM in commit message
-> Remove extra DECLARE_STATIC_KEY_FALSE
-> Function name in comment, __mpam_sched_in() -> mpam_thread_switch()
-> Remove unused headers
-> Expand comment (Jonathan)
-> 
-> Changes since v2:
-> Tidy up ifdefs
-> 
-> Changes since v3:
-> Always set MPAMEN for MPAM1_EL1 rather than relying on it being read only.
-> ---
->  arch/arm64/Kconfig                   |  2 +
->  arch/arm64/include/asm/mpam.h        | 67 ++++++++++++++++++++++++++++
->  arch/arm64/include/asm/thread_info.h |  3 ++
->  arch/arm64/kernel/Makefile           |  1 +
->  arch/arm64/kernel/mpam.c             | 13 ++++++
->  arch/arm64/kernel/process.c          |  7 +++
->  drivers/resctrl/mpam_devices.c       |  2 -
->  drivers/resctrl/mpam_internal.h      |  4 +-
->  8 files changed, 95 insertions(+), 4 deletions(-)
->  create mode 100644 arch/arm64/include/asm/mpam.h
->  create mode 100644 arch/arm64/kernel/mpam.c
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 38dba5f7e4d2..ecaaca13a969 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2039,6 +2039,8 @@ config ARM64_MPAM
->  
->  	  MPAM is exposed to user-space via the resctrl pseudo filesystem.
->  
-> +	  This option enables the extra context switch code.
-> +
->  endmenu # "ARMv8.4 architectural features"
->  
->  menu "ARMv8.5 architectural features"
-> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
-> new file mode 100644
-> index 000000000000..0747e0526927
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/mpam.h
-> @@ -0,0 +1,67 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/* Copyright (C) 2025 Arm Ltd. */
-> +
-> +#ifndef __ASM__MPAM_H
-> +#define __ASM__MPAM_H
-> +
-> +#include <linux/jump_label.h>
-> +#include <linux/percpu.h>
-> +#include <linux/sched.h>
-> +
-> +#include <asm/sysreg.h>
-> +
-> +DECLARE_STATIC_KEY_FALSE(mpam_enabled);
-> +DECLARE_PER_CPU(u64, arm64_mpam_default);
-> +DECLARE_PER_CPU(u64, arm64_mpam_current);
-> +
-> +/*
-> + * The value of the MPAM0_EL1 sysreg when a task is in resctrl's default group.
-> + * This is used by the context switch code to use the resctrl CPU property
-> + * instead. The value is modified when CDP is enabled/disabled by mounting
-> + * the resctrl filesystem.
-> + */
-> +extern u64 arm64_mpam_global_default;
-> +
-> +/*
-> + * The resctrl filesystem writes to the partid/pmg values for threads and CPUs,
-> + * which may race with reads in mpam_thread_switch(). Ensure only one of the old
-> + * or new values are used. Particular care should be taken with the pmg field as
-> + * mpam_thread_switch() may read a partid and pmg that don't match, causing this
-> + * value to be stored with cache allocations, despite being considered 'free' by
-> + * resctrl.
-> + */
-> +#ifdef CONFIG_ARM64_MPAM
-> +static inline u64 mpam_get_regval(struct task_struct *tsk)
-> +{
-> +	return READ_ONCE(task_thread_info(tsk)->mpam_partid_pmg);
-> +}
-> +
-> +static inline void mpam_thread_switch(struct task_struct *tsk)
-> +{
-> +	u64 oldregval;
-> +	int cpu = smp_processor_id();
-> +	u64 regval = mpam_get_regval(tsk);
-> +
-> +	if (!static_branch_likely(&mpam_enabled))
-> +		return;
-> +
-> +	if (regval == READ_ONCE(arm64_mpam_global_default))
-> +		regval = READ_ONCE(per_cpu(arm64_mpam_default, cpu));
-> +
-> +	oldregval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
-> +	if (oldregval == regval)
-> +		return;
-> +
-> +	write_sysreg_s(regval | MPAM1_EL1_MPAMEN, SYS_MPAM1_EL1);
-> +	isb();
 
-Hi, everyone,
+Hi Thinh,
 
-We found a problem as below:
+Thanks for your feedback.
 
-In an offline/online co-located setup, MPAM gives the offline group a
-smaller MBW share, a softirq serving an online service runs with the
-PARTID of the throttled offline task it interrupted and is throttled
-with it -- a priority inversion.
+We posted new patchset with drop the alphabetical reorder of 
+dwc3_generic_of_match and just add our new entry.
 
-Is this a known limitation?
+https://lore.kernel.org/all/20261105121401.1661711-1-selvarasu.g@samsung.com/
 
-I see the following patchset uses a separate closid for kernel.
 
-https://lore.kernel.org/all/cover.1790867441.git.babu.moger@amd.com/
-
-> +
-> +	/* Synchronising the EL0 write is left until the ERET to EL0 */
-> +	write_sysreg_s(regval, SYS_MPAM0_EL1);
-> +
-> +	WRITE_ONCE(per_cpu(arm64_mpam_current, cpu), regval);
-> +}
-> +#else
-> +static inline void mpam_thread_switch(struct task_struct *tsk) {}
-> +#endif /* CONFIG_ARM64_MPAM */
-> +
-> +#endif /* __ASM__MPAM_H */
-> diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
-> index 7942478e4065..5d7fe3e153c8 100644
-> --- a/arch/arm64/include/asm/thread_info.h
-> +++ b/arch/arm64/include/asm/thread_info.h
-> @@ -41,6 +41,9 @@ struct thread_info {
->  #ifdef CONFIG_SHADOW_CALL_STACK
->  	void			*scs_base;
->  	void			*scs_sp;
-> +#endif
-> +#ifdef CONFIG_ARM64_MPAM
-> +	u64			mpam_partid_pmg;
->  #endif
->  	u32			cpu;
->  };
-> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-> index 76f32e424065..15979f366519 100644
-> --- a/arch/arm64/kernel/Makefile
-> +++ b/arch/arm64/kernel/Makefile
-> @@ -67,6 +67,7 @@ obj-$(CONFIG_CRASH_DUMP)		+= crash_dump.o
->  obj-$(CONFIG_VMCORE_INFO)		+= vmcore_info.o
->  obj-$(CONFIG_ARM_SDE_INTERFACE)		+= sdei.o
->  obj-$(CONFIG_ARM64_PTR_AUTH)		+= pointer_auth.o
-> +obj-$(CONFIG_ARM64_MPAM)		+= mpam.o
->  obj-$(CONFIG_ARM64_MTE)			+= mte.o
->  obj-y					+= vdso-wrap.o
->  obj-$(CONFIG_COMPAT_VDSO)		+= vdso32-wrap.o
-> diff --git a/arch/arm64/kernel/mpam.c b/arch/arm64/kernel/mpam.c
-> new file mode 100644
-> index 000000000000..9866d2ca0faa
-> --- /dev/null
-> +++ b/arch/arm64/kernel/mpam.c
-> @@ -0,0 +1,13 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/* Copyright (C) 2025 Arm Ltd. */
-> +
-> +#include <asm/mpam.h>
-> +
-> +#include <linux/jump_label.h>
-> +#include <linux/percpu.h>
-> +
-> +DEFINE_STATIC_KEY_FALSE(mpam_enabled);
-> +DEFINE_PER_CPU(u64, arm64_mpam_default);
-> +DEFINE_PER_CPU(u64, arm64_mpam_current);
-> +
-> +u64 arm64_mpam_global_default;
-> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-> index 489554931231..47698955fa1e 100644
-> --- a/arch/arm64/kernel/process.c
-> +++ b/arch/arm64/kernel/process.c
-> @@ -51,6 +51,7 @@
->  #include <asm/fpsimd.h>
->  #include <asm/gcs.h>
->  #include <asm/mmu_context.h>
-> +#include <asm/mpam.h>
->  #include <asm/mte.h>
->  #include <asm/processor.h>
->  #include <asm/pointer_auth.h>
-> @@ -738,6 +739,12 @@ struct task_struct *__switch_to(struct task_struct *prev,
->  	if (prev->thread.sctlr_user != next->thread.sctlr_user)
->  		update_sctlr_el1(next->thread.sctlr_user);
->  
-> +	/*
-> +	 * MPAM thread switch happens after the DSB to ensure prev's accesses
-> +	 * use prev's MPAM settings.
-> +	 */
-> +	mpam_thread_switch(next);
-> +
->  	/* the actual thread switch */
->  	last = cpu_switch_to(prev, next);
->  
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index ff861291bd4e..d50461d6ff3f 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -29,8 +29,6 @@
->  
->  #include "mpam_internal.h"
->  
-> -DEFINE_STATIC_KEY_FALSE(mpam_enabled); /* This moves to arch code */
-> -
->  /*
->   * mpam_list_lock protects the SRCU lists when writing. Once the
->   * mpam_enabled key is enabled these lists are read-only,
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index e8971842b124..4632985bcca6 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -16,12 +16,12 @@
->  #include <linux/srcu.h>
->  #include <linux/types.h>
->  
-> +#include <asm/mpam.h>
-> +
->  #define MPAM_MSC_MAX_NUM_RIS	16
->  
->  struct platform_device;
->  
-> -DECLARE_STATIC_KEY_FALSE(mpam_enabled);
-> -
->  #ifdef CONFIG_MPAM_KUNIT_TEST
->  #define PACKED_FOR_KUNIT __packed
->  #else
-
--- 
-Best regards,
-Jinjie
-
+Thanks,
+Selva
+>
+>> Co-developed-by: Muhammed Ali <muhammed.ali@samsung.com>
+>> Signed-off-by: Muhammed Ali <muhammed.ali@samsung.com>
+>> Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
+>> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+>> ---
+>>   drivers/usb/dwc3/dwc3-generic-plat.c | 5 +++--
+>>   1 file changed, 3 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/usb/dwc3/dwc3-generic-plat.c b/drivers/usb/dwc3/dwc3-generic-plat.c
+>> index ca69ac0eb07c..d57496716204 100644
+>> --- a/drivers/usb/dwc3/dwc3-generic-plat.c
+>> +++ b/drivers/usb/dwc3/dwc3-generic-plat.c
+>> @@ -232,10 +232,11 @@ static const struct dwc3_generic_config eic7700_dwc3 =  {
+>>   };
+>>   
+>>   static const struct of_device_id dwc3_generic_of_match[] = {
+>> +	{ .compatible = "eswin,eic7700-dwc3", &eic7700_dwc3},
+>> +	{ .compatible = "fsl,ls1028a-dwc3", &fsl_ls1028_dwc3},
+>> +	{ .compatible = "samsung,exynos8855-dwc3", },
+>>   	{ .compatible = "spacemit,k1-dwc3", &spacemit_k1_dwc3},
+>>   	{ .compatible = "spacemit,k3-dwc3", },
+>> -	{ .compatible = "fsl,ls1028a-dwc3", &fsl_ls1028_dwc3},
+>> -	{ .compatible = "eswin,eic7700-dwc3", &eic7700_dwc3},
+>>   	{ .compatible = "starfive,jhb100-dwc3", },
+>>   	{ /* sentinel */ }
+>>   };
+>> -- 
+>> 2.17.1
 
