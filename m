@@ -2,81 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5432606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 17:17:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E138606D801
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 17:17:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vj4Luo7/;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=q3GQF1Pj;
-	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=O4Gky68C
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xhEqtfzk;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=RgKOMqyM;
+	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=D0PUQsSG
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=G8OEW2oMhJH1UyxWk63Qgz4BWFzIqv2porLIH+T4v+Y=; b=vj4Luo7/tVXOXC
-	3gbIwSRQP21bsn8fZEL3mLn5TZb88P/9LZhqm+pJbAYEUh0iVatPB616uBgkRdjzCBmGigvT9UgVV
-	1grQgkHupX152ZNTrHk4xiY/t9WU43J3DNSG6sZGyb2OVej3kRiLAxBxJ6yOOMvfZ5iG8n6Kn4L97
-	MHaimiWYDvePs+pngjiwDRZePO+SQe3NxuaD5bvvjcWtJ9Xlflxv57kXu5w5kcqxlFE0Yb1MP1URf
-	Kh6ZopFj2R2j3jipYKE3UIBA9NOBBLWo87gY780ZhgK/yQZF9IVsz+Pf8wCHLHSdSkFYgfiSIbWS+
-	iuIG65VdiUSCdbF9cNOw==;
+	List-Owner; bh=3tEx8KGrhtebJsZtllQQJuzn9Yar2KAyiVOpIFGqfZk=; b=xhEqtfzkR75+Yf
+	KiABa1oUN9kaY985Qbq8snx4yGLPg4nOEcKBjZ27IqPHLrxJYZdugdCWttKr585Db2M3boWHHgMlR
+	qe+qVTpkyOxLNkvUv9+ynN6BYnNHUBYz3Eceh0/eFvStq9TXMYMgp22bzweOyE1l7lUSzzzm7mL64
+	hVNDaaTakC/ysKQhKJICMbAMQGC3M95TkE5EYQeg8fVlUhoGFT3XZ/ZWns35LdfWtpwF8YqetITq3
+	cRHi1IOtevWrapFvrdNxX43tB9v1lxWali7njqMBNxgsuLHGmSQ1rV1l2YHko/fHJBhj79eCvhn9x
+	zsgwp7GwsmeL+Oqd+r+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP15N-00000009qzV-3cvT;
-	Thu, 05 Nov 2026 17:17:14 +0000
+	id 1xP15U-00000009r3S-1J7V;
+	Thu, 05 Nov 2026 17:17:21 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP14s-00000009qkE-0PnC
+	id 1xP14u-00000009qkO-1yqZ
 	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 05 Nov 2026 17:16:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=G8OEW2oMhJH1UyxWk63Qgz4BWFzIqv2porLIH+T4v+Y=; b=q3GQF1Pj+jEmpLmvhVcfMXq7QT
-	IMnpm2irZh00auAZbFqUK9BN2nD4DMHt+W5txKLIvpj83NFPAAyU1abmBeso8eMZ3zU4HfBPmobUn
-	0lhVUBNKt0vxxp3tL5MGalFBzWkf7vcvwOKOZ8t2pyZZkr5F5OKLeAWPe1En1D6H3+3AEzCGFIRfC
-	4SgRv+cHFZi4euZHAMteOE/twxSYgf0pVbo1QpjmDgRD2xkqtatnoXoguwA2OT3yGRkbEII8efgZZ
-	91LyC96+ZaygpqJ6Zho0/izpCBOqmi9WmU8IRjR5qxfs113MXzPh4qf6sZZftsWsssSDKo8HJvsi4
-	gS1pxjTQ==;
+	bh=3tEx8KGrhtebJsZtllQQJuzn9Yar2KAyiVOpIFGqfZk=; b=RgKOMqyMIpgxz+wUu7VGUk60gG
+	LitOiFEBr75uhdHEVk1k2Hm1oGxvhJ2RwH12yUe+s5TwIcsvV686az6DF2y4eiKwYeaPrXmQds+hj
+	HlQJ+Dowch4ShRbxd5tDma9x0klDN8iXmiPptVl2EogbuSACIL5lGhVbPxB29VsO/gwC+QZ8Mu+VN
+	Hf5qTTM7iQqoLXPZxJo+xXDoNRo7V5IGoOU95UwbLEbgv6MrF9zbw0xtMlC4oyRPSNHrMSilXi+R2
+	kdvznls92ET3NMZq3ihoZ6dSXxPQeTO9zpMNSMsrGxSgwqT7zu5R/PZHBYEqwCFp0h9vjddciCULb
+	2sHEsEPg==;
 Received: from esa1.hc555-34.eu.iphmx.com ([23.90.104.144])
 	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP14o-00000003KQ2-234z
+	id 1xP14p-00000003KQT-3YOW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 17:16:41 +0000
+	Thu, 05 Nov 2026 17:16:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1793898998; x=1825434998;
+  t=1793898999; x=1825434999;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=u8JZnmjS3IQKnZG0ImyZQfEmDzkCLtrT3qM2bwJYsBQ=;
-  b=O4Gky68CiXPJS4irfntCe7MB0K55qeTgrR0R19plXo4hapZEWPdiZsdd
-   AOeum498dPygEmsDXF+WQzRBCNu/sX4dqWRvQcMzrPXa6Y83dZ14qKgPD
-   9ZEC3tVwtzPQZ0XvEcH1qM0esJxsY9pxuGxq0OVWum1tCDZflHMgQFWRW
-   Ew/prZrt+f113BrUEr84QhCzOJ61ILU1kSI/ZqCWPWDpIfT/UeqAeccSd
-   hQ6z4DTsplSP7tc31m43xNROvQ/htvfPmwdr4HHlSOkzNak1ejxwG8yil
-   CXApy/BX2ZZo96xnzKh/kqYWTbjrsLeL6ATkmXaHFfuvwQuqxoUtO6Nkf
+  bh=yJp8z0fUd0WqLNVGCeBa6CZScwSIESwkwvm1zwqw608=;
+  b=D0PUQsSGENGR5HVpR+R2Elrpd5z2oGjdndHPv9vqyrNLveHQh+gOyXYL
+   B/bCw1EPBpOCzdW+hL/Ett79dvOpQ2QmH7wLFsuSR0gI6LMDx42Dq5naI
+   frTGey2bBcHS6+gYab8l73Y8sjMtEwNsLJBr48rZxE0npCQC3nFsafLdX
+   6i/uHcwRnPCbvJDzmlRDSrielHcOyS4KHBuqu0ZPpkoZA7GAGz9P2F+ls
+   LbWsK+ptsALy3FDFzxCkjYKBHUPwUS6T2XdcI9EfsdfWwpfdHHklzqLgF
+   J0fwhfoNcdS4D8Fh9ov0VPlzV7lYPUdaAUIwtm4OQP52yxi7/lPXakCN1
    A==;
 X-CSE-ConnectionGUID: r8XgZcLvSViWzkJ4LTFhqw==
-X-CSE-MsgGUID: rfNHSSjjRAKLaUKuV6MEew==
+X-CSE-MsgGUID: 084N8sKPR5yY80xSsjuRPw==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
 Received: from unknown (HELO ces02_data.me-corp.lan) ([146.255.191.134])
-  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 19:16:34 +0200
-X-CSE-ConnectionGUID: TjAjZrnoQMiuCLkkx3d0oA==
-X-CSE-MsgGUID: T6XPbA59Q6WGnPYNrnP5Iw==
-Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.2])
-  by ces02_data.me-corp.lan with SMTP; 05 Nov 2026 19:24:32 +0200
-Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Thu, 05 Nov 2026 19:16:33 +0200
+  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 19:16:36 +0200
+X-CSE-ConnectionGUID: 6jLmpjNcQq+h2cqnXk79nA==
+X-CSE-MsgGUID: N/kq3xEZT/yWi+7MgDNLXw==
+Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.3])
+  by ces02_data.me-corp.lan with SMTP; 05 Nov 2026 19:24:34 +0200
+Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Thu, 05 Nov 2026 19:16:35 +0200
 From: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
-Date: Thu, 05 Nov 2026 19:15:28 +0200
-Subject: [PATCH RFC v3 07/14] i2c: core: implement i2c_transfer_v2() -
- transfer with detailed reporting
+Date: Thu, 05 Nov 2026 19:15:30 +0200
+Subject: [PATCH RFC v3 09/14] i2c: core: implement I2C_RDWR_V2 ioctl -
+ transfer with detailed report
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-i2c-fault-reporting-v3-7-515ad74ac4c9@mobileye.com>
+Message-Id: <20261105-i2c-fault-reporting-v3-9-515ad74ac4c9@mobileye.com>
 References: <20261105-i2c-fault-reporting-v3-0-515ad74ac4c9@mobileye.com>
 In-Reply-To: <20261105-i2c-fault-reporting-v3-0-515ad74ac4c9@mobileye.com>
 To: Andi Shyti <andi.shyti@kernel.org>, 
@@ -91,8 +91,8 @@ Cc: Dmitry Guzman <Dmitry.Guzman@mobileye.com>, linux-i2c@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_171638_493273_6D5982D2 
-X-CRM114-Status: GOOD (  31.91  )
+X-CRM114-CacheID: sfid-20261105_171639_821052_A0CC8CE3 
+X-CRM114-Status: GOOD (  26.50  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,246 +111,236 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-In __i2c_transfer() and i2c_transfer(), add one more parameter - pointer
-to transfer report. In __i2c_transfer(), if the pointer is not NULL,
-use algo->xfer_v2() callback instead of algo->xfer() in order to get the
-detailed transfer report. If the adapter does not have xfer_v2(), return
--EOPNOTSUPP.
+I2C_RDWR_V2 is a new ioctl for I2C controller devices. It has the same
+functionality as I2C_RDWR, with additional feature - in case of a fault
+during transfer, it provides information how many messages and bytes were
+successfully transferred and which message caused the fault. If there is
+any read data, it also may be used.
 
-If the adapter has any quirks that make impossible to transfer requested
-message or messages, put the index of the first such message to the
-transfer report structure.
-
-If the report is not NULL, algo->xfer_v2() returned an error and there
-are any read messages, trace the read data using `trace_i2c_reply(). If
-the last read message is incomplete (transfer was interrupted in the
-middle of a read message), trace the read portion of data also.
-
-Rename __i2c_transfer() to __i2c_transfer_v2() and i2c_transfer() to
-i2c_transfer_v2().
-
-For backward compatibility, add __i2c_transfer() and i2c_transfer() that
-call __i2c_transfer_v2() and i2c_transfer_v2() respectively with null
-report pointer.
-
-Remove comment "REVISIT the fault reporting model here is weak".
+This feature is available on drivers that implement i2c_xfer_v2() method
+in their i2c_algorithm.
 
 Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 ---
- drivers/i2c/i2c-core-base.c | 115 ++++++++++++++++++++++++++++++++------------
- include/linux/i2c.h         |   8 +++
- 2 files changed, 93 insertions(+), 30 deletions(-)
+ drivers/i2c/i2c-dev.c | 123 ++++++++++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 104 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/i2c/i2c-core-base.c b/drivers/i2c/i2c-core-base.c
-index 23ff02a1e532..e8449f55f045 100644
---- a/drivers/i2c/i2c-core-base.c
-+++ b/drivers/i2c/i2c-core-base.c
-@@ -2288,22 +2288,37 @@ static struct i2c_msg *i2c_check_for_quirks(struct i2c_adapter *adap,
+diff --git a/drivers/i2c/i2c-dev.c b/drivers/i2c/i2c-dev.c
+index d219eb89f978..14fe1dd7eecf 100644
+--- a/drivers/i2c/i2c-dev.c
++++ b/drivers/i2c/i2c-dev.c
+@@ -240,11 +240,19 @@ static int i2cdev_check_addr(struct i2c_adapter *adapter, unsigned int addr)
+ 	return result;
  }
  
- /**
-- * __i2c_transfer - unlocked flavor of i2c_transfer
-+ * __i2c_transfer_v2 - unlocked flavor of i2c_transfer_v2
-  * @adap: Handle to I2C bus
-  * @msgs: One or more messages to execute before STOP is issued to
-  *	terminate the operation; each message begins with a START.
-  * @num: Number of messages to be executed.
-+ * @report: The buffer for detailed transfer report (may be NULL).
-  *
-  * Returns negative errno, else the number of messages executed.
-+ * Writes the detailed transfer report to the structure pointed by @report.
-  *
-  * Adapter lock must be held when calling this function. No debug logging
-  * takes place.
-  */
--int __i2c_transfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num)
-+int __i2c_transfer_v2(struct i2c_adapter *adap, struct i2c_msg *msgs, int num,
-+		      struct i2c_transfer_report *report)
+-static noinline int i2cdev_ioctl_rdwr(struct i2c_client *client,
+-		unsigned nmsgs, struct i2c_msg *msgs)
++static noinline int i2cdev_ioctl_rdwr_v2(struct i2c_client *client,
++					 unsigned int nmsgs, struct i2c_msg *msgs,
++					 struct i2c_transfer_report __user *user_report)
  {
- 	unsigned long orig_jiffies;
- 	int ret, try;
- 
-+	if (report) {
-+		/* Initialize the report structure with -EOPNOTSUPP in all fields.
-+		 * This differentiates from the case when the adapter supports
-+		 * fault reporting and returns -EOPNOTSUPP because it cannot transfer
-+		 * a certain message.
-+		 */
-+		i2c_transfer_report_init(report);
++	struct i2c_transfer_report report;
+ 	u8 __user **data_ptrs;
+-	int i, res;
++	int i, res, msgs_done;
 +
-+		if (!adap->algo->xfer_v2)
-+			return -EOPNOTSUPP;
-+	}
++	i2c_transfer_report_init(&report);
 +
- 	if (!adap->algo->master_xfer) {
- 		dev_dbg(&adap->dev, "I2C level transfers not supported\n");
- 		return -EOPNOTSUPP;
-@@ -2316,8 +2331,16 @@ int __i2c_transfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num)
- 	if (ret)
- 		return ret;
++	if (user_report)
++		if (copy_to_user(user_report, &report, sizeof(report)))
++			return -EFAULT;
  
--	if (adap->quirks && i2c_check_for_quirks(adap, msgs, num))
--		return -EOPNOTSUPP;
-+	if (adap->quirks) {
-+		struct i2c_msg *bad_msg;
-+
-+		bad_msg = i2c_check_for_quirks(adap, msgs, num);
-+		if (bad_msg) {
-+			if (report)
-+				i2c_transfer_report_bad_msg(report, bad_msg - msgs);
-+			return -EOPNOTSUPP;
-+		}
-+	}
- 
- 	/*
- 	 * i2c_trace_msg_key gets enabled when tracepoint i2c_transfer gets
-@@ -2336,10 +2359,14 @@ int __i2c_transfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num)
- 	/* Retry automatically on arbitration loss */
- 	orig_jiffies = jiffies;
- 	for (ret = 0, try = 0; try <= adap->retries; try++) {
--		if (i2c_in_atomic_xfer_mode() && adap->algo->master_xfer_atomic)
-+		if (i2c_in_atomic_xfer_mode() && adap->algo->master_xfer_atomic) {
- 			ret = adap->algo->master_xfer_atomic(adap, msgs, num);
--		else
--			ret = adap->algo->master_xfer(adap, msgs, num);
-+		} else {
-+			if (report)
-+				ret = adap->algo->xfer_v2(adap, msgs, num, report);
-+			else
-+				ret = adap->algo->master_xfer(adap, msgs, num);
-+		}
- 
- 		if (ret != -EAGAIN)
+ 	/* Adapter must support I2C transfers */
+ 	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C))
+@@ -259,6 +267,7 @@ static noinline int i2cdev_ioctl_rdwr(struct i2c_client *client,
+ 		/* Limit the size of the message to a sane amount */
+ 		if (msgs[i].len > 8192) {
+ 			res = -EINVAL;
++			i2c_transfer_report_bad_msg(&report, i);
  			break;
-@@ -2348,58 +2375,86 @@ int __i2c_transfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num)
+ 		}
+ 
+@@ -266,6 +275,7 @@ static noinline int i2cdev_ioctl_rdwr(struct i2c_client *client,
+ 		msgs[i].buf = memdup_user(data_ptrs[i], msgs[i].len);
+ 		if (IS_ERR(msgs[i].buf)) {
+ 			res = PTR_ERR(msgs[i].buf);
++			i2c_transfer_report_bad_msg(&report, i);
+ 			break;
+ 		}
+ 		/* memdup_user allocates with GFP_KERNEL, so DMA is ok */
+@@ -287,6 +297,7 @@ static noinline int i2cdev_ioctl_rdwr(struct i2c_client *client,
+ 			    msgs[i].len < 1 || msgs[i].buf[0] < 1 ||
+ 			    msgs[i].len < msgs[i].buf[0] +
+ 					     I2C_SMBUS_BLOCK_MAX) {
++				i2c_transfer_report_bad_msg(&report, i);
+ 				i++;
+ 				res = -EINVAL;
+ 				break;
+@@ -300,12 +311,44 @@ static noinline int i2cdev_ioctl_rdwr(struct i2c_client *client,
+ 		for (j = 0; j < i; ++j)
+ 			kfree(msgs[j].buf);
+ 		kfree(data_ptrs);
++		if (user_report && copy_to_user(user_report, &report, sizeof(report)))
++			res = -EFAULT;
+ 		return res;
  	}
  
- 	if (static_branch_unlikely(&i2c_trace_msg_key)) {
--		int i;
--		for (i = 0; i < ret; i++)
-+		int i, n;
-+
-+		if (report)
-+			n = report->msgs_cplt;
+-	res = i2c_transfer(client->adapter, msgs, nmsgs);
++	if (user_report) {
++		res = i2c_transfer_v2(client->adapter, msgs, nmsgs, &report);
++		msgs_done = report.msgs_cplt;
++	} else {
++		res = i2c_transfer(client->adapter, msgs, nmsgs);
++		if (res < 0)
++			msgs_done = 0;
 +		else
-+			n = ret;
-+		for (i = 0; i < n; i++)
- 			if (msgs[i].flags & I2C_M_RD)
- 				trace_i2c_reply(adap, &msgs[i], msgs[i].len, i);
-+		if (report && report->bytes_cplt > 0 && msgs[n].flags & I2C_M_RD)
-+			trace_i2c_reply(adap, &msgs[n], report->bytes_cplt, n);
- 		trace_i2c_result(adap, num, ret);
++			msgs_done = nmsgs;
++	}
++
++	if (user_report && copy_to_user(user_report, &report, sizeof(report)))
++		res = -EFAULT;
++
++	if (msgs_done > (int)nmsgs) {
++		//fixme - use dev_err?
++		pr_err("Bad i2c_transfer_report: msgs_cplt = %i, bytes_cplt = %i, nmsgs = %i\n",
++		       report.msgs_cplt, report.bytes_cplt, nmsgs);
++		msgs_done = nmsgs;
++	}
++
++	if (report.bytes_cplt > 0) {
++		if (msgs_done < nmsgs && msgs_done >= 0) {
++			msgs[msgs_done].len = report.bytes_cplt;
++			msgs_done++;
++		} else {
++			pr_err("Bad i2c_transfer_report: msgs_cplt = %i, bytes_cplt = %i, nmsgs = %i\n",
++				report.msgs_cplt, report.bytes_cplt, nmsgs);
++		}
++	}
++
+ 	while (i-- > 0) {
+-		if (res >= 0 && (msgs[i].flags & I2C_M_RD)) {
++		if (msgs[i].flags & I2C_M_RD && i < msgs_done) {
+ 			if (copy_to_user(data_ptrs[i], msgs[i].buf,
+ 					 msgs[i].len))
+ 				res = -EFAULT;
+@@ -439,18 +482,39 @@ static long i2cdev_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+ 		funcs = i2c_get_functionality(client->adapter);
+ 		return put_user(funcs, (unsigned long __user *)arg);
+ 
+-	case I2C_RDWR: {
++	case I2C_RDWR:
++	case I2C_RDWR_V2:
++	{
++		struct i2c_rdwr_ioctl_data __user *user_arg;
++		struct i2c_transfer_report __user *user_rep;
+ 		struct i2c_rdwr_ioctl_data rdwr_arg;
+ 		struct i2c_msg *rdwr_pa;
+ 		int res;
+ 
+-		if (copy_from_user(&rdwr_arg,
+-				   (struct i2c_rdwr_ioctl_data __user *)arg,
+-				   sizeof(rdwr_arg)))
++		if (cmd == I2C_RDWR_V2) {
++			user_arg = &((struct i2c_rdwr_v2_ioctl_data __user *)arg)->rdwr_data;
++			user_rep = &((struct i2c_rdwr_v2_ioctl_data __user *)arg)->report;
++		} else {
++			user_arg = (struct i2c_rdwr_ioctl_data __user *)arg;
++			user_rep = NULL;
++		}
++
++		if (copy_from_user(&rdwr_arg, user_arg, sizeof(rdwr_arg)))
+ 			return -EFAULT;
+ 
+-		if (!rdwr_arg.msgs || rdwr_arg.nmsgs == 0)
+-			return -EINVAL;
++		if (!rdwr_arg.msgs || rdwr_arg.nmsgs == 0) {
++			/*
++			 * I2C_RDWR_V2 ioctl with nmsgs == 0 is used for
++			 * discovering of the controller capability to return
++			 * detailed fault reports.
++			 */
++			if (cmd == I2C_RDWR)
++				return -EINVAL;
++			if (client->adapter->algo->xfer_v2)
++				return 0;
++			else
++				return -EOPNOTSUPP;
++		}
+ 
+ 		/*
+ 		 * Put an arbitrary limit on the number of messages that can
+@@ -464,7 +528,7 @@ static long i2cdev_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+ 		if (IS_ERR(rdwr_pa))
+ 			return PTR_ERR(rdwr_pa);
+ 
+-		res = i2cdev_ioctl_rdwr(client, rdwr_arg.nmsgs, rdwr_pa);
++		res = i2cdev_ioctl_rdwr_v2(client, rdwr_arg.nmsgs, rdwr_pa, user_rep);
+ 		kfree(rdwr_pa);
+ 		return res;
  	}
+@@ -531,6 +595,11 @@ struct i2c_rdwr_ioctl_data32 {
+ 	u32 nmsgs;
+ };
  
- 	return ret;
- }
-+EXPORT_SYMBOL(__i2c_transfer_v2);
++struct i2c_rdwr_v2_ioctl_data32 {
++	struct i2c_rdwr_ioctl_data32 rdwr_data;
++	struct i2c_transfer_report report;
++};
 +
-+/**
-+ * __i2c_transfer - unlocked flavor of i2c_transfer
-+ * @adap: Handle to I2C bus
-+ * @msgs: One or more messages to execute before STOP is issued to
-+ *	terminate the operation; each message begins with a START.
-+ * @num: Number of messages to be executed.
-+ *
-+ * Returns negative errno, else the number of messages executed.
-+ *
-+ * Adapter lock must be held when calling this function. No debug logging
-+ * takes place.
-+ */
-+int __i2c_transfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num)
-+{
-+	return __i2c_transfer_v2(adap, msgs, num, NULL);
-+}
- EXPORT_SYMBOL(__i2c_transfer);
- 
- /**
-- * i2c_transfer - execute a single or combined I2C message
-+ * i2c_transfer_v2 - execute combined I2C message with detailed report
-  * @adap: Handle to I2C bus
-  * @msgs: One or more messages to execute before STOP is issued to
-  *	terminate the operation; each message begins with a START.
-  * @num: Number of messages to be executed.
-+ * @report: The buffer for detailed transfer report (may be NULL).
-  *
-  * Returns negative errno, else the number of messages executed.
-+ * Writes the detailed transfer report to the structure pointed by @report.
-  *
-- * Note that there is no requirement that each message be sent to
-- * the same slave address, although that is the most common model.
-  */
--int i2c_transfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num)
-+int i2c_transfer_v2(struct i2c_adapter *adap, struct i2c_msg *msgs, int num,
-+		    struct i2c_transfer_report *report)
+ static long compat_i2cdev_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
  {
- 	int ret;
+ 	struct i2c_client *client = file->private_data;
+@@ -539,19 +608,35 @@ static long compat_i2cdev_ioctl(struct file *file, unsigned int cmd, unsigned lo
+ 	case I2C_FUNCS:
+ 		funcs = i2c_get_functionality(client->adapter);
+ 		return put_user(funcs, (compat_ulong_t __user *)arg);
+-	case I2C_RDWR: {
++	case I2C_RDWR:
++	case I2C_RDWR_V2:
++	{
++		struct i2c_rdwr_ioctl_data32 __user *user_arg;
++		struct i2c_transfer_report __user *user_rep;
+ 		struct i2c_rdwr_ioctl_data32 rdwr_arg;
+ 		struct i2c_msg32 __user *p;
+ 		struct i2c_msg *rdwr_pa;
+ 		int i, res;
  
--	/* REVISIT the fault reporting model here is weak:
--	 *
--	 *  - When we get an error after receiving N bytes from a slave,
--	 *    there is no way to report "N".
--	 *
--	 *  - When we get a NAK after transmitting N bytes to a slave,
--	 *    there is no way to report "N" ... or to let the master
--	 *    continue executing the rest of this combined message, if
--	 *    that's the appropriate response.
--	 *
--	 *  - When for example "num" is two and we successfully complete
--	 *    the first message but get an error part way through the
--	 *    second, it's unclear whether that should be reported as
--	 *    one (discarding status on the second message) or errno
--	 *    (discarding status on the first one).
--	 */
- 	ret = __i2c_lock_bus_helper(adap);
- 	if (ret)
- 		return ret;
- 
--	ret = __i2c_transfer(adap, msgs, num);
-+	ret = __i2c_transfer_v2(adap, msgs, num, report);
- 	i2c_unlock_bus(adap, I2C_LOCK_SEGMENT);
- 
- 	return ret;
- }
-+EXPORT_SYMBOL(i2c_transfer_v2);
+-		if (copy_from_user(&rdwr_arg,
+-				   (struct i2c_rdwr_ioctl_data32 __user *)arg,
+-				   sizeof(rdwr_arg)))
++		if (cmd == I2C_RDWR_V2) {
++			user_arg = &((struct i2c_rdwr_v2_ioctl_data32 __user *)arg)->rdwr_data;
++			user_rep = &((struct i2c_rdwr_v2_ioctl_data32 __user *)arg)->report;
++		} else {
++			user_arg = (struct i2c_rdwr_ioctl_data32 __user *)arg;
++			user_rep = NULL;
++		}
 +
-+/**
-+ * i2c_transfer_v2 - execute a single or combined I2C message
-+ * @adap: Handle to I2C bus
-+ * @msgs: One or more messages to execute before STOP is issued to
-+ *	terminate the operation; each message begins with a START.
-+ * @num: Number of messages to be executed.
-+ *
-+ * Returns negative errno, else the number of messages executed.
-+ *
-+ * Note that there is no requirement that each message be sent to
-+ * the same slave address, although that is the most common model.
-+ */
-+int i2c_transfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num)
-+{
-+	return i2c_transfer_v2(adap, msgs, num, NULL);
-+}
- EXPORT_SYMBOL(i2c_transfer);
++		if (copy_from_user(&rdwr_arg, user_arg, sizeof(rdwr_arg)))
+ 			return -EFAULT;
  
- int i2c_xfer_to_xfer_v2(struct i2c_adapter *adap, struct i2c_msg *msgs, int num)
-diff --git a/include/linux/i2c.h b/include/linux/i2c.h
-index 6a4df8562ab4..ec5f5d6792a8 100644
---- a/include/linux/i2c.h
-+++ b/include/linux/i2c.h
-@@ -131,6 +131,14 @@ int i2c_transfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num);
- /* Unlocked flavor */
- int __i2c_transfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num);
+-		if (!rdwr_arg.msgs || rdwr_arg.nmsgs == 0)
+-			return -EINVAL;
++		if (!rdwr_arg.msgs || rdwr_arg.nmsgs == 0) {
++			if (cmd == I2C_RDWR)
++				return -EINVAL;
++			if (client->adapter->algo->xfer_v2)
++				return 0;
++			else
++				return -EOPNOTSUPP;
++		}
  
-+/* Transfer with detailed transfer reporting.
-+ */
-+int i2c_transfer_v2(struct i2c_adapter *adap, struct i2c_msg *msgs, int num,
-+		    struct i2c_transfer_report *report);
-+/* Unlocked flavor */
-+int __i2c_transfer_v2(struct i2c_adapter *adap, struct i2c_msg *msgs, int num,
-+		      struct i2c_transfer_report *report);
-+
- /* This is the very generalized SMBus access routine. You probably do not
-    want to use this, though; one of the functions below may be much easier,
-    and probably just as fast.
+ 		if (rdwr_arg.nmsgs > I2C_RDWR_IOCTL_MAX_MSGS)
+ 			return -EINVAL;
+@@ -575,7 +660,7 @@ static long compat_i2cdev_ioctl(struct file *file, unsigned int cmd, unsigned lo
+ 			};
+ 		}
+ 
+-		res = i2cdev_ioctl_rdwr(client, rdwr_arg.nmsgs, rdwr_pa);
++		res = i2cdev_ioctl_rdwr_v2(client, rdwr_arg.nmsgs, rdwr_pa, user_rep);
+ 		kfree(rdwr_pa);
+ 		return res;
+ 	}
 
 -- 
 2.43.0
