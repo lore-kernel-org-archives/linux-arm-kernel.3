@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66C2E606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 06:29:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC12B606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 06:29:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=d6I60krR;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=D34NxG/R
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4MTInHHF;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=P8+ScmDW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,79 +14,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ymerU3qs+IE5SarRlTt1VKtK551vjj0c9kwV9TnzqGE=; b=d6I60krR/jZwXNApE8AtthLb77
-	b1le9ThKuOuqTmbRvtVPSw7UHgGP+T0wvkO5lUiwL+x3TgQqG15KsbgZV8m8YhWplP84VrL6fhH5a
-	UUav2zfOBL501Fb4NaYl2eCrBTECEn1yTQAYwv3HilKspVQv1KE3KXlYc6WvAP/J677KA0Ej4GztG
-	YvocjLKnRduSdP+dCreNhtFk1PuhohSNJEUVexibWV+oS9tc1AfJWJG5ztVcjUaAclkuLD78cn3M0
-	jbuaqHrMeRMhKU9vHe6ZIY8qElrxJZCVGqhJBywGIzfi6FX55iLh8S+/V6q7au6zBSTaSxUMAeA8y
-	Gtprkl1A==;
+	bh=pENZISNm27I79cnldwyzcUX4RM9EpVrGDDlBoLAj3L0=; b=4MTInHHF7Jcst8VljOwSFaa9AT
+	pfl2aRjLYT+d1BXcniBQRCNRRZcvuZPKrQOGl57cf/gk3UvKrHiA4gE1RcVKaSe3QKF7g5/ac0R9p
+	RQf3lGcOuliZhrVYZc4lhBMvq58XiIemrpe9uIOMIOxFX3mGuFNAHNGb6foBwEjH1YgJxWNKQrnDS
+	Krf5MEksB1Ja/YpjY4JQDwTdJJfgbqxr5x58ID+JZYA646xjX7SSgtKCD2AiDfPpaTONbm9WLH4rc
+	I0mlBGlOnkgaP9aAJcmnrQQtsYkACXbe7U1h/dTKlaLTgsPJ4zxeg7PQzb1JjOqQjhNVAXPqa3Nlb
+	fOjX3cdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOqyI-00000007wsW-27eR;
-	Thu, 05 Nov 2026 06:29:14 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOqyF-00000007wsA-1zxO
+	id 1xOqyi-00000007wwH-2dkg;
+	Thu, 05 Nov 2026 06:29:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOqyf-00000007wvR-1ANc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 06:29:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793860151; x=1825396151;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=t5hBDD13+lQVTKr4HGQoZraqtI76Sha+S89tCwE0n90=;
-  b=D34NxG/RafGTrbmxGvd9dQLjfbm8FmbPljYgA4H203S/p/P7Vv9kWFRQ
-   HArN0EswoPkgxQoOUfiqyUmJN8Nv78DpggFNsRwgWi55wyNVvPSsNm+N5
-   T8/rC6jNs535YnFZSQp7LL1QkOcMDpyLZz1o85s2t6x1K2XWChlmtj3wb
-   xX0sb3KTKRvc5ERfsyxZ+K0IDNEFAv8YXPx1l+ngSy/gM7uYxe2SH/Bjy
-   nYLxEC0gkRUO2SXIhufrEYgcBTnXfeVGZmnkc13ET0Mp2eL/kVVAqpsHE
-   zN0iOGgiIFOE7qJhpTJJ441xpKpcvClor7zZXYxqAs5j/vcSN0rEXeXeM
-   A==;
-X-CSE-ConnectionGUID: WbPKnJMVQrC9R6SQkZIzFg==
-X-CSE-MsgGUID: 347I/vdfQiyheVx/BCzKyQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11956"; a="2630132"
-X-IronPort-AV: E=Sophos;i="6.27,196,1787036400"; 
-   d="scan'208";a="2630132"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Nov 2026 22:29:09 -0800
-X-CSE-ConnectionGUID: 51cbibPgTa+oa4yEGFhgvw==
-X-CSE-MsgGUID: ZCdruSxMSvuEUaYY291XpQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,196,1787036400"; 
-   d="scan'208";a="6763797"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 04 Nov 2026 22:29:03 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xOqy2-00000000lnN-303Z;
-	Thu, 05 Nov 2026 06:28:58 +0000
-Date: Thu, 5 Nov 2026 14:28:14 +0800
-From: kernel test robot <lkp@intel.com>
-To: Yureka Lilian <yureka@cyberchaos.dev>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <helgaas@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>, Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>
-Subject: Re: [PATCH v2 1/3] PCI/pwrctrl: Export per-device APIs
-Message-ID: <202611051425.vj4FPfnn-lkp@intel.com>
-References: <20261104-apple-pcie-pwren-v2-1-216a4066965f@cyberchaos.dev>
+	Thu, 05 Nov 2026 06:29:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7BB421684;
+	Wed,  4 Nov 2026 22:29:32 -0800 (PST)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 584393F628;
+	Wed,  4 Nov 2026 22:29:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793860175; bh=tb27MMCCE80mTL2ZZW3uoQHDYnAm/KCNtoGC6jO8WZM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=P8+ScmDWL0ejmrIdWtSEthP00Ljx67kHDRTxMc5THEVJvci1038gElifkR24P7LBU
+	 0oYFqnVcqHGJcC3KKhCh7YHLMNvjkOGsBHzD8/GCbHNx8RV4wM+OzNP6i4JBqThfAn
+	 UaxYi4Ry18L43ucDAF7qw8ZoPbA7eDkQVM/G792M=
+Date: Thu, 5 Nov 2026 06:29:25 +0000
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Sascha Bischoff <sascha.bischoff@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, 
+	lpieralisi@kernel.org, timothy.hayes@arm.com, fuad.tabba@linux.dev
+Subject: Re: [PATCH v2 09/16] KVM: arm64: gic-v5: Add ITS MSI injection
+Message-ID: <xgp6rwid6ew7t5x7plaesqzgskfdlc4b4ujgkbumtr6v5edjke@j7mkg6opkdf2>
+References: <20261102194454.4086911-1-sascha.bischoff@arm.com>
+ <20261102194454.4086911-10-sascha.bischoff@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261104-apple-pcie-pwren-v2-1-216a4066965f@cyberchaos.dev>
+In-Reply-To: <20261102194454.4086911-10-sascha.bischoff@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_222911_558093_2A0D3561 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20261104_222937_487284_009EF469 
+X-CRM114-Status: GOOD (  34.56  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,54 +71,323 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Yureka,
+On Mon, Nov 02, 2026 at 07:44:47PM +0000, Sascha Bischoff wrote:
+> Now that KVM can resolve GICv5 ITS translations from guest memory,
+> allow userspace and irqfd MSI injection to target a virtual GICv5 ITS.
+> 
+> Add helpers to validate that an MSI address resolves to a GICv5 ITS
+> IODEV, find the ITS for an MSI, resolve the DeviceID/EventID pair to a
+> vgic_irq, and inject the resulting LPI with the GICv5 VDPEND path.
+> GICv5 MSIs require KVM_MSI_VALID_DEVID, as the DeviceID is part of the
+> ITS translation key.
+> 
+> Although MSI data is 32 bits, GICv5 supports only 16-bit EventIDs.
+> Reject a nonzero upper half before narrowing the EventID for cache
+> lookups, so malformed MSI data cannot alias a valid translation.
+> 
+> Provide both the slow path, which resolves the translation from guest
+> memory and populates the ITS cache, and the inatomic cached path used
+> by irqfd. If the cached path misses, irqfd retries in a work item. The
+> worker borrows the VM's mm while walking the guest tables, then drops
+> it before injecting the LPI.
+> 
+> Wire kvm_set_msi() and kvm_arch_set_irq_inatomic() to use the GICv5
+> ITS injection helpers for GICv5 VMs, while keeping the existing GICv3
+> ITS path unchanged for GICv3 VMs.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  arch/arm64/kvm/vgic/vgic-irqfd.c  |   8 ++
+>  arch/arm64/kvm/vgic/vgic-its-v5.c | 132 ++++++++++++++++++++++++++++--
+>  arch/arm64/kvm/vgic/vgic.h        |   6 ++
+>  3 files changed, 139 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-irqfd.c b/arch/arm64/kvm/vgic/vgic-irqfd.c
+> index ee1a1b214f03c..c5f5ce8b80c1d 100644
+> --- a/arch/arm64/kvm/vgic/vgic-irqfd.c
+> +++ b/arch/arm64/kvm/vgic/vgic-irqfd.c
+> @@ -114,6 +114,10 @@ int kvm_set_msi(struct kvm_kernel_irq_routing_entry *e,
+>  		return -1;
+>  
+>  	kvm_populate_msi(e, &msi);
+> +
+> +	if (vgic_is_v5(kvm))
+> +		return vgic_v5_its_inject_msi(kvm, &msi);
+> +
+>  	return vgic_its_inject_msi(kvm, &msi);
+>  }
+>  
+> @@ -135,6 +139,10 @@ int kvm_arch_set_irq_inatomic(struct kvm_kernel_irq_routing_entry *e,
+>  			break;
+>  
+>  		kvm_populate_msi(e, &msi);
+> +
+> +		if (vgic_is_v5(kvm))
+> +			return vgic_v5_its_inject_cached_translation(kvm, &msi);
+> +
+>  		return vgic_its_inject_cached_translation(kvm, &msi);
+>  	}
+>  
+> diff --git a/arch/arm64/kvm/vgic/vgic-its-v5.c b/arch/arm64/kvm/vgic/vgic-its-v5.c
+> index 9f4783b243221..b69a1d107c0ae 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its-v5.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its-v5.c
+> @@ -3,8 +3,10 @@
+>   * Copyright (C) 2025 ARM Limited, All Rights Reserved.
+>   */
+>  
+> +#include <linux/kthread.h>
+>  #include <linux/kvm_host.h>
+>  #include <linux/rcupdate.h>
+> +#include <linux/sched/mm.h>
+>  #include <linux/slab.h>
+>  
+>  #include <asm/kvm_arm.h>
+> @@ -19,6 +21,7 @@
+>  
+>  #define VITS_V5_DEVICE_ID_BITS		16
+>  #define VITS_V5_EVENT_ID_BITS		16
+> +#define VITS_V5_UNMAPPED		1
+>  
+>  struct its_cache_translation_entry {
+>  	struct rcu_head rcu;
+> @@ -359,8 +362,46 @@ static int get_itte(struct kvm *kvm, u32 event_id, gpa_t itt_base,
+>  				   itt_l2_entry);
+>  }
+>  
+> +struct vgic_v5_its *vgic_v5_msi_to_its(struct kvm *kvm, struct kvm_msi *msi)
+> +{
+> +	struct kvm_io_device *kvm_io_dev;
+> +	struct vgic_io_device *iodev;
+> +	u64 address;
+> +
+> +	if (!vgic_has_its(kvm))
+> +		return ERR_PTR(-ENODEV);
+> +
+> +	if (!(msi->flags & KVM_MSI_VALID_DEVID))
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	/*
+> +	 * MSI data is 32 bits, but GICv5 limits EventIDs to 16 bits.
+> +	 * Match that limit in the vITS.
+> +	 */
+> +	if (msi->data >> VITS_V5_EVENT_ID_BITS)
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	address = (u64)msi->address_hi << 32 | msi->address_lo;
+> +
+> +	guard(srcu)(&kvm->srcu);
+> +
+> +	kvm_io_dev = kvm_io_bus_get_dev(kvm, KVM_MMIO_BUS, address);
+> +	if (!kvm_io_dev)
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	if (kvm_io_dev->ops != &kvm_io_gic_ops)
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	iodev = container_of(kvm_io_dev, struct vgic_io_device, dev);
+> +	if (iodev->iodev_type != IODEV_GICV5_ITS)
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	return iodev->v5its;
+> +}
+> +
+> +/* A positive return means the guest has no usable translation. */
+>  static int __vgic_v5_its_resolve_lpi(struct kvm *kvm, struct vgic_v5_its *its,
+> -				     u32 device_id, u16 event_id,
+> +				     u32 device_id, u32 event_id,
+>  				     struct vgic_irq **irq)
+>  {
+>  	unsigned int itt_l2sz, event_id_bits;
+> @@ -372,13 +413,15 @@ static int __vgic_v5_its_resolve_lpi(struct kvm *kvm, struct vgic_v5_its *its,
+>  	int ret;
+>  
+>  	lockdep_assert_held(&its->its_lock);
+> +	if (event_id >> VITS_V5_EVENT_ID_BITS)
+> +		return -EINVAL;
+>  
+>  	if (!its->enabled) {
+>  		kvm_debug("Cannot look up LPI; vITS is disabled\n");
+>  		return -ENXIO;
 
-kernel test robot noticed the following build warnings:
+Since the guest controls its->enabled, should we return VITS_V5_UNMAPPED
+here also?
 
-[auto build test WARNING on 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4]
+>  	}
+>  
+> -	ret = its_cache_look_up_translation(its, device_id, event_id, irq);
+> +	ret = its_cache_look_up_translation(its, device_id, (u16)event_id, irq);
+>  	if (!ret)
+>  		return 0;
+>  
+> @@ -389,23 +432,23 @@ static int __vgic_v5_its_resolve_lpi(struct kvm *kvm, struct vgic_v5_its *its,
+>  		      &event_id_bits, &itt_l2sz);
+>  	if (ret) {
+>  		kvm_debug("Error parsing guest's DT\n");
+> -		return ret;
+> +		return VITS_V5_UNMAPPED;
+>  	}
+>  
+>  	if (event_id >= 1UL << event_id_bits) {
+>  		kvm_debug("Event ID out of range\n");
+> -		return -E2BIG;
+> +		return VITS_V5_UNMAPPED;
+>  	}
+>  
+>  	ret = get_itte(kvm, event_id, itt_base, two_level_itt, itt_l2sz,
+>  		       &itt_l2_entry);
+>  	if (ret)
+> -		return ret;
+> +		return VITS_V5_UNMAPPED;
+>  
+>  	val = le64_to_cpu(itt_l2_entry);
+>  	if (!FIELD_GET(GICV5_ITTL2E_VALID, val)) {
+>  		kvm_debug("ITTE is not valid\n");
+> -		return -EINVAL;
+> +		return VITS_V5_UNMAPPED;
+>  	}
+>  
+>  	lpi = FIELD_GET(GICV5_ITTL2E_LPI_ID, val);
+> @@ -415,7 +458,8 @@ static int __vgic_v5_its_resolve_lpi(struct kvm *kvm, struct vgic_v5_its *its,
+>  		return PTR_ERR(*irq);
+>  
+>  	vgic_get_irq_ref(*irq);
+> -	ret = its_cache_add_translation(kvm, its, device_id, event_id, *irq);
+> +	ret = its_cache_add_translation(kvm, its, device_id, (u16)event_id,
+> +					 *irq);
+>  	if (ret) {
+>  		vgic_put_irq(kvm, *irq);
+>  		return 0;
+> @@ -424,12 +468,86 @@ static int __vgic_v5_its_resolve_lpi(struct kvm *kvm, struct vgic_v5_its *its,
+>  	return ret;
+>  }
+>  
+> +int vgic_v5_its_resolve_lpi(struct kvm *kvm, struct vgic_v5_its *its,
+> +			    u32 device_id, u32 event_id,
+> +			    struct vgic_irq **irq)
+> +{
+> +	guard(mutex)(&its->its_lock);
+> +
+> +	return __vgic_v5_its_resolve_lpi(kvm, its, device_id, event_id, irq);
+> +}
+> +
+>  static void vgic_v5_its_inject_lpi(struct kvm *kvm, struct vgic_irq *irq)
+>  {
+>  	kvm_call_hyp(__vgic_v5_vdpend, irq->intid, true,
+>  		     kvm->arch.vgic.gicv5_vm.vm_id);
+>  }
+>  
+> +int vgic_v5_its_inject_msi(struct kvm *kvm, struct kvm_msi *msi)
+> +{
+> +	struct vgic_v5_its *its;
+> +	struct vgic_irq *irq;
+> +	bool borrowed_mm = false;
+> +	int ret;
+> +
+> +	its = vgic_v5_msi_to_its(kvm, msi);
+> +	if (IS_ERR(its))
+> +		return PTR_ERR(its);
+> +
+> +	/* An irqfd cache miss is resolved by a worker outside the VM's mm. */
+> +	if (current->mm != kvm->mm) {
+> +		if (WARN_ON_ONCE(current->mm || !(current->flags & PF_KTHREAD)))
+> +			return -EWOULDBLOCK;
+> +
+> +		if (!mmget_not_zero(kvm->mm))
+> +			return -EFAULT;
+> +
+> +		kthread_use_mm(kvm->mm);
+> +		borrowed_mm = true;
+> +	}
+> +
+> +	ret = vgic_v5_its_resolve_lpi(kvm, its, msi->devid, msi->data, &irq);
+> +	if (borrowed_mm) {
+> +		kthread_unuse_mm(kvm->mm);
+> +		mmput(kvm->mm);
+> +	}
+> +
+> +	if (ret < 0)
+> +		return ret;
+> +	/* KVM_SIGNAL_MSI reports guest translation failures as blocked MSIs. */
+> +	if (ret)
+> +		return 0;
+> +
+> +	vgic_v5_its_inject_lpi(kvm, irq);
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Yureka-Lilian/PCI-pwrctrl-Export-per-device-APIs/20261104-124029
-base:   6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-patch link:    https://lore.kernel.org/r/20261104-apple-pcie-pwren-v2-1-216a4066965f%40cyberchaos.dev
-patch subject: [PATCH v2 1/3] PCI/pwrctrl: Export per-device APIs
-config: arm-defconfig (https://download.01.org/0day-ci/archive/20261105/202611051425.vj4FPfnn-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 812626a41399a1d464a0d69627ab45c83b8ebfb9)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261105/202611051425.vj4FPfnn-lkp@intel.com/reproduce)
+Looks like the MSI translation (vgic_v5_its_resolve_lpi) and injection
+(vgic_v5_its_inject_lpi) are not protected by the its_lock together, so
+between the two a guest could:
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611051425.vj4FPfnn-lkp@intel.com/
+1. change the MSI translation
+2. invalidate the old translation and observe it complete
+3. synchronize and observe it complete
 
-All warnings (new ones prefixed by >>):
+and later still receive an interrupt from the old translation.
 
->> Warning: drivers/pci/pwrctrl/core.c:203 function parameter 'np' not described in 'pci_pwrctrl_power_off_device'
->> Warning: drivers/pci/pwrctrl/core.c:203 Excess function parameter 'device_node' description in 'pci_pwrctrl_power_off_device'
->> Warning: drivers/pci/pwrctrl/core.c:272 function parameter 'np' not described in 'pci_pwrctrl_power_on_device'
->> Warning: drivers/pci/pwrctrl/core.c:272 Excess function parameter 'device_node' description in 'pci_pwrctrl_power_on_device'
->> Warning: drivers/pci/pwrctrl/core.c:370 function parameter 'np' not described in 'pci_pwrctrl_create_device'
->> Warning: drivers/pci/pwrctrl/core.c:370 function parameter 'parent' not described in 'pci_pwrctrl_create_device'
->> Warning: drivers/pci/pwrctrl/core.c:370 Excess function parameter 'device_node' description in 'pci_pwrctrl_create_device'
->> Warning: drivers/pci/pwrctrl/core.c:439 function parameter 'np' not described in 'pci_pwrctrl_destroy_device'
->> Warning: drivers/pci/pwrctrl/core.c:439 Excess function parameter 'device_node' description in 'pci_pwrctrl_destroy_device'
->> Warning: drivers/pci/pwrctrl/core.c:203 function parameter 'np' not described in 'pci_pwrctrl_power_off_device'
->> Warning: drivers/pci/pwrctrl/core.c:203 Excess function parameter 'device_node' description in 'pci_pwrctrl_power_off_device'
->> Warning: drivers/pci/pwrctrl/core.c:272 function parameter 'np' not described in 'pci_pwrctrl_power_on_device'
->> Warning: drivers/pci/pwrctrl/core.c:272 Excess function parameter 'device_node' description in 'pci_pwrctrl_power_on_device'
->> Warning: drivers/pci/pwrctrl/core.c:370 function parameter 'np' not described in 'pci_pwrctrl_create_device'
->> Warning: drivers/pci/pwrctrl/core.c:370 function parameter 'parent' not described in 'pci_pwrctrl_create_device'
->> Warning: drivers/pci/pwrctrl/core.c:370 Excess function parameter 'device_node' description in 'pci_pwrctrl_create_device'
->> Warning: drivers/pci/pwrctrl/core.c:439 function parameter 'np' not described in 'pci_pwrctrl_destroy_device'
->> Warning: drivers/pci/pwrctrl/core.c:439 Excess function parameter 'device_node' description in 'pci_pwrctrl_destroy_device'
+Same issue exists for vgic_v5_its_inject_cached_translation() below, but
+it can't take the its_lock, not sure what the best solution is there..
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thanks,
+Wei-Lin Chang
+
+> +	vgic_put_irq(kvm, irq);
+> +
+> +	return 1;
+> +}
+> +
+> +int vgic_v5_its_inject_cached_translation(struct kvm *kvm, struct kvm_msi *msi)
+> +{
+> +	struct vgic_v5_its *its;
+> +	struct vgic_irq *irq;
+> +	int ret;
+> +
+> +	its = vgic_v5_msi_to_its(kvm, msi);
+> +	if (IS_ERR(its))
+> +		return PTR_ERR(its);
+> +
+> +	if (!READ_ONCE(its->enabled))
+> +		return -EWOULDBLOCK;
+> +
+> +	ret = its_cache_look_up_translation(its, msi->devid, (u16)msi->data,
+> +					    &irq);
+> +	if (ret)
+> +		return -EWOULDBLOCK;
+> +
+> +	vgic_v5_its_inject_lpi(kvm, irq);
+> +	vgic_put_irq(kvm, irq);
+> +
+> +	return 0;
+> +}
+> +
+>  static void vgic_v5_its_handle_read_event(struct kvm *kvm,
+>  					  struct vgic_v5_its *its)
+>  {
+> diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+> index 9e1cbcdedf3f5..64f6229fe555e 100644
+> --- a/arch/arm64/kvm/vgic/vgic.h
+> +++ b/arch/arm64/kvm/vgic/vgic.h
+> @@ -364,6 +364,12 @@ void vgic_v3_put(struct kvm_vcpu *vcpu);
+>  bool vgic_has_its(struct kvm *kvm);
+>  int kvm_vgic_register_its_device(void);
+>  int kvm_vgic_v5_register_its_device(void);
+> +struct vgic_v5_its *vgic_v5_msi_to_its(struct kvm *kvm, struct kvm_msi *msi);
+> +int vgic_v5_its_resolve_lpi(struct kvm *kvm, struct vgic_v5_its *its,
+> +			    u32 device_id, u32 event_id,
+> +			    struct vgic_irq **irq);
+> +int vgic_v5_its_inject_msi(struct kvm *kvm, struct kvm_msi *msi);
+> +int vgic_v5_its_inject_cached_translation(struct kvm *kvm, struct kvm_msi *msi);
+>  void vgic_enable_lpis(struct kvm_vcpu *vcpu);
+>  void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu);
+>  int vgic_its_inject_msi(struct kvm *kvm, struct kvm_msi *msi);
+> -- 
+> 2.34.1
+> 
 
