@@ -2,112 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C97EF606A33E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:29:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97F30606D818
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:29:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vvVc1bK3;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QXjKTJio
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=pK9hsGCu;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E9oaO+Na
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=SB060tm94ok1G3ZrAKChHc1CAPBDl1EJH81JADMrd2I=; b=vvVc1bK3yAUJF3/UZT3iVevMJ8
-	F9uVsxLrc7WMW4TviHNr9HBl9c9hL6xt9RlkraX3VXke0rBIxJrFJUlqCPg/l+tU1x/IiUPQQ/h5+
-	deJ/U4ejEMBXY72DB43Xl9yXD2cJMrbig8AiSIxp1dU/PzOZ7+NEvzOXhXyAfdLiqRGk0tNRPR1LU
-	1dH2pWY0+S9QhhUR3FC/LKEUNSOKwRgo5gBBZgUuzjYly8oeBDNtJb7gYNKi5RasBGQg1AOSt8gI5
-	hCiLvE+65gcMP+lZEQoKxlG1vfZpa7jMIEUdy8Vp8VP9l8/o1exgLj154g2/pwKEZLlIkMOI9tfhJ
-	P7wuik1w==;
+	bh=A3wa5CvpyG7Bv+3nyw/J1JeS+qybhpRhQxCSuvYcfwk=; b=pK9hsGCuF0gIvXr6incelFlVhh
+	VZkFLaqtti/z2cRBrJ2ioMo1T9TRgbX8TUsYJcudQypFCn7CgD50gaXN+L/YgATLE0CFaZ2bLSWIq
+	/qhO0WWHLdDFPyyRrBTpMFX4b+eBTtWaa95u6Au9TwRjJTR2CrU9Zm+s5ooDZN8LrI6UENDyzW4Fl
+	v6iyabYvDGm/JHz5ai1NoWeYJ2iHllHsTmyydYpvLkeS8SuQMH7HoceuiHjQPAO5hMqOOoVW6SEmY
+	u1AKNF6RKShLu7Rqy+vs9LN7qtT5PkEiIzQmHTQ1rd5qaY1yCvoXwSOQ0IlOJgT6tHnZkXipZ46fq
+	ZNgqInxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOySg-00000009Gk5-0uDD;
-	Thu, 05 Nov 2026 14:29:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOySz-00000009H92-0Ixt;
+	Thu, 05 Nov 2026 14:29:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOySe-00000009Gim-1wAR;
-	Thu, 05 Nov 2026 14:29:04 +0000
+	id 1xOySu-00000009H1e-1fWO
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Nov 2026 14:29:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 268FC43E63;
-	Thu,  5 Nov 2026 14:29:04 +0000 (UTC)
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1793888944;
-	b=xkBMd7s8yjCUyUiRj/tQmEl5Rn3yc/umB2DQZu+TGKBgp0FCBhr8Sb1wkI2qkvFu4Yys
-	 rumZvaPDBPvjze0o2HfUB6wqSHlGHk9xVFw2r1q3ZOeJSN/minFTZkgNsHWudp03Eg4Ow
-	 rAqkA9MGv9XWuihBv3pYbRvSxcHyn89BIkCU33o+rDGvVBCBveiKdME2W6pmiG9HsylLc
-	 Cy4TeJcffSd+W1dVsxn6+GjrMuCmYsgYKHAxBsRaaTUYnUIqFr4Bwjzn5zGc48BbWG2TX
-	 0lOIADd7TDUOZC3KWRHZumLChvW9w7dd7Ki0JXNlu4csiB6KO1m4pJtJWdpjX7HwdZg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1793888944;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=SB060tm94ok1G3ZrAKChHc1CAPBDl1EJH81JADMrd2I=;
-	b=Xl93jVLs+F3yt1b/oM3DoufmRvrFIxS4V5rUXcbwZhr7tWRiU0O9KAWWpEqyG2IEWXt3
-	 zzCvtCf25y4FjW8XIalSNWotmQagdV0pXM6VTwsxJZvjX5krBArWVvJRb8teAKsAlXaKo
-	 D833bCUoJfaF/sDFlsaOL+CHBJGkN4aAcob4lgIcxLmc2zcI8hPrK+cDAMVaFpdPUCZ9j
-	 uDDJ/OQn7KOjcETWscBeIbCiobgZs1dt8ew1YmHFafLptKj8A88h1wJSZCFbiGo5DcLug
-	 eECXIbog00/XdoIGO7rKiapOPlcEjJ5618KkfmrS2uGFbv3iFdVJAHX6wU1MNXUmyGA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B01621F00919;
-	Thu,  5 Nov 2026 14:29:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C0409600AA;
+	Thu,  5 Nov 2026 14:29:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B4BF1F00A18;
+	Thu,  5 Nov 2026 14:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793888944;
-	bh=SB060tm94ok1G3ZrAKChHc1CAPBDl1EJH81JADMrd2I=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=QXjKTJiowPoq09eaNbrqnkXtMkwV6FoFRtLqimoJKlru0kwtSJknSwMGTn4juhh9w
-	 poEBu9KanHg9Lv0DzDwAIc0r7rAtChWC6WEpsLmuK3mFNaYbrjLAbKSjX/BYkx/TNO
-	 vgFZMs6y1tf7IKjRLq+7BalJfGSf9E46WbU/u1XQwwqC0zPs4aw7528eYkf/85FUKo
-	 G70C3bvwyGmYy/fz/QaCoWlpE8I0O5FNaluWbRWAvPTAXnfBJ8jPrv65EjQPuCalLF
-	 oE+D74iySop2o3WNnDNVWAkYiV2ttuUukA1CN7rSyVJkmhxOcpdwYTExZTyiSwdLDD
-	 wOV6VTQhDL7Mg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 12F16472B5;
-	Thu,  5 Nov 2026 14:29:02 +0000 (UTC)
-From: Ben Grisdale via B4 Relay <devnull+bengris32.protonmail.ch@kernel.org>
-Subject: [PATCH v2 0/6] arm64: Initial support for MediaTek MT8163 SoC
-Date: Thu, 05 Nov 2026 14:28:45 +0000
-Message-Id: <20261105-arm64-initial-support-for-mediatek-mt8163-soc-v2-0-e68d7d428f99@protonmail.ch>
+	s=k20260515; t=1793888959;
+	bh=A3wa5CvpyG7Bv+3nyw/J1JeS+qybhpRhQxCSuvYcfwk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=E9oaO+Naww29VHVnNJYLHH2NZLzrkucxWXbicUL99iwVV2j6hEBgtf14CELtGtFVB
+	 RUXLo5DB4+hpDhTtD1BrDQNIZZC2nB19+0QArVauTW0Cp0wY9KjzL8w5snuLuSYhW1
+	 QrGiOcOJA8o+u3HmjoJtUKWg5T5VFNduYyJHdl9wQdxE3I6cxoHFGZJ9xFze2o5I+l
+	 rNQizRf4fm7Y/fbdsgab+lrhP2ZkGeHJczT6ZmDYXNLjrhrHb+XnCp65rcNhpToxdW
+	 gklch/oS040pSuB855YNqVR2DSzbsgPnJVSvQJJUhlB1zP4FMJWCt2N0Hm445XvMMb
+	 Y23nS1eLlSfVA==
+Date: Thu, 5 Nov 2026 14:29:12 +0000
+From: Lee Jones <lee@kernel.org>
+To: Thomas Perrot <thomas.perrot@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	=?iso-8859-1?Q?J=E9r=E9mie?= Dautheribes <jeremie.dautheribes@bootlin.com>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>, Frank Li <Frank.Li@nxp.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-watchdog@vger.kernel.org,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>, mfd@lists.linux.dev
+Subject: Re: [PATCH v9 2/4] mfd: aaeon: Add SRG-IMX8P MCU driver
+Message-ID: <179370051070.793788.9316421428527145334@kernel.org>
+References: <20261029-dev-b4-aaeon-mcu-driver-v9-0-f9b6d0cc180d@bootlin.com>
+ <20261029-dev-b4-aaeon-mcu-driver-v9-2-f9b6d0cc180d@bootlin.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WOQQ6CMBBFr0K6dgwttaAr72FYlDLIKLSkLURDu
- LuA8QAuX/Ly359ZQE8Y2CWZmceJAjm7gjgkzLTa3hGoXpmJVCie8gK075UEshRJdxDGYXA+QuM
- 89FiTjviEPhZcZRCcAdSnopa5qXKt2bo5eGzotfdu5ZfDWD3QxC2yGS2F6Px7PzTxzfu1z3+2J
- w4pNEIqUYlayCy/Dt5FZ3tN3dG0rFyW5QMb3audAAEAAA==
-X-Change-ID: 20261018-arm64-initial-support-for-mediatek-mt8163-soc-ea58d47cb7aa
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Sean Wang <sean.wang@mediatek.com>, Thomas Gleixner <tglx@kernel.org>, 
- Radu Rendec <radu@rendec.net>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-serial@vger.kernel.org, Ben Grisdale <bengris32@protonmail.ch>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1793888941; l=2514;
- i=bengris32@protonmail.ch; s=20261018; h=from:subject:message-id;
- bh=xYWhJdUiyf1YSsJbWggMRSuD7a4P0ZPx+YpqCfYj/AY=;
- b=Dy4ilgGz6/7wDjsLtjtacc2scZ/XdEP0ABXqQCC9jkR0mpFWmP8b6bmM9RLffsp3svumiHFGf
- Ghhl5a20pe6AQ89y1ZmLn6kM/xtS8cAla+R/oWBuHNoLd9NrRLE9Scj
-X-Developer-Key: i=bengris32@protonmail.ch; a=ed25519;
- pk=4ewFRC2yNph/tXokHVzIDlgOA9Hxecf1AlBuD4eOnaU=
-X-Endpoint-Received: by B4 Relay for bengris32@protonmail.ch/20261018 with
- auth_id=1233
-X-Original-From: Ben Grisdale <bengris32@protonmail.ch>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261029-dev-b4-aaeon-mcu-driver-v9-2-f9b6d0cc180d@bootlin.com>
+X-AI-Review-Draft: <20261029-dev-b4-aaeon-mcu-driver-v9-2-f9b6d0cc180d@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,73 +84,400 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: bengris32@protonmail.ch
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-21.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	FREEMAIL_REPLYTO_END_DIGIT,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This series adds basic support for the MediaTek MT8163 SoC.
+--- checkpatch.pl (2 issues) ---
+Line 301: WARNING: DT compatible string "aaeon,srg-imx8p-mcu" appears un-documented -- check ./Documentation/devicetree/bindings/
+Line 301: WARNING: DT compatible string vendor "aaeon" appears un-documented -- check ./Documentation/devicetree/bindings/vendor-prefixes.yaml
+----------------------------------
 
-The MT8163 is a 64-bit SoC featuring four ARM Cortex-A53 cores,
-typically found in entry-level tablets and smart displays, such as
-the Amazon Echo and Fire HD devices.
+On Thu, 29 Oct 2026, Thomas Perrot (Schneider Electric) wrote:
 
-The bindings and SoC dtsi added here, together with the already applied
-watchdog support, are enough to boot the 2016 Amazon Echo Dot (biscuit)
-to a shell over UART0.
+> Add a driver for the Aaeon SRG-IMX8P embedded controller. This driver
+> provides the core I2C communication interface and registers child
+> devices (GPIO and watchdog controllers).
+>
+> The driver implements a custom regmap bus over I2C to match the MCU's
+> fixed 3-byte command format [opcode, arg, value]. Register addresses
+> are encoded as 16-bit values (opcode << 8 | arg) using the
+> AAEON_MCU_REG() macro defined in the shared header. The regmap
+> instance is shared with child drivers via dev_get_regmap(). Concurrent
+> I2C accesses from child drivers are serialized by regmap's built-in
+> locking.
+>
+> The MCU wants a STOP between a command and its response, so they are
+> two separate transfers. Both are issued under the I2C segment lock so
+> that no other transfer on the same I2C segment can land in between.
+>
+> I2C transfers use heap-allocated DMA-safe buffers rather than
+> stack-allocated ones, as required by I2C controllers that perform DMA.
+>
+> Regmap caching is enabled (REGCACHE_MAPLE) with a volatile_reg
+> callback that marks GPIO input read registers (opcode 0x72) and the
+> watchdog status register (opcode 0x63, arg 0x02) as volatile. All
+> other registers written by the driver (GPIO direction,
+> GPO state, watchdog control) are stable and can be safely cached.
+>
+> Only those two kinds of registers are readable. Any other opcode is a
+> command, and the frame sent for a read is the same as the one used to
+> write it, so reading it, for instance through the regmap debugfs
+> registers file, would execute the command.
+>
+> Co-developed-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
+> Signed-off-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
+> Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
+> ---
+>  MAINTAINERS                   |   2 +
+>  drivers/mfd/Kconfig           |  11 +++
+>  drivers/mfd/Makefile          |   1 +
+>  drivers/mfd/aaeon-mcu.c       | 221 ++++++++++++++++++++++++++++++++++++++++++
+>  include/linux/mfd/aaeon-mcu.h |  40 ++++++++
+>  5 files changed, 275 insertions(+)
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 3f85e2a8b192..55fc12c283fa 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -192,6 +192,8 @@ M:	Thomas Perrot <thomas.perrot@bootlin.com>
+>  R:	Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
+> +F:	drivers/mfd/aaeon-mcu.c
+> +F:	include/linux/mfd/aaeon-mcu.h
+>
+>  AAEON UPBOARD FPGA MFD DRIVER
+>  M:	Thomas Richard <thomas.richard@bootlin.com>
+> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+> index 87ed55c155f0..72bca7026cee 100644
+> --- a/drivers/mfd/Kconfig
+> +++ b/drivers/mfd/Kconfig
+> @@ -1581,6 +1581,17 @@ config ABX500_CORE
+>  	  remain unchanged when IC changes. Binding of the functions to
+>  	  actual register access is done by the IC core driver.
+>
+> +config MFD_AAEON_MCU
+> +	tristate "Aaeon SRG-IMX8P MCU Driver"
+> +	depends on I2C
+> +	select MFD_CORE
+> +	select REGMAP
+> +	help
+> +	  Select this option to enable support for the Aaeon SRG-IMX8P
+> +	  onboard microcontroller (MCU). This driver provides the core
+> +	  functionality to communicate with the MCU over I2C. The MCU
+> +	  provides GPIO and watchdog functionality.
+> +
+>  config AB8500_CORE
+>  	bool "ST-Ericsson AB8500 Mixed Signal Power Management chip"
+>  	depends on ABX500_CORE && MFD_DB8500_PRCMU
+> diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
+> index f8101d2a9ce9..166b25638f7f 100644
+> --- a/drivers/mfd/Makefile
+> +++ b/drivers/mfd/Makefile
+> @@ -8,6 +8,7 @@ obj-$(CONFIG_MFD_88PM860X)	+= 88pm860x.o
+>  obj-$(CONFIG_MFD_88PM800)	+= 88pm800.o 88pm80x.o
+>  obj-$(CONFIG_MFD_88PM805)	+= 88pm805.o 88pm80x.o
+>  obj-$(CONFIG_MFD_88PM886_PMIC)	+= 88pm886.o
+> +obj-$(CONFIG_MFD_AAEON_MCU)	+= aaeon-mcu.o
+>  obj-$(CONFIG_MFD_ACT8945A)	+= act8945a.o
+>  obj-$(CONFIG_MFD_SM501)		+= sm501.o
+>  obj-$(CONFIG_ARCH_BCM2835)	+= bcm2835-pm.o
+> diff --git a/drivers/mfd/aaeon-mcu.c b/drivers/mfd/aaeon-mcu.c
+> new file mode 100644
+> index 000000000000..e7470023265d
+> --- /dev/null
+> +++ b/drivers/mfd/aaeon-mcu.c
+> @@ -0,0 +1,221 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Aaeon MCU driver
+> + *
+> + * Copyright (C) 2026 Bootlin
+> + * Author: Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
+> + * Author: Thomas Perrot <thomas.perrot@bootlin.com>
+> + */
+> +
+> +#include <linux/err.h>
+> +#include <linux/i2c.h>
+> +#include <linux/mfd/aaeon-mcu.h>
+> +#include <linux/mfd/core.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +#include <linux/slab.h>
+> +
+> +struct aaeon_mcu {
+> +	struct i2c_client *client;
+> +	u8 *cmd;      /* DMA-safe 3-byte write buffer [opcode, arg, value] */
+> +	u8 *response; /* DMA-safe 1-byte read buffer for MCU acknowledgment */
+> +};
+> +
+> +static const struct mfd_cell aaeon_mcu_devs[] = {
+> +	MFD_CELL_BASIC("aaeon-mcu-wdt", NULL, NULL, 0, 0),
+> +	MFD_CELL_BASIC("aaeon-mcu-gpio", NULL, NULL, 0, 0),
+> +};
+> +
+> +/* Number of bytes in a MCU command: [opcode, arg, value] */
+> +#define AAEON_MCU_CMD_LEN      3
+> +
+> +/*
+> + * Custom regmap bus for the Aaeon MCU I2C protocol.
+> + *
+> + * The MCU uses a fixed 3-byte command format [opcode, arg, value] followed
+> + * by a 1-byte response. It requires a STOP condition between the command
+> + * write and the response read, so two separate transfers are issued. The
+> + * I2C segment lock is held across both so that no other transfer on the
+> + * same I2C segment can land between the command and its response. The
+> + * regmap lock serialises concurrent accesses from the GPIO and watchdog
+> + * child drivers.
+> + *
+> + * Register addresses are encoded as a 16-bit big-endian value where the
+> + * high byte is the opcode and the low byte is the argument, matching the
+> + * wire layout produced by regmap for reg_bits=16.
+> + */
+> +
+> +/*
+> + * Send the command held in mcu->cmd and read the 1-byte response into
+> + * mcu->response. Both buffers are heap-allocated and thus DMA-safe.
+> + */
+> +static int aaeon_mcu_xfer(struct aaeon_mcu *mcu)
+> +{
+> +	struct i2c_adapter *adap = mcu->client->adapter;
+> +	struct i2c_msg msg = {
+> +		.addr	= mcu->client->addr,
+> +		.flags	= I2C_M_DMA_SAFE,
+> +		.buf	= mcu->cmd,
+> +		.len	= AAEON_MCU_CMD_LEN,
+> +	};
+> +	int ret;
+> +
+> +	i2c_lock_bus(adap, I2C_LOCK_SEGMENT);
+> +
+> +	ret = __i2c_transfer(adap, &msg, 1);
+> +	if (ret == 1) {
+> +		msg.flags = I2C_M_RD | I2C_M_DMA_SAFE;
+> +		msg.buf   = mcu->response;
+> +		msg.len   = 1;
+> +		ret = __i2c_transfer(adap, &msg, 1);
+> +	}
+> +
+> +	i2c_unlock_bus(adap, I2C_LOCK_SEGMENT);
+> +
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	return ret == 1 ? 0 : -EIO;
+> +}
+> +
+> +static int aaeon_mcu_regmap_write(void *context, const void *data, size_t count)
+> +{
+> +	struct aaeon_mcu *mcu = context;
+> +
+> +	/*
+> +	 * use_single_write guarantees one register per call: a 2-byte
+> +	 * address followed by a 1-byte value.
+> +	 */
+> +	if (count != AAEON_MCU_CMD_LEN)
+> +		return -EINVAL;
+> +
+> +	memcpy(mcu->cmd, data, count);
+> +
+> +	/* The MCU always sends a response byte after each command; discard it. */
+> +	return aaeon_mcu_xfer(mcu);
+> +}
+> +
+> +static int aaeon_mcu_regmap_read(void *context, const void *reg_buf,
+> +				 size_t reg_size, void *val_buf, size_t val_size)
+> +{
+> +	struct aaeon_mcu *mcu = context;
+> +	int ret;
+> +
+> +	/*
+> +	 * reg_buf holds the 2-byte big-endian register address [opcode, arg].
+> +	 * Append a trailing 0x00 to form the full 3-byte MCU command.
+> +	 */
 
-This series requires custom TF-A, U-Boot and OP-TEE ports for MT8163.
-The stock vendor firmware does not provide a usable PSCI implementation
-(the vendor kernel brings up secondary CPUs with a custom "mt-boot"
-enable-method instead), and these ports also define the reserved memory
-layout used by the board dts:
- - TF-A: https://github.com/iara-linux/arm-trusted-firmware
- - U-Boot: https://github.com/iara-linux/u-boot
- - OP-TEE: https://github.com/iara-linux/optee_os
+What about 'reg_size != 2 || val_size != 1' here, for the same reason as
+the checks in *_write()?
 
-This is the first of several series. Support for the remaining
-peripherals will follow, starting with the clock controllers, pinctrl
-and power domains.
+> +	mcu->cmd[0] = ((u8 *)reg_buf)[0];
+> +	mcu->cmd[1] = ((u8 *)reg_buf)[1];
+> +	mcu->cmd[2] = 0x00;
+> +
+> +	ret = aaeon_mcu_xfer(mcu);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/*
+> +	 * val_buf is owned by the regmap caller and is not necessarily
+> +	 * DMA-safe, so go through the driver's response buffer.
+> +	 * use_single_read guarantees val_size == 1.
+> +	 */
+> +	*(u8 *)val_buf = *mcu->response;
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct regmap_bus aaeon_mcu_regmap_bus = {
+> +	.write = aaeon_mcu_regmap_write,
+> +	.read  = aaeon_mcu_regmap_read,
+> +};
+> +
+> +static bool aaeon_mcu_volatile_reg(struct device *dev, unsigned int reg)
+> +{
+> +	/*
+> +	 * GPIO input registers are driven by external signals and can change
+> +	 * at any time without CPU involvement, always read from hardware.
+> +	 *
+> +	 * The watchdog status register reflects hardware state and can change
+> +	 * autonomously.
+> +	 *
+> +	 * All other registers are written by the driver and their values are
+> +	 * stable, so they can be safely cached.
+> +	 */
+> +	if ((reg >> 8) == AAEON_MCU_READ_GPIO_OPCODE)
+> +		return true;
+> +	if (reg == AAEON_MCU_REG(AAEON_MCU_CONTROL_WDT_OPCODE, 0x02))
 
-Signed-off-by: Ben Grisdale <bengris32@protonmail.ch>
----
-Changes in v2:
-- Dropped WDT patches as they have been applied [1].
-- Picked up latest tags from v1.
-- Link to v1: https://patch.msgid.link/20261019-arm64-initial-support-for-mediatek-mt8163-soc-v1-0-f2462b2d2437@protonmail.ch
+No magic numbers please.
 
-[1] https://lore.kernel.org/all/589d0ab4-46cf-4b8d-b4b3-5519dbf030ea@roeck-us.net/
+> +		return true;
+> +	return false;
+> +}
+> +
+> +static bool aaeon_mcu_readable_reg(struct device *dev, unsigned int reg)
+> +{
+> +	/*
+> +	 * Every opcode but the GPIO input read and the watchdog status is a
+> +	 * command: the frame sent for a read is identical to the one used to
+> +	 * write it, so reading such a register would execute the command.
+> +	 * Only the registers reflecting hardware state may be read.
+> +	 */
+> +	return aaeon_mcu_volatile_reg(dev, reg);
+> +}
+> +
+> +static const struct regmap_config aaeon_mcu_regmap_config = {
+> +	.reg_bits          = 16,
+> +	.val_bits          = 8,
+> +	.reg_format_endian = REGMAP_ENDIAN_BIG,
+> +	.max_register      = AAEON_MCU_MAX_REGISTER,
+> +	.readable_reg      = aaeon_mcu_readable_reg,
+> +	.volatile_reg      = aaeon_mcu_volatile_reg,
+> +	.cache_type        = REGCACHE_MAPLE,
+> +	.use_single_write  = true,
+> +	.use_single_read   = true,
+> +};
+> +
+> +static int aaeon_mcu_probe(struct i2c_client *client)
+> +{
+> +	struct aaeon_mcu *ddata;
+> +	struct regmap *regmap;
+> +
+> +	ddata = devm_kzalloc(&client->dev, sizeof(*ddata), GFP_KERNEL);
+> +	if (!ddata)
+> +		return -ENOMEM;
+> +
+> +	ddata->client = client;
+> +
+> +	ddata->cmd = devm_kcalloc(&client->dev, AAEON_MCU_CMD_LEN, sizeof(*ddata->cmd),
+> +				  GFP_KERNEL);
+> +	if (!ddata->cmd)
+> +		return -ENOMEM;
+> +
+> +	ddata->response = devm_kzalloc(&client->dev, sizeof(*ddata->response), GFP_KERNEL);
+> +	if (!ddata->response)
+> +		return -ENOMEM;
 
----
-Ben Grisdale (6):
-      dt-bindings: arm: mediatek: Add MT8163 Amazon Echo Dot (2016)
-      dt-bindings: interrupt-controller: mediatek,mt6577-sysirq: Add MT8163
-      dt-bindings: timer: mediatek,timer: Add MT8163
-      dt-bindings: serial: mediatek,uart: Add MT8163
-      arm64: dts: mediatek: Add basic support for MT8163 SoC
-      arm64: dts: mediatek: Add Amazon Echo Dot (2016)
+Why do 'cmd' and 'response' need two separate heap allocations?  Since
+'struct aaeon_mcu' is allocated via 'devm_kzalloc()' and Regmap
+serialises all accesses, could you just embed fixed-size arrays directly
+inside 'struct aaeon_mcu' and drop these two extra 'devm_k*alloc()'s?
 
- .../devicetree/bindings/arm/mediatek.yaml          |   4 +
- .../mediatek,mt6577-sysirq.yaml                    |   1 +
- .../devicetree/bindings/serial/mediatek,uart.yaml  |   1 +
- .../devicetree/bindings/timer/mediatek,timer.yaml  |   1 +
- arch/arm64/boot/dts/mediatek/Makefile              |   1 +
- .../boot/dts/mediatek/mt8163-amazon-biscuit.dts    |  68 ++++++
- arch/arm64/boot/dts/mediatek/mt8163.dtsi           | 243 +++++++++++++++++++++
- 7 files changed, 319 insertions(+)
----
-base-commit: 8b7179210b22f8e48a82c5ceacb9d56a9c4cfec4
-change-id: 20261018-arm64-initial-support-for-mediatek-mt8163-soc-ea58d47cb7aa
+> +	regmap = devm_regmap_init(&client->dev, &aaeon_mcu_regmap_bus,
+> +				  ddata, &aaeon_mcu_regmap_config);
+> +	if (IS_ERR(regmap))
+> +		return dev_err_probe(&client->dev, PTR_ERR(regmap),
+> +				     "failed to initialize regmap\n");
+> +
+> +	return devm_mfd_add_devices(&client->dev, PLATFORM_DEVID_AUTO,
+> +				    aaeon_mcu_devs, ARRAY_SIZE(aaeon_mcu_devs),
+> +				    NULL, 0, NULL);
+> +}
+> +
+> +static const struct of_device_id aaeon_mcu_of_match[] = {
+> +	{ .compatible = "aaeon,srg-imx8p-mcu" },
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(of, aaeon_mcu_of_match);
+> +
+> +static struct i2c_driver aaeon_mcu_driver = {
+> +	.driver = {
+> +		.name = "aaeon-mcu",
+> +		.of_match_table = aaeon_mcu_of_match,
+> +	},
+> +	.probe = aaeon_mcu_probe,
+> +};
+> +module_i2c_driver(aaeon_mcu_driver);
+> +
+> +MODULE_DESCRIPTION("Aaeon MCU Driver");
+> +MODULE_AUTHOR("Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>");
+> +MODULE_LICENSE("GPL");
+> diff --git a/include/linux/mfd/aaeon-mcu.h b/include/linux/mfd/aaeon-mcu.h
+> new file mode 100644
+> index 000000000000..3a1aeec85d60
+> --- /dev/null
+> +++ b/include/linux/mfd/aaeon-mcu.h
+> @@ -0,0 +1,40 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +/*
+> + * Aaeon MCU driver definitions
+> + *
+> + * Copyright (C) 2026 Bootlin
+> + * Author: Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
+> + * Author: Thomas Perrot <thomas.perrot@bootlin.com>
+> + */
+> +
+> +#ifndef __LINUX_MFD_AAEON_MCU_H
+> +#define __LINUX_MFD_AAEON_MCU_H
+> +
+> +/*
+> + * MCU register address: the high byte is the command opcode, the low
+> + * byte is the argument.  This matches the 3-byte wire format
+> + * [opcode, arg, value] used by the MCU I2C protocol.
+> + */
+> +#define AAEON_MCU_REG(op, arg)		(((op) << 8) | (arg))
+> +
+> +/*
+> + * Opcode for GPIO input reads. These registers are volatile, their values
+> + * are driven by external signals and can change without CPU involvement.
+> + * Used by the MFD driver's volatile_reg callback to bypass the regmap cache.
+> + */
+> +#define AAEON_MCU_READ_GPIO_OPCODE	0x72
+> +
+> +/*
+> + * Opcode for watchdog control and status commands.
+> + * The status register (arg=0x02) reflects hardware state and is volatile.
+> + */
+> +#define AAEON_MCU_CONTROL_WDT_OPCODE	0x63
+> +
+> +/*
+> + * Highest register address in the MCU register map.
+> + * The WRITE_GPIO opcode (0x77) with the highest GPIO argument (0x0B = 11,
+> + * i.e. MAX_GPIOS - 1) produces the largest encoded address.
+> + */
+> +#define AAEON_MCU_MAX_REGISTER		AAEON_MCU_REG(0x77, 0x0B)
+> +
+> +#endif /* __LINUX_MFD_AAEON_MCU_H */
+>
+> -- 
+> 2.56.0
+>
 
-Best regards,
---  
-Ben Grisdale <bengris32@protonmail.ch>
-
-
+-- 
+Lee Jones
 
