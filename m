@@ -2,71 +2,78 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27551606A32E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:57:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4160B606D801
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:58:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=12JH4pMc;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=C0lhJ9Qa
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3iGxR8ZB;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cQrjd+q6
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=072gWrHZKrGLJt0o7ILLBkyYldVwOPn5kpDvpqOGCOs=; b=12JH4pMcYZWc1+I0mq5tZQNpS5
-	mjj1SmluTXbZxq+k/Jqammpc8dHlQkqiUZASYN2g/zvy1ph5B7FvNe+47CAtCb1xzzLJWBoPp+DXV
-	2BY6SJTwNvhCt93h85SgLYxKzmj8wT98jilVptF64NmS8vk9GYVcGPe8gW1SYWmFYvyQlnxnzBp+R
-	9uN3GbXgG5nMjzHMrgqDLGIMH17XPZeaKe85JqmQH//ICHhCEAXBYotVpKUP69fxFkxOKfzLA9qrQ
-	PEwZ/Uv6HsguF205jL4zG7SwBM5DT4sstjoL3nx5yzNHmzAEpSVb9QvOKMwgLIxB5PmqDeeN9dFap
-	H2nStt1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=Nyw4uo1UMx2UMwcj5/86TrpcocSt85lTij3scmNGbos=; b=3iGxR8ZBXSYa8M
+	//Y0iGPo7mQqy8dBNzcIs61ioTQlKdJZnkMIQ6fFso+Rc9HQVisYo2/TNpI6VhVDJNz+v2f1VEVAd
+	RJmeJquF5DJFlU5Fgc5AUCs6MgZJ4jX6xSa1mN6Tj7Om+St5tShyyWx5rVMVSx/ZPrEgCW9veJlcc
+	EDlxPH387CMlsj3lH7Euy8zqNoI9Pvi02NDHIYJ9hY8Mhgu9ATrfiv+0gvI5XY0MtxSQM02gg3oBs
+	0YLkbEAzE1FLcTDs+s+ByhT41S62yFITgYaOmGzZVGxAmV1uWaGe4GHpNVZ+j7n4teSA6R3Z8V0wK
+	DwgaymKzZLeTBbJkq1iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOx2M-000000092Jx-0KbY;
-	Thu, 05 Nov 2026 12:57:50 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1xOx2V-000000092N6-0j9f;
+	Thu, 05 Nov 2026 12:57:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOx2J-000000092Il-1hGf
+	id 1xOx2T-000000092Mb-212N
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 12:57:49 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=072gWrHZKrGLJt0o7ILLBkyYldVwOPn5kpDvpqOGCOs=;
-	b=C0lhJ9QacQ5QWV1jjuD9K6ur0ERfRxW2k8koHLpChkYY/xxLPuUND1OGZxCLbLfy/1n5nYMgW
-	MUKMNimBpIl/C4ya9iPq1gUm0W8WvB2zkBN7ENcIRwOAr1TsRvEQKh7tbDSvQ+UuG+QcnH5ye8/
-	w9/mLo4MO/PBukVsOiggihg=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jL2QJ4g74zcb0X;
-	Thu,  5 Nov 2026 20:57:12 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 80DFC40561;
-	Thu,  5 Nov 2026 20:57:41 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 5 Nov
- 2026 20:57:40 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<rppt@kernel.org>, <baoquan.he@linux.dev>, <sourabhjain@linux.ibm.com>,
-	<coiby.xu@gmail.com>, <bgwin@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v8] arm64: kexec_file: Fix elf_headers memory leak in retry loop
-Date: Thu, 5 Nov 2026 20:57:24 +0800
-Message-ID: <20261105125724.2283453-1-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 05 Nov 2026 12:57:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4199743241
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 12:57:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 263321F0093A
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 12:57:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793883477;
+	bh=Nyw4uo1UMx2UMwcj5/86TrpcocSt85lTij3scmNGbos=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=cQrjd+q6nNpH2xoYNC3OC/u9iIITjUzXz6ZPttJw7Yk1JV+VJxUNiRy6fOdG4bo9h
+	 GFL0O6lgYfzlBm/5jsmbAw21QmT0Eh8QxIptTWVhMwkCm4qXVZz/CshS+7P4QBCqq8
+	 gW+LQNqBud8EGNAJrdghHpvGnQ4zBjEQH/6kSAzl4d1gRk88I0MYMfGmyR6M9rWkRX
+	 UVdzwh0ZHGw+rb+WR7LAKULmUgS6ZY2jnsiYd6BSzAQRB9fL9iLfnR9M5XDOTbZ0wD
+	 Lh4aQYThFILqsEH6JCp+daJ9LvCemhjVrSJ8c3hux1kPtLmdfD5BBANf0wCmCtwJUW
+	 V/IbQPTgfpjvA==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5bcb4f23ddeso1718041e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 04:57:57 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AKwUvBxwH9UtPi1WZyVQibZcKG1+k2vN7s9clRlqBKf1PQVqZ/QOUKQlFea4+RldUk4QniGEId4Ou33ooEuYpgFldQDi@lists.infradead.org
+X-Gm-Message-State: APuU4Z9sQnrR0Yr7ZhKabyrNQeqFda5Z8h/gxow338bo3TiMVPK5WUvL
+	97gfeh3mx7ynkeBX7cAgVaWLUQPmUkoYvFU106T9LpxiZ6KPxrufxaFBFVSOZiH6DUFidvPSN3V
+	b/5l5HG33opVlZxUNy8A2tTe6ELSBO+A=
+X-Received: by 2002:ac2:4e0f:0:b0:5be:536e:cfbc with SMTP id
+ 2adb3069b0e04-5bfd9562ac4mr7119062e87.17.1793883475976; Thu, 05 Nov 2026
+ 04:57:55 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemk200008.china.huawei.com (7.202.194.74)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_045747_674935_D16AB550 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+References: <20261104152657.14909-1-mateusz.nowicki@posteo.net> <20261104152657.14909-2-mateusz.nowicki@posteo.net>
+In-Reply-To: <20261104152657.14909-2-mateusz.nowicki@posteo.net>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 5 Nov 2026 13:57:43 +0100
+X-Gmail-Original-Message-ID: <CAD++jLkYxFR89WGnQKvPgCLYaE7Le06U45Cqn9yR05fa5C_xTA@mail.gmail.com>
+X-Gm-Features: AclHuK-1e9C4sXwoHJ54MvMjIKaAAfliTo1iA6pakb6j7gBlL_TeQYZIIK87yhs
+Message-ID: <CAD++jLkYxFR89WGnQKvPgCLYaE7Le06U45Cqn9yR05fa5C_xTA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/5] mmc: mmci: do not count a data CRC error as a
+ complete transfer
+To: Mateusz Nowicki <mateusz.nowicki@posteo.net>
+Cc: Ulf Hansson <ulfh@kernel.org>, linux-mmc@vger.kernel.org, 
+	Russell King <linux@armlinux.org.uk>, Yann Gautier <yann.gautier@foss.st.com>, 
+	Christophe Kerello <christophe.kerello@foss.st.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,54 +84,33 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-A retry allocates new elf headers and overwrites image->elf_headers,
-leaking the previous buffer.
+On Wed, Nov 4, 2026 at 4:27=E2=80=AFPM Mateusz Nowicki
+<mateusz.nowicki@posteo.net> wrote:
 
-Free it before assigning.
+> With datacnt_useless (STM32 variants) success is 0 on a data error and
+> a CRC error subtracts one from it. bytes_xfered becomes 0xfffffe00 and
+> mmc_blk completes the whole request as successful, although the
+> controller stopped at the failing block. Reads return stale data and
+> writes are lost without any error.
+>
+> Tested on the STM32MP257F-DK eMMC in HS200 with a forced bad tuning:
+> without this change 5 of 14 reads returned zeros, with it all 10 reads
+> were correct.
+>
+> Fixes: b79220b3e0af ("mmc: mmci: add variant property to not read datacnt=
+")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Mateusz Nowicki <mateusz.nowicki@posteo.net>
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Thomas Huth <thuth@redhat.com>
-Cc: Breno Leitao <leitao@debian.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Baoquan He <bhe@redhat.com>
-Cc: stable@vger.kernel.org
-Fixes: 108aa503657e ("arm64: kexec_file: try more regions if loading segments fails")
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
-v7 -> v8:
-- Split out from the patch set as Mike suggested.
-- Link to v7: https://lore.kernel.org/all/20261026075201.699550-1-ruanjinjie@huawei.com/
----
- arch/arm64/kernel/machine_kexec_file.c | 4 ++++
- 1 file changed, 4 insertions(+)
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
-index 854d872dfd0f..beb0b8585454 100644
---- a/arch/arm64/kernel/machine_kexec_file.c
-+++ b/arch/arm64/kernel/machine_kexec_file.c
-@@ -112,6 +112,10 @@ int load_other_segments(struct kimage *image,
- 			vfree(headers);
- 			goto out_err;
- 		}
-+
-+		if (unlikely(image->elf_headers))
-+			vfree(image->elf_headers);
-+
- 		image->elf_headers = headers;
- 		image->elf_load_addr = kbuf.mem;
- 		image->elf_headers_sz = headers_sz;
--- 
-2.34.1
-
+Yours,
+Linus Walleij
 
