@@ -2,47 +2,47 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7B996082BE6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:17:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18AB2606D817
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:17:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lnLAdk2Q;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OzXB0Lon
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=S+e2rNGo;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V7dJGiwY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=JZWUGcZ5u7WJGAMaT+eTPSh/6aXL9QXO1uj0eqCm/8M=; b=lnLAdk2QzMkTOp
-	u2H0MKTpLqcJneCWCI6I3pea9TvJlHQJpRmTq4/GZJDB5FsW0JGzf5ctkpvchsMWgtTAMLLSGCyBm
-	QigJ6BSBhzcEAYRRVri5lfDOjY0OdqIYgXOKp/f/BwRGNQ7zM+YnDqdI2LH33IbDEe80FImywapqo
-	4ZX7S0gKd0AH6c7VRnpMhvWTnLdHkrlPhFVmyDIVZbFdKkJYjXuDjTnnzGXJw7D47J1x6Zmh4GWkq
-	WZSiAWED8EPxTYiBXhZaN9hq6xbsvRV+LOesvKIou/ZzHpGich84aYDPoZQVFaCN1G9AcT/H4mFDL
-	drXvz8jm5LsA8VICXqcw==;
+	List-Owner; bh=w/G/SZ3MRS0nVkYZ3P6OOxY7K1c3qFCCUcF4ElPyBrE=; b=S+e2rNGo8WrVkk
+	6XAo0YdC8553AtkLjhvsqwnpZR1I4+fug1ZBFn6ibfKGpApDz2ttNjbXX9If6DF1za2nT/Crppbwd
+	nW/MhiOU2pOaEUxa55WPwRjNj7fzrg43qGGkwpjHWBZUVwD+jw34UmJprngDBWe4AfIh5PN1wSKWM
+	zmgK/w2QRhXF9PHZwKEpcBLjKdW/5dXP53EjvOgvjLdg34Fudxc5dM36fNPFYxIms6+m5h54+5LhJ
+	Whs5rvjoKn9NlG77mfz508gUOBRQ/t/HCdbgLQEVU4xGn7eH5AX6G7wO0KFmAoE10oOgCBYxgwXkv
+	K/gyposx1ES81k4O2MgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOwOz-00000008t6P-3hyU;
-	Thu, 05 Nov 2026 12:17:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOwP3-00000008t8b-06hR;
+	Thu, 05 Nov 2026 12:17:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOwOx-00000008t50-1iwZ
+	id 1xOwP0-00000008t6q-1qMl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 12:17:07 +0000
+	Thu, 05 Nov 2026 12:17:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2F97F40DFF;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3333B43F36;
+	Thu,  5 Nov 2026 12:17:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F3C71F00A1E;
 	Thu,  5 Nov 2026 12:17:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A4F71F00A20;
-	Thu,  5 Nov 2026 12:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793881027;
-	bh=JZWUGcZ5u7WJGAMaT+eTPSh/6aXL9QXO1uj0eqCm/8M=;
+	s=k20260515; t=1793881030;
+	bh=w/G/SZ3MRS0nVkYZ3P6OOxY7K1c3qFCCUcF4ElPyBrE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=OzXB0Lon99UCSymj6rvC7HShLWnztmNTotIk344eHS7e8dQhxPcKs7l3Lt6aBMMqE
-	 evSwMkEZd8cfQ+CFA7+Vf/eC4Cu0p0QxqA7EbwsmpBZN6z8Vo+KxQld8T5pAMyvvkn
-	 FNY7OeBQ51A+zjlSI41SqL1rJ4KT55TlxVy5hrsbyUFQjh0AWQstpO2job2ekJNDbn
-	 RdAKowoNfBxJj2g+t39ycGKZbCG2qeXdHONIEjRc18lQO38OWv32X1iyQhgzajLP+1
-	 Pz3PRc5ACzjtJi2fGvnRMgUMxMesZreG2m7PCmaDS5A+oEInELMWa0UMJLBzvDPLu8
-	 lsjxKjs4S+r0w==
+	b=V7dJGiwYtoT4G7lSSHhbBlz1rNcR+P+46KzdFRg2BxsIuLIj2e0owSc2Uz/vWzWg9
+	 QCyENJd4jyVEN9GXt3rhFfQDVdIulOCNr7wZr55IuCnJmlb7rAxFjUib64YtKYb3kh
+	 CxfHqO1PrpJkI/8i1YjWnyRThSIzwz+SFW5dV9M31qge7DMMhalvfny3J9zQvXplAv
+	 CjGTWyIGVAnZA8841kXHI/kd2lkTXbONXrdxgESdw4JSoS/oYL/rkXxLoqgi9HFfm6
+	 0L0S1cqomF22mLQmn8zG8dCbQT1khczOT2pQbBq+yBN4txf+c7dLm/aOcrXsr/YGXQ
+	 9MF7k1l9uvgAg==
 From: Joshua Crofts <crofts@kernel.org>
 To: Jonathan Cameron <jic23@kernel.org>,
 	David Lechner <dlechner@baylibre.com>,
@@ -61,9 +61,9 @@ Cc: linux-iio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	imx@lists.linux.dev
-Subject: [PATCH 02/10] iio: accel: kxcjk-1013: remove redundant pm_runtime_dont_use_autosuspend() calls
-Date: Thu,  5 Nov 2026 12:16:27 +0000
-Message-ID: <20261105121635.1612-3-crofts@kernel.org>
+Subject: [PATCH 03/10] iio: accel: mma9551: remove redundant pm_runtime_dont_use_autosuspend() calls
+Date: Thu,  5 Nov 2026 12:16:28 +0000
+Message-ID: <20261105121635.1612-4-crofts@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261105121635.1612-1-crofts@kernel.org>
 References: <20261105121635.1612-1-crofts@kernel.org>
@@ -96,22 +96,22 @@ Remove the redundant function calls.
 
 Signed-off-by: Joshua Crofts <crofts@kernel.org>
 ---
- drivers/iio/accel/kxcjk-1013.c | 2 --
+ drivers/iio/accel/mma9551.c | 2 --
  1 file changed, 2 deletions(-)
 
-diff --git a/drivers/iio/accel/kxcjk-1013.c b/drivers/iio/accel/kxcjk-1013.c
-index 336914eb3b3e..18b1ba365f78 100644
---- a/drivers/iio/accel/kxcjk-1013.c
-+++ b/drivers/iio/accel/kxcjk-1013.c
-@@ -1525,7 +1525,6 @@ static int kxcjk1013_probe(struct i2c_client *client)
+diff --git a/drivers/iio/accel/mma9551.c b/drivers/iio/accel/mma9551.c
+index b260e294606a..f1a39a9acd06 100644
+--- a/drivers/iio/accel/mma9551.c
++++ b/drivers/iio/accel/mma9551.c
+@@ -485,7 +485,6 @@ static int mma9551_probe(struct i2c_client *client)
  	return 0;
  
  err_pm_cleanup:
 -	pm_runtime_dont_use_autosuspend(&client->dev);
  	pm_runtime_disable(&client->dev);
- err_buffer_cleanup:
- 	iio_triggered_buffer_cleanup(indio_dev);
-@@ -1547,7 +1546,6 @@ static void kxcjk1013_remove(struct i2c_client *client)
+ out_poweroff:
+ 	mma9551_set_device_state(client, false);
+@@ -500,7 +499,6 @@ static void mma9551_remove(struct i2c_client *client)
  
  	iio_device_unregister(indio_dev);
  
