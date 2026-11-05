@@ -2,71 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86E6F606D803
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 15:04:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C687606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 15:06:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EtpXhOsi;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TBZncIgw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mPNi1e9A;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ln31vRMh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=hyCHHGbbmA+viHCUOeD0u0cyeXuCDyyU6WJlzk8TPBU=; b=EtpXhOsiPlbB8A
-	5+9IErhWeIxippt/M/mLzPIkv7Ehjb0o4SSJu/bLNo2WNXctKTjZyTF+Y0puBhX8n8+Q+9xynKGwO
-	nrS+8ZhFYwEfEr9lJQcPE4PFsPNiCMx9E+MgcA0Ocs1C4XKhxc7Uir1/wMIpWnZdmRb7YVhC//04I
-	kCuRATo0Ve/GzhPzT3cIF3AhvaPb7In+oXu0KTfIBrELiD/cHoKs2NxHZoXWAHCPRIPsrvLgT7jqr
-	hAjPeEgI0CyDtlTFSZim408UQc4+kOMiH5HcCuMq9vZBvBR228p8u4DH169e/+cT8oAdYhP+eBtig
-	txwGDamFcD7r7nyUeRMA==;
+	List-Owner; bh=lbu6CYbZmlg9LDpHvg31OE0O9sdelylvCrdhRi2mD7M=; b=mPNi1e9AaxX88H
+	Nvj/fN9uin5d5JgZUMHmLjd9jxYzryG250QYWizi0LaU+HBzl1E85vtTkgHyzX4ludqXitUpCo6zZ
+	7286cnghmeU+Whz8U7hEXxtKRyIbo+pEHzbl0pkwjK6yy6g/f1vXt9CBH0M3MxF5YQfwCaBjkQH7s
+	tJS1QdlbbqkL0UoGQC1Zzdnt0LNrFb8LJRTHqFNLA4kQjnGPfQN4kUnDS3LJ1S8Q4KD/ECbLhp4lH
+	+XdvkmjG7fDaVOVotxSIegwLiy0eOwm08KZM6lWWbXNcBeJ32dJJZzF3l2Yt7NZz1uWxwXiex4CVh
+	xptoTgPZJNgFaBIhkDVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxQZ-000000096dg-30KW;
-	Thu, 05 Nov 2026 13:22:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOz36-00000009MXf-1iep;
+	Thu, 05 Nov 2026 15:06:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxQY-000000096cQ-1PZb
+	id 1xOz34-00000009MXF-0CPV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 13:22:50 +0000
+	Thu, 05 Nov 2026 15:06:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1D40B43773;
-	Thu,  5 Nov 2026 13:22:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB39D1F000C1;
-	Thu,  5 Nov 2026 13:22:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 33D4B60621
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 15:06:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB4311F00A1B
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 15:06:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793884970;
-	bh=hyCHHGbbmA+viHCUOeD0u0cyeXuCDyyU6WJlzk8TPBU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=TBZncIgwr6KNvmo9eJUl10KdRygW8kka91W2lHkSWzbeDr7bkjnl2C542l+2/vTLT
-	 6vOxlg1weaE0dg5ZjP5MzSe+em4F3oSuQoWpIW0GruGShkvQerQTTo/6Nu+n3bC1ll
-	 HMyvHR24MN75TjXd43gGs+pvunUNRWv5n1nX0cy/QBfr/u/OCcymkQ5OfXlL8KPYwq
-	 V5mutcPW0Mml5NjmH3ncV1KpmPh/7XUBYHHpS5j+iIx55fT8yAklLIBqMAIEXlkdRp
-	 OGnZIsP29/8ZeOgPP0fijBVmA3XNWb6rM+bzEDAQquwl43dE3ztnY2pT/JLc7b7/SM
-	 mnoqEACnS+vjA==
-From: Mark Brown <broonie@kernel.org>
-Date: Thu, 05 Nov 2026 13:00:13 +0000
-Subject: [PATCH v2 2/3] arm64/gcs: Move gcs_check_locked() out of the
- header
+	s=k20260515; t=1793891200;
+	bh=lbu6CYbZmlg9LDpHvg31OE0O9sdelylvCrdhRi2mD7M=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=ln31vRMhbFvxkAtvzVW75Y4HBOLjjrZC0SmEKIotyieRcq6ES6mnQJRuRutgvH4na
+	 2ntrXnFKWKITMWAZDTiek9ZeFMQEUUB4NGEi2Eu0bNaA7hZoFrl3esKlIeoxQpstlP
+	 KePk/w8r8S8D/uxBr+FuQ5L8SwZ+izhxnROeVnAgjSXp1NqLSl9MqJocmALEoO6rNX
+	 zrIqZEf7SHMIsj1kXWMvhq75PgcbWCWYYrY3OtcMtIQuqevvJt3ppSSdrpSe26Cxli
+	 WwCbuMef7RBXF2M9c5Qo5l8pNwwemhlpMcyMXahWz3nvCEa4pFLdfNv4nlc9T1WEB6
+	 zv2yO2mIsvHyw==
+Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6b58cb69927so498140a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 07:06:40 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AKwUvBx71jedH5XwAVBYgZTmqpBu0PJ2MPOv9e3ZKzA+nzAOoMZ0T8aoi1rlwdBAINyFLzweqh4mhe8yo32LjBuASQsf@lists.infradead.org
+X-Gm-Message-State: APuU4Z/FM0dzcyOYx0AhAopaMUQL2aB/2MnIkaduCEI5daViqV79vAnW
+	c5XwlvAjdqZTnVPfqOaLXxpo+NeOm0F6apC5cSA/35CXR4XwVskV86pTW+731JgPs2ourzUM1zP
+	l38Plr4pP+kLUzJW9asV7aWnnYSK14w==
+X-Received: by 2002:a17:906:c102:b0:c46:d493:47be with SMTP id
+ a640c23a62f3a-c4d206aede3mr244770366b.19.1793891199414; Thu, 05 Nov 2026
+ 07:06:39 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-arm64-gcs-store-gcscre0-v2-2-954d5bffd69f@kernel.org>
-References: <20261105-arm64-gcs-store-gcscre0-v2-0-954d5bffd69f@kernel.org>
-In-Reply-To: <20261105-arm64-gcs-store-gcscre0-v2-0-954d5bffd69f@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2217; i=broonie@kernel.org;
- h=from:subject:message-id; bh=dH1M/vyc1MFAQw48E90smOwrG3W8MQm/arC7/achGFE=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLeNCtvnrqKq0oiLree9b1oQQtbtI8m/43Q/1+Mlyx7Z
- jrrs+m1jlIWBjEuBlkxRZa4LO6X9SWv1/AdXNgGM4eVCWQIAxenAEwkeCvD/6IzXDUNgjtYbgRK
- n60/reHYvHi+0mTzhxmb9ZnbJu4WD2Vk2L51q1baOsVlCzL/sRpf0Mlqshd+Fr4nbefmrx6dF4W
- 8GAE=
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+References: <20261105144920.2796623-2-robh@kernel.org> <krvg6bwsueypasvt6fqszh7itqr3gu3qsqbji2ernqqy6g3t4c@b7hqenmaugik>
+In-Reply-To: <krvg6bwsueypasvt6fqszh7itqr3gu3qsqbji2ernqqy6g3t4c@b7hqenmaugik>
+From: Rob Herring <robh@kernel.org>
+Date: Thu, 5 Nov 2026 09:06:27 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqLETyrx7ew0zirS9r6+3=GEFaRE0g96OZHYwqjxMCZKcQ@mail.gmail.com>
+X-Gm-Features: AclHuK9D1vVYdU6bP9ipfCUqtMD7cNI9yWkFwUZwsKz1kc9xgefpf4aNgPCbR6A
+Message-ID: <CAL_JsqLETyrx7ew0zirS9r6+3=GEFaRE0g96OZHYwqjxMCZKcQ@mail.gmail.com>
+Subject: Re: [PATCH v2] ARM: dts: nxp/imx6: Drop unused .dtsi
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,82 +79,35 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-gcs_check_locked() is currently a static inline in the header but there
-is no real reason for this, it is not especially performance critical.
-Move the implementation into gcs.c to reduce the size of the header and
-make future refactoring a little easier, no functional changes.
+On Thu, Nov 5, 2026 at 9:00=E2=80=AFAM Marco Felsch <m.felsch@pengutronix.d=
+e> wrote:
+>
+> On 26-11-05 08:49, Rob Herring (Arm) wrote:
+> > These .dtsi files are not included anywhere in the tree and can't be
+> > tested.
+> >
+> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> > ---
+> > v2:
+> >  - Rebased
+> >
+> > It's been nearly a year and these are still orphans. There was a promis=
+e
+> > to upstream something for the kontron ones, but that hasn't happened.
+>
+> That's unfortunate, but these includes are used at least by the barebox
+> bootloader [1,2], dropping these would cause a DT regresssion.
+>
+> Would it help to upstream [1,2]?
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- arch/arm64/include/asm/gcs.h | 15 +--------------
- arch/arm64/mm/gcs.c          | 13 +++++++++++++
- 2 files changed, 14 insertions(+), 14 deletions(-)
+You said you were going to do that on v1:
 
-diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
-index bbc22e382cfe..3e6eeeebd282 100644
---- a/arch/arm64/include/asm/gcs.h
-+++ b/arch/arm64/include/asm/gcs.h
-@@ -62,25 +62,12 @@ static inline bool task_gcs_el0_enabled(struct task_struct *task)
- }
- 
- void gcs_set_el0_mode(struct task_struct *task);
-+int gcs_check_locked(struct task_struct *task, unsigned long new_val);
- void gcs_free(struct task_struct *task);
- void gcs_preserve_current_state(void);
- unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
- 				     const struct kernel_clone_args *args);
- 
--static inline int gcs_check_locked(struct task_struct *task,
--				   unsigned long new_val)
--{
--	unsigned long cur_val = task->thread.gcs_el0_mode;
--
--	cur_val &= task->thread.gcs_el0_locked;
--	new_val &= task->thread.gcs_el0_locked;
--
--	if (cur_val != new_val)
--		return -EPERM;
--
--	return 0;
--}
--
- static inline int gcssttr(unsigned long __user *addr, unsigned long val)
- {
- 	register unsigned long __user *_addr __asm__ ("x0") = addr;
-diff --git a/arch/arm64/mm/gcs.c b/arch/arm64/mm/gcs.c
-index 680749611a9a..84add924dc60 100644
---- a/arch/arm64/mm/gcs.c
-+++ b/arch/arm64/mm/gcs.c
-@@ -140,6 +140,19 @@ void gcs_set_el0_mode(struct task_struct *task)
- 	write_sysreg_s(gcscre0_el1, SYS_GCSCRE0_EL1);
- }
- 
-+int gcs_check_locked(struct task_struct *task, unsigned long new_val)
-+{
-+	unsigned long cur_val = task->thread.gcs_el0_mode;
-+
-+	cur_val &= task->thread.gcs_el0_locked;
-+	new_val &= task->thread.gcs_el0_locked;
-+
-+	if (cur_val != new_val)
-+		return -EPERM;
-+
-+	return 0;
-+}
-+
- void gcs_free(struct task_struct *task)
- {
- 	if (!system_supports_gcs())
-
--- 
-2.47.3
-
+>> I will add the som.dts, please don't remove the kontron dtsi files yet.
 
