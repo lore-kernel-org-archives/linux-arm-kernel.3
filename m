@@ -2,78 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59314606A33F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 20:38:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5509606D80B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 20:38:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=b8/0AyDQ;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EOFJpJi6
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Bl76AHdG;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fUPO0SPB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=N6S8HybbmBQD7ksOwNPFIV9dg/XgtnCtP4j4VV6tQZY=; b=b8/0AyDQzc0oVhMaNp1sERArCc
-	BaVt6AGXZT3j+Wqne6IMTIIsWam0CetB672CSpxwPM3lm6d65PSmPSGQqZyW611fm5pMTPWdBYACf
-	/S52XzvCMC2H60GcW+Rv6soc6k/IfU3eE1G4PA9lPbuSndCEmtcTRlLRXArbGxfU22TQ1HrKqtAGx
-	tpB04XTOb+HmgyLn4KfaOcJSsZGkZOCvoPrSiss9/zja1aYK6Ala/zXAI2rhnJblfQy1h0/RXX12l
-	9Siae/dIUVGwV87/DmRZ7VUFS1hzIrP5vQaHLo46EjeRa0W+nNhk7ZFaKtIvKU7eDImy9m47lHZd4
-	zO80Guaw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=frICwY2Jg1jswprX/TCp9Cf0c4VXARn/d3XOOLE2RH4=; b=Bl76AHdGHQPO1R
+	t/9wKIZA0lqoTOtrRMJw0UmNYZKIwuxdtBsCsx3wQWVFZiME8CbF3IRiYjnrh+mEue66VrKBs0WLM
+	Kqz6lYfEd1dJcIOVc4Y3e3IBhjK+oj2T4Fiv14NYuAnIvXNV+5y6t1xBVrmBPaUJxm9dmkaBOgMlz
+	ZFKZX8qiQSmuZzSrUhVCRScN0B/ieq3j/sn09UgewfYJ2CQ0B5qFAwCk186oFt1V1fKRVhoCbFkJw
+	LNkaqOhJ1Mf8yJ4/FdX96Uwv5cj8RST+IH5BMa05eopT3/GzdGaG4lF9LE2VA3fQjq1InQRS7Vgqj
+	zdqnlUjgXZPfg1VQdReg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP4E7-0000000AaN6-2T6E;
-	Thu, 05 Nov 2026 20:38:27 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1xP4EC-0000000AaP1-3kp0;
+	Thu, 05 Nov 2026 20:38:32 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP4E1-0000000AaLC-340H
+	id 1xP4E2-0000000AaLS-3AFm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 20:38:25 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-6b571979178so2245067a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 12:38:20 -0800 (PST)
+	Thu, 05 Nov 2026 20:38:27 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6b1dae0febeso3504862a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 12:38:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793911099; x=1794515899; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=N6S8HybbmBQD7ksOwNPFIV9dg/XgtnCtP4j4VV6tQZY=;
-        b=EOFJpJi6/aAC+q3omt5kFnH6cci5e0HEhtmTNuShaGCUonElDBP1nl5s9CNSYb+415
-         K8oKzfHVLUk78YjFECAdtIdFPQs7du2mA42FlyIb9QKoctL3nI7qSFMIlt4x/yDS0iLn
-         TeQdm3X33sRBFw4346+Nr+OLYNKR29qDQ/yjCqLPxg0sbvyp4Mu+WF9MgXpKNpBFc5Cr
-         Ui8cbD6+a52QpaUi0RkvTkc1jfw/UGSv6avcpwM2JSlaPzRSC8r1QRXUnAzhnOtsuJLF
-         MZ7gBZ6+DJBtzTxcJRe/DdNc2xAwrVm41SoXePy9U+MS6nJDhsEOh/3adRrLoBRY6dEs
-         mF+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793911099; x=1794515899;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1793911100; x=1794515900; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=N6S8HybbmBQD7ksOwNPFIV9dg/XgtnCtP4j4VV6tQZY=;
-        b=dS5KbNQrv+ajrrFBF4V+oM6MdN69cQEzZEC4EYMiGl+namW5eR92z6LKaDnZeUXv6A
-         CwQF/bOWAWUazzSDRvQcw1jBSD1lSMt7V9DBrXazRut838JdOhkcpF+dlDbHvwdx9hqx
-         ZChh4YSMaK74Rc3EYJi/UtLbf0JFUP/O7INEYI1pIhu6q2NO1k+PXD6zuqVnAjfA39+w
-         K6npUawcniEtanmlYwS+a+rKZHPuqs4eAY2C1Y1HH7imKiqmwa+ZU4IevqQPwrRQyhH+
-         LdW08p6F/j7cEaHBuiKG3VxEGVhO+13LmJPhdSYfi7LISTXjwmLr6IcS2Um6sWizzVRa
-         s4RA==
-X-Forwarded-Encrypted: i=1; AKwUvBzJeTSW7q6CIo4/9aH2OQc6SPJ1wKRb28CLdMIUZ90MfpqQ5aPhPyI3cSzBdJK76TRrFkEfwAWOK1opqfJhBofU@lists.infradead.org
-X-Gm-Message-State: APuU4Z/7SIMR0aWQ4c03VPzJRL2EzG3JOVSmhrUv6lkR1lre02dDWgEC
-	RohhaAjNigCy+onK0QOqQp6voRhOS2W+R01RtVIyOwr7hV1lQ/dp2lUu
-X-Gm-Gg: AYBFou0dio2DR4x3nYe05/1uSAuY4EuwEHZ4CvfIpPsI7RoKhZqzCHHg0PGLAlJfjYq
-	Y9C3Hd+5qbO+RIJYRofdxSZBmbZZIx2dBswaVQRdSwTDawU998ObpYbY6n1J8CWiqECKRLCNV9x
-	wDnOUQFl59SheRRf7PuAY8pyBUpzhKsHEQqpgdE2fCyxwha31egXdQNYfgm6TuI5QDBidcsg/sJ
-	AT4SdXEDgoaQPMGR5hkQ/g4jGvHgdFy3zxCUViRHoCucGN+PIkosV4AbtCW/HBs+ii3OjM2inuS
-	h9ypLFyK/RqDJzbPWAgzW6j8WJGE0qBm9nu3c9jaL+1rBoVIHNvIjwFFhI2yUfc3+uT019N1tzv
-	Ad3r3VEOJBbgIa3ynm6V5FvRzH5ibsgMAEzdhFmouzO0rDC6303mjrZ7E5Sb6fg11+SDDt6bPVL
-	icH2S9csaf1LQ1KIrZu4k5Du0nQ95mDw41sdqloj7TxcM7LUvDGn/07Ftkaef3OGWVvhRqp/ahq
-	9ZY+VwARN+rGlztm2LNkZql404UThEc8PSJE8cwTKuD2om3HrGafIzmBX/6ObQpC3RJbLX75oCC
-	LKIWwUFlg362qZSNiUvQaoC+90XduzstKpi7Plwx7AvF1blq23npYkwOKSGmG2KVUGuzyiGRE8n
-	BU1TN4WjskT/V2X+7flNnpAgzoj4AMgfuECfrBazkbpLCBZmiZRh1BRn5y0jxZ6iXQDgH+TacPL
-	sIOy/FzK6wD7XIIrd8GIsFHu2guCp86DKIWKRrsS9xs281+HZah3lgaB8wdTay+6367Is=
-X-Received: by 2002:a05:6402:3808:b0:6b4:5d8c:95e2 with SMTP id 4fb4d7f45d1cf-6b597553644mr323041a12.4.1793911099046;
-        Thu, 05 Nov 2026 12:38:19 -0800 (PST)
+        bh=frICwY2Jg1jswprX/TCp9Cf0c4VXARn/d3XOOLE2RH4=;
+        b=fUPO0SPBq6XPrnpwA3QZrgo+4SwQ3ZISFCEWOlJDRl/Jd83roztGCllPAd+ti5MZzf
+         mLG3boZ1YbBPVk9LkzSaKKjHbVd6k63j/m44+kXtXUCnSBr7iixp7PcSfYF/q82GowoI
+         sCCJr3+N7N4QLteD9xRFlz4umRKuZcSajC1FOd6WeoxrRxbzP1JFphO9X9lOUk9vv8Cv
+         dzieLkQirb/rYGA1YkwCirpnZcML6h6oZOW+UMmURuHnMsCxncMcaAmV74J9QADet+UH
+         DGZKMSD2WdSCE9Av7q2HHAZuNee3XiXRJXy6ufy927L/CuOLHNT8hkAxRmQKL7ywxGYC
+         oGnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793911100; x=1794515900;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=frICwY2Jg1jswprX/TCp9Cf0c4VXARn/d3XOOLE2RH4=;
+        b=PUWbRJYzOGNoEIeS6O9J+7FERyBP9wmFDBa++7DgQCDy5iyc+lq0I6EAu36UkAR91E
+         0WwdEQxP5FDcnZJMXDwvzr+Db/kSGjPuUstsBnzEFF6xZI4IODi3V5rI3D1kjV4P0QYp
+         H7oVgZ+Q2+X54ihgM76Ex/EwO0VmUzD5NACX38VQoU3IE4jH0pKlUpvA8VpBuAyMKarO
+         BycIlynMgEs8G2AJYWhpThvWuHI3YYWkTe+cwkjAlmxPq2Bj4H1kb1iyvtwhX8FMQUIk
+         IeUqlBuR1HTaKaIJibTUynv0JEAJ/yzRJl7CLajyeZrnqewB9MYG8ZGBI/mN7OnEBh/8
+         5ULA==
+X-Forwarded-Encrypted: i=1; AKwUvBwOfiGL20JnBx7CtkeP99dzBfeT2UUObnqKaEpmXeR5bKkx9MNz4PhiPN+2QIuGG3aY0yb8Y1ti3Nk7c5YdI3lD@lists.infradead.org
+X-Gm-Message-State: APuU4Z8M+tiy6dSVohVjtNCuQQimMOkf/MeKy1ZzcHmwebfZVRqu0IcC
+	HQrTC87lXdHA/U+ilx2F7D4JDvAPt7OaD/WZF7swlwVBN7Lfql7+W3Jm
+X-Gm-Gg: AYBFou0dtkZMOYhIdNXbI/u8nXTtVR1lJNhG6UJW9et4GIei/+oZAinxponk29Q2aoa
+	qSKXlvrVCGf8AslTKFex/78kitJ+jI53mMb+XUYtF+21SZcX8c3BPsSH7XcpwN6rfcPg0by3BEM
+	lJs5gekKm8JI7IPvwczZR5V8ZCLRq3paHlLz5irCDDKCJN7LKwXDgFT1137JPC6ERzuVvd50uBI
+	pP244k0G4iB8zyxNm8jPdk4V+c3Ol7Jj9p21UBXIQfkKWuwVFQluRhGGujbuewiSO9/7ZbD2Vre
+	lLh1p/VdFWzoqof8qlH8HtUhSsYUjY2TlMTvSebUCpcGk1G9c1frEVNDR8xkUfVfgsFX553WsFD
+	VxvM/+1tEXuYiq89IN+GJGBBg++hsDtNSPSLUpvENx+9UVga30IN7l/yH0vSrcbjvnUgF3gDcko
+	W2uxwWx6++MQJXjTL3gfKYqz2mFNiSAUlmv7v3rCRMk7/x6+prPfnJXW2JQDggRmKKhU6hH28JC
+	vercF3CzMOAKp6gDUt3vgFJnEWswAl318iQ6/MTS1vXycTdL+xC9TJGiI+/Ls9Zzty3IsZbzs4T
+	gSRvu1XwrYp1ODTE+JS20U60v9DnsFUzWjd9m6Ax3SVRXdYRb9pj7woy4beiNx0dPlBky6/29Qj
+	ixYZnTU5GFBgUoqeB6uouzF5gLy7UaTwv4dWuJyT0hLodBgythYJgla3ysLQlArgZRLlKesd3w+
+	j5YXkqlDDJqw0J6dG80qAZmgqRP+pPKAbaVrCQEcXqZdu8j4nu+MXslwibUNfiLZZoQh1tDPK24
+	71FBmaS7vWdqFf9
+X-Received: by 2002:a17:907:d22:b0:c3f:7e8:235d with SMTP id a640c23a62f3a-c4d351f3023mr50453966b.5.1793911100187;
+        Thu, 05 Nov 2026 12:38:20 -0800 (PST)
 Received: from mb-HP-ZBook-Power-16-inch-G11-Mobile-Workstation-PC.dynamic.ziggo.nl (2001-1c00-1106-0900-938c-4ed8-a3bb-093f.cable.dynamic.v6.ziggo.nl. [2001:1c00:1106:900:938c:4ed8:a3bb:93f])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b57feb668bsm886834a12.13.2026.11.05.12.38.18
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b57feb668bsm886834a12.13.2026.11.05.12.38.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 12:38:18 -0800 (PST)
+        Thu, 05 Nov 2026 12:38:19 -0800 (PST)
 From: Mario Behn <mario.behn@gmail.com>
 To: Mark Brown <broonie@kernel.org>,
 	Michal Simek <michal.simek@amd.com>
@@ -81,16 +82,18 @@ Cc: linux-spi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Mario Behn <mario.behn@gmail.com>
-Subject: [PATCH v1 0/2] spi: zynq-qspi: use a flash larger than 16 MiB
-Date: Thu,  5 Nov 2026 21:37:32 +0100
-Message-ID: <20261105203734.979168-1-mario.behn@gmail.com>
+Subject: [PATCH v1 2/2] spi: zynq-qspi: program and erase flash above 16 MiB via the EAR
+Date: Thu,  5 Nov 2026 21:37:34 +0100
+Message-ID: <20261105203734.979168-3-mario.behn@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261105203734.979168-1-mario.behn@gmail.com>
+References: <20261105203734.979168-1-mario.behn@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_123823_092137_7B80143A 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20261105_123825_778639_5226AF44 
+X-CRM114-Status: GOOD (  26.26  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,53 +105,219 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The Zynq-7000 QSPI controller sends at most 3 address bytes. spi-nor
-needs 4-byte addresses for a flash larger than 16 MiB, so on a board
-with a 32 MiB W25Q256 (the ADALM-PLUTO+ has one) the probe fails with
--EINVAL and no mtd device appears.
 
-These two patches keep the flash in 3-byte mode and handle an operation
-with a 4-byte address inside the controller driver, through the flash's
-Extended Address Register (EAR): write enable, write EAR with
-addr >> 24, the operation in its 3-byte form, then the EAR back to 0.
-The EAR is 0 between operations, so a warm reset leaves the BootROM and
-U-Boot in bank 0.
+The read-only stage turned every operation with a 4-byte address into
+WREN, WREAR(addr >> 24), the 3-byte form of the operation and WREAR(0),
+and refused programs and erases. Carry them the same way, with the
+things they need:
 
-Patch 1 makes the flash readable (every other operation is refused).
-Patch 2 adds program and erase, which need the write enable again after
-the EAR write, a check of the bank register before the operation, and
-waiting for the flash to be idle before the EAR is restored.
+ - the write enable the spi-nor core sent before the operation is used
+   up by the WREAR command, so it is sent again after it (the ADI 6.12
+   spi-nor code does the same);
+ - a program or an erase with the wrong bank selected lands 16 MiB away
+   from where it was meant, so the bank register is read back (RDEAR)
+   before the operation and the write is refused with -EIO if it does
+   not hold the expected value;
+ - after a program or an erase the flash is busy and ignores everything
+   but Read Status, so the bank register is restored only once the WIP
+   bit is clear (bounded at 3 s, a 64 KiB block erase takes up to 2 s on
+   the W25Q256), then WREN, WREAR(0), WRDI so the write enable latch is
+   not left set.
 
-Tested on an ADALM-PLUTO+ (Zynq-7010, W25Q256, JEDEC id ef4019) with
-v7.3 plus these patches:
- - the four partitions (mtd0 to mtd3, the last one 30 MiB and crossing
-   the 16 MiB bank boundary) read back with the same md5 as on a vendor
-   6.12 kernel that handles the 4-byte addresses in spi-nor;
- - the U-Boot environment in mtd1 is written with fw_setenv, survives a
-   reboot and is read back;
- - one 64 KiB block in bank 1: erase, program a random pattern, read
-   back (equal), restore;
- - 14 MiB (224 erase blocks) in bank 1: erase, program, read back
-   (equal), restore; about 110 s each way;
- - a 26 MB firmware image written into the 30 MiB partition from the
-   running system and verified byte for byte, after which the board
-   boots from QSPI;
- - no driver error in the kernel log during any of it.
+The bank register is 0 between operations, so operations in bank 0 keep
+going out unchanged and a warm reboot leaves the BootROM and U-Boot in
+bank 0. Address-less commands (write enable and disable, status register
+reads and writes, chip erase) go out as they are.
 
-Not tested: other flash chips, boards with a flash on another chip
-select, or the quad program path with a flash that is not a W25Q256.
+Signed-off-by: Mario Behn <mario.behn@gmail.com>
+---
+ drivers/spi/spi-zynq-qspi.c | 113 +++++++++++++++++++++++++++++++-----
+ 1 file changed, 98 insertions(+), 15 deletions(-)
 
-Mario Behn (2):
-  spi: zynq-qspi: read flash above 16 MiB via the extended address register
-  spi: zynq-qspi: program and erase flash above 16 MiB via the EAR
+diff --git a/drivers/spi/spi-zynq-qspi.c b/drivers/spi/spi-zynq-qspi.c
+index e20019a03964..c72c00a82a99 100644
+--- a/drivers/spi/spi-zynq-qspi.c
++++ b/drivers/spi/spi-zynq-qspi.c
+@@ -230,10 +230,14 @@ static void zynq_qspi_init_hw(struct zynq_qspi *xqspi, unsigned int num_cs)
+  * WREN + WREAR(addr >> 24) + the 3-byte form of the operation, and the EAR is
+  * set back to 0 afterwards, so that U-Boot and the BootROM find the flash in
+  * bank 0 after a reset (the same scheme as the ADI 6.12 spi-nor code, but in
+- * the controller driver instead of the spi-nor core).
++ * the controller driver instead of the spi-nor core). A program or an erase
++ * above 16 MiB needs a second write enable after the WREAR, and the flash is
++ * busy afterwards, so the bank register is restored once it is ready again.
+  */
+ #define ZYNQ_QSPI_BANK_SIZE		0x1000000U
+ #define ZYNQ_QSPI_OP_WREAR		0xc5	/* Write Extended Address Register */
++#define ZYNQ_QSPI_OP_RDEAR		0xc8	/* Read Extended Address Register */
++#define ZYNQ_QSPI_READY_TIMEOUT_MS	3000
+ 
+ static bool zynq_qspi_supports_op(struct spi_mem *mem,
+ 				  const struct spi_mem_op *op)
+@@ -661,12 +665,44 @@ static int zynq_qspi_exec_plain_op(struct spi_mem *mem,
+ 	return err;
+ }
+ 
+-/* Stage 2: the flash is read-only through this driver. */
+-static bool zynq_qspi_op_is_read(const struct spi_mem_op *op)
++/* a program or an erase: the flash is busy afterwards */
++static bool zynq_qspi_op_is_write(const struct spi_mem_op *op)
+ {
+-	if (op->data.nbytes && op->data.dir == SPI_MEM_DATA_IN)
+-		return true;
+-	return false;
++	return !(op->data.nbytes && op->data.dir == SPI_MEM_DATA_IN);
++}
++
++/*
++ * Wait until the flash has finished a program or an erase (WIP clear). While
++ * it is busy it ignores every command but Read Status, so the bank register
++ * cannot be restored before this.
++ */
++static int zynq_qspi_wait_ready(struct spi_mem *mem, const struct spi_mem_op *like)
++{
++	u8 *sr = kmalloc(1, GFP_KERNEL);
++	struct spi_mem_op rdsr = SPI_MEM_OP(SPI_MEM_OP_CMD(SPINOR_OP_RDSR, 1),
++					    SPI_MEM_OP_NO_ADDR,
++					    SPI_MEM_OP_NO_DUMMY,
++					    SPI_MEM_OP_DATA_IN(1, sr, 1));
++	unsigned long deadline;
++	int ret;
++
++	if (!sr)
++		return -ENOMEM;
++	rdsr.max_freq = like->max_freq;
++	/* a 64 KiB block erase takes up to 2 s on the W25Q256 */
++	deadline = jiffies + msecs_to_jiffies(ZYNQ_QSPI_READY_TIMEOUT_MS);
++	for (;;) {
++		ret = zynq_qspi_exec_plain_op(mem, &rdsr);
++		if (ret || !(*sr & SR_WIP))
++			break;
++		if (time_after(jiffies, deadline)) {
++			ret = -ETIMEDOUT;
++			break;
++		}
++		usleep_range(200, 500);
++	}
++	kfree(sr);
++	return ret;
+ }
+ 
+ static int zynq_qspi_ear_cmds(struct spi_mem *mem, const struct spi_mem_op *like,
+@@ -692,16 +728,60 @@ static int zynq_qspi_ear_cmds(struct spi_mem *mem, const struct spi_mem_op *like
+ 	ret = zynq_qspi_exec_plain_op(mem, &wren);
+ 	if (!ret)
+ 		ret = zynq_qspi_exec_plain_op(mem, &wrear);
++	/*
++	 * A program or an erase with the wrong bank selected lands 16 MiB away
++	 * from where it was meant, so read the register back before going on.
++	 */
++	if (!ret && wren_after) {
++		struct spi_mem_op rdear = SPI_MEM_OP(SPI_MEM_OP_CMD(ZYNQ_QSPI_OP_RDEAR, 1),
++						     SPI_MEM_OP_NO_ADDR,
++						     SPI_MEM_OP_NO_DUMMY,
++						     SPI_MEM_OP_DATA_IN(1, buf, 1));
++
++		rdear.max_freq = like->max_freq;
++		*buf = ~ear;
++		ret = zynq_qspi_exec_plain_op(mem, &rdear);
++		if (!ret && *buf != ear) {
++			dev_err(&mem->spi->dev,
++				"bank register %u not taken (reads %u), write refused\n",
++				ear, *buf);
++			ret = -EIO;
++		}
++	}
+ 	if (!ret && wren_after)
+ 		ret = zynq_qspi_exec_plain_op(mem, &wren);
+ 	kfree(buf);
+ 	return ret;
+ }
+ 
++/*
++ * Back to bank 0: after a program or an erase wait for the flash first, then
++ * WREN + WREAR(0) + WRDI (the write enable latch must not stay set).
++ */
++static int zynq_qspi_ear_restore(struct spi_mem *mem, const struct spi_mem_op *like,
++				 bool after_write)
++{
++	struct spi_mem_op wrdi = SPI_MEM_OP(SPI_MEM_OP_CMD(SPINOR_OP_WRDI, 1),
++					    SPI_MEM_OP_NO_ADDR,
++					    SPI_MEM_OP_NO_DUMMY,
++					    SPI_MEM_OP_NO_DATA);
++	int ret = 0;
++
++	wrdi.max_freq = like->max_freq;
++	if (after_write)
++		ret = zynq_qspi_wait_ready(mem, like);
++	if (!ret)
++		ret = zynq_qspi_ear_cmds(mem, like, 0, false);
++	if (!ret)
++		ret = zynq_qspi_exec_plain_op(mem, &wrdi);
++	return ret;
++}
++
+ static int zynq_qspi_exec_mem_op(struct spi_mem *mem,
+ 				 const struct spi_mem_op *op)
+ {
+ 	struct spi_mem_op nop = *op;
++	bool write;
+ 	u8 ear;
+ 	int ret, ret2;
+ 
+@@ -710,23 +790,26 @@ static int zynq_qspi_exec_mem_op(struct spi_mem *mem,
+ 	    (op->cmd.opcode == SPINOR_OP_EN4B || op->cmd.opcode == SPINOR_OP_EX4B))
+ 		return 0;
+ 
+-	/* read-only guard: only operations that read data from the flash */
+-	if (!zynq_qspi_op_is_read(op)) {
+-		dev_warn_ratelimited(&mem->spi->dev,
+-				     "read-only: op %#x refused\n", op->cmd.opcode);
+-		return -EROFS;
+-	}
+-
++	/*
++	 * Operations without a 4-byte address go out as they are: reads and
++	 * writes in bank 0, and the address-less commands (write enable and
++	 * disable, status register reads and writes, chip erase).
++	 */
+ 	if (op->addr.nbytes != 4)
+ 		return zynq_qspi_exec_plain_op(mem, op);
+ 
++	write = zynq_qspi_op_is_write(op);
+ 	ear = (op->addr.val >> 24) & 0xff;
+ 	nop.cmd.opcode = zynq_qspi_opcode_3b(op->cmd.opcode);
+ 	nop.addr.nbytes = 3;
+ 	nop.addr.val = op->addr.val & (ZYNQ_QSPI_BANK_SIZE - 1);
+ 
++	/*
++	 * The write enable the caller sent before a program or an erase is
++	 * consumed by the WREAR command, so it is sent again after it.
++	 */
+ 	if (ear) {
+-		ret = zynq_qspi_ear_cmds(mem, op, ear, false);
++		ret = zynq_qspi_ear_cmds(mem, op, ear, write);
+ 		if (ret)
+ 			return ret;
+ 	}
+@@ -734,7 +817,7 @@ static int zynq_qspi_exec_mem_op(struct spi_mem *mem,
+ 	ret = zynq_qspi_exec_plain_op(mem, &nop);
+ 
+ 	if (ear) {
+-		ret2 = zynq_qspi_ear_cmds(mem, op, 0, false);
++		ret2 = zynq_qspi_ear_restore(mem, op, write);
+ 		if (!ret)
+ 			ret = ret2;
+ 	}
+-- 
+2.53.0
 
- drivers/spi/spi-zynq-qspi.c | 1 file changed
 
