@@ -2,69 +2,54 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20278606CFB6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 15:55:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A69B60707AD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 15:55:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TTJ2yimW;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=j4b0hjtv;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=jpPt807I
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=yTHbHvqi;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=WXbRKlsK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=PolKRYw7GBLw5KNxkR/whXtn/+An+bZ1AOUOWliicOA=; b=TTJ2yimWayt9g/
-	g67DRkx9wrK/mTy3/k1uIFluqGr/8eR6JsEo8Lj4z28/eiai2EQChTW/XncmndryEy4qRoues2IFZ
-	uty5NmwKgljRWIkmQituPpHTPCPADhyVVTbjyU15mhYxfnZxwNnr6tHxi9qfk5CXdyAgRdFGQmj0a
-	hbe+03Opl/iV2MGOHM13LYWZhhd0x22GAMvwBiHu8tzVWDgR/MD0Qu8Rtn+5ggNjqvup2OriZ2dfb
-	Q6oYce+6jvs/M0W0Vd0gIIAx6BxyJ6gK6UTzguvhaJ5eGgFEx//k2fsqhTYZrqU+/NmwMIyBuKMoW
-	FTQ9J7J6q3QC/ctaPJnw==;
+	List-Owner; bh=X5Z7qcMwD7blBfeK0v/J475OEl1PgkfNhhezrgvSE88=; b=yTHbHvqiWpxAg1
+	kGgYLqb45vNoeWVmXs5inL4lIzg7fjvh/nLUGgwlosv7Eoko7zzerpGIb3P5+j1h6ibFAGeQDQqqh
+	9EPvUIeIZijlMphxjFcD4aGQzRlMOHff3+j6+NYAqVoIvPQTKLw0waEOtYZt8TzYeaXCIs2VfM5yO
+	t/V6UTqR0VcvdshqMqIdUYEC3upCot6BOGD8DaiEJIMXVHCSVBQiSOFQ0m/bBySXYLRZIMId+8/cx
+	k69dBYnPX56vHgjzqzntJbz03t8rZozoTvILZVrIz/15yDehArdOqYrnkO0ht3KyTbOqA6Eltikew
+	4dcfgFdgnehZHiOjOcNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOzoJ-00000009U0z-0AtA;
-	Thu, 05 Nov 2026 15:55:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOznm-00000009TY8-3Ukh;
-	Thu, 05 Nov 2026 15:54:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=PolKRYw7GBLw5KNxkR/whXtn/+An+bZ1AOUOWliicOA=; b=j4b0hjtvnUjgkd5j97dQVtGyR7
-	fd46BJWbiPWzR7aP/IoK05Dl7O9ds17ZZhH+tp6ZUE6UrPASx+yAKZftM2MB8E9Bq9UZF1n9zYsxo
-	8Aemzm1FDpZmvsOpNV92XpM1Un5g06rhaAf9KZeH86Q8bzCmAyqMpIGJO+2UlVBjpqQnCWrpZsBAG
-	CHgi4Pkcj4OL5jelf9lwMp1udOmBKZd8BwlBWu6N8rkpN3veQqkh4lVxT9UKIDtusUtaUrNIfdsRc
-	KBpROCYHWdSRIOQJEIU4sLRqQyr/CsSAcitgqzWj/JzQA5Oka4d5QFedKOyJhshCQJDHh7BxDOpBW
-	eLq5TW1g==;
+	id 1xOzoI-00000009Tzh-04cW;
+	Thu, 05 Nov 2026 15:55:30 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOznj-00000003CZz-3vlK;
-	Thu, 05 Nov 2026 15:54:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1793894017; cv=none; 
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOznP-00000009TKK-2fYo;
+	Thu, 05 Nov 2026 15:54:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1793894035; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=Rblk8yeKtrVAQjhmQ5k8n0TVHGaa1iBGvZGrbljaDFpI2J3RYx0DsumS6WYRjoD/dZqEfilJ1NBHpT50nh3Kc0N8BUZh+AJI7hE32VF0L6F5h6l2XL30h1eI1GkmHMeyUpk0DP8VD+FJwppIdbZWd4F6hF2JyAstLZxWsIIPRiA=
+	b=f1GG34Z5y1R9kEj027n5ViHkhVVjQQ3h2qJNnolFhPnbBzPUViU2JpfT1NfkLBoYSyd2N8S3z2s+iNgVyZjmvsGyHDeNKZ8jvx4z2gYknOtiEt64I3+kg5HBO5+SWrJSAix0GDVw2oHNuoo6w21/bOtVF0moTTMJkw5t5LZz3Co=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1793894017; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=PolKRYw7GBLw5KNxkR/whXtn/+An+bZ1AOUOWliicOA=; 
-	b=NEgy1+OSN2SbHFR5aKUnuLhihI+fMnktBn9hQQOaomYgrcigdpLhb15BOTmTNzFYl08ictn5VwLaKOUxm2IosPocJbWEgrx80tEs8HQEkwkLU7bBQX9GXmV3ZKItshRWbe464MpuVAj13IGz1T7gN3yL9D/GE0GQPrteVvftr+8=
+	t=1793894035; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=X5Z7qcMwD7blBfeK0v/J475OEl1PgkfNhhezrgvSE88=; 
+	b=fsW7zFL9EPhwqK+6Y7wip34C1En/t6OzF2RV42BpImgvjZilQQnJQ46rGDAkwUaZVTzg+XvAzW/J9JCI5zIHGb3+rAznOhSXoXTMuYM/goJieh6UULIb1NoRr/WLlpCbJToOGzMsLzv39DaIUX8HtAN1MRtTjwTww7uGWt6G8vA=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=jpPt807ICfmpDH0YNA4tNw4rt8wUaSfQCdhHQhSNIATPDEggTv6Bc7X90FvN7Em9HYZcv4DZh8Nls5c76Mkuovh4iz9i+VkURJzsJ7b+Q72vViDqrKGA/664zkovnzWQbyZ49O8tOA69+T2ILin1pIhFJcl+RbeqMQ1m1nmrkBg=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=PolKRYw7GBLw5KNxkR/whXtn/+An+bZ1AOUOWliicOA=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1793894015900246.87112414763692;
-	Thu, 5 Nov 2026 07:53:35 -0800 (PST)
+DKIM-Signature: a=rsa-sha256; b=WXbRKlsKHBc1R30c81R8lCa4x2UNdAyyXxMagZUxw1pDNA1KQco1vmR5ksXMs5XZ2dmzyd0iqGeD+pWlVz1rwBHvki7TtM35FQIQDQSlOuhlBWBZmLlZoKJKumtF3iIFmc7T1IVYeFcI3WGOmOxiCBw9PmDAvyyQ15zHqH9InXQ=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=X5Z7qcMwD7blBfeK0v/J475OEl1PgkfNhhezrgvSE88=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1793894034502964.1810565741954;
+	Thu, 5 Nov 2026 07:53:54 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Thu, 05 Nov 2026 16:52:01 +0100
-Subject: [PATCH v2 10/27] drm/connector: Add vrr_display_{min,max}
- connector properties
+Date: Thu, 05 Nov 2026 16:52:04 +0100
+Subject: [PATCH v2 13/27] drm/rockchip: Set mode_changed on vrr_enabled
+ change
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-vrr-limiter-uapi-v2-10-55f4215be2c2@collabora.com>
+Message-Id: <20261105-vrr-limiter-uapi-v2-13-55f4215be2c2@collabora.com>
 References: <20261105-vrr-limiter-uapi-v2-0-55f4215be2c2@collabora.com>
 In-Reply-To: <20261105-vrr-limiter-uapi-v2-0-55f4215be2c2@collabora.com>
 To: Xaver Hugl <xaver.hugl@gmail.com>, Vidith Madhu <vmadhu@nvidia.com>, 
@@ -90,9 +75,9 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_155456_326287_213F6339 
-X-CRM114-Status: GOOD (  22.79  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20261105_075436_959712_C220E093 
+X-CRM114-Status: GOOD (  12.30  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,237 +95,56 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Depending on whichever quirks a driver applies, what the minimum and
-maximum display-supported refresh rates for VRR are is not always
-obvious to userspace.
+RK3588 (and likely other Rockchip hardware) requires a full modeset when
+VRR is enabled in order for it to function properly.
 
-To rectify this, add two new read-only connector properties. These
-properties specify the smallest, and respectively the largest, integer
-refresh rate in Hertz that the current mode is capable of displaying
-with Variable Refresh Rate.
-
-Due to how messy and chicken-and-egg it would be to implement it, this
-does not consider the fractional rates below VRR min that might be
-allowed, the CinemaVRR rates that might be allowed below VRRmin on HDMI
-displays with this feature if userspace ends up presenting fixed rate,
-or the QMS range.
+Set mode_changed during the atomic check phase to do this.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/display/drm_hdmi_helper.c | 55 +++++++++++++++++++++++++
- drivers/gpu/drm/drm_connector.c           | 67 +++++++++++++++++++++++++++++++
- include/drm/display/drm_hdmi_helper.h     |  3 ++
- include/drm/drm_connector.h               | 30 ++++++++++++++
- 4 files changed, 155 insertions(+)
+ drivers/gpu/drm/rockchip/rockchip_drm_fb.c | 20 +++++++++++++++++++-
+ 1 file changed, 19 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/display/drm_hdmi_helper.c b/drivers/gpu/drm/display/drm_hdmi_helper.c
-index f85cce3d6254..8f325d5e496d 100644
---- a/drivers/gpu/drm/display/drm_hdmi_helper.c
-+++ b/drivers/gpu/drm/display/drm_hdmi_helper.c
-@@ -730,3 +730,58 @@ int drm_connector_hdmi_sync_scdc(struct drm_connector *connector, bool plugged,
- 	return ret;
- }
- EXPORT_SYMBOL(drm_connector_hdmi_sync_scdc);
-+
-+/**
-+ * drm_connector_hdmi_update_vrr_limits - update VRR display limit properties
-+ * @conn: pointer to the &struct drm_connector to set the properties on
-+ * @mode: pointer to the &struct drm_display_mode to consider while updating
-+ *
-+ * Update the "vrr_display_min" and "vrr_display_max" properties on @conn based
-+ * on its HDMI sink info and the current mode. Does not consider any display
-+ * protocol other than HDMI.
-+ *
-+ * Will set both min and max to 0 if max happens to end up below min, which can
-+ * happen with CNMVRR==0 and a lower refresh rate @mode.
-+ *
-+ * Return: %0 on success, negative errno otherwise
-+ */
-+int drm_connector_hdmi_update_vrr_limits(struct drm_connector *conn,
-+					 const struct drm_display_mode *mode)
-+{
-+	struct drm_mode_object *obj = &conn->base;
-+	const struct drm_display_info *info;
-+	u16 min_hz, max_hz;
-+
-+	if (!conn->vrr_display_min_property || !conn->vrr_display_max_property)
-+		return -ENOENT;
-+
-+	info = &conn->display_info;
-+
-+	if (!info->is_hdmi)
-+		return -EINVAL;
-+
-+	if (conn->status != connector_status_connected ||
-+	    !info->hdmi.vrr_cap.supported) {
-+		drm_object_property_set_value(obj, conn->vrr_display_min_property, 0);
-+		drm_object_property_set_value(obj, conn->vrr_display_max_property, 0);
-+
-+		return 0;
-+	}
-+
-+	min_hz = info->hdmi.vrr_cap.vrr_min;
-+
-+	if (info->hdmi.vrr_cap.cnmvrr)
-+		max_hz = info->hdmi.vrr_cap.vrr_max;
-+	else
-+		max_hz = min(drm_mode_vrefresh(mode), info->hdmi.vrr_cap.vrr_max);
-+
-+	/* VRR is impossible in the current mode */
-+	if (max_hz <= min_hz)
-+		min_hz = max_hz = 0;
-+
-+	drm_object_property_set_value(obj, conn->vrr_display_min_property, min_hz);
-+	drm_object_property_set_value(obj, conn->vrr_display_max_property, max_hz);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL(drm_connector_hdmi_update_vrr_limits);
-diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-index 33c4195db58b..21222214a843 100644
---- a/drivers/gpu/drm/drm_connector.c
-+++ b/drivers/gpu/drm/drm_connector.c
-@@ -2641,6 +2641,20 @@ EXPORT_SYMBOL(drm_mode_create_scaling_mode_property);
-  *	numerator/denominator pair of a frame rate to set as the maximum VRR
-  *	target rate. If :ref:`VRR_MAX_NUMERATOR <VRR-MAX-NUMERATOR>` is not
-  *	zero, it must be non-zero.
-+ *
-+ * "vrr_display_min":
-+ *	Optional &drm_connector property that expresses the lowest integer
-+ *	frame rate in Hertz that the display can achieve in the current mode
-+ *	with VRR. It is highly likely the display can represent rational rates
-+ *	below this value (e.g. 24/1.001), which an atomic test commit with the
-+ *	limiters set appropriately will reveal. This minimum is assuming
-+ *	non-constant frame intervals, i.e. does not consider features like
-+ *	CinemaVRR for HDMI.
-+ *
-+ * "vrr_display_max":
-+ *	Optional &drm_connector property that expresses the highest integer
-+ *	frame rate in Hertz that the display can achieve in the current mode
-+ *	with VRR.
-  */
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_fb.c b/drivers/gpu/drm/rockchip/rockchip_drm_fb.c
+index 45588b79b3d4..e3aad75b88b4 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_fb.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_fb.c
+@@ -13,6 +13,7 @@
+ #include <drm/drm_framebuffer.h>
+ #include <drm/drm_gem_framebuffer_helper.h>
+ #include <drm/drm_probe_helper.h>
++#include <drm/drm_print.h>
  
- /**
-@@ -2737,6 +2751,59 @@ int drm_connector_attach_vrr_display_mode_property(struct drm_connector *connect
+ #include "rockchip_drm_drv.h"
+ #include "rockchip_drm_fb.h"
+@@ -59,9 +60,26 @@ rockchip_fb_create(struct drm_device *dev, struct drm_file *file,
+ 	return &afbc_fb->base;
  }
- EXPORT_SYMBOL(drm_connector_attach_vrr_display_mode_property);
  
-+/**
-+ * drm_connector_attach_vrr_display_limits_properties - creates and attaches VRR
-+ * display limit properties
-+ * @connector: pointer to the &struct drm_connector to attach the properties to
-+ *
-+ * Creates and attaches the "vrr_display_min" and "vrr_display_max" properties
-+ * on @connector. Will either create and attach both, or on failure, neither,
-+ * but never just one of the two, unless a connector with just one of the two
-+ * already created is passed in.
-+ *
-+ * Returns:
-+ * Zero on success, negative errno on failure
-+ */
-+int drm_connector_attach_vrr_display_limits_properties(
-+	struct drm_connector *connector)
++static int rockchip_drm_atomic_check(struct drm_device *dev, struct drm_atomic_commit *state)
 +{
-+	struct drm_device *dev = connector->dev;
-+	struct drm_property *min_p = NULL, *max_p = NULL;
++	struct drm_crtc_state *old_crtc_state, *new_crtc_state;
++	struct drm_crtc *crtc;
++	int i;
 +
-+	if (!connector->vrr_display_min_property) {
-+		min_p = drm_property_create_range(dev, DRM_MODE_PROP_IMMUTABLE,
-+						  "vrr_display_min", 0, U16_MAX);
-+
-+		if (!min_p)
-+			return -ENOMEM;
-+	}
-+
-+	if (!connector->vrr_display_max_property) {
-+		max_p = drm_property_create_range(dev, DRM_MODE_PROP_IMMUTABLE,
-+						  "vrr_display_max", 0, U16_MAX);
-+
-+		if (!max_p) {
-+			if (min_p)
-+				drm_property_destroy(dev, min_p);
-+
-+			return -ENOMEM;
++	for_each_oldnew_crtc_in_state(state, crtc, old_crtc_state, new_crtc_state, i) {
++		if (old_crtc_state->vrr_enabled != new_crtc_state->vrr_enabled) {
++			new_crtc_state->mode_changed = true;
++			drm_dbg_driver(dev, "[CRTC:%d:%s] VRR changed\n",
++				       crtc->base.id, crtc->name);
 +		}
 +	}
 +
-+	if (min_p) {
-+		connector->vrr_display_min_property = min_p;
-+		drm_object_attach_property(&connector->base, min_p, 0);
-+	}
-+
-+	if (max_p) {
-+		connector->vrr_display_max_property = max_p;
-+		drm_object_attach_property(&connector->base, max_p, 0);
-+	}
-+
-+	return 0;
++	return drm_atomic_helper_check(dev, state);
 +}
-+EXPORT_SYMBOL(drm_connector_attach_vrr_display_limits_properties);
 +
- /**
-  * drm_connector_attach_scaling_mode_property - attach atomic scaling mode property
-  * @connector: connector to attach scaling mode property on.
-diff --git a/include/drm/display/drm_hdmi_helper.h b/include/drm/display/drm_hdmi_helper.h
-index 2cdd6e3bc090..dd96885bb592 100644
---- a/include/drm/display/drm_hdmi_helper.h
-+++ b/include/drm/display/drm_hdmi_helper.h
-@@ -50,4 +50,7 @@ int
- drm_connector_hdmi_sync_scdc(struct drm_connector *connector, bool plugged,
- 			     struct drm_modeset_acquire_ctx *ctx);
+ static const struct drm_mode_config_funcs rockchip_drm_mode_config_funcs = {
+ 	.fb_create = rockchip_fb_create,
+-	.atomic_check = drm_atomic_helper_check,
++	.atomic_check = rockchip_drm_atomic_check,
+ 	.atomic_commit = drm_atomic_helper_commit,
+ };
  
-+int drm_connector_hdmi_update_vrr_limits(struct drm_connector *conn,
-+					 const struct drm_display_mode *mode);
-+
- #endif
-diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
-index 5b6920c1a996..c0865a2547fd 100644
---- a/include/drm/drm_connector.h
-+++ b/include/drm/drm_connector.h
-@@ -2495,6 +2495,34 @@ struct drm_connector {
- 	 */
- 	struct drm_property *vrr_display_mode_property;
- 
-+	/**
-+	 * @vrr_display_min_property: Optional read-only property to help
-+	 * userspace query the minimum supported VRR refresh rate in Hz by the
-+	 * display.
-+	 *
-+	 * Can be attached to a connector by calling
-+	 * drm_connector_attach_vrr_display_limits_properties().
-+	 *
-+	 * Drivers should update it through drm_object_property_set_value()
-+	 * or through the helper drm_connector_hdmi_update_vrr_limits() for HDMI
-+	 * connectors using standard HDMI VRR.
-+	 */
-+	struct drm_property *vrr_display_min_property;
-+
-+	/**
-+	 * @vrr_display_max_property: Optional read-only property to help
-+	 * userspace query the maximum supported VRR refresh rate in Hz by the
-+	 * display.
-+	 *
-+	 * Can be attached to a connector by calling
-+	 * drm_connector_attach_vrr_display_limits_properties().
-+	 *
-+	 * Drivers should update it through drm_object_property_set_value()
-+	 * or through the helper drm_connector_hdmi_update_vrr_limits() for HDMI
-+	 * connectors using standard HDMI VRR.
-+	 */
-+	struct drm_property *vrr_display_max_property;
-+
- 	/**
- 	 * @colorspace_property: Connector property to set the suitable
- 	 * colorspace supported by the sink.
-@@ -2927,6 +2955,8 @@ int drm_connector_attach_vrr_capable_property(
- 		struct drm_connector *connector);
- int drm_connector_attach_vrr_display_mode_property(struct drm_connector *connector,
- 						   unsigned int supported_vrr_modes);
-+int drm_connector_attach_vrr_display_limits_properties(
-+		struct drm_connector *connector);
- void drm_connector_attach_panel_type_property(struct drm_connector *connector);
- int drm_connector_attach_broadcast_rgb_property(struct drm_connector *connector);
- int drm_connector_attach_colorspace_property(struct drm_connector *connector);
 
 -- 
 2.56.0
