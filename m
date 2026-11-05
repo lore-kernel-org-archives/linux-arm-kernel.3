@@ -2,57 +2,56 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18403606D83D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DC5E606D828
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 01:01:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cxrfUcTg;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=VR855FDp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ileYgCcC;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=MDWWwlXC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=IE+CwyGmVpK9kCq38wcc2HM4ElfDFOxunpUNRJr2ayk=; b=cxrfUcTgowuQgP
-	MEendCAy5lV/jyldkjy0epDm2QNGJmXwI/OEYJfmH3pDp1LTpN+fcKRxjflz3Ja9cPHPgusD+Pdf2
-	d3KI0xLD481AaIXOuNxT1u3tHuTASKPoRfOwC6oL5EpQMSLohpQbjCE5asujzWTMsAsxbzeRy5a0r
-	+nejR85bnfv0+svS2mVWG091pMu5U5fenbDT8dufgEIsNZjWrT0vadMxH/58SBN6w2h8Jw2YrV/Zz
-	IcGuMU7vUTPxOCm2/OrA1Mwpt5NGI8Xzzjr7s1pxzwYvi6kSNOMt2o7buUjanBkEJnTCjwxS1CmxP
-	5aAID9YDX65Vp7vyin0A==;
+	List-Owner; bh=cX+DbcJmmg9QakyYJpWVZ77VZJzicnM6ehZMoDfPJjw=; b=ileYgCcCCqtKbL
+	/9sM8LOF3j+jyyyVh507K6yJVQ0cXdqwyjO8C1C+5dpuWjnTafZGnb7J/eYp6G1oW3B3kVrwh1Lnu
+	UlokONUP0Ly7Txd2CT34s+hmKhGyunwB4J4ywiabnQIY6a2shd6GB8xGnLhEIL0FbRhzRRCyremRd
+	zMEKR4ZZ/Wvc472HBjVsCKF8cghRnPeQokx4W7qyZXiR7ytov7tvc0RcTCWM84XtxXdCGaLRPC/to
+	BKKpDVGexk1nNkWp9LYw11oenmE/+uIzDXDlNCjKSBde0G7KpHaBs2OkgVX6lkhlvvJ/VVs6RteS1
+	XzRr8fnS3q4pC5vShVFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOlr2-00000007Opm-24it;
-	Thu, 05 Nov 2026 01:01:24 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1xOlr5-00000007Ozr-28vw;
+	Thu, 05 Nov 2026 01:01:27 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOlqw-00000007OXW-0ydE;
-	Thu, 05 Nov 2026 01:01:19 +0000
+	id 1xOlqx-00000007OZw-2FaF;
+	Thu, 05 Nov 2026 01:01:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1793840475;
-	bh=fYsBZY+jSikNub85K8e0+OdnyNo7wwxjd1+6YCys8OA=;
+	s=mail; t=1793840477;
+	bh=JzGzUfuhfcfeEnoYFB9FfGGdw4SszHeIH0PSK2/hZUc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=VR855FDpiojGQjntT7bGe/YYaibGfjJX7V2GMMa1wh0eDU9HRJWoEHKN6i4sLB/lb
-	 zGMzeRVnZWAZ/WAcP0279QRqq3Y1I6wJP24NTK688ZtIFiRPB43R+WKXAKsZtvbmui
-	 au6XKiWXwoPdyC7t1qswazUzjstRgBKySeboUzGwMh1JFEWJ00+jn6hN+ooledOunF
-	 G/3CQBu4nvEp4nBC6+Owet9wLXq1YalTwkcBqamBWhTzUFmr2hwuqesIEGTHfUJXeh
-	 xDv/HyJo2MwiwyJ39eGbPpCFKggTuDmyReErY+s1+HJkYwftoiiDdM9T0Mjmumtdf1
-	 cxBNyyW98SaQg==
+	b=MDWWwlXCSlM0agj9tA9e8bWmz22nJlYyA7++e/F5OFCJeSxeCQ20bW8gFLiyn+KLF
+	 cgdWstVA7e4YNZ4Ph0OAHAqkF3illG7cXvSnxAeSGKcJxEdqRZ7LnlCmeC+K/B/koH
+	 /nG5ruGhKF9cSxRC+FasKNfRClJ0z+wnsmCioobILURMDIAgjKtD+Fb1CDcuvFOuuG
+	 9yff9O5ycWppvGl8xLaFwRsi6sZ1R+NSiaBDvFgmrGhSdlK2XMwGJprvYvaIHToB4O
+	 JtdftT+5VFwz//BUSU3KxDOG6F6u3bIvSDr/6hp7EFrtXQDai+5OcbImDmPHTceKHi
+	 sKd9iyGkkOtKg==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B9B1A17E0CF7;
-	Thu, 05 Nov 2026 02:01:15 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 447E517E0D48;
+	Thu, 05 Nov 2026 02:01:17 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 05 Nov 2026 03:00:47 +0200
-Subject: [PATCH v6 13/15] drm/rockchip: dw_hdmi_qp: Support 10-bit YUV422
- output format
+Date: Thu, 05 Nov 2026 03:00:49 +0200
+Subject: [PATCH v6 15/15] arm64: dts: rockchip: Add RK3588 VOP2 resets
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-dw-hdmi-qp-yuv-v6-13-1bb63ef5766e@collabora.com>
+Message-Id: <20261105-dw-hdmi-qp-yuv-v6-15-1bb63ef5766e@collabora.com>
 References: <20261105-dw-hdmi-qp-yuv-v6-0-1bb63ef5766e@collabora.com>
 In-Reply-To: <20261105-dw-hdmi-qp-yuv-v6-0-1bb63ef5766e@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -75,11 +74,12 @@ To: Sandy Huang <hjc@rock-chips.com>,
 Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
  linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Igor Paunovic <royalnet026@gmail.com>
+ Igor Paunovic <royalnet026@gmail.com>, Andy Yan <andyshrk@163.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_170118_468515_0816B590 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20261104_170119_836643_DC82CAD7 
+X-CRM114-Status: UNSURE (   8.30  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,73 +99,39 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Rockchip DW HDMI QP encoder supports YUV 4:2:2 output through
-ROCKCHIP_OUT_MODE_YUV422, but was limited to 8-bit depth via
-MEDIA_BUS_FMT_UYVY8_1X16.  Add support for its 10-bit counterpart
-MEDIA_BUS_FMT_UYVY10_1X20, which carries two 10-bit components per clock
-cycle on a 20-bit wide bus.
+Add the missing reset properties to VOP2 on RK3588.
 
-The HDMI PHY scales its PLL output by 8/bpc to undo the deep color
-packing, such that it matches the DCLK rate expected by VOP2.  However,
-YUV 4:2:2 is never deep color packed, as it always transmits two 12-bit
-components per pixel, regardless of the color depth.  From a clock-rate
-perspective this is equivalent to three 8-bit RGB components, so
-configure the HDMI PHY with 8 bpc when YUV 4:2:2 is in use to keep its
-output clock aligned with the TMDS character rate.
-
+Co-developed-by: Andy Yan <andy.yan@rock-chips.com>
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 Tested-by: Igor Paunovic <royalnet026@gmail.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 22 +++++++++++++++++++++-
- 1 file changed, 21 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index db1933d75ced..7f05d26f8d76 100644
---- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -190,6 +190,25 @@ static int dw_hdmi_qp_rockchip_get_vop_format(struct drm_encoder *encoder,
- 	return bstate->output_bus_cfg.format;
- }
- 
-+/*
-+ * The HDMI PHY scales its PLL output by 8/bpc to undo the deep color packing,
-+ * such that it matches the DCLK rate expected by VOP2.
-+ *
-+ * YUV422 is never deep color packed, as it always transmits two 12-bit
-+ * components per clock cycle, regardless of the color depth.  Hence, as for
-+ * drm_hdmi_compute_mode_clock(), use 8 bpc to keep the PHY PLL output aligned
-+ * with the TMDS character rate.
-+ */
-+static unsigned int
-+dw_hdmi_qp_rockchip_phy_bpc(const struct rockchip_crtc_state *s,
-+			    const struct drm_connector_state *conn_state)
-+{
-+	if (s->output_mode == ROCKCHIP_OUT_MODE_YUV422)
-+		return 8;
-+
-+	return conn_state->hdmi.output_bpc;
-+}
-+
- static int
- dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
- 					 struct drm_crtc_state *crtc_state,
-@@ -218,6 +237,7 @@ dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
- 		s->output_mode = ROCKCHIP_OUT_MODE_AAAA;
- 		break;
- 	case MEDIA_BUS_FMT_UYVY8_1X16:
-+	case MEDIA_BUS_FMT_UYVY10_1X20:
- 		s->output_mode = ROCKCHIP_OUT_MODE_YUV422;
- 		break;
- 	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
-@@ -229,7 +249,7 @@ dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
- 	}
- 
- 	phy_cfg.hdmi.tmds_char_rate = conn_state->hdmi.tmds_char_rate;
--	phy_cfg.hdmi.bpc = conn_state->hdmi.output_bpc;
-+	phy_cfg.hdmi.bpc = dw_hdmi_qp_rockchip_phy_bpc(s, conn_state);
- 
- 	ret = phy_configure(hdmi->phy, &phy_cfg);
- 	if (!ret) {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index aa69fd3793fd..d0f364547ae5 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1651,6 +1651,18 @@ vop: vop@fdd90000 {
+ 			      "pll_hdmiphy0";
+ 		iommus = <&vop_mmu>;
+ 		power-domains = <&power RK3588_PD_VOP>;
++		resets = <&cru SRST_A_VOP>,
++			 <&cru SRST_H_VOP>,
++			 <&cru SRST_D_VOP0>,
++			 <&cru SRST_D_VOP1>,
++			 <&cru SRST_D_VOP2>,
++			 <&cru SRST_D_VOP3>;
++		reset-names = "axi",
++			      "ahb",
++			      "dclk_vp0",
++			      "dclk_vp1",
++			      "dclk_vp2",
++			      "dclk_vp3";
+ 		rockchip,grf = <&sys_grf>;
+ 		rockchip,vop-grf = <&vop_grf>;
+ 		rockchip,vo1-grf = <&vo1_grf>;
 
 -- 
 2.55.0
