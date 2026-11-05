@@ -2,72 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91EDA606D80F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:24:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02C47606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 08:25:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=zU91jTw1;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=nDz7CJiN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=u9Iqqp9y;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cWeb/I3C
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=6+ADUqVtFDrfgQJ3OhV70TKxA4b9WrHMTSHdV9mWIWc=; b=zU91jTw15xWCQs
-	ND/4HYFU7pDp5gNJycfLpn+YL8L9y1BXCMz66rbi3JssoefvE91/YpcwXckv7Fl9gbOyhUe6Don0s
-	bm1Li/CrFzzSzrOIWdBalZonjEUYc1hgvrQzoTGjI658hL2rQEiuTlJZ848wrsBaca7nkT16kpxNK
-	aHUWL9nyWt3Jtw5qf4xbFa+xz5IraIi/Qx9drpzbgqqSUStlbOG7t8Ol7nf1y92zPaEES7W71uQnY
-	3Ea/o1B0A+oQqGtmUrVPAnGIXW/LajCsknKdA993sJUdvHro2vbP1ZB2Nllme5UFVUQztGJlyXHmJ
-	4o169Y+AIRQhf+kQPe0g==;
+	List-Owner; bh=MXajDzcXzw8HFrD8vEhPMO3rOmoG3zJCn9w9dmNaD30=; b=u9Iqqp9yG5T3l7
+	WhMxyEK72kzfI59F/O4OOEkeIar1cObr1JsFoEKYgv/pE3/Q14kxJuEaaFOE5yYsUt89dgasyjJoa
+	FtPc70lX9fo6qZymU21XGc7/dsGpwZZSyaATXik6dV6MvO7KMiTTEkkCbK5jUZUQx64H6B7CbkdKO
+	Y7imspAMbl/vUO7I9EzNZjxMOI1wsdQ64yQD4M+jpKgEr+XM5KsS5GtqI0E9F+uisp+iJphLCGB02
+	HSBSeMFaARjg9gcHjk9OW/cDoe12mP3ed/XpqKzGAJDetFFlDstU/4Z/qlIaiNPIuCZqACM4xroFZ
+	4M3/M704sjuoRY/3pnwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOslY-0000000890Y-1kY4;
-	Thu, 05 Nov 2026 08:24:12 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1xOsmv-000000089WK-1IRX;
+	Thu, 05 Nov 2026 08:25:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOslU-00000008909-3Uk4;
-	Thu, 05 Nov 2026 08:24:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1793867046;
-	bh=RctHusTE/ZE8d6je51Pq4bj7K1e6qmeDSw38M5NLaVQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nDz7CJiNR0D0Np06ekAx7PhNA/r85Mx7xWEW0Vj82tl82q4NpdUkm+E1cC1TzEiTY
-	 93noRkqJ1HAppXU0XlTsMeRtHa/iia3BMl3YFhHf8GEVPbDbDyRdEWn3MISziq76qf
-	 k8Vs7TtY1samutFJh8KJSaYUpHrI+cD+9fkijoBaU12GP9AVdKC80YCrwrKoXKJad+
-	 gQVO+PbK+agADkozFxSuUB0Wxu4kcnKrYfhxNZfufoFFsLff5INcMGTgcq7qRzr2Nm
-	 etW85kcIC25PvpXZcXI/kFraVgNtnYg+zQXi/tVU6koxKeav7gHgsbxXAQAvr5YEU/
-	 Lxjrw/9LW6tfw==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B90AE17E0048;
-	Thu, 05 Nov 2026 09:24:05 +0100 (CET)
-Message-ID: <b627d513-d587-43dd-b555-584b05e7d043@collabora.com>
-Date: Thu, 5 Nov 2026 09:24:05 +0100
+	id 1xOsmt-000000089UE-0UKM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Nov 2026 08:25:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6946A43CBD
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 08:25:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C65D1F00A17
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 08:25:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793867134;
+	bh=MXajDzcXzw8HFrD8vEhPMO3rOmoG3zJCn9w9dmNaD30=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=cWeb/I3CUOf6GV6EV+or+YbPD42zxND5eYvgZmaTp1vxDwPhjrYTcTmDFXOiPPUAf
+	 xnzXOLVNszc/Vv+Utbzhhj8hnvCik/aTr5MdC44PX0h6eExGOZDfHzCLvfe0XIsg7u
+	 0ypBEHuzN4JlkRzZbNjrPIB5Ue1hlf4/7++sPCYwOcYz/ilel4OzvBLq95TGL12Rh8
+	 f6MhWCmjO5hUEd/a/xAtgiNa/FjVZb5nb5g23/LdUpFH3lXWdOyhFU29jqEyS9BUuz
+	 AAiPVPE0OQpKhxtwOlZQ2Y0BnTerZHROjRrxuGgLeEZ7EvE/Iwpl+uOMFKpD0o35Hn
+	 dS3uWKT7106Kw==
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5be53e5fce1so1301314e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 00:25:34 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AKwUvByqpaLq3PpbWxbYsymudduN7xP/UnU4ddKQdnRllpNSEEBaSoQok6RzMvmUmJAixNeDg/sB1x5cu9LKXlma/t2p@lists.infradead.org
+X-Gm-Message-State: APuU4Z+mx0+tSR4itcXK7W77y5tf/IIvVkFHMQN5cqXDDH6S3FBX+J+K
+	vwy23jdUsB5F+Wj58vgClY038pG+ttqGYKvunFBpBaekk5cmdT4oQE8iPlb2kyDdluFzhmE2zpc
+	ysrlLdd9pCmTjUHJ4nbP7hQV3D7Lyo6A=
+X-Received: by 2002:a05:6512:6694:20b0:5bf:d9ca:657c with SMTP id
+ 2adb3069b0e04-5bfd9ca65d0mr3770360e87.27.1793867133080; Thu, 05 Nov 2026
+ 00:25:33 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] arm64: dts: mediatek: mt8188: Use
- access-controllers in the power controller
-To: =?UTF-8?B?TWljaGHFgiBLb3BlxIc=?= <michal@nozomi.space>, ulfh@kernel.org
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261011184755.2058017-1-michal@nozomi.space>
- <20261011184755.2058017-5-michal@nozomi.space>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20261011184755.2058017-5-michal@nozomi.space>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_002409_091577_3BB63193 
-X-CRM114-Status: UNSURE (   7.50  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+References: <20261031120700.42576-1-mateusz.nowicki@posteo.net> <20261031120700.42576-2-mateusz.nowicki@posteo.net>
+In-Reply-To: <20261031120700.42576-2-mateusz.nowicki@posteo.net>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 5 Nov 2026 09:25:21 +0100
+X-Gmail-Original-Message-ID: <CAD++jLmJnxdJ9-X4hThz==Q8ZJScb567VwdAYebGsSqA_KJsjQ@mail.gmail.com>
+X-Gm-Features: AclHuK_tVeDfi38_WWdEZ3DB94ymBMDKaW_qe7crMyvj_c5Kzm5MMFqKOFgn5mw
+Message-ID: <CAD++jLmJnxdJ9-X4hThz==Q8ZJScb567VwdAYebGsSqA_KJsjQ@mail.gmail.com>
+Subject: Re: [PATCH 1/3] mmc: mmci: do not count a data CRC error as a
+ complete transfer
+To: Mateusz Nowicki <mateusz.nowicki@posteo.net>
+Cc: Ulf Hansson <ulfh@kernel.org>, linux-mmc@vger.kernel.org, 
+	Christophe Kerello <christophe.kerello@foss.st.com>, Russell King <linux@armlinux.org.uk>, 
+	Yann Gautier <yann.gautier@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +82,35 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=unavailable
-	autolearn_force=no version=4.0.1
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 10/11/26 20:47, Michał Kopeć wrote:
-> List the blocks that the power controller accesses in access-controllers
-> instead of the deprecated per-domain mediatek,infracfg phandles, and add
-> MFGCFG, which the power controller needs to enable the GPU timestamp
-> counter whenever it powers MFG1 on.
-> 
-> Signed-off-by: Michał Kopeć <michal@nozomi.space>
+On Sat, Oct 31, 2026 at 1:07=E2=80=AFPM Mateusz Nowicki
+<mateusz.nowicki@posteo.net> wrote:
 
+> With datacnt_useless (STM32 variants) success is 0 on a data error and
+> a CRC error subtracts one from it. bytes_xfered becomes 0xfffffe00 and
+> mmc_blk completes the whole request as successful, although the
+> controller stopped at the failing block. Reads return stale data and
+> writes are lost without any error.
+>
+> Tested on the STM32MP257F-DK eMMC in HS200 with a forced bad tuning:
+> without this change 5 of 14 reads returned zeros, with it all 10 reads
+> were correct.
+>
+> Fixes: b79220b3e0af ("mmc: mmci: add variant property to not read datacnt=
+")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Mateusz Nowicki <mateusz.nowicki@posteo.net>
 
-....did you instead mean to send
+Looks right but we really managed to make this code hard to
+read, we should think about readability improvements.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-https://gitlab.collabora.com/mediatek/aiot/linux/-/commit/01c35e0524c8adffb4c19f1005c5d71a347acb3b
-
-this commit that I forgot to send for a year?
-
-Regards,
-Angelo
+Yours,
+Linus Walleij
 
