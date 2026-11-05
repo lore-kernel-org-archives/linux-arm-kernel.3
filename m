@@ -2,106 +2,119 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 603D6606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:47:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2AF9606D804
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:49:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CyErUkd6;
-	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=SyJmyiem
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZWXt6sJ9;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oPQrvn/H
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=jhh3rOfmt9+8e7tXOxSG5bPIHbOH/EzZ/+Q3I0eOuA4=; b=CyErUkd6cBrdysTOCGZtSjFz5f
-	Q53BL02J+fuKbyj9FYxxFh/Il7M/3W2mK8H4c4GI102o4tFUB6cl9aGebvVan2GFYWKVIyAlqv9aA
-	FuCknKz7W+YBh+kj2xrPNwmkqWlWFbHlfVyQmZM34Pvdff8huwpDqDToTTOqpOQV9SU2hqP368Nwy
-	FoLF3kO51MoEKv2UC0hOsUwiCgz+hGpCQGcY3bF1Bhb1e/zP8elD9UydoFDrpNZhbRvcmM9HSocID
-	UIthcujo/cjDH9nzWviN98gTnW/i0C836BAc5vBH7eRA3VY4VbTG2K+KHtIXQyjmK3HORUZOPMos7
-	ZzzHBTkw==;
+	bh=VgauoPLiP0v5M8oyKkXnXeYyHv/1syF6LIptNT4Sfz0=; b=ZWXt6sJ9wRTXr2mefZRAlY1JdB
+	hBaeNCi8oHPEYDwA8G4OYnu0FOkNQzTEaw2m6JnyHBMIoPobdaotNmaMSshTR92Hx91lpeQZFId9z
+	iresWsMnkRb6s5DBqVsO2vFZHRYLnp5k4r3G294ElRmrdz5fTTQb08Ylsy3Qs/0AFBbC8k0BRTKOF
+	JwhCrTC3WsfWVUKdEXXoBjluXMtbFAq0haTKPCEy1gWAPwPj5PJdPipyVgvoPN58WRp6SyE9JWPiD
+	V/X5qYsflRbS5qsRUQT3uM8ECSsQlD153bah7/SeEFvPlPYueZP5HsH3aok9Ea2m9sPjixmsg+/3B
+	ARU9jHxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOykO-00000009KJ4-2fP4;
-	Thu, 05 Nov 2026 14:47:24 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1xOymD-00000009Kab-1h4K;
+	Thu, 05 Nov 2026 14:49:17 +0000
+Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOykL-00000009KHp-25cM
+	id 1xOymB-00000009KaC-1VZf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 14:47:23 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4a208d93758so22658415e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 06:47:20 -0800 (PST)
+	Thu, 05 Nov 2026 14:49:16 +0000
+Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-677d35fd1d2so2243834d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 06:49:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1793890153; cv=none;
+        d=google.com; s=arc-20260327;
+        b=XGv5uK41sZnCm1m0bx/oDQun6B9GJnKzsibH7xexzr4b9NPlvQ7wi1W8L+Ws1YRuQa
+         SbEwlslc8uOEoBeai2DQEgbt7j6AScADPXK39bpfFKRn8Qgztz37viHHvS/yosXRqx/R
+         cw/knAdGb2eF1eTwGYLj/D62owxLWp948c86OI93zvb4HJ+pdbt1hGgXGNPjiK83yPHn
+         LcfbZjHqzTx+98O2F83u8xeTzFJImNUOBvQvbcte2TiojWMJ6F0lMEMQerty18n1zz2G
+         bcnDaao1PPhgnLnV/dn/T3KlZjxBDWv47Uc2H/rtDuhYVCV4UxdNQDqqIQ8mq+XW596/
+         GVFw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=VgauoPLiP0v5M8oyKkXnXeYyHv/1syF6LIptNT4Sfz0=;
+        fh=350pK7btVtYLDFelK5YUCfbodgKtQKCZ/AIbZUfAJF0=;
+        b=fPJhPlCuNNF5qTJVNgKpDQGaJtQ+uv/HZ4pxD9OANnrHVUSdeLZ7mB82qQgJA3kUel
+         skNG6lZi5O1qxFyB6JBzRYW+z8xz1uXvSHE81AtQsfyKL4EA6VKX+lzv28VfA2uJIfhL
+         +xCjf8huhr2itTPZcsYmuQbK8n1dlj7wH4S7qiF6Vc2tMqf0w3yj/S7SS9Abb3S3r/XU
+         xSmj+XR+kD/vIphT1+WXEIj+hLkRonU9HSo7W74PatNCyRfR5o4l7bKpWRqqxpYT9Lnj
+         ogpKCJVIu8LKiP9dhcxJznO1N0lO7WsJFLdhlvG6KP+1azF663AG4ohUjCeYxv1K5Zti
+         bP9A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1793890039; x=1794494839; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jhh3rOfmt9+8e7tXOxSG5bPIHbOH/EzZ/+Q3I0eOuA4=;
-        b=SyJmyiemqqMZzPmX7y8ZMnTGhHtCHP1Cp6LkRxSHgLa/59CqmONeEuDczT8fIZVz6K
-         LCfuPjszGgk6XeNFq+GZrk94KNC4ayyjMob0X1hXOrIKBJfHlfiqGxdpAr575zx5u5Lk
-         bm2frMm9fnXt7m+/sS5A4btuoLTC354fSx+iH2bCjbd3aVm66dZVwDPx1atMRDTpkgwq
-         ILneeTTUxlxmINAJy05agnZxYEl8lOkHlHDnG4EzsgolE7Om2T1759hz++0fypmMqRlm
-         css+j7mcOr+eio1t23RJCcJWkTAa1QXOc7DpEMVkUkrO2Cke079rxYWWD9WzIWziuac9
-         TF5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793890039; x=1794494839;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1793890153; x=1794494953; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=jhh3rOfmt9+8e7tXOxSG5bPIHbOH/EzZ/+Q3I0eOuA4=;
-        b=GgPSFqiWHqqNpco6UwyqxOsHuE4AQxYoDYqSLZ+vsxdWpLelXp63Yyspy+0YHI69E0
-         ULOrnS65NUf39SSW2yEq6itm3i7DRrfPv6B2Qp+rsqct/kyk7z5odWkHKnYM0EJugwki
-         Su9/SYAq15yW6q1N+IsShq2/n7JX4uhrDb86G2JZSwQqMZJ1uCSSa5nhW9q660NB627d
-         kpe6O0MXd3///ROxHs3zza0KPxKrClUV7/NgB/jtoxzgHIhgKhbDife86fGW8rfZA23a
-         Od5uA4H79o6xXBf97iDQsg/ZyS8zomV9qo1zCIressnLbBpXT8ifEI/Fo2aMj2FaXynr
-         tZ2g==
-X-Forwarded-Encrypted: i=1; AKwUvBxl+d0Ub9F0Tx8vVN+/83Gyqb3yZz76TKEvpQtNpw8iQhTrVAInCEf3gJgAUG2OxMz6N8yI6OuQw2UjJSkdmPWg@lists.infradead.org
-X-Gm-Message-State: APuU4Z8X0KYBJ8npfWz20wVtLkMzySYfvCLLk+KFDDl5aDRag/8pwDBN
-	lRpkmIsvjstcH1LAHUhilmjjumAqlnV7G29DAmSPumBK9S494Z48faPW6lCHNR+4Jns=
-X-Gm-Gg: AYBFou3ew+gcffFVQKQcryaYjBXVYQ91RBvMLgOtfzRFoOpmiOZUgyS8/FFUuX1jtFZ
-	6veKilNI/mmLAxJ1mA6Zq3xxDRf3TGPGDuBWcS+QAtOVvLtutHHgTrrJx51FkKZMl1FEl0Im6aT
-	WEPJYuzAv5830QaOkShFVY1Nzy27E7T+iHI24PZuqMGSc852gD6YQG6kJsyizLIksmDodOEs10X
-	Ltag2GfYQo8nryGCVgKkjhdhkOdri6ZamLIXqGDLTMAVYhdCZ+Z/QqMEVwHV2YkuAx/WiDYcVGI
-	ZmkJJ7mVcDa9WecYj0YPzICFXFvg9TIKqo0I4QIIJRohuIIjlUTfd9wDHW1sK3nKbYOyvxEvKwV
-	FOZhMEpcBW4io/+0PZZD7VP6JenxPWm03wLxN+wU6z1X9EndFolb1VM4/Ju0TolrHQFPhliQCo9
-	UBS7nJ4rV6eO2VOVB3AQqSlscxLtI0GaOO+YgTYKc5QT6UuVM9EpBCTb+DX6zyUPFlH2KNOrjQQ
-	3ojVi0H0mxJX0UioyPATouyWSOwDSvQRASSlsZbO4lAwP7OoZDL5DpB7kKt/JZRGPp7t2I/mGHL
-	NRDB/EUpScEpA6WyJvZpDuZoFjZJutYK/JsqSzilqc6cGdd/s0HnybE=
-X-Received: by 2002:a05:600c:3556:b0:4a1:c6fd:4db0 with SMTP id 5b1f17b1804b1-4ac187a80b4mr460893955e9.19.1793890039475;
-        Thu, 05 Nov 2026 06:47:19 -0800 (PST)
-Received: from localhost (p50915710.dip0.t-ipconnect.de. [80.145.87.16])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4b56eb4da1esm115774655e9.6.2026.11.05.06.47.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 06:47:18 -0800 (PST)
-Date: Thu, 5 Nov 2026 15:42:56 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	William Zhang <william.zhang@broadcom.com>, Anand Gore <anand.gore@broadcom.com>, 
-	Kursad Oney <kursad.oney@broadcom.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
-	Guenter Roeck <linux@roeck-us.net>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, 
-	Benjamin Larsson <benjamin.larsson@genexis.eu>, mfd@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-hwmon@vger.kernel.org
-Subject: Re: [PATCH v2 3/7] mfd: Add a shared BCMBCA PMC3 PMB transport
-Message-ID: <auyL6UF8WWwXsXrS@monoceros>
-References: <20261101-xg6846b-bcmbca-xrdp-reset-v2-0-455fe9eed5ee@kernel.org>
- <20261101-xg6846b-bcmbca-xrdp-reset-v2-3-455fe9eed5ee@kernel.org>
+        bh=VgauoPLiP0v5M8oyKkXnXeYyHv/1syF6LIptNT4Sfz0=;
+        b=oPQrvn/HeHKUmKY1AqyAwrdk6d4nRqZOvu3SIuUPHb2iXohU/aKmYU6hc8F0BaRlci
+         eCfe8unFWQ98k/fGcNNeCeMHubGAv3JIV1zaG3CX1NQ7B04cTFj8JEOshMjr075gi10V
+         y2PcTA06OlC9O8rplTed/HIBm/iPwol5xTO5MA/h4wEgvcjwVvo7kwRX5XT/tH6MJpjM
+         NTJsCaNtW7tflxd6Yj2nAdGwdl8aiBs7qaNYH8HFRte2RHPTnSuWebg4GXPmEQRKGADT
+         OojVDzAERyU+mCb74crAH4biHloE3GOFdPiv289/pLhsh9EqmmH6XJN+E8rQN/FUM8S0
+         bEWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793890153; x=1794494953;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=VgauoPLiP0v5M8oyKkXnXeYyHv/1syF6LIptNT4Sfz0=;
+        b=IS2Dp22gor8ycoPzcsmAHWPk2puHvwJhjrjJN5ogsEbDQk6z02Bz2i9NVST4YOyiZ0
+         TMZwaeK6u/AsWdE/Hh3gDOTTNGfHk8SdG/5aQLoOxaI00Ro6jqsgdqmJZH9BQ2fXeN6m
+         9gdMvaJ4swY3i42mu459hJFJ9DwjQBmOUq3RTZ1Yk70f9d3b0/phKBtq79nOjCmWV3me
+         tjyDiRKBnUMK0ezSAEzCbvWyha2iocPn2DqwA4Nes8wbJMW8oE5gzcR7UyL9+JSySJnZ
+         3920AFe42Uri4BtYwE5Jk0TmmjbMSVwZ0KLWZ5yznSCjj1+lHiD6bJwmmnd6c1/ZhfZz
+         +ktw==
+X-Forwarded-Encrypted: i=1; AKwUvBz5dWEjUDHdTVihgVwX52DQWHzlvrjZ7sN7kC07LLeRk5FdKKnTN/8Iy5UllttGhhRNmQbkaVStzUF5gczzYkg9@lists.infradead.org
+X-Gm-Message-State: APuU4Z9r1DmVvZ0ZMOxEhmqpp5sFsqUCaUB/F0gDbZyWJn7ypZEaqy1L
+	YItH/Pz6Y1l6z3sm1LkvyEq1d+F0FQTCbSEsQ3erS01YF6asiko0p+tCh+YLnaoRy3q0R/8HlrP
+	uC2jezxcTC6eDV8ieqFGTrbPgFCe+MQ==
+X-Gm-Gg: AYBFou3BI/vn8m0nOWuJ18gHIYHi/SSJ9B3k2bUxQRSyJ86e7uCBYy0LXVGwLfPeBpc
+	VdO5phkieYrzkfMDbeV3JpfPzJXLuSSsyKqraRHdl3MDrNUwEpumzO0V1KU7oRugjbuwsbyRYSx
+	U7jOYD9egnXgW5nuDY4GQL9qH5sBqxdBEAD4Rwbyv/RZUcYTlXJ65yWa6AQZEEDDHVT0ZKlL43P
+	eXh1Ueg2kRbKakzh/wN6YEv90BG8QacLEZfczdhupIbrAhyLqEKBMlEFmwG1rOkdqso9GHVFB3H
+	88h/sM2BMvtOu4+bOMftFPPO+aoanyZlkamTh+9+NOD/Fnu7hbedMZi/vZ3js2DJb2DCebCMFkZ
+	rYHiWAeLg6DsynOtpa0MIRJ7RPHJI5nLHxWx0ogLT1C8Owbsq0BPYnthjdvm4YxAhJloDTp/qmB
+	Dztgc6bPU/9XHHQ7Q=
+X-Received: by 2002:a05:690e:450c:20b0:67b:31a:9b7b with SMTP id
+ 956f58d0204a3-67ba4fa40b1mr7256109d50.33.1793890153050; Thu, 05 Nov 2026
+ 06:49:13 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mag5oduzqhp4hkyd"
-Content-Disposition: inline
-In-Reply-To: <20261101-xg6846b-bcmbca-xrdp-reset-v2-3-455fe9eed5ee@kernel.org>
+References: <20261104-a133-series-v1-0-58217cb33a87@gmail.com> <d4d89cf9-884d-424b-927d-5b6692f50327@arm.com>
+In-Reply-To: <d4d89cf9-884d-424b-927d-5b6692f50327@arm.com>
+From: Rajan Yadav <rajanyadav0307@gmail.com>
+Date: Thu, 5 Nov 2026 08:49:00 -0600
+X-Gm-Features: AclHuK-SbGVRFFZQFk2Ozvq-Gg4EdtItrFF8Dqsp7Ze5suIdv9U1RHoClLmzyb0
+Message-ID: <CANxy8yTiJoGJe5uz_R5hTdmT9A8ZsxAphB6qWSB4_SDuLSHSaA@mail.gmail.com>
+Subject: Re: [PATCH 0/6] sunxi: A133: Add CPU speed grade detection and OPP table
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Yangtao Li <tiny.windzz@gmail.com>, Viresh Kumar <vireshk@kernel.org>, 
+	Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Maxime Ripard <mripard@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Viresh Kumar <viresh.kumar@linaro.org>, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Cody Eksal <masterr3c0rd@epochal.quest>, Alexander Sverdlin <alex@sverdlin.org>, 
+	Paul Kocialkowski <paulk@sys-base.io>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_064721_559162_0807C76F 
-X-CRM114-Status: GOOD (  12.06  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261105_064915_567870_54CD0B29 
+X-CRM114-Status: GOOD (  29.62  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,53 +125,87 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-2.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Hi Andre,
 
---mag5oduzqhp4hkyd
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v2 3/7] mfd: Add a shared BCMBCA PMC3 PMB transport
-MIME-Version: 1.0
+Thanks a lot for the quick and detailed answers!
 
-Hello Linus,
+On 11/5/26 12:30, Andre Przywara wrote:
+> So I read about the 1.6GHz somewhere, might just be a marketing claim
+> about some max frequency. If the common speedbins do not support 1.6GHz,
+> that's fine, but apparently some do, so I'd keep them in, for people who
+> happen to have those SoC revisions.
 
-On Sun, Nov 01, 2026 at 11:14:36PM +0100, Linus Walleij wrote:
-> +#include <linux/mod_devicetable.h>
-> [...]
-> +#include <linux/platform_device.h>
+OK, v2 will add 1608 MHz for b0 and b1. The SDK table stops at
+1512 MHz; 1608 MHz is only in the table of the factory firmware on my
+board (its kernel was built in January 2026, the SDK import is from
+October 2024). I compared the two tables entry by entry: the factory
+table is the SDK table plus five OPPs, all other values are the same:
 
-Please don't include <linux/mod_devicetable.h>.
-<linux/platform_device.h> already provides of_device_id. Alternatively
-if you insist on full iwyu, include <linux/device-id/of.h> instead.
+  1608 MHz: b0 1.18 V, b1 1.13 V (max 1.14 V)
+  1416 MHz: a0 1.18 V, a1 1.18 V, a2 1.13 V
 
-<linux/mod_devicetable.h> pulls in many definitions that are unused in
-this driver and thus introduces unneeded build dependencies.
+Should I add the 1416 MHz OPPs for a0-a2 as well, so that the table
+matches the factory one?
 
-The same applies to several other patches in this series.
+> I think if we can be sure that the current mainline OPPs still apply
+> with this series, that's good enough.
 
-Best regards
-Uwe
+They do. The series does not change the A100 code path (patch 2 only
+moves the cell reading into a helper), and on the K5C the patched
+kernel with today's A100 table gives the same OPPs and voltages as
+before. A 6.18 kernel without the series and with the new A133 table
+falls back to the A100 selection (with 1008 instead of 1080 MHz).
 
---mag5oduzqhp4hkyd
-Content-Type: application/pgp-signature; name="signature.asc"
+> Regarding 1008 MHz: This was just some frequency close to 1GHz picked by
+> U-Boot, that should be low enough to not cause any trouble, even with
+> the default voltage. How critical is this "unlisted initial frequency"
+> message? If it causes trouble, we can add a made-up 1008MHz OPP with
+> some safe voltage, otherwise I'd say we just leave it.
 
------BEGIN PGP SIGNATURE-----
+Not critical. It is a pr_info, and cpufreq switches right away to the
+next higher OPP (1080 MHz). With the A133 table it does not appear,
+since that table has 1008 MHz, as the BSP does. So I would leave the
+A100 table as it is.
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmrsle0ACgkQj4D7WH0S
-/k4ILwgAu4/aIJ4jmqqXgp8ctE1FUWAaormLaedGkha0tPWWUWZFCWXzzflrAPQp
-x3SQdXc7pbe9QPylO/FE1FtFum1V1mELFB8lRrsWaexQxDdOJtfgg9sa2EtNyzON
-d0vLNNlqRg+eDysFNiyOOcwYa8AN9IWbE+14HBuzIKAdtfixCwirKoJ07ZKtQEsb
-FghiifffoIz93iEIJWklhWkMmMWHCyo7KwUjlW+YCncCdVnLfqR8fbdBo+58IcXx
-2dgAHS38lq0GpaZqg7vx8x/QrRgOxOqj6KgK724ffND0DJzxlFGTTLCkDD4AgELB
-fCGGyZ3gyhvkLj7YEXBO+Gb9upim6w==
-=fVHs
------END PGP SIGNATURE-----
+> So like for the H616, please just use the SoC ID call, that's a clean
+> solution. Maybe just make sure that it can fail somewhat gracefully
+> (read: not crash).
 
---mag5oduzqhp4hkyd--
+That is what the series does. Without SOC_ID the driver warns
+"SMCCC SOC_ID not available, using speed grades a0-a2", falls back to
+the A100 selection (plus the BSP's a0 rule for normal parts) and
+continues. I tested this on the K5C with a test build that forces the
+revision to unknown.
+
+> I think some of those handheld gaming consoles use the A133P variant?
+> Maybe there are some tables in "their" source code?
+
+Good idea, I will look for those.
+
+> Thanks, I will try to get those logs, I have the Liontron board and the
+> Teclast tablet.
+
+Thank you! I will wait for your logs and the other reviews before
+sending v2.
+
+> P.S. Since you mention the KickPi: can you please work with Paul (in
+> CC:) to upstream the DT for this board?
+
+Yes, happy to. Paul, I have a K5C DT that I run on mainline kernels
+(6.18 and 7.4-rc1): eMMC, SD card, USB host and the PMIC work.
+Ethernet needs a PHY driver (Maxio MAE0621A) that is not in mainline
+yet, and the Wi-Fi/BT chip (Seekwave) has no mainline driver. The
+"kickpi" vendor prefix is not in mainline either. How would you like to
+do this: should I send the DT with you in Cc, or do you already have a
+version I should build on?
+
+Thanks,
+Rajan
 
