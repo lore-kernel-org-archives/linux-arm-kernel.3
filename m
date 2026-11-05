@@ -2,43 +2,43 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01B78606D81B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:09:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0890F606A336
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:09:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2PNVsbrz;
-	dkim=pass (2048-bit key, unprotected) header.d=thorsis.com header.i=@thorsis.com header.a=rsa-sha256 header.s=dkim header.b=mgJMCC8V
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NZ85xMI4;
+	dkim=pass (2048-bit key, unprotected) header.d=thorsis.com header.i=@thorsis.com header.a=rsa-sha256 header.s=dkim header.b=J6FeY78Q
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=+zy6lijmScjxOAMWEF8MrPaSb7OpuW14nYg2KILAhV0=; b=2PNVsbrznbPfoc
-	VvfvVxsnnzlDgd1dm5mve2L+m38DdV/pQ8IQ8qjd1BiNjeoHZVN0KG1/c3M287EaiqZrbuekVD86C
-	enLN6bPKRNQmsxyXm4/HTweETPedXSq7OhjrGRyrkbVNBh4sqI+iO7yRPJZNV+iqPRv2e+SKWAcXz
-	BKgWHJdZAFkzCABfOozfflK8RBQcQJ+etW9x4AWALQLFPxpIIt79UzUaMlXS4XrJsy2fFQ90hdKNd
-	zB8h0dstftOOo88zsHhOYNBjs0OnhBshLdRLW1qh9bY+p8osJ4s0FTYG4XyJsnI06z7CidKyjUglM
-	mNRYqA30dptYIzDNR/3Q==;
+	List-Owner; bh=IE2EXi4hrSJEGdlIas7SFiNTlxXFjX2s+WzRPhDdqpU=; b=NZ85xMI4KqaJs5
+	HoUNNoBr+djJhY8qyde/7v3KL4qNhQLy4vvTQIvGc8NsYH8Y6u2v4SOk8OWU03q3UZ0Rq9ALj3qTW
+	QCytR0KiGRib0V6h9QvkqdV00tVHDegm6DseJnVlsB9W0/JKsO+bkwYsOmT/Ki/CJFaTNfxywSkBi
+	8PR0oI1keU7Cd3PLLpFhp1ys4SXbrVHu0KNQWeTaWsxSXIqXTTSRfzVtvVtw48LaYbnMauweIriir
+	Df5+PQ/9kagax9m6KgzRdCaMCMBC85pLTQezWMazm3hhLbUbbd2psS9PS7sJ4uFmG2SvwqmpthjhG
+	/Z2myYsf2BAu95DtJB5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOwHd-00000008qXX-1GIj;
+	id 1xOwHg-00000008qZD-2rp6;
 	Thu, 05 Nov 2026 12:09:36 +0000
 Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOwHW-00000008qRe-1U4K
+	id 1xOwHW-00000008qSA-3mK5
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 05 Nov 2026 12:09:29 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5363814966AD;
-	Thu, 05 Nov 2026 13:09:59 +0100 (CET)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3502C14966AF;
+	Thu, 05 Nov 2026 13:10:00 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1793880599; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1793880600; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=+zy6lijmScjxOAMWEF8MrPaSb7OpuW14nYg2KILAhV0=;
-	b=mgJMCC8V1e0Z9bWdBiraqhChx35xPFncQMYtijgBslTztVMd0s5ByewH34RJeLOU4wmPFE
-	tXSk7mddxTl1U2Y0NKRWKnaVfHzMvJU2oYqa7TZNWmkphmVNTgmRGFjL1AVL2NilABf5Um
-	0m1tD1jgW8udbcA2twbwtWDvSIDuyE5SwyaTXV/tutL42h/p096C8WcF90771dkFJuv4/Q
-	hKDlRsZJ51Tbz4OIC5qPwPmI70wPrHpYdmctL25VNN+N8uwoQlJuZ9yqDl0DVGtJLyBbeS
-	YCk9Pv7fqJATWOQCvQPB1Tx4lUd45YJ5p5kVjqyKkTm9dAASbS8P/H4RlwcHOQ==
+	bh=IE2EXi4hrSJEGdlIas7SFiNTlxXFjX2s+WzRPhDdqpU=;
+	b=J6FeY78Q2ba31pSIw6qKhpyrjCakNjNJzkJfrYFrhUxJqjPSv8B1VDnUJv9KC54lLQvbla
+	K9FwHqSUC8tlFsJRVUQOM5xp9QFDiJi/NCiewYku358Az/ISg/qFN5nylbheEoxnb/r722
+	HY+6/M60GT8th85mMR6zMO5d8GV1whVWi0iBYezTE+TXWzOvUTTPOyFQsylDCThgtBJFyn
+	yccaEFII3MkGoT+FYpnkjbElGYaRaMcBPllZ2NNVn4FeefmOC0X+tB50l1YyC8mlTDgUFC
+	PQl/fFJj2leHMwTV0WEhVybilgOgXdLAnnEIezT/rsfNXEUjZFBdqUvOQ73csA==
 From: Alexander Dahl <ada@thorsis.com>
 To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
@@ -51,9 +51,9 @@ Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
 	stable@vger.kernel.org,
 	Srinivas Kandagatla <srini@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: [PATCH v4 08/16] nvmem: microchip-otpc: Avoid reading a write-only register
-Date: Thu,  5 Nov 2026 12:06:44 +0100
-Message-ID: <20261105110715.2486432-9-ada@thorsis.com>
+Subject: [PATCH v4 09/16] nvmem: microchip-otpc: Fix swapped 'sleep' and 'timeout' parameters
+Date: Thu,  5 Nov 2026 12:06:45 +0100
+Message-ID: <20261105110715.2486432-10-ada@thorsis.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261105110715.2486432-1-ada@thorsis.com>
 References: <20261105110715.2486432-1-ada@thorsis.com>
@@ -62,8 +62,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_040927_738577_446BF5AE 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20261105_040927_771002_65A90945 
+X-CRM114-Status: GOOD (  12.53  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,12 +83,10 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The OTPC Control Register (OTPC_CR) has just write-only members.
-Reading from that register leads to a warning in OTPC Write Protection
-Status Register (OTPC_WPSR) in field Software Error Type (SWETYP) of
-type READ_WO (A write-only register has been read (warning).)
-
-Just create the register write content from scratch is sufficient here.
+Makes no sense to have a timeout shorter than the sleep time, it would
+run into timeout right after the first sleep already.
+While at it, use a more specific macro instead of the generic one, which
+does exactly the same, but needs less parameters.
 
 Fixes: 98830350d3fc ("nvmem: microchip-otpc: add support")
 Cc: stable@vger.kernel.org
@@ -106,27 +104,25 @@ Notes:
     
     v2:
     - Add Fixes tag
-    - Remove temporary variable usage
-    - Reword misleading subject (s/writing/reading/)
 
- drivers/nvmem/microchip-otpc.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ drivers/nvmem/microchip-otpc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/nvmem/microchip-otpc.c b/drivers/nvmem/microchip-otpc.c
-index df979e8549fdb..e2851c63cc0b4 100644
+index e2851c63cc0b4..bf7e5167152cb 100644
 --- a/drivers/nvmem/microchip-otpc.c
 +++ b/drivers/nvmem/microchip-otpc.c
-@@ -82,9 +82,7 @@ static int mchp_otpc_prepare_read(struct mchp_otpc *otpc,
- 	writel_relaxed(tmp, otpc->base + MCHP_OTPC_MR);
- 
- 	/* Set read. */
--	tmp = readl_relaxed(otpc->base + MCHP_OTPC_CR);
--	tmp |= MCHP_OTPC_CR_READ;
--	writel_relaxed(tmp, otpc->base + MCHP_OTPC_CR);
-+	writel_relaxed(MCHP_OTPC_CR_READ, otpc->base + MCHP_OTPC_CR);
+@@ -85,8 +85,8 @@ static int mchp_otpc_prepare_read(struct mchp_otpc *otpc,
+ 	writel_relaxed(MCHP_OTPC_CR_READ, otpc->base + MCHP_OTPC_CR);
  
  	/* Wait for packet to be transferred into temporary buffers. */
- 	return read_poll_timeout(readl_relaxed, tmp, !(tmp & MCHP_OTPC_SR_READ),
+-	return read_poll_timeout(readl_relaxed, tmp, !(tmp & MCHP_OTPC_SR_READ),
+-				 10000, 2000, false, otpc->base + MCHP_OTPC_SR);
++	return readl_relaxed_poll_timeout(otpc->base + MCHP_OTPC_SR, tmp,
++					  !(tmp & MCHP_OTPC_SR_READ), 2000, 10000);
+ }
+ 
+ /*
 -- 
 2.47.3
 
