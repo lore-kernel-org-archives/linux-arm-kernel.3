@@ -2,95 +2,145 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC11860720C4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 15:56:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A895606A337
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 15:56:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=D/dQDi6L;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=fBsgpa2/;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=G775zhRN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wGLG52jY;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=f8l/ygNJ;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=G0lT//vV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=wVSP1QV8jlmARNWRy3bvsaIRXKQ7LdLg2AcQdwzTU60=; b=D/dQDi6Lk+f9b5
-	yV5M8audUPEH15nOu3x3N2wVav3T8Bi7CAmyzRprIBRuE5f6r5nuZWdiaZJKjK4dyIRAO4pSLN2dY
-	6USrblD7KLA9OlmP/B4R4wNvXNrwuLO/4w4DtLVyZlrEnADiEDl1eorDAsH7h2wiuYUSfmBI9t0zO
-	IXiBO0hGJg1TV1rBtguGYda8uTjLwpHYRwFoFqan3tLN7l3COkKIn2G2Gvz/WLfvO1XtGQsGgTpxI
-	ifdvyURp3Dnd4Yo3Ik+FkrwM0/YQtJZw4Ia+awjVf88fwnwL4Y7s5y9U0UQ6mBsr+VokM2O4Qgr2U
-	kaftldX3/+YZ8ZBZKcVA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=4gd5YBbTx7pIL/t9UDrPjuhr3sbKtTJ/cLT8Cj4GQTI=; b=wGLG52jYDUAer4/wg5fwEwPndi
+	GZChihFk9OJOYTmiI+MK7XTVZD2Cfhsa7Xvdd3tE4KLfywfXp5oiLQHJlGFd1UdDO+purJ7UmSRXs
+	6NDswwi0/qp8p2om4nsuwL0irDzfC0WFStl3GMuiclDrAEDJyU7eGpwiqlT6SZJdhs3/4/vh1c1Pn
+	1BtYhoORG5TtCKFtTK8k8Hogmz//e9ARy6lY+bsqdsx9q5rTmdNG7dgN3PoacGtm9xwONMNRPWvby
+	4TUGaNTFyyK370bDhBpOXkVPIJK+f/Xxo/UAcDyAnKuwspcrMjq9jCAQXFPAHiZbveRw1X/p9+hwe
+	Q1iLcXkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOzoq-00000009UNO-0V3d;
-	Thu, 05 Nov 2026 15:56:18 +0000
+	id 1xOzpF-00000009UYr-0p5i;
+	Thu, 05 Nov 2026 15:56:29 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOznx-00000009Tg9-0gSl;
-	Thu, 05 Nov 2026 15:55:09 +0000
+	id 1xOzny-00000009Tiz-2hwh
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 05 Nov 2026 15:55:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=wVSP1QV8jlmARNWRy3bvsaIRXKQ7LdLg2AcQdwzTU60=; b=fBsgpa2/sjRnpNaJbNCCHN5ioN
-	CqdWCkH0nmh/fL1aIw/cskz18s17WojQUb+hiP6aFQdOBsrPfqDW8FZ248C3gL8Sdu6qVG0+RV4Nl
-	PzT9aBs4B9GN/KuwtO2oiojaVXSRb0mCYMIZ7wpTVpwGHHbEns28uXcKh3gCs8XIhPiQaa3FaoKMn
-	84QseqVHh1prG8VP4WB2Ko/g7qPmbO0RraX57F8tcYq9MsfZfyDyWfdh46n03zpK5qtmcKUCIJSUg
-	t8/D4cwAMkHWmM2Ph17xYrtk3Q2TdPMY5CLZuXBlnIPbAQcU7afyNYvJ0ZV24n6ExdLwC6G19HrpZ
-	j6q9kbig==;
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:References:Cc:To:Subject:Reply-To:From:MIME-Version:Date:
+	Message-ID:Sender:Content-ID:Content-Description;
+	bh=4gd5YBbTx7pIL/t9UDrPjuhr3sbKtTJ/cLT8Cj4GQTI=; b=f8l/ygNJR7K3fiZYWkRkZXshzw
+	+fyEx6k3KdHAP3iOdek2EzXxIDCmXWnKDKOvWRWnwRTfi4rRB1EFSSyyz38+X1CfkL4PQoPlvqCsj
+	zUYpxQlo11gl38QsE6QnWth5dtWuR2+RmI1DLYFMkfamo3g2gbqmA2vitVmB2CG/taeHbG1BmgD3w
+	NHesuirIPulqld6KuB9SCqaMDnYESsIdy3ulmHX1cSBlnwgfC2nr8KJDj+cgM/00O48CzcalFEaaU
+	i/ZqyRlHWW2p2v+rg6U3Qj3gR1pLIeT3t63ktikK4daaE2OyqGeSHSF9URNGytFjq952eZssMN1AX
+	31yW3ypg==;
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOznr-00000003Cbp-37Jz;
-	Thu, 05 Nov 2026 15:55:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1793894043; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=a78HBP4P2g0jzKoRoVWuX3AsyMZETCjIl/EEWXSf+vPGbyCaiWH1i9cGfSWZLRlPzd8QJSTmO24vUqjDz/pq72bgQqBreZXlDi+gwrGq3t3Ec+SUh/2S6K6a5bPwN4N4Bvq9c2JTXDZ5Hda+R/hJXUh9drGFVNRpPA2v4R2NkoY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1793894043; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=wVSP1QV8jlmARNWRy3bvsaIRXKQ7LdLg2AcQdwzTU60=; 
-	b=bNWq4FGTjpTMEiTN66YbZUX23qIDR2vIWlcqe39ZoJ/HfXV25TOSLnk+TRwT3kiRnhNiTharqZRtxjGhWX6FOKHh8NQv2Pl2oIepp0GEbvLW77g4uH9prhuAXLejxKZKo/AAjx8wvMS4D2Wy1cWCoA370jBt/qgTTF9JEZCN0u8=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=G775zhRN4+Mo1LM4Gk2LETPzVc3WP3n20ZEc1p2DeRvROywMS+7HgOU6Z6pzu2/4OV0+mIbF8LSDk8WaEgaacKOQK9UkyR3n9isltV/EAVOUK4Z5Jxb6S5FhNay8dKmmkHHUlDA9MKD7R/nSheb1sAo6+K0HMnSejmkmT9w/Is0=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=wVSP1QV8jlmARNWRy3bvsaIRXKQ7LdLg2AcQdwzTU60=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1793894040942663.770671604691;
-	Thu, 5 Nov 2026 07:54:00 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Thu, 05 Nov 2026 16:52:05 +0100
-Subject: [PATCH v2 14/27] drm/rockchip: vop2: Enable VRR
+	id 1xOznv-00000003Cby-1Dvq
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Nov 2026 15:55:09 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4a2d6d01ecbso12547885e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 07:55:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1793894101; x=1794498901; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4gd5YBbTx7pIL/t9UDrPjuhr3sbKtTJ/cLT8Cj4GQTI=;
+        b=G0lT//vVwkCVbRvXNuPhNzKd0oF4RWyuZeDd/v2L7C57hKUSp89gLxqyzkEktAGrNb
+         n9BpErs256uC4iTvNGXxJAcKxoWQ+76+3ywH6l7qUyoJqQqitDuQd9Wfg/hRHjpYYQK1
+         +YQ3NsjnhBV1tfoJJ9SIUZlzKGWlVquCQylXwCbKRjSQVIoXi5ooEzG2IeibFQ2rt5kl
+         Ng93F2aeJx44DqR8eiSpPhcAkGI7q31HeieWGc4q6ncqsS2e1En6PZbSwd3BnuClc/3s
+         gMZ/Nu0mz5oVNDOHpIH9K5p2/BVnrlFIqIBxb17rl7+oMLkXPn0s2ySBqoHSrE7GsIoi
+         BDDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793894101; x=1794498901;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4gd5YBbTx7pIL/t9UDrPjuhr3sbKtTJ/cLT8Cj4GQTI=;
+        b=nmtUWTUHKzR289AuJHGNu9wfwPHvVDxNODw8H97RnvSU6GpRYIg57HUwJsbt7G8tgq
+         CQbIRdMo7Fv896V9q3H1GLh2A6em8IKyvI4J1Y664qm1+Ui6XQeVAB3q8spE48rp+Kk2
+         2G9WfbUOttXFXAH/pu5maYa7+ht2VpUToCj0X1/AVOVC2vZftaDrzGV0O8MTJdunuDEP
+         dEwDOgAaM9MdTWnfr8Fh8mEEdOd1B1VsC8cxmoJT+8D0KRA3vdWzPtx1aSegtfoZyKKl
+         bqKKs0aPlFNdQ1qIO51GsSTxkbMgAe2wAgh4fbubjoQ0vxzmqwmgel8/n9AHC2JTP7y+
+         dbcQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzK24WJLZDmwSV7lfN49e5LuZiL8Uh3plni90vDHUs/oq/mwevFhXBqQRcXpJYojddhbEsF5a5lXYEGNmBMof1p@lists.infradead.org
+X-Gm-Message-State: APuU4Z/Bq6nzXiAuyrv8TM9B/tnuarFn3AtnvoJ/y0wxMgZhQGplJaoa
+	rf5cmXRtki8hujU8eyBkdCGUulIgKOkqHdu0lx+RrYlzcSy4JxPoxLBM1OSkkhAdSSc=
+X-Gm-Gg: AYBFou3538QcjsfspUUXXq8kCEONRXOqAoqJQmVyYfEorNQpCnmCh+ZSYBQpEIJysrt
+	d/atP2DL05pX2cOaNawUzPfReV2Sctabk1h/ceTrTfu1cbrcnoprlhFdXQAvzoXgmbANiNT9nqm
+	S7CxkYZlFKkxUnXQ0NyCGy4oaBeh/qWu/bwXvG7NTPtio+xO8PhHY7/KHs6zFxhfPgZU5Bekz1n
+	3+pBqlBQpueVzrIRX5zZa3vg/OazUzcXUIw74VKYzz/jgnj4wz42CxPVO+Hv0zsfKK6V/AVwj6w
+	TjX3WYesqK+g2fcU/uM5vvFT8gzFA6dkQucWuAoNPU/1CThLY5qKX0Hzk22rrWtcL28yAc3h4fl
+	MoNYLoxK8t9KIbGf9TCAsMbZ3V2kMiPpv0BpKwRwwx/5dwtkc2uVK8S1Vp87TYKDePuEEOGoGti
+	RkW/yNoYL61Q55wSArSma/+D8Cs4DseI8rEYf4RdTe9QdPfWb09a5r/ruCxs3Gphlvjjs7PTgo9
+	L3BXmUa6Jg6QpxUo8K7lwG7h//nBBH+g22iS9j8826+u0PWDl2qN8E9N31WKlJkq8Kl/BB9rq2V
+	Ozj1Cj3uiDxBRV9HjygLKFh9/1MX1IjfThET7fLboFj72MgDqv4PKHbi+/6LyNOHkhHf3h0bp4c
+	07Fql9J4=
+X-Received: by 2002:a05:600c:6216:b0:4a3:5aea:21e5 with SMTP id 5b1f17b1804b1-4ac1737c533mr425955665e9.9.1793894101341;
+        Thu, 05 Nov 2026 07:55:01 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:106d:1080:9899:e54b:a2f2:3695? ([2a01:e0a:106d:1080:9899:e54b:a2f2:3695])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48fed92a753sm11994525f8f.45.2026.11.05.07.55.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Nov 2026 07:55:01 -0800 (PST)
+Message-ID: <1463c55e-3bcc-4a30-89db-def43c05fe44@linaro.org>
+Date: Thu, 5 Nov 2026 16:55:00 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH] arm64: dts: amlogic: khadas-vim3: add SPI NOR flash
+ overlay
+To: Jose Nieto <jnieto.alaber@gmail.com>, Kevin Hilman
+ <khilman@baylibre.com>, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261103164730.160593-1-jnieto.alaber@gmail.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20261103164730.160593-1-jnieto.alaber@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-vrr-limiter-uapi-v2-14-55f4215be2c2@collabora.com>
-References: <20261105-vrr-limiter-uapi-v2-0-55f4215be2c2@collabora.com>
-In-Reply-To: <20261105-vrr-limiter-uapi-v2-0-55f4215be2c2@collabora.com>
-To: Xaver Hugl <xaver.hugl@gmail.com>, Vidith Madhu <vmadhu@nvidia.com>, 
- "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>, 
- Leo Li <sunpeng.li@amd.com>, Harry Wentland <harry.wentland@amd.com>, 
- Fangzhi Zuo <Jerry.Zuo@amd.com>, Daniel Stone <daniels@collabora.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Helge Deller <deller@gmx.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andyshrk@163.com>, 
- =?utf-8?q?Michel_D=C3=A4nzer?= <michel.daenzer@mailbox.org>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-fbdev@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
- Derek Foreman <derek.foreman@collabora.com>, 
- wayland-devel@lists.freedesktop.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_155505_987786_C0D5B4F9 
-X-CRM114-Status: GOOD (  19.68  )
+X-CRM114-CacheID: sfid-20261105_155507_255584_887D2B4E 
+X-CRM114-Status: GOOD (  19.99  )
 X-Spam-Score: -0.2 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,212 +151,86 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Use the new VRR state tracking to handle VRR front porch adjustment.
+On 11/3/26 17:47, Jose Nieto wrote:
+> The Khadas VIM3 has a 16 MiB SPI NOR flash (W25Q128) whose data lines are
+> shared with the eMMC D4-D7 lines. Add an overlay that restricts the eMMC to
+> 4-bit mode and enables the SPI NOR controller, exposing the flash as an MTD
+> device.
+> 
+> The flash HOLD#/WP# lines are wired to the eMMC D3/D7 nets, so the
+> nor_hold_wp_pins pinctrl group is intentionally not used.
+> 
+> Signed-off-by: Jose Nieto <jnieto.alaber@gmail.com>
+> ---
+>   arch/arm64/boot/dts/amlogic/Makefile          |  2 ++
+>   .../dts/amlogic/meson-khadas-vim3-spifc.dtso  | 24 +++++++++++++++++++
+>   2 files changed, 26 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/amlogic/meson-khadas-vim3-spifc.dtso
+> 
+> diff --git a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
+> index 57bc440fa55c..3714cbaaa03e 100644
+> --- a/arch/arm64/boot/dts/amlogic/Makefile
+> +++ b/arch/arm64/boot/dts/amlogic/Makefile
+> @@ -23,6 +23,7 @@ dtb-$(CONFIG_ARCH_MESON) += meson-g12a-u200.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-g12a-x96-max.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-g12b-a311d-bananapi-m2s.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-g12b-a311d-khadas-vim3.dtb
+> +dtb-$(CONFIG_ARCH_MESON) += meson-g12b-a311d-khadas-vim3-spifc.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-g12b-a311d-khadas-vim3-ts050.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-g12b-bananapi-cm4-cm4io.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-g12b-bananapi-cm4-mnt-reform2.dtb
+> @@ -104,5 +105,6 @@ dtb-$(CONFIG_ARCH_MESON) += meson-sm1-x96-air.dtb
+>   # Overlays
+>   meson-g12a-fbx8am-brcm-dtbs	:= meson-g12a-fbx8am.dtb meson-g12a-fbx8am-brcm.dtbo
+>   meson-g12a-fbx8am-realtek-dtbs	:= meson-g12a-fbx8am.dtb meson-g12a-fbx8am-realtek.dtbo
+> +meson-g12b-a311d-khadas-vim3-spifc-dtbs := meson-g12b-a311d-khadas-vim3.dtb meson-khadas-vim3-spifc.dtbo
+>   meson-g12b-a311d-khadas-vim3-ts050-dtbs := meson-g12b-a311d-khadas-vim3.dtb meson-khadas-vim3-ts050.dtbo
+>   meson-sm1-khadas-vim3l-ts050-dtbs	:= meson-sm1-khadas-vim3l.dtb meson-khadas-vim3-ts050.dtbo
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-khadas-vim3-spifc.dtso b/arch/arm64/boot/dts/amlogic/meson-khadas-vim3-spifc.dtso
+> new file mode 100644
+> index 000000000000..c70780b11b9b
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/amlogic/meson-khadas-vim3-spifc.dtso
+> @@ -0,0 +1,24 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (c) 2026 Jose Nieto <jnieto.alaber@gmail.com>
 
-To avoid indenting too deeply, refactor the vblank handling into its own
-function while at it, where scope-based cleanup helpers for the lock can
-be used.
+This change comes directly from the U-Boot file arch/arm/dts/meson-khadas-vim3-u-boot.dtsi
+so at least keep the Copyright and where the changes comes from.
 
-Co-developed-by: Derek Foreman <derek.foreman@collabora.com>
-Signed-off-by: Derek Foreman <derek.foreman@collabora.com>
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 65 +++++++++++++++++++++++-----
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.h | 10 +++++
- drivers/gpu/drm/rockchip/rockchip_vop2_reg.c |  4 ++
- 3 files changed, 67 insertions(+), 12 deletions(-)
+Neil
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index bfb384142568..d93b49025795 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -24,6 +24,7 @@
- #include <drm/drm_atomic_uapi.h>
- #include <drm/drm_blend.h>
- #include <drm/drm_crtc.h>
-+#include <drm/drm_crtc_helper.h>
- #include <linux/debugfs.h>
- #include <drm/drm_debugfs.h>
- #include <drm/drm_flip_work.h>
-@@ -2011,6 +2012,25 @@ static void vop2_crtc_atomic_begin(struct drm_crtc *crtc,
- 	vop2->ops->setup_overlay(vp);
- }
- 
-+static void vop2_vp_set_vrr_vtotal(struct vop2_video_port *vp, unsigned int vtotal)
-+{
-+	const u32 mask = RK3568_VP_DSP_VTOTAL_VS_END__DSP_VTOTAL |
-+			 RK3568_VP_DSP_VTOTAL_VS_END__IMD;
-+
-+	if (!vtotal) {
-+		vop2_vp_update_bits(vp, RK3568_VP_DSP_VTOTAL_VS_END,
-+				    RK3568_VP_DSP_VTOTAL_VS_END__IMD, 0);
-+		return;
-+	}
-+
-+	/* Value is 13 bits at most, saturate it if too large */
-+	if (vtotal > RK3568_VP_DSP_VTOTAL_VS_END__DSP_VTOTAL >> 16)
-+		vtotal = RK3568_VP_DSP_VTOTAL_VS_END__DSP_VTOTAL >> 16;
-+
-+	vop2_vp_update_bits(vp, RK3568_VP_DSP_VTOTAL_VS_END, mask,
-+			    vtotal << 16 | RK3568_VP_DSP_VTOTAL_VS_END__IMD);
-+}
-+
- static void vop2_crtc_atomic_flush(struct drm_crtc *crtc,
- 				   struct drm_atomic_commit *state)
- {
-@@ -2029,6 +2049,11 @@ static void vop2_crtc_atomic_flush(struct drm_crtc *crtc,
- 
- 	spin_lock_irq(&crtc->dev->event_lock);
- 
-+	if (crtc_state->vrr_enabled) {
-+		if (drm_crtc_helper_vrr_flush(crtc_state))
-+			vop2_vp_set_vrr_vtotal(vp, crtc_state->vrr_state.cur_vtotal);
-+	}
-+
- 	if (crtc->state->event) {
- 		WARN_ON(drm_crtc_vblank_get(crtc));
- 		vp->event = crtc->state->event;
-@@ -2371,6 +2396,30 @@ static irqreturn_t rk3576_vp_isr(int irq, void *data)
- 	return ret;
- }
- 
-+static void vop2_vp_handle_vblank(struct vop2_video_port *vp)
-+{
-+	struct drm_crtc *crtc = &vp->crtc;
-+	struct vop2 *vop2 = vp->vop2;
-+	u32 val;
-+
-+	guard(spinlock)(&crtc->dev->event_lock);
-+
-+	if (!vp->event)
-+		return;
-+
-+	val = vop2_readl(vop2, RK3568_REG_CFG_DONE);
-+
-+	if (!(val & BIT(vp->id))) {
-+		drm_crtc_send_vblank_event(crtc, vp->event);
-+		vp->event = NULL;
-+		drm_crtc_vblank_put(crtc);
-+
-+		if (crtc->state->vrr_enabled)
-+			if (drm_crtc_helper_vrr_vsync(crtc->state))
-+				vop2_vp_set_vrr_vtotal(vp, crtc->state->vrr_state.cur_vtotal);
-+	}
-+}
-+
- static irqreturn_t vop2_isr(int irq, void *data)
- {
- 	struct vop2 *vop2 = data;
-@@ -2402,18 +2451,7 @@ static irqreturn_t vop2_isr(int irq, void *data)
- 
- 			if (irqs & VP_INT_FS_FIELD) {
- 				drm_crtc_handle_vblank(crtc);
--				spin_lock(&crtc->dev->event_lock);
--				if (vp->event) {
--					u32 val = vop2_readl(vop2, RK3568_REG_CFG_DONE);
--
--					if (!(val & BIT(vp->id))) {
--						drm_crtc_send_vblank_event(crtc, vp->event);
--						vp->event = NULL;
--						drm_crtc_vblank_put(crtc);
--					}
--				}
--				spin_unlock(&crtc->dev->event_lock);
--
-+				vop2_vp_handle_vblank(vp);
- 				ret = IRQ_HANDLED;
- 			}
- 
-@@ -2635,6 +2673,9 @@ static int vop2_create_crtcs(struct vop2 *vop2)
- 
- 		drm_crtc_attach_background_color_property(&vp->crtc);
- 
-+		if (vp->data->vrr_limiter_capable)
-+			drm_crtc_attach_vrr_limiter_properties(&vp->crtc);
-+
- 		drm_crtc_helper_add(&vp->crtc, &vop2_crtc_helper_funcs);
- 		if (vop2->lut_regs) {
- 			const struct vop2_video_port_data *vp_data = &vop2_data->vp[vp->id];
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index ffcb39c130aa..323e2533de34 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-@@ -231,6 +231,7 @@ struct vop2_video_port_data {
- 	 * @pixel_rate: pixel per cycle
- 	 */
- 	u8 pixel_rate;
-+	bool vrr_limiter_capable;
- };
- 
- struct vop2_video_port {
-@@ -655,6 +656,9 @@ enum dst_factor_mode {
- 
- #define RK3588_VP_DSP_CTRL__GAMMA_UPDATE_EN		BIT(22)
- 
-+#define RK3568_VP_DSP_VTOTAL_VS_END__DSP_VTOTAL		GENMASK(28, 16)
-+#define RK3568_VP_DSP_VTOTAL_VS_END__IMD		BIT(15)
-+
- #define RK3588_VP_CLK_CTRL__DCLK_OUT_DIV		GENMASK(3, 2)
- #define RK3588_VP_CLK_CTRL__DCLK_CORE_DIV		GENMASK(1, 0)
- 
-@@ -810,6 +814,12 @@ static inline void vop2_vp_write(struct vop2_video_port *vp, u32 offset, u32 v)
- 	regmap_write(vp->vop2->map, vp->data->offset + offset, v);
- }
- 
-+static inline void vop2_vp_update_bits(struct vop2_video_port *vp, u32 offset,
-+				       u32 mask, u32 v)
-+{
-+	regmap_update_bits(vp->vop2->map, vp->data->offset + offset, mask, v);
-+}
-+
- static inline u32 vop2_readl(struct vop2 *vop2, u32 offset)
- {
- 	u32 val;
-diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-index c44648e1bc0d..946ca420f3f5 100644
---- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-@@ -1063,6 +1063,7 @@ static const struct vop2_video_port_data rk3588_vop_video_ports[] = {
- 		/* hdr2sdr sdr2hdr hdr2hdr sdr2sdr */
- 		.pre_scan_max_dly = { 76, 65, 65, 54 },
- 		.offset = 0xc00,
-+		.vrr_limiter_capable = true,
- 	}, {
- 		.id = 1,
- 		.feature = VOP2_VP_FEATURE_OUTPUT_10BIT,
-@@ -1071,6 +1072,7 @@ static const struct vop2_video_port_data rk3588_vop_video_ports[] = {
- 		.max_output = { 4096, 2304 },
- 		.pre_scan_max_dly = { 76, 65, 65, 54 },
- 		.offset = 0xd00,
-+		.vrr_limiter_capable = true,
- 	}, {
- 		.id = 2,
- 		.feature = VOP2_VP_FEATURE_OUTPUT_10BIT,
-@@ -1079,12 +1081,14 @@ static const struct vop2_video_port_data rk3588_vop_video_ports[] = {
- 		.max_output = { 4096, 2304 },
- 		.pre_scan_max_dly = { 52, 52, 52, 52 },
- 		.offset = 0xe00,
-+		.vrr_limiter_capable = true,
- 	}, {
- 		.id = 3,
- 		.gamma_lut_len = 1024,
- 		.max_output = { 2048, 1536 },
- 		.pre_scan_max_dly = { 52, 52, 52, 52 },
- 		.offset = 0xf00,
-+		.vrr_limiter_capable = true,
- 	},
- };
- 
-
--- 
-2.56.0
+> + *
+> + * The Khadas VIM3 on-board SPI NOR flash shares its data lines with the
+> + * eMMC data lines 4-7. Restrict the eMMC to 4-bit mode to free D4-D7 and
+> + * enable the SPI NOR controller, exposing the flash as an MTD device.
+> + *
+> + * The flash HOLD#/WP# lines are wired to the eMMC D3/D7 nets, so the
+> + * nor_hold_wp_pins pinctrl group is intentionally not used.
+> + */
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +&sd_emmc_c {
+> +	pinctrl-0 = <&emmc_ctrl_pins>, <&emmc_data_4b_pins>, <&emmc_ds_pins>;
+> +	bus-width = <4>;
+> +};
+> +
+> +&spifc {
+> +	status = "okay";
+> +};
+> +
 
 
