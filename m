@@ -2,122 +2,90 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8068B606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:59:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1339606A333
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 15:00:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Qa4iLbrF;
-	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=IzhzugqN
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sf737RfS;
+	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=OpINkCMT
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=xEn9bBfJyeN7s0bkcYXtebKhISRaDeVGGV2BA0cEk8Y=; b=Qa4iLbrFK4ft8N
-	8fSuIL7gp+oTG/WY+8HCgb+9zRmfsZzCbSRsG5KptqlGdUNt2yyRzLW3GO9hsHF1jFxwIgUkb48rb
-	7jgTaaOl9WNhcf/fN4bmn0Rvk1q8NkmmmqSImLcQHUH9DeOcJhFNa/e6em459h4tCKWIO11F3yY27
-	W7ExlrJ6jnGB78Ki1A5QAhUaU8PNXCODuTGbBjuV2LWPMk1Amyo+odb3v3gyssq9sBxirJl3u0pzl
-	MuUyfVLucmO2zlJKHCui5ZinKXzJIsZDJA8i0NCojTavL3MKXt56KwM4t53LOAkL9LImXa0wcYvHv
-	rK/xHGhiyIMmfyX27Wrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=GGID1vEGmxlhJubnVm56qCe+584XOcxBg6J482g0XBI=; b=sf737RfSzs9RG/tvMv4yNqwC9L
+	2EczuayYfO/KuXvCH440WgJwGClwM0ym29h58vBYet1whEQkT5oe4fCZKZBm4hIqxynDko6qe15Tf
+	7lYGWC8yLHAL5wvVLvwnKEa+/ZSQ2OqUZq52ZSvszY17ySom2ePAtHz2VjAO0sryZuKtxEhAsqfQw
+	wYg5tqhlFXphsusOAVNZD9H7WvDrq0ECG3ewUAdaNsNCoWR7lQ5u3UXA2utQF/aHORSh5tLvCRhnx
+	glxlV46hegllwBc8Z5DOTX4HLRO5KbYFU6U3a9sOtbe/VcAmXzQswR3y0ztUjSRJFu5KmH2DPS/0x
+	H1XJH4iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOywD-00000009Li1-0vTL;
-	Thu, 05 Nov 2026 14:59:37 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1xOyxI-00000009Lpg-2MMj;
+	Thu, 05 Nov 2026 15:00:44 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyw9-00000009LhH-39Dh
+	id 1xOyxE-00000009LpH-3uSH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 14:59:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vC9ZgXMp0uyo2AiPj+7Hd0KjQXBrmcS0ClWdrOSuLnXqzXzlxlBEHYLf+a4DRvOyiZgnK3tiJOC/DAX/9AhibpUXMy/bXea1vu/owbWKaSe8sDaGYAWyivRfkgxPao87y5CgU2xPsPYB00YA0HgymBvk5WQUPUxCGNGO3Mq6bHoPlg4wQp2pIbBFeC3+TZgHV4l3oexuijrSlWw3DRXPju/YZt5x4uEhDcWLDhCUtliX3SaFtFKrqrfa7qw0M634kRkQpnSO+J5CeS6DsW8eu7UoX+pmfpvH/lqwAIgwS5bJluk8jdPvlbfnDqm8EnGD2yCQL4OeI9a97bqa/WF2Ag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xEn9bBfJyeN7s0bkcYXtebKhISRaDeVGGV2BA0cEk8Y=;
- b=KUgcjlL1SOkqN+Rplrtr46cwdCypCBUmvzePERXM5FkDFBb844bmbQ0YmlfXi+yITgpLFi8X1n/a9EnTqm1AyLeA0L74nfRwQ9beif+2/daIE89kFrv6YGch8QKbDm1ZzN4k7Q96fubd1fUVNNbQfav5TrMgcwNKYpsKumgOs/WmIW8T+TNl1eVw3kBMvnMmV1uA72A95fZ9pXcnZiC1pQAptgP/t9rC/oktB8XxaOPyhUT4O+O04idYZZFOWY/nsarO21AU4j4kQ6px6PKJ7qP1eXnhaO8P7h0MIaQ0/Yi0aCWn8WMoY4pPGjqIk/iBb9XbCRtbbzxZfmqOIdU2Ag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=iscas.ac.cn smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xEn9bBfJyeN7s0bkcYXtebKhISRaDeVGGV2BA0cEk8Y=;
- b=IzhzugqNLQxfAlRH3uI1Ix5u1wwbcIU88S6aZYZQ71mkThuBuU+R7PrpPf5jKtI2Hdn8hJ/uvnnxuR9VmJYQM5sp2BTk7d4prgQ2Ao0GVBlnu7sypSTL1/60SJ7OvZesc+p/2g8w2B8RylDGv+PuPZkGkaDugJFKv5vUPigDDFKMOvWjx17vDqLaA2RJ5lFT+hqdOQn+kj4O9m113vPV8cO5oXsv533Y4KQQIm/kU5pInWPLkDD4XXfqatCDeogM7Envat6LRCE/fsgyiqJ2cJlQfavQLEIA+dgqdygKTcfJGT2HcHXIAiTl9zQDcwd662ETlgGN80xdJJeGGyxrlQ==
-Received: from FR0P281CA0076.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d10:1e::6) by
- VI0PR10MB9075.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:214::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Thu, 5 Nov
- 2026 14:59:27 +0000
-Received: from ZR1PEPF0000E6BC.eurprd07.prod.outlook.com
- (2603:10a6:d10:1e:cafe::ab) by FR0P281CA0076.outlook.office365.com
- (2603:10a6:d10:1e::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.4 via Frontend Transport; Thu, 5
- Nov 2026 14:59:26 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- ZR1PEPF0000E6BC.mail.protection.outlook.com (10.167.241.75) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.592.5 via Frontend Transport; Thu, 5 Nov 2026 14:59:25 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 5 Nov
- 2026 15:59:55 +0100
-Received: from [10.252.2.182] (10.252.2.182) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 5 Nov
- 2026 15:59:24 +0100
-Message-ID: <5bd499a2-2c79-4cfd-abe3-5bca88e3ce02@foss.st.com>
-Date: Thu, 5 Nov 2026 15:59:23 +0100
+	Thu, 05 Nov 2026 15:00:43 +0000
+Received: from ptx.office.stw.pengutronix.de (ptx.office.stw.4.pengutronix.de [10.9.0.3])
+	(Authenticated sender: relay-from-ptx.office.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 34AEB2020F5;
+	Thu, 05 Nov 2026 16:00:33 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1793890833;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GGID1vEGmxlhJubnVm56qCe+584XOcxBg6J482g0XBI=;
+	b=OpINkCMTWfmWgbQqY37XhoZ8X9wm4O2L3BWfnUPYRAth8HkmMe4fzWhQn3gBFzNG/ypfEs
+	MpIITGdsaV+v/f8LVF8pR55ZZS3IvRtBNUW/jP7TUoX6hFdG0H3RadL2cRJE3UZ/Ky9fZO
+	EErUUBqiW4uNvEqH+61XAW3mlge+z8XJHoKRAQJyXgvyftQx7ku0F96VYC3JWaSDIn/B5k
+	BiQlGEDU3SH8knrpfiR5uNsGErlvw/i8HwhNiQjvgYNac2ZW4RvEXO/AA7sFXcImtOMRk+
+	4lhvs5brzSaGqh3Urb7kvmSN+DLR7OVRaBnTvfAa3LJtw+UM1jTZ2TIGGOwVKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1793890833;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GGID1vEGmxlhJubnVm56qCe+584XOcxBg6J482g0XBI=;
+	b=AfEQ9ItYIfx67ZQHnZOiSCYhIozwM6hgy30D8bFub2sla6xj+BMUezQSQdRG3/tPvcLPXj
+	Sr5aRX5kTa7JVA/iR6HEgIGZ+pQ6aOR1LjLHgT9SD45O3SpVaEgk8x/rC+cDTqsXsPbicc
+	vwQ4NMzFtIxqO3ONlPtSK2HSznSrozM1U94k11rRluDsGsOkYLYa056Rmb74aLU9nZxL/M
+	E8ZJsvmS4ZYA1nx0jdRbqecqmhvC27VsIeUxp4FYplS7LD8gYcvdShAAVRc8jkTkEKmEEz
+	0FfC9Ni6nKqGbzSzi+RWRxBXf1Jvp4R8sI9WTFoLjZbYRXAIxZeOhjZxAUBGqA==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-ptx.office.stw.pengutronix.de smtp.mailfrom=mfe@pengutronix.de
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793890833; a=rsa-sha256;
+	cv=none;
+	b=J43jk3juJ6r4hf7tDRXaaJIfsdU70nVFRR2ywvs2kQTcqrsRAqZkUq5TaTlbxVFpUF9EBw
+	1bsCG/GTGWGXI92+iVgQeEsByCZqYvEI6xXYwN1N27ilZda6nOJxCR2xirGhM2zkJhqEiB
+	NZ00yft5WBRR7/foUf9Qyj75qO9mtsQSASnndyRI1zgdVI8t5OWHNNFYjIzj1Ca3hw76xr
+	0Vh7rGZXAIp3mfjdbr5jqp0iOEkFpKKim/5BCplmpTZKsrhwsGTIXe6E2ySnqT0ktN1Xji
+	krki923h0pCgjSmo451il+FavEr48Z5gvelEDeQOrJmIFLN+rV0kzNj/nAb5dA==
+Received: by ptx.office.stw.pengutronix.de (Postfix, from userid 1064)
+	id 16AA81BF5CC; Thu, 05 Nov 2026 16:00:33 +0100 (CET)
+Date: Thu, 5 Nov 2026 16:00:33 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] ARM: dts: nxp/imx6: Drop unused .dtsi
+Message-ID: <krvg6bwsueypasvt6fqszh7itqr3gu3qsqbji2ernqqy6g3t4c@b7hqenmaugik>
+References: <20261105144920.2796623-2-robh@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ASoC: stm32: spdifrx: keep the control DMA channel on
- config failure
-To: Wentao Liang <vulab@iscas.ac.cn>, Arnaud Pouliquen
-	<arnaud.pouliquen@foss.st.com>, Liam Girdwood <lgirdwood@gmail.com>, "Mark
- Brown" <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
-	<tiwai@suse.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Alexandre
- Torgue" <alexandre.torgue@foss.st.com>
-CC: <linux-sound@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20261104024051.1508703-1-vulab@iscas.ac.cn>
-Content-Language: en-US
-From: Olivier MOYSAN <olivier.moysan@foss.st.com>
-In-Reply-To: <20261104024051.1508703-1-vulab@iscas.ac.cn>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZR1PEPF0000E6BC:EE_|VI0PR10MB9075:EE_
-X-MS-Office365-Filtering-Correlation-Id: 51a96d63-3fd6-4a3f-b531-08df3b4d6269
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|23010399003|1800799024|10067099003|22082099003|18002099003|261021121427099003|11063799006|56012099006|261028144727099003|261102123227099003|261026140227099003|261022105027099003|261021123027099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info: ZWwVw6MvQ0bEdCjsMjamyPVUrHH++KwCwCnsWWQUVg3CkwazqFs5c3wpU1JbSWCK/DgVTkyjqhzuFeGSxGpk8eZw+Vk78cURWIcpTdTWM774oXJsFU9dX8Z9EpQYK09iL5jd3MClqulHJl/C3LdYu58R7E4HpA6H4CPoHikSOtqL4XeXVorcE2/yuHgJEUCTgIzw+u4b2AKzpuo2XWNoKeRiuGFyos6QrcYng1MObX/MAXduGJXB3fewPFlDnpGisVjKPt+9lW8yg3TszDW89tuObUgexjtl2VKRLChxSGqZEs7As7EK+IatnTPhVrptadpAdrAbocO3lNZSkbZuctzgyj8vJAPFOdrpiScRdXXyQQGCmeAtYrttPfir+hnueI7KBt6l6vcw4mmyEOwafiuYgXda2ah+GDUrdlW39/tOpidfhCcAoNofkw35Vuss+FEm8mnNa37OjcDyItfhIJ3UXJNZ8qFP03wO5A0uYsIpZgG2Gz8MCwk9y0cmwT++bimxj9fyVocoA4o6xDkeLC+/XBZI9okuCIhahAFagD/4PQIzz0Ld9+V6A13tFoYP/FYADB4NA5Jnf1uD8qC1cyNE0p2ZAA9lGeNTQqGq7EnSlTc9slHXuUssCQX4DIL6UfNthLe1zTV4I5QDSTHWw58tPCWkIcII3xDaDrSQHPoqCw0sSI0Gy6nhRnSQKqylKUHVlJAhxZhYsLcWvdnSTg==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(23010399003)(1800799024)(10067099003)(22082099003)(18002099003)(261021121427099003)(11063799006)(56012099006)(261028144727099003)(261102123227099003)(261026140227099003)(261022105027099003)(261021123027099003)(261009223027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: V2viam5e6RvuhYPQX8y7qfyl23XzZojnA9atedbyCjnkR6LyfAA1hG4IetxIQ84TqEB4gx/nwPaYNVfhDv1jdjS/GfdM8YVJfXWQlCqyk9vkjiTChB2GQRvQc8Iwt1z+eOv54vl0GbBgJ5LnU8gsnyikntxOJSJf9Inqg4VCNwxjBBkhimxSgUFN9fXNhlivPha89yH1acbtj8NBGBow9j5yASmJySWOyDK4G/ZVsdkCz3a3Cpz94XB4yhMSDqrYWg+xXJCDK96hbyLTJqh9vf+SPmvutVAo4bvgQgl7jNg4b53FZs3wpnKuKR7Ot8iF5d+x0f/hZfPNazChduuUJFUxuno5cfim+v+fkw+x2SJra8NzXpVoVGi9pEbFLYirTVHkuaEvVsJbLtXTsdiG2MKJaBa2eBaIBStMzTZjmea8UPTkZ4m6ln4aAFMmZBAK
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 14:59:25.9288
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 51a96d63-3fd6-4a3f-b531-08df3b4d6269
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: ZR1PEPF0000E6BC.eurprd07.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR10MB9075
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261105144920.2796623-2-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_065934_159210_FEA4F765 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20261105_070041_193983_71FB8600 
+X-CRM114-Status: GOOD (  18.66  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -129,65 +97,196 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Wentao,
-
-On 11/4/26 03:40, Wentao Liang wrote:
-> When dmaengine_slave_config() fails, stm32_spdifrx_dma_ctrl_register()
-> sets ctrl_chan to NULL and returns the error. The channel obtained from
-> dma_request_chan() is thus lost, and stm32_spdifrx_probe() calls
-> stm32_spdifrx_remove() on the error path, which then passes NULL to
-> dma_release_channel().
+On 26-11-05 08:49, Rob Herring (Arm) wrote:
+> These .dtsi files are not included anywhere in the tree and can't be
+> tested.
 > 
-> Leave ctrl_chan untouched so that the remove path releases the channel.
-> Its IS_ERR() check already handles the case where dma_request_chan()
-> failed.
-> 
-> Fixes: 03e4d5d56fa5 ("ASoC: stm32: Add SPDIFRX support")
-> Cc: stable@vger.kernel.org
-> Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
-> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 > ---
->   sound/soc/stm/stm32_spdifrx.c | 4 +---
->   1 file changed, 1 insertion(+), 3 deletions(-)
+> v2:
+>  - Rebased
 > 
-> diff --git a/sound/soc/stm/stm32_spdifrx.c b/sound/soc/stm/stm32_spdifrx.c
-> index 88863dbd05d9..ce75929daf73 100644
-> --- a/sound/soc/stm/stm32_spdifrx.c
-> +++ b/sound/soc/stm/stm32_spdifrx.c
-> @@ -425,10 +425,8 @@ static int stm32_spdifrx_dma_ctrl_register(struct device *dev,
->   
->   	ret = dmaengine_slave_config(spdifrx->ctrl_chan,
->   				     &spdifrx->slave_config);
-> -	if (ret < 0) {
-> +	if (ret < 0)
->   		dev_err(dev, "dmaengine_slave_config returned error %d\n", ret);
-> -		spdifrx->ctrl_chan = NULL;
-> -	}
->   
->   	return ret;
->   };
+> It's been nearly a year and these are still orphans. There was a promise
+> to upstream something for the kontron ones, but that hasn't happened.
 
-Thanks for the patch. The patch itself looks good to me.
+That's unfortunate, but these includes are used at least by the barebox
+bootloader [1,2], dropping these would cause a DT regresssion.
 
-Just one remark regarding Fixes reference in commit message.
-In initial commit 03e4d5d56fa5 the channel was released before setting 
-ctrl_chan to NULL.
+Would it help to upstream [1,2]?
 
-This was change through commit 98c8dc2fd59f. So it is more relevant to 
-refer this commit:
-Fixes: 98c8dc2fd59f ("ASoC: stm32: spdifrx: fix control DMA error 
-management")
+Regards,
+  Marco
 
-With this change you can add my Reviewed-by.
+[1] https://elixir.bootlin.com/barebox/v2026.10.0/source/arch/arm/dts/imx6dl-samx6i.dts#L8
+[2] https://elixir.bootlin.com/barebox/v2026.10.0/source/arch/arm/dts/imx6q-samx6i.dts#L8
 
-BRs
-Olivier
+> 
+>  .../dts/nxp/imx/imx6dl-kontron-samx6i.dtsi    | 12 -----
+>  .../dts/nxp/imx/imx6q-kontron-samx6i.dtsi     | 12 -----
+>  .../boot/dts/nxp/imx/imx6qdl-pico-dwarf.dtsi  | 45 ----------------
+>  .../boot/dts/nxp/imx/imx6qdl-pico-nymph.dtsi  | 54 -------------------
+>  4 files changed, 123 deletions(-)
+>  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi
+>  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi
+>  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-pico-dwarf.dtsi
+>  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-pico-nymph.dtsi
+> 
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi b/arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi
+> deleted file mode 100644
+> index 5a9b819d7ee8..000000000000
+> --- a/arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi
+> +++ /dev/null
+> @@ -1,12 +0,0 @@
+> -// SPDX-License-Identifier: GPL-2.0 OR X11
+> -/*
+> - * Copyright 2019 (C) Pengutronix, Marco Felsch <kernel@pengutronix.de>
+> - */
+> -
+> -#include "imx6dl.dtsi"
+> -#include "imx6qdl-kontron-samx6i.dtsi"
+> -
+> -/ {
+> -	model = "Kontron SMARC-sAMX6i Dual-Lite/Solo";
+> -	compatible = "kontron,imx6dl-samx6i", "fsl,imx6dl";
+> -};
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi b/arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi
+> deleted file mode 100644
+> index e76963436079..000000000000
+> --- a/arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi
+> +++ /dev/null
+> @@ -1,12 +0,0 @@
+> -// SPDX-License-Identifier: GPL-2.0 OR X11
+> -/*
+> - * Copyright 2019 (C) Pengutronix, Marco Felsch <kernel@pengutronix.de>
+> - */
+> -
+> -#include "imx6q.dtsi"
+> -#include "imx6qdl-kontron-samx6i.dtsi"
+> -
+> -/ {
+> -	model = "Kontron SMARC-sAMX6i Quad/Dual";
+> -	compatible = "kontron,imx6q-samx6i", "fsl,imx6q";
+> -};
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-pico-dwarf.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-pico-dwarf.dtsi
+> deleted file mode 100644
+> index 3a968782e854..000000000000
+> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-pico-dwarf.dtsi
+> +++ /dev/null
+> @@ -1,45 +0,0 @@
+> -// SPDX-License-Identifier: GPL-2.0+ OR MIT
+> -//
+> -// Copyright 2017 NXP
+> -
+> -#include "imx6qdl-pico.dtsi"
+> -
+> -/ {
+> -	leds {
+> -		compatible = "gpio-leds";
+> -		pinctrl-names = "default";
+> -		pinctrl-0 = <&pinctrl_gpio_leds>;
+> -
+> -		led {
+> -			label = "gpio-led";
+> -			gpios = <&gpio5 31 GPIO_ACTIVE_HIGH>;
+> -		};
+> -	};
+> -
+> -};
+> -
+> -&i2c1 {
+> -	mpl3115@60 {
+> -		compatible = "fsl,mpl3115";
+> -		reg = <0x60>;
+> -	};
+> -};
+> -
+> -&i2c2 {
+> -	io-expander@25 {
+> -		compatible = "nxp,pca9554";
+> -		reg = <0x25>;
+> -		gpio-controller;
+> -		#gpio-cells = <2>;
+> -		#interrupt-cells = <2>;
+> -	};
+> -
+> -};
+> -
+> -&iomuxc {
+> -	pinctrl_gpio_leds: gpioledsgrp {
+> -		fsl,pins = <
+> -			MX6QDL_PAD_CSI0_DAT13__GPIO5_IO31	0x1b0b0
+> -		>;
+> -	};
+> -};
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-pico-nymph.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-pico-nymph.dtsi
+> deleted file mode 100644
+> index 3d56a4216448..000000000000
+> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-pico-nymph.dtsi
+> +++ /dev/null
+> @@ -1,54 +0,0 @@
+> -// SPDX-License-Identifier: GPL-2.0+ OR MIT
+> -
+> -#include "imx6qdl-pico.dtsi"
+> -
+> -/ {
+> -	leds {
+> -		compatible = "gpio-leds";
+> -		pinctrl-names = "default";
+> -		pinctrl-0 = <&pinctrl_gpio_leds>;
+> -
+> -		led {
+> -			label = "gpio-led";
+> -			gpios = <&gpio5 31 GPIO_ACTIVE_HIGH>;
+> -		};
+> -	};
+> -
+> -};
+> -
+> -&i2c1 {
+> -	adc@52 {
+> -		compatible = "ti,adc081c";
+> -		reg = <0x52>;
+> -		vref-supply = <&reg_2p5v>;
+> -	};
+> -};
+> -
+> -&i2c2 {
+> -	io-expander@25 {
+> -		compatible = "nxp,pca9554";
+> -		reg = <0x25>;
+> -		gpio-controller;
+> -		#gpio-cells = <2>;
+> -		#interrupt-cells = <2>;
+> -	};
+> -};
+> -
+> -&i2c3 {
+> -	rtc@68 {
+> -		compatible = "dallas,ds1337";
+> -		reg = <0x68>;
+> -	};
+> -};
+> -
+> -&pcie {
+> -	status = "okay";
+> -};
+> -
+> -&iomuxc {
+> -	pinctrl_gpio_leds: gpioledsgrp {
+> -		fsl,pins = <
+> -			MX6QDL_PAD_CSI0_DAT13__GPIO5_IO31	0x1b0b0
+> -		>;
+> -	};
+> -};
+> -- 
+> 2.53.0
+> 
 
