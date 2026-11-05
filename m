@@ -2,138 +2,106 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25E5E606A332
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:38:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2DCE606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:40:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=V5Cq+Sfz;
-	dkim=pass (2048-bit key, unprotected) header.d=jannau.net header.i=@jannau.net header.a=rsa-sha256 header.s=fm1 header.b=iF77pKNw;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Cj2YxFAf
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CXak0gAu;
+	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=lxUFfhrO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=0744fbE1Bpjr7J49Vf8JkxMIqKOH5PrOiNWgzUuzsCs=; b=V5Cq+SfzjitBng
-	xltSHxRRUzt/P9vf+ddYjBf/pF4hFOwzH4fp5LEq7NF7bKeVKJ3K74Llia4JGWV7/X0IueD4T2SQN
-	wEdHqATTslbpylYPF+UrMt+FYhtOEztGgmtzcn42sUWEgbGZfIDVyIDfqieeb36XPbBN3FYZIzswO
-	RXAnpHOwEMJucdOXNumKU24j5F8tdWJpT0EAfMEhCQzJQc0lB5JbAfY7NpYWtG2wEFn+vGjDfCDLT
-	CZ8U/SRX6UIwKEHuOasYzAOlOKwQEhtSERbR1P2nBIhNY9BlImPt6XYq64NxWYWvkJwM/udyg/9P8
-	UJX1wz9nuAl2iOYjdD1w==;
+	List-Owner; bh=mAm8SWYjVHtkj7l4zPpOlmPJ3PIKILZqb4g9EPE7x6k=; b=CXak0gAuOx2N8P
+	SMSyH0VoYOJILc1rCbW3A1fcsZY3ZJgGT974Yqhy54p+TXQ7vR9lXuDlgtQ+9ghAmu7oUchJyVlA3
+	PaoAooqUZufX7Lq9EEwRZd5j+BJhs4bEriO9i1I5svduWWmmaybuKvqbL2n0v6lAwUDP0rhsmoDxk
+	JmSHUBspZq/tWosb8QoeSCbN5bimXytw5yr2MyFu2DL2+p7XKq7eW2iBBZbvmcdkygABN9LDzXW11
+	I16K3hUUobBuyzPx74Ygs6dCYg10aFZTUOe2pqtVLIkekuQsJwYue9RrcCzGVDmskcJaSUtTCD9lN
+	CvG6pby/e6SytLcjJNYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvlz-00000008fsF-1MS5;
-	Thu, 05 Nov 2026 11:36:51 +0000
-Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
+	id 1xOw8a-00000008nnd-1pLe;
+	Thu, 05 Nov 2026 12:00:12 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvlr-00000008fjx-2d2D
+	id 1xOw8W-00000008nkW-0T8R
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 11:36:46 +0000
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 1A03C7A0133
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 06:36:43 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-02.internal (MEProxy); Thu, 05 Nov 2026 06:36:43 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1793878601;
-	 x=1793965001; bh=0744fbE1Bpjr7J49Vf8JkxMIqKOH5PrOiNWgzUuzsCs=; b=
-	iF77pKNweD1dK6m1YwvDTqDDPz8HwVFA04jmXsgA/Yn1KKsfPR6klOkrhaqtBCXV
-	R9zOH4nfTCXd6PkTKAzDPzwfyEnmoHaVc2AeXnp93k+a2ntnUiV++lTy4qzCB1Oz
-	JzI6mlnorzsIJD8GrSNzzqgyQx1owXkOFCnR0GHZBg8wPop9legez3MrjswL48ns
-	9mqCjNWe8foO0g+ZExmvEIoowQG6pOHjsnKD1Af2vhdKXK2KEojGSE+e9dZw+OQS
-	qbVZP4UcebhPIJYJs8yZsB4ngdA3QbU7d3AYTxKqa4e9oxDFp8+lqjhK2aGp/oHQ
-	uvdJ7CmaMUNBsWG6M8q16g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1793878601; x=
-	1793965001; bh=0744fbE1Bpjr7J49Vf8JkxMIqKOH5PrOiNWgzUuzsCs=; b=C
-	j2YxFAfh/xZ3OCYkktvmPG97PKapZI2M8ceY2OB0vNri9B/jSqZJcuxzPP+ia6oR
-	LRS5Xd/+IazTT7PVJsgelAOr70UVTrV23STMDlSXSR00+SRt5oCEM2fnRJjoaWZi
-	Dl4x8BWlAS6DJt+yuApiab7UQOKXa0iFEooga81XeHbpfKFJpFK6WD/S9nAOZ35c
-	BqKA4rvsXqG59YQqFUdTHowfflVB+6RtE36qDbETYUChwtPMITSSHeVBrK61EaxG
-	8O+hgfmQzFzDla33wzjSET8xrwENmS2cKmDnFhNdcGZfOLTT13Y6VgHkAnedEbGg
-	Qtg5rtE5PDCaVCI/hHjog==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=jannau.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1793878601; d=jannau.net;
-	mf=PGpAamFubmF1Lm5ldD4=;
-	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
-	s=fm1:rsa-sha256:MrjUNC02MehZB1HxVbQf/M9PkUQZDM45IODSSwHDQfIJ3F7
-	wrXdoDgeFqyxOm+avuqS04KlY88r2YKuujIf107a1VL1WCdyV1GfUUOQhFnVes8y
-	TfOjRc5U2vvKy2fcc4PBkOiT/42lqmePq7UNmRs8PD69oP8y3QJeeF5vY3gi7FG5
-	CpsTIYCZdcOecxoVQec8Vi3XikPhbGbiENZzhdh++WEoS4IBEjbszKbphbsrjdhb
-	qjTcjqqOnJuXu8Nwlqq9SHaUdqhGjxNeVuE6tFd/wfKZL3ssIZWlhkjbGN1ni3KY
-	ffe60PiVJVc7pZxcExYVzSIlchzfatwT4llISeg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:wFZU0B1PvfqDsZBXQbeBFsEUczixwzP5Dp0xKYC6DBc=:hpm8i9GpxRw7kXdH7PimUgLS/n22erqxsBm4zUk+AAI=;
-X-ME-Sender: <xms:SGrsai8h0iIPSQaRUCu0hzGUXfQUXhNeGN_I6Nzmga0ED32DGJgi2A>
-    <xme:SGrsah-TUhuqorXurBtDInAx5It7q8shvUB00k1i9simfwoijOA5Yhx33b59zzX_f
-    dCAClhyMnBAVaWhXz2TbNZLpKX8s0BUoyxEh4ZiySEg_KgOlWEFxwA>
-X-ME-Received: <xmr:SGrsaq1ySW9XpuhaldoCoIOs3gWOeAZTvWA9h8dDHQS0X2_trD6hDZcozFzbbYZvdKWEGjez4UlR_d46zZYG-wf88JsAoFeZKgA>
-X-ME-Proxy-Cause: dmFkZTFiB+Ef/4hhUELr0xJWI4RLreggeb5lOnSYygbUpmh2w1HzCIgOWn5JqSrKHbnJF6
-    Gu1E5HEoFycQcf9fEZZQ93o1mpIX6EUiid5vBGRrjChidySlNGfqHtpNB3U8jUEiqhLfm+
-    6xPvXbkcR2ibvNg4OOVM6aiptmnj/TBjEYU3MAKCpGrhxPUrXjXMmo51E4LLG/ceVfW8Tr
-    4gql17P4ewfgE57dF++9gDAvlAmy04Q63lix9EUpqSjLhUwBck5DsW/uy2pq/U97T8ijHs
-    +ZwSFDLQaHL0/V88gw6RsuWlYcPx9Yr/hGUZyb1Kz3jC9+2TNJOFxe7HAtdL+9BuLuBcqG
-    ulwjxzgZuO0Ym0wZltYpD9LL1uUDiSH1pGpwQgLbCjNxiBgUM2MzkVfy7z3XNDEAMqK97d
-    tEqCwp3j56ZctZQD2+wwTedCc5Sl0XiD1wvZ5KXUVUKf3FGZZeFHMWqd+Q/Sh525O2w47z
-    SoQOmIdDuw9GxwjgouRfqD9RuAuyiqgt2246VqgDUywUmFmHm7nUWJYml79G0O+T1GBe4P
-    Bo2QNbcnvjKkdD+fDYDlEyIv+aKGWVLLb9pj8WhTy3dR+wx22RNQb4XnIc93NrZnNVLeNz
-    4iAhT8pjgCCaGYvG19iXQc3phmP1+5MzI63qs3GZveXYjFSp2CTzf5c2wEjQ
-X-ME-Proxy: <xmx:SGrsah8Zm5m6Qv6HcN8_36QCX2BGhlTBigYD-d-lLwp6v4w3465PPw>
-    <xmx:SGrsarfUe_1Q4d6FDmOjq3DTIJwXne9P62dC5G2gkecYfqjdhpgCKQ>
-    <xmx:SGrsatFKjdUbG1kuJWqRPW31C0MbT1DK1d2MsWKPv8hHdz2yNpwvIQ>
-    <xmx:SGrsagCIIB4Og4_ybYRmzbRU07Y_tyNiqeYDViK-Dk6acBtBdsFA9w>
-    <xmx:SWrsaqSDqQlhxqZhH2veNj3DAFSVuaNxzJTIJoDKDcwBk37GVD8QC_Ef>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 5 Nov 2026 06:36:40 -0500 (EST)
-From: Janne Grunau <j@jannau.net>
-Date: Thu, 05 Nov 2026 12:36:03 +0100
-Subject: [PATCH 6/7] arm64: dts: apple: t603x-j514-j516: Add PCIe device
- nodes
+	Thu, 05 Nov 2026 12:00:09 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4a35db1f202so13888875e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 04:00:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1793880006; x=1794484806; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mAm8SWYjVHtkj7l4zPpOlmPJ3PIKILZqb4g9EPE7x6k=;
+        b=lxUFfhrOKhSDimFEM0faEBqH/+dqhIQIkbI9ylhEVNvv6ogTfQOesJayd9foMjklfZ
+         VjjgHSsXwW4M3jWdQiAHCmynFYbrlgnv64VRXWLmlccC05szd4v8C1j5NKRxceHb3d2J
+         scBX1QSQ75VS58gIX4J6IumoNTYw7S0RQo818zLNLzhUmlBNBdOeB46Y4nA3cNUkQPAs
+         fhSKogggTUFdrOPdCEfxAeB0T9S2fL8NAnaQ0j4+MYyR//Vuud4vR31t4XQIaIWphsZt
+         1XpbEMO/Wl0pGpRGDp69LCVsHV8yXZVh0liAYFOPnjrL1aOj51mMjkaXesAxwCveMGaZ
+         SYyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793880006; x=1794484806;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mAm8SWYjVHtkj7l4zPpOlmPJ3PIKILZqb4g9EPE7x6k=;
+        b=YatxAe7EbrjkKfvGFzfh2flJwDCY/jXSeX5pyZ0sFe7KLojA3ucYKcGt2rDNbHDBWo
+         Q8ZXZbWFgEzc5lftnvRF0KR1mpvG8Jy8MTm2JhTmtuegaAbGXvd+gUwrYyehBuMBnr/U
+         kfSEajGzLoI/TP7XIaNUzA6drnkFA/wIv1J65Rhd+Y2WFJX8vwYyMTGWu6mHYITzuHIf
+         6hgP5fYTka5Qby0gR2JkAg0oDyzRf6UioPQGQiaASLARhxtbrmtB1d7srgBismX0B///
+         BlSht78zbvparWeADkEaVgBr1SRfafaJMta0ZwcHNoH33qIcVei3w0X4dKnQ7OVqc9x/
+         OlLA==
+X-Forwarded-Encrypted: i=1; AKwUvBztr9zPMjzT6iN1zycM623mwxsQVDK40yHC+BnRZNpLyavAykeWi2jxsfLRh0qQHSOHXqX0huoF2O3kA/rKE0h/@lists.infradead.org
+X-Gm-Message-State: APuU4Z+2aB8WpHeG6oQ2KLfWA9nDwsjnT3BLKYN6mqPqnhDFtvZTJywV
+	FXcBAQzO2nIrAPPSKlFdUFhXl2Eh1PnuJb4qyBrlSBUZgaCyPWv38De8L4xLvebEY3U=
+X-Gm-Gg: AYBFou1+8g1faaFrw7jBpdvAiZe/OiQCt5u3oaNV5BR+kl4nHoklAtYT1tExvzR9aCp
+	qTq9MUwHBde6PCQNuVf8Lh6JVxpvznKcttiwDWUHvlGIMTLw/y8RnA7VxbLF9cP3+WXExRDIJom
+	3rsAQKZ48eZCU7l0y/c1xnJLXd6bh+DGBFqn5WWFGPRPTMATnMX1omlPS1zJEQh0BpAqg96koCN
+	9sxI/4OdPlvnL0MCt+ipwq90Gm3obtGSpKVSqBEH7kEuz7KvfpTegWz1J010zUqGc9h9TXNQozg
+	HjJoKxghJZnzUjoJs3tpiSUgPTLd/qQRSxAEcOJXkPuKKfu//c09SB7WHOdEwrNplaoeKJnMfSW
+	AgI0zwypsiCI0VuiFeWNPUdWm7Ny2r/G9qQFu2WDfVP+oKOef5jFSaEN666mtzMdamOuEiXmmR1
+	sKTOD1nqmVdac7YBXlmOCDOwRSm8g9HVqXRWJ+/npWcOf5r5WB60BYo0UxTxQqz/eQ/0flWeQUh
+	a7nudAOMSJxT+le3Y2uvW6XmDbuR8+fGu//gOxXdRy9wczPJ/C7QLx4DOhZxIlYOyX86RfMidOK
+	FkO02gnDogSLe30v9afG3NDCNS53ZQQhqiU6jNk6LTZ96xYlAObQrOFv94QUpywYkogrZAqDgbS
+	42FMNVZkAPYPoW1al
+X-Received: by 2002:a05:600c:1f93:b0:4a5:87b3:ddc1 with SMTP id 5b1f17b1804b1-4ac180f1ec7mr436813095e9.13.1793880005590;
+        Thu, 05 Nov 2026 04:00:05 -0800 (PST)
+Received: from localhost (p200300f65f19a904ae40ca5165ccacb8.dip0.t-ipconnect.de. [2003:f6:5f19:a904:ae40:ca51:65cc:acb8])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4b56fca22e1sm73091395e9.14.2026.11.05.04.00.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Nov 2026 04:00:04 -0800 (PST)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH v3 1/2] remoteproc: elf_loader: Create new callback for copying segments to remote cpu
+Date: Thu,  5 Nov 2026 12:59:51 +0100
+Message-ID: <50647b7d731fa54fdc3e2869f02de2096acdcff2.1793879714.git.u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1793879714.git.u.kleine-koenig@baylibre.com>
+References: <cover.1793879714.git.u.kleine-koenig@baylibre.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-apple-m3-pcie-v1-6-e00a72a604f8@jannau.net>
-References: <20261105-apple-m3-pcie-v1-0-e00a72a604f8@jannau.net>
-In-Reply-To: <20261105-apple-m3-pcie-v1-0-e00a72a604f8@jannau.net>
-To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Mark Kettenis <kettenis@openbsd.org>, 
- Joshua Peisach <jpeisach@ubuntu.com>, 
- Michael Reeves <michael.reeves077@gmail.com>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Janne Grunau <j@jannau.net>, 
- Yureka Lilian <yureka@cyberchaos.dev>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5135; i=j@jannau.net;
- h=from:subject:message-id; bh=i5//AwfzRhKK6qCRpypnc7masCXqqKDqkfxufe4kIYA=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhqw3WRo7GuS6JrV4T2/luW3lWrrr1z4pHy/PvzzX1+U+7
- u5a6JPeMZGFQYyLwVJMkSVJ+2UHw+oaxZjaB2Ewc1iZQIZIizQwAAELA19uYl6pkY6Rnqm2oZ6h
- kY6xjhEDF6cATPWVKkaGpVMzTdYHHZs6lzktcY1Fk6/8hLwV902j5B9eWS0knmfwjuGf+m9v0/g
- jz4Ui3Evss5etrf+24khEcs2nRp8739ZvNFHnAwA=
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4764; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=Z/fCIVp9RMJTrReXJyUJn6ua+y9sBVz+x0H7XlZvi4g=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBq7G+5Gk4Q8ATYuAmIR9DTokmwc///VvCwal9RT 0Q+SzcLu66JATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCauxvuQAKCRCPgPtYfRL+ TnLPB/4nC79lPyLlqp10Q5F7ECcaSOk4HGB7s1h+upM72K8ZIRD4qE30eRuvw0eeyDwVqAIVE8p BAor5pNJ+SP4kvqA2oIUxtFqWsFQMOxAsHbfHs5DcCYjvyyrDc+f72Ax3/eiQg3x02Zbstqf61+ knGCo0cgViF8bSvnRkn7YdfeAdRWO06P7TUfGt6LakU0STGCVNz39MGsiVTdEqzYERqITokSStT zsuoA51dTkKAnw2B1nPeUAqItS9etWoDQCm9xeYoCPk+vXUuMUVleKV55rUOUBSljhUqx/CEgAy hb62FNMp4EmG3KK5vjaTGyiCyOvEyljj4nM+fDYQrz3yepib
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_033645_677756_5255284A 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20261105_040008_244111_921F01B0 
+X-CRM114-Status: GOOD (  22.40  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -145,187 +113,137 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Yureka Lilian <yureka@cyberchaos.dev>
+Some devices have special needs about how an Elf segment is copied to
+the remote cpu's memory space where the default implementation using
+da_to_va() + memcpy_toio/memcpy and memset_io/memset isn't suitable. An
+affected mainline driver is imx-dsp-rproc which includes a near-copy of
+rproc_elf_load_segments() just to handle the IRAM only allowing 32 bit
+accesses. On (not-yet-mainline) ADI SC846 the respective memory isn't
+directly accessible at all and DMA must be used to copy the data. To
+cover that usecase don't keep rproc_da_to_va() in
+rproc_elf_load_segments() and let the new callback operate on the device
+address.
 
-Add WiFi, Bluetooth and SD-Card reader device nodes to all M3 Pro and
-Max Macbook Pros.
-The bootloader will fill MAC addresses for the network devices, add
-Wifi and Bluetooth calibration data and set "apple,antenna-sku".
+The new callback can be used to implement just the driver specific
+memory mapping + memcpy() + memset() to increase code reuse.
 
-Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
-Signed-off-by: Janne Grunau <j@jannau.net>
+The patch only appears big because of indentation changes.
+
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
 ---
- arch/arm64/boot/dts/apple/t6030-j514s.dts      |  8 +++++
- arch/arm64/boot/dts/apple/t6030-j516s.dts      |  8 +++++
- arch/arm64/boot/dts/apple/t6031-j514c.dts      |  8 +++++
- arch/arm64/boot/dts/apple/t6031-j516c.dts      |  8 +++++
- arch/arm64/boot/dts/apple/t6034-j514m.dts      |  8 +++++
- arch/arm64/boot/dts/apple/t6034-j516m.dts      |  8 +++++
- arch/arm64/boot/dts/apple/t603x-j514-j516.dtsi | 41 ++++++++++++++++++++++++++
- 7 files changed, 89 insertions(+)
+ drivers/remoteproc/remoteproc_elf_loader.c | 64 +++++++++++++---------
+ include/linux/remoteproc.h                 |  4 ++
+ 2 files changed, 41 insertions(+), 27 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/apple/t6030-j514s.dts b/arch/arm64/boot/dts/apple/t6030-j514s.dts
-index 3ba2c9ca4347..f7c1307e76bd 100644
---- a/arch/arm64/boot/dts/apple/t6030-j514s.dts
-+++ b/arch/arm64/boot/dts/apple/t6030-j514s.dts
-@@ -20,3 +20,11 @@ / {
- &framebuffer0 {
- 	power-domains = <&ps_disp_cpu>;
- };
-+
-+&wifi0 {
-+	brcm,board-type = "apple,texa";
-+};
-+
-+&bluetooth0 {
-+	brcm,board-type = "apple,texa";
-+};
-diff --git a/arch/arm64/boot/dts/apple/t6030-j516s.dts b/arch/arm64/boot/dts/apple/t6030-j516s.dts
-index ab07bf7939ab..9f9609575ed0 100644
---- a/arch/arm64/boot/dts/apple/t6030-j516s.dts
-+++ b/arch/arm64/boot/dts/apple/t6030-j516s.dts
-@@ -20,3 +20,11 @@ / {
- &framebuffer0 {
- 	power-domains = <&ps_disp_cpu>;
- };
-+
-+&wifi0 {
-+	brcm,board-type = "apple,jura";
-+};
-+
-+&bluetooth0 {
-+	brcm,board-type = "apple,jura";
-+};
-diff --git a/arch/arm64/boot/dts/apple/t6031-j514c.dts b/arch/arm64/boot/dts/apple/t6031-j514c.dts
-index c1507158325e..8cc2224ee0fd 100644
---- a/arch/arm64/boot/dts/apple/t6031-j514c.dts
-+++ b/arch/arm64/boot/dts/apple/t6031-j514c.dts
-@@ -16,3 +16,11 @@ / {
- 	compatible = "apple,j514c", "apple,t6031", "apple,arm-platform";
- 	model = "Apple MacBook Pro (14-inch, M3 Max, 16 CPU cores, Nov 2023)";
- };
-+
-+&wifi0 {
-+	brcm,board-type = "apple,texa";
-+};
-+
-+&bluetooth0 {
-+	brcm,board-type = "apple,texa";
-+};
-diff --git a/arch/arm64/boot/dts/apple/t6031-j516c.dts b/arch/arm64/boot/dts/apple/t6031-j516c.dts
-index 841b2bb10b06..5dfe886d47a9 100644
---- a/arch/arm64/boot/dts/apple/t6031-j516c.dts
-+++ b/arch/arm64/boot/dts/apple/t6031-j516c.dts
-@@ -16,3 +16,11 @@ / {
- 	compatible = "apple,j516c", "apple,t6031", "apple,arm-platform";
- 	model = "Apple MacBook Pro (16-inch, M3 Max, 16 CPU cores, Nov 2023)";
- };
-+
-+&wifi0 {
-+	brcm,board-type = "apple,jura";
-+};
-+
-+&bluetooth0 {
-+	brcm,board-type = "apple,jura";
-+};
-diff --git a/arch/arm64/boot/dts/apple/t6034-j514m.dts b/arch/arm64/boot/dts/apple/t6034-j514m.dts
-index e31bd0bc0592..dfae771ec626 100644
---- a/arch/arm64/boot/dts/apple/t6034-j514m.dts
-+++ b/arch/arm64/boot/dts/apple/t6034-j514m.dts
-@@ -16,3 +16,11 @@ / {
- 	compatible = "apple,j514m", "apple,t6034", "apple,arm-platform";
- 	model = "Apple MacBook Pro (14-inch, M3 Max, 14 CPU cores, Nov 2023)";
- };
-+
-+&wifi0 {
-+	brcm,board-type = "apple,texa";
-+};
-+
-+&bluetooth0 {
-+	brcm,board-type = "apple,texa";
-+};
-diff --git a/arch/arm64/boot/dts/apple/t6034-j516m.dts b/arch/arm64/boot/dts/apple/t6034-j516m.dts
-index 4d6513558597..dc5c202a787b 100644
---- a/arch/arm64/boot/dts/apple/t6034-j516m.dts
-+++ b/arch/arm64/boot/dts/apple/t6034-j516m.dts
-@@ -16,3 +16,11 @@ / {
- 	compatible = "apple,j516m", "apple,t6034", "apple,arm-platform";
- 	model = "Apple MacBook Pro (16-inch, M3 Max, 14 CPU cores, Nov 2023)";
- };
-+
-+&wifi0 {
-+	brcm,board-type = "apple,jura";
-+};
-+
-+&bluetooth0 {
-+	brcm,board-type = "apple,jura";
-+};
-diff --git a/arch/arm64/boot/dts/apple/t603x-j514-j516.dtsi b/arch/arm64/boot/dts/apple/t603x-j514-j516.dtsi
-index bbee373044f9..403a9cb3979c 100644
---- a/arch/arm64/boot/dts/apple/t603x-j514-j516.dtsi
-+++ b/arch/arm64/boot/dts/apple/t603x-j514-j516.dtsi
-@@ -21,7 +21,9 @@ / {
- 	chassis-type = "laptop";
+diff --git a/drivers/remoteproc/remoteproc_elf_loader.c b/drivers/remoteproc/remoteproc_elf_loader.c
+index da3cddbe7d4c..3c749a39e5da 100644
+--- a/drivers/remoteproc/remoteproc_elf_loader.c
++++ b/drivers/remoteproc/remoteproc_elf_loader.c
+@@ -227,35 +227,45 @@ int rproc_elf_load_segments(struct rproc *rproc, const struct firmware *fw)
+ 			break;
+ 		}
  
- 	aliases {
-+		bluetooth0 = &bluetooth0;
- 		serial0 = &serial0;
-+		wifi0 = &wifi0;
- 	};
+-		/* grab the kernel address for this device address */
+-		ptr = rproc_da_to_va(rproc, da, memsz, &is_iomem);
+-		if (!ptr) {
+-			dev_err(dev, "bad phdr da 0x%llx mem 0x%llx\n", da,
+-				memsz);
+-			ret = -EINVAL;
+-			break;
+-		}
++		if (rproc->ops->memcpy_tova) {
++			ret = rproc->ops->memcpy_tova(rproc, da, elf_data + offset, filesz, memsz);
++			if (ret) {
++				dev_err(dev, "Failed to copy segment %d to device address 0x%llx: %pe\n",
++					i, da, ERR_PTR(ret));
++				break;
++			}
++		} else {
++			/* grab the kernel address for this device address */
++			ptr = rproc_da_to_va(rproc, da, memsz, &is_iomem);
++			if (!ptr) {
++				dev_err(dev, "bad phdr da 0x%llx mem 0x%llx\n", da,
++					memsz);
++				ret = -EINVAL;
++				break;
++			}
  
- 	chosen {
-@@ -67,3 +69,42 @@ &serial0 {
- &fpwm0 {
- 	status = "okay";
- };
+-		/* put the segment where the remote processor expects it */
+-		if (filesz) {
+-			if (is_iomem)
+-				memcpy_toio((void __iomem *)ptr, elf_data + offset, filesz);
+-			else
+-				memcpy(ptr, elf_data + offset, filesz);
+-		}
++			/* put the segment where the remote processor expects it */
++			if (filesz) {
++				if (is_iomem)
++					memcpy_toio((void __iomem *)ptr, elf_data + offset, filesz);
++				else
++					memcpy(ptr, elf_data + offset, filesz);
++			}
+ 
+-		/*
+-		 * Zero out remaining memory for this segment.
+-		 *
+-		 * This isn't strictly required since dma_alloc_coherent already
+-		 * did this for us. albeit harmless, we may consider removing
+-		 * this.
+-		 */
+-		if (memsz > filesz) {
+-			if (is_iomem)
+-				memset_io((void __iomem *)(ptr + filesz), 0, memsz - filesz);
+-			else
+-				memset(ptr + filesz, 0, memsz - filesz);
++			/*
++			 * Zero out remaining memory for this segment.
++			 *
++			 * This isn't strictly required since dma_alloc_coherent already
++			 * did this for us. albeit harmless, we may consider removing
++			 * this.
++			 */
++			if (memsz > filesz) {
++				if (is_iomem)
++					memset_io((void __iomem *)(ptr + filesz),
++						  0, memsz - filesz);
++				else
++					memset(ptr + filesz, 0, memsz - filesz);
++			}
+ 		}
+ 	}
+ 
+diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
+index 00019b1895e6..e750a127cbc4 100644
+--- a/include/linux/remoteproc.h
++++ b/include/linux/remoteproc.h
+@@ -75,6 +75,7 @@ enum rsc_handling_status {
+  * @detach:	detach from a device, leaving it powered up
+  * @kick:	kick a virtqueue (virtqueue id given as a parameter)
+  * @da_to_va:	optional platform hook to perform address translations
++ * @memcpy_tova:optional platform hook to copy data into remote memory range
+  * @parse_fw:	parse firmware to extract information (e.g. resource table)
+  * @handle_rsc:	optional platform hook to handle vendor resources. Should return
+  *		RSC_HANDLED if resource was handled, RSC_IGNORED if not handled
+@@ -99,6 +100,9 @@ struct rproc_ops {
+ 	int (*detach)(struct rproc *rproc);
+ 	void (*kick)(struct rproc *rproc, int vqid);
+ 	void * (*da_to_va)(struct rproc *rproc, u64 da, size_t len, bool *is_iomem);
++	int (*memcpy_tova)(struct rproc *rproc, u64 da, const void *src,
++			   size_t filesz, size_t memsz);
 +
-+/* PCIe devices */
-+
-+/*
-+ * Force the bus number assignments so that we can declare some of the
-+ * on-board devices and properties that are populated by the bootloader
-+ * (such as MAC addresses).
-+ */
-+&port00 {
-+	/* WLAN */
-+	bus-range = <1 1>;
-+
-+	wifi0: wifi@0,0 {
-+		compatible = "pci14e4,4433";
-+		reg = <0x10000 0x0 0x0 0x0 0x0>;
-+		/* To be filled by the loader */
-+		local-mac-address = [00 10 18 00 00 10];
-+		apple,antenna-sku = "XX";
-+	};
-+
-+	bluetooth0: bluetooth@0,1 {
-+		compatible = "pci14e4,5f71";
-+		reg = <0x10100 0x0 0x0 0x0 0x0>;
-+		/* To be filled by the loader */
-+		local-bd-address = [00 00 00 00 00 00];
-+	};
-+};
-+
-+&port01 {
-+	/* SD card reader */
-+	bus-range = <2 2>;
-+
-+	mmc@0,0 {
-+		compatible = "pci17a0,9755";
-+		reg = <0x20000 0x0 0x0 0x0 0x0>;
-+		cd-inverted;
-+		wp-inverted;
-+	};
-+};
-
+ 	int (*parse_fw)(struct rproc *rproc, const struct firmware *fw);
+ 	int (*handle_rsc)(struct rproc *rproc, u32 rsc_type, void *rsc,
+ 			  int offset, int avail);
 -- 
-2.56.0
+2.47.3
 
 
