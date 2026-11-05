@@ -2,98 +2,119 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BCF5606A337
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 17:17:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B532606A331
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 17:17:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=QextgP0C;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=WZjpSqXh;
-	dkim=temperror header.d=mobileye.com header.i=@mobileye.com header.a=rsa-sha256 header.s=MoEyIP header.b=GDY9Vyv3
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=AtGsYGSQ;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=G3LODfbo;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GVhZfK9L
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=3ejUO5dgCxvIR9M4L8cvZr21qR/Y4UMx3BP79hFiBBI=; b=QextgP0CuYbAfd
-	XwIChzHE8mmNjmnaAS4x1mQW6oPWLWqjN/zHY4RJx1MrxETdyj9MYqoK3eVZegcbXIhNWnGuLuu1r
-	E95VHio9hi0T+XxlFnuvDmA3LyLepfDKvje2FiByW2+lhq2JjBGR0MpnSeT6AmBDwnT376vYcvCYY
-	eTz+8HpMC+B25hZ8V8lLT5XrkJadtysNpekHJOa3IMZLXEgiOxrsGv4hMHmsVZVEbLXbiroq6uSxh
-	Vbab5PvJYVVC6nU8nVqyvSXoaNjKlJDs+AUiNh0ik5EAzDBTsxQRx2fGfGxYQtpIyPzHt6VKEY/+W
-	FLq7RJJJVqXhnvbFwKfA==;
+	List-Owner; bh=8TTgnEslfhmARTzLvGf2WXLm6wVd1Tp4w50+BJAZBOw=; b=AtGsYGSQc6TNla
+	6HIvvTSfxanMeEWKBs8Y9fbjb39/VRo49IDSKVM3cNopBxzjIl/3ElGmcurC3Jy94bJAA4Dzuw40i
+	Aw6Lp9SgE+jI9SLhB8HNg1H46wlrf7k7xg5ZhXNLqa6B+HnrM2K8FUi51F357vPdaywcolMt3kdXj
+	ntk4PIzcx/p+ICNAa/G46QmpDH8u4WC2EEirJ3A58oc/Eon39CN/3trsWuXmvqb2SBs9TyEujXfZ+
+	6dlsrZntfDBiRRjxw0Y8dXBL4wjbGHkueSnUXIAhkQlbo2Ix0fjzvICmeipHtgS2P22nHCKdAPgWk
+	gSngqaNRBpPZ3RsUnBmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP15k-00000009rHe-2daS;
-	Thu, 05 Nov 2026 17:17:36 +0000
+	id 1xP15q-00000009rMY-1UZm;
+	Thu, 05 Nov 2026 17:17:45 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP14y-00000009qmc-07Mh
+	id 1xP150-00000009qn5-3l4S
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Nov 2026 17:16:50 +0000
+	Thu, 05 Nov 2026 17:16:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=3ejUO5dgCxvIR9M4L8cvZr21qR/Y4UMx3BP79hFiBBI=; b=WZjpSqXhw7ux3NqhzYTX1NS1I6
-	088CYNzfy0HLWhn2YBR8YVbklbCTGmNGWqZKLVqkzmO9lIVLZasyP/D0OipdMWjDKB9S+KkcSGIEv
-	CxmUqWVsWCXDZe+2SUuefkucJlUPnme1Zxm58Oie5HAzaWNR7MQuqYmjqM1Vd9vpPibyano5+h3/X
-	oAd3ZXy+Dd3jvLEwm1aFqGU2/8QdT64AeGODDe1NNEa+6p8CRl357O0sA2/2M3NieX8XjzzUklgXA
-	nWS2ku4tOb//4LSdgvOUrI5YZB4WluIRk5kbLVVtncfUyQhpfqSyIHuuEd3gdFiNgVbcUEqv7+9NJ
-	QjhVFO9w==;
-Received: from esa3.hc555-34.eu.iphmx.com ([207.54.77.50])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=8TTgnEslfhmARTzLvGf2WXLm6wVd1Tp4w50+BJAZBOw=; b=G3LODfbo50QZF9/DxYLlnPbw2L
+	89zvu3hEX4WybYrnL2MOfj/gimJgCEvZ080vf+m3uM8uq3lefpVg+DqgUsBnwxeWm0GEhrFrfFNYc
+	4h7u2u4rodcIKXzhzQNcRg4RVwYBNGZb4Zpz4JEry4M4DganvRBIYTpvh5soSJMlolaAswQ8JYWLP
+	aFjUxvfy+i+2MfJPg/0qSvcZ5pK8J1w/JFVQyaVhmjze0Lr/yZFXV4jmoeM8VcQkO8JZW00U9rnEu
+	2/tL035ZddCrc9zYRthCJgH5Ik+3CMjvYARRDGpNEF0jluaOvHfItENHsp5698qFUAUn+chxzTrUW
+	2C82FZ4g==;
+Received: from mail-dy1-x132b.google.com ([2607:f8b0:4864:20::132b])
 	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP14v-00000003KVm-2DAb
+	id 1xP14y-00000003KWd-1S79
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 17:16:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1793899012; x=1825435012;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=LzSOF9qOvK0rxMa1yZEO1cw4rlT2REtrhPeWhFHiadI=;
-  b=GDY9Vyv3QFVzgpGYstrFKVNPRJB3BDLViTvoVc11Z3VxywcT1vdfeRmL
-   y/vS8ziQTybjTXMxBnGWRN9dAtPXTUlxHpp6g5aDj7lsM+/PdG34wySSk
-   /o67SmJV2pSAYU23aIyT8OAxNbOQs6M/miLGlxhpmQfTWHWwcBkKwiVi+
-   V1SvKuV23sGQdFMWbhKfLSkC7IChiPSEzGe/mnMJA7B1thm6aUtg3+UHo
-   zlBw2IXVA8jr+qi5G8P88TPGAuTYQ1gzsPtttsl/TVi4ohqXS8DDht9EG
-   NdGtjCQH5LN1Q3qt1fex9wr5Q/2fgx7fYMdsVTEzC//WQM0sADFArIyEJ
-   Q==;
-X-CSE-ConnectionGUID: P43ouyMXTvSebO0Gi6+USw==
-X-CSE-MsgGUID: ptByoI6GQ16+RmzswWUetw==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
-  by esa3.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 19:16:48 +0200
-X-CSE-ConnectionGUID: QAFhFBd2RJW+19s/oMTWzQ==
-X-CSE-MsgGUID: PtCd1kh2Q6CuwnPUYDGYMA==
-Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.3])
-  by ces04_data.me-crop.lan with SMTP; 05 Nov 2026 19:24:38 +0200
-Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Thu, 05 Nov 2026 19:16:40 +0200
-From: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
-Date: Thu, 05 Nov 2026 19:15:35 +0200
-Subject: [PATCH RFC v3 14/14] i2c: designware: add support for I2C_XFER_V2
- - detailed fault reporting
+	Thu, 05 Nov 2026 17:16:49 +0000
+Received: by mail-dy1-x132b.google.com with SMTP id 5a478bee46e88-36d6765756fso2629093eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 09:16:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793899005; x=1794503805; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8TTgnEslfhmARTzLvGf2WXLm6wVd1Tp4w50+BJAZBOw=;
+        b=GVhZfK9LpJx6RyJvySUEtN5hUBlGoK6TIFfaarJ29FoCgHH5sK06lQZppmW74BLpHy
+         vAO4KPTQriGUsVE984WTUyipmNyaf6B1Ux5b4CaGHCpQ8zj2hRvcDZ2XuqMHPSzOcpRA
+         kZHJXrZrmC9z5NqbtSiYjGw/37DqzG12z3E8j2m4U5CJH8lR6Gp3kA1S3dY7GqKEdd/p
+         PucYKkJ0/e3mbI0GsqXreUiZnnE4g5McGj9KlQRKlpJJ+eR5TbwA27Tgk8U5fYRnmyME
+         vVi/RPI9WBiLpFLTTd+n7sPIJk5wX9OtFYahRPxB3a6PACnApfX7dygSNt1cn6bV8El7
+         xdZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793899005; x=1794503805;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8TTgnEslfhmARTzLvGf2WXLm6wVd1Tp4w50+BJAZBOw=;
+        b=XF2XOuGFX24bzJs/TyUS49GihYjWh1Cq/D3lu8FwCD0HGKVkiS/olfR+4lKhOq2R0L
+         c+m5QL/If4IBAukr04724fmqSgaVGoGxt15FSP2Xs9Xjzmjeu0EYV+5xbodoHWQ0oCdh
+         ca3qw4t28vfYRUjr+vfCrkj7mN8H+BOvYDcFTy10Kp95+HN2LQANVkfeFLY/rr2Paki2
+         FQfYxY7nJLzCCKTvSgx8iLq714wqfHm3okFeAYZ9jEc+XnBUfwCdX32uKz62C0zYEK9N
+         Q/Y9RbS5U8H8brKK/hlO7P+wDfn4O+DMtSOEHegmdCTQGd3zKXtn6FdFSpiR23pgcfnQ
+         2uCQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxy80mJhYubs0rD41idFgcX0tIx0CmQGIQ2PKzBYAon9vbojAcVQkYsWk1sHwlGTJl5/jCuCNrnd8p/F/GFn0Bo@lists.infradead.org
+X-Gm-Message-State: APuU4Z/AdCeSosbcaGyL+ly+vfRdvC2o2onlVqGqRvXZ9i3v1PHIZdZx
+	0K/1rB3FtcGiXq1gnxZ/El1qWq2hKCGolJSdjQ3ugFDUt/X5rxuoH28I
+X-Gm-Gg: AYBFou2W08AACl4virhn9wBmiEQK3D24dwmYMvv0o7pe0Z1xGXo4O3KS5CyGhgFI3BA
+	yzSxajkcKQwVub5W705F/V7utGp43xzB5GnPRDDqdEx0BztXI/91qNam/XjpJ+DoF/Y5YfnsFkE
+	Oz++dj2YBtiJjd3i7KHLSPexC2Pj4pxMPxxWBSCleClt14QPGImPy0Z7IY+BfkqZZgc7WIUOKqy
+	50FnwC88sX/twZ4NTNTBDaFPkEOO0L3p2japt6DfxVej7JtRtLvyo9MdY/nh+W1AnOaUZCSaqn5
+	UmR4hPEmgbI5Qw4zWdsWMo72jLLcM0Pq6DyEsm2HykvynhAaZkWU5FkUnW1w/pWR2Syij48hvOn
+	H0WUreU+ZqJdtwWulX8M6RGI5jUOG5Gvy1aHbla/etvWcpJZT95ClYKjENmeM/4SSOi/T2NIvQ8
+	pGhrTM8U/HC4NsyGTRb7VHCSzPWPObns1SSIpouV+N3M/cAKrVvA2A900PB1DMZJkt14SBc+68k
+	42ZruZH/r/9kUiBSmQhbJZ53TsRQhC1p0RCInMUgmFV2J617ikYqFM6OwsyN+k6AhmMpJHeuNRX
+	TcBnb5bnNPjdLQPa+LnPCXWuk/CtEYZC5yscSWVAtiuqtDnjjM+TLfXNsE2aKwa2XQ==
+X-Received: by 2002:a05:7300:cc96:b0:36e:b3e6:ebe7 with SMTP id 5a478bee46e88-36eb3f677e5mr2158998eec.26.1793899005312;
+        Thu, 05 Nov 2026 09:16:45 -0800 (PST)
+Received: from ?IPV6:2620:10d:c085:21c8::1368? ([2620:10d:c090:400::5:f848])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36ca39b8eb3sm24181600eec.27.2026.11.05.09.16.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Nov 2026 09:16:44 -0800 (PST)
+Message-ID: <2376d06b-80b4-46d9-8540-8baf065b0326@gmail.com>
+Date: Thu, 5 Nov 2026 09:16:43 -0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 1/5] net: sparx5: Drop redundant POL_ prefix
+ from POL_UPD_INT_CFG
+To: Daniel Machon <daniel.machon@microchip.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Steen Hegelund <Steen.Hegelund@microchip.com>, UNGLinuxDriver@microchip.com
+Cc: robert.marko@sartura.hr, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261105-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v3-0-b45a3a26bed5@microchip.com>
+ <20261105-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v3-1-b45a3a26bed5@microchip.com>
+Content-Language: en-US
+From: Mohsin Bashir <mohsin.bashr@gmail.com>
+In-Reply-To: <20261105-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v3-1-b45a3a26bed5@microchip.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-i2c-fault-reporting-v3-14-515ad74ac4c9@mobileye.com>
-References: <20261105-i2c-fault-reporting-v3-0-515ad74ac4c9@mobileye.com>
-In-Reply-To: <20261105-i2c-fault-reporting-v3-0-515ad74ac4c9@mobileye.com>
-To: Andi Shyti <andi.shyti@kernel.org>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Linus Walleij <linusw@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Mika Westerberg <mika.westerberg@linux.intel.com>
-Cc: Dmitry Guzman <Dmitry.Guzman@mobileye.com>, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_171645_492683_29224666 
-X-CRM114-Status: GOOD (  40.60  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261105_171648_282974_526131EA 
+X-CRM114-Status: GOOD (  18.21  )
+X-Spam-Score: -0.2 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,361 +125,77 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-14.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-I2C_XFER_V2 is a new API that allows I2C clients to get the detailed
-report in case of transmission failure. Previously, the only information
-returned by I2C bus controller was the error code; there was no way to
-find out how many messages or bytes in a certain message have been sent
-or received until the fault condition occurred, or to receive the data
-read before the fault.
 
-This patch introduces support for this feature in i2c-designware driver.
-For AMD_NAVI_GPU model that has its own `xfer` callback function, this
-feature is currently not implemented.
 
-The driver uses FLUSH_CNT field of ABORT_SOURCE register to detect
-how many command/data bytes written to FIFO were not actually sent.
+On 11/5/26 5:19 AM, Daniel Machon wrote:
+> The macros for the ANA_AC_POL:POL_UPD_INT_CFG register are named
+> ANA_AC_POL_POL_UPD_INT_CFG*, repeating the POL_ prefix that is already
+> part of the target name.
+> 
+> Rename them to ANA_AC_POL_UPD_INT_CFG*, so that the port policer
+> registers added in the next patch can use the same short form.
+> 
+> No functional change.
+> 
+> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+> ---
+>   drivers/net/ethernet/microchip/sparx5/sparx5_main.c      |  6 +++---
+>   drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h | 12 ++++++------
+>   2 files changed, 9 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+> index e039f5369b95e..68c80c63f9087 100644
+> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+> @@ -616,10 +616,10 @@ static int sparx5_init_coreclock(struct sparx5 *sparx5)
+>   		 sparx5,
+>   		 HSCH_TAS_STATEMACHINE_CFG);
+>   
+> -	spx5_rmw(ANA_AC_POL_POL_UPD_INT_CFG_POL_UPD_INT_SET(pol_upd_int),
+> -		 ANA_AC_POL_POL_UPD_INT_CFG_POL_UPD_INT,
+> +	spx5_rmw(ANA_AC_POL_UPD_INT_CFG_POL_UPD_INT_SET(pol_upd_int),
+> +		 ANA_AC_POL_UPD_INT_CFG_POL_UPD_INT,
+>   		 sparx5,
+> -		 ANA_AC_POL_POL_UPD_INT_CFG);
+> +		 ANA_AC_POL_UPD_INT_CFG);
+>   
+>   	return 0;
+>   }
+> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
+> index 1464fd1a1d447..219c7f0e516e9 100644
+> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
+> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
+> @@ -939,15 +939,15 @@ extern const struct sparx5_regs *regs;
+>   	FIELD_GET(ANA_ACL_SEC_LOOKUP_STICKY_SEC_TYPE_MAC_ETYPE_STICKY, x)
+>   
+>   /* ANA_AC_POL:POL_ALL_CFG:POL_UPD_INT_CFG */
+> -#define ANA_AC_POL_POL_UPD_INT_CFG                                             \
+> +#define ANA_AC_POL_UPD_INT_CFG                                                 \
+>   	__REG(TARGET_ANA_AC_POL, 0, 1, regs->gaddr[GA_ANA_AC_POL_POL_ALL_CFG], \
+>   	      0, 1, 1160, 1148, 0, 1, 4)
+>   
+> -#define ANA_AC_POL_POL_UPD_INT_CFG_POL_UPD_INT   GENMASK(9, 0)
+> -#define ANA_AC_POL_POL_UPD_INT_CFG_POL_UPD_INT_SET(x)\
+> -	FIELD_PREP(ANA_AC_POL_POL_UPD_INT_CFG_POL_UPD_INT, x)
+> -#define ANA_AC_POL_POL_UPD_INT_CFG_POL_UPD_INT_GET(x)\
+> -	FIELD_GET(ANA_AC_POL_POL_UPD_INT_CFG_POL_UPD_INT, x)
+> +#define ANA_AC_POL_UPD_INT_CFG_POL_UPD_INT       GENMASK(9, 0)
+> +#define ANA_AC_POL_UPD_INT_CFG_POL_UPD_INT_SET(x)\
+> +	FIELD_PREP(ANA_AC_POL_UPD_INT_CFG_POL_UPD_INT, x)
+> +#define ANA_AC_POL_UPD_INT_CFG_POL_UPD_INT_GET(x)\
+> +	FIELD_GET(ANA_AC_POL_UPD_INT_CFG_POL_UPD_INT, x)
+>   
+>   /* ANA_AC_POL:COMMON_BDLB:DLB_CTRL */
+>   #define ANA_AC_POL_BDLB_DLB_CTRL                                               \
+> 
 
-Also, if the detailed fault report is required, the driver checks
-status after each read/write from/to FIFO. If ABORT flag is set, the
-driver cannot detect what happened first - FIFO read/write or
-communication abort, so it assumes that abort happened first, otherwise
-it either falsely reports one extra byte sent or returns the byte read
-from FIFO flushed after abort as a valid read byte. So, in unfortunate
-conditions, the fault report may be too pessimistic by one byte.
-
-This check increases amount of time spent in interrupt handler, so if
-client doesn't need detailed fault report, this check should be avoided.
-Because of this, both `xfer` and `xfer_v2` callbacks are implemented in
-struct i2c_algorithm: the former does not generate detailed fault
-report, while the latter does.
-
-Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
----
- drivers/i2c/busses/i2c-designware-common.c |   1 +
- drivers/i2c/busses/i2c-designware-core.h   |  12 +++
- drivers/i2c/busses/i2c-designware-master.c | 139 +++++++++++++++++++++++++++--
- 3 files changed, 147 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/i2c/busses/i2c-designware-common.c b/drivers/i2c/busses/i2c-designware-common.c
-index 4274bf809b3f..42fc5989c917 100644
---- a/drivers/i2c/busses/i2c-designware-common.c
-+++ b/drivers/i2c/busses/i2c-designware-common.c
-@@ -879,6 +879,7 @@ static irqreturn_t i2c_dw_isr(int this_irq, void *dev_id)
- 
- static const struct i2c_algorithm i2c_dw_algo = {
- 	.xfer = i2c_dw_xfer,
-+	.xfer_v2 = i2c_dw_xfer_v2,
- 	.functionality = i2c_dw_func,
- #if IS_ENABLED(CONFIG_I2C_SLAVE)
- 	.reg_slave = i2c_dw_reg_slave,
-diff --git a/drivers/i2c/busses/i2c-designware-core.h b/drivers/i2c/busses/i2c-designware-core.h
-index 9f3492717e18..67684df05ba5 100644
---- a/drivers/i2c/busses/i2c-designware-core.h
-+++ b/drivers/i2c/busses/i2c-designware-core.h
-@@ -117,6 +117,8 @@
- 						 DW_IC_TX_ABRT_10ADDR2_NOACK | \
- 						 DW_IC_TX_ABRT_GCALL_NOACK)
- 
-+#define DW_IC_TX_ABRT_SOURCE_FLUSH_CNT_MASK	GENMASK(31, 23)
-+
- struct clk;
- struct device;
- struct reset_control;
-@@ -170,6 +172,7 @@ struct reset_control;
-  * @release_lock: function to release a hardware lock on the bus
-  * @semaphore_idx: Index of table with semaphore type attached to the bus. It's
-  *	-1 if there is no semaphore.
-+ * @tx_flushed: Number of bytes flushed from TX FIFO
-  * @shared_with_punit: true if this bus is shared with the SoC's PUNIT
-  * @set_sda_hold_time: callback to retrieve IP specific SDA hold timing
-  * @mode: operation mode - DW_IC_MASTER or DW_IC_SLAVE
-@@ -180,6 +183,9 @@ struct reset_control;
-  *	to generate the high period and low period of SCL line.
-  * @emptyfifo_hold_master: true if the controller acting as master holds
-  *	the clock when the Tx FIFO is empty instead of emitting a stop.
-+ * @need_precise_report: true if client needs precise fault report
-+ * @bytes_written: number of bytes written to FIFO. Used only for precise
-+	fault report.
-  *
-  * HCNT and LCNT parameters can be used if the platform knows more accurate
-  * values than the one computed based only on the input clock frequency.
-@@ -232,6 +238,7 @@ struct dw_i2c_dev {
- 	int			(*acquire_lock)(void);
- 	void			(*release_lock)(void);
- 	int			semaphore_idx;
-+	unsigned int		tx_flushed;
- 	bool			shared_with_punit;
- 	int			(*set_sda_hold_time)(struct dw_i2c_dev *dev);
- 	int			mode;
-@@ -239,6 +246,8 @@ struct dw_i2c_dev {
- 	u32			bus_capacitance_pF;
- 	bool			clk_freq_optimized;
- 	bool			emptyfifo_hold_master;
-+	bool			need_precise_report;
-+	u32			bytes_written;
- };
- 
- #define ACCESS_INTR_MASK			BIT(0)
-@@ -318,6 +327,9 @@ extern int i2c_dw_probe_master(struct dw_i2c_dev *dev);
- int i2c_dw_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num);
- int amd_i2c_dw_xfer_quirk(struct i2c_adapter *adap, struct i2c_msg *msgs, int num_msgs);
- 
-+int i2c_dw_xfer_v2(struct i2c_adapter *adap, struct i2c_msg *msgs, int num,
-+		   struct i2c_transfer_report *report);
-+
- #if IS_ENABLED(CONFIG_I2C_SLAVE)
- extern void i2c_dw_configure_slave(struct dw_i2c_dev *dev);
- irqreturn_t i2c_dw_isr_slave(struct dw_i2c_dev *dev);
-diff --git a/drivers/i2c/busses/i2c-designware-master.c b/drivers/i2c/busses/i2c-designware-master.c
-index 7670f909f88c..e0591d93cb57 100644
---- a/drivers/i2c/busses/i2c-designware-master.c
-+++ b/drivers/i2c/busses/i2c-designware-master.c
-@@ -11,6 +11,7 @@
- 
- #define DEFAULT_SYMBOL_NAMESPACE	"I2C_DW"
- 
-+#include <linux/bitfield.h>
- #include <linux/delay.h>
- #include <linux/err.h>
- #include <linux/errno.h>
-@@ -33,6 +34,14 @@
- #define AMD_TIMEOUT_MAX_US	250
- #define AMD_MASTERCFG_MASK	GENMASK(15, 0)
- 
-+static bool i2c_dw_check_abort_flag(struct dw_i2c_dev *dev)
-+{
-+	u32 stat;
-+
-+	regmap_read(dev->map, DW_IC_RAW_INTR_STAT, &stat);
-+	return (!!(stat & DW_IC_INTR_TX_ABRT));
-+}
-+
- static int i2c_dw_set_timings_master(struct dw_i2c_dev *dev)
- {
- 	unsigned int comp_param1;
-@@ -198,6 +207,8 @@ static void i2c_dw_xfer_init(struct dw_i2c_dev *dev)
- 
- 	i2c_dw_set_mode(dev, DW_IC_MASTER);
- 
-+	dev->rx_buf_len = 0;
-+
- 	/* If the slave address is ten bit address, enable 10BITADDR */
- 	if (msgs[dev->msg_write_idx].flags & I2C_M_TEN) {
- 		ic_con = DW_IC_CON_10BITADDR_MASTER;
-@@ -459,6 +470,21 @@ i2c_dw_xfer_msg(struct dw_i2c_dev *dev)
- 					     cmd | *buf++);
- 			}
- 			tx_limit--; buf_len--;
-+
-+			/* If precise fault reporting is required, check if the transfer
-+			 * is aborted after writing each byte.
-+			 * Otherwise, if it is aborted during filling FIFO, there is no way
-+			 * to know how many bytes was written to FIFO after transfer abort
-+			 * and thus are not counted in FLUSH_CNT.
-+			 * If we are checking abort flag after each byte, we can lose only 1 byte.
-+			 */
-+			if (dev->need_precise_report) {
-+				if (i2c_dw_check_abort_flag(dev)) {
-+					dev_warn_ratelimited(dev->dev, "Transfer aborted during FIFO writing. Report may be imprecise.");
-+					break;
-+				}
-+				dev->bytes_written++;
-+			}
- 		}
- 
- 		dev->tx_buf = buf;
-@@ -563,6 +589,13 @@ i2c_dw_read(struct dw_i2c_dev *dev)
- 
- 		for (; len > 0 && rx_valid > 0; len--, rx_valid--) {
- 			regmap_read(dev->map, DW_IC_DATA_CMD, &tmp);
-+			if (dev->need_precise_report) {
-+				if (i2c_dw_check_abort_flag(dev)) {
-+					dev_warn_ratelimited(dev->dev, "Transfer aborted during FIFO reading. Data byte may be lost");
-+					/* It is unknown if the read byte is valid. Drop it. */
-+					break;
-+				}
-+			}
- 			tmp &= DW_IC_DATA_CMD_DAT;
- 			/* Ensure length byte is a valid value */
- 			if (flags & I2C_M_RECV_LEN) {
-@@ -589,8 +622,10 @@ i2c_dw_read(struct dw_i2c_dev *dev)
- 			dev->rx_buf_len = len;
- 			dev->rx_buf = buf;
- 			return;
--		} else
-+		} else {
- 			dev->status &= ~STATUS_READ_IN_PROGRESS;
-+			dev->rx_buf_len = 0;
-+		}
- 	}
- }
- 
-@@ -786,6 +821,8 @@ __i2c_dw_xfer_one_part(struct dw_i2c_dev *dev, struct i2c_msg *msgs, size_t num)
- 	dev->status = 0;
- 	dev->abort_source = 0;
- 	dev->rx_outstanding = 0;
-+	dev->bytes_written = 0;
-+	dev->tx_flushed = 0;
- 
- 	ret = i2c_dw_wait_bus_not_busy(dev);
- 	if (ret < 0)
-@@ -797,6 +834,9 @@ __i2c_dw_xfer_one_part(struct dw_i2c_dev *dev, struct i2c_msg *msgs, size_t num)
- 	/* Wait for tx to complete */
- 	ret = i2c_dw_wait_transfer(dev);
- 	if (ret) {
-+		if (dev->need_precise_report)
-+			regmap_read(dev->map, DW_IC_TXFLR, &dev->tx_flushed);
-+
- 		dev_err(dev->dev, "controller timed out\n");
- 		/* i2c_dw_init() implicitly disables the adapter */
- 		i2c_recover_bus(&dev->adapter);
-@@ -888,13 +928,72 @@ i2c_dw_msg_is_valid(struct dw_i2c_dev *dev, const struct i2c_msg *msgs, size_t i
- 	return true;
- }
- 
-+static int i2c_dw_fault_report(struct dw_i2c_dev *dev, struct i2c_transfer_report *report)
-+{
-+	unsigned int idx;
-+
-+	/*
-+	 * Get the number of bytes that were put into TX FIFO but were not sent on wire.
-+	 * If abort IRQ was received, this number is stored in abort_source register.
-+	 * Otherwise, if ic_dw_wait_transfer() returned timeout, use TXFLR register value
-+	 * read before the controller was reset.
-+	 */
-+	if (dev->abort_source)
-+		dev->tx_flushed = FIELD_GET(DW_IC_TX_ABRT_SOURCE_FLUSH_CNT_MASK, dev->abort_source);
-+
-+	if (dev->tx_flushed <= dev->bytes_written)
-+		dev->bytes_written -= dev->tx_flushed;
-+	else
-+		dev->bytes_written = 0;
-+
-+	/*
-+	 * The last byte that the transmission was interrupted on is not counted as flushed.
-+	 * We should not report it as transferred successfully, so decrement the counter.
-+	 */
-+	if (dev->bytes_written)
-+		dev->bytes_written--;
-+
-+	for (idx = 0; idx < dev->msg_write_idx; idx++) {
-+		if (dev->msgs[idx].len <= dev->bytes_written)
-+			dev->bytes_written -= dev->msgs[idx].len;
-+		else
-+			break;
-+	}
-+
-+	report->fault_msg_idx = idx;
-+	for (int i = dev->msg_read_idx; i <= idx && i < dev->msgs_num; i++) {
-+		if (dev->msgs[i].flags & I2C_M_RD) {
-+			report->msgs_cplt = i;
-+			if (!(dev->rx_buf_len))
-+				report->bytes_cplt = 0;
-+			else
-+				report->bytes_cplt = dev->rx_buf - dev->msgs[i].buf;
-+			if ((i < idx) || (report->bytes_cplt < dev->bytes_written))
-+				dev_warn_ratelimited(dev->dev, "Read data lost due to FIFO flush");
-+			break;
-+		}
-+	}
-+
-+	if (report->msgs_cplt < 0) {
-+		report->msgs_cplt = idx;
-+		report->bytes_cplt = dev->bytes_written;
-+	}
-+
-+	return idx;
-+}
-+
- static int
--i2c_dw_xfer_common(struct dw_i2c_dev *dev, struct i2c_msg msgs[], int num)
-+i2c_dw_xfer_common_v2(struct dw_i2c_dev *dev, struct i2c_msg *msgs, int num,
-+		      struct i2c_transfer_report *report)
- {
-+	int msgs_in_prev_parts = 0;
- 	struct i2c_msg *msgs_part;
--	size_t cnt;
-+	size_t cnt = 0;
- 	int ret;
- 
-+	dev->need_precise_report = !!report;
-+	dev->msg_read_idx = 0;
-+
- 	dev_dbg(dev->dev, "msgs: %d\n", num);
- 
- 	PM_RUNTIME_ACQUIRE_AUTOSUSPEND(dev->dev, pm);
-@@ -910,6 +1009,8 @@ i2c_dw_xfer_common(struct dw_i2c_dev *dev, struct i2c_msg msgs[], int num)
- 	 * we do one transaction for each part up to the STOP.
- 	 */
- 	for (msgs_part = msgs; msgs_part < msgs + num; msgs_part += cnt) {
-+		/* Count previously transferred messages */
-+		msgs_in_prev_parts += cnt;
- 		/*
- 		 * Count the messages in a transaction, up to a STOP or
- 		 * the end of the msgs. The last if below guarantees that
-@@ -918,6 +1019,16 @@ i2c_dw_xfer_common(struct dw_i2c_dev *dev, struct i2c_msg msgs[], int num)
- 		 */
- 		for (cnt = 1; ; cnt++) {
- 			if (!i2c_dw_msg_is_valid(dev, msgs_part, cnt - 1)) {
-+				if (report) {
-+					i2c_transfer_report_bad_msg(report,
-+								    msgs_in_prev_parts + cnt - 1);
-+					report->msgs_cplt = msgs_in_prev_parts;
-+					/*
-+					 * Reset report pointer to avoid
-+					 * calling i2c_dw_fault_report() later.
-+					 */
-+					report = NULL;
-+				}
- 				ret = -EOPNOTSUPP;
- 				break;
- 			}
-@@ -939,16 +1050,34 @@ i2c_dw_xfer_common(struct dw_i2c_dev *dev, struct i2c_msg msgs[], int num)
- 
- 	i2c_dw_release_lock(dev);
- 
--	if (ret < 0)
-+	if (ret < 0) {
-+		if (report) {
-+			i2c_dw_fault_report(dev, report);
-+			report->msgs_cplt += msgs_in_prev_parts;
-+			report->fault_msg_idx += msgs_in_prev_parts;
-+		}
- 		return ret;
-+	}
-+
-+	if (report)
-+		i2c_transfer_report_success(report, num);
-+
- 	return num;
- }
- 
-+int i2c_dw_xfer_v2(struct i2c_adapter *adap, struct i2c_msg *msgs, int num,
-+		   struct i2c_transfer_report *report)
-+{
-+	struct dw_i2c_dev *dev = i2c_get_adapdata(adap);
-+
-+	return i2c_dw_xfer_common_v2(dev, msgs, num, report);
-+}
-+
- int i2c_dw_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num)
- {
- 	struct dw_i2c_dev *dev = i2c_get_adapdata(adap);
- 
--	return i2c_dw_xfer_common(dev, msgs, num);
-+	return i2c_dw_xfer_common_v2(dev, msgs, num, NULL);
- }
- 
- void i2c_dw_configure_master(struct dw_i2c_dev *dev)
-
--- 
-2.43.0
-
+Reviewed-by: Mohsin Bashir <hmohsin@meta.com>
 
