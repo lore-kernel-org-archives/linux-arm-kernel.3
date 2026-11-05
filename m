@@ -2,82 +2,72 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2966606A334
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 01:19:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E8E9606A332
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 01:25:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WB5eSyNc;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KUVpWTTp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cLi9tS9I;
+	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=Jke6lpX2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=OkA2J4cWWfdO1QYKzzP5dgQJ3QPDgjBDtOkiI8OGYYs=; b=WB5eSyNcH8Hpcm
-	7B4IRNfgjNIcCeB5035cPLgDU/JIqGsrAxHoledycmjXs1NBtDs43hyRYceJEsLPV4EGb4IYPrDTj
-	o4fdAyDju1eThMaeAdmXF6H/eT2QABoiezqgjlNiZGmOox9NlA4HrzanbJDSGXP+lZpiq/2oiy8g9
-	SwqdTWJq7nc4toiiRBAwm5adwb7V3mvhNKT16s66LBLcheaNasMfAsdXBibJq3VjavdxI/qpgRxl5
-	uRa58gud0JVen1LU9fRtYbeQ2w3Zhhs2j6OhmDEZNL4U8rWhwe94vj3Wmyif+in2SkqA3RiX50RMd
-	UDWzXocpW0Rhw/XUSnrQ==;
+	List-Owner; bh=47pBX+XIRrJ0Jv29ifqJcO1ihQ9vYRFpgynj99Xgx+U=; b=cLi9tS9IHyTy1b
+	xBppgOfl/CSiJH3RLxgPoJXD3KxeVuqD7VuPU1QdjMJL9jviX7idWCvtVAvom590K+yMYJZh1LkVI
+	7ffNrbDcYn+YdftaGeFrSMgRrCHGjFndzajv1l57P9Zt1mcEdNAXS5uXxeKWvtxtU+5bmC0z5V4HW
+	3FZHvQCyJd/gQyf0OD/z+qVGcvVoYdDKSgo3Fdiw7r/N/SezAxR7HdLnV/wY1X78M0nb3iJXiQH9/
+	0K2jiCIDQET8/wpjsZ8OPzICend+6ZaeMdQNshk4eJGuS/VUnqhVTbpaYCHWdPjXWkYQQaFBVVVac
+	tTNuHNl3WbjyASwXMMmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOm8O-00000007SYX-1AZJ;
-	Thu, 05 Nov 2026 01:19:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOmEJ-00000007TYY-0YLD;
+	Thu, 05 Nov 2026 01:25:27 +0000
+Received: from mail-m128236.netease.com ([103.209.128.236])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOm8G-00000007SUb-13O4
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 01:19:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A0A9D432AF;
-	Thu,  5 Nov 2026 01:19:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 902A41F000C1;
-	Thu,  5 Nov 2026 01:19:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793841551;
-	bh=OkA2J4cWWfdO1QYKzzP5dgQJ3QPDgjBDtOkiI8OGYYs=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=KUVpWTTp3Ji+rba/gwLYaE9B0XWKQrDEL4aXOHOe5oGVgGzxS5AxZPaxtcBhWPxqG
-	 gy97o8I3WPlqKyJMTwNBK6UEJPSDUn5qfM13olT2lLypgJQZiE8lKb49KglRTnlHee
-	 IjavHoyNvnN9BohmxPI+V+Jh6jVLrBLsIF4kkUZFLN1Uui8ZoeQb3sLSr/+TrTb9Z3
-	 JHAXP5tK2W0FxUb80Z1Cgo9+cFfUvNQ65rmDwrthzwCintC+OKH0U62CPApDaDlL0+
-	 eJmKYjs4ayCz2tGKIhQRRZC8JDrds0f2YAgeA+PwUUIkHaHNpCuQ2mDoZKGLKsnaUe
-	 4I2vCs7pa6EOg==
+	id 1xOmEG-00000007TVd-1vj8;
+	Thu, 05 Nov 2026 01:25:26 +0000
+Received: from [192.168.10.59] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 538ad90f8;
+	Thu, 5 Nov 2026 09:25:14 +0800 (GMT+08:00)
+Message-ID: <b7a8d79a-e7aa-47fd-8e13-fcab3c569f3d@rock-chips.com>
+Date: Thu, 5 Nov 2026 09:25:14 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v10 3/5] clk: ambarella: add CV75 RCT clock controller
-From: Brian Masney <masneyb@kernel.org>
-To: Long Zhao <longzhao@ambarella.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
- linux-clk@vger.kernel.org, Brian Masney <masneyb@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, devicetree@vger.kernel.org, 
- Long Zhao <zl020895@163.com>, linux-kernel@vger.kernel.org
-In-Reply-To: <20261019-cv75-soc-v10-3-d386065e2dd5@ambarella.com>
-References: <20261019-cv75-soc-v10-0-d386065e2dd5@ambarella.com>
- <20261019-cv75-soc-v10-3-d386065e2dd5@ambarella.com>
-Date: Wed, 04 Nov 2026 20:18:50 -0500
-Message-Id: <179384153085.753765.4632795421510452040.b4-review@b4>
-X-Mailer: b4 0.17-dev-7ca47
-X-Developer-Signature: v=1; a=openpgp-sha256; l=13512; i=masneyb@kernel.org;
- s=20250903; h=from:subject:message-id;
- bh=Hk4NUB4ozzTPRRRYYlp0JI8mRe1gJmy5y0KHDDyC0HA=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLJe36wN+r0yddFXj04evle8x64y8Z14t29DYXHYwamTp
- aN6u7dVdpSyMIhxMciKKbIsyTUqiEhdZXvvjiYLzBxWJpAhDFycAjCR++IM/1N8gj5EvfskfLGk
- i91YMGPj11X31wnEO/CtUKo32u+x/zPD/yCzmc1fZIwtUv/sb37jK+yy/g3rG58b8eYm6eflWbe
- LcAIA
-X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] ASoC: dt-bindings: rk3308-codec: describe
+ detection and ADC routing
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: broonie@kernel.org, heiko@sntech.de, linux-sound@vger.kernel.org,
+ luca.ceresoli@bootlin.com, lgirdwood@gmail.com, perex@perex.cz,
+ tiwai@suse.com, linux-kernel@vger.kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ huangtao@rock-chips.com, sugar.zhang@rock-chips.com, lxt@rock-chips.com,
+ xing.zheng@rock-chips.com
+References: <20261101040125.1864141-1-zhengxing@rock-chips.com>
+ <20261101044149.2018744-1-zhengxing@rock-chips.com>
+ <20261101044149.2018744-2-zhengxing@rock-chips.com>
+ <20261104-russet-stingray-of-penetration-fef32e@quoll>
+Content-Language: en-US
+From: Xing Zheng <zhengxing@rock-chips.com>
+In-Reply-To: <20261104-russet-stingray-of-penetration-fef32e@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa1a94f62d503a8kunm3302c1553a4f86
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaGUlLVkIeTE5DSEJLTh8YHVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUJCSU
+	5LVUpLS1VKQktCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=Jke6lpX2hUcGBQW1uErFR7KPQfm1ZK26Tvfeft14fFOY+YOyR9WysNPgbUfvBBcCjye0a7+VabPo7cPaOqAIXAMF6SBhy/HScjGv77ILivjZ+Xyn0hHa/ItBbISUtyQ15qhOP2qnhMuSji9ndwVqdavDGA/wDAmGYjWwUhriFWw=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=47pBX+XIRrJ0Jv29ifqJcO1ihQ9vYRFpgynj99Xgx+U=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261104_172525_071691_5D799DEE 
+X-CRM114-Status: GOOD (  25.43  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,462 +78,158 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Long,
+Hi Krzysztof,
 
-> Add a table-driven CCF driver for the CV75 root clock tree. Register
-> the core PLL, AHB/APB fixed factors and UART0 composite clock, with
-> osc supplied via clk_parent_data.
-> 
-> Signed-off-by: Long Zhao <longzhao@ambarella.com>
-> ---
->  drivers/clk/Kconfig              |   1 +
->  drivers/clk/Makefile             |   1 +
->  drivers/clk/ambarella/Kconfig    |   9 +
->  drivers/clk/ambarella/Makefile   |   3 +
->  drivers/clk/ambarella/clk-cv75.c | 361 +++++++++++++++++++++++++++++++++++++++
->  5 files changed, 375 insertions(+)
+On 11/4/26 21:10, Krzysztof Kozlowski wrote:
+> On Sun, Nov 01, 2026 at 12:41:47PM +0800, Xing Zheng wrote:
+>> Describe the optional detect-GRF phandle and named interrupt resources
+>> used by the B/C headphone detector. Retain the legacy interrupt order
+>> and index-based lookup when names are absent. Document the detector
+>> disable and reversed-jack properties and their resource dependencies.
+>>
+>> Describe the ADC stereo-group routing consumed by the codec driver.
+>> Require four unique group IDs in the range 0-3, in I2S2 SDI order,
+>> matching the driver's validation. Leave GRF routing unchanged when
+>> the property is absent.
+>>
+>> Extend the example with headphone-detection resources and ADC routing.
+>> Keep machine-driver amplifier GPIOs and debug interfaces outside this
+>> codec binding.
+>>
+>> Signed-off-by: Xing Zheng <zhengxing@rock-chips.com>
+>> ---
+>> Changes in v2:
+>> - Retain the original detection descriptions and legacy IRQ ordering.
+>> - Keep the binding change in its own patch before the codec change.
+>>
+>>   .../bindings/sound/rockchip,rk3308-codec.yaml | 55 +++++++++++++++++++
+>>   1 file changed, 55 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/sound/rockchip,rk3308-codec.yaml b/Documentation/devicetree/bindings/sound/rockchip,rk3308-codec.yaml
+>> index 2cf229a076f0..60c6140dc5df 100644
+>> --- a/Documentation/devicetree/bindings/sound/rockchip,rk3308-codec.yaml
+>> +++ b/Documentation/devicetree/bindings/sound/rockchip,rk3308-codec.yaml
+>> @@ -36,6 +36,49 @@ properties:
+>>       description:
+>>         Phandle to the General Register Files (GRF)
+>>   
+>> +  rockchip,detect-grf:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>> +    description:
+>> +      Phandle to the detection GRF used for headphone insertion and
+>> +      removal interrupts on codec revisions B and C.
+>> +
+>> +  interrupts:
+>> +    description:
+>> +      Keep the legacy interrupt order. If interrupt-names is omitted,
+> What is legacy interrupt order? There are no interrupts here, so how
+> could there be anything legacy?
+You are right. This ordering came from the downstream BSP, not from
+an existing upstream binding. There is no upstream compatibility
+requirement for it, and calling it "legacy" here was misleading.
+>> +      the driver uses the second interrupt for B/C headphone detection.
+>> +    items:
+>> +      - description: Legacy codec headphone detection interrupt
+>> +      - description: Detection GRF headphone interrupt for revisions B and C
+>> +
+>> +  interrupt-names:
+>> +    items:
+>> +      - const: codec
+>> +      - const: hpdet
+> Why same device has both GRF to detect headphones and interrupts?
+In the proposed B/C detector implementation, the detect-GRF phandle
+provides access to the detector's configuration, status and interrupt
+acknowledgement registers. The hpdet IRQ notifies the driver of an
+event, after which it reads and acknowledges the status through that
+regmap. These are register access and event notification for the same
+detector, rather than two independent detection mechanisms.
+
+Separately, the two-interrupt layout was copied from the downstream
+DT. The proposed driver only requests hpdet (or index 1 without names)
+and skips detector setup on revision A; it does not use the first
+"codec" IRQ. Retaining that layout merely for downstream index
+compatibility was not a sufficient justification for a new binding.
+>> +
+>> +  rockchip,no-hp-det:
+>> +    type: boolean
+>> +    description: Disable the internal headphone detector.
+>> +
+>> +  rockchip,hp-jack-reversed:
+>> +    type: boolean
+>> +    description: Reverse the headphone detection polarity.
+>> +
+>> +  rockchip,adc-grps-route:
+>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+>> +    description: |
+>> +      ADC stereo-group mapping to the four I2S2 SDI inputs. Each entry
+>> +      selects the ADC group connected to the corresponding SDI input,
+>> +      in SDI0 through SDI3 order. Group IDs 0 through 3 represent
+>> +      MIC1/MIC2, MIC3/MIC4, MIC5/MIC6 and MIC7/MIC8 respectively.
+>> +      All four groups must appear exactly once. For example, <1 2 3 0>
+>> +      connects groups 1, 2, 3 and 0 to SDI0, SDI1, SDI2 and SDI3.
+>> +      If omitted, the GRF routing is left unchanged.
+>> +    minItems: 4
+>> +    maxItems: 4
+>> +    uniqueItems: true
+>> +    items:
+>> +      enum: [ 0, 1, 2, 3 ]
+> Why are all the rockchip properties before clocks, not next to other
+> rockchip properties? What logic drives this placement?
+There was no good reason for that placement. The vendor properties
+should be grouped consistently with the other rockchip properties,
+with the standard interrupt properties kept separate.
+>> +
+>>     clocks:
+>>       items:
+>>         - description: clock for TX
+>> @@ -72,6 +115,12 @@ properties:
+>>   
+>>       enum: [ 50, 55, 60, 65, 70, 75, 80, 85 ]
+> Best regards,
+> Krzysztof
 >
-> diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-> index 37a8e35d4178..6bfa2c8fffe1 100644
-> --- a/drivers/clk/Kconfig
-> +++ b/drivers/clk/Kconfig
-> @@ -510,6 +510,7 @@ config COMMON_CLK_RPMI
->  	  the RISC-V platform management interface (RPMI) specification.
->  
->  source "drivers/clk/actions/Kconfig"
-> +source "drivers/clk/ambarella/Kconfig"
->  source "drivers/clk/analogbits/Kconfig"
->  source "drivers/clk/anlogic/Kconfig"
->  source "drivers/clk/aspeed/Kconfig"
-> diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-> index 52d138d4ffc8..99377a13ebc5 100644
-> --- a/drivers/clk/Makefile
-> +++ b/drivers/clk/Makefile
-> @@ -125,6 +125,7 @@ obj-$(CONFIG_COMMON_CLK_XGENE)		+= clk-xgene.o
->  
->  # please keep this section sorted lexicographically by directory path name
->  obj-y					+= actions/
-> +obj-y					+= ambarella/
->  obj-y					+= analogbits/
->  obj-y					+= anlogic/
->  obj-y					+= aspeed/
-> diff --git a/drivers/clk/ambarella/Kconfig b/drivers/clk/ambarella/Kconfig
-> new file mode 100644
-> index 000000000000..720eebdc5c9c
-> --- /dev/null
-> +++ b/drivers/clk/ambarella/Kconfig
-> @@ -0,0 +1,9 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +
-> +config CLK_AMBARELLA_CV75
-> +	bool "Ambarella CV75 RCT clock controller"
+I am putting this series on hold while I investigate playback and
+capture problems observed on our EVB with upstream codec changes
+backported to our downstream 6.12 kernel.
 
-This uses module_platform_driver(), so this should be a tristate here.
-Or this needs to use builtin_platform_driver().
+Before these backports, sound/soc/codecs/rk3308_codec.c and .h matched
+the upstream versions at 2ba2d17170f9 ("ASoC: codecs: rk3308: fix
+building without CONFIG_OF"). On top of that codec baseline, I applied
+the following upstream commits:
 
-> +	depends on ARCH_AMBARELLA || COMPILE_TEST
-> +	default ARCH_AMBARELLA
-> +	help
-> +	  Say Y to enable the Ambarella CV75 RCT clock controller for
-> +	  early bring-up clocks (core PLL, AHB, APB, UART0).
-> diff --git a/drivers/clk/ambarella/Makefile b/drivers/clk/ambarella/Makefile
-> new file mode 100644
-> index 000000000000..29555e452441
-> --- /dev/null
-> +++ b/drivers/clk/ambarella/Makefile
-> @@ -0,0 +1,3 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +
-> +obj-$(CONFIG_CLK_AMBARELLA_CV75) += clk-cv75.o
-> diff --git a/drivers/clk/ambarella/clk-cv75.c b/drivers/clk/ambarella/clk-cv75.c
-> new file mode 100644
-> index 000000000000..6a8f80571958
-> --- /dev/null
-> +++ b/drivers/clk/ambarella/clk-cv75.c
-> @@ -0,0 +1,361 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Ambarella CV75 RCT clock controller
-> + *
-> + * Copyright (C) 2026 Ambarella, Inc.
-> + */
-> +
-> +#include <linux/array_size.h>
-> +#include <linux/bitfield.h>
-> +#include <linux/bits.h>
-> +#include <linux/clk-provider.h>
-> +#include <linux/container_of.h>
-> +#include <linux/device.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/math64.h>
-> +#include <linux/module.h>
-> +#include <linux/overflow.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/slab.h>
-> +#include <linux/spinlock.h>
-> +#include <linux/types.h>
-> +
-> +#include <dt-bindings/clock/ambarella,cv75-rct.h>
-> +
-> +#define CV75_NUM_CLKS		(CV75_GCLK_APB + 1)
-> +
-> +#define PLL_CTRL_BYPASS		BIT(2)
-> +#define PLL_CTRL_FRAC_MODE	BIT(3)
-> +#define PLL_CTRL_FORCE_RESET	BIT(4)
-> +#define PLL_CTRL_POWER_DOWN	BIT(5)
-> +#define PLL_CTRL_HALT_VCO	BIT(6)
-> +#define PLL_CTRL_SDIV		GENMASK(15, 12)
-> +#define PLL_CTRL_SOUT		GENMASK(19, 16)
-> +#define PLL_CTRL_INTP		GENMASK(30, 24)
-> +
-> +#define PLL_CTRL2_VCODIV_DIV2	BIT(8)
-> +#define PLL_CTRL2_FSDIV_DIV2	BIT(9)
-> +#define PLL_CTRL2_FSOUT_DIV2	BIT(11)
-> +#define PLL_CTRL2_BYPASS_HSDIV	BIT(12)
-> +
-> +struct cv75_pll_regs {
-> +	u32 ctrl;
-> +	u32 frac;
-> +	u32 ctrl2;
-> +};
-> +
-> +struct cv75_pll_hw {
-> +	struct clk_hw hw;
-> +	struct cv75_pll_regs regs;
-> +};
-> +
-> +struct cv75_clk {
-> +	void __iomem *base;
-> +	spinlock_t lock;
-> +	struct cv75_pll_hw core;
-> +	struct cv75_pll_hw enet;
-> +	struct cv75_pll_hw sd;
-> +};
-> +
-> +struct cv75_pll {
-> +	const char *name;
-> +	struct cv75_pll_hw *hw;
-> +	unsigned long flags;
-> +	struct cv75_pll_regs regs;
-> +	int id;
-> +};
-> +
-> +struct cv75_fixed_factor {
-> +	const char *name;
-> +	u32 id;
-> +	struct u16_fract ratio;
-> +};
-> +
-> +struct cv75_composite {
-> +	const char *name;
-> +	const struct clk_parent_data *parents;
-> +	unsigned long flags;
-> +	u32 id;
-> +	u16 mux_reg;
-> +	u16 div_reg;
-> +	u8 num_parents;
-> +	u8 mux_shift;
-> +	u8 mux_width;
-> +	u8 div_shift;
-> +	u8 div_width;
-> +};
-> +
-> +struct cv75_composite_hw {
-> +	struct clk_mux mux;
-> +	struct clk_divider div;
-> +	struct clk_gate gate;
-> +};
-> +
-> +static struct cv75_clk cv75_ccu;
-> +
-> +#define CV75_PLL(_id, _name, _ctrl, _frac, _ctrl2, _flags, _hw) {	\
-> +	.name	= _name,						\
-> +	.hw	= _hw,							\
-> +	.flags	= _flags,						\
-> +	.regs	= {							\
-> +		.ctrl = _ctrl,						\
-> +		.frac = _frac,						\
-> +		.ctrl2 = _ctrl2,					\
-> +	},								\
-> +	.id	= _id,							\
-> +}
-> +
-> +static const struct cv75_pll cv75_plls[] = {
-> +	CV75_PLL(CV75_GCLK_CORE, "core", 0x000, 0x004, 0x100,
-> +		 CLK_IS_CRITICAL, &cv75_ccu.core),
+   2d8a091725e6 ASoC: codecs: rk3308: convert to snd_soc_dapm_xxx()
+   0c55552b5f5e ASoC: codecs: rk33*: use .auto_selectable_formats
+   157f7cba77a9 ASoC: codecs: rk3308: add support for codec revision B
 
-cv75_pll_ops only implements .recalc_rate. With no .prepare/.enable ops,
-CLK_IS_CRITICAL has no effect.
+I also backported a1c99b6097af ("ASoC: soc-component: add
+snd_soc_component_to_dapm()") for the DAPM accessor used by the
+converted driver. These are upstream commit IDs; the rest of the
+kernel remains based on downstream 6.12.
 
-> +	CV75_PLL(-1, "pll_enet", 0x520, 0x524, 0x528,
-> +		 0, &cv75_ccu.enet),
-> +	CV75_PLL(-1, "pll_sd", 0x4ac, 0x4b0, 0x4b4,
-> +		 0, &cv75_ccu.sd),
-> +};
-> +
-> +static const struct cv75_fixed_factor cv75_fixed_factors[] = {
-> +	{ .id = CV75_GCLK_AHB, .name = "ahb", .ratio = { 1, 2 } },
-> +	{ .id = CV75_GCLK_APB, .name = "apb", .ratio = { 1, 4 } },
-> +};
-> +
-> +static const struct clk_parent_data cv75_uart_parents[] = {
-> +	{ .fw_name = "osc" },
-> +	{ .hw = &cv75_ccu.core.hw },
-> +	{ .hw = &cv75_ccu.enet.hw },
-> +	{ .hw = &cv75_ccu.sd.hw },
-> +};
-> +
-> +#define CV75_COMPOSITE(_id, _name, _parents, _mreg, _mshift, _mwidth,	\
-> +		       _dreg, _dshift, _dwidth, _flags)			\
-> +{									\
-> +	.id		= _id,						\
-> +	.name		= _name,					\
-> +	.parents	= _parents,					\
-> +	.num_parents	= ARRAY_SIZE(_parents),				\
-> +	.mux_reg	= _mreg,					\
-> +	.mux_shift	= _mshift,					\
-> +	.mux_width	= _mwidth,					\
-> +	.div_reg	= _dreg,					\
-> +	.div_shift	= _dshift,					\
-> +	.div_width	= _dwidth,					\
-> +	.flags		= _flags,					\
-> +}
-> +
-> +static const struct cv75_composite cv75_composites[] = {
-> +	CV75_COMPOSITE(CV75_GCLK_UART0, "uart0", cv75_uart_parents,
-> +		       0x1c8, 0, 2, 0x038, 0, 24,
-> +		       CLK_SET_RATE_NO_REPARENT),
-> +};
-> +
-> +#define to_cv75_pll(_hw) container_of(_hw, struct cv75_pll_hw, hw)
-> +
-> +static unsigned long cv75_pll_recalc_rate(struct clk_hw *hw,
-> +					  unsigned long parent_rate)
-> +{
-> +	struct cv75_pll_hw *pll = to_cv75_pll(hw);
-> +	u32 ctrl, ctrl2, frac_val;
-> +	u32 vcodiv, fsdiv, fsout;
-> +	u32 intp, sdiv, sout;
-> +	u64 vco, frac = 0;
-> +
-> +	ctrl = readl_relaxed(cv75_ccu.base + pll->regs.ctrl);
-> +	if (ctrl & (PLL_CTRL_POWER_DOWN | PLL_CTRL_HALT_VCO | PLL_CTRL_FORCE_RESET))
-> +		return 0;
-> +
-> +	if (ctrl & PLL_CTRL_BYPASS)
-> +		return parent_rate;
-> +
-> +	ctrl2 = readl_relaxed(cv75_ccu.base + pll->regs.ctrl2);
-> +	intp = FIELD_GET(PLL_CTRL_INTP, ctrl) + 1;
-> +	sdiv = FIELD_GET(PLL_CTRL_SDIV, ctrl) + 1;
-> +	sout = FIELD_GET(PLL_CTRL_SOUT, ctrl) + 1;
-> +	vcodiv = (ctrl2 & PLL_CTRL2_VCODIV_DIV2) ? 2 : 1;
-> +	fsdiv = (ctrl2 & PLL_CTRL2_FSDIV_DIV2) ? 2 : 1;
-> +	fsout = (ctrl2 & PLL_CTRL2_FSOUT_DIV2) ? 2 : 1;
-> +
-> +	vco = (u64)parent_rate * vcodiv * fsdiv * intp * sdiv;
-> +	if (ctrl & PLL_CTRL_FRAC_MODE) {
-> +		frac_val = readl_relaxed(cv75_ccu.base + pll->regs.frac);
-> +		frac = mul_u64_u32_shr((u64)parent_rate * vcodiv * fsdiv * sdiv,
-> +				       frac_val, 32);
-> +		vco += frac;
-> +	}
-> +
-> +	if (!(ctrl2 & PLL_CTRL2_BYPASS_HSDIV))
-> +		vco = div_u64(vco, (u64)vcodiv * fsout * sout);
+I have not yet determined whether the playback and capture issues
+are in the upstream driver or in the backport/integration.
 
-div_u64() takes a u32 divisor, so this (u64) cast is misleading.
+I will rework any necessary changes against the current upstream base
+and validate playback and capture on the EVB before resubmitting.
+Depending on the remaining scope, I will send either a revised v3 of
+this series or a separate, focused patch or series. In either case,
+the submission will start a new thread and reference the earlier
+series where relevant.
 
-> +
-> +	return vco;
-> +}
-> +
-> +static const struct clk_ops cv75_pll_ops = {
-> +	.recalc_rate = cv75_pll_recalc_rate,
-> +};
-> +
-> +static int cv75_register_plls(struct device *dev,
-> +			      struct clk_hw_onecell_data *data)
-> +{
-> +	struct clk_parent_data parent_data = { .fw_name = "osc" };
-> +
-> +	for (unsigned int i = 0; i < ARRAY_SIZE(cv75_plls); i++) {
-> +		const struct cv75_pll *desc = &cv75_plls[i];
-> +		struct cv75_pll_hw *pll = desc->hw;
-> +		struct clk_init_data init = {};
-> +		int ret;
-> +
-> +		pll->regs = desc->regs;
-> +
-> +		init.name = desc->name;
-> +		init.ops = &cv75_pll_ops;
-> +		init.parent_data = &parent_data;
-> +		init.num_parents = 1;
-> +		init.flags = desc->flags;
-> +		pll->hw.init = &init;
-> +
-> +		ret = devm_clk_hw_register(dev, &pll->hw);
-> +		if (ret)
-> +			return ret;
-> +
-> +		if (desc->id >= 0)
-> +			data->hws[desc->id] = &pll->hw;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int cv75_register_fixed_factors(struct device *dev,
-> +				       struct clk_hw_onecell_data *data)
-> +{
-> +	for (unsigned int i = 0; i < ARRAY_SIZE(cv75_fixed_factors); i++) {
-> +		const struct cv75_fixed_factor *f = &cv75_fixed_factors[i];
-> +		struct clk_hw *hw;
-> +
-> +		hw = devm_clk_hw_register_fixed_factor_parent_hw(dev, f->name,
-> +								 &cv75_ccu.core.hw, 0,
-> +								 f->ratio.numerator,
-> +								 f->ratio.denominator);
-> +		if (IS_ERR(hw))
-> +			return PTR_ERR(hw);
-> +
-> +		data->hws[f->id] = hw;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static struct clk_hw *cv75_register_composite(struct device *dev,
-> +					      const struct cv75_composite *c)
-> +{
-> +	const struct clk_ops *mux_ops = NULL, *div_ops = NULL, *gate_ops = NULL;
-> +	struct clk_hw *mux_hw = NULL, *div_hw = NULL, *gate_hw = NULL;
-> +	struct cv75_composite_hw *comp;
-> +
-> +	comp = devm_kzalloc(dev, sizeof(*comp), GFP_KERNEL);
-> +	if (!comp)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	if (c->mux_width) {
-> +		comp->mux.reg = cv75_ccu.base + c->mux_reg;
-> +		comp->mux.shift = c->mux_shift;
-> +		comp->mux.mask = GENMASK(c->mux_width - 1, 0);
-> +		comp->mux.lock = &cv75_ccu.lock;
-> +		mux_hw = &comp->mux.hw;
-> +		mux_ops = &clk_mux_ops;
-> +	}
-> +
-> +	if (c->div_width) {
-> +		comp->div.reg = cv75_ccu.base + c->div_reg;
-> +		comp->div.shift = c->div_shift;
-> +		comp->div.width = c->div_width;
-> +		comp->div.flags = CLK_DIVIDER_ONE_BASED;
-> +		comp->div.lock = &cv75_ccu.lock;
-> +		div_hw = &comp->div.hw;
-> +		div_ops = &clk_divider_ops;
-> +
-> +		comp->gate.reg = cv75_ccu.base + c->div_reg;
-> +		comp->gate.bit_idx = c->div_shift + c->div_width;
-> +		comp->gate.flags = CLK_GATE_SET_TO_DISABLE;
-> +		comp->gate.lock = &cv75_ccu.lock;
-> +		gate_hw = &comp->gate.hw;
-> +		gate_ops = &clk_gate_ops;
-> +	}
-> +
-> +	return devm_clk_hw_register_composite_pdata(dev, c->name, c->parents,
-> +						    c->num_parents,
-> +						    mux_hw, mux_ops,
-> +						    div_hw, div_ops,
-> +						    gate_hw, gate_ops, c->flags);
-> +}
-> +
-> +static int cv75_register_composites(struct device *dev,
-> +				    struct clk_hw_onecell_data *data)
-> +{
-> +	for (unsigned int i = 0; i < ARRAY_SIZE(cv75_composites); i++) {
-> +		const struct cv75_composite *c = &cv75_composites[i];
-> +		struct clk_hw *hw;
-> +
-> +		hw = cv75_register_composite(dev, c);
-> +		if (IS_ERR(hw))
-> +			return PTR_ERR(hw);
-> +
-> +		data->hws[c->id] = hw;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int cv75_rct_probe(struct platform_device *pdev)
-> +{
-> +	struct clk_hw_onecell_data *data;
-> +	struct device *dev = &pdev->dev;
-> +	int ret;
-> +
-> +	cv75_ccu.base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(cv75_ccu.base))
-> +		return PTR_ERR(cv75_ccu.base);
-> +
-> +	data = devm_kzalloc(dev, struct_size(data, hws, CV75_NUM_CLKS), GFP_KERNEL);
-> +	if (!data)
-> +		return -ENOMEM;
-> +	data->num = CV75_NUM_CLKS;
-> +
-> +	spin_lock_init(&cv75_ccu.lock);
-> +
-> +	ret = cv75_register_plls(dev, data);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to register plls\n");
-> +
-> +	ret = cv75_register_fixed_factors(dev, data);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to register fixed factors\n");
-> +
-> +	ret = cv75_register_composites(dev, data);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to register composites\n");
-> +
-> +	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, data);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to add clock provider\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id cv75_rct_match[] = {
-> +	{ .compatible = "ambarella,cv75-rct" },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, cv75_rct_match);
-> +
-> +static struct platform_driver cv75_rct_driver = {
-> +	.probe = cv75_rct_probe,
-> +	.driver = {
-> +		.name = "ambarella-cv75-rct",
-> +		.of_match_table = cv75_rct_match,
+Any binding changes retained in a future submission will address your
+comments above and include the relevant hardware justification.
 
-.suppress_bind_attrs = true
+Thanks again for your time.
 
-> +	},
-> +};
-> +module_platform_driver(cv75_rct_driver);
-> +
-> +MODULE_AUTHOR("Cao Rongrong <rrcao@ambarella.com>");
+Best Regards
+Xing Zheng
 
-I don't see a Co-Developed by and a Signed-off-by from Cao. Either that,
-or this line needs to be updated.
-
-Brian
-
--- 
-Brian Masney <masneyb@kernel.org>
 
