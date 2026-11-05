@@ -2,101 +2,111 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FC34606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 23:23:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C1C3606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 23:28:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=NUyZoUHM;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lkpbX2s0
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=b+YZc4Hj;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GMwS3fBk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=0qFTCorgq4hyV4vVhWj25+4lzr8cjg0FBjQeaIcgYqM=; b=NUyZoUHM95WJId
-	tvJCj7UZl2t+Mv9mgie3w8yenMa878cWy35b+JmTxNFAGpP9xDdcBVOvu6WVUeS3c3IUj7Zi08M/n
-	GYp+kuK46DhooPgEaI/psCw1UnFYFO2zwgTbX/EvTvh2Ps7JpKcyKPHm5n62Y1Zuq4E1Vn22aHPp+
-	wNEcLkDjJA2srzoP61NEyYp+w+MzIrh536WXNHqQkfvoVPlFiod6HHILM+jzo8M/siQYf3nDbDOP2
-	bGNzfVwJgTHTDkWrwuzZowuKRO5kfbYkPpf2Ao5q6xZVRlRHG4K74gHHwMi7W+G8lfBdMzwESllVU
-	nUW7/S6/Gc9UKiJwDELw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=WdrkeWA5q5NZPAjfL6pBJnTm0PpgBinSg9ZwIQcwiok=; b=b+YZc4Hjm4MPR0vdw8nluCqzom
+	Q/qIcfSAor88GwXjgpiFc/Vc9aQgFFk7K6Wfb7FFPGxxA+uqZ/482Ua5LCJwLjb+2r6RY+H+Bs46H
+	OGz/RNPmiPf93VbI6f57mfzQcPwVqrq6goJI8xJ1ERCUgRcBcxA+o0APTDYjpdNNFA1TU6YI3xA8Y
+	KHRS2nhzgAa/g1yYGglEJ9sAOpcn3xqXREbXWBqTJTd+sHisuRAULfnIWvbEKTLlzYzw4PvoWiIHm
+	Zbe8z664lfmJBZgp/U0HiSN959Apot20AyzNIIHdcXa++fOMmiNxhoJInhVj/P4KZFdUJ8xGX61xl
+	y/koPdoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP6o5-0000000ArYr-3rUe;
-	Thu, 05 Nov 2026 23:23:45 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1xP6Qw-0000000AqBL-2Axv;
+	Thu, 05 Nov 2026 22:59:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP6o0-0000000ArTA-3Mgf
+	id 1xP6Qv-0000000AqB1-32BX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 23:23:41 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-3ad0c2e71ebso13837a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 15:23:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793921020; x=1794525820; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0qFTCorgq4hyV4vVhWj25+4lzr8cjg0FBjQeaIcgYqM=;
-        b=lkpbX2s0EVIflZ9Tvh8njs/SHvIwA46Aiu0ZDBk+WYhjz99Lw/WxZh/4zhfCHRjZSl
-         epFmnPGyvBm2eoHvUkq9yAvH0ymqgmsYy733BtfBc/dNgyBNsUOR+uVPplXadC3tiWSD
-         25zSKQtBx+Uv/EmgreOvR44WN7GoySinRjKKZhHi9Xo6KImkO2LGJH6gRgVYenoPlgey
-         cjre1dyuspUGd97UQwHVeGJ0ZrK1qTCpJOG50F9v8uc8+ihmCy/skge1iIw6xm1ATSO4
-         9o2PRivCyeeQr2kXmaiY+OB0jx/RZKFGAsJ/TPK05idxbKMz0Eo2ZuTWtzgD3pa+ckys
-         ktqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793921020; x=1794525820;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0qFTCorgq4hyV4vVhWj25+4lzr8cjg0FBjQeaIcgYqM=;
-        b=sPgPsDF4E5QiYxOSttxYak2tW51Pa8m6Te0yVpuZIpylHtGarzUXA36omgtGTriLyC
-         t2WicRJY1XMsJQKnIkpmqyljLwRtGkH5eqyyAh2MTdjvGzQAtO/OyQm1LjqzaX31fGQS
-         0CISM3T7YPnVv1U2p7urm+rvq1Hj/RBZor8ImFAr4hf19NravNLJqpmztoUewxQ1JB+e
-         zTkFLax0qnWN7roqx5N69GqLQoF6FMD+1ofuLex56Qr1PMKvXbQiEkSEmhGGfvB52Zk8
-         gsctRZ84eopFkdcNtQ69Dgbo+L5HISsyTMSX+I4oiXvvOq657np0wOb0suECt7EY2HIu
-         wVLA==
-X-Forwarded-Encrypted: i=1; AKwUvBzPCdnZxjtZUZFFv/NM2BA+N917Gp1AGf1yMzR2fJDmRRkMxoOX8Qleoa4S3ehX2uT1mMzsuEjT0fuByIv9yv/0@lists.infradead.org
-X-Gm-Message-State: APuU4Z9crZApKG7CHMAOJ2wmgXu9Ub+8W/P/At6eDObFyRr/3S4FRH7c
-	ZcIFPBf/RlrlpOaVs9mo/qpDt0oeSYYHi/gvlq7GE6jXBtMx093DkHmR
-X-Gm-Gg: AYBFou22Bi1Ho8KkT/d7fpBAnQ657czYSYPjhrFN9qTMKUeHBX9om+49HcStGaHcffm
-	5j+JASdcnY3ZT/s8nBsUjdHkOhsvym20jjLqbjP0tGeEn+K0lh0DStRwF8vR3A34N6oMJBWsYAm
-	ZkkioUljKHJIh/0heL9UchGO29Bb5tV6fKFtzIDXtNRRDTe+GKKHcwDHnEFFtwISpJ/H9OtQATJ
-	SE7MZjwG8uT+sOgnX1y7z4tAdQrIFsEfJtd71GwkaM40y2c5Ix8wiH2faRm8/vVoibdbkreIpIj
-	0fu1SILM369wYlqTcFjxQrSBD0AL6HEWigTw15ePU+UBlfpL3NJg2w2EEpnzxdYx3bw0HMqdSkM
-	+HtL927cOeUpEUu9+NrNfNUQYA/JeGSU4juFTlVqD4ulDIO1w605SRvE7RtBI/HS0vHH1lRvwyt
-	ESp+aMp975jGGmprVs+peQvZNXqgsyEvMA5BN5RUi+zfwwUub1lF16VKJLmMY3alWVHPD3FyNWf
-	6gj6O6HkXZFcFOHI5FdlW+OI4LHFtK1H+JJt5azB3VfwCZt0+Uj3NmDRgbU3XOP8T4vBjfzjJWd
-	P/e5GIT7T+kgrNquiBnxwblnQwG6y47f+bzAsPrpihOHviTDmU0JXSCThU1GqA==
-X-Received: by 2002:a17:90b:1e4f:b0:3ac:9c37:9422 with SMTP id 98e67ed59e1d1-3b0db62690dmr1018448a91.2.1793921019958;
-        Thu, 05 Nov 2026 15:23:39 -0800 (PST)
-Received: from FAIZEL-KB.. ([2001:569:5b64:e100:f564:53e0:ae9d:9600])
-        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-3b0b323cd3csm5317297a91.3.2026.11.05.15.23.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 15:23:39 -0800 (PST)
-From: Faizel K B <faizel.kb@gmail.com>
-To: Mehdi Djait <mehdi.djait@linux.intel.com>,
-	Michael Riesch <michael.riesch@collabora.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	libcamera-devel@lists.libcamera.org,
-	Robert Mader <robert.mader@collabora.com>,
-	Faizel K B <faizel.kb@gmail.com>
-Subject: [PATCH 2/2] media: rockchip: rkcif: Honour the requested bytesperline on MIPI
-Date: Thu,  5 Nov 2026 16:23:10 -0700
-Message-ID: <20261105232310.385463-3-faizel.kb@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261105232310.385463-1-faizel.kb@gmail.com>
-References: <20261105232310.385463-1-faizel.kb@gmail.com>
+	Thu, 05 Nov 2026 22:59:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 28C3743E72;
+	Thu,  5 Nov 2026 22:59:49 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1793919589;
+	b=c9NqO4TLKq8l8MlIVHnPqbEdRZp+Jw29wdoJpCzGZ7UujRxvDLRGrr/pjlKadlkkh3Ce
+	 9tTjYcH9Qo4viqI52ytB/ex1Lx3JmaJ3LOzW9MzvK1PvA1j/kTJP+Ju+lrsPFiXrvfisC
+	 zpvfDxlVPJo3NWDCdaF0+MOwP3ucct3DcVHI/Y1gvUO9qdIzXLthwNR6u0Dg/z/SMrIJb
+	 QYilag3/xl7QiyDT3P6+UkDVFlsDt8rVirwr48nNiFLu2WQSwti2fCNBrEprZ86zBN9Ac
+	 1vfdJH3C69dIAJx7WANfUvE0q4g7L1cgtSThjSV3xBKp2HQOB39pqipCXVjr+ZgO6fA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1793919589;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=WdrkeWA5q5NZPAjfL6pBJnTm0PpgBinSg9ZwIQcwiok=;
+	b=Fd/+r7gNgqW5CdYXwsZ7Ph2X/F0EHLCdXoBBp/vJuiCg1iKBKdWaemsKUoV1NiJeZtju
+	 UeQCq/R/7Lbj+H5aRpgPu5dH2LuVylLzgRQSfgGPDSp/DEydJT0Pt3B/DacVIwJzOagZt
+	 qs+akDh/PhAmQhnEsJeFTJTCqcP6D1+RNPuLvG6+oXmwN9m7dB+hDRqgMM1ivGvYujfYV
+	 xyqq/fyROxtcYb2W+hdPcUFM57HHfchQCqeqPDYkvYdP7inILwPVNh160vEEx1syuKFfp
+	 u09gYwfTSc3geo1SaZrburRsEWnZQCR/rI8onqNT+itGo+I7SUQJjwTT7wqRLHB97hA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 734191F008A2;
+	Thu,  5 Nov 2026 22:59:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793919589;
+	bh=WdrkeWA5q5NZPAjfL6pBJnTm0PpgBinSg9ZwIQcwiok=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=GMwS3fBkn+OeUvvKnPShuxiZ22PTxPS1f8st6c77zZ6JFMfiYLVby47fsqjjEY7Zh
+	 PFT0xp0SqIoloSneDaRID4E0sfIVG5+HIT330tABYzGzLGoKVKSRm6VH4Lipr/vTQr
+	 nLugk0fF16Bw1OIcqaQQeFjqoWOdP9rmai2bYHI3N6/QiD/os/W9Po0sD9xP7qLIet
+	 TcEwrFCkOs+nJitSMMBbApV4fwlUZjeSmJX3O3THj269prBuR39jdwPXlWmksRPRC2
+	 KVvpr42SboHsFPuzSnrYe6fr11yW/0DJ5Xq42p13mtOX30Q7eFXpr4vLn4nE93QX1f
+	 9T+f6FVpXp7/Q==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id C5E3A45AD3;
+	Thu,  5 Nov 2026 22:59:47 +0000 (UTC)
+From: Xuheng Li via B4 Relay <devnull+xuheng.cs.columbia.edu@kernel.org>
+Subject: [PATCH v2 0/3] KVM: arm64: Fix the hyp pool size on large
+ machines, plus two hardening patches
+Date: Thu, 05 Nov 2026 22:59:47 +0000
+Message-Id: <20261105-hyp-pool-and-map-v2-0-44a6ca90190b@cs.columbia.edu>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_152340_850402_F37161C6 
-X-CRM114-Status: GOOD (  16.49  )
-X-Spam-Score: -2.1 (--)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NQQqDMBBFryKz7khGiNaueo/iIjHTOqAmJFUq4
+ t2beoAu34P//g6Jo3CCW7FD5FWS+DlDdSmgH8z8YhSXGSpV1URK47AFDN6PaGaHkwloNTeWW0P
+ UEuRZiPyUz5l8dJkHSW8ft/NhpZ/9E1sJFTa6tla7K6u6ufep7P24TFZMyW6B7jiOLz0pGeS2A
+ AAA
+X-Change-ID: 20261105-hyp-pool-and-map-b5e7be9a1191
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
+Cc: Quentin Perret <qperret@google.com>, Will Deacon <will@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, kvmarm@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Xuheng Li <xuheng@cs.columbia.edu>, stable@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793919587; l=1934;
+ i=xuheng@cs.columbia.edu; s=20261028; h=from:subject:message-id;
+ bh=CAOlYbJH00SZ0i+KHyNqqm2Di8dpY/YNVVprTboRUdo=;
+ b=c1X/nyAlwsURpe72dwNz4wB9yo7f6Xx60mT0l5jS7LojUn/cgTuWMddWKw/TsCvXlYu41zll8
+ XqC4R8vzMtCCkFzXTCd4CKrg+/ZfCIGYmt4qkNKIPTZebWkZn+MPamQ
+X-Developer-Key: i=xuheng@cs.columbia.edu; a=ed25519;
+ pk=L1HVV+goqxYmEMO/OXakL6uf9isSpgk2QrLlFqyZ2Qs=
+X-Endpoint-Received: by B4 Relay for xuheng@cs.columbia.edu/20261028 with
+ auth_id=1349
+X-Original-From: Xuheng Li <xuheng@cs.columbia.edu>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,83 +116,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xuheng@cs.columbia.edu
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The MIPI DMA uses bytesperline as the line stride, which must be a
-multiple of 8 bytes, but v4l2_fill_pixfmt_mp() doesn't align it.
-Any larger bytesperline requested by userspace is also replaced with
-the minimum.
+Three changes for issues we found in pKVM as part of our research
+project.
 
-Align bytesperline to 8 bytes and honour a larger requested value, up
-to the limit of the line width register. This allows DMA-BUF importers
-that need a larger stride alignment to use the buffers directly.
+Patch 1 fixes 32-bit size computations in hyp_early_alloc_contig()
+and hyp_pool_init().  The hyp page-table and host stage-2 regions reach
+4 GiB on machines with about 2 TiB of RAM; the early allocator then
+carves them too small, so the two pools overlap and can hand out the
+same page twice.
 
-Signed-off-by: Faizel K B <faizel.kb@gmail.com>
+Patch 2 checks the host stage-2 PGD allocation for NULL before using
+it.  With patch 1 applied that allocation cannot fail, so this only
+turns a mis-sized pool into a clean -ENOMEM instead of a hyp panic.
+
+Patch 3 makes hyp_map_walker() refuse to replace a valid block mapping
+with a table, which would skip break-before-make and unmap the rest of
+the block.  Nothing in mainline maps into an existing hyp block, so this
+is hardening; Android's interface for EL2 modules to map pages can reach
+it.
+
+Signed-off-by: Xuheng Li <xuheng@cs.columbia.edu>
 ---
- .../platform/rockchip/rkcif/rkcif-stream.c    | 22 ++++++++++++++++++-
- 1 file changed, 21 insertions(+), 1 deletion(-)
+Changes in v2:
+- Patch 1: also fix the same overflow in hyp_early_alloc_contig(), which
+  makes hpool and host_s2_pool overlap (reported by the Sashiko review of
+  v1); describe that in the commit message and add its Fixes: tag.
+- Link to v1: https://lore.kernel.org/r/20261105-hyp-pool-and-map-v1-0-756bb5d8e067@cs.columbia.edu
 
-diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-index f2a24832a8cf..e50f20e40f7a 100644
---- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-+++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-@@ -23,6 +23,7 @@
- #define CIF_MIN_HEIGHT	 64
- #define CIF_MAX_WIDTH	 8192
- #define CIF_MAX_HEIGHT	 8192
-+#define CIF_MAX_BYTESPERLINE 0xffff8 /* VLW: 20 bits, 8-byte aligned */
- 
- static inline struct rkcif_buffer *to_rkcif_buffer(struct vb2_v4l2_buffer *vb)
- {
-@@ -334,20 +335,39 @@ static const struct vb2_ops rkcif_stream_vb2_ops = {
- 	.stop_streaming = rkcif_stream_stop_streaming,
- };
- 
-+static void rkcif_stream_set_bytesperline(struct v4l2_pix_format_mplane *pix,
-+					  u32 req_bpl)
-+{
-+	u32 min_bpl = ALIGN(pix->plane_fmt[0].bytesperline, 8);
-+	u32 max_bpl = min_t(u32, CIF_MAX_BYTESPERLINE,
-+			    ALIGN_DOWN(U32_MAX / pix->height, 8));
-+	u32 bpl = min_bpl;
-+
-+	if (req_bpl > min_bpl && req_bpl <= max_bpl)
-+		bpl = ALIGN(req_bpl, 8);
-+
-+	pix->plane_fmt[0].bytesperline = bpl;
-+	pix->plane_fmt[0].sizeimage = bpl * pix->height;
-+}
-+
- static int rkcif_stream_fill_format(struct rkcif_stream *stream,
- 				    struct v4l2_pix_format_mplane *pix)
- {
- 	const struct rkcif_output_fmt *fmt;
--	u32 height, width;
-+	u32 height, width, req_bpl;
- 	int ret;
- 
- 	fmt = rkcif_stream_find_output_fmt(stream, true, pix->pixelformat);
- 	height = clamp_t(u32, pix->height, CIF_MIN_HEIGHT, CIF_MAX_HEIGHT);
- 	width = clamp_t(u32, pix->width, CIF_MIN_WIDTH, CIF_MAX_WIDTH);
-+	req_bpl = pix->plane_fmt[0].bytesperline;
- 	ret = v4l2_fill_pixfmt_mp(pix, fmt->fourcc, width, height);
- 	if (ret)
- 		return ret;
- 
-+	if (stream->interface->type == RKCIF_IF_MIPI)
-+		rkcif_stream_set_bytesperline(pix, req_bpl);
-+
- 	pix->field = V4L2_FIELD_NONE;
- 
- 	return 0;
+---
+Xuheng Li (3):
+      KVM: arm64: Compute hyp early-allocation and pool sizes in 64 bits
+      KVM: arm64: Check the host stage-2 PGD allocation for NULL
+      KVM: arm64: Don't replace a valid hyp block mapping with a table
+
+ arch/arm64/kvm/hyp/nvhe/early_alloc.c | 2 +-
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 3 +++
+ arch/arm64/kvm/hyp/nvhe/page_alloc.c  | 6 +++---
+ arch/arm64/kvm/hyp/pgtable.c          | 7 +++++++
+ 4 files changed, 14 insertions(+), 4 deletions(-)
+---
+base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
+change-id: 20261105-hyp-pool-and-map-b5e7be9a1191
+
+Best regards,
 -- 
-2.43.0
+Xuheng Li <xuheng@cs.columbia.edu>
+
 
 
