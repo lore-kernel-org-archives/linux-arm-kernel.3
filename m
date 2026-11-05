@@ -2,75 +2,123 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 425BF606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:55:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8068B606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:59:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oKV36PwB;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=cfoa0iQ/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Qa4iLbrF;
+	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=IzhzugqN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=lMUN+xrYwfUilVGUkr08RcCdBhNpdwdDbuRbBKh66bI=; b=oKV36PwBoZrehR
-	zNxhULY/XupWv7yD0cq8/AjcqsmLn1KBKZGU53QsWJkqZrv2cJALR9MV6Cep3zZ6Narly4In9st+P
-	VrY5HcCjOBxPMPdeRc8Q/JgcFlNjiwClxZkkBxZyiFkl5mJNAhs8z9nW7kHVQ8TmHG+Qjz8vV/ppK
-	43ZrRkpHmHPYMQ3dxqMgP92UKIowduaRMeYT02VhYPLeFtMR728Q686g0Xutgy9Dg6ofm3AooYdmN
-	kRoeVfuU0LWXqEvpNr/X5U5qh0prgacitWyIr+vi8wx5923IZIHXvI0ZvDJXwXAP+GigU8Q75AfaR
-	EhDukbif/LydKbyfWhFQ==;
+	List-Owner; bh=xEn9bBfJyeN7s0bkcYXtebKhISRaDeVGGV2BA0cEk8Y=; b=Qa4iLbrFK4ft8N
+	8fSuIL7gp+oTG/WY+8HCgb+9zRmfsZzCbSRsG5KptqlGdUNt2yyRzLW3GO9hsHF1jFxwIgUkb48rb
+	7jgTaaOl9WNhcf/fN4bmn0Rvk1q8NkmmmqSImLcQHUH9DeOcJhFNa/e6em459h4tCKWIO11F3yY27
+	W7ExlrJ6jnGB78Ki1A5QAhUaU8PNXCODuTGbBjuV2LWPMk1Amyo+odb3v3gyssq9sBxirJl3u0pzl
+	MuUyfVLucmO2zlJKHCui5ZinKXzJIsZDJA8i0NCojTavL3MKXt56KwM4t53LOAkL9LImXa0wcYvHv
+	rK/xHGhiyIMmfyX27Wrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyrm-00000009LNi-302H;
-	Thu, 05 Nov 2026 14:55:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyrk-00000009LMr-0KWi
+	id 1xOywD-00000009Li1-0vTL;
+	Thu, 05 Nov 2026 14:59:37 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOyw9-00000009LhH-39Dh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 14:55:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 33039168F;
-	Thu,  5 Nov 2026 06:54:56 -0800 (PST)
-Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0DBE3F632;
-	Thu,  5 Nov 2026 06:54:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793890499; bh=BHV2xnfEREO1PuiaY/msWQZl+g5su3hEZwIcHuKszOE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cfoa0iQ/wLbaM/wUFNF6yhe0347tlMbx+10T4E3cFVvKkbcECt68p2+g3KvnuS1L1
-	 TUbxpPXPqrpdZ3WrgfpBlir0EXoT9q32sIUqUAMRFb90dLbvNIgUVbL+Hq+QEyfTYL
-	 FjNFds86xP7/OanwfWPmYNF1BOp1/YxJO9lc8o1A=
-Message-ID: <a876b77b-c4e4-4019-868a-af12c93f441f@arm.com>
-Date: Thu, 5 Nov 2026 14:54:55 +0000
+	Thu, 05 Nov 2026 14:59:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vC9ZgXMp0uyo2AiPj+7Hd0KjQXBrmcS0ClWdrOSuLnXqzXzlxlBEHYLf+a4DRvOyiZgnK3tiJOC/DAX/9AhibpUXMy/bXea1vu/owbWKaSe8sDaGYAWyivRfkgxPao87y5CgU2xPsPYB00YA0HgymBvk5WQUPUxCGNGO3Mq6bHoPlg4wQp2pIbBFeC3+TZgHV4l3oexuijrSlWw3DRXPju/YZt5x4uEhDcWLDhCUtliX3SaFtFKrqrfa7qw0M634kRkQpnSO+J5CeS6DsW8eu7UoX+pmfpvH/lqwAIgwS5bJluk8jdPvlbfnDqm8EnGD2yCQL4OeI9a97bqa/WF2Ag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xEn9bBfJyeN7s0bkcYXtebKhISRaDeVGGV2BA0cEk8Y=;
+ b=KUgcjlL1SOkqN+Rplrtr46cwdCypCBUmvzePERXM5FkDFBb844bmbQ0YmlfXi+yITgpLFi8X1n/a9EnTqm1AyLeA0L74nfRwQ9beif+2/daIE89kFrv6YGch8QKbDm1ZzN4k7Q96fubd1fUVNNbQfav5TrMgcwNKYpsKumgOs/WmIW8T+TNl1eVw3kBMvnMmV1uA72A95fZ9pXcnZiC1pQAptgP/t9rC/oktB8XxaOPyhUT4O+O04idYZZFOWY/nsarO21AU4j4kQ6px6PKJ7qP1eXnhaO8P7h0MIaQ0/Yi0aCWn8WMoY4pPGjqIk/iBb9XbCRtbbzxZfmqOIdU2Ag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=iscas.ac.cn smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xEn9bBfJyeN7s0bkcYXtebKhISRaDeVGGV2BA0cEk8Y=;
+ b=IzhzugqNLQxfAlRH3uI1Ix5u1wwbcIU88S6aZYZQ71mkThuBuU+R7PrpPf5jKtI2Hdn8hJ/uvnnxuR9VmJYQM5sp2BTk7d4prgQ2Ao0GVBlnu7sypSTL1/60SJ7OvZesc+p/2g8w2B8RylDGv+PuPZkGkaDugJFKv5vUPigDDFKMOvWjx17vDqLaA2RJ5lFT+hqdOQn+kj4O9m113vPV8cO5oXsv533Y4KQQIm/kU5pInWPLkDD4XXfqatCDeogM7Envat6LRCE/fsgyiqJ2cJlQfavQLEIA+dgqdygKTcfJGT2HcHXIAiTl9zQDcwd662ETlgGN80xdJJeGGyxrlQ==
+Received: from FR0P281CA0076.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d10:1e::6) by
+ VI0PR10MB9075.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:214::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Thu, 5 Nov
+ 2026 14:59:27 +0000
+Received: from ZR1PEPF0000E6BC.eurprd07.prod.outlook.com
+ (2603:10a6:d10:1e:cafe::ab) by FR0P281CA0076.outlook.office365.com
+ (2603:10a6:d10:1e::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.4 via Frontend Transport; Thu, 5
+ Nov 2026 14:59:26 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ ZR1PEPF0000E6BC.mail.protection.outlook.com (10.167.241.75) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.592.5 via Frontend Transport; Thu, 5 Nov 2026 14:59:25 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 5 Nov
+ 2026 15:59:55 +0100
+Received: from [10.252.2.182] (10.252.2.182) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 5 Nov
+ 2026 15:59:24 +0100
+Message-ID: <5bd499a2-2c79-4cfd-abe3-5bca88e3ce02@foss.st.com>
+Date: Thu, 5 Nov 2026 15:59:23 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/7] perf: arm_pmuv3: Add pmuv3_event_implemented()
-To: Amir Ayupov <aaupov@fb.com>, James Clark <james.clark@linaro.org>,
- Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- Randy Dunlap <rdunlap@infradead.org>, Shuah Khan
- <skhan@linuxfoundation.org>, Daniel Pereira <danielmaraboo@gmail.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <cover.1792907332.git.aaupov@fb.com>
- <cover.1792989860.git.aaupov@fb.com>
- <23ffe461b8d7b04f78118154dfc9ea1d2a14978a.1792989860.git.aaupov@fb.com>
+Subject: Re: [PATCH] ASoC: stm32: spdifrx: keep the control DMA channel on
+ config failure
+To: Wentao Liang <vulab@iscas.ac.cn>, Arnaud Pouliquen
+	<arnaud.pouliquen@foss.st.com>, Liam Girdwood <lgirdwood@gmail.com>, "Mark
+ Brown" <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
+	<tiwai@suse.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Alexandre
+ Torgue" <alexandre.torgue@foss.st.com>
+CC: <linux-sound@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20261104024051.1508703-1-vulab@iscas.ac.cn>
 Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <23ffe461b8d7b04f78118154dfc9ea1d2a14978a.1792989860.git.aaupov@fb.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Olivier MOYSAN <olivier.moysan@foss.st.com>
+In-Reply-To: <20261104024051.1508703-1-vulab@iscas.ac.cn>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZR1PEPF0000E6BC:EE_|VI0PR10MB9075:EE_
+X-MS-Office365-Filtering-Correlation-Id: 51a96d63-3fd6-4a3f-b531-08df3b4d6269
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|23010399003|1800799024|10067099003|22082099003|18002099003|261021121427099003|11063799006|56012099006|261028144727099003|261102123227099003|261026140227099003|261022105027099003|261021123027099003|261009223027099003;
+X-Microsoft-Antispam-Message-Info: ZWwVw6MvQ0bEdCjsMjamyPVUrHH++KwCwCnsWWQUVg3CkwazqFs5c3wpU1JbSWCK/DgVTkyjqhzuFeGSxGpk8eZw+Vk78cURWIcpTdTWM774oXJsFU9dX8Z9EpQYK09iL5jd3MClqulHJl/C3LdYu58R7E4HpA6H4CPoHikSOtqL4XeXVorcE2/yuHgJEUCTgIzw+u4b2AKzpuo2XWNoKeRiuGFyos6QrcYng1MObX/MAXduGJXB3fewPFlDnpGisVjKPt+9lW8yg3TszDW89tuObUgexjtl2VKRLChxSGqZEs7As7EK+IatnTPhVrptadpAdrAbocO3lNZSkbZuctzgyj8vJAPFOdrpiScRdXXyQQGCmeAtYrttPfir+hnueI7KBt6l6vcw4mmyEOwafiuYgXda2ah+GDUrdlW39/tOpidfhCcAoNofkw35Vuss+FEm8mnNa37OjcDyItfhIJ3UXJNZ8qFP03wO5A0uYsIpZgG2Gz8MCwk9y0cmwT++bimxj9fyVocoA4o6xDkeLC+/XBZI9okuCIhahAFagD/4PQIzz0Ld9+V6A13tFoYP/FYADB4NA5Jnf1uD8qC1cyNE0p2ZAA9lGeNTQqGq7EnSlTc9slHXuUssCQX4DIL6UfNthLe1zTV4I5QDSTHWw58tPCWkIcII3xDaDrSQHPoqCw0sSI0Gy6nhRnSQKqylKUHVlJAhxZhYsLcWvdnSTg==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(23010399003)(1800799024)(10067099003)(22082099003)(18002099003)(261021121427099003)(11063799006)(56012099006)(261028144727099003)(261102123227099003)(261026140227099003)(261022105027099003)(261021123027099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: V2viam5e6RvuhYPQX8y7qfyl23XzZojnA9atedbyCjnkR6LyfAA1hG4IetxIQ84TqEB4gx/nwPaYNVfhDv1jdjS/GfdM8YVJfXWQlCqyk9vkjiTChB2GQRvQc8Iwt1z+eOv54vl0GbBgJ5LnU8gsnyikntxOJSJf9Inqg4VCNwxjBBkhimxSgUFN9fXNhlivPha89yH1acbtj8NBGBow9j5yASmJySWOyDK4G/ZVsdkCz3a3Cpz94XB4yhMSDqrYWg+xXJCDK96hbyLTJqh9vf+SPmvutVAo4bvgQgl7jNg4b53FZs3wpnKuKR7Ot8iF5d+x0f/hZfPNazChduuUJFUxuno5cfim+v+fkw+x2SJra8NzXpVoVGi9pEbFLYirTVHkuaEvVsJbLtXTsdiG2MKJaBa2eBaIBStMzTZjmea8UPTkZ4m6ln4aAFMmZBAK
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 14:59:25.9288
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 51a96d63-3fd6-4a3f-b531-08df3b4d6269
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: ZR1PEPF0000E6BC.eurprd07.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR10MB9075
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_065500_240803_B03F9A5F 
-X-CRM114-Status: GOOD (  24.69  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261105_065934_159210_FEA4F765 
+X-CRM114-Status: GOOD (  15.93  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,94 +137,57 @@ X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 26/10/2026 05:48, Amir Ayupov wrote:
-> Drivers outside the PMU driver may need to know whether the local CPU's
-> PMU implements a common event before relying on it, for example a trace
-> unit driver checking that the PMU counts its external outputs as
-> TRCEXTOUTn.
+Hi Wentao,
+
+On 11/4/26 03:40, Wentao Liang wrote:
+> When dmaengine_slave_config() fails, stm32_spdifrx_dma_ctrl_register()
+> sets ctrl_chan to NULL and returns the error. The channel obtained from
+> dma_request_chan() is thus lost, and stm32_spdifrx_probe() calls
+> stm32_spdifrx_remove() on the error path, which then passes NULL to
+> dma_release_channel().
 > 
-> Add pmuv3_event_implemented() to the arm64 asm/arm_pmuv3.h, next to
-> read_pmceid0() and read_pmceid1(). It reads PMCEID0/1 on the calling CPU:
-> events 0x0000-0x003f are reported in bits [31:0], and the common events
-> from ARMV8_PMUV3_EXT_COMMON_EVENT_BASE in bits [63:32] from PMUv3p1. Move
-> ARMV8_PMUV3_EXT_COMMON_EVENT_BASE next to the event numbers in
-> linux/perf/arm_pmuv3.h so it is available without CONFIG_ARM_PMU.
+> Leave ctrl_chan untouched so that the remove path releases the channel.
+> Its IS_ERR() check already handles the case where dma_request_chan()
+> failed.
 > 
-> Suggested-by: James Clark <james.clark@linaro.org>
-> Assisted-by: Devmate:Opus-5.5
-> Signed-off-by: Amir Ayupov <aaupov@fb.com>
+> Fixes: 03e4d5d56fa5 ("ASoC: stm32: Add SPDIFRX support")
+> Cc: stable@vger.kernel.org
+> Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 > ---
->   arch/arm64/include/asm/arm_pmuv3.h | 19 +++++++++++++++++++
->   include/linux/perf/arm_pmu.h       |  1 -
->   include/linux/perf/arm_pmuv3.h     |  3 +++
->   3 files changed, 22 insertions(+), 1 deletion(-)
+>   sound/soc/stm/stm32_spdifrx.c | 4 +---
+>   1 file changed, 1 insertion(+), 3 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/arm_pmuv3.h b/arch/arm64/include/asm/arm_pmuv3.h
-> index 8a777dec8d88a..acd62c4f16743 100644
-> --- a/arch/arm64/include/asm/arm_pmuv3.h
-> +++ b/arch/arm64/include/asm/arm_pmuv3.h
-> @@ -173,6 +173,25 @@ static inline bool pmuv3_implemented(int pmuver)
->   		 pmuver == ID_AA64DFR0_EL1_PMUVer_NI);
->   }
+> diff --git a/sound/soc/stm/stm32_spdifrx.c b/sound/soc/stm/stm32_spdifrx.c
+> index 88863dbd05d9..ce75929daf73 100644
+> --- a/sound/soc/stm/stm32_spdifrx.c
+> +++ b/sound/soc/stm/stm32_spdifrx.c
+> @@ -425,10 +425,8 @@ static int stm32_spdifrx_dma_ctrl_register(struct device *dev,
 >   
-> +/*
-> + * Whether this CPU's PMU implements a common event, as reported by
-> + * PMCEID{0,1}: events 0x0000-0x003f in bits [31:0], and from PMUv3p1 events
-> + * 0x4000-0x403f in bits [63:32], which read as zero before PMUv3p1.
-> + * Must run on the CPU whose PMU is queried.
-> + */
-> +static inline bool pmuv3_event_implemented(u16 event)
-> +{
-> +	bool ext = event >= ARMV8_PMUV3_EXT_COMMON_EVENT_BASE;
-> +	u16 id = ext ? event - ARMV8_PMUV3_EXT_COMMON_EVENT_BASE : event;
-> +	u64 pmceid;
-> +
-> +	if (id >= 64 || !pmuv3_implemented(read_pmuver()))
-> +		return false;
-> +
-> +	pmceid = id < 32 ? :() : read_pmceid1();
-> +	return pmceid & BIT_ULL(id % 32 + (ext ? 32 : 0));
-> +}
-> +
->   static inline bool is_pmuv3p4(int pmuver)
->   {
->   	return pmuver >= ID_AA64DFR0_EL1_PMUVer_V3P4;
-> diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
-> index 02d2c7f45b527..792283d29d7b5 100644
-> --- a/include/linux/perf/arm_pmu.h
-> +++ b/include/linux/perf/arm_pmu.h
-> @@ -124,7 +124,6 @@ struct arm_pmu {
->   	u64		reg_brbidr;
->   #define ARMV8_PMUV3_MAX_COMMON_EVENTS		0x40
->   	DECLARE_BITMAP(pmceid_bitmap, ARMV8_PMUV3_MAX_COMMON_EVENTS);
-> -#define ARMV8_PMUV3_EXT_COMMON_EVENT_BASE	0x4000
->   	DECLARE_BITMAP(pmceid_ext_bitmap, ARMV8_PMUV3_MAX_COMMON_EVENTS);
-
-Could we not avoid this change ? Or why not move both of the definitions ?
-
-
-Also, I would need an ACK from the arm_pmu maintainers to accept this
-change via coresight tree.
-
-Cheers
-Suzuki
-
-
+>   	ret = dmaengine_slave_config(spdifrx->ctrl_chan,
+>   				     &spdifrx->slave_config);
+> -	if (ret < 0) {
+> +	if (ret < 0)
+>   		dev_err(dev, "dmaengine_slave_config returned error %d\n", ret);
+> -		spdifrx->ctrl_chan = NULL;
+> -	}
 >   
->   	/* Only to be used by ACPI probing code */
-> diff --git a/include/linux/perf/arm_pmuv3.h b/include/linux/perf/arm_pmuv3.h
-> index d698efba28a27..c21f185a283d6 100644
-> --- a/include/linux/perf/arm_pmuv3.h
-> +++ b/include/linux/perf/arm_pmuv3.h
-> @@ -78,6 +78,9 @@
->   #define ARMV8_PMUV3_PERFCTR_STALL_SLOT_FRONTEND			0x003E
->   #define ARMV8_PMUV3_PERFCTR_STALL_SLOT				0x003F
->   
-> +/* Base of the common events reported in PMCEID{0,1}[63:32] from PMUv3p1 */
-> +#define ARMV8_PMUV3_EXT_COMMON_EVENT_BASE			0x4000
-> +
->   /* Statistical profiling extension microarchitectural events */
->   #define ARMV8_SPE_PERFCTR_SAMPLE_POP				0x4000
->   #define ARMV8_SPE_PERFCTR_SAMPLE_FEED				0x4001
+>   	return ret;
+>   };
 
+Thanks for the patch. The patch itself looks good to me.
+
+Just one remark regarding Fixes reference in commit message.
+In initial commit 03e4d5d56fa5 the channel was released before setting 
+ctrl_chan to NULL.
+
+This was change through commit 98c8dc2fd59f. So it is more relevant to 
+refer this commit:
+Fixes: 98c8dc2fd59f ("ASoC: stm32: spdifrx: fix control DMA error 
+management")
+
+With this change you can add my Reviewed-by.
+
+BRs
+Olivier
 
