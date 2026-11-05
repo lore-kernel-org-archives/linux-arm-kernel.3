@@ -2,83 +2,90 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAAB7606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:40:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C57F6606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:41:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qPiiAhkZ;
-	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=HLAwbYY5
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=44dq6Vbs;
+	dkim=pass (1024-bit key, unprotected) header.d=foxmail.com header.i=@foxmail.com header.a=rsa-sha256 header.s=s201512 header.b=MFi0Itx8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=IAkDT+xOxuplCH0DU1qbjq1v0CAsiM+XsgikQ8pVRS0=; b=qPiiAhkZcEaiLmXKenzH66DVDX
-	CHtUOiiZU+IF2fTN6fGPfbr+u6aPY6mCInFRAs+iL0NQtjOtc1Y0fntQQQRNAgHJYnqlYgoJGiMvW
-	f6Fj/Cj8hXwr4bVmaPDCM1HjsgZhGpsG9Y3VSWhvdaDGmWIcUu67NvBwkIYueLIG2bA8vcvBfwES9
-	zkvJtu44KV8HE46onUydyD9zJWBCFrxs6SgUnbj3wuh6dS07HsbX9FFAXH76rUWZbFhRC2OV81D8p
-	ttqAnvgZIpEkMVfDEI16IhDQWtuqnNbwMWomCerq2avS2kJ44z0jnsbgWZJW6OWdyYsb6WcRzJ+AI
-	iX7RCusw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=eOhqa48dtTiB7ksGp6xxxSY9GgyF8VUpdic4WCjGsps=; b=44dq6Vbs0pb+bz
+	CX8CJ2UDmbUX1N31dICQ4CzNsCOm5+BHE+2hVQ3f13GglI/SpF0R/3RVFW09co+Apimm2gRQTCahF
+	Sds7foEYAbJNJ4y/oGstjL4CMnItOqMj5pquA9RLLwsS+bp/yhA1MQ+mSDxFURKTKvLB26Jvrpy6F
+	pP5qrZquTeqf0qkLU95wlEc0ACaeKf8C/SjSDaXp8bJFxb7GXJ/Xa/LeAXmaipuZQ+VPUj1qGE2+Z
+	Q3/Gl9ns/dgbl4HoWqrr6ui2UsFwcbjKw0XNOjpYqC8WmMzxeZijppw1iloiwpl1ROKLpIXl6JUMU
+	8Lrdqg3esOpuoulKY1iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtx3-00000008LIg-00EN;
-	Thu, 05 Nov 2026 09:40:10 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1xOtxq-00000008LQE-1raR;
+	Thu, 05 Nov 2026 09:40:58 +0000
+Received: from xmbghk7.mail.qq.com ([43.163.128.43])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtwz-00000008LHr-3yib
+	id 1xOtxn-00000008LPb-3HfW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 09:40:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1793871606; x=1825407606;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0zMxg5jJREjnB3ChtK0twT9anfZvUFbnTRKAGFoCWSM=;
-  b=HLAwbYY5tqvUgi7SPPX043EgrN3ERkh9mmA7knp7aET83U/rRYCahXrb
-   IEn+Dqz5GYxVyLS0qbdX3EOcteeXD/mue4sqF7dDLEPLJfPEJ4+cKsh1g
-   1+zzYi/3f4cZ7dt8AQtPinxLYSIDOP1OZ46pvxgAFUa4PFsnMCpTbQjrD
-   h1NWOSUud/w9gIQuQqShlKww0ISOz21/ynnhSPrWSlorKa00XODF8FA/Q
-   ejqp6Lzxrbelk7ZaLM7H5FjdIe9VL9iLH00Gm9RPZB70zgvjupngI2HIJ
-   8WO0bw2pkLkA4gkPS4396i9oiYyD2E/rirTNq59nBN/9VYXy4wdG+pmsi
-   g==;
-X-CSE-ConnectionGUID: /4wbJlm7S2GHsXCNxkp7Ng==
-X-CSE-MsgGUID: qIHMoxitTvqGuLVkkg26/g==
-X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
-   d="scan'208";a="297491437"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 05 Nov 2026 02:40:04 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Thu, 5 Nov 2026 02:40:03 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Thu, 5 Nov 2026 02:40:01 -0700
-Date: Thu, 5 Nov 2026 10:40:01 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Paolo Abeni <pabeni@redhat.com>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Steen Hegelund <Steen.Hegelund@microchip.com>,
-	<UNGLinuxDriver@microchip.com>, <robert.marko@sartura.hr>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net-next v2 0/5] net: sparx5: add tc matchall port
- policer offload
-Message-ID: <20261105094001.dqcpzra54a2okwc6@DEN-DL-M70577>
-References: <20261102-b4-lan966x-pci-fdma-sparx5-lan969x-port-policers-v2-0-3bd47ec1b227@microchip.com>
- <679b8dcf-0aac-4674-a006-5af0156a82ae@redhat.com>
+	Thu, 05 Nov 2026 09:40:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
+	s=s201512; t=1793871649;
+	bh=eOhqa48dtTiB7ksGp6xxxSY9GgyF8VUpdic4WCjGsps=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=MFi0Itx8oaPUnsDeYVkQ3fCCa6BduDREuunWlJMAT6Xhfeb4xWK2/D22ZUzSmcWG3
+	 YvQgkfmSCOmYlbCALUQBFAPVSC/TnMVuPHmk/beeGAWQ3EuH/m/czGA3fyNaQv6Gn2
+	 t3v4D7XKYalpKfECoVRVYZyUh0cA6eJdG9kadfOc=
+Received: from LAPTOP-TKBJAGN4.localdomain ([27.38.177.45])
+	by newxmesmtplogicsvrszb51-0.qq.com (NewEsmtp) with SMTP
+	id A2805CD6; Thu, 05 Nov 2026 17:40:40 +0800
+X-QQ-mid: xmsmtpt1793871640tlh7jbj61
+Message-ID: <tencent_3D65EAC95AB758A272F0ABB30C86ECE2A205@qq.com>
+X-QQ-XMAILINFO: Npv5yIQT4nxMDZVNMNpPvnUCLCYe2yvr1BsQqzulHOgeFeXvm4sIboiwxfUQU2
+	 J/AZ3pDGmOmiAedfLd69Tfl8qBsdhhP65I8wPzQNT3VRjmbH4HR1Zz15AqF39cYJhVZbZbSOfb4z
+	 s2qZNaQsRgbtq2Ubi+HSqXkNZksmocMbsjC6x3iH+B+g5dnHYx3e39wXbWAcVl/mrBM1p215dsij
+	 Xj7PeT9ImWpD98AWR02uzXFHUHivlS9ZaEASENrr0ScoRM4eo8DkbdSNVbW7UuT0zmm9XMAIEUGq
+	 WlL5iYxx39JgAChMFgfAJozITWtRS5Et/9SE9LwncCCzL4TDSpN24amO2UT3KCkcrEcBRwkiFQaf
+	 XLToVnJ1X+uSsARK7YwM9nMumnDTp/6bpMhHEMhRpuc+XoItxa3XWdr8++8/YUcgoWJtxji65Z1P
+	 qwF17rlc45yDIwmbaRDfk9GtlCol11kzX4XEcc/dqWaZPdjudwg+E/A/0u9Dr1zPxv93e8m7jsA3
+	 /xM+m6h8CONtVNGdUssOfOnUwhBT8mTQesMdHKDoFxzx3MZOf6qnNQHQiiFe8/CiL4uM45ZvuYac
+	 OhmN/9q4oVO6JEZ4d9uLPEmTHNj8lQLBje+oOpAgsaNFj21yf0+ElgS1rNfwS1Gr8SoXHkY3THTQ
+	 5XOInxRIOjPcXxXi8CEjl3IjHAUyz04rMZQ9JgHsbDmWfzBAT4/okUvafk30VpAmXVKyaI6eR0sp
+	 8OjYd0OBHEMoPsBX4S87YIz3H995Tl3m73KeIKsDhczbCfXqa058RhxD4I1jQrW/RncYh8jzYRwB
+	 dLD0ZX78FvCg/FaOh8VVTAz1RHxRV1+yBT0h82DYgxfslIZInjM0/ECKebQ8O6Tp6ZReH8qMPx/J
+	 RaGECD6RrCVlAgG+JMdDCj6eLEmW5qvYrrRwuYDS7R9P9sucDS0uOLByn3BhPzNwBGNJA/DHVYU2
+	 yvkpoMC3zaqpBPM2zHuzc6tR/w/1xIWlWKarOY/hWKgHNSychtGMcwGDSFuc1qye0/19xC9O+njS
+	 OmwF70dpO46Rnp69ecfJGN6cBubSBZ4na6ystfH+AHvl3cgzZkvYKevfTRp1PtmiSIPe9Vis0Gsj
+	 ngKEK1yt79lcHBtZI=
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+From: Haobin Jiang <lemonoutput@foxmail.com>
+To: carlos.song@oss.nxp.com
+Cc: Frank.Li@nxp.com,
+	andi.shyti@kernel.org,
+	dillon.minfei@gmail.com,
+	festevam@gmail.com,
+	imx@lists.linux.dev,
+	kernel@pengutronix.de,
+	lemonoutput@foxmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	o.rempel@pengutronix.de,
+	s.hauer@pengutronix.de,
+	vjardin@free.fr
+Subject: Re: [PATCH v5] i2c: imx: honour I2C_M_IGNORE_NAK
+Date: Thu,  5 Nov 2026 17:39:09 +0800
+X-OQ-MSGID: <20261105093909.4983-1-lemonoutput@foxmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <93667d47-794c-45d1-b72a-a463d5289a29@oss.nxp.com>
+References: <tencent_E6D69775D91AD9FE45C994B3755CB1452506@qq.com> <93667d47-794c-45d1-b72a-a463d5289a29@oss.nxp.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <679b8dcf-0aac-4674-a006-5af0156a82ae@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_014006_341316_F9F39927 
-X-CRM114-Status: GOOD (  21.30  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261105_014056_353537_B2EF14FF 
+X-CRM114-Status: GOOD (  14.95  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,60 +96,59 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-> > This series adds offload of tc matchall filters with a police action to
-> > the ingress port policers of Sparx5 and lan969x, which are both served
-> > by the sparx5 driver.
-> > 
-> > In hardware, each ingress port has four single-rate leaky bucket
-> > policers. A policer drops the frames that exceed its rate and burst.
-> > The four policers of a port share the pass and drop statistics counters
-> > of the port.
-> > 
-> > The driver uses one policer per port, because with more than one, the
-> > statistics reported to tc could not be attributed to the right policer.
-> > This matches lan966x and ocelot. The policer meters each frame without
-> > preamble and inter-frame gap, so the configured rate is a data rate, as
-> > tc police expects and as on lan966x and ocelot.
-> > 
-> > Since the policer meters all ingress frames on the port, only filters on
-> > chain 0 with protocol all are offloaded, and filters on shared blocks
-> > are rejected. A police action that is already offloaded as a port
-> > policer on another port is rejected too, since in software it is a
-> > single bucket for all of its users. Only drop is supported as the exceed
-> > action, and the police overhead parameter is not supported.
-> > 
-> > Patch #1 drops a redundant prefix from the existing POL_UPD_INT_CFG
-> > register macros.
-> > 
-> > Patch #2 adds the registers used by the port policer.
-> > 
-> > Patch #3 tracks whether the ingress block of a port is shared, and adds
-> > the per-port policer state.
-> > 
-> > Patch #4 adds the hardware programming of the port policer.
-> > 
-> > Patch #5 adds the tc matchall offload.
-> > 
-> > Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
-> I understand the following will be very frustrating, but for unknown
-> reason AI review did not kick on this series.
-> 
-> The changes looks sane to me, and addressing points raised on v1, but
-> I think nowadays we need an explicit AI feedback.
-> 
-> Could you please re-submit the series?
-> 
-> Thanks!
-> 
-> Paolo
->
+Hi Carlos,
 
-pw-bot: cr
+> Why not follow community rule to make patch...?
+
+You are right, and thank you for taking the time to point it out.
+
+> At higher version, better commit log and put change to commit log bottom
+> with extra lines like your V3 patch[2].
+
+Agreed. When I prepared V5, I regenerated the log from the current diff
+and did not carry forward the problem description, the test evidence, or
+the review history from V2/V3/V4. That is my responsibility as the
+submitter.
+
+> I think V5 patch commit log should be better with shorter and clearer
+> problem description, reproduction, resolution, verification based on V2
+> patch[1] and V3 patch[2].
+
+I will rewrite it that way for V6. The commit log will cover the
+problem, the resolution, the reproduction/verification, and the review
+history with links to V1-V5. I will put the changelog below a single
+`---` line, like V3.
+
+> But abviously, this patch is generated by AI, and it dropped most commit
+> and discussion details from previous patches.
+
+That is a fair criticism of V5. The tool produced a shorter log; I should
+have caught that before sending. I will restore the AI-assistance note
+from V3/V4 and describe which parts were tool-assisted and how I verified
+them. I will not resend until the V6 log is self-contained and I have
+re-checked the new zero-length guard. I will state clearly what was and
+was not tested.
+
+One point I want to be explicit about: the V5 guard only rejects
+I2C_M_RD + I2C_M_IGNORE_NAK + len == 0. It does not fix the pre-existing
+unflagged zero-length read path. That scope is a deliberate choice, and
+I will document it in V6 rather than imply the general issue is fixed.
+
+> AI-generated patches should be subject to more rigorous review and
+> testing... humans must always remain in control in whole flow.
+
+Understood. I will keep the human review and test evidence in the
+changelog, and I will be the one accountable for the content.
+
+Thanks,
+Haobin
+
 
