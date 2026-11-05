@@ -2,73 +2,139 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E022606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 16:53:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C4AB606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 16:56:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=HXvZ9Ldm;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=BAVh9zjI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=V4TOaXgc;
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=bLsSRjr3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=b7ISpU/+7qBlKZbykurEDnKU9Tjfcn6jWyyuEJvG7BM=; b=HXvZ9Ldm15DTndEnpMg2fqGVPG
-	yW04K5L365XhHTM3UI6bCPwSux1j19YEFRPmmGxmqvY7/rNmFbO2DVbQGYSz4IvE6BTKnUKG0XtBk
-	jKJVuh3dj787isV0Usqe57A2YUCOLCjd1jULRM3rSbGNWZA3sPbxS7qNLSmi0yO0RK1ClxuctksCn
-	8mS2EvvCLrQ0uXsoEIqEiSQKexGb0D0evmFeOKh9ExOOg1A/nHSXoV6mBNuQ/+cD9vuXKwYTnXrZu
-	i3PMavXKI3il88CjpjUcTamCdd3MN2qTK9CkVwF08Bcaan4H3+pCOYlcURMPjGf0PcF9UGAnyzWt6
-	8dJ1WDEg==;
+	bh=ewSR+KD4DJ90iUYVLxQT0f6UAWQ/IoojYctCXpQoeDU=; b=V4TOaXgcTGuW/F4zHKb8leHazG
+	YQ3vdXJ3FCMyyN88LF/qZ3khSV/E8lh+1owZF9lKkmgRgwaJcziK1sq8JzoNmXWPuAnDvEJwb+E+E
+	e+G4yVDeUtLR3x47u4ZYfDTgu1vS6I4AocgFwRIQQcgpy6fnCA5Z2NvUPfpbkdRpcoqvYS66KtGAV
+	qhtHDfdQ22uHp1PmubcEcjAYYKsUvwcPXjyY/WjH/btXaI8JyUb5AjWj4UyYbZeDOKgaLFDmBuQzy
+	qlc6wCzAcnmJG0HDXcQyUV43Aa7QJO2yjCU989KmfEkvkC3cY/S9SzwvXw8bSIa8QhHjfGRvaw3c1
+	VUheDHeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP0iG-00000009i9F-1UJ6;
-	Thu, 05 Nov 2026 16:53:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP0i8-00000009i5j-3J2b
+	id 1xP0g6-00000009hgG-0g4R;
+	Thu, 05 Nov 2026 16:51:06 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xP0g2-00000009hey-0WX2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 16:53:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 085BC1684;
-	Thu,  5 Nov 2026 08:53:06 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C42C3F959;
-	Thu,  5 Nov 2026 08:53:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793897589; bh=gnRx29Evp9j+zyYzUItG3PWqrsWlBymUMnVTD65sH78=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BAVh9zjIIO5oxe+ePBiqhJhEVIArIw3llxlMAxg0JfAjpV4CflUXert8xbyCIoSCL
-	 bPpZa4JTnXV/iABpC3IBXWsVKvBiyhnpCbQkiGGUCjfLgTjIfyUBKlIPH9iWbixsmK
-	 dSO5v+Bw5YoZB8Ca6IsQdPhrxk2virAMnzNAbg0E=
-Date: Thu, 5 Nov 2026 16:52:58 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org,
-	sudeep.holla@kernel.org, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-	d-gole@ti.com, elif.topuz@arm.com, lukasz.luba@arm.com,
-	philip.radford@arm.com, david@kernel.org,
-	souvik.chakravarty@arm.com, leitao@kernel.org, kas@kernel.org,
-	puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v14 01/32] firmware: arm_scmi: Add new SCMIv4.0 error
- codes definitions
-Message-ID: <auy0ar-fio9m7EbV@pluto>
-References: <20261016185553.2794459-1-cristian.marussi@arm.com>
- <20261016185553.2794459-2-cristian.marussi@arm.com>
- <20261019133436.000035ae@oss.qualcomm.com>
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
+	Thu, 05 Nov 2026 16:51:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pjrUuNgfVEXr7ppbVpXBI+aSHZDnoQL+rhKNsIovoAxD5l+zPhgks2Jvix5RU3M80ga/mSUIE3f/D+SLQsak8S7QpwFq+I4HTnBCJjVN+sH2A/43OIgvfp6oelXLYvxBnhNmbVYP6bOChCS6/M0HU2Nu8rgqPpsjxMXmAd47l7xT+rqvXf1aOjn2spbcCuMLLhVuMMn9v8bqkx8zDVw/6SPGweIHEU2c1vHm0q+gGe8qyYQCdUaqHphw81ilrgnU6y1NegwKHFoJPWT7VbrobMCHOTIpJIfRODQstFfKKhQXov7KRKWzy/KmCawDl9c+VLfy6wTp+105j1rMCBheiQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ewSR+KD4DJ90iUYVLxQT0f6UAWQ/IoojYctCXpQoeDU=;
+ b=G1SptAf0QAhOSFxlng6VsHGOmsRPJcjVG+zx/4rBJjkiC2+TzXCClfOYtC59xeSidP7M25oMkrc4QsTlQP3qYVYFUb0jY822AR/fUOzrKBUW57S0OURhrzRw0Q2mfM9PAWwoBv1X2EM30f5EruN6p/QzCAlVWnZhIaQ+82zglxc3yaqQY5JrINKkS1zANTHp2C+8PvX+OPqJ1UFw8GF5tBHNhbDoP8DZ/A00hHcmP1+3SM3j3op6JTP82bVUIHQlInit6uzl2zwG5KZxehKi2joKHTM4i0tbyGSd4dfcgI4+8yCs4lXAihWNRzZqsFiBFZLdXGZ3JVF157yo0KbI0A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ewSR+KD4DJ90iUYVLxQT0f6UAWQ/IoojYctCXpQoeDU=;
+ b=bLsSRjr3ZXRDk0uejE5Y9HhYLVvnIlEtEPhZukNkh/bMPAah2hQKwMzyddzNUrcFEZLebh9rPfOQrpnPwzG81YfZ/hkcbm+98Ge1h8VWZ3K+LTDVgFWEzWm8IymvJm+QWUVndF80bcQMV16hjpWIewKeUD8DGsU7UXrMHLemyBPkEBxnqDt1bp6+Ci0g+oW5Lrxr/7h7Xy+KtqKEj8SyE11rbckOC4zUEyPq16z73t9phOJtnYGaLll7tHfkptBw9e4ys+lL3AUs3RF5M6egDwLqW2A+vogmR/9iJmDEWHepljv2U5z/JRX5LuPzZj+1itrAYIYpHMZ4PBaFQ6zYFg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by PA3PPFF84116FEE.eurprd04.prod.outlook.com (2603:10a6:108:1::b6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Thu, 5 Nov
+ 2026 16:50:57 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%6]) with mapi id 15.21.0592.007; Thu, 5 Nov 2026
+ 16:50:57 +0000
+Date: Thu, 5 Nov 2026 10:50:45 -0600
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawn.guo@linaro.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	linux-pwm@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 2/8] pwm: mxs: Return early when disabling and fix
+ error-path clock leak
+Message-ID: <auyz5R3mMF1TI0Lc@SMW015318>
+References: <20261105143847.2559586-1-lee@kernel.org>
+ <20261105143847.2559586-3-lee@kernel.org>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261019133436.000035ae@oss.qualcomm.com>
+In-Reply-To: <20261105143847.2559586-3-lee@kernel.org>
+X-ClientProxiedBy: DS1PR06CA0013.namprd06.prod.outlook.com
+ (2603:10b6:8:458::7) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
+X-Archived-By: <archiver.kernel.org>
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|PA3PPFF84116FEE:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5cb4b806-87c6-442d-22df-08df3b5cf678
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|23010399003|366016|1800799024|22082099003|18002099003|10067099003|56012099006|4143699003|11063799006|261026121527099003|261009223027099003|261021123027099003|261022075727099003|261102123227099003|261021121427099003;
+X-Microsoft-Antispam-Message-Info: aMjX5skGw1fi5F78BauTi3S+i/cgjxpe9nsUSOcORdtAZVWR/2paw6Kj7JEkoBuy63+41aKK0FKp0CA7TjsaZTH72P7D59HXljR4E35zg+FGzLiCCxpPGPBGkameeuZSmlXxG0yMKCrm1cRP3i/kAsCdlqSniHdoVV0EezgCEkdL82lcuuoV6ZSENsh8sOyXsBSNr6MdX7nDH1wP/FeJtVVgNeST+ymoaMZDxDYQdXk9Z5f0Hv6MMzwbqmbLlvNvB6MUIcU8uhxfVpjfHePfOW8H0rGNL7NQJ7JSvA2/lD3oEsx9v1oJ4StcHu4ANlTfm6t9KN6wL25A42Cv1ysKWSUpfhltpXVAgHLxOq6azqnkZ60m9+1VGICg7qMjrYYD27ZjQ13Y7mZCToeWV6wRdUDP+zr4ttRTvMfS04WovX359Upx4kZsqy4QeH5ygNwjWKUShy2OzlmyCpDwgy9c1L0No9jgO5+J1tpLIVasP70TJ+1FhwZAjikbjHvgt+WxeMJqUhaibnc4UKpYXOCtloJXVAE1hrpOL7shynSgHOkI1d9HklsXvdbIirA9a7i5+RXaguGWkrnF4BQaD5TTBjjoIZzJg27Qc2GXLoeHjGk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(23010399003)(366016)(1800799024)(22082099003)(18002099003)(10067099003)(56012099006)(4143699003)(11063799006)(261026121527099003)(261009223027099003)(261021123027099003)(261022075727099003)(261102123227099003)(261021121427099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JC+x+JqNLuaV+kAM5jYEuF0z60F/fUTGTgDE/nsNRSQuOWIIvohWA9g7FM/t?=
+ =?us-ascii?Q?2pqnHdo1DY0nBzzYlP33EyuWCGACkWt8XSyzraWp5+WVIu0jouwjo1vgLLi0?=
+ =?us-ascii?Q?paC0FdghkrfF7x8xKT10kP1NEKk3b5UEKyI+LQTZMKQcv39g66ZcNGJvhFCC?=
+ =?us-ascii?Q?HoT6pRtxXQWdKnRn0FkkZ5JnmpURrjaadivWgr0FaopkFIdFe+wOJpZpDsQ0?=
+ =?us-ascii?Q?W38SGR6vki1KDFb48JSKPvsAug2gta3Vj4kx4JLYb8InQ2RusyGs8DhMyc9A?=
+ =?us-ascii?Q?iMN/hHEPByxApC+Ra8Id77hpBXwGGgbyULiAq/Xb+Di+IvDkQwH3PHbstM/R?=
+ =?us-ascii?Q?AAJkRwuheUM1BA/Vt13meT26W+3ITlCoaw1U8AEHeb2IeJuZApj3xCEa+ZR2?=
+ =?us-ascii?Q?Z3fDtydXKL+4Y6tdC9KqRGNg3Nx+sccfFT0ygMXrXSUoRqd2jxwnE3J3nlmh?=
+ =?us-ascii?Q?TQUCeOLBAB/351n8qDQ1ItRav95D6t7m7wOIypu/L3B7RrVQWmX096luVeyR?=
+ =?us-ascii?Q?rX+LW9ABl2FF6LQ+Udbk6WZjAoDq0rDZIRVbR4Iy2x9E4jtGMPfmP2lJsYwM?=
+ =?us-ascii?Q?dYajYJRCiuOunQVziPJCnSyOX/qG8uO8Qu7Zm+XpWGvPJiNaFfyDrSEhMU9N?=
+ =?us-ascii?Q?WfHh4Kcl+vgkk9sBpkBoAw3m7sK5zUdPLDLfQSa8sh0CWQrdvBZIoaa931Y6?=
+ =?us-ascii?Q?irbIXUiQrIOvI+OPY8cesJac0G7itip9Nl8GjIo5QtOUtjZsxom6G4do7DWC?=
+ =?us-ascii?Q?ziUf6At3Jhk6SfJYiAKmfehT+TtOkPQvChNF1NWHjcWPnDWKnJPjEaxIjA9K?=
+ =?us-ascii?Q?7XD1BU6JK6ofkNM5y8mQ+8G8bLA0Ael0E2726FonetHxUjv7/twtXKxQTMk/?=
+ =?us-ascii?Q?0quTpR9PrQCDIpTMboltGKfh3DjjvpdcISrBAlNkx4e/L0qfNagOjR3sFpwj?=
+ =?us-ascii?Q?BiYBAX+FvFphgZlq8XW8ExSpWIqhaWnRyBAMDr/L9QANKzLBI/lOHVbSUCJQ?=
+ =?us-ascii?Q?rDhn1VF3o1QFne7LpKu/nWmmyCrUO+mZDgCID6XI0izWHQd3LZAo6FMI4SdQ?=
+ =?us-ascii?Q?DYG1cfYmzQfJopSbU6XJODgKljX3QLvBwc8EV28EAeiRAYo1T+LOu/A1w2qt?=
+ =?us-ascii?Q?goQ83PYJ+Q4esoh6XhJq7JK8iedP8k0KteEhzpvRWMi4LWtwD6IA3bbaijdF?=
+ =?us-ascii?Q?GIWPVsPkYoJtq5lI8SZowOROc1cNjlbEjA0deJZm41UqMcMmhR8F6l+PHpgE?=
+ =?us-ascii?Q?gPdNaO+H9yVh0Ddl2Aok8hFqlnii7eu/z29WbsnNmOL0mFRmuZk4xVaDJcDE?=
+ =?us-ascii?Q?QsXLlXbCbccivwTiIyaNA7f2dj7cN/gX7oTn4pZeJQWRlOoE4umlgQpY00oV?=
+ =?us-ascii?Q?q2YVDmcEDmpMwA31FKJpaWdM3gfyQ+vjLo+KA4rnYdX8DUM+bJNFhDnfrs4D?=
+ =?us-ascii?Q?cMC+J2AL4z+C3h+z1lyMW/9+ksnOMgPSN3nctUf1WQTSKTkKscYh32eZ4xh5?=
+ =?us-ascii?Q?2y5CP+FJBEN+rGBEcc+VmmfCYMbY2065pzIZ7rkJm17tcioc59e+VDDxNe5s?=
+ =?us-ascii?Q?BZrHYVprAXQC6kgLkXgF0iLmLUEPQ8ePi1R6RCVRterlcDZBjwXzI7nQU/tq?=
+ =?us-ascii?Q?2cbwkZ675p8DG0pA42CPVbh+A53aCZY+XjvUQoIVoygDRGTg+4GGhvGGOuEr?=
+ =?us-ascii?Q?BM5U2+xNpcw1g2mqkRp0oYfwHX2jeR18CETgZmYIk4a/d+Ub+Mi9HDdQyvg4?=
+ =?us-ascii?Q?3v/s6hW6CLKTIfUO4FrtRqK8EpieZz2GkJKrlvkKvaT0LWAnOmju?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5cb4b806-87c6-442d-22df-08df3b5cf678
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 16:50:56.9869
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: unAJSCXQgEVDe+UgFcCPKX7AMRnUBwWncSbhQGnklUW9L8+05HNslgB8JLwhztao6VzMXmbg6qlbXyd4mmiE1aHn7tUJ0Oezyfd6PlNwnwFCnCCJjRXVW8li54Ei+4jW
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PPFF84116FEE
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_085316_222159_193CEF73 
-X-CRM114-Status: GOOD (  17.74  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261105_085102_168279_0376C297 
+X-CRM114-Status: GOOD (  23.21  )
+X-Spam-Score: 0.0 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,52 +145,106 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Oct 19, 2026 at 01:34:36PM -0700, Jonathan Cameron wrote:
-> On Fri, 16 Oct 2026 19:55:22 +0100
-> Cristian Marussi <cristian.marussi@arm.com> wrote:
-> 
+On Thu, Nov 05, 2026 at 02:38:04PM +0000, Lee Jones wrote:
+> When disabling a PWM channel (!state->enabled), the PWM core permits
+> state->period to be zero.  mxs_pwm_apply() currently falls through into
+> the period and duty-cycle calculations even when !state->enabled,
+> causing do_div(c, state->period) to divide by zero when state->period is
+> zero.  In addition, if the requested period exceeds the maximum divider
+> (div >= PERIOD_CDIV_MAX) while the PWM channel is currently disabled,
+> mxs_pwm_apply() returns -EINVAL without disabling and unpreparing
+> mxs->clk.
+>
+> Handle the !state->enabled path upfront and return early, and balance
+> clk_prepare_enable() on the -EINVAL error path.
+>
+> Fixes: bf29c2ff82fd ("pwm: mxs: Implement ->apply()")
+> Closes: https://sashiko.dev/#/bug/linux-710f863f-6964-4e4f-990a-e5043dbc1a87
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lee Jones <lee@kernel.org>
+> --
 
-Hi,
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-thanks for your feedback, sorry for my generally delayed replies but I
-am drowning in Sashiko reports :P
 
-> > SCMIv4.0 introduces a couple of new possible protocol error codes: add the
-> > needed definitions and mappings to Linux error values.
-> > 
-> > Note that SCMI_PARTIAL_ERROR has to be handled specially, so it needs to be
-> > distinguishable.
-> > 
-> > Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
-> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> 
-> > ---
-> > v12 --> v13
-> >  - use EBADMSG to map SCMI_PARTIAL_ERROR
-> That's a stretch given definition but I looked back at: 
-> 
-> https://lore.kernel.org/all/arK7kLlrg491EsMf@pluto/
-> and appreciate the problem of running out of error codes..
-> 
-
-Yes indeed it is not ideal BUT I crawled back and forth through errno.h
-and I could not find anything better.
-
-> Guess it is the best we can do,
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> 
-> If you do a v15, maybe capture some reasoning in the change
-> log or the patch description itself.
-
-Yes I will...soon there will be a v15.
-
-Thanks,
-Cristian
+>  drivers/pwm/pwm-mxs.c | 32 ++++++++++++++++++--------------
+>  1 file changed, 18 insertions(+), 14 deletions(-)
+>
+> diff --git a/drivers/pwm/pwm-mxs.c b/drivers/pwm/pwm-mxs.c
+> index e1a3df6549fc..16233764fd3c 100644
+> --- a/drivers/pwm/pwm-mxs.c
+> +++ b/drivers/pwm/pwm-mxs.c
+> @@ -56,6 +56,14 @@ static int mxs_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+>  	unsigned long long c;
+>  	unsigned int pol_bits;
+>
+> +	if (!state->enabled) {
+> +		if (pwm_is_enabled(pwm)) {
+> +			writel(1 << pwm->hwpwm, mxs->base + PWM_CTRL + CLR);
+> +			clk_disable_unprepare(mxs->clk);
+> +		}
+> +		return 0;
+> +	}
+> +
+>  	/*
+>  	 * If the PWM channel is disabled, make sure to turn on the
+>  	 * clock before calling clk_get_rate() and writing to the
+> @@ -67,9 +75,6 @@ static int mxs_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+>  			return ret;
+>  	}
+>
+> -	if (!state->enabled && pwm_is_enabled(pwm))
+> -		writel(1 << pwm->hwpwm, mxs->base + PWM_CTRL + CLR);
+> -
+>  	rate = clk_get_rate(mxs->clk);
+>  	while (1) {
+>  		c = rate >> cdiv_shift[div];
+> @@ -78,8 +83,11 @@ static int mxs_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+>  		if (c < PERIOD_PERIOD_MAX)
+>  			break;
+>  		div++;
+> -		if (div >= PERIOD_CDIV_MAX)
+> +		if (div >= PERIOD_CDIV_MAX) {
+> +			if (!pwm_is_enabled(pwm))
+> +				clk_disable_unprepare(mxs->clk);
+>  			return -EINVAL;
+> +		}
+>  	}
+>
+>  	period_cycles = c;
+> @@ -101,16 +109,12 @@ static int mxs_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+>  	writel(PERIOD_PERIOD(period_cycles) | pol_bits | PERIOD_CDIV(div),
+>  	       mxs->base + PWM_PERIOD0 + pwm->hwpwm * 0x20);
+>
+> -	if (state->enabled) {
+> -		if (!pwm_is_enabled(pwm)) {
+> -			/*
+> -			 * The clock was enabled above. Just enable
+> -			 * the channel in the control register.
+> -			 */
+> -			writel(1 << pwm->hwpwm, mxs->base + PWM_CTRL + SET);
+> -		}
+> -	} else {
+> -		clk_disable_unprepare(mxs->clk);
+> +	if (!pwm_is_enabled(pwm)) {
+> +		/*
+> +		 * The clock was enabled above. Just enable
+> +		 * the channel in the control register.
+> +		 */
+> +		writel(1 << pwm->hwpwm, mxs->base + PWM_CTRL + SET);
+>  	}
+>  	return 0;
+>  }
+> Cc: Rasmus Villemoes <linux@rasmusvillemoes.dk>
+> --
+> 2.56.0.398.g882cbad275-goog
+>
+>
 
