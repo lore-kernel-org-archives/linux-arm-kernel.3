@@ -2,118 +2,113 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FC76606A337
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:18:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E6F2606A331
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:19:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=a0Fif2PM;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=XZdAXl7u
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MHXY7TJD;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pwQIZ52d
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=b6lYT8H1APh9WNrwCcJMl6ao/iPwv1nmLTApfvwqcSU=; b=a0Fif2PM8wy7h7aw5ZAzWaRkQB
-	k0fkzn0TNZaomhKYRDfFkY5r3V71eqQrC2AfQOqIE0MWgF4pDeLVRpk56Dzud2nA7Gz2PclKZ1fve
-	0vDEQGp0yZV94sRpk6OQHryKfabMqPzS4nFK4gZ8P9Qt2QJFQ1PzZNl4vcsdWwMoZLF4B3zyK83YH
-	dpYxIaZy5YvSi+9MO+ZS2GcEgHzUajYJzX11WOD0BFrxPp971OaejQ0z8g5F9kOqQffxSOtsRZRV2
-	yiFJoJIpywkwHCrv8vRJvaSpc/Q/98z1M7aX/pr3iNZCn/z9yRuQIvJiVOb1SeXwQZWfyAgdDtn3O
-	YzCSmiEQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=ndGzkCwTbGT2osVm60AE7H39WPe2NYufaCoY6UTi6Fo=; b=MHXY7TJD23+13k
+	fdjvnkYmUM8oTuQENC8pRHUnszJdFmmY3t2ZxIN8hLS1b8/3PrBETFy3Pdmf27lOWCdWomXtyOsJu
+	4bZcYJCOisnwGSiT4hlMYUKgu7iz7YWXD/DTCaRF6uFM+TuDbGhZ8HcG0xi9GM0UztTFF9TXX85Wx
+	PxPuoAJIaVi4QJ5+Q8XcIeNTUDEopmb8+0mIRue0cSVo8edjkWDH3L0tMKbolCT7+s6L3TCo+10FF
+	Yt1krboxkcjCvYH2+aszJ0Odtsa0SbU+2XQhQkuEp7jm7utMaHlfDwGbnb1DPBw2bhE42HG+76hyH
+	sj+TrIKOb2Yvp4FRJgfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtbs-00000008H26-2MdS;
-	Thu, 05 Nov 2026 09:18:16 +0000
-Received: from mail-westusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c001::5] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1xOtd1-00000008HBA-08Il;
+	Thu, 05 Nov 2026 09:19:27 +0000
+Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtbl-00000008H1M-0SQI
+	id 1xOtcy-00000008HAB-0SPY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 09:18:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zP/I5UFNM/6M9iJ/+THIy/VY6P6gsR1pCdskXZ1nYFNX+Lqym8stN6HRjAjDfRTTOWgPzAZyhkQLMRRFBVe4ip4c1hsUVRTcBN29SLljFj479qj0PApqvchplc7mSTgdt0LNWuODzZOGjZNTindDjR6K6Y3cvVmeZroM5nC5kcaeqhtIKLv2FqXZUGviB8DjHCkxy6JVIwQOfdEtqgdji8TJmAz++AM6bBnpnQTH+gc0IXDxNDconHbKjRjGlHU1YEDONiivb1Cc6yzC9FdGqCBgcOmpw+LDaouLiBTDPb4ly59gK8GnPY/+PYx9SgtElmFUeZRSAXC0oTyqwqOBDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=b6lYT8H1APh9WNrwCcJMl6ao/iPwv1nmLTApfvwqcSU=;
- b=o12Ku1tFyyjab/iefLdnWQhP7cDUBjQeUtTyUIlBhqJhGDT+Y9SREoiT2nYIMpnoCfbr7+Yn0sES8knYeYVOGBTm7bGpSl0yUlhlo0liuI1ve+bso6uHo7MNpX+i6aM1OQHcVgLcp7WoVxCgrkqmXzQt9gxtlM8LmZy6a8ysP9w6h83e0+TuSuipbF7Fud7Y4F6qqXJAliwiY8RBLjnpvEULlG1yeKnTloNajT+CHG4AMp/zmVriDutiu5gnhPxCBfpMDAmzhu4uVP22fnoc+omhG/1xOHFJuAa3pmBHGzApn6edoK4mrDSUz+pEeVUsaTNf2P4UbGV2MHY5BxGicQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=b6lYT8H1APh9WNrwCcJMl6ao/iPwv1nmLTApfvwqcSU=;
- b=XZdAXl7uVN8o1sWS5k0TI0MXz4oXqkvUrhlbqi4+/RBxCAAGSdNA0WKSySYiBawRJpeey4YL+s49v7DGua1tm1xNTMx3Ry5uI/MBlmwTbDfC5dOzChrXDCxFnmPSc+2A4Odi+qwS4QDqXc7u0y90uZi8/zBI9c7RU3eT4LT5ktepAQKxOZpFFpS+22PRx7QOUwtQygkWfzpzaGRAQdXeEaIjKviVUfEtvWsGcQaZUO2Rltz87k3gGloHV1c5HG5Yrut4O5rLwYLAdecxlP5zywPG/eo8WLZ7s6L7hayHOFTFewl1our0mILkc2rIy1I3Ao7Jh0IKjhUnWAedUOxzJg==
-Received: from PH8PR02CA0027.namprd02.prod.outlook.com (2603:10b6:510:2da::18)
- by SA3PR12MB7922.namprd12.prod.outlook.com (2603:10b6:806:314::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.569.12; Thu, 5 Nov
- 2026 09:18:01 +0000
-Received: from PH7PEPF00000008.namprd04.prod.outlook.com
- (2603:10b6:510:2da:cafe::a5) by PH8PR02CA0027.outlook.office365.com
- (2603:10b6:510:2da::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.10 via Frontend Transport; Thu, 5
- Nov 2026 09:18:01 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- PH7PEPF00000008.mail.protection.outlook.com (10.167.243.39) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Thu, 5 Nov 2026 09:18:00 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Thu, 5 Nov
- 2026 01:17:45 -0800
-Received: from [10.191.53.38] (10.126.230.37) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Thu, 5 Nov
- 2026 01:17:41 -0800
-Message-ID: <8b794465-2032-46e3-a090-07d64e0b4146@nvidia.com>
-Date: Thu, 5 Nov 2026 10:17:39 +0100
+	Thu, 05 Nov 2026 09:19:25 +0000
+Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-71528ede7b1so1211849eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 01:19:22 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1793870361; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Dafyw18bF2eOy5LRJy0MHmkIznc6DH2CN9OVkbBPMuZu+QR9Pr08rEgStnSZjOS9bp
+         HRa+ul/3v0z4x/04NzqXCPM+lYVB/OpqITz0rGQHxjNxHPptozicotWyLWqOy18fze+s
+         WpdDhjE9XGY/WcpCk/vKB/wDR2ikYYiHO5XlHAxvGXl4nJTzUDMtzkdT4OHv/WpbHXGR
+         MipeeWVxRzIbMV8/a40Zmm/Dkwqlid0Wg8uIbkvJlMdn79+/STuFp7MBiXVirFdMkHwM
+         t8r6qKJP2P2ww3+1rv4Frv/OKtM14qwTIIo+ajvWq51ab4EIT6B7d3mO74APu+piV3XC
+         q9jg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ndGzkCwTbGT2osVm60AE7H39WPe2NYufaCoY6UTi6Fo=;
+        fh=gqx0HjdMtaA7ONPAu+lE+eDvm8MwzttvJAcRLScR3aY=;
+        b=MVr29mSrXq2o1FeVwDRB8ljBIo6ePr6cMSvk7Ents+V3kW8E85cNUmioG+V+yxOOrO
+         dUBnFRJrvpfrj1pigwHmLLvmNk8JihmQ/Tv57v8ECV9EtG6G9ZMAX00Yo5ZR5+YuyCNn
+         41r4xoTexaDu95YW7/YoPW6ZQaWlkh0rlEZ+vPq5yI4fgD94+Dm7sZU69+QBNUpkCF17
+         1aZ8c5TZXayHewnxNGt2QPZFJrb/6bJ20W8JxW0y1OripmmQD2h3LIkTeVtV0K0kHxGJ
+         OUlRy9kP7oQ6K2JOJF06L1JEWVXYfqmvl2lzpKbyHs8Lm+fdUYEMOxYAWbN0T15o7G/k
+         ssiA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793870361; x=1794475161; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ndGzkCwTbGT2osVm60AE7H39WPe2NYufaCoY6UTi6Fo=;
+        b=pwQIZ52dpsn0/tT8jBld1eCa1ac18zJnTU50RWEBKykSKsQ6jxqnd0EThDGvvYNJ1Q
+         v2jHPNFYOU+2dJ/wXjWPpkbKA6u+z0Kfs3WxSy+iZC7K6D5eXhJAXu/QyTn2jj05TQsx
+         opMfp+N5+uG1N/BTUHJI2WGapYGyRdsSKCCA1aZi6QN/ChygwT/hEYkUO70RN1gKdmtS
+         ZS9ohDqKr7f/BQheTht7SzYyTuPx1zl8OOfG3w7U1ZQN4FHP2wM+2AJTTsFFD3lsh7uO
+         vjCKCqRn3H5RDI6fJl/jiiYjCQQFg8qjNDPM+ITtOXRCo/oHxhPab2nxrax5+ShzGo5T
+         Kp8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793870361; x=1794475161;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ndGzkCwTbGT2osVm60AE7H39WPe2NYufaCoY6UTi6Fo=;
+        b=K6DCGQbmS92lg4CvJiyWbSU8tZBhPd4rF0Zg6mKSt5/1AW+nt+sH8AkohN5K0uMHZG
+         WJRLfi6ce9rMBWXo91/X4NAnxZVCvZvgSJg0Qn3p/dzZGp3UAUERy99ANQcW0NmbwPQh
+         OnOYK/nUPPj3RIfbk8tGuJc+XYzVlBHw24f5WsFUy0sRTjWKp0JX05OLCdZMu/xEKYWg
+         efrcpN0T3z29FYZ0ospssk0aJvnXn4mpMcj9qDUOA6y6T5ErK3lbwiGe0+w40iOyBVKp
+         JspQS4B0K+Y2Gq7hlhXrsSqBXszw7YSaDe+37eGhsX77+frQzPYrcCe6CbW0wkncdmGF
+         dV5w==
+X-Forwarded-Encrypted: i=1; AKwUvBybk6wN0FXWKENa0rKyaYjbEiCxGprJcG3pijxYXgQSBxZ5DX7pf/2wiuJZj8uiQuymOPBJHwgyeRTqWMFVAz1A@lists.infradead.org
+X-Gm-Message-State: APuU4Z9GVdVEWvtVni80a4zNqUgXdDieMc3h1WWAqrvg0290Nr5ZBJ1Z
+	nr7CiIxwPuKQpk9rVI4+4hffDIQQc85124yLqxeRhty21TkHwrRW2zzYPA+Bzi2fH+7LpJ+KklZ
+	unieZhY1FPrsJ1ES1WL+vO3eRuQywOp0=
+X-Gm-Gg: AYBFou3sIg3O82dXd1quwsurxW4FLBR4GDF8h2ylYnO84Dyss6Tu5FncYuFsUQ1cBGE
+	KZ4zy49VOZfDT9/pG1E/EzH9OGKq+utrcEo71//YzUYNNY8jSJd9ZIrkn+NX/WNamDRBDqO63Pj
+	u7FCY9XwS0b4UPdMPW9TgtvRrpUU+ucXV/V3S1RGoWeBVdFHjDCzSA+/NzTJd3tltEI4vsjhJtg
+	HkZbRr2PgIsoVt0pdnFfP2KSYrMJ/FgD+K6acCyc6UyoeW4qTJvYLZPKgiV7bbsWdv8jW8q7JIX
+	D0P9ONgGlAgu5f7wFQk/eB/ux+bz8owVSR6aYy0CgkApLPYDrbjFpm7+UB6i0MQkgBhj/3qBYe/
+	Wct5G9K1OOWh/3M94dKtQ4UM3JPDLnnR83FdNmg==
+X-Received: by 2002:a05:6808:4f61:b0:55c:836:597e with SMTP id
+ 5614622812f47-5640dd5ca51mr14606352b6e.31.1793870361392; Thu, 05 Nov 2026
+ 01:19:21 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 RESEND 0/6] Arm Live Firmware Activation (LFA) support
-To: Andre Przywara <andre.przywara@arm.com>, Mark Rutland
-	<mark.rutland@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Sudeep
- Holla" <sudeep.holla@kernel.org>
-References: <20261102165421.3651202-1-andre.przywara@arm.com>
-Content-Language: en-US
-From: Nirmoy Das <nirmoyd@nvidia.com>
-In-Reply-To: <20261102165421.3651202-1-andre.przywara@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PEPF00000008:EE_|SA3PR12MB7922:EE_
-X-MS-Office365-Filtering-Correlation-Id: f96827d6-df82-477d-3ecd-08df3b1db06a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|7416014|376014|23010399003|1800799024|6133799003|10067099003|22082099003|18002099003|261102123227099003|13003099007|261009223027099003|261028144727099003|261022105027099003|11063799006|56012099006|261026121527099003|261026140227099003|261021121427099003|260925021311599003|261022115727099003|260925021911599003|261022075727099003|260925022911599003;
-X-Microsoft-Antispam-Message-Info: OXZeQvm71sqAZacYQ/e5WnxWESr5zfqdjS0OaXcNjaPGE6j43PgIHlq0u9iPJ5iMkSnXaMCiZbpgYaanoZNbv3rndP1Beq8s69T+fTd9xun6IvIguXM4+38qE9WkTf9KQQOySQ7lwZstd7YlBrw3hDuTiMqlkyh69TvbVtLamwenxSBW3rpD4CQErs3i8StveI8iApVILKN10VsGUFOtPKuCjQCr6BjYdt53DL+4djOxbXpRr6+DqsKYJlkrndYRlh7wNhdI3ZVJtBRz62qj4hjdZlevXpD/RUw/B4z9IEU+XDnuXxdf99wt0mX2B0IyVnJFh+IRDNMVqynmYgahetO7VJ4xJfc8EEuzT8NziiVpwlawT72TXB6EmCph5v80ibH/WGsJLJxXZkiSi85F0FOsPL/iDumN5qnuRih4UIeKNh62gQqngVHs4xMP5aZBMAQUQfxIzS/73SjJQkOsyi01a7u4iMRlD0JVNRxBQpB01H32xEt0pQBG8sW4BL9h5UtGIZnKWruJW6lP3hkRgiLeT+cbjcumhaUAXH/xcPxnw7u+XlLgfHLlK3R/SV4vP21Olpg/WSSPhBhSOGm027S3N7Y9CfH45uXhrYYv+ROsolsM54/kNiTb4obK7OVN0WhFCYm5asAPIjDZAYezyNoNQLg8/MN6KrMHxOsZouaIVyaZ5Qxw7uSH04upiq7+6JrSKhE3t8PRmDflZg8Mig==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(7416014)(376014)(23010399003)(1800799024)(6133799003)(10067099003)(22082099003)(18002099003)(261102123227099003)(13003099007)(261009223027099003)(261028144727099003)(261022105027099003)(11063799006)(56012099006)(261026121527099003)(261026140227099003)(261021121427099003)(260925021311599003)(261022115727099003)(260925021911599003)(261022075727099003)(260925022911599003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 8nSyLyd8NHqhwsCtVTeFHTGfIZNeVXMv+n6KcnR/Bd+v69na9e9Z/owL6i7+Ps7j//7XJHxu/6pMf/Nvjv+1LkIWoz3bYGTI+EIUv3BnDPxPAjH57bdwBDH0x3kp7BRwKPxBX1Iu37to+MgwdYVYFwosO5t0+tKQ3AGdXczhwxnzVDZXN2Hn48+dYpc+0HimozU04+k3PLbLD7NGP/c7G1cQ7fKjZuYEOXiFSH6iTJLWHtCPx7DAm299iKmInMQ1CROEsQwT7HLS/gg1JNaGyBrCSNR9lyUQBY9vO/DBzPPuqRFN6eDD6JhcFNh4wmgyg63N0CHQkcnEfQUXdbhkrUhBeg7aW1tc6PeDfarWPOI00MNs7xbQB6Xrrzo4kPC3qytaVIKg2WwjsvFzez2KED3FONsuS0LeGDnXOVvA9AWukwomBmRXRQKCVMW6I6yn
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 09:18:00.9067
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f96827d6-df82-477d-3ecd-08df3b1db06a
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: PH7PEPF00000008.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7922
+References: <20260930111813.52396-1-chou.cosmo@gmail.com>
+In-Reply-To: <20260930111813.52396-1-chou.cosmo@gmail.com>
+From: Cosmo Chou <chou.cosmo@gmail.com>
+Date: Thu, 5 Nov 2026 17:18:45 +0800
+X-Gm-Features: AclHuK81XJ96pBCTYU7-hDy4yf8gIUQ_g9ciWuO0heyn1wGR422e790m2Wvg4ZU
+Message-ID: <CAOeEDyuRboYqBUOtLke=X0F66_A8NCHanc2iXt91duLRFGSU9A@mail.gmail.com>
+Subject: Re: [PATCH v3 0/4] ARM: dts: aspeed: bletchley: Cleanups and second
+ source devices
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au, 
+	andrew@codeconstruct.com.au
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	cosmo.chou@quantatw.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_011809_510551_E375F4D1 
-X-CRM114-Status: GOOD (  42.26  )
+X-CRM114-CacheID: sfid-20261105_011924_157627_3B0C48E8 
+X-CRM114-Status: GOOD (  12.01  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,234 +119,49 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Conor
- Dooley <conor+dt@kernel.org>, vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, Rob
- Herring <robh@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+X-Spam-Status: No, score=-7.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+Hi Andrew,
 
-On 02.11.26 17:54, Andre Przywara wrote:
-> Hi all,
->
-> -------------------------
-> a resend of the v5 series posted two weeks ago, where our mailserver
-> swallowed one email. Just used the opportunity to rebase on v7.4-rc1,
-> so dropping the two extra patches I prepended to the post back then
-> (already merged). No changes to the patches themselves compared to the
-> other v5 post.
-> -------------------------
->
-> v5 is a decent overhaul of the series for the "Live Firmware Activation"
-> kernel support, based on feedback from Mark and Sudeep. Two patches have
-> been squashed into the main feature patch, the name attribute has been
-> removed, and documentation (hopefully) improved. Other than that quite
-> some smaller changes, renames and reworks, hopefully for the better.
->
-> For a high level overview of LFA see the rest of this commit message and
-> the commit message of the main feature patch (2/6). Some simplified
-> overview of the spec is in the top comment in patch 2/6. Also the sysfs
-> ABI documentation in the last patch contains some more information.
->
-> Based on v7.4-rc1. Changelog below.
-> ====================================
->
-> This series implements the kernel side support of the Arm Live
-> Firmware Activation (LFA) specification [2]. LFA enables the activation
-> of updated firmware components without requiring a system reboot,
-> reducing downtime and allowing quicker deployment of critical bug fixes
-> in environments such as data centers and hyperscale systems.
-> It requires explicit firmware support, both via an agent running in EL3
-> (for instance in TF-A, already merged), but also in the firmware
-> component to be activated. TF-RMM recently merged support for this.
->
-> Unlike the usual firmware update process (which may use tools like
-> fwupd), LFA focuses solely on the activation of an already updated
-> firmware component, called "pending activation" in LFA lingo. This works
-> by signalling the LFA agent (part of the EL3 runtime firmware) via an
-> SMC call, which then does the heavy lifting of the live update, in
-> cooperation with the to-be-updated firmware component.
->
-> Key features of the driver:
-> * Detects LFA support in system firmware (EL3).
-> * Lists all firmware components that support live activation, identified
->    by their UUID.
-> * Exposes component attributes (e.g., activation capability, and
->    activation pending) via sysfs under /sys/firmware/lfa/<UUID>/.
-> * Provides interfaces to:
->    - Trigger activation of an updated firmware component.
->    - Cancel an ongoing activation if required.
-> A more detailed list of features can be found in patch 2/6.
-> Based on v7.4-rc1.
->
-> This work is conceptually similar to Intel’s Platform Firmware Runtime
-> Update and telemetry (PFRUT) [3] and TDX module updates [4], but
-> targets Arm platforms. The driver has been used to successfully activate
-> a Realm Management Monitor (RMM) firmware image in a controlled test
-> environment. RMM is analogous to Intel’s TDX module.
->
-> There is effort on similar work from the OCP [5]. Future work may
-> include integration with utilities like fwupd to automatically select
-> the appropriate driver, based on platform architecture, for Live/Runtime
-> firmware updates.
->
-> Please have a look, test and comment!
+Gentle ping on this v3 series.
 
-Hi Andre,
+Thanks,
+Cosmo
 
-Tested on our hardware with my 3/6 probe fix applied. Automatic 
-activation via the ACPI notification worked.
-
-Our internal AI reviewer flagged a number of issues, which Sashiko will 
-probably flag as well. Sashiko has shown this series as
-"In Review" since Nov 2, while series posted around it were reviewed. Do 
-you know whether it is still working on it, or does the series
-need a resend to get reviewed?
-
-https://sashiko.dev/#/patchset/20261102165421.3651202-1-andre.przywara%40arm.com 
-
-
-
-Regards,
-
-Nirmoy
-
+On Wed, Sep 30, 2026 at 7:19=E2=80=AFPM Cosmo Chou <chou.cosmo@gmail.com> w=
+rote:
 >
-> Best regards,
-> Salman and Andre
->
-> Changes in v5:
-> - merge the timeout and the lock patch into original feature patch
-> - drop "name" attribute altogether
-> - rename firmware "image" to "component" everywhere
-> - add explanation of LFA concepts in top comment
-> - use switch/case for error strings and error mapping
-> - define error codes with negative numbers
-> - rename SMCCC register variable to from "reg" to "regs"
-> - don't open code bit masking
-> - use only one SMCCC register set where possible
-> - rewrite retry:/goto into do/while() loop
-> - make example IRQ to be edge triggered
-> - update activation_pending in pending_version_show()
-> - check SMCCC version to be v1.2 or higher
-> - check all SMCCC functions are implemented
-> - remove blank lines before return statements
-> - use UUID instead of GUID everywhere
-> - improve comments
-> - filter for ACPI notification 0x80 only
-> - update ABI doc to use "component", not "image"
-> - add activation_pending attribute
-> - fix IRQ/ACPI registration error handling
-> - add comments documenting lock requirements
-> - print LFA error number when printing error strings
-> - explicitly free IRQ in remove() routine
-> - reorder functions to avoid early empty prototype
-> - adjust SMCCC function ID names to match spec
-> - copy list of activatable images to avoid infinite loop
-> - update pending status when showing pending_version
-> - cast error returns to s64
-> - replace "N/A" error return with empty string
->
-> Changes in v4:
-> - streamline threaded IRQ handler (drop empty hard IRQ part)
-> - add lfa_to_linux_error() conversion function
-> - use Linux errno codes in more functions
-> - drop bogus LFA error numbers for -EAGAIN and -EBUSY
-> - clarify interrupt purpose and edge trigger requirement in binding
-> - honour signal related return from msleep_interruptible()
-> - call clean_fw_images_tree() first in driver teardown
-> - streamline ACPI and DT registration
-> - cache rendezvous status to avoid race during activation
-> - only trigger activation when writing 1/Y/true to sysfs file
-> - adapt to new version of Aneesh's SMCCC bus patches ([1])
+> This series resolves dt-check-style warnings, sorts I2C nodes,
+> and adds second-source RTC/LED support for the Bletchley.
 >
 > Changes in v3:
-> - change node name in DT binding example
-> - move SMCCC function identifiers into generic SMCCC header
-> - rework to use the new SMCCC bus instead of a using a faux device
-> - add missing workqueue cleanup in probe() routine
-> - squash former patch v2 3/8 into base patch
-> - use get_image_name() more consistently
-> - also consider -LFA_BUSY return in activate call
+> - memory@80000000: keep "device_type" first, per dts-coding-style.rst.
+> - Link to v2: https://lore.kernel.org/all/20260729114312.3947300-1-chou.c=
+osmo@gmail.com/
 >
 > Changes in v2:
-> - restrict build to arm64 (the LFA spec only supports AArch64)
-> - rename and extend central data structure to fw_image
-> - use separate GPR register sets for some SMC calls
-> - provide wrapper for error messages to prevent out-of-bound access
-> - return GUID in the "name" sysfs file when image is unknown
-> - fix wrong attribute in pending version number show function
-> - add missing include files and order them properly
-> - fix memory leaks in error cleanup paths
-> - handle lifetime using embedded kobjects and a kset
-> - drop global lfa_lock, use kset list lock and kobject refcount instead
-> - add DT binding documentation
-> - add timeout and watchdog re-arming (contributed by Veda)
-> - relax timeout period and do not block while waiting
-> - register ACPI notification (contributed by Veda) and DT interrupt
-> - refactor ACPI notification code to allow sharing with DT code
-> - use faux device instead of platform driver
-> - add auto_activate file to control automatic activation
-> - introduce rwsem mutex to prevent using stale sequence ID
-> - use labels and goto instead of infinite loop when retrying activation
-> - initialise workqueue only once (thanks to Nirmoy)
-> - various cleanups on reported messages and code formatting
-> - rebase on top of v7.0-rc1
+> - Added patches to sort I2C nodes and fix DTS coding style issues.
+> - Carried over the second-source RTC and LED patches from v1.
+> - Link to v1: https://lore.kernel.org/all/20260714120816.1504058-1-chou.c=
+osmo@gmail.com/
 >
-> Changes in v1:
-> - Updated SMCCC version 1.1 to 1.2 per the LFA specification requirement.
-> - Changed "image_props" array to a linked list to support the dynamic
->    removal and addition of firmware images.
-> - Added code to refresh firmware images following a successful activation.
-> - Added a work_queue to handle the removal of firmware image attribute
->    from it's respective kobject "_store" handle.
-> - Refactored prime and activate into separate functions.
-> - Kernel config for LFA now defaults to "y" i.e. included by default.
-> - Added individual kernel attribute files removal when removing the
->    respective kobjects using kobject_put().
-> - mutex_lock added to activate_fw_image() and prime_fw_image() calls.
-> - Renamed create_fw_inventory to update_fw_image_node.
-> - Renamed create_fw_images_tree to update_fw_images_tree.
-> - Added two more attributes due to specs update from bet0 to bet1:
->    current_version: For retrieval of the current firmware's version info.
->    pending_version: For retrieval of the pending firmware's version info.
-> - Minor changes such as, improved firmware image names, and code comments.
-> - do...while loops refactored to for(;;) loops.
+> Cosmo Chou (4):
+>   ARM: dts: aspeed: bletchley: Sort i2c device nodes by address
+>   ARM: dts: aspeed: bletchley: Fix style warnings
+>   ARM: dts: aspeed: bletchley: Add second source PCA9532 LED controllers
+>   ARM: dts: aspeed: bletchley: Add second source ISL1208 RTC
 >
-> [1] https://lore.kernel.org/linux-arm-kernel/20260914060511.277948-1-aneesh.kumar@kernel.org/
-> [2] https://developer.arm.com/documentation/den0147/latest/
-> [3] https://lore.kernel.org/all/cover.1631025237.git.yu.c.chen@intel.com/
-> [4] https://lore.kernel.org/all/20250523095322.88774-1-chao.gao@intel.com/
-> [5] https://www.opencompute.org/documents/hyperscale-cpu-impactless-firmware-updates-requirements-specification-v0-7-9-29-2025-pdf
+>  .../aspeed/aspeed-bmc-facebook-bletchley.dts  | 1315 +++++++++++------
+>  1 file changed, 902 insertions(+), 413 deletions(-)
 >
-> Andre Przywara (4):
->    dt-bindings: arm: Add Live Firmware Activation
->    firmware: smccc: lfa: Add auto_activate sysfs file
->    firmware: smccc: lfa: Register DT interrupt
->    firmware: smccc: lfa: add sysfs ABI documentation
->
-> Salman Nabi (1):
->    firmware: smccc: Add support for Live Firmware Activation (LFA)
->
-> Vedashree Vidwans (1):
->    firmware: smccc: lfa: Register ACPI notification
->
->   Documentation/ABI/testing/sysfs-firmware-lfa  |  106 ++
->   .../devicetree/bindings/arm/arm,lfa.yaml      |   50 +
->   drivers/firmware/smccc/Kconfig                |   10 +
->   drivers/firmware/smccc/Makefile               |    1 +
->   drivers/firmware/smccc/lfa_fw.c               | 1057 +++++++++++++++++
->   drivers/firmware/smccc/smccc.c                |    5 +
->   include/linux/arm-smccc.h                     |   15 +
->   7 files changed, 1244 insertions(+)
->   create mode 100644 Documentation/ABI/testing/sysfs-firmware-lfa
->   create mode 100644 Documentation/devicetree/bindings/arm/arm,lfa.yaml
->   create mode 100644 drivers/firmware/smccc/lfa_fw.c
+> --
+> 2.43.0
 >
 
