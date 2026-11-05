@@ -2,53 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4ACC2606F97F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E331606F97C
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 15:55:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BFNdVcSa;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=LQsqjdLL
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Xgg3F+Cj;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=O68YjoBw;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=Zt2iw1oW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=V8t12PM41qE6N0UG7txMe0AIGzNF1VgRYdq6fo7sYxE=; b=BFNdVcSa2p+uJ2
-	9p5JDv4FHrgNCnx3Q6xsgEfq2AgbdGfbR6I5YInibC+NWvstmjKuXs89w8pgiRGdh8xiPiiYaHA0G
-	V/dqGAJkb/0LKbIbMpYNhNmzNOPcsnmORHIfo1TjOs+4FYcEKsNBrfcjHxUdZ2NJ9hwS4egaf/s5o
-	9VA2sQLtNr7vM0lCqtyppbJe/52DSbfGnV4F7HY7zd84rYbN/3hQJZXr6EBMoG3X0qRY4snSkTgW1
-	oYp1K/kkshjgs7Oy8LaU2V3adP0jhb6nVQtvJgHw/JFPcB4Icqo/31QEAMC0zXC+AgP2PvzWZd5zk
-	2n+xVjOF2JsCbOginpuQ==;
+	List-Owner; bh=6/fwN93QKXlrtEMORZyL36eAUclAA0jiIqQ2lFOaVlU=; b=Xgg3F+Cj02mo+F
+	Q3rHbxl8mKDHBrRYpb+XnW4KuGd5c1JZE6qKZdpVIBuSv++lb0jqVVKWgf6tXj2M6Wy0zBxleeONv
+	kIPXNAGvfmau2cS6vOz9wnMxZwgoJCghlM9P8cCdxvBR5KQoxGuFwnJMu/S1lS1uj0P8yxbF+x1iI
+	/wk9GcKKgEFopS8EsN6hupSky2QI0eWPzP/zSaqeeyTT3RFvZj+2joPagBcnVX4UzR/uhGi9sSW2t
+	k99rTyvANfdhW4fe/JSg6nUATa3tghQDUusqmGBxnTCwnfE0QDhtDVSrXMoUHxtdOONT5XyB2XYFb
+	xx7jrqGm4S+Rv7n9Wstg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOznw-00000009Tfp-0L4K;
-	Thu, 05 Nov 2026 15:55:08 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1xOznx-00000009Thh-0aix;
+	Thu, 05 Nov 2026 15:55:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOznH-00000009THf-2YhC;
-	Thu, 05 Nov 2026 15:54:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1793893997; cv=none; 
+	id 1xOznZ-00000009TP8-19Ov;
+	Thu, 05 Nov 2026 15:54:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=6/fwN93QKXlrtEMORZyL36eAUclAA0jiIqQ2lFOaVlU=; b=O68YjoBw0pLWai9QyuMFAHcWzV
+	ryLz0dMLGBqC8MShoD9e7gvlPk8isv/wQH2Mj0PQFTQRpapN0jU6VcV+MhUiPtD61PgAat3dODYQ/
+	WdK3blsB6LHc6PNrnWzZYHwaKv5K6n6gl5+AMALMyMcH6NhhWVYL4XeXK9uQ2pV4tZJfLq2f9mMBD
+	iGupHFo/rUO8IcvvHaiWH09rdG+i8HBq/l/eCCsH62Tv63FkD9P0mpPUxcMBrebNR0fgtB81inRxn
+	bPfLsBGpgu1az4Xt55MF+eQMerwSLt7yicVorNUGj/3hV1jxJzNtm1jooevWhA6TKphc4KvXhgZJh
+	MSUQWq+w==;
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOznW-00000003CX2-2FI5;
+	Thu, 05 Nov 2026 15:54:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1793894029; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=XJieeeqpjbwGPg/ZncAQlSiJa5BakgVBSVtN48HC+RXXEhj/lrMV7tkoAjjTPpZ3nR4cv6JbOBCQybj3EYiACalGlpmG0j+bMSwOIkRUW1aEV9jqyCJC216YLppD9FfZZiQF26Bb6m8YQFy5JVvJYSb0+DG26uJQ8HB01heZuK4=
+	b=H02ZAr5Vw9Gs31CTvx+lICyFIHdpMWyn56zfo1ZbTp7MeBADqoWSOs6ixHiX/sSnD62iZCVlC4TjfnteMCo+TCy2DaFkpzf4rkEQEtAI4PK/7mK0w7txf5Pdf/0YiY/GPZXa3hXfSeBPwHCB8hYa1vRB54VgyujhAYrINnMP1x4=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1793893997; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=V8t12PM41qE6N0UG7txMe0AIGzNF1VgRYdq6fo7sYxE=; 
-	b=Jb6ao9UffGRio5LbBN5zSFpaqkO/JBpUn6c5VhsZ++0Wcsu/6lKmqrT0zE/8C0vZ4k2jrW9HeNBnCRqPl0jP7Q2MDfqbOnQ4qiUvqUv64EFtEeQGBfXK/xLxc6+/uj8EDVNU1TPJdsvd1mNw7/SJ81YsTP6EmMq+102xZ/38fr0=
+	t=1793894029; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=6/fwN93QKXlrtEMORZyL36eAUclAA0jiIqQ2lFOaVlU=; 
+	b=dOwreIY/6IBxG4H2bL47N85ulMTOCgF9SbugYezL1iJsbP4uYRU4uVtFxjxztPXO8WY3koFNer3iToHObO5yjl8NIQEtsbxuq7ydJ/Tf9ATFcYFR9PhvMNtjbGwuLOCc6mUvWDgdS4ccEHU9t4qGWf5B6eeCFBjedfuE+vUwk84=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=LQsqjdLLLAYaTVElvIHyk6zk3CZoSN935Zwc//GRVsRjwWpwY6MoPe7GlKw11qQaSktgexFqMnIAoF5DyTI31O6du3gQ59ueMD4uVQ5WtmgYOjbDP52/CtvaCAz9B6Z7w+hAzv9oCzCfJPmPzsk+7GNW2LdtyAnh8THj7yj6F+0=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=V8t12PM41qE6N0UG7txMe0AIGzNF1VgRYdq6fo7sYxE=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1793893996571563.8882394295355;
-	Thu, 5 Nov 2026 07:53:16 -0800 (PST)
+DKIM-Signature: a=rsa-sha256; b=Zt2iw1oWLewd89zpH9+Ru/LuCDkqphfaszhoj0X6axcHoAWm9w9rzkjx2LXUNK8BMstv8INg2EZoLYvPS3UCz3nzr4SBSfIhhaj9bjGXkyFVSCmnQ2yzNVW1z1Vzf067eFDUfFDuzAiM1FZ1g6wwFwsC1uGliaLYyzycvto+82k=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=6/fwN93QKXlrtEMORZyL36eAUclAA0jiIqQ2lFOaVlU=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1793894028283757.3938461427174;
+	Thu, 5 Nov 2026 07:53:48 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Thu, 05 Nov 2026 16:51:58 +0100
-Subject: [PATCH v2 07/27] drm/bridge: synopsys: Add VTEM EMP support
+Date: Thu, 05 Nov 2026 16:52:03 +0100
+Subject: [PATCH v2 12/27] drm/rockchip: dw_hdmi_qp: Add VRR support
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-vrr-limiter-uapi-v2-7-55f4215be2c2@collabora.com>
+Message-Id: <20261105-vrr-limiter-uapi-v2-12-55f4215be2c2@collabora.com>
 References: <20261105-vrr-limiter-uapi-v2-0-55f4215be2c2@collabora.com>
 In-Reply-To: <20261105-vrr-limiter-uapi-v2-0-55f4215be2c2@collabora.com>
 To: Xaver Hugl <xaver.hugl@gmail.com>, Vidith Madhu <vmadhu@nvidia.com>, 
@@ -74,9 +89,9 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_075429_414227_3191ED6E 
-X-CRM114-Status: GOOD (  13.95  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261105_155442_762787_0813EEDC 
+X-CRM114-Status: GOOD (  16.07  )
+X-Spam-Score: -0.2 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,110 +109,94 @@ X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Derek Foreman <derek.foreman@collabora.com>
+Register the vrr_capable property on the connector for RK3588, where VRR
+is implemented, as well as the other VRR connector properties.
 
-Add code to pack and schedule VTEM EMPs.
+In the encoder's atomic_check callback, the vrr_capable property, if
+present, is then set to true if the sink supports VRR. The display limit
+properties are also updated accordingly there, using the helper.
 
-Signed-off-by: Derek Foreman <derek.foreman@collabora.com>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 50 +++++++++++++++++++++++++++-
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h |  1 +
- 2 files changed, 50 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 30 ++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-index b268c9376087..8b3f586dc177 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-@@ -689,6 +689,15 @@ static int dw_hdmi_qp_bridge_clear_spd_infoframe(struct drm_bridge *bridge)
- 	return 0;
- }
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+index f2a1ea8dfefa..dcde50bca36b 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+@@ -89,6 +89,9 @@
+ #define RK_COLOR_FMT_YUV444		0x2
+ #define RK_COLOR_FMT_YUV420		0x3
  
-+static int dw_hdmi_qp_bridge_clear_vtem_emp(struct drm_bridge *bridge)
-+{
-+	struct dw_hdmi_qp *hdmi = bridge->driver_private;
++#define RK_VRR_DISPLAY_MODES		(BIT(VRR_DISPLAY_MODE_GAME) | \
++					 BIT(VRR_DISPLAY_MODE_OFF))
 +
-+	dw_hdmi_qp_mod(hdmi, 0, PKTSCHED_EMP_VTEM_TX_EN, PKTSCHED_PKT_EN);
-+
-+	return 0;
-+}
-+
- static int dw_hdmi_qp_bridge_clear_audio_infoframe(struct drm_bridge *bridge)
+ struct rockchip_hdmi_qp {
+ 	struct device *dev;
+ 	struct regmap *regmap;
+@@ -195,6 +198,7 @@ dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
+ 					 struct drm_crtc_state *crtc_state,
+ 					 struct drm_connector_state *conn_state)
  {
- 	struct dw_hdmi_qp *hdmi = bridge->driver_private;
-@@ -791,6 +800,42 @@ static int dw_hdmi_qp_bridge_write_spd_infoframe(struct drm_bridge *bridge,
- 	return 0;
- }
++	struct drm_connector *connector = conn_state->connector;
+ 	struct rockchip_crtc_state *s = to_rockchip_crtc_state(crtc_state);
+ 	struct rockchip_hdmi_qp *hdmi = to_rockchip_hdmi_qp(encoder);
+ 	union phy_configure_opts phy_cfg = {};
+@@ -205,6 +209,12 @@ dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
+ 	if (ingest_fmt < 0)
+ 		return -EINVAL;
  
-+static int dw_hdmi_qp_bridge_write_vtem_emp(struct drm_bridge *bridge,
-+					    const u8 *buffer, size_t len)
-+{
-+	struct dw_hdmi_qp *hdmi = bridge->driver_private;
-+	u32 val, i;
-+
-+	if (len != HDMI_INFOFRAME_SIZE(VTEM)) {
-+		dev_err(hdmi->dev, "unsupported vtem emp packet size of %zu\n", len);
-+		return -EINVAL;
++	if (connector->vrr_capable_property) {
++		drm_connector_set_vrr_capable_property(connector,
++			drm_display_info_is_vrr_capable(&connector->display_info));
++		drm_connector_hdmi_update_vrr_limits(connector, &crtc_state->mode);
 +	}
 +
-+	val = buffer[1] << 8 | buffer[2] << 16;
-+	dw_hdmi_qp_write(hdmi, val, PKT_EMP_VTEM_CONTENTS0);
+ 	if (hdmi->tmds_char_rate == conn_state->hdmi.tmds_char_rate &&
+ 	    s->output_bpc == conn_state->hdmi.output_bpc &&
+ 	    s->bus_format == ingest_fmt)
+@@ -552,6 +562,7 @@ struct rockchip_hdmi_qp_cfg {
+ 	unsigned int port_ids[MAX_HDMI_PORT_NUM];
+ 	const struct rockchip_hdmi_qp_ctrl_ops *ctrl_ops;
+ 	const struct dw_hdmi_qp_phy_ops *phy_ops;
++	bool supports_vrr;
+ };
+ 
+ static const struct rockchip_hdmi_qp_cfg rk3576_hdmi_cfg = {
+@@ -571,6 +582,7 @@ static const struct rockchip_hdmi_qp_cfg rk3588_hdmi_cfg = {
+ 	},
+ 	.ctrl_ops = &rk3588_hdmi_ctrl_ops,
+ 	.phy_ops = &rk3588_hdmi_phy_ops,
++	.supports_vrr = true,
+ };
+ 
+ static const struct of_device_id dw_hdmi_qp_rockchip_dt_ids[] = {
+@@ -729,6 +741,24 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+ 		return dev_err_probe(dev, PTR_ERR(connector),
+ 				     "Failed to init bridge connector\n");
+ 
++	if (cfg->supports_vrr) {
++		ret = drm_connector_attach_vrr_capable_property(connector);
++		if (ret)
++			return dev_err_probe(hdmi->dev, ret,
++					     "Failed to attach 'vrr_capable' property\n");
 +
-+	val = buffer[3] | buffer[4] << 8;
-+	dw_hdmi_qp_write(hdmi, val, PKT_EMP_VTEM_CONTENTS1);
++		ret = drm_connector_attach_vrr_display_mode_property(connector,
++								     RK_VRR_DISPLAY_MODES);
++		if (ret)
++			return dev_err_probe(hdmi->dev, ret,
++					     "Failed to attach 'vrr_display_mode' property\n");
 +
-+	val = buffer[8] << 8 | buffer[9] << 16 | buffer[10] << 24;
-+	dw_hdmi_qp_write(hdmi, val, PKT_EMP_VTEM_CONTENTS2);
++		ret = drm_connector_attach_vrr_display_limits_properties(connector);
++		if (ret)
++			return dev_err_probe(hdmi->dev, ret,
++					     "Failed to attach VRR display limits properties\n");
++	}
 +
-+	val = buffer[11] | buffer[12] << 8 | buffer[13] << 16;
-+	dw_hdmi_qp_write(hdmi, val, PKT_EMP_VTEM_CONTENTS3);
-+
-+	/*
-+	 * The remaining registers need to explicitly be rewritten even if they
-+	 * stay at 0, as per the hardware documentation.
-+	 */
-+	for (i = PKT_EMP_VTEM_CONTENTS4; i <= PKT_EMP_VTEM_CONTENTS7; i += 4)
-+		dw_hdmi_qp_write(hdmi, 0, i);
-+
-+	dw_hdmi_qp_mod(hdmi, PKTSCHED_EMP_VTEM_TX_EN, PKTSCHED_EMP_VTEM_TX_EN,
-+			PKTSCHED_PKT_EN);
-+
-+	return 0;
-+}
-+
- static int dw_hdmi_qp_bridge_write_audio_infoframe(struct drm_bridge *bridge,
- 						   const u8 *buffer, size_t len)
- {
-@@ -1035,6 +1080,8 @@ static const struct drm_bridge_funcs dw_hdmi_qp_bridge_funcs = {
- 	.hdmi_write_hdr_drm_infoframe = dw_hdmi_qp_bridge_write_hdr_drm_infoframe,
- 	.hdmi_clear_spd_infoframe = dw_hdmi_qp_bridge_clear_spd_infoframe,
- 	.hdmi_write_spd_infoframe = dw_hdmi_qp_bridge_write_spd_infoframe,
-+	.hdmi_clear_vtem_emp = dw_hdmi_qp_bridge_clear_vtem_emp,
-+	.hdmi_write_vtem_emp = dw_hdmi_qp_bridge_write_vtem_emp,
- 	.hdmi_clear_audio_infoframe = dw_hdmi_qp_bridge_clear_audio_infoframe,
- 	.hdmi_write_audio_infoframe = dw_hdmi_qp_bridge_write_audio_infoframe,
- 	.hdmi_audio_startup = dw_hdmi_qp_audio_enable,
-@@ -1154,7 +1201,8 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
- 			   DRM_BRIDGE_OP_HDMI |
- 			   DRM_BRIDGE_OP_HDMI_AUDIO |
- 			   DRM_BRIDGE_OP_HDMI_HDR_DRM_INFOFRAME |
--			   DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME;
-+			   DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME |
-+			   DRM_BRIDGE_OP_HDMI_VTEM_EMP;
- 	hdmi->bridge.of_node = pdev->dev.of_node;
- 	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
- 	hdmi->bridge.vendor = "Synopsys";
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h
-index c07847e8d7dd..6ce87064a267 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.h
-@@ -210,6 +210,7 @@
- #define PKTSCHED_AVI_TX_EN				BIT(13)
- #define PKTSCHED_VSI_TX_EN				BIT(12)
- #define PKTSCHED_EMP_CVTEM_TX_EN			BIT(10)
-+#define PKTSCHED_EMP_VTEM_TX_EN				BIT(9)
- #define PKTSCHED_AMD_TX_EN				BIT(8)
- #define PKTSCHED_GCP_TX_EN				BIT(3)
- #define PKTSCHED_AUDS_TX_EN				BIT(2)
+ 	platform_set_drvdata(pdev, hdmi);
+ 
+ 	return 0;
 
 -- 
 2.56.0
