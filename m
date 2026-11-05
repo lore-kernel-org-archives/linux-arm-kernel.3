@@ -2,103 +2,108 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 278C0606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 10:54:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AA6E6082BF7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 10:55:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BaE0JEsA;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=NcjEQpYM
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=X8JJ3JN3;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DkX6gtMg
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=8U+WQmu8jFLJh5cbm79ZPqM5GeKacWcEkDyhOz912oU=; b=BaE0JEsAOmVHlX
-	5QVJCrkct+XoAhTql3YcjZUkX0MwfFfuXr8zdk5T7NVcuX3d9GiqSd8NouVAkHWT8r8I1f0DvX7++
-	AwVcvVeCvu37B2/f2CYZgzL6k7Wx/rH1dVHC3vYHfnmWei+5tKJMyAxykotUDpdI/ewC6UyCkgett
-	a12sp7aYifKcO9plD9zUwEW1awYDfqV5EWVwkK5GHGgDG9AkswzYln66B4ifFy9Z1glbOOjWP1y0t
-	UuQEhT8J7a74HWu+XTnV34pBNwjUN3hRjtDYZrgQiCuEJSDmDkOkYFPDlvFxdcnl9IRIl2KuG1seM
-	99prFbfv+Z4mP8rOvw7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=S3kBGMpJUDqyGZZ/3EY9QtmjH3XQ/06sMAWybkANdok=; b=X8JJ3JN3708/BdyzBq8NtHZpCP
+	L8TqVbUE0/e9KtBaT1RAj+pycEzmFp9n2VU9Vtc5JIChLKT2HF06OqTyfGVsN0Qw/WPZ2KNNRrROu
+	lD0bIfWYk2s+qFRBMx+cR/2rYvUWQffQ7Lp2vaV3sXfEV2plk9waEKkcyhgFREvm5hgkfSPyzal4y
+	LFjmNmKCS5F1EyMp7l8JAJz8jPbJvYkQ6nVmVLmpOkdXplu9JhsuiUCvMkA85AwgK2szdNrC7U2O8
+	1Ny8eeBRmwM72tcWbCW1dd41C1eFDLh2TenTJz4A0lnYKHewmIJbndDv8krxo3aUDYomlM5xL4u7h
+	mKPMw00w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOv6r-00000008VKj-3Ddh;
-	Thu, 05 Nov 2026 10:54:21 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1xOv7j-00000008Ve8-1LT1;
+	Thu, 05 Nov 2026 10:55:15 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOv6o-00000008VJe-1402;
-	Thu, 05 Nov 2026 10:54:20 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261105105412euoutp0221de3a5b7a4048d78194fc0f7afe1c16~lIMP-HPlY3044430444euoutp02C;
-	Thu,  5 Nov 2026 10:54:12 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261105105412euoutp0221de3a5b7a4048d78194fc0f7afe1c16~lIMP-HPlY3044430444euoutp02C
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1793876052;
-	bh=8U+WQmu8jFLJh5cbm79ZPqM5GeKacWcEkDyhOz912oU=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=NcjEQpYMRbxhXBgzKnZDjzO9LLwfDGOaaIfPmI2qnt8v3BjyjGfN95aIsbRJ5WcAe
-	 pMYGKFT8Id4k/8Q0czZ/74nGUvslfN7Kw9FJOU7LmEuNez+Hz47vdPfnIMzS747B6m
-	 sW7Jr++9LwO+aS1wGDZxc4S00WHnS1MZnDI6ngsg=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261105105412eucas1p171b6bde174fb0b6700cc78deee9d7edf~lIMPucvWX2329723297eucas1p12;
-	Thu,  5 Nov 2026 10:54:12 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261105105410eusmtip15133e9a84efd244fc2a8fcab25cfa49a~lIMOGw1ty2761527615eusmtip1a;
-	Thu,  5 Nov 2026 10:54:10 +0000 (GMT)
-Message-ID: <204d333a-6f09-4498-b776-b2daee8d94b8@samsung.com>
-Date: Thu, 5 Nov 2026 11:54:10 +0100
+	id 1xOv7f-00000008VbZ-0WB0
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Nov 2026 10:55:13 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4a2153c8525so11185855e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 02:55:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793876109; x=1794480909; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=S3kBGMpJUDqyGZZ/3EY9QtmjH3XQ/06sMAWybkANdok=;
+        b=DkX6gtMgpNIp/xB3jP0BL+xquD1tWJ6bZuaXQLzzeLZCuYn/s037JmxoHM1tZLgelG
+         7bZ72jdOmSVYV/R7t0CvOEjmgXg9dmT+wFki99FMjpiNztYW6ReloLEPrDEI4oaJwqr/
+         7pxx/WHcikyVt5JWu1eUhnLFgUxva4Xo7HAWJAEfH/R94wAsYo0Oofx2Uig5fUZ/x6xA
+         IzeTpEyaEU5f0LMCkLDfv2ASlrM8Dx4v+M/P9/wbhwckcuy3+OwDeAOahefT51ZGYncZ
+         hK40CEkTxSytluBB55yMk5EgmPl8kqYd7bzlVXz1P0oS+cB6cSMDdz3cPCUMW7X7ihZV
+         KiqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793876109; x=1794480909;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=S3kBGMpJUDqyGZZ/3EY9QtmjH3XQ/06sMAWybkANdok=;
+        b=BL0KuAvdT6iy1qA7beYhHWSmBOM3V4d6x1jSOb1/RIUBOYBD96xBYaZYOK6Nc7hIM+
+         t1/macgFYvFuA6pL4R/vF1Ue1b49OyChbQk+xDVRKAF0z/HANJZinoAn9wfSa31jpdvQ
+         mFRMOmhnEXO8QVw+xHwJ11X6yxHv60HdAaCBid7p6ZSnGdT80FvakYqasf41GJsSMDgN
+         d4YtPZUiOAHhcb00KIrcwr3emCA74gRLxyLomjf9/WNh9E3qiAfkhjBd5PGzUJy2hFrV
+         f4KUOrCFv2W/UXmAYBbc7aB3b3uvVDWKr0aumjERVXqO0kf6qvaZXIOfYSww5M3NeIUN
+         xu9g==
+X-Forwarded-Encrypted: i=1; AKwUvBwuEDx95V0ZoCI3GkqktwgbtHttjDiYLPX7V/G1a7E2whOSFku2B0EJEDs+3OzRzXw9IyNEJA+PlSLMD2BtFSzH@lists.infradead.org
+X-Gm-Message-State: APuU4Z/gXNvUmjn2cL9u3zZSOQRLm4xJ2duvXWH+bNcqqR4V0LUP3g6Q
+	9LQ5zJiEjk+R96afKuGjKE/huQWUPmdwMifDQJI/vkdZr6v9oqV89Rgz
+X-Gm-Gg: AYBFou3LnC+M+DR7sPpeRz3A97iBw8DknpoPGALbwv4I+ReMRh3NNupOh5s/Rev07Fh
+	SK3ujxrZlaIVh8Zt807TwdhE0ilH2PzL0H+gln2p1gByXrhk5mLlaPJwlDMzjmcilXGPKcQQ32c
+	99KPAjsVpMYjqE3oTLJB0kG3tqdetyTJk4dL4eics+5xb8F51nYWtVM1o7UmztVMsHSgkIowTt8
+	g2B5PpWafdbuh50dkZKKtI+Guqjlgc08PuXzDobM5rGK4Ya2xYQpZCxVHhRf4r55S1gwdtKRjXB
+	y46YNXKqBV7W18phS5d/DHmNgFO0k9uSYHab4fho50PiUWbN9VMFf35Ej+ZsUYBCubxQgfHUdM6
+	Ow3YC4IHNYF5xANc2uZdhJq93sAbryPJORfGooFWUza6ABCUiSMsGgDRnDYRiAedUOcZzdRz+yP
+	5ztrUn19IvzEgtevSASf8NjS0Iycb0FJJzL+Y0v4S8Ygbwz8G17S9rYWbr8Xfa0jxrn24+z3Plw
+	O7ZQ1TrMQRpWN5I/1wNdJfOuGBjVnkEyumc3C0a4Brau1+RvJIpJhvZOnCx6vCLfKJGBbMLxQR/
+	yDPcRKBzw9N1rto9etNP8OdN6171+MpN4AZXViYdNcesE/JrLX/Vw7KYDxaVxK8plc8dR8nLBEw
+	oNNXnnv7IBwkwwc8Omg7EVCUA
+X-Received: by 2002:a05:600c:5397:b0:4a4:7a8d:c736 with SMTP id 5b1f17b1804b1-4ac16acfceamr398713475e9.9.1793876108729;
+        Thu, 05 Nov 2026 02:55:08 -0800 (PST)
+Received: from Ansuel-XPS24.lan (93-34-90-148.ip49.fastwebnet.it. [93.34.90.148])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4b57317cb8esm59576355e9.13.2026.11.05.02.55.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Nov 2026 02:55:08 -0800 (PST)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Qingfang Deng <dqfext@gmail.com>,
+	SkyLake Huang <SkyLake.Huang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Joris Vaisvila <joey@tinyisr.com>,
+	Ahmed Naseef <naseefkm@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net-next v5 0/6] net: phy: mediatek: calibration for AN7581/3
+Date: Thu,  5 Nov 2026 11:54:56 +0100
+Message-ID: <20261105105504.1024-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 02/18] drm/bridge: inno-hdmi: Don't dereference a
- NULL drm_device on hotplug
-To: Heiko Stuebner <heiko@sntech.de>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
-	Kozlowski <krzk+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>,
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart
-	<Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, Jernej
-	Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
-	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, Hal Feng
-	<hal.feng@starfivetech.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
-	<alex@ghiti.fr>, Dominique Belhachemi <db@domibel.de>, Andy Yan
-	<andyshrk@163.com>, David Airlie <airlied@gmail.com>, Simona Vetter
-	<simona@ffwll.ch>, Yakir Yang <kuankuan.y@gmail.com>, Dmitry Baryshkov
-	<dmitry.baryshkov@oss.qualcomm.com>, Conor Dooley <conor@kernel.org>,
-	William Qiu <william.qiu@starfivetech.com>, Xingyu Wu
-	<xingyu.wu@starfivetech.com>, Sandy Huang <hjc@rock-chips.com>, Manivannan
-	Sadhasivam <mani@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
-	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
-	<maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, Icenowy
-	Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Joshua Peisach <jpeisach@ubuntu.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
-	<u.kleine-koenig@baylibre.com>
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <2261991.3Lj2Plt8kZ@phil>
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261105105412eucas1p171b6bde174fb0b6700cc78deee9d7edf
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261030174510eucas1p2f85c6d82738ce34b17bdcab27f914ac1
-X-EPHeader: CA
-X-CMS-RootMailID: 20261030174510eucas1p2f85c6d82738ce34b17bdcab27f914ac1
-References: <20261029-jh7110-clean-send-v6-0-759594e43acf@samsung.com>
-	<20261029-jh7110-clean-send-v6-2-759594e43acf@samsung.com>
-	<1844578.vCJZsxu672@phil>
-	<CGME20261030174510eucas1p2f85c6d82738ce34b17bdcab27f914ac1@eucas1p2.samsung.com>
-	<2261991.3Lj2Plt8kZ@phil>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_025418_928788_243A1D27 
-X-CRM114-Status: GOOD (  18.13  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261105_025511_175231_14059EAA 
+X-CRM114-Status: GOOD (  17.62  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,89 +114,91 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+This small series adds calibration support for Airoha AN7581 and
+AN7583 integrated PHYs.
 
+The calibration logic is quite big so I decided to split
+the driver from the mediatek one to keep things organized.
 
-On 10/30/26 18:44, Heiko Stuebner wrote:
-> Am Freitag, 30. Oktober 2026, 18:43:47 Mitteleuropäische Normalzeit schrieb Heiko Stuebner:
->> Am Donnerstag, 29. Oktober 2026, 08:53:36 Mitteleuropäische Normalzeit schrieb Michal Wilczynski:
->>> inno_hdmi_irq() passes hdmi->bridge.dev to drm_helper_hpd_irq_event(),
->>> which dereferences it in its first statement:
->>>
->>> 	if (!dev->mode_config.poll_enabled)
->>>
->>> bridge.dev is assigned only by drm_bridge_attach(), but inno_hdmi_bind()
->>> unmutes the hotplug interrupt in inno_hdmi_init_hw() and installs the
->>> handler well before it attaches the bridge:
->>>
->>> 	inno_hdmi_init_hw(hdmi);		/* unmutes hotplug */
->>> 	devm_request_threaded_irq(...);		/* handler goes live */
->>> 	...
->>> 	hdmi->bridge.ddc = inno_hdmi_i2c_adapter(hdmi);
->>> 	devm_drm_bridge_add(dev, &hdmi->bridge);
->>> 	drm_bridge_attach(...);			/* bridge.dev set here */
->>>
->>> The bridge is allocated by devm_drm_bridge_alloc(), which kzalloc()s it,
->>> so bridge.dev is NULL for all of that window, and a hotplug event
->>> arriving in it enters drm_helper_hpd_irq_event(NULL).
->>>
->>> Before the conversion to a bridge the ordering was safe:
->>> inno_hdmi_register() called drmm_connector_hdmi_init(), which set
->>> connector.dev, before the interrupt was requested.
->>>
->>> Drop hotplug events that arrive before the bridge is attached.
->>>
->>> Fixes: 969325a2597e ("drm/rockchip: inno-hdmi: Convert to drm bridge")
->>> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
->>> ---
->>>  drivers/gpu/drm/bridge/inno-hdmi.c | 8 +++++++-
->>>  1 file changed, 7 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/inno-hdmi.c
->>> index d7c33b92e2ddf4ced84d17304463f44be52270b8..d29832249b942dec84fb9d07a0b21ee751fc0486 100644
->>> --- a/drivers/gpu/drm/bridge/inno-hdmi.c
->>> +++ b/drivers/gpu/drm/bridge/inno-hdmi.c
->>> @@ -929,7 +929,13 @@ static irqreturn_t inno_hdmi_irq(int irq, void *dev_id)
->>>  {
->>>  	struct inno_hdmi *hdmi = dev_id;
->>>  
->>> -	drm_helper_hpd_irq_event(hdmi->bridge.dev);
->>> +	/*
->>> +	 * The interrupt is requested before the bridge is attached, and
->>> +	 * bridge.dev is only set by drm_bridge_attach(). Drop hotplug events
->>> +	 * that arrive before then rather than dereference a NULL drm_device.
->>> +	 */
-> 
-> nit: I don't think that huge comment is necessary for that
+Minor change were needed and just additional symbol to use what
+is common between mediatek and airoha PHYs.
 
-Thanks, I'll trim the comment in v7
+I followed the naming pattern of mtk by calling the new source
+airoha-ge-soc and related config.
 
-> 
-> 
->>> +	if (hdmi->bridge.dev)
->>> +		drm_helper_hpd_irq_event(hdmi->bridge.dev);
->>
->> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
->>
->> Most other callers of drm_helper_hpd_irq_event() also do exactly this.
->>
->>
->> Heiko
->>
-> 
-> 
-> 
-> 
-> 
+The calibration use lots of static table and software calibration
+at runtime instead of using efuse to calibrate.
 
-Best regards,
+There is one pecularity where some register and calibration needs
+to be done on port0 first and then with the related port.
+
+This is O.K. as port0 presence is mandatory for the functionality
+of the integrated switch and it's assumed to be always present
+on the MDIO bus.
+
+MAINTAINERS is updated to reflect the changed code.
+
+(this was tested from a long time and also verified by Airoha for
+correct order of calibration)
+
+Changes v5:
+- Add review tag
+- Add additional helper for phy package
+- Use __phy_package helper instead of phydev_p0
+- Better use lock and unlock for phy package
+- Configure base address for the phy package
+
+Changes v4:
+- Fix typo in Kconfig
+- Prevent out-of-bounds for zcal_ctrl
+- Protect concurrent rext_sw_calib_done
+- Validate port 0 presence for calibration
+- Correctly set shared local variable
+- Use phy_package_init_once for shared tables
+- Better handle early exit restore
+- Better handle phy_select_page
+
+Changes v3:
+- Address comments from sashiko bot
+- Apply review and suggested changes from Airoha
+- Rebase on top of net-next
+
+Changes v2:
+- Split header register patch from cal_cycle part
+- Fix missing EXPORT_SYMBOL_GPL
+
+Christian Marangi (6):
+  net: phy: mediatek: export __mtk_tr_write
+  net: phy: mediatek: move MTK GE SoC registers define to dedicated
+    header
+  net: phy: add additional helper for PHY package
+  net: phy: mediatek: split Airoha code to dedicated source
+  net: phy: mediatek: add calibration logic for AN7581
+  net: phy: mediatek: add calibration logic for AN7583
+
+ MAINTAINERS                              |    9 +
+ drivers/net/phy/mediatek/Kconfig         |   18 +-
+ drivers/net/phy/mediatek/Makefile        |    1 +
+ drivers/net/phy/mediatek/airoha-ge-soc.c | 1917 ++++++++++++++++++++++
+ drivers/net/phy/mediatek/mtk-ge-soc.c    |  521 +-----
+ drivers/net/phy/mediatek/mtk-ge-soc.h    |  374 +++++
+ drivers/net/phy/mediatek/mtk-phy-lib.c   |   77 +-
+ drivers/net/phy/mediatek/mtk.h           |   15 +
+ drivers/net/phy/phy_package.c            |   57 +
+ drivers/net/phy/phylib.h                 |   73 +
+ 10 files changed, 2537 insertions(+), 525 deletions(-)
+ create mode 100644 drivers/net/phy/mediatek/airoha-ge-soc.c
+ create mode 100644 drivers/net/phy/mediatek/mtk-ge-soc.h
+
 -- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+2.55.0
+
 
