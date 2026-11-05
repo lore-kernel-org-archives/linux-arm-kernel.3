@@ -2,96 +2,78 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A6AD606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 16:49:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AE98606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 16:50:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=wF+UzkvY;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=VwV15fMv;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=kNFf4Jve
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=oFeRVkRB;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=WbSTd5yT
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=C0aS4ABkPbhuqu+qMaAJ+u8qN6YqBGjhUxOYchfDmW4=; b=wF+UzkvYV9qN4w
-	9nJK+F85U0zlQO+eKpAhKdrURJsqso1S9WEyAlqECgnWr0OVHNOsnztULwMiVtG8qFmvHLeJbxl3Q
-	hgcMNWrIOLX2C2pRgF/SWbXH8Yu7LLAfrmvqlgPn3hW2oxyPOVCZA1LHNATLZHvAj3WW1molJg7Ru
-	aYa1sZbi2vfXVUKPVdz0MPvj63izbSyeOMtEfe1pYqN8VbmSLPi4Uh1qkVs56bPghtt5qU6yFknMH
-	fe3IsaBrZ5GLGr9pj3HqWdXKzNAN0D3Qq237l/lieOyR2HqN/8vnoE2nKnGusWWQMD1AfoXNtuKeQ
-	tmxOe9ejtMNtBOtz1YKw==;
+	List-Owner; bh=bnhkiMQgKoBcevjL3lDyt/7tu4k+aU/usctlsx52gYc=; b=oFeRVkRBJz3e0G
+	tPvvtWZkJ649GzR3/MLeOIxRhlrZB1jQcP4X4vh+126SBRiNtbECQjSvAbcITE7g6D61MGJtKS1t/
+	9UgrKRd3sEF0wwiKrd7Dct6YnPy2YzBDZUlalWrILx980QJZK+Gaix5gYIzXORIpT1mMsEcL4Lulp
+	VkMtiI3TKWFwzrDanQKcpOL/Mu6MVKD1mJ4kZSieyjQug+PaXutfmLLpbSVrlf/5NlJit3OkTAQRv
+	PJfTEjx2NvBGaHdLZkKiF1PnzMs+lMIxU3XtfqES0u8KUVjkXz/HlOIQYzJbIiyZB96yKeGIL/3ga
+	ktF+n9eJrGtj/gwec25g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOzrI-00000009VW2-1FmA;
-	Thu, 05 Nov 2026 15:58:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOzoi-00000009UKh-2IKP;
-	Thu, 05 Nov 2026 15:56:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=C0aS4ABkPbhuqu+qMaAJ+u8qN6YqBGjhUxOYchfDmW4=; b=VwV15fMvVu1jieGufphO6883t7
-	BlhLNjaZrfwvYUsJ0c9lpio7vRa27i+XMtDZUSYFOUYRYE5uH/ZpCPYwrvKSQ4FvTOEpAoqef700V
-	j4VCXswyq4/n/q0E62WxVkp1yVc5PTCEAWsHCVm5wr9pv1/JNIXz87NCeGbZvC7GT3gypFWRDmcit
-	GgxQ6PdXIrsSA4QC3JMTNOLDsWZUDJ0Yb+kSJe6Bldd32b++3OmIwp6g4h/6+V2stv/kD5rF3Dnd0
-	mCwdzw2XwyN0OHgVbY8fkiASp77q4qNTJUn9foSZ1Bgi426cVHof0mP8u6dCUkyKzNOcHfFEXvSht
-	jdtUy5ZQ==;
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOzoe-00000003Cmx-1BOq;
-	Thu, 05 Nov 2026 15:55:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1793894105; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=blwQwjuN+2jCNxaYpwKtm1HUQGlR8yK3ADfGESk98lxCl4k9r22e65uyBFMxZSXICSMNhZ22OojsslvrDfsqFmZQLsBhF2OW9KHizqUj9CtpVl+VJlOgjNOtpc1ua+ZSEw+KKxVm2F10+6rkXsGlOwjtvm+VhZ5frdymXV/D6ic=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1793894105; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=C0aS4ABkPbhuqu+qMaAJ+u8qN6YqBGjhUxOYchfDmW4=; 
-	b=DlQPBY4ainRlg2pip6p/M1HAmAGjSX8VbsEMnKPW4PzEiBNHwN6IqtbPNTReAXrFI3uPyKrb8khC2kTc8ZSlxFBlg37Y2b4+8l2j3WRUEkbjXeObTz9XZ4QaiiDLmjZI3Sm4RLO4PLGe9m4SFNNzZ1EM/uMUHjoiSOtnPywQkfM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=kNFf4Jvegty0fsYXyDp5wZq1SmRkhPR76ZkfLLBrc5FRZ2wN8iscwuOrJ0/74crPBuuPMrT4LWBBYAnooLWAP2CMv/TMBcssz0D/qxgrN4JywdxeycK8TcABRdX6pDans55yCZhqf0XOrstlF82eM0axZoGiOLZioWMV0DlqkgM=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=C0aS4ABkPbhuqu+qMaAJ+u8qN6YqBGjhUxOYchfDmW4=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1793894103804241.77014082804453;
-	Thu, 5 Nov 2026 07:55:03 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Thu, 05 Nov 2026 16:52:15 +0100
-Subject: [PATCH v2 24/27] drm/tests: hdmi: Add Quick Media Switching tests
+	id 1xP0fA-00000009hVJ-2YTB;
+	Thu, 05 Nov 2026 16:50:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xP0f3-00000009hUD-3M1p
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Nov 2026 16:50:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B5C8C1682;
+	Thu,  5 Nov 2026 08:49:57 -0800 (PST)
+Received: from [10.0.128.250] (e122027.cambridge.arm.com [10.0.128.250])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E7AB3F632;
+	Thu,  5 Nov 2026 08:49:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793897400; bh=B7sdCE0FL01Nwo4nHRQePFyUNDfvN2vdiE6ATBsLM9o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WbSTd5yTxR9Dy7rvQIrfkn2me2Z3rdvbUgvkwJGBnQg26rUQL6+U5r1u1Bs1CIH9O
+	 8Gu9wGlwVbrTmnPFEttM2th5Ng84iPx/ruUscbYLdVvmeJfZF6a/C77fSZtUZ0FJG9
+	 UEMv3FmuL8Cw+6+4YjjHJiwue0pX8FOU7S+NneeY=
+Message-ID: <0d8b56d9-2eb2-41b3-adc5-6457f1eafe0e@arm.com>
+Date: Thu, 5 Nov 2026 16:49:47 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-vrr-limiter-uapi-v2-24-55f4215be2c2@collabora.com>
-References: <20261105-vrr-limiter-uapi-v2-0-55f4215be2c2@collabora.com>
-In-Reply-To: <20261105-vrr-limiter-uapi-v2-0-55f4215be2c2@collabora.com>
-To: Xaver Hugl <xaver.hugl@gmail.com>, Vidith Madhu <vmadhu@nvidia.com>, 
- "Borah, Chaitanya Kumar" <chaitanya.kumar.borah@intel.com>, 
- Leo Li <sunpeng.li@amd.com>, Harry Wentland <harry.wentland@amd.com>, 
- Fangzhi Zuo <Jerry.Zuo@amd.com>, Daniel Stone <daniels@collabora.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Helge Deller <deller@gmx.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andyshrk@163.com>, 
- =?utf-8?q?Michel_D=C3=A4nzer?= <michel.daenzer@mailbox.org>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-fbdev@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
- Derek Foreman <derek.foreman@collabora.com>, 
- wayland-devel@lists.freedesktop.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.15.2
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 08/11] KVM: arm64: CCA: Add Realm RTT mapping and
+ invalidation helpers
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+References: <20261102141304.126883-1-steven.price@arm.com>
+ <20261102141304.126883-9-steven.price@arm.com>
+ <1c2f2596-4b55-4fa1-a215-8c1099d4c1a2@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <1c2f2596-4b55-4fa1-a215-8c1099d4c1a2@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_155552_742227_13EEAF5B 
-X-CRM114-Status: GOOD (  16.54  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20261105_085003_139544_E14BB793 
+X-CRM114-Status: GOOD (  37.83  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,931 +84,511 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add KUnit tests to validate the HDMI Quick Media Switching (QMS)
-functionality in the HDMI state helpers.
+On 04/11/2026 18:59, Suzuki K Poulose wrote:
+> Hi Steven
+> 
+> On 02/11/2026 14:12, Steven Price wrote:
+>> Add the RMI RTT creation and unmap helpers needed by CCA Realm stage-2
+>> memory operations. REC exit handling and guest requested RIPAS changes
+>> follow in the vCPU series.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>>   arch/arm64/include/asm/kvm_rmi.h |  14 ++
+>>   arch/arm64/kvm/rmi.c             | 346 +++++++++++++++++++++++++++++++
+>>   2 files changed, 360 insertions(+)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/
+>> asm/kvm_rmi.h
+>> index 58d825e40bdf..72a9449f00d7 100644
+>> --- a/arch/arm64/include/asm/kvm_rmi.h
+>> +++ b/arch/arm64/include/asm/kvm_rmi.h
+>> @@ -81,6 +81,20 @@ int kvm_init_realm(struct kvm *kvm);
+>>   void kvm_destroy_realm(struct kvm *kvm);
+>>   int kvm_realm_teardown_stage2(struct kvm *kvm);
+>>   +enum kvm_gfn_range_filter;
+>> +
+>> +void kvm_realm_unmap_range_filter(struct kvm *kvm,
+>> +                  unsigned long ipa,
+>> +                  unsigned long size,
+>> +                  bool may_block,
+>> +                  enum kvm_gfn_range_filter attr_filter);
+>> +
+>> +void kvm_realm_unmap_range(struct kvm *kvm,
+>> +               unsigned long ipa,
+>> +               unsigned long size,
+>> +               bool unmap_private,
+>> +               bool may_block);
+> 
+> This can be removed now in favor of the one above ?
 
-This includes tests to validate that the QMS TFR min and QMS TFR max
-flags are respected.
+Indeed it seems all usage of it has gone - thanks for spotting.
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 574 ++++++++++++++++++++-
- drivers/gpu/drm/tests/drm_kunit_edid.c             | 280 ++++++++++
- drivers/gpu/drm/tests/drm_kunit_edid.h             |   2 +
- 3 files changed, 855 insertions(+), 1 deletion(-)
+>> +
+>>   static inline bool kvm_realm_is_private_address(struct realm *realm,
+>>                           unsigned long addr)
+>>   {
+>> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+>> index f190143b33ba..1066f767f85d 100644
+>> --- a/arch/arm64/kvm/rmi.c
+>> +++ b/arch/arm64/kvm/rmi.c
+>> @@ -34,6 +34,83 @@ static int get_start_level(struct realm *realm)
+>>       return 4 - stage2_pgtable_levels(realm->ia_bits);
+>>   }
+>>   +static int find_map_level(struct realm *realm,
+>> +              unsigned long start,
+>> +              unsigned long end)
+>> +{
+>> +    int level = KVM_PGTABLE_LAST_LEVEL;
+>> +
+>> +    while (level > get_start_level(realm)) {
+>> +        unsigned long map_size = rmi_rtt_level_mapsize(level - 1);
+>> +
+>> +        if (!IS_ALIGNED(start, map_size) ||
+>> +            (start + map_size) > end)
+>> +            break;
+>> +
+>> +        level--;
+>> +    }
+>> +
+>> +    return level;
+>> +}
+>> +
+>> +static unsigned long rmi_range_entry_size(int rmi_size)
+> 
+> I am wondering if we should move rmi_addr_block_size_to_bytes() from
+> drivers/firmware/arm_rmm/rmi.c to include/linux/arm-rmi-cmds.h and
+> allow the consumers to deal with the address range entries.
 
-diff --git a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
-index 4d9bcab57778..4c7e563ca51d 100644
---- a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
-+++ b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
-@@ -303,8 +303,10 @@ __connector_hdmi_init(struct kunit *test,
- 
- 	ret = drm_connector_attach_vrr_display_mode_property(conn,
- 							     BIT(VRR_DISPLAY_MODE_GAME) |
--							     BIT(VRR_DISPLAY_MODE_OFF));
-+							     BIT(VRR_DISPLAY_MODE_OFF) |
-+							     BIT(VRR_DISPLAY_MODE_MEDIA));
- 	KUNIT_ASSERT_EQ(test, ret, 0);
-+	conn->hdmi.qms_supported = true;
- 
- 	drm_mode_config_reset(drm);
- 
-@@ -4054,6 +4056,568 @@ static void drm_test_check_hdmi_vrr_constrained_rate(struct kunit *test)
- 			preferred->crtc_vtotal * mode_refresh / 40);
- }
- 
-+/*
-+ * Check that on a QMS-capable sink, an atomic commit with VRR display mode
-+ * set to "Media" succeeds, and produces the right connector state values.
-+ */
-+static void drm_test_check_hdmi_vrr_qms(struct kunit *test)
-+{
-+	struct drm_atomic_helper_connector_hdmi_priv *priv;
-+	struct drm_connector_state *conn_state;
-+	struct drm_modeset_acquire_ctx ctx;
-+	struct drm_display_mode *preferred;
-+	struct drm_crtc_state *crtc_state;
-+	struct drm_atomic_commit *state;
-+	struct drm_connector *conn;
-+	int ret;
-+
-+	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
-+				BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
-+				8,
-+				&dummy_connector_hdmi_funcs,
-+				test_edid_hdmi_vrr_qms);
-+	KUNIT_ASSERT_NOT_NULL(test, priv);
-+
-+	conn = &priv->connector;
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.is_hdmi);
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.hdmi.vrr_cap.supported);
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.hdmi.vrr_cap.qms_capable);
-+	KUNIT_ASSERT_TRUE(test, conn->hdmi.qms_supported);
-+
-+	preferred = find_preferred_mode(conn);
-+	KUNIT_ASSERT_NOT_NULL(test, preferred);
-+
-+	guard(modeset_lock)(&ctx);
-+
-+	allocate_state_for_vrr_test(test, priv, &ctx, preferred, &state);
-+
-+retry:
-+	prepare_state_for_vrr_test(test, priv, &ctx, state, &crtc_state);
-+
-+	crtc_state->vrr_enabled = true;
-+	crtc_state->vrr_state.vrr_min_n = 48000;
-+	crtc_state->vrr_state.vrr_min_d = 1001;
-+	/* Equivalent fraction, as an added hurdle */
-+	crtc_state->vrr_state.vrr_max_n = 48000 * 2;
-+	crtc_state->vrr_state.vrr_max_d = 1001 * 2;
-+
-+	conn_state = drm_atomic_get_connector_state(state, conn);
-+	if (PTR_ERR(conn_state) == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry;
-+	}
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
-+
-+	conn_state->vrr_display_mode = VRR_DISPLAY_MODE_MEDIA;
-+
-+	ret = drm_atomic_commit(state);
-+	if (ret == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry;
-+	}
-+	KUNIT_EXPECT_EQ(test, ret, 0);
-+
-+	conn_state = drm_atomic_get_new_connector_state(state, conn);
-+	KUNIT_ASSERT_NOT_NULL(test, conn_state);
-+
-+	KUNIT_EXPECT_EQ(test, conn_state->hdmi.qms_tfr_byte, 6);
-+}
-+
-+/*
-+ * Check that on a QMS-capable sink, an atomic commit with VRR display mode
-+ * set to "Media" fails if the requested target rate is not supported by QMS.
-+ */
-+static void drm_test_check_hdmi_vrr_qms_fail(struct kunit *test)
-+{
-+	struct drm_atomic_helper_connector_hdmi_priv *priv;
-+	struct drm_connector_state *conn_state;
-+	struct drm_modeset_acquire_ctx ctx;
-+	struct drm_display_mode *preferred;
-+	struct drm_crtc_state *crtc_state;
-+	struct drm_atomic_commit *state;
-+	struct drm_connector *conn;
-+	int ret;
-+
-+	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
-+				BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
-+				8,
-+				&dummy_connector_hdmi_funcs,
-+				test_edid_hdmi_vrr_qms);
-+	KUNIT_ASSERT_NOT_NULL(test, priv);
-+
-+	conn = &priv->connector;
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.is_hdmi);
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.hdmi.vrr_cap.supported);
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.hdmi.vrr_cap.qms_capable);
-+	KUNIT_ASSERT_TRUE(test, conn->hdmi.qms_supported);
-+
-+	preferred = find_preferred_mode(conn);
-+	KUNIT_ASSERT_NOT_NULL(test, preferred);
-+
-+	guard(modeset_lock)(&ctx);
-+
-+	allocate_state_for_vrr_test(test, priv, &ctx, preferred, &state);
-+
-+retry:
-+	prepare_state_for_vrr_test(test, priv, &ctx, state, &crtc_state);
-+
-+	crtc_state->vrr_enabled = true;
-+	crtc_state->vrr_state.vrr_min_n = 67;
-+	crtc_state->vrr_state.vrr_min_d = 1;
-+	crtc_state->vrr_state.vrr_max_n = 67;
-+	crtc_state->vrr_state.vrr_max_d = 1;
-+
-+	conn_state = drm_atomic_get_connector_state(state, conn);
-+	if (PTR_ERR(conn_state) == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry;
-+	}
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
-+
-+	conn_state->vrr_display_mode = VRR_DISPLAY_MODE_MEDIA;
-+
-+	ret = drm_atomic_commit(state);
-+	if (ret == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry;
-+	}
-+	KUNIT_EXPECT_LT(test, ret, 0);
-+}
-+
-+/*
-+ * Check that on a QMS-capable sink, an atomic commit with the VRR display mode
-+ * set to "Media" fails if the requested target rate is not a fixed rate.
-+ */
-+static void drm_test_check_hdmi_vrr_qms_nonfixed_fail(struct kunit *test)
-+{
-+	struct drm_atomic_helper_connector_hdmi_priv *priv;
-+	struct drm_connector_state *conn_state;
-+	struct drm_modeset_acquire_ctx ctx;
-+	struct drm_display_mode *preferred;
-+	struct drm_crtc_state *crtc_state;
-+	struct drm_atomic_commit *state;
-+	struct drm_connector *conn;
-+	int ret;
-+
-+	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
-+				BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
-+				8,
-+				&dummy_connector_hdmi_funcs,
-+				test_edid_hdmi_vrr_qms);
-+	KUNIT_ASSERT_NOT_NULL(test, priv);
-+
-+	conn = &priv->connector;
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.is_hdmi);
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.hdmi.vrr_cap.supported);
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.hdmi.vrr_cap.qms_capable);
-+	KUNIT_ASSERT_TRUE(test, conn->hdmi.qms_supported);
-+
-+	preferred = find_preferred_mode(conn);
-+	KUNIT_ASSERT_NOT_NULL(test, preferred);
-+
-+	guard(modeset_lock)(&ctx);
-+
-+	allocate_state_for_vrr_test(test, priv, &ctx, preferred, &state);
-+
-+retry:
-+	prepare_state_for_vrr_test(test, priv, &ctx, state, &crtc_state);
-+
-+	crtc_state->vrr_enabled = true;
-+	crtc_state->vrr_state.vrr_min_n = 30;
-+	crtc_state->vrr_state.vrr_min_d = 1;
-+	crtc_state->vrr_state.vrr_max_n = 60;
-+	crtc_state->vrr_state.vrr_max_d = 1;
-+
-+	conn_state = drm_atomic_get_connector_state(state, conn);
-+	if (PTR_ERR(conn_state) == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry;
-+	}
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
-+
-+	conn_state->vrr_display_mode = VRR_DISPLAY_MODE_MEDIA;
-+
-+	ret = drm_atomic_commit(state);
-+	if (ret == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry;
-+	}
-+	KUNIT_EXPECT_LT(test, ret, 0);
-+}
-+
-+/*
-+ * Check that on a QMS-capable sink with QMS TFR min set, an atomic commit with
-+ * the VRR display mode set to "Media" succeeds even if the target rate is
-+ * below the monitor's range, and that it produces the right connector state
-+ * values.
-+ */
-+static void drm_test_check_hdmi_vrr_qms_tfr_min(struct kunit *test)
-+{
-+	struct drm_atomic_helper_connector_hdmi_priv *priv;
-+	struct drm_connector_state *conn_state;
-+	struct drm_modeset_acquire_ctx ctx;
-+	struct drm_display_mode *preferred;
-+	struct drm_crtc_state *crtc_state;
-+	struct drm_atomic_commit *state;
-+	struct drm_connector *conn;
-+	int ret;
-+
-+	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
-+				BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
-+				8,
-+				&dummy_connector_hdmi_funcs,
-+				test_edid_hdmi_vrr_qms);
-+	KUNIT_ASSERT_NOT_NULL(test, priv);
-+
-+	conn = &priv->connector;
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.is_hdmi);
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.hdmi.vrr_cap.supported);
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.hdmi.vrr_cap.qms_capable);
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.hdmi.vrr_cap.qms_tfr_min);
-+	KUNIT_ASSERT_TRUE(test, conn->hdmi.qms_supported);
-+	/*
-+	 * The CinemaVRR flag provides equivalent functionality to QMS Min TFR
-+	 * for non-QMS VRR, so it should be false to ensure that this unit test
-+	 * tests the right thing.
-+	 */
-+	KUNIT_ASSERT_FALSE(test, conn->display_info.hdmi.vrr_cap.cinema_vrr);
-+
-+	KUNIT_ASSERT_LT(test, 24, conn->display_info.hdmi.vrr_cap.vrr_min);
-+
-+	preferred = find_preferred_mode(conn);
-+	KUNIT_ASSERT_NOT_NULL(test, preferred);
-+
-+	guard(modeset_lock)(&ctx);
-+
-+	allocate_state_for_vrr_test(test, priv, &ctx, preferred, &state);
-+
-+retry:
-+	prepare_state_for_vrr_test(test, priv, &ctx, state, &crtc_state);
-+
-+	crtc_state->vrr_enabled = true;
-+	crtc_state->vrr_state.vrr_min_n = 24;
-+	crtc_state->vrr_state.vrr_min_d = 1;
-+	crtc_state->vrr_state.vrr_max_n = 24;
-+	crtc_state->vrr_state.vrr_max_d = 1;
-+
-+	conn_state = drm_atomic_get_connector_state(state, conn);
-+	if (PTR_ERR(conn_state) == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry;
-+	}
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
-+
-+	conn_state->vrr_display_mode = VRR_DISPLAY_MODE_MEDIA;
-+
-+	ret = drm_atomic_commit(state);
-+	if (ret == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry;
-+	}
-+	KUNIT_EXPECT_EQ(test, ret, 0);
-+
-+	conn_state = drm_atomic_get_new_connector_state(state, conn);
-+	KUNIT_ASSERT_NOT_NULL(test, conn_state);
-+
-+	KUNIT_EXPECT_EQ(test, conn_state->hdmi.qms_tfr_byte, 2);
-+}
-+
-+/*
-+ * Check that on a QMS-capable sink without the QMS max TFR flag, an atomic
-+ * commit with QMS enabled and a target rate above 60Hz fails.
-+ */
-+static void drm_test_check_hdmi_vrr_qms_no_tfr_max_fail(struct kunit *test)
-+{
-+	struct drm_atomic_helper_connector_hdmi_priv *priv;
-+	struct drm_connector_state *conn_state;
-+	struct drm_modeset_acquire_ctx ctx;
-+	struct drm_display_mode *preferred;
-+	struct drm_crtc_state *crtc_state;
-+	struct drm_atomic_commit *state;
-+	struct drm_connector *conn;
-+	int ret;
-+
-+	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
-+				BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
-+				8,
-+				&dummy_connector_hdmi_funcs,
-+				test_edid_hdmi_vrr_qms);
-+	KUNIT_ASSERT_NOT_NULL(test, priv);
-+
-+	conn = &priv->connector;
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.is_hdmi);
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.hdmi.vrr_cap.supported);
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.hdmi.vrr_cap.qms_capable);
-+	KUNIT_ASSERT_TRUE(test, conn->hdmi.qms_supported);
-+	KUNIT_ASSERT_FALSE(test, conn->display_info.hdmi.vrr_cap.qms_tfr_max);
-+
-+	KUNIT_ASSERT_LE(test, 100, conn->display_info.hdmi.vrr_cap.vrr_max);
-+
-+	preferred = find_preferred_mode(conn);
-+	KUNIT_ASSERT_NOT_NULL(test, preferred);
-+
-+	guard(modeset_lock)(&ctx);
-+
-+	allocate_state_for_vrr_test(test, priv, &ctx, preferred, &state);
-+
-+retry:
-+	prepare_state_for_vrr_test(test, priv, &ctx, state, &crtc_state);
-+
-+	crtc_state->vrr_enabled = true;
-+	crtc_state->vrr_state.vrr_min_n = 100;
-+	crtc_state->vrr_state.vrr_min_d = 1;
-+	crtc_state->vrr_state.vrr_max_n = 100;
-+	crtc_state->vrr_state.vrr_max_d = 1;
-+
-+	conn_state = drm_atomic_get_connector_state(state, conn);
-+	if (PTR_ERR(conn_state) == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry;
-+	}
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
-+
-+	conn_state->vrr_display_mode = VRR_DISPLAY_MODE_MEDIA;
-+
-+	ret = drm_atomic_commit(state);
-+	if (ret == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry;
-+	}
-+	KUNIT_EXPECT_LT(test, ret, 0);
-+}
-+
-+/*
-+ * Check that on a QMS-capable sink with the QMS max TFR flag, an atomic commit
-+ * with QMS enabled and a target rate above 60Hz succeeds.
-+ */
-+static void drm_test_check_hdmi_vrr_qms_tfr_max(struct kunit *test)
-+{
-+	struct drm_atomic_helper_connector_hdmi_priv *priv;
-+	struct drm_connector_state *conn_state;
-+	struct drm_modeset_acquire_ctx ctx;
-+	struct drm_display_mode *preferred;
-+	struct drm_crtc_state *crtc_state;
-+	struct drm_atomic_commit *state;
-+	struct drm_connector *conn;
-+	int ret;
-+
-+	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
-+				BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
-+				8,
-+				&dummy_connector_hdmi_funcs,
-+				test_edid_hdmi_vrr_qms);
-+	KUNIT_ASSERT_NOT_NULL(test, priv);
-+
-+	conn = &priv->connector;
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.is_hdmi);
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.hdmi.vrr_cap.supported);
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.hdmi.vrr_cap.qms_capable);
-+	KUNIT_ASSERT_TRUE(test, conn->hdmi.qms_supported);
-+
-+	KUNIT_ASSERT_LE(test, 100, conn->display_info.hdmi.vrr_cap.vrr_max);
-+
-+	preferred = find_preferred_mode(conn);
-+	KUNIT_ASSERT_NOT_NULL(test, preferred);
-+
-+	guard(modeset_lock)(&ctx);
-+
-+	allocate_state_for_vrr_test(test, priv, &ctx, preferred, &state);
-+
-+retry:
-+	prepare_state_for_vrr_test(test, priv, &ctx, state, &crtc_state);
-+
-+	/* Manual override to not have to define an additional EDID. */
-+	conn->display_info.hdmi.vrr_cap.qms_tfr_max = true;
-+
-+	crtc_state->vrr_enabled = true;
-+	crtc_state->vrr_state.vrr_min_n = 1000; /* Intentional tomfoolery. */
-+	crtc_state->vrr_state.vrr_min_d = 10;
-+	crtc_state->vrr_state.vrr_max_n = 100;
-+	crtc_state->vrr_state.vrr_max_d = 1;
-+
-+	conn_state = drm_atomic_get_connector_state(state, conn);
-+	if (PTR_ERR(conn_state) == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry;
-+	}
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
-+
-+	conn_state->vrr_display_mode = VRR_DISPLAY_MODE_MEDIA;
-+
-+	ret = drm_atomic_commit(state);
-+	if (ret == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry;
-+	}
-+	KUNIT_EXPECT_EQ(test, ret, 0);
-+
-+	conn_state = drm_atomic_get_new_connector_state(state, conn);
-+	KUNIT_ASSERT_NOT_NULL(test, conn_state);
-+
-+	KUNIT_EXPECT_EQ(test, conn_state->hdmi.qms_tfr_byte, 11);
-+}
-+
-+/*
-+ * Check that on a QMS-capable but VRR-incapable sink, an atomic commit with VRR
-+ * display mode set to "Media" succeeds, and produces the right connector state
-+ * values.
-+ */
-+static void drm_test_check_hdmi_vrr_qms_only(struct kunit *test)
-+{
-+	struct drm_atomic_helper_connector_hdmi_priv *priv;
-+	struct drm_connector_state *conn_state;
-+	struct drm_modeset_acquire_ctx ctx;
-+	struct drm_display_mode *preferred;
-+	struct drm_crtc_state *crtc_state;
-+	struct drm_atomic_commit *state;
-+	struct drm_connector *conn;
-+	int ret;
-+
-+	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
-+				BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
-+				8,
-+				&dummy_connector_hdmi_funcs,
-+				test_edid_hdmi_qms_only);
-+	KUNIT_ASSERT_NOT_NULL(test, priv);
-+
-+	conn = &priv->connector;
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.is_hdmi);
-+	KUNIT_ASSERT_FALSE(test, conn->display_info.hdmi.vrr_cap.supported);
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.hdmi.vrr_cap.qms_capable);
-+	KUNIT_ASSERT_TRUE(test, conn->hdmi.qms_supported);
-+
-+	preferred = find_preferred_mode(conn);
-+	KUNIT_ASSERT_NOT_NULL(test, preferred);
-+
-+	guard(modeset_lock)(&ctx);
-+
-+	allocate_state_for_vrr_test(test, priv, &ctx, preferred, &state);
-+
-+retry:
-+	prepare_state_for_vrr_test(test, priv, &ctx, state, &crtc_state);
-+
-+	crtc_state->vrr_enabled = true;
-+	crtc_state->vrr_state.vrr_min_n = 48000;
-+	crtc_state->vrr_state.vrr_min_d = 1001;
-+	/* Equivalent fraction, as an added hurdle */
-+	crtc_state->vrr_state.vrr_max_n = 48000 * 2;
-+	crtc_state->vrr_state.vrr_max_d = 1001 * 2;
-+
-+	conn_state = drm_atomic_get_connector_state(state, conn);
-+	if (PTR_ERR(conn_state) == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry;
-+	}
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
-+
-+	conn_state->vrr_display_mode = VRR_DISPLAY_MODE_MEDIA;
-+
-+	ret = drm_atomic_commit(state);
-+	if (ret == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry;
-+	}
-+	KUNIT_EXPECT_EQ(test, ret, 0);
-+
-+	conn_state = drm_atomic_get_new_connector_state(state, conn);
-+	KUNIT_ASSERT_NOT_NULL(test, conn_state);
-+
-+	KUNIT_EXPECT_EQ(test, conn_state->hdmi.qms_tfr_byte, 6);
-+}
-+
-+/*
-+ * Check that on a QMS-capable but VRR-incapable sink, an atomic commit with VRR
-+ * display mode set to "Game" fails.
-+ */
-+static void drm_test_check_hdmi_vrr_qms_only_fail(struct kunit *test)
-+{
-+	struct drm_atomic_helper_connector_hdmi_priv *priv;
-+	struct drm_connector_state *conn_state;
-+	struct drm_modeset_acquire_ctx ctx;
-+	struct drm_display_mode *preferred;
-+	struct drm_crtc_state *crtc_state;
-+	struct drm_atomic_commit *state;
-+	struct drm_connector *conn;
-+	int ret;
-+
-+	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
-+				BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
-+				8,
-+				&dummy_connector_hdmi_funcs,
-+				test_edid_hdmi_qms_only);
-+	KUNIT_ASSERT_NOT_NULL(test, priv);
-+
-+	conn = &priv->connector;
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.is_hdmi);
-+	KUNIT_ASSERT_FALSE(test, conn->display_info.hdmi.vrr_cap.supported);
-+	KUNIT_ASSERT_TRUE(test, conn->display_info.hdmi.vrr_cap.qms_capable);
-+	KUNIT_ASSERT_TRUE(test, conn->hdmi.qms_supported);
-+
-+	preferred = find_preferred_mode(conn);
-+	KUNIT_ASSERT_NOT_NULL(test, preferred);
-+
-+	guard(modeset_lock)(&ctx);
-+
-+	allocate_state_for_vrr_test(test, priv, &ctx, preferred, &state);
-+
-+retry:
-+	prepare_state_for_vrr_test(test, priv, &ctx, state, &crtc_state);
-+
-+	crtc_state->vrr_enabled = true;
-+	crtc_state->vrr_state.vrr_min_n = 48;
-+	crtc_state->vrr_state.vrr_min_d = 1;
-+	crtc_state->vrr_state.vrr_max_n = 48;
-+	crtc_state->vrr_state.vrr_max_d = 1;
-+
-+	conn_state = drm_atomic_get_connector_state(state, conn);
-+	if (PTR_ERR(conn_state) == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry;
-+	}
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
-+
-+	conn_state->vrr_display_mode = VRR_DISPLAY_MODE_GAME;
-+
-+	ret = drm_atomic_commit(state);
-+	if (ret == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry;
-+	}
-+	KUNIT_EXPECT_EQ(test, ret, -EOPNOTSUPP);
-+}
-+
- static struct kunit_case drm_atomic_helper_connector_hdmi_vrr_tests[] = {
- 	KUNIT_CASE(drm_test_check_hdmi_vrr),
- 	KUNIT_CASE(drm_test_check_hdmi_vrr_sink_fail),
-@@ -4064,6 +4628,14 @@ static struct kunit_case drm_atomic_helper_connector_hdmi_vrr_tests[] = {
- 			 check_vrr_target_errors_gen_params),
- 	KUNIT_CASE(drm_test_check_hdmi_vrr_fixed_rate_cinema_vrr),
- 	KUNIT_CASE(drm_test_check_hdmi_vrr_constrained_rate),
-+	KUNIT_CASE(drm_test_check_hdmi_vrr_qms),
-+	KUNIT_CASE(drm_test_check_hdmi_vrr_qms_fail),
-+	KUNIT_CASE(drm_test_check_hdmi_vrr_qms_nonfixed_fail),
-+	KUNIT_CASE(drm_test_check_hdmi_vrr_qms_tfr_min),
-+	KUNIT_CASE(drm_test_check_hdmi_vrr_qms_no_tfr_max_fail),
-+	KUNIT_CASE(drm_test_check_hdmi_vrr_qms_tfr_max),
-+	KUNIT_CASE(drm_test_check_hdmi_vrr_qms_only),
-+	KUNIT_CASE(drm_test_check_hdmi_vrr_qms_only_fail),
- 	{ }
- };
- 
-diff --git a/drivers/gpu/drm/tests/drm_kunit_edid.c b/drivers/gpu/drm/tests/drm_kunit_edid.c
-index 8b78a8bf063d..03eb809909f0 100644
---- a/drivers/gpu/drm/tests/drm_kunit_edid.c
-+++ b/drivers/gpu/drm/tests/drm_kunit_edid.c
-@@ -1130,6 +1130,286 @@ const unsigned char test_edid_hdmi_vrr[] = {
- };
- EXPORT_SYMBOL(test_edid_hdmi_vrr);
- 
-+/*
-+ * Max resolution: 3840x2160@60Hz with YUV420
-+ * Max BPC:        16 for all modes
-+ * Max TMDS clock: <340MHz, so set to 0
-+ * VRR range: 30Hz to 120Hz
-+ * CinemaVRR flag is unset
-+ * QMS flag is set
-+ * QMS TFRmin flag is set
-+ *
-+ * edid-decode (hex):
-+ *
-+ * 00 ff ff ff ff ff ff 00 31 d8 45 00 00 00 00 00
-+ * 01 24 01 03 80 60 36 78 0f ee 91 a3 54 4c 99 26
-+ * 0f 50 54 20 00 00 01 01 01 01 01 01 01 01 01 01
-+ * 01 01 01 01 01 01 04 74 80 18 71 38 2d 40 58 2c
-+ * 45 00 c0 1c 32 00 00 1e 04 74 00 30 f2 70 5a 80
-+ * b0 58 8a 00 c0 1c 32 00 00 1e 00 00 00 fc 00 54
-+ * 65 73 74 20 45 44 49 44 0a 20 20 20 00 00 00 fd
-+ * 00 18 78 18 87 22 00 0a 20 20 20 20 20 20 01 7c
-+ *
-+ * 02 03 29 31 42 3f 5f 6d 03 0c 00 10 00 78 00 20
-+ * 00 00 00 20 61 6d d8 5d c4 01 00 80 07 40 1e 78
-+ * 10 00 00 e2 0e 61 e2 00 ed 00 00 00 00 00 00 00
-+ * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-+ * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-+ * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-+ * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-+ * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 28
-+ *
-+ * ----------------
-+ *
-+ * Block 0, Base EDID:
-+ *  EDID Structure Version & Revision: 1.3
-+ *  Vendor & Product Identification:
-+ *    Manufacturer: LNX
-+ *    Model: 69
-+ *    Made in: week 1 of 2026
-+ *  Basic Display Parameters & Features:
-+ *    Digital display
-+ *    Maximum image size: 96 cm x 54 cm
-+ *    Gamma: 2.20
-+ *    RGB color display
-+ *    Default (sRGB) color space is primary color space
-+ *    First detailed timing is the preferred timing
-+ *    Supports GTF timings within operating range
-+ *  Color Characteristics:
-+ *    Red  : 0.6396, 0.3300
-+ *    Green: 0.2998, 0.5996
-+ *    Blue : 0.1503, 0.0595
-+ *    White: 0.3125, 0.3291
-+ *  Established Timings I & II:
-+ *    DMT 0x04:   640x480    59.940476 Hz   4:3     31.469 kHz     25.175000 MHz
-+ *  Standard Timings: none
-+ *  Detailed Timing Descriptors:
-+ *    DTD 1:  1920x1080  120.000000 Hz  16:9    135.000 kHz    297.000000 MHz (960 mm x 540 mm)
-+ *                 Hfront   88 Hsync  44 Hback  148 Hpol P
-+ *                 Vfront    4 Vsync   5 Vback   36 Vpol P
-+ *    DTD 2:  3840x2160   30.000000 Hz  16:9     67.500 kHz    297.000000 MHz (960 mm x 540 mm)
-+ *                 Hfront  176 Hsync  88 Hback  296 Hpol P
-+ *                 Vfront    8 Vsync  10 Vback   72 Vpol P
-+ *    Display Product Name: 'Test EDID'
-+ *    Display Range Limits:
-+ *      Monitor ranges (GTF): 24-120 Hz V, 24-135 kHz H, max dotclock 340 MHz
-+ *  Extension blocks: 1
-+ * Checksum: 0x7c
-+ *
-+ * ----------------
-+ *
-+ * Block 1, CTA-861 Extension Block:
-+ *  Revision: 3
-+ *  Supports YCbCr 4:4:4
-+ *  Supports YCbCr 4:2:2
-+ *  Native detailed modes: 1
-+ *  Video Data Block:
-+ *    VIC  63:  1920x1080  120.000000 Hz  16:9    135.000 kHz    297.000000 MHz
-+ *    VIC  95:  3840x2160   30.000000 Hz  16:9     67.500 kHz    297.000000 MHz
-+ *  Vendor-Specific Data Block (HDMI), OUI 00-0C-03:
-+ *    Source physical address: 1.0.0.0
-+ *    DC_48bit
-+ *    DC_36bit
-+ *    DC_30bit
-+ *    DC_Y444
-+ *    Maximum TMDS clock: 0 MHz
-+ *    Extended HDMI video details:
-+ *  Vendor-Specific Data Block (HDMI Forum), OUI C4-5D-D8:
-+ *    Version: 1
-+ *    SCDC Present
-+ *    Supports 16-bits/component Deep Color 4:2:0 Pixel Encoding
-+ *    Supports 12-bits/component Deep Color 4:2:0 Pixel Encoding
-+ *    Supports 10-bits/component Deep Color 4:2:0 Pixel Encoding
-+ *    Supports QMS
-+ *    VRRmin: 30 Hz
-+ *    VRRmax: 120 Hz
-+ *    Supports QMS TFRmin
-+ *  YCbCr 4:2:0 Video Data Block:
-+ *    VIC  97:  3840x2160   60.000000 Hz  16:9    135.000 kHz    594.000000 MHz
-+ *  Video Capability Data Block:
-+ *    YCbCr quantization: Selectable (via AVI YQ)
-+ *    RGB quantization: Selectable (via AVI Q)
-+ *    PT scan behavior: Always Underscanned
-+ *    IT scan behavior: Supports both over- and underscan
-+ *    CE scan behavior: Always Overscanned
-+ * Checksum: 0x28  Unused space in Extension Block: 86 bytes
-+ *
-+ * ----------------
-+ *
-+ * edid-decode 1.32.0
-+ *
-+ * Warnings:
-+ *
-+ * Block 1, CTA-861 Extension Block:
-+ *  IT Video Formats are overscanned by default, but normally this should be underscanned.
-+ *
-+ * EDID conformity: PASS
-+ */
-+const unsigned char test_edid_hdmi_vrr_qms[] = {
-+	0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x31, 0xd8, 0x45, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x01, 0x24, 0x01, 0x03, 0x80, 0x60, 0x36, 0x78,
-+	0x0f, 0xee, 0x91, 0xa3, 0x54, 0x4c, 0x99, 0x26, 0x0f, 0x50, 0x54, 0x20,
-+	0x00, 0x00, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
-+	0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x04, 0x74, 0x80, 0x18, 0x71, 0x38,
-+	0x2d, 0x40, 0x58, 0x2c, 0x45, 0x00, 0xc0, 0x1c, 0x32, 0x00, 0x00, 0x1e,
-+	0x04, 0x74, 0x00, 0x30, 0xf2, 0x70, 0x5a, 0x80, 0xb0, 0x58, 0x8a, 0x00,
-+	0xc0, 0x1c, 0x32, 0x00, 0x00, 0x1e, 0x00, 0x00, 0x00, 0xfc, 0x00, 0x54,
-+	0x65, 0x73, 0x74, 0x20, 0x45, 0x44, 0x49, 0x44, 0x0a, 0x20, 0x20, 0x20,
-+	0x00, 0x00, 0x00, 0xfd, 0x00, 0x18, 0x78, 0x18, 0x87, 0x22, 0x00, 0x0a,
-+	0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x01, 0x7c, 0x02, 0x03, 0x29, 0x31,
-+	0x42, 0x3f, 0x5f, 0x6d, 0x03, 0x0c, 0x00, 0x10, 0x00, 0x78, 0x00, 0x20,
-+	0x00, 0x00, 0x00, 0x20, 0x61, 0x6d, 0xd8, 0x5d, 0xc4, 0x01, 0x00, 0x80,
-+	0x07, 0x40, 0x1e, 0x78, 0x10, 0x00, 0x00, 0xe2, 0x0e, 0x61, 0xe2, 0x00,
-+	0xed, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0x28
-+};
-+EXPORT_SYMBOL(test_edid_hdmi_vrr_qms);
-+
-+/*
-+ * Max resolution: 3840x2160@60Hz with YUV420
-+ * Max BPC:        16 for all modes
-+ * Max TMDS clock: <340MHz, so set to 0
-+ * VRR range: none
-+ * CinemaVRR flag is unset
-+ * QMS flag is set
-+ * QMS TFRmin flag is set
-+ *
-+ * edid-decode (hex):
-+ *
-+ * 00 ff ff ff ff ff ff 00 31 d8 45 00 00 00 00 00
-+ * 01 24 01 03 80 60 36 78 0f ee 91 a3 54 4c 99 26
-+ * 0f 50 54 20 00 00 01 01 01 01 01 01 01 01 01 01
-+ * 01 01 01 01 01 01 04 74 80 18 71 38 2d 40 58 2c
-+ * 45 00 c0 1c 32 00 00 1e 04 74 00 30 f2 70 5a 80
-+ * b0 58 8a 00 c0 1c 32 00 00 1e 00 00 00 fc 00 54
-+ * 65 73 74 20 45 44 49 44 0a 20 20 20 00 00 00 fd
-+ * 00 18 78 18 87 22 00 0a 20 20 20 20 20 20 01 7c
-+ *
-+ * 02 03 29 31 42 3f 5f 6d 03 0c 00 10 00 78 00 20
-+ * 00 00 00 20 61 6d d8 5d c4 01 00 80 07 40 00 00
-+ * 10 00 00 e2 0e 61 e2 00 ed 00 00 00 00 00 00 00
-+ * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-+ * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-+ * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-+ * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-+ * 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 be
-+ *
-+ * ----------------
-+ *
-+ * Block 0, Base EDID:
-+ *  EDID Structure Version & Revision: 1.3
-+ *  Vendor & Product Identification:
-+ *    Manufacturer: LNX
-+ *    Model: 69
-+ *    Made in: week 1 of 2026
-+ *  Basic Display Parameters & Features:
-+ *    Digital display
-+ *    Maximum image size: 96 cm x 54 cm
-+ *    Gamma: 2.20
-+ *    RGB color display
-+ *    Default (sRGB) color space is primary color space
-+ *    First detailed timing is the preferred timing
-+ *    Supports GTF timings within operating range
-+ *  Color Characteristics:
-+ *    Red  : 0.6396, 0.3300
-+ *    Green: 0.2998, 0.5996
-+ *    Blue : 0.1503, 0.0595
-+ *    White: 0.3125, 0.3291
-+ *  Established Timings I & II:
-+ *    DMT 0x04:   640x480    59.940476 Hz   4:3     31.469 kHz     25.175000 MHz
-+ *  Standard Timings: none
-+ *  Detailed Timing Descriptors:
-+ *    DTD 1:  1920x1080  120.000000 Hz  16:9    135.000 kHz    297.000000 MHz (960 mm x 540 mm)
-+ *                 Hfront   88 Hsync  44 Hback  148 Hpol P
-+ *                 Vfront    4 Vsync   5 Vback   36 Vpol P
-+ *    DTD 2:  3840x2160   30.000000 Hz  16:9     67.500 kHz    297.000000 MHz (960 mm x 540 mm)
-+ *                 Hfront  176 Hsync  88 Hback  296 Hpol P
-+ *                 Vfront    8 Vsync  10 Vback   72 Vpol P
-+ *    Display Product Name: 'Test EDID'
-+ *    Display Range Limits:
-+ *      Monitor ranges (GTF): 24-120 Hz V, 24-135 kHz H, max dotclock 340 MHz
-+ *  Extension blocks: 1
-+ * Checksum: 0x7c
-+ *
-+ * ----------------
-+ *
-+ * Block 1, CTA-861 Extension Block:
-+ *  Revision: 3
-+ *  Supports YCbCr 4:4:4
-+ *  Supports YCbCr 4:2:2
-+ *  Native detailed modes: 1
-+ *  Video Data Block:
-+ *    VIC  63:  1920x1080  120.000000 Hz  16:9    135.000 kHz    297.000000 MHz
-+ *    VIC  95:  3840x2160   30.000000 Hz  16:9     67.500 kHz    297.000000 MHz
-+ *  Vendor-Specific Data Block (HDMI), OUI 00-0C-03:
-+ *    Source physical address: 1.0.0.0
-+ *    DC_48bit
-+ *    DC_36bit
-+ *    DC_30bit
-+ *    DC_Y444
-+ *    Maximum TMDS clock: 0 MHz
-+ *    Extended HDMI video details:
-+ *  Vendor-Specific Data Block (HDMI Forum), OUI C4-5D-D8:
-+ *    Version: 1
-+ *    SCDC Present
-+ *    Supports 16-bits/component Deep Color 4:2:0 Pixel Encoding
-+ *    Supports 12-bits/component Deep Color 4:2:0 Pixel Encoding
-+ *    Supports 10-bits/component Deep Color 4:2:0 Pixel Encoding
-+ *    Supports QMS
-+ *    Supports QMS TFRmin
-+ *  YCbCr 4:2:0 Video Data Block:
-+ *    VIC  97:  3840x2160   60.000000 Hz  16:9    135.000 kHz    594.000000 MHz
-+ *  Video Capability Data Block:
-+ *    YCbCr quantization: Selectable (via AVI YQ)
-+ *    RGB quantization: Selectable (via AVI Q)
-+ *    PT scan behavior: Always Underscanned
-+ *    IT scan behavior: Supports both over- and underscan
-+ *    CE scan behavior: Always Overscanned
-+ * Checksum: 0xbe  Unused space in Extension Block: 86 bytes
-+ *
-+ * ----------------
-+ *
-+ * edid-decode 1.32.0
-+ *
-+ * Warnings:
-+ *
-+ * Block 1, CTA-861 Extension Block:
-+ *  IT Video Formats are overscanned by default, but normally this should be underscanned.
-+ *
-+ * EDID conformity: PASS
-+ */
-+const unsigned char test_edid_hdmi_qms_only[] = {
-+	0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x31, 0xd8, 0x45, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x01, 0x24, 0x01, 0x03, 0x80, 0x60, 0x36, 0x78,
-+	0x0f, 0xee, 0x91, 0xa3, 0x54, 0x4c, 0x99, 0x26, 0x0f, 0x50, 0x54, 0x20,
-+	0x00, 0x00, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
-+	0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x04, 0x74, 0x80, 0x18, 0x71, 0x38,
-+	0x2d, 0x40, 0x58, 0x2c, 0x45, 0x00, 0xc0, 0x1c, 0x32, 0x00, 0x00, 0x1e,
-+	0x04, 0x74, 0x00, 0x30, 0xf2, 0x70, 0x5a, 0x80, 0xb0, 0x58, 0x8a, 0x00,
-+	0xc0, 0x1c, 0x32, 0x00, 0x00, 0x1e, 0x00, 0x00, 0x00, 0xfc, 0x00, 0x54,
-+	0x65, 0x73, 0x74, 0x20, 0x45, 0x44, 0x49, 0x44, 0x0a, 0x20, 0x20, 0x20,
-+	0x00, 0x00, 0x00, 0xfd, 0x00, 0x18, 0x78, 0x18, 0x87, 0x22, 0x00, 0x0a,
-+	0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x01, 0x7c, 0x02, 0x03, 0x29, 0x31,
-+	0x42, 0x3f, 0x5f, 0x6d, 0x03, 0x0c, 0x00, 0x10, 0x00, 0x78, 0x00, 0x20,
-+	0x00, 0x00, 0x00, 0x20, 0x61, 0x6d, 0xd8, 0x5d, 0xc4, 0x01, 0x00, 0x80,
-+	0x07, 0x40, 0x00, 0x00, 0x10, 0x00, 0x00, 0xe2, 0x0e, 0x61, 0xe2, 0x00,
-+	0xed, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-+	0x00, 0x00, 0x00, 0xbe
-+};
-+EXPORT_SYMBOL(test_edid_hdmi_qms_only);
-+
- MODULE_AUTHOR("Maxime Ripard <mripard@kernel.org>");
- MODULE_DESCRIPTION("EDID Definitions for KUnit tests");
- MODULE_LICENSE("GPL");
-diff --git a/drivers/gpu/drm/tests/drm_kunit_edid.h b/drivers/gpu/drm/tests/drm_kunit_edid.h
-index 80dc15a8bcb6..e993bbd5427b 100644
---- a/drivers/gpu/drm/tests/drm_kunit_edid.h
-+++ b/drivers/gpu/drm/tests/drm_kunit_edid.h
-@@ -13,5 +13,7 @@ extern const unsigned char test_edid_hdmi_1080p_rgb_yuv_dc_max_340mhz[256];
- extern const unsigned char test_edid_hdmi_1080p_rgb_yuv_4k_yuv420_dc_max_200mhz[256];
- extern const unsigned char test_edid_hdmi_4k_rgb_yuv420_dc_max_340mhz[256];
- extern const unsigned char test_edid_hdmi_vrr[256];
-+extern const unsigned char test_edid_hdmi_vrr_qms[256];
-+extern const unsigned char test_edid_hdmi_qms_only[256];
- 
- #endif // DRM_KUNIT_EDID_H_
+Yep, seem reasonable.
 
--- 
-2.56.0
+>> +{
+>> +    if (WARN_ON(rmi_size > KVM_PGTABLE_LAST_LEVEL))
+>> +        return 0;
+>> +
+>> +    return kvm_granule_size(KVM_PGTABLE_LAST_LEVEL - rmi_size);
+>> +}
+>> +
+>> +static int undelegate_range_desc(unsigned long desc)
+>> +{
+>> +    unsigned long size =
+>> rmi_range_entry_size(RMI_ADDR_RANGE_BLOCK_SIZE(desc));
+>> +    unsigned long count = RMI_ADDR_RANGE_COUNT(desc);
+>> +    unsigned long addr = RMI_ADDR_RANGE_ADDR(desc);
+>> +    unsigned long state = RMI_ADDR_RANGE_STATE(desc);
+>> +
+>> +    if (state == RMI_OP_MEM_UNDELEGATED)
+>> +        return 0;
+>> +
+>> +    if (size * count == 0)
+>> +        return 0;
+>> +
+>> +    return rmi_undelegate_range(addr, size * count);
+>> +}
+>> +
+>> +static phys_addr_t alloc_delegated_granule(struct
+>> kvm_mmu_memory_cache *mc)
+>> +{
+>> +    phys_addr_t phys;
+>> +    void *virt;
+>> +
+>> +    if (mc) {
+>> +        virt = kvm_mmu_memory_cache_alloc(mc);
+>> +    } else {
+>> +        virt = (void *)__get_free_page(GFP_ATOMIC | __GFP_ZERO |
+>> +                           __GFP_ACCOUNT);
+>> +    }
+>> +
+>> +    if (!virt)
+>> +        return PHYS_ADDR_MAX;
+>> +
+>> +    phys = virt_to_phys(virt);
+>> +    if (rmi_delegate_page(phys)) {
+>> +        free_page((unsigned long)virt);
+>> +        return PHYS_ADDR_MAX;
+>> +    }
+>> +
+>> +    return phys;
+>> +}
+>> +
+>> +static phys_addr_t alloc_rtt(struct kvm_mmu_memory_cache *mc)
+>> +{
+>> +    phys_addr_t phys = alloc_delegated_granule(mc);
+>> +
+>> +    if (phys != PHYS_ADDR_MAX)
+>> +        kvm_account_pgtable_pages(phys_to_virt(phys), 1);
+>> +
+>> +    return phys;
+>> +}
+>> +
+>>   static void free_rtt(phys_addr_t phys)
+>>   {
+>>       if (rmi_free_delegated_page(phys))
+>> @@ -42,6 +119,32 @@ static void free_rtt(phys_addr_t phys)
+>>       kvm_account_pgtable_pages(phys_to_virt(phys), -1);
+>>   }
+>>   +static long realm_rtt_create(struct realm *realm,
+>> +                 unsigned long addr,
+>> +                 int level,
+>> +                 phys_addr_t phys)
+>> +{
+>> +    addr = ALIGN_DOWN(addr, rmi_rtt_level_mapsize(level - 1));
+> 
+> As pointed out in the other patch, this could now be replaced with
+> kvm_granule_size().
+
+Ack.
+
+> 
+>> +    return rmi_rtt_create(virt_to_phys(realm->rd), phys, addr, level);
+> 
+> Does it make sense to save "rd_phys" as we tend to use the physical
+> address more than the virt and we end up converting it all the time ?
+
+Yes that's an improvement.
+
+>> +}
+>> +
+>> +static long realm_rtt_fold(struct realm *realm,
+>> +               unsigned long addr,
+>> +               int level,
+>> +               phys_addr_t *rtt_granule)
+>> +{
+>> +    unsigned long out_rtt;
+>> +    long ret;
+>> +
+>> +    addr = ALIGN_DOWN(addr, rmi_rtt_level_mapsize(level - 1));
+>> +    ret = rmi_rtt_fold(virt_to_phys(realm->rd), addr, level, &out_rtt);
+>> +
+>> +    if (rtt_granule)
+>> +        *rtt_granule = out_rtt;
+>> +
+>> +    return ret;
+>> +}
+>> +
+>>   /*
+>>    * realm_rtt_destroy - Destroy an RTT at @level for @addr.
+>>    *
+>> @@ -65,6 +168,43 @@ static long realm_rtt_destroy(struct realm *realm,
+>> unsigned long addr,
+>>       return ret;
+>>   }
+>>   +static int realm_create_rtt_levels(struct realm *realm,
+>> +                   unsigned long ipa,
+>> +                   int level,
+>> +                   int max_level,
+>> +                   struct kvm_mmu_memory_cache *mc)
+>> +{
+>> +    while (level++ < max_level) {
+>> +        phys_addr_t rtt = alloc_rtt(mc);
+>> +        long ret;
+>> +
+>> +        if (rtt == PHYS_ADDR_MAX)
+>> +            return -ENOMEM;
+>> +
+>> +        ret = realm_rtt_create(realm, ipa, level, rtt);
+>> +        if (ret < 0) {
+>> +            free_rtt(rtt);
+>> +            return ret;
+>> +        }
+>> +
+>> +        if (RMI_RESULT_STATUS(ret) == RMI_ERROR_RTT &&
+>> +            RMI_RESULT_DATA_LEVEL(ret) == level - 1) {
+>> +            /* The RTT already exists, continue */
+>> +            free_rtt(rtt);
+> 
+> nit: We seem to be releasing the rtt (undelegating it and
+> freeing a page) only to be reallocated later (and re-delegated). We
+> could optimise this a little bit and may be reuse it for the next
+> iteration ?
+> (I understand this is rather a corner case)
+
+Sure.
+
+>> +            continue;
+>> +        }
+>> +
+>> +        if (ret) {
+>> +            WARN(1, "Failed to create RTT at level %d: %ld\n",
+>> +                 level, ret);
+>> +            free_rtt(rtt);
+>> +            return -ENXIO;
+>> +        }
+>> +    }
+>> +
+>> +    return 0;
+>> +}
+>> +
+>>   static int realm_tear_down_rtt_level(struct realm *realm, int level,
+>>                        unsigned long start, unsigned long end)
+>>   {
+>> @@ -161,6 +301,64 @@ static int realm_tear_down_rtt_range(struct realm
+>> *realm,
+>>                        start, end);
+>>   }
+>>   +/*
+>> + * Returns 0 on successful fold, a negative value on error, a
+>> positive value if
+>> + * we were not able to fold all tables at this level.
+>> + */
+>> +static int realm_fold_rtt_level(struct realm *realm, int level,
+>> +                unsigned long start, unsigned long end)
+>> +{
+>> +    int not_folded = 0;
+>> +    ssize_t map_size;
+>> +    unsigned long addr, next_addr;
+>> +
+>> +    if (WARN_ON(level > KVM_PGTABLE_LAST_LEVEL))
+>> +        return -EINVAL;
+>> +
+>> +    map_size = rmi_rtt_level_mapsize(level - 1);
+>> +
+>> +    for (addr = start; addr < end; addr = next_addr) {
+>> +        phys_addr_t rtt_granule;
+>> +        long ret;
+>> +        unsigned long align_addr = ALIGN(addr, map_size);
+>> +
+>> +        next_addr = ALIGN(addr + 1, map_size);
+>> +
+>> +        ret = realm_rtt_fold(realm, align_addr, level, &rtt_granule);
+>> +        if (ret < 0)
+>> +            return ret;
+>> +
+>> +        switch (RMI_RESULT_STATUS(ret)) {
+>> +        case RMI_SUCCESS:
+>> +            free_rtt(rtt_granule);
+>> +            break;
+>> +        case RMI_ERROR_RTT:
+>> +            if (level == KVM_PGTABLE_LAST_LEVEL ||
+> 
+> 
+>> +                RMI_RESULT_DATA_LEVEL(ret) < level) {
+> 
+> Should this be RMI_RESULT_DATA_LEVEL(ret) == level ?
+> 
+> Additionally if the walk terminated at a shallow level, i.e.,
+> RMI_RESULT_DATA_LEVEL(ret) < level), then we don't have to conclude
+> that the table was NOT folded. In effect, the table is actually folded
+> at level above.
+> 
+> Also, we could move the next_addr in this case skip to the addr
+> past to ALIGN(addr + 1, kvm_granule_size(RMI_RESULT_DATA_LEVEL(ret) - 1))
+
+Yep, good point.
+
+> 
+>> +                not_folded++;
+>> +                break;
+>> +            }
+>> +            /* Recurse a level deeper */
+>> +            ret = realm_fold_rtt_level(realm,
+>> +                           level + 1,
+>> +                           addr,
+>> +                           next_addr);
+>> +            if (ret < 0) {
+>> +                return ret;
+>> +            } else if (ret == 0) {
+>> +                /* Try again at this level */
+>> +                next_addr = addr;
+>> +            }
+>> +            break;
+>> +        default:
+>> +            WARN_ON(1);
+>> +            return -ENXIO;
+>> +        }
+>> +    }
+>> +
+>> +    return not_folded;
+>> +}
+>> +
+>>   static int realm_destroy_rtts(struct kvm *kvm)
+>>   {
+>>       struct realm *realm = &kvm->arch.realm;
+>> @@ -196,6 +394,154 @@ int kvm_realm_teardown_stage2(struct kvm *kvm)
+>>       return 0;
+>>   }
+>>   +static void realm_unmap_shared_range(struct kvm *kvm,
+>> +                     unsigned long start,
+>> +                     unsigned long end,
+>> +                     bool may_block)
+>> +{
+>> +    struct realm *realm = &kvm->arch.realm;
+>> +    unsigned long rd = virt_to_phys(realm->rd);
+>> +    unsigned long next_addr, addr;
+>> +    unsigned long shared_bit = BIT(realm->ia_bits - 1);
+>> +
+>> +    if (start >= end)
+>> +        return;
+>> +
+>> +    /*
+>> +     * Callers may pass either an IPA range or its shared alias. Add the
+>> +     * shared bit only for the former. Use addition so an exclusive
+>> end at
+>> +     * shared_bit advances to the end of the IPA space.
+>> +     */
+>> +    if (start < shared_bit) {
+>> +        start += shared_bit;
+>> +        end += shared_bit;
+>> +    }
+>> +
+>> +    for (addr = start; addr < end; addr = next_addr) {
+>> +        long ret;
+>> +
+>> +        ret = rmi_rtt_unprot_unmap(rd, addr, end, RMI_ADDR_TYPE_NONE,
+>> +                       0, &next_addr, NULL, NULL);
+>> +        if (WARN_ON(ret < 0))
+>> +            return;
+>> +
+>> +        switch (RMI_RESULT_STATUS(ret)) {
+>> +        case RMI_SUCCESS:
+>> +            break;
+>> +        case RMI_ERROR_RTT: {
+>> +            int err_level = RMI_RESULT_DATA_LEVEL(ret);
+>> +            int level = find_map_level(realm, addr, end);
+>> +
+>> +            if (err_level >= level) {
+>> +                /* Nothing present, so skip */
+>> +                next_addr = addr + rmi_rtt_level_mapsize(err_level);
+>> +                break;
+>> +            }
+>> +
+>> +            ret = realm_create_rtt_levels(realm, addr, err_level,
+>> +                              level, NULL);
+>> +            if (WARN_ON(ret))
+>> +                return;
+>> +            /* Retry with the RTT levels in place */
+>> +            next_addr = addr;
+>> +            break;
+>> +        }
+>> +        default:
+>> +            WARN_ON(1);
+>> +            return;
+>> +        }
+>> +
+>> +        if (may_block)
+>> +            cond_resched_rwlock_write(&kvm->mmu_lock);
+>> +    }
+>> +
+>> +    realm_fold_rtt_level(realm, get_start_level(realm) + 1,
+>> +                 start, end);
+>> +}
+>> +
+>> +static void realm_unmap_private_range(struct kvm *kvm,
+>> +                      unsigned long start,
+>> +                      unsigned long end,
+>> +                      bool may_block)
+>> +{
+>> +    struct realm *realm = &kvm->arch.realm;
+>> +    unsigned long rd = virt_to_phys(realm->rd);
+>> +    unsigned long next_addr, addr;
+>> +    long ret;
+>> +
+>> +    for (addr = start; addr < end; addr = next_addr) {
+>> +        unsigned long out_range;
+>> +        unsigned long flags = RMI_ADDR_TYPE_SINGLE;
+>> +        /* TODO: Optimise using RMI_ADDR_TYPE_LIST */
+>> +
+>> +retry:
+>> +        ret = rmi_rtt_data_unmap(rd, addr, end, flags, 0,
+>> +                     &next_addr, &out_range, NULL);
+>> +        if (WARN_ON(ret < 0))
+>> +            return;
+>> +
+>> +        if (RMI_RESULT_STATUS(ret) == RMI_ERROR_RTT) {
+>> +            phys_addr_t rtt;
+>> +
+> 
+> 
+>> +            if (next_addr > addr)
+>> +                continue; /* UNASSIGNED */
+> 
+> This is no longer valid. out_top (next_addr in our case) is only valid
+> when ret == RMI_SUCCESS. Please drop. See VTKMV.
+
+Sashiko pointed that out too.
+
+>> +
+>> +            rtt = alloc_rtt(NULL);
+>> +            if (WARN_ON(rtt == PHYS_ADDR_MAX))
+>> +                return;
+>> +            ret = realm_rtt_create(realm, addr,
+>> +                           RMI_RESULT_DATA_LEVEL(ret) + 1, rtt);
+>> +            if (WARN_ON(ret)) {
+>> +                free_rtt(rtt);
+>> +                return;
+>> +            }
+>> +            goto retry;
+>> +        } else if (WARN_ON(ret)) {
+>> +            continue;
+>> +        }
+>> +
+>> +        ret = undelegate_range_desc(out_range);
+>> +        if (WARN_ON(ret))
+>> +            break;
+>> +
+>> +        if (may_block)
+>> +            cond_resched_rwlock_write(&kvm->mmu_lock);
+>> +    }
+>> +
+>> +    realm_fold_rtt_level(realm, get_start_level(realm) + 1,
+>> +                 start, end);
+>> +}
+>> +
+>> +void kvm_realm_unmap_range_filter(struct kvm *kvm, unsigned long start,
+>> +                  unsigned long size, bool may_block,
+>> +                  enum kvm_gfn_range_filter attr_filter)
+>> +{
+>> +    unsigned long end = start + size;
+>> +    struct realm *realm = &kvm->arch.realm;
+>> +
+>> +    if (!kvm_realm_is_created(kvm))
+>> +        return;
+>> +
+>> +    end = min(BIT(realm->ia_bits - 1), end);
+>> +
+>> +    if (attr_filter & KVM_FILTER_SHARED)
+>> +        realm_unmap_shared_range(kvm, start, end, may_block);
+>> +    if (attr_filter & KVM_FILTER_PRIVATE)
+>> +        realm_unmap_private_range(kvm, start, end, may_block);
+>> +}
+>> +
+> 
+> ---8>---
+>> +void kvm_realm_unmap_range(struct kvm *kvm, unsigned long start,
+>> +               unsigned long size, bool unmap_private,
+>> +               bool may_block)
+>> +{
+>> +    enum kvm_gfn_range_filter attr_filter = KVM_FILTER_SHARED;
+>> +
+>> +    if (unmap_private)
+>> +        attr_filter |= KVM_FILTER_PRIVATE;
+>> +
+>> +    kvm_realm_unmap_range_filter(kvm, start, size, may_block,
+>> attr_filter);
+>> +}
+>> +
+> 
+> ---8<---
+> 
+> No longer needed ?
+
+Indeed - I'll drop this.
+
+Thanks,
+Steve
+
+>>   void kvm_destroy_realm(struct kvm *kvm)
+>>   {
+>>       struct realm *realm = &kvm->arch.realm;
+> 
+> Suzuki
 
 
