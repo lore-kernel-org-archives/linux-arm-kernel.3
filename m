@@ -2,99 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0BC4606A33F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 21:08:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C6A0606A331
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 21:19:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=whBFsXcI;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HRULhRKA
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=jAXLVGPm;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eQAfmjej
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=3gHxePExHDGCUUw0dEUJ6/bp6SdmytffH6Zxb6AKWmo=; b=whBFsXcIikddIC
-	fWRIasvF1JaJj8mqPcj73a2WeoIJmjsPUiZ5kCvOSDGhsi2UqZDkl6ZmXT6qnynu4g7L1lHKyawWK
-	BE++q5e4q/GjqreS8EvsgQrWAgiWUc7sROH/uWRY4mOpvo94RE2OL565+sOoYFkdM2oT12N0VtRhQ
-	UbeHf6KDNnJMlf13i4dxyp8OEI/k+WNbV0yGRczgy/j4pCOECcLKbJuG3lqMLHVSTTGfFoyqoOuTZ
-	8/O4xS6crrsebMnr1AWh5PaeLrWMmGMYhJwBD1UZysD9BYN7oYDTc8Th/39zWKPnudWxzbwZqfXE1
-	bEX/vK8lZmGD2SjIUuTw==;
+	List-Owner; bh=1rj8tKO5/pFqbT+hKQWjyojZu6Y+BFNIgIDZkUjrPRE=; b=jAXLVGPmI4ua5R
+	ZZxZL6bQnRfhYA06Fo3JNnLetJLm9LQR9qxO1Cl8FUANJ+gQcAYNGuSic+gRFzdsKsFmNuzzQaEhb
+	Ph2XjDMWNGGefqjV3n6SAbuv26D9tydbCGstF/0FJ+17rKlODCJsl1FW6wjzHAOj5w0Yz2/lO8Vdw
+	ERTlSWjUh6+q9Jzdy5k21VLlFuwnnSMPaEbrxQ5132SvVMTEJmZzLELWZf1024IGr4YPhqsSYkYnw
+	wDvMqqyzgcaIgQUpmB7BzIIP7aP70zMoh6bT8mP+rhA9vUdbwAiz830da3h4RB64FpNcHAI6CwZxd
+	8mO6nzY5cij6Ka6TAO2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP4ga-0000000AgOk-1HkM;
-	Thu, 05 Nov 2026 21:07:52 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1xP4rV-0000000AiCJ-0akR;
+	Thu, 05 Nov 2026 21:19:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP4gT-0000000AgFp-2WUC
+	id 1xP4rT-0000000AiCC-22Kf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 21:07:47 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-6b1b13e09ffso2021814a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 13:07:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793912864; x=1794517664; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3gHxePExHDGCUUw0dEUJ6/bp6SdmytffH6Zxb6AKWmo=;
-        b=HRULhRKAcP5iRgyMqE1qNcHl5Ydj4tNBfHUT0Sn9tCo2875ORYmaiWFa1HGpEWMSz0
-         woglza8dg0kodNGbkpP9XZ6bWQkNh1ktHdrchFgX+dKtY34Lba1Zqj020gYqPuetFTde
-         HJic3cnNk3TsiMIaRlsI0g+ogYMPrsFNQzLaLom5cSEm3ev7Hhfyw3OJ/nJAf9lTF2Ci
-         XNcPa9huAO9kZPznK3QZEbGzNxqQZGTzqYv35Oah8CVNiDESzHTXfuDyH3UEks1jqxCD
-         IWhr1uOE6ijk2hxdpKMyMl+4JA4OwkWtzFygzQ7rivUFQUBKa4IYjLIw83aurAEN0Sd8
-         EFsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793912864; x=1794517664;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3gHxePExHDGCUUw0dEUJ6/bp6SdmytffH6Zxb6AKWmo=;
-        b=07YbNF4MuntVmufNy6BnxCp0PBqTjDs1dDxRbh2UG0lmcUPkELraJXnbZAy1kG8dfr
-         DDITcLPh6i4bQSwX5AqeyNscHOlBBIEP0uSobYWcQ4qOnB0tziTx/eLhtxpK5axQpaM6
-         JAitHrz6XQ16uKN1gCjWijdiyjogWrFuOv3niB1N6PyjVBd+1utMd9VAP3x9+20yxGMb
-         TOCnb+HhY9lF3uLK48RmP7dEw5gdfq0DG2kQAKqcdNDaPBTxY9ATAsq/mayKKq7vFGWG
-         wXFc10PX4hvISWrKh1BEQwBfDtMxlFwMdtAk8+zUU4LRBx0BUfhZ1xjdLHEfR4fJZYkZ
-         vZZw==
-X-Gm-Message-State: APuU4Z+D0xoYAr4Jnk6fqcbYQI3oLG0CWASKDdz6RQifuAKnVLInZJb9
-	/dfPcIxYliibDTVqCbRB5reHERh/4aha2zBCWAJTAxNT/Y0d4fUZgCP+DgWq/vigvBpOjzYE
-X-Gm-Gg: AYBFou3DadD5m42t68GYaJa13hMMAejNJK4qu+OagAfFEWx6fEFpTdvENZNFz4bapJ6
-	wF3XfFU8Gpb9Y25ZuyWeNTRnLDl1AEHK/MPIOACM4tEpl3FcA6AzgM1tm8mJCodFbsqDgT2Rvpe
-	k4KNXynclfT41tSTgSlf5C2cvyzLqbtqgVQzlcABo//TbbOg4at8/MhmIZkwkangsO6yzbYpDI2
-	A8mvf6oaH8mXd5dg8ZTWWhpbCbbmFqI3jOPvigWM55q8VLlnIRRBzND51X88XmXLtjrrjBgYnbH
-	5bupOeEYvBybNwTQQHrIZf0muJIB2uwOWJmLg/2FBKtPr26AuUvA15yg6T6iSDz1i4EbJ+pwR9A
-	fsT1fPuzo3H+iow1nv0BGExafiVFR4jTptkwP67GqfLSb0hr1KbMtzrTo13eTvSErzT5cJK2/XB
-	Pu9Ul0ElmyGRciAvDS2jMHkRzBgo7AuUJ3N+kuQJNz6WRAMbYAnErk0UhqN3j/84ZEaar/Tg6kq
-	qz2sDBU8pXFY3IlkI7ZZclgLz1L6+/jGpyJLQYaga2zx/O672KCtMzVpqiLrtGbNpccCbQrUuXN
-	S3GFgrs3wr6jSD/MeAJgaOcN45/l/9hJdOBAae47O12F0izjLQ==
-X-Received: by 2002:a05:6402:1ecf:b0:6b5:6478:a9a5 with SMTP id 4fb4d7f45d1cf-6b5977d8c85mr324805a12.10.1793912863653;
-        Thu, 05 Nov 2026 13:07:43 -0800 (PST)
-Received: from letov ([62.41.24.155])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b55ac6d032sm1966949a12.25.2026.11.05.13.07.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 13:07:43 -0800 (PST)
-From: Alexander Letuchiy <asalde.le1@gmail.com>
-To: devicetree@vger.kernel.org,
-	linux-mediatek@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	Alexander Letuchiy <asalde.le1@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/5] arm64: dts: mediatek: Add MT6895 SoC
-Date: Fri,  6 Nov 2026 00:06:02 +0300
-Message-ID: <20261105210622.523747-5-asalde.le1@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261105210622.523747-1-asalde.le1@gmail.com>
-References: <20261105210622.523747-1-asalde.le1@gmail.com>
+	Thu, 05 Nov 2026 21:19:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1B3F243A03
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 21:19:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1D191F008A4
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 21:19:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793913546;
+	bh=1rj8tKO5/pFqbT+hKQWjyojZu6Y+BFNIgIDZkUjrPRE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=eQAfmjejgdnCzPDmmvL1g4LJ0FSdCE6YGj3poL/nTRncVJqtrGf9Q9sdCQFzE11Pu
+	 /lEVBQMzOx/43xG2n7rf9MHAQ3mwFDHSy0i7OzmcV7yeEzftKgxESCHD+jPPs2KOLv
+	 QX7XNYXqgT2MHjP2nM0zoLzX7fiNPfIZ7WeblwnPUWes7KGOOC5Nc3ZXiXLD+FSSBP
+	 l637S64oF3PGjMII3+031JqODU00rZZHTUKrMmk249le5undNVv4sk5TV7uBuH6XKA
+	 ANqHplOYmuq1Iy5KOQqh/ce3kYJyxQBBk+qE5TdT6nUWJWREJbcFfWdN5rVgtx54dI
+	 wDme9hKUsZMlA==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5be4d648aacso2042960e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 13:19:05 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AKwUvBxA8H4UbM3JRCiiPydvuXcBCO2XA3TPy32N9NClHFMrOkMMN/K33s37b9qKWUIXFwEvVmGl5C3+AFHfNX28HKKH@lists.infradead.org
+X-Gm-Message-State: APuU4Z/HNhMlsNeTUCNNiCZ2CwwD8wKXvhmDCcd4XPKHrHYSCfoUmVmw
+	LLTnMskftq1qWXYilX3v4EQVHuAIre6+6i9u+lFTI7vT6KguEhHLrXTP8EjfqlSJfdIPMvm7JNv
+	/VDLLl1XglLty9KAcBrYi1ehIhMUCFlc=
+X-Received: by 2002:a05:6512:3d15:b0:5bc:f29b:1a5c with SMTP id
+ 2adb3069b0e04-5c003ac490dmr84970e87.23.1793913544353; Thu, 05 Nov 2026
+ 13:19:04 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_130745_774687_090DD313 
-X-CRM114-Status: GOOD (  14.28  )
-X-Spam-Score: -1.9 (-)
+References: <20261103221717.3840215-1-briannorris@chromium.org>
+ <20261103141442.v2.3.I40c0bc917fa0b13111251844e9a54feb1d9cd7d2@changeid>
+ <CAJZ5v0jWCz0XDgzeETbmMfGOmvh2G9qcx7xLODrpQ9NiwsddKA@mail.gmail.com>
+ <auuICAm4BC_8Pzs5@google.com> <CAJZ5v0jTX1FgeS9FCV=+V4uacSgLQBVsSPnU27ybgUGg57GUOA@mail.gmail.com>
+ <auzlLwlleGLPsLcw@google.com>
+In-Reply-To: <auzlLwlleGLPsLcw@google.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Thu, 5 Nov 2026 22:18:52 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0g25xQeRaLJWJyAo2fcJko+gZ7w6JhX7FzMgRx2+uuimw@mail.gmail.com>
+X-Gm-Features: AclHuK_Rw1SqQ-ayyKUPK1R6gu5PeotgZxuqEl-8c-_ZkMhL2cIhEUfo-I4VHDo
+Message-ID: <CAJZ5v0g25xQeRaLJWJyAo2fcJko+gZ7w6JhX7FzMgRx2+uuimw@mail.gmail.com>
+Subject: Re: [PATCH v2 3/5] PM: runtime: Propagate last_busy from dependent to dependency
+To: Brian Norris <briannorris@chromium.org>
+Cc: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>, Fabrice Gasnier <fabrice.gasnier@st.com>, linux-pm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Ulf Hansson <ulfh@kernel.org>, 
+	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, 
+	Andy Shevchenko <andy@kernel.org>, Jonathan Cameron <jic23@kernel.org>, 
+	David Lechner <dlechner@baylibre.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,200 +86,292 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Add initial support for the MediaTek MT6895 (Dimensity 8100) SoC, which
-has four Cortex-A55 and four Cortex-A78 cores.
+On Thu, Nov 5, 2026 at 9:21=E2=80=AFPM Brian Norris <briannorris@chromium.o=
+rg> wrote:
+>
+> Hi Rafael,
+>
+> On Thu, Nov 05, 2026 at 12:59:24PM +0100, Rafael J. Wysocki (Intel) wrote=
+:
+> > On Wed, Nov 4, 2026 at 8:31=E2=80=AFPM Brian Norris <briannorris@chromi=
+um.org> wrote:
+> > >
+> > > On Wed, Nov 04, 2026 at 02:34:22PM +0100, Rafael J. Wysocki (Intel) w=
+rote:
+> > > > I should have responded to the v1 of this, but didn't manage to get=
+ to
+> > > > it.  Sorry about that.
+> > >
+> > > Hehe, well that's what v2 is for :)
+> > >
+> > > Thanks for looking.
+> > >
+> > > > On Tue, Nov 3, 2026 at 11:23=E2=80=AFPM Brian Norris <briannorris@c=
+hromium.org> wrote:
+> > > > >
+> > > > > When a child device suspends, it does not update the last_busy ti=
+mestamp
+> > > > > for its parent. If that parent configured autosuspend and didn't
+> > > > > otherwise maintain its last_busy timestamp, it may now be immedia=
+tely
+> > > > > eligible to suspend. This is probably not expected -- the parent =
+should
+> > > > > wait for its autosuspend delay before suspending.
+> > > >
+> > > > Let's first talk about what autosuspend is for: My understanding is
+> > > > that it is there to avoid incurring the runtime PM suspend and resu=
+me
+> > > > latency (and cost in terms of energy) in the cases when the device =
+is
+> > > > known or at least is expected to be needed in the near future.  IOW=
+,
+> > > > we want to defer the runtime suspend of the device because if it
+> > > > suspended, it would be resumed shortly thereafter.
+> > > >
+> > > > I'm not sure if that is always the case when a dependent device
+> > > > suspends and its reference to the parent/supplier is dropped.
+> > >
+> > > To be clear: dropping a reference is not the point at which we extend
+> > > the timer -- it's simply the point at which we propagate the last_bus=
+y
+> > > timestamp.
+> > >
+> > > The naive algorithm is:
+> > > Every time a device updates its last_busy, sync that timestamp to all
+> > > its dependencies.
+> > >
+> > > My proposal modifies that naive algorithm so that it avoids additiona=
+l
+> > > graph walks -- it defers that "sync" step until later. (Now that I'm
+> > > spelling this out, I feel like I should have included this in the com=
+mit
+> > > message...)
+> >
+> > OK, thanks for explaining!
+> >
+> > You seem to be arguing that the current behavior is counter-intuitive
+> > because people would generally expect the parent's (or supplier's)
+> > last_busy to be automatically advanced to the last "busy" time of its
+> > last active child (or consumer).
+>
+> More or less. Or, I don't see why "child was recently busy and may be
+> busy again soon" should not translate to "everything the child uses
+> might be needed again soon".
+>
+> > That is a bit far-fetched IMV because the child's last "busy" time
+> > need not be the same as the parent's last "busy" time, at least in
+> > principle (of course, that is debatable, but that debate can be had
+> > later).
+>
+> I don't get this -- I'm very much asking for that debate right now,
+> because so far, I disagree :)
+>
+> > Still, the underlying observation seems to be that if the child
+> > suspends and then resumes relatively shortly, it may not make sense to
+> > suspend and resume the parent in the meantime, which is fair enough.
+> > Of course, advancing the parent's last_busy will only help here if its
+> > autosuspend delay is long enough though.
+>
+> Right. But that's the whole point of this argument -- if all autosuspend
+> delays were the same, this wouldn't really matter. But the presumption
+> is that the parent wants delay because it's more costly -- it will be
+> imposing extra wakeup cost for its children if it's not accounted
+> properly.
+>
+> > So you can argue that if the parent's autosuspend delay is long
+> > enough, then it should prevent the parent from suspending across
+> > relatively short periods of child suspension.  Again, this is fair
+> > enough, so why does it not happen at times?
+> >
+> > It certainly does happen when the parent actually has to resume
+> > because rpm_resume() calls pm_runtime_mark_last_busy() for it then and
+> > (given a sufficiently long autosuspend delay) it will stay active if
+> > the child resumes a short enough time after suspending.  However, when
+> > the child resumes, the parent is still active, so rpm_resume()
+> > triggered by the child does not advance its last_busy timestamp, so at
+> > one point in the future it will suspend when the child suspends.
+> >
+> > This arguably is inconsistent, so my approach to addressing the
+> > problem at hand would be the attached patch (sorry for the attachment,
+> > but GMail is generally not good at handling appended patches).  If I'm
+> > not mistaken, it should be sufficient to address the particular issue
+> > that triggered commit c537d3457542.
+>
+> It's only sufficient if the child is not active for "too long". Suppose
+> the child stays active for 2s and then suspends briefly; your solution
+> does not work.
 
-Describe the CPUs, PSCI, the GICv3 interrupt controller, the architected
-timer, two UARTs and the watchdog. There is no clock controller driver
-for this SoC yet, so both UART clocks use a fixed 26 MHz clock.
+It doesn't work in the sense that it doesn't do what you want.  But fair en=
+ough.
 
-Signed-off-by: Alexander Letuchiy <asalde.le1@gmail.com>
----
- arch/arm64/boot/dts/mediatek/mt6895.dtsi | 166 +++++++++++++++++++++++
- 1 file changed, 166 insertions(+)
- create mode 100644 arch/arm64/boot/dts/mediatek/mt6895.dtsi
+> In commit c537d3457542, I imagine the 0.2s polling example is just an
+> example;
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt6895.dtsi b/arch/arm64/boot/dts/mediatek/mt6895.dtsi
-new file mode 100644
-index 000000000000..c80f30da7bf9
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt6895.dtsi
-@@ -0,0 +1,166 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+/ {
-+	compatible = "mediatek,mt6895";
-+	interrupt-parent = <&gic>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		cpu-map {
-+			cluster0 {
-+				core0 {
-+					cpu = <&cpu0>;
-+				};
-+
-+				core1 {
-+					cpu = <&cpu1>;
-+				};
-+
-+				core2 {
-+					cpu = <&cpu2>;
-+				};
-+
-+				core3 {
-+					cpu = <&cpu3>;
-+				};
-+
-+				core4 {
-+					cpu = <&cpu4>;
-+				};
-+
-+				core5 {
-+					cpu = <&cpu5>;
-+				};
-+
-+				core6 {
-+					cpu = <&cpu6>;
-+				};
-+
-+				core7 {
-+					cpu = <&cpu7>;
-+				};
-+			};
-+		};
-+
-+		cpu0: cpu@0 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x0>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu1: cpu@100 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x100>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu2: cpu@200 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x200>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu3: cpu@300 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x300>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu4: cpu@400 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a78";
-+			reg = <0x400>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu5: cpu@500 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a78";
-+			reg = <0x500>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu6: cpu@600 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a78";
-+			reg = <0x600>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu7: cpu@700 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a78";
-+			reg = <0x700>;
-+			enable-method = "psci";
-+		};
-+	};
-+
-+	clk26m: clock-26m {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <26000000>;
-+		clock-output-names = "clk26m";
-+	};
-+
-+	psci {
-+		compatible = "arm,psci-1.0";
-+		method = "smc";
-+	};
-+
-+	timer {
-+		compatible = "arm,armv8-timer";
-+		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW 0>,
-+			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW 0>,
-+			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW 0>,
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>;
-+	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		ranges;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+
-+		gic: interrupt-controller@c000000 {
-+			compatible = "arm,gic-v3";
-+			reg = <0 0x0c000000 0 0x40000>,
-+			      <0 0x0c040000 0 0x200000>;
-+			#interrupt-cells = <4>;
-+			interrupt-controller;
-+			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH 0>;
-+		};
-+
-+		uart0: serial@11001000 {
-+			compatible = "mediatek,mt6895-uart", "mediatek,mt6577-uart";
-+			reg = <0 0x11001000 0 0x1000>;
-+			interrupts = <GIC_SPI 141 IRQ_TYPE_LEVEL_HIGH 0>;
-+			clocks = <&clk26m>, <&clk26m>;
-+			clock-names = "baud", "bus";
-+			status = "disabled";
-+		};
-+
-+		uart1: serial@11002000 {
-+			compatible = "mediatek,mt6895-uart", "mediatek,mt6577-uart";
-+			reg = <0 0x11002000 0 0x1000>;
-+			interrupts = <GIC_SPI 142 IRQ_TYPE_LEVEL_HIGH 0>;
-+			clocks = <&clk26m>, <&clk26m>;
-+			clock-names = "baud", "bus";
-+			status = "disabled";
-+		};
-+
-+		watchdog: watchdog@1c007000 {
-+			compatible = "mediatek,mt6895-wdt", "mediatek,mt6589-wdt";
-+			reg = <0 0x1c007000 0 0x100>;
-+		};
-+	};
-+};
--- 
-2.56.0
+I'm not sure about that, but OK, say it's just an example.
 
+> what if that period was 0.1s, with some natural variance up or
+> down? Then I could easily see how the child remains active for longer
+> than 2s, and then occasionally is inactive for longer than 0.1s,
+> allowing both the child and parent to autosuspend.
+>
+> Or in concrete terms: see the appended test diff, which attempts to
+> emulate:
+>
+>  - 200 cycles of child get/put
+>  - delay in between each put -> get cycle
+>  - delay of approximately 100ms, with a configurable +/- variation
+>  - apply the shorter variation (e.g., 90ms) most of the time, with a
+>    longer variation approximately every 2s
+>
+> So for example, that looks something like:
+>
+>  cycle 0 to 22:   delay 90ms
+>  cycle 23:        delay 110ms
+>  cycle 24 to 46:  delay 90ms
+>  ...
+>
+> With your patch:
+>
+>    0ms variation =3D=3D PASS (child suspends 200 times, parent suspends 0=
+ times)
+>   10ms variation =3D=3D FAIL (child suspends 21 times, parent suspends 4 =
+times)
+>   20ms variation =3D=3D FAIL (child suspends 7 times, parent suspends 7 t=
+imes)
+>   30ms variation =3D=3D FAIL (child suspends 6 times, parent suspends 6 t=
+imes)
+>   40ms variation =3D=3D FAIL (child suspends 5 times, parent suspends 5 t=
+imes)
+>   50ms variation =3D=3D FAIL (child suspends 4 times, parent suspends 4 t=
+imes)
+>   60ms variation =3D=3D FAIL (child suspends 3 times, parent suspends 3 t=
+imes)
+>   70ms variation =3D=3D FAIL (child suspends 2 times, parent suspends 2 t=
+imes)
+>   80ms variation =3D=3D FAIL (child suspends 1 time, parent suspends 1 ti=
+me)
+>   90ms variation =3D=3D PASS (test didn't run long enough to fail)
+>
+> With my patch, all cases pass. (The child suspends in the same pattern,
+> but the parent does not suspend in between.)
+>
+> For comparison, with neither patch:
+>
+>    0ms variation =3D=3D FAIL (child suspends 200 times, parent suspends 1=
+0 times)
+>   10ms variation =3D=3D FAIL (child suspends 14 times, parent suspends 8 =
+times)
+>   20ms variation =3D=3D FAIL (child suspends 7 times, parent suspends 7 t=
+imes)
+>   30ms variation =3D=3D FAIL (child suspends 6 times, parent suspends 6 t=
+imes)
+>   40ms variation =3D=3D FAIL (child suspends 5 times, parent suspends 5 t=
+imes)
+>   50ms variation =3D=3D FAIL (child suspends 4 times, parent suspends 4 t=
+imes)
+>   60ms variation =3D=3D FAIL (child suspends 3 times, parent suspends 3 t=
+imes)
+>   70ms variation =3D=3D FAIL (child suspends 2 times, parent suspends 2 t=
+imes)
+>   80ms variation =3D=3D FAIL (child suspends 1 time, parent suspends 1 ti=
+me)
+>   90ms variation =3D=3D PASS (test didn't run long enough to fail)
+>
+> So, your patch makes an improvement, but it doesn't handle this kind of
+> variation very well.
+
+And it is not designed to do so.
+
+Of course, it will not prevent the parent from suspending if the child
+does not attempt to resume it for a time longer than its autosuspend
+delay.  That's by design and you didn't have to take the time to
+demonstrate it.
+
+The question is how often those kinds of patterns occur in practice.
+Or IOW, whether or not they occur often enough to justify adding
+complexity related specifically to addressing them.
+
+> > Note that I'm not worried about the potential raciness of this new
+> > last_busy update with other possible concurrent updates of last_busy
+> > because they all use approximations of the current time and if they
+> > are close enough to each other, it should not matter who wins the
+> > race.
+>
+> Ack, that's one advantage in your style of solution, because you're only
+> handling timestamps "in the moment."
+>
+> > > With that said:
+> > >
+> > > > The core calls pm_runtime_mark_last_busy() for resuming devices und=
+er
+> > > > the assumption that they are resumed for a reason and so it is like=
+ly
+> > > > that they will be needed in near future, but I'm not sure if that
+> > > > assumption can be extended to a child suspend case.
+> > >
+> > > But that's not what I'm doing: I'm not calling mark_last_busy() -- I'=
+m
+> > > just making mark_last_busy() transitive to all dependencies. So any t=
+ime
+> > > we *already* say the child is busy, I also extend that to the parent =
+--
+> > > I'm not generating any new timestamps; I only reuse the timestamps we
+> > > already selected.
+> > >
+> > > My view on the logic (using your terms above): when a child calls
+> > > mark_last_busy(), it suggests that child might be needed in the near
+> > > future. Whenever a child device is needed, so is its parent (barring
+> > > ignore_children). Thus, mark_last_busy() should also refresh the
+> > > parent's busy timestamp.
+> >
+> > Of course, it can be argued this way though there are
+> > counter-arguments (probably not worth discussing in detail at this
+> > point) and there is the question how much of a difference this would
+> > make after addressing the rpm_resume() inconsistency mentioned above
+> > (which IMV needs to be address regardless because it is not limited to
+> > the parent-child or supplier-consumer situations).
+>
+> I would love to hear your counterarguments.
+
+OK, I'll say more about that tomorrow (it's past 10 PM here, time to
+go away from the keyboard).
+
+> I don't believe your solution solves the problem,
+
+That depends on what problem in particular you mean.
+
+It addresses an inconsistency in rpm_resume() and as I said above,
+this needs to be done anyway because it is not only related to the
+cases when children or consumers are involved.  There are other cases
+in which rpm_resume() gets called for an active device and the lack of
+last_busy update causes the device to suspend earlier than expected.
+
+> and my solution does while also handling
+> the inconsistency you mention.
+
+I'm not sure about that.
+
+For example, say a device has an autosuspend delay of 2 s.  Say it is
+initially suspended and user space writes "on" to its "power/control",
+so the device resumes.  Now, 1 s later, user space writes "auto" to
+the device's "power/control" and the autosuspend delay is respected,
+so the device doesn't suspend.  Next, 1.5 s after the first resume,
+user space writes "on" to the device's "power/control" and the device
+does not resume because it is active (its last_busy is not updated).
+Finally, user space writes "auto" to the device's "power/control", say
+1 s later, and the device suspends even though it can be expected to
+stay active for at least 1 s more.
+
+How is that going to be addressed by propagating last_busy from
+children/consumers to parents/suppliers?
+
+Note that I'm not dismissing your proposal, I'm just having doubts
+about the need to do this kind of thing in the core code.
 
