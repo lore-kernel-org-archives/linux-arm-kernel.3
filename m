@@ -2,106 +2,125 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA3E6606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 21:04:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33BC5606A33E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 21:07:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JcE4/qyY;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WSvz35Kz
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4PTyZSME;
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=lkVsGZuq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=wQd2y5d3c9Xle1BZoXd9DRgnl2+Av/870a5uei8ZYeo=; b=JcE4/qyY8B+SPP
-	byooslVKw245cNSgC5JpviGSfQA5MU8ZvpDBIHM4veM3bO5yyWFTFAnxePrM5MclCwa8qa8iWlhKb
-	1FuYzLOxaYTwa5USJzO7ce7pKsO81XElMqvsuJRet8DwLmm7pcPSCES9InGHIojYPik8YR8gaFAJf
-	xbX4q3W4E0R6mnrPupGSpnnjQPIkHEXkGnxMtiklUL0/jOGfig5EvQHybvKC55NNmIUG2jR+wx6sr
-	gZlE3IYit+36q/0HcfpeIJcR7K5ZmPu0r8ipgKO1Ukx6zO7tk5BHhxg9x2SLVgiDL3njMg4lcXaJK
-	5cdUWolpUKe3/Kar/lBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=P2T6CKmHWpBZfkTNwwS/vpOZJAIEVL/Se4l3mW8T0iY=; b=4PTyZSMElkbj1pjnVwEipu/Xq/
+	GkAGQXvEih5fIJQRFcfsb0Pc+uSxpkv+2gbbJbT0pWrTSyopP6wHyfJC24bzbvUGYS4uuO33eclEu
+	OIvyok2XMaYBD3XwcZEQ0hvo2lvKiBs+j/9nUPl8ABN2zHTp3LYN9O3G1/p//fVlCMcbran/pcXrm
+	JfL+kSwQRDnI261/bKsLIckl2ZSCccDaJQ9SWKBjd/OHKsaksmW8rxVmOyQQZKcMljGiaVNaC+BLr
+	9zZfq4m8aepqIoUSiGPw1exhTIWlUaxuzIsjflk7mtH+E4i1Dz+O66BC3eSDWd+99EPDdmmSFeqqS
+	m6NwmGuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP4Rk-0000000Acks-1cj7;
-	Thu, 05 Nov 2026 20:52:32 +0000
-Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
+	id 1xP4fd-0000000AfxQ-2vD4;
+	Thu, 05 Nov 2026 21:06:53 +0000
+Received: from mail-southcentralusazon11011037.outbound.protection.outlook.com ([40.93.194.37] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP4RZ-0000000Acd2-2D3N
+	id 1xP4fb-0000000AfwO-14qF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 20:52:23 +0000
-Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-843b6f8e2c7so4926a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 12:52:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793911940; x=1794516740; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=wQd2y5d3c9Xle1BZoXd9DRgnl2+Av/870a5uei8ZYeo=;
-        b=WSvz35KzBXAoIldmiIwmeZjCtk7zcuxxla1i5lr8SVy14ngFn0itQINvKMuzM1qqzm
-         I/Sr5MFN58yibE0c9YaHJVqT51593gihZjpGHL6VZj0s44a2KPgHPV/iF0mHcqhQJcR6
-         CfJSHWEBcZKoG+S7juHP6kdN2Svsst9qa77DpEEaB0xmybSFhmohe3CMx4gerYq5CXCL
-         NbHVNjBD5hMRuw2j4CwDGspv03FO8kv0etxN2LfcNLqZ38/tp9g3Z528R9KrYYUjOckn
-         ErHjIWq7Z94X27cF70UkNBkVu+DTMxV//DddKgkul9pAx3snFHfRZ2+KKfG/SZdFEviB
-         +uMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793911940; x=1794516740;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wQd2y5d3c9Xle1BZoXd9DRgnl2+Av/870a5uei8ZYeo=;
-        b=DlS+7fjeTdfAcmpB8kwOn1GlZBXNr3clAcUR8+hpufUVOHCIo4tmfFHP4KgYPFtYjS
-         jn8/E2r1gZBynr9bFsnwJtbcS8duXpidenBERoYU8xdmf8SswV+TOIS6V8UY+DZrIiBO
-         93bf1fTty0moZhrH8VOo1moaSLJbbJzmHWrKQf8wT9/jiyHtLDDdz4TqiT1rWg4etpqh
-         KbAj5wo74ST/UsV6nZJwIisoyHB5R0UkuqJiM1pCPerG0cdWjgg0fLWpeQDMcANaF5Ao
-         r2msgTuHlwH7sNiI9i3luqeaCl7t+x0PwkUiLE2tO6VjgbbZQiZ5scUx6tEQBRrxQmbA
-         G72Q==
-X-Forwarded-Encrypted: i=1; AKwUvBzkLPTs/QHUbxx/tZW87wMWT32wanb1DuaUfyypwvTZdnSlKxm+iDqaIRseuwmafKjt4AwaUynYt21jKQs49CGL@lists.infradead.org
-X-Gm-Message-State: APuU4Z8ZtzyL8bY/Ele4CkAYkRC1rFtAO8PPvDfi2tqtBUoCcYWrcPLZ
-	vD8C78uPOARgLfpeJMNLX2v75sxqlCaKYz/SwOAY3tWtinj6Qh0erj4u
-X-Gm-Gg: AYBFou2SNMgqPo4tnM8+Ba9O4TTa8VEOEs2nNXG1/lOORfhPSZUpLMRimVWhkLxODGg
-	VCQrf9TP1SfkRWDxFEC9WEuZDwsVnRVDxJJLmptbre9u/iuLJjYF58Psk5Z22cXeDSaEXhifdI/
-	5FpqjTG21P7oFz2/t4qSVgrVqNE6UG7DFMFw1bF85vTy7ilmOfUvJGp1PQzEobd7o9eqNzqMHvm
-	HomGyP2clD1JuNnTE+eH3y7PMKPCblZkoHe3tlnNQCgnfsZiGNjmnx1INOJbYLNm4/CjwEASZJx
-	3uTCs0Q3OsWLV26hCt+K4v/TOp+n2NO9v8WTBg8WqEj/wZtc6oJvZZulPQquuSSty8PO/JmeFfe
-	BWP4asqS6fepgOMcPffggRsMXVHwb/vE7/0Xktu55DkGPNJIT9JM2767N77A1ilcUvrQc2k/CxB
-	UIpTZq7tJq8QA5th7kyf7n/CnrcBh5YBghkI6dGPv+PrGuuOcYnZfZcrPLcsPiLyULnphEewnkf
-	MfaYeEQO4bJagn49g9Sr9mO4SRepWgFFwz0NRGrg/kGKIVVBnhpoP1HzwBQQkLJ57A19/QdCY62
-	nbgslfGyn3ZHdU9M2J4nH7FliaYIFh3cxIw+6EGD/5EIC5ZhaGxhvUakMvJ/VhEU7WeI0ANtO7c
-	GFIY58vjs3EQMfcxxE2Q7fIVDvl2ZDOFYg0N8EFnhekoSYRAyWrkURHYRiROfK8ohtjByIbT3Wa
-	LD8jK2AsMt1jHaxg3gpBg5CNQh8aoLvBo6xjz4wG4BkENBHGwHCX0=
-X-Received: by 2002:a05:6830:310e:b0:821:d65d:37c1 with SMTP id 46e09a7af769-85f1d102bf6mr708163a34.25.1793911940392;
-        Thu, 05 Nov 2026 12:52:20 -0800 (PST)
-Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-85f1dbb298fsm292276a34.6.2026.11.05.12.52.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 12:52:19 -0800 (PST)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 05 Nov 2026 13:52:05 -0700
-Subject: [PATCH v8 04/11] serial: 8250: share the RX trigger conversion
- helper
+	Thu, 05 Nov 2026 21:06:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XEOT3v6ZJGFv3nFn0e1oNjC40nXQMdbb+8cHvyNYu9spgyRDmVT9WeNhS6KHrPX3fVNOLjE8C5BPAC5QZGQfSD3GFGlsDLTbtUeaSRkC3n3F6wTdrMJhtG/yXrXihzcgFjKvzVSe/Q61jMFxy8+tx9X0tNIqh8PnO4XrCRHR/N1g5dOOTz2fTt5vokXnqM+BUUiimDlRGpaOjcBW6RvPkc/cWEp2AtpWQtJDEoCS7rczV6kwvEfRlzaNrhpXVWJO3B+Uk1ByakHHdoUg069VuyUuAlbP2ae7kyG2bmY/r+1VjnwU3F9lVDE3zhe/itA+FELMXj0Toei3wuy157Yq/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=P2T6CKmHWpBZfkTNwwS/vpOZJAIEVL/Se4l3mW8T0iY=;
+ b=uLJifsCl3GSsMt2z+rPByPtZQJdt5jCPqpA/zT6/wMT2rd+ORq7pYW/uSZCQtAnV07eh9S9Sql//AL++uAml9W3mtKCRx+3TyesrQw9NxsZ2e+FSnKPnpqHRlJBYkZExnwJjGJZ08MOBut1ygNQkyoucW806O2nfnTBYiuQNEl9wXCGMgW/kKhFdOR4f34h1zRnxIQ6yYbSg3U5JqS9/UFZ5voUlM3dXfmgRCCNVOi0lxQRsHJwtF8YrPBym6Txtr5BLujXjAaaqQXVzVySz4XQupcOt42XPby2Lbp571a7lBC5syqX32p3S7auVyl1LaH1oMf0Nqb9iVAOlNfdmQA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=P2T6CKmHWpBZfkTNwwS/vpOZJAIEVL/Se4l3mW8T0iY=;
+ b=lkVsGZuqzrwkMukCMTuWaL3wQGPeIpCmoma4SYC39pxZFtOdbh+j67y4W/eEytBlEqmc6OIBQoxlvE3apWVe/w9xEVFlywVtNBxIP1QRbljG624Xsl8TgJ1JGEqtuMZRSK1xvvHsOfarqwuGxpssqRZb+xOhSswwyhorHlR+lKrSn9cHau4yrDqW1ZOnFtvkZuZAOtf0i3GZBv+qZXhBrpNnPjBd21jksmbHy5Hj7P37rWdHqgyHkRQPidiW4C+d7ynH1U9XIuvpfmPt3r1Vtnokso9cQCgHLXxAT9UnYgnfkUm/zx57V+IdRAewbw5AOEQizywVoHDPi+3fx/ywpg==
+Received: from CH0PR03CA0238.namprd03.prod.outlook.com (2603:10b6:610:e7::33)
+ by IA4PR12MB9785.namprd12.prod.outlook.com (2603:10b6:208:55b::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Thu, 5 Nov
+ 2026 21:06:45 +0000
+Received: from IA0PEPF00000042.namprd04.prod.outlook.com
+ (2603:10b6:610:e7:cafe::33) by CH0PR03CA0238.outlook.office365.com
+ (2603:10b6:610:e7::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.10 via Frontend Transport; Thu, 5
+ Nov 2026 21:06:45 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ IA0PEPF00000042.mail.protection.outlook.com (10.167.249.164) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Thu, 5 Nov 2026 21:06:45 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Thu, 5 Nov
+ 2026 13:06:26 -0800
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Thu, 5 Nov
+ 2026 13:06:26 -0800
+Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.129.68.6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56 via Frontend
+ Transport; Thu, 5 Nov 2026 13:06:21 -0800
+Date: Thu, 5 Nov 2026 13:06:18 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Mostafa Saleh <smostafa@google.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<kvmarm@lists.linux.dev>, <iommu@lists.linux.dev>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <maz@kernel.org>, <oliver.upton@linux.dev>,
+	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
+	<joro@8bytes.org>, <jgg@ziepe.ca>, <mark.rutland@arm.com>,
+	<qperret@google.com>, <tabba@google.com>, <vdonnefort@google.com>
+Subject: Re: [PATCH v9 11/25] iommu/arm-smmu-v3-kvm: Add the kernel driver
+Message-ID: <auzvygiGRTWgJXzF@nvidia.com>
+References: <20261015200903.2735565-1-smostafa@google.com>
+ <20261015200903.2735565-12-smostafa@google.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261105-submit-h616-uart-fifo-v1-v8-4-14024d2b184b@gmail.com>
-References: <20261105-submit-h616-uart-fifo-v1-v8-0-14024d2b184b@gmail.com>
-In-Reply-To: <20261105-submit-h616-uart-fifo-v1-v8-0-14024d2b184b@gmail.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, James Hilliard <james.hilliard1@gmail.com>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261015200903.2735565-12-smostafa@google.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA0PEPF00000042:EE_|IA4PR12MB9785:EE_
+X-MS-Office365-Filtering-Correlation-Id: de21331c-00ea-411a-5487-08df3b80b2fd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|1800799024|23010399003|7416014|22082099003|18002099003|6133799003|10067099003|56012099006|4143699003|11063799006|261102123227099003|261026140227099003|261026121527099003|261021121427099003|261028144727099003|261021135927099003|261021123027099003|261009223027099003|261022075727099003|261022105027099003;
+X-Microsoft-Antispam-Message-Info: iUPLOmUxuYI7cwu0tpKalLgPaI9Ts1cPImR5KXEEzbUhGN3Sf0OtAisz4xdSwt3GxiN3A65xIye2gz0zndtdx9NDg4txbNboUXpCw+M+K6fnGCa9HTql0SELwTFXg/ajgkn7CxiAT2AfZcWIbLC1slZqjU5XVd7YgGEbhfx1qpfsQqr2Ja74/cxGhOBcSMiOwnAv3uV6X8RNmzBWl+Qx0ao2BnN8Sf7KA5oWdcX1qbL9dAQ2bDcdXxim9rjVzHLjV+GB2PZLN8Pk5DL7m+whjP01UYlpgVMjzfJEIbuBDtPAC0K7CgQohQEfosJBMLmUypG0SFU6knnpxHO+Sguo414zV92GCEB8WZyeh6+JypXuuaiV3ZX14RKU9CievvRQwEHtd0NYsCxXVvKx8lWpQwJjx9bdon4vRTdX5ycrOBW/9E1wKmqEl4fD+bbJeJLO5unaxPynPFNItkwt4HuEm1Bjz7KflbUnCOAira7tsxY6FovfHCHqtEXIWpSAVINXyGym024qN4u5fZOFd7JpVFIgauP0KiAZVYgkdy/IseXpgc6EKM7kY6MnMxzSyUDd+2WVvAFWs+W2oqqbqTTgAFeYMoxhcVvyxqlCxaJ9wd/lCjzgA6I/LHp+yB5z3fniFBwwrOOlZ8xjZxL+5SSZcud9kyq5s8qQraM5hi1XvvPdEVeTLLUVw2e2uzHMdGrhDs7Lw0QvgsgkwFuKj8ZPgA==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(1800799024)(23010399003)(7416014)(22082099003)(18002099003)(6133799003)(10067099003)(56012099006)(4143699003)(11063799006)(261102123227099003)(261026140227099003)(261026121527099003)(261021121427099003)(261028144727099003)(261021135927099003)(261021123027099003)(261009223027099003)(261022075727099003)(261022105027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: NAaA4ymnz/9lMUzS84GJm7W6C4UsOvPayYrLfwLu/ezLpuo1CiF/Z1xJvMA5hCqibH/tn403UNw8v9K08THaiTZp37o9FXS/GAsvEdgC+WHFHNAjJDXT2evhjiC4MfKbGtd8HY038hrA+tKwH5dnPuvpy2T9/Q1NiCXQNDO8fW87wncmW4xtPVD2+4qYDI0Y+1TlX7IIx/EITVPqS7LiRxGbTcSzsAVR6mR3v7vDVgdE1BFLhVXjALPYeAOkbkUCZGzlXLIDrbS3V+hW7T9mZ9/SpDn8zYbi4GpyDwCPKTFXOohfCx2j8Rzo2fxRkW6HySLDRFKcgx84KBOg1a2RBVWaKc0JAZ1/KTmCt7sQj4h/qmqheakXLQYd5sCQHeqrOfzTzBQU8N+RSz6a4RE/9Gy8qoEGGHpdLmJ/x1O9Wm3suxmkxuJS5gEjDsK1k8OS
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Nov 2026 21:06:45.2728
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: de21331c-00ea-411a-5487-08df3b80b2fd
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: IA0PEPF00000042.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR12MB9785
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_125221_574074_29AF8C86 
-X-CRM114-Status: GOOD (  14.90  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261105_130651_339519_54EB8A31 
+X-CRM114-Status: GOOD (  16.82  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,85 +131,54 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Drivers can supply receive-trigger thresholds through the RX trigger
-callbacks without adding a legacy port type to uart_config[]. Extract the
-threshold search into serial8250_bytes_to_fcr() so those drivers can use
-the same conversion as the generic 8250 implementation.
+On Thu, Oct 15, 2026 at 08:08:42PM +0000, Mostafa Saleh wrote:
+> +static struct platform_driver smmuv3_nesting_driver;
+> +static int __init smmuv3_nesting_probe(struct platform_device *pdev)
 
-Keep the implementation in 8250_port.c and share it within 8250_base.
-Include the unsupported-table check and preserve the existing nearest-lower
-selection and highest-encoding fallback.
+Could it use a different naming than "nesting"?
 
-Suggested-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Reviewed-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
----
- drivers/tty/serial/8250/8250.h      |  2 ++
- drivers/tty/serial/8250/8250_port.c | 14 ++++++++++----
- 2 files changed, 12 insertions(+), 4 deletions(-)
+"Nesting" is widely used in iommufd path for nested translation.
 
-diff --git a/drivers/tty/serial/8250/8250.h b/drivers/tty/serial/8250/8250.h
-index 939b7d4209f1..8729619160ea 100644
---- a/drivers/tty/serial/8250/8250.h
-+++ b/drivers/tty/serial/8250/8250.h
-@@ -73,6 +73,8 @@ struct serial8250_config {
- 	unsigned int	flags;
- };
- 
-+int serial8250_bytes_to_fcr(const u16 *rxtrig_bytes, u16 bytes);
-+
- enum uart_port_type {
- 	/* Internal 8250 only */
- 	UART_PORT_AIROHA		= 124,
-diff --git a/drivers/tty/serial/8250/8250_port.c b/drivers/tty/serial/8250/8250_port.c
-index 452851815ffc..73bc9e7ab703 100644
---- a/drivers/tty/serial/8250/8250_port.c
-+++ b/drivers/tty/serial/8250/8250_port.c
-@@ -3015,16 +3015,15 @@ static int fcr_get_rxtrig_bytes(struct uart_8250_port *up)
- 	return bytes ? bytes : -EOPNOTSUPP;
- }
- 
--static int bytes_to_fcr_rxtrig(struct uart_8250_port *up, u16 bytes)
-+int serial8250_bytes_to_fcr(const u16 *rxtrig_bytes, u16 bytes)
- {
--	const struct serial8250_config *conf_type = &uart_config[up->port.type];
- 	int i;
- 
--	if (!conf_type->rxtrig_bytes[UART_FCR_R_TRIG_BITS(UART_FCR_R_TRIG_00)])
-+	if (!rxtrig_bytes[UART_FCR_R_TRIG_BITS(UART_FCR_R_TRIG_00)])
- 		return -EOPNOTSUPP;
- 
- 	for (i = 1; i < UART_FCR_R_TRIG_MAX_STATE; i++) {
--		if (bytes < conf_type->rxtrig_bytes[i])
-+		if (bytes < rxtrig_bytes[i])
- 			/* Use the nearest lower value */
- 			return (--i) << UART_FCR_R_TRIG_SHIFT;
- 	}
-@@ -3032,6 +3031,13 @@ static int bytes_to_fcr_rxtrig(struct uart_8250_port *up, u16 bytes)
- 	return UART_FCR_R_TRIG_11;
- }
- 
-+static int bytes_to_fcr_rxtrig(struct uart_8250_port *up, u16 bytes)
-+{
-+	const struct serial8250_config *conf_type = &uart_config[up->port.type];
-+
-+	return serial8250_bytes_to_fcr(conf_type->rxtrig_bytes, bytes);
-+}
-+
- static int do_get_rxtrig(struct tty_port *port)
- {
- 	struct uart_state *state = container_of(port, struct uart_state, port);
+Here, it could be smmuv3_pkvm_driver?
 
--- 
-2.53.0
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +#ifdef CONFIG_ARM_SMMU_V3_PKVM
+> +/*
+> + * Two devices are involved: the aux device bound to this driver, and the
+> + * physical platform device bound to the pKVM init driver, which only uses it
+> + * for discovery. This driver keeps using the platform device, as it carries
+> + * the fwnode the IOMMU core and consumers link to, the DMA configuration and
+> + * the IRQs.
 
+It would be nicer to have a diagram or so to show the co-relationship
+among different devices and drivers.
+
+I assume the regular arm-smmu-v3 driver is a part of the picture too,
+when the pkvm driver binding fails?
+
+> +static struct auxiliary_driver arm_smmu_driver_emu = {
+> +	.driver = {
+> +		.suppress_bind_attrs = true,
+> +	},
+> +	.name = "arm-smmu-v3-emu",
+> +	.id_table = arm_smmu_aux_table,
+> +	.probe = arm_smmu_device_probe_emu,
+> +	.remove = arm_smmu_device_remove_emu,
+> +	.shutdown = arm_smmu_device_shutdown_emu,
+> +};
+> +
+> +module_auxiliary_driver(arm_smmu_driver_emu);
+> +#endif
+
+Nit:
+#endif /* CONFIG_ARM_SMMU_V3_PKVM */
+
+Nicolin
 
