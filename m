@@ -2,96 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FE9F606A338
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 13:33:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51647606A335
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 13:34:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=TC+pHW+n;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=ZQJXFCp5
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=g+X8qYM/;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=AJAD0adZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=y43YNWD+k+ubb/a2T+eljyxfcTKfusa9vVgir5Rs1h4=; b=TC+pHW+nID1O4H
-	jg0HO1vKzMSu5qFcJZLzLWIsfFR4WuHScw82A7E3/4XHupYZeyQmYssVJykPOuS7uyVN2YlvajUu2
-	oxz0MQt0EvjS4qxA+IZOQqxWiU9QPu3oZoG1Q77asmuS+X4x4QtRiek7CUNyBKItg9iBBmP5PHt2v
-	9KRg7/oCpwLrzkCx9M0kmJAgDatCCDvjlmvc5Wcqk0qBrRy4rSHTmK6LVskv64faLNCJqG4dL1cLZ
-	HOnEzw0r779b96bY+8D3la90gh9/zTVOSLpiRJDPpNkeHXxPLo47bUN0y0wJTGHdaJaiAIH3uL2BS
-	t7mIYanSNNDCSEP+TFEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=xtG6fIgcVTzyv91/g3gp13PkyR5FUez629otMerYOAs=; b=g+X8qYM/TQ1YQVmDb4Rpw8sLG2
+	GQlKkJjCeUWrDsvqG7MEFeu4LfjcyGptnhPWhcuN43ZW/+IgWuU4ouf4onZ9JouZsrFbA1jFf2+de
+	XzYKROO5DKhfVWeMg51V457NGIB4cnboDnUvYLHlKhK6O7cDX9SeTOD2Gp2AjQltNC2lTx2AYpYWd
+	A9Oy+DhIaRkz8zRRRmOUhJOIMTKZ1Z/Nbjwl+A+CcjaCnwTYl5t4CRo6lcsiJLdRCMHsjAT3TRNxt
+	SlOt9W7xwVykYC4Er8+Z5I8NWmWylwUDQRkwioSP365+LDWYQ8AsmywSWy8sKGYn1Mkfpe0C2q3AN
+	zqdGN0pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxau-000000098ap-1gcA;
-	Thu, 05 Nov 2026 13:33:32 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxaf-000000098Ae-1D6p;
-	Thu, 05 Nov 2026 13:33:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1793885591;
-	bh=Lrc21r1uDckAke377GR83yzPa15rPUla1sMG2uzmWaw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZQJXFCp52Vc+g5zc9ltZg3YpqC7zAU/Tpb2poTtZe0UPaF+MHCTe7pt+g/mhU1hux
-	 f7vrwN9eO60x6giUNEipissk30ucnbH3pIxNA4w4qwMbWxRb/HTelKGs6wJm1hgIL+
-	 1pg9vIsPcJOPGWi7lNzJ2S2ak+AUz8fOiWomYCHlVMKoII5o3ozv3+lk5hadB75Gy4
-	 xBcIyJCRMSP3rMm4t6lUGWGYkA9MOZ0cHAoZCZUve0Upk8c2+ElhipJCvPh41MSsZl
-	 5EM5UzEwDI5A4wzP7W21O8NIS8TTCmTalJRWlRdgzpdp+wz8D5kJjaf7bPVgdYq10e
-	 Jxg36ygU2X34A==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 91E1317E0C0A;
-	Thu, 05 Nov 2026 14:33:11 +0100 (CET)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id EAE03480038; Thu, 05 Nov 2026 14:33:10 +0100 (CET)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 05 Nov 2026 14:33:14 +0100
-Subject: [PATCH v9 6/9] PCI: dw-rockchip: Add helper function for DLL
- interrupts
+	id 1xOxbh-000000099Hb-3s01;
+	Thu, 05 Nov 2026 13:34:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOxbb-000000099Eu-3apV
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Nov 2026 13:34:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D4776152B;
+	Thu,  5 Nov 2026 05:34:11 -0800 (PST)
+Received: from e143914.arm.com (e143914.arm.com [10.2.213.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4A10D3F628;
+	Thu,  5 Nov 2026 05:34:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793885654; bh=l14vhx5E/VbDt8tx/DC7VJgj77lpt87vUA3lRCAIukc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AJAD0adZM+HCYJxY7MSwwM7ewupYaBK7MHtAFWoJGwaLsy9a2Z3j0hqOYyLCD7h9l
+	 uZQcELPuN4SgmB/pGNNyGyoik9JIl7sAoIqln4XYNWCG+mWzdqV5Zl3w/eOB4igDB/
+	 a7d1AJeMDvSeVAgYKmR7bolgYmyGdI2IYsVoMx3k=
+Date: Thu, 5 Nov 2026 13:34:09 +0000
+From: Joey Gouly <joey.gouly@arm.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Shuah Khan <shuah@kernel.org>, Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 05/16] KVM: arm64: selftests: Add protected-VM boot
+ trampoline
+Message-ID: <auyF0ePpUlJKZgNo@e143914.arm.com>
+References: <20261104084842.132944-1-fuad.tabba@linux.dev>
+ <20261104084842.132944-6-fuad.tabba@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-rockchip-pcie-system-suspend-v9-6-a2e55846649e@collabora.com>
-References: <20261105-rockchip-pcie-system-suspend-v9-0-a2e55846649e@collabora.com>
-In-Reply-To: <20261105-rockchip-pcie-system-suspend-v9-0-a2e55846649e@collabora.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Jingoo Han <jingoohan1@gmail.com>, 
- Shawn Lin <shawn.lin@rock-chips.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, 
- "Yury Norov (NVIDIA)" <yury.norov@gmail.com>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Alexey Charkov <alchark@flipper.net>, linux-pci@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3311;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=Lrc21r1uDckAke377GR83yzPa15rPUla1sMG2uzmWaw=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGrshZYqCU9c1yyOiWSZjhqKde2HFhh6PDpoq
- 6TicaF+sRNhQYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJq7IWWAAoJENju1/PI
- O/qa/ZgP/3AMiJ+OGAAb1GWdIe/KLMSwnKvMzMA/tFnzdgV8ty52hd0GSC/K476pYNJ+1+Cr1nb
- kZpJYSXQjNdmZ9F4TlZiaaB8xKb/ZJXMgSZ+H4F2Xx87XduWzTczozuGUjCrWareoVrpx3lIa3P
- y3SX3PxBbCxHW9Ikn0YTMO64LbvCrJOlwOXeoVuhxtL/m7mbwq3dukd+lH9rlmBxgEeZIDYjHp2
- GAFI2X0+jrOc9CylKwXMSKxOMmmHl6mYCwbEP8BcxblI3KgAj2aPJbsZazsbnimY+odvSqfwEbE
- REzjH1bOkVIthw6n4ig6QTU70yHQX7aTxGNbkIz4BEEiRjX08Veis+q056/uIheo/+LaCY1FWGN
- TYPs0qR9KYQkz7dUrIi5n4hPgiM92/RgsQRFWJkBomt7yx5BCQ84Eps3Rn+KvWmA569lntfRYXH
- pArjU6+ZfmlpeU1iPVcDRCjMoY/igUUXCQpcCk7hiN4S5DJh/oAyXJIWmeXru6apvOXjY18Yy1J
- VuTKeP5xWpsB6LZvk5WMWceBYdHiiawxRXjyzYfdJwZtumr7Yxl0uZEEN+Wmp7yhU8rxz3OlIg/
- jkUOENQbWsZ2OLRIiNYswRk5wmrgXZr7VBCDR5EEQX7qdqI+9q+PMiGJgkD1rKkzwBWup7/kYb8
- 8GthAP53swOeUE3vC9Z8wRg==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261104084842.132944-6-fuad.tabba@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_053317_507873_2B8983D8 
-X-CRM114-Status: GOOD (  13.10  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261105_053417_505407_4503161F 
+X-CRM114-Status: GOOD (  21.87  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,107 +79,173 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Remove code duplication and improve readability by introducing a new
-function to setup the DLL indicator.
+On Wed, Nov 04, 2026 at 08:48:31AM +0000, Fuad Tabba wrote:
+> EL2 takes only PC and X0 from the host when it boots a protected vCPU,
+> and resets everything else. So the registers the selftest library sets
+> before the first run never reach the guest.
+> 
+> Boot a protected guest through a trampoline that restores X0-X7, seven
+> EL1 system registers and the stack pointer from a block X0 points to,
+> then enables the MMU and branches to the guest's entry point.
+> 
+> Co-developed-by: Will Deacon <will@kernel.org>
+> Signed-off-by: Will Deacon <will@kernel.org>
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 30 +++++++++++++++------------
- 1 file changed, 17 insertions(+), 13 deletions(-)
+Similar idea to the 'realm-boot' I added, and mentioned previously. I
+think it should work for Realms too.
 
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 07718667c225..b4f53ce86079 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -700,13 +700,26 @@ static void rockchip_pcie_set_controller_mode(struct rockchip_pcie *rockchip, u3
- 	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_SET_MODE(mode), PCIE_CLIENT_GENERAL_CON);
- }
- 
-+static void rockchip_pcie_unmask_dll_interrupts(struct rockchip_pcie *rockchip, bool link_event)
-+{
-+	u32 val;
-+
-+	/* unmask hot reset/link-down reset event */
-+	val = FIELD_PREP_WM16(PCIE_LINK_REQ_RST_NOT_INT, 0);
-+
-+	/* unmask DLL link up/down event */
-+	if (link_event)
-+		val |= FIELD_PREP_WM16(PCIE_RDLH_LINK_UP_CHGED, 0);
-+
-+	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_INTR_MASK_MISC);
-+}
-+
- static int rockchip_pcie_configure_rc(struct platform_device *pdev,
- 				      struct rockchip_pcie *rockchip)
- {
- 	struct device *dev = &pdev->dev;
- 	struct dw_pcie_rp *pp;
- 	int irq, ret;
--	u32 val;
- 
- 	if (!IS_ENABLED(CONFIG_PCIE_ROCKCHIP_DW_HOST))
- 		return -ENODEV;
-@@ -748,9 +761,7 @@ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
- 		return ret;
- 	}
- 
--	/* unmask hot reset/link-down reset */
--	val = FIELD_PREP_WM16(PCIE_LINK_REQ_RST_NOT_INT, 0);
--	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_INTR_MASK_MISC);
-+	rockchip_pcie_unmask_dll_interrupts(rockchip, false);
- 
- 	return ret;
- }
-@@ -760,7 +771,6 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
- {
- 	struct device *dev = &pdev->dev;
- 	int irq, ret;
--	u32 val;
- 
- 	if (!IS_ENABLED(CONFIG_PCIE_ROCKCHIP_DW_EP))
- 		return -ENODEV;
-@@ -800,10 +810,7 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
- 
- 	pci_epc_init_notify(rockchip->pci.ep.epc);
- 
--	/* unmask DLL up/down indicator and hot reset/link-down reset */
--	val = FIELD_PREP_WM16(PCIE_RDLH_LINK_UP_CHGED, 0) |
--	      FIELD_PREP_WM16(PCIE_LINK_REQ_RST_NOT_INT, 0);
--	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_INTR_MASK_MISC);
-+	rockchip_pcie_unmask_dll_interrupts(rockchip, true);
- 
- 	return ret;
- }
-@@ -914,7 +921,6 @@ static int rockchip_pcie_rc_reset_root_port(struct pci_host_bridge *bridge,
- 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
- 	struct rockchip_pcie *rockchip = to_rockchip_pcie(pci);
- 	struct device *dev = rockchip->pci.dev;
--	u32 val;
- 	int ret;
- 
- 	dw_pcie_stop_link(pci);
-@@ -952,9 +958,7 @@ static int rockchip_pcie_rc_reset_root_port(struct pci_host_bridge *bridge,
- 		goto deinit_clk;
- 	}
- 
--	/* unmask hot reset/link-down reset */
--	val = FIELD_PREP_WM16(PCIE_LINK_REQ_RST_NOT_INT, 0);
--	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_INTR_MASK_MISC);
-+	rockchip_pcie_unmask_dll_interrupts(rockchip, false);
- 
- 	ret = dw_pcie_start_link(pci);
- 	if (ret)
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 
--- 
-2.53.0
-
+> ---
+>  tools/testing/selftests/kvm/Makefile.kvm      |  1 +
+>  .../selftests/kvm/include/arm64/pkvm.h        | 50 ++++++++++++++++
+>  .../selftests/kvm/lib/arm64/pvm-entry.S       | 58 +++++++++++++++++++
+>  3 files changed, 109 insertions(+)
+>  create mode 100644 tools/testing/selftests/kvm/include/arm64/pkvm.h
+>  create mode 100644 tools/testing/selftests/kvm/lib/arm64/pvm-entry.S
+> 
+> diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+> index 17a4256e90819..c254e82f9a786 100644
+> --- a/tools/testing/selftests/kvm/Makefile.kvm
+> +++ b/tools/testing/selftests/kvm/Makefile.kvm
+> @@ -35,6 +35,7 @@ LIBKVM_arm64 += lib/arm64/gic_v3.c
+>  LIBKVM_arm64 += lib/arm64/gic_v3_its.c
+>  LIBKVM_arm64 += lib/arm64/handlers.S
+>  LIBKVM_arm64 += lib/arm64/processor.c
+> +LIBKVM_arm64 += lib/arm64/pvm-entry.S
+>  LIBKVM_arm64 += lib/arm64/spinlock.c
+>  LIBKVM_arm64 += lib/arm64/ucall.c
+>  LIBKVM_arm64 += lib/arm64/vgic.c
+> diff --git a/tools/testing/selftests/kvm/include/arm64/pkvm.h b/tools/testing/selftests/kvm/include/arm64/pkvm.h
+> new file mode 100644
+> index 0000000000000..6ef769b8ff977
+> --- /dev/null
+> +++ b/tools/testing/selftests/kvm/include/arm64/pkvm.h
+> @@ -0,0 +1,50 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2025 Google LLC
+> + * Author: Fuad Tabba <fuad.tabba@linux.dev>
+> + * Author: Will Deacon <will@kernel.org>
+> + */
+> +
+> +#ifndef SELFTEST_KVM_ARM64_PKVM_H
+> +#define SELFTEST_KVM_ARM64_PKVM_H
+> +
+> +#ifndef __ASSEMBLER__
+> +/*
+> + * Register state the boot trampoline (pvm-entry.S) restores. Only PC and X0
+> + * survive to a protected guest's first run, so X0 points at this block.
+> + */
+> +struct pvm_boot_args {
+> +	u64	jump_tgt;
+> +
+> +	u64	regs[8];
+> +	u64	cpacr_el1;
+> +	u64	sctlr_el1;
+> +	u64	tcr_el1;
+> +	u64	mair_el1;
+> +	u64	ttbr0_el1;
+> +	u64	vbar_el1;
+> +
+> +	u64	tpidr_el1;
+> +	u64	sp_el1;
+> +};
+> +#endif
+> +
+> +#define PVM_BOOT_ARGS_OFF_JUMP_TGT	0
+> +#define PVM_BOOT_ARGS_OFF_X0		(PVM_BOOT_ARGS_OFF_JUMP_TGT + 8)
+> +#define PVM_BOOT_ARGS_OFF_X1		(PVM_BOOT_ARGS_OFF_X0 + 8)
+> +#define PVM_BOOT_ARGS_OFF_X2		(PVM_BOOT_ARGS_OFF_X1 + 8)
+> +#define PVM_BOOT_ARGS_OFF_X3		(PVM_BOOT_ARGS_OFF_X2 + 8)
+> +#define PVM_BOOT_ARGS_OFF_X4		(PVM_BOOT_ARGS_OFF_X3 + 8)
+> +#define PVM_BOOT_ARGS_OFF_X5		(PVM_BOOT_ARGS_OFF_X4 + 8)
+> +#define PVM_BOOT_ARGS_OFF_X6		(PVM_BOOT_ARGS_OFF_X5 + 8)
+> +#define PVM_BOOT_ARGS_OFF_X7		(PVM_BOOT_ARGS_OFF_X6 + 8)
+> +#define PVM_BOOT_ARGS_OFF_CPACR_EL1	(PVM_BOOT_ARGS_OFF_X7 + 8)
+> +#define PVM_BOOT_ARGS_OFF_SCTLR_EL1	(PVM_BOOT_ARGS_OFF_CPACR_EL1 + 8)
+> +#define PVM_BOOT_ARGS_OFF_TCR_EL1	(PVM_BOOT_ARGS_OFF_SCTLR_EL1 + 8)
+> +#define PVM_BOOT_ARGS_OFF_MAIR_EL1	(PVM_BOOT_ARGS_OFF_TCR_EL1 + 8)
+> +#define PVM_BOOT_ARGS_OFF_TTBR0_EL1	(PVM_BOOT_ARGS_OFF_MAIR_EL1 + 8)
+> +#define PVM_BOOT_ARGS_OFF_VBAR_EL1	(PVM_BOOT_ARGS_OFF_TTBR0_EL1 + 8)
+> +#define PVM_BOOT_ARGS_OFF_TPIDR_EL1	(PVM_BOOT_ARGS_OFF_VBAR_EL1 + 8)
+> +#define PVM_BOOT_ARGS_OFF_SP_EL1	(PVM_BOOT_ARGS_OFF_TPIDR_EL1 + 8)
+> +
+> +#endif /* SELFTEST_KVM_ARM64_PKVM_H */
+> diff --git a/tools/testing/selftests/kvm/lib/arm64/pvm-entry.S b/tools/testing/selftests/kvm/lib/arm64/pvm-entry.S
+> new file mode 100644
+> index 0000000000000..a0974cde78da6
+> --- /dev/null
+> +++ b/tools/testing/selftests/kvm/lib/arm64/pvm-entry.S
+> @@ -0,0 +1,58 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2025 Google LLC
+> + * Author: Fuad Tabba <fuad.tabba@linux.dev>
+> + * Author: Will Deacon <will@kernel.org>
+> + */
+> +
+> +#include "pkvm.h"
+> +
+> +	.text
+> +	.balign 16
+> +	.globl	pvm_entry_start
+> +pvm_entry_start:
+> +	mov	x30, x0
+> +
+> +	ldr	x0, [x30, #PVM_BOOT_ARGS_OFF_X0]
+> +	ldr	x1, [x30, #PVM_BOOT_ARGS_OFF_X1]
+> +	ldr	x2, [x30, #PVM_BOOT_ARGS_OFF_X2]
+> +	ldr	x3, [x30, #PVM_BOOT_ARGS_OFF_X3]
+> +	ldr	x4, [x30, #PVM_BOOT_ARGS_OFF_X4]
+> +	ldr	x5, [x30, #PVM_BOOT_ARGS_OFF_X5]
+> +	ldr	x6, [x30, #PVM_BOOT_ARGS_OFF_X6]
+> +	ldr	x7, [x30, #PVM_BOOT_ARGS_OFF_X7]
+> +
+> +	ldr	x8, [x30, #PVM_BOOT_ARGS_OFF_JUMP_TGT]
+> +
+> +	ldr	x9, [x30, #PVM_BOOT_ARGS_OFF_CPACR_EL1]
+> +	msr	cpacr_el1, x9
+> +
+> +	ldr	x9, [x30, #PVM_BOOT_ARGS_OFF_TCR_EL1]
+> +	msr	tcr_el1, x9
+> +
+> +	ldr	x9, [x30, #PVM_BOOT_ARGS_OFF_MAIR_EL1]
+> +	msr	mair_el1, x9
+> +
+> +	ldr	x9, [x30, #PVM_BOOT_ARGS_OFF_TTBR0_EL1]
+> +	msr	ttbr0_el1, x9
+> +
+> +	ldr	x9, [x30, #PVM_BOOT_ARGS_OFF_VBAR_EL1]
+> +	msr	vbar_el1, x9
+> +
+> +	ldr	x9, [x30, #PVM_BOOT_ARGS_OFF_TPIDR_EL1]
+> +	msr	tpidr_el1, x9
+> +
+> +	ldr	x9, [x30, #PVM_BOOT_ARGS_OFF_SP_EL1]
+> +	mov	sp, x9
+> +
+> +	/* No stale TLB entries, and the writes above in effect, before the MMU is on. */
+> +	tlbi	vmalle1
+> +	dsb	nsh
+> +	isb
+> +	ldr	x9, [x30, #PVM_BOOT_ARGS_OFF_SCTLR_EL1]
+> +	msr	sctlr_el1, x9
+> +	isb
+> +
+> +	br	x8
+> +	.globl	pvm_entry_end
+> +pvm_entry_end:
+> -- 
+> 2.47.3
+> 
 
