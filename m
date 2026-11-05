@@ -2,68 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4384F606D81A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 13:57:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27508606A32F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 13:57:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=os0dNxEo;
-	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=h1iYVdZ+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ApVQyOcy;
+	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=I5ADHfhH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=IIrB2zW6G1njS+6WzfNMxOfb8hovKHeQTbSyLKp4WRA=; b=os0dNxEonh1yPM
-	atPUaNW+6Rs3uFctppSQjVVWz3npAMkV5KDpHi9Siiymw7fMAMXc5BddJRv/Or3gen4GE5jitbJnw
-	N+h7/RcpsQwk8t3lIu00Iba9pGYKD71W766jJXtUy43YYxAuAHUBy3XBUJZN7D+dLrDZ33dd10Kge
-	buV4YIai+4uCnz2T10J8eowxK0zK7xqRZ0hQKHHc8fUvaGH+DzVONrqjJK2MSmCe2aAT9FkQ/kjcM
-	QH10wbRlmrW1EZMI0xeraHpD8kFiSqd09mCTrX123ladCQNRSyp0kHRaIvPY68QiX5FtIuCiKdTdU
-	1AUAzyi01lw3knFCIowg==;
+	List-Owner; bh=AcWI6/QUJ/izaMsGkOQtXKKH0FK9RMGEfWHWslE7U6g=; b=ApVQyOcy0uf4QL
+	a8eILf9zx0sWylmYHtvyW6FmQySS8sncm36FDvAPhMuHJHC2GvFrqru3ZCO6wdSH+cw+q+6rydU28
+	5D4hY7ctppNBTqv6Fs8IK1PpQTwnMPlNJsO8rLhXGyX8+0wkn4U/NdgHTFJWz+SP6UG0lVwsjViM0
+	Y2swIEcFV72DTspyKdHyJ4xWn4qHdMqnHBZPqQqjVC0lUEZA6zXG/zOuCrwkPn6S6RX/IuTOBX60w
+	E1lfo71ayH+nLpiR0o2Aa5HgmnEKeb+BEer9kbZH41+i+GihhBlQAm+JbUQdMTBVKt6G1h6eDX9Gt
+	HmY4F28SsSYBKInppr0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxy2-00000009Bt0-2v9v;
-	Thu, 05 Nov 2026 13:57:26 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1xOxy5-00000009BwL-0yRR;
+	Thu, 05 Nov 2026 13:57:29 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxxv-00000009Bbx-1aoZ
+	id 1xOxxy-00000009Bmj-0fYB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 13:57:21 +0000
+	Thu, 05 Nov 2026 13:57:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1793887039; x=1825423039;
+  t=1793887041; x=1825423041;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=mI9QbFDlAEa0T5BzOWSl+KeLHZ2MeGMOTuYCkJS+JgE=;
-  b=h1iYVdZ+tUSXdmFAU2FcI4mCfj94ehqBMG9SMvisxCe9s092kYty69Ti
-   fKMNhVNp4zXilxAI9nFilL+mBWfn+itSYNLtuzzOsemf9ZOibOJIHMRPk
-   kSuzbg/vzaLWR56r/b7jWvAdt/Wxb3jT5w4iW3UcE92mCJaKLI7/vK1m/
-   zuYIQ4D+JpofqMVhax6goZfNu5lEu2mYK3yp7hV51wbfLFK0vDTJLOzoF
-   i2q6AmbqXapiAXIai14hF2FpOlhHo2vJIa9rkoEhbAIKBbXG+q8yZg/3s
-   HfdVZz6b0ihAN8fbQGDONeQOWd7WlbPVtu9mYRmPdkGTSo0D4RhvR9XaZ
+  bh=Hk3SFlgySyh0ow7MIUHehXb2cnHctrFyYDxRW2Tux+M=;
+  b=I5ADHfhHUgAL78CgTMx74Q0ZPb4kUtAWjYVM8TUkcynicHnl4ZQqRlQw
+   d/QTwBdx5NVFwsIxQmlkW5TaWINPYQR6kQ+wPGSgfYMwmmVh0GqIx06n1
+   EiFvuQ6YEhleHSOsS/2+q4HPuohX/GlllgNkc0WNExTjEHzbT+CQo7g/V
+   Wm+3newugo4h5NkyI65Wb+rdp3WNmOowxCfZhCwmMR6zqJT5icJ3yuPTT
+   MK/+GJKBErOo4RxJL72lzLaYf78LxmRtwTiXl7ooHvm0YOeaVAWIWON7E
+   g7Rs068wNh6IYOzjmUhDazkF9SHQdmKw1Ic6PHFsCd6u9bU41/1OmtAy2
    A==;
-X-CSE-ConnectionGUID: 6vgoOKrAT8KnnDdryEZG+w==
-X-CSE-MsgGUID: dGPvfDdzQWqWeV7FCED47g==
+X-CSE-ConnectionGUID: eo5FD9iiRBGGhsHcw/9+Ug==
+X-CSE-MsgGUID: MGMpxZkYSxyFgoJcYuyJIw==
 X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
-   d="scan'208";a="297500454"
+   d="scan'208";a="65112465"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 06:57:19 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 05 Nov 2026 06:57:21 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.56; Thu, 5 Nov 2026 06:57:18 -0700
+ 15.1.2507.58; Thu, 5 Nov 2026 06:57:20 -0700
 Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Thu, 5 Nov 2026 06:57:15 -0700
+ 15.1.2507.58 via Frontend Transport; Thu, 5 Nov 2026 06:57:18 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Date: Thu, 5 Nov 2026 14:56:42 +0100
-Subject: [PATCH net-next 7/9] net: sparx5/lan969x: scale the queue
- watermarks with the MTU
+Date: Thu, 5 Nov 2026 14:56:43 +0100
+Subject: [PATCH net-next 8/9] net: sparx5/lan969x: scale the TAS guard band
+ with the MTU
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261105-sparx5-mtu-change-v1-7-f27bab580463@microchip.com>
+Message-ID: <20261105-sparx5-mtu-change-v1-8-f27bab580463@microchip.com>
 References: <20261105-sparx5-mtu-change-v1-0-f27bab580463@microchip.com>
 In-Reply-To: <20261105-sparx5-mtu-change-v1-0-f27bab580463@microchip.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
@@ -75,8 +75,8 @@ CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, Robert Marko <robert.marko@sartura.hr>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_055719_458210_4F9C3D14 
-X-CRM114-Status: GOOD (  20.63  )
+X-CRM114-CacheID: sfid-20261105_055722_317370_F04042D5 
+X-CRM114-Status: GOOD (  22.38  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,210 +96,143 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The queue system of a port has pause watermarks (PAUSE_START and
-PAUSE_STOP), which control when pause frames are sent if TX pause is
-enabled, and a tail drop watermark (ATOP), above which frames received
-on the port are dropped. They are set in units of buffer cells, and are
-currently fixed multiples of a 1518 byte frame. With a larger MTU, a
-single frame can exceed PAUSE_START, so with TX pause enabled, a pause
-frame would be sent for every received frame.
+The TAS guard band (QMAXSDU_VAL, in units of 64 bytes) is how long
+before a gate closes the scheduler stops starting frames of a traffic
+class, so that a frame started just before the close still finishes in
+time. The driver leaves it at the reset value of 24 x 64 = 1536 bytes,
+so with a larger MTU, a frame started inside the guard band would
+overrun the gate close.
 
-Instead, compute the watermarks from the MTU of the port, plus the
-Ethernet header, FCS and two VLAN tags, rounded up to whole buffer
-cells. Program them at port init and when pause is resolved, and add
-sparx5_port_wm_update() for use when the MTU changes. As the MTU and
-phylink paths can run concurrently, protect the watermarks and the
-resolved pause mode with a per-port lock.
+The MAC maximum frame length only limits the frames a port receives, so
+a port can transmit frames of the largest MTU of all ports, for example
+when forwarding from a port with a larger MTU. Therefore, size the guard
+band of all ports for a frame of the largest MTU, plus the Ethernet
+header, FCS and two VLAN tags, rounded up to 64 bytes. Add the
+HSCH_TAS_QMAXSDU_CFG register, program the guard band at init, and add
+sparx5_tas_gb_update() for use when the MTU changes.
 
-The top bit of the watermark fields is a x16 multiplier, so take its
-position from the field width, which is 11 bits on lan969x and 12 bits
-on Sparx5.
-
-With the default MTU of 1500, the watermarks grow from 8 to 9 cells per
-frame, as the frame length is now rounded up instead of down.
+With the default MTU of 1500 the guard band is unchanged. As the
+scheduler does not start a frame inside the guard band, a gate window
+shorter than the guard band at the link speed cannot transmit, as is
+already the case for the default 1536 byte guard band.
 
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- .../net/ethernet/microchip/sparx5/sparx5_main.c    |  1 +
- .../net/ethernet/microchip/sparx5/sparx5_main.h    |  2 +
- .../net/ethernet/microchip/sparx5/sparx5_port.c    | 73 ++++++++++++++--------
- .../net/ethernet/microchip/sparx5/sparx5_port.h    |  1 +
- 4 files changed, 51 insertions(+), 26 deletions(-)
+ .../net/ethernet/microchip/sparx5/sparx5_main.h    |  1 +
+ .../ethernet/microchip/sparx5/sparx5_main_regs.h   | 12 ++++++
+ drivers/net/ethernet/microchip/sparx5/sparx5_tas.c | 43 +++++++++++++++++++++-
+ 3 files changed, 54 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-index cf9cdd494674f..8161685c652b5 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-@@ -340,6 +340,7 @@ static int sparx5_create_port(struct sparx5 *sparx5,
- 	spx5_port->phylink_pcs.ops = &sparx5_phylink_pcs_ops;
- 	spx5_port->is_mrouter = false;
- 	INIT_LIST_HEAD(&spx5_port->tc_templates);
-+	mutex_init(&spx5_port->wm_lock);
- 	sparx5->ports[config->portno] = spx5_port;
- 
- 	err = sparx5_port_init(sparx5, spx5_port, &config->conf);
 diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-index 7bf5bdbc2ee1b..ac3aa798ae303 100644
+index ac3aa798ae303..d150a76fc917e 100644
 --- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
 +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-@@ -214,6 +214,8 @@ struct sparx5_port {
- 	struct device_node *of_node;
- 	struct phy *serdes;
- 	struct sparx5_port_config conf;
-+	struct mutex wm_lock; /* Protects the QSYS watermarks and wm_pause */
-+	u8 wm_pause;
- 	struct phylink_config phylink_config;
- 	struct phylink *phylink;
- 	struct phylink_pcs phylink_pcs;
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-index 701d310df0ba6..87aa0b7841359 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-@@ -373,11 +373,14 @@ static int sparx5_port_disable(struct sparx5 *sparx5, struct sparx5_port *port,
- 		 sparx5,
- 		 HSCH_PORT_MODE(port->portno));
+@@ -745,6 +745,7 @@ int sparx5_tas_enable(struct sparx5_port *port,
+ 		      struct tc_taprio_qopt_offload *qopt);
+ int sparx5_tas_disable(struct sparx5_port *port);
+ void sparx5_tas_speed(struct sparx5_port *port, int speed);
++void sparx5_tas_gb_update(struct sparx5 *sparx5);
  
--	/* 5: Disable Flowcontrol */
-+	/* 5: Disable Flowcontrol, and keep an MTU change from re-enabling it */
-+	mutex_lock(&port->wm_lock);
-+	port->wm_pause = 0;
- 	spx5_rmw(QSYS_PAUSE_CFG_PAUSE_STOP_SET(0xFFF - 1),
- 		 QSYS_PAUSE_CFG_PAUSE_STOP,
- 		 sparx5,
- 		 QSYS_PAUSE_CFG(port->portno));
-+	mutex_unlock(&port->wm_lock);
+ /* sparx5_mirror.c */
+ int sparx5_mirror_add(struct sparx5_mall_entry *entry);
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
+index 5302c7686e207..8a6de30042b5d 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
+@@ -5424,6 +5424,18 @@ extern const struct sparx5_regs *regs;
+ #define HSCH_TAS_STATEMACHINE_CFG_REVISIT_DLY_GET(x)\
+ 	FIELD_GET(HSCH_TAS_STATEMACHINE_CFG_REVISIT_DLY, x)
  
- 	spd_prm = spd == SPEED_10 ? 1000 : spd == SPEED_100 ? 100 : 10;
- 	/* 6: Wait while the last frame is exiting the queues */
-@@ -676,24 +679,53 @@ int sparx5_port_fwd_urg(struct sparx5 *sparx5, u32 speed)
- 	return urg / clk_period_ps - 1;
++/* HSCH:TAS_PROFILE_CFG:TAS_QMAXSDU_CFG */
++#define HSCH_TAS_QMAXSDU_CFG(g, r)                                             \
++	__REG(TARGET_HSCH, 0, 1, regs->gaddr[GA_HSCH_TAS_PROFILE_CFG], g,       \
++	      regs->gcnt[GC_HSCH_TAS_PROFILE_CFG],                              \
++	      regs->gsize[GW_HSCH_TAS_PROFILE_CFG], 0, r, 8, 4)
++
++#define HSCH_TAS_QMAXSDU_CFG_QMAXSDU_VAL         GENMASK(7, 0)
++#define HSCH_TAS_QMAXSDU_CFG_QMAXSDU_VAL_SET(x)\
++	FIELD_PREP(HSCH_TAS_QMAXSDU_CFG_QMAXSDU_VAL, x)
++#define HSCH_TAS_QMAXSDU_CFG_QMAXSDU_VAL_GET(x)\
++	FIELD_GET(HSCH_TAS_QMAXSDU_CFG_QMAXSDU_VAL, x)
++
+ /* HSCH:TAS_PROFILE_CFG:TAS_PROFILE_CONFIG */
+ #define HSCH_TAS_PROFILE_CONFIG(g)                                             \
+ 	__REG(TARGET_HSCH, 0, 1, regs->gaddr[GA_HSCH_TAS_PROFILE_CFG], g,       \
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c b/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
+index ec80bc69371ab..32e502bc4f18f 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
+@@ -29,6 +29,9 @@ enum sparx5_tas_link_speed {
+ /* Maximum supported cycle time in nanoseconds */
+ #define TAS_MAX_CYCLE_TIME_NS ((1 * NSEC_PER_SEC) - 1) /* 999.999.999 nsec */
+ 
++/* HSCH_TAS_QMAXSDU_CFG.QMAXSDU_VAL, the guard band, counts 64 byte units */
++#define TAS_QMAXSDU_UNIT 64
++
+ /* STARTUP_TIME in units of 256 ns, must be non-zero for a list to start */
+ #define TAS_STARTUP_TIME_DEFAULT 8
+ 
+@@ -48,8 +51,8 @@ enum sparx5_tas_link_speed {
+  * We use 1 TAS profile per port, shared by both of its lists:
+  * index = portno;
+  *
+- * We do not yet support frame preemption and the default guard band
+- * of 1536 bytes is always used on all queues.
++ * We do not yet support frame preemption. All queues of all ports use a
++ * guard band that fits the largest frame that can be forwarded.
+  *
+  * The gate mask of each entry is written as is to the port's 8 queues,
+  * where bit n gates queue (QoS class) n. The mqprio parameters of the
+@@ -718,6 +721,40 @@ int sparx5_tas_disable(struct sparx5_port *port)
+ 	return err;
  }
  
-+/* The top bit of the watermark field is a x16 multiplier */
- static u16 sparx5_wm_enc(u16 value)
- {
--	if (value >= 2048)
--		return 2048 + value / 16;
-+	u16 mult = BIT(regs->fsize[FW_QSYS_ATOP_ATOP] - 1);
-+
-+	if (value >= mult)
-+		return mult + value / 16;
- 
- 	return value;
- }
- 
-+/* Pause start/stop and tail drop at 6/4/20 frames of the port MTU */
-+static void sparx5_port_wm_set(struct sparx5 *sparx5, struct sparx5_port *port,
-+			       u8 pause)
++/* Size the guard band of all ports for a frame of the largest MTU of all
++ * ports, as a port can transmit frames forwarded from any port.
++ */
++void sparx5_tas_gb_update(struct sparx5 *sparx5)
 +{
-+	u32 len = SPX5_HW_MTU(READ_ONCE(port->ndev->mtu)) + 2 * VLAN_HLEN;
-+	u32 cells = DIV_ROUND_UP(len, SPX5_BUFFER_CELL_SZ);
-+	u32 pause_stop = 0xFFF - 1; /* FC gen disabled */
++	u32 max_mtu = 0, gb;
++	int i, tc;
 +
-+	if (pause & MLO_PAUSE_TX)
-+		pause_stop = sparx5_wm_enc(4 * cells);
++	for (i = 0; i < sparx5->data->consts->n_ports; i++) {
++		if (sparx5->ports[i])
++			max_mtu = max_t(u32, max_mtu,
++					READ_ONCE(sparx5->ports[i]->ndev->mtu));
++	}
 +
-+	spx5_rmw(QSYS_PAUSE_CFG_PAUSE_START_SET(sparx5_wm_enc(6 * cells)) |
-+		 QSYS_PAUSE_CFG_PAUSE_STOP_SET(pause_stop),
-+		 QSYS_PAUSE_CFG_PAUSE_START |
-+		 QSYS_PAUSE_CFG_PAUSE_STOP,
-+		 sparx5,
-+		 QSYS_PAUSE_CFG(port->portno));
++	gb = DIV_ROUND_UP(SPX5_HW_MTU(max_mtu) + 2 * VLAN_HLEN,
++			  TAS_QMAXSDU_UNIT);
 +
-+	/* Port ATOP. Frames are tail dropped when this WM is hit */
-+	spx5_wr(QSYS_ATOP_ATOP_SET(sparx5_wm_enc(20 * cells)),
-+		sparx5,
-+		QSYS_ATOP(port->portno));
++	mutex_lock(&sparx5->tas_lock);
++
++	/* Each port uses the TAS profile of its own number */
++	for (i = 0; i < sparx5->data->consts->n_ports; i++) {
++		if (!sparx5->ports[i])
++			continue;
++
++		for (tc = 0; tc < SPX5_PRIOS; tc++)
++			spx5_rmw(HSCH_TAS_QMAXSDU_CFG_QMAXSDU_VAL_SET(gb),
++				 HSCH_TAS_QMAXSDU_CFG_QMAXSDU_VAL,
++				 sparx5,
++				 HSCH_TAS_QMAXSDU_CFG(i, tc));
++	}
++
++	mutex_unlock(&sparx5->tas_lock);
 +}
 +
-+void sparx5_port_wm_update(struct sparx5 *sparx5, struct sparx5_port *port)
-+{
-+	mutex_lock(&port->wm_lock);
-+	sparx5_port_wm_set(sparx5, port, port->wm_pause);
-+	mutex_unlock(&port->wm_lock);
-+}
-+
- static int sparx5_port_fc_setup(struct sparx5 *sparx5,
- 				struct sparx5_port *port,
- 				struct sparx5_port_config *conf)
+ int sparx5_tas_init(struct sparx5 *sparx5)
  {
- 	bool fc_obey = conf->pause & MLO_PAUSE_RX ? 1 : 0;
--	u32 pause_stop = 0xFFF - 1; /* FC gen disabled */
--
--	if (conf->pause & MLO_PAUSE_TX)
--		pause_stop = sparx5_wm_enc(4  * (ETH_MAXLEN /
--						 SPX5_BUFFER_CELL_SZ));
+ 	const struct sparx5_consts *consts = sparx5->data->consts;
+@@ -764,6 +801,8 @@ int sparx5_tas_init(struct sparx5 *sparx5)
+ 		}
+ 	}
  
- 	/* Set HDX flowcontrol */
- 	spx5_rmw(DSM_MAC_CFG_HDX_BACKPREASSURE_SET(conf->duplex == DUPLEX_HALF),
-@@ -714,10 +746,10 @@ static int sparx5_port_fc_setup(struct sparx5 *sparx5,
- 		 QSYS_FWD_PRESSURE(port->portno));
- 
- 	/* Generate pause frames */
--	spx5_rmw(QSYS_PAUSE_CFG_PAUSE_STOP_SET(pause_stop),
--		 QSYS_PAUSE_CFG_PAUSE_STOP,
--		 sparx5,
--		 QSYS_PAUSE_CFG(port->portno));
-+	mutex_lock(&port->wm_lock);
-+	port->wm_pause = conf->pause;
-+	sparx5_port_wm_set(sparx5, port, conf->pause);
-+	mutex_unlock(&port->wm_lock);
- 
++	sparx5_tas_gb_update(sparx5);
++
  	return 0;
  }
-@@ -1101,15 +1133,12 @@ int sparx5_port_init(struct sparx5 *sparx5,
- 		     struct sparx5_port *port,
- 		     struct sparx5_port_config *conf)
- {
--	u32 pause_start = sparx5_wm_enc(6  * (ETH_MAXLEN / SPX5_BUFFER_CELL_SZ));
--	u32 atop = sparx5_wm_enc(20 * (ETH_MAXLEN / SPX5_BUFFER_CELL_SZ));
- 	const struct sparx5_ops *ops = sparx5->data->ops;
- 	u32 pix = sparx5_port_dev_index(sparx5, port->portno);
- 	u32 pcs = sparx5_to_pcs_dev(sparx5, port->portno);
- 	bool sd_pol = port->signd_active_high;
- 	bool sd_sel = !port->signd_internal;
- 	bool sd_ena = port->signd_enable;
--	u32 pause_stop = 0xFFF - 1; /* FC generate disabled */
- 	void __iomem *pcsinst;
- 	int err;
  
-@@ -1120,21 +1149,13 @@ int sparx5_port_init(struct sparx5 *sparx5,
- 	if (err)
- 		return err;
- 
--	/* Set Pause WM hysteresis */
--	spx5_rmw(QSYS_PAUSE_CFG_PAUSE_START_SET(pause_start) |
--		 QSYS_PAUSE_CFG_PAUSE_STOP_SET(pause_stop) |
--		 QSYS_PAUSE_CFG_PAUSE_ENA_SET(1),
--		 QSYS_PAUSE_CFG_PAUSE_START |
--		 QSYS_PAUSE_CFG_PAUSE_STOP |
-+	/* Set Pause WM hysteresis and ATOP, FC generate disabled */
-+	sparx5_port_wm_set(sparx5, port, 0);
-+	spx5_rmw(QSYS_PAUSE_CFG_PAUSE_ENA_SET(1),
- 		 QSYS_PAUSE_CFG_PAUSE_ENA,
- 		 sparx5,
- 		 QSYS_PAUSE_CFG(port->portno));
- 
--	/* Port ATOP. Frames are tail dropped when this WM is hit */
--	spx5_wr(QSYS_ATOP_ATOP_SET(atop),
--		sparx5,
--		QSYS_ATOP(port->portno));
--
- 	/* Discard pause frame 01-80-C2-00-00-01 */
- 	spx5_wr(PAUSE_DISCARD, sparx5, ANA_CL_CAPTURE_BPDU_CFG(port->portno));
- 
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_port.h b/drivers/net/ethernet/microchip/sparx5/sparx5_port.h
-index 912f97a506768..06d2becfd9aac 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_port.h
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_port.h
-@@ -91,6 +91,7 @@ int sparx5_port_init(struct sparx5 *sparx5,
- void sparx5_port_max_len_set(struct sparx5 *sparx5,
- 			     struct sparx5_port *port,
- 			     u32 len);
-+void sparx5_port_wm_update(struct sparx5 *sparx5, struct sparx5_port *port);
- 
- int sparx5_port_config(struct sparx5 *sparx5,
- 		       struct sparx5_port *spx5_port,
 
 -- 
 2.34.1
