@@ -2,105 +2,112 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D932606A900
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EA7E606A33F
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 16:44:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=u+JN7thJ;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=PS2qsXlu
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cfkndlpc;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cKMbUO4f
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=yC83ESjOXOvwycANDHqMUIA/nyL5tEqJwdOrO5/UNYc=; b=u+JN7thJ8v6EVHvbwYeptaI5/k
-	/NL7I0ZPx2DDuWfSEyoKlRjnFKf7Kg95F6PCl6tIveC9tB6yGJTxk9Q2Smo452kbs8GB51bRYmiwo
-	BdCl11wzGGAB/da+5tGHkb0A5DTqogUPVKx9jofnNEh+eHqmkQqjT/mGYnvT1X/Oqxn+o9FhLQmyO
-	HQGeshISyH1Z5S+drSggRFULahRIoYLYxdgSCJgKS073pl2Ovn00Btew1mbU6noFpCuSpFrjozJT2
-	WktxDr45VqdpJPeZU9cje6fBtKqSPUPK9q0FOdQSeiIpb9u18ReTJP1WhrwAFn4/yfP7TWvmGbno/
-	2WycYBhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=GbC7Iece9zSoootC12B+Bn/H8PC2Rlg/VwOOVmaQcoU=; b=cfkndlpcr+gQx0
+	v76R2vy2razQgMJYQ7qDvjmXdTwZQy+UDWTzvgaCIdSy20s/e+SLaMxhCu/qDpVg43rLnru4kICcR
+	ch6J7c7nF9szeGZ9m4dsiBo1Ir/+dO+zpvsrc1zkcQqBshdd0ASbmX5jo43KpksSZLgdM+ggwYqs3
+	Cp25HUIFnUghzFuSKTuhBNqxHkWrDyar89oM55oIXvpEcra4p1tvaJRq3qyrynf/dldWYRriy6euP
+	pQNNHYx4ouBE4hPSJ8Ox+uaDzXCn8+6J72nIynrgt6wQnyEcFO12Tvthy0//6tLXcRybaeq6Ry2Z7
+	j6B4C50n6ke7pip0oZrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP0Zs-00000009gZL-3gF7;
+	id 1xP0Zs-00000009gZ1-33GW;
 	Thu, 05 Nov 2026 16:44:40 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP0Zn-00000009gY7-1tJX
+	id 1xP0Zr-00000009gYc-0E1f
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 05 Nov 2026 16:44:39 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-c434376dbebso203425066b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 08:44:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1793897072; x=1794501872; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=yC83ESjOXOvwycANDHqMUIA/nyL5tEqJwdOrO5/UNYc=;
-        b=PS2qsXluzTBSjI0YkvumFT46Paivw47RtwRokGy0hHNuZrxge8cxbYg9QIlQBrDbBp
-         FNVDcTf34vASXvGP9/XDRB4nMY1kZ/hPotZiDIHnpzJha5RbOv+CQT4c4hfEiflEYSh7
-         snVhQEV3JFko+GlkTBVNKoBFL1XITENf2zZ6MbceBbqQe3u5tga7eavXfayu1qHFvgmw
-         m0QTbQhW5k5upbZAnPpV9CX4e7Tf8u6cAJQPOFBNYEIDkm6JxGaVk+P+WW9l0+bJE5Ou
-         yVO0Q8RUUHk/hMJO/tkI6QMLApLOWQGLbg3uM812hOnBf0TVc2lC3+23+jBsccoS+YV2
-         eMMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793897072; x=1794501872;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=yC83ESjOXOvwycANDHqMUIA/nyL5tEqJwdOrO5/UNYc=;
-        b=1e7fjEtyIwPJ6bPlVtTM6OAgec8TOZ7lxI4qXoAu3/P8PMmJd9Th5UgREzjXX6IFhy
-         hfN/X71OZYEi8KtNCuROiUjfr0tHBiQoSEcVemj9WICVfnphwFK0bE052eM8CX3QkSao
-         vu3pX7/SZ7PXIipM8rnURHBqM9iZSJArbBbgh2IacGMrw/Iz2J9F9P+AVdk26lGw99lF
-         4iboBICY7X5xttD3ioSlr7CKkfc7ueLDdlOjwEPYeCGWFj+Tn7H5UGynrkVuH0xRJXjJ
-         blCAS2xwoS9YP8VFgLFFR6wJbwuduYgRDtOEoUI3k3QCIGkvw+8ESnoWBUAT+fTrk4RV
-         RXGg==
-X-Forwarded-Encrypted: i=1; AKwUvBzz7GyKZGP36g0jKWO+55HzfFdycnm6CE8WYpaFh8kTgBpY+K2bagkprHl0EedjdyIBn6pYOWspMk7Q28F3B4C1@lists.infradead.org
-X-Gm-Message-State: APuU4Z9Yj7CbAHO2NZ2bn4OQuWTdKUhx/ySZ2U5AeSfdRrFeyMleQo+W
-	f46OaKOt5PtnJzp9t1LpSRvBpi52Jp/FM+ZHxp3X3o/F19n6HkWR4aGzHB+nsdwLQHle4KbKRng
-	qNoRo61M=
-X-Gm-Gg: AYBFou3b4ehwqvMz4xh2lIwwa97ia1cxAghsf1IkkMQM3H6ZC8vTFGn0Ta14LvuBtPq
-	KK3ksMvWRAL1h6xIDF2xTTFAVUucjCwSL86M9/wN117K4Gtoc9jZKz4BHD5pJrkJyjND4TIdbT+
-	x1cIV62hsF3hdH3s9ttL6ZyEfo90oYnXCHtOMltXyweUnv1hSnMVxqduiViC6Eyx1MJmcvNFkOQ
-	JX+q6oL4SlubwDvpTmKgVtmQbjQGqh5t+MD+RaO13kCL3b4aRlSr3DQmaHzguyG28qQ6bOw/0eH
-	JFQg/gE7xjZkdcxOny1vOC4kXXo56mA/WJ9o3bqcDy4YGh+A1lSw94FDaMwja2iuESKcaQGxH6f
-	EMwzpeYcxl050fxW66x3BNTPh0da0Cuu1rCANkmL0vI28IqYVbuKOmSNxxj14LtciC77Xwr3S6e
-	o5ToZQJvE9WYvWTqU0t4LKAM3qYixMAyuL5cYJjvhYGzGMiXzYctnm078kjZQg8btG5eY+z2u7V
-	YBTvTKuN4BPQXWU9HtF+LZkf1CNdsH4JwQG7oIYJx9be9+hN+Af0G2sAiw6rBM+RV6cMQccClec
-	O0AkIClS5b+scqXivxLNrC9Hj9pG++CyxvAxSn98fW0Kd5WBrAFePcflBahK7hO8hcgdtAmpmTX
-	uGzUJQU9Z3MCv5zBslk/w
-X-Received: by 2002:a17:907:86a3:b0:c46:9745:ac13 with SMTP id a640c23a62f3a-c4d207ef40cmr272696766b.32.1793897071769;
-        Thu, 05 Nov 2026 08:44:31 -0800 (PST)
-Received: from puffmais2.c.googlers.com (180.192.141.34.bc.googleusercontent.com. [34.141.192.180])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c4d0e48d0dcsm186593666b.70.2026.11.05.08.44.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 08:44:31 -0800 (PST)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Thu, 05 Nov 2026 16:44:29 +0000
-Subject: [PATCH] Revert "arm64: dts: exynos: gs101-oriole: add pd-disable
- and typec-power-opmode"
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B448240119;
+	Thu,  5 Nov 2026 16:44:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47AEB1F000C1;
+	Thu,  5 Nov 2026 16:44:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793897078;
+	bh=GbC7Iece9zSoootC12B+Bn/H8PC2Rlg/VwOOVmaQcoU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=cKMbUO4f9Wuq5g5XaQZqMv0rXtM1jLCI7bMERYW/Gw1QgMaf5F0KUlXy2oGF5XwK0
+	 +obMDs9xtkJgHuS9Ws1Sa43UQxHiDkKxPfOdvwmT6VxVo/o7akRSpYD090dStm/Vax
+	 A1zdWtGTgFQ6jzWzfvRtWExGfuho4kgrS3tHG5p3XUQe/B+lL1xGfQMmI7V+oonWhs
+	 ruGng9XXuxpL6dE8ulWap6uKniAG2mC257uQaRlgFGOpc9088QIPLIkOwccxCwExOK
+	 8MV9URA5ooJ2ejdKYElX+Ga29bfPDTB2sOmKT3CTEfE8tT8SUB0do5lcbvGH3wqfce
+	 /414hbS4bn+/w==
+Message-ID: <96a53088-e131-4bca-bf9c-f1b0746b0745@kernel.org>
+Date: Thu, 5 Nov 2026 17:44:31 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261105-gs101-tcpci-bootloader-dt-v1-1-4b7e373778f2@linaro.org>
-X-B4-Tracking: v=1; b=H4sIAG2y7GoC/x2MywqAIBAAfyX23IIuRY9fiQ6mWy1EhkoE0r8nz
- W0OMxkiB+EIY5Uh8C1R/FlE1xXY3Zwbo7jiQIpaXcAtaqUx2csKLt6nwxvHAV1C6hpue9PTQAp
- KfwVe5fnf0/y+H+0rQNNrAAAA
-X-Change-ID: 20251111-gs101-tcpci-bootloader-dt-274e58a82920
-To: Peter Griffin <peter.griffin@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Juan Yescas <jyescas@google.com>, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, kernel-team@android.com, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_084436_662831_8756E048 
-X-CRM114-Status: GOOD (  11.88  )
-X-Spam-Score: -2.1 (--)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] ARM: configs: multi_v5: Enable the TEO cpuidle
+ governor
+To: Linus Walleij <linusw@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+ Anna-Maria Behnsen <anna-maria@linutronix.de>,
+ Frederic Weisbecker <frederic@kernel.org>, Ingo Molnar <mingo@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261105-multi-timers-cpufreq-cpuidle-v2-0-2df7a17f4835@kernel.org>
+ <20261105-multi-timers-cpufreq-cpuidle-v2-1-2df7a17f4835@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261105-multi-timers-cpufreq-cpuidle-v2-1-2df7a17f4835@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,65 +118,33 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-This reverts commit 817473b6ddaf9eb5f2bc7d6dce9fa13a921477a0.
+On 05/11/2026 13:10, Linus Walleij wrote:
+> The TEO governor introduced in commit b26bf6ab716f ("cpuidle: New
+> timer events oriented governor for tickless systems") takes a different
+> approach to idle-state prediction from menu. The governor gives a
+> better behaviour than the current default for tickless idle systems,
+> and for the multi-platform configs that enable tickless idle, this
+> should be the default governor.
+> 
+> multi_v5_defconfig already enables CPU_IDLE and NO_HZ_IDLE. Selecting
+> CPU_IDLE_GOV_TEO suppresses Kconfig's automatic menu selection, making
+> TEO the default governor for this tickless configuration.
+> 
+> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> ---
+>  arch/arm/configs/multi_v5_defconfig | 1 +
+>  1 file changed, 1 insertion(+)
 
-The Pixel 6 / 6 Pro bootloader version 17.0-15681480, part of the
-Android 17.0.0 release, knows about the upstream DT and disables power
-delivery itself when the serial console is enabled. The workaround is
-therefore not needed anymore and can be reverted, as anticipated in the
-commit message of the above commit.
-
-Since then, the node has moved to gs101-pixel-common.dtsi, so this now
-applies to both Pixel 6 (oriole) and Pixel 6 Pro (raven).
-
-With older bootloaders, enabling the serial console will again result
-in endless TCPCI interrupts.
-
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
- arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi | 7 +------
- 1 file changed, 1 insertion(+), 6 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-index e5736c39d1e0..dc908dd7e1c6 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-@@ -662,6 +662,7 @@ connector {
- 			self-powered;
- 			try-power-role = "sink";
- 			op-sink-microwatt = <2600000>;
-+			new-source-frs-typec-current = <FRS_5V_1P5A>;
- 			slow-charger-loop;
- 			pd-revision = /bits/ 8 <0x03 0x01 0x01 0x08>;
- 			cc-debounce-time-ms = <170>;
-@@ -704,12 +705,6 @@ VDO_DFP(DFP_VDO_VER1_1,
- 						0, 0, 0x18d1)
- 					VDO_CERT(0x0)
- 					VDO_PRODUCT(0x4ee1, 0x0)>;
--			/*
--			 * Until bootloader is updated to set those two when
--			 * console is enabled, we disable PD here.
--			 */
--			pd-disable;
--			typec-power-opmode = "default";
- 
- 			ports {
- 				#address-cells = <1>;
-
----
-base-commit: 2637bdec0535a2044cd830eba9a79363651d9043
-change-id: 20251111-gs101-tcpci-bootloader-dt-274e58a82920
+Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
 
 Best regards,
--- 
-André Draszik <andre.draszik@linaro.org>
-
+Krzysztof
 
