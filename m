@@ -2,62 +2,108 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D19F606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:27:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 158E1606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:29:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FodKAECd;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dzu7lZrR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=h2bI9CO6;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZYH5m1Au
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
+	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=4Ws7TqmU4/IeBwBBpZCt1tOlLLbXCOSbAUzKGumP7dA=; b=FodKAECdkyIt8050ANIO72YBF0
-	hyltHteJPdEvzGv1Kwfo+H/ilITa+8a6wlzg94hcm1oUwTU/lJym4zz31gQlde6V3uMa6/bY/gApP
-	U4syo5+XPm696EMacs52PCchVGtFeeMt99HKMvFveLvDhdKt54za1JZG44idwwtuqcR9N3v6w4+0e
-	gkUELIVNMyaqSVb4OtndsiE3I4aSGh575CE/GjKHzTRnbPNqehq6bHJDXqiCzX5ykCOFAJP9W8lsa
-	rSUCve4isg872EYixac3+EcWSSKAey0ZOahZVmMWLE6pd++RKDtfkrAsUuJsoKvD+EA4ELDIr8JbI
-	unIKNCSw==;
+	bh=+kioeahfgGvkUf91Yc06eaj5tIJkAx04gn/a2VqmwN4=; b=h2bI9CO6UukVqz2T5GrnCbDOCn
+	XkeBnKRM+3JAfuX++FwRTFe6gVMX5oPXoj80lPlU15qADKoZt0HCUu+/Epx2LUzeXeuwDSUtyqpMX
+	o4mTO+BvqgqYW/mTJltA8IkQG6CBuPJkBIAJ388MXa3Z6hn8VZXn368qFfZ9HwdsXm6a4HUW0ggKu
+	KbhTw87OjZflsQQtThaQQfNbFnKbcxPeMfXjL1tGxsi8E0q1s+prWWbYgkj2WScmhbW/SElQhzq/1
+	Y4ASAiqzcP60FbR6RCkcMknQypyvuGOHPRwOGu8F+6NCC7LrRuJCQNd255lkj6N2GWQncLER8J1sA
+	AQ8hgRKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvci-00000008dye-0RbO;
-	Thu, 05 Nov 2026 11:27:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xOvej-00000008ePD-02Dz;
+	Thu, 05 Nov 2026 11:29:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvcg-00000008dxf-1wLa
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 11:27:14 +0000
+	id 1xOveg-00000008eOi-1fg1;
+	Thu, 05 Nov 2026 11:29:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A47EC60267;
-	Thu,  5 Nov 2026 11:27:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46B0C1F00A16;
-	Thu,  5 Nov 2026 11:27:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id ABA1240A21;
+	Thu,  5 Nov 2026 11:29:17 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1793878157;
+	b=jsTxyvh1ivJDJEwecKrvg3rLCmKAAWlvld57klRM5smYMdTFnOphznWOdY5ARXt6CNWa
+	 7qgf+tTS3RantrS3n+4KkRXl8ipsPvT2pBRPT3PNSWAaV37N/ilogqUg3aZbeg9XUc6U5
+	 HhzvkBie2dSKhUKvRaAXjTiUZW0hF+OSr191Nwe5Q48g8pCLVUfymnob797XlZhvkD0Jj
+	 vfJXaWv0C/s0wutw2891LK/SzLT7l+THgePZNKnLRmUetENEVlsQQCQkrue+9Z0IdpzB3
+	 jmjKRDNNWzWa0AAlfqFV0DmAyDYIN0azS86zYDrJGuJmyyRuhZd0mEHaxwg72iVsEpg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1793878157;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=+kioeahfgGvkUf91Yc06eaj5tIJkAx04gn/a2VqmwN4=;
+	b=WdNq3tjT873ZiEg3NHqwJ3c6/rLKYCUatCpo5Z/1xYxvjOnypH/4z4ANU8O3pBqlbWA3
+	 /NukGP88/5RS9yPmONIKB1fj5qse0GW1QunzsFJKQhzqi5t+C0Kuv2t8QRgA49ssZA/RJ
+	 XqDn3HMqVnarSMdNiFkPN65vMspZq8ADgco/0E3Lr7J0DqPpQX0ihAA0fKO1romNR8uKL
+	 y52DoquOZkXhKqVInIwsnnmwncjEFt+BXM+bQqWS8JWX6/0UqazsgjpJwTsY80X7T1IA8
+	 D6BeId8CVMXHkjet2fwBjh15s+j/FdROF6gfEsobm68/rFXod4C1bKciIctmNIDkPXQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 1A5771F000C1;
+	Thu,  5 Nov 2026 11:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793878033;
-	bh=4Ws7TqmU4/IeBwBBpZCt1tOlLLbXCOSbAUzKGumP7dA=;
-	h=From:To:Cc:Subject:Date;
-	b=dzu7lZrRotT8ZDOhIyjiwczcaEui94p5+LJFguUCdLTd2Jf2vz7Kr1i8Ii9PkpHGY
-	 gZaRBNSnLazMlOZUX7Co1YUy3uoUzErY+BhUExeRgBSFk5uBxNc085uTweHePifpOv
-	 ZbtJ/Z8Q7oCJ+5NVMLjSbANfGXPidY6xkD7R8fE6PmKcj9PjWG2TDOK/WHUl/YUndM
-	 cCO8jaebPduBfVreQShHez4TnVgt2/Mqd3HGDpuL1YewPEOaGF3d8rFB17T5qBe9VY
-	 uv6SkewgpaZVESiK+m5r+I0wlTN6z7/HsFeqOcvVKgJIKtTPAI4DBrjR4i8mLtwZB6
-	 8MV43iwF5BWhg==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: arm-scmi@vger.kernel.org
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Peng Fan <peng.fan@nxp.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH] firmware: arm_scmi: Fix fallback to short name in scmi_pinctrl_attributes()
-Date: Thu,  5 Nov 2026 11:27:05 +0000
-Message-ID: <20261105112705.3045759-1-sudeep.holla@kernel.org>
-X-Mailer: git-send-email 2.43.0
+	s=k20260515; t=1793878157;
+	bh=+kioeahfgGvkUf91Yc06eaj5tIJkAx04gn/a2VqmwN4=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=ZYH5m1AuHS1GELMoVUJhmaqwp+m7Hh4/9TLI6zlBojT1zyo0U0i56+WVKx7fbAxtl
+	 cb+goGZaLsreByvgGMU12Hx8lBsNBe/AdKqxUPjemHet7mXwi/Sh1r97UOktWxkK3P
+	 LbH0FQFu2CB85KKjnS/OxxUaFHsS6fk2gQZOsxv/493s5WyJZ63B9dfMU/A5bEDEuE
+	 IB09IZ7yNM/1EF72TsZXkuZCzIWsUI0j0VNMuv/Sb85FMF1t8LondL3XEGHg+lynJn
+	 bfzi9qZyvx+AB6wJiiLAbC3qqDUCM1HRkZwfSxrm/OF/f+3MJ1QgV7eDTEtZ1U11LY
+	 ytduIMb7H/4eQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 70B3547204;
+	Thu,  5 Nov 2026 11:29:16 +0000 (UTC)
+From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Date: Thu, 05 Nov 2026 13:29:12 +0200
+Subject: [PATCH] dt-bindings: input: mediatek,mt6779-keypad: add mt6595
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261105-6595-dt-keypad-v1-1-f0911f40d3ad@protonmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMwQ5EMBCA4VeROZukLWNjX0UcSgezEistQsS7b
+ 5fjd/j/EwJ74QDv5ATPmwT5ThE6TaAd7NQziosGo0yhtSIsqCR0C458zNahy5TNDXUv4gxiNHv
+ uZL+HVf04rM2H2+V/gev6AR8w/uRyAAAA
+X-Change-ID: 20261105-6595-dt-keypad-d30a425f75e3
+To: Mattijs Korpershoek <mkorpershoek@kernel.org>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Roman Vivchar <rva333@protonmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793878154; l=1042;
+ i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
+ bh=1ilWPyJZwXIBoX7Ef7K1dJA5qk/q0NQM6AQiVyoSYi0=;
+ b=gsl/L1Nidw63mZs0argyawLAon+vgqnunhZ5yy+E3ul11j/wHv6bXMvJ5xrU1xKAHQyY96nB5
+ xCtkMOJ53ExAWZQr9KQL1lf3SKp0g2voI0Xnc9l1YvqCV2iz8HIHOOy
+X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
+ pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
+X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
+ auth_id=777
+X-Original-From: Roman Vivchar <rva333@protonmail.com>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,54 +113,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	FREEMAIL_REPLYTO_END_DIGIT,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-In scmi_pinctrl_attributes(), the return value of extended_name_get()
-is returned directly. If PINCTRL_NAME_GET failed, the error propagated
-to callers -  aborting pin/group/function descriptor initialization,
-despite the short name already being available in name.
+From: Roman Vivchar <rva333@protonmail.com>
 
-Discard the return value of extended_name_get() and return success as
-intended unconditionally after the successful PINCTRL_ATTRIBUTES
-transfer. On failure, extended_name_get() won't have overwritten name,
-so the short name copied from rx->name remains intact, which is exactly
-the fallback behavior described by the existing comment.
+Add a compatible string for the mt6595 keypad, that is compatible with
+mt6779.
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/bug/linux-8ef1b8d2-695d-41e8-8b54-5f45fbb5eb1b
-Fixes: 2145af01b9cb ("firmware: arm_scmi: Add basic support for SCMI v3.2 pincontrol protocol")
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
- drivers/firmware/arm_scmi/pinctrl.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/firmware/arm_scmi/pinctrl.c b/drivers/firmware/arm_scmi/pinctrl.c
-index 42cb1aef1fe1..c8e26168a8a4 100644
---- a/drivers/firmware/arm_scmi/pinctrl.c
-+++ b/drivers/firmware/arm_scmi/pinctrl.c
-@@ -233,10 +233,10 @@ static int scmi_pinctrl_attributes(const struct scmi_protocol_handle *ph,
- 	 * on error just carry on and use already provided short name.
- 	 */
- 	if (ext_name_flag)
--		ret = ph->hops->extended_name_get(ph, PINCTRL_NAME_GET,
--						  selector, (u32 *)&type, name,
--						  SCMI_MAX_STR_SIZE);
--	return ret;
-+		ph->hops->extended_name_get(ph, PINCTRL_NAME_GET,
-+					    selector, (u32 *)&type, name,
-+					    SCMI_MAX_STR_SIZE);
-+	return 0;
- }
- 
- struct scmi_pinctrl_ipriv {
--- 
-2.43.0
+diff --git a/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml b/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
+index e0758aac7ffe..9f0da1240187 100644
+--- a/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
++++ b/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
+@@ -27,6 +27,7 @@ properties:
+       - items:
+           - enum:
+               - mediatek,mt6572-keypad
++              - mediatek,mt6595-keypad
+               - mediatek,mt6873-keypad
+               - mediatek,mt8173-keypad
+               - mediatek,mt8183-keypad
+
+---
+base-commit: 8b7179210b22f8e48a82c5ceacb9d56a9c4cfec4
+change-id: 20261105-6595-dt-keypad-d30a425f75e3
+
+Best regards,
+--  
+Roman Vivchar <rva333@protonmail.com>
+
 
 
