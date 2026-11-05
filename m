@@ -2,79 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A118F606A33E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 13:23:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17A73606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 13:25:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Y67zZlTG;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=oxUxuzKw
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Pu9+Pkwu;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=izpLILXh
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=94WhvBOvLikVnBdkqmMS0BP1DzIOS0lU6UoyFCQ9OjM=; b=Y67zZlTGCHPHvaclMMPes7yWXf
-	U7CUwDsJRe41HAxK5B5BFfTUELC8+vPMB8aguHV5F50Rjx9GkZFbsc3HtF4ZvxZRDTds8kKZrfxwp
-	Q+kEzxXLMopDJWmJsJpfasv71Cy3kopUeLmhjJqXO1qL/lXOjOM97b8mEwXpECHzVBdFc88KSENfl
-	CeZz61Zgr+AV8jM/v/cvjXSYSPQNLMjgD+KuGN4KcDTaVRSMSiowDx2H4HNUOOmn+BOH7PCVUZI6t
-	aMZElR0r4dNk8MMltMHbSpCcNdj7KpfqkCOizsYuyAoetfFDRDQe3SgTSsevg2Vgc8pG+7l7Nf0Qj
-	VW6EzD0A==;
+	bh=Fqv7c/hn250Ut0oSJafhwanSQJ8WrgQSQtv3/UY5Aho=; b=Pu9+PkwuQacIZtXC4SdtxLH3h7
+	0eR0DilNr/ouyYjum2jZmHpU8X+dIkpSEcQCJk/wQqvLGsktQZ17Gr3a4PWIwbLw6tloYZTA0akM5
+	AelPrqXBfCirQeZNl/6dkgIF2eBQI2T8QZqDT6e5Rov44uMnB6oNjZwkJRLZwbE8ISVBw4T8vMVh4
+	hfKbU8/x6+CaEJgUadUvO4sWxC0tBiDmKxHPvheQgOcXEdueWhb0bFFbLbytYhBeSgXXbAcHoJYXj
+	S2RUDHGN6iUHxTLFiQVz8a9LbFQBd2Vr2j4aDBaQEbGy8eA+lULuNZZV7dMvj75Kfyu/jm1p8garP
+	Hdcgxvkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxR4-000000096sU-40uR;
-	Thu, 05 Nov 2026 13:23:22 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xOxSY-000000097Ku-1D1D;
+	Thu, 05 Nov 2026 13:24:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxR1-000000096pa-2XUu;
-	Thu, 05 Nov 2026 13:23:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=94WhvBOvLikVnBdkqmMS0BP1DzIOS0lU6UoyFCQ9OjM=; b=oxUxuzKwg9gT4g2DKyoFBl/WI5
-	AbuiwNJlmwsdPRj3bXD9gfgwsoZ/KN16pH4zRlWrtXehOIZVACMvZY4vYYNpwOyJXTy/i7QPukr+8
-	qlCNmtGYnlptdTzVZ+P6ag2rARROCx4HYiFeLDeDMolD+x+TNVJJZcQ2y2kTPwEhtJWfwmeT+U7x1
-	sIfgCZdmvz47620kQNc+znutAi4gJOakEtEurl3RH+kJTyVnIeC9NpAxAt7iEo6DHEqghkVUn+5pn
-	tEFLvsojd+1WSFwo8f0emOSYx9Y3khSJbYOIfZYsHejpiuAXM2FvaBEn0WYypGP18xmPsmsxFxDum
-	22wo2MHw==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Daniel Stone <daniel@fooishbar.org>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andyshrk@163.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Daniel Stone <daniels@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Sashiko <sashiko-bot@kernel.org>, Igor Paunovic <royalnet026@gmail.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: Re: [PATCH v6 00/15] Support 10-bit YUV422 and 8/10-bit YUV420 color format
- on DW HDMI QP
-Date: Thu, 05 Nov 2026 14:22:44 +0100
-Message-ID: <34506010.aRNtrjHk3s@diego>
-In-Reply-To: <81fbb960-abde-44ea-82ab-3adc054da836@collabora.com>
-References: <20261105-dw-hdmi-qp-yuv-v6-0-1bb63ef5766e@collabora.com>
- <CAPj87rMQdE3eeUxGSb4oQfB4Adry6UV8CvhGoTKtdKGQHdSo4Q@mail.gmail.com>
- <81fbb960-abde-44ea-82ab-3adc054da836@collabora.com>
+	id 1xOxSW-000000097Kh-3vXB
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Nov 2026 13:24:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4618C60DB1;
+	Thu,  5 Nov 2026 13:24:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F70C1F000C1;
+	Thu,  5 Nov 2026 13:24:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793885092;
+	bh=Fqv7c/hn250Ut0oSJafhwanSQJ8WrgQSQtv3/UY5Aho=;
+	h=From:Subject:Date:To:Cc;
+	b=izpLILXhJw98RCEVdJwBA8WVd2Y8P2uIRjqMOuymdeApoAthVKdlyhx3Lvj0c0ABW
+	 2AtOR5aWy/tleljAI6M1rPhrIo+eGdX/B26LDBrx7G94Ud22ugUulDSexdFriL0jdL
+	 R4damb6009iMnb44/wmMFel/m1bZ18NwlwgQ23PO+WbC+Se/gl3ZFLn/7v9rCZuk1F
+	 qB9eEwd2lOU7maH2ZLao79Re4rSDBElDWYpkRB503CJrsdyCVlB6Ik3p9anc7nKF5e
+	 CpThJIP+CC/9qXgH88W1LdAhxFXLf4zYDYjuG+NJKJlSecPGNnTP+KgtKtmkWaoaH3
+	 stuXneJXWRglQ==
+From: Linus Walleij <linusw@kernel.org>
+Subject: [PATCH v5 0/3] ARM: bcm: Enable CFE SMP on BCMBCA
+Date: Thu, 05 Nov 2026 14:24:45 +0100
+Message-Id: <20261105-genexis-xg6846-smp-v7-3-rc1-v5-0-4103df2588d3@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_052319_876070_1B47EB31 
-X-CRM114-Status: GOOD (  17.46  )
-X-Spam-Score: -2.1 (--)
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33PwWrDMAyA4VcpPlfDsmW79LT3GDvYiZyatUmxh
+ 8koefc5hUFGIcdfh0/SQxTOiYs4Hx4ic00lTWMLczyI7uLHgSH1rYWSyqJEhIFHnlOBebAnslB
+ ud6gONOQOIZCTUbKS5Ixowj1zTPNT//hsfUnle8o/z2UV1+mfq3bdiiDBG+zJx57Ju/cvziNf3
+ 6Y8iBWuaou5fUw1LEQbKGhHwfILpjeY2v+46oa57uQwojOmDy8YbTGzj9F6mTbKB0OR7H9sWZZ
+ fwwUD9K4BAAA=
+X-Change-ID: 20261011-genexis-xg6846-smp-v7-3-rc1-b470f0e20475
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ William Zhang <william.zhang@broadcom.com>, 
+ Anand Gore <anand.gore@broadcom.com>, 
+ Kursad Oney <kursad.oney@broadcom.com>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Linus Walleij <linusw@kernel.org>
+X-Mailer: b4 0.16.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,60 +81,68 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Am Donnerstag, 5. November 2026, 14:04:25 Mitteleurop=C3=A4ische Normalzeit=
- schrieb Cristian Ciocaltea:
-> Hi Daniel,
->=20
-> On 11/5/26 2:25 PM, Daniel Stone wrote:
-> > Hi Cristi,
-> >=20
-> > On Thu, 5 Nov 2026 at 01:01, Cristian Ciocaltea
-> > <cristian.ciocaltea@collabora.com> wrote:
-> >> Changes in v6:
-> >> - Added new vop2 patch "Disable core clocks before dropping runtime PM
-> >>   reference" (Sashiko)
-> >>
-> >> Changes in v5:
-> >> - Added new patch "drm/rockchip: dw_hdmi_qp: Do not mask error code in
-> >>   atomic_check()" to fix a pre-existing issue reported by Sashiko
-> >>
-> >> Changes in v3:
-> >> - Updated patch 3 to skip any hardware programming in the callbacks
-> >>   gated by drm_atomic_helper_commit_planes() after powering down VOP2 =
-on
-> >>   an atomic_enable() error (Sashiko)
-> >> - Ensured VBLANK events are sent immediately when atomic_enable() fail=
-s,
-> >>   hence preventing userspace processes waiting for the page flip
-> >>   completion to hang indefinitely (new patch 4, Sashiko)
-> >>
-> >> Changes in v2:
-> >> - Addressed several issues reported by Sashiko
-> >>   * Reset AXI before detaching the IOMMU domain, to close a theoretical
-> >>     window where stale or in-flight DMA transactions could fault or
-> >>     access memory untranslated after the domain is detached (patch 6)
-> >>   * Fixed resource leak on vop2_enable() error path (new patch 2)
-> >>   * Balance state on atomic_enable error paths (new patch 3)
-> >>   * Avoided division by zero when computing max_dclk (new path 4)
-> >>   * Fixed VOP2_MAX_DCLK_RATE overflow on 32-bit (new patch 5)
-> >=20
-> > I think everything in here should now be solidly reviewed.=20
->=20
-> Thanks a lot for checking this out!
+When booted through CFE and mainline U-Boot, the XG6846B has no PSCI
+provider. CFE powers up CPU1 and leaves it waiting in a holding pen.
 
-except patch 9 of 15, or mail hasn't turned up yet :-)
+Add a BCMBCA CFE SMP method selected by enable-method = "brcm,bca-smp".
+It uses a GPIO mailbox and a wakeup IPI, with PSCI retaining priority.
+On the XG6846B, preserve the holding pen and disable the board's inherited
+PSCI setup.
+Tested on the XG6846B with both CPUs coming online.
 
-It does look fine to me, but if someone has an eye to spare ...
+These patches were authored with the assistance of an LLM.
 
+Signed-off-by: Linus Walleij <linusw@kernel.org>
+---
+Changes in v5:
+- Rebased on v7.4-rc1
+- Revert to the earlier CPU1-only release address after review, keeping
+  cpu-release-addr required for CPU1 in the binding.
+- Link to v4: https://patch.msgid.link/20261025-genexis-xg6846-smp-v7-3-rc1-v4-0-b352ab54f46b@kernel.org
 
-Heiko
+Changes in v4:
+- Require cpu-release-addr for brcm,bca-smp and provide a dummy release
+  address for CPU0, which is already online.
+- Link to v3: https://patch.msgid.link/20261021-genexis-xg6846-smp-v7-3-rc1-v3-0-7c871f1755db@kernel.org
 
+Changes in v3:
+- Use BCMBCA naming for the CFE SMP implementation.
+- Add the brcm,bca-smp binding and select CFE SMP through the CPU
+  enable-method, retaining PSCI priority.
+- Squash the holding-pen reservation fix into the CFE bring-up DTS patch.
+- Boot tested successfully on the XG6846B.
+- Link to v2: https://patch.msgid.link/20261017-genexis-xg6846-smp-v7-3-rc1-v2-0-bf6b4b374b6e@kernel.org
+
+Changes in v2:
+- Read the CFE mailbox address from CPU1's cpu-release-addr property,
+  as suggested by William Zhang.
+- Link to v1: https://patch.msgid.link/20261012-genexis-xg6846-smp-v7-3-rc1-v1-0-a51d4afde4a7@kernel.org
+
+---
+Linus Walleij (3):
+      dt-bindings: arm: cpus: Add brcm,bca-smp enable method
+      ARM: bcm: Add CFE SMP support for BCMBCA
+      ARM: dts: broadcom: Use CFE CPU bring-up on the XG6846B
+
+ Documentation/devicetree/bindings/arm/cpus.yaml    | 46 ++++++++++++++++++
+ .../boot/dts/broadcom/bcm6846-genexis-xg6846b.dts  | 16 ++++++-
+ arch/arm/mach-bcm/Makefile                         |  2 +-
+ arch/arm/mach-bcm/board_bcmbca.c                   | 56 ++++++++++++++++++++++
+ 4 files changed, 118 insertions(+), 2 deletions(-)
+---
+base-commit: ae43fb24a3dda77622157d3574d1ff71aaad20a5
+change-id: 20261011-genexis-xg6846-smp-v7-3-rc1-b470f0e20475
+
+Best regards,
+--  
+Linus Walleij <linusw@kernel.org>
 
 
