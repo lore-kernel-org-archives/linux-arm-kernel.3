@@ -2,57 +2,56 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E7F260A2630
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 01:01:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8701C606D83C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 01:01:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kRe7V+b5;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=KUfR5Obr
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Gz+n3Z7f;
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=ms4BtTYS
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=SYtilPzqPXCnIDuAgNHfH0KQUIcCbca4y5FMXD8c9rs=; b=kRe7V+b5yklla0
-	gGusBGlvNkSzujK3yauana4tzC+o7WezC6BqLiBIAigOfvPuDDGQNcn8VMBg8ENGDU+x6X87HypUZ
-	97UsxTjJoobb3wW0kGg6WK99fkjyHe/9puwmC3OpyEvTxXIWTpLwFI+jmw1tYOsKl2xlefSN7TyXW
-	XsqzYvjoqxdJFXJ+xiZu5bvHm4ltFDFG1oFW/TbKmjOQG6BIUdkZrwZd78axBB36DbWVNXNiK9HZY
-	mdwaUT7JQoYrkEdzhRC2iZkTeAWbjOJkyPr65To0pi5yZps6JbOgvp4jet+hqc4uC/mzdo/WvZo8u
-	iVKMm+NvkuZPhPWs+bNg==;
+	List-Owner; bh=p+Zgk07gNIjShvh7sz985dtFB/kPI5vroXB9emzMRms=; b=Gz+n3Z7f6vsxuO
+	g1HNHzXzKNODZ+uNO1evfbflX2FhsH/WNWYN0S0rx5sr8Bavl/wQeapxn8/Zi4MqXvAj4CHtOHd0A
+	lFDhzj5aSmdaGAaF3vUGz0mFR2As15K6vYRwJVe2L4klkaXeffWXyDJ6bTrWMRHX0uimtx4yyq7Q1
+	G4Bj+PmsSIrubh5KuP/cw4zemfwhR9mypbpPEpKdnjm51bNYCN3f/B7vsRMmWqeyHk5euWqjx4r3F
+	hXs/7VxtNcak9L/udqL9Vc21zS7PO/nhEOnIOE/KANGOvwyP+3w3mMHoI7WgM33s7c3W2KJOVc/pr
+	u4dU/VrD+WKtviJl5lfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOlr3-00000007OtP-36dd;
-	Thu, 05 Nov 2026 01:01:25 +0000
+	id 1xOlr0-00000007OlK-3iFf;
+	Thu, 05 Nov 2026 01:01:22 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOlqw-00000007OXQ-06ww;
-	Thu, 05 Nov 2026 01:01:20 +0000
+	id 1xOlqt-00000007OWW-3vIo;
+	Thu, 05 Nov 2026 01:01:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1793840475;
-	bh=t4xm3scI4l7rWR2iBzxLstmE0RTUxpACdTblDz3oXNQ=;
+	s=mail; t=1793840473;
+	bh=vuS3FEAJj1P3xuszyaL29cGUlOJnhPtoW5/yXO1sV3E=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=KUfR5ObrP8jFka/2UPUUWjo5o+FDtK93b3osH2OAYgNva3uJp9kGslkH1OJPda5Zf
-	 15X8CZOFNP1JNd9dCYuNZEnWFFVWRV3JrpqciB3HKcITk1exygNn1GPePk2JiLZIqy
-	 6LiQEhNSQKDr4q5w8frc2zPmaLmytXKMtIYys4O7CaqzfsjbFZfi+PKeGal9ZXjTR8
-	 2aOHtllwVzPI6ymja4nt2se6eWSmqQrg96a6lqDvy0zSfwfzPdLW84D9dTz2l55iyb
-	 As6jY4tda6vDPVLhwlAfVOQybrhbMNzJC/cveKrTF6i433O+G7wby2GR2vUOTHaOmq
-	 KvkFfAhG1aXCw==
+	b=ms4BtTYSMLPvuiY3i37yMpFnOH9p55vAwpxQi4ct3/CI780qUurtW9/lbfEPoBiz5
+	 cmo7dy+/BcVyCfHVjWMgBYxwAXPSGPFI42RFHafzUcV1tVN2G5CJAdLtIojR6yKWfp
+	 w7xr91sTfYz84F/Uy3k8r9c24a9dNhqOpLVkNjgQooHSJrpxJKt882gTZEb9sgY2D5
+	 B9ri0smz2XoSs3IZVFSbxKK52MF/VUaW43FKTnlE6EgWM2Yc8qLOg7cS8NBhqIEvcR
+	 N1SwmgXp+dbpCgaYhng9zvajJNg8kCXT0mZVGjFqk2uYMUQUTIoH4hzM1NDMFz1RCV
+	 a1JhCspPmPlDA==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 038DD17E0CE8;
-	Thu, 05 Nov 2026 02:01:15 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7AB4A17E0D7E;
+	Thu, 05 Nov 2026 02:01:13 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 05 Nov 2026 03:00:46 +0200
-Subject: [PATCH v6 12/15] drm/rockchip: dw_hdmi_qp: Do not mask error code
- in atomic_check()
+Date: Thu, 05 Nov 2026 03:00:44 +0200
+Subject: [PATCH v6 10/15] drm/rockchip: vop2: Switch to enum vop_csc_format
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-dw-hdmi-qp-yuv-v6-12-1bb63ef5766e@collabora.com>
+Message-Id: <20261105-dw-hdmi-qp-yuv-v6-10-1bb63ef5766e@collabora.com>
 References: <20261105-dw-hdmi-qp-yuv-v6-0-1bb63ef5766e@collabora.com>
 In-Reply-To: <20261105-dw-hdmi-qp-yuv-v6-0-1bb63ef5766e@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -75,11 +74,11 @@ To: Sandy Huang <hjc@rock-chips.com>,
 Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
  linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Sashiko <sashiko-bot@kernel.org>
+ Igor Paunovic <royalnet026@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_170118_869731_58A6DB24 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20261104_170117_069434_D2ABD119 
+X-CRM114-Status: GOOD (  11.43  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,41 +98,53 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-dw_hdmi_qp_rockchip_get_vop_format() calls
-drm_atomic_get_bridge_state(), which takes the bridge private object
-lock through the atomic state's ww acquire context and may therefore
-fail with -EDEADLK when the lock is contended.
+Improve code readability in vop2_setup_csc_mode() by using enum
+vop_csc_format for the csc_mode variable, as well as for the return type
+of the vop2_convert_csc_mode() helper, which already returns CSC_*
+enumerators.
 
-The DRM core expects -EDEADLK to be propagated up from atomic_check()
-so it can drop all held locks and restart the commit.  Replacing it
-with a hardcoded -EINVAL defeats this backoff mechanism, making
-otherwise valid commits fail spuriously when multiple threads perform
-atomic commits concurrently.
+While at it, replace the nonsensical 'csc_mode = false' assignment in
+the no-conversion branch with the equivalent CSC_BT601L, which carries
+the same value (0) but is type-correct.
 
-Propagate the error code returned by the helper instead of
-unnecessarily overriding it.
-
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260902230603.AF5C61F000E9@smtp.kernel.org/
-Fixes: a18aa0dd7a0b ("drm/rockchip: dw_hdmi_qp: Implement "color format" DRM property")
+Tested-by: Igor Paunovic <royalnet026@gmail.com>
+Reviewed-by: Daniel Stone <daniels@collabora.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index f2a1ea8dfefa..db1933d75ced 100644
---- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -203,7 +203,7 @@ dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index 7c35d73c82cb..76d151b8bc52 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -647,7 +647,7 @@ static void vop2_setup_scale(struct vop2 *vop2, const struct vop2_win *win,
+ 	}
+ }
  
- 	ingest_fmt = dw_hdmi_qp_rockchip_get_vop_format(encoder, conn_state);
- 	if (ingest_fmt < 0)
--		return -EINVAL;
-+		return ingest_fmt;
+-static int vop2_convert_csc_mode(int csc_mode)
++static enum vop_csc_format vop2_convert_csc_mode(int csc_mode)
+ {
+ 	switch (csc_mode) {
+ 	case V4L2_COLORSPACE_SMPTE170M:
+@@ -710,7 +710,7 @@ static void vop2_setup_csc_mode(struct vop2_video_port *vp,
+ 	int input_csc = V4L2_COLORSPACE_DEFAULT;
+ 	int output_csc = vcstate->color_space;
+ 	bool r2y_en, y2r_en;
+-	int csc_mode;
++	enum vop_csc_format csc_mode;
  
- 	if (hdmi->tmds_char_rate == conn_state->hdmi.tmds_char_rate &&
- 	    s->output_bpc == conn_state->hdmi.output_bpc &&
+ 	if (is_input_yuv && !is_output_yuv) {
+ 		y2r_en = true;
+@@ -723,7 +723,7 @@ static void vop2_setup_csc_mode(struct vop2_video_port *vp,
+ 	} else {
+ 		y2r_en = false;
+ 		r2y_en = false;
+-		csc_mode = false;
++		csc_mode = CSC_BT601L;
+ 	}
+ 
+ 	vop2_win_write(win, VOP2_WIN_Y2R_EN, y2r_en);
 
 -- 
 2.55.0
