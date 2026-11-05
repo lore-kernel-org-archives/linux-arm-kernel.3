@@ -2,90 +2,137 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C57F6606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:41:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0ED70606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:43:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=44dq6Vbs;
-	dkim=pass (1024-bit key, unprotected) header.d=foxmail.com header.i=@foxmail.com header.a=rsa-sha256 header.s=s201512 header.b=MFi0Itx8
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=0zXyU8jP;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=nWxd1vM0;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wfF9xjfE
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=eOhqa48dtTiB7ksGp6xxxSY9GgyF8VUpdic4WCjGsps=; b=44dq6Vbs0pb+bz
-	CX8CJ2UDmbUX1N31dICQ4CzNsCOm5+BHE+2hVQ3f13GglI/SpF0R/3RVFW09co+Apimm2gRQTCahF
-	Sds7foEYAbJNJ4y/oGstjL4CMnItOqMj5pquA9RLLwsS+bp/yhA1MQ+mSDxFURKTKvLB26Jvrpy6F
-	pP5qrZquTeqf0qkLU95wlEc0ACaeKf8C/SjSDaXp8bJFxb7GXJ/Xa/LeAXmaipuZQ+VPUj1qGE2+Z
-	Q3/Gl9ns/dgbl4HoWqrr6ui2UsFwcbjKw0XNOjpYqC8WmMzxeZijppw1iloiwpl1ROKLpIXl6JUMU
-	8Lrdqg3esOpuoulKY1iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=9KVyqZjLxhSDOn37BJsTtiq5i2CumiInDbFkl3r3JTg=; b=0zXyU8jPtP4ER1Zv1A9QQgjHY2
+	Nrn1HTA9wqFtGmxp4xWUmhxqdvwM2BYRnDlMwIyWrPW42yCc7OGXsvfy8ATt1EU7IYiTQB8xDQ07A
+	OIxb9Zs1usBWd5vhj/8Aq5rtOyAvr6hQR2/EpkXdBzS8XD5Lx+sgjRLKlj/x4eUpwqLNFtHdKgmka
+	KgUjD2F4S+N/w31gApEFVjeEGw1ZuQ2iZvFZiUDFyMGbyAAftWbAoagSzDtgEYIuy9fYlbmeCmWVQ
+	vme4IOjnNVSmw/YBH7eZLwA/YABTCYxNLeSLlKi3gf3ESq0wTNjTp/f2NRqrn2v9giPe0F01IzbvA
+	QVnmSyMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtxq-00000008LQE-1raR;
-	Thu, 05 Nov 2026 09:40:58 +0000
-Received: from xmbghk7.mail.qq.com ([43.163.128.43])
+	id 1xOtzg-00000008LdL-3pzw;
+	Thu, 05 Nov 2026 09:42:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtxn-00000008LPb-3HfW
+	id 1xOtzf-00000008LcT-1iyl
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 05 Nov 2026 09:42:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=9KVyqZjLxhSDOn37BJsTtiq5i2CumiInDbFkl3r3JTg=; b=nWxd1vM0xP+3QjHOHDvaScLrGs
+	diSvFrldx8usC+XDyBrolUfLWIjATwhbbkNTRrUt4O3n6htLLzAfIgQdpVBxs1LRnOgiAGUA6GXXq
+	BfHoXLqN4RpFuxMwhsG2yIejnIZQRRQed7bt9Up9/tJsmKqol/pr9zDHk7T6GsZ9/uP1psPDJqZzv
+	mqUdlVy2EjL9NVEx/Yb6DJDxvTcUf0zuEoAfCbrI0UAMhfiC9AMyU7cG6FOwT3lXamaR6fa6xdUVo
+	4vU7N+47MoHM9RISGMZRufIWZ26NuHcp00byKLP3UiCc3h89INXJewF0l4PKPpQcjcFmfdgbn/taP
+	WusiKkVw==;
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOtzc-00000002lq3-3Frq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 09:40:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
-	s=s201512; t=1793871649;
-	bh=eOhqa48dtTiB7ksGp6xxxSY9GgyF8VUpdic4WCjGsps=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=MFi0Itx8oaPUnsDeYVkQ3fCCa6BduDREuunWlJMAT6Xhfeb4xWK2/D22ZUzSmcWG3
-	 YvQgkfmSCOmYlbCALUQBFAPVSC/TnMVuPHmk/beeGAWQ3EuH/m/czGA3fyNaQv6Gn2
-	 t3v4D7XKYalpKfECoVRVYZyUh0cA6eJdG9kadfOc=
-Received: from LAPTOP-TKBJAGN4.localdomain ([27.38.177.45])
-	by newxmesmtplogicsvrszb51-0.qq.com (NewEsmtp) with SMTP
-	id A2805CD6; Thu, 05 Nov 2026 17:40:40 +0800
-X-QQ-mid: xmsmtpt1793871640tlh7jbj61
-Message-ID: <tencent_3D65EAC95AB758A272F0ABB30C86ECE2A205@qq.com>
-X-QQ-XMAILINFO: Npv5yIQT4nxMDZVNMNpPvnUCLCYe2yvr1BsQqzulHOgeFeXvm4sIboiwxfUQU2
-	 J/AZ3pDGmOmiAedfLd69Tfl8qBsdhhP65I8wPzQNT3VRjmbH4HR1Zz15AqF39cYJhVZbZbSOfb4z
-	 s2qZNaQsRgbtq2Ubi+HSqXkNZksmocMbsjC6x3iH+B+g5dnHYx3e39wXbWAcVl/mrBM1p215dsij
-	 Xj7PeT9ImWpD98AWR02uzXFHUHivlS9ZaEASENrr0ScoRM4eo8DkbdSNVbW7UuT0zmm9XMAIEUGq
-	 WlL5iYxx39JgAChMFgfAJozITWtRS5Et/9SE9LwncCCzL4TDSpN24amO2UT3KCkcrEcBRwkiFQaf
-	 XLToVnJ1X+uSsARK7YwM9nMumnDTp/6bpMhHEMhRpuc+XoItxa3XWdr8++8/YUcgoWJtxji65Z1P
-	 qwF17rlc45yDIwmbaRDfk9GtlCol11kzX4XEcc/dqWaZPdjudwg+E/A/0u9Dr1zPxv93e8m7jsA3
-	 /xM+m6h8CONtVNGdUssOfOnUwhBT8mTQesMdHKDoFxzx3MZOf6qnNQHQiiFe8/CiL4uM45ZvuYac
-	 OhmN/9q4oVO6JEZ4d9uLPEmTHNj8lQLBje+oOpAgsaNFj21yf0+ElgS1rNfwS1Gr8SoXHkY3THTQ
-	 5XOInxRIOjPcXxXi8CEjl3IjHAUyz04rMZQ9JgHsbDmWfzBAT4/okUvafk30VpAmXVKyaI6eR0sp
-	 8OjYd0OBHEMoPsBX4S87YIz3H995Tl3m73KeIKsDhczbCfXqa058RhxD4I1jQrW/RncYh8jzYRwB
-	 dLD0ZX78FvCg/FaOh8VVTAz1RHxRV1+yBT0h82DYgxfslIZInjM0/ECKebQ8O6Tp6ZReH8qMPx/J
-	 RaGECD6RrCVlAgG+JMdDCj6eLEmW5qvYrrRwuYDS7R9P9sucDS0uOLByn3BhPzNwBGNJA/DHVYU2
-	 yvkpoMC3zaqpBPM2zHuzc6tR/w/1xIWlWKarOY/hWKgHNSychtGMcwGDSFuc1qye0/19xC9O+njS
-	 OmwF70dpO46Rnp69ecfJGN6cBubSBZ4na6ystfH+AHvl3cgzZkvYKevfTRp1PtmiSIPe9Vis0Gsj
-	 ngKEK1yt79lcHBtZI=
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
-From: Haobin Jiang <lemonoutput@foxmail.com>
-To: carlos.song@oss.nxp.com
-Cc: Frank.Li@nxp.com,
-	andi.shyti@kernel.org,
-	dillon.minfei@gmail.com,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	kernel@pengutronix.de,
-	lemonoutput@foxmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	o.rempel@pengutronix.de,
-	s.hauer@pengutronix.de,
-	vjardin@free.fr
-Subject: Re: [PATCH v5] i2c: imx: honour I2C_M_IGNORE_NAK
-Date: Thu,  5 Nov 2026 17:39:09 +0800
-X-OQ-MSGID: <20261105093909.4983-1-lemonoutput@foxmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <93667d47-794c-45d1-b72a-a463d5289a29@oss.nxp.com>
-References: <tencent_E6D69775D91AD9FE45C994B3755CB1452506@qq.com> <93667d47-794c-45d1-b72a-a463d5289a29@oss.nxp.com>
+	Thu, 05 Nov 2026 09:42:50 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-6b571979178so1346922a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 01:42:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1793871766; cv=none;
+        d=google.com; s=arc-20260327;
+        b=jTOaqYp20aQlTT7abVpdk4zM/wPnwzk50uZmyRMfACUjLimHEr1lJLWpEn8PSqsWEc
+         fUiq1/1nsxeoTToVxaU15tZqt0sgmTwFSD3VGe9kBK1L/3NURLYbyZGm6bGKkhi5Vb/z
+         laJVx4qOdrNvST9w/gSpSrB7Q40UnJgnPECZnkHhMGfJfs9hfU/Dp/yktA3Oujgd3dQR
+         GdtkJ+sCyf2vu1H2yqq3fID96ND8JMfYj7pN86GI6OaULOETV8ULbhQO4FdrmIOmZLhG
+         a8w9DOOrF6kmQ2AlE3GE1GO3RsvM2p8xj/lhNem0FB+DvqXajWxfEDWH+gsKDYWU0hjy
+         ptHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=9KVyqZjLxhSDOn37BJsTtiq5i2CumiInDbFkl3r3JTg=;
+        fh=RJrR7JWwoksCQeiRDCNgsXSHsGqb1eAXDIvIMel9cHw=;
+        b=rP4cBWG57OugEaqZ7w9mtwI/VAHFn0yc8EEGHgJqEKdrUBtlJvaekNinlgkoAUi64x
+         g9bWiZhRWza8HvhxmCv1wX5Jenc8nXMF3COXarQlZUazXnOwhkJ3d1KwmkQLPBgdteei
+         FyF4f8QzrDEunL0Ab6AqudSdXJBFosMJ/R2XNvU7h0UBtSgcw3A+SRAICBju9pdR0Pb2
+         9vHfxks8x73K3mBIgrzuqSGW8bHBmyfwP+ZhwhgmGqmJbg+1W+drCFE3zRsUXI603OZk
+         rSnrxkGPQoCP09hRTXTNbwjJqLlA4GuHQ+QESqsEwE6ynI3dlciZe2TGWUop8H0QW8a6
+         8zYA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793871766; x=1794476566; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9KVyqZjLxhSDOn37BJsTtiq5i2CumiInDbFkl3r3JTg=;
+        b=wfF9xjfEjVR/PBstarnxcLN7CZWuhgCKaMyzRwTSNnjduNGaAh+8S/dk1H3EkTaDpO
+         cbfKGRJ+Pt6YFbf0EGwGwWy4v/Beb0ySuGW4j7Ntlol5NMI5+g3h/FT6ia9xJnR7iWFP
+         ttaYCtGuElmIOwF880pBXvyuvjK9eR+8BR0p+Sz/d4QaMSdyhg3Bbm73rjmJP8hOky+i
+         2yAp52NnZL5GQeu35WeO7MYQg+pi840B7ILjaBb5JGtJoBrl6velQdH5oOGPT4QY1CFl
+         N34o4/aQUtPeby4Mn4vtxILKyKv+Hbj4qZSuHmZMcBhzk76zLTVdLJkgGR9cii6AOSZ2
+         9etw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793871766; x=1794476566;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=9KVyqZjLxhSDOn37BJsTtiq5i2CumiInDbFkl3r3JTg=;
+        b=DrEdVrC2pbII8r+gDd4YZIB3sI5PCb1KOBga0ej77sBanTMZKu2Ra1ppmRJ9qnJ591
+         ls3iGC4sPxFPvjWHXmToepij/3uyjYqwKxTdz1sCYyDu6ykYEBbTodrnNd+8pHpecFTi
+         w3uAF4P7AAjxHW9W8ybOwW+cXLH6EYjHfWQAtzAFQZo0MH+39d6dxij4x0voN3+VHR8T
+         yQTFUHIwlhwHSKJOg8OEBP3BiAn4qBMKBrk8jjYYsU+RfKol7lwyBvYMFs48QmiLUcwG
+         +o7WM9R+Am8ISHb4eaLHV9viLD4x7YCzM/oYPn72gD0lG2JHy7TLKImy16pSdZcMh0yH
+         0nrw==
+X-Forwarded-Encrypted: i=1; AKwUvBydH9Mglio87GcWgfzcvjF6DufbHi/GTW7W92GRG7C6keHjWowJnwYFYHnMuywMCejXWp/h8QLWURskppQNV8c9@lists.infradead.org
+X-Gm-Message-State: APuU4Z+RPB66xN9DdPiOxyoRhUmW579Use0eX4HrAzHo2tmdrYMB8NQs
+	eUQRoPXkyCiPUdJxLnRv37Z1AQLet7nAtP7ARbjAEDCHCYtoI8J61IqxZlvvR9Q0zG/HddEbZjP
+	w5w7iAtiSBpglxp1Kk+lHW1ajnrvj8dQ=
+X-Gm-Gg: AYBFou3lySDandlyyXaLvZKABoTWDFy/dLoWiq8d/HKXrZ1ohW1Cr+g94eIRh9ivVhS
+	BmiENfSq/+SAezrOBR0Xy2Z9+8eqhzoTMUvLjOh0p5+RuoEmPRoXqFCS9PIEYGO72SmNH0QUWIV
+	VcITRRIYujDQFunSs8YhsahukFpL5HfZlG9OrsZOqXpYMD1pYweQxh6+qwwO4+pIYfVPTGdxyCa
+	jSZj+wzXpUOvYhVafDC1/zs3IC8nK5mZnEv0UZV4+HHQ7RdMUXJFvQXhkOSCjxnJduvsVQrqVC4
+	OQZQJmJgtgK52PSK3Zf3/N0sFu2zhewRZtDYdT47IRF6aJONK5D54Tz1/fOSYmRegH5tzvi5nf+
+	+MXJYD3eOdBp7HkyfWShADYW2iy3/M1kVQ8c=
+X-Received: by 2002:aa7:c2c9:0:b0:6aa:a33a:2762 with SMTP id
+ 4fb4d7f45d1cf-6b4d3377817mr10254827a12.2.1793871766289; Thu, 05 Nov 2026
+ 01:42:46 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20261021105109.199886-1-l.scorcia@gmail.com> <20261021105109.199886-5-l.scorcia@gmail.com>
+ <179310028255.2808517.13933580516140278450@kernel.org>
+In-Reply-To: <179310028255.2808517.13933580516140278450@kernel.org>
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Date: Thu, 5 Nov 2026 10:42:35 +0100
+X-Gm-Features: AclHuK8keS0URREeVHi2bDcMrIMTrg9GDE11ruNkJWdKZdjkdmjRgehGKxzojT4
+Message-ID: <CAORyz2Lv9fBrKZOQ7kFBE+u-nJ-dFpRm_3G0JTS=bHtEL6n_GQ@mail.gmail.com>
+Subject: Re: [PATCH v11 4/9] mfd: mt6397: Use MFD_CELL_* to describe sub-devices
+To: Lee Jones <lee@kernel.org>
+Cc: linux-mediatek@lists.infradead.org, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>, 
+	Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Linus Walleij <linusw@kernel.org>, Val Packett <val@packett.cool>, 
+	Fabien Parent <parent.f@gmail.com>, Akari Tsuyukusa <akkun11.open@gmail.com>, 
+	Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org, mfd@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_014056_353537_B2EF14FF 
-X-CRM114-Status: GOOD (  14.95  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261105_094248_735477_E0AAAD81 
+X-CRM114-Status: GOOD (  10.65  )
+X-Spam-Score: 0.8 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,59 +143,24 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=4.0.1
+X-Spam-Status: No, score=-1.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FORGED_GMAIL_RCVD,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Carlos,
+> > +     MFD_CELL_OF("mt6323-pwrc", mt6323_pwrc_resources, NULL, 0, 0,
+>
+> Nit: This is non-blocking, but if you have to respin, please use the
+> 100-char limit to keep these on single lines where possible. Same for
+> all the others below.
 
-> Why not follow community rule to make patch...?
-
-You are right, and thank you for taking the time to point it out.
-
-> At higher version, better commit log and put change to commit log bottom
-> with extra lines like your V3 patch[2].
-
-Agreed. When I prepared V5, I regenerated the log from the current diff
-and did not carry forward the problem description, the test evidence, or
-the review history from V2/V3/V4. That is my responsibility as the
-submitter.
-
-> I think V5 patch commit log should be better with shorter and clearer
-> problem description, reproduction, resolution, verification based on V2
-> patch[1] and V3 patch[2].
-
-I will rewrite it that way for V6. The commit log will cover the
-problem, the resolution, the reproduction/verification, and the review
-history with links to V1-V5. I will put the changelog below a single
-`---` line, like V3.
-
-> But abviously, this patch is generated by AI, and it dropped most commit
-> and discussion details from previous patches.
-
-That is a fair criticism of V5. The tool produced a shorter log; I should
-have caught that before sending. I will restore the AI-assistance note
-from V3/V4 and describe which parts were tool-assisted and how I verified
-them. I will not resend until the V6 log is self-contained and I have
-re-checked the new zero-length guard. I will state clearly what was and
-was not tested.
-
-One point I want to be explicit about: the V5 guard only rejects
-I2C_M_RD + I2C_M_IGNORE_NAK + len == 0. It does not fix the pre-existing
-unflagged zero-length read path. That scope is a deliberate choice, and
-I will document it in V6 rather than imply the general issue is fixed.
-
-> AI-generated patches should be subject to more rigorous review and
-> testing... humans must always remain in control in whole flow.
-
-Understood. I will keep the human review and test evidence in the
-changelog, and I will be the one accountable for the content.
-
-Thanks,
-Haobin
-
+Ack. I will rebase this patch over current 7.4-rc1, adjust the line
+width and send it independently of the addition of mt6392.
+Thank you
+-- 
+Luca Leonardo Scorcia
+l.scorcia@gmail.com
 
