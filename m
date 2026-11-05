@@ -2,69 +2,71 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BFA44606D817
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:57:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27551606A32E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:57:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GM4gLEQI;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QUgN4M03
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=12JH4pMc;
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=C0lhJ9Qa
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=XlaV0uHB9IBgqNWTAny15HrhpzdaWp2QYmmqAipvZcE=; b=GM4gLEQIHBHn7o
-	dKu8Qrz/8eD1gcxUP55ykRAG6vx7270oUKRR9hqydm/KKm2uAc5CE99Y5MDfrGaovDfDEtRobkMPf
-	nE8lL1T92JVBgTqz3Wta1Qn+cmtKm3hOr4uPWxQSHFxe5ADwk+I1/ZrtMy4UGn099IvhfaP+ZVvOL
-	mypVAt3b7eHzFzyTu6g9cKsrhDvL75EZ4P3ItqAarSH5BUXcKrh/SFzLBJ4Lp21gSrMRc7+Vr9IPO
-	0hacXsGStvKymPkS0V13oBW0mQgx3ZoGwPm0CbEHqwY45O5t0cmYh60o9gISr1vMf9bjMvHaCserg
-	0u34g/h+GyGYAw8VKx5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=072gWrHZKrGLJt0o7ILLBkyYldVwOPn5kpDvpqOGCOs=; b=12JH4pMcYZWc1+I0mq5tZQNpS5
+	mjj1SmluTXbZxq+k/Jqammpc8dHlQkqiUZASYN2g/zvy1ph5B7FvNe+47CAtCb1xzzLJWBoPp+DXV
+	2BY6SJTwNvhCt93h85SgLYxKzmj8wT98jilVptF64NmS8vk9GYVcGPe8gW1SYWmFYvyQlnxnzBp+R
+	9uN3GbXgG5nMjzHMrgqDLGIMH17XPZeaKe85JqmQH//ICHhCEAXBYotVpKUP69fxFkxOKfzLA9qrQ
+	PEwZ/Uv6HsguF205jL4zG7SwBM5DT4sstjoL3nx5yzNHmzAEpSVb9QvOKMwgLIxB5PmqDeeN9dFap
+	H2nStt1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOx1n-0000000928D-2S9a;
-	Thu, 05 Nov 2026 12:57:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1xOx2M-000000092Jx-0KbY;
+	Thu, 05 Nov 2026 12:57:50 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOx1m-00000009272-2a7C
+	id 1xOx2J-000000092Il-1hGf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 12:57:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6182144644
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 12:57:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 459461F00A17
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 12:57:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793883434;
-	bh=XlaV0uHB9IBgqNWTAny15HrhpzdaWp2QYmmqAipvZcE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=QUgN4M03Wd98TJzZFuwVCPSCN6m4z92QSI9MBGTDS7uED8gWPribpIshAoTXJ84nZ
-	 zoIBve5f+wRKTd3+15+N/+dSVO9rgqJa7EaW1qj8rSy3H/aaMaRAUsd3v0/yTeTnjE
-	 rXg26gJt2Ez+QZrmiT4V5YeKbnt9b1v0luY3aCwWnpWl435PBhshJmHeGXR0PBmrgD
-	 DFRlD+mfSabMvSGDKwp/kVKxdPHyxJpcxqsrAE5ijYgjlVoBiXWYBdOuFucro94h/y
-	 QXLqhCMxOVdEhTm1CdyVSPjohHHY/bHNp/Z5UDXcjbNdSfuhwpLXuPBCRwAA1caEOF
-	 6Jv5dNin7fPiw==
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5bffd1e177fso446029e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 04:57:14 -0800 (PST)
-X-Gm-Message-State: APuU4Z/jA5P+xFZLIG+kEhLy1S43RPClwOhRi3rT5NZsi4WGMe9J027I
-	e2+PXMAl3d8hL0UZ2++x86B9MxtK2XXxBWk0C3OlWfep8dDs06xH+W1wRVWuk+7s/3bjw5Fkyh4
-	xDct56R9LIriYwivG+VYTe6QfqB2BTJE=
-X-Received: by 2002:a05:6512:3c96:b0:5bf:d54c:1fb6 with SMTP id
- 2adb3069b0e04-5bfd9574e70mr6105817e87.44.1793883433089; Thu, 05 Nov 2026
- 04:57:13 -0800 (PST)
+	Thu, 05 Nov 2026 12:57:49 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=072gWrHZKrGLJt0o7ILLBkyYldVwOPn5kpDvpqOGCOs=;
+	b=C0lhJ9QacQ5QWV1jjuD9K6ur0ERfRxW2k8koHLpChkYY/xxLPuUND1OGZxCLbLfy/1n5nYMgW
+	MUKMNimBpIl/C4ya9iPq1gUm0W8WvB2zkBN7ENcIRwOAr1TsRvEQKh7tbDSvQ+UuG+QcnH5ye8/
+	w9/mLo4MO/PBukVsOiggihg=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jL2QJ4g74zcb0X;
+	Thu,  5 Nov 2026 20:57:12 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 80DFC40561;
+	Thu,  5 Nov 2026 20:57:41 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 5 Nov
+ 2026 20:57:40 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<rppt@kernel.org>, <baoquan.he@linux.dev>, <sourabhjain@linux.ibm.com>,
+	<coiby.xu@gmail.com>, <bgwin@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v8] arm64: kexec_file: Fix elf_headers memory leak in retry loop
+Date: Thu, 5 Nov 2026 20:57:24 +0800
+Message-ID: <20261105125724.2283453-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261104145446.2767924-1-sudeep.holla@kernel.org>
-In-Reply-To: <20261104145446.2767924-1-sudeep.holla@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 5 Nov 2026 13:57:00 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=O5XcB63aOcoVcj=SDH8ArG5-5ED3h6k_3Ooj4n-xxXA@mail.gmail.com>
-X-Gm-Features: AclHuK_3QxK_-3SuTISH-Sfgev6koiYHUm__gjgUUdEUqKHtFLerNIGj8Nwk1-4
-Message-ID: <CAD++jL=O5XcB63aOcoVcj=SDH8ArG5-5ED3h6k_3Ooj4n-xxXA@mail.gmail.com>
-Subject: Re: [PATCH] ARM: vexpress: fix iounmap missing after of_iomap in SMP prepare
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, Sashiko <sashiko-bot@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261105_045747_674935_D16AB550 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,33 +77,54 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Wed, Nov 4, 2026 at 3:54=E2=80=AFPM Sudeep Holla <sudeep.holla@kernel.or=
-g> wrote:
+A retry allocates new elf headers and overwrites image->elf_headers,
+leaking the previous buffer.
 
-> of_iomap() maps a region of device memory and returns a pointer that
-> must later be released with iounmap(). Currently return value from
-> of_iomap() is passed directly to scu_enable() without saving it, making
-> it impossible to unmap afterwards, causing an I/O memory leak.
->
-> Store the mapped base address in a local variable, check it for NULL,
-> call scu_enable(), then release the mapping with iounmap().
->
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://sashiko.dev/#/bug/linux-5bb0baa3-6a9a-49a0-94f1-80f8cd8f6=
-915
-> Closes: https://sashiko.dev/#/bug/linux-6803acf3-f91e-450a-a738-8803e6ac1=
-f1a
-> Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+Free it before assigning.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Thomas Huth <thuth@redhat.com>
+Cc: Breno Leitao <leitao@debian.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Baoquan He <bhe@redhat.com>
+Cc: stable@vger.kernel.org
+Fixes: 108aa503657e ("arm64: kexec_file: try more regions if loading segments fails")
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+v7 -> v8:
+- Split out from the patch set as Mike suggested.
+- Link to v7: https://lore.kernel.org/all/20261026075201.699550-1-ruanjinjie@huawei.com/
+---
+ arch/arm64/kernel/machine_kexec_file.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Yours,
-Linus Walleij
+diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
+index 854d872dfd0f..beb0b8585454 100644
+--- a/arch/arm64/kernel/machine_kexec_file.c
++++ b/arch/arm64/kernel/machine_kexec_file.c
+@@ -112,6 +112,10 @@ int load_other_segments(struct kimage *image,
+ 			vfree(headers);
+ 			goto out_err;
+ 		}
++
++		if (unlikely(image->elf_headers))
++			vfree(image->elf_headers);
++
+ 		image->elf_headers = headers;
+ 		image->elf_load_addr = kbuf.mem;
+ 		image->elf_headers_sz = headers_sz;
+-- 
+2.34.1
+
 
