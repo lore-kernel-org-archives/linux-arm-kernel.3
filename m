@@ -2,113 +2,190 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1A3A606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 06:13:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95A86606A32D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 06:19:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=q6TV45XB;
-	dkim=pass (2048-bit key, unprotected) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=M4pmtFK+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ScIbMtW4;
+	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=IRPun8Wk;
+	dkim=pass (1024-bit key, unprotected) header.d=mediateko365.onmicrosoft.com header.i=@mediateko365.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-mediateko365-onmicrosoft-com header.b=WYdvYVPN
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=NCLGTKCHoNQl6zGrnHHJ6bDiMkCD24v1Hv0NuRQZaOo=; b=q6TV45XBSV8r2v
-	OHQeEhtwykUkB/beNAycUXj8nAyY7kbwm2tIer2qu0iAyUoNZDLtEbUS+ADVWbXlkh/HEU1p4ycxn
-	yIefA9KHhK1cbg2lMhOUhdxuI6pPBHjAU+bmFnfh2f8zmeLB57s1B8xcuF8Baupfqk+avJGrh/CGS
-	f4jzzN5cJsxl5ICwdS3kpt3QMo4xO3Gh/qhW5WOBM/MGWjNwqb25cT5dHs+UYwkJhCHr+oucIS0r6
-	xm+7THlZJAlDVkuvEog6eJ8/17GvnsGiWjQjKjqj7eIXp9Dr90+xMDjbJYEmPkEoLggC8hA9w3vKT
-	zhx7CZF4pGV1mErA7aGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=7+Kpsrdqjg3PJmHWUuD4MZ+nwOv4i9yLYdGM1NEdmA0=; b=ScIbMtW4X4dxe8U4sXo/tboWEB
+	o/wIMZ6NWKd0C9z3KpUbONRkZSZTlNXZoYd49541UjjJF45MAZ9lnUCTq/BtNy8WUVDtFvpTuCSol
+	pcBsc/1Znb4m0OXRKUERH8KQ2d/p0M0m2akQpQl8mdMvYjyzrQNjZewCJgRbrouksD/v34rGwR3Vc
+	z0l8IIUkWa39vHd/moAktCR5P9HQo0StmrhVtdadl1pe34wQXrdRwRgBsQcNJ6oBuLsxPD4s/1Shb
+	DIPGR5FP1/fzIGQZ/53mLAZQ4+hVXIoOR0MpUmXXpcAUGigvHQ0cLmFyNtuQlhyBqFowSJQXRhH2K
+	IK5V9rbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOqim-00000007vW9-1hxC;
-	Thu, 05 Nov 2026 06:13:12 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1xOqos-00000007wYi-2OyI;
+	Thu, 05 Nov 2026 06:19:30 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOqif-00000007vP5-1WVS
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 06:13:07 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-cc751eddf25so908737a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Nov 2026 22:13:05 -0800 (PST)
+	id 1xOqoq-00000007wYG-0u2L;
+	Thu, 05 Nov 2026 06:19:29 +0000
+X-UUID: d8aee932d8e011f1afed4741b24580c9-20261104
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=7+Kpsrdqjg3PJmHWUuD4MZ+nwOv4i9yLYdGM1NEdmA0=;
+	b=IRPun8WkTWS4jpVvwYJBhLOTjXXUUYP3Sw4WXXxj4uJwjpndFp1n0dkxnldhNtKhBHjTIQy0IXSNxbgcoMVCtEO+bE2WZaaJx0FR1z+9PW6HTN3VOrBAT51+79eKUTcTSjiTDkgeWcslar3G4wKdiqOj/5T5qNogVTJ7/zjvIl8=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:42bf90a9-a508-4a57-b576-c54daf8ee9a8,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0318ac,CLOUDID:fb0a4cdd-bc73-4194-873b-5bfb2ecf9b70,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
+	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:n
+	il,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: d8aee932d8e011f1afed4741b24580c9-20261104
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
+	(envelope-from <ck.hu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 537443936; Wed, 04 Nov 2026 23:19:24 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Thu, 5 Nov 2026 14:19:21 +0800
+Received: from SI4PR04CU001.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Thu, 5 Nov 2026 14:19:21 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IyBdjamSDQEmoo3iMkmmBEzRYxw37Ue+uSVHQ7th1ltOzh+Xcc5UESnZprSh0a5DiH39zTkPgWLLNERwn/x7pAhEXqZpoVbdcTAAfxBrVCOHYwcW43w6QeWXuo4XzOvUqkEtbJapvjHuzyXsaUZpLw7Z6m98SsJisAYaVMOTxCR6Zx3LGBxJsNTzBOnAAs/DOW3Ca/r8VkDiHJIVBn6waMv2CTG5L4SCNZqa8IIbHNO9UFDZ1B/90pAewdPm9nRnBevYIpxlmzszV7wEb8v1KTslj4a/LlR05eqyAmfOC22atlVebhzM0WrioeYUxArQ7QLLoSqebrIdmcUJ8u1lvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7+Kpsrdqjg3PJmHWUuD4MZ+nwOv4i9yLYdGM1NEdmA0=;
+ b=TfcobU4cx9jLZNHadafPap+wUhqL6jE2UJbWGpRX3nUx1/thd7btDE2F8IPUGYnY1vd3PioiuSMIlx3Va0s6WE8ZgG5qBqpwu6OtMqwCZ9RGnXuTMPQd2h7cSnklOytTEpX3M4MhLcAM/aPO1flS16nc5G//bx00/RuiFVdgpktHhzy5jETkdpSsvxiezxHlatf5k56IBM3qteUGPLOpLrIXTvg61EbGA53N4oG4PIBe2s2xs6vCe8Q9unOEPqL3mMQ4TPzL1vp4m9N3E5lK9AxSCi5o+X7hCX4gBlTI2yt2kqRqiYIn9E04IZ8gejF6xN3pmEzaguUZZcCyT571/Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1793859184; x=1794463984; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NCLGTKCHoNQl6zGrnHHJ6bDiMkCD24v1Hv0NuRQZaOo=;
-        b=M4pmtFK+vEiP4OfKJ6u9JtUQ+rIv4vIrruo3jFG0moYSDwMd82mV4lVKXsAyeqEYcS
-         nhK2D4Rx6b6qB/KDjKvP/D50AK8+0BL26SX8YjDEl5joeHKVBQEJUib2NOWanPgQwO+5
-         osXT/kJbej1HEVAmGv2nH7QEufZA3E8LKCwOyAWqsW7v2paISLP0bVop8ngqX1UwyEIi
-         wJ0Sm2+40sPWem67PIGhBPlGewP5F4RF/Jd+L7/mQ1plJyBaDByoAL92m/LDG2/6IQWV
-         yew+bhtymep4PHGNAPVaB/JFtrAi3W0Edfth102HkyilqBDH4AGWesvpZIv87GUlSXTv
-         yCVQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793859184; x=1794463984;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NCLGTKCHoNQl6zGrnHHJ6bDiMkCD24v1Hv0NuRQZaOo=;
-        b=EJC+UBYdGpmuZK2hd2/HtGhXX2pUOV3QDjawHPzV0UpeMCpl9W1RBLkVd6ogTRQjQ6
-         LIs2b6xbnHtQ5M0DKixmxQY5obpJlKkhYdf1UYa96+k3mvpE+NuYp97MeN/F0ImKOwTV
-         GjjTVi0gh7wqFrw9FbANRE+48zudUGbqkYSNaOW8bbKniKhCT5FNh3OVYodDGkZEha5r
-         w/AsLHNY4vmBpfESo5BuvhbT4GPAbJPDa2W6kzMxVQTtLO6lH8i1zN0nMG1Tfnedpoee
-         wEGQtEQ/U3UQ5vFLUIcG46W1OkM2HbfE+TNdzCj6IlV+SxJ774TBHcav+xWGiMxq5vq8
-         dJ7A==
-X-Forwarded-Encrypted: i=1; AKwUvByFpkjNjkEPUZRlWQb7tIZEPcDZ3l3CMTYKdt98fFppGmdzm0+jV/S/jYrgp6crVoXNwEJc1lIPrVmoSfGwuHUM@lists.infradead.org
-X-Gm-Message-State: APuU4Z8uT5P410lhn1n9ajTsIBqX3ieALKl3cdBn6JD6hUAOY0wGKOZn
-	7uE8viffQzjm5LtMsSnkuubF/FGpCMla/rBpfts4b9W7BgRXhu+PeTOqC+4jkr194sY=
-X-Gm-Gg: AYBFou0p4/BggQXYj1fdC36QNowMNRM/BxDuYUqTn+/XCORyhzmJGzers34Xbw3Dyd/
-	7slzXcLHVLvJZaL/n+Umaef7uEZGC8hInuIEfXU0Pa9bNdW8n5WXDZoN23quplipmMOM2yEPJbN
-	Meuq2jyZ9nROS000hyYgW993ktq8p2aMCFGPOJ1ymw/J3MqP0uC5F4QJMB100Ho4fyFWzWSAwWH
-	kqeJe6jxId1+bx3aD9Rbrg8/7iAjolJhBrgi1+mPC71wP6Awzyyic40v7GkLsdqC1IzUFjinsOP
-	K0HZmcXF5OTeI6dmc4fS4hqWpDDRBdVtQqS8T+pNYExG/t7nvSFq9/MKx6SprjPDsYHCrUhk+6K
-	ck7JWEY9rZZJr7TsN71/uuuJoiDHxPN+6AzK3NbRBxrd9jEGCOj0gjtLrVvTHOqUuJAG8RBa0aO
-	uDxKYuJGBTizovs0PdOjG9jmaivvWoFiQKtyPa1nuid56y7RGz5449n6YWijiAcyk5miP1ND/pv
-	78GnMhfmsdd+Be200vRJJebAepZJxQuhZfAVUsiYPr961MmiMkhYkDXkVF/tH1cxs5q440SwNTH
-	HhC0PZIH7mRWtlD2A5407GT/s7Bke1xwWlcnzNEN9fy4BsnhAXfxqESw+LmglBPXpQ==
-X-Received: by 2002:a17:90b:17cd:b0:3ac:b7b9:6471 with SMTP id 98e67ed59e1d1-3ae8987a7bfmr15529450a91.65.1793859183930;
-        Wed, 04 Nov 2026 22:13:03 -0800 (PST)
-Received: from G6L4RL2QG9.bytedance.net ([61.213.176.8])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b0b323a1fdsm2107528a91.5.2026.11.04.22.12.57
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 04 Nov 2026 22:13:03 -0800 (PST)
-From: Muchun Song <songmuchun@bytedance.com>
-To: David Hildenbrand <david@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: Lance Yang <lance.yang@linux.dev>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Ritesh Harjani <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Oscar Salvador <osalvador@suse.de>,
-	Qi Zheng <qi.zheng@linux.dev>,
-	Muchun Song <muchun.song@linux.dev>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	linux-mm@kvack.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	x86@kernel.org,
-	loongarch@lists.linux.dev,
-	linux-s390@vger.kernel.org,
-	Muchun Song <songmuchun@bytedance.com>
-Subject: [PATCH v2 5/5] mm/sparse-vmemmap: drop @pgmap from vmemmap population APIs
-Date: Thu,  5 Nov 2026 14:12:17 +0800
-Message-ID: <20261105061217.13302-6-songmuchun@bytedance.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261105061217.13302-1-songmuchun@bytedance.com>
-References: <20261105061217.13302-1-songmuchun@bytedance.com>
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7+Kpsrdqjg3PJmHWUuD4MZ+nwOv4i9yLYdGM1NEdmA0=;
+ b=WYdvYVPNu6dv7uxRZnkMMk9INU5qQo3C0iJjmbOyV38NGz8XFd5BJNkMZrGaDLFER4pMa772Eho4srRnPdHHm308gGHudWPK0S4HaQboHc8jifmmZS+oHmSAHkEWF0Z+RQtAwH3vIuAXY6sqtbO+op8vMfCUIq5PPbrg8A+dexE=
+Received: from KUYPR03MB9902.apcprd03.prod.outlook.com (2603:1096:d10:91::20)
+ by TYZPR03MB7362.apcprd03.prod.outlook.com (2603:1096:400:423::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Thu, 5 Nov
+ 2026 06:19:16 +0000
+Received: from KUYPR03MB9902.apcprd03.prod.outlook.com
+ ([fe80::9598:2e59:20dd:960b]) by KUYPR03MB9902.apcprd03.prod.outlook.com
+ ([fe80::9598:2e59:20dd:960b%5]) with mapi id 15.21.0592.009; Thu, 5 Nov 2026
+ 06:19:16 +0000
+From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+CC: "robh@kernel.org" <robh@kernel.org>, "tzimmermann@suse.de"
+	<tzimmermann@suse.de>, "simona@ffwll.ch" <simona@ffwll.ch>,
+	"mripard@kernel.org" <mripard@kernel.org>, "kernel@collabora.com"
+	<kernel@collabora.com>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "maarten.lankhorst@linux.intel.com"
+	<maarten.lankhorst@linux.intel.com>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "p.zabel@pengutronix.de"
+	<p.zabel@pengutronix.de>, "airlied@gmail.com" <airlied@gmail.com>,
+	=?utf-8?B?SnVzdGluIFllaCAo6JGJ6Iux6IyCKQ==?= <Justin.Yeh@mediatek.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	=?utf-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>
+Subject: Re: [PATCH v2 19/46] drm/mediatek: mtk_crtc: Minimize spinlocked time
+ in cmdq callback
+Thread-Topic: [PATCH v2 19/46] drm/mediatek: mtk_crtc: Minimize spinlocked
+ time in cmdq callback
+Thread-Index: AQHdE4ZdtZQ2tvvxpkidqRdo1mgifLcftB4A
+Date: Thu, 5 Nov 2026 06:19:16 +0000
+Message-ID: <a7bd1730e2de56f882921e934c035f73e327c470.camel@mediatek.com>
+References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
+	 <20260714114414.184512-20-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260714114414.184512-20-angelogioacchino.delregno@collabora.com>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.52.3-0ubuntu1.1 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KUYPR03MB9902:EE_|TYZPR03MB7362:EE_
+x-ms-office365-filtering-correlation-id: df71884f-8fce-4c55-e465-08df3b04b835
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|23010399003|7416014|1800799024|366016|42112799006|38070700021|261026140227099003|11063799006|5023799004|4143699003|56012099006|261022075727099003|261021123027099003|261021121427099003|261026121527099003|261022105027099003|261102123227099003|261009223027099003|261028144727099003|10067099003|18002099003|22082099003|6133799003;
+x-microsoft-antispam-message-info: H1wB9AxEb5ciTw+dGew92ceGCD9/8Wo3TgfsYu0OKpdyv9t2jX6xORuBn++WfWNdSQLB0Mp4B/7/2XUSOpCNZYZBtn9vkU97MdJokcDTUWs9GbecYsf8lLPpcT4/fgj0nerrv0iOqHb74zWZX89y5TiIgouVqK5HFGLmHCf5Dwv0P3ZwQzxQj20P595cE7JR+HD+n89zxjmxtr6cSp79SpnqygFy6Q6m27pTg2WUOnR9Mriyvvi3en+whocONHn4KYB6TlCTKZnHSIcISzN78CYbxhXT7NLUy/pYsQkn3wF+yqPkORHfP+zeFZX6AmlDRPpeNbXLPU0z/f+xCKMyTzlpQ5Ay/nWAKmLoohYfw/SJzLbdVp8o2+OK6262xjCsF+ty52HgEdejrOh9HfwePlg82VyWyINJVvi0FLiq583Mqsf9yK5P87gHW7eYRx9PLvjqaexFE2YEhXipfRu4Lp9Yh6uhPbngeiJ8BTShja4yl01KUCaxDdLxpVzm48gfHrdDMN08HVmYcjUBMxrEdtGk7BH3kdbPr7OAfdsdmHtMBNZ2xXWtLvBtJi+LjOqbvr1Zm0QeEE69ZLaVDVAO0KrHRKlQYQdE0DFdJ/yHiG8zW89LglnwmcUSEowWbfQqRv1lkhxsU2IN+RXyaXJ2T2t1TFs2hl1KAy1TCozk20G1Q3ENFpX4QuJ7t0FjVEDCJQFkCuP0nWMpqQ0HCISXryWaSV8t2fbQ7oRu7XoMSx4=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KUYPR03MB9902.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(7416014)(1800799024)(366016)(42112799006)(38070700021)(261026140227099003)(11063799006)(5023799004)(4143699003)(56012099006)(261022075727099003)(261021123027099003)(261021121427099003)(261026121527099003)(261022105027099003)(261102123227099003)(261009223027099003)(261028144727099003)(10067099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?UnBWWFM5TFRoVkRONm80ZmdJWjdCa1lrVGFuaEloRmxRMU5vS0xweXZGeUl6?=
+ =?utf-8?B?M3h1Z29VYlo1bU1KQ1dpTGp5M2I5S0Y3bkVtN2hIV29ROUdqMk82TUY3UnVQ?=
+ =?utf-8?B?TE5aN29MdmZwLzJlNUZSaVp5ZjZSUEdGYlA2OEltalMzZ1J0aU53aDNnZElr?=
+ =?utf-8?B?VzAyaVhlSk1uZXJacHBuTUZSMk13Q1V3Mm5PeEFMeWtUTEgwUEJodGwrVk96?=
+ =?utf-8?B?VjV3WFVaSDVLUHBHbGthMmJ1ZmVmWjR1UzZ4QmQwdm1URE9oem53OEczak5D?=
+ =?utf-8?B?ODErNkJQRjh6TVBzTmZmb21hOHh5UjZNemhsWDQzL3hpZTVWZkR2amtCdk5H?=
+ =?utf-8?B?a3Mwc2JVb25OZ2M2VjZPS3pRUG5OTjBWUGV5cWxlcGRWcWVLc1pOYVdCcEFZ?=
+ =?utf-8?B?eWxKOGk1RUtER3B5MWoyRVJhbUozcWtNUEcyQ1gzOVJzQkdvZ21hclFGS2Vq?=
+ =?utf-8?B?UkNQaW1aVVFwdlVKSkdBd1NiTG5ZTmdmZUxjTnhRTTRzMW00REljWHlORkNs?=
+ =?utf-8?B?cll4SkpUdjJTcFB5cDNjMEJiYjc1cmdHQkNSajdqK0lseUhJUytteEh6Zjl0?=
+ =?utf-8?B?ZHhkVjZpejdmVUl5OUtPU0NKV0l4RnBJbEV5Tjh2aXlxUytxeitIU25ZQkZK?=
+ =?utf-8?B?ZlNNWUNOcDZHelh6SmVQa0hucVJEL3dBWkV1bEdXTXlON1gvWkUwVHY3NEdi?=
+ =?utf-8?B?VG45VStoWmhFY3lLc1RlSnBsbFlxZHRmZCs3dVFZaEp3WG5lNERGVy80RlI4?=
+ =?utf-8?B?RVFUT0liYzV1bFM4Q0dNVEJMb2pzcnB1djE3SGJzV3UvekNIZng0dlpqWmVN?=
+ =?utf-8?B?Ly8yNTNmaXEvaVRFd0o2Mmd6UHlxQzRwWXFWYjB0eEk3WVR3c2Nobmp0bFdh?=
+ =?utf-8?B?bzAxSzc1USthbUdUejZtTDQyRXh6YWg5bEVXaGtSM0NpUEpJV3FGUHNabGlM?=
+ =?utf-8?B?Y2l2MFpqaUhJYTlIKzVJNHBQZzR2ZWFncWVHaWlEY202RU4yM0kwU1l6aFJi?=
+ =?utf-8?B?NEtzQVgwM3lIWUwwZklPM2dTQzE3SVJvNkJjbU1UcWR6VTgybmtBOWZwNkM3?=
+ =?utf-8?B?Qk9zZ1VJQVY0ekJCLzN1WjFVYjZBaElrWTlScW9obGs4QXVWQ011Y2ZJY1Uv?=
+ =?utf-8?B?aUFOZGlwcC9RUVVLbTRWZnZkUGVxUWJtSFM3S0k4TzhIaGVYMGdONzc1WXUx?=
+ =?utf-8?B?enpZcDJEYzBpV3V5NkJUb2hJalUvYmZiZGdUaERiWkVqODVMWWZoMHRzRDdM?=
+ =?utf-8?B?MXhrNFNtQ1VObWxDNUFyUkF3bVNVZm03N1cyTXlCUTJsOHdOdmJGL25BV09k?=
+ =?utf-8?B?ZFZFenVkWEF1TjJrNkYxaVBPejlJeWlGSXllUXNWQ1dydW1aOGNLY1pHVVZO?=
+ =?utf-8?B?eGJqOGZLcnZTZnVRaXhqWkdiTU1WN0RFSW5WdE1iQzVCdzJNaUQ2eWJ2VkpU?=
+ =?utf-8?B?TitWb2Faa1o1dEI3cnBFdWVDWW5KdkxSZVk4aXFSTi9KUWtUbUc0Z1g2Uzk2?=
+ =?utf-8?B?ZGVKY3B0YnAzLytiSGs5TWh1TGgwVVJsQTB0cTh5UExHOTNXOGhkaHNNajhl?=
+ =?utf-8?B?UDZzaGhCaHcrK0hMcjhzRFBrTndkMGVpbW1wZnh3TENNRnNUMy9HR2Z0NEZU?=
+ =?utf-8?B?WStrRFQ3UCtSOUlJYVZSdzUrVnNsVlFFb1RRMTFsSTdFVmhEc3VsYjhHak1k?=
+ =?utf-8?B?SUk1ZFdYcU83bllsTlhYL2dxdWtUbWRETDkwQllqUWRYcUVvNkJ1NEpyYmkz?=
+ =?utf-8?B?S0dPTFN4SEM2Qm1Pd01SbXJCdTZSS0I5Nmo1WG9SUU94NUFZamJuc09yWjJX?=
+ =?utf-8?B?akcxN1BLWkMyTFJERWczc1hadkd2b21yUWpRblF5MWNLV3BubnhEdU9tVC9R?=
+ =?utf-8?B?SDF4emgrSFlUS2FkNytINHBkRTNGMVBrd2MzczlBekMrMk1sU2lkcTJ1aUgr?=
+ =?utf-8?B?QlAyM3NSaDgwRFB0NXdiVndQLzkramdUY2NHcDBDVWJNS2hXZVlHZ0lpQzJH?=
+ =?utf-8?B?MzN3WnRFUHh4MHZLblEzZFZwVWlIdnhQa3NwMzhKUXZ2SFpDYmR5SlN0U0t1?=
+ =?utf-8?B?RnFYa3Irb3dEKzhDNms3TWx3ZnFPeUZScDlRaWhPZXYrd2pZNlpPSlJwVERL?=
+ =?utf-8?B?VENWRGxkRG9ucHRNOG9zRmFDVnhCYWFIMS90T1RkcUlDajh5WUhaRm1iQ2Z1?=
+ =?utf-8?B?c1JzbGZDRWM0Mk9vejNlNlVDR21Uc1BTR0ZDR0M1R0ltVWtoL1ZPZjB6UnpZ?=
+ =?utf-8?B?UStZV1ZRT1hZb2ZHb2RjKzdreEl1SHU2aVAvYnBKaHd3YmxNc2Y5N2xrZWFU?=
+ =?utf-8?B?TzFUaUdSelUwUlhnL29KSThWZ0xkMzN2NVloYXJTNlBpY1NZZDdhdz09?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <634E43CFBD21824FB300E55DDB4A2B36@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Exchange-RoutingPolicyChecked: j34jp4urmHj7kIWXREdt4EYBwn5acDZN27zxOrg8rmZpCFBT4BbfJeERP5+iTuX1J5vkWJjeN6BYIKCdDwczgB5sNS+IEDcfCqBxVNxQUMEFD4ANNb+n2IX8cqHzYo/i00/nta/VYZrGuIxsLJ+7MwJZ8at/0+Jgq6Wvp74rkxbnlY6Bjye9TPYG9WRvK+Wn2L9oE8Rd2K/YcLcQz3RAWPnzG5DsqmjuSuPWK5dd52ClaByqdMt0DeYRkp13Vi9VhgDh/D7qBTPbGU3GzrKpQo1w6XfQKxviOGXQXwEJMV3zDA+IOLjnnobuIg76HxSeykgYZDGakif5qsCgWJjsIw==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KUYPR03MB9902.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: df71884f-8fce-4c55-e465-08df3b04b835
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Nov 2026 06:19:16.6050
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 82R2z7k+k4nD8+3b2XWRfbjQVCjTh6NMvw3HeJXMuRX5GRIZvVgne8vWjviBJKhPUT9wkl+/Swl5KgiTgxIg6Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB7362
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261104_221305_428310_DD37EA88 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20261104_221928_275983_779F9695 
+X-CRM114-Status: GOOD (  21.84  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,411 +197,61 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,UNPARSEABLE_RELAY autolearn=unavailable autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The vmemmap population and memory hotplug paths no longer need @pgmap
-to decide whether a mapping can be optimized. That state is now carried
-in mem_section, and the architecture-specific population code can make
-the remaining decisions internally.
-
-Drop the @pgmap parameter from the vmemmap population helpers and the
-related memory hotplug interfaces, and remove the remaining
-dev_pagemap-specific coupling from those call chains.
-
-Signed-off-by: Muchun Song <songmuchun@bytedance.com>
----
- arch/arm64/mm/mmu.c                        |  5 ++---
- arch/loongarch/mm/init.c                   |  5 ++---
- arch/powerpc/include/asm/book3s/64/radix.h |  1 -
- arch/powerpc/mm/mem.c                      |  5 ++---
- arch/riscv/mm/init.c                       |  5 ++---
- arch/s390/mm/init.c                        |  5 ++---
- arch/x86/mm/init_64.c                      |  5 ++---
- include/linux/memory_hotplug.h             |  8 +++-----
- include/linux/mm.h                         |  3 +--
- mm/memory_hotplug.c                        | 16 +++++++--------
- mm/memremap.c                              |  4 ++--
- mm/sparse-vmemmap.c                        | 23 ++++++++++------------
- mm/sparse.c                                |  6 ++----
- 13 files changed, 37 insertions(+), 54 deletions(-)
-
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 19459a4a870a..a6b5774005b6 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -2038,13 +2038,12 @@ int arch_add_memory(int nid, u64 start, u64 size,
- 	return ret;
- }
- 
--void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
--			struct dev_pagemap *pgmap)
-+void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
- {
- 	unsigned long start_pfn = start >> PAGE_SHIFT;
- 	unsigned long nr_pages = size >> PAGE_SHIFT;
- 
--	__remove_pages(start_pfn, nr_pages, altmap, pgmap);
-+	__remove_pages(start_pfn, nr_pages, altmap);
- 	__remove_pgd_mapping(swapper_pg_dir, __phys_to_virt(start), size);
- }
- 
-diff --git a/arch/loongarch/mm/init.c b/arch/loongarch/mm/init.c
-index ea769e479241..c91afce46136 100644
---- a/arch/loongarch/mm/init.c
-+++ b/arch/loongarch/mm/init.c
-@@ -120,13 +120,12 @@ int arch_add_memory(int nid, u64 start, u64 size, struct mhp_params *params)
- 	return ret;
- }
- 
--void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
--			struct dev_pagemap *pgmap)
-+void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
- {
- 	unsigned long start_pfn = start >> PAGE_SHIFT;
- 	unsigned long nr_pages = size >> PAGE_SHIFT;
- 
--	__remove_pages(start_pfn, nr_pages, altmap, pgmap);
-+	__remove_pages(start_pfn, nr_pages, altmap);
- }
- #endif
- 
-diff --git a/arch/powerpc/include/asm/book3s/64/radix.h b/arch/powerpc/include/asm/book3s/64/radix.h
-index df67209b0c5b..0c9195dd50c9 100644
---- a/arch/powerpc/include/asm/book3s/64/radix.h
-+++ b/arch/powerpc/include/asm/book3s/64/radix.h
-@@ -316,7 +316,6 @@ static inline int radix__has_transparent_pud_hugepage(void)
- #endif
- 
- struct vmem_altmap;
--struct dev_pagemap;
- extern int __meminit radix__vmemmap_create_mapping(unsigned long start,
- 					     unsigned long page_size,
- 					     unsigned long phys);
-diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
-index b617b69452cd..2432ff888c03 100644
---- a/arch/powerpc/mm/mem.c
-+++ b/arch/powerpc/mm/mem.c
-@@ -158,13 +158,12 @@ int __ref arch_add_memory(int nid, u64 start, u64 size,
- 	return rc;
- }
- 
--void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
--			      struct dev_pagemap *pgmap)
-+void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
- {
- 	unsigned long start_pfn = start >> PAGE_SHIFT;
- 	unsigned long nr_pages = size >> PAGE_SHIFT;
- 
--	__remove_pages(start_pfn, nr_pages, altmap, pgmap);
-+	__remove_pages(start_pfn, nr_pages, altmap);
- 	arch_remove_linear_mapping(start, size);
- }
- #endif
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index e822fce0af4b..6f064875ce8d 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -1749,10 +1749,9 @@ int __ref arch_add_memory(int nid, u64 start, u64 size, struct mhp_params *param
- 	return ret;
- }
- 
--void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
--			      struct dev_pagemap *pgmap)
-+void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
- {
--	__remove_pages(start >> PAGE_SHIFT, size >> PAGE_SHIFT, altmap, pgmap);
-+	__remove_pages(start >> PAGE_SHIFT, size >> PAGE_SHIFT, altmap);
- 	remove_linear_mapping(start, size);
- 	flush_tlb_all();
- }
-diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-index be7e009e7b59..91c0edccbb12 100644
---- a/arch/s390/mm/init.c
-+++ b/arch/s390/mm/init.c
-@@ -293,13 +293,12 @@ int arch_add_memory(int nid, u64 start, u64 size,
- 	return rc;
- }
- 
--void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
--			struct dev_pagemap *pgmap)
-+void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
- {
- 	unsigned long start_pfn = start >> PAGE_SHIFT;
- 	unsigned long nr_pages = size >> PAGE_SHIFT;
- 
--	__remove_pages(start_pfn, nr_pages, altmap, pgmap);
-+	__remove_pages(start_pfn, nr_pages, altmap);
- 	vmem_remove_mapping(start, size);
- }
- #endif /* CONFIG_MEMORY_HOTPLUG */
-diff --git a/arch/x86/mm/init_64.c b/arch/x86/mm/init_64.c
-index 8b6d86fb5a42..2a635b7f78ea 100644
---- a/arch/x86/mm/init_64.c
-+++ b/arch/x86/mm/init_64.c
-@@ -1273,13 +1273,12 @@ kernel_physical_mapping_remove(unsigned long start, unsigned long end)
- 	remove_pagetable(start, end, true, NULL);
- }
- 
--void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
--			      struct dev_pagemap *pgmap)
-+void __ref arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
- {
- 	unsigned long start_pfn = start >> PAGE_SHIFT;
- 	unsigned long nr_pages = size >> PAGE_SHIFT;
- 
--	__remove_pages(start_pfn, nr_pages, altmap, pgmap);
-+	__remove_pages(start_pfn, nr_pages, altmap);
- 	kernel_physical_mapping_remove(start, start + size);
- }
- #endif /* CONFIG_MEMORY_HOTPLUG */
-diff --git a/include/linux/memory_hotplug.h b/include/linux/memory_hotplug.h
-index b39605d30896..ec71debc0673 100644
---- a/include/linux/memory_hotplug.h
-+++ b/include/linux/memory_hotplug.h
-@@ -136,10 +136,9 @@ static inline bool movable_node_is_enabled(void)
- 	return movable_node_enabled;
- }
- 
--extern void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap,
--			       struct dev_pagemap *pgmap);
-+extern void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap);
- extern void __remove_pages(unsigned long start_pfn, unsigned long nr_pages,
--			   struct vmem_altmap *altmap, struct dev_pagemap *pgmap);
-+			   struct vmem_altmap *altmap);
- 
- /* reasonably generic interface to expand the physical pages */
- extern int __add_pages(int nid, unsigned long start_pfn, unsigned long nr_pages,
-@@ -320,8 +319,7 @@ extern int sparse_add_section(int nid, unsigned long pfn,
- 		unsigned long nr_pages, struct vmem_altmap *altmap,
- 		struct dev_pagemap *pgmap);
- extern void sparse_remove_section(unsigned long pfn, unsigned long nr_pages,
--				  struct vmem_altmap *altmap,
--				  struct dev_pagemap *pgmap);
-+				  struct vmem_altmap *altmap);
- extern struct zone *zone_for_pfn_range(enum mmop online_type,
- 		int nid, struct memory_group *group, unsigned long start_pfn,
- 		unsigned long nr_pages);
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 2fa5ce73b382..eb11212be0d4 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -5316,8 +5316,7 @@ static inline void print_vma_addr(char *prefix, unsigned long rip)
- #endif
- 
- struct page * __populate_section_memmap(unsigned long pfn,
--		unsigned long nr_pages, int nid, struct vmem_altmap *altmap,
--		struct dev_pagemap *pgmap);
-+		unsigned long nr_pages, int nid, struct vmem_altmap *altmap);
- void *vmemmap_alloc_block(unsigned long size, int node);
- struct vmem_altmap;
- void *vmemmap_alloc_block_buf(unsigned long size, int node,
-diff --git a/mm/memory_hotplug.c b/mm/memory_hotplug.c
-index 1bfd1f4daeb2..f04a248d8ada 100644
---- a/mm/memory_hotplug.c
-+++ b/mm/memory_hotplug.c
-@@ -416,8 +416,7 @@ int __add_pages(int nid, unsigned long pfn, unsigned long nr_pages,
- 		err = sparse_add_section(nid, pfn, cur_nr_pages, altmap,
- 					 params->pgmap);
- 		if (err) {
--			__remove_pages(start_pfn, pfn - start_pfn, altmap,
--				       params->pgmap);
-+			__remove_pages(start_pfn, pfn - start_pfn, altmap);
- 			break;
- 		}
- 		cond_resched();
-@@ -565,7 +564,6 @@ void remove_pfn_range_from_zone(struct zone *zone,
-  * @pfn: starting pageframe (must be aligned to start of a section)
-  * @nr_pages: number of pages to remove (must be multiple of section size)
-  * @altmap: alternative device page map or %NULL if default memmap is used
-- * @pgmap: device page map or %NULL if not ZONE_DEVICE
-  *
-  * Generic helper function to remove section mappings and sysfs entries
-  * for the section of the memory we are removing. Caller needs to make
-@@ -573,7 +571,7 @@ void remove_pfn_range_from_zone(struct zone *zone,
-  * calling offline_pages().
-  */
- void __remove_pages(unsigned long pfn, unsigned long nr_pages,
--		    struct vmem_altmap *altmap, struct dev_pagemap *pgmap)
-+		    struct vmem_altmap *altmap)
- {
- 	const unsigned long end_pfn = pfn + nr_pages;
- 	unsigned long cur_nr_pages;
-@@ -588,7 +586,7 @@ void __remove_pages(unsigned long pfn, unsigned long nr_pages,
- 		/* Select all remaining pages up to the next section boundary */
- 		cur_nr_pages = min(end_pfn - pfn,
- 				   SECTION_ALIGN_UP(pfn + 1) - pfn);
--		sparse_remove_section(pfn, cur_nr_pages, altmap, pgmap);
-+		sparse_remove_section(pfn, cur_nr_pages, altmap);
- 	}
- }
- 
-@@ -1421,7 +1419,7 @@ static void remove_memory_blocks_and_altmaps(u64 start, u64 size)
- 		memory_block_put(mem);
- 
- 		remove_memory_block_devices(cur_start, memblock_size);
--		arch_remove_memory(cur_start, memblock_size, altmap, NULL);
-+		arch_remove_memory(cur_start, memblock_size, altmap);
- 		altmap_free(altmap);
- 	}
- }
-@@ -1461,7 +1459,7 @@ static int create_altmaps_and_memory_blocks(int nid, struct memory_group *group,
- 		ret = create_memory_block_devices(cur_start, memblock_size, nid,
- 						  params.altmap, group);
- 		if (ret) {
--			arch_remove_memory(cur_start, memblock_size, params.altmap, NULL);
-+			arch_remove_memory(cur_start, memblock_size, params.altmap);
- 			altmap_free(params.altmap);
- 			goto out;
- 		}
-@@ -1548,7 +1546,7 @@ static int __add_memory_resource(int nid, struct resource *res, mhp_t mhp_flags,
- 		/* create memory block devices after memory was added */
- 		ret = create_memory_block_devices(start, size, nid, NULL, group);
- 		if (ret) {
--			arch_remove_memory(start, size, params.altmap, NULL);
-+			arch_remove_memory(start, size, params.altmap);
- 			goto error;
- 		}
- 	}
-@@ -2309,7 +2307,7 @@ static int try_remove_memory(u64 start, u64 size)
- 		 * No altmaps present, do the removal directly
- 		 */
- 		remove_memory_block_devices(start, size);
--		arch_remove_memory(start, size, NULL, NULL);
-+		arch_remove_memory(start, size, NULL);
- 	} else {
- 		/* all memblocks in the range have altmaps */
- 		remove_memory_blocks_and_altmaps(start, size);
-diff --git a/mm/memremap.c b/mm/memremap.c
-index accba23aef28..683a77dd679d 100644
---- a/mm/memremap.c
-+++ b/mm/memremap.c
-@@ -97,10 +97,10 @@ static void pageunmap_range(struct dev_pagemap *pgmap, int range_id)
- 				   PHYS_PFN(range_len(range)));
- 	if (pgmap->type == MEMORY_DEVICE_PRIVATE) {
- 		__remove_pages(PHYS_PFN(range->start),
--			       PHYS_PFN(range_len(range)), NULL, pgmap);
-+			       PHYS_PFN(range_len(range)), NULL);
- 	} else {
- 		arch_remove_memory(range->start, range_len(range),
--				pgmap_altmap(pgmap), pgmap);
-+				pgmap_altmap(pgmap));
- 		kasan_remove_zero_shadow(__va(range->start), range_len(range));
- 	}
- 	mem_hotplug_done();
-diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
-index 71a927d67a9f..5777f2e29684 100644
---- a/mm/sparse-vmemmap.c
-+++ b/mm/sparse-vmemmap.c
-@@ -462,8 +462,7 @@ int __meminit vmemmap_populate_hugepages(unsigned long start, unsigned long end,
- }
- 
- struct page * __meminit __populate_section_memmap(unsigned long pfn,
--		unsigned long nr_pages, int nid, struct vmem_altmap *altmap,
--		struct dev_pagemap *pgmap)
-+		unsigned long nr_pages, int nid, struct vmem_altmap *altmap)
- {
- 	unsigned long start = (unsigned long) pfn_to_page(pfn);
- 	unsigned long end = start + nr_pages * sizeof(struct page);
-@@ -555,11 +554,9 @@ void offline_mem_sections(unsigned long start_pfn, unsigned long end_pfn)
- }
- 
- static struct page * __meminit populate_section_memmap(unsigned long pfn,
--		unsigned long nr_pages, int nid, struct vmem_altmap *altmap,
--		struct dev_pagemap *pgmap)
-+		unsigned long nr_pages, int nid, struct vmem_altmap *altmap)
- {
--	struct page *page = __populate_section_memmap(pfn, nr_pages, nid, altmap,
--						      pgmap);
-+	struct page *page = __populate_section_memmap(pfn, nr_pages, nid, altmap);
- 
- 	memmap_pages_add(section_nr_vmemmap_pages(pfn, nr_pages));
- 
-@@ -567,7 +564,7 @@ static struct page * __meminit populate_section_memmap(unsigned long pfn,
- }
- 
- static void depopulate_section_memmap(unsigned long pfn, unsigned long nr_pages,
--		struct vmem_altmap *altmap, struct dev_pagemap *pgmap)
-+		struct vmem_altmap *altmap)
- {
- 	unsigned long start = (unsigned long) pfn_to_page(pfn);
- 	unsigned long end = start + nr_pages * sizeof(struct page);
-@@ -648,7 +645,7 @@ static int fill_subsection_map(unsigned long pfn, unsigned long nr_pages)
-  * usage map, but still need to free the vmemmap range.
-  */
- static void section_deactivate(unsigned long pfn, unsigned long nr_pages,
--		struct vmem_altmap *altmap, struct dev_pagemap *pgmap)
-+		struct vmem_altmap *altmap)
- {
- 	struct mem_section *ms = __pfn_to_section(pfn);
- 	bool section_is_early = early_section(ms);
-@@ -686,7 +683,7 @@ static void section_deactivate(unsigned long pfn, unsigned long nr_pages,
- 	 * section_activate() and pfn_valid() .
- 	 */
- 	if (!section_is_early)
--		depopulate_section_memmap(pfn, nr_pages, altmap, pgmap);
-+		depopulate_section_memmap(pfn, nr_pages, altmap);
- 	else if (memmap)
- 		free_map_bootmem(memmap);
- 
-@@ -735,9 +732,9 @@ static struct page * __meminit section_activate(int nid, unsigned long pfn,
- 		return pfn_to_page(pfn);
- 
- 	section_set_compound_order_range(pfn, nr_pages, order);
--	memmap = populate_section_memmap(pfn, nr_pages, nid, altmap, pgmap);
-+	memmap = populate_section_memmap(pfn, nr_pages, nid, altmap);
- 	if (!memmap) {
--		section_deactivate(pfn, nr_pages, altmap, pgmap);
-+		section_deactivate(pfn, nr_pages, altmap);
- 		return ERR_PTR(-ENOMEM);
- 	}
- 
-@@ -801,13 +798,13 @@ int __meminit sparse_add_section(int nid, unsigned long start_pfn,
- }
- 
- void sparse_remove_section(unsigned long pfn, unsigned long nr_pages,
--		struct vmem_altmap *altmap, struct dev_pagemap *pgmap)
-+		struct vmem_altmap *altmap)
- {
- 	struct mem_section *ms = __pfn_to_section(pfn);
- 
- 	if (WARN_ON_ONCE(!valid_section(ms)))
- 		return;
- 
--	section_deactivate(pfn, nr_pages, altmap, pgmap);
-+	section_deactivate(pfn, nr_pages, altmap);
- }
- #endif /* CONFIG_MEMORY_HOTPLUG */
-diff --git a/mm/sparse.c b/mm/sparse.c
-index 6acb628c8a73..0b9a6c23a227 100644
---- a/mm/sparse.c
-+++ b/mm/sparse.c
-@@ -204,8 +204,7 @@ void __init sparse_sections_init(void)
- }
- #ifndef CONFIG_SPARSEMEM_VMEMMAP
- struct page __init *__populate_section_memmap(unsigned long pfn,
--		unsigned long nr_pages, int nid, struct vmem_altmap *altmap,
--		struct dev_pagemap *pgmap)
-+		unsigned long nr_pages, int nid, struct vmem_altmap *altmap)
- {
- 	const unsigned long size = PAGE_ALIGN(sizeof(struct page) * PAGES_PER_SECTION);
- 
-@@ -236,8 +235,7 @@ static void __init sparse_metadata_init_nid(int nid,
- 		if (section_nr >= end_section_nr)
- 			break;
- 
--		mem_map = __populate_section_memmap(pfn, PAGES_PER_SECTION, nid,
--						    NULL, NULL);
-+		mem_map = __populate_section_memmap(pfn, PAGES_PER_SECTION, nid, NULL);
- 		if (!mem_map)
- 			panic("Failed to allocate memmap for section %lu\n",
- 			      section_nr);
--- 
-2.54.0
-
+T24gVHVlLCAyMDI2LTA3LTE0IGF0IDEzOjQzICswMjAwLCBBbmdlbG9HaW9hY2NoaW5vIERlbCBS
+ZWdubyB3cm90ZToNCj4gSW4gZGRwX2NtZHFfY2IgKHRoZSBDTURRIG1haWxib3ggY2FsbGJhY2sp
+LCB0aGUgY29uZmlnX2xvY2sgc3Bpbg0KPiBsb2NrIGlzIGJlaW5nIGxvY2tlZCB0byByZWFkIHRo
+ZSBjb25maWdfdXBkYXRpbmcgdmFyaWFibGUgaW4gdGhlDQo+IG10a19jcnRjIHN0cnVjdHVyZSwg
+YXMsIGlmIGNvbmZpZ3VyYXRpb24gaXMgdXBkYXRpbmcsIHRoZSBjYWxsYmFjaw0KPiBmdW5jdGlv
+biBzaGFsbCBub3QgcnVuIChvciBzaGFsbCBydW4gYXQgYSBsYXRlciB0aW1lKS4NCj4gDQo+IEl0
+IGlzIHRoZXJlZm9yZSB1bm5lY2Vzc2FyeSB0byBrZWVwIHRoZSBzcGlubG9jayB1bnRpbCB0aGUg
+ZW5kIG9mDQo+IHRoZSBmdW5jdGlvbiwgaW4gY2FzZSBwZW5kaW5nIGNvbmZpZywgcGxhbmVzLCBv
+ciBhc3luYyBwbGFuZXMNCj4gYm9vbHMgbmVlZCB0byBiZSB1cGRhdGVkLg0KPiANCj4gVGhvdWdo
+IHRoZSBjbWRxIGNhbGxiYWNrIGlzIG5vdCBhIHBlcmZvcm1hbmNlIHBhdGggaW4gdGhpcyBjYXNl
+LA0KPiB0aGlzIG1heSBiZSBydW5uaW5nIGZvciBlYWNoIGZyYW1lIHRoYXQgaXMgcHVzaGVkIHRv
+IHRoZSBkaXNwbGF5LA0KPiBzbyBmcm9tIDMwIChvciBsZXNzKSB1cCB0byAxNDQgdGltZXMgKG9y
+IG1vcmUpIHBlciBzZWNvbmQuDQo+IA0KPiBBZGQgYSB0ZW1wb3JhcnkgImNmZ191cGRhdGluZyIg
+dmFyaWFibGUgdG8gYWlkIHdpdGggcmVhZGFiaWxpdHksDQo+IGFuZCB1bmxvY2sgdGhlIHNwaW5s
+b2NrIGFzIHNvb24gYXMgdGhlIGNvbmZpZ191cGRhdGluZyB2YXJpYWJsZQ0KPiByZWFkIG9wZXJh
+dGlvbiBpcyBkb25lIGFzIGEgbWljcm8tb3B0aW1pemF0aW9uLg0KDQpjZmdfdXBkYXRpbmcgaXMg
+dXNlZCB0byBwcm90ZWN0IHBlbmRpbmdfKiB2YXJpYWJsZXMgYW5kIHRoZXNlIHZhcmlhYmxlIHNo
+b3VsZCBiZSB1cGRhdGVkIGluIGF0b21pYy4NCkluIGRkcF9jbWRxX2NiKCksIGl0IGp1c3QgY2xl
+YW4gYWxsIHBlbmRpbmdfKiB2YXJpYWJsZXMsIHNvIHlvdSBjb3VsZCBtb3ZlIG10a19jcnRjX2Zp
+bmlzaF9wYWdlX2ZsaXAoKSBvdXQgb2YgdGhpcyBzcGlubG9jayByZWdpb24uDQoNClJlZ2FyZHMs
+DQpDSw0KDQo+IA0KPiBTaWduZWQtb2ZmLWJ5OiBBbmdlbG9HaW9hY2NoaW5vIERlbCBSZWdubyA8
+YW5nZWxvZ2lvYWNjaGluby5kZWxyZWdub0Bjb2xsYWJvcmEuY29tPg0KPiAtLS0NCj4gIGRyaXZl
+cnMvZ3B1L2RybS9tZWRpYXRlay9tdGtfY3J0Yy5jIHwgOSArKysrKy0tLS0NCj4gIDEgZmlsZSBj
+aGFuZ2VkLCA1IGluc2VydGlvbnMoKyksIDQgZGVsZXRpb25zKC0pDQo+IA0KPiBkaWZmIC0tZ2l0
+IGEvZHJpdmVycy9ncHUvZHJtL21lZGlhdGVrL210a19jcnRjLmMgYi9kcml2ZXJzL2dwdS9kcm0v
+bWVkaWF0ZWsvbXRrX2NydGMuYw0KPiBpbmRleCBlNzRmNjI0NDYwNmYuLjJjZGYyOGEwZTJmZiAx
+MDA2NDQNCj4gLS0tIGEvZHJpdmVycy9ncHUvZHJtL21lZGlhdGVrL210a19jcnRjLmMNCj4gKysr
+IGIvZHJpdmVycy9ncHUvZHJtL21lZGlhdGVrL210a19jcnRjLmMNCj4gQEAgLTI4OCw2ICsyODgs
+NyBAQCBzdGF0aWMgdm9pZCBkZHBfY21kcV9jYihzdHJ1Y3QgbWJveF9jbGllbnQgKmNsLCB2b2lk
+ICptc3NnKQ0KPiAgCXN0cnVjdCBtdGtfY3J0Y19zdGF0ZSAqc3RhdGU7DQo+ICAJdW5zaWduZWQg
+aW50IGk7DQo+ICAJdW5zaWduZWQgbG9uZyBmbGFnczsNCj4gKwlib29sIGNmZ191cGRhdGluZzsN
+Cj4gIA0KPiAgCS8qIHJlbGVhc2UgR0NFIEhXIHVzYWdlIGFuZCBzdGFydCBhdXRvc3VzcGVuZCAq
+Lw0KPiAgCXBtX3J1bnRpbWVfbWFya19sYXN0X2J1c3koY21kcV9jbC0+Y2hhbi0+bWJveC0+ZGV2
+KTsNCj4gQEAgLTI5OSw3ICszMDAsMTAgQEAgc3RhdGljIHZvaWQgZGRwX2NtZHFfY2Ioc3RydWN0
+IG1ib3hfY2xpZW50ICpjbCwgdm9pZCAqbXNzZykNCj4gIAlzdGF0ZSA9IHRvX210a19jcnRjX3N0
+YXRlKG10a19jcnRjLT5iYXNlLnN0YXRlKTsNCj4gIA0KPiAgCXNwaW5fbG9ja19pcnFzYXZlKCZt
+dGtfY3J0Yy0+Y29uZmlnX2xvY2ssIGZsYWdzKTsNCj4gLQlpZiAobXRrX2NydGMtPmNvbmZpZ191
+cGRhdGluZykNCj4gKwljZmdfdXBkYXRpbmcgPSBtdGtfY3J0Yy0+Y29uZmlnX3VwZGF0aW5nOw0K
+PiArCXNwaW5fdW5sb2NrX2lycXJlc3RvcmUoJm10a19jcnRjLT5jb25maWdfbG9jaywgZmxhZ3Mp
+Ow0KPiArDQo+ICsJaWYgKGNmZ191cGRhdGluZykNCj4gIAkJZ290byBkZHBfY21kcV9jYl9vdXQ7
+DQo+ICANCj4gIAlzdGF0ZS0+cGVuZGluZ19jb25maWcgPSBmYWxzZTsNCj4gQEAgLTMyOSwxNCAr
+MzMzLDExIEBAIHN0YXRpYyB2b2lkIGRkcF9jbWRxX2NiKHN0cnVjdCBtYm94X2NsaWVudCAqY2ws
+IHZvaWQgKm1zc2cpDQo+ICAJfQ0KPiAgDQo+ICBkZHBfY21kcV9jYl9vdXQ6DQo+IC0NCj4gIAlp
+ZiAobXRrX2NydGMtPnBlbmRpbmdfbmVlZHNfdmJsYW5rKSB7DQo+ICAJCW10a19jcnRjX2Zpbmlz
+aF9wYWdlX2ZsaXAobXRrX2NydGMpOw0KPiAgCQltdGtfY3J0Yy0+cGVuZGluZ19uZWVkc192Ymxh
+bmsgPSBmYWxzZTsNCj4gIAl9DQo+ICANCj4gLQlzcGluX3VubG9ja19pcnFyZXN0b3JlKCZtdGtf
+Y3J0Yy0+Y29uZmlnX2xvY2ssIGZsYWdzKTsNCj4gLQ0KPiAgCW10a19jcnRjLT5jbWRxX3ZibGFu
+a19jbnQgPSAwOw0KPiAgCXdha2VfdXAoJm10a19jcnRjLT5jYl9ibG9ja2luZ19xdWV1ZSk7DQo+
+ICB9DQoNCg==
 
