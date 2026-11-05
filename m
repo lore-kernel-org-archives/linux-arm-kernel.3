@@ -2,79 +2,74 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C08C606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:23:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51649606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:23:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Nn8lGUAt;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=WjVvJR2t
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=SM/SV9gx;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QoPNTswb
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=3ADmQIxAo8HDM9v3jLMAtpR5tdAcgtAcz2GrlhHdH0M=; b=Nn8lGUAtmmzw/gbDbCX5DSeRw3
-	FvmfYKP5YVps5aiJJekcQdSg8TNCtTmuC8nS2B64fX4IJDMurz+oSdncMed6sDkVu4KHtECxSLiX5
-	S7YazgptmhBAHOs5RKDbAKlGj/j6ZXvkw1dsDMrw9vvu3u/Hu02OuMTqjglXtSomK5TMRLKGTbInY
-	BBEz5x818+5W/lfEOrFUMzA8YnmZ0lPxKI/AsT1WzREwBQ8vFoGiPLu10rHWKq5Bv7nsbYbjtVBTO
-	S/YXLnLZX2sItAsPoIn4b+XL46C5X6xOqS7gb5f25t5zERLDx3thta9ub03wG6YAG3x5k37i870SZ
-	anizBL7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=CaE2mbFJFf4TOWhow4uSx7nxUZ40EeB+lDQEpmH/lWU=; b=SM/SV9gxEZ64WB
+	6IjJLJx3x/ns7cRTwuOyuIosfAt5znqpNdomYoFIX63yschqsnCdBp29r7hRNa2FA4+gFpcaII7yA
+	kkvnbQ2GvsYo7Pm2UrmGiQlJjoouJA/o3SoICQzTB5Xv7nGtuNDqz5f8LZlORVqFkLx/jNwHdecVk
+	HyFa81McDWrQqH5B1KyrVAcG2lK1eYL16Lc/TWB9CPdc6QKXpZR0uMQTigGsGAUOfC/uUb1EEkEmk
+	wOgcSWlOUzP4bdlb8vs8ytuAp2ZOS55UOT2eewBXMEAW/+fhGE8PZVeUm6L0Hhcq4w3gVFczbxNhd
+	hjTnM4UoMRWhUFghFeVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtgS-00000008Hjn-29G6;
-	Thu, 05 Nov 2026 09:23:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtgP-00000008Hie-1Y3S
+	id 1xOth7-00000008Hw1-0zjL;
+	Thu, 05 Nov 2026 09:23:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xOth3-00000008Huv-37iC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 09:22:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C866E19F6;
-	Thu,  5 Nov 2026 01:22:52 -0800 (PST)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D05D3F628;
-	Thu,  5 Nov 2026 01:22:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793870575; bh=3ADmQIxAo8HDM9v3jLMAtpR5tdAcgtAcz2GrlhHdH0M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WjVvJR2tAoFJSufvpND4tfqyE+S7lXAB15rdV43IYRwoa05K89GDHf2rs4DM15kCe
-	 eK6nxhLWcUYRKamtKzGFDQHr8ywB/C86Ioujk6V61bYHa93TFkNhVnnrL6U+V9o6h9
-	 00JeJ1XMwFX1sgh7mCiAKJNbQSmjj95+kxrw+MR0=
-Date: Thu, 5 Nov 2026 09:22:53 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Leo Yan <leo.yan@linux.dev>, Adrian Hunter <adrian.hunter@intel.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>, Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
-	linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	linux-doc@vger.kernel.org, John Garry <john.garry@linux.dev>
-Subject: Re: [PATCH v3 15/18] perf auxtrace: cs-etm: Capture wrapped snapshots
-Message-ID: <20261105092253.GO9176@e132581.arm.com>
-References: <20261102-james-cs-unformatted-per-thread-fix-v3-0-dbcb0c281b9b@linaro.org>
- <20261102-james-cs-unformatted-per-thread-fix-v3-15-dbcb0c281b9b@linaro.org>
+	Thu, 05 Nov 2026 09:23:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E9D9A60F2A
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 09:23:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A48891F00A1A
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 09:23:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793870616;
+	bh=CaE2mbFJFf4TOWhow4uSx7nxUZ40EeB+lDQEpmH/lWU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=QoPNTswbHPNPpf4zeVgFUvtTHoQEKatEp/uqswizvYnP0CXc3ernxUdwm5dzS9oh7
+	 UKKn3CE3YDjRjNcXffvCfJMD/8p86nUrbO+Wrk5QdJrWT4u7t213s0pv5Iad7QedZY
+	 lGsPfOcLS7d3H5Dn8C9wD6/2yx45/sND3bAtOxbFWfREXtdx6UNxKQxUNvfkpEO0AX
+	 1tzw8fHsl3br38ekbwPhQnHVYuskaccJcKVHZGDcowXd1rscGSlwg4DI6EJ2noOq7C
+	 3f7v5jn7xkSA3p1avYdYOb/UY4/nJp38MZ2q9wYWyUqM1EE0AU1YP0HP25DHobaaXS
+	 RdkMlklfVZXqQ==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5ba3ec92031so1950829e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 01:23:36 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AKwUvBzl+ybX45IdypPBUO4kxZ3k+IALhKigEWz1RYINmPPpAwWUHtyoorGRfcGm/avPWj5dohjVFiUN22UhWyNzRn1F@lists.infradead.org
+X-Gm-Message-State: APuU4Z+B94k2nwqS9C/uclDqOQS9RpDqM7kxW8WXLiOkj1Q7GgWA6Exs
+	jqvwrqxPavM5l2rMrrlhFWjaP4Y1jQyjr8bRj59oBE38C3pDlh9NPCbp8A7ftBE4kmhamarKhfh
+	4WC3+1UqDAnhp2KOO0tNKtyoaUynyRCg=
+X-Received: by 2002:a05:6512:1318:b0:5be:516e:5728 with SMTP id
+ 2adb3069b0e04-5bfd958027fmr6146113e87.32.1793870615446; Thu, 05 Nov 2026
+ 01:23:35 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261102-james-cs-unformatted-per-thread-fix-v3-15-dbcb0c281b9b@linaro.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_012257_539912_48FA1203 
-X-CRM114-Status: GOOD (  15.20  )
-X-Spam-Score: -4.4 (----)
+References: <20261103213002.1673560-1-lee@kernel.org> <20261103213002.1673560-6-lee@kernel.org>
+In-Reply-To: <20261103213002.1673560-6-lee@kernel.org>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 5 Nov 2026 10:23:23 +0100
+X-Gmail-Original-Message-ID: <CAD++jLmC9k6hpkZtcRUgJRj6rk_knjAQ9cOHitRDBn1FbAgZPQ@mail.gmail.com>
+X-Gm-Features: AclHuK89aMeIOVygFGusGSM_QZnZVjoeLN0D3bDiQpEYrRyvGRiPkF-dM-Czu94
+Message-ID: <CAD++jLmC9k6hpkZtcRUgJRj6rk_knjAQ9cOHitRDBn1FbAgZPQ@mail.gmail.com>
+Subject: Re: [PATCH 05/10] pinctrl: realtek: Prevent out-of-bounds access in rtd_pinctrl_find_config()
+To: Lee Jones <lee@kernel.org>
+Cc: James Tai <james.tai@realtek.com>, Yu-Chun Lin <eleanor.lin@realtek.com>, 
+	=?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.com>, 
+	Tzuyi Chang <tychang@realtek.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-realtek-soc@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,27 +87,30 @@ X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 02, 2026 at 12:15:29PM +0000, James Clark wrote:
+On Tue, Nov 3, 2026 at 10:30=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
 
-> Add auxtrace_record__monotonic_find_snapshot() and use it for Coresight.
-> A monotonic head can't be auto-detected in the default find_snapshot()
-> by checking if head > buffer size, because before the first wrap a
-> monotonic head looks the same as a wrapped one. The search would then
-> falsely detect a wrap when head is near the end of the buffer, and the
-> wrapped pointer fixup moves 'old' and 'head' a whole buffer ahead of the
-> driver's head. With a wrapped head that doesn't matter because only the
-> offset within the buffer is used, but with a monotonic head the next
-> snapshot would either save already saved data again or drop up to a
-> buffer's worth of new data.
+> Several Realtek SoC pin configuration tables (such as rtd1319d_iso_config=
+s,
+> rtd1619b_iso_configs, and the rtd1625 config tables) omit trailing pins
+> that do not support pin configuration, making data->info->num_configs
+> smaller than data->info->num_pins.  Because rtd_pinctrl_find_config()
+> indexes data->info->configs[pin] without checking data->info->num_configs=
+,
+> requesting pin configuration on a trailing pin reads out-of-bounds memory=
+.
+>
+> Check that pin is less than data->info->num_configs before indexing
+> data->info->configs[].
+>
+> Fixes: e99ce78030db ("pinctrl: realtek: Add common pinctrl driver for Rea=
+ltek DHC RTD SoCs")
+> Closes: https://sashiko.dev/#/bug/linux-60e13761-fd9e-4fd3-826a-47344f36d=
+4fa
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lee Jones <lee@kernel.org>
 
-As mentioned, the default find_snapshot() can falsely report a wrap,
-which now prevents us from using it for the monotonic-head case.
-However, I don't think this block consolidation; I see the decision
-not to consolidate as a design preference.
+This patch 5/10 applied for fixes.
 
-If an AUX driver transitions from an arbitrary head to a monotonic head
-in the future, we might still need to consolidate the find_snapshot()
-implementations.
-
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+Yours,
+Linus Walleij
 
