@@ -2,98 +2,104 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 979CE606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 13:57:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22E66606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 13:59:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WCGzEfav;
-	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=B8QOpj9K;
-	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=Khh1TxW1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=O99hJvaJ;
+	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=IWeHFbpu
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=lpSsFBYMJOjp2UGoZuYwqoOaJecqtn3T+EOGB0fgaFo=; b=WCGzEfavr6Hes2
-	xWdOJULDKshhgOsYYZaIKZyp/nYf+sExxNsj7ZqtlD5bD2+4TmNn0DvFCvD7lylDqsM6G0Pe0FSpW
-	AqMqwFrCwZUHUP9crL4QuBGexdlkg987eOPrd/0efyzaC6NBBYj1bKyTy/33vA+z3a+iSAsxQjnsK
-	ePlci/QuRZVvxSsEVZdZDU5prkGmZadYqm/qw09KaK5HEipNPYOtnr/QAffsscYKOnwJm3RacntTm
-	T0xeyY1Z+G8N6C6DXnD/N9uewvPk1qemsEffxPQV0ujlnxCjYDNmKo8JdFeOy3qHluGWHY8ayx5RZ
-	xcSzCUW5j9Fodl85AKSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=XP2sPyfb4drUGyU1lXjbZR0XesYSs81x4qP77e4f+vA=; b=O99hJvaJ2/LU80qqQFY46P56Gl
+	w8oYH/5gzfrgrMtiQxorECbbYYFG9jV14mUL63JmH4oPGpC4g+UWF7Vy+odfx+rQb9JqBGaSufxPW
+	0FDewxYe5U06jnAFMs9iSMQCyqxNfAs0SvEjUReu5O7AZTQ2dax2Az9Ot4dYSYEB01IZJSL4LcACO
+	4bDMPSc9YwbLsB89PQEI/T0RTKYLwKLDnCd/MRvTVFm2LFSo13UDB7oqhUyQcs8lrnMtlWm4GmwWZ
+	Qsps1N7AOE75x9iHwpi8YRkOrWG2aQ/GsNZef8ZmnEIYehmSeoEY0+v5GEu7QAf63PFGgEzM4YDPH
+	IwDqzy6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxyD-00000009C5i-0Tdd;
-	Thu, 05 Nov 2026 13:57:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1xOxzT-00000009Cfl-3O8H;
+	Thu, 05 Nov 2026 13:58:55 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxyB-00000009C3p-3dfH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Nov 2026 13:57:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
-	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=lpSsFBYMJOjp2UGoZuYwqoOaJecqtn3T+EOGB0fgaFo=; b=B8QOpj9KBuYjM3EIWjT5meMk6w
-	S2b4OvIB1tQ0l22O6l85ZC2zFw1OKM/IZ+hqyqOHAUXl7v+mLAd6aCa9sxfZJcJTflNDbx5I9hExh
-	3Xhak2zsn859qHNv2hrCtdZg4QM2Wu12koEB417p7/KmlERWkAt8yDxRKU8+iJyO4FWnuOQLNvvBx
-	C/xhhMaPV2XrkXu4DZ0CezIObWrVFAIf9hOpNO9nkLgZINAT5W7Rq7ZxrBzLBIof4bH8//VTEXBfo
-	my3DToDH9EANs0crzl9IrLQ1wHIZIMieBAgPeCPZVVPw55TZ2okYzuKAZKIvpL74dA9oKyzupeqEf
-	VGEjBHzA==;
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOxy6-000000032uj-3XFz
+	id 1xOxzP-00000009CfH-26gv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 13:57:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1793887050; x=1825423050;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=AS6YN7PNHmR1WJ7dk985HrdfIfCxE7SjW4P34crHnCQ=;
-  b=Khh1TxW1hXLGmD+O9o8RRYZVXmIjB0xJo68sQPamjexmNiU5WKsiyP5H
-   8krQs+5oHWhxvmpNNvGTDtefBw5BveKTrd9Yg6FtmXY0CujfPwY2QT71A
-   orplqKAdCAUpu0/tH5YZcGKanu0NeEI77KuPfhw2ed40hbbTyeH1T8K0z
-   iwfgRCPriEt/mSKUYPon4mCX1QVxIDpUBJhi1Qcohqna++ARJZ0R8Bpv/
-   zFikiBScp4V4PlSo0P8NNWBSrTpy9P6udEpUt45s4NGY8gX8vf6t1eXZr
-   EJMJSXQ6lgK3nOaxzL3pUmFE9HPBC9FliVP2SnRXPOkD++pGs9fBQHSdO
-   w==;
-X-CSE-ConnectionGUID: amQdPwc/QcGGi1gsnE7ZPQ==
-X-CSE-MsgGUID: NHEDFOPLSp+8RCuKkxALqw==
-X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
-   d="scan'208";a="65112466"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 06:57:23 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.56; Thu, 5 Nov 2026 06:57:23 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Thu, 5 Nov 2026 06:57:21 -0700
-From: Daniel Machon <daniel.machon@microchip.com>
-Date: Thu, 5 Nov 2026 14:56:44 +0100
-Subject: [PATCH net-next 9/9] net: sparx5/lan969x: add support for changing
- the MTU
+	Thu, 05 Nov 2026 13:58:54 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4a214af2076so13828295e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 05:58:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1793887129; x=1794491929; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=XP2sPyfb4drUGyU1lXjbZR0XesYSs81x4qP77e4f+vA=;
+        b=IWeHFbpuVLCgLkQHj+M17u2Tr4HzU/jvIqljsjiNcLWiYB5p8YschYUHLWlNXWnF0q
+         7gvZXO6+AvRAJdMC8OqHlOUX30TI+q3Oh8789F3wU2/kIirVkJrkRpGG87hHTbiMDvmN
+         b6iFk/iJmwO7+G39/pqaJ8RMWTo7CHf3SynpYtCXWVHzaD2BFDFQfnTFfzCKfHOw/6LI
+         mLa2yI2C6wmjEygVKyOJv11tn9AqAbD7XUvp+rVliEdcT8A372CO71UCFTGStWYRDlhj
+         sjAYNAXyf+Ync/qrbXM78RC5Z89BhMysYxG2XBYcRaSrMdaKMrIBPgg1o1XhnnOv21fK
+         v52A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793887129; x=1794491929;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XP2sPyfb4drUGyU1lXjbZR0XesYSs81x4qP77e4f+vA=;
+        b=KLmPqq9oDLzgsCLbEDIz6zMksuazCHtN/AR/gVpfIoosOLcnfd67mJJGClo4kO6nkF
+         JdV5DWhP4ruGMKhx2TfrRPbR00w3oXWsdf+xbxT1TH0dUFufH0nvX6chbR9pcSXmzSsy
+         lhp3wBiUpa+F2Vs645trXMmtFy0Xh9UCSAs9fTl8QiS7q5E69SByJUQ8UsOxGUW9R0zS
+         XticdlTiUZTVJpkamysr7LvLENFiWbqSrC/g24++JQH7m9rDjKNlkmw148JbqW5+4XfB
+         kIUJYsdWTPSs+DYezqI+vTGtseh+ZXczDAElx+GNyuARhP8y90/ORsy3ojIn5iJxvgwG
+         plpg==
+X-Forwarded-Encrypted: i=1; AKwUvBzuq7QkGwfLORmUmsOy0HbGrXMU63ah+U8rVVxRNkO2c94+TKRm63IphOnDRURpWV2jwGE5MRKM5T+qjjXrky8D@lists.infradead.org
+X-Gm-Message-State: APuU4Z+9Rk+wyOFFeQTi8GX/RO/Y9PVpcuxvOE+x7twqmaIRA70JVhyp
+	AKNcsfizItBs+t9ZuYv5nWpkGXzzpwtir7+7xX/psupCO1OFhVqQAfnjElWeFSsQdhy2KzYJffC
+	PEJbKrFY=
+X-Gm-Gg: AYBFou2fuOpDwj/y3NPcj0ULQ9AmEZbvvK2FWC6GvD6c77pIfZX+gPdw7qXBEnfU3Em
+	dOP+5jwGv9guvxxquBO6/qePG9VtWCP7o1ipGEdq+5T89ztL/QbPD8vqN8mdqELoGQNsgtvuSwN
+	Z3PeA0SAkGo2PX/LZg0NQ+/vfKrafYH5U+FYz0284XDMCzOESJdwP4kF6dHKnuhEhLpKDb/A7No
+	TWmJTiNIo6py5UGtJd3Jp5EwdkM14fOnEaI7/PyqP+HG2eOxs8GPoefi6joLJ8PjexAtm5POptT
+	e/Jm1uG6lZKHZ+lgiPjwWtoG3GSSC5AxPxlSE1LjaqEuk2YaUN7YJluBT/HMtLki1mlXbYW+g5o
+	vmgI7WuYZ1abPkOz0UvviRaFBhx+cjbKTiGTxh4Zs1w5K1PkeERFjrq/wCdJqXElnextxN1AMY/
+	Y/GtF7csylihTKRcWUqD6KI+Y2W4kbyRn52MNhWr3UQOiBFzkTCWf2geDF6I82LYrpMSK1om++4
+	zUllyH2j7otzOVEf4zzM68lvuFgYEGZcirHzAwdfSslwHrPLSEHcstnhqE6rF07dqpgTiRWspOT
+	NECCnd5q21ceylaonpwqgxxLts2D
+X-Received: by 2002:a05:600c:6095:b0:49e:7c8c:361d with SMTP id 5b1f17b1804b1-4ac182dc30fmr375702725e9.22.1793887129505;
+        Thu, 05 Nov 2026 05:58:49 -0800 (PST)
+Received: from localhost ([194.213.108.8])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4b56ba6bc36sm75097435e9.0.2026.11.05.05.58.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Nov 2026 05:58:48 -0800 (PST)
+Date: Thu, 5 Nov 2026 14:58:45 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Tim Michals <tcmichals@gmail.com>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>, 
+	Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	linux-sunxi@lists.linux.dev, linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/7] mailbox: sun55i: Add Allwinner A523 message box
+ driver
+Message-ID: <auyLOc4djmm29Bnz@monoceros>
+References: <20261101185735.762559-1-tcmichals@gmail.com>
+ <20261101185735.762559-3-tcmichals@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261105-sparx5-mtu-change-v1-9-f27bab580463@microchip.com>
-References: <20261105-sparx5-mtu-change-v1-0-f27bab580463@microchip.com>
-In-Reply-To: <20261105-sparx5-mtu-change-v1-0-f27bab580463@microchip.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
-	<Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, "Richard
- Cochran" <richardcochran@gmail.com>, Russell King <linux@armlinux.org.uk>
-CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Robert Marko <robert.marko@sartura.hr>
-X-Mailer: b4 0.14.3
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6jfoalgweekh6k4p"
+Content-Disposition: inline
+In-Reply-To: <20261101185735.762559-3-tcmichals@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_135731_539000_8B5ECE4F 
-X-CRM114-Status: GOOD (  26.67  )
-X-Spam-Score: -2.5 (--)
+X-CRM114-CacheID: sfid-20261105_055851_564557_80B26427 
+X-CRM114-Status: GOOD (  10.23  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,136 +110,50 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The MTU of a port is currently fixed to 1500, as the MAC maximum frame
-length, the FDMA buffers, the queue watermarks and the TAS guard band
-are all sized for a 1518 byte frame. The previous patches make the
-buffers, watermarks and guard band follow the MTU, so changing the MTU
-is a matter of programming the MAC and updating these.
 
-Add an ndo_change_mtu callback that sets the MAC maximum frame length of
-the port and resizes the FDMA buffers. The MAC must never accept frames
-that are larger than the RX buffers, so when decreasing the MTU, the
-maximum frame length is lowered before the buffers are shrunk, and when
-increasing it, it is only raised once the buffers have been grown. The
-new MTU is only published once the buffers fit it. If the buffers cannot
-be grown, the MTU is not changed. If they cannot be shrunk, the current
-buffers still fit all frames, so the new MTU is kept. Once the new MTU
-is published, update the queue watermarks of the port and the TAS guard
-band.
+--6jfoalgweekh6k4p
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH v3 2/7] mailbox: sun55i: Add Allwinner A523 message box
+ driver
+MIME-Version: 1.0
 
-As the FDMA is shared by all ports, resizing its buffers briefly stops
-CPU traffic on all ports. This only happens when the change affects the
-buffer size needed for the largest MTU of the ports.
+On Sun, Nov 01, 2026 at 12:57:30PM -0600, Tim Michals wrote:
+> +#include <linux/mod_devicetable.h>
+> [...]
+> +#include <linux/platform_device.h>
 
-Register based extraction, which is used when the FDMA is not, sizes
-its skbs from the MTU at the time a frame is read, so frames queued
-before an MTU decrease would not fit. Therefore, only allow the MTU to be
-changed when the FDMA is used.
+Please don't include <linux/mod_devicetable.h> as this pulls in a lot of
+unneeded build dependencies.
 
-The MACs of both Sparx5 and lan969x support frames of up to 14000 bytes,
-so set the maximum MTU accordingly when the FDMA is used.
+<linux/platform_device.h> already provides of_device_id which is all you
+seem to use here. If you want full iwyu include <linux/device-id/of.h>
+instead.
 
-Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
----
- .../net/ethernet/microchip/sparx5/sparx5_main.h    |  1 +
- .../net/ethernet/microchip/sparx5/sparx5_netdev.c  | 48 +++++++++++++++++++++-
- 2 files changed, 48 insertions(+), 1 deletion(-)
+Best regards
+Uwe
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-index d150a76fc917e..181637b5f8f4a 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-@@ -110,6 +110,7 @@ enum sparx5_feature {
- #define SPX5_BUFFER_MEMORY     4194280 /* 22795 words * 184 bytes */
- #define SPX5_TAS_ENTRIES_PER_PORT 2 /* TAS lists per port */
- #define SPX5_HW_MTU(mtu)       ((mtu) + ETH_HLEN + ETH_FCS_LEN)
-+#define SPX5_MAX_FRAME_LEN     14000 /* Max frame length supported by the MACs */
- 
- #define XTR_QUEUE     0
- #define INJ_QUEUE     0
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c b/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-index b3725cf2dd44c..095925752f5f6 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-@@ -250,6 +250,44 @@ static int sparx5_port_hwtstamp_set(struct net_device *dev,
- 	return sparx5_ptp_hwtstamp_set(sparx5_port, cfg, extack);
- }
- 
-+static int sparx5_port_change_mtu(struct net_device *dev, int new_mtu)
-+{
-+	struct sparx5_port *port = netdev_priv(dev);
-+	struct sparx5 *sparx5 = port->sparx5;
-+	bool resize = new_mtu > dev->mtu;
-+	int err;
-+
-+	/* Register based extraction sizes its skbs from the MTU at the time
-+	 * a frame is read, so it cannot handle frames queued before an MTU
-+	 * decrease.
-+	 */
-+	if (sparx5->fdma_irq <= 0)
-+		return -EOPNOTSUPP;
-+
-+	/* Never let the MAC accept frames larger than the RX buffers */
-+	if (!resize)
-+		sparx5_port_max_len_set(sparx5, port, SPX5_HW_MTU(new_mtu));
-+
-+	err = sparx5->data->ops->fdma_resize(sparx5, port, new_mtu);
-+	if (err) {
-+		if (resize)
-+			return err;
-+
-+		/* The current, larger, buffers still fit all frames */
-+		netdev_warn(dev, "Failed to resize FDMA buffers: %d\n", err);
-+	}
-+
-+	WRITE_ONCE(dev->mtu, new_mtu);
-+
-+	sparx5_port_wm_update(sparx5, port);
-+	sparx5_tas_gb_update(sparx5);
-+
-+	if (resize)
-+		sparx5_port_max_len_set(sparx5, port, SPX5_HW_MTU(new_mtu));
-+
-+	return 0;
-+}
-+
- static const struct net_device_ops sparx5_port_netdev_ops = {
- 	.ndo_open               = sparx5_port_open,
- 	.ndo_stop               = sparx5_port_stop,
-@@ -257,6 +295,7 @@ static const struct net_device_ops sparx5_port_netdev_ops = {
- 	.ndo_set_rx_mode_async  = sparx5_set_rx_mode,
- 	.ndo_get_phys_port_name = sparx5_port_get_phys_port_name,
- 	.ndo_set_mac_address    = sparx5_set_mac_address,
-+	.ndo_change_mtu         = sparx5_port_change_mtu,
- 	.ndo_validate_addr      = eth_validate_addr,
- 	.ndo_get_stats64        = sparx5_get_stats64,
- 	.ndo_get_port_parent_id = sparx5_get_port_parent_id,
-@@ -306,7 +345,14 @@ int sparx5_register_netdevs(struct sparx5 *sparx5)
- 
- 	for (portno = 0; portno < sparx5->data->consts->n_ports; portno++)
- 		if (sparx5->ports[portno]) {
--			err = register_netdev(sparx5->ports[portno]->ndev);
-+			struct net_device *ndev = sparx5->ports[portno]->ndev;
-+
-+			/* The MTU can only be changed when FDMA is used */
-+			if (sparx5->fdma_irq > 0)
-+				ndev->max_mtu = SPX5_MAX_FRAME_LEN - ETH_HLEN -
-+						ETH_FCS_LEN;
-+
-+			err = register_netdev(ndev);
- 			if (err) {
- 				dev_err(sparx5->dev,
- 					"port: %02u: netdev registration failed\n",
+--6jfoalgweekh6k4p
+Content-Type: application/pgp-signature; name="signature.asc"
 
--- 
-2.34.1
+-----BEGIN PGP SIGNATURE-----
 
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmrsi5EACgkQj4D7WH0S
+/k5vhQf+JI5oqB8wirr4Mfq53+EuIcbqVBMYKSJ4VvYsL5NgmUbk5OmelFsyFXLh
+1cTpKfp/pSXjaY74bSTdw8Wzj26UAD6h5WcL7M+Y0R76ERavh1U/j83g7GfDBxJr
+eHota1nXeLkRvpDqW7tWDBWn66eu0IeVsO8nlokpZTVhmLk/uFlIIITHp+IbJSUS
+oBmB5o0SK31zlNe1wrqwI8jCXjAUPyVcVouZEhNQ5mtIja4FE782+wlnw7agZe69
+vl3MG/TIihE7J63RC8U2iKs7BsfN9oB5xF5H8YMQYZ8/3uAj4eNkgFSjpbU8xXtp
+IDWe63lnv5ShurGsD35Z20wJbKGEKA==
+=hD40
+-----END PGP SIGNATURE-----
+
+--6jfoalgweekh6k4p--
 
