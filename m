@@ -2,69 +2,88 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D434606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:11:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92695606D83A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:14:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Pj7fxOJx;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GxX4qJGB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=MHY9aEQy;
+	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=PDybQWtJ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=ta81+Z++sWj/P1y8Fz5Mk7NOm+/jZXd+XAZM1x+41E4=; b=Pj7fxOJxo4Zd9v
-	0Q89cx//D+O/11/4U8NkaQrbdY4JnDuEx9t5rVdCDjjm5gbdw/YkTTAo0dq/cbleGnJuKr3WhUIUZ
-	x80IyYiHDFcbah4/Id7jR8Axc8eFjaSO7SwPgqr7ve70Nwiiven+tMw88y6OJVO4x3DOz2UkkPtai
-	F0CJtxaOBuYWCPYUq9kNACLYBa0zcX/Ne+XJ5x3diXs7Uqy4wliIkNlc95kL1zwFKueZomal/Phlz
-	sOrZPpWuC5758g1jqV43vtQtLKAgh7qkodvJWMxmvuqY7/hJWDALHnICXMcm5M68kbkOjyosZjt9L
-	bnKGwUhTRe1ERKmrtrmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=Sh8XuEouFSxM3Nere9HIciNOvbIlIxwEdyp0u63ZD0M=; b=MHY9aEQy3hUKZKNyhAg5wf4c1K
+	biKjCUYzWwUh2/6qNF+ICMedWdh1t33GrrsFC8w+y2xss3vg0kIK0KZPlzwREJ9FhpBO1exKia3xC
+	QnF14syUOx9SKlaLFBXrw/uyBToWCecYjDCsDGPdA1scjHtWufkaMoXBi2o7jdBSxXXzs3wFPpj4o
+	gDKdq4BtmUwdXiq6mR8WHUofDQgsZ6PHdjHT696ZQGvWSerCwj9ELmXl9fp4UWmk+RBlxskS6Rdea
+	vONB80zhImbGOGqGjtgR6ow3w+xdWosusC9GlIaVj9T0Ia4iezbo77vZGrtqwGsNcmpV9KBrw2EKU
+	hflpX75g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOwIf-00000008rG6-0cpY;
-	Thu, 05 Nov 2026 12:10:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xOwMZ-00000008s1U-2QzI;
+	Thu, 05 Nov 2026 12:14:39 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOwIY-00000008rBl-1Crq
+	id 1xOwMW-00000008s0F-0g8m
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 12:10:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 548F16062F;
-	Thu,  5 Nov 2026 12:10:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02F571F00A02;
-	Thu,  5 Nov 2026 12:10:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793880629;
-	bh=ta81+Z++sWj/P1y8Fz5Mk7NOm+/jZXd+XAZM1x+41E4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=GxX4qJGBjlSoOGGXopFcjOH7BqAU7ALzDiRXFS7xUNLWmq8N6lVyv6LMEokhMnc8a
-	 eUFqftWF895xAt9pT0Y2258+A84XCqxEQvOpTfRJ4Q2QiRU1BnAbCBCKTVW6+nC5Q6
-	 k0sY7mmBc/xixrazqYrkYl5qg8Y1az7i0mIFMC9+ln9vB+MhD8P8OhBNg5b6RPMv/F
-	 /M+bLBGe1C/dTFcounfg7MmRzkcHBGJTkPtNzWjHcEX+4zjnCGkCiD9njPtA5ur44G
-	 VWLJM0b0XrHCp0Ny35UBI8K+CHMRA5NhQj2TITuCt1/nntfr5aemvxW6TaJp+mVYPC
-	 4DNieZPTU+rIw==
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 05 Nov 2026 13:10:18 +0100
-Subject: [PATCH v2 2/2] ARM: configs: multi_v7: Enable the TEO cpuidle
- governor
-X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
+	Thu, 05 Nov 2026 12:14:38 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20261105121431epoutp02327bb44d4a5c6680f757346baad114cb~lJSX0tMzD1352913529epoutp02h
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 12:14:31 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20261105121431epoutp02327bb44d4a5c6680f757346baad114cb~lJSX0tMzD1352913529epoutp02h
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1793880871;
+	bh=Sh8XuEouFSxM3Nere9HIciNOvbIlIxwEdyp0u63ZD0M=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=PDybQWtJtaT7HN37J2PX4Ws4OFuscgdPQbVh8Efrhh4YTk8biaj49+hOvWkpkY3M7
+	 vuw6S6E2CD3toP5oXcs4wYxPamYgkt4L8WrAbtLRhbllk0nzfJqO3uh0dJrkBstrvk
+	 LF4RuyEfEwphJsWdcYwHWtkgQ+MTtz1Oj0BlcZL0=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20261105121430epcas5p34f3ca1eb34c18b8da084aae5b60407af~lJSXKYc_Y2560125601epcas5p3B;
+	Thu,  5 Nov 2026 12:14:30 +0000 (GMT)
+Received: from epcas5p3.samsung.com (unknown [182.195.38.88]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4jL1T15JsDz6B9m6; Thu,  5 Nov
+	2026 12:14:29 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20261105121429epcas5p39d2113969a054d297cda76a67f309c14~lJSVreVaO2344923449epcas5p32;
+	Thu,  5 Nov 2026 12:14:29 +0000 (GMT)
+Received: from vega.samsungds.net (unknown [107.108.73.84]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261105121426epsmtip1d622e1345811eb639be62820813704d9~lJSS_xApT3060130601epsmtip10;
+	Thu,  5 Nov 2026 12:14:26 +0000 (GMT)
+From: Selvarasu Ganesan <selvarasu.g@samsung.com>
+To: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, peter.griffin@linaro.org, alim.akhtar@samsung.com,
+	Thinh.Nguyen@synopsys.com, selvarasu.g@samsung.com,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: jh0801.jung@samsung.com, h10.kim@samsung.com, dh10.jung@samsung.com,
+	akash.m5@samsung.com, hongpooh.kim@samsung.com, eomji.oh@samsung.com,
+	shijie.cai@samsung.com, muhammed.ali@samsung.com, thiagu.r@samsung.com
+Subject: [PATCH v5 1/2] dt-bindings: usb: Add Samsung Exynos8855 DWC3
+ controller
+Date: Thu,  5 Nov 2026 17:44:00 +0530
+Message-Id: <20261105121401.1661711-2-selvarasu.g@samsung.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20261105121401.1661711-1-selvarasu.g@samsung.com>
+X-CMS-MailID: 20261105121429epcas5p39d2113969a054d297cda76a67f309c14
+X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-multi-timers-cpufreq-cpuidle-v2-2-2df7a17f4835@kernel.org>
-References: <20261105-multi-timers-cpufreq-cpuidle-v2-0-2df7a17f4835@kernel.org>
-In-Reply-To: <20261105-multi-timers-cpufreq-cpuidle-v2-0-2df7a17f4835@kernel.org>
-To: Russell King <linux@armlinux.org.uk>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
- Anna-Maria Behnsen <anna-maria@linutronix.de>, 
- Frederic Weisbecker <frederic@kernel.org>, Ingo Molnar <mingo@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Linus Walleij <linusw@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20261105121429epcas5p39d2113969a054d297cda76a67f309c14
+References: <20261105121401.1661711-1-selvarasu.g@samsung.com>
+	<CGME20261105121429epcas5p39d2113969a054d297cda76a67f309c14@epcas5p3.samsung.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261105_041436_546468_32F8F78A 
+X-CRM114-Status: GOOD (  14.93  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,37 +101,102 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
+X-Archived-By: <archiver.kernel.org>
 
-The TEO governor introduced in commit b26bf6ab716f ("cpuidle: New
-timer events oriented governor for tickless systems") takes a different
-approach to idle-state prediction from menu. The governor gives a
-better behaviour than the current default for tickless idle systems,
-and for the multi-platform configs that enable tickless idle, this
-should be the default governor.
+Add the Samsung Exynos8855 DWC3 binding using a flattened node
+representation, where the DWC3 controller is directly addressable
+rather than nested as a child node of a glue layer.
 
-multi_v7_defconfig already enables CPU_IDLE and NO_HZ_IDLE. Selecting
-CPU_IDLE_GOV_TEO suppresses Kconfig's automatic menu selection, making
-TEO the default governor for this tickless configuration.
+This is the first Samsung Exynos binding using the flattened
+representation.
 
-Signed-off-by: Linus Walleij <linusw@kernel.org>
+Co-developed-by: Muhammed Ali <muhammed.ali@samsung.com>
+Signed-off-by: Muhammed Ali <muhammed.ali@samsung.com>
+Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- arch/arm/configs/multi_v7_defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ .../bindings/usb/samsung,exynos8855-dwc3.yaml | 71 +++++++++++++++++++
+ 1 file changed, 71 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/usb/samsung,exynos8855-dwc3.yaml
 
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index 069d5a49f01c..b583c5db8210 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -121,6 +121,7 @@ CONFIG_ARM_RASPBERRYPI_CPUFREQ=y
- CONFIG_ARM_SCMI_CPUFREQ=y
- CONFIG_QORIQ_CPUFREQ=y
- CONFIG_CPU_IDLE=y
-+CONFIG_CPU_IDLE_GOV_TEO=y
- CONFIG_ARM_CPUIDLE=y
- CONFIG_ARM_PSCI_CPUIDLE=y
- CONFIG_ARM_ZYNQ_CPUIDLE=y
-
+diff --git a/Documentation/devicetree/bindings/usb/samsung,exynos8855-dwc3.yaml b/Documentation/devicetree/bindings/usb/samsung,exynos8855-dwc3.yaml
+new file mode 100644
+index 000000000000..664c26c1a9ca
+--- /dev/null
++++ b/Documentation/devicetree/bindings/usb/samsung,exynos8855-dwc3.yaml
+@@ -0,0 +1,71 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/usb/samsung,exynos8855-dwc3.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Samsung Exynos8855 DWC3 USB controller
++
++maintainers:
++  - Krzysztof Kozlowski <krzk@kernel.org>
++  - Selvarasu Ganesan <selvarasu.g@samsung.com>
++
++description:
++  Describes the DWC3 USB controller block implemented on the Samsung
++  Exynos8855 SoC.
++
++properties:
++  compatible:
++    enum:
++      - samsung,exynos8855-dwc3
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: Reference clock for SOF/ITP generation.
++      - description: Bus (APB) clock for register access.
++
++  clock-names:
++    items:
++      - const: ref
++      - const: bus
++
++  interrupts:
++    maxItems: 1
++
++  power-domains:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++
++allOf:
++  - $ref: snps,dwc3-common.yaml#
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    usb@13200000 {
++        compatible = "samsung,exynos8855-dwc3";
++        reg = <0x13200000 0x10000>;
++        clocks = <&usb_clk 0>,
++                 <&usb_clk 1>;
++        clock-names = "ref", "bus";
++        interrupts = <GIC_SPI 436 IRQ_TYPE_LEVEL_HIGH>;
++        dr_mode = "peripheral";
++        phys = <&usbdrd_phy 0>;
++        phy-names = "usb2-phy";
++        snps,quirk-frame-length-adjustment = <0x20>;
++        snps,dis-u2-freeclk-exists-quirk;
++        snps,gfladj-refclk-lpm-sel-quirk;
++    };
++...
 -- 
-2.56.0
+2.17.1
 
 
