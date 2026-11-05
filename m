@@ -2,97 +2,89 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E844606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:11:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F3EF606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:11:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t/sjt5Nb;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=d6BnUz4G
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JgikI4mK;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=OOkERDIk
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=ZRGJdN+0ZU0Q+8Po4r5uRyGAvRT/GQRrEp1MKzJo7zw=; b=t/sjt5NbgPgxJhgcLY41Sa+K+J
-	C/rUR8o3Tvu3/aYyGWznJcc+GyDe54g6e/ipNu+DE+DoN/XWyKh9xuYfVBYiZXzCH/9IF4KN33AHg
-	8/mOeprrauimlZcKInfWwOvE+KYgSsMvZmm2VEEFN5FtXHx8RciT8Mnf7yW+FiPcw+ny6Lh7NnjXw
-	eHL9rK25LoVCIUplvA1bhaAsk+5tmjvjwd4+ADmKNPc7/C7kJcO6jko7FCRkurQHZ2PKDbpytQEL+
-	/1H3586LY6d9WBSxCgLGGBofBU4dsCOZvFOuAraqkSnscFMICvYSe8l8d7zYxYsOZtoWlZXu5iBxh
-	SF32PtPw==;
+	bh=oUTkOjhpSta2G99V+EvRj5jWYOqvSjQ/adQtpHhKIwA=; b=JgikI4mKMKWH/D34s8eDqx6Pz1
+	mnohCdkCi1k6uSnZqrFP3ydYXKJ6m7W5dEawwA6Mx/QAARfCltJN4x63fB87Wkuo+BV4anI19XCp3
+	PjNgSawvDL8fvIVznw8Hs6r3Pn9SW6/ujLaJCJPg8S8RrVxv8GolzijDryy0uAbscHzNTsamMwD4C
+	t5494H47Fy2m2/8bAnzw5AUpVtSYgtCcwWZBQuENAZIqnJAb6RLJ4mc7e/4O4RsBdJOxrLr8KpDUT
+	XYpBeoDvPCuPCKg39uMpcYvMP35NIo2mCQrr/3q950aRoamPOyRztxGO60lJHRPK2Z2e7rr6h1d4T
+	zEd0r65A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtVI-00000008G28-07KA;
-	Thu, 05 Nov 2026 09:11:28 +0000
-Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
+	id 1xOtVH-00000008G1y-2Ril;
+	Thu, 05 Nov 2026 09:11:27 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtVE-00000008G07-0T7U
+	id 1xOtVA-00000008G05-2qHl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 09:11:26 +0000
-Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-15dd124bbe7so944066c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 01:11:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1793869882; x=1794474682; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZRGJdN+0ZU0Q+8Po4r5uRyGAvRT/GQRrEp1MKzJo7zw=;
-        b=d6BnUz4GSoDzvKXFi3nJABLaY5E0bzbh0oi80FT3ykuNyXDw7N2aCwLJ0ywZG2NLvC
-         E66l/GtMaFHqdMHwnR3AY0ku7nAxxn8DBw7RbJs5uR1JYvDawM52G+ML11cw019p35N/
-         9rPZ+TUD69ZRVWHkm23d8XqXAzGvydzjx3wvk=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793869882; x=1794474682;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ZRGJdN+0ZU0Q+8Po4r5uRyGAvRT/GQRrEp1MKzJo7zw=;
-        b=DQAlMu6Smd4HWgb7/t1tyFW8cw3zTNBOXZIbG/x8QnPD1cdKwBRiu4YHynw1+aWU/u
-         kccqtE3aSsQsv1hKgX/G25hqnt3kWWYUR+ks8G7V6WtMFbyfJMNQXBg5+xgHMDkYe1za
-         H87tIINXhW+bPWAURbjHnQTwMtKEKByR7TYiWiikEE11n9UbqGJUDxoymVHi6hq8ObyA
-         Yq4g7Pfp4wgPMIAJ/5o8ytYszaGNa8TxE3uppC5GKKH5SaX8wk8zWv+VLIWZ9AalCweO
-         rQ+owfxtZTRqeQxFjZQ84Hg1bwLiNk7QX41LvPSCuIBhW9hykzSW/8mqKqm0BPxK5ws1
-         HmqQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwBz89qR9+I7CR9B+lPSjfzwdu7t7vP9moTigAFH0IkknIEbAxmmZOb281nc8gcLQGnq0Qxbb2PaasLe5oOrNan@lists.infradead.org
-X-Gm-Message-State: APuU4Z9zY3nW/nx3cAjnweraWQ1nH0YbJqqagBMnUOfk8d6962agkZ8b
-	jhCfP9RV+OAweq7u4KlxWPr/E+bYIEkMrcdfaEhUUvFq+hdKRZgS7F2l3BKx5xFLcg==
-X-Gm-Gg: AYBFou1yBdzHByZpkHyvb89u9zyD5gU/J3C+wynkn0dr+5cs4pQlIYWEZ2IHqdcv8dW
-	ivx8ds2E0kd3qEqH303MrJllxE8m7K0KD62pmCGqFL00mRe9FTztzIRkay+Lp+g0gDTVRYrv3s/
-	up0twtenZyzH6C4YpS0kn+FrLJVDhyynNGExJqrAaDxHGG4HZu7FJnpT1XJqKV+w9av8cGjTY0d
-	xZujFU04afYUWX+IGj1H6w9VgMHWZGHdkQo6QDrLxJNpDes1IZUdUFou010ocp3x2oczniN61qC
-	x9PNCTLWu/R38fG+k3pgFW0QX9QPm6XrEiogn24PCfjmWNDis5ONYL01gqP87WWCNQUYq9s1FPw
-	KADzgcOb+a/doT9RzV5xQrLcODZj89kIE7MlSVnMHT5wUyyIcpMftlT0vEqU16GYuWaJIVmVJFL
-	dIFy8C1+H1f1bQnXoLH8g9S17C9ovsQ7eo9k5+qDEeFd27GSP46WylXYY4Tohu35IlrGUftBHfY
-	dvFn/dEuHaxtMaS7dOsCAIB74+odr9S4zPopPhdqB9lKqYv2rEdi2sDKWHxmPox3MPnpKCx6jEp
-	ftF4y443bbhP7xFgiZPbH3QnHtwfaFUDzo4Qo8hrxyCexHWHqpEzH3H2Zw9uMQsQZeJv8BoJD8N
-	4V1GLoNEhDyxVEeQhd44nl2HXlhTRSUB2Z9Misg==
-X-Received: by 2002:a05:7022:eb42:20b0:186:4a57:94e5 with SMTP id a92af1059eb24-1ac5c272744mr29105381c88.34.1793869881711;
-        Thu, 05 Nov 2026 01:11:21 -0800 (PST)
-Received: from fshao-cloudtop.c.googlers.com.com (61.14.81.34.bc.googleusercontent.com. [34.81.14.61])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36ca39b8eb3sm20117002eec.27.2026.11.05.01.11.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 01:11:21 -0800 (PST)
-From: Fei Shao <fshao@chromium.org>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Fei Shao <fshao@chromium.org>,
-	David Airlie <airlied@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] drm/mediatek: Validate gamma_lut size
-Date: Thu,  5 Nov 2026 17:10:43 +0800
-Message-ID: <20261105091054.3993611-1-fshao@chromium.org>
-X-Mailer: git-send-email 2.56.0.455.g6c5a503b38-goog
+	Thu, 05 Nov 2026 09:11:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793869881; x=1825405881;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=RlhKt0yBUlimxXsYRHNpAnCiVlMNcaFnOQtcMg7QbUY=;
+  b=OOkERDIkUoRQ+Un8CLHvkU2ND/FrFZ1TdaYIU4aqsx/6VmipbhQ9je1Q
+   tenwDvD04gLrfcGcnfXqOBdul7jzfCQutKidsEEPFDCS8ZeRT0jzNRMgz
+   ozBDEaVOM+ldOdD54MSJVBJy/G5t4OpwgNx/zE2Rh3+2xCaoL1x/CjppI
+   VxP2x4JYISTHZ5RrTG6J1FjBLKeWev86kgqyoFBbfpqeZQsI+5yahLQnq
+   vpA5042LHvyNcJKKHyQ08g6MuqZeHRept/LMq2m6frJcLSn7QQuTy8vYM
+   bAyEud3i8479kpFRNwITa4wzwVC8d708843whY1ir0JJ856+BbYgOi8dT
+   A==;
+X-CSE-ConnectionGUID: 4SQJA47wQaCJTfkUgsnAag==
+X-CSE-MsgGUID: wTfDHtNOQJCLXkgjJPAPKg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11956"; a="2655237"
+X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
+   d="scan'208";a="2655237"
+Received: from fmviesa013.fm.intel.com ([10.60.135.153])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 01:11:20 -0800
+X-CSE-ConnectionGUID: C1Le9xQ2Sh6VQxIkMkQ3Nw==
+X-CSE-MsgGUID: wFUwFvH9SZmi8pDGQQmKCg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
+   d="scan'208";a="8819549"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa013.fm.intel.com with ESMTP; 05 Nov 2026 01:11:16 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xOtV3-00000000lzL-1HII;
+	Thu, 05 Nov 2026 09:11:13 +0000
+Date: Thu, 5 Nov 2026 17:10:48 +0800
+From: kernel test robot <lkp@intel.com>
+To: Andre Eikmeyer <dev@deq.rocks>, marcel@holtmann.org,
+	luiz.dentz@gmail.com
+Cc: oe-kbuild-all@lists.linux.dev, linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org, sven@kernel.org, j@jannau.net,
+	neal@gompa.dev, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, 66ton99@gmail.com,
+	josemiguelo.ochoa@gmail.com, aditya.garg@linux.dev,
+	Andre Eikmeyer <dev@deq.rocks>,
+	Yossef Osman <Yossef.Osman@proton.me>
+Subject: Re: [PATCH 2/4] Bluetooth: btbcm: clear vendor bits in LE
+ advertising report types
+Message-ID: <202611051954.fni86ioX-lkp@intel.com>
+References: <20261104151601.70493-3-dev@deq.rocks>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261104151601.70493-3-dev@deq.rocks>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_011124_163948_38162AF8 
-X-CRM114-Status: GOOD (  14.13  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261105_011123_768927_C8FFCD0B 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,69 +95,40 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The DRM core only checks that a GAMMA_LUT blob size is a multiple of
-sizeof(struct drm_color_lut), not that its entry count matches the
-hardware LUT size. mtk_gamma_set() and mtk_aal_gamma_set() then read
-the blob up to the hardware LUT size, which is an OOB read when the blob
-is shorter.
+Hi Andre,
 
-Add mtk_crtc_atomic_check() and reject gamma_lut with invalid length.
+kernel test robot noticed the following build warnings:
 
-Fixes: 2f3f4dda747c ("drm/mediatek: Add gamma correction.")
-Signed-off-by: Fei Shao <fshao@chromium.org>
----
+[auto build test WARNING on 3f425f95ba3923d605f6a8b382e8fcdc59d479db]
 
- drivers/gpu/drm/mediatek/mtk_crtc.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+url:    https://github.com/intel-lab-lkp/linux/commits/Andre-Eikmeyer/Bluetooth-btbcm-raise-ACL-priority-on-Apple-Broadcom-controllers/20261104-161558
+base:   3f425f95ba3923d605f6a8b382e8fcdc59d479db
+patch link:    https://lore.kernel.org/r/20261104151601.70493-3-dev%40deq.rocks
+patch subject: [PATCH 2/4] Bluetooth: btbcm: clear vendor bits in LE advertising report types
+config: sh-allyesconfig (https://download.01.org/0day-ci/archive/20261105/202611051954.fni86ioX-lkp@intel.com/config)
+compiler: sh4-linux-gcc (GCC) 16.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261105/202611051954.fni86ioX-lkp@intel.com/reproduce)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/mtk_crtc.c
-index 2920f3198ef6..fd9b51fd00ea 100644
---- a/drivers/gpu/drm/mediatek/mtk_crtc.c
-+++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
-@@ -880,6 +880,26 @@ static void mtk_crtc_atomic_flush(struct drm_crtc *crtc,
- 	mtk_crtc_update_config(mtk_crtc, !!mtk_crtc->event);
- }
- 
-+static int mtk_crtc_atomic_check(struct drm_crtc *crtc, struct drm_atomic_commit *state)
-+{
-+	struct mtk_crtc *mtk_crtc = to_mtk_crtc(crtc);
-+	struct drm_crtc_state *crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
-+	struct drm_property_blob *gamma_lut = crtc_state->gamma_lut;
-+	unsigned int lut_size;
-+	int i;
-+
-+	if (!gamma_lut)
-+		return 0;
-+
-+	for (i = 0; i < mtk_crtc->ddp_comp_nr; i++) {
-+		lut_size = mtk_ddp_gamma_get_lut_size(mtk_crtc->ddp_comp[i]);
-+		if (lut_size && gamma_lut->length != lut_size * sizeof(struct drm_color_lut))
-+			return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
- static const struct drm_crtc_funcs mtk_crtc_funcs = {
- 	.set_config		= drm_atomic_helper_set_config,
- 	.page_flip		= drm_atomic_helper_page_flip,
-@@ -899,6 +919,7 @@ static const struct drm_crtc_helper_funcs mtk_crtc_helper_funcs = {
- 	.atomic_flush	= mtk_crtc_atomic_flush,
- 	.atomic_enable	= mtk_crtc_atomic_enable,
- 	.atomic_disable	= mtk_crtc_atomic_disable,
-+	.atomic_check	= mtk_crtc_atomic_check,
- };
- 
- static int mtk_crtc_init(struct drm_device *drm, struct mtk_crtc *mtk_crtc,
--- 
-2.56.0.455.g6c5a503b38-goog
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611051954.fni86ioX-lkp@intel.com/
 
+All warnings (new ones prefixed by >>):
+
+   Warning: drivers/bluetooth/hci_bcm.c:153 struct member 'acl_priority' not described in 'bcm_device'
+>> Warning: drivers/bluetooth/hci_bcm.c:153 struct member 'adv_type_fixup' not described in 'bcm_device'
+   Warning: drivers/bluetooth/hci_bcm.c:153 struct member 'acl_priority' not described in 'bcm_device'
+>> Warning: drivers/bluetooth/hci_bcm.c:153 struct member 'adv_type_fixup' not described in 'bcm_device'
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
