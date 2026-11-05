@@ -2,106 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1DB7606A331
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:35:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB3E0606A32F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 14:36:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4WJZfH0u;
-	dkim=pass (2048-bit key, unprotected) header.d=fooishbar.org header.i=@fooishbar.org header.a=rsa-sha256 header.s=google header.b=f/SUUrh2
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sjfRwqgB;
+	dkim=pass (2048-bit key, unprotected) header.d=fooishbar.org header.i=@fooishbar.org header.a=rsa-sha256 header.s=google header.b=AaxsJ0SB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=GkU9fJVYjw6koPkED18+RNmNCd0Pc4rVVHMltt2KuQg=; b=4WJZfH0uPzVSMFrmT8nYcLieLt
-	+K0krqgDEHX5SEeK/OwqOxfLyOIVKp2e19DPchM7dZQBtE5KyJ2bRrOzCp7XFssbkY0sO7/RNm17m
-	Q2SJh1UwJ4rFBUJ9/jJpkg475X1wbu6Hq2K7RV37L7IL9Mwa+OEtBa2DoCMg9MLEXRjdQEq/y2lO8
-	qvERjJ0NoYZAD0rsjrmbS/cMTSOCinCSHXXOw0djdfuDoriTXEfjcc0cBzk/4nNVv5SnDd88jDh3Z
-	zfVtmXTUcKbEkqPYlksXkwwnCSP+JYof/3+Tvknp5bRZRRAmXQcHur10BNwHGaAQe1BozQ9JySfJF
-	jXuDMe+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=9Ymc+4AQvzzaiCWsBbLGU5SMznTThrS02qv+sUCHS1I=; b=sjfRwqgBOhAlon
+	OobKn+xaI0c8YuzfC1ICmumpMGWx+1eQ7M0Y5Tmiva9DwEsEMCsfiluHvc1HKwbtnkH6NjBLPU7cY
+	WQU382fxXPJWVg4a7BaIVRNz1zTaobylfadYmfd7TpejQGchdJULHlhYEqs8GWTweR2yLJXwSuXFA
+	B1EKH3gmxb5oPRxB69N2/chN/LJc59ciMvBnF8A6jGzFH7FOYlz43MCDK7+LsI1XkVgvFQu4N58O9
+	VbxHF2WLmjkyrtw+q6eHoEQ6ETqtS/c2kb9zvzDqZNmzVu3DkLJH12w5EPveyYKSZBu7IUzrbtalD
+	Yk1X9NFkdi/HqQSKjzvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyZ3-00000009Iab-2FDz;
-	Thu, 05 Nov 2026 14:35:41 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1xOyZo-00000009Iut-2rUh;
+	Thu, 05 Nov 2026 14:36:28 +0000
+Received: from mail-dl1-x1231.google.com ([2607:f8b0:4864:20::1231])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOyZ0-00000009IYG-3vTI
+	id 1xOyZj-00000009It2-1YNy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 14:35:40 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-8a058f74a54so867511b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 06:35:38 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1793889338; cv=none;
+	Thu, 05 Nov 2026 14:36:26 +0000
+Received: by mail-dl1-x1231.google.com with SMTP id a92af1059eb24-1ae18eb9ad0so2286561c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 06:36:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1793889382; cv=none;
         d=google.com; s=arc-20260327;
-        b=DwYO8HUj2ve0mjDdEjhGQzUVQ0I+HEu27/loG8e6jdaxQqi3HFUy84oFysA3ywgvf2
-         0nKR6jX3ju/g4iRov8w32FMomv51Yu8ZmzUQH8xK27zjvvKEnFJZJxRSD8VGlNofTxJS
-         ZRSe85uaNkNZSX38pHKRqNrIykxZyNqDPHw2RY2PtYka5gHSsaFkNbWFVhC7pUeqy9tS
-         Cs204dk7tuz1h6ObpsAOmvHB42utTsvsgTymFbYhixNbbM/oK/iir/t5BkqHHXBsC+df
-         UEvMxJ2Cnt+1vis6ZM3OG/McTsv52JEORcsfvNdsBjRfO1rG2ynbS8Goy4wzrHqwyH14
-         Kccg==
+        b=M3wGeeLGC7KMCLo2cjbWbqoKOWJoPLlE6abVN5Fuxn6W9INgMfg/l2RxrxZp5I2tjv
+         nU4VdDxVavAocTekGhJtf7NuZpxiKGoR3/dUGI2QKn/7L7QdpEffMeRfOgIufAe0hBhh
+         M7kIa/OaJ5itROmlCcFKsvZc+6qXh/Y/UMAZT+EXaMgrPO0zod7Ckooq3g4n5wxFEO8n
+         9Ad6cmFeIuOH+GgB4OG9DeGbJ4g2vyhKQuKPj/B9+jlAt4STbaO2naC4pKJ3IvucoWhT
+         Sjql1uZbs7gxOFA1ggb8SgYTMTrThXGglBWVyhNcXONT9FDu5dMUjC9nuPP7Er1fyRCx
+         fmXQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=GkU9fJVYjw6koPkED18+RNmNCd0Pc4rVVHMltt2KuQg=;
-        fh=r3ijS1oHc6K6dX6BLijcZjHa/ZPOxat1dnD8fAnqBCg=;
-        b=ADsBJObRP4dSuUJ00gHh5agEN9XD5v9zeQngO3u2fx00giIsbtRArJK76w7EYsB0RS
-         mlLUDc1vFW9D5ci+bFx/EvtrwEL9+rcfo0A6xsR/5CCpOpAce/lpNEpkX+/tKnFgW88i
-         is+bxEAOugr7VqgRObWuYlYtrco1lmobdK4BYx3Pad7+4V51iL8yh8A372cv34zzVf9X
-         XTpuVh8cb4g65iEDo2GSMpc3gQRfFmaHhDe0fQcZGsFEjQ4yT8wQ/jNQtRPu7bWKkntU
-         6v75RrxCDJmMaLSrimgGfzWuNwlatotoouITLXGXBjVyyxwI9tqzw2QoBBm5sR6zE4aW
-         00cg==;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=9Ymc+4AQvzzaiCWsBbLGU5SMznTThrS02qv+sUCHS1I=;
+        fh=pVyOOEV4VLA4p2nZq+/mhK2PZ+k96JEJG4G5BzIOKpo=;
+        b=WH0Lpo9y3klTR/t6LxHobA82749KkbjIGE0vrfAyGsMmcfWz8HV2oakocg0hrZO/cf
+         Vfbha88jBzG0FS+WR0i8kPzTu8NE6L/Zu/dBg5L8XGJ/p9qtBzlZbHV6kNQPSzuim/ma
+         ikCw/aaeOiqzwOWJt1Kz69Zqi5XkVlTWYv3wE2GIovNWZsHgOIyGVp3ZWylH9Ov1kWrh
+         wTEI9ngUUC9sEQIHxA1pW2I29rSJ/HepqC3nWBEvrFStPPyCYnV8TshT7fl6Vfc5shi4
+         vi5atysvUR8BtWMQzz2CQDi0YmLZmGBU+w0kDm2YyaTrcNJA7jFJOm7Ov6iGeJ33K0ks
+         RzqQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fooishbar.org; s=google; t=1793889338; x=1794494138; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GkU9fJVYjw6koPkED18+RNmNCd0Pc4rVVHMltt2KuQg=;
-        b=f/SUUrh23LtbQDJ5L835NpArHUOXDrg0b7mSfFSZllryxG6KJh4flR3u0fKMHqHlx/
-         qzJiwfQJNHaijdlbj0rYUoXpAvK1wVgl9v5rnkWfVgYIh+4wdX7lTgNHCC2X8chQwz8W
-         ZlzB2aRfLl7OW64IXMZ2KJsR8R4O7iKAX0HF9Js5KPRvgTX+IVOF/wSFzwV/xtzYQcOr
-         3PQHTNqqMD1j3WuEx/xE35YgJarnoIRCu/pLQ5eMZ1s+Zs1r3XJ6CNYqZTmgM5oAcV6n
-         DzuIaN9jHE84uMwGfbZEK6veNHUlCehueErIU7zcOD+GfuNxjKCA5J2DnlDUiW2okPzI
-         zL/w==
+        d=fooishbar.org; s=google; t=1793889382; x=1794494182; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=9Ymc+4AQvzzaiCWsBbLGU5SMznTThrS02qv+sUCHS1I=;
+        b=AaxsJ0SBifIvCHby09kHsFg6WZh08uiOOQGAMDUynTln4KY4Dl7tpECHQ3vgqAbwP2
+         072QaaTs/gGSNOO56AHTrGeJ4jII8I1m4qzFBxUl+M+un5sK+gYQlM6cxWy4TrpsEiB+
+         AMxa0WzUmAfVAU/MP57ep6H+dcup5dUCR/nUbNnH+ajxLcn+YAhl1qOA0tOWvBeqQU8+
+         F/s5INMPxq+CwNzqy9MSOa2Ek/JFkukj70VCBazdFy1P0CMvkT6TCvDCU9P+LprgnkCL
+         kPNw0oo0P/TKMl0n0Ww5OqLTP2nBAOzaEaLP4Qic6jLo75I/uzRK3+ymWLLwIlUM5jsj
+         ZKTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793889338; x=1794494138;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=GkU9fJVYjw6koPkED18+RNmNCd0Pc4rVVHMltt2KuQg=;
-        b=pMlH42nHmUQRJ/vZc8QEIPk/mUsN+n9G3xJW3Tv+SundKcz5a2I/+e9lhSTusNRV9M
-         Xp+EtBKRcRN3oFdIddshgBSCcyaqF7mK473/YuCUDWQhIUmPJ/XroBgxkHYnVNFJ9pUk
-         mKPpSKnV2q6WeuVG+fyBb4db1vc8n3Z8WY766xO0z470H2/l0JeAMdrOapl1KX6biU98
-         tRU4kjfs6w4PyUj4xAAdsWMBXoNifT/+UvsD8730u4UFeR0JbX2KeP3nMP4qXuufDDa9
-         R+rxHZxLTlbHwYVbI4GGe6cNkivQgZL/SezmbFM+lNwpB338owmQMf4eXSpHwnEvq6J4
-         uY7g==
-X-Forwarded-Encrypted: i=1; AKwUvByW3BL+iWnbUihHHHooZG1BS9d2zR7p/HEN6/jgXgkWL7851UCtMsrNQDXXtTgdTt85+V8cKdip/PN627wlUZqx@lists.infradead.org
-X-Gm-Message-State: APuU4Z890Igg99fRM3xCriLkL8s3yuztNy6fggG+pbkb/zQrCWetZH/x
-	wZnE0cPFhGImJosAOVHP27KX9WBxEXZsqRADKqad1WjgFGBsFHG9Lr6+3GOSY6F5m6lk05TdkML
-	o1wJfm919f/72f/yob5h76M5YhPGZhV9j09iKnhhlMw==
-X-Gm-Gg: AYBFou2BIlHFfKyOzNDZ4wRPnsVSlAq6SQX/xI2EKiUajbBZQpu4Q+k21NQCaQhLc0g
-	vUDHpKHCg2FW20KBP5CNQVCFY5rouLLrfgfDOSVCJx8W8bir9n+iCOA9jEtsNjl41v5rBY0zTfV
-	eezWXYe4SCuLwuCQdYK9HyxU4i9+B2u/YM+9Ck6MOL+TJzEOg4TiFYrmX8w3Sf0Ige2PiPDGVxg
-	t2ouBFTm7vuIGnwcgSpfGPjluxrLUCRKSyd2EhhJKG6OyRJcdxOUwWcT1nksyPo6AxLxafhhKTx
-	/O5DzbmXAe/Ss+skw20QOhWJ0mVCAEMcq0S7CAde8V0Wunag+Z1XiZxYDTuXrCmOp/dh02PiIX1
-	D9nV/vPMWoCgLpTG3BWEgmFLQJVFxeyvWgxB9
-X-Received: by 2002:a05:6a00:330a:b0:84e:909:ac03 with SMTP id
- d2e1a72fcca58-8a9be48c598mr16519398b3a.10.1793889338094; Thu, 05 Nov 2026
- 06:35:38 -0800 (PST)
+        d=1e100.net; s=20260707; t=1793889382; x=1794494182;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9Ymc+4AQvzzaiCWsBbLGU5SMznTThrS02qv+sUCHS1I=;
+        b=XhW+uAf6k0YLTFGQeTePDR/ThVu0MzMPSyG8zt1XAVC2B8ibxv4QvEn4OwtS5lHuF3
+         5ImVOqIBYncQIdbPrK0tbjQKq2Hfumdmq6i6FFntZcebCiw7bS9bM7m21ojiIQVCGmVZ
+         Vo+d3QYWZoWQBlyQVPc8t96pX1zxaAS1AvLEZUtiImsUUIQxH7EY3eHpy12n93K9cliT
+         ranQz5Z0gn8WTdXiAqHLdw7gXba26YxTLuuKVv2RsXp7bxw3VHPCV482ddtDmyuzJEIA
+         jxFsAKlZ4UeQ1hgmOUjmDsAUfm2UbTYrdsXnHgDL5+AzB1zmgpk8TXqR9iP2iyDhmfnb
+         o/IA==
+X-Forwarded-Encrypted: i=1; AKwUvBymaI6rSd5AhDPswcO/gru+M79S5UnsHifBuVgPL+xZEtq34jXZyatqpVU2UIRf2YylDz4AqIfXLPAp2FXyiUSG@lists.infradead.org
+X-Gm-Message-State: APuU4Z8q7BH7/Pjq8MYqTdMzPcIatS5ljKpF8jjh+e2ftrxmoRturb6R
+	gMmPrtHwYrgx+e5AggmTra3jLUsM/CHRi5VuFGUDuCgTYoVRZsxkhrRDhXn0JmUtGayZBUY3pYF
+	7CUVvAWQDzYoigf+P6xHdg+zWpugd155m+unmdjYLMg==
+X-Gm-Gg: AYBFou1uOkSiO8dWz4vchjefUCjnkhbwrWDeviRSd0zm+K6TE5lRSU0CF7rNDD0GGzt
+	fmB3Ykn6GbAYXnieA2wTeBaHA9thKdCIimixje7d2RzEYK4zA3CzYV6JuhkwcymlRwKKOXbjDc8
+	RpUX4SSirg3xtNs9VnJN1j+MJrt26w52W2A8qbr9meg+csFthQZKA5tyqEEwXIgM7PFdjpR2CES
+	hIEnPTsrXcrNss4YBUQMtfpkgYZo8I5J7eKP739POjFILfanW3l3b2UQ2xJozmrOxNp9Ntbuh3v
+	JvL0elvy6x9Oi2136Wj5VPL9VvCsilpPrT/wHQ7wdpR0Fl6Hj/3BFyvGlS0M3P4rqPK9Vv/Wv4q
+	8AkJJdOkEvdxnBG4Nl5rOHYb9oHwRGBQz9jSa
+X-Received: by 2002:a05:701b:454d:20b0:1b2:3b5b:b80b with SMTP id
+ a92af1059eb24-1b23b5bb847mr12680614c88.8.1793889382405; Thu, 05 Nov 2026
+ 06:36:22 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 References: <20261105-dw-hdmi-qp-yuv-v6-0-1bb63ef5766e@collabora.com>
- <CAPj87rMQdE3eeUxGSb4oQfB4Adry6UV8CvhGoTKtdKGQHdSo4Q@mail.gmail.com> <81fbb960-abde-44ea-82ab-3adc054da836@collabora.com>
-In-Reply-To: <81fbb960-abde-44ea-82ab-3adc054da836@collabora.com>
+ <CAPj87rMQdE3eeUxGSb4oQfB4Adry6UV8CvhGoTKtdKGQHdSo4Q@mail.gmail.com>
+ <81fbb960-abde-44ea-82ab-3adc054da836@collabora.com> <34506010.aRNtrjHk3s@diego>
+In-Reply-To: <34506010.aRNtrjHk3s@diego>
 From: Daniel Stone <daniel@fooishbar.org>
-Date: Thu, 5 Nov 2026 14:35:26 +0000
-X-Gm-Features: AclHuK__6TlodHOzyVdjm-UulEeYQ_S-cCkdzywOgk9TNIGTgV-C-tpWJDrX-8A
-Message-ID: <CAPj87rOKJ_EEmSwkokjvqytgnzTi8V_EhtGywQHe7xeww+ECDg@mail.gmail.com>
+Date: Thu, 5 Nov 2026 14:36:10 +0000
+X-Gm-Features: AclHuK-P65od5HCTUxTkNtF8XI9WRdmLEVnuoZ_IAiO-y4WkOrppI1hKYcCtIdc
+Message-ID: <CAPj87rMyMB05OTMDLSPe+oDZJYUW=oHF9E-f2LaTPCsBrKAAhQ@mail.gmail.com>
 Subject: Re: [PATCH v6 00/15] Support 10-bit YUV422 and 8/10-bit YUV420 color
  format on DW HDMI QP
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
 	Andy Yan <andyshrk@163.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
 	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
 	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
@@ -118,9 +119,11 @@ Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@snte
 	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Sashiko <sashiko-bot@kernel.org>, 
 	Igor Paunovic <royalnet026@gmail.com>, Sebastian Reichel <sebastian.reichel@collabora.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_063538_978215_603CA1F3 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20261105_063624_648664_5D1960C6 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -139,22 +142,15 @@ X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hey,
-
-On Thu, 5 Nov 2026 at 13:04, Cristian Ciocaltea
-<cristian.ciocaltea@collabora.com> wrote:
-> On 11/5/26 2:25 PM, Daniel Stone wrote:
-> > But if this series keeps on collecting unrelated patches until Sashiko decides all
-> > of VOP2 is bug-free, we will never get this series merged. Could we
-> > please keep this series focused on the useful bits at the end, and not
-> > keep on adding speculative new Sashiko-pleasing as artificial
-> > dependencies?
+On Thu, 5 Nov 2026 at 13:22, Heiko St=C3=BCbner <heiko@sntech.de> wrote:
+> except patch 9 of 15, or mail hasn't turned up yet :-)
 >
-> Yeah, sorry for that.  I'll stop here with regard to addressing further Sashiko
-> findings, unless there is really something wrong introduced by this series
-> (which doesn't seem to be the case).
+> It does look fine to me, but if someone has an eye to spare ...
 
-Nice, thanks a lot. :)
+Nah, I just forgot to send the mail / was waiting to send until the
+dclk reset thing was fixed (I forget which).
+
+Either way, it's done now!
 
 Cheers,
 Daniel
