@@ -2,79 +2,97 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFBD5606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:10:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E844606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 09:11:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=n0kPeoj4;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DAR24fhg
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=t/sjt5Nb;
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=d6BnUz4G
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=l8FVoARO3j3t6Swl/r4USV4n/IIP1DJGnmzvtDWkxwE=; b=n0kPeoj4jRsdYi
-	NlaAHhRIgS4Kq73Rtu6BwGLYLfMjIx54fVwDNheC1WSU+eOr3imMqrh+ei276oY5MJVktVbNb42Ba
-	HaxELufSddr2Mc6oE7xlz729eRgHdcu66S8X+Hb3Nd3myHy02kMNnhgn7yxsl9PVMKnMpOGJxOxTG
-	dj+mWCbN0x5vXC8+KRdUY+F4uw8Fo7STFr5AbrF8iBdfwazqgViE/GuWSviz9c8ki7wKMfHiL9nNI
-	8e6IgHQ8udQrPXg8Bd1IqGLzy8eDkFIzn8S3xE1rmDC4ob8dTRcxUe4BWh5rn6m6/sy1/UCxO8CqH
-	moBiEqGa5VldKK1wkERA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Unsubscribe-Post:List-Owner;
+	bh=ZRGJdN+0ZU0Q+8Po4r5uRyGAvRT/GQRrEp1MKzJo7zw=; b=t/sjt5NbgPgxJhgcLY41Sa+K+J
+	C/rUR8o3Tvu3/aYyGWznJcc+GyDe54g6e/ipNu+DE+DoN/XWyKh9xuYfVBYiZXzCH/9IF4KN33AHg
+	8/mOeprrauimlZcKInfWwOvE+KYgSsMvZmm2VEEFN5FtXHx8RciT8Mnf7yW+FiPcw+ny6Lh7NnjXw
+	eHL9rK25LoVCIUplvA1bhaAsk+5tmjvjwd4+ADmKNPc7/C7kJcO6jko7FCRkurQHZ2PKDbpytQEL+
+	/1H3586LY6d9WBSxCgLGGBofBU4dsCOZvFOuAraqkSnscFMICvYSe8l8d7zYxYsOZtoWlZXu5iBxh
+	SF32PtPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtUR-00000008FoC-1GYG;
-	Thu, 05 Nov 2026 09:10:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xOtVI-00000008G28-07KA;
+	Thu, 05 Nov 2026 09:11:28 +0000
+Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOtUO-00000008FnL-1qv8
+	id 1xOtVE-00000008G07-0T7U
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 09:10:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BCFDB60F3F
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 09:10:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 671DE1F00A1B
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 09:10:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793869830;
-	bh=l8FVoARO3j3t6Swl/r4USV4n/IIP1DJGnmzvtDWkxwE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=DAR24fhg1o12QPYF8w+7b8HIwsxRutsHpEf4cTFEyfIe1ri9nazYsDIocFwx5ISJP
-	 /3zIPoK5gQ2uI+H1WEkOK0X8GhFfj+9hv4l19yz1q/DPecQzQz2d5wbU1n2ejd3hHg
-	 /zhtdfWlMuzov1tVk4nMgIA2qtMOnpO+yRJas9gvpgUs9txLGJr7ilihbpns5ihEDF
-	 4/2yV2xRNhSNdsLoCt6rVfexZqo5PI+2bh5Zb6srEz7QL1UDMhOmHpUYxCXABSTIqt
-	 wtkhqxb8Tr9xqccUmW68LmRoovBaE4sFySPUjEpNYZPRH5NW5iNUtVbG0K+6xqcnIW
-	 aiNZNsoA0p13Q==
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5bfbc67991cso1025371e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 01:10:30 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvBzj7XBKOjZtFAuN1OpafOp0+0Dghqgt3rabE4IimMcXQGxxbHKBEE0pZzAjx+A7IMu4nUcQu48uy6NFjSyDsARx@lists.infradead.org
-X-Gm-Message-State: APuU4Z/Ll1fJGiJNx59HtiRn6bX5wcxqeLWThGLU2FCcFamWRmk3YojM
-	ZieLTjzXMZjcD2kAdmDkJVUP+LBI1VdVhUniUa0kEeyReTRz7KpcYtb6MuryNzcWx3UihFVHvFb
-	wXSCpxKGom/AtmTKeiAEeXRuxcmeTsnQ=
-X-Received: by 2002:a05:6512:31ce:b0:5bf:be3c:6599 with SMTP id
- 2adb3069b0e04-5bfd957cf17mr5726763e87.67.1793869829164; Thu, 05 Nov 2026
- 01:10:29 -0800 (PST)
+	Thu, 05 Nov 2026 09:11:26 +0000
+Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-15dd124bbe7so944066c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 01:11:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1793869882; x=1794474682; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ZRGJdN+0ZU0Q+8Po4r5uRyGAvRT/GQRrEp1MKzJo7zw=;
+        b=d6BnUz4GSoDzvKXFi3nJABLaY5E0bzbh0oi80FT3ykuNyXDw7N2aCwLJ0ywZG2NLvC
+         E66l/GtMaFHqdMHwnR3AY0ku7nAxxn8DBw7RbJs5uR1JYvDawM52G+ML11cw019p35N/
+         9rPZ+TUD69ZRVWHkm23d8XqXAzGvydzjx3wvk=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793869882; x=1794474682;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZRGJdN+0ZU0Q+8Po4r5uRyGAvRT/GQRrEp1MKzJo7zw=;
+        b=DQAlMu6Smd4HWgb7/t1tyFW8cw3zTNBOXZIbG/x8QnPD1cdKwBRiu4YHynw1+aWU/u
+         kccqtE3aSsQsv1hKgX/G25hqnt3kWWYUR+ks8G7V6WtMFbyfJMNQXBg5+xgHMDkYe1za
+         H87tIINXhW+bPWAURbjHnQTwMtKEKByR7TYiWiikEE11n9UbqGJUDxoymVHi6hq8ObyA
+         Yq4g7Pfp4wgPMIAJ/5o8ytYszaGNa8TxE3uppC5GKKH5SaX8wk8zWv+VLIWZ9AalCweO
+         rQ+owfxtZTRqeQxFjZQ84Hg1bwLiNk7QX41LvPSCuIBhW9hykzSW/8mqKqm0BPxK5ws1
+         HmqQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwBz89qR9+I7CR9B+lPSjfzwdu7t7vP9moTigAFH0IkknIEbAxmmZOb281nc8gcLQGnq0Qxbb2PaasLe5oOrNan@lists.infradead.org
+X-Gm-Message-State: APuU4Z9zY3nW/nx3cAjnweraWQ1nH0YbJqqagBMnUOfk8d6962agkZ8b
+	jhCfP9RV+OAweq7u4KlxWPr/E+bYIEkMrcdfaEhUUvFq+hdKRZgS7F2l3BKx5xFLcg==
+X-Gm-Gg: AYBFou1yBdzHByZpkHyvb89u9zyD5gU/J3C+wynkn0dr+5cs4pQlIYWEZ2IHqdcv8dW
+	ivx8ds2E0kd3qEqH303MrJllxE8m7K0KD62pmCGqFL00mRe9FTztzIRkay+Lp+g0gDTVRYrv3s/
+	up0twtenZyzH6C4YpS0kn+FrLJVDhyynNGExJqrAaDxHGG4HZu7FJnpT1XJqKV+w9av8cGjTY0d
+	xZujFU04afYUWX+IGj1H6w9VgMHWZGHdkQo6QDrLxJNpDes1IZUdUFou010ocp3x2oczniN61qC
+	x9PNCTLWu/R38fG+k3pgFW0QX9QPm6XrEiogn24PCfjmWNDis5ONYL01gqP87WWCNQUYq9s1FPw
+	KADzgcOb+a/doT9RzV5xQrLcODZj89kIE7MlSVnMHT5wUyyIcpMftlT0vEqU16GYuWaJIVmVJFL
+	dIFy8C1+H1f1bQnXoLH8g9S17C9ovsQ7eo9k5+qDEeFd27GSP46WylXYY4Tohu35IlrGUftBHfY
+	dvFn/dEuHaxtMaS7dOsCAIB74+odr9S4zPopPhdqB9lKqYv2rEdi2sDKWHxmPox3MPnpKCx6jEp
+	ftF4y443bbhP7xFgiZPbH3QnHtwfaFUDzo4Qo8hrxyCexHWHqpEzH3H2Zw9uMQsQZeJv8BoJD8N
+	4V1GLoNEhDyxVEeQhd44nl2HXlhTRSUB2Z9Misg==
+X-Received: by 2002:a05:7022:eb42:20b0:186:4a57:94e5 with SMTP id a92af1059eb24-1ac5c272744mr29105381c88.34.1793869881711;
+        Thu, 05 Nov 2026 01:11:21 -0800 (PST)
+Received: from fshao-cloudtop.c.googlers.com.com (61.14.81.34.bc.googleusercontent.com. [34.81.14.61])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36ca39b8eb3sm20117002eec.27.2026.11.05.01.11.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Nov 2026 01:11:21 -0800 (PST)
+From: Fei Shao <fshao@chromium.org>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Fei Shao <fshao@chromium.org>,
+	David Airlie <airlied@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Simona Vetter <simona@ffwll.ch>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] drm/mediatek: Validate gamma_lut size
+Date: Thu,  5 Nov 2026 17:10:43 +0800
+Message-ID: <20261105091054.3993611-1-fshao@chromium.org>
+X-Mailer: git-send-email 2.56.0.455.g6c5a503b38-goog
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261103-for-upstream-lx2160a-rcw-pinmux-v1-v2-0-3aad0860b984@free.fr>
- <20261103-for-upstream-lx2160a-rcw-pinmux-v1-v2-4-3aad0860b984@free.fr>
-In-Reply-To: <20261103-for-upstream-lx2160a-rcw-pinmux-v1-v2-4-3aad0860b984@free.fr>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 5 Nov 2026 10:10:16 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=Np+_+wTkuLCiqjNY5EBqn5qq8zKTJB6F-=1G0R+7=Ww@mail.gmail.com>
-X-Gm-Features: AclHuK_7g7nY-8H8wprNfNKV8lgILSoOexV2IGLiXfskv9qSmIolBJEeTn_Fqx4
-Message-ID: <CAD++jL=Np+_+wTkuLCiqjNY5EBqn5qq8zKTJB6F-=1G0R+7=Ww@mail.gmail.com>
-Subject: Re: [PATCH v2 4/5] pinctrl: freescale: add the LX2160A RCW pad-mux driver
-To: vjardin@free.fr
-Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
-	Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, Vladimir Oltean <vladimir.oltean@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261105_011124_163948_38162AF8 
+X-CRM114-Status: GOOD (  14.13  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,41 +103,69 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Tue, Nov 3, 2026 at 7:12=E2=80=AFPM Vincent Jardin via B4 Relay
-<devnull+vjardin.free.fr@kernel.org> wrote:
+The DRM core only checks that a GAMMA_LUT blob size is a multiple of
+sizeof(struct drm_color_lut), not that its entry count matches the
+hardware LUT size. mtk_gamma_set() and mtk_aal_gamma_set() then read
+the blob up to the hardware LUT size, which is an OOB read when the blob
+is shorter.
 
-> From: Vincent Jardin <vjardin@free.fr>
->
-> The LX2160A muxes its IIC, XSPI, SDHC, UART, IRQ and EVT pads from
-> fields of the RCW, read-only in RCWSR12..14 of DCFG and changed at
-> runtime through the same fields of the override registers in its DCSR
-> view, which read 0 until written.
->
-> Since commit 8a1365c7bbc1 ("arm64: dts: lx2160a: add pinmux and i2c
-> gpio to support bus recovery") Linux drives them with pinctrl-single on
-> the override registers, so its first pin state clears every other field
-> of the word: a board whose RCW programs a non-zero pad mux loses those
-> pads at the first I2C probe.
->
-> Add a driver for the pad mux as a child of the DCFG node: the fields
-> of RCWSR12..14 and their encoding.
-> Then pin states select them with the generic function and groups
-> properties, and every change goes through the RCW override
-> of fsl-guts, which reads the status register, writes the override and
-> waits for the status register to follow.
->
-> Signed-off-by: Vincent Jardin <vjardin@free.fr>
+Add mtk_crtc_atomic_check() and reject gamma_lut with invalid length.
 
-Can this be applied separately once reviewed?
+Fixes: 2f3f4dda747c ("drm/mediatek: Add gamma correction.")
+Signed-off-by: Fei Shao <fshao@chromium.org>
+---
 
-Yours,
-Linus Walleij
+ drivers/gpu/drm/mediatek/mtk_crtc.c | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/mtk_crtc.c
+index 2920f3198ef6..fd9b51fd00ea 100644
+--- a/drivers/gpu/drm/mediatek/mtk_crtc.c
++++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
+@@ -880,6 +880,26 @@ static void mtk_crtc_atomic_flush(struct drm_crtc *crtc,
+ 	mtk_crtc_update_config(mtk_crtc, !!mtk_crtc->event);
+ }
+ 
++static int mtk_crtc_atomic_check(struct drm_crtc *crtc, struct drm_atomic_commit *state)
++{
++	struct mtk_crtc *mtk_crtc = to_mtk_crtc(crtc);
++	struct drm_crtc_state *crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
++	struct drm_property_blob *gamma_lut = crtc_state->gamma_lut;
++	unsigned int lut_size;
++	int i;
++
++	if (!gamma_lut)
++		return 0;
++
++	for (i = 0; i < mtk_crtc->ddp_comp_nr; i++) {
++		lut_size = mtk_ddp_gamma_get_lut_size(mtk_crtc->ddp_comp[i]);
++		if (lut_size && gamma_lut->length != lut_size * sizeof(struct drm_color_lut))
++			return -EINVAL;
++	}
++
++	return 0;
++}
++
+ static const struct drm_crtc_funcs mtk_crtc_funcs = {
+ 	.set_config		= drm_atomic_helper_set_config,
+ 	.page_flip		= drm_atomic_helper_page_flip,
+@@ -899,6 +919,7 @@ static const struct drm_crtc_helper_funcs mtk_crtc_helper_funcs = {
+ 	.atomic_flush	= mtk_crtc_atomic_flush,
+ 	.atomic_enable	= mtk_crtc_atomic_enable,
+ 	.atomic_disable	= mtk_crtc_atomic_disable,
++	.atomic_check	= mtk_crtc_atomic_check,
+ };
+ 
+ static int mtk_crtc_init(struct drm_device *drm, struct mtk_crtc *mtk_crtc,
+-- 
+2.56.0.455.g6c5a503b38-goog
+
 
