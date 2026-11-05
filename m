@@ -2,110 +2,110 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76B97606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:36:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5A01606D834
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:37:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vPiNpkPP;
-	dkim=pass (2048-bit key, unprotected) header.d=jannau.net header.i=@jannau.net header.a=rsa-sha256 header.s=fm1 header.b=oGIjcS4E;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=P5gULBW4
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nWh3Pt7d;
+	dkim=pass (2048-bit key, unprotected) header.d=jannau.net header.i=@jannau.net header.a=rsa-sha256 header.s=fm1 header.b=dh/oXJNr;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Cs3KuY0G
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=WK0NkUOTRv8s5/APUMAy4zxliMrv812rU6CaWplx828=; b=vPiNpkPP69FnY8
-	fhkh6+1Kc6V/ZjYSvoPyAcjHbYYOWHtT6COomR3Nit0fg4inHjKaml4ZcuuWqqKfYpfWtsD7penKn
-	rk+VVfEMeAiJQklt+GcKU4T4N9LN7SvL4Tvr0+BMOyX3EA52plsVzSOMySeGKDhWkRelZWSi7LaHV
-	ZFnsLYP9hhRmtvWCEXXFJQIYE51rLkh2UkUeEVzdGydpiJittLJoQd5v0wCZv14AO55N78ZsqnvFi
-	2f2vjnp28RTwK87gqrRjQshPiB7fZQXf4zl9rwSGu9ZYORrRIFWiXAIZ8vTLmVHGC2okCRI4a23gX
-	OSk8FE4VODJjDSzyUKVQ==;
+	List-Owner; bh=XSVyiFNYfW4Nl2FRS/OfflMk2nhb+NruofA5umsuAro=; b=nWh3Pt7dSdPOYG
+	fUgGVwpwcKWOQqNhg95N04rtRu8YU2mTbb0IVgTz7ghxaJjSraVq1iXH0cNsH9xBV3g5i/FA+HisF
+	GMCt/hphh+oys12cFKObkCjpYR70upOJepGNur/X+CE4Yn9X7UAEKitiVYFYxaWdadxJFKAah2Utm
+	nT51zwWHTa38LGCPCue653JrpXD+ATOxNvY0a5lTxhel0Yuz0t7Gvh6pjFVJIicsbfJ+T42cRw6yG
+	ImuPTMar9hBrSj8bmUhXT13HuTcZVYhSpRqz5NehRBlvLj1ZgNf4IK4ZphlVRhdN6OO3+ZjRNnYwQ
+	5mll7MUGrsDpjzxchyAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvly-00000008fqj-0usL;
-	Thu, 05 Nov 2026 11:36:50 +0000
-Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
+	id 1xOvm0-00000008fuC-1roL;
+	Thu, 05 Nov 2026 11:36:52 +0000
+Received: from fout-b5-smtp.messagingengine.com ([202.12.124.148])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvlm-00000008fhl-2lkE
+	id 1xOvlu-00000008fmO-34gL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 11:36:45 +0000
-Received: from phl-compute-12.internal (phl-compute-12.internal [10.202.2.52])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 105227A0159
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 06:36:38 -0500 (EST)
+	Thu, 05 Nov 2026 11:36:49 +0000
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfout.stl.internal (Postfix) with ESMTP id 205591D0014A
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Nov 2026 06:36:46 -0500 (EST)
 Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-12.internal (MEProxy); Thu, 05 Nov 2026 06:36:38 -0500
+  by phl-compute-03.internal (MEProxy); Thu, 05 Nov 2026 06:36:46 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1793878596;
-	 x=1793964996; bh=WK0NkUOTRv8s5/APUMAy4zxliMrv812rU6CaWplx828=; b=
-	oGIjcS4Eg6A8x5cjvRRV20mS2STs/5L/Ac9/uSjRIb3HBA8y0kqzrHuVM/u1S38E
-	9DEjlvL8I6qTosjUdbn4TEDepe3K4heEs/+6Say3Un96ea/BaPM1QyEqv/KkVUkU
-	/CxzxctuBCZOmJ/KVpR2LPcgUxUNn5FV5j5WM0S+bTGdLdmAwjyeNRW5RBmneak4
-	ZWRyQiK5hgyOtdCoSlrG0C60g18Hmjv16WtCMHQP57nlvyEI+KzuN++qou1yC2lW
-	HFuH5OwR/S9Ssl37wWcmeSBabtzdlakbsZbUVYeCi37HS01eD8QfFsBmeYfJzI0g
-	WYpk93aavP7lMb0tDHPrsA==
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1793878605;
+	 x=1793965005; bh=XSVyiFNYfW4Nl2FRS/OfflMk2nhb+NruofA5umsuAro=; b=
+	dh/oXJNrMQ4QHPKSA2At6GLG5sLPFxNacET7lbATMxmwGPBpCNqm3sUCN9eEeLJg
+	z7S1d5xHfIC0iHC2dt3W/2VBLgCixFORkc/wj1bVOQW6KzxOoXz/QjBb5v5oau3U
+	l3Tt6WT5bWE83Hj7uE/PxsN2ncZTr6GAXh8AlKJ6uJlQRsbb8fEODLPfNKhb16Lz
+	WA25victdm40cA6Jv9FK3qqrWSQoU03NjcTfbOJBtW4QOvhJoKCkmZ9C5zYgxyCt
+	NiKV3nHIKyQvbudbZtkALqrlWd8iT+4JAwTSOfbyNJSP+2F74Rwh5ShLYnuvXD23
+	WgbT9ck6XpiIKtTwvlVM7A==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1793878596; x=
-	1793964996; bh=WK0NkUOTRv8s5/APUMAy4zxliMrv812rU6CaWplx828=; b=P
-	5gULBW4Em8ZrJL2o6fKXp7OuIIVO+0ZOjcYWoSbdhPu65iahH8+d9Elr8eILqMIu
-	rm7I8Hx/tOsa21TAKlmerGvXWPm5boASdVX8IsX8et1ACB7IsgSHZXJcGy5aL5m5
-	4vYkKe2sXDGyHe1fwpTI90Xo/LOg+JI1M2ODepNzsdQqjd75miKbMRhpFhuHomeb
-	2e4Hr7UPgEKJavp+zWT22SrJ722/5wnVxvcKRwEnVXAYDoizlsG9Hb2ewhoYRh7v
-	q+6pki8D4Y/j843j462GamFjyInmTlbRXGO1GQnXCd0jvgfipMe9KQZd7qm2aPxq
-	0rTRhmYtR5MorHHtS/wmA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-08;
-	repo=github.com/dkim2wg/interop; date=2026-10-28; sw=lmtpprox;
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1793878605; x=
+	1793965005; bh=XSVyiFNYfW4Nl2FRS/OfflMk2nhb+NruofA5umsuAro=; b=C
+	s3KuY0GaEPsIOzxBW/FWhk/El/EPehtKxaq6hNyqZvW/xri4n7ixLqMqWWHgUMQv
+	vNUt/7ZjLMbGzwXdHFeSc+MAA+K1VJV/9PLOqANuDDjH9kSjSAiBFLlqD/VxWA8S
+	CQ5UrKuf5gGkau9DrMmDbWpmOHFrAKb9EVU5ozAGzIN3aWXEC7UmHIfysixm3OUo
+	kUtYVw2D7q2YwWZdHKeDtMxVCmFHREmLgeiJm6ArLK21pgdLyf8bV1adEsKXdeV2
+	1djv+KBg1lVaGKbquguVHoEno3QLm1nUs6BN3qCc/2lEvbPPf0O8u5q+q3PXGpdw
+	/4P+IneD4pMx5Wv12CcwQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
 	action=sign d=jannau.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1793878596; d=jannau.net;
+DKIM2-Signature: i=1; m=1; t=1793878605; d=jannau.net;
 	mf=PGpAamFubmF1Lm5ldD4=;
 	rt=PGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZz4=;
-	s=fm1:rsa-sha256:YQdm6wnaDxvOD/EEUZvuL32z2rmdq8FoOsTTwC+nnmeJvPG
-	jYkon7A6ZjwCrnh2EJhgUhxVytKRTmkbe6wb0A7myUmG4oq0jrW1vyvG50wi89l7
-	4XE4ihmEiLDpTW+8Ylr19E7TsqFiOSxK5Tl+MkTzfdOG+QkwCKxkfQgnHah+HLQ1
-	qxmdTmRO6E3Mjx5MbjhohTEXzpxCSX2IZUwaf3g9nneeCEVwaHAiT6Ovw66l8KDS
-	Ib6oDHcezTP0LcigyKwrAnnRsy5rEq3d0G1jGtcklGYRKjQHpobtMfcXEDkCl9Vh
-	ewGf4mDEDtVh6YJea/t9GU1SjQtTkm6E92cCa6w==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-08;
-	repo=github.com/dkim2wg/interop; date=2026-10-28; sw=lmtpprox;
+	s=fm1:rsa-sha256:OhWQLkQ3Q3wCyZ2RQCxesuEKCsQj4rjRkZsDoh8epECx0+d
+	hecsYEeYq2zKBN1qqMGs36cvvbUbyjYOq8EmixlvzTvWNSEJWeg/y7t5Hx5EZ6Yc
+	lD8wVe/VjNZcmPpxEWBTiWTafMfFyYAQ2ZwKml6IXCFksAPIcYVOIyveMpqkDDdo
+	B20uE1uHtW3+CDoWP3tCGpkkBfzkNcC5AOzmbMBAvv41+AKA+Qj9214JAZ6nVKlj
+	b2HLRvqfnveZKUO+TQMv9USkSl3VapwX4F/+xAxLNeqVAcaIt06Wvw1mxTzuzcbk
+	qQOwWt4OXiK1jrqpwoC37wuWShdbQLgAW3F0Z4Q==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
 	action=mi-m=1; hc=12;
 	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
 	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:hrMqAZetmNfQY5ccM3eGAeY/1GZoIwK2U8p1eHFHxFo=:NZQbBl++Pp7SMouqKWUSJWHwErySawfccycfBwLrK+I=;
-X-ME-Sender: <xms:RGrsav04k-JU2RKtlBd0HOnZq8YRsIN2SKBy9zvAxIPCWk-vTLBYGA>
-    <xme:RGrsatXJ1NHh8PJymMjn9vTpkKSE6k9Y3MlKQko9IvYlZR1xMCK3PM50ZL7eIs6SZ
-    tXF5jdRq334gLam9NdcPQPh6P_AmjIBtwwCHmWYs1CtcagdQMH5m6U>
-X-ME-Received: <xmr:RGrsaitCqmWpA3cQK2z6wBL6X5NmGHAwn951xEadZfD3oyKwKeyanRrxGigu2NkDWlf4jtaTjvA35XWtXw4Vn93Szfqj-7OLhI0>
-X-ME-Proxy-Cause: dmFkZTFQmXn41wIJ/ZoMHVipeqOKCGq6BuT2j0XxsfreqMusvMSEiKTUfcZxpjOm2k5EM5
-    KXKtudENzPPHUPAbqlGUxxiF+1dalOcy3yEqTY0wRGVzqxmpI4CSegvhu+2MpHws9sDxzs
-    hhhe2Tm0sPrlqAbcLURbK9fbLYIOpLFKCizCbLeQgvPIEI167ku4y6mgZtoIB1qVeS88pi
-    CzgaNK7Yv/jGJTbCs6ZLdqqGn2xYtJBu9iXGx+c0Zrc3nZhuMtThTYYSqRWgmIuHUqeg3A
-    sMPTduDSnLTG8DtxGjgX3hfvOAqdOLSn7yXWHyr/YiRKqY1QEYBUEX/mF5CNZyZyYdA2BJ
-    4zGCqI9jYpwvQQ16z6X1HWO7Z3ZL0Pzxu+zkW+Y87bOb1N/RhE6dFbqUvYIYL9ISdxgdfK
-    QUJe3ovKL6uc46FYEasYwPpWtcJLbakB3cSahj/Jo1YtL8aDnszgP4vmB+JnUGBUn+Dl42
-    Pg/tADqHT3SqmvEC4NK+1CqH+YtvJnKEZkMJ3hdrQuh4X9Xe0+RUiO4Jd7v0cbddaniUZ+
-    JgG99pRGTUi+2rc/ebsP7Lb6DcfDKxj9wQnLzA+zHHFNffnpMjPE64zHQcwbbdlwdT+x1d
-    3ro29DgafT5FdwR3HYyfUlwOUrL08Kl5yDzRDfdqHBTIiQEn/LbimIocg4vw
-X-ME-Proxy: <xmx:RGrsasWlZgcH4kcj_1vKaqCFlTVM_CqIqxS4VF0eFbiniKeIJmQWAw>
-    <xmx:RGrsamXbizpHhq8mf6WAX0SfIXTBnwOdETqVR9UHiK03UuTJ4Jgm0Q>
-    <xmx:RGrsaud2yEdvT_9BX1Co6pjg2wSt-owK7QE5eAudjb_aym4Xz8ed4Q>
-    <xmx:RGrsal4RNqNoNPHOdLghZAgGpewzeD7pVRd3wb99FbH1eQmd7wrIOA>
-    <xmx:RGrsaop73pCYtEz8xaZSSblo4Cyc9X6L51X_YvptU-eBfHHZgnQdCo3T>
+Message-Instance: m=1; h=sha256:DIBoRpfwqRRRshR4iYw1v5Xig0iN2s5xbz1SxXao2l0=:5Ax+Tnl941iU4lcsG1LAxygu5i9bnuL5n1jpXo8dSZ8=;
+X-ME-Sender: <xms:TWrsagHne1mwFQfErcgrJM5jrmwaMwhuNVoRdKkncYFSUtNy0GcMwg>
+    <xme:TWrsaqvYUqAFHUvCSQYppozMdN2WPs3CYXypAZ3hfYTF_zdVI4e9bFO5Ys14vPswd
+    EbnCICXz0gWbAefqZK6a01ervDmqWOO3B9InrowdTkf_UTCvr11CP-X>
+X-ME-Received: <xmr:TWrsajaiSlXpEU92FeOTqlIix4pRZD572e44jqrVP5nCsi7KAPaG09yH6uELFM6B07X5447zpcR-ZzpdPci_8zsG5R1gQ_cP7dY>
+X-ME-Proxy-Cause: dmFkZTFxL6fPj/83KjW+fPrzD7XIhU0ugn9J7NLmcT7qkhSOHV6Af82MPa5XBOzqpSBIeN
+    Pp7p8OyM+TI/GES+hrNz1pWoLtoPr0PQyTaY9NPuTzBRGPiAAcJ3TBtaGIGFJ6EIOXXhvi
+    OmWkGixLiwFSU5Ji8fLekxxR6EJsv6volK4Aa+XkeiLpTkZTvhHs0PqHDFrfqL/zb/0ZP3
+    9znFWT6W8alLK2f1H3T6MWoAM3iYPGn74enSenY1WYKm4dI7WWKEv57BXjNOh+/gVX8bJw
+    C1jhLxJz5rZaO//peRzsXKtK782l6mQSftbsv/PkoCji5Zyj+60teGD5l3K8E1b3VAFAjI
+    sepznW++v/oO8DQNDri5/2KZRaYnF4UXUN2PgpunE0prH7Q+qtl8QGYkTkwDXchUeh3pTe
+    PXX8W1I00vXFDogD3e/Bko60udJtrKCJMYFPHxm1qXvep9kTJ1BNx28YkqzyTCDIZjsv+q
+    FzLDCV0/utyRnSGUWuDtxC2oBO7EtMxUk0Uo2DpaZxOzmJ/ZJO+8ERU4QrKw1ZCV689JKS
+    oeIsZIenpmL6SmNQ6gGh3/2pJGA5gGYR8Zk28W608WtSXSyKHCn7QxwQE7yGljMtWTpOwj
+    NJRmMYiTkbHdsKuXsKW1QwFVtQoB7TSo0y8CvdufhFgaIzezPPBT06EzgCVQ
+X-ME-Proxy: <xmx:TWrsaqVLQsB0tIQg3zU0dVM3f7q2GTUs2PIso7JwpkIOZ2dPtkTHuw>
+    <xmx:TWrsatJ88lONKSGcmNmwlYMb3g71e-ToVH2uZ0UudqdKlWrixYyVFQ>
+    <xmx:TWrsagEv39xFJweqIlWFgl_tebdrMpFFQsW8VJAQB6_LYfruE8XxIA>
+    <xmx:TWrsaqw7HXTwz0af7U7EruXkFIyLRDtgKrZpSqxSZChxOL-N80PnGA>
+    <xmx:TWrsakFJbMP7m8cSCSgmB3G2wSBQw7Ar33lLeUI3gOqJf3FuhmUBJTzu>
 Feedback-ID: i47b949f6:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 5 Nov 2026 06:36:35 -0500 (EST)
+ 5 Nov 2026 06:36:45 -0500 (EST)
 From: Janne Grunau <j@jannau.net>
-Date: Thu, 05 Nov 2026 12:36:02 +0100
-Subject: [PATCH 5/7] arm64: dts: apple: t8122: Add PCIe device nodes
+Date: Thu, 05 Nov 2026 12:36:04 +0100
+Subject: [PATCH 7/7] arm64: dts: apple: t6032-j575d: Add PCIe device nodes
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261105-apple-m3-pcie-v1-5-e00a72a604f8@jannau.net>
+Message-Id: <20261105-apple-m3-pcie-v1-7-e00a72a604f8@jannau.net>
 References: <20261105-apple-m3-pcie-v1-0-e00a72a604f8@jannau.net>
 In-Reply-To: <20261105-apple-m3-pcie-v1-0-e00a72a604f8@jannau.net>
 To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
@@ -119,20 +119,19 @@ To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
  Michael Reeves <michael.reeves077@gmail.com>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Janne Grunau <j@jannau.net>, 
- Alyssa Milburn <amilburn@zall.org>
+ linux-kernel@vger.kernel.org, Janne Grunau <j@jannau.net>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11368; i=j@jannau.net;
- h=from:subject:message-id; bh=6VnD2O3unzh18AVoLbGUnllQO8vAvLOBJtr9smydWkw=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhqw3WRpT3Q4+yjGZsCtA4ZOd+YnmZz0bmHdzTynSOrf+1
- zcx0/C1HRNZGMS4GCzFFFmStF92MKyuUYypfRAGM4eVCWSItEgDAxCwMPDlJuaVGukY6ZlqG+oZ
- GukY6xgxcHEKwFRbWDAyfP79MHD66R3lbRki7S/Dsx51RsTIueQarg5ecvaDyIMpPYwM94xY+9O
- 43aJWWGfpMMs+0gyc9/wAQ+m0JUu6l/0r+7yHFQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2348; i=j@jannau.net;
+ h=from:subject:message-id; bh=5Ax+Tnl941iU4lcsG1LAxygu5i9bnuL5n1jpXo8dSZ8=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhqw3WZpzHHXSnps/rf+7TKpM+tbxf95ZR43F5euUvJb7i
+ ZaseGnfMZGFQYyLwVJMkSVJ+2UHw+oaxZjaB2Ewc1iZQIZIizQwAAELA19uYl6pkY6Rnqm2oZ6h
+ kY6xjhEDF6cATLX6b4b/fncrU9+zsgRWRVkHy00ue7zsrezrzZ86GZYnnQ8Rj2MzZ/ifzNSpaaR
+ z+99qr/UTowzX8Mp/yWzx7TXvm79V7MMbTgYWAA==
 X-Developer-Key: i=j@jannau.net; a=openpgp;
  fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_033640_313412_A0331311 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20261105_033646_869833_70DD724B 
+X-CRM114-Status: GOOD (  10.74  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -151,135 +150,68 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Alyssa Milburn <amilburn@zall.org>
+Add WiFi, Bluetooth, SD-Card reader, ethernet NIC and USB xHCI device
+nodes for M3 Ultra Mac Studio.
+The bootloader will fill MAC addresses for the network devices, add
+Wifi and Bluetooth calibration data and set "apple,antenna-sku".
 
-Add the PCIe controller, its ports, IOMMUs and clock request pins to the
-base M3 Pro .dtsi file.
-
-Add PCIe devices for WiFi, Bluetooth, Ethernet, SD-Card reader and USB
-xHCI to device trees and enable their ports and IOMMU if necessary.
-The bootloader will fill MAC addresses and calibration data properties
-in their device nodes.
-
-Signed-off-by: Alyssa Milburn <amilburn@zall.org>
-Co-developed-by: Michael Reeves <michael.reeves077@gmail.com>
-Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
 Signed-off-by: Janne Grunau <j@jannau.net>
 ---
- arch/arm64/boot/dts/apple/t8122-j433.dts  |  28 +++++
- arch/arm64/boot/dts/apple/t8122-j434.dts  |  38 +++++++
- arch/arm64/boot/dts/apple/t8122-j504.dts  |  26 +++++
- arch/arm64/boot/dts/apple/t8122-j613.dts  |   8 ++
- arch/arm64/boot/dts/apple/t8122-j615.dts  |   8 ++
- arch/arm64/boot/dts/apple/t8122-jxxx.dtsi |  29 ++++-
- arch/arm64/boot/dts/apple/t8122.dtsi      | 175 ++++++++++++++++++++++++++++++
- 7 files changed, 311 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/apple/t6032-j575d.dts | 72 +++++++++++++++++++++++++++++++
+ 1 file changed, 72 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/apple/t8122-j433.dts b/arch/arm64/boot/dts/apple/t8122-j433.dts
-index 34205d173a9b..6c9185dc01b8 100644
---- a/arch/arm64/boot/dts/apple/t8122-j433.dts
-+++ b/arch/arm64/boot/dts/apple/t8122-j433.dts
-@@ -16,4 +16,32 @@
- / {
- 	compatible = "apple,j433", "apple,t8122", "apple,arm-platform";
- 	model = "Apple iMac (24-inch, 2x USB-C, M3, 2023)";
-+
-+	aliases {
-+		ethernet0 = &ethernet0;
-+	};
-+};
-+
-+&wifi0 {
-+	brcm,board-type = "apple,azores";
-+};
-+
-+&bluetooth0 {
-+	brcm,board-type = "apple,azores";
-+};
-+
-+&port01 {
-+	bus-range = <2 2>;
-+
-+	status = "okay";
-+
-+	ethernet0: ethernet@0,0 {
-+		reg = <0x20000 0x0 0x0 0x0 0x0>;
-+		/* To be filled by the loader */
-+		local-mac-address = [00 10 18 00 00 00];
-+	};
-+};
-+
-+&pcie1_dart {
-+	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/apple/t8122-j434.dts b/arch/arm64/boot/dts/apple/t8122-j434.dts
-index ead5afd77efb..e2f4880095ab 100644
---- a/arch/arm64/boot/dts/apple/t8122-j434.dts
-+++ b/arch/arm64/boot/dts/apple/t8122-j434.dts
-@@ -16,4 +16,42 @@
- / {
- 	compatible = "apple,j434", "apple,t8122", "apple,arm-platform";
- 	model = "Apple iMac (24-inch, 4x USB-C, M3, 2023)";
-+
-+	aliases {
-+		ethernet0 = &ethernet0;
-+	};
-+};
-+
-+&wifi0 {
-+	brcm,board-type = "apple,iona";
-+};
-+
-+&bluetooth0 {
-+	brcm,board-type = "apple,iona";
-+};
-+
-+&port01 {
-+	bus-range = <2 2>;
-+
-+	status = "okay";
-+
-+	ethernet0: ethernet@0,0 {
-+		reg = <0x20000 0x0 0x0 0x0 0x0>;
-+		/* To be filled by the loader */
-+		local-mac-address = [00 10 18 00 00 00];
-+	};
-+};
-+
-+&port02 {
-+	bus-range = <3 3>;
-+
-+	status = "okay";
-+};
-+
-+&pcie1_dart {
-+	status = "okay";
-+};
-+
-+&pcie2_dart {
-+	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/apple/t8122-j504.dts b/arch/arm64/boot/dts/apple/t8122-j504.dts
-index e60ec3039196..9a5951ee28c5 100644
---- a/arch/arm64/boot/dts/apple/t8122-j504.dts
-+++ b/arch/arm64/boot/dts/apple/t8122-j504.dts
-@@ -32,6 +32,32 @@ led-0 {
- 	};
- };
+diff --git a/arch/arm64/boot/dts/apple/t6032-j575d.dts b/arch/arm64/boot/dts/apple/t6032-j575d.dts
+index 12991546d4bb..f99fd47dfc8d 100644
+--- a/arch/arm64/boot/dts/apple/t6032-j575d.dts
++++ b/arch/arm64/boot/dts/apple/t6032-j575d.dts
+@@ -16,7 +16,10 @@ / {
+ 	model = "Apple Mac Studio (M3 Ultra, 2025)";
  
-+&wifi0 {
-+	brcm,board-type = "apple,tresco";
-+};
+ 	aliases {
++		bluetooth0 = &bluetooth0;
++		ethernet0 = &ethernet0;
+ 		serial0 = &serial0;
++		wifi0 = &wifi0;
+ 	};
+ 
+ 	chosen {
+@@ -46,3 +49,72 @@ memory@10000000000 {
+ &serial0 {
+ 	status = "okay";
+ };
 +
-+&bluetooth0 {
-+	brcm,board-type = "apple,tresco";
++/* PCIe devices */
++
++/*
++ * Force the bus number assignments so that we can declare some of the
++ * on-board devices and properties that are populated by the bootloader
++ * (such as MAC addresses).
++ */
++&port00 {
++	/* WLAN */
++	bus-range = <1 1>;
++
++	wifi0: wifi@0,0 {
++		compatible = "pci14e4,4433";
++		reg = <0x10000 0x0 0x0 0x0 0x0>;
++		/* To be filled by the loader */
++		local-mac-address = [00 10 18 00 00 10];
++		apple,antenna-sku = "XX";
++		brcm,board-type = "apple,aruba";
++	};
++
++	bluetooth0: bluetooth@0,1 {
++		compatible = "pci14e4,5f71";
++		reg = <0x10100 0x0 0x0 0x0 0x0>;
++		/* To be filled by the loader */
++		local-bd-address = [00 00 00 00 00 00];
++		brcm,board-type = "apple,aruba";
++	};
 +};
 +
 +&port01 {
 +	/* SD card reader */
 +	bus-range = <2 2>;
-+
-+	status = "okay";
 +
 +	mmc@0,0 {
 +		compatible = "pci17a0,9755";
@@ -289,296 +221,33 @@ index e60ec3039196..9a5951ee28c5 100644
 +	};
 +};
 +
-+&pcie1_dart {
++&port02 {
++	/* AQC113 10 Gbit Ethernet */
++	bus-range = <3 3>;
++	status = "okay";
++
++	ethernet0: ethernet@0,0 {
++		compatible = "pci1d6a,04c0";
++		reg = <0x30000 0x0 0x0 0x0 0x0>;
++		/* To be filled by the loader */
++		local-mac-address = [00 10 18 00 00 00];
++	};
++};
++
++&port03 {
++	/* USB xHCI */
++	bus-range = <4 4>;
 +	status = "okay";
 +};
 +
- &fpwm1 {
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/apple/t8122-j613.dts b/arch/arm64/boot/dts/apple/t8122-j613.dts
-index 40274a983849..7fdafe803e57 100644
---- a/arch/arm64/boot/dts/apple/t8122-j613.dts
-+++ b/arch/arm64/boot/dts/apple/t8122-j613.dts
-@@ -31,6 +31,14 @@ led-0 {
- 	};
- };
- 
-+&wifi0 {
-+	brcm,board-type = "apple,dnieper";
++
++&pcie0_dart_2 {
++	status = "okay";
 +};
 +
-+&bluetooth0 {
-+	brcm,board-type = "apple,dnieper";
++&pcie0_dart_3 {
++	status = "okay";
 +};
-+
- &fpwm1 {
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/apple/t8122-j615.dts b/arch/arm64/boot/dts/apple/t8122-j615.dts
-index 61833f6d019b..d32686f88b76 100644
---- a/arch/arm64/boot/dts/apple/t8122-j615.dts
-+++ b/arch/arm64/boot/dts/apple/t8122-j615.dts
-@@ -31,6 +31,14 @@ led-0 {
- 	};
- };
- 
-+&wifi0 {
-+	brcm,board-type = "apple,tuzla";
-+};
-+
-+&bluetooth0 {
-+	brcm,board-type = "apple,tuzla";
-+};
-+
- &fpwm1 {
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/apple/t8122-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8122-jxxx.dtsi
-index 2dbdb77d5413..c184dd94e8c7 100644
---- a/arch/arm64/boot/dts/apple/t8122-jxxx.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8122-jxxx.dtsi
-@@ -11,7 +11,9 @@
- 
- / {
- 	aliases {
-+		bluetooth0 = &bluetooth0;
- 		serial0 = &serial0;
-+		wifi0 = &wifi0;
- 	};
- 
- 	chosen {
-@@ -22,7 +24,8 @@ chosen {
- 		stdout-path = "serial0";
- 
- 		framebuffer0: framebuffer@0 {
--			compatible = "apple,simple-framebuffer", "simple-framebuffer";
-+			compatible = "apple,simple-framebuffer",
-+				     "simple-framebuffer";
- 			reg = <0 0 0 0>; /* To be filled by loader */
- 			power-domains = <&ps_disp_cpu>, <&ps_dptx_ext_phy>;
- 			/* Format properties will be added by loader */
-@@ -47,3 +50,27 @@ memory@800000000 {
- &serial0 {
- 	status = "okay";
- };
-+
-+/*
-+ * Force the bus number assignments so that we can declare some of the
-+ * on-board devices and properties that are populated by the bootloader
-+ * (such as MAC addresses).
-+ */
-+&port00 {
-+	bus-range = <1 1>;
-+
-+	wifi0: wifi@0,0 {
-+		compatible = "pci14e4,4434";
-+		reg = <0x10000 0x0 0x0 0x0 0x0>;
-+		/* To be filled by the loader */
-+		local-mac-address = [00 00 00 00 00 00];
-+		apple,antenna-sku = "XX";
-+	};
-+
-+	bluetooth0: bluetooth@0,1 {
-+		compatible = "pci14e4,5f72";
-+		reg = <0x10100 0x0 0x0 0x0 0x0>;
-+		/* To be filled by the loader */
-+		local-bd-address = [00 00 00 00 00 00];
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/t8122.dtsi b/arch/arm64/boot/dts/apple/t8122.dtsi
-index 959ddf36efa1..241a32dfe011 100644
---- a/arch/arm64/boot/dts/apple/t8122.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8122.dtsi
-@@ -338,6 +338,14 @@ i2c4_pins: i2c4-pins {
- 				pinmux = <APPLE_PINMUX(149, 1)>,
- 					 <APPLE_PINMUX(148, 1)>;
- 			};
-+
-+			pcie_pins: pcie-pins {
-+				// clkreq pins
-+				pinmux = <APPLE_PINMUX(183, 1)>,
-+					 <APPLE_PINMUX(184, 1)>,
-+					 <APPLE_PINMUX(185, 1)>,
-+					 <APPLE_PINMUX(186, 1)>;
-+			};
- 		};
- 
- 		pmgr: power-management@2d0700000 {
-@@ -494,6 +502,173 @@ nvme: nvme@30dcc0000 {
- 
- 			apple,sart = <&sart>;
- 		};
-+
-+		pcie0: pcie@580000000 {
-+			device_type = "pci";
-+			compatible = "apple,t8122-pcie", "apple,t6020-pcie";
-+
-+			reg = <0x5 0x80000000 0x0 0x1000000>,	/* config */
-+			      <0x5 0x91000000 0x0 0x4000>,	/* rc */
-+			      <0x5 0x94008000 0x0 0x4000>,	/* port0 */
-+			      <0x5 0x95008000 0x0 0x4000>,	/* port1 */
-+			      <0x5 0x96008000 0x0 0x4000>,	/* port2 */
-+			      <0x5 0x97008000 0x0 0x4000>,	/* port3 */
-+			      <0x5 0x9e00c000 0x0 0x4000>,	/* phy0 */
-+			      <0x5 0x9e010000 0x0 0x4000>,	/* phy1 */
-+			      <0x5 0x9e014000 0x0 0x4000>,	/* phy2 */
-+			      <0x5 0x9e018000 0x0 0x4000>;	/* phy3 */
-+			reg-names = "config", "rc",
-+				    "port0", "port1", "port2", "port3",
-+				    "phy0", "phy1", "phy2", "phy3";
-+			ranges = <0x43000000 0x5 0xa0000000 0x5 0xa0000000 0x0 0x20000000>,
-+				 <0x02000000 0x0 0xc0000000 0x5 0xc0000000 0x0 0x40000000>;
-+
-+			#address-cells = <3>;
-+			bus-range = <0 4>;
-+
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 923 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 932 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 941 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 950 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			iommu-map = <0x100 &pcie0_dart 1 1>,
-+				    <0x200 &pcie1_dart 1 1>,
-+				    <0x300 &pcie2_dart 1 1>,
-+				    <0x400 &pcie3_dart 1 1>;
-+			iommu-map-mask = <0xff00>;
-+
-+			msi-controller;
-+			msi-parent = <&pcie0>;
-+			msi-ranges = <&aic AIC_IRQ 1075 IRQ_TYPE_EDGE_RISING 32>;
-+
-+			pinctrl-0 = <&pcie_pins>;
-+			pinctrl-names = "default";
-+
-+			power-domains = <&ps_apcie_gp>;
-+
-+			#size-cells = <2>;
-+
-+			port00: pci@0,0 {
-+				device_type = "pci";
-+				reg = <0x0 0x0 0x0 0x0 0x0>;
-+				ranges;
-+				#address-cells = <3>;
-+
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+				interrupt-map = <0 0 0 1 &port00 0 0 0 0>,
-+						<0 0 0 2 &port00 0 0 0 1>,
-+						<0 0 0 3 &port00 0 0 0 2>,
-+						<0 0 0 4 &port00 0 0 0 3>;
-+				interrupt-map-mask = <0 0 0 7>;
-+
-+				reset-gpios = <&pinctrl_ap 187 GPIO_ACTIVE_LOW>;
-+				#size-cells = <2>;
-+			};
-+
-+			port01: pci@1,0 {
-+				device_type = "pci";
-+				reg = <0x800 0x0 0x0 0x0 0x0>;
-+				ranges;
-+				#address-cells = <3>;
-+
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+				interrupt-map = <0 0 0 1 &port01 0 0 0 0>,
-+						<0 0 0 2 &port01 0 0 0 1>,
-+						<0 0 0 3 &port01 0 0 0 2>,
-+						<0 0 0 4 &port01 0 0 0 3>;
-+				interrupt-map-mask = <0 0 0 7>;
-+
-+				reset-gpios = <&pinctrl_ap 188 GPIO_ACTIVE_LOW>;
-+				#size-cells = <2>;
-+
-+				status = "disabled";
-+			};
-+
-+			port02: pci@2,0 {
-+				device_type = "pci";
-+				reg = <0x1000 0x0 0x0 0x0 0x0>;
-+				ranges;
-+				#address-cells = <3>;
-+
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+				interrupt-map = <0 0 0 1 &port02 0 0 0 0>,
-+						<0 0 0 2 &port02 0 0 0 1>,
-+						<0 0 0 3 &port02 0 0 0 2>,
-+						<0 0 0 4 &port02 0 0 0 3>;
-+				interrupt-map-mask = <0 0 0 7>;
-+
-+				reset-gpios = <&pinctrl_ap 189 GPIO_ACTIVE_LOW>;
-+				#size-cells = <2>;
-+
-+				status = "disabled";
-+			};
-+
-+			port03: pci@3,0 {
-+				device_type = "pci";
-+				reg = <0x1800 0x0 0x0 0x0 0x0>;
-+				ranges;
-+				#address-cells = <3>;
-+
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+				interrupt-map = <0 0 0 1 &port03 0 0 0 0>,
-+						<0 0 0 2 &port03 0 0 0 1>,
-+						<0 0 0 3 &port03 0 0 0 2>,
-+						<0 0 0 4 &port03 0 0 0 3>;
-+				interrupt-map-mask = <0 0 0 7>;
-+
-+				reset-gpios = <&pinctrl_ap 190 GPIO_ACTIVE_LOW>;
-+				#size-cells = <2>;
-+
-+				status = "disabled";
-+			};
-+		};
-+
-+		pcie0_dart: iommu@594000000 {
-+			compatible = "apple,t8122-dart", "apple,t8110-dart";
-+			reg = <0x5 0x94000000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 924 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <1>;
-+			power-domains = <&ps_apcie_gp>;
-+		};
-+
-+		pcie1_dart: iommu@595000000 {
-+			compatible = "apple,t8122-dart", "apple,t8110-dart";
-+			reg = <0x5 0x95000000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 933 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <1>;
-+			power-domains = <&ps_apcie_gp>;
-+
-+			status = "disabled";
-+		};
-+
-+		pcie2_dart: iommu@596000000 {
-+			compatible = "apple,t8122-dart", "apple,t8110-dart";
-+			reg = <0x5 0x96000000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 942 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <1>;
-+			power-domains = <&ps_apcie_gp>;
-+
-+			status = "disabled";
-+		};
-+
-+		pcie3_dart: iommu@597000000 {
-+			compatible = "apple,t8122-dart", "apple,t8110-dart";
-+			reg = <0x5 0x97000000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 951 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <1>;
-+			power-domains = <&ps_apcie_gp>;
-+
-+			status = "disabled";
-+		};
- 	};
- 
- 	timer {
 
 -- 
 2.56.0
