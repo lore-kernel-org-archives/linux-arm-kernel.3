@@ -2,110 +2,76 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F2F9606D807
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 10:55:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B659606A32F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:01:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rmIgVsTZ;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cR0zOz0f
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BNpR0WZU;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=vIrFY6We
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=aFHl9iBgx/Mfi+s4BZBS+ijcqSNzZQXuaxbMC9IotGE=; b=rmIgVsTZ+3KGQC
-	DWaQIPDxRt2E9dyWmGyKExlDQc+vWSCPS5Yk5KplVqWrn2bxBO9y5XQBnWXU+T8lUAjUgdmj1dKxo
-	68hsQCugJvqcbRLMUt084zzs/cSBqpmGESo5Nq+XXLju8pBKo3Fq64XX3O8W04IlEsPViZQSd9xDE
-	+PsOWYr7HTMF2IhVy/UEzMET7Vdx5svBxVifSmdi/GYQgvzwe7riJ/AVTuIw4Es2gCyhgEBGf3voK
-	wqloeuGf/cbw/kXgbIjl1SBwuDQ0us+s0XRAY2JpUOAPKaoV1/2CzBrYm2lvj5BW3OaRgWXThkWnY
-	BTuZosKGGOszITAJW+Dw==;
+	List-Owner; bh=rvaFmtyNDISQsoxMWBFpDY8CKig5NLHO//X6oykgI60=; b=BNpR0WZU8bQaJb
+	6ZIY6NQM3k2l/AXzgM9Jc1IyVwSvnuSq52csTOA64JCwGpMlH0qyHCIG6cM6fQizQwfADy3mY3lzB
+	sR1GiaoRgK7g9lueAi04e1ywZqA7WZn4OifrATOsTZoCh2MdLD708tPQ3ztqMpKxzyYGd47DWDs4I
+	Ci3nvC17/81JUpJH0VfXHOWB/UTWo9Qwm9nDPogB326mTLcOkMudNpZPStcpCMG2NXGxA6PUv8xfu
+	qZVwRD265PC+ikCYUQza03vammuMoEFLa5R5LcZpQFINtMAPGCYXhg24GtYD9vop4JBRzPS+vZ+ev
+	x8FV08UkbAnEzpn2P3TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOv86-00000008W3R-36yh;
-	Thu, 05 Nov 2026 10:55:38 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1xOvDN-00000008Xjk-3t6O;
+	Thu, 05 Nov 2026 11:01:05 +0000
+Received: from out-194.mta1.migadu.com ([95.215.58.194] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOv7n-00000008Vj2-2pFm
+	id 1xOvDI-00000008XdN-24jZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 10:55:25 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4a140e7405dso15823085e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 02:55:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793876118; x=1794480918; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=aFHl9iBgx/Mfi+s4BZBS+ijcqSNzZQXuaxbMC9IotGE=;
-        b=cR0zOz0f4m6iCX08PJlryI7CNPiBoYZdFEytdlv5Us18X6AcD8rpG+13zd1Vj4ECho
-         VMD8n4vGW+4rfgYJNsFi+9WPlrefU7kXGE+REQ7bcX+3JP9/+av1JPfDpeeGUR0Y3VfS
-         HTo0HFdU/IVYKY6NS4tFo+fwepNpHYZQpUX2DYlgX6i3Zd5V8SmajzgJsqql32+fvdNU
-         2B/GsXOQiTY0Z4CW7hpAlNOO+8gJ7I/GCnfW/7l4S8LKra6VtGZcysXfYNM5T9sdrnue
-         uCpeCKCORTgtsNZW4DxDclBdwIyGDYtpMmEugSs9ARE2aVaPfV48FO64OWjHlZ3o3Ak8
-         Z+LA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793876118; x=1794480918;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=aFHl9iBgx/Mfi+s4BZBS+ijcqSNzZQXuaxbMC9IotGE=;
-        b=RpjAK0HRIFh00ZJYkiTyHYwNyxt/5BtRNv4iF1xlS5kFZ+O0z4xYYrjsCCBjKO0r7L
-         qEJwzrcqAioFzmPgCNjal/n6aJzZc8w/3PiNYwlFFHBvAM/NmJm7/6te3cbV03+8Al6d
-         l6Vdya0zLY75zZ3xifTkbNgSrp90D036eeGt04kTOQtGuGD3YupV5+Qbxy5D6sAkOKai
-         VKKOXde5qPdO7g+7AbF0P8K35MHOjGwnjoNqCFozjvDZ/qkt5py9a4HAULkCc7/U160i
-         k13ehcP4RKGsyC5OxAyEJmTYIDogsM05uSKcHRSSi5QyYKcSEm5Tp0zIRWZ2xEWM0vqd
-         ymkA==
-X-Forwarded-Encrypted: i=1; AKwUvBwaEXwsSqprKTGYdP4S8ZTezcF5G3MO799EEtXRvLKed0D/HmulRPhvXciDdkCqqHmJat5/Xm0ZndgU1kfUjSEA@lists.infradead.org
-X-Gm-Message-State: APuU4Z9ojy1dr86JoIweZI5+e2nCNn9SWXUpXSf6BhDXKR6+iwaKI0lv
-	5mTO+lZrM/B4FumVSL+yNmzb1Krs2X2eRgzPW/W6vYojbca+Wdt1/Jwb
-X-Gm-Gg: AYBFou1P1cSeJk0Wd0DsYpSHa3YdereCMRfcXwBbeTaGewwnaV3+JcBxxozd1AxfSY9
-	g0tKLBtoB0GAsgR2lORbsVHDuwCFoOysKctO5h4/jrcRBrfmoYa0MEkLKJdy5eX5S2QG/T3T1hk
-	M3pD7U+n/nUjuXdrvcyUAnJufa1pugZESXEGd/wgR6qCiQPhXJDwk3ZQilMyv6fZcaKfr0TwHaq
-	/zMsNv+X6OvNrl1GmPJvL3y89ZGf1NqSV9TTkEOmdaUyrDs6P4WUnD3SQP41p8FuXa0/7olUWTv
-	7f03hEXp3HsxzYjt6NHc6OAwt2k5yGDLk++KG6Jrb4fuQlxegB8NqRYAtiHAcQu8msU+q8W+aE/
-	ZeMzcyqNxvHR+T2tmeX48aPDJ12p0eGk8lqJ1/Pz0buJ0z7eElPQSn9Yqw2KdUjrHCDwGHZplOs
-	82B0rfjRzN1UrFvOmot8mgtelWRJes4FHOEtQl3Pn8LVubul9yIkTnOzBxEdVmKIzyxjwRQukZa
-	wQlbXeE1shdJg2ydHhcTnmiC8nxNmCTpdkrU6D20kNhorcRa0u2Cr2v0Hb3aZxLPhizoLPe2tM4
-	NesDjj7gQBb59NUTiC9qn4b0gS8EoUGXYOi2lxkNHvtO/AwRH60ueCR88fz+4jajbprcak1tIFP
-	eZbCtO5MRcWy5wJXqZl73EBgT
-X-Received: by 2002:a05:600c:674f:b0:4a2:1655:87db with SMTP id 5b1f17b1804b1-4ac1228a434mr433568835e9.0.1793876117760;
-        Thu, 05 Nov 2026 02:55:17 -0800 (PST)
-Received: from Ansuel-XPS24.lan (93-34-90-148.ip49.fastwebnet.it. [93.34.90.148])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4b57317cb8esm59576355e9.13.2026.11.05.02.55.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 02:55:17 -0800 (PST)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Qingfang Deng <dqfext@gmail.com>,
-	SkyLake Huang <SkyLake.Huang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Joris Vaisvila <joey@tinyisr.com>,
-	Ahmed Naseef <naseefkm@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH net-next v5 6/6] net: phy: mediatek: add calibration logic for AN7583
-Date: Thu,  5 Nov 2026 11:55:02 +0100
-Message-ID: <20261105105504.1024-7-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261105105504.1024-1-ansuelsmth@gmail.com>
-References: <20261105105504.1024-1-ansuelsmth@gmail.com>
+	Thu, 05 Nov 2026 11:01:03 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=NyEGJoxXLgzBuQGYRabpnuVYOlu6XTCpsnZS7w1lcug=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1793876458; v=1; x=1794481258;
+ b=vIrFY6WeE9WW0HJWQx9rBXqXQNSdxsKhOXDMFmBTNEXy8U9imBwQJnQtc2KIP9G6rQVZE2qF
+ RptMNnBmU1d/2aZsQAHwNJylcGlk9FG3Wkl2J4hFsYIqYeOuqImALXcJEel5Kb7ABLAFdXf9Cos
+ Gu8ued5W8kzL9C5W2qhqaYTw=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id e5683ee50ff6c947;
+	Thu, 05 Nov 2026 11:00:58 +0000
+X-Mizu-Trace-ID: e5683ee50ff6c947
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Oliver Upton <oupton@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	Yuchao Zhang <ndaugoing@gmail.com>,
+	Fuad Tabba <tabba@google.com>,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/3] KVM: arm64: vgic: Drop the pending state of all LPIs when disabling LPIs
+Date: Thu,  5 Nov 2026 11:00:48 +0000
+Message-ID: <20261105110050.1244525-2-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261105110050.1244525-1-fuad.tabba@linux.dev>
+References: <20261105110050.1244525-1-fuad.tabba@linux.dev>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_025519_797721_4FF2EB42 
-X-CRM114-Status: GOOD (  19.39  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261105_030100_999423_99C35FCF 
+X-CRM114-Status: GOOD (  16.85  )
+X-Spam-Score: -2.8 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,306 +82,114 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Similar to Airoha AN7581 Switch PHY also the Airoha AN7583 SoC
-requires dedicated calibration and tuneup to make EEE correctly work.
+When the guest clears GICR_CTLR.EnableLPIs, vgic_flush_pending_lpis()
+retires the LPIs on the vCPU's AP list. However, an LPI disabled in the
+configuration table can be pending without being on that list. An LPI
+moved to the vCPU by MOVI can also still be in another vCPU's LRs,
+which pausing the vCPU doesn't fold back. These LPIs stay pending, and
+the guest takes them even after re-enabling LPIs with
+GICR_PENDBASER.PTZ set.
 
-Airoha AN7583 differ from AN7581 by having a dedicated table for
-calibration and additional EEE logic tuneup.
+Halt the guest rather than the vCPU, so that no vCPU can fold such an
+LPI back from its LRs after the flush. Have the flush clear the pending
+state of every LPI targeting the vCPU. A forwarded vLPI's pending state
+is in its vPE's pending table, which the flush doesn't clear.
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Invalidate the translation cache before the flush. Only an MSI racing
+with the disable can then make an LPI pending, or cache its translation
+for later ones.
+
+Fixes: 0e4e82f154e38 ("KVM: arm64: vgic-its: Enable ITS emulation as a virtual MSI controller")
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- drivers/net/phy/mediatek/airoha-ge-soc.c | 232 ++++++++++++++++++++++-
- drivers/net/phy/mediatek/mtk.h           |   1 +
- 2 files changed, 230 insertions(+), 3 deletions(-)
+ arch/arm64/kvm/vgic/vgic-mmio-v3.c | 13 +++++++------
+ arch/arm64/kvm/vgic/vgic.c         | 16 +++++++++++++++-
+ 2 files changed, 22 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/phy/mediatek/airoha-ge-soc.c b/drivers/net/phy/mediatek/airoha-ge-soc.c
-index 18b9b6562f6d..089035bb3e9b 100644
---- a/drivers/net/phy/mediatek/airoha-ge-soc.c
-+++ b/drivers/net/phy/mediatek/airoha-ge-soc.c
-@@ -159,6 +159,106 @@ static u8 an7581_zcal_to_r45ohm[64] = {
- 	 52,  50,  48,  46,  44,  42,  40,  39,  36,  35,  32,  32,  30,  28,  27,  25
- };
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+index 02292f8e0b431..93024879ed3b3 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+@@ -298,14 +298,15 @@ static void vgic_mmio_write_v3r_ctlr(struct kvm_vcpu *vcpu,
+ 		/*
+ 		 * Yes, disabling LPIs is painful, since it can be done from
+ 		 * a *remote* vcpu! So let's not take any chance, and make
+-		 * sure that the target vCPU has written their LRs back to the
++		 * sure that every vCPU has written their LRs back to the
+ 		 * irq structures, and release any reference they would have.
+-		 * Pause it before its LPIs read as disabled, so that the exit's
+-		 * prune leaves them for vgic_flush_pending_lpis() to retire.
++		 * Halt them before the LPIs read as disabled, so that none can
++		 * fold an LPI back from its LRs after vgic_flush_pending_lpis()
++		 * has cleared it.
+ 		 *
+ 		 * If it hurts, don't do it.
+ 		 */
+-		kvm_pause_vcpu(vcpu);
++		kvm_arm_halt_guest(vcpu->kvm);
  
-+/*
-+ * 2 chip revision
-+ * TXMR or discrete
-+ * 2 MDI type
-+ * TX AMP test/TX AMP 1G/TX AMP 100M/TX AMP 10M/R50
-+ * 4 PHY
-+ */
-+static int an7583_tx_amp_compensation_tbl[TRANSFORMER_TYPE_MAX][MDI_TYPE_MAX][CALIB_CONST_TYPE_MAX][4] = {
-+	[DISCRETE] = {
-+		[MDI_0R] = {
-+			[TX_AMP_TEST_A] = { -3, -3, -3, -3 },
-+			[TX_AMP_TEST_B] = { -3, -3, -3, -3 },
-+			[TX_AMP_TEST_C] = { -3, -3, -3, -3 },
-+			[TX_AMP_TEST_D] = { -3, -3, -3, -3 },
-+			[TX_AMP_1G_A] = { 0, 0, 0, 0 },
-+			[TX_AMP_1G_B] = { 0, 0, 0, 0 },
-+			[TX_AMP_1G_C] = { 0, 0, 0, 0 },
-+			[TX_AMP_1G_D] = { 0, 0, 0, 0 },
-+			[TX_AMP_100M_A] = { 4, 4, 4, 4 },
-+			[TX_AMP_100M_B] = { 4, 4, 4, 4 },
-+			[TX_AMP_10M_A] = { 0, 0, 0, 0 },
-+			[TX_AMP_10M_B] = { 0, 0, 0, 0 },
-+			[R50_A] = { 4, 4, 4, 4 },
-+			[R50_B] = { 4, 4, 4, 4 },
-+			[R50_C] = { 6, 6, 6, 6 },
-+			[R50_D] = { 4, 4, 4, 4 },
-+		},
-+		[MDI_5R] = {
-+			[TX_AMP_TEST_A] = { -3, -3, -3, -3 },
-+			[TX_AMP_TEST_B] = { -3, -3, -3, -3 },
-+			[TX_AMP_TEST_C] = { -3, -3, -3, -3 },
-+			[TX_AMP_TEST_D] = { -3, -3, -3, -3 },
-+			[TX_AMP_1G_A] = { 0, 0, 0, 0 },
-+			[TX_AMP_1G_B] = { 0, 0, 0, 0 },
-+			[TX_AMP_1G_C] = { 0, 0, 0, 0 },
-+			[TX_AMP_1G_D] = { 0, 0, 0, 0 },
-+			[TX_AMP_100M_A] = { 4, 4, 4, 4 },
-+			[TX_AMP_100M_B] = { 4, 4, 4, 4 },
-+			[TX_AMP_10M_A] = { 0, 0, 0, 0 },
-+			[TX_AMP_10M_B] = { 0, 0, 0, 0 },
-+			[R50_A] = { 0, 0, 0, 0 },
-+			[R50_B] = { 0, 0, 0, 0 },
-+			[R50_C] = { 0, 0, 0, 0 },
-+			[R50_D] = { 0, 0, 0, 0 },
-+		},
-+	},
-+	[TXMR] = {
-+		[MDI_0R] = {
-+			[TX_AMP_TEST_A] = { -3, -3, -3, -3 },
-+			[TX_AMP_TEST_B] = { -3, -3, -3, -3 },
-+			[TX_AMP_TEST_C] = { -3, -3, -3, -3 },
-+			[TX_AMP_TEST_D] = { -3, -3, -3, -3 },
-+			[TX_AMP_1G_A] = { 0, 0, 0, 0 },
-+			[TX_AMP_1G_B] = { 0, 0, 0, 0 },
-+			[TX_AMP_1G_C] = { 0, 0, 0, 0 },
-+			[TX_AMP_1G_D] = { 0, 0, 0, 0 },
-+			[TX_AMP_100M_A] = { 4, 4, 4, 4 },
-+			[TX_AMP_100M_B] = { 4, 4, 4, 4 },
-+			[TX_AMP_10M_A] = { 0, 0, 0, 0 },
-+			[TX_AMP_10M_B] = { 0, 0, 0, 0 },
-+			[R50_A] = { 4, 4, 0, 0 },
-+			[R50_B] = { 4, 4, 0, 0 },
-+			[R50_C] = { 5, 5, 3, 4 },
-+			[R50_D] = { 4, 4, 4, 0 },
-+		},
-+		[MDI_5R] = {
-+			[TX_AMP_TEST_A] = { -3, -3, -3, -3 },
-+			[TX_AMP_TEST_B] = { -3, -3, -3, -3 },
-+			[TX_AMP_TEST_C] = { -3, -3, -3, -3 },
-+			[TX_AMP_TEST_D] = { -3, -3, -3, -3 },
-+			[TX_AMP_1G_A] = { 0, 0, 0, 0 },
-+			[TX_AMP_1G_B] = { 0, 0, 0, 0 },
-+			[TX_AMP_1G_C] = { 0, 0, 0, 0 },
-+			[TX_AMP_1G_D] = { 0, 0, 0, 0 },
-+			[TX_AMP_100M_A] = { 4, 4, 4, 4 },
-+			[TX_AMP_100M_B] = { 4, 4, 4, 4 },
-+			[TX_AMP_10M_A] = { 0, 0, 0, 0 },
-+			[TX_AMP_10M_B] = { 0, 0, 0, 0 },
-+			[R50_A] = { -4, -4, -4, -4 },
-+			[R50_B] = { -4, -4, -4, -4 },
-+			[R50_C] = { -2, -2, -2, -2 },
-+			[R50_D] = { -3, -3, -2, -2 },
-+		},
-+	},
-+};
-+
-+static u8 an7583_zcal_to_r50ohm_0R[64] = {
-+	127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127,
-+	127, 127, 127, 122, 118, 114, 110, 106, 102,  98,  96,  92,  88,  85,  82,  80,
-+	 76,  72,  70,  68,  64,  62,  60,  57,  55,  52,  50,  48,  46,  44,  41,  40,
-+	 38,  36,  33,  32,  30,  28,  26,  24,  24,  22,  20,  18,  16,  16,  14,  12,
-+};
-+
-+static u8 an7583_zcal_to_r50ohm_5R[64] = {
-+	127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127,
-+	127, 127, 127, 127, 127, 127, 127, 127, 127, 124, 120, 116, 112, 110, 106, 102,
-+	 99,  96,  93,  90,  88,  84,  81,  79,  76,  73,  71,  68,  66,  64,  61,  59,
-+	 56,  54,  52,  50,  48,  46,  44,  42,  40,  39,  37,  36,  33,  32,  31,  29,
-+};
-+
- /* One calibration cycle consists of:
-  * 1.Set DA_CALIN_FLAG high to start calibration. Keep it high
-  *   until AD_CAL_COMP is ready to output calibration result.
-@@ -824,8 +924,9 @@ static int airoha_rx_offset_cal_sw(struct phy_device *phydev)
- 	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x100, 0x0);
- 	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x145, 0x1000);
+ 		/*
+ 		 * Don't disable if RWP is set, as there already an
+@@ -315,12 +316,12 @@ static void vgic_mmio_write_v3r_ctlr(struct kvm_vcpu *vcpu,
+ 					      GICR_CTLR_ENABLE_LPIS,
+ 					      GICR_CTLR_RWP);
+ 		if (ctlr == GICR_CTLR_ENABLE_LPIS) {
+-			vgic_flush_pending_lpis(vcpu);
+ 			vgic_its_invalidate_all_caches(vcpu->kvm);
++			vgic_flush_pending_lpis(vcpu);
+ 			atomic_set_release(&vgic_cpu->ctlr, 0);
+ 		}
  
--	phy_write_mmd(phydev, MDIO_MMD_VEND1, MTK_PHY_RG_ANA_CAL_RG6,
--		      0x1);
-+	if (phydev->drv->phy_id == AIROHA_GPHY_ID_AN7581)
-+		phy_write_mmd(phydev, MDIO_MMD_VEND1,
-+			      MTK_PHY_RG_ANA_CAL_RG6, 0x1);
- 
- 	return 0;
- }
-@@ -1625,10 +1726,133 @@ static int en7528_phy_config_init(struct phy_device *phydev)
- 				MTK_PHY_LED_BCR_EXT_CTRL);
- }
- 
-+static int an7583_phy_package_config_init_once(struct phy_device *phydev)
-+{
-+	struct airoha_socphy_shared *shared = phy_package_get_priv(phydev);
-+
-+	/* FIXME: Read SoC MDI Resister Type if available or default to 5R */
-+	shared->mdi_resister_type = MDI_5R;
-+
-+	if (shared->mdi_resister_type == MDI_0R)
-+		shared->r50_cal_tbl = an7583_zcal_to_r50ohm_0R;
-+	if (shared->mdi_resister_type == MDI_5R)
-+		shared->r50_cal_tbl = an7583_zcal_to_r50ohm_5R;
-+	shared->tx_amp_compensation_tbl = &an7583_tx_amp_compensation_tbl;
-+
-+	return 0;
-+}
-+
- static int an7583_phy_config_init(struct phy_device *phydev)
+-		kvm_resume_vcpu(vcpu);
++		kvm_arm_resume_guest(vcpu->kvm);
+ 	} else {
+ 		ctlr = atomic_cmpxchg_acquire(&vgic_cpu->ctlr, 0,
+ 					      GICR_CTLR_ENABLE_LPIS);
+diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+index fe09ada322625..a99570538f104 100644
+--- a/arch/arm64/kvm/vgic/vgic.c
++++ b/arch/arm64/kvm/vgic/vgic.c
+@@ -207,9 +207,10 @@ static void vgic_release_deleted_lpis(struct kvm *kvm)
+ void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu)
  {
-+	struct airoha_socphy_shared *shared = phy_package_get_priv(phydev);
-+	u8 phy_offset;
-+	int ret;
+ 	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
++	struct vgic_dist *dist = &vcpu->kvm->arch.vgic;
+ 	struct vgic_irq *irq, *tmp;
++	unsigned long intid, flags;
+ 	bool deleted = false;
+-	unsigned long flags;
+ 
+ 	raw_spin_lock_irqsave(&vgic_cpu->ap_list_lock, flags);
+ 
+@@ -228,6 +229,19 @@ void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu)
+ 
+ 	if (deleted)
+ 		vgic_release_deleted_lpis(vcpu->kvm);
 +
- 	/* BMCR_PDOWN is enabled by default */
--	return phy_clear_bits(phydev, MII_BMCR, BMCR_PDOWN);
-+	phy_clear_bits(phydev, MII_BMCR, BMCR_PDOWN);
++	/* Disabled LPIs and LPIs MOVI'd here can be pending off this AP list. */
++	xa_for_each(&dist->lpi_xa, intid, irq) {
++		irq = vgic_get_irq(vcpu->kvm, intid);
++		if (!irq)
++			continue;
 +
-+	phy_offset = phy_package_offset(phydev);
-+
-+	if (phy_package_init_once(phydev)) {
-+		ret = an7583_phy_package_config_init_once(phydev);
-+		if (ret)
-+			return ret;
++		raw_spin_lock_irqsave(&irq->irq_lock, flags);
++		if (irq->target_vcpu == vcpu)
++			irq->pending_latch = false;
++		raw_spin_unlock_irqrestore(&irq->irq_lock, flags);
++		vgic_put_irq(vcpu->kvm, irq);
 +	}
-+
-+	ret = airoha_phy_calib(phydev);
-+	if (ret)
-+		return ret;
-+
-+	ret = airoha_phy_auto_select_transformer(phydev);
-+	if (ret)
-+		return ret;
-+
-+	ret = airoha_phy_tx_amp_compensation(phydev);
-+	if (ret)
-+		return ret;
-+
-+	/* Enable Idle Mode Power Setting */
-+	if (phy_offset == 0) {
-+		phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x268, 0x07F1);
-+		phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x703, 0x3111);
-+		phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x271, 0x3C24);
-+		phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x701, 0x1023);
-+	}
-+
-+	if (shared->transformer_type[phy_offset] == TXMR) {
-+		phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x23, 0x0881);
-+		phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x24, 0x0881);
-+		phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x25, 0x0881);
-+		phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x26, 0x0881);
-+
-+		if (shared->mdi_resister_type == MDI_5R)
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x05, 0x0205);
-+		else
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x05, 0x0200);
-+	} else {
-+		if (shared->mdi_resister_type == MDI_5R) {
-+			/* RX setting for 5R_TXMR before AN setting */
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0xe7, 0x6666);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0xe9, 0x0003);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0xfe, 0x0006);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0xe6, 0x1111);
-+			/* 100M sharp */
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x23, 0x0c86);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x24, 0x0c86);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x25, 0x0c86);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x26, 0x0c86);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x01, 0x01cb);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x02, 0x01c2);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x03, 0x0108);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x04, 0x0211);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x05, 0x0205);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x06, 0x0387);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x07, 0x03ce);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x08, 0x03c8);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x0b, 0x0005);
-+		} else {
-+			/* 100M sharp */
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x23, 0x0886);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x24, 0x0886);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x25, 0x0886);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x26, 0x0886);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x00, 0x0195);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x01, 0x01cb);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x02, 0x01c2);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x03, 0x0108);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x04, 0x0211);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x05, 0x0205);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x06, 0x0387);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x07, 0x03ce);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x08, 0x03c3);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x0a, 0x0010);
-+			phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x0b, 0x0005);
-+		}
-+	}
-+
-+	/* RX Setting */
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x3c, 0xc000);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x3d, 0x0000);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x3e, 0xc000);
-+
-+	/* EEE setting */
-+	phy_write_mmd(phydev, MDIO_MMD_AN, 0x3c, 0x0000);
-+
-+	/* 10M settings */
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x1a3, 0x00d2);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x1a4, 0x010e);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x27b, 0x1177);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x27c, 0x0808);
-+
-+	phy_write_paged(phydev, MTK_PHY_PAGE_EXTENDED_3, 0x14, 0x190);
-+	phy_write_paged(phydev, MTK_PHY_PAGE_EXTENDED_1, 0x14, 0x3a18);
-+
-+	phy_write(phydev, 0x9, 0x0600);
-+
-+	/* EEE keep only Pair A ON */
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x630, 0x006E);
-+
-+	return 0;
  }
  
- static struct phy_driver mtk_socphy_driver[] = {
-@@ -1671,6 +1895,8 @@ static struct phy_driver mtk_socphy_driver[] = {
- 		.led_hw_control_set = mt798x_phy_led_hw_control_set,
- 		.led_hw_control_get = mt798x_phy_led_hw_control_get,
- 		.led_polarity_set = an7581_phy_led_polarity_set,
-+		.read_page	= mtk_phy_read_page,
-+		.write_page	= mtk_phy_write_page,
- 	},
- };
- 
-diff --git a/drivers/net/phy/mediatek/mtk.h b/drivers/net/phy/mediatek/mtk.h
-index bc46646a95fd..608e5e3d754f 100644
---- a/drivers/net/phy/mediatek/mtk.h
-+++ b/drivers/net/phy/mediatek/mtk.h
-@@ -13,6 +13,7 @@
- 
- #define MTK_EXT_PAGE_ACCESS			0x1f
- #define MTK_PHY_PAGE_EXTENDED_1			0x0001
-+#define MTK_PHY_PAGE_EXTENDED_3			0x0003
- #define MTK_PHY_PAGE_STANDARD			0x0000
- #define MTK_PHY_PAGE_EXTENDED_52B5		0x52b5
- 
+ void vgic_irq_set_phys_pending(struct vgic_irq *irq, bool pending)
 -- 
-2.55.0
+2.47.3
 
 
