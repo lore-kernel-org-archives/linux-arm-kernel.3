@@ -2,47 +2,47 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BB23606BF26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 16:32:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83FC4606CBCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 16:32:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Y5FIIeBL;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PFbB7XVR
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GzAtZWJI;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W+hHuRN0
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=WJTiMGqrIsOG3gHsS8L9VK6yNKhZ8u8EFDk2aXiMvE4=; b=Y5FIIeBLBnan0w
-	JRC6YF6MFoNH+agVZ7cyPihHoMTQwn7PazzTgYLV/8pkUS9pbjHKd9+gxsFBGDHx8kI6j5szWOvR9
-	K/P+yIxlP1n5/80Em85ZXxJmcfo4KDl9ZY/DxduUCUNxmJicqaboGeIb5mbUY7c5kCTNwrF0LGXmv
-	X9xArpYfV8sOHNQhDqpwSjT18zOV4XhBvkLEy6uTPQPovfW4NgkJUqbsRgC/QnEbbkEQCfmS6/3sv
-	W6GULqPSTS7WyDSz40Dfs1HEZ+21p/FL+yLoueIIDHmTfJZ4WMPLxs1d/hlPvLeQbFZrPZ0SgdQ0o
-	qHoBdpIXTbBDjYAwRraw==;
+	List-Owner; bh=u7ZwqjtzSR0o1QTyifWY7mPwVdBSMzMSz40FvvcurNg=; b=GzAtZWJIZfhK74
+	uPhpjtYKUQ0g8xx8OclUu+C+FoAtZ3DFex0MZy5uYXFN5vGn75TvT6ZyXLL3WUObeBz8VXAJu9pTb
+	HkKTez1q8fUMcW/7ntGyiOZ3poJvT8l3nB3xHlSki9NZ5CqWdR/YKGw6od9JWsNpMChhJQcJSa/YR
+	lY+HesgRMwJ0EHolPL4BXN3qYm0CQl348/Ub584FvI7/bN8kiXeCYfNRYyza6VhDl3ta2kaywJ0jR
+	TTh4hdyiRTL4PPn5xcWsaeTIfnVLsso91+F4dbXs1FQTN+hOWRdd7F6BbH+OwrLxOGo2j1Tg1s4ew
+	irM/DbEji/iVjnpMcYxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP0O3-00000009dGA-2t8b;
-	Thu, 05 Nov 2026 16:32:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xP0O4-00000009dHm-1drA;
+	Thu, 05 Nov 2026 16:32:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP0Nm-00000009d2r-01Wl
+	id 1xP0No-00000009d5L-1rfM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 16:32:11 +0000
+	Thu, 05 Nov 2026 16:32:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 65F21609FE;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3892043646;
+	Thu,  5 Nov 2026 16:32:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86C1C1F000C1;
 	Thu,  5 Nov 2026 16:32:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B5D01F00A2A;
-	Thu,  5 Nov 2026 16:32:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793896329;
-	bh=WJTiMGqrIsOG3gHsS8L9VK6yNKhZ8u8EFDk2aXiMvE4=;
+	s=k20260515; t=1793896332;
+	bh=u7ZwqjtzSR0o1QTyifWY7mPwVdBSMzMSz40FvvcurNg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=PFbB7XVR2DoaX5auLaixnkFRJwdVCK41dwTVRkBm4i9yF5Kh16r9aChHuAruPERbO
-	 cYO4jz75qZdCynNQxIFnXX2Z4gk7tJ6bp3p53XQoqtO8LHEMV9jxM5ZZfo/pBwC4zx
-	 xAL1XO5Xjnenehf7tSj7WwaMC8In+W+Hl5jOi03q+fQ1xp4HwxXD5/+3jx41uocXw7
-	 C3eEiQ9Duav/HT5Dkod7/TyssPlgrkRi0tfpFmG8z9PCSvmri/GNt7PDt94+wOWTAp
-	 DKWf0HU/oZGj36E6TlQSaXldcsvEYTmxVnXE4f5Xqs2Y6qz3oP4Qk0DrUA3t4jVoTO
-	 o5/JWJTGJrupg==
+	b=W+hHuRN0Y5gzd6aWT5/N9Fq9DIQ/crqWKTYS0dP9WisN7+kvm/ozSS/Ty50vTm9j5
+	 KVr4uquyaDcDTL4NF9+4DxmPsHmeWzo5+IQOrPH/k1PvDU8STNaapaShu0YBRGtMIE
+	 MOkuSQ4W07rX0usTUfMrKZm+/zRvKEciMW25oWQnkw5lSnl6W3HWtY6qO7vE0RjlS7
+	 68bNosHivjjs3d8kUUryLbpsFLzClC0BPKaxydqoV+AWmfgGl0g7jxA8nkpsP2Jvet
+	 rXOIZag/0RJbEzuw95OANkVmXmWPO4+OFqW/+AoZrNxdZ/uraYCeDkvTkRAHnPkhne
+	 j5DpNQ4zpWlsg==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -56,9 +56,9 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	Waiman Long <longman@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
 	"Paul E. McKenney" <paulmck@kernel.org>
-Subject: [PATCH 23/47] clocksource/drivers/arm_arch_timer: Move CPUHP_AP_ARM_ARCH_TIMER_STARTING post stop_machine()
-Date: Thu,  5 Nov 2026 17:30:21 +0100
-Message-ID: <20261105163045.38862-24-frederic@kernel.org>
+Subject: [PATCH 24/47] clocksource/drivers/arm_arch_timer: Move CPUHP_AP_ARM_ARCH_TIMER_EVTSTRM_STARTING post stop_machine()
+Date: Thu,  5 Nov 2026 17:30:22 +0100
+Message-ID: <20261105163045.38862-25-frederic@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261105163045.38862-1-frederic@kernel.org>
 References: <20261105163045.38862-1-frederic@kernel.org>
@@ -93,8 +93,11 @@ a new stop machine post function has been introduced to be executed
 after the main one with IRQs still disabled while other CPUs can exit
 stop_machine().
 
-The teardown callback here simply performs IRQs disablement, which can run
-concurrently with other CPUs.
+The teardown callback here only clears the CPU from the
+evtstrm_available cpumask, which is only ever checked locally for the
+current CPU. And set/clear from other CPUs are atomic.
+
+Therefore this callback is safe to run concurrently with other CPUs.
 
 Move it to post stop_machine() accordingly.
 
@@ -104,15 +107,15 @@ Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/kernel/cpu.c b/kernel/cpu.c
-index a4db04807aa7..3c561a630962 100644
+index 3c561a630962..6f4c609163e5 100644
 --- a/kernel/cpu.c
 +++ b/kernel/cpu.c
 @@ -1275,7 +1275,7 @@ void clear_tasks_mm_cpumask(int cpu)
  static int take_cpu_down(void *_param)
  {
  	struct cpuhp_cpu_state *st = this_cpu_ptr(&cpuhp_state);
--	enum cpuhp_state target = max((int)st->target, CPUHP_AP_EXYNOS4_MCT_TIMER_STARTING);
-+	enum cpuhp_state target = max((int)st->target, CPUHP_AP_ARM_ARCH_TIMER_STARTING);
+-	enum cpuhp_state target = max((int)st->target, CPUHP_AP_ARM_ARCH_TIMER_STARTING);
++	enum cpuhp_state target = max((int)st->target, CPUHP_AP_ARM_ARCH_TIMER_EVTSTRM_STARTING);
  	int err, cpu = smp_processor_id();
  
  	/* Ensure this CPU doesn't handle any more interrupts. */
@@ -120,8 +123,8 @@ index a4db04807aa7..3c561a630962 100644
  	enum cpuhp_state target = max((int)st->target, CPUHP_AP_OFFLINE);
  	int cpu = smp_processor_id();
  
--	WARN_ON(st->state != CPUHP_AP_EXYNOS4_MCT_TIMER_STARTING);
-+	WARN_ON(st->state != CPUHP_AP_ARM_ARCH_TIMER_STARTING);
+-	WARN_ON(st->state != CPUHP_AP_ARM_ARCH_TIMER_STARTING);
++	WARN_ON(st->state != CPUHP_AP_ARM_ARCH_TIMER_EVTSTRM_STARTING);
  	/*
  	 * Invoke the former CPU_DYING callbacks. DYING must not fail!
  	 */
