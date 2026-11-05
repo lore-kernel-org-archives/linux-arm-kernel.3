@@ -2,44 +2,44 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DB08606D820
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:01:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7368D606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 11:01:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nBlWRDA/;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bkbXfAYz
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=lW6VpGGj;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Gz8/8xRY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=Zth+ioNeco6Y26/nGtuUwgodoU7stROkCOLzqhbMwj8=; b=nBlWRDA/X9bN9Q
-	j6nRCd0+6MePDXrMIQrcs63XCU1/hRAhaNzp0OB87m3Ok6CN2vrfDO3ZDxzQc/jLBivYIeMl6qUD2
-	BMaRu5KWX80V+fMyoqr4zmJEVs42FZqGPZ0F2tF2DFuZe7b7IN3ZK25Dq+yd/7/IimtgnqTyQh7dA
-	fXKNe2IHq24sKegoPgJIUVKHMJm6H+qFcfufSYz5SCAHiNMbkLVhK5ybSOREk9hYhNiijbVZO23ll
-	T02uW8zLgUEQxcJ1+D9bVrYluNHtPS77EAAH8gKymzOd5/DIdurRAalxLpsGVHzqZ7SorTbQItNRV
-	VabPbJZc0CkSWIxv29iA==;
+	List-Owner; bh=BcXeQjEFNSP/TApty++76xzI53xOj+syuhRwCG9rHxo=; b=lW6VpGGjhujvts
+	m2yCvrG/B3+w9kSLQ1U4GPnGhzeLczDLkpu5s7F4oSNisdcwPpW6xfO7zKL5oTDx1AqWr6GTBhrAG
+	y0ulfSxaVsZI5MJMOlr0Z9eyHNRiL422CZFs+86LvG7FEEaE/9ofhbBP8QMwUtlWVUhFMiFajHJJx
+	yus/ten0BtVum0+waWdag8dfGBBmbL3zT/xPerQhmIZVf+jigqu2S1PTv6EWCkL2q00nTLUlzZk08
+	OXktHu9RX3lGsa0zZHRkQkgFzhnRi4xhxRgo2vx7ZMt23SDz7oPlRlvvgM6r/FFaB09VaNwzMSotc
+	y0xoaadaKBLxViOGaAhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvDT-00000008Xns-0fpB;
-	Thu, 05 Nov 2026 11:01:11 +0000
-Received: from out-119.mta0.migadu.com ([2001:41d0:1004:224b::77] helo=mta0.migadu.com)
+	id 1xOvDg-00000008XvY-3W3x;
+	Thu, 05 Nov 2026 11:01:25 +0000
+Received: from out-123.mta0.migadu.com ([2001:41d0:1004:224b::7b] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOvDM-00000008Xho-3oct
+	id 1xOvDT-00000008Xlt-0nia
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 11:01:06 +0000
+	Thu, 05 Nov 2026 11:01:12 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=etVrSQDuUpX2EwqNodnkS74XlA/kEpDepAAYv3ksNZ0=;
+DKIM-Signature: a=rsa-sha256; bh=pbHGj00Y/u34o5L+mmK1hpmWWttuOPLFGa9fwq0JKUI=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793876462; v=1; x=1794481262;
- b=bkbXfAYzV5yJpZWt0hYSc5BCd/jJ1UJOzPAfuYCIm9gOLGemof5NbmkoLWEfULSDiYg8qqQ2
- ES+eFkpjeK0cQ+m0M5LUeufY2I+2gHNigXmfJntkxIji9JNGA/SnbR4CnG47ICmt1SaFkvW9LIe
- TwLIuyz53DGOrTapy7aH4Hz0=
+ t=1793876467; v=1; x=1794481267;
+ b=Gz8/8xRYZEcFoVAC+FDF5nMZGaKIJmHcjzNQdxS96DTPgJtqH4gAZ9BGBKCyA+qZRXQ++X+7
+ DPFwW0JNcDYeqxzWaFEKDxgXZPQk6YDnqEN8A6l/l6Lp0eXiWodLk8GLbYK5ewnSsz1pUr5xlzk
+ GAs+8RNK972RlnDpMWL1UL68=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 82aeebc9bf92e3fc;
-	Thu, 05 Nov 2026 11:01:02 +0000
-X-Mizu-Trace-ID: 82aeebc9bf92e3fc
+Received: by smtp.migadu.com with ESMTPS id e418548e26965c89;
+	Thu, 05 Nov 2026 11:01:07 +0000
+X-Mizu-Trace-ID: e418548e26965c89
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Oliver Upton <oupton@kernel.org>,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	kvm@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/3] KVM: arm64: vgic-v3: Don't save pending tables with LPIs disabled
-Date: Thu,  5 Nov 2026 11:00:49 +0000
-Message-ID: <20261105110050.1244525-3-fuad.tabba@linux.dev>
+Subject: [PATCH 3/3] KVM: arm64: vgic-its: Don't read the pending table when mapping an LPI
+Date: Thu,  5 Nov 2026 11:00:50 +0000
+Message-ID: <20261105110050.1244525-4-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261105110050.1244525-1-fuad.tabba@linux.dev>
 References: <20261105110050.1244525-1-fuad.tabba@linux.dev>
@@ -69,8 +69,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_030105_168734_65B94D07 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20261105_030111_720197_561EB337 
+X-CRM114-Status: GOOD (  19.55  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,54 +90,171 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-KVM_DEV_ARM_VGIC_SAVE_PENDING_TABLES writes each LPI's pending state
-into its redistributor's pending table, clearing the bit of an LPI that
-isn't pending. However, once a redistributor has LPIs disabled and RWP
-reads 0, "there are no further accesses by the GIC to the LPI Pending
-table" (IHI 0069H.b, 5.1.2) until enabling LPIs reads it. A bit the
-guest sets there is cleared by the next save, which QEMU runs whenever
-it stops the VM, and the guest never takes the LPI.
+Mapping an LPI makes it pending if its bit in the target redistributor's
+pending table is set. While the redistributor has LPIs enabled, KVM
+doesn't keep that bit current. Saving the pending tables, as QEMU does
+whenever it stops the VM, sets the bit of each pending LPI, and the bit
+stays set once the guest has taken the LPI. Discarding the LPI and
+mapping its INTID again makes it pending a second time.
 
-Skip the LPIs of a redistributor with LPIs disabled, and document it.
-On GICv4.1 this drops the state of a forwarded vLPI there, which the
-disable is allowed to lose: "There is no guarantee that clearing
-GICR_CTLR.EnableLPIs causes the LPI Pending table to be updated in
-memory" (5.1.2).
+MAPTI (IHI 0069H.b, 5.3.12) doesn't read the table, so stop reading it
+when an LPI is created. Read it once the ITS tables are restored
+instead, for each redistributor with LPIs enabled, as enabling LPIs
+does (5.1.2). The documented restore order restores the redistributors
+first.
 
-Fixes: 280771252c1ba ("KVM: arm64: vgic-v3: KVM_DEV_ARM_VGIC_SAVE_PENDING_TABLES")
+The copy that commit b4c9f30194a4 ("KVM: arm64: vgic-v3: Don't drop a
+pending LPI mapped with LPIs disabled") takes while LPIs are disabled
+goes too, now that the save leaves that bit alone.
+
+An LPI mapped after its redistributor enabled LPIs no longer picks up a
+bit the table held at the enable. A GIC makes the LPI pending at the
+enable, mapped or not (5.1.2). KVM has no pending state for an unmapped
+INTID, and a bit the guest wrote is indistinguishable from one a save
+left behind. Linux enables LPIs with a zeroed table.
+
+Fixes: 06bd5359549d7 ("KVM: arm64: vgic-its: Read config and pending bit in add_lpi()")
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- Documentation/virt/kvm/devices/arm-vgic-v3.rst | 1 +
- arch/arm64/kvm/vgic/vgic-v3.c                  | 4 +++-
- 2 files changed, 4 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/vgic/vgic-its.c | 33 ++++++++++++++++--------
+ arch/arm64/kvm/vgic/vgic-v3.c  | 46 ----------------------------------
+ arch/arm64/kvm/vgic/vgic.h     |  1 -
+ 3 files changed, 23 insertions(+), 57 deletions(-)
 
-diff --git a/Documentation/virt/kvm/devices/arm-vgic-v3.rst b/Documentation/virt/kvm/devices/arm-vgic-v3.rst
-index 5395ee66fc324..c878d3f728858 100644
---- a/Documentation/virt/kvm/devices/arm-vgic-v3.rst
-+++ b/Documentation/virt/kvm/devices/arm-vgic-v3.rst
-@@ -308,6 +308,7 @@ Groups:
-       save all LPI pending bits into guest RAM pending tables.
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index 5ce485485a117..ede205e05dc04 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -142,7 +142,7 @@ static struct vgic_irq *vgic_add_lpi(struct kvm *kvm, u32 intid,
+ 	 * However we only have those structs for mapped IRQs, so we read in
+ 	 * the respective config data from memory here upon mapping the LPI.
+ 	 *
+-	 * Should any of these fail, behave as if we couldn't create the LPI
++	 * Should that fail, behave as if we couldn't create the LPI
+ 	 * by dropping the refcount and returning the error.
+ 	 */
+ 	ret = update_lpi_config(kvm, irq, NULL, false);
+@@ -151,12 +151,6 @@ static struct vgic_irq *vgic_add_lpi(struct kvm *kvm, u32 intid,
+ 		return ERR_PTR(ret);
+ 	}
  
-       The first kB of the pending table is not altered by this operation.
-+      Neither is the pending table of a redistributor with LPIs disabled.
+-	ret = vgic_v3_lpi_sync_pending_status(kvm, irq);
+-	if (ret) {
+-		vgic_put_irq(kvm, irq);
+-		return ERR_PTR(ret);
+-	}
+-
+ 	return irq;
+ }
  
-   Errors:
+@@ -2710,6 +2704,9 @@ static int vgic_its_save_tables_v0(struct vgic_its *its)
+  */
+ static int vgic_its_restore_tables_v0(struct vgic_its *its)
+ {
++	struct kvm *kvm = its->dev->kvm;
++	struct kvm_vcpu *vcpu;
++	unsigned long i;
+ 	int ret;
  
+ 	ret = vgic_its_restore_collection_table(its);
+@@ -2717,9 +2714,25 @@ static int vgic_its_restore_tables_v0(struct vgic_its *its)
+ 		return ret;
+ 
+ 	ret = vgic_its_restore_device_tables(its);
+-	if (ret)
+-		vgic_its_free_collection_list(its->dev->kvm, its);
+-	return ret;
++	if (ret) {
++		vgic_its_free_collection_list(kvm, its);
++		return ret;
++	}
++
++	/* Enabling LPIs read the pending tables before these LPIs existed. */
++	kvm_for_each_vcpu(i, vcpu, kvm) {
++		if (!vgic_lpis_enabled(vcpu))
++			continue;
++
++		ret = its_sync_lpi_pending_table(vcpu);
++		if (ret) {
++			vgic_its_free_device_list(kvm, its);
++			vgic_its_free_collection_list(kvm, its);
++			return ret;
++		}
++	}
++
++	return 0;
+ }
+ 
+ static void vgic_its_commit_v0(struct vgic_its *its)
 diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index 65b77fb35be37..9bbf11ddba92e 100644
+index 9bbf11ddba92e..35e45479dfa42 100644
 --- a/arch/arm64/kvm/vgic/vgic-v3.c
 +++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -625,7 +625,9 @@ int vgic_v3_save_pending_tables(struct kvm *kvm)
- 			continue;
+@@ -517,52 +517,6 @@ void vcpu_set_ich_hcr(struct kvm_vcpu *vcpu)
+ 				      ICH_HCR_EL2_TC);
+ }
  
- 		vcpu = irq->target_vcpu;
--		if (!vcpu)
-+
-+		/* While LPIs are disabled, the pending table is the guest's. */
-+		if (!vcpu || !vgic_lpis_enabled(vcpu))
- 			goto put_irq;
- 
- 		pendbase = GICR_PENDBASER_ADDRESS(vcpu->arch.vgic_cpu.pendbaser);
+-int vgic_v3_lpi_sync_pending_status(struct kvm *kvm, struct vgic_irq *irq)
+-{
+-	struct kvm_vcpu *vcpu;
+-	int byte_offset, bit_nr;
+-	gpa_t pendbase, ptr;
+-	bool status;
+-	u8 val;
+-	int ret;
+-	unsigned long flags;
+-
+-retry:
+-	vcpu = irq->target_vcpu;
+-	if (!vcpu)
+-		return 0;
+-
+-	pendbase = GICR_PENDBASER_ADDRESS(vcpu->arch.vgic_cpu.pendbaser);
+-
+-	byte_offset = irq->intid / BITS_PER_BYTE;
+-	bit_nr = irq->intid % BITS_PER_BYTE;
+-	ptr = pendbase + byte_offset;
+-
+-	ret = kvm_read_guest_lock(kvm, ptr, &val, 1);
+-	if (ret)
+-		return ret;
+-
+-	status = val & (1 << bit_nr);
+-
+-	raw_spin_lock_irqsave(&irq->irq_lock, flags);
+-	if (irq->target_vcpu != vcpu) {
+-		raw_spin_unlock_irqrestore(&irq->irq_lock, flags);
+-		goto retry;
+-	}
+-	irq->pending_latch = status;
+-	vgic_queue_irq_unlock(vcpu->kvm, irq, flags);
+-
+-	/* Enabling LPIs resets the latch from the table: leave the bit for it */
+-	if (status && vgic_lpis_enabled(vcpu)) {
+-		/* clear consumed data */
+-		val &= ~(1 << bit_nr);
+-		ret = vgic_write_guest_lock(kvm, ptr, &val, 1);
+-		if (ret)
+-			return ret;
+-	}
+-	return 0;
+-}
+-
+ /*
+  * The deactivation of the doorbell interrupt will trigger the
+  * unmapping of the associated vPE.
+diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+index 71c481ddd98d6..c4407f69f3613 100644
+--- a/arch/arm64/kvm/vgic/vgic.h
++++ b/arch/arm64/kvm/vgic/vgic.h
+@@ -347,7 +347,6 @@ void vgic_v3_reset(struct kvm_vcpu *vcpu);
+ void vgic_v3_enable_cpuif_traps(void);
+ int vgic_v3_probe(const struct gic_kvm_info *info);
+ int vgic_v3_map_resources(struct kvm *kvm);
+-int vgic_v3_lpi_sync_pending_status(struct kvm *kvm, struct vgic_irq *irq);
+ int vgic_v3_save_pending_tables(struct kvm *kvm);
+ int vgic_v3_set_redist_base(struct kvm *kvm, u32 index, u64 addr, u32 count);
+ int vgic_register_redist_iodev(struct kvm_vcpu *vcpu);
 -- 
 2.47.3
 
