@@ -2,47 +2,47 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AD876083612
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:17:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A54B6083635
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Nov 2026 12:17:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=3XnKruCK;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V64hvXG/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=y/wW1RHy;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YUoirBPX
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=NZ3CgzX5kCqEc5zzVuYtQMrEP9DNTdrTQOJmfrHXdUM=; b=3XnKruCKJTho+Z
-	prWIy65tjJwe/dpb0ZrWZCfP8mrOjDGB88oBjGBGePU0LOloI+cnIqdMEdr2+qDpn4JqwLW4H/6gK
-	EcJcDS78TVELMqlHEZaRuriYwYRDo1/LohGx9TiwcaV/Mabq0zHy8NryEYRnpYLkIYIV4meu7xddU
-	RMgHhfsXxCoGArkiJUnsR9fw9Zp8Rhhkqr1fO4IVXpjfyVzBaa0eXiTy+pXC3Si1xZbvxsfsk95cg
-	JXNhdeEytGYf0153/ihSXpvK4pbLT4cOgpgNXuMzOl5msu3ESt0nJfOKCYcabgRI5F/pFmSxdQQwp
-	xN6l7jsbOkuR/y8qoWPw==;
+	List-Owner; bh=i/6zR46dYGjFw0n/4PpbA5N+Te6DN9VonOFVqLNLWQs=; b=y/wW1RHyT7pYMu
+	ztRTfM4YALHtvuPpx6xE5ZrnUgBgVQP9VLX32SbldQbdrNhr5RRqd/DjvWrpnCz6w0t9FoTTK1/ag
+	j5RC1lrUTM928IyZbDmwRFIdMFHsZR0vBErMm+ioNj4sK62Yi31huCD7hsaRUCAEvWfqlkl4MyE2B
+	nY1E4q6ID5ezIYu8Ac0MAYTa8Nujq7kIET0zlq0fJ0u9OHMHA5Q7jn7RGCNB9sdK2b5IKAHirZGxv
+	2Whuoc+HhmqG+Ut4YtnuInq9ja5xuOWsiocO76/BfVNoNdBpActVNKVGrGpmY0jz1g63XEdxR7eVX
+	gmEPeTajCCl2Zt7Pl8Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOwPE-00000008tJO-2Ok5;
-	Thu, 05 Nov 2026 12:17:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xOwPM-00000008tSZ-0fLS;
+	Thu, 05 Nov 2026 12:17:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xOwPD-00000008tH8-0UCQ
+	id 1xOwPI-00000008tMw-2TUF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Nov 2026 12:17:23 +0000
+	Thu, 05 Nov 2026 12:17:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 759CE61107;
-	Thu,  5 Nov 2026 12:17:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 877111F0093A;
-	Thu,  5 Nov 2026 12:17:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 56157439DA;
+	Thu,  5 Nov 2026 12:17:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91A3D1F00A15;
+	Thu,  5 Nov 2026 12:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793881042;
-	bh=NZ3CgzX5kCqEc5zzVuYtQMrEP9DNTdrTQOJmfrHXdUM=;
+	s=k20260515; t=1793881048;
+	bh=i/6zR46dYGjFw0n/4PpbA5N+Te6DN9VonOFVqLNLWQs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=V64hvXG/6ati29xvEOwA+mKQa0d7FJScqk/4Vov27oAQ9RgN2TVHLfQY7TjZ6YRk9
-	 KfAftY8bbwNhFfUbwevB6z3w0l+tbCxNFkQMBOLGSJdZ/TWkYLs4jC39F0lC8Ivjvz
-	 JJhZhwfNodO4qfOxjx8modj8zfRT+sLG6l01SrikaTWYiJxv53wI2hx/XNqRDVGaXq
-	 kxR2nIjwAAUeExh/HM4R9cfmuZd9YxBV0Mj98yNoX1l79198Sa9BZC7RrwUdrUs0HZ
-	 run9S9EKxte8HsKtXpKdXvma8V73cMNl+tOQy4x105jjH41sz8DUoW3ZZs3UIZqZ0d
-	 CQ1r1xtOSHmwg==
+	b=YUoirBPX+0MBci2wP+U5q5aEM9AZBSWaRXbCjqYXEtTEub3LEfepgLooGdhQhI8HB
+	 G6KpjHm22BaBjsXyFoPI4NzFlRVn+m2Rj7foza6gC9VXW41puhvwj9f/rJT/SNvy/7
+	 I6hlrpqYbqhsmTXsImuMB0hdRL4a4ZIZmvYtMLljiCnweArnarBv6n9tlg8oB7668r
+	 GE+sDUN0EEPUQybdh95fxKTQAiwrqbrJlVHXvzwYEgSLZMkc8cyjpJz+HiUAUTILoz
+	 UE7sDAUTOmeiO7zMC4WPSMoMaMmldy38v0NUwZjmhaho3ghEv756TW2tV4uJ3kMx1s
+	 B562/QtvZ3tIA==
 From: Joshua Crofts <crofts@kernel.org>
 To: Jonathan Cameron <jic23@kernel.org>,
 	David Lechner <dlechner@baylibre.com>,
@@ -61,9 +61,9 @@ Cc: linux-iio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	imx@lists.linux.dev
-Subject: [PATCH 07/10] iio: gyro: bmg160: remove redundant pm_runtime_dont_use_autosuspend() call
-Date: Thu,  5 Nov 2026 12:16:32 +0000
-Message-ID: <20261105121635.1612-8-crofts@kernel.org>
+Subject: [PATCH 09/10] iio: light: vncl4035: remove redundant pm_runtime_dont_use_autosuspend() call
+Date: Thu,  5 Nov 2026 12:16:34 +0000
+Message-ID: <20261105121635.1612-10-crofts@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261105121635.1612-1-crofts@kernel.org>
 References: <20261105121635.1612-1-crofts@kernel.org>
@@ -96,21 +96,21 @@ Remove the redundant function call.
 
 Signed-off-by: Joshua Crofts <crofts@kernel.org>
 ---
- drivers/iio/gyro/bmg160_core.c | 1 -
+ drivers/iio/light/vcnl4035.c | 1 -
  1 file changed, 1 deletion(-)
 
-diff --git a/drivers/iio/gyro/bmg160_core.c b/drivers/iio/gyro/bmg160_core.c
-index b007f46d3fd6..f1e1d21e590f 100644
---- a/drivers/iio/gyro/bmg160_core.c
-+++ b/drivers/iio/gyro/bmg160_core.c
-@@ -1169,7 +1169,6 @@ int bmg160_core_probe(struct device *dev, struct regmap *regmap, int irq,
- 	return 0;
+diff --git a/drivers/iio/light/vcnl4035.c b/drivers/iio/light/vcnl4035.c
+index 23bd0d42363d..c34a2ab073a1 100644
+--- a/drivers/iio/light/vcnl4035.c
++++ b/drivers/iio/light/vcnl4035.c
+@@ -607,7 +607,6 @@ static void vcnl4035_remove(struct i2c_client *client)
+ 	struct iio_dev *indio_dev = i2c_get_clientdata(client);
+ 	int ret;
  
- err_pm_cleanup:
--	pm_runtime_dont_use_autosuspend(dev);
- 	pm_runtime_disable(dev);
- err_buffer_cleanup:
- 	iio_triggered_buffer_cleanup(indio_dev);
+-	pm_runtime_dont_use_autosuspend(&client->dev);
+ 	pm_runtime_disable(&client->dev);
+ 	iio_device_unregister(indio_dev);
+ 	pm_runtime_set_suspended(&client->dev);
 -- 
 2.47.3
 
