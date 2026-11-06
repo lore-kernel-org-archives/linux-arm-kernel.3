@@ -2,65 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98B14606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 09:50:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 375776082BC7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 09:57:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z1JMpir1;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=sjTGYC6q
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=BXhobOdX;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=hhrXfhLc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=ZiIKqYRHXYUrq5jY4SAhBx+dxEMk/9hW4rEcLk5Peqs=; b=Z1JMpir1nX5D4k
-	l4xZQ3DKlfIqcd3+l84hn0RHf+BAnSMji7XUB29xblQnt1CiWlNEJnbtMf/i7IG28dqKe68df+EUv
-	qhK1SK75IfiiVFev99XBfoaMnEBr5SfEOmm9yIVG1Ypw60RhwzBkcQ/MlnpvOLeWfS82zXJSe9vxv
-	yGxKlUUmA4WX7Eisqy4JjgC4PBSUotl06s8hRBVeJ1cH2s9LDOeisYqvzdVT+NLTTYpiZgrF5Ba9U
-	2qCswRmyOB0WlJ+KIwvu2+wBwN7r7hjl1aHzSA/Rzc4x8Xk5IwafSFbMuGxOpDxJR5zBmrDJS/Lwv
-	6TXTwPMnSMJx60gNkqwg==;
+	List-Owner; bh=XAkSWWlSKWrfSpGakr9IRtUKXWmzHK5177/xyA2/F6U=; b=BXhobOdXNPoTOO
+	pkGmkj4uWEt2bSrDK6M+1clppI0X1022ksqtQcufU05eHw9njjzrZNtJeuF+nasnhFSf/8xE44YEN
+	PEq7Q6Upx9QobUm0jNpUUwkR6Zo1L8VSymmAcVhuo6JyZtdJ6RLyA0EmBaJo6iVuYxV/PFQWDQrHa
+	JCRJKMbvOnkptSOgp9Rg+4mydfNn4bP/hR3VsbLuULe9H/cYBmpwqTxzVmxQRhX9CUA+05eYXmgQ/
+	Y0iOz7hp7PEdR+UD2HhVKLmMgSd666Tc23WCa+plB6YzsRkn2+S6gTbJM678Wo7PBqsGG59xbllO9
+	Fa/fZKlgrtycwGGsTC9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPGa3-0000000BoDD-2fQP;
-	Fri, 06 Nov 2026 09:49:55 +0000
+	id 1xPGgq-0000000BpR6-2ugx;
+	Fri, 06 Nov 2026 09:56:56 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPGZy-0000000BoBZ-3DaK
+	id 1xPGgo-0000000BpQG-0kSd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 09:49:54 +0000
+	Fri, 06 Nov 2026 09:56:55 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6AEAA1682;
-	Fri,  6 Nov 2026 01:49:46 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D20CB1476;
+	Fri,  6 Nov 2026 01:56:49 -0800 (PST)
 Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B9E23F628;
-	Fri,  6 Nov 2026 01:49:48 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D28BC3F628;
+	Fri,  6 Nov 2026 01:56:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793958589; bh=LQ0TS4wrpbh7eTZLNIBqGnXpSRsa0/ujpXDDC9XeSSc=;
+	t=1793959012; bh=0WBXFs1MiLuO2PVoH0yOAYbRTTQ8cqOTi1RLFPjBnsk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sjTGYC6q6C4GKCQI3+YrAvT5ASM/aJRD9nUT9eOvYm/rPv4C+9p9QtONiqNBnYqx3
-	 qbi50ikTMnDem31yG+ZUwH5Hu3mKGoetr+1io8wKqWzAHu1+j4WiklGCpvu4W/IBWq
-	 fM1ctohDAb61wRN3gdtFT6cV2myIz0RDVgD3pOEc=
-Message-ID: <5ca3f30c-5fea-4602-919a-6182aba20310@arm.com>
-Date: Fri, 6 Nov 2026 09:49:46 +0000
+	b=hhrXfhLcOF3M5cj3yeVnRsYrdvVg7xXEXL9iwfog98xq4ECNodhUH6MEsipsTN59D
+	 OjZzf8YM0s7KlZi/zE581GGp6U0IiJTOvaZrlrz1kcY4OrLFwT2PDs2DIfCyX23INa
+	 iyrfHDkmuTYW6J7UD5Pkio1isF8xpnQMJD2c2BlU=
+Message-ID: <17294983-0e81-4f73-928d-34e676807b29@arm.com>
+Date: Fri, 6 Nov 2026 09:56:50 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] irqchip/gic-v3-its: Align sub-page ITTs to 256 bytes
+Subject: Re: [PATCH 2/3] irqchip/gic-v3-its: Zero ITTs reused from the ITT
+ pool
 To: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>,
  Thomas Gleixner <tglx@kernel.org>
 Cc: Radu Rendec <radu@rendec.net>, Steven Price <steven.price@arm.com>,
  Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20261106092625.3977163-1-fuad.tabba@linux.dev>
- <20261106092625.3977163-2-fuad.tabba@linux.dev>
+ <20261106092625.3977163-3-fuad.tabba@linux.dev>
 Content-Language: en-US
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20261106092625.3977163-2-fuad.tabba@linux.dev>
+In-Reply-To: <20261106092625.3977163-3-fuad.tabba@linux.dev>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_014950_854964_69B7404B 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20261106_015654_259316_962EF7DE 
+X-CRM114-Status: GOOD (  18.83  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,47 +82,42 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
 On 06/11/2026 09:26, Fuad Tabba wrote:
-> Commit e36d4165f0796 ("irqchip/gic-v3-its: Rely on genpool alignment")
-> dropped the ALIGN() of the ITT address in MAPD, on the premise that the
-> ITT pool returns 256-byte aligned blocks. However, the pool's minimum
-> allocation order is get_order(ITS_ITT_ALIGN), which is 0, so its
-> granule is a single byte. An ITT whose size is not a multiple of 256
-> leaves the next one misaligned, MAPD drops the low bits of its address,
-> and that device's ITEs land on the previous device's ITT. QEMU's
-> emulated ITS has 12-byte ITEs, so two devices with 32 vectors each are
-> enough to hit it.
+> Commit b08e2f42e86b5 ("irqchip/gic-v3-its: Share ITS tables with a
+> non-trusted hypervisor") moved sub-page ITTs from kzalloc_node() to a
+> genpool. The pages added to the pool are zeroed, but an ITT freed back
+> to it goes to the next device as the previous one left it. MAPD is then
+> UNPREDICTABLE: "When V == 1, the specified ITT does not contain all
+> zeros" (IHI 0069H.b, 5.3.10).
 > 
-> Create the pool with a granule of ITS_ITT_ALIGN.
+> Zero the ITT when it comes from the pool.
 > 
-> Fixes: e36d4165f0796 ("irqchip/gic-v3-its: Rely on genpool alignment")
+> Fixes: b08e2f42e86b5 ("irqchip/gic-v3-its: Share ITS tables with a non-trusted hypervisor")
 > Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 > ---
->   drivers/irqchip/irq-gic-v3-its.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+>   drivers/irqchip/irq-gic-v3-its.c | 4 +++-
+>   1 file changed, 3 insertions(+), 1 deletion(-)
 > 
 > diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-> index 282e4bafb084f..5613c52adf88e 100644
+> index 5613c52adf88e..5c3ab9d30f6af 100644
 > --- a/drivers/irqchip/irq-gic-v3-its.c
 > +++ b/drivers/irqchip/irq-gic-v3-its.c
-> @@ -5849,7 +5849,7 @@ int __init its_init(struct fwnode_handle *handle, struct rdists *rdists,
->   	bool has_v4_1 = false;
->   	int err;
+> @@ -267,8 +267,10 @@ static void *itt_alloc_pool(int node, int size)
 >   
-> -	itt_pool = gen_pool_create(get_order(ITS_ITT_ALIGN), -1);
-> +	itt_pool = gen_pool_create(ilog2(ITS_ITT_ALIGN), -1);
+>   	do {
+>   		addr = gen_pool_alloc(itt_pool, size);
+> -		if (addr)
+> +		if (addr) {
+> +			memset((void *)addr, 0, size);
+>   			break;
+> +		}
 
-
-gen_pool_create expects the first argument as:
-
-min_alloc_order: log base 2 of number of bytes each bitmap bit represents
-
-So, passing get_order() is definitely wrong and ilog2 is the correct
-choice here.
+It is safer to do this at allocation than freeing something back to the 
+gen_pool.
 
 Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
->   	if (!itt_pool)
->   		return -ENOMEM;
 >   
+>   		page = its_alloc_pages_node(node, GFP_KERNEL | __GFP_ZERO, 0);
+>   		if (!page)
 
 
