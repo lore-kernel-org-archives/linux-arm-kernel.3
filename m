@@ -2,142 +2,81 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDA9F606A328
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 09:00:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BCCD606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 09:02:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=y60Izjrj;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=ZTdRwV9j
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iU98aUcH;
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=hjRU7vzd
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=1w3AzzRYR9DYbpvsWJJRIhrUxpVqjutTSEJqg0ka938=; b=y60IzjrjV5zeFYhG5J4+nIDVx7
-	prEPk0XtvE3O2pKUnDq6agoncoPmdKVal3kblcJAZM11r/+7OzsBpop1VHk9qEDJyK/n7rF/woT+5
-	usS11d7QnTBzu4mq1qRlSLWeEiqKnm5pOqRcxThVswSmELesnkuRw9MJyGDlC21lSahq9m8ACwnwu
-	EuueYmkwHxCSPB3u5t1XbNkTL8e+2KjWeqKcxnmIn3jVsixTfzsgtiQgHI/Itt4CmA1/Z0TN1ZKmh
-	dNuFavcpCqEh74d/zWIbwanUNmY2QylG3gJL7mfK+eCgVk4sujERbFpPvMaIp8qbpw/+mtl1v55Fu
-	fa4spsHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=IZO9hHewpI1vF88rTpwvcS4eIwOhB3E4KR10OH18Zcs=; b=iU98aUcH7akKYS
+	blkFCZh+iuJc1diMCV5UCU6VdoQBmZ+nyvzBrX4U1bbQ++jidyP8Rue03AKk5htyvWQsovEvUl7cH
+	xwpJSDbJ2AAGW/fwJjDFRQU5iRrD+sGTuYcvCWQ+5U+Ed/l2QTT+hgiNjq/DQw5EAB9Gx0+TdJIA8
+	owqV2rb+X3V9icdkUSXD6Fr0i+04Blayk1/pPIiTKgg27NC3zE56jqnM3H/slUqBLGJAZS6OePSh+
+	3Wl6JPsIH+irtWiFZKg3Yn1mGF2tMQJa2joB/a7GC7yHlPVwC7Bg9xGIBJqmgwW9FSsoP4qZvskCB
+	kf9RmJK8ae/8CM7eIS8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPFoM-0000000BeF4-34Ze;
-	Fri, 06 Nov 2026 09:00:38 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1xPFq2-0000000BeO3-3vlH;
+	Fri, 06 Nov 2026 09:02:22 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPFoJ-0000000BeEF-3FWH
+	id 1xPFpy-0000000BeNZ-3imn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 09:00:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GSk8PvoMdmilQZvKIx82yy26vdWGIY5loJ2UXQyF0UDU7/7YTAWA4sCJGOk94k2/8IfcsuSmG4kuhzlziQqoa9nV6c6E7hdcvlfY8y85IxvKQL71i/6L4TeQizr2seQVgDj8wclBTrZ24S5MBiCOrPfejiuvYQ8Y+uZgxn+qLLZ+g4WWXsodSTyAwFKWbJ742HPJrt1Mj8nJnX9hts0NV8tT54vZtCtZnX1AEpKuJP/PF4NfexaF4AFBWidVg3sMn31TVKmg57XH5C/khxGFgGlUVrQJfVHwMtopOE/Xo7usVCMqL3b79zFe8NGSrae6UUh97s+94n1ucPpq3BRQRA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1w3AzzRYR9DYbpvsWJJRIhrUxpVqjutTSEJqg0ka938=;
- b=GtYylSuf4YgIBG9UhpMACPIvyVYZNqtbdXU/jn/xBwXUNYfz0Gmlg6e2DEM8USjGWL9pTOr6kyq/BIoJ5z4qKnb5+vegEGKsFOAX9+MkOBBAwVK7tS/nAqXgTGw/fXJR9m9kAg8+eB86OXi5G8NbZCCHTbZC9YNJT9Vt0+zmKG0DChSPkCGlOQ0xyKUI1nw+DGnJbFUIf+jUOwxwXqpxappl0kXgrzlQKh6Csyjo7ZC6EliYw3CJgp8D47KROn/xcp+5AXKpa0rcj5w0ufzmegmUbEtx/Y34IAdBvxF0rl09DC+jSnVos6o7+IOO1TPbcQvHSfeXPjCHmKerBUHpzQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1w3AzzRYR9DYbpvsWJJRIhrUxpVqjutTSEJqg0ka938=;
- b=ZTdRwV9jUKqsZqOl89jvuBme8B1HNZDHjpwMsxLCbkjYDzBiTbVBjUoNQkUtjmjqvqhZj/7mnC4HdMfrrsLUoVcuTYtJfEmr0neNI/N6tFap4PqA8HHqzpSqNyFH8M0sGCB09HIiSTcqfrJsJlvFnBKG9964QJI81OvUpjWADhVR0j3RF773l3Ke0o+bDmlhCA4i/ASbWfwjesg3FSxR+LJAj99vfboY5UYbgTE+LNYpnNl3lklNOK/xjwL7LOc5j9dU+QqYdIa2SYie2g6cp8eNwE12Aq6F8uRBoEZo4WZ3kQmcALvdhPz+rzQG1EY0krBgQhSu9rG9cxI855F9WA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
- by DB9PR04MB8429.eurprd04.prod.outlook.com (2603:10a6:10:242::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.9; Fri, 6 Nov 2026
- 09:00:26 +0000
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d%6]) with mapi id 15.21.0592.009; Fri, 6 Nov 2026
- 09:00:26 +0000
-From: hongxing.zhu@oss.nxp.com
-To: frank.li@oss.nxp.com,
-	jingoohan1@gmail.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: [PATCH v1] PCI: imx6: Enable L1SS support when supports_clkreq is true
-Date: Fri,  6 Nov 2026 17:03:42 +0800
-Message-Id: <20261106090342.2601665-1-hongxing.zhu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR02CA0025.apcprd02.prod.outlook.com
- (2603:1096:4:195::21) To PAXPR04MB8096.eurprd04.prod.outlook.com
- (2603:10a6:102:1c7::19)
+	Fri, 06 Nov 2026 09:02:21 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=IZO9hHewpI1vF88rTpwvcS4eIwOhB3E4KR10OH18Zcs=;
+	b=hjRU7vzdg/I2Nu9I0mN5sdbYT0kFey2K901ZDMBOjEImYw2ZNl0YCPz2n08l6gN5gzgjTEDT3
+	UiWdRSGdcbRhhJ9fuEMPeptb2aUqQ3ozspnVmQbHxAY4Ba+SCZepn1a1YX+RspQ6suiHa9Yi8uf
+	CMPGrMQwBtz8FudL0/tAjF4=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jLY843ZlNzcb3y;
+	Fri,  6 Nov 2026 17:01:40 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id D977A40561;
+	Fri,  6 Nov 2026 17:02:10 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Fri, 6 Nov 2026 17:02:09 +0800
+Message-ID: <75b0ebcb-023a-4889-98b1-bf1d8b6327dd@huawei.com>
+Date: Fri, 6 Nov 2026 17:02:09 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|DB9PR04MB8429:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4bd84dd1-e886-4606-9c7e-08df3be46637
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|19092799006|921020|56012099006|11063799006|261021121427099003|261102123227099003|261009223027099003|10067099003|18002099003;
-X-Microsoft-Antispam-Message-Info: OwZ1W9EHgumQct7rUiBVXzCbBEKa0Z/CpDdIYwgsRNw3rRPR7nkozmj0JMMA3Segg2WzDnHU3t6JZb2zZntK9nHXwohKbUqRWfwpI6q4L9yMBNcgKF0zzLBVE3ecW0agsypz5b5wCSWa/D6wif52ZMr2/xUkI0LshddEvvclLe8TLYRUIWa5k1hAdaNwQfztCdcMSJBXNlk+p3pYN8HjnHM0RSHLDmTUBBjxUxnlqyZ6h+JsLhwmbDXTZcRx/e+dM43lag7D7UCPhYxsE/QXDLt3Y5gh8kIcpGG0QSD51IydTqeA5ez1O2+PgRr/YJW8B14N8R1O2IGZthBYXz/0JQkkmsWakbVZ2Z6fb2Y4RqggdB5VXcQVp+uRg6ClJ67mYr8ghpUCLpKtFAv5Zc0/26qHeEgc6bmrAEfUDsSMOkXVzUvNMBVjVAC0bIFM+5DhIHHTejcVWaGGdgM+VVMl6wzTowxh6P+u04SM/5mme6+fgYPuTCs5j5t7JkkqbQFaYXB3iCHJuKXn0LrryXv0JIOErmKKmqwRJWeOzC8BMH80Z7UGdvogWOy0sX4rBeIkQyHgIhjCk1mznfVQYRPRVus/aPkL16STA7jw8RjPXa8VCHCX8pIi0CS86TRm+QyrHlspOcMITIouFG2UWopr2oGM2Q+KBmHpyGT50TpU4d6rvaNsQyNvVJ54uolGilkJLr898cJXRivSEHt2rRXsvQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(19092799006)(921020)(56012099006)(11063799006)(261021121427099003)(261102123227099003)(261009223027099003)(10067099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gjSUyYoDvO80kPYRfOxy8X18yBkcgmIFEPedq4FqW7tG/SYTH62oe54T85Ey?=
- =?us-ascii?Q?hpdTYl0g7P85lptPm5DQfFnqy6GiclCZD5R09GlPhVo7/fHi7vo0s9WWaxb7?=
- =?us-ascii?Q?Z9HEwUoA52xyqMAEZuIu/gnmtYKuMWkJCtdhIFVJFTWts27g56GOrvJXlxfD?=
- =?us-ascii?Q?Bmc3z0SwRjqe/hC1YChC6aj7D8K4kENs9YkHksuIXJkfryxKVszV1anWVyvd?=
- =?us-ascii?Q?MVLhfPXauLRYIFN8oAxJsFpQQjfRBjyWM+ep4TgpsC+eU2H9LhR1vUO7C9Wf?=
- =?us-ascii?Q?wEzn/O+NxErRFFjPN9sb4LPERDq2kL7YjBtRD/LcxG1+aNgCI8k76U+GA/7A?=
- =?us-ascii?Q?as6Rdkv2pXmmAHF0wfc4EoT5S0UnE+VPtAAvbAwyS81vDKb8bYEM+pkrZodl?=
- =?us-ascii?Q?N/0eHrAt9eIuz2qXXTEsvNvPWcrk0MoG1ajgNsbIcDZDFRtCwyo2ozKX8yso?=
- =?us-ascii?Q?YveKRBJvgsp19+YTz4NkL7mzb6dvqeeNtRynPKrUnU0Cdcac7bMArzt2yP5R?=
- =?us-ascii?Q?es2GwXc8gVe1PGo1sR3e2itwJ50uiFiNVlO8CNKS9mUBBnA1wsBLcoYh1dkS?=
- =?us-ascii?Q?O7WIMeHMF6jlM8wueUCx2JZSZI3n14z/fq098jSmDOMnSZYSniZKe/XQ40yG?=
- =?us-ascii?Q?1MBmzBRM5VLSVvmO4ZMmJw5A8wXd9FEGVjANF+Z/Mgi43n6ic2koghI6irST?=
- =?us-ascii?Q?BXEf3A33l0+G6lVPWnEIotnRuybWDGJkYqNt44SI2gbsj8Eh8xJnCWRuricD?=
- =?us-ascii?Q?R5yY3xUxa08xHcbyagTb/TmuAKcAwyXHtlon/OYdYCN8Aq0I0/i1LTlW2noE?=
- =?us-ascii?Q?oDcsjM1YGliiCgVpLlZiguiPKSvDgNEnjsxYsmwbccgKklAZ2Y7anOdmU5fn?=
- =?us-ascii?Q?QFWG6aq3VTntqzmhT8DtLH+pA8iAnuA1+gvR0WdsSHsIXn0eIuntThV2dSCo?=
- =?us-ascii?Q?rYUtWID2VXLhCsL3usddEJJlZr7o2xYnL/dorenV3msK3d5oqxc2PNe9pw+s?=
- =?us-ascii?Q?PKlx0xbqQoecbBGvpC6RxH6VYVNTa2/zObsI09GpVAoDWWnBotOzZnqUChRl?=
- =?us-ascii?Q?iCIBfR2UnGfSGV3mZImGy+SchCtbsO0gDTbIHj3tLYifyIUmQF06+HG5QCc0?=
- =?us-ascii?Q?gMmQq1xn9KHmgbOXmrp1i8RTgQyGqnUEltGvxJbyMvAAmWIlI25UUeyfs4C4?=
- =?us-ascii?Q?cBp70eT3ENn4897qtnq7eAkX5+MOjRFHX6bt6Q84BhPFhPwDR/9cQSOQpumv?=
- =?us-ascii?Q?lmiDbLTDo7akxncbe6bPQ2pLg6TxkXWumUBGdIgWu/LeCUAu5q9B4R8opSKb?=
- =?us-ascii?Q?VoCj/fkzVVjV451ZWKI57c/bLHgeLnVTN2/wtsV9wB+Ywnzyn5Vt6yoI+81r?=
- =?us-ascii?Q?ugg+Lc6hHuQwjxSN7XQP66pBaIO0RQnJbzn4p7GdnCh8c2nLY4DeyFHJWQot?=
- =?us-ascii?Q?G8OxDgqtz/XmRZsvOOWwXKdMtaaMKz/w24YDcXNXwLwTF/N9A9e1n764KoIj?=
- =?us-ascii?Q?5cj8Sz7Bpi61f8ky6OumQoVkwMi70/AgxRM1fosEFTYBjVEkhie7c08a9cD4?=
- =?us-ascii?Q?DlDA3bzj6nBzH77f8kLt0voi56DFYXzD1tJ87NtdNFrcgVclcKb9vnDRv5qg?=
- =?us-ascii?Q?qZpO1gcdkIZspMGg45Cz/zqRCHIfs68A0YfKUP/L+t1JF+zk5CT+tzoszhrO?=
- =?us-ascii?Q?iIr4SMWDMU342+2YGwF+VMTUVtwyS9B7LSjqgAhFAenmoOBfIO3L89u+FkDk?=
- =?us-ascii?Q?csHdn+DbpmIn7sVcnO5eRkIi0YUo/4BzESA73IKKcGf01SlCcIRg?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4bd84dd1-e886-4606-9c7e-08df3be46637
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2026 09:00:26.5858
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KMbwyVyEOIeRCnGQJ/0beZ671z4pgPXLDIkO/Mu/5Byg91nkR0UpDwAAKrVbCYV9I1SY6e5lr6GrW5/qAndEbqYRv0YXtCJjYL+zQqlq318FaYZ5waQ1/slB+RMpzfLZ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8429
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 08/15] KVM: arm64: Flush the HDBSS buffer on VM exit
+To: Leonardo Bras <leo.bras@arm.com>
+CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
+	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <yangjinqian1@huawei.com>,
+	<caijian11@h-partners.com>, <liuyonglong@huawei.com>,
+	<tangchengchang@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
+	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>, <mark.rutland@arm.com>,
+	<seanjc@google.com>, <rdunlap@infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <skhan@linuxfoundation.org>
+References: <20260929103655.85107-1-zhengtian10@huawei.com>
+ <20260929103655.85107-9-zhengtian10@huawei.com> <auDpyRNpeDNzIk3W@LeoBrasDK>
+ <5bbd0d3b-1026-43f3-bc45-245472603144@huawei.com>
+ <auTLOIafIq4cjRho@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <auTLOIafIq4cjRho@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_010035_815533_15DA0198 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20261106_010219_619304_00009F18 
+X-CRM114-Status: GOOD (  24.13  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,38 +87,153 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Richard Zhu <hongxing.zhu@nxp.com>
 
-Add support L1SS support for the i.MX6 PCIe controller when the
-`supports_clkreq` flag is set.
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
----
- drivers/pci/controller/dwc/pci-imx6.c | 3 +++
- 1 file changed, 3 insertions(+)
+On 10/31/2026 12:52 AM, Leonardo Bras wrote:
+> On Fri, Oct 30, 2026 at 12:57:06PM +0800, Tian Zheng wrote:
+>>
+>>
+>> On 10/28/2026 2:13 AM, Leonardo Bras wrote:
+>>> On Tue, Sep 29, 2026 at 06:36:48PM +0800, Tian Zheng wrote:
+>>>> From: Eillon <yezhenyu2@huawei.com>
+>>>>
+>>>> HDBSS entries accumulate in the per-vCPU buffer while the guest runs,
+>>>> and must be drained into the dirty bitmap or dirty ring before
+>>>> userspace can observe them.
+>>>>
+>>>> Drain the buffer at a single point: kvm_arch_vcpu_ioctl_run() flushes
+>>>> it on every VM exit, before the exit reason is handled. Flushing
+>>>> inside the run loop keeps the dirty-ring feedback timely: when a flush
+>>>> pushes the ring past its soft limit, kvm_dirty_ring_push() raises
+>>>> KVM_REQ_DIRTY_RING_SOFT_FULL, which check_vcpu_requests() observes at
+>>>> the top of the next loop iteration, so the vCPU exits to userspace for
+>>>> the harvest before re-entering the guest.
+>>>>
+>>>> kvm_arch_sync_dirty_log() relies on the exit path to flush: it kicks
+>>>> vCPUs out of guest mode, and the GET/CLEAR protocol tolerates
+>>>> concurrent bitmap writes, so the snapshot is complete without extra
+>>>> synchronization.
+>>>>
+>>>> Signed-off-by: Eillon <yezhenyu2@huawei.com>
+>>>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+>>>> ---
+>>>>    arch/arm64/include/asm/kvm_dirty_bit.h | 15 +++++++++
+>>>>    arch/arm64/kvm/arm.c                   | 20 ++++++++++++
+>>>>    arch/arm64/kvm/dirty_bit.c             | 45 ++++++++++++++++++++++++++
+>>>>    3 files changed, 80 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
+>>>> index fe703f02626b..d828e6b43fe9 100644
+>>>> --- a/arch/arm64/include/asm/kvm_dirty_bit.h
+>>>> +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
+>>>> @@ -13,6 +13,9 @@
+>>>>    #include <asm/sysreg.h>
+>>>>    #include <linux/sizes.h>
+>>>>
+>>>> +#define HDBSS_ENTRY_VALID	BIT(0)
+>>>> +#define HDBSS_ENTRY_IPA	GENMASK_ULL(55, 12)
+>>>> +
+>>>>    #define KVM_ARM_HDBSS_DEFAULT_SIZE  PAGE_SIZE
+>>>>    #define KVM_ARM_HDBSS_MAX_SIZE      SZ_2M
+>>>>
+>>>> @@ -22,7 +25,19 @@ static inline u32 kvm_hdbss_buffer_size(struct kvm *kvm)
+>>>>    	return kvm->arch.hdbss_buffer_size ?: KVM_ARM_HDBSS_DEFAULT_SIZE;
+>>>>    }
+>>>>
+>>>> +static inline bool kvm_hdbss_enabled(struct kvm *kvm)
+>>>> +{
+>>>> +	return kvm->arch.mmu.vtcr & VTCR_EL2_HDBSS;
+>>>> +}
+>>>> +
+>>>> +static inline bool vcpu_hdbss_enabled(struct kvm_vcpu *vcpu)
+>>>> +{
+>>>> +	return vcpu->arch.hw_mmu &&
+>>>> +		(vcpu->arch.hw_mmu->vtcr & VTCR_EL2_HDBSS);
+>>>> +}
+>>>> +
+>>>
+>>> IIUC, arch.mmu is always the canonical s2_mmu, while hw_mmu can be the
+>>> nested s2_mmu, if enabled.
+>>>
+>>> Was that your intend here?
+>>> If not, we could use only kvm* version, which can be called with vcpu->kvm.
+>>>
+>>> If it was, then I would like to understand the logic here, as IIUC the
+>>> buffer is accessible only for the non-nested guest, as it's
+>>> allocated in a per-vcpu structure. (vcpu->arch)
+>>>
+>>
+>> Hi leo,
+>>
+>> Yes, that was the intent. The shadow MMU never carries VTCR_EL2.HDBSS,
+>> so the flush is naturally skipped when running nested.
+> 
+> Ah, right. If we always test the kvm one, we may enable it for the nested
+> guest, which is undesired.
+> 
+> [...]
+>>
+>>>
+>>>> @@ -2017,7 +2025,19 @@ long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
+>>>>
+>>>>    void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
+>>>>    {
+>>>> +	unsigned long i;
+>>>> +	struct kvm_vcpu *vcpu;
+>>>>
+>>>> +	if (!kvm_hdbss_enabled(kvm))
+>>>> +		return;
+>>>> +
+> 
+> And then here you check for the L1 VM because during migration the host
+> could have dirtied memory, and you want to track that as well.
+> 
+> Makes sense
+> 
+>>>> +	/*
+>>>> +	 * The buffer is drained on every VM exit, so kicking running
+>>>> +	 * vCPUs is enough to flush them; the dirty-log GET/CLEAR
+>>>> +	 * protocol tolerates bits set concurrently with the snapshot.
+>>>> +	 */
+>>>> +	kvm_for_each_vcpu(i, vcpu, kvm)
+>>>> +		kvm_vcpu_kick(vcpu);
+>>>>    }
+>>>>
+>>>>    static int kvm_vm_ioctl_set_device_addr(struct kvm *kvm,
+>>>> diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
+>>>> index f9aeb9f34ad0..be0d12555c84 100644
+>>>> --- a/arch/arm64/kvm/dirty_bit.c
+>>>> +++ b/arch/arm64/kvm/dirty_bit.c
+>>>> @@ -13,6 +13,7 @@
+>>>>    #include <linux/kconfig.h>
+>>>>    #include <linux/log2.h>
+>>>>    #include <linux/mm.h>
+>>>> +#include <linux/srcu.h>
+>>>>
+>>>
+>>> Out of curiosity, could you please explain you reasoning on selecting srcu
+>>> as locking here?
+>>>
+>>> (Like, what are you protecting against, and why srcu is a good choice)
+>>>
+>>
+>> kvm_vcpu_mark_page_dirty() resolves the memslot under SRCU
+>> (kvm_vcpu_gfn_to_memslot), and the flush loop calls it for each entry,
+>> so the whole loop needs the read lock held.
+> 
+> Oh, right, it's just about getting the memslot... now I see it :)
+> 
+> Thanks!
+> Leo
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 83fbd998551d0..4eee02e135656 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -1501,6 +1501,9 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
- 
- 	imx_setup_phy_mpll(imx_pcie);
- 
-+	if (imx_pcie->supports_clkreq)
-+		pci->l1ss_support = true;
-+
- 	return 0;
- 
- err_phy_off:
--- 
-2.34.1
+Awesome!
 
 
