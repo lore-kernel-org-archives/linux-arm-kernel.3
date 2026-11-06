@@ -2,125 +2,146 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BBFF606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 08:28:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B830B606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 08:30:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=COO3rUKh;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TsS9tAY7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=u6eNO7do;
+	dkim=pass (1024-bit key, unprotected) header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=GIn1O/kK
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=2AtMfTadBLs8nEmS0BloOK+uIClG4rM4IDzYSAxjYFA=; b=COO3rUKhfkHWtY
-	I3UfP8xfHiZh9Ce2JG+PHLMrxwIIjXVblF8zOYaXXNaT09/Fa/c7LHPOiViYKXXceYf96F26YdRjE
-	kYhmO0OrZVvCDkkuuc1wLc59CNvl0gKyrjOjZQRkTVf+AJkIvoS3RZOY7qdb+tzcvx1PftbcYKrVd
-	6908xO6AZjRnBrwF0pWGUFtGLFHJk8O3rbhoSVHl5Ht3f6oDsDX/MDF3/CvTENN99ZpxVEPC4ng4Q
-	S3HvE/4S0/U2w14fmu8s9q3mr3Ry6u2WgTClu1SJEB2Ly2kLMX5dApygQiIne+VIEL9jsSALHRBeF
-	J2r6GHsOTfCFS2QY1F4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=Ur6IVRT2TIw3h5RRedxRy9hlQoHTaFNtRY48hY8vkNM=; b=u6eNO7doIo9TeMKwZvhF7Q1yFq
+	7SJTRwaEW+J2b0A+8/BIvotQYqfPj9xIR+mvg8gu+SwPxNyMM8R0GayIOVc1qnUB8synybKOH1k1f
+	3KjDdToMEbbe76h+U58beU2QvqnxLPvSLFtcqXC1rjX0GoBRWCzZ/P/F4T0UCE8w8j2OVdrHVgru2
+	0vF/CEwNfZ8ysoXJ94k9t7xd4/Mj4wjNKhXYse+jy7NpsKmjcDmctEVdCb0F01Ppf5CA5XWdiQoqD
+	geYonc4bKVMeQi7sJ0P2Rw2YFMYiym052LItNwHs815WT1VqaoOu70Ng0xNS48FyTG6n6QtzRM9kP
+	jUV+BZDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPFJL-0000000BYlc-434s;
-	Fri, 06 Nov 2026 08:28:35 +0000
-Received: from mail-vs1-xe29.google.com ([2607:f8b0:4864:20::e29])
+	id 1xPFKk-0000000BZDK-154f;
+	Fri, 06 Nov 2026 08:30:02 +0000
+Received: from mail-japanwestazon11011039.outbound.protection.outlook.com ([40.107.74.39] helo=OS0P286CU010.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPFJH-0000000BYjA-0rks
+	id 1xPFKh-0000000BZCA-2cC3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 08:28:32 +0000
-Received: by mail-vs1-xe29.google.com with SMTP id ada2fe7eead31-7cc91ddf447so144758137.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Nov 2026 00:28:30 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1793953709; cv=none;
-        d=google.com; s=arc-20260327;
-        b=RdjTqfCFwqhM1Oa96WXmXSBAUVRJ4QqZPYOj8na9ZT/AaRDXAaUU0Ma05CnQnrt6VQ
-         Zx5+T19juVWfeqgq0cEO9lnn11f/6kLfobXxcgJb2sDFHmhIYXMdJZ+ex8Jqi2863rip
-         PcoasKD9wf9WT1GmwuexG3U4QqAdXg96TDA9R9lCRttqEfvQCIyJd3iiOPdR2Gbzon/R
-         rlEmRQaZwPKImPkPcNRNOYngHGvY1SywWGh/jcn02n5O8WnrzPZrEN6PKmyPTX62Yz+/
-         yr7SJBwj6QJOMY9gk8oRV2PHbSf45fescwlym66S2zXMLfji3O6OqmjhutYtikdCAIez
-         uasQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=2AtMfTadBLs8nEmS0BloOK+uIClG4rM4IDzYSAxjYFA=;
-        fh=cqZVm8I2uM8YGFSr05YlFQszhQ0cyuv28mDQoTdVcWE=;
-        b=DiRUsMzBZD7YZgAYLXpib4eaCqaT9lqpflaegsJTLTc1cpXyfceC/4AtvWM9pdp6CL
-         OScvAluk6hNoiwg1da2MuJuOeZa+C8XiBet0UnEYr5B/lEWjIx5tahp2BRdgReTuObhc
-         wMYfsULd4UDMBsD5wtODGUgr9coiKJSQb6Ro1vlG1cmdzU6FgSCugZE5AVWUb+M4DIlc
-         F7SGfGpTQJYraC6hfmExeGARp6rNjgl9dLt8Snc6X8yjJ+luSK9gxJ+d68tfXAY7uiQR
-         uElEYr4E0LkJmyOZJ7GCn4/yc7+F0CjZUNzuOlqjlsDfrHZWRTiwzb48KlKf8eRttr1p
-         6sTQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793953709; x=1794558509; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=2AtMfTadBLs8nEmS0BloOK+uIClG4rM4IDzYSAxjYFA=;
-        b=TsS9tAY7F0pviaQtkqfM1/Y+e8rhBm7b/AA1SjtPkLT5JpcLIi5W9XalwlIsEH3NZX
-         eFBod5aJcZR8VvlDKAqf/hG4qrCwQRNeBFy/ipHDyFKFwOuY70p4hLsRB5ieS7QxX6OD
-         HhCWH/bb/6t7iNv1afioz8Lf98UhLThbQ8MNF86WbpEfqg63rq+2Z7JCgFuwSwmJt9fi
-         sXIgW3NsGCCCJdnKqkyoAqFU1gj9UW1dQWkm+2yapkP5rTKwa7RQ8DaInTLgVQxhNo2N
-         iF4zMgz8eDbXf+s7Eh+bd+FsUoHluReh4aIcUq51Tzy3Y4/RJP54CDEs2mFZR+srbOkZ
-         LKMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793953709; x=1794558509;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2AtMfTadBLs8nEmS0BloOK+uIClG4rM4IDzYSAxjYFA=;
-        b=r0hSbnwRlUuskC69YjmEPqfiEhIjSKpZ9laM6EjwqH4wgJpeLsl+w1AaoFbtV21tKd
-         eiXBk9VHbjzUlrz02vTiXUmyGPkGCCRxD+Y0fgcks+TDIeAInU5eBVAawdem3KUI5Lf6
-         j14NVM6GxagzkI6IGvi2QmJuvJR2m9pCkrtHvCO4uRgG/+8kwCtSj5jgIGv4WjBBgMj0
-         PoyT8P+W+ahPRR08T95+QjgDhyCo4B8knjr7cs9WDu8WyHvFjIEwbN/tEySW+EKJF1KH
-         sBq9q5oAmKs8+0brJexqougtXdlzI1NK2b7PLovAAyYC1pgfZOf0CzUVYV/lVYc/oDhU
-         MSEw==
-X-Forwarded-Encrypted: i=1; AKwUvBzSCu/AWz+3S8BJ34LsksSQMxJljB6gntVfQ7jxk3tB7LFzhTiAGDopRClfEY6pkmHFpF2Fg7X4H5sXHYQlzEWY@lists.infradead.org
-X-Gm-Message-State: APuU4Z8/lDPrestSg4ynexe1leEzSGqXxxYAu9T9FntyMva+Y9thg99R
-	S17F5zSkbU8Tu7YnSQCoFH+YdeaYiKOnbBEJrDzCR2yvr7sHv080kxnV2k6hC7URWSlidYGMRfh
-	5eQ/9s5sRdCzf0rz0wHfSEXUaQvLsjpM=
-X-Gm-Gg: AYBFou3d7BshOe4iQg3guSMqygh05Jb1Qe/+nVwBshfQG+5iTxcJc2LM3XpIyf9wa/P
-	KQzvZS9mPwqzGGCp0Sa2jS7nvnlpJjhXM7T5VDEtj0wq4OPvJsIhkn86Pyx3zIODdv5jkx00OXo
-	9v4qfp3Ke7b+Q2jRKYY4UFkdoX8CIs9cY5XgHAqmtsodLKEKWUHlUovdfn3QtbthfxebGKqG6jb
-	5CXhL6BHepFGHvov/V+ikbSYgetk5IIQ4YozYh4ShBKg2O8zV8y6r0IimNuWH4ht3lCcpe43iPr
-	2dIVQGQ3EEzyCx2sdzlGKsFjA/4H1SgzkiSKzyfE1YlAfDXnQ0AJYICdPASEw/IDo3Rn88eORE5
-	tdisCe+JcdOcmAXAuHN7WYe2gUNoVmLY5mHualJY39dWGDHElmamu8bXtllovrg9WeoF/u/JK5E
-	iPQHtxeTV8p2zGLgrYD4b3AIu5awBJvy9NOCKyeKIwBm6u3NHz1Qg6MSvQ0W1N+ubi0pyhKq9yq
-	plsqDSWkyHjRY80LAHmnvf1OP1CIQ==
-X-Received: by 2002:a05:6102:4bca:b0:7c3:8150:83e7 with SMTP id
- ada2fe7eead31-7d2a154169emr1074240137.9.1793953709418; Fri, 06 Nov 2026
- 00:28:29 -0800 (PST)
+	Fri, 06 Nov 2026 08:30:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eavd3JGUcG0XYsgdkcciQ9W+dbuAbyFApohNPO1goSzitg5M4bRI8XMdoZ5zTcpNfbyHWvwoP1mqMKGL8AMyxpBdDYXgtohNtbYzhYlw/nzjpsDnzxRupPNBoodcDyQXpnzYlrzfVAckZlKl3DtMqj9/HcEf46jC7XPqSUYJgOttXMaDMCB3hnbTVr72fUhGLsF86CRN747o5VM6GhjklV/uv3+ObiPLmYKr/FOvv70qVpWJMG+zKYTxvvoZ1SuNHEBKFwhPCiB3zKGc0kkM65Kh6EeMdAxm9090a3uqr7//KYVxLx/4lirvg1r1fQKa4dQG/scj3Tsbq0K2IvN8Hg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ur6IVRT2TIw3h5RRedxRy9hlQoHTaFNtRY48hY8vkNM=;
+ b=J4WYvPULC5BHiiHyP2ctwFQZfsLyfRGWoPVNOTMz60W2SzInq2K9bFW3HDx2ywoVedDfjhuj1EG9UOS98KpHOuS1tMw8MnVRqGun2mW4DlIt+V02JkQviOBh/2M0KxmM7HXQ4EzJ0uewGZI/pF3/oaWkGCf+G1TOfkbfTmUCvKf2p1MAgQSQ5XLx4DYk3KcyBcYD76L/RMuFwhLJPagPVddKfGaXR0RraSDWs59+avwQPbjD4/3E+FQvFkaBHJDqP80+5q7onUaF1APfc7tGlSO1TmDvxCmiBlHaAJt3w790j+dNAIUpKcd60a/CYtECM8gbeyCm0i5nTB43q9+KKQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ur6IVRT2TIw3h5RRedxRy9hlQoHTaFNtRY48hY8vkNM=;
+ b=GIn1O/kKenp+oq1GkhkeenvPAWWBO2FEIG44nSzSYtVDCyWD8c67kF7AhDNldYr2NhAEGxxaDsKPTrbqkFrP96k/pdeIfPVrKi9w/kXVCwx2kKWNPKGx63cIwgikHNz/c7ROK2V9MZk0ryI7FEiTzfYcKNySGGr7GGrpAoMooV8=
+Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com (2603:1096:400:3d0::7)
+ by TY4PR01MB14590.jpnprd01.prod.outlook.com (2603:1096:405:23d::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Fri, 6 Nov
+ 2026 08:29:53 +0000
+Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com
+ ([fe80::87d1:4928:d55:97de]) by TY3PR01MB11346.jpnprd01.prod.outlook.com
+ ([fe80::87d1:4928:d55:97de%6]) with mapi id 15.21.0592.009; Fri, 6 Nov 2026
+ 08:29:53 +0000
+From: Biju Das <biju.das.jz@bp.renesas.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>, Fabrizio Castro
+	<fabrizio.castro.jz@renesas.com>, Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol@kernel.org>, "biju.das.au" <biju.das.au@gmail.com>,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Brian Masney
+	<bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, Ulf
+ Hansson <ulfh@kernel.org>, "magnus.damm" <magnus.damm@gmail.com>
+CC: "linux-can@vger.kernel.org" <linux-can@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-renesas-soc@vger.kernel.org"
+	<linux-renesas-soc@vger.kernel.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "linux-pm@vger.kernel.org"
+	<linux-pm@vger.kernel.org>
+Subject: RE: [PATCH 2/9] can: rcar_canfd: Add Runtime PM support
+Thread-Topic: [PATCH 2/9] can: rcar_canfd: Add Runtime PM support
+Thread-Index: AQHdZ6cRKhqrBWVFt0GPnL02pCtZWbcgwmKg
+Date: Fri, 6 Nov 2026 08:29:52 +0000
+Message-ID: <TY3PR01MB11346F0FE5ADB3161E81E6EA586762@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+References: <cover.1793278754.git.geert+renesas@glider.be>
+ <011735aa3a7568229db473a7ff92681176338db0.1793278754.git.geert+renesas@glider.be>
+In-Reply-To: <011735aa3a7568229db473a7ff92681176338db0.1793278754.git.geert+renesas@glider.be>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY3PR01MB11346:EE_|TY4PR01MB14590:EE_
+x-ms-office365-filtering-correlation-id: 9c69c4ff-ddb8-4481-16d2-08df3be02176
+x-ld-processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|23010399003|376014|366016|921020|38070700021|11063799006|4143699003|56012099006|261022075727099003|261022105027099003|261021121427099003|261021123027099003|261009223027099003|261102123227099003|261026140227099003|261026121527099003|261028144727099003|10067099003|18002099003|22082099003;
+x-microsoft-antispam-message-info: tnIodvQCjgzYuaOi0LWYHPrVaTmMw1iGAgmE783nX8PFS+2kpGQRA8+xAfJrE069HZxv+FyUPMOsI5Sk3REnz618UoA6eA4fJHubNxuv2VO8HTUP9NbuBCB4aEv/rc54ykr0CG5tVvqNZm4cvQC8PE2ttZ6sNdkH87slWbOvNnWfMzYtGcAMDJ0PRh9ItgcW8a6q8UZkB7WNUMKgxYCH9g8oLIpcbvFM0aHVhuoM+eIASAm7Ytn9csZ6dcxOZlvsECqsvgi3//RQt78pPKiCXNAxTIiwonwrA0V//hKIZglgz1/NoHHmoMCcVZjFYj1Foct/3P3vTPirJIh3rW8TzHYFMKyxytNpYSczRCwlysNOnGEBtStQDWu2WwamCRZ4aGtDh12Cp25IYzAiwsAMd0cLwaSaOe8iugraE7XkZ/LDrlN5/PJhVy5VSYdXhffK43n3gZHioLm38Q+Y9Hg1HQyDeNDNlD3xhfVDP/Faea+uijF60qCXQKvhSLlM4jquXu3v4dvkasurWb1ZNNRccD2JrryhX3t4lcQ+op6GiLMDRZxCdwm6/VmwP4cl+mTMoocYDRad9ipo8n7QmK4toc3ykprYAIj9OZHQhiYoCeUVINHhskmXKe+7ekoiOuJzqnOAaoQdQcAsT7EklmLXjjuLRUMrMIfhf1S0bVk0YV79/wajR0VabG+9b4yERrU8NX8BTyXSXRqpybK7C7I0vGRzvFhjQo4HpXdzf29oMf2vJNLumSkySLpEr/YuHHGE
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11346.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(23010399003)(376014)(366016)(921020)(38070700021)(11063799006)(4143699003)(56012099006)(261022075727099003)(261022105027099003)(261021121427099003)(261021123027099003)(261009223027099003)(261102123227099003)(261026140227099003)(261026121527099003)(261028144727099003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?MZEw8DzIovUCRE5vrtzlofv/40xyAT3gx8Rq7heRt9v1bxCXg2DsIitCObK+?=
+ =?us-ascii?Q?SEMocwD9++H5aA5FRYsZbiLlqg3d2ZCP3G8GNTbnwXSU10DkHWHvdbCB8xmr?=
+ =?us-ascii?Q?FdmsWHHKtYdC5FPwcmw4nVwBZfLk10mMU8YS/Uop/TwISqzOgRu1JkUDSyNz?=
+ =?us-ascii?Q?F4hW6T/buOvG/vTAjV2f4XFV3M9bTqUW1ukY//pZctkOlJJ1FpcIwPmfxHxS?=
+ =?us-ascii?Q?BURicHleIDBkYm0ySeD5ePJRck43QS5xYgznMkR+KST7cSqI12G5RTQwDl2n?=
+ =?us-ascii?Q?foSOkNkItZAmcZuVRzEg7HDyr7LDcii0RV0pJXaGm5rkU+wyuy2YPcRGP9pU?=
+ =?us-ascii?Q?iTa4cgsXsMUaNWzERllUDDqSbNw5s0fAVULsLjdXkar1O1GV2QAnoaF7xf45?=
+ =?us-ascii?Q?jA6RTt9+GlIvWryuJedHEveSSv5bSwQ2e/8dEb0LXk4NhZHMUKM96M98jHaH?=
+ =?us-ascii?Q?3g/xDUhwUk897usRUkYDy5UomFbhNcKmD9U7W3PHe3PX33DreEN6jfhyO/HZ?=
+ =?us-ascii?Q?lwR+A1/0I8qIHr+3QYJTwDdR1O8weZEregl7jyc+2zFmca3cLfxq+3yFLhpS?=
+ =?us-ascii?Q?DtaiCy5SgGu/EczhH4lk9JXkkp0nwuC7KPpAhbU1o7g4EcasVbvryW5bfFl4?=
+ =?us-ascii?Q?1lhgoWBAz7ncYlk9Mtg/EgPlBN3F7fugO5Q4vgsIMgSwFvKOzZhFsfBSFmvh?=
+ =?us-ascii?Q?Wcad6zvyYYfFsAUqspIwhhdF+w7qCM6NJqWhP1qtdgWsLa76taYnQyqz0t/8?=
+ =?us-ascii?Q?dMlxdCunak0evYr+kQQQoZYJn7PEpgQedRiwGR0Y0z68rEu9wqYBHNJ1KpyN?=
+ =?us-ascii?Q?OI1d61SjVq55gAfN9vd3hwbxPN14QFEbUonjYW82XQpdoBLN0mJpqrxhRhOy?=
+ =?us-ascii?Q?Gn5KG+mJtrGkQmTulr7JNdpeaXjWB+qBPLktbe6nGSw+4nYVfKG46AAU/yxJ?=
+ =?us-ascii?Q?BoKpp/0WIZHV5l72kHgDmfcJUcWY4723eiXHs6KyteM5RgV9rtDH/Kcp7Y5t?=
+ =?us-ascii?Q?5aPk92jPDjKJOMJwcC0gXwKBi5KtH+r52VBPZD6mNVSOXotDcdnFLpVSlk6j?=
+ =?us-ascii?Q?x6G/sAxjbf3Phse1Jp8rjyzZE97d3cUsiE9VF8LOhGDlRDIyOAqfTqMPD6H0?=
+ =?us-ascii?Q?2KjldQxNX1JRB6sGXjyUv41WCeDi5dO/MZI0OMtu47MtU4T94/asMe5I7Brd?=
+ =?us-ascii?Q?yoakuQlCzpuqT7d9MQ8Qf2ncgOFbAO7gtayxi31E80fWaj0p1sR6q2g/lFyX?=
+ =?us-ascii?Q?vTVNFGelDuRoHBbvJL1WsouvMS83QK8sKJ4j6z8X9ekBJP+Mw6db7Y1Fk/LT?=
+ =?us-ascii?Q?oQ6GGZHzgLhfbdsxt4bqjklUUmmIH39cX5yozh2YtM7MMBFIpGRKWyuAeqJ2?=
+ =?us-ascii?Q?ANuCkOpfwdQBeA4fZRn7iyqokoj/Y7GkDJgN8sw2QfcusddM65P9GL6ZnDWd?=
+ =?us-ascii?Q?qHBmFyQRgiWvI5Cji64lCuXM6XXIM76rmkyIar2N2VyxGNgL9YGgv79siFKn?=
+ =?us-ascii?Q?oKfRwFuclA8zJXi/K03M12u6O7Yl1HVojCEpORrTrxuVbqPY4ZKHmGL1h4Ol?=
+ =?us-ascii?Q?30bA4jeeTcrwe5qPwve8ul0v2u0XZsKrmhCDMCtz/aixIBigoiHPBPtVBnEB?=
+ =?us-ascii?Q?3R5ENmgE9kD2N7l9URfnCUEH77+hxvPqmkHoY5zeaQcBzanDBVmEbxSeTFbU?=
+ =?us-ascii?Q?l6l/Naq6J62uAG45/Zh7FK9VlnRJfTBSyTkSwJukG2z8U/pwYgmohljcen1Q?=
+ =?us-ascii?Q?PkEsekUCJA=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261105-submit-sunxi-nand-vendor-oob-layout-v1-v10-0-dca1f6ed29a8@gmail.com>
- <20261105-submit-sunxi-nand-vendor-oob-layout-v1-v10-20-dca1f6ed29a8@gmail.com>
- <20261106-crystal-flat-caracara-ac1b3c@quoll>
-In-Reply-To: <20261106-crystal-flat-caracara-ac1b3c@quoll>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Fri, 6 Nov 2026 01:28:16 -0700
-X-Gm-Features: AclHuK97Q_fmR3tCSb11vsNOkfJ9UktWDyo2C1YoKfEXjUnSy-Rv88kHCKF-O1Y
-Message-ID: <CADvTj4rYG01pNxZS3FAKzHw9yOO79W-zMdBzaXvV_hrMs+sp2A@mail.gmail.com>
-Subject: Re: [PATCH v10 20/26] dt-bindings: mtd: sunxi: require the H616 AHB reset
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Maxime Ripard <mripard@kernel.org>, Richard Genoud <richard.genoud@bootlin.com>, 
-	Boris Brezillon <bbrezillon@kernel.org>, Masahiro Yamada <yamada.masahiro@socionext.com>, 
-	Brian Norris <computersforpeace@gmail.com>, linux-mtd@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
-	devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11346.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9c69c4ff-ddb8-4481-16d2-08df3be02176
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Nov 2026 08:29:52.9983
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: IEkpOXZaHO91Kw5vpShSLPeVd1AStRzZoTElTkuAt9bwp3f+tvoSZO5QannEzjsF8MFCJ2E0fQYGdyuKzIl/q3EGIac1E2Udi4exyHugVxM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4PR01MB14590
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_002831_246562_1879C1EB 
-X-CRM114-Status: GOOD (  12.87  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261106_002959_690482_8DF9B30D 
+X-CRM114-Status: GOOD (  21.12  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,29 +152,112 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-2.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Nov 6, 2026 at 1:19=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.org=
-> wrote:
->
-> On Thu, Nov 05, 2026 at 11:55:36AM -0700, James Hilliard wrote:
-> > The H616 NAND controller needs its AHB reset to stop internal DMA and
->
-> So was the device working or not? Be explicit, because this is an ABI
-> break.
+Hi Geert,
 
-Normal NAND reads and writes worked. The failure was in recovery after
-aborting an active internal DMA transfer: the controller's soft reset
-could leave the first subsequent read displaced, sometimes without an
-ECC error. I reproduced this through fault injection, not ordinary I/O.
+> -----Original Message-----
+> From: linux-arm-kernel <linux-arm-kernel-bounces@lists.infradead.org> On =
+Behalf Of Geert Uytterhoeven
+> Sent: 29 October 2026 13:11
+> Subject: [PATCH 2/9] can: rcar_canfd: Add Runtime PM support
+>=20
+> On R-Car X5H, the CAN-FD module is part of a power domain.  This means Ru=
+ntime PM must be used to make
+> sure the domain is powered when needed.
+> The CAN-FD module is part of a Clock Domain on all supported SoCs.
+> Hence remove explicit management of the functional clock, as this is hand=
+led automatically by Runtime
+> PM.
+>=20
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
->
-> Best regards,
-> Krzysztof
->
+Reviewed-by: Biju Das <biju.das.jz@bp.renesas.com>
+
+Cheers,
+Biju
+> ---
+>  drivers/net/can/rcar/rcar_canfd.c | 17 +++++++++++------
+>  1 file changed, 11 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/net/can/rcar/rcar_canfd.c b/drivers/net/can/rcar/rca=
+r_canfd.c
+> index 4d805df5ff9e8933..74d9ffd2790587b9 100644
+> --- a/drivers/net/can/rcar/rcar_canfd.c
+> +++ b/drivers/net/can/rcar/rcar_canfd.c
+> @@ -37,6 +37,7 @@
+>  #include <linux/of.h>
+>  #include <linux/phy/phy.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+>  #include <linux/reset.h>
+>  #include <linux/types.h>
+>=20
+> @@ -2004,9 +2005,9 @@ static int rcar_canfd_global_init(struct rcar_canfd=
+_global *gpriv)
+>  	int err;
+>=20
+>  	/* Enable peripheral clock for register access */
+> -	err =3D clk_prepare_enable(gpriv->clkp);
+> +	err =3D pm_runtime_resume_and_get(dev);
+>  	if (err) {
+> -		dev_err(dev, "failed to enable peripheral clock: %pe\n",
+> +		dev_err(dev, "pm_runtime_resume_and_get() failed: %pe\n",
+>  			ERR_PTR(err));
+>  		return err;
+>  	}
+> @@ -2016,7 +2017,7 @@ static int rcar_canfd_global_init(struct rcar_canfd=
+_global *gpriv)
+>  	if (err) {
+>  		dev_err(dev,
+>  			"failed to enable RAM clock, error %d\n", err);
+> -		goto fail_clk;
+> +		goto fail_rpm;
+>  	}
+>=20
+>  	err =3D reset_control_reset(gpriv->rstc1);
+> @@ -2074,8 +2075,8 @@ static int rcar_canfd_global_init(struct rcar_canfd=
+_global *gpriv)
+>  	reset_control_assert(gpriv->rstc1);
+>  fail_ram_clk:
+>  	clk_disable_unprepare(gpriv->clk_ram);
+> -fail_clk:
+> -	clk_disable_unprepare(gpriv->clkp);
+> +fail_rpm:
+> +	pm_runtime_put(dev);
+>  	return err;
+>  }
+>=20
+> @@ -2093,7 +2094,7 @@ static void rcar_canfd_global_deinit(struct rcar_ca=
+nfd_global *gpriv, bool full)
+>  	reset_control_assert(gpriv->rstc2);
+>  	reset_control_assert(gpriv->rstc1);
+>  	clk_disable_unprepare(gpriv->clk_ram);
+> -	clk_disable_unprepare(gpriv->clkp);
+> +	pm_runtime_put(&gpriv->pdev->dev);
+>  }
+>=20
+>  static int rcar_canfd_probe(struct platform_device *pdev) @@ -2254,6 +22=
+55,10 @@ static int
+> rcar_canfd_probe(struct platform_device *pdev)
+>  		}
+>  	}
+>=20
+> +	err =3D devm_pm_runtime_enable(dev);
+> +	if (err)
+> +		goto fail_dev;
+> +
+>  	err =3D rcar_canfd_global_init(gpriv);
+>  	if (err)
+>  		goto fail_mode;
+> --
+> 2.43.0
+>=20
+
 
