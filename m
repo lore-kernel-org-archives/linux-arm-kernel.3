@@ -2,120 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DEF0606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 08:00:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DCE9606D839
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 08:02:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Pel6jZd2;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pqqtQl9/
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=krHxp2QL;
+	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=X3m/64cs
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=JL/ejsWQpZh4uIBI1fUZsT9Ty7diuDK7PLmVq35sQrc=; b=Pel6jZd2AZKepRPsBOeZXrmeyF
-	8F/s8GwAPPUfT8Z/EtBgerjofXhtou9GfoM961qj7vq372iOnqp2rxLo2oy0Iq8vko39CY1F0kgPc
-	DWB/EXUevpqyPVoRoG1c9qy5tskbfTnIsKRakqyLhOkCaVItDuev05dqfGW0wW8HhW49FGj0UKm22
-	1AZ0AW1/8TWQFVoUcxH+WVBNjjoYWhQRJoa4W4HBW0qfiFeI8rf8npSn7oLLPCVcTJ8q85NXSWSLo
-	Azw2hcCOnaeD/PTRY1mZytiOkzKXH6q4+WTjln/zqzmownPIT8CwJKDwHEpKvSC8WQJzdbAWiPdpA
-	F5DiOTiA==;
+	bh=czHTZkJ3TKYgESCxC79vT1Kt+Z4QQw2HxdI0thihZ/8=; b=krHxp2QLInhHi2UsNiLJ8dFn6p
+	fVeHF+3lz/zi/oBknD+WnduK7zTDfbZfo+sdPSq0AtkKZx3xPrvuhVcJ2xuH04PenLB37yKvx7xpj
+	wOdjCvPRzNiPs85zBIG2ORSOusiMxcs6Le8ThYidJmiEUE5RfLD1TXfPjIOJn1gxbtO0h25BVSBZ4
+	L52VBZFKwle/eteOyoX1VP8LTdyvQw6hvBR1ukOLuOakP2ZB4rAjkLSEDnqFirTP4AHLV69Ra/JCf
+	tp8+eSFJ59XGuP3BDD9YDqVMR3MO3/16QrOYSWYA1qAkzbPVmoIdaUSy9Kws68/y1UOaOX6yf+Taz
+	7oov0Dxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPEs6-0000000BVoa-02bc;
-	Fri, 06 Nov 2026 08:00:26 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1xPEth-0000000BW3T-2GLC;
+	Fri, 06 Nov 2026 08:02:05 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPEri-0000000BVjZ-0rMs
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 08:00:24 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-6b6e8b6d424so84663a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Nov 2026 00:00:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1793952000; cv=none;
-        d=google.com; s=arc-20260327;
-        b=kM2Ms3XwTctBDX2Tj1sCZB8rWx4yyyp64dSX1ypGrUfpaSlT77IyDB8jLIVUQGnKjY
-         yqkeQhwsNv0u1V3st+wAdu8he7kGg9BRwfPAhMSlrFSaPxWczGtNeazN8gMVU577KbcS
-         okU2gRtnml54XiE2Om4DvPZqgoF3Jq40kz6/zJuNU9d+s+khpnMu+zf9tnYIIRvJd+Az
-         2wx0xzsGQ/ZSNX+xrCIx2PDXsfSgRamqNBqIVtWQk6KBVO78Bngqh6i1BzMMiulPV105
-         JE0s6J+3zLGjPyBIXRJU7YJJKAQeAiNzKO3akWAnJvLcOOOLSMoOzDVWDM9v3T4ChTCB
-         aa6Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=JL/ejsWQpZh4uIBI1fUZsT9Ty7diuDK7PLmVq35sQrc=;
-        fh=TdCqpDGmUqDFdRpzPDQOXHDgwOXkmpvTrIiKYOyN008=;
-        b=KnFMtzU/OnmLr7h0BoADcs3XIQLhJDLwnthpNYkE20wTj5xwtXUNVUG7K4kDO4dRqX
-         H01o2ouaGaXyhwWtdLMSaagcGNvU5/9POjAMZT6r5UK6xfqe9TdcikteNSURF8w+enO/
-         M/RmctuGCBPlW5WA3A3bbqekoRam95qVBeiVyrtwBz6tqkFT6X28W79yLw6fEAgcGxfg
-         wlbPDLfjS08SqVEfjr/lKE3yBWaKkPpvpsing9W7yxADNvPb/QNe0WidINf6BKZxDqRN
-         e5jMsxjl3MdrfYMEe29Rn6z2p/nRXkM5lx9FYvx57gWsTf6wQAdN8fpRNk/wcFtQ2kf/
-         haIQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793952000; x=1794556800; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JL/ejsWQpZh4uIBI1fUZsT9Ty7diuDK7PLmVq35sQrc=;
-        b=pqqtQl9/sNC0nFWgcvY5XEjxVELpMPV3DcXqzYweC7rpnYhQ8H1mFbd3Ci10xc7gN9
-         U2CKOAoRHt9svR0rYDGKX3htmekO2K/l9IkE0o3nRcuBZtyw0EDa9SkD0Fh2JpaF0TwI
-         0ivr49eKcELRGtjg99aFzhvGo6rbsu5tGfXW3J3QweO59qE9IEpSy8a6IbJO7dFNd6lh
-         vWTaO6/SmlVSkYXixnrB+iKEgUXko9c/BbaJZ/jXisTVHPw1Xmia7qjNkrnw8veHM9Mn
-         BiHkaIY+fnH9KxqG62A3hJBsIKd01pcT1W+6RXwJtF4xpyriKp/WA5nYY9triBnJY3Z4
-         N8sQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793952000; x=1794556800;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=JL/ejsWQpZh4uIBI1fUZsT9Ty7diuDK7PLmVq35sQrc=;
-        b=thjEPIVmgoZFImELPB0h6gm3mLMMpX3VV+HVLfeyKnOHvR+d8TqvZgIHG1uTDjSj1W
-         I4e/1woVwJQiWytY2+C2HahY4zv31UzQyInLt8IgAGvzUXhd/3AmSzBwTZUND05dddFT
-         kQ3RjCtzqBZG0XygMG3W2Xo79FNAkAVbw/JogepmJ7Tx0PWvAAQhpsyfIrhjIqMo59Ax
-         nVrAf8TD1fC/f0+U7mzL93Y6mhULCfJxYVJW3abnvKK6Mne/npeXX0q6gFtKRDU8f8gt
-         z7305Mn/zp4v9+laqRwlRsvdqm5dUzMKtrpD+cAIMU7HzknAOgFOWuXLhaDgewFm1NXX
-         /+IA==
-X-Forwarded-Encrypted: i=1; AKwUvByUPscPTwnm4rwSkaI+f7VNHHRbaTGyOXJRAJJqlhO+BxgnmpkhkqbDkY8LrkOYe8EHLWY+rn314Y48jtxzUbni@lists.infradead.org
-X-Gm-Message-State: APuU4Z9CYMgDJbMedgoaEIBifiWVozBcBrPxSC+LoMzgTJez8Ica+JvI
-	VH3XckdPvae1VghOEH69c3umrQZB/F7nsbamOsniG8VXZtnDqvIreMkg27ioXRURw2rTjjdGCuZ
-	qPU4te+SP1Lr/IJ/ZFXGPCT2R/kKZFf4=
-X-Gm-Gg: AYBFou26Mw+SaBoylyz+6KibtFH0bL0lArtZigFIMRLiWZKHEtnKAm91PjsXrPNWLsL
-	uUZb/p2awZOylA5YhLK8ieCeHcLglwYzHEp63LrEzgW2cK7VHylR4l/FwBKATCFj9dLAeu8sGlp
-	aZSsQfUnYr6OugUEogn0AZKiVWVst28snWfYY+IIN4iheAeDwITqjY+GSra8TKlc5FxxlTBdKrZ
-	qWlfdHXo2CnZvpFBrUYzB0LqDaFS/74Jax+3k0AU8k2nQPmKe5ap8Rog2pj//Ivqc6LdyJ69Txi
-	+PDPMXsjmsasjmftjMbhGJANkZ1HGdsvE5V6XVhK+OY4KUEK7FyHMnK4qmb7gBFoB2LAezLAqtr
-	YOkLO5n0r+p6xpuBywkacA0azKJFWL5sgA+lHODjUupKMNdX0rYnLs8xO
-X-Received: by 2002:a05:6402:440b:b0:6b5:9849:e335 with SMTP id
- 4fb4d7f45d1cf-6b5985927b4mr1117288a12.1.1793952000065; Fri, 06 Nov 2026
- 00:00:00 -0800 (PST)
+	id 1xPEte-0000000BW24-3mbS;
+	Fri, 06 Nov 2026 08:02:04 +0000
+X-UUID: 5456daf4d9b811f1afed4741b24580c9-20261106
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=czHTZkJ3TKYgESCxC79vT1Kt+Z4QQw2HxdI0thihZ/8=;
+	b=X3m/64csSEQoss9lEcl0w3aRMXYmloJYOzZ6MV/zpobmSrH0RhDkbhq8h4gaVQSiQbpwnwgsrWQmfeSiRgyB/WkcvgGLY1Kh/6kYCbudzNDw9dqYeD/UCkJOamx5gVTlPxe/D5Ww2a1XYAylzFnl57YCyTtYOLq11e4ap0veDEE=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:879c7976-657a-4596-968e-6dbac48a75b6,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:b0318ac,CLOUDID:dca574bb-4006-44bb-949c-6e25a7b8dad4,B
+	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
+	DM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
+	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 5456daf4d9b811f1afed4741b24580c9-20261106
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
+	(envelope-from <fangwen.deng@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1892671842; Fri, 06 Nov 2026 01:01:53 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Fri, 6 Nov 2026 16:01:51 +0800
+Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Fri, 6 Nov 2026 16:01:50 +0800
+From: Fangwen Deng <fangwen.deng@mediatek.com>
+To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+CC: <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<jarried.lin@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<justin.yeh@mediatek.com>, Fangwen Deng <fangwen.deng@mediatek.com>
+Subject: [PATCH] usb: mtu3: cancel EP0 requests to prevent use-after-free
+Date: Fri, 6 Nov 2026 16:00:58 +0800
+Message-ID: <20261106080140.342107-1-fangwen.deng@mediatek.com>
+X-Mailer: git-send-email 2.43.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261021105109.199886-1-l.scorcia@gmail.com> <20261103150936.GB792264@google.com>
-In-Reply-To: <20261103150936.GB792264@google.com>
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Date: Fri, 6 Nov 2026 08:59:48 +0100
-X-Gm-Features: AclHuK_yxwIK0Nk7bFmyEO_n6HuxXT4AJJgazikzKXrXwadabrKuwJfTV_QGR20
-Message-ID: <CAORyz2J_J0dYtg2BMKq9cuzo7U0j-cMQoFXn+2pOTztHz8dS-g@mail.gmail.com>
-Subject: Re: [PATCH v11 0/9] Add support for MT6392 PMIC
-To: Lee Jones <lee@kernel.org>
-Cc: linux-mediatek@lists.infradead.org, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>, 
-	Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Val Packett <val@packett.cool>, Fabien Parent <parent.f@gmail.com>, 
-	Akari Tsuyukusa <akkun11.open@gmail.com>, Chen Zhong <chen.zhong@mediatek.com>, 
-	linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, mfd@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_000005_306348_0E719AF5 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261106_000202_984755_B7C5663D 
+X-CRM114-Status: GOOD (  19.09  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -127,21 +87,117 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-2.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-> How many more Acks do you need now?
+mtu3_ep0_dequeue() always returns -EINVAL and leaves the request on
+mep->req_list without unlinking or completing it, so an EP0 request
+can never be cancelled.
 
-Still missing acks for the regulator and pinctrl device. Yesterday I
-sent v12 of the series [1], rebased on v7.1-rc4.
-Thank you
+FunctionFS assigns its temporary read buffer to ep0req and waits in
+__ffs_ep0_queue_wait(). When that wait is interrupted by a signal it
+calls usb_ep_dequeue(), does not check the return value, and its
+caller ffs_ep0_read() frees the buffer on every exit path. With
+-EINVAL returned the request stays queued and MTU3 still owns it.
+When the host then sends the OUT data stage, ep0_rx_state() writes
+the received bytes through the stale req->buf, giving the host a
+content-controlled write into freed kernel memory. That corrupts
+whichever object reuses the slab and can panic the kernel.
 
-[1] https://lore.kernel.org/linux-mediatek/20261105194426.1113050-1-l.scorcia@gmail.com/
---
-Luca Leonardo Scorcia
-l.scorcia@gmail.com
+Implement mtu3_ep0_dequeue() following mtu3_gadget_dequeue() but
+without QMU flush/start since EP0 uses PIO: validate the request
+under mtu->lock, unlink it once and give it back with -ECONNRESET,
+so ownership of the buffer returns to FunctionFS before it is freed.
+
+Cancelling the request that backed the data stage also leaves the
+transfer unable to finish, so retire the aborted transaction with a
+protocol stall. That returns ep0_state to SETUP and stops a later
+ep0_queue() from reading this transaction's leftover FIFO data into
+the next request's buffer. The stall is skipped when the controller
+is already powered down or no data stage is in flight.
+
+The same stub is why functionfs_unbind() cannot cancel a pending EP0
+request, which deadlocks against the FunctionFS thread holding
+ffs->mutex.
+
+Fixes: df2069acb005 ("usb: Add MediaTek USB3 DRD driver")
+Signed-off-by: Fangwen Deng <fangwen.deng@mediatek.com>
+---
+ drivers/usb/mtu3/mtu3_gadget_ep0.c | 55 ++++++++++++++++++++++++++++--
+ 1 file changed, 53 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/usb/mtu3/mtu3_gadget_ep0.c b/drivers/usb/mtu3/mtu3_gadget_ep0.c
+index e4fd1bb14a55..73a1af8b6c65 100644
+--- a/drivers/usb/mtu3/mtu3_gadget_ep0.c
++++ b/drivers/usb/mtu3/mtu3_gadget_ep0.c
+@@ -857,8 +857,59 @@ static int mtu3_ep0_queue(struct usb_ep *ep,
+ 
+ static int mtu3_ep0_dequeue(struct usb_ep *ep, struct usb_request *req)
+ {
+-	/* we just won't support this */
+-	return -EINVAL;
++	struct mtu3_ep *mep;
++	struct mtu3_request *mreq = NULL;
++	struct mtu3_request *r = NULL;
++	struct mtu3 *mtu;
++	unsigned long flags;
++	int ret = 0;
++
++	if (!ep || !req)
++		return -EINVAL;
++
++	mep = to_mtu3_ep(ep);
++	mtu = mep->mtu;
++
++	spin_lock_irqsave(&mtu->lock, flags);
++
++	mreq = to_mtu3_request(req);
++
++	dev_dbg(mtu->dev, "%s : req=%p\n", __func__, req);
++
++	list_for_each_entry(r, &mep->req_list, list) {
++		if (r == mreq)
++			break;
++	}
++	if (r != mreq) {
++		dev_info(mtu->dev, "req=%p not queued to %s\n", req, ep->name);
++		ret = -EINVAL;
++		goto done;
++	}
++
++	if (mreq->mep != mep) {
++		dev_info(mtu->dev, "mreq->mep != mep, not queued.\n");
++		ret = -EINVAL;
++		goto done;
++	}
++
++	trace_mtu3_gadget_dequeue(mreq);
++
++	/*
++	 * The cancelled request backed the current control transfer, so abort it
++	 * with an EP0 STALL and reset ep0_state to SETUP to avoid FIFO leftovers
++	 * leaking into the next request. Clear happens in the EP0 ISR (W1C
++	 * EP0_SENTSTALL), so EP0 won't stay halted. Do this before
++	 * mtu3_req_complete() drops mtu->lock to avoid stalling a new transfer.
++	 */
++	if (mtu->is_active && mtu->ep0_state != MU3D_EP0_STATE_SETUP)
++		ep0_stall_set(mtu->ep0, true, 0);
++
++	/* ep0 uses PIO, so no QMU to flush/restart as mtu3_gadget_dequeue() does */
++	mtu3_req_complete(mep, req, -ECONNRESET);
++
++done:
++	spin_unlock_irqrestore(&mtu->lock, flags);
++	return ret;
+ }
+ 
+ static int mtu3_ep0_halt(struct usb_ep *ep, int value)
+-- 
+2.45.2
+
 
