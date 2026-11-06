@@ -2,82 +2,147 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E297606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 10:09:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 777C5606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 10:10:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z/r5WD/3;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=rUKlc1j3
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WE54Spwp;
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=CqNEcy6M
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=OzxYqfOe5wWDr5TtA6JkHbhEc949LE7biXmqyPX/UII=; b=Z/r5WD/3FhfUrf
-	GnGiGWUxCImzc0LEb/iveKU8290UsW8EjsE3ApSnKf/p7RXJMtXQWC8GLGcXnKqA0F9boK+v84bDS
-	ygHB7jD9dBBIn2hkTW1EHuKtddqBm43tOuOrxoxy4fxcXjtqAA4kc2EzlmlUvOnosHxMw5yzhiFoS
-	6Q30flXpKgk6666DsFbmsIvBgfh9+jGtfMqIBsdB0udFxOVwLUt+hc3T2aTJdvYtBo5m6gy08/Vt4
-	ADAkpWZeVo5ytc1NmQhLeMLUXq/5aOSE90NqPyRJCGIvZW5Per7+e45fYEVnRpapvO5kmOPD8lv7k
-	Xy37R6eLRZmM7kuh7xKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=aT+bTIoMNj/bdd+dgyVJBvz0wdyi5T29Lspl5yVu9nM=; b=WE54SpwpxnqlDv7uVjK0rnlgRy
+	gO+8ID7tBHROLLrtUeZ+iPabcIwhukB8Og2n2z8WEq6pdjNVkaXl6jnZl6FdWUzxzrXy43j3qhs8I
+	IYpubquExYFwUPnNdvhAbIfVETE+BhawUtnv4vGzaj1gpc+OinqrdBwDjw9FJlmrWWyZilqUO1btW
+	iUzwtY27wMO8o0NULaZmBHXqYSNgKIieF3oIHzwsQkNQqwe8Spdhj07EXIy8YYBuAu0jiyyRPfjqc
+	Iob6qL+rdjYQk3DVIW03rCz+DenmJ3rQhyMLCvxyczDm9LxBTa19MdMSrWNgX4qU5Yxh9z0IEEiQc
+	wv6zivCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPGsi-0000000Br1G-085R;
-	Fri, 06 Nov 2026 10:09:12 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1xPGuA-0000000BrE9-0sHY;
+	Fri, 06 Nov 2026 10:10:42 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPGsc-0000000Br0E-2Kff
+	id 1xPGu6-0000000BrDV-2cQX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 10:09:11 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261106100901euoutp018d44bf3d66c9e9ff8ce6c36624f9e974~lbOE_umZ-0763307633euoutp01S
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Nov 2026 10:09:01 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261106100901euoutp018d44bf3d66c9e9ff8ce6c36624f9e974~lbOE_umZ-0763307633euoutp01S
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1793959741;
-	bh=OzxYqfOe5wWDr5TtA6JkHbhEc949LE7biXmqyPX/UII=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=rUKlc1j37YyfGc+HQ/BKO8+uZNtc/axmEYXEiJAe0QD64UvCTpKdbeWGu/8Qr9tfw
-	 BG+Y52dLM40scveAFebI8KUIbaz7mcnysg4cFApxGoeNMgjerj1YxTqoHaJ6sbnfRv
-	 drpKbTz4wEvEmjpm+jsIZNQU3Vd4O5dcuXoOGvxE=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261106100900eucas1p267f037803dde62c10657cc3e34ee405e~lbOEu4IHM1522315223eucas1p2j;
-	Fri,  6 Nov 2026 10:09:00 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261106100859eusmtip13b5cf4c16eea4ef916d8542234814384~lbODrujOM0555205552eusmtip1w;
-	Fri,  6 Nov 2026 10:08:59 +0000 (GMT)
-Message-ID: <f1180687-6e4d-4d76-9a09-bb20d3676099@samsung.com>
-Date: Fri, 6 Nov 2026 11:08:59 +0100
+	Fri, 06 Nov 2026 10:10:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lDYtvztqHTYo+Z676o170jOmIwIMHqU5/Yj3KHRyTiv8t3eMGiQYK7icwDT0WV5NNM5dG3KLsimluF7jLHi+G8/FbdxBt0gVhmEc8+3HiUINXG8j031QIjVmqZX1JBmcXBujZ2sq6psJtrnpGb/Jl07SHu47hWHB4bKDbTp7r4Prkq5duSDjPQ56dHmsZNfl6O8nJtDGxXD4aVhZsrz2/gJxnKh8FnvZ4NiU6DHcpJbKF7BtIKD0mO9ZobV+L2NyZjAE4sIZH0AqOO+NYsnS3ze+uZM/J7Up3k5JIk89aPBSqFhULi4mQ0MKuziBo6TsqTOZVxhNFqxSscood2QHBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aT+bTIoMNj/bdd+dgyVJBvz0wdyi5T29Lspl5yVu9nM=;
+ b=jcHysqYA/um0/PXiCOr/zLzJHpwdkMGM9WxB4rgXwF9DE0828mw6fXpvsuINP0vR4sJzTnoVVnHUtYVKIqFezenwP6uQgsNi4WOZMemLJWs73dnp7/F4koecmic7EeaLLuKXmVIyO5cZUungPgtN68b/o+P5eeuO2iltFQNmSu5EDUUQIG1ylZe9t60MYxPb0XlMQThOxfJEEWI1l7Oaec3Sd+kne+teFvrIU8nVkdbjYKBBc2HCzEmUw5S8QrtUB8hM1osfVJUDvzbvo4156BPU6dLL5ZOBChf84FYhyeIMm7Jk7+gmsA9MNU6BjlGm4PcO0lC8z3W4Vx/9AKtQXw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aT+bTIoMNj/bdd+dgyVJBvz0wdyi5T29Lspl5yVu9nM=;
+ b=CqNEcy6MdQ3PRZPyW03GhMUFy6K/vYLzOSi/kQwz0Yf4+H/lIanYpUve2TQaSFALAd0J2sKQkMejAnmCO2Iur+G2LwW8ZEfdzmLoIufwqeZ/J1hJUjQpSo5ZwO1z35N7vatCr+d8KOFi+lPP58kEpRSqv+BqJG7h2s0wNfVg24w=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DS0PR12MB9060.namprd12.prod.outlook.com (2603:10b6:8:c4::12) by
+ DM4PR12MB7597.namprd12.prod.outlook.com (2603:10b6:8:10b::16) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.592.11; Fri, 6 Nov 2026 10:10:31 +0000
+Received: from DS0PR12MB9060.namprd12.prod.outlook.com
+ ([fe80::e096:864d:d60a:c83f]) by DS0PR12MB9060.namprd12.prod.outlook.com
+ ([fe80::e096:864d:d60a:c83f%4]) with mapi id 15.21.0592.009; Fri, 6 Nov 2026
+ 10:10:31 +0000
+Message-ID: <70a8369f-aec9-48c0-ae1e-5081d2a838d4@amd.com>
+Date: Fri, 6 Nov 2026 15:40:22 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] iio: adc: xilinx-ams: fix out-of-bounds accesses
+ when parsing channels
+To: Arnav Kapoor <kapoorarnav43@gmail.com>,
+ Conall O'Griofa <conall.ogriofa@amd.com>, Jonathan Cameron <jic23@kernel.org>
+Cc: Salih Erim <salih.erim@amd.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, David Lechner <dlechner@baylibre.com>,
+ =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Andy Shevchenko <andriy.shevchenko@intel.com>, stable@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261104164510.105359-1-kapoorarnav43@gmail.com>
+ <20261104164510.105359-3-kapoorarnav43@gmail.com>
+Content-Language: en-US
+From: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+In-Reply-To: <20261104164510.105359-3-kapoorarnav43@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5PR01CA0214.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1f3::10) To DS0PR12MB9060.namprd12.prod.outlook.com
+ (2603:10b6:8:c4::12)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH 1/2] tty: serial: samsung: pause the RX DMA channel in
- stop_rx
-To: Samarth Narang <samarth.colleges@gmail.com>, Krzysztof Kozlowski
-	<krzk@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, Greg
-	Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
-	<jirislaby@kernel.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-samsung-soc@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20261031004217.3340610-2-samarth.colleges@gmail.com>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20261106100900eucas1p267f037803dde62c10657cc3e34ee405e
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261031004233eucas1p241e1ded0d1050e67eeb170026da382c7
-X-EPHeader: CA
-X-CMS-RootMailID: 20261031004233eucas1p241e1ded0d1050e67eeb170026da382c7
-References: <20261031004217.3340610-1-samarth.colleges@gmail.com>
-	<CGME20261031004233eucas1p241e1ded0d1050e67eeb170026da382c7@eucas1p2.samsung.com>
-	<20261031004217.3340610-2-samarth.colleges@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB9060:EE_|DM4PR12MB7597:EE_
+X-MS-Office365-Filtering-Correlation-Id: 15e430c3-56ff-44d3-f670-08df3bee3047
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|366016|1800799024|22082099003|18002099003|10067099003|4143699003|56012099006|11063799006|261026130827099003|261026135527099003|261026121527099003|261026140227099003|261102123227099003|261028144727099003|261022113327099003|261021133027099003|261022115727099003|261022105027099003|261022075727099003|261021135927099003|261021123027099003|261021121427099003|261021130227099003|261009223027099003;
+X-Microsoft-Antispam-Message-Info: AuZZTKFhPhgNu+UrKvLCEZiDkURL5Mz4d/d8audlQtHHN5wBXckqq4mGjklhotgH1snEYl06C1A37Tyx501Hd5AniV27QMvHlC1rYjqokuzW+QRkrQDU8XdbbhXfAYlxOqtW624HgF2U7S+Y1P17IordFkUUxEpDyhPi6LoR9oAtEjZTrtSWAxyiIisvanNjtyFJh4U6kJcfHQU9pT1GjvoHYhNFyC1yaGZGLqgXkUnEGmFtAqCDDJBdW0Lyo+0hEz7OWkaaL3lBRRSc7izw6Tsp2w9Y9F74fwJDXMc0r5jP9kwPdWYoz+1+PogDLu4SOYv9ZRSXPgycYeoRQnUD9TSrvIfS6OeW6ON6+KL6NMbhVvvFW+9r8GwBLQjywuP/4RDazk2bK4Pa2RiAfvvl9D9sepeBF104RQocIEt9PeWEB7sr/qZRdm+nBuiCv4FqNgK0DowQHQZ6rHPhns4u8qlyHD6oLSJGJ5hetUOlyZDqdrP6+KCkcUwUGpwskt4rbfXYh8AXSv6hH8eEtc8EX5yYBGzoTKucNd1TILPs/hyITtfpvqDG5VfMr+vPp4w5BxHX1ANVJPFUCMWGy0KPxk1qZXjB7GDZMNTB72AiZrUeDwFNSpwvbxv8oaFyiO3RnQJ6Yols1m4YQHZ5i1MRLJGfTjsNUvvqIESK0ALOtlk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB9060.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(366016)(1800799024)(22082099003)(18002099003)(10067099003)(4143699003)(56012099006)(11063799006)(261026130827099003)(261026135527099003)(261026121527099003)(261026140227099003)(261102123227099003)(261028144727099003)(261022113327099003)(261021133027099003)(261022115727099003)(261022105027099003)(261022075727099003)(261021135927099003)(261021123027099003)(261021121427099003)(261021130227099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dlJFUWl3MjJHSjNGVzlYUGY4cGUxcEo3ZGNJWEljQUxxa0FuQ1JYbEZLYVZK?=
+ =?utf-8?B?b3JiRFNlZ204enR4S3A1RXV1MlpqaGh4Z0xQRVJ1VUFET240NTNjSHAxQkFH?=
+ =?utf-8?B?cVJNbVJiLzAxK0pYaEpuZGY5RGNxUy9lbXN6Szh2TzVVUklXUGlnK2xXT2VY?=
+ =?utf-8?B?b3BrSHNXMG5EcWNaT0ZCQW14N2pSSW0wSGxvd1A0MzQzRk5GeTltM1dTVnFN?=
+ =?utf-8?B?YlE0WTUzMERQdEY1SXhBcndKRHc4MXJQMUdHbTBnMEpEVDF1U2tMYUNYS29V?=
+ =?utf-8?B?eENzbVg4VTROT2ZSTmI1aFhkRGhkd3lWNytXcFFwVEFDU0o0NHRPSUdVWG1z?=
+ =?utf-8?B?dHVYRHZYeTZWQXFNQlJodndraVMva1NRRzVneUZ4K0RFQmlCOUtOSnJ0L1Y2?=
+ =?utf-8?B?MHlrZWNMdDQzS1VJTjJneEFTWklBaVpHaFUva1hQdXJkRnFVdC9MZVVXbnNF?=
+ =?utf-8?B?YnJyVVdsWHF5MVd0RlVjL3d3U0pKNytGSnZPTjdGRkw3WU5VWHpFT3U2K3da?=
+ =?utf-8?B?TGk2UGFHaW9aZXpkdlRmRGlHVkovQlQ5YlM2UXVUMno3Z2pVQXl5MkRYN3hW?=
+ =?utf-8?B?bUdrN2xZSDZ0aUw4VHZIOGxBT2V2bkpmdVAxMmY0aGJZWGF0bmFDK05mUFdl?=
+ =?utf-8?B?TXlqQjF6Q0ZsK0U3bitDMXFjQjU5cUVyYXNneVE3UmVtU0RFNUhEU0dCT3RI?=
+ =?utf-8?B?RFM2UkNyNVlja2hnMW0xN2RuSmpER3BBa2k4TkFXVGRJbkxvbWxIL2tFRity?=
+ =?utf-8?B?eG5ON0FFRmZoSUlWTlJkVkpObWRHSUtGalBqa1U0V0pkamlHZzVhNklaUHRI?=
+ =?utf-8?B?MzVhSUtCNXErbHgwbTNnVjhuVW5hS3BJVWVRRHhQeHNOZFBoSytING9ncUwy?=
+ =?utf-8?B?RDh6SU91U1FvdW9sVnIwUlFTaUdmSzhqSU5PTHo4OHNiUGgyU294OWRkWEh6?=
+ =?utf-8?B?QTVobnA1VmxISEVra3JCY0Z3d2tRekUyQXg5RE9rdW1kdFpZMDhtMjJjb0dm?=
+ =?utf-8?B?WVZNalltRWN0aHFtemg4dUhzWkMxY1dRUk1SWUQ3WGZJV3kycDUyN2tqWWZG?=
+ =?utf-8?B?MnJwQ1UzM3FNbVYvaGd5WU5BRDZRU29hL2FDL0NrVVhyVTIxQVpmYUlGemlt?=
+ =?utf-8?B?ZXpNLzRvTGowNGNkeFBJc2RsMTBEa21ocEt3eExhRzc3UE1rY0NzdTR3YjNz?=
+ =?utf-8?B?K09qU25VMWMxd2FGckljUnhpOUE5a2p1UzZ2MnJuclBIWDNDNEpxNFV3U3Zk?=
+ =?utf-8?B?bHZvelhWOEEzMmp6ZFgzMm5mSTRESkJDRG9FMlA4cnJMOXhIbmhabEVlVGFn?=
+ =?utf-8?B?RW9XaU5WQ2wwa2hqNjlGSmlEY2JkeWpkaDJJcFNKNHUzMnJlYXF5NXdhMXMr?=
+ =?utf-8?B?M0hQSVE5WHoyQnFUNnU0SlJPUnF0OHBTOHdyTWJvcERheUhjNVcxRWgvU2Jp?=
+ =?utf-8?B?aSs5ekdNMmJGazZid2FQUXRxcmpiZ0FhTnhsamJubUk4MnQyWnJFNC9OUVdR?=
+ =?utf-8?B?LzdnY0J2Vmk2UXBuc3ZqRk5Nd3U2ckFiWWU2V0c5eTZFQjZKeDFQdDlIekVM?=
+ =?utf-8?B?TG5jNFJGOERha1NmWFJQUjlBbk9CRGdPQXc2R09XajlEZHdicHdTVkVidWN2?=
+ =?utf-8?B?R2cyUjJKNjExUW8vOWRZcGlhYnBuMm9PVlRaSTM4dzNtZ1FLWVV6Tk0vS0Ur?=
+ =?utf-8?B?N1hFYlBDZVZrZWZSaDhjRGVRSHVmSklmSWxkYkh6UEZKd05hbkRGamdmcmZ2?=
+ =?utf-8?B?bjdlSmZTYU9iUVJVSnJyZ2FlczV2b1Y4emxCbndEL1FhZnd3Q3QwZjBvOXpF?=
+ =?utf-8?B?NW8wbjhScEQ3RFdiUlR4cUtOR1lIV3UyMGxYRHY4aDJSbUVJdEFjYTBmUU8v?=
+ =?utf-8?B?RFRFWXpYOVNWcmxoam5BNWNMdlpTcUdydWR2ZGtiYVJQemMzV2ZFSnRhUTJZ?=
+ =?utf-8?B?Z3BDSWFuV2NhenVlVE5zeUZTRmdoNHBza2gwL2pmM3lJZGNQTTY1eS9hMVlW?=
+ =?utf-8?B?VmxrUW1IVVJ3bm5YSXg3Y1A5aEE0d0htRHpXUWl5VEtGZzBud2ZNSll1ZDFu?=
+ =?utf-8?B?Y3dMbWdzNWFrOWtwUmlnR3pNRzgvQXVNQ0lEUldPS3J4SEswNmVZQVBra2o2?=
+ =?utf-8?B?QlJxTEtHVEczVUlkZWZudmJKMzBNbjlUcER1WkZZZDJ6MHZwWGhnQ2o0YXFR?=
+ =?utf-8?B?Q01sOEN0R3RUUDkvSG1MdXUvd3QvVGR2UzlYQ1lFWmswV05tMXNnZE16RHFv?=
+ =?utf-8?B?cml3VXcyZXpvS2dSSzRvL1V3QXh3dU9JRHhwSjJKb05HeEQ5MTViS3UvbkNI?=
+ =?utf-8?B?UksyMFF4dm1OL1k3UmU0ZTNqMjFuK0xHc0VpNTdzMkFPbW1TSERiQT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 15e430c3-56ff-44d3-f670-08df3bee3047
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB9060.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2026 10:10:31.0053
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: d/NcT/1hFykDzTcQGzURPoz7WDfy4d2s4BNVXExOWJ/lJj6SAkPJqGbY4SnQ+8bWS8Pcd1VIvEZ1PhdmEDSzKQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7597
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_020908_780495_A0300D95 
-X-CRM114-Status: GOOD (  19.76  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261106_021038_739532_6BC51DBB 
+X-CRM114-Status: GOOD (  32.11  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,57 +153,188 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 31.10.2026 01:42, Samarth Narang wrote:
-> In s3c24xx_serial_stop_rx(), the driver pauses dma->tx_chan before
-> reading the residue of the RX transfer on dma->rx_chan to determine how
-> many bytes have been received. Since pausing the TX channel does not
-> stop RX DMA, additional bytes may arrive before the RX channel is
-> terminated, causing them to be omitted from the data passed to the tty.
-> This also unnecessarily pauses an active TX transfer, which the driver
-> does not subsequently resume.
->
-> Pause the RX channel instead, following the existing handling in
-> s3c24xx_serial_rx_chars_dma() on the RX timeout path.
->
-> Fixes: b543c301c2c5 ("serial: samsung: add DMA support for RX")
-> Link: https://lore.kernel.org/r/20261030162334.3000737-1-samarth.colleges@gmail.com
-> Assisted-by: LLM
-> Signed-off-by: Samarth Narang <samarth.colleges@gmail.com>
 
-That's a real, long standing issue.
 
-Reviewed-by: Marek Szyprowski <m.szyprowski@samsung.com>
+On 11/4/2026 10:15 PM, Arnav Kapoor wrote:
+> ams_parse_firmware() allocates room for ARRAY_SIZE(ams_ps_channels) +
+> ARRAY_SIZE(ams_pl_channels) + ARRAY_SIZE(ams_ctrl_channels) = 51
+> channel specs and lets ams_init_module() fill them for the AMS node and
+> each of its children, without telling it how much room is left.
+> 
+> For the PL-SYSMON node, ams_init_module() always adds the 10 fixed PL
+> channels, numbered 20 to 29, and ams_get_ext_chan() then appends one
+> channel per "channel@N" child as ams_pl_channels[N - 20]. Only channels
+> 30 to 50 are external ones, but any N from 20 to 50 is accepted, so a
+> child numbered 20 to 29 duplicates a fixed channel. A PL node can then
+> have up to 41 channels while only 31 are budgeted for it, and together
+> with the 13 PS and 7 AMS control channels this writes past the end of
+> the buffer. Since the modules are filled in device tree order, the fixed
+> channel blocks copied after the PL node can overflow as well.
+> 
+> ams_get_ext_chan() also only checks the upper bound of reg. ext_chan is
+> unsigned, so a reg below 20 makes it wrap and ams_pl_channels[] is read
+> far out of bounds.
+> 
+> Only accept the external channels 30 to 50. Also pass the remaining
+> capacity down to ams_init_module() and ams_get_ext_chan() and fail with
+> -ENOSPC when a module does not fit, so that a device tree repeating a
+> reg value can't write past the buffer either.
+> 
+> Fixes: d5c70627a794 ("iio: adc: Add Xilinx AMS driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Arnav Kapoor <kapoorarnav43@gmail.com>
 
+Looks good to me.
+Reviewed-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+
+Regards
+Sai krishna
 
 > ---
->  drivers/tty/serial/samsung_tty.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/tty/serial/samsung_tty.c b/drivers/tty/serial/samsung_tty.c
-> index 4eeef149b..2f6c69bec 100644
-> --- a/drivers/tty/serial/samsung_tty.c
-> +++ b/drivers/tty/serial/samsung_tty.c
-> @@ -553,7 +553,7 @@ static void s3c24xx_serial_stop_rx(struct uart_port *port)
->  		ourport->rx_enabled = 0;
->  	}
->  	if (dma && dma->rx_chan) {
-> -		dmaengine_pause(dma->tx_chan);
-> +		dmaengine_pause(dma->rx_chan);
->  		dma_status = dmaengine_tx_status(dma->rx_chan,
->  				dma->rx_cookie, &state);
->  		if (dma_status == DMA_IN_PROGRESS ||
-
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+>   drivers/iio/adc/xilinx-ams.c | 57 +++++++++++++++++++++++++++++-------
+>   1 file changed, 46 insertions(+), 11 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/xilinx-ams.c b/drivers/iio/adc/xilinx-ams.c
+> index 158e6133abf5..745edcf7c735 100644
+> --- a/drivers/iio/adc/xilinx-ams.c
+> +++ b/drivers/iio/adc/xilinx-ams.c
+> @@ -144,7 +144,14 @@
+>   #define AMS_PL_CSTS_ACCESS_MASK		BIT(1)
+>   
+>   #define AMS_PL_MAX_FIXED_CHANNEL	10
+> -#define AMS_PL_MAX_EXT_CHANNEL		20
+> +/*
+> + * The PL channels are numbered from 20 in the binding. The first
+> + * AMS_PL_MAX_FIXED_CHANNEL of them are always present, the external ones
+> + * from AMS_PL_EXT_CHANNEL_MIN to AMS_PL_EXT_CHANNEL_MAX follow them in
+> + * ams_pl_channels[].
+> + */
+> +#define AMS_PL_EXT_CHANNEL_MIN		30
+> +#define AMS_PL_EXT_CHANNEL_MAX		50
+>   
+>   #define AMS_INIT_POLL_TIME_US		200
+>   #define AMS_INIT_TIMEOUT_US		10000
+> @@ -1131,6 +1138,9 @@ static const struct iio_chan_spec ams_pl_channels[] = {
+>   	AMS_PL_AUX_CHAN_VOLTAGE(15),
+>   };
+>   
+> +static_assert(ARRAY_SIZE(ams_pl_channels) ==
+> +	      AMS_PL_MAX_FIXED_CHANNEL + AMS_PL_EXT_CHANNEL_MAX - AMS_PL_EXT_CHANNEL_MIN + 1);
+> +
+>   static const struct iio_chan_spec ams_ctrl_channels[] = {
+>   	AMS_CTRL_CHAN_VOLTAGE(AMS_SEQ_VCC_PSPLL, AMS_VCC_PSPLL0, "VCC_PSPLL"),
+>   	AMS_CTRL_CHAN_VOLTAGE(AMS_SEQ_VCC_PSBATT, AMS_VCC_PSPLL3, "VCC_PSBATT"),
+> @@ -1142,20 +1152,31 @@ static const struct iio_chan_spec ams_ctrl_channels[] = {
+>   };
+>   
+>   static int ams_get_ext_chan(struct fwnode_handle *chan_node,
+> -			    struct iio_chan_spec *channels, int num_channels)
+> +			    struct iio_chan_spec *channels, int num_channels,
+> +			    unsigned int max_channels)
+>   {
+>   	struct iio_chan_spec *chan;
+> -	struct fwnode_handle *child;
+>   	unsigned int reg, ext_chan;
+>   	int ret;
+>   
+> -	fwnode_for_each_child_node(chan_node, child) {
+> +	fwnode_for_each_child_node_scoped(chan_node, child) {
+>   		ret = fwnode_property_read_u32(child, "reg", &reg);
+> -		if (ret || reg > AMS_PL_MAX_EXT_CHANNEL + 30)
+> +		if (ret)
+> +			continue;
+> +
+> +		/*
+> +		 * The fixed channels have been added already, anything else
+> +		 * outside of the external range is not a valid channel.
+> +		 */
+> +		if (reg < AMS_PL_EXT_CHANNEL_MIN ||
+> +		    reg > AMS_PL_EXT_CHANNEL_MAX)
+>   			continue;
+>   
+> +		if (num_channels >= max_channels)
+> +			return -ENOSPC;
+> +
+>   		chan = &channels[num_channels];
+> -		ext_chan = reg + AMS_PL_MAX_FIXED_CHANNEL - 30;
+> +		ext_chan = reg - AMS_PL_EXT_CHANNEL_MIN + AMS_PL_MAX_FIXED_CHANNEL;
+>   		memcpy(chan, &ams_pl_channels[ext_chan], sizeof(*channels));
+>   
+>   		if (fwnode_property_read_bool(child, "xlnx,bipolar"))
+> @@ -1183,7 +1204,8 @@ static void ams_iounmap_pl(void *data)
+>   
+>   static int ams_init_module(struct iio_dev *indio_dev,
+>   			   struct fwnode_handle *fwnode,
+> -			   struct iio_chan_spec *channels)
+> +			   struct iio_chan_spec *channels,
+> +			   unsigned int max_channels)
+>   {
+>   	struct device *dev = indio_dev->dev.parent;
+>   	struct ams *ams = iio_priv(indio_dev);
+> @@ -1191,6 +1213,9 @@ static int ams_init_module(struct iio_dev *indio_dev,
+>   	int ret;
+>   
+>   	if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams-ps")) {
+> +		if (max_channels < ARRAY_SIZE(ams_ps_channels))
+> +			return -ENOSPC;
+> +
+>   		ams->ps_base = fwnode_iomap(fwnode, 0);
+>   		if (!ams->ps_base)
+>   			return -ENXIO;
+> @@ -1202,6 +1227,9 @@ static int ams_init_module(struct iio_dev *indio_dev,
+>   		memcpy(channels, ams_ps_channels, sizeof(ams_ps_channels));
+>   		num_channels = ARRAY_SIZE(ams_ps_channels);
+>   	} else if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams-pl")) {
+> +		if (max_channels < AMS_PL_MAX_FIXED_CHANNEL)
+> +			return -ENOSPC;
+> +
+>   		ams->pl_base = fwnode_iomap(fwnode, 0);
+>   		if (!ams->pl_base)
+>   			return -ENXIO;
+> @@ -1213,9 +1241,14 @@ static int ams_init_module(struct iio_dev *indio_dev,
+>   		/* Copy only first 10 fix channels */
+>   		memcpy(channels, ams_pl_channels, AMS_PL_MAX_FIXED_CHANNEL * sizeof(*channels));
+>   		num_channels += AMS_PL_MAX_FIXED_CHANNEL;
+> -		num_channels = ams_get_ext_chan(fwnode, channels,
+> -						num_channels);
+> +		ret = ams_get_ext_chan(fwnode, channels, num_channels, max_channels);
+> +		if (ret < 0)
+> +			return ret;
+> +		num_channels = ret;
+>   	} else if (fwnode_device_is_compatible(fwnode, "xlnx,zynqmp-ams")) {
+> +		if (max_channels < ARRAY_SIZE(ams_ctrl_channels))
+> +			return -ENOSPC;
+> +
+>   		/* add AMS channels to iio device channels */
+>   		memcpy(channels, ams_ctrl_channels, sizeof(ams_ctrl_channels));
+>   		num_channels += ARRAY_SIZE(ams_ctrl_channels);
+> @@ -1245,7 +1278,7 @@ static int ams_parse_firmware(struct iio_dev *indio_dev)
+>   		return -ENOMEM;
+>   
+>   	if (fwnode_device_is_available(fwnode)) {
+> -		ret = ams_init_module(indio_dev, fwnode, ams_channels);
+> +		ret = ams_init_module(indio_dev, fwnode, ams_channels, ams_size);
+>   		if (ret < 0)
+>   			return ret;
+>   
+> @@ -1253,7 +1286,9 @@ static int ams_parse_firmware(struct iio_dev *indio_dev)
+>   	}
+>   
+>   	device_for_each_child_node_scoped(dev, child) {
+> -		ret = ams_init_module(indio_dev, child, ams_channels + num_channels);
+> +		ret = ams_init_module(indio_dev, child,
+> +				      ams_channels + num_channels,
+> +				      ams_size - num_channels);
+>   		if (ret < 0)
+>   			return ret;
+>   
 
 
