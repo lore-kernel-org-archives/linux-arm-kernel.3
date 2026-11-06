@@ -2,102 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C605606D82B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 04:41:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F07D3606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 04:44:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EquhMkmJ;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AjYYVchY
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=M1Aoj32Z;
+	dkim=pass (2048-bit key, unprotected) header.d=codeconstruct.com.au header.i=@codeconstruct.com.au header.a=rsa-sha256 header.s=2022a header.b=ORjN6Qaq
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=qmcuRBLiAyNgSVLtIYw1GgJ3cjV3fwZQqxLTNTIh8Kc=; b=EquhMkmJDXCADF
-	0yUTPsydQmwBEk81rHnJMKLkdtSVZpmR2qovGRbo7+Zn8sG5YEovGj4V7AgdlpcAFKhxpwAuIW864
-	AZSCWnoSQFLK+uOVlCbzJQjeCEI7g0fGzRQU+DWAEUU5P6bR+SbxNhpvhVefoCwfqrFMhymdBuQb3
-	huAtL9uHwU8ojly06gHj/YzIiIMWaj+9FUANHGSFn2EwIyqXzh8wf88fxDc3rFLAsBKw+2F9CJu/P
-	L38NuUNIxAXQ+P8d/67cmB1Wy7orDCNm6vAl8EbTLvnYOoD0kuqqJR4T4fOc+b2GD2mNH9NtBlch3
-	zz8ogs/nHGLoZN8ynehA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=YFoZXU10IP230tleaiBGL1W+4BzMqJD5/OQifxbywPQ=; b=M1Aoj32Zx279dq7KJZm8d7Qj+1
+	btnWGkjjzUB9Xet2Ra5U0xHpsNRtub0ShCooWwtTgu6qeygHBD/D3hJBOeru8zEku+PSwJMUYadje
+	En1uBrx2KES++fOGL7Uaio/sczu4HczrbfwLeuLCDT5AGTT1ZuvLPIsFF41YJRAqP1BrmPdM8fpGu
+	AzVDrf7Sr6gKVkHfR3hxvFm9JbqHWZVW/kA9gNhDBrYi3CiZa7feRUQRTZRBUnSp4+7DHvMVmOSL5
+	N43XFFK6EU9fu2N6RJUFvTW8SGUEMtkwyRlbRqhE/Ty9LIbB4PjvxBgb9AgqQ8S6tK8I6Ad8bGDAl
+	O/kOTHzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPBla-0000000BE1V-1k9H;
-	Fri, 06 Nov 2026 04:41:30 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1xPBol-0000000BEIE-43nB;
+	Fri, 06 Nov 2026 04:44:47 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPBlX-0000000BE0x-1Qrr
+	id 1xPBoj-0000000BEHt-2oY9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 04:41:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793940088; x=1825476088;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=aADptgFLBWroTjldMhD+ilqQMCAFWkd4FpKQgXTALW4=;
-  b=AjYYVchYXW5ZdjRwfClN1qLWaFXxNdTfDhDFCeQWpMmkaRSRQPdvaS0O
-   I+wBc8NUuc4HU/+ZX4uCDQdP5uTTrOZ52Jpq+I2gws4TV2VARAQ81/kiM
-   5x/Hm6ENEopcK/nDD4g/OaWsaJZbaK5IC4D1NEfgC6ioZnjul4eQD8o/P
-   KEGrAnd/w+1M0wOKNnSwPgfoStO4mkndgs3JohcgZFIxFK3ERHxI1/bqB
-   CkUNfRBVd8J6WcltFddoV9c2zWv02rAoSa5PCRsX/mLIw7IQMBZ1nmdxc
-   CVf8nuWVL5OaxQsckBO1idGieLA59/tUhSteUhwk/SYA8lSkGLTSV+BGy
-   g==;
-X-CSE-ConnectionGUID: ST3DZtL7Rx+sMqm9Wyp92A==
-X-CSE-MsgGUID: Kjo1BN8vRtSAR8qyzd882A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11957"; a="2780838"
-X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
-   d="scan'208";a="2780838"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 20:41:27 -0800
-X-CSE-ConnectionGUID: j2n/NbwpTkmJoKr7k1/+Sw==
-X-CSE-MsgGUID: 6fzgl00VSm+7qJq/s4gU8A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
-   d="scan'208";a="7222956"
-Received: from spr.sh.intel.com ([10.112.229.196])
-  by orviesa001.jf.intel.com with ESMTP; 05 Nov 2026 20:41:20 -0800
-From: Dapeng Mi <dapeng1.mi@linux.intel.com>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Andi Kleen <ak@linux.intel.com>,
-	Eranian Stephane <eranian@google.com>,
-	Sandipan Das <sandipan.das@amd.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Song Liu <song@kernel.org>,
-	Ravi Bangoria <ravi.bangoria@amd.com>,
-	Ananth Narayan <ananth.narayan@amd.com>
-Cc: linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	bpf@vger.kernel.org,
-	Dapeng Mi <dapeng1.mi@intel.com>,
-	Zide Chen <zide.chen@intel.com>,
-	Falcon Thomas <thomas.falcon@intel.com>,
-	Xudong Hao <xudong.hao@intel.com>,
-	Dapeng Mi <dapeng1.mi@linux.intel.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [Patch v6 10/20] perf: Add counted-bounds tracking for perf_branch_stack
-Date: Fri,  6 Nov 2026 12:32:47 +0800
-Message-Id: <20261106043257.842864-11-dapeng1.mi@linux.intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261106043257.842864-1-dapeng1.mi@linux.intel.com>
-References: <20261106043257.842864-1-dapeng1.mi@linux.intel.com>
+	Fri, 06 Nov 2026 04:44:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1793940283;
+	bh=YFoZXU10IP230tleaiBGL1W+4BzMqJD5/OQifxbywPQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=ORjN6QaqOIz1opYhhwsBq8ZHWvenOnD/h7Pyt2qqBWAk4IWMV1kigIYqGjllF3ZJY
+	 G1bcFgU6+ExgM8Pwj1Qs1FiX2qRLh+YEIiJ1p2pnAJoR3MUfdMIFDl08Dd1/NHNq5g
+	 zvjGn9sH5VVm0LfVu5qHdmvqabPC3o5zJ/aD0sLsXyf8edV/z7Gt/ypFr81dXdj4Bh
+	 jYBmRyGU7qCJMUWzOCDYE535xqUGLUz2I2SyQSgpuxqeYmGN89bNT9JjF6viTDmJA2
+	 GwhkpJwNaRYNsi8mRn2wTkutRaZV/NGLpjLVENy8qwiDZwBdgU1PSQ6iEE1qlkpapd
+	 rmmmauy9Vda0Q==
+Received: from [192.168.68.117] (unknown [180.150.112.139])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id AB8BB64952;
+	Fri,  6 Nov 2026 12:44:42 +0800 (AWST)
+Message-ID: <971b14eb2ea35ae89b5517438435460bdc8385a3.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v4 2/3] ARM: dts: aspeed: add Intel AVCRP BMC
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Dawid Glazik <dawid.glazik@linux.intel.com>, Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley	 <joel@jms.id.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	maciej.lawniczak@intel.com, Andrew Lunn <andrew@lunn.ch>
+Date: Fri, 06 Nov 2026 15:14:42 +1030
+In-Reply-To: <aa35e5bb8a3d49ea4d5bc245887aaf8ce0ce42b1.1792749922.git.dawid.glazik@linux.intel.com>
+References: <cover.1792749922.git.dawid.glazik@linux.intel.com>
+	 <aa35e5bb8a3d49ea4d5bc245887aaf8ce0ce42b1.1792749922.git.dawid.glazik@linux.intel.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_204127_442204_22CA7624 
-X-CRM114-Status: GOOD (  27.66  )
-X-Spam-Score: -4.2 (----)
+X-CRM114-CacheID: sfid-20261105_204445_912200_57509F77 
+X-CRM114-Status: GOOD (  13.70  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,764 +74,87 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-20.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-struct perf_branch_stack uses a trailing flexible array member,
-entries[], whose valid length is tracked by nr. When this structure
-is embedded as a value member in cpu_hw_events, the compiler can treat
-the trailing flexible array as having a fixed zero-length layout under
--fstrict-flex-arrays=3 and UBSan, which can lead to strict array-bounds
-diagnostics when entries[] is indexed.
+On Mon, 2026-10-26 at 17:40 +0100, Dawid Glazik wrote:
+> Add the initial AST2600 device tree for the Intel AVCRP BMC platform.
 
-Annotate entries[] with __counted_by(nr) so the compiler and sanitizer
-track the array length from the nr field. Because a structure containing
-a counted flexible array cannot be embedded as a value member, switch
-the per-CPU LBR stack backing storage to a complete __lbr_stack[] array
-and add a helper cpu_lbr_stack() to recover the struct perf_branch_stack*
-view for x86 and powerpc.
+Can you please provide more information about the platform design and
+its purpose?
 
-Also initialize the branch-stack count before populating entries[] to
-avoid false-positive bounds checks while the stack is being filled.
+>=20
+> Signed-off-by: Dawid Glazik <dawid.glazik@linux.intel.com>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+> ---
+> v4:
+> =C2=A0 - Rebased onto aspeed/arm/dt of bmc/linux.git, no other changes
+> v3:
+> =C2=A0 - Sorted nodes alphabetically
+> =C2=A0 - Sorted properties per dts-coding-style
+> =C2=A0 - Removed lpc-snoop label
+> =C2=A0 - Removed &i3c_global since it's enabled by default
+> =C2=A0 - Removed GPIO line names for pins claimed by pinctrl
+> =C2=A0 - Restored Reviewed-by from Andrew Lunn, dropped by mistake in v2
+> v2:
+> =C2=A0 - Reviewed-by: Andrew Lunn for nodes: &mdio1, &mac1
+> =C2=A0 - Replace bootargs console=3DttyS4,115200n8 with stdout-path =3D &=
+uart5
+> =C2=A0 - Remove the unreferenced video_memory reserved-memory node
+> ---
+> =C2=A0arch/arm/boot/dts/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
+> =C2=A0.../dts/aspeed/aspeed-bmc-intel-avcrp.dts=C2=A0=C2=A0=C2=A0=C2=A0 |=
+ 322 ++++++++++++++++++
+> =C2=A02 files changed, 323 insertions(+)
+> =C2=A0create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.=
+dts
+>=20
+> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed=
+/Makefile
+> index 6874b621deb4..1e4154f12228 100644
+> --- a/arch/arm/boot/dts/aspeed/Makefile
+> +++ b/arch/arm/boot/dts/aspeed/Makefile
+> @@ -57,6 +57,7 @@ dtb-$(CONFIG_ARCH_ASPEED) +=3D \
+> =C2=A0	aspeed-bmc-ibm-rainier-4u.dtb \
+> =C2=A0	aspeed-bmc-ibm-sbp1.dtb \
+> =C2=A0	aspeed-bmc-ibm-system1.dtb \
+> +	aspeed-bmc-intel-avcrp.dtb \
+> =C2=A0	aspeed-bmc-intel-s2600wf.dtb \
+> =C2=A0	aspeed-bmc-inspur-fp5280g2.dtb \
+> =C2=A0	aspeed-bmc-inspur-nf5280m6.dtb \
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts b/arch/a=
+rm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts
+> new file mode 100644
+> index 000000000000..010ace09d90f
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts
+> @@ -0,0 +1,322 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +// Copyright 2026 Intel Corporation
+> +
+> +/dts-v1/;
+> +
+> +#include "aspeed-g6.dtsi"
+> +#include <dt-bindings/gpio/aspeed-gpio.h>
+> +
+> +/ {
+> +	compatible =3D "intel,avcrp-bmc", "aspeed,ast2600";
+> +	model =3D "Intel AVCRP BMC";
+> +
+> +	aliases {
+> +		serial4 =3D &uart5;
+> +	};
+> +
+> +	chosen {
+> +		bootargs =3D "earlycon";
 
-No functional change intended.
+Please remove bootargs here, earlycon is for debugging.
 
-Suggested-by: Peter Zijlstra <peterz@infradead.org>
-Cc: Sandipan Das <sandipan.das@amd.com>
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Nicholas Piggin <npiggin@gmail.com>
-Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
----
- arch/powerpc/perf/core-book3s.c | 43 +++++++++++-----
- arch/x86/events/amd/brs.c       |  7 +--
- arch/x86/events/amd/core.c      |  6 +--
- arch/x86/events/amd/lbr.c       | 44 +++++++++-------
- arch/x86/events/core.c          |  2 +-
- arch/x86/events/intel/core.c    |  5 +-
- arch/x86/events/intel/ds.c      | 12 +++--
- arch/x86/events/intel/lbr.c     | 89 +++++++++++++++++----------------
- arch/x86/events/perf_event.h    | 19 ++++++-
- drivers/perf/arm_brbe.c         |  5 ++
- include/linux/perf_event.h      |  2 +-
- 11 files changed, 144 insertions(+), 90 deletions(-)
-
-diff --git a/arch/powerpc/perf/core-book3s.c b/arch/powerpc/perf/core-book3s.c
-index 10ded865583c..978fd39b586b 100644
---- a/arch/powerpc/perf/core-book3s.c
-+++ b/arch/powerpc/perf/core-book3s.c
-@@ -30,6 +30,8 @@
- #define BHRB_PREDICTION		0x0000000000000001
- #define BHRB_EA			0xFFFFFFFFFFFFFFFCUL
- 
-+#define LBR_STACK_SIZE		struct_size_t(struct perf_branch_stack, entries, BHRB_MAX_ENTRIES)
-+
- struct cpu_hw_events {
- 	int n_events;
- 	int n_percpu;
-@@ -54,8 +56,7 @@ struct cpu_hw_events {
- 	u64				bhrb_filter;	/* BHRB HW branch filter */
- 	unsigned int			bhrb_users;
- 	void				*bhrb_context;
--	struct	perf_branch_stack	bhrb_stack;
--	struct	perf_branch_entry	bhrb_entries[BHRB_MAX_ENTRIES];
-+	u64				__lbr_stack[LBR_STACK_SIZE / sizeof(u64)];
- 	u64				ic_init;
- 
- 	/* Store the PMC values */
-@@ -177,6 +178,20 @@ static bool regs_use_siar(struct pt_regs *regs)
- 	return ((TRAP(regs) == INTERRUPT_PERFMON) && regs->result);
- }
- 
-+static __always_inline struct perf_branch_stack *cpu_lbr_stack(struct cpu_hw_events *cpuc)
-+{
-+	return (struct perf_branch_stack *)cpuc->__lbr_stack;
-+}
-+
-+static __always_inline void cpu_init_lbr_stack(struct cpu_hw_events *cpuc, int nr)
-+{
-+	/*
-+	 * Initialize the branch-stack count before populating entries[]
-+	 * to avoid UBSAN complaints from the __counted_by(nr) flexible array.
-+	 */
-+	cpu_lbr_stack(cpuc)->nr = nr;
-+}
-+
- /*
-  * Things that are specific to 64-bit implementations.
-  */
-@@ -493,6 +508,8 @@ static void power_pmu_bhrb_read(struct perf_event *event, struct cpu_hw_events *
- 
- 	r_index = 0;
- 	u_index = 0;
-+
-+	cpu_init_lbr_stack(cpuhw, ppmu->bhrb_nr);
- 	while (r_index < ppmu->bhrb_nr) {
- 		/* Assembly read function */
- 		val = read_bhrb(r_index++);
-@@ -541,9 +558,9 @@ static void power_pmu_bhrb_read(struct perf_event *event, struct cpu_hw_events *
- 				/* Target branches use two entries
- 				 * (ie. computed gotos/XL form)
- 				 */
--				cpuhw->bhrb_entries[u_index].to = addr;
--				cpuhw->bhrb_entries[u_index].mispred = pred;
--				cpuhw->bhrb_entries[u_index].predicted = ~pred;
-+				cpu_lbr_stack(cpuhw)->entries[u_index].to = addr;
-+				cpu_lbr_stack(cpuhw)->entries[u_index].mispred = pred;
-+				cpu_lbr_stack(cpuhw)->entries[u_index].predicted = ~pred;
- 
- 				/* Get from address in next entry */
- 				val = read_bhrb(r_index++);
-@@ -554,22 +571,22 @@ static void power_pmu_bhrb_read(struct perf_event *event, struct cpu_hw_events *
- 					r_index--;
- 					addr = 0;
- 				}
--				cpuhw->bhrb_entries[u_index].from = addr;
-+				cpu_lbr_stack(cpuhw)->entries[u_index].from = addr;
- 			} else {
- 				/* Branches to immediate field 
- 				   (ie I or B form) */
--				cpuhw->bhrb_entries[u_index].from = addr;
--				cpuhw->bhrb_entries[u_index].to =
-+				cpu_lbr_stack(cpuhw)->entries[u_index].from = addr;
-+				cpu_lbr_stack(cpuhw)->entries[u_index].to =
- 					power_pmu_bhrb_to(addr);
--				cpuhw->bhrb_entries[u_index].mispred = pred;
--				cpuhw->bhrb_entries[u_index].predicted = ~pred;
-+				cpu_lbr_stack(cpuhw)->entries[u_index].mispred = pred;
-+				cpu_lbr_stack(cpuhw)->entries[u_index].predicted = ~pred;
- 			}
- 			u_index++;
- 
- 		}
- 	}
--	cpuhw->bhrb_stack.nr = u_index;
--	cpuhw->bhrb_stack.hw_idx = -1ULL;
-+	cpu_lbr_stack(cpuhw)->nr = u_index;
-+	cpu_lbr_stack(cpuhw)->hw_idx = -1ULL;
- 	return;
- }
- 
-@@ -2332,7 +2349,7 @@ static void record_and_restart(struct perf_event *event, unsigned long val,
- 			struct cpu_hw_events *cpuhw;
- 			cpuhw = this_cpu_ptr(&cpu_hw_events);
- 			power_pmu_bhrb_read(event, cpuhw);
--			perf_sample_save_brstack(&data, event, &cpuhw->bhrb_stack, NULL);
-+			perf_sample_save_brstack(&data, event, cpu_lbr_stack(cpuhw), NULL);
- 		}
- 
- 		if (event->attr.sample_type & PERF_SAMPLE_DATA_SRC &&
-diff --git a/arch/x86/events/amd/brs.c b/arch/x86/events/amd/brs.c
-index 54b13faba116..1906d1257646 100644
---- a/arch/x86/events/amd/brs.c
-+++ b/arch/x86/events/amd/brs.c
-@@ -282,7 +282,6 @@ void amd_brs_drain(void)
- {
- 	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
- 	struct perf_event *event = cpuc->events[0];
--	struct perf_branch_entry *br = cpuc->lbr_entries;
- 	union amd_debug_extn_cfg cfg;
- 	u32 i, nr = 0, num, tos, start;
- 	u32 shift = 64 - boot_cpu_data.x86_virt_bits;
-@@ -317,6 +316,8 @@ void amd_brs_drain(void)
- 
- 	num = tos - start + 1;
- 
-+	cpu_init_lbr_stack(cpuc, num);
-+
- 	/*
- 	 * BRS is only one pass (saturation) from MSROFF to depth-1
- 	 * MSROFF wraps to zero when buffer is full
-@@ -343,7 +344,7 @@ void amd_brs_drain(void)
- 		if (!amd_brs_match_plm(event, from, to))
- 			continue;
- 
--		br[nr] = (struct perf_branch_entry){
-+		cpu_lbr_stack(cpuc)->entries[nr] = (struct perf_branch_entry){
- 			.from	= from,
- 			.to	= to,
- 		};
-@@ -351,7 +352,7 @@ void amd_brs_drain(void)
- 	}
- empty:
- 	/* Record number of sampled branches */
--	cpuc->lbr_stack.nr = nr;
-+	cpu_lbr_stack(cpuc)->nr = nr;
- }
- 
- /*
-diff --git a/arch/x86/events/amd/core.c b/arch/x86/events/amd/core.c
-index 851d8a938f52..160102a46b18 100644
---- a/arch/x86/events/amd/core.c
-+++ b/arch/x86/events/amd/core.c
-@@ -947,8 +947,8 @@ static int amd_pmu_v2_snapshot_branch_stack(struct perf_branch_entry *entries, u
- 	__amd_pmu_lbr_disable();
- 
- 	amd_pmu_lbr_read();
--	cnt = min(cnt, cpuc->lbr_stack.nr);
--	memcpy(entries, cpuc->lbr_entries, sizeof(struct perf_branch_entry) * cnt);
-+	cnt = min(cnt, cpu_lbr_stack(cpuc)->nr);
-+	memcpy(entries, cpu_lbr_stack(cpuc)->entries, sizeof(struct perf_branch_entry) * cnt);
- 
- 	if (lbr_enabled)
- 		amd_pmu_lbr_enable_all();
-@@ -1020,7 +1020,7 @@ static int amd_pmu_v2_handle_irq(struct pt_regs *regs)
- 		if (!x86_perf_event_set_period(event))
- 			continue;
- 
--		perf_sample_save_brstack(&data, event, &cpuc->lbr_stack, NULL);
-+		perf_sample_save_brstack(&data, event, cpu_lbr_stack(cpuc), NULL);
- 
- 		perf_event_overflow(event, &data, regs);
- 	}
-diff --git a/arch/x86/events/amd/lbr.c b/arch/x86/events/amd/lbr.c
-index 400c94ecded0..3e4e5e984649 100644
---- a/arch/x86/events/amd/lbr.c
-+++ b/arch/x86/events/amd/lbr.c
-@@ -104,15 +104,18 @@ static void amd_pmu_lbr_filter(void)
- 	bool compress = false;
- 	bool fused_only = false;
- 	u64 from, to;
-+	int lbr_nr;
- 
- 	/* If sampling all branches, there is nothing to filter */
- 	if (((br_sel & X86_BR_ALL) == X86_BR_ALL) &&
- 	    ((br_sel & X86_BR_TYPE_SAVE) != X86_BR_TYPE_SAVE))
- 		fused_only = true;
- 
--	for (i = 0; i < cpuc->lbr_stack.nr; i++) {
--		from = cpuc->lbr_entries[i].from;
--		to = cpuc->lbr_entries[i].to;
-+	for (i = 0; i < cpu_lbr_stack(cpuc)->nr; i++) {
-+		struct perf_branch_entry *be = &cpu_lbr_stack(cpuc)->entries[i];
-+
-+		from = be->from;
-+		to = be->to;
- 		type = branch_type_fused(from, to, 0, &offset);
- 
- 		/*
-@@ -121,37 +124,41 @@ static void amd_pmu_lbr_filter(void)
- 		 * actual branch
- 		 */
- 		if (offset) {
--			cpuc->lbr_entries[i].from += offset;
-+			be->from += offset;
- 			if (fused_only)
- 				continue;
- 		}
- 
- 		/* If type does not correspond, then discard */
- 		if (type == X86_BR_NONE || (br_sel & type) != type ||
--		    (!(br_sel & X86_BR_KERNEL) && kernel_ip(cpuc->lbr_entries[i].from))) {
--			cpuc->lbr_entries[i].from = 0;	/* mark invalid */
-+		    (!(br_sel & X86_BR_KERNEL) && kernel_ip(be->from))) {
-+			be->from = 0;	/* mark invalid */
- 			compress = true;
- 		}
- 
- 		if ((br_sel & X86_BR_TYPE_SAVE) == X86_BR_TYPE_SAVE)
--			cpuc->lbr_entries[i].type = common_branch_type(type);
-+			be->type = common_branch_type(type);
- 	}
- 
- 	if (!compress)
- 		return;
- 
- 	/* Remove all invalid entries */
--	for (i = 0; i < cpuc->lbr_stack.nr; ) {
--		if (!cpuc->lbr_entries[i].from) {
-+	lbr_nr = cpu_lbr_stack(cpuc)->nr;
-+	for (i = 0; i < lbr_nr; ) {
-+		if (!cpu_lbr_stack(cpuc)->entries[i].from) {
- 			j = i;
--			while (++j < cpuc->lbr_stack.nr)
--				cpuc->lbr_entries[j - 1] = cpuc->lbr_entries[j];
--			cpuc->lbr_stack.nr--;
--			if (!cpuc->lbr_entries[i].from)
-+			while (++j < lbr_nr) {
-+				cpu_lbr_stack(cpuc)->entries[j - 1] =
-+					cpu_lbr_stack(cpuc)->entries[j];
-+			}
-+			lbr_nr--;
-+			if (!cpu_lbr_stack(cpuc)->entries[i].from)
- 				continue;
- 		}
- 		i++;
- 	}
-+	cpu_lbr_stack(cpuc)->nr = lbr_nr;
- }
- 
- static const int lbr_spec_map[PERF_BR_SPEC_MAX] = {
-@@ -164,15 +171,16 @@ static const int lbr_spec_map[PERF_BR_SPEC_MAX] = {
- void amd_pmu_lbr_read(void)
- {
- 	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
--	struct perf_branch_entry *br = cpuc->lbr_entries;
- 	struct branch_entry entry;
- 	int out = 0, idx, i;
- 
- 	if (!cpuc->lbr_users) {
--		cpuc->lbr_stack.nr = 0;
-+		cpu_lbr_stack(cpuc)->nr = 0;
- 		return;
- 	}
- 
-+	cpu_init_lbr_stack(cpuc, x86_pmu.lbr_nr);
-+
- 	for (i = 0; i < x86_pmu.lbr_nr; i++) {
- 		entry.from.full	= amd_pmu_lbr_get_from(i);
- 		entry.to.full	= amd_pmu_lbr_get_to(i);
-@@ -204,7 +212,7 @@ void amd_pmu_lbr_read(void)
- 		 */
- 		idx = (entry.to.split.valid << 1) | entry.to.split.spec;
- 
--		br[out] = (struct perf_branch_entry){
-+		cpu_lbr_stack(cpuc)->entries[out] = (struct perf_branch_entry){
- 			.from		= sign_ext_branch_ip(entry.from.split.ip),
- 			.to		= sign_ext_branch_ip(entry.to.split.ip),
- 			.mispred	= entry.from.split.mispredict,
-@@ -214,13 +222,13 @@ void amd_pmu_lbr_read(void)
- 		out++;
- 	}
- 
--	cpuc->lbr_stack.nr = out;
-+	cpu_lbr_stack(cpuc)->nr = out;
- 
- 	/*
- 	 * Internal register renaming always ensures that LBR From[0] and
- 	 * LBR To[0] always represent the TOS
- 	 */
--	cpuc->lbr_stack.hw_idx = 0;
-+	cpu_lbr_stack(cpuc)->hw_idx = 0;
- 
- 	/* Perform further software filtering */
- 	amd_pmu_lbr_filter();
-diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
-index 82d9b0e5ad1c..a7bdc6f370ec 100644
---- a/arch/x86/events/core.c
-+++ b/arch/x86/events/core.c
-@@ -2197,7 +2197,7 @@ int x86_pmu_handle_irq(struct pt_regs *regs)
- 
- 		perf_sample_data_init(&data, 0, last_period);
- 
--		perf_sample_save_brstack(&data, event, &cpuc->lbr_stack, NULL);
-+		perf_sample_save_brstack(&data, event, cpu_lbr_stack(cpuc), NULL);
- 
- 		perf_event_overflow(event, &data, regs);
- 	}
-diff --git a/arch/x86/events/intel/core.c b/arch/x86/events/intel/core.c
-index ab6261ab54b6..42d4d525a729 100644
---- a/arch/x86/events/intel/core.c
-+++ b/arch/x86/events/intel/core.c
-@@ -2827,9 +2827,10 @@ __intel_pmu_snapshot_branch_stack(struct perf_branch_entry *entries,
- 	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
- 
- 	intel_pmu_lbr_read();
--	cnt = min_t(unsigned int, cnt, cpuc->lbr_stack.nr);
-+	cnt = min_t(unsigned int, cnt, cpu_lbr_stack(cpuc)->nr);
- 
--	memcpy(entries, cpuc->lbr_entries, sizeof(struct perf_branch_entry) * cnt);
-+	memcpy(entries, cpu_lbr_stack(cpuc)->entries,
-+	       sizeof(struct perf_branch_entry) * cnt);
- 
- 	/*
- 	 * Do not blindly call intel_pmu_enable_all() to re-enable LBR.
-diff --git a/arch/x86/events/intel/ds.c b/arch/x86/events/intel/ds.c
-index 8444670cee4a..332754e1da4f 100644
---- a/arch/x86/events/intel/ds.c
-+++ b/arch/x86/events/intel/ds.c
-@@ -2010,8 +2010,7 @@ void intel_pmu_pebs_disable_all(void)
- static int intel_pmu_pebs_fixup_ip(struct pt_regs *regs)
- {
- 	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
--	unsigned long from = cpuc->lbr_entries[0].from;
--	unsigned long old_to, to = cpuc->lbr_entries[0].to;
-+	unsigned long from, old_to, to;
- 	unsigned long ip = regs->ip;
- 	int is_64bit = 0;
- 	void *kaddr;
-@@ -2026,7 +2025,12 @@ static int intel_pmu_pebs_fixup_ip(struct pt_regs *regs)
- 	/*
- 	 * No LBR entry, no basic block, no rewinding
- 	 */
--	if (!cpuc->lbr_stack.nr || !from || !to)
-+	if (!cpu_lbr_stack(cpuc)->nr)
-+		return 0;
-+
-+	from = cpu_lbr_stack(cpuc)->entries[0].from;
-+	to = cpu_lbr_stack(cpuc)->entries[0].to;
-+	if (!from || !to)
- 		return 0;
- 
- 	/*
-@@ -2318,7 +2322,7 @@ static void setup_pebs_fixed_sample_data(struct perf_event *event,
- 	if (x86_pmu.intel_cap.pebs_format >= 3)
- 		setup_pebs_time(event, data, pebs->tsc);
- 
--	perf_sample_save_brstack(data, event, &cpuc->lbr_stack, NULL);
-+	perf_sample_save_brstack(data, event, cpu_lbr_stack(cpuc), NULL);
- }
- 
- static void adaptive_pebs_save_regs(struct pt_regs *regs,
-diff --git a/arch/x86/events/intel/lbr.c b/arch/x86/events/intel/lbr.c
-index ee724b28d90c..62f2f4b9cfde 100644
---- a/arch/x86/events/intel/lbr.c
-+++ b/arch/x86/events/intel/lbr.c
-@@ -195,7 +195,7 @@ void intel_pmu_lbr_reset(void)
- {
- 	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
- 
--	cpuc->lbr_stack.nr = 0;
-+	cpu_lbr_stack(cpuc)->nr = 0;
- 
- 	if (!x86_pmu.lbr_nr)
- 		return;
-@@ -744,10 +744,10 @@ void intel_pmu_lbr_disable_all(void)
- void intel_pmu_lbr_read_32(struct cpu_hw_events *cpuc)
- {
- 	unsigned long mask = x86_pmu.lbr_nr - 1;
--	struct perf_branch_entry *br = cpuc->lbr_entries;
- 	u64 tos = intel_pmu_lbr_tos();
- 	int i;
- 
-+	cpu_init_lbr_stack(cpuc, x86_pmu.lbr_nr);
- 	for (i = 0; i < x86_pmu.lbr_nr; i++) {
- 		unsigned long lbr_idx = (tos - i) & mask;
- 		union {
-@@ -760,14 +760,13 @@ void intel_pmu_lbr_read_32(struct cpu_hw_events *cpuc)
- 
- 		rdmsrq(x86_pmu.lbr_from + lbr_idx, msr_lastbranch.lbr);
- 
--		*br = (struct perf_branch_entry){
-+		cpu_lbr_stack(cpuc)->entries[i] = (struct perf_branch_entry){
- 			.from	= msr_lastbranch.from,
- 			.to	= msr_lastbranch.to,
- 		};
--		br++;
- 	}
--	cpuc->lbr_stack.nr = i;
--	cpuc->lbr_stack.hw_idx = tos;
-+	cpu_lbr_stack(cpuc)->nr = i;
-+	cpu_lbr_stack(cpuc)->hw_idx = tos;
- }
- 
- /*
-@@ -779,7 +778,6 @@ void intel_pmu_lbr_read_64(struct cpu_hw_events *cpuc)
- {
- 	bool need_info = false, call_stack = false;
- 	unsigned long mask = x86_pmu.lbr_nr - 1;
--	struct perf_branch_entry *br = cpuc->lbr_entries;
- 	u64 tos = intel_pmu_lbr_tos();
- 	int i;
- 	int out = 0;
-@@ -791,6 +789,7 @@ void intel_pmu_lbr_read_64(struct cpu_hw_events *cpuc)
- 			call_stack = true;
- 	}
- 
-+	cpu_init_lbr_stack(cpuc, num);
- 	for (i = 0; i < num; i++) {
- 		unsigned long lbr_idx = (tos - i) & mask;
- 		u64 from, to, mis = 0, pred = 0, in_tx = 0, abort = 0;
-@@ -851,7 +850,7 @@ void intel_pmu_lbr_read_64(struct cpu_hw_events *cpuc)
- 		if (abort && x86_pmu.lbr_double_abort && out > 0)
- 			out--;
- 
--		br[out] = (struct perf_branch_entry){
-+		cpu_lbr_stack(cpuc)->entries[out] = (struct perf_branch_entry){
- 			.from		= from,
- 			.to		= to,
- 			.mispred	= mis,
-@@ -862,8 +861,8 @@ void intel_pmu_lbr_read_64(struct cpu_hw_events *cpuc)
- 		};
- 		out++;
- 	}
--	cpuc->lbr_stack.nr = out;
--	cpuc->lbr_stack.hw_idx = tos;
-+	cpu_lbr_stack(cpuc)->nr = out;
-+	cpu_lbr_stack(cpuc)->hw_idx = tos;
- }
- 
- static DEFINE_STATIC_KEY_FALSE(x86_lbr_mispred);
-@@ -907,15 +906,14 @@ static_assert((64 - PERF_BRANCH_ENTRY_INFO_BITS_MAX) > LBR_INFO_BR_CNTR_NUM * LB
- static void intel_pmu_store_lbr(struct cpu_hw_events *cpuc,
- 				struct lbr_entry *entries)
- {
--	struct perf_branch_entry *e;
- 	struct lbr_entry *lbr;
- 	u64 from, to, info;
- 	bool mispred;
- 	int i;
- 
-+	cpu_init_lbr_stack(cpuc, x86_pmu.lbr_nr);
- 	for (i = 0; i < x86_pmu.lbr_nr; i++) {
- 		lbr = entries ? &entries[i] : NULL;
--		e = &cpuc->lbr_entries[i];
- 
- 		from = rdlbr_from(i, lbr);
- 		/*
-@@ -929,7 +927,7 @@ static void intel_pmu_store_lbr(struct cpu_hw_events *cpuc,
- 
- 		mispred = get_lbr_mispred(info);
- 
--		*e = (struct perf_branch_entry){
-+		cpu_lbr_stack(cpuc)->entries[i] = (struct perf_branch_entry){
- 			.from		= from,
- 			.to		= to,
- 			.mispred	= mispred,
-@@ -939,18 +937,18 @@ static void intel_pmu_store_lbr(struct cpu_hw_events *cpuc,
- 			.cycles		= get_lbr_cycles(info),
- 			.type		= get_lbr_br_type(info),
- 			/*
--			 * Leverage the reserved field of
--			 * cpuc->lbr_entries[i] to temporarily store the
--			 * branch counters information. The later code will
--			 * decide what content can be disclosed to the perf
--			 * tool. Pleae see intel_pmu_lbr_counters_reorder().
-+			 * Leverage the reserved field of LBR entries to
-+			 * temporarily store the branch counters information.
-+			 * The later code will decide what content can be
-+			 * disclosed to the perf tool.
-+			 * Pleae see intel_pmu_lbr_counters_reorder().
- 			 */
- 			.reserved	= (info >> LBR_INFO_BR_CNTR_OFFSET) &
- 					  LBR_INFO_BR_CNTR_FULL_MASK,
- 		};
- 	}
- 
--	cpuc->lbr_stack.nr = i;
-+	cpu_lbr_stack(cpuc)->nr = i;
- }
- 
- /*
-@@ -976,15 +974,15 @@ static void intel_pmu_lbr_counters_reorder(struct cpu_hw_events *cpuc,
- 
- 	WARN_ON_ONCE(!pos);
- 
--	for (i = 0; i < cpuc->lbr_stack.nr; i++) {
--		src = cpuc->lbr_entries[i].reserved;
-+	for (i = 0; i < cpu_lbr_stack(cpuc)->nr; i++) {
-+		src = cpu_lbr_stack(cpuc)->entries[i].reserved;
- 		dst = 0;
- 		for (j = 0; j < pos; j++) {
- 			cnt = (src >> (order[j] * LBR_INFO_BR_CNTR_BITS)) & LBR_INFO_BR_CNTR_MASK;
- 			dst |= cnt << j * LBR_INFO_BR_CNTR_BITS;
- 		}
- 		cpuc->lbr_counters[i] = dst;
--		cpuc->lbr_entries[i].reserved = 0;
-+		cpu_lbr_stack(cpuc)->entries[i].reserved = 0;
- 	}
- }
- 
-@@ -994,11 +992,11 @@ void intel_pmu_lbr_save_brstack(struct perf_sample_data *data,
- {
- 	if (is_branch_counters_group(event)) {
- 		intel_pmu_lbr_counters_reorder(cpuc, event);
--		perf_sample_save_brstack(data, event, &cpuc->lbr_stack, cpuc->lbr_counters);
-+		perf_sample_save_brstack(data, event, cpu_lbr_stack(cpuc), cpuc->lbr_counters);
- 		return;
- 	}
- 
--	perf_sample_save_brstack(data, event, &cpuc->lbr_stack, NULL);
-+	perf_sample_save_brstack(data, event, cpu_lbr_stack(cpuc), NULL);
- }
- 
- static void intel_pmu_arch_lbr_read(struct cpu_hw_events *cpuc)
-@@ -1021,7 +1019,7 @@ static void intel_pmu_arch_lbr_read_xsave(struct cpu_hw_events *cpuc)
- 		intel_pmu_store_lbr(cpuc, xsave->lbr.entries);
- 	} else {
- 		/* Clear the LBR stack to avoid leaking stale entries. */
--		cpuc->lbr_stack.nr = 0;
-+		cpu_lbr_stack(cpuc)->nr = 0;
- 	}
- }
- 
-@@ -1031,7 +1029,7 @@ void intel_pmu_lbr_read(void)
- 
- 	if (!cpuc->lbr_users || vlbr_exclude_host()) {
- 		/* Reset lbr_stack.nr to prevent stale data leakage. */
--		cpuc->lbr_stack.nr = 0;
-+		cpu_lbr_stack(cpuc)->nr = 0;
- 		return;
- 	}
- 
-@@ -1231,21 +1229,23 @@ static const int arch_lbr_br_type_map[ARCH_LBR_BR_TYPE_MAP_MAX] = {
- static void
- intel_pmu_lbr_filter(struct cpu_hw_events *cpuc)
- {
--	u64 from, to;
- 	int br_sel = cpuc->br_sel;
- 	int i, j, type, from_plm, to_plm;
- 	bool compress = false;
-+	u64 from, to;
-+	int lbr_nr;
- 
- 	/* if sampling all branches, then nothing to filter */
- 	if (((br_sel & X86_BR_ALL) == X86_BR_ALL) &&
- 	    ((br_sel & X86_BR_TYPE_SAVE) != X86_BR_TYPE_SAVE))
- 		return;
- 
--	for (i = 0; i < cpuc->lbr_stack.nr; i++) {
-+	for (i = 0; i < cpu_lbr_stack(cpuc)->nr; i++) {
-+		struct perf_branch_entry *be = &cpu_lbr_stack(cpuc)->entries[i];
- 
--		from = cpuc->lbr_entries[i].from;
--		to = cpuc->lbr_entries[i].to;
--		type = cpuc->lbr_entries[i].type;
-+		from = be->from;
-+		to = be->to;
-+		type = be->type;
- 
- 		/*
- 		 * Parse the branch type recorded in LBR_x_INFO MSR.
-@@ -1257,9 +1257,9 @@ intel_pmu_lbr_filter(struct cpu_hw_events *cpuc)
- 			to_plm = kernel_ip(to) ? X86_BR_KERNEL : X86_BR_USER;
- 			type = arch_lbr_br_type_map[type] | to_plm;
- 		} else
--			type = branch_type(from, to, cpuc->lbr_entries[i].abort);
-+			type = branch_type(from, to, be->abort);
- 		if (type != X86_BR_NONE && (br_sel & X86_BR_ANYTX)) {
--			if (cpuc->lbr_entries[i].in_tx)
-+			if (be->in_tx)
- 				type |= X86_BR_IN_TX;
- 			else
- 				type |= X86_BR_NO_TX;
-@@ -1273,31 +1273,34 @@ intel_pmu_lbr_filter(struct cpu_hw_events *cpuc)
- 		 */
- 		if (type == X86_BR_NONE || (br_sel & type) != type ||
- 		    (!(br_sel & X86_BR_KERNEL) && (from_plm & X86_BR_KERNEL))) {
--			cpuc->lbr_entries[i].from = 0;
-+			be->from = 0;
- 			compress = true;
- 		}
- 
- 		if ((br_sel & X86_BR_TYPE_SAVE) == X86_BR_TYPE_SAVE)
--			cpuc->lbr_entries[i].type = common_branch_type(type);
-+			be->type = common_branch_type(type);
- 	}
- 
- 	if (!compress)
- 		return;
- 
- 	/* remove all entries with from=0 */
--	for (i = 0; i < cpuc->lbr_stack.nr; ) {
--		if (!cpuc->lbr_entries[i].from) {
-+	lbr_nr = cpu_lbr_stack(cpuc)->nr;
-+	for (i = 0; i < lbr_nr; ) {
-+		if (!cpu_lbr_stack(cpuc)->entries[i].from) {
- 			j = i;
--			while (++j < cpuc->lbr_stack.nr) {
--				cpuc->lbr_entries[j-1] = cpuc->lbr_entries[j];
-+			while (++j < lbr_nr) {
-+				cpu_lbr_stack(cpuc)->entries[j-1] =
-+					cpu_lbr_stack(cpuc)->entries[j];
- 				cpuc->lbr_counters[j-1] = cpuc->lbr_counters[j];
- 			}
--			cpuc->lbr_stack.nr--;
--			if (!cpuc->lbr_entries[i].from)
-+			lbr_nr--;
-+			if (!cpu_lbr_stack(cpuc)->entries[i].from)
- 				continue;
- 		}
- 		i++;
- 	}
-+	cpu_lbr_stack(cpuc)->nr = lbr_nr;
- }
- 
- void intel_pmu_store_pebs_lbrs(struct lbr_entry *lbr)
-@@ -1307,9 +1310,9 @@ void intel_pmu_store_pebs_lbrs(struct lbr_entry *lbr)
- 	/* Cannot get TOS for large PEBS and Arch LBR */
- 	if (cpu_feature_enabled(X86_FEATURE_ARCH_LBR) ||
- 	    (cpuc->n_pebs == cpuc->n_large_pebs))
--		cpuc->lbr_stack.hw_idx = -1ULL;
-+		cpu_lbr_stack(cpuc)->hw_idx = -1ULL;
- 	else
--		cpuc->lbr_stack.hw_idx = intel_pmu_lbr_tos();
-+		cpu_lbr_stack(cpuc)->hw_idx = intel_pmu_lbr_tos();
- 
- 	intel_pmu_store_lbr(cpuc, lbr);
- 	intel_pmu_lbr_filter(cpuc);
-diff --git a/arch/x86/events/perf_event.h b/arch/x86/events/perf_event.h
-index a4aab8130e92..e3d625a6d7eb 100644
---- a/arch/x86/events/perf_event.h
-+++ b/arch/x86/events/perf_event.h
-@@ -447,6 +447,8 @@ struct intel_excl_cntrs {
- struct x86_perf_task_context;
- #define MAX_LBR_ENTRIES		32
- 
-+#define LBR_STACK_SIZE		struct_size_t(struct perf_branch_stack, entries, MAX_LBR_ENTRIES)
-+
- enum {
- 	LBR_FORMAT_32		= 0x00,
- 	LBR_FORMAT_LIP		= 0x01,
-@@ -525,8 +527,7 @@ struct cpu_hw_events {
- 	 */
- 	int				lbr_users;
- 	int				lbr_pebs_users;
--	struct perf_branch_stack	lbr_stack;
--	struct perf_branch_entry	lbr_entries[MAX_LBR_ENTRIES];
-+	u64				__lbr_stack[LBR_STACK_SIZE / sizeof(u64)];
- 	u64				lbr_counters[MAX_LBR_ENTRIES]; /* branch stack extra */
- 	union {
- 		struct er_account		*lbr_sel;
-@@ -588,6 +589,20 @@ struct cpu_hw_events {
- 	struct pmu			*pmu;
- };
- 
-+static __always_inline struct perf_branch_stack *cpu_lbr_stack(struct cpu_hw_events *cpuc)
-+{
-+	return (struct perf_branch_stack *)cpuc->__lbr_stack;
-+}
-+
-+static __always_inline void cpu_init_lbr_stack(struct cpu_hw_events *cpuc, int nr)
-+{
-+	/*
-+	 * Initialize the branch-stack count before populating entries[]
-+	 * to avoid UBSAN complaints from the __counted_by(nr) flexible array.
-+	 */
-+	cpu_lbr_stack(cpuc)->nr = nr;
-+}
-+
- #define __EVENT_CONSTRAINT_RANGE(c, e, n, m, w, o, f) {	\
- 	{ .idxmsk64 = (n) },		\
- 	.code = (c),			\
-diff --git a/drivers/perf/arm_brbe.c b/drivers/perf/arm_brbe.c
-index 073d14584741..e2b32b239de1 100644
---- a/drivers/perf/arm_brbe.c
-+++ b/drivers/perf/arm_brbe.c
-@@ -763,6 +763,11 @@ void brbe_read_filtered_entries(struct perf_branch_stack *branch_stack,
- 
- 	prepare_event_branch_type_mask(branch_sample_type, event_type_mask);
- 
-+	/*
-+	 * Initialize the branch_stack->nr before populating entries[]
-+	 * to avoid UBSAN complaints from the __counted_by(nr) flexible array.
-+	 */
-+	branch_stack->nr = nr_hw;
- 	for (int bank = 0; bank < nr_banks; bank++) {
- 		int nr_remaining = nr_hw - (bank * BRBE_BANK_MAX_ENTRIES);
- 		int nr_this_bank = min(nr_remaining, BRBE_BANK_MAX_ENTRIES);
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index eb3f7bab498c..19de3f1cbd6e 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -115,7 +115,7 @@ static __always_inline bool perf_raw_frag_last(const struct perf_raw_frag *frag)
- struct perf_branch_stack {
- 	u64				nr;
- 	u64				hw_idx;
--	struct perf_branch_entry	entries[];
-+	struct perf_branch_entry	entries[] __counted_by(nr);
- };
- 
- struct task_struct;
--- 
-2.34.1
-
+Andrew
 
