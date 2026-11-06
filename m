@@ -2,78 +2,95 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C02E0606D804
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 12:04:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9ACA4606D81A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 12:04:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fX3oiGi9;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=tZ9r4Jzb
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=juXX6x5C;
+	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Su6il38E
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=z2fWxPIivUBhMftF8Gk1vKGE8eRaXMmvpg6wPiGqf2I=; b=fX3oiGi9odd+tKFR8jQZa1PZeN
-	Lx1bpNilzGjGRz7zh3EalqJsKeMnQKGZ9oiEUnmK68DlEwiTtv19VIcF6JjSwUhVniImwHZyQ/4Ay
-	kK+S7ICRmNTVI5+xv0i6UTVAo++y6TqwenZyAPvNPux4Hpzxj1KvR+7HvMgNZRmHwmRybh7PV0jF2
-	t69dXNngOhjNYKePs46QmlrrjLBbBYzn+Ev+BIuLz1vpkdrdSNmJ09G60qffBxhhkMY37GJW8Fb14
-	xJEBJmXu/NYSjaJIq3kf6api8C0rqKAwSjxzWZskj6gx4KDBX4FSwUyMllfJOBMigj5S3jyK2NmlH
-	GdHSSDJg==;
+	bh=0VMSuKuVUf2dlWYzVs5lJWxmrLEkc9V1Bcxwn1i5L2k=; b=juXX6x5CDr+sQxooRpnPnoctXc
+	ej2ZMfcLhj9qR3ZC7RMO9pFhioWOc+k2rn3P4QA9v5g+eBNgz0I37EQMCdsrZ9ocuj24J/j9AGdNj
+	5CghRAfA3dSnM3KyYIfmhZHFzlwb++xDzUtAyOLogs8xVY4SGj0XpjEVFE8M35fYYJKjqUj06NHQo
+	RQ0bI6DPQ96UmCZAzMYFMHNXuEtN2rqMLPdWGKRN1l17WCyFJv/BM6gLUipOqamNVAAml2BJXw+ku
+	U5Q1flskVM+Q2q5FAmIweIJfI3GMtx59eIkO2JueBeePXN13sjKlfSRTkJV4V6caVA/t8jT3N/aG5
+	Owen1vHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPIg5-0000000CFwp-2wpT;
-	Fri, 06 Nov 2026 12:04:17 +0000
-Received: from out-177.mta1.migadu.com ([2001:41d0:203:375::b1] helo=mta1.migadu.com)
+	id 1xPIgT-0000000CG3W-3SVz;
+	Fri, 06 Nov 2026 12:04:41 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPIg1-0000000CFvQ-2g8Y
+	id 1xPIgQ-0000000CG24-2tzm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 12:04:16 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=rj2O/1Kb6OAaGvUDXfJ6mwWrzDMaFwYbI8RyxwywtBQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793966651; v=1; x=1794571451;
- b=tZ9r4JzbuLRsjt5YpO8Jig8xPY8hTfnWa41Wedx60tBSOUaHN34aa7Y19ite+x7H4bXmdM30
- DVSbtoQztWvrBq5BZ99ESJZpfnlJ+WUSULIRtuLlFqZfNHtWK5Qh80P/H1sV3wy6/gUNC8Mtita
- DTq9jD1YsEZtWrcVSM5fPWd8=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 9591eacf49b9a623;
-	Fri, 06 Nov 2026 12:04:11 +0000
-X-Mizu-Trace-ID: 9591eacf49b9a623
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5bff701efa5so3357e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Nov 2026 04:04:06 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvBxORkh1GlB4clq0pl9gOVRiKAXcAE46HelZfIdYjLbkBOkvQUER+FBZD6c7ExIgD1tUVwjJTSxtvLI0rrtqh9PG@lists.infradead.org
-X-Gm-Message-State: APuU4Z/y9qADwHdgAN5/1+pmkUoRQZM/KxUe6MGCQs/cBboGJ76Ay/ug
-	D1lmdf6jAZlgKArEto787dmrHJXIcVOO1xDQEGtjDI6iHzfBiANEvWGw2btnN2A75jfw7cOjWE6
-	3d8DL9xY90diKzovS8fVDmdK+eOven9DMMwJWZnl8
-X-Received: by 2002:ac2:4f13:0:b0:5bf:f1ea:16cb with SMTP id
- 2adb3069b0e04-5c00641eea8mr72074e87.4.1793966645378; Fri, 06 Nov 2026
- 04:04:05 -0800 (PST)
+	Fri, 06 Nov 2026 12:04:40 +0000
+Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
+	(Authenticated sender: pza@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id BBA542008B8;
+	Fri, 06 Nov 2026 13:04:36 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1793966676;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0VMSuKuVUf2dlWYzVs5lJWxmrLEkc9V1Bcxwn1i5L2k=;
+	b=Su6il38EHz3iTBVlv0SlQYW10yVxaG+ejejIeK798vykwVDWA90DGHk0IFdIx9iP6hIBah
+	2WzAY09Zu0fMcIQbLn1Buf6Fx8espq8It4foZFZdDhogvANqt8C3S3TzRaRm+BmqS6mAqJ
+	XDn1h3bgNidn6zoj30ya1afL+2BESUEuZKg6s3zQsmslXqvIOnGF50RpcNFAMGCszsccPc
+	hDCXnHD/E+V3LX+QUa1pWdmbCJCou8tYi6FF3i4aqMV0OnR41vkKI9bPey2qRRCO/ss7qv
+	hSjmtA9NAFk+wYk9If+ZWvawRVMGdAinibi4dwR7qkAwhgc8zeIncMWRvTM4cA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1793966676;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0VMSuKuVUf2dlWYzVs5lJWxmrLEkc9V1Bcxwn1i5L2k=;
+	b=IOJJSX9ztQ+7tZjTkiwUnQhDHtJZyOMRqVHT5szroNBYIQLV8me9BkyR1eA9pvwCVe9WyA
+	YRrvOBQy5+Nw6XsfoG4DYF2w+ZiVKw4jQBgkGBzaHAY/RCvR39d+gkba8gF6FLeHLS3ERV
+	+UcathHPfNvDni8rIljvnPzYolu+PvL93PC6/nfZsALSBdDp8so5H5tRxjR8vJCuqOH5vy
+	BToujHEwcXxf4aJa7xuodb2DXdVRK5J7fno2S4f7WAEQdrUSsQKJnllgf19y+3Nz7/Pf4t
+	M7NHIyXFZzHsOxFKD/ExruJluEsqsxxVF4MT5AefxdGKXywY08KhHFRMUzTsqg==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793966676; a=rsa-sha256;
+	cv=none;
+	b=WN+CuIG0kbvQZm/6IEIW0/xFm0gz9uZN0oE9xAVbEEG3era3lay+WVcsWdK+nEZwtkxmA2
+	u01SorhQP/aXH0Hm/O5xTky/Ugd3F+KiwbMNpmWAWqexuNSvb0yCT4a6VdVkdbUhyEt6jf
+	loFmHEiZ/eW9bv66/fJbguajdsJFwPET41eKHcdZKbl5ELQ6c0XdXOdP+gamAt7cflTwqA
+	tYxyKcZZv3xprq21O4X/zEd1xNFlLbsUZnJLSgGEA2QVMUa3AznqTJi0TEwi844AAX8rvk
+	ws2V9Wc6SNNwXz13fRVVMQjwjhDpMhiAkdszADlqXH5c9vOjkrZKlfHTbENmjA==
+Message-ID: <aa7385b6f373cd6467b772bf0a9941618b35c5ba.camel@pengutronix.de>
+Subject: Re: [PATCH 2/3] drm/panthor: Add initial support for CIX Sky1
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Cunyuan Liu <cunyuan.liu@cixtech.com>, boris.brezillon@collabora.com, 
+	steven.price@arm.com, liviu.dudau@arm.com, robh@kernel.org,
+ krzk+dt@kernel.org, 	conor+dt@kernel.org, gary.yang@cixtech.com,
+ fugang.duan@cixtech.com
+Cc: daniel.almeida@collabora.com, aliceryhl@google.com, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	rust-for-linux@vger.kernel.org, cix-kernel-upstream@cixtech.com, 
+	robin.wang@cixtech.com
+Date: Fri, 06 Nov 2026 13:04:36 +0100
+In-Reply-To: <20261106104735.1651267-3-cunyuan.liu@cixtech.com>
+References: <20261106104735.1651267-1-cunyuan.liu@cixtech.com>
+	 <20261106104735.1651267-3-cunyuan.liu@cixtech.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261105-hyp-pool-and-map-v2-0-44a6ca90190b@cs.columbia.edu> <20261105-hyp-pool-and-map-v2-3-44a6ca90190b@cs.columbia.edu>
-In-Reply-To: <20261105-hyp-pool-and-map-v2-3-44a6ca90190b@cs.columbia.edu>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Fri, 6 Nov 2026 12:03:29 +0000
-X-Gmail-Original-Message-ID: <CA+EHjTx-X_2DaO6Yt-AHsP55SFWjz_EYxEr-TB9WSN-ZT+d3FQ@mail.gmail.com>
-X-Gm-Features: AclHuK9hNEpLkAP5NVJokscwbXhyIypQ1gKGYucY4gZvymjkk3c1yRLXlhMVEq0
-Message-ID: <CA+EHjTx-X_2DaO6Yt-AHsP55SFWjz_EYxEr-TB9WSN-ZT+d3FQ@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] KVM: arm64: Don't replace a valid hyp block
- mapping with a table
-To: xuheng@cs.columbia.edu
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Quentin Perret <qperret@google.com>, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_040415_370040_4DC864C8 
-X-CRM114-Status: UNSURE (   9.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20261106_040438_885468_2BD08A27 
+X-CRM114-Status: GOOD (  23.42  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,31 +102,143 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Xuheng,
-
-On Thu, 05 Nov 2026 22:59:50 +0000, Xuheng Li <xuheng@cs.columbia.edu> wrote:
+On Fr, 2026-11-06 at 18:47 +0800, Cunyuan Liu wrote:
+> Add Sky1 SoC data to support the external reset and system-level cache
+> settings, and to skip devfreq.
+>=20
+> The GPU on CIX Sky1 needs an external reset before the driver first
+> accesses the hardware. Without this reset, the GPU hardware cannot be
+> accessed correctly.
+>=20
+> Configure SYSC_ALLOC before L2 power-on. Without these settings, GPU
+> rendering results are displayed incorrectly.
+>=20
+> Keep the clock settings provided by the PM firmware. This first version
+> does not read OPPs or enable devfreq. It does not register a GPU cooling
+> device.
+>=20
+> Tested on Orion O6: offscreen pixel readback, kmscube, glmark2 at 1080p,
+> runtime suspend and resume with a retained EGL context, software-triggere=
+d
+> reset-worker tests, and module unload and reload. Display tests used
+> local Komeda support.
+>=20
+> Signed-off-by: Cunyuan Liu <cunyuan.liu@cixtech.com>
+> ---
+>  drivers/gpu/drm/panthor/panthor_devfreq.c  | 11 +++++++++-
+>  drivers/gpu/drm/panthor/panthor_device.c   | 15 +++++++++++++
+>  drivers/gpu/drm/panthor/panthor_device.h   | 25 ++++++++++++++++++++++
+>  drivers/gpu/drm/panthor/panthor_drv.c      | 15 +++++++++++++
+>  drivers/gpu/drm/panthor/panthor_gpu.c      | 14 ++++++++++++
+>  drivers/gpu/drm/panthor/panthor_gpu_regs.h |  2 ++
+>  6 files changed, 81 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.c b/drivers/gpu/drm/=
+panthor/panthor_devfreq.c
+> index 2249b41ca4af..1914549f7b1f 100644
+> --- a/drivers/gpu/drm/panthor/panthor_devfreq.c
+> +++ b/drivers/gpu/drm/panthor/panthor_devfreq.c
 [...]
-> No in-tree caller maps into an existing hyp block mapping today, so this
-> cannot be triggered in mainline.  Fail such a request with -EEXIST
-> instead, so that a future caller gets an error rather than silently
-> losing the rest of the block.
+> diff --git a/drivers/gpu/drm/panthor/panthor_device.c b/drivers/gpu/drm/p=
+anthor/panthor_device.c
+> index 9687c59de350..1d682731a181 100644
+> --- a/drivers/gpu/drm/panthor/panthor_device.c
+> +++ b/drivers/gpu/drm/panthor/panthor_device.c
+> @@ -229,6 +229,13 @@ int panthor_device_init(struct panthor_device *ptdev=
+)
+>  		return ret;
+>  	}
+> =20
+> +	if (ptdev->soc_data && ptdev->soc_data->needs_external_reset) {
+> +		ptdev->reset_control =3D devm_reset_control_get_exclusive(ptdev->base.=
+dev, NULL);
 
-Could you mention in the message that the WARN_ON() is fatal at EL2,
-so a caller there gets a hyp panic rather than -EEXIST?
-kvm_pgtable_hyp_map() is already documented as rejecting such a
-mapping "with an error and a WARN()", which is a better reason than a
-future caller.
+You can just use devm_reset_control_get_optional_exclusive()
+unconditionally.
+Device tree validation makes sure the required reset will be specified.
 
-Also, please don't respin series so fast. Give us time to digest the
-series first :)
+> +		if (IS_ERR(ptdev->reset_control))
+> +			return dev_err_probe(ptdev->base.dev, PTR_ERR(ptdev->reset_control),
+> +					     "Failed to get GPU reset\n");
+> +	}
+> +
+>  	ret =3D panthor_devfreq_init(ptdev);
+>  	if (ret)
+>  		return ret;
+> @@ -511,6 +518,12 @@ int panthor_device_resume(struct device *dev)
+>  	if (ret)
+>  		goto err_disable_stacks_clk;
+> =20
+> +	if (ptdev->reset_control && !panthor_device_is_initialized(ptdev)) {
+> +		ret =3D reset_control_reset(ptdev->reset_control);
 
-Cheers,
-/fuad
+reset_control_reset() already checks that ptdev->reset_control !=3D NULL,
+so the first check is superfluous.
+
+
+[...]
+> diff --git a/drivers/gpu/drm/panthor/panthor_device.h b/drivers/gpu/drm/p=
+anthor/panthor_device.h
+> index b55a3f9edd41..0923cc5df042 100644
+> --- a/drivers/gpu/drm/panthor/panthor_device.h
+> +++ b/drivers/gpu/drm/panthor/panthor_device.h
+[...]
+> @@ -34,10 +36,30 @@ struct panthor_pwr;
+>  struct panthor_vm;
+>  struct panthor_vm_pool;
+> =20
+> +/**
+> + * struct panthor_sysc_config - GPU system-cache configuration
+> + */
+> +struct panthor_sysc_config {
+> +	/** @alloc: System-cache allocation policies for GPU access types. */
+> +	u32 alloc[8];
+> +};
+> +
+>  /**
+>   * struct panthor_soc_data - Panthor SoC Data
+>   */
+>  struct panthor_soc_data {
+> +	/**
+> +	 * @needs_external_reset: Reset the GPU after enabling its clocks
+> +	 * during initial probe.
+> +	 */
+> +	bool needs_external_reset;
+
+Not needed.
+
+[...]
+> diff --git a/drivers/gpu/drm/panthor/panthor_drv.c b/drivers/gpu/drm/pant=
+hor/panthor_drv.c
+> index dc8d0191aef4..766df6505a7b 100644
+> --- a/drivers/gpu/drm/panthor/panthor_drv.c
+> +++ b/drivers/gpu/drm/panthor/panthor_drv.c
+> @@ -1872,12 +1872,27 @@ static struct attribute *panthor_attrs[] =3D {
+> =20
+>  ATTRIBUTE_GROUPS(panthor);
+> =20
+> +static const struct panthor_sysc_config sysc_config_cix_sky1 =3D {
+> +	/* Sky1 needs these SYSC_ALLOC policies for correct display of GPU outp=
+ut. */
+> +	.alloc =3D {
+> +		0x00230000, 0x00000023, 0x00000000, 0x00000000,
+> +		0x00523222, 0x00523200, 0x00000022, 0x00000032,
+> +	},
+> +};
+> +
+> +static const struct panthor_soc_data soc_data_cix_sky1 =3D {
+> +	.needs_external_reset =3D true,
+
+Not needed.
+
+regards
+Philipp
 
