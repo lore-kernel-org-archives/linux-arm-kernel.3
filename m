@@ -2,128 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36320606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 10:54:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 288A6606EE9F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 10:54:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YqMt/6KF;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=f/uXcEf+
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=FDSOA/Y8;
+	dkim=pass (2048-bit key, unprotected) header.d=codeconstruct.com.au header.i=@codeconstruct.com.au header.a=rsa-sha256 header.s=2022a header.b=S9CZ7drU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=WGZXSsiRoZs5M7Tq/hSmEqWmQ4g9AUNQW2RxywPyv0U=; b=YqMt/6KFt7eoA8D43bQkmIZ9f+
-	swlS8Q0Vgoc41d6JoVbcztmAtTIti+G/y7/5znXIGbuZBi8tOlEq0wer19V/D9I4siL+0Ll9YFhyf
-	SaAxOgF8PS42ZYqDRD6tZvXSLREO9QOPH31CV7uyaMkWao6IXBy/EbKJ5LgGgPsCkpqqyidUPh6yT
-	JMsAi295GGiSmm836+WKWdmssIgG9DfSvDG779yVXNbkOMviAGOiOnbzZb4ahlaNSXYdkqmmLTJ95
-	mJgSdwLsUqn/oaREGQX4sybuuJBWpiOwe82DypwRAdT9os/xfLOrq6BchNfQVAHSAcF5Ztdm/BMQ8
-	iRQgPq1A==;
+	bh=T/o8bXf5PHZlheqxRxfmBCJt/OymULZgaq0Uhe1HUU8=; b=FDSOA/Y84qs5R/GT+AMeobqXyz
+	UsCcW7VxRwC0OPW2Jqq/H1MUPTxpXVHeb2bi+9TI3ptcHJTvMSJ6RsH3QbxNASFAAuna7QTExYSGJ
+	rvL9pxTsDL1VFpe7gbOkt9S9FPX1Fmj/1pxX7ZLILpWC4YHoFspfaW8b0PKam1vSrd9DAao0U9vhm
+	PTkXxkJ6yztmvRBnKMTpnPcDlDCvllvUsht+gIbaZe9ScUa9b8t0LxMH/2nMxyIeVL02pnGV86fkG
+	Wi60G4gFfabGzpQDRdaeNxojKbU2AqnsBAl9EabQUu3uXEYnxrgfs9pGioFL/jBulNl71yrPwxEZu
+	facont9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHaC-0000000C30v-41wj;
-	Fri, 06 Nov 2026 10:54:08 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1xPHal-0000000C3FD-30DI;
+	Fri, 06 Nov 2026 10:54:43 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHaA-0000000C2yx-1OBS
+	id 1xPHai-0000000C3Cn-3Tie
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 10:54:07 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-49d05d51553so2774295e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Nov 2026 02:54:05 -0800 (PST)
+	Fri, 06 Nov 2026 10:54:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1793962444; x=1794567244; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :autocrypt:content-language:references:cc:to:subject:reply-to:from
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=WGZXSsiRoZs5M7Tq/hSmEqWmQ4g9AUNQW2RxywPyv0U=;
-        b=f/uXcEf+35YGvAKMzbYmxoycRVGR5zt8b53Zx9WGwrbXScj8UdBcVI7UW2Fxn//q3a
-         0qOplklVj65HWUBFkj0YS8GMNL3BRvTffom9gxRCMX6dRy5bjEoSPxUYMt4pauyzD8mF
-         uPr0jkBOA6A0Goxgn1OWqhZpguj+c5eNV4FxB0YT1dNjAKorVf7GpvKIb1y/EYQma8TC
-         Fw3F4ZP2TIdsK7JkUuwMAU+gHSGwB35DmQ9fCisP6oaXddruyZLBjV9mBcduwVEiFBNo
-         YoDYqfbSFNeQHNSn4lVG0cUtgP967gWpPT8wa6iFGyJA7YXmAbP3J97aOgDVUnFRJP9E
-         86iw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793962444; x=1794567244;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :autocrypt:content-language:references:cc:to:subject:reply-to:from
-         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=WGZXSsiRoZs5M7Tq/hSmEqWmQ4g9AUNQW2RxywPyv0U=;
-        b=Gf/a8B4bQNfTbXi5ey682ADLezv9XakkXMYLmhmuWPciDYSrXJ5DN91gmZXyjkM4QK
-         WAwmOlKpBjnIo5hJ4sy/igNWvyqpLSGIL9rmJb/khP5aOpN4hmLpI/hpzUtwKAyiSu5u
-         Wud+63WvfRbq7pebdP8F3Z3JyA7frNwtzqepv/Z15OvkkL6OTUeyH0YZ+jpe9IfJS4au
-         zG16IhzDlH+PUlh38VxXa4tlWcLVM0fDA2RyIWIu972WK9eMzxmxYiTMmwbXKE9j7uvD
-         RVNLcdnvWgSHWRGmhQYysVJswkpKQbqE1F1DMTQOb2RnWP1hzGVxmtgwVohXJ8AZyfTO
-         41BQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwj8/MouwKb3qqUbY3i6XzmM026Run3YbfZoHXhh5RF4KgSSu3rnALoiw+ECWL6hOUDJ+x8LVDEDOEhvn56D1j2@lists.infradead.org
-X-Gm-Message-State: APuU4Z+/4hQmM8jT8+WGLtv8UQjCm8+E3ZkKAEwtw+FLHSrwzT5WMsYW
-	PfJLiNHebbWiEwUjmWfUhY2UcId87m5GkPjf8KirDQ4jB7F9GK3aPdK9RG9leeUuycU=
-X-Gm-Gg: AYBFou0+hs+qYFazC70+7ofTULuGQm4VZE8Z3rwUCHB0JnbgskWzk2QZTPmkqjnFnxP
-	PeiCHx/mz6So7wCJ7ZQ/sggVNlyfN/alAoS3UxVGzuToAqaQBI5Wrc2YX1+FvDJepcuvFBm7E65
-	meJfF+1P9s+kq0yuIpCdCjvzhNbqtghtuy4n73o2bwnZ7zXBwHNe7A2ZjQ4wgK7jwpWSKjh/Htd
-	9xLbxrFZpM2bnQbvJzj87Iky1mTZyEfTSZHp8v3WWXUmNG+iFjb1LTe5iQWKBcP1OGSfrPUEyo2
-	iTEoYwa4xWYsQcKtn3TvhXpvtOWYyrKnlfKPzGQoPDEnuJITZcmOU1+lOptAWkT+0bPQpbXhUks
-	Ca3cOTNhGFm17OSSKzHG2fhoIGAQ6rVSpcBdMkVHHn8eDHMPXGU3rf28fpDePwpiwPkjpSnzi5s
-	xSZlovThF4E6DUSgf9aZGt0QSvo+M4RuPbzHBZIFumwplSo9bCqPVEHxw4H0twLXkMC9HkmnfHa
-	p0XOXEJYSt8QzRAnlRj5ju49qF/cW9CGSnVih+n9D1GvDdw88JX5doRVNChkhwuRxUVzK/AIf4Q
-	zE7i+dd3oAcKDr99T+UKwJ9Wd1iOIGBTUjYEN263Cy08k8YzllQEIeVXxXizkXwO2+8LzjGDLX7
-	poD/WEOJy
-X-Received: by 2002:a05:600c:8b33:b0:4a2:267:25b3 with SMTP id 5b1f17b1804b1-4b6e0edffd5mr33716705e9.35.1793962444315;
-        Fri, 06 Nov 2026 02:54:04 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:106d:1080:9df2:2e39:58f0:72ca? ([2a01:e0a:106d:1080:9df2:2e39:58f0:72ca])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4932901d9c9sm2031660f8f.59.2026.11.06.02.54.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Nov 2026 02:54:04 -0800 (PST)
-Message-ID: <608dd5f2-4136-4f3e-8546-2242f43cfbaf@linaro.org>
-Date: Fri, 6 Nov 2026 11:54:03 +0100
+	d=codeconstruct.com.au; s=2022a; t=1793962472;
+	bh=T/o8bXf5PHZlheqxRxfmBCJt/OymULZgaq0Uhe1HUU8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=S9CZ7drUjqsCJ8M15r9HvsUT9+474uDOoxRacnjTRbGxcbNWAwYsSkurkrLIDbxA+
+	 cz78l6XQlnKNm5n0vX0iHIPmOOAb2TpP6EFLrDlpkqYcdBS+6oFGsj6cgHPLhWDjc3
+	 cB1vZapkoUL6tFhOhgAjKpevKy0K+PwyBMT0d4XiopyfdVf+UT9NgbGT4MydNPvROJ
+	 41lwszhU25LKpy7CrM375gnYDK6U5ot2OSmOHTYTAdnaGVpGu6pOaENTZEw/THPPK3
+	 topzgx3s79HCzmRM208DOiLZ24j8rbTQitAJDqa1iLhCid8QwrY/tGgBMSLY1Z1DTs
+	 za+KuJnn1iXJA==
+Received: from [192.168.68.117] (unknown [180.150.112.139])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 170FA64952;
+	Fri,  6 Nov 2026 18:54:31 +0800 (AWST)
+Message-ID: <71eb94df4d373d0f3afbe2a8ff880869f96e054b.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v4 2/2] pinctrl: aspeed: Hand over global GPIOP
+ passthrough to local mux controls
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>, 
+	linusw@kernel.org, Tan Siewert <tan.siewert@9elements.com>
+Cc: joel@jms.id.au, ryan_chen@aspeedtech.com, billy_tsai@aspeedtech.com, 
+	brgl@kernel.org, tan.siewert@9elements.com, linux-aspeed@lists.ozlabs.org, 
+	linux-gpio@vger.kernel.org, openbmc@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Fri, 06 Nov 2026 21:24:29 +1030
+In-Reply-To: <20261106022907.10735-3-prasanth.padarthi10@gmail.com>
+References: <20261105152348.8567-1-prasanth.padarthi10@gmail.com>
+	 <20261106022907.10735-1-prasanth.padarthi10@gmail.com>
+	 <20261106022907.10735-3-prasanth.padarthi10@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH 03/10] arm64: dts: amlogic: meson-s4: add the PSCI CPU
- idle state
-To: christian.koever-draxl@student.uibk.ac.at, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, khilman@baylibre.com,
- jbrunet@baylibre.com, martin.blumenstingl@googlemail.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- =?UTF-8?Q?Christian_Stefan_K=C3=B6v=C3=A9r-Draxl?= <ckoever@outlook.de>
-References: <20261106104659.54656-1-christian.koever-draxl@student.uibk.ac.at>
- <20261106104659.54656-4-christian.koever-draxl@student.uibk.ac.at>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20261106104659.54656-4-christian.koever-draxl@student.uibk.ac.at>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_025406_408048_D4713320 
-X-CRM114-Status: GOOD (  17.49  )
+X-CRM114-CacheID: sfid-20261106_025441_118732_0EF42E9D 
+X-CRM114-Status: GOOD (  40.31  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -134,97 +75,326 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-20.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 11/6/26 11:46, christian.koever-draxl@student.uibk.ac.at wrote:
-> From: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
-> 
-> The firmware implements PSCI 1.0 without OS-initiated mode. Add the
-> core power-down state the vendor kernel uses (power state 0x10000).
-> 
-> Signed-off-by: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
+Hi Prasanth,
+
+On Fri, 2026-11-06 at 07:59 +0530, Prasanth Kumar Padarthi wrote:
+> On B650D4U, GPIO-only host power control fails when SCU51C[9]
+> enables GPIOP passthrough, even after the normal GPIO request path
+> clears the individual SCU4BC selections.
+>=20
+> Transfer globally selected GPIOP0-P5 THRU roles to SCU4BC[29:24]
+> before registering the controller, then clear the active shared
+> sources. Leave PWM selection and the strap-source selector unchanged.
+> Clear SCU510[28] through SCU514 and verify the shared enables cleared.
+>=20
+> If handover fails, retain an instance-local error and reject affected
+> GPIO and mux requests before changing their mux state. Check every
+> pin in a mux group before calling the shared helper. Retain prepared
+> local selections after partial failure rather than blindly restoring
+> a shared enable.
+>=20
+> Probe-time normalization policy, concurrent SCU writers and
+> post-handover registration failure remain open design questions.
+> Electrical continuity, mixed-pair forwarding, protected-write paths,
+> PWM coexistence and SCU510[28] hardware handling remain unvalidated.
+>=20
+> The implementation passed remote power-on, remote graceful power-off
+> and physical-button power-on tests on B650D4U with an OpenBMC Linux
+> 6.18.24-based kernel. The rebased version was ARM compile-tested on
+> v7.4-rc1 using aspeed_g5_defconfig with AST2600 pinctrl enabled.
+> With the managed-registration prerequisite, the v7.4-rc1 version
+> also completed one unbind/rebind cycle under generic KASAN on
+> B650D4U hardware and in AST2600 QEMU. Host power operations have
+> not been retested with the v7.4-rc1 kernel.
+>=20
+> Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
 > ---
->   arch/arm64/boot/dts/amlogic/meson-s4.dtsi | 24 +++++++++++++++++++++++
->   1 file changed, 24 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-> index 675db02a8d5e..57270fbfb4a7 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-> @@ -22,6 +22,7 @@ cpu0: cpu@0 {
->   			compatible = "arm,cortex-a35";
->   			reg = <0x0 0x0>;
->   			enable-method = "psci";
-> +			cpu-idle-states = <&cpu_sleep>;
->   			d-cache-line-size = <64>;
->   			d-cache-size = <0x8000>;
->   			d-cache-sets = <128>;
-> @@ -36,6 +37,7 @@ cpu1: cpu@1 {
->   			compatible = "arm,cortex-a35";
->   			reg = <0x0 0x1>;
->   			enable-method = "psci";
-> +			cpu-idle-states = <&cpu_sleep>;
->   			d-cache-line-size = <64>;
->   			d-cache-size = <0x8000>;
->   			d-cache-sets = <128>;
-> @@ -50,6 +52,7 @@ cpu2: cpu@2 {
->   			compatible = "arm,cortex-a35";
->   			reg = <0x0 0x2>;
->   			enable-method = "psci";
-> +			cpu-idle-states = <&cpu_sleep>;
->   			d-cache-line-size = <64>;
->   			d-cache-size = <0x8000>;
->   			d-cache-sets = <128>;
-> @@ -64,6 +67,7 @@ cpu3: cpu@3 {
->   			compatible = "arm,cortex-a35";
->   			reg = <0x0 0x3>;
->   			enable-method = "psci";
-> +			cpu-idle-states = <&cpu_sleep>;
->   			d-cache-line-size = <64>;
->   			d-cache-size = <0x8000>;
->   			d-cache-sets = <128>;
-> @@ -82,6 +86,26 @@ l2: l2-cache0 {
->   			cache-line-size = <64>;
->   			cache-sets = <1024>;
->   		};
+> =C2=A0drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c | 145 ++++++++++++++++++=
+++-
+> =C2=A01 file changed, 141 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c b/drivers/pinctrl=
+/aspeed/pinctrl-aspeed-g6.c
+> index 85d6640ff..be22a9184 100644
+> --- a/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
+> +++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
+> @@ -4,7 +4,10 @@
+> =C2=A0#include <linux/init.h>
+> =C2=A0#include <linux/io.h>
+> =C2=A0#include <linux/kernel.h>
+> +#include <linux/mfd/syscon.h>
+> =C2=A0#include <linux/platform_device.h>
+> +#include <linux/slab.h>
+> +#include <linux/string.h>
+> =C2=A0#include <linux/pinctrl/pinctrl.h>
+> =C2=A0#include <linux/pinctrl/pinmux.h>
+> =C2=A0#include <linux/types.h>
+> @@ -36,6 +39,8 @@
+> =C2=A0#define SCU4D8		0x4D8 /* Multi-function Pin Control #23 */
+> =C2=A0#define SCU500		0x500 /* Hardware Strap 1 */
+> =C2=A0#define SCU510		0x510 /* Hardware Strap 2 */
+> +#define SCU514		0x514 /* Hardware Strap 2 Clear */
+> +#define SCU51C		0x51c /* Hardware Strap 3 */
+> =C2=A0#define SCU610		0x610 /* Disable GPIO Internal Pull-Down #0 */
+> =C2=A0#define SCU614		0x614 /* Disable GPIO Internal Pull-Down #1 */
+> =C2=A0#define SCU618		0x618 /* Disable GPIO Internal Pull-Down #2 */
+> @@ -2743,12 +2748,56 @@ static struct aspeed_pinctrl_data aspeed_g6_pinct=
+rl_data =3D {
+> =C2=A0	.nconfmaps =3D ARRAY_SIZE(aspeed_g6_pin_config_map),
+> =C2=A0};
+> =C2=A0
+> +struct aspeed_g6_probe_data {
+> +	struct aspeed_pinctrl_data pdata;
+> +	int thru_error;
+> +};
 > +
-> +		/*
-> +		 * The firmware reports PSCI 1.0 without OSI, so the platform
-> +		 * itself decides how deep to go and the kernel only has this
-> +		 * one core state to offer. The suspend parameter is in the
-> +		 * original format - bit 16 asks for a power down at affinity
-> +		 * level 0 - and matches what the vendor kernel passes.
-> +		 */
-
-Drop this comment and move it to the commit message
-
-> +		idle-states {
-> +			entry-method = "psci";
+> +static bool aspeed_g6_is_thru_pin(unsigned int pin)
+> +{
+> +	return pin >=3D AB22 && pin <=3D AB23;
+> +}
 > +
-> +			cpu_sleep: cpu-sleep {
-> +				compatible = "arm,idle-state";
-> +				arm,psci-suspend-param = <0x00010000>;
-> +				local-timer-stop;
-> +				entry-latency-us = <4000>;
-> +				exit-latency-us = <5000>;
-> +				min-residency-us = <10000>;
-> +			};
-> +		};
->   	};
->   
->   	timer {
+> +static int aspeed_g6_gpio_request_enable(struct pinctrl_dev *pctldev,
+> +					 struct pinctrl_gpio_range *range,
+> +					 unsigned int offset)
+> +{
+> +	struct aspeed_pinctrl_data *pdata =3D pinctrl_dev_get_drvdata(pctldev);
+> +	struct aspeed_g6_probe_data *g6 =3D
+> +		container_of(pdata, struct aspeed_g6_probe_data, pdata);
+> +
+> +	if (g6->thru_error && aspeed_g6_is_thru_pin(offset))
+> +		return g6->thru_error;
+> +
+> +	return aspeed_gpio_request_enable(pctldev, range, offset);
+> +}
+> +
+> +static int aspeed_g6_set_mux(struct pinctrl_dev *pctldev,
+> +			=C2=A0=C2=A0=C2=A0=C2=A0 unsigned int function, unsigned int group)
+> +{
+> +	struct aspeed_pinctrl_data *pdata =3D pinctrl_dev_get_drvdata(pctldev);
+> +	struct aspeed_g6_probe_data *g6 =3D
+> +		container_of(pdata, struct aspeed_g6_probe_data, pdata);
+> +	const struct aspeed_pin_group *pgroup =3D &pdata->pinmux.groups[group];
+> +	unsigned int i;
+> +
+> +	/* Check the entire group before the shared helper changes any pin. */
+> +	if (g6->thru_error) {
+> +		for (i =3D 0; i < pgroup->npins; i++) {
+> +			if (aspeed_g6_is_thru_pin(pgroup->pins[i]))
+> +				return g6->thru_error;
+> +		}
+> +	}
+> +
+> +	return aspeed_pinmux_set_mux(pctldev, function, group);
+> +}
+> +
+> =C2=A0static const struct pinmux_ops aspeed_g6_pinmux_ops =3D {
+> =C2=A0	.get_functions_count =3D aspeed_pinmux_get_fn_count,
+> =C2=A0	.get_function_name =3D aspeed_pinmux_get_fn_name,
+> =C2=A0	.get_function_groups =3D aspeed_pinmux_get_fn_groups,
+> -	.set_mux =3D aspeed_pinmux_set_mux,
+> -	.gpio_request_enable =3D aspeed_gpio_request_enable,
+> +	.set_mux =3D aspeed_g6_set_mux,
+> +	.gpio_request_enable =3D aspeed_g6_gpio_request_enable,
+> =C2=A0	.strict =3D true,
+> =C2=A0};
+> =C2=A0
+> @@ -2778,15 +2827,103 @@ static const struct pinctrl_desc aspeed_g6_pinct=
+rl_desc =3D {
+> =C2=A0	.confops =3D &aspeed_g6_conf_ops,
+> =C2=A0};
+> =C2=A0
+> +/*
+> + * Experimental: transfer the global GPIOP0-P5 THRU selection to the
+> + * individual mux controls before registering any pinctrl consumers.
+> + * PWM selection is higher priority and is deliberately left unchanged.
+> + *
+> + * Do not undo the local selections on error: a shared enable may alread=
+y
+> + * have cleared. Keeping the equivalent local selections preserves routi=
+ng
+> + * while rejecting affected requests, rather than granting an unsafe GPI=
+O.
+> + * Signal continuity during this transfer still needs hardware validatio=
+n.
+> + */
+> +static int aspeed_g6_thru_handover(struct regmap *scu)
+> +{
+> +	const u32 local_mask =3D GENMASK(29, 24);
 
-With that:
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Defining a variable with the value (even though that variable is
+qualified const) means it's not an integer constant expression, which
+may impede some optimisations.
 
-Thanks,
-Neil
+Further, local_mask is not a descriptive name for what's occurring
+here. Please name the mask in terms of its behaviour. Perhaps:
+
+#define GPIOP_UNGROUPED_PASSTHROUGH_MASK GENMASK(29, 24)
+
+> +	unsigned int strap2, strap3, local;
+
+Please lets improve on the name 'local'. Perhaps: ungrouped_passthrough
+
+> +	int ret;
+> +
+> +	ret =3D regmap_read(scu, SCU510, &strap2);
+> +	if (ret)
+> +		return ret;
+
+Consider this error-handling strategy:
+
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/dri=
+vers/pinctrl/pinctrl-gemini.c?h=3Dv7.4-rc1#n2556
+
+If the first read doesn't work, then we can't expect any of the further
+accesses by the core aspeed pinctrl implementation to work either, so
+we can just bail out entirely in the caller.
+
+> +	ret =3D regmap_read(scu, SCU51C, &strap3);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (!(strap2 & BIT(28)) &&
+> +	=C2=A0=C2=A0=C2=A0 ((strap2 & BIT(30)) || !(strap3 & BIT(9))))
+
+Please give these bits named macros. This is not easy to comprehend as
+it is.
+
+Also, consider FIELD_GET() from include/linux/bitfield.h. Something
+like:
+
+   if (!FIELD_GET(OTPSTRAP_ENABLE_GPIO_PASSTHROUGH, strap2) &&
+       (FIELD_GET(OTPSTRAP_ENABLE_DEDICATED_STRAP_PINS, strap2) ||
+           !(FIELD_GET(STRAP_ENABLE_GPIO_PASSTHROUGH, strap3)))
+
+
+> +		return 0;
+> +
+> +	/* Preserve every globally selected role, including under PWM. */
+
+This comment feels like a classic LLM statement that somehow manages to
+be simultaneously both too abstract and too detailed, while also devoid
+of context, all in 8 words.
+
+Can we rather say that the PWM functions on these pins are higher
+priority in the mux than the pass-through GPIO function, so if PWM is
+already selected, then the following write does not affect the PWM
+configuration?
+
+> +	ret =3D regmap_update_bits(scu, SCU4BC, local_mask, local_mask);
+> +	if (ret)
+> +		return ret;
+> +	ret =3D regmap_read(scu, SCU4BC, &local);
+> +	if (ret)
+> +		return ret;
+> +	if ((local & local_mask) !=3D local_mask)
+> +		return -EPERM;
+
+Please add a comment here about the write-protection in SCUF30.
+
+> +
+> +	/* Leave the inactive GPIOZ6 source alone in dedicated-strap mode. */
+
+'dedicated strap mode' is a confusing statement because ASPEED's
+documentation is confusing. I think we can drop this comment with
+regard to making other improvements.
+
+> +	if (!(strap2 & BIT(30)) && (strap3 & BIT(9))) {
+
+We've already inspected these bit values previously. Please consider
+extracting them to bool variables for re-use and to improve everyone's
+ability to comprehend the expression.
+
+> +		ret =3D regmap_update_bits(scu, SCU51C, BIT(9), 0);
+
+Essentially, having configured the ungrouped passthrough functions
+above, we can now de-configure the grouped passthrough function in
+strap3 (SCU51C).
+
+It's probably worth noting in a comment that SCU51C cannot be write-
+protected.
+
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	if (strap2 & BIT(28)) {
+> +		/* SCU510 is write-one-set; do not use an ordinary RW clear. */
+> +		ret =3D regmap_write(scu, SCU514, BIT(28));
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	ret =3D regmap_read(scu, SCU510, &strap2);
+> +	if (ret)
+> +		return ret;
+> +	ret =3D regmap_read(scu, SCU51C, &strap3);
+> +	if (ret)
+> +		return ret;
+> +	if ((strap2 & BIT(28)) ||
+> +	=C2=A0=C2=A0=C2=A0 (!(strap2 & BIT(30)) && (strap3 & BIT(9))))
+> +		return -EPERM;
+
+This appears to be the negated expression of the earlier one, and given
+we're only returning a fixed value in either case, you could rather use
+the same expression again. Given it's repeated, you could extract it to
+a macro or static inline function.
+
+> +
+> +	return 0;
+> +}
+> +
+> =C2=A0static int aspeed_g6_pinctrl_probe(struct platform_device *pdev)
+> =C2=A0{
+> -	int i;
+> +	struct aspeed_g6_probe_data *g6;
+> +	struct regmap *scu;
+> +	int i, ret;
+> +
+> +	if (!pdev->dev.parent)
+> +		return -ENODEV;
+> +	scu =3D syscon_node_to_regmap(pdev->dev.parent->of_node);
+> +	if (IS_ERR(scu))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(scu),
+> +				=C2=A0=C2=A0=C2=A0=C2=A0 "No SCU regmap for THRU handover\n");
+> +
+> +	g6 =3D devm_kzalloc(&pdev->dev, sizeof(*g6), GFP_KERNEL);
+> +	if (!g6)
+> +		return -ENOMEM;
+> +	memcpy(&g6->pdata, &aspeed_g6_pinctrl_data, sizeof(g6->pdata));
+
+This seems unfortunate.
+
+Have you considered other approaches?
+
+> +
+> +	ret =3D aspeed_g6_thru_handover(scu);
+
+Must this logic be separate to the usual set_mux path? If not, I expect
+we don't need to retain thru_error.
+
+> +	if (ret =3D=3D -EPROBE_DEFER)
+
+Do you have an example of how ret could be -EPROBE_DEFER?
+
+> +		return ret;
+> +	if (ret) {
+
+If this handover logic is to be integrated here, can you please test
+for specific return values to separate the regmap access failure from
+the write-protection failure?
+
+Related, I've heard opinions from Tan that this patch is not necessary
+to get the platform booting. Given the current complexity, I'm
+interested to hear whether you can do without it.
+
+Andrew
 
