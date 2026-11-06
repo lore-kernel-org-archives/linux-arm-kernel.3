@@ -2,69 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82B61606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 10:46:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71849606D839
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 10:46:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dW6eV4BW;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=DSxvniHD
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Axp2p4sX;
+	dkim=pass (1024-bit key, unprotected) header.d=student.uibk.ac.at header.i=@student.uibk.ac.at header.a=rsa-sha256 header.s=prod24a header.b=lEdvJLsu
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=EBOzhR38zAbfIVOw2so9GKfjXciI6NC0gGb/q053Uvw=; b=dW6eV4BW1PBuHA86tlxEmVJRc0
-	bSQHfjpynyALCMJQEg586Ewaqd9bEXOc31ZBAq0gMPPfpvSSXgOSFEUu6HCTypmudWjcG6HcnvxVv
-	RFyG2SzfGudckSqcdWa+r+hWhJSWR/RRe6jLXlgCRYDt0seAGNtkp36m53w8hvYbm1jptXa7mwn1j
-	pR3fWevtGv4vDvhHmgx2yHk73UHkDSjwtKGUlkofJRkiXHbRpqRcTNxgqcb8xV73BAtdgEbMKD6X0
-	iHpqyuD+a4zHxWLMon1w16BfiQaIh8tuMkMgxo7e6K/j9l/f9vRLPU3ssQ9+PPfhqL/03oM8rkOfs
-	NAFmkcqQ==;
+	bh=vLIUtL4Xr1f0AzzVPwVtBtZX/qzPi+fLoa0ubdM8I/0=; b=Axp2p4sXyGnkwQlaXWugnKNEws
+	PDt6qh5790pXe+Z6i+YWeHL7rx5ijwCsYqqMz7w+6MGkbIy1d5U8yWJJBBY/EwKn0Hrt6dtdn4g2b
+	FI5Gjgpc6zZ01VZHMN3dHe6Fkr+STEpm0wYxScbshk9KGrPby/GeAhaivsL/2Gdm4F4T9fNWAgkLM
+	DYvNnKpVykE2P/sOL40pmwiD8PhFWvprIuSc15Ff3TZwKpeXksik0nKu7euRxj8McmX/kbKjV0PrX
+	tQ87LRECIhxkTM7Fic7rE9MSzhvmn6BiYXMZAIxea3DrlpWOsampExjWrMoJx0dh0W2FJLwexITT4
+	li5hckPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHSR-0000000BzcY-17iS;
-	Fri, 06 Nov 2026 10:46:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHSO-0000000Bzap-25DU
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 10:46:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A57415A1;
-	Fri,  6 Nov 2026 02:45:58 -0800 (PST)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 74B503F673;
-	Fri,  6 Nov 2026 02:45:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793961961; bh=Kz0mSCmJER1t1vnDARZyfMev49ZrLe9m/+tlQWtAGgU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DSxvniHDbqcztfN5wXQ+N71HLuRwr1uD8C0kMxaoe5FTSBtVaGGF4RjPVSfcQL6p3
-	 jCXxICd99aAnXYQI66kJlgyBYM5pciaOPd9d5JvxC6SNe5VPJ6jxZ2U60EU2qW5eI5
-	 COBjnYgGy5DFy/yemQkddtpjAdQ1ebJFXF5tu96I=
-Date: Fri, 6 Nov 2026 10:45:56 +0000
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, pbonzini@redhat.com,
-	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, maz@kernel.org,
-	oupton@kernel.org, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, david@kernel.org,
-	mark.rutland@arm.com, ackerleytng@google.com
-Subject: Re: [PATCH v2] KVM: Ignore MMU notifiers for guest_memfd-only
- memslots
-Message-ID: <au2v5EoitiAGhoA3@raptor>
-References: <20260714160411.302386-1-alexandru.elisei@arm.com>
- <amPCdAswlk24Xilf@google.com>
- <anxAGkdyPYXBlS00@raptor>
- <autwsR83Ii-tRrqF@gremlin>
- <auzSxEsGAcm3MYtN@google.com>
+	id 1xPHT7-0000000BzrN-31n1;
+	Fri, 06 Nov 2026 10:46:49 +0000
+Received: from smtp.uibk.ac.at ([138.232.1.140])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xPHT4-0000000BzpC-2u0V;
+	Fri, 06 Nov 2026 10:46:48 +0000
+Received: from surface-pro-5.uibk.ac.at (ydWLT-U1-3-167.uibk.ac.at [172.25.3.167])
+	(authenticated bits=0)
+	by smtp.uibk.ac.at (8.15.2/8.15.2/F1) with ESMTPSA id 6A6AkYPC1953082
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO);
+	Fri, 6 Nov 2026 11:46:36 +0100
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.uibk.ac.at 6A6AkYPC1953082
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=student.uibk.ac.at;
+	s=prod24a; t=1793961996;
+	bh=vLIUtL4Xr1f0AzzVPwVtBtZX/qzPi+fLoa0ubdM8I/0=;
+	h=From:To:Cc:Subject:Date;
+	b=lEdvJLsuhqp1rYBqP/fHpIoWbBWw6vFYe1sKWY/sz09eVlro/MRtqV4ww1f0OWI01
+	 9W2Y4EEE5siqjvN63cc664O2oxyubc9W9RC22AgENL6kYRzcWvmt76/Le2qtscJL63
+	 vulL84EStzMnFE51xJLGxowN5AgBp4d6yw5gfvLQ=
+From: christian.koever-draxl@student.uibk.ac.at
+To: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
+        conor+dt@kernel.org, neil.armstrong@linaro.org, khilman@baylibre.com,
+        jbrunet@baylibre.com, martin.blumenstingl@googlemail.com
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+        =?UTF-8?q?Christian=20Stefan=20K=C3=B6v=C3=A9r-Draxl?= <ckoever@outlook.de>
+Subject: [PATCH] dt-bindings: usb: amlogic,meson-g12a-usb-ctrl: add S4 support
+Date: Fri,  6 Nov 2026 11:46:32 +0100
+Message-ID: <20261106104632.54161-1-christian.koever-draxl@student.uibk.ac.at>
+X-Mailer: git-send-email 2.56.0
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <auzSxEsGAcm3MYtN@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Spam-Score: () -13.0 ALL_TRUSTED,RCV_SMTP_AUTH,RCV_SMTP_UIBK,U_H_APTO_LONG,U_RCPTS_11_PLUS
+X-Scanned-By: MIMEDefang_3.2_at_uibk.ac.at
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_024604_622988_18CC2363 
-X-CRM114-Status: GOOD (  40.59  )
+X-CRM114-CacheID: sfid-20261106_024647_069147_D581F599 
+X-CRM114-Status: GOOD (  11.26  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,109 +73,94 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Sean,
+From: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
 
-On Thu, Nov 05, 2026 at 11:02:28AM -0800, Sean Christopherson wrote:
-> On Wed, Nov 04, 2026, Lorenzo Stoakes (ARM) wrote:
-> > [updated David's email address to @kernel.org]
-> > 
-> > On Wed, Aug 12, 2026 at 10:42:50AM +0100, Alexandru Elisei wrote:
-> > [ ... ]
-> > > On Fri, Jul 24, 2026 at 12:52:20PM -0700, Sean Christopherson wrote:
-> > > > It'll probably take me a few weeks to circle back to this, as I finally crawled
-> > > > out from underneath a pile of urgent and am just now getting back into review
-> > > > mode, but this is fairly high on my todo list, so with luck we might still squeeze
-> > > > this into 7.3.
-> > 
-> > Hey Sean,
-> > 
-> > I wondered whether you'd had a chance to look at this?
-> > 
-> > After discussing this with Marc and Alex it is clear that this is really a
-> > blocker for Alex's SPE series, as we need a sensible means of ensuring
-> > that stage-2 mappings stay in place.
-> > 
-> > So ideally would prefer to get something like this in in the next cycle,
-> > if you don't have any objections to it? :)
-> > 
-> > If it'd be easier, I think a smaller version of the same patch would also
-> > give us what we need? I.e. your snippet from June with the page ageing part
-> > dropped, as below.
-> 
-> The GPC invalidation fix landed, so we can go straight to the super simple v1.
-> Compile tested only at this point, I'll formally post this (hopefully today),
-> assuming nothing explodes in testing.
-> 
-> --
-> From: Alexandru Elisei <alexandru.elisei@arm.com>
-> Date: Mon, 15 Jun 2026 16:52:44 +0100
-> Subject: [PATCH] KVM: Skip gfn-based MMU notifier invalidations for
->  guest_memfd-only memslots
-> 
-> Don't invalidate gmem-only memslots when responding to MMU notifier
-> invalidations, as the entire point of gmem-only memslots is so that KVM
-> doesn't need a VMA to install mappings into KVM's MMU.  Specificially,
-> page faults are resolved by going straight to guest_memfd, using the gfn
-> and the associated memslot's gmem.file.  I.e. whether or not userspace
-> happens to have valid mappings to the same gmem instance is irrelevant,
-> as are any invalidations for those mappings.
-> 
-> Note!  The exception is KVM's gfn_to_pfn_cache implementation which isn't
-> yet wired up to pull pfns directly from guest_memfd, i.e. still relies on
-> userspace mappings/VMAs and thus need to be invalidated, e.g. to ensure KVM
-> doesn't retain a kernel mapping+pointer to PRIVATE memory.  However, as of
-> commit da260bcb56fe ("KVM: pfncache: use a dedicated invalidation sequence
-> for cache refresh"), GPC invalidation no longer relies on memslot lookups,
-> because GPCs also support HVA-based mappings.  I.e. KVM *must* be able to
-> detect and handle relevant MMU notifier invalidations even if there is *no*
-> memslot whatsoever.
-> 
-> In addition to the obvious performance benefits, avoiding unnecessary and
-> spurious SPTE zaps and TLB flushes will allow KVM to support features like
-> ARM's Statistical Profiling Extension (SPE)[1] and x86's Secure AVIC[2],
-> both of which rely on the pages *never* being unmapped from the stage-2
-> page tables.
+The S4 USB glue is the G12A one, but it fronts an xHCI host controller
+instead of a DWC3 core, with two USB2 PHYs and no USB3 PHY. Add an S4
+compatible with the G12A one as fallback, and allow a generic xHCI
+child node.
 
-Looks great, and thank you for updating the commit message!
+Signed-off-by: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
+---
+Tool use (Documentation/process/generated-content.rst):
+This work was done with the help of an AI coding assistant, Claude
+(Anthropic), used through Claude Code over many sessions. It did a large
+part of the hands-on work: it read the vendor kernel and the firmware
+interfaces, probed registers on the board, drafted the code and the
+changelogs, and ran the builds, checkpatch, dt_binding_check and the
+tests on the hardware. I directed the work, reviewed every change and
+the final patches, and take responsibility for them. There is no single
+prompt to quote; the sessions were of the form "find out why X fails on
+this board, fix it, test it on the box".
 
-Alex
+Tested on an Amediatech X98Q TV box (Amlogic S905W2, S4 family, 2 GiB),
+vendor U-Boot and BL31/OP-TEE, Linux 7.3 plus this work.
 
-> 
-> Link: https://lore.kernel.org/all/20260903160623.315525-1-alexandru.elisei@arm.com [1]
-> Link: https://lore.kernel.org/all/cover.1783490022.git.naveen@kernel.org [2]
-> Cc: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> Cc: Naveen N Rao (AMD) <naveen@kernel.org>
-> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
-> [sean: rewrite changelog to capture the new gpc behavior]
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  virt/kvm/kvm_main.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index cf4cb586f140..599dea22afb8 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -601,6 +601,10 @@ static __always_inline kvm_mn_ret_t kvm_handle_hva_range(struct kvm *kvm,
->  			unsigned long hva_start, hva_end;
->  
->  			slot = container_of(node, struct kvm_memory_slot, hva_node[slots->node_idx]);
-> +
-> +			if (kvm_slot_has_gmem(slot) && kvm_memslot_is_gmem_only(slot))
-> +				continue;
-> +
->  			hva_start = max_t(unsigned long, range->start, slot->userspace_addr);
->  			hva_end = min_t(unsigned long, range->end,
->  					slot->userspace_addr + (slot->npages << PAGE_SHIFT));
-> 
-> base-commit: d21eef2084a9af87ac2a783bc7c2b175ba114e4e
-> --
+ .../usb/amlogic,meson-g12a-usb-ctrl.yaml      | 24 ++++++++++++-------
+ 1 file changed, 16 insertions(+), 8 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/usb/amlogic,meson-g12a-usb-ctrl.yaml b/Documentation/devicetree/bindings/usb/amlogic,meson-g12a-usb-ctrl.yaml
+index da757c1155d4..186390f930f8 100644
+--- a/Documentation/devicetree/bindings/usb/amlogic,meson-g12a-usb-ctrl.yaml
++++ b/Documentation/devicetree/bindings/usb/amlogic,meson-g12a-usb-ctrl.yaml
+@@ -27,14 +27,21 @@ description: |
+ 
+   The Amlogic GXL, GXM & AXG SoCs doesn't embed an USB3 PHY.
+ 
++  The Amlogic S4 uses the G12A glue in front of an xHCI host controller
++  instead of a DWC3 core, with two USB2 PHYs and no USB3 PHY.
++
+ properties:
+   compatible:
+-    enum:
+-      - amlogic,meson-gxl-usb-ctrl
+-      - amlogic,meson-gxm-usb-ctrl
+-      - amlogic,meson-axg-usb-ctrl
+-      - amlogic,meson-g12a-usb-ctrl
+-      - amlogic,meson-a1-usb-ctrl
++    oneOf:
++      - enum:
++          - amlogic,meson-gxl-usb-ctrl
++          - amlogic,meson-gxm-usb-ctrl
++          - amlogic,meson-axg-usb-ctrl
++          - amlogic,meson-g12a-usb-ctrl
++          - amlogic,meson-a1-usb-ctrl
++      - items:
++          - const: amlogic,meson-s4-usb-ctrl
++          - const: amlogic,meson-g12a-usb-ctrl
+ 
+   ranges: true
+ 
+@@ -82,6 +89,7 @@ patternProperties:
+     oneOf:
+       - $ref: dwc2.yaml#
+       - $ref: snps,dwc3.yaml#
++      - $ref: generic-xhci.yaml#
+ 
+ additionalProperties: false
+ 
+@@ -102,8 +110,8 @@ allOf:
+   - if:
+       properties:
+         compatible:
+-          enum:
+-            - amlogic,meson-g12a-usb-ctrl
++          contains:
++            const: amlogic,meson-g12a-usb-ctrl
+ 
+     then:
+       properties:
+
+base-commit: 7be4bc52fd9e0e55dc9a2e0232b89427d2c4b614
+-- 
+2.56.0
+
 
