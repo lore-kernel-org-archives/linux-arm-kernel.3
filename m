@@ -2,70 +2,82 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 280A4606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 14:19:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB221606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 14:20:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=f/J0qb8U;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hJfA1aDk
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sLNRFCRO;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JRC6zfbr
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=FImo0Si6aBUJrvKYxmacsgGaoJNjRjIi7dZYfg0r/e4=; b=f/J0qb8UQ9bpjsmbSQjRO74RTj
-	nFYa3nanHrO2agkkrQ/J8lsB5FQlZX2eYKqZYCBfL3xfRbHxQVOyZHO81McfvtlH0QhZ6ChQa4/F8
-	Qhg/ZaA3n9dP2rJYeoLlYTU0eK0iiJ7WLZIdC62/Tym8gdg9X2CuXnHMebc12be5HCn89qze6UVkT
-	tFWj6K6zbz7oZPPvl3nAqFvcXpkyMDuCF/HuSiHokxNYblFDRzN69yCljAl1GpfQZ5daNrzxurOqp
-	HhXOV+uYx0aSBEKsXG5U+V/pKOAyTrJsKk178v0JZCoa3IHlBq2b8doLndEoWFxUP0Eb070vt9ry8
-	kiI3JPHw==;
+	bh=TwsPFdRh0C49DOdl+xuWiS4YPqcCQKDREkOH0Q0gTC4=; b=sLNRFCRO85kVKxz6rt4vgdM3Ec
+	lRCDKzxrmu0WXAmB9IVfHYB/FRm56UF3DBKScWuiKak8wm4c0Mu0sG57c7zPPjBXbPNETP9TvwW48
+	Sx0zaxHSCI4XJL57l05+4bQdS7acD7yKB03e9O7e6ePeENTyQbEr9LrRa1RAyqdbPJOQ+94hWcusX
+	l0yPUX7kxEh8WFlWtWjCd0oBq22awvN8Figc+X6vn8fCOZ/Y1+IlWm2wZPpfOoCpEPiOuQObUbHb0
+	M2q1Yi1945DMd4BNr1nyeoWnM13/BYHDM1Hv5l8SnZy/x8pLonOnEze85Ea4xMJu+OcQy61bnQssc
+	65ahnZWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPKmp-0000000CcfL-1WEi;
-	Fri, 06 Nov 2026 14:19:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xPKnL-0000000Ccl6-2euj;
+	Fri, 06 Nov 2026 14:19:55 +0000
+Received: from mail-wm1-x345.google.com ([2a00:1450:4864:20::345])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPKmn-0000000CcfB-2zam
+	id 1xPKnI-0000000Cciu-3GRC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 14:19:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D368F605EB;
-	Fri,  6 Nov 2026 14:19:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A72411F0089F;
-	Fri,  6 Nov 2026 14:19:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793974760;
-	bh=FImo0Si6aBUJrvKYxmacsgGaoJNjRjIi7dZYfg0r/e4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hJfA1aDkwM9ReyQLQZP8cqOlSvy1h87gvRMqTjepz3+KDmLSXJgdKFLkiEnThBUNQ
-	 yFrOdWj+FKJFL0F/ytYXlbcnN/Ld64cYCLhgfaL9oBZoWc8HCo5nNLGIUjWYkEkpMx
-	 g46iqqpmAfudUA2pifkLwrjRj9wMTORA2uH+1Eq3xuQdbmBDxSNJpUgKr/gjvieTLs
-	 FkeQghztvAnUBtiJfs7WGCstiOgV3VhrfWw4TW6cJHLF9mrtQ6nygNu7JmN0CebAnr
-	 Jw+/WTFqBWcwE44AwiPzuaggypRfN4BcXdg0Aee2xHn8fitBKR/hfz/9d+KPEftIKO
-	 ysTXRijEJpeCQ==
-Date: Fri, 6 Nov 2026 14:19:16 +0000
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Linus Walleij <linusw@kernel.org>
-Cc: "Rob Herring (Arm)" <robh@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Andre Przywara <andre.przywara@arm.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/7] ARM: dts: arm: Another batch of warning fixes
-Message-ID: <20261106-wise-ochre-lionfish-25efc4@sudeepholla>
-References: <20261105-dt-vexpress-dts-fixes-v1-0-66615c3c8ec3@kernel.org>
- <20261106-outstanding-turtle-of-opportunity-9fafcb@sudeepholla>
- <CAD++jLmYJM3VhKN00CjpRviQ4Zfr394c2o3xqZPqEZnq9yz-ig@mail.gmail.com>
+	Fri, 06 Nov 2026 14:19:54 +0000
+Received: by mail-wm1-x345.google.com with SMTP id 5b1f17b1804b1-4afef353dd2so7835945e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Nov 2026 06:19:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1793974790; x=1794579590; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TwsPFdRh0C49DOdl+xuWiS4YPqcCQKDREkOH0Q0gTC4=;
+        b=JRC6zfbrJKWXo4JJjLGc6S/7XNCSOOe+Da+7PoWmX1fQCAOHlaE2/ByYNu0AwHP/K9
+         jo13zlaZ/PXPBMO4LcpO+1Sc4T7LnGV0yWjksZJlp+ccnnFyT6tB0KnOkEhk8wYPbOmw
+         VoBcx9/Qg/cTTSmxOfRYgilzmEnkPzm1EbtEOnxoPPVHZ5clmXIoK4WP8fcM8Fnb0XNY
+         XNNXMOPvql0s0PDMdR0MGdKkLoyEMRbUs0BvWEoq4PYs8VIyf9044MK25u6MVY3HPpe2
+         zBBAI+792mhhHhImVMUOnMHR0Y8rjp2MOqB4j39dyI2eU5PEpxPYyAKodolxParD9cKJ
+         5N0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793974790; x=1794579590;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=TwsPFdRh0C49DOdl+xuWiS4YPqcCQKDREkOH0Q0gTC4=;
+        b=L6Sh+Jf/lKsfAJ5vsNVtVNezjdCcbM8I1RlO5XsLtIu3NvS0YNLYrI7qs8feY2Xp64
+         0IZCnZsg5vGZ7m3vxqDZIpQXbsG44Pgg5sdjsA/g23/KZMZ23XZxUYtWSoc6rB3TDT52
+         4fUXvsrO5L3jSzpPlHgj5Jl74GGc2bJPlF6nS4HXmA8wnxS8cwNwU5soOzEl/2s1f+be
+         k7yeJqNta/Ybhie+YrUwLlmx3HjZbd3Bttahy/QYyUFqjrpO77l+aBSP/1jBoh1P7A30
+         273pH7sw+jjYddofQjx0au0umjFii9J6WSYu/nakwhOubpqEa1vWrePg21yBRJrV6Hme
+         Civw==
+X-Gm-Message-State: APuU4Z9jPJma8puwBkrgzKozEb/Y5EV6nBMqNgrtITwYo14t7Xibibqu
+	1CfFtLFm8vm/BOE07ofNqfBGsYHK5j1b9P0U3tXOTvoFUXAWI7ApcRJPp1tpZj8A8uxinuWSiQ=
+	=
+X-Received: from wmok21.prod.google.com ([2002:a05:600c:4795:b0:4a1:d943:b7d5])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1d0b:b0:4a1:742e:3
+ with SMTP id 5b1f17b1804b1-4b6e0170a5cmr45487535e9.27.1793974789972; Fri, 06
+ Nov 2026 06:19:49 -0800 (PST)
+Date: Fri,  6 Nov 2026 15:19:37 +0100
 X-Archived-By: <archiver.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAD++jLmYJM3VhKN00CjpRviQ4Zfr394c2o3xqZPqEZnq9yz-ig@mail.gmail.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.455.g6c5a503b38-goog
+Message-ID: <20261106141936.2744481-7-ardb+git@google.com>
+Subject: [PATCH 0/5] efi: Expose loaded image properties via info struct
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-efi@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, 
+	will@kernel.org, catalin.marinas@arm.com, Ard Biesheuvel <ardb@kernel.org>, 
+	Jason Gunthorpe <jgg@nvidia.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261106_061952_827953_6B91A594 
+X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,44 +88,55 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-21.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT,USER_IN_DEF_DKIM_WL
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Nov 06, 2026 at 02:41:20PM +0100, Linus Walleij wrote:
-> On Fri, Nov 6, 2026 at 12:03 PM Sudeep Holla <sudeep.holla@kernel.org> wrote:
-> 
-> > We can remove vexpress-v2f-1xv7-ca53x2.dts because it is highly outdated and
-> > relies on an FPGA tile setup. Replicating this environment is likely
-> > impossible since the original bitmap files may no longer be available
-> > easily.
-> (...)
-> > > Rob Herring (Arm) (7):
-> > >       dt-bindings: arm: vexpress-sysreg: Add "mcc" child node
-> >
-> > I assume you will take the DT bindings via your tree.
-> 
-> Me too.
-> 
-> > Linus,
-> >
-> > Do you want to take this series via your tree or prefer me to take it ?
-> 
-> I think it's better if you do it because it seems you got thinking
-> you want to delete some files, so then it's better if you
-> queue all that in one go when you got track of it.
-> 
+From: Ard Biesheuvel <ardb@kernel.org>
 
-Sorry for incomplete information earlier, I was actually referring to
-Arnd's deprecation of few old ARM platform support series which removes
-MPS2.
+Clean up the arm64 build script and linker hacks that zboot uses to
+obtain properties of the loaded image (which it cannot access directly
+via a relative reference like the ordinary EFI stub).
 
+Instead, define a struct efi_image_info (whose contents are arch
+specific), and expose its offset in the loaded image via the arm64 image
+header, so that zboot can access it after decompressing the image.
+
+Cc: Jason Gunthorpe <jgg@nvidia.com>
+Link: https://lore.kernel.org/all/0-v2-989a18390eb1+486-arm64_drtm_jgg@nvidia.com/
+
+Ard Biesheuvel (5):
+  efi/libstub: Make efi_remap_image() return efi_status_t
+  efi/libstub: Pass a struct efi_image_info to efi_stub_common()
+  efi/zboot: Disentangle efi_remap_image() from efi_cache_sync_image()
+  efi/arm64: Expose struct efi_image_info via the image header
+  efi/arm64: Drop build and linker script hacks to obtain image code
+    size
+
+ Documentation/arch/arm64/booting.rst           |  3 +-
+ arch/arm64/boot/Makefile                       |  3 --
+ arch/arm64/include/asm/efi.h                   | 11 ++++++
+ arch/arm64/include/asm/image.h                 |  4 ++-
+ arch/arm64/kernel/efi-header.S                 |  6 ++++
+ arch/arm64/kernel/head.S                       |  3 +-
+ arch/arm64/kernel/image-vars.h                 |  4 ---
+ drivers/firmware/efi/libstub/arm64-stub.c      | 16 +++++++++
+ drivers/firmware/efi/libstub/arm64.c           | 13 ++++---
+ drivers/firmware/efi/libstub/efi-stub-entry.c  |  8 ++++-
+ drivers/firmware/efi/libstub/efi-stub-helper.c | 13 ++++---
+ drivers/firmware/efi/libstub/efi-stub.c        |  3 +-
+ drivers/firmware/efi/libstub/efistub.h         | 16 +++++++--
+ drivers/firmware/efi/libstub/zboot.c           | 36 ++++++++++++++++++--
+ drivers/firmware/efi/libstub/zboot.lds         |  7 ----
+ 15 files changed, 112 insertions(+), 34 deletions(-)
+
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
 -- 
-Regards,
-Sudeep
+2.56.0.455.g6c5a503b38-goog
 
-[1] https://lore.kernel.org/all/20260914140821.1805449-1-arnd@kernel.org/
 
