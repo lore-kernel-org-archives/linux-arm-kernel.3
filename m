@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CA4D606A33D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 11:02:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02B9A606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 11:03:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qgA/g6hy;
-	dkim=pass (2048-bit key, unprotected) header.d=thorsis.com header.i=@thorsis.com header.a=rsa-sha256 header.s=dkim header.b=A6GNpLVt
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GjnxExq1;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RcTzmklI
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,83 +14,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=iCM2cycWCwaMm6hiUmHFooj8p+WDE9YQ8jpkczfNGY0=; b=qgA/g6hyz8+Mf+DcHQr5WynRpS
-	VBK+h0ZPNencudmeFh0WVYmxzpCR8E1+3nU0YD03aE+aLF0tnmcQhynq3y6trTRSrIG4HwUKMzeFT
-	LV1TeE6j7120hoIp1qy5GRVTwEU8Niwo8RkzyhadHZHNqhBFZGQiHonRkqy1yc3GFqDssEhkepmg7
-	XwwKfVw5pxzpGUxeoDtjjzlwvvArQE2dbhsidQ82w0lJDoQzK7y7sFqmnlp8K6HK62VtuyIhjec2d
-	127HY0T7SBGEl0WIHxz/xjiNc/CuSklumkous0Tij3z+YBduJpITxnBy7lN0dkzOMKAXYC83pepLF
-	Wr4ivG6Q==;
+	bh=+AElvHQZoFGP9DlewYqnVP0xXdCddfuFHZpt/5Au+oI=; b=GjnxExq1FA4eEmpvFq9Oqdw3yK
+	UdlUXm3K2puHQzzG7xpqiAlAUhvuFfpEY0Ngi78UwcHOjvVoRpTUMbd84alz34lmHJg1HfBmd+UPW
+	z3TYpl2rxoaoBZ1bnb3/syk/FPnGtaaKy41aCOACQk1seF7RtE7xC7TT7aaTMZkqbFmXWfRtkQ9/1
+	ndpLJZRtVjb20rzHup6tzLdiS+etlVrtaXv5uPjbjQ9RQYpnoc2OU6Vd9PeKMVxtnPHMlE94YTEFV
+	a9UfJJAq9Tqx7R/Hq4t975vXCRJY5Jir3BmYveJwaOeV8WaYfbEeaccpP5foJzd93oRAjhx/OrF1m
+	2fL5ignA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHiZ-0000000C54c-2bTp;
-	Fri, 06 Nov 2026 11:02:47 +0000
-Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
+	id 1xPHj0-0000000C5EC-3y8P;
+	Fri, 06 Nov 2026 11:03:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHiX-0000000C532-068R
+	id 1xPHiz-0000000C5Dl-1OKh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 11:02:46 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C5874148053E;
-	Fri, 06 Nov 2026 12:03:17 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1793962999; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=iCM2cycWCwaMm6hiUmHFooj8p+WDE9YQ8jpkczfNGY0=;
-	b=A6GNpLVtsHeso5gjnzHSm1aqE0/DodHSklqFKj3InXBy6KlEULAYwPHatJbuAddtQa93uF
-	AZFPqP/uvqt+qMBpd+2F4QqG8ovRyO63QJrGAsgTomrOITHHZLcO9F0KUrrVwjpEJAYkmZ
-	/BiwpQKbN2tZc0hbVc7ylpryvVD2DbHVodmizuFGsL6bQdGU2uGawgOLqJIwOJabdbIkm6
-	mToHBkcFTRlZH221UqgLDOllYDIUy90UHj/w63IrI5Nu2+xlrDJRiaRvobqyNsaQIeWdu8
-	cpGriQdE5PVr4vHPBZMC30nNREGJVVjpDRSw+BzGZB263VXKpxPrIdVRaIcqcw==
-Date: Fri, 6 Nov 2026 12:02:35 +0100
-From: Alexander Dahl <ada@thorsis.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Alexander Dahl <ada@thorsis.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Ryan Wanner <ryan.wanner@microchip.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Fri, 06 Nov 2026 11:03:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B5D05601E3;
+	Fri,  6 Nov 2026 11:03:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8140E1F0089F;
+	Fri,  6 Nov 2026 11:03:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793962992;
+	bh=+AElvHQZoFGP9DlewYqnVP0xXdCddfuFHZpt/5Au+oI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RcTzmklIohIPhAtS55i7sWu8AM7F+O/qnYiKepi2J0WX8e/jteStCrqykHDiFmrLW
+	 ETw48LnQ4rv44dWuMvepFvpMME3YRe2lCfSfNvJRJhL3P2JFAXK9Hqu0QdLKkxjEU7
+	 mzm+1GHgSzYR8TcbW/lb4gxWfHV8OrX3nLIQT4V+eHJAJLuheREebDSnZBRiBeOH8Q
+	 phOAdDk20dLqAAgwUbd6Ej4d3sdkivQinhuZ/HXulqfry/jJF8pyFaAfrpqHWeMwCc
+	 3zjOSmtM6TZZhT+tkfcUEgLJHFAjqrgBSqjUH2YRfsNj1jr61cptGqKRTVywh6a3Ur
+	 91cXI9Rls0hCw==
+Date: Fri, 6 Nov 2026 11:03:08 +0000
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>,
+	Linus Walleij <linusw@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	"open list:USB SUBSYSTEM" <linux-usb@vger.kernel.org>
-Subject: Re: [PATCH v4 02/16] dt-bindings: clock: at91: Split up per SoC
- partially
-Message-ID: <20261106-oil-swear-a9e81127bc25@thorsis.com>
-Mail-Followup-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Ryan Wanner <ryan.wanner@microchip.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	"open list:USB SUBSYSTEM" <linux-usb@vger.kernel.org>
-References: <20261105110715.2486432-1-ada@thorsis.com>
- <20261105110715.2486432-3-ada@thorsis.com>
- <20261106-beige-ostrich-of-merriment-ae6eb0@quoll>
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Andre Przywara <andre.przywara@arm.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/7] ARM: dts: arm: Another batch of warning fixes
+Message-ID: <20261106-outstanding-turtle-of-opportunity-9fafcb@sudeepholla>
+References: <20261105-dt-vexpress-dts-fixes-v1-0-66615c3c8ec3@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261106-beige-ostrich-of-merriment-ae6eb0@quoll>
-User-Agent: Mutt/2.2.13 (2024-03-09)
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_030245_540763_8E54F4AB 
-X-CRM114-Status: GOOD (  19.48  )
-X-Spam-Score: -2.1 (--)
+In-Reply-To: <20261105-dt-vexpress-dts-fixes-v1-0-66615c3c8ec3@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,70 +73,80 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hello Krzysztof,
+On Thu, Nov 05, 2026 at 04:34:13PM -0600, Rob Herring (Arm) wrote:
+> This is a batch of schema warning fixes mainly for 32-bit Arm, Ltd 
+> boards. While all these are 32-bit Arm fixes, vexpress-v2m-rs1.dtsi is 
+> included by vexpress-v2f-1xv7-ca53x2.dts which is 64-bit platform. Patch 
 
-Am Fri, Nov 06, 2026 at 11:57:53AM +0100 schrieb Krzysztof Kozlowski:
-> On Thu, Nov 05, 2026 at 12:06:38PM +0100, Alexander Dahl wrote:
-> > Before adding even more new indexes creating more holes in the
-> > clk at91 drivers pmc_data->chws arrays, split this up.
-> > 
-> > This is a partial split up only for some of the old PMC definitions.
-> > 
-> > Binding splitup was proposed for several reasons:
-> > 
-> > 1) keep the driver code simple, readable, and efficient
-> > 2) avoid accidental array index duplication
-> > 3) avoid memory waste by creating more and more unused array members.
-> > 
-> > Old values are kept to not break dts, and to maintain dt ABI.
-> > 
-> > Link: https://lore.kernel.org/linux-devicetree/20250207-jailbird-circus-bcc04ee90e05@thorsis.com/T/#u
-> > Signed-off-by: Alexander Dahl <ada@thorsis.com>
-> > ---
-> > 
-> > Notes:
-> >     v4:
-> >     - "re-added" some definitions present in hardware but not used in dt
-> >     - reword header comment (at91 -> Microchip) for newer SoCs
-> >     - PMC_UTMI was renamed where appropriate according to datasheets
-> >     
-> >     v3:
-> >     - full splitup for all at91 family SoCs instead of just a few
-> >     
-> >     v2:
-> >     - new patch, not present in v1
-> > 
-> >  .../reset/atmel,at91sam9260-reset.yaml        |  3 ++-
-> >  .../bindings/usb/atmel,at91sam9rl-udc.yaml    |  3 ++-
-> >  .../dt-bindings/clock/atmel,at91rm9200-pmc.h  | 16 ++++++++++++
-> >  .../dt-bindings/clock/atmel,at91sam9260-pmc.h | 16 ++++++++++++
-> >  .../dt-bindings/clock/atmel,at91sam9g45-pmc.h | 16 ++++++++++++
-> >  .../dt-bindings/clock/atmel,at91sam9n12-pmc.h | 16 ++++++++++++
-> >  .../dt-bindings/clock/atmel,at91sam9rl-pmc.h  | 16 ++++++++++++
-> >  .../dt-bindings/clock/atmel,at91sam9x5-pmc.h  | 16 ++++++++++++
-> >  include/dt-bindings/clock/atmel,sama5d2-pmc.h | 20 ++++++++++++++
-> >  include/dt-bindings/clock/atmel,sama5d3-pmc.h | 16 ++++++++++++
-> >  include/dt-bindings/clock/atmel,sama5d4-pmc.h | 17 ++++++++++++
-> >  .../dt-bindings/clock/microchip,sam9x60-pmc.h | 15 +++++++++++
-> >  .../dt-bindings/clock/microchip,sam9x7-pmc.h  | 19 ++++++++++++++
-> >  .../clock/microchip,sama7d65-pmc.h            | 26 +++++++++++++++++++
-> >  .../dt-bindings/clock/microchip,sama7g5-pmc.h | 23 ++++++++++++++++
+We can remove vexpress-v2f-1xv7-ca53x2.dts because it is highly outdated and
+relies on an FPGA tile setup. Replicating this environment is likely
+impossible since the original bitmap files may no longer be available
+easily.
+
+> 2 fixes the last DT schema warning on 64-bit Arm Ltd boards. Yay! For 
+> 32-bit boards, this cuts the remaining warnings in ~half.
 > 
-> I miss the "split" part. You only added defines, shouldn't you remove
-> them from other binding?
+> I verified the config-bus devices still probe after moving 'mcc' node 
+> with arm/vexpress-v2p-ca15-tc1.dts on QEMU.
+> 
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+> Rob Herring (Arm) (7):
+>       dt-bindings: arm: vexpress-sysreg: Add "mcc" child node
 
-This is done later in the series in
-[PATCH v4 16/16] dt-bindings: clock: at91: Remove old PMC definitions.
+I assume you will take the DT bindings via your tree.
 
-Greets
-Alex
+>       ARM: dts: arm/vexpress: Move "arm,vexpress,config-bus" node into sysreg node
+>       ARM: dts: arm/vexpress-v2m: Move regulator and led nodes out of bus
+>       ARM: dts: arm: Use standard node names
+>       ARM: dts: arm: Add missing "#dma-cells"
+>       ARM: dts: arm/vexpress: Fix Cortex-A15 GIC compatibles
+>       ARM: dts: arm-realview-eb-mp: Move "pmu" node to top-level
+> 
+>  .../devicetree/bindings/arm/vexpress-sysreg.yaml   |   8 +
+>  arch/arm/boot/dts/arm/arm-realview-eb-mp.dtsi      |  20 +-
+>  arch/arm/boot/dts/arm/arm-realview-eb.dtsi         |   8 +-
+>  arch/arm/boot/dts/arm/arm-realview-pb1176.dts      |   8 +-
+>  arch/arm/boot/dts/arm/arm-realview-pb11mp.dts      |   6 +-
+>  arch/arm/boot/dts/arm/arm-realview-pbx.dtsi        |  10 +-
 
+Linus,
+
+Do you want to take this series via your tree or prefer me to take it ?
+
+>  arch/arm/boot/dts/arm/integrator.dtsi              |   2 +-
+>  arch/arm/boot/dts/arm/integratorap-im-pd1.dts      |   2 +-
+>  arch/arm/boot/dts/arm/integratorap.dts             |   2 +-
+>  arch/arm/boot/dts/arm/integratorcp.dts             |   4 +-
+>  arch/arm/boot/dts/arm/mps2-an385.dts               |   2 +-
+>  arch/arm/boot/dts/arm/mps2-an399.dts               |   2 +-
+>  arch/arm/boot/dts/arm/mps2.dtsi                    |   4 +-
+
+These MPS2 files may get deleted soon, but shouldn't be a problem.
+
+>  arch/arm/boot/dts/arm/versatile-ab.dts             |  11 +-
+>  arch/arm/boot/dts/arm/versatile-pb.dts             |   4 +-
+>  arch/arm/boot/dts/arm/vexpress-v2m-rs1.dtsi        | 146 +++++-----
+>  arch/arm/boot/dts/arm/vexpress-v2m.dtsi            | 322 ++++++++++-----------
+>  arch/arm/boot/dts/arm/vexpress-v2p-ca15-tc1.dts    |   9 +-
+>  arch/arm/boot/dts/arm/vexpress-v2p-ca15_a7.dts     |   9 +-
+>  arch/arm/boot/dts/arm/vexpress-v2p-ca5s.dts        |   4 +-
+>  arch/arm/boot/dts/arm/vexpress-v2p-ca9.dts         |   2 +-
+>  21 files changed, 298 insertions(+), 287 deletions(-)
+
+In case, Linus W prefers to it, for the whole series:
+
+Acked-by: Sudeep Holla <sudeep.holla@kernel.org>
+
+-- 
+Regards,
+Sudeep
 
