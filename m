@@ -2,75 +2,102 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EC81606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 05:57:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6F2B606A328
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 06:02:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sTmZLnn8
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xJPnTXoM;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=r3ZVLrf1;
+	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=FBokbQc2
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=V5Lnobb+4I39QfB84s55NYKIPzzSfTvTzIQ5ko8LurA=; b=sTmZLnn8MecFoU
-	jAZermY+4XHGIHDnBgzHUrzXea3Rf5EQlUYOgxgpYOLkhy0YI3URVwO8sk2CX6OPnD55n8QYzHicx
-	k2IV4V1Sa77Tk3CNSHluwJ7uOYi02Vcz45ZUwzZ5WhYhCqnvSOQ8sAYDNRGoy5KmhbiX6aeqVtS3l
-	RYROfJZ0QhA39tXhVBXbMbjPdVaV9KmRbCFkg5pG9zqA8a0BXJxeaxb2Xj3QZsUFn0IsCTKJNY7CV
-	6RiqERzanHSwGcuY1T2TggJjx7b6AZadakBS00l0G7umVPWWuro/+9DmJo9WXjpmwfmTBMCBJrqlw
-	7aQ2bhsDsnLaifFnrQLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=X+wAJ5SyEGYkroaGqjzIjkC1zGT1qeLhu2+ChrpAQmA=; b=xJPnTXoMa7skLO+06JOZ9lwLth
+	lr+vOCzEUDWpPZf0nAHz1Es6482bePPJrTEZgKKrIXqHOQbhVugsUf8dMWCtOlxbMKu8Lv21MB0xd
+	ITHRNwrey7kKUowUcHU3GuUkcaQOdaJXKKNY7VEMNvNarsyS+Ln1Oma/mt28B4yQSbPbxAqBhkG4B
+	kDfmnaWz27YAeyOvIpqQ5GwE4xqZXMrlI/RdsVoR+6oXKiUtrpLumTXDa8O3S1jDa7oflNF3hTBNC
+	mHXp8HAIqBJYZmtYJBc++Wpq3hBxXrt7Up4FNNfoi1u/zUNF8BTZdYPJR+z/hagQeshkHbvssbE5J
+	Z7KFXi4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPCx2-0000000BIpv-0qqT;
-	Fri, 06 Nov 2026 05:57:24 +0000
-Received: from hera.efm.de ([2001:67c:2dc4:3::227])
+	id 1xPD2F-0000000BJFa-3e5V;
+	Fri, 06 Nov 2026 06:02:47 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPCx0-0000000BImk-0B6S;
-	Fri, 06 Nov 2026 05:57:23 +0000
-Received: from hera.efm.de (localhost [IPv6:::1])
-	by hera.efm.de (Postfix) with ESMTPS id 4BCA140C3D59A;
-	Fri,  6 Nov 2026 06:57:15 +0100 (CET)
-Received: from localhost (localhost [IPv6:::1])
-	by hera.efm.de (Postfix) with ESMTP id 30EC6413304F4;
-	Fri,  6 Nov 2026 06:57:15 +0100 (CET)
-Received: from hera.efm.de ([IPv6:::1])
- by localhost (hera.efm.de [IPv6:::1]) (amavis, port 10026) with ESMTP
- id sFwEJI33bHUb; Fri,  6 Nov 2026 06:57:15 +0100 (CET)
-Received: from tpx13-pf5nr32.fritz.box (ip-037-209-109-094.um11.pools.vodafone-ip.de [37.209.109.94])
-	(Authenticated sender: ah@foundata.com)
-	by hera.efm.de (Postfix) with ESMTPSA id 899CE40C3D59A;
-	Fri,  6 Nov 2026 06:57:14 +0100 (CET)
-From: Andreas Haerter <ah@foundata.com>
-To: cnfourt@gmail.com
-Cc: angelogioacchino.delregno@collabora.com,
-	leon.yen@mediatek.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-wireless@vger.kernel.org,
-	lorenzo@kernel.org,
-	lucid_duck@justthetip.ca,
-	matthias.bgg@gmail.com,
-	mingyen.hsieh@mediatek.com,
-	nbd@nbd.name,
-	ryder.lee@mediatek.com,
-	sean.wang@mediatek.com,
-	shayne.chen@mediatek.com,
-	stable@vger.kernel.org,
-	yu-ching.liu@mediatek.com
-Subject: Re: [PATCH] wifi: mt76: mt7925: fix NULL dereference in CSA worker
-Date: Fri,  6 Nov 2026 06:57:09 +0100
-Message-ID: <20261106055710.222567-1-ah@foundata.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261025140123.12056-1-cnfourt@gmail.com>
-References: <20261025140123.12056-1-cnfourt@gmail.com>
+	id 1xPD2E-0000000BJFD-2X67;
+	Fri, 06 Nov 2026 06:02:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=X+wAJ5SyEGYkroaGqjzIjkC1zGT1qeLhu2+ChrpAQmA=; b=r3ZVLrf1KFnGJZWy+ZDVyTidWR
+	tWEdQgmUkcywfeoONkqBZyBEX/ogxEeQjwrW6rjoyPHCS7BFWpTmx/4/h+H1B9xgCCW6NofriDo7e
+	umkEmTj1CrSXI7+htcxj26A/IzRi/4IrOCDmFvcUH64+DKiodPZ+KI0XdWWWMXm4nLPh8uSYIV7vC
+	0hGYTNVghAD3fRJXbF0YT+XNxyRUuwgJaQpQR7TMNL/JmhlWJxh+3K+WDSfRb1CrcDGlqrb9sNXuf
+	HmzcDLyzzQcfCCYQ083Mb0zMwfPn1ffNGGhA8WwUT6mh9rtCOGnhbA7eJNZBNT2HHYnQYtKdI5WhD
+	GjxmZNoQ==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by casper.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xPD2B-00000000OIm-09a4;
+	Fri, 06 Nov 2026 06:02:45 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6A662CtT41385528, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1793944932; bh=X+wAJ5SyEGYkroaGqjzIjkC1zGT1qeLhu2+ChrpAQmA=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=FBokbQc25PMVjZFqNzTHgYWbtxrfjSTniYbS9U+49Cd3vr9lc9RxG8D5KaAarM9A5
+	 WVwuxhqENhvOU8sUPhvYhEscAq6XXTWrC8Tdht6H//helVYSYlTmHbzUgnsYddmvz6
+	 nfGPlTFPhZpG66hgM0h7rM6krrrqbaNDh2jGLcT9DSrDsGPe6XUw9UYaHOxZHjPU3K
+	 hkh8AFT9+dfKk592YmjwPAaP8SX1EUBu6B/zhKPMKSuxhFtyog29thqyxx1OzcKFlC
+	 lhgkGEmv8d4KS2BK0HibO0qSCXMz8eP3Gj/TYjbCqKpdGAVwYW1nNlBCbwiAY2rFZQ
+	 wwJ2HybbqqJjQ==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6A662CtT41385528
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 6 Nov 2026 14:02:12 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 6 Nov 2026 14:01:33 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 6 Nov 2026 14:01:01 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Fri, 6 Nov 2026 14:01:01 +0800
+From: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>,
+	=?utf-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>,
+	=?utf-8?B?QW5kcmVhcyBGw6RyYmVy?= <afaerber@suse.com>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"linux-realtek-soc@lists.infradead.org"
+	<linux-realtek-soc@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] arm64: dts: realtek: Add RTD syscon compatibles
+Thread-Topic: [PATCH] arm64: dts: realtek: Add RTD syscon compatibles
+Thread-Index: AQHda+TWqVDVhi8CqkeHHFl4uLhKrLcgh/Yg
+Date: Fri, 6 Nov 2026 06:01:01 +0000
+Message-ID: <2c1c335b10fd400f9817155ace73cae6@realtek.com>
+References: <20261103224352.862662-1-robh@kernel.org>
+In-Reply-To: <20261103224352.862662-1-robh@kernel.org>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_215722_234222_26EA7464 
-X-CRM114-Status: GOOD (  11.28  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261106_060243_386808_2C411855 
+X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +108,18 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Sun, Oct 25, 2026 at 10:01:18PM +0800, Gris Ge wrote:
-> Reproduced the panic by injecting CSA-less "abort" beacon, works well
-> after patched.
-
-I hit the same oops in normal use, with no injected frames, on a
-ThinkPad X13 Gen 6 (MT7925, 14c3:7925) running Fedora's
-7.2.14-200.fc44.x86_64, not tainted:
-
-  BUG: kernel NULL pointer dereference, address: 0000000000000000
-  Workqueue: phy0 mt7925_csa_work [mt7925_common]
-  RIP: 0010:mt7925_csa_work+0x83/0x160 [mt7925_common]
-  RAX: 0000000000000000 RBX: ffff8eeb5bbb3910 RCX: 0000000000000fa0
-
-The code bytes decode to the dev->new_ctx load followed by the read of
-def.chan for mt7925_set_roc(), and RCX holds the duration of 4000.
-
-The access point announced a channel switch just after a roam:
-
-  10:58:02.90  associated with the new BSS on 5180 MHz
-  10:58:04.05  CTRL-EVENT-STARTED-CHANNEL-SWITCH freq=3D5180 (80 MHz)
-  10:58:04.47  oops
-
-It has happened once. Two earlier channel switches on this machine
-completed normally, and the log does not show what tore the context
-down.
-
-The impact MAY be worth a line in the changelog. The oops lands between
-mt792x_mutex_acquire() and the release, so dev->mt76.mutex stays held
-for good. WiFi did not come back, and at shutdown wpa_supplicant,
-NetworkManager, avahi-daemon and systemd-resolved all survived SIGKILL.
-The machine needed a forced power-off, so the stable tag looks right to
-me.
-
-I read the patch against master and v7.2.14. The chanctx hunks apply to
-v7.2.14 with an offset and mt7925_csa_work() is identical there. I see
-no new lock ordering problem.
-
-I have no reproducer, so I cannot offer a Tested-by.
-
-Thanks,
-Andreas
-
---=20
-foundata GmbH
-Steinh=C3=A4userstr. 20
-76135 Karlsruhe
-
-
-Web: https://foundata.com
-Sitz der Gesellschaft: Karlsruhe
-Registergericht: Amtsgericht Mannheim, HRB 714807
-Gesch=C3=A4ftsf=C3=BChrung: Andreas Haerter
-USt-IdNr.: DE284122682
+PiAic3lzY29uIiBub2RlcyBtdXN0IGhhdmUgc3BlY2lmaWMgY29tcGF0aWJsZSBzdHJpbmdzLiBT
+cGVjaWZpYyBjb21wYXRpYmxlcw0KPiB3ZXJlIGFscmVhZHkgYWRkZWQgdG8gdGhlIGJpbmRpbmdz
+LiBVcGRhdGUgdGhlIERUUyBmaWxlcyB3aXRoIHRoZSBzcGVjaWZpYw0KPiBjb21wYXRpYmxlcyBm
+b3IgdGhlIFJURDEyOTUsIFJURDEzOTUgYW5kIFJURDE2MTkgQ1JULCBJU08sIFNCMiwgbWlzYyBh
+bmQNCj4gU0NQVSB3cmFwcGVyIHN5c2NvbiBibG9ja3MuDQo+IA0KPiBTaWduZWQtb2ZmLWJ5OiBS
+b2IgSGVycmluZyAoQXJtKSA8cm9iaEBrZXJuZWwub3JnPg0KDQpBcHBsaWVkLCB0aGFua3MhDQoN
+CkJlc3QgUmVnYXJkcywNCll1LUNodW4NCg==
 
