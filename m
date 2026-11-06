@@ -2,82 +2,75 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6041E606D80A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 05:57:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EC81606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 05:57:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qcXN07t9;
-	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=jmhID6ig
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sTmZLnn8
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Unsubscribe-Post:List-Owner;
-	bh=Tsu+gAVEuAMnH3kYpDNWmVxw4qxUdbX2SZHDcTmg//0=; b=qcXN07t9GY1CcmSyq49UPJNhym
-	Ixd7ncLyKqJoKRcpr3Q2JpFJieqGhsG3g2dUodepCXjJZheVcptdB/E2sgXFe35+tp1lNeT0TRaIV
-	L8eUqs7UBH1MRTk0yMJHEOQOLfYIlU+RXkVCEALoY3kS+YqDqlCxxC7Qr8jHt63mcwZ7o0NsOmIUX
-	YymRZOYtcgBCmRieFF/VIYWAfjYDrs1l68Bn7wo/58gu7nXh3rw/T7wuzF5yvf6UMiEM2e3GJl7os
-	2zersBIhFV+rHpIZWbOq6POIKJ0MpOT/uWCuwkFahpsufngBf4abptqGr6RnP9l9PnxLYV2YNhP2h
-	tGssqlFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=V5Lnobb+4I39QfB84s55NYKIPzzSfTvTzIQ5ko8LurA=; b=sTmZLnn8MecFoU
+	jAZermY+4XHGIHDnBgzHUrzXea3Rf5EQlUYOgxgpYOLkhy0YI3URVwO8sk2CX6OPnD55n8QYzHicx
+	k2IV4V1Sa77Tk3CNSHluwJ7uOYi02Vcz45ZUwzZ5WhYhCqnvSOQ8sAYDNRGoy5KmhbiX6aeqVtS3l
+	RYROfJZ0QhA39tXhVBXbMbjPdVaV9KmRbCFkg5pG9zqA8a0BXJxeaxb2Xj3QZsUFn0IsCTKJNY7CV
+	6RiqERzanHSwGcuY1T2TggJjx7b6AZadakBS00l0G7umVPWWuro/+9DmJo9WXjpmwfmTBMCBJrqlw
+	7aQ2bhsDsnLaifFnrQLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPCwx-0000000BInR-0DO6;
-	Fri, 06 Nov 2026 05:57:19 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1xPCx2-0000000BIpv-0qqT;
+	Fri, 06 Nov 2026 05:57:24 +0000
+Received: from hera.efm.de ([2001:67c:2dc4:3::227])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPCwu-0000000BIma-32VI;
-	Fri, 06 Nov 2026 05:57:17 +0000
-X-UUID: e4993b3cd9a611f1acbe4559397dec65-20261105
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=Tsu+gAVEuAMnH3kYpDNWmVxw4qxUdbX2SZHDcTmg//0=;
-	b=jmhID6ig9at7V3GbNuu2+5kUY2hCvYVnDVr1Yzlnt+Sqehf+1DE8AP/NNSLHMqbgIfx11AUDZXGKFkl4paTTWW8UjoIvuAwoh33qwd5CezR0OMFhBC0miM6OmKKtgZkp/pmmodg9mlRjj23FDWKJrCYUqMi2l3qprbwNqsTlQTo=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:1cbd2d28-4a79-4839-84dd-2752b5687a64,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:b0318ac,CLOUDID:51eea04d-35c8-4347-8495-7f71032f956e,B
-	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
-	DM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
-	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: e4993b3cd9a611f1acbe4559397dec65-20261105
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
-	(envelope-from <defa.li@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1906028859; Thu, 05 Nov 2026 22:57:04 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Fri, 6 Nov 2026 13:57:01 +0800
-Received: from mbjsdccf07.gcn.mediatek.inc (10.15.20.246) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Fri, 6 Nov 2026 13:57:00 +0800
-From: Defa Li <defa.li@mediatek.com>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Frank Li
-	<Frank.Li@nxp.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: <linux-i3c@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<wsd_upstream@mediatek.com>, <mingchang.jia@mediatek.com>,
-	<yuhan.wei@mediatek.com>, <hao.lin@mediatek.com>, Defa Li
-	<defa.li@mediatek.com>
-Subject: [PATCH] i3c: master: Set I2C client for dynamically attached devices
-Date: Fri, 6 Nov 2026 13:56:10 +0800
-Message-ID: <20261106055637.563626-1-defa.li@mediatek.com>
-X-Mailer: git-send-email 2.43.0
+	id 1xPCx0-0000000BImk-0B6S;
+	Fri, 06 Nov 2026 05:57:23 +0000
+Received: from hera.efm.de (localhost [IPv6:::1])
+	by hera.efm.de (Postfix) with ESMTPS id 4BCA140C3D59A;
+	Fri,  6 Nov 2026 06:57:15 +0100 (CET)
+Received: from localhost (localhost [IPv6:::1])
+	by hera.efm.de (Postfix) with ESMTP id 30EC6413304F4;
+	Fri,  6 Nov 2026 06:57:15 +0100 (CET)
+Received: from hera.efm.de ([IPv6:::1])
+ by localhost (hera.efm.de [IPv6:::1]) (amavis, port 10026) with ESMTP
+ id sFwEJI33bHUb; Fri,  6 Nov 2026 06:57:15 +0100 (CET)
+Received: from tpx13-pf5nr32.fritz.box (ip-037-209-109-094.um11.pools.vodafone-ip.de [37.209.109.94])
+	(Authenticated sender: ah@foundata.com)
+	by hera.efm.de (Postfix) with ESMTPSA id 899CE40C3D59A;
+	Fri,  6 Nov 2026 06:57:14 +0100 (CET)
+From: Andreas Haerter <ah@foundata.com>
+To: cnfourt@gmail.com
+Cc: angelogioacchino.delregno@collabora.com,
+	leon.yen@mediatek.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-wireless@vger.kernel.org,
+	lorenzo@kernel.org,
+	lucid_duck@justthetip.ca,
+	matthias.bgg@gmail.com,
+	mingyen.hsieh@mediatek.com,
+	nbd@nbd.name,
+	ryder.lee@mediatek.com,
+	sean.wang@mediatek.com,
+	shayne.chen@mediatek.com,
+	stable@vger.kernel.org,
+	yu-ching.liu@mediatek.com
+Subject: Re: [PATCH] wifi: mt76: mt7925: fix NULL dereference in CSA worker
+Date: Fri,  6 Nov 2026 06:57:09 +0100
+Message-ID: <20261106055710.222567-1-ah@foundata.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261025140123.12056-1-cnfourt@gmail.com>
+References: <20261025140123.12056-1-cnfourt@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_215716_769809_A73B219F 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261105_215722_234222_26EA7464 
+X-CRM114-Status: GOOD (  11.28  )
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,37 +81,64 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The I2C attach callback allocates a descriptor for clients added after
-the adapter is registered. Store the client in the descriptor after
-attaching it, matching the setup used for board-info devices.
+On Sun, Oct 25, 2026 at 10:01:18PM +0800, Gris Ge wrote:
+> Reproduced the panic by injecting CSA-less "abort" beacon, works well
+> after patched.
 
-Signed-off-by: Defa Li <defa.li@mediatek.com>
----
- drivers/i3c/master.c | 2 ++
- 1 file changed, 2 insertions(+)
+I hit the same oops in normal use, with no injected frames, on a
+ThinkPad X13 Gen 6 (MT7925, 14c3:7925) running Fedora's
+7.2.14-200.fc44.x86_64, not tainted:
 
-diff --git a/drivers/i3c/master.c b/drivers/i3c/master.c
-index 01e05bad8661..690a045bffa0 100644
---- a/drivers/i3c/master.c
-+++ b/drivers/i3c/master.c
-@@ -3467,6 +3467,8 @@ static int i3c_master_i2c_attach(struct i2c_adapter *adap, struct i2c_client *cl
- 	if (ret)
- 		goto out_free_dev;
- 
-+	i2cdev->dev = client;
-+
- 	return 0;
- 
- out_free_dev:
--- 
-2.43.0
+  BUG: kernel NULL pointer dereference, address: 0000000000000000
+  Workqueue: phy0 mt7925_csa_work [mt7925_common]
+  RIP: 0010:mt7925_csa_work+0x83/0x160 [mt7925_common]
+  RAX: 0000000000000000 RBX: ffff8eeb5bbb3910 RCX: 0000000000000fa0
 
+The code bytes decode to the dev->new_ctx load followed by the read of
+def.chan for mt7925_set_roc(), and RCX holds the duration of 4000.
+
+The access point announced a channel switch just after a roam:
+
+  10:58:02.90  associated with the new BSS on 5180 MHz
+  10:58:04.05  CTRL-EVENT-STARTED-CHANNEL-SWITCH freq=3D5180 (80 MHz)
+  10:58:04.47  oops
+
+It has happened once. Two earlier channel switches on this machine
+completed normally, and the log does not show what tore the context
+down.
+
+The impact MAY be worth a line in the changelog. The oops lands between
+mt792x_mutex_acquire() and the release, so dev->mt76.mutex stays held
+for good. WiFi did not come back, and at shutdown wpa_supplicant,
+NetworkManager, avahi-daemon and systemd-resolved all survived SIGKILL.
+The machine needed a forced power-off, so the stable tag looks right to
+me.
+
+I read the patch against master and v7.2.14. The chanctx hunks apply to
+v7.2.14 with an offset and mt7925_csa_work() is identical there. I see
+no new lock ordering problem.
+
+I have no reproducer, so I cannot offer a Tested-by.
+
+Thanks,
+Andreas
+
+--=20
+foundata GmbH
+Steinh=C3=A4userstr. 20
+76135 Karlsruhe
+
+
+Web: https://foundata.com
+Sitz der Gesellschaft: Karlsruhe
+Registergericht: Amtsgericht Mannheim, HRB 714807
+Gesch=C3=A4ftsf=C3=BChrung: Andreas Haerter
+USt-IdNr.: DE284122682
 
