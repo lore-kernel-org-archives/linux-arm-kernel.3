@@ -2,64 +2,73 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBE3F606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 11:01:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2CA4606A333
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 11:02:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uomEEPLL;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=J8N5T5xe
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=h93bsfjv;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=IXdLbkhB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=ZIHJgBIecluMYLROh71YXq+HCih/5D9ly7hK71I8Bb4=; b=uomEEPLLbSAHv+
-	BsNPcV7/oTPHWMZpF6iAvv/vfFHBEd6EyrpRwuosNZfnM37oEYz0DArVhbl9Tf33fF+v2vyvWIvi3
-	7+cKsb8td+vACcBY3GJbMSVVVoZkR43h8VEDk2WpGtHMAqTxRbtgx4loLrTIqF4KqJn2Ol+UL1AQk
-	sN3KLhX3MUwEMLmsi9zAtY8aTh6aC6dXfWp5F34DTd6u8FOfS7ay0iVb4ghdN9b81SDhrZZi29gye
-	4JIg+OPkHmYeissvHYM+gTMfdDcOQjvQjA7Relv8dVT6gzQd3ns8rPHjR+j0ymTUQxoTW/2plS2m+
-	6Kksp3MQSzvxHriYkjrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=1EX2YTA7N1m8201rWClNkOLoSBkj+pXHUt+FjNqM5s4=; b=h93bsfjvNe6clbJlgp01fHCF6a
+	3HEeSJ21lKWFg0XCHJUILNpciH9dkrXgElrtKCxUoUJw1OSadzoHvjj+n7QWAJ4X4dMQ+v90IvEcZ
+	tLrGD+5gnjQdC++RVi3cnu+ebw4HtR8jkUqQx/dBqukurPuP8grsLTr3W/wMxugPI5PKJuBWOb8ZS
+	NQPhiHgDfNRW6AYWMAZbHXxxkkeBCNyuk/VDaINEUsZaepR5+eqcDwIxr3snlyIe6PSeR9tuQ6OrA
+	CwemcxsfvHvi8wvCY7SVel7Oa+8JXKOJkNh0xbex1oxAKts+kqamE2OxygJTeq0Vjzp3owVhDcqyJ
+	mnH7vflg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHha-0000000C4rf-1WV1;
-	Fri, 06 Nov 2026 11:01:46 +0000
+	id 1xPHiN-0000000C50T-29nY;
+	Fri, 06 Nov 2026 11:02:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHhY-0000000C4r9-0n9B
+	id 1xPHiJ-0000000C4yi-21Kr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 11:01:45 +0000
+	Fri, 06 Nov 2026 11:02:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DD1AF1476;
-	Fri,  6 Nov 2026 03:01:39 -0800 (PST)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C5C4B3F673;
-	Fri,  6 Nov 2026 03:01:41 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 858CB1650;
+	Fri,  6 Nov 2026 03:02:25 -0800 (PST)
+Received: from e142392.arm.com (e142392.arm.com [10.2.213.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C208D3F673;
+	Fri,  6 Nov 2026 03:02:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793962903; bh=tuFbUaRK+W1wBzd5BZD3FUKT3qSXzJlu2M6LMGLUW8U=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=J8N5T5xe0WmE3JnueQsHlPV8nwzp8UA3pm5KFuiPkGTGALZ2nXy3Nqzla5vZVZySP
-	 hK8ywbnVYFdQLEDgfaOPtw+r84YwAglMzJwl4sDpTysEuUyv7KrF8Wrrpn3YT2Qk8w
-	 68/nUODgpukEWrpd/ejDVu9hZ2MkuCbSNjcoRmTo=
-Message-ID: <28cbd086-af52-47c4-9e71-6957ab8caf76@arm.com>
-Date: Fri, 6 Nov 2026 11:01:40 +0000
+	t=1793962948; bh=vViXHVIoIW/K//DPywNrgxXC6rqNmWDghWNtpvorf90=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IXdLbkhBeUk/3GjTjz8gzknsqr/4kj0JpHND7lmwR/llHNS/s8WDy/vGxCwPqCAUv
+	 qNSnIjh162159EV7AtA2tqB2EiVb3NrdpSDa2Z4HJaWSxTxCMynmutIanTjxBGP7/h
+	 t3OQ1zlrwiTXg3/kQLIYdW3r0WTMGfjLEdp9E2i4=
+Date: Fri, 6 Nov 2026 11:02:17 +0000
+From: Kristina =?utf-8?Q?Mart=C5=A1enko?= <kristina.martsenko@arm.com>
+To: Linu Cherian <linu.cherian@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-efi@vger.kernel.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, 
+	David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>
+Subject: Re: [RFC 00/12] arm64: Add support for TLBI domains
+Message-ID: <r7vnudhgumcjrhoo7iiv2nckxhhoax6k2d2xlquehfzv3f3dyk@idottvqbcjtr>
+References: <20261001110655.461473-1-kristina.martsenko@arm.com>
+ <upkds2ymzuztqvxxuysm62lxcdv5oa3ji6xrxbnz3yt3vntbp6@rw54ndtnpz3y>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm_mpam: resctrl: Limit num_rmids to the CLOSIDs in
- use
-To: Jinjie Ruan <ruanjinjie@huawei.com>, james.morse@arm.com,
- reinette.chatre@intel.com, fenghuay@nvidia.com, gshan@redhat.com,
- jic23@kernel.org, zengheng4@huawei.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261106081923.2333070-1-ruanjinjie@huawei.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20261106081923.2333070-1-ruanjinjie@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <upkds2ymzuztqvxxuysm62lxcdv5oa3ji6xrxbnz3yt3vntbp6@rw54ndtnpz3y>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_030144_312993_AE21F374 
-X-CRM114-Status: GOOD (  33.90  )
+X-CRM114-CacheID: sfid-20261106_030231_613645_5B6E6482 
+X-CRM114-Status: GOOD (  37.69  )
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,154 +80,80 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Jinjie,
+On Thu, Oct 29, 2026 at 05:36:47PM +0530, Linu Cherian wrote:
+> Hi Kristina,
+> 
+> On Thu, Oct 01, 2026 at 12:06:43PM +0100, Kristina Martšenko wrote:
+> > Hi,
+> > 
+> > This series allows the kernel to use TLBI domains. TLBI domains (FEAT_TLBID) is
+> > an Arm architecture feature that enables a TLB invalidation to target a subset
+> > of CPUs instead of the whole system. It can improve performance on systems with
+> > many CPUs. TLBID is not yet part of the Arm Architecture Reference Manual but
+> > some of it is described in the latest XML [1].
+> > 
+> > The goal of this series is to send TLBI commands only to the CPUs where a
+> > process has run (i.e. where its page tables have been installed). The last
+> 
+> Lets say if we have a TLB domain of 8 cpus and a process has ran on only
+> one cpu, dont we end up broadcasting to all cpus in the domain as the 
+> granularity is at the domain level ?
+> If thats true, would be good to make that clear.
 
-On 06/11/2026 08:19, Jinjie Ruan wrote:
-> On MPAM an RMID is a PMG within a PARTID, so resctrl can only allocate
-> the PMGs of the CLOSIDs it uses. info/L3_MON/num_rmids is instead set
-> to the whole PARTID and PMG space when the monitors are initialised,
-> and halved when CDP is enabled. It reports more RMIDs than resctrl can
-> allocate in two cases:
-> 
-> - With CDP each CLOSID takes two PARTIDs, and resctrl halves the
->   CLOSID count rounding down, while MPAM halves the whole RMID space.
->   With 5 PARTIDs and 2 PMGs resctrl has 2 CLOSIDs and 4 RMIDs, but
->   num_rmids reads 5. The count is too high whenever the number of
->   PARTIDs is odd and there is more than one PMG.
-> 
-> - On a monitor-only system there are no control groups and resctrl
->   only uses the default CLOSID, but num_rmids still covers every
->   PARTID. With 5 PARTIDs and 2 PMGs it reads 10 while only 2 RMIDs
->   can be allocated.
-> 
-> RMID allocation is limited to the CLOSIDs in use, so only the value
-> reported to userspace is too high. Creating as many monitor groups as
-> num_rmids allows fails with -ENOSPC before that number is reached.
-> 
-> Work out the number of CLOSIDs with the rules resctrl applies when it
-> is mounted: schemata_list_add() halves a resource's CLOSID count
-> while CDP is enabled on it, rounding down, closid_init() takes the
-> smallest across the resources, and a monitor-only system has only the
-> default CLOSID. Report (pmg_max + 1) RMIDs for each of those CLOSIDs,
-> counting at monitor initialisation and from
-> resctrl_arch_set_cdp_enabled(), which resctrl calls whenever a mount
-> or unmount enables or disables CDP.
-> 
-> Fixes: 264c285999fc ("arm_mpam: resctrl: Add monitor initialisation and domain boilerplate")
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> Cc: <stable@vger.kernel.org> # 7.1.x
-> Cc: James Morse <james.morse@arm.com>
-> Cc: Ben Horgan <ben.horgan@arm.com>
-> Cc: Reinette Chatre <reinette.chatre@intel.com>
-> Cc: Fenghua Yu <fenghuay@nvidia.com>
-> ---
-> v3:
-> - Drop resctrl_arch_set_mon_rmid_count() and count the CLOSIDs in the
->   MPAM driver instead, as Ben suggested.
-> - v2: https://lore.kernel.org/all/20261105123304.2281987-1-ruanjinjie@huawei.com/
-> v2:
-> - Also fix num_rmids on monitor-only systems, as Ben suggested.
-> - Retitle from "arm_mpam: Round the CDP RMID count down to whole CLOSIDs".
-> - v1: https://lore.kernel.org/all/20261104101622.563280-1-ruanjinjie@huawei.com/
-> ---
->  drivers/resctrl/mpam_resctrl.c | 45 +++++++++++++++++++++++-----------
->  1 file changed, 31 insertions(+), 14 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index 5468367776e2..6859849f299b 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
-> @@ -191,6 +191,34 @@ static void mpam_resctrl_monitor_sync_abmc_vals(struct rdt_resource *l3)
->  	 */
->  }
->  
-> +/* The RMID count follows the CLOSIDs resctrl uses. */
-> +static void mpam_resctrl_set_num_rmid(void)
-> +{
-> +	struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_L3];
-> +	struct rdt_resource *l3 = &res->resctrl_res;
-> +	enum resctrl_res_level rid;
-> +	u32 num_closid = UINT_MAX;
-> +
-> +	for_each_mpam_resctrl_control(res, rid) {
-> +		u32 res_num_closid;
-> +
-> +		if (!res->resctrl_res.alloc_capable)
-> +			continue;
-> +
-> +		res_num_closid = mpam_partid_max + 1;
-> +		if (res->cdp_enabled)
-> +			res_num_closid /= 2;
-> +
-> +		num_closid = min(num_closid, res_num_closid);
-> +	}
+Yes that’s true. Linux can’t change the domains and the smallest domain
+can contain 8 (or more) CPUs. I’ll add a note about it in the cover
+letter to make it clear.
 
-There are global variables mpam_partid_max, cdp_enabled and a helper resctrl_arch_alloc_capable().
-Using these should make this simpler.
+> > patch explains a bit about how it works. This is an RFC since I'm not familiar
+> > with the kernel's TLB/mm code and I'd like feedback on whether the general
+> > approach is correct.
+> > 
+> > A few notes and open questions:
+> > 
+> >   * Domains are described in a new "TLBI" ACPI table. This is not yet part of
+> >     the ACPI specification. There was an initial proposal [2] but this series
+> >     uses a newer WIP version of the table that aims to be published by the end
+> >     of the year.
+> > 
+> >   * There is currently no device tree binding since the feature is mainly meant
+> >     for server-class systems.
+> > 
+> >   * It's also possible to use TLBI domains to limit a KVM guest's TLB
+> >     invalidations to CPUs where the guest has run. I'll try to include that in
+> >     the next version. This series only disables domains for guests.
+> > 
+> >   * With this series a long-running process may eventually run on all CPUs and
+> >     just issue broadcast TLBIs. It may be worth periodically reducing the set
+> >     of CPUs but it's not clear when.
+> 
+> Do you have some thoughts on how we could reduce the set of cpus, to avoid
+> cross domain scheduling ? 
+> IIUC, this should me more of a scheduling decision with domain awareness. 
 
-> +
-> +	/* Monitor-only systems have only the default CLOSID. */
-> +	if (num_closid == UINT_MAX)
-> +		num_closid = 1;
-> +
-> +	l3->mon.num_rmid = (mpam_pmg_max + 1) * num_closid;
-> +}
-> +
->  int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
->  {
->  	u32 partid_i = RESCTRL_RESERVED_CLOSID, partid_d = RESCTRL_RESERVED_CLOSID;
-> @@ -217,11 +245,6 @@ int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
->  	cdp_enabled = enable;
->  	mpam_resctrl_controls[rid].cdp_enabled = enable;
->  
-> -	if (enable)
-> -		l3->mon.num_rmid = resctrl_arch_system_num_rmid_idx() / 2;
-> -	else
-> -		l3->mon.num_rmid = resctrl_arch_system_num_rmid_idx();
-> -
->  	/* The mbw_max feature can't hide cdp as it's a per-partid maximum. */
->  	if (cdp_enabled && !mpam_resctrl_controls[RDT_RESOURCE_MBA].cdp_enabled)
->  		mpam_resctrl_controls[RDT_RESOURCE_MBA].resctrl_res.alloc_capable = false;
-> @@ -238,6 +261,8 @@ int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
->  	if (!cdp_enabled && mpam_resctrl_controls[RDT_RESOURCE_MBA].class)
->  		mpam_resctrl_controls[RDT_RESOURCE_MBA].resctrl_res.alloc_capable = true;
->  
-> +	mpam_resctrl_set_num_rmid();
-> +
+Sorry, the wording is unclear here. This is not about reducing the set
+of CPUs that a process runs on, it’s about optimizing the domain bitmap
+of a process such that it only contains CPUs that the process is active
+on. Currently we only remove domains from the bitmap but never put them
+back, even if the process is no longer running on a given CPU and its
+TLB has been flushed. So we may end up removing all domains except the
+broadcast-all domain.
 
-Why move the location of where num_rmid is set?
+This isn’t trying to avoid cross-domain scheduling or to change
+scheduling at all.
+
+Also, having thought about it some more, I’m not sure if this series
+should try to optimize the domain bitmap at all, since it will require
+synchronizing with the domain update in switch_mm(), which will add
+overhead and needs to be benchmarked on TLBID hardware first (which we
+don’t have yet).
 
 Thanks,
-
-Ben
-
->  	if (enable) {
->  		if (mpam_partid_max < 1)
->  			return -EINVAL;
-> @@ -1344,15 +1369,7 @@ static int mpam_resctrl_monitor_init(struct mpam_resctrl_mon *mon,
->  	l3->name = "L3";
->  	l3->mon_scope = RESCTRL_L3_CACHE;
->  
-> -	/*
-> -	 * num-rmid is the upper bound for the number of monitoring groups that
-> -	 * can exist simultaneously, including the default monitoring group for
-> -	 * each control group. Hence, advertise the whole rmid_idx space even
-> -	 * though each control group has its own pmg/rmid space. Unfortunately,
-> -	 * this does mean userspace needs to know the architecture to correctly
-> -	 * interpret this value.
-> -	 */
-> -	l3->mon.num_rmid = resctrl_arch_system_num_rmid_idx();
-> +	mpam_resctrl_set_num_rmid();
->  
->  	if (type == QOS_L3_MBM_TOTAL_EVENT_ID) {
->  		int err;
-
+Kristina
 
