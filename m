@@ -2,104 +2,92 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C812606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 02:30:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59437606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 02:40:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=LiKNRFvy;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AhcTNZOs
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=urAHHqpP;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=oF1Jj9TU
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=3Cjh5kJivjhoi379WZ/ExYbSeX/mtBBoq1mcspo2n18=; b=LiKNRFvyvu/YKE
-	sy+tV/X73tIdj1fr1kN3ayoQCpbO6gw7eTvxKKu98tpIE9Q/XDHfcOYkImh1Dtx10oYJYOYDizNDf
-	TuJWOla/4gZcgMUYARo4DbiwS0qeRio8qNTS950YGi+zvH0zCg4+biYSLszmgpNcWvsSK5/L2ivvL
-	qIs/9htdTZXYYCCLy17A1+3i/DiDyd6iq4qyFfq1btVkcJ3QJjUXq/AZvbnahL610Z4Ff2hFCjUBU
-	ia561ZKe0GZwhx3Xbc22+519e+Ttgh2TJsAJDcN1xBdlKDV9Er2omfkJBKAzR0DEVD1SibDdt5ROf
-	IuFGKaAAYDecQ1mhaAhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=carvPggkXb52nq1kon8OUgYNoFEqAoo0OSAHcurKhgg=; b=urAHHqpPv59c17K9S21XNoB+CC
+	7n3xVdZ/5QpLk9sQk6mt66tt8fbzyoml10fKa5SwWEpJgFiWKMnL1xn6/bfiih3hCOAooy/jviwlm
+	jgFOt/KlC39lJlu4IA9aGE+UAZMcRVQ8t3lfME2ImBDHd5erc09cykEyGkL0djV7dcMSNf3ZBX3eJ
+	DaGAHY9XBWafBSjN3CONo3BllEXaNBO3LtSvZUqhbefNDlGX5HhEhYjfJsbKTX7iO5UxyOGA3JmJ7
+	uk1fbmLZ5wU4rissdsLMtZRq5yNj1m/HcHnvLkmzkHsdkzCcBMESPilFGz7W6xEJM363vTBXa7Qhd
+	kHbQvjiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP9iE-0000000B54d-32Bh;
-	Fri, 06 Nov 2026 02:29:54 +0000
-Received: from mail-dy1-x1335.google.com ([2607:f8b0:4864:20::1335])
+	id 1xP9rz-0000000B6Ki-2zBN;
+	Fri, 06 Nov 2026 02:39:59 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP9iB-0000000B53R-3soN
+	id 1xP9rx-0000000B6K1-0l5w
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 02:29:53 +0000
-Received: by mail-dy1-x1335.google.com with SMTP id 5a478bee46e88-36d6765756fso244318eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 18:29:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793932191; x=1794536991; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3Cjh5kJivjhoi379WZ/ExYbSeX/mtBBoq1mcspo2n18=;
-        b=AhcTNZOsOLaT7rhQzqVK4Ngi+MDDeUwqooJfrVh5VHfU+jLG2BOYYKOhkGhcve6xJJ
-         qnu1l4JBiFUSxiMpo1kTcRR6vcUYu/85LnCwzqmguNYp5g7+rfyv19qqHJcsCEVeBM9S
-         SWo3+6OSUX2CKNg63s6io9jZIc6gxGjBe7q9QX7FUS09eUFKFmHi0NovWoSxZAMEpmJP
-         b01hQmPbwQkiQEOkaLIwr+26A7U5BEtBZsh04tfJqP7ri+RqHK/G92+W/ltVeRQCNGRI
-         qmtqT9AtXS0RhrhXXCIRfbjmuuzoWFLIynzgriJoKk9m0QEG1FsrPFSpe1unjgOmmrvf
-         TV3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793932191; x=1794536991;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3Cjh5kJivjhoi379WZ/ExYbSeX/mtBBoq1mcspo2n18=;
-        b=1vTwMlwgwgvdRolPA1JWQBIQV8QkwC7Yrt2PhcMFxfyPFEoNUWQ+o7uG3QMISqWdKO
-         reKGoPKzRJqSNL5XQGVE+7IuyqE5pllJbbKSklTYQazSjb/1CmZNwCtoQKb4iMq/gDHw
-         /ZsflUAPDZN+MIhUS2Swz0aiX8p6rVAafLp52Bx2CadXE3Zdhd6uLge6bcYGRHbkq+EM
-         eL8LnZOmhUxO6r/2KHo3CJYLpaWO/NOdDiWZLhcZoP+eNtho61li2Z+fBoQJd8yS+tQR
-         5Z3ZieTYY+KfhDLNy6gHHYrXrG1sMPM4pEu/yh9vSqkEGVAfjxQG6DWInIFFAx7p5jCF
-         lTCA==
-X-Forwarded-Encrypted: i=1; AKwUvBz8S3H97b/HXfkebP60HVpJimdfTuGHqZX71jY6G0QBKzR/NurWUcaPE3bykE8VL4Soxpmp12aabcKU5WW8GI2f@lists.infradead.org
-X-Gm-Message-State: APuU4Z9zzBIzR8RiuUxJAKDGLxFTU6SI0rz/+eEJpXrX67Qx4I7u8vO3
-	582U78UKB3p/U5yWLgwBDR0U5LzuyAlLqlEIhuQ3M4xDdqRWKHvn9rTD
-X-Gm-Gg: AYBFou29JzyxI2rZBD1U9ejLRFtlXyK0Ul2Hv3YTAkeMeZ7Jls0V/lNwG4rIba9/jIF
-	RSNzUqNxzhO5xW1UxXPfUtK8DbvhfDgKfnpeMotKouZz7Zkm3B5x+0sBvJKSUck65ge2aUaU9Z/
-	fBHmOj3lOCxU2ZqZP1CB5yAo3G2vWUDHTkWjND8dDypDkdGqUs/Y9q5laTZax1suUxloMIAM3vw
-	f8G11OaB8cF8ZHRkDwS2tO+W1n5KnkoWQ35s9zuLNbwq3Nw62sPW6sReEodEIrQlTpOBnEtWrG/
-	uyCxfKt6Ls8LeQ4zAphfgueM2vGGq7qFhC8LbV+DKoqKSSRxvm7TF0w/3bH4so+7x8Txmoa1MyD
-	QSVCZEcp5M60pg/3Q4WHNUf+MUsCWfBSL0X+4bkEK+uuMZoM0NL5IuEh7sAbWEWuJNvoabbnizZ
-	LfAI44HeK14F0Wj//xZ9OrUwXvhnViwTsqU9zAatJ253uY/XdMqDJAaQvhoCe8kEkbtsg/RPm/1
-	TEoMTF+zXsqQsw+g9eNKvkgbj/UJSJVZPYX0tEOoMeFT8rU+itr0alpB0kvEbFZ3QuT826QsOBM
-	8gZcekck6ukE984b1Dz8neYrxdFmf7c0j9oJPcmLFZTsvA==
-X-Received: by 2002:a05:7301:d813:b0:36f:6b99:f94d with SMTP id 5a478bee46e88-36f75b1f80cmr1323131eec.20.1793932190841;
-        Thu, 05 Nov 2026 18:29:50 -0800 (PST)
-Received: from debian.prasanth ([103.183.205.43])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-36fa8e3a47esm1700358eec.6.2026.11.05.18.29.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 18:29:50 -0800 (PST)
-From: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-To: linusw@kernel.org
-Cc: andrew@codeconstruct.com.au,
-	joel@jms.id.au,
-	ryan_chen@aspeedtech.com,
-	billy_tsai@aspeedtech.com,
-	brgl@kernel.org,
-	tan.siewert@9elements.com,
-	linux-aspeed@lists.ozlabs.org,
-	linux-gpio@vger.kernel.org,
-	openbmc@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-Subject: [PATCH v4 2/2] pinctrl: aspeed: Hand over global GPIOP passthrough to local mux controls
-Date: Fri,  6 Nov 2026 07:59:07 +0530
-Message-ID: <20261106022907.10735-3-prasanth.padarthi10@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261106022907.10735-1-prasanth.padarthi10@gmail.com>
-References: <20261105152348.8567-1-prasanth.padarthi10@gmail.com>
- <20261106022907.10735-1-prasanth.padarthi10@gmail.com>
+	Fri, 06 Nov 2026 02:39:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1793932797; x=1825468797;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=9G+m15M8pgygjZiVmHGkqDC8/DoP+cHy6Aw+E24uXWg=;
+  b=oF1Jj9TU2vLesj1whvWviBJ/Zz0oUpMWx2VqVSLie3OfXv/utHnmiscY
+   WQTL4xGTn8E/BNLUA5fkZYf+WwgalgbpmRTA6RxKmwvMZLHGdZMDLMF4P
+   PiEiohGdL0JXdSBY9BYx0G8z46Gm3StLtsPR0GObarX7xH8QUem9yBROF
+   eoUXlsEANrV8TCgfKw6XX00/HljMRc0RWwVj1bHLE+VNj/QwA2QaiZjNj
+   AgfXujsMIizzmEckW23ioluv+3SgdHi0h8Tgqbr4ePMhiPsnG1Daj9Wvu
+   K2sndhNVUBfBjaXwAv9kKWCAB6H4o1db77lMQ2AkroJfA7w5wrXst2Ta7
+   w==;
+X-CSE-ConnectionGUID: SpnGtk40Q4+hcuxGxHu9mA==
+X-CSE-MsgGUID: 59FjIuuXTJ+lgEltQGiURA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11957"; a="2642945"
+X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
+   d="scan'208";a="2642945"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 18:39:56 -0800
+X-CSE-ConnectionGUID: KS9u3FBUTWWX+np6X1wz6Q==
+X-CSE-MsgGUID: UVNMrYxjTwqQ+PgcFopzdQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
+   d="scan'208";a="7293755"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 05 Nov 2026 18:39:52 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xP9rn-00000000nCp-1GFE;
+	Fri, 06 Nov 2026 02:39:47 +0000
+Date: Fri, 6 Nov 2026 10:39:36 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alexander Dahl <ada@thorsis.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Ryan Wanner <ryan.wanner@microchip.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Mihai Sain <mihai.sain@microchip.com>,
+	Manikandan Muralidharan <manikandan.m@microchip.com>,
+	Durai Manickam KR <durai.manickamkr@microchip.com>
+Subject: Re: [PATCH v4 05/16] clk: at91: Allow enabling main_rc_osc through DT
+Message-ID: <202611061036.HmCbW9MI-lkp@intel.com>
+References: <20261105110715.2486432-6-ada@thorsis.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261105110715.2486432-6-ada@thorsis.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_182951_973329_98625557 
-X-CRM114-Status: GOOD (  22.93  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261105_183957_285910_41E03476 
+X-CRM114-Status: GOOD (  13.36  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,238 +98,340 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On B650D4U, GPIO-only host power control fails when SCU51C[9]
-enables GPIOP passthrough, even after the normal GPIO request path
-clears the individual SCU4BC selections.
+Hi Alexander,
 
-Transfer globally selected GPIOP0-P5 THRU roles to SCU4BC[29:24]
-before registering the controller, then clear the active shared
-sources. Leave PWM selection and the strap-source selector unchanged.
-Clear SCU510[28] through SCU514 and verify the shared enables cleared.
+kernel test robot noticed the following build warnings:
 
-If handover fails, retain an instance-local error and reject affected
-GPIO and mux requests before changing their mux state. Check every
-pin in a mux group before calling the shared helper. Retain prepared
-local selections after partial failure rather than blindly restoring
-a shared enable.
+[auto build test WARNING on 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4]
 
-Probe-time normalization policy, concurrent SCU writers and
-post-handover registration failure remain open design questions.
-Electrical continuity, mixed-pair forwarding, protected-write paths,
-PWM coexistence and SCU510[28] hardware handling remain unvalidated.
+url:    https://github.com/intel-lab-lkp/linux/commits/Alexander-Dahl/MAINTAINERS-Add-sam9-sama-to-AT91-SoC-support/20261105-120637
+base:   6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+patch link:    https://lore.kernel.org/r/20261105110715.2486432-6-ada%40thorsis.com
+patch subject: [PATCH v4 05/16] clk: at91: Allow enabling main_rc_osc through DT
+config: arm-defconfig (https://download.01.org/0day-ci/archive/20261106/202611061036.HmCbW9MI-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 812626a41399a1d464a0d69627ab45c83b8ebfb9)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261106/202611061036.HmCbW9MI-lkp@intel.com/reproduce)
 
-The implementation passed remote power-on, remote graceful power-off
-and physical-button power-on tests on B650D4U with an OpenBMC Linux
-6.18.24-based kernel. The rebased version was ARM compile-tested on
-v7.4-rc1 using aspeed_g5_defconfig with AST2600 pinctrl enabled.
-With the managed-registration prerequisite, the v7.4-rc1 version
-also completed one unbind/rebind cycle under generic KASAN on
-B650D4U hardware and in AST2600 QEMU. Host power operations have
-not been retested with the v7.4-rc1 kernel.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611061036.HmCbW9MI-lkp@intel.com/
 
-Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
----
- drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c | 145 ++++++++++++++++++++-
- 1 file changed, 141 insertions(+), 4 deletions(-)
+All warnings (new ones prefixed by >>):
 
-diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c b/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
-index 85d6640ff..be22a9184 100644
---- a/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
-+++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
-@@ -4,7 +4,10 @@
- #include <linux/init.h>
- #include <linux/io.h>
- #include <linux/kernel.h>
-+#include <linux/mfd/syscon.h>
- #include <linux/platform_device.h>
-+#include <linux/slab.h>
-+#include <linux/string.h>
- #include <linux/pinctrl/pinctrl.h>
- #include <linux/pinctrl/pinmux.h>
- #include <linux/types.h>
-@@ -36,6 +39,8 @@
- #define SCU4D8		0x4D8 /* Multi-function Pin Control #23 */
- #define SCU500		0x500 /* Hardware Strap 1 */
- #define SCU510		0x510 /* Hardware Strap 2 */
-+#define SCU514		0x514 /* Hardware Strap 2 Clear */
-+#define SCU51C		0x51c /* Hardware Strap 3 */
- #define SCU610		0x610 /* Disable GPIO Internal Pull-Down #0 */
- #define SCU614		0x614 /* Disable GPIO Internal Pull-Down #1 */
- #define SCU618		0x618 /* Disable GPIO Internal Pull-Down #2 */
-@@ -2743,12 +2748,56 @@ static struct aspeed_pinctrl_data aspeed_g6_pinctrl_data = {
- 	.nconfmaps = ARRAY_SIZE(aspeed_g6_pin_config_map),
- };
- 
-+struct aspeed_g6_probe_data {
-+	struct aspeed_pinctrl_data pdata;
-+	int thru_error;
-+};
-+
-+static bool aspeed_g6_is_thru_pin(unsigned int pin)
-+{
-+	return pin >= AB22 && pin <= AB23;
-+}
-+
-+static int aspeed_g6_gpio_request_enable(struct pinctrl_dev *pctldev,
-+					 struct pinctrl_gpio_range *range,
-+					 unsigned int offset)
-+{
-+	struct aspeed_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
-+	struct aspeed_g6_probe_data *g6 =
-+		container_of(pdata, struct aspeed_g6_probe_data, pdata);
-+
-+	if (g6->thru_error && aspeed_g6_is_thru_pin(offset))
-+		return g6->thru_error;
-+
-+	return aspeed_gpio_request_enable(pctldev, range, offset);
-+}
-+
-+static int aspeed_g6_set_mux(struct pinctrl_dev *pctldev,
-+			     unsigned int function, unsigned int group)
-+{
-+	struct aspeed_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
-+	struct aspeed_g6_probe_data *g6 =
-+		container_of(pdata, struct aspeed_g6_probe_data, pdata);
-+	const struct aspeed_pin_group *pgroup = &pdata->pinmux.groups[group];
-+	unsigned int i;
-+
-+	/* Check the entire group before the shared helper changes any pin. */
-+	if (g6->thru_error) {
-+		for (i = 0; i < pgroup->npins; i++) {
-+			if (aspeed_g6_is_thru_pin(pgroup->pins[i]))
-+				return g6->thru_error;
-+		}
-+	}
-+
-+	return aspeed_pinmux_set_mux(pctldev, function, group);
-+}
-+
- static const struct pinmux_ops aspeed_g6_pinmux_ops = {
- 	.get_functions_count = aspeed_pinmux_get_fn_count,
- 	.get_function_name = aspeed_pinmux_get_fn_name,
- 	.get_function_groups = aspeed_pinmux_get_fn_groups,
--	.set_mux = aspeed_pinmux_set_mux,
--	.gpio_request_enable = aspeed_gpio_request_enable,
-+	.set_mux = aspeed_g6_set_mux,
-+	.gpio_request_enable = aspeed_g6_gpio_request_enable,
- 	.strict = true,
- };
- 
-@@ -2778,15 +2827,103 @@ static const struct pinctrl_desc aspeed_g6_pinctrl_desc = {
- 	.confops = &aspeed_g6_conf_ops,
- };
- 
-+/*
-+ * Experimental: transfer the global GPIOP0-P5 THRU selection to the
-+ * individual mux controls before registering any pinctrl consumers.
-+ * PWM selection is higher priority and is deliberately left unchanged.
-+ *
-+ * Do not undo the local selections on error: a shared enable may already
-+ * have cleared. Keeping the equivalent local selections preserves routing
-+ * while rejecting affected requests, rather than granting an unsafe GPIO.
-+ * Signal continuity during this transfer still needs hardware validation.
-+ */
-+static int aspeed_g6_thru_handover(struct regmap *scu)
-+{
-+	const u32 local_mask = GENMASK(29, 24);
-+	unsigned int strap2, strap3, local;
-+	int ret;
-+
-+	ret = regmap_read(scu, SCU510, &strap2);
-+	if (ret)
-+		return ret;
-+	ret = regmap_read(scu, SCU51C, &strap3);
-+	if (ret)
-+		return ret;
-+
-+	if (!(strap2 & BIT(28)) &&
-+	    ((strap2 & BIT(30)) || !(strap3 & BIT(9))))
-+		return 0;
-+
-+	/* Preserve every globally selected role, including under PWM. */
-+	ret = regmap_update_bits(scu, SCU4BC, local_mask, local_mask);
-+	if (ret)
-+		return ret;
-+	ret = regmap_read(scu, SCU4BC, &local);
-+	if (ret)
-+		return ret;
-+	if ((local & local_mask) != local_mask)
-+		return -EPERM;
-+
-+	/* Leave the inactive GPIOZ6 source alone in dedicated-strap mode. */
-+	if (!(strap2 & BIT(30)) && (strap3 & BIT(9))) {
-+		ret = regmap_update_bits(scu, SCU51C, BIT(9), 0);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	if (strap2 & BIT(28)) {
-+		/* SCU510 is write-one-set; do not use an ordinary RW clear. */
-+		ret = regmap_write(scu, SCU514, BIT(28));
-+		if (ret)
-+			return ret;
-+	}
-+
-+	ret = regmap_read(scu, SCU510, &strap2);
-+	if (ret)
-+		return ret;
-+	ret = regmap_read(scu, SCU51C, &strap3);
-+	if (ret)
-+		return ret;
-+	if ((strap2 & BIT(28)) ||
-+	    (!(strap2 & BIT(30)) && (strap3 & BIT(9))))
-+		return -EPERM;
-+
-+	return 0;
-+}
-+
- static int aspeed_g6_pinctrl_probe(struct platform_device *pdev)
- {
--	int i;
-+	struct aspeed_g6_probe_data *g6;
-+	struct regmap *scu;
-+	int i, ret;
-+
-+	if (!pdev->dev.parent)
-+		return -ENODEV;
-+	scu = syscon_node_to_regmap(pdev->dev.parent->of_node);
-+	if (IS_ERR(scu))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(scu),
-+				     "No SCU regmap for THRU handover\n");
-+
-+	g6 = devm_kzalloc(&pdev->dev, sizeof(*g6), GFP_KERNEL);
-+	if (!g6)
-+		return -ENOMEM;
-+	memcpy(&g6->pdata, &aspeed_g6_pinctrl_data, sizeof(g6->pdata));
-+
-+	ret = aspeed_g6_thru_handover(scu);
-+	if (ret == -EPROBE_DEFER)
-+		return ret;
-+	if (ret) {
-+		g6->thru_error = ret;
-+		dev_warn(&pdev->dev,
-+			 "THRU handover failed (%d); GPIOP0-P5 mux requests blocked\n",
-+			 ret);
-+	}
- 
- 	for (i = 0; i < ARRAY_SIZE(aspeed_g6_pins); i++)
- 		aspeed_g6_pins[i].number = i;
- 
- 	return aspeed_pinctrl_probe(pdev, &aspeed_g6_pinctrl_desc,
--			&aspeed_g6_pinctrl_data);
-+			&g6->pdata);
- }
- 
- static const struct of_device_id aspeed_g6_pinctrl_of_match[] = {
--- 
-2.47.3
+>> drivers/clk/at91/sama7d65.c:1141:45: warning: variable 'hw' is uninitialized when used here [-Wuninitialized]
+    1141 |         sama7d65_pmc->chws[SAMA7D65_PMC_MAIN_RC] = hw;
+         |                                                    ^~
+   drivers/clk/at91/sama7d65.c:1106:19: note: initialize the variable 'hw' to silence this warning
+    1106 |         struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
+         |                          ^
+         |                           = NULL
+   1 warning generated.
+--
+>> drivers/clk/at91/sama7g5.c:1017:43: warning: variable 'hw' is uninitialized when used here [-Wuninitialized]
+    1017 |         sama7g5_pmc->chws[SAMA7G5_PMC_MAIN_RC] = hw;
+         |                                                  ^~
+   drivers/clk/at91/sama7g5.c:982:19: note: initialize the variable 'hw' to silence this warning
+     982 |         struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
+         |                          ^
+         |                           = NULL
+   1 warning generated.
 
+
+vim +/hw +1141 drivers/clk/at91/sama7d65.c
+
+  1097	
+  1098	static void __init sama7d65_pmc_setup(struct device_node *np)
+  1099	{
+  1100		const char *main_xtal_name = "main_xtal";
+  1101		struct pmc_data *sama7d65_pmc;
+  1102		const char *parent_names[11];
+  1103		void **alloc_mem = NULL;
+  1104		int alloc_mem_size = 0;
+  1105		struct regmap *regmap;
+  1106		struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
+  1107		struct clk_hw *td_slck_hw, *md_slck_hw;
+  1108		static struct clk_parent_data parent_data;
+  1109		struct clk_hw *parent_hws[10];
+  1110		bool bypass;
+  1111		int i, j;
+  1112	
+  1113		td_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "td_slck"));
+  1114		md_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "md_slck"));
+  1115		main_xtal_hw = __clk_get_hw(of_clk_get_by_name(np, main_xtal_name));
+  1116	
+  1117		if (!td_slck_hw || !md_slck_hw || !main_xtal_hw)
+  1118			return;
+  1119	
+  1120		regmap = device_node_to_regmap(np);
+  1121		if (IS_ERR(regmap))
+  1122			return;
+  1123	
+  1124		sama7d65_pmc = pmc_data_allocate(PMC_INDEX_MAX,
+  1125						 nck(sama7d65_systemck),
+  1126						 nck(sama7d65_periphck),
+  1127						 nck(sama7d65_gck), 8);
+  1128		if (!sama7d65_pmc)
+  1129			return;
+  1130	
+  1131		alloc_mem = kmalloc(sizeof(void *) *
+  1132				    (ARRAY_SIZE(sama7d65_mckx) + ARRAY_SIZE(sama7d65_gck)),
+  1133				    GFP_KERNEL);
+  1134		if (!alloc_mem)
+  1135			goto err_free;
+  1136	
+  1137		main_rc_hw = at91_clk_register_main_rc_osc(regmap, "main_rc_osc", 12000000,
+  1138							   50000000);
+  1139		if (IS_ERR(main_rc_hw))
+  1140			goto err_free;
+> 1141		sama7d65_pmc->chws[SAMA7D65_PMC_MAIN_RC] = hw;
+  1142	
+  1143		bypass = of_property_read_bool(np, "atmel,osc-bypass");
+  1144	
+  1145		parent_data.name = main_xtal_name;
+  1146		parent_data.fw_name = main_xtal_name;
+  1147		main_osc_hw = at91_clk_register_main_osc(regmap, "main_osc", NULL,
+  1148							 &parent_data, bypass);
+  1149		if (IS_ERR(main_osc_hw))
+  1150			goto err_free;
+  1151	
+  1152		parent_hws[0] = main_rc_hw;
+  1153		parent_hws[1] = main_osc_hw;
+  1154		hw = at91_clk_register_sam9x5_main(regmap, "mainck", NULL, parent_hws, 2);
+  1155		if (IS_ERR(hw))
+  1156			goto err_free;
+  1157	
+  1158		sama7d65_pmc->chws[SAMA7D65_PMC_MAIN] = hw;
+  1159	
+  1160		for (i = 0; i < PLL_ID_MAX; i++) {
+  1161			for (j = 0; j < PLL_COMPID_MAX; j++) {
+  1162				struct clk_hw *parent_hw;
+  1163	
+  1164				if (!sama7d65_plls[i][j].n)
+  1165					continue;
+  1166	
+  1167				switch (sama7d65_plls[i][j].t) {
+  1168				case PLL_TYPE_FRAC:
+  1169					switch (sama7d65_plls[i][j].p) {
+  1170					case SAMA7D65_PLL_PARENT_MAINCK:
+  1171						parent_hw = sama7d65_pmc->chws[SAMA7D65_PMC_MAIN];
+  1172						break;
+  1173					case SAMA7D65_PLL_PARENT_MAIN_XTAL:
+  1174						parent_hw = main_xtal_hw;
+  1175						break;
+  1176					default:
+  1177						/* Should not happen. */
+  1178						parent_hw = NULL;
+  1179						break;
+  1180					}
+  1181	
+  1182					hw = sam9x60_clk_register_frac_pll(regmap,
+  1183						&pmc_pll_lock, sama7d65_plls[i][j].n,
+  1184						NULL, parent_hw, i,
+  1185						sama7d65_plls[i][j].c,
+  1186						sama7d65_plls[i][j].l,
+  1187						sama7d65_plls[i][j].f);
+  1188					break;
+  1189	
+  1190				case PLL_TYPE_DIV:
+  1191					hw = sam9x60_clk_register_div_pll(regmap,
+  1192						&pmc_pll_lock, sama7d65_plls[i][j].n,
+  1193						NULL, sama7d65_plls[i][0].hw, i,
+  1194						sama7d65_plls[i][j].c,
+  1195						sama7d65_plls[i][j].l,
+  1196						sama7d65_plls[i][j].f,
+  1197						sama7d65_plls[i][j].safe_div);
+  1198					break;
+  1199	
+  1200				default:
+  1201					continue;
+  1202				}
+  1203	
+  1204				if (IS_ERR(hw))
+  1205					goto err_free;
+  1206	
+  1207				sama7d65_plls[i][j].hw = hw;
+  1208				if (sama7d65_plls[i][j].eid)
+  1209					sama7d65_pmc->chws[sama7d65_plls[i][j].eid] = hw;
+  1210			}
+  1211		}
+  1212	
+  1213		hw = at91_clk_register_master_div(regmap, "mck0", NULL,
+  1214						  sama7d65_plls[PLL_ID_CPU][1].hw,
+  1215						  &mck0_layout, &mck0_characteristics,
+  1216						  &pmc_mck0_lock, CLK_GET_RATE_NOCACHE, 5);
+  1217		if (IS_ERR(hw))
+  1218			goto err_free;
+  1219	
+  1220		sama7d65_pmc->chws[SAMA7D65_PMC_MCK0] = hw;
+  1221		sama7d65_mckx[PCK_PARENT_HW_MCK0].hw = hw;
+  1222	
+  1223		parent_hws[0] = md_slck_hw;
+  1224		parent_hws[1] = td_slck_hw;
+  1225		parent_hws[2] = sama7d65_pmc->chws[SAMA7D65_PMC_MAIN];
+  1226		for (i = PCK_PARENT_HW_MCK1; i < ARRAY_SIZE(sama7d65_mckx); i++) {
+  1227			u8 num_parents = 3 + sama7d65_mckx[i].ep_count;
+  1228			struct clk_hw *tmp_parent_hws[8];
+  1229			u32 *mux_table;
+  1230	
+  1231			mux_table = kmalloc_array(num_parents, sizeof(*mux_table),
+  1232						  GFP_KERNEL);
+  1233			if (!mux_table)
+  1234				goto err_free;
+  1235	
+  1236			alloc_mem[alloc_mem_size++] = mux_table;
+  1237	
+  1238			PMC_INIT_TABLE(mux_table, 3);
+  1239			PMC_FILL_TABLE(&mux_table[3], sama7d65_mckx[i].ep_mux_table,
+  1240				       sama7d65_mckx[i].ep_count);
+  1241			for (j = 0; j < sama7d65_mckx[i].ep_count; j++) {
+  1242				u8 pll_id = sama7d65_mckx[i].ep[j].pll_id;
+  1243				u8 pll_compid = sama7d65_mckx[i].ep[j].pll_compid;
+  1244	
+  1245				tmp_parent_hws[j] = sama7d65_plls[pll_id][pll_compid].hw;
+  1246			}
+  1247			PMC_FILL_TABLE(&parent_hws[3], tmp_parent_hws,
+  1248				       sama7d65_mckx[i].ep_count);
+  1249	
+  1250			hw = at91_clk_sama7g5_register_master(regmap, sama7d65_mckx[i].n,
+  1251							      num_parents, NULL, parent_hws,
+  1252							      mux_table, &pmc_mckX_lock,
+  1253							      sama7d65_mckx[i].id,
+  1254							      sama7d65_mckx[i].c,
+  1255							      sama7d65_mckx[i].ep_chg_id);
+  1256	
+  1257			if (IS_ERR(hw))
+  1258				goto err_free;
+  1259	
+  1260			sama7d65_mckx[i].hw = hw;
+  1261			if (sama7d65_mckx[i].eid)
+  1262				sama7d65_pmc->chws[sama7d65_mckx[i].eid] = hw;
+  1263		}
+  1264	
+  1265		parent_names[0] = "syspll_divpmcck";
+  1266		parent_names[1] = "usbpll_divpmcck";
+  1267		parent_names[2] = "main_osc";
+  1268		hw = sam9x60_clk_register_usb(regmap, "usbck", parent_names, 3);
+  1269		if (IS_ERR(hw))
+  1270			goto err_free;
+  1271	
+  1272		parent_hws[0] = md_slck_hw;
+  1273		parent_hws[1] = td_slck_hw;
+  1274		parent_hws[2] = sama7d65_pmc->chws[SAMA7D65_PMC_MAIN];
+  1275		parent_hws[3] = sama7d65_plls[PLL_ID_SYS][PLL_COMPID_DIV0].hw;
+  1276		parent_hws[4] = sama7d65_plls[PLL_ID_DDR][PLL_COMPID_DIV0].hw;
+  1277		parent_hws[5] = sama7d65_plls[PLL_ID_GPU][PLL_COMPID_DIV0].hw;
+  1278		parent_hws[6] = sama7d65_plls[PLL_ID_BAUD][PLL_COMPID_DIV0].hw;
+  1279		parent_hws[7] = sama7d65_plls[PLL_ID_AUDIO][PLL_COMPID_DIV0].hw;
+  1280		parent_hws[8] = sama7d65_plls[PLL_ID_ETH][PLL_COMPID_DIV0].hw;
+  1281	
+  1282		for (i = 0; i < 8; i++) {
+  1283			char name[6];
+  1284	
+  1285			snprintf(name, sizeof(name), "prog%d", i);
+  1286	
+  1287			hw = at91_clk_register_programmable(regmap, name, NULL, parent_hws,
+  1288							    9, i,
+  1289							    &programmable_layout,
+  1290							    sama7d65_prog_mux_table);
+  1291			if (IS_ERR(hw))
+  1292				goto err_free;
+  1293	
+  1294			sama7d65_pmc->pchws[i] = hw;
+  1295		}
+  1296	
+  1297		for (i = 0; i < ARRAY_SIZE(sama7d65_systemck); i++) {
+  1298			hw = at91_clk_register_system(regmap, sama7d65_systemck[i].n,
+  1299						      sama7d65_systemck[i].p, NULL,
+  1300						      sama7d65_systemck[i].id, 0);
+  1301			if (IS_ERR(hw))
+  1302				goto err_free;
+  1303	
+  1304			sama7d65_pmc->shws[sama7d65_systemck[i].id] = hw;
+  1305		}
+  1306	
+  1307		for (i = 0; i < ARRAY_SIZE(sama7d65_periphck); i++) {
+  1308			hw = at91_clk_register_sam9x5_peripheral(regmap, &pmc_pcr_lock,
+  1309								 &sama7d65_pcr_layout,
+  1310								 sama7d65_periphck[i].n,
+  1311								 NULL,
+  1312								 sama7d65_mckx[sama7d65_periphck[i].p].hw,
+  1313								 sama7d65_periphck[i].id,
+  1314								 &sama7d65_periphck[i].r,
+  1315								 sama7d65_periphck[i].chgp ? 0 :
+  1316								 INT_MIN, 0);
+  1317			if (IS_ERR(hw))
+  1318				goto err_free;
+  1319	
+  1320			sama7d65_pmc->phws[sama7d65_periphck[i].id] = hw;
+  1321		}
+  1322	
+  1323		parent_hws[0] = md_slck_hw;
+  1324		parent_hws[1] = td_slck_hw;
+  1325		parent_hws[2] = sama7d65_pmc->chws[SAMA7D65_PMC_MAIN];
+  1326		parent_hws[3] = sama7d65_pmc->chws[SAMA7D65_PMC_MCK1];
+  1327		for (i = 0; i < ARRAY_SIZE(sama7d65_gck); i++) {
+  1328			u8 num_parents = 4 + sama7d65_gck[i].pp_count;
+  1329			struct clk_hw *tmp_parent_hws[8];
+  1330			u32 *mux_table;
+  1331	
+  1332			mux_table = kmalloc_array(num_parents, sizeof(*mux_table),
+  1333						  GFP_KERNEL);
+  1334			if (!mux_table)
+  1335				goto err_free;
+  1336	
+  1337			alloc_mem[alloc_mem_size++] = mux_table;
+  1338	
+  1339			PMC_INIT_TABLE(mux_table, 4);
+  1340			PMC_FILL_TABLE(&mux_table[4], sama7d65_gck[i].pp_mux_table,
+  1341				       sama7d65_gck[i].pp_count);
+  1342			for (j = 0; j < sama7d65_gck[i].pp_count; j++) {
+  1343				u8 pll_id = sama7d65_gck[i].pp[j].pll_id;
+  1344				u8 pll_compid = sama7d65_gck[i].pp[j].pll_compid;
+  1345	
+  1346				tmp_parent_hws[j] = sama7d65_plls[pll_id][pll_compid].hw;
+  1347			}
+  1348			PMC_FILL_TABLE(&parent_hws[4], tmp_parent_hws,
+  1349				       sama7d65_gck[i].pp_count);
+  1350	
+  1351			hw = at91_clk_register_generated(regmap, &pmc_pcr_lock,
+  1352							 &sama7d65_pcr_layout,
+  1353							 sama7d65_gck[i].n, NULL,
+  1354							 parent_hws, mux_table,
+  1355							 num_parents,
+  1356							 sama7d65_gck[i].id,
+  1357							 &sama7d65_gck[i].r,
+  1358							 sama7d65_gck[i].pp_chg_id);
+  1359			if (IS_ERR(hw))
+  1360				goto err_free;
+  1361	
+  1362			sama7d65_pmc->ghws[sama7d65_gck[i].id] = hw;
+  1363		}
+  1364	
+  1365		of_clk_add_hw_provider(np, of_clk_hw_pmc_get, sama7d65_pmc);
+  1366		kfree(alloc_mem);
+  1367	
+  1368		return;
+  1369	
+  1370	err_free:
+  1371		if (alloc_mem) {
+  1372			for (i = 0; i < alloc_mem_size; i++)
+  1373				kfree(alloc_mem[i]);
+  1374			kfree(alloc_mem);
+  1375		}
+  1376	
+  1377		kfree(sama7d65_pmc);
+  1378	}
+  1379	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
