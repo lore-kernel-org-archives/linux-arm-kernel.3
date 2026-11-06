@@ -2,87 +2,86 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8108D606D810
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC60D606D816
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 08:30:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=2ApMrdmH;
-	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=b9PsTNz7
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=dLX5kN74;
+	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=TZaJjITw
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=b25tkkPNAeRRnpE+CMTponpLZXifzTvvMAoqNcMPDG8=; b=2ApMrdmHGw4nrh
-	KoC6jW9IgQP/HkOIt8ABo9wo42JcH7l/q0qwiteMXsH8WQ7gfcR+FKY3D6MoeBwR3msLftznWtWgj
-	W5b+hGfB1aqXydWQyxrZMJdJWInlux+w83XEQM5khgnN5J4wMUa4GXfJokbI1VYPvW2yJphVsRH81
-	1+b3/cY9YAnPaEpTNe2Kd95iTCOqUjZ0WIh+OE5CF45N7LFFN7zUkzLKWdHvjgi4irFWo2V3eHIwE
-	PsTwQVd/5XoemD5qj41qErlRsdiD96ubeIqxaQPpdtoQQ6O9/J40oKunkpahq7QBeRwOsyOC/Us8j
-	rfU893ACs7InMTawKwrQ==;
+	List-Owner; bh=z5PBEnq7VF6lYD89KsFrntzTjwO4LYAxU3lHBv/vL7c=; b=dLX5kN74uNksD7
+	xRAMTSHaL6uJSELta+uyFLqO0U2nSHcV6nj0/E35y0Zk/T+d0hcZQRnpfvSgqf7Er62Xdi1AxypuP
+	Ky+JZZHpWA/rkQDQIYkdMYUV171QIU3fpoHDoDh0BoJqcn5poBDbRMK3dC+lpFI77GefXrkrb+H6Q
+	XdqoErAR59JunugaaNxM8rXpWRX1ITIczpOVO43PWLhufeGwA7RUeYgG3PpZpqJLQcxCcKOP6GZKv
+	tgzgvdrxxmGhE5P9mvlo+l7Li7LG62eAKf7qyTOumDZ2ZajUM1kVrUHGHae9MmFT4zeBEbSExbavC
+	Qb6TKtpW+z35gYugyffQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPFLR-0000000BZqE-0EqG;
-	Fri, 06 Nov 2026 08:30:45 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1xPFLP-0000000BZnZ-2Khj;
+	Fri, 06 Nov 2026 08:30:43 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPFLK-0000000BZfn-2LmC
+	id 1xPFLJ-0000000BZeo-3759
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 08:30:41 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-48e1d0e5dafso904500f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Nov 2026 00:30:38 -0800 (PST)
+	Fri, 06 Nov 2026 08:30:40 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-492f0a1b685so170571f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Nov 2026 00:30:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1793953837; x=1794558637; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1793953836; x=1794558636; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=b25tkkPNAeRRnpE+CMTponpLZXifzTvvMAoqNcMPDG8=;
-        b=b9PsTNz7w9zvD8j7m4caYFKGA5Qm4IyYu0qhTz0ySlMWOYBH67NkYjxFmcucYjxq2a
-         E5dhwjBHRFpqkR37Cbe1K/r/uv23ehwKP4bH4e7QtXZNgf5OAOR+EAz3zTi7CqOtDcAC
-         SZiM4kYc1MNqiAy/AWzZUmNrbLjbpLHL4HtVRFW60pA+zKEjMYDXyRhApufs0triRZd2
-         2tGelmHkUYGd1VSoveE9MzHOvaE4ijnZAa+WzIRM5OxUckUo7Uw4Pvl+PAFqhkmUWiEc
-         sn7M99335G+4KAz4TG4TpzcMPtV+YBzea1VPUpF18SrS5ld8EHN75G3pVaiFKsc8fwN1
-         0XWg==
+        bh=z5PBEnq7VF6lYD89KsFrntzTjwO4LYAxU3lHBv/vL7c=;
+        b=TZaJjITwT/fujtiax5HqxslbxQ6chHl6ICQayE+EHbD/Og0Vmi6uaGC2m1BgbIsLeW
+         rWTcYf9S4883c40QhwjaOwBoIQU87q91jN9XGzUXuLOcRN+49YdhK8dmrX/bhJkrz7jL
+         2GxReI98P1k5xB67mbdPZ1/qi+XTcYR4neFg2B7HbuskFz0J1fZWmIxVNRVzP8prfoGj
+         3857GaVyWCgvA5MtAAA/G1q22zmGM8s36wneAGzErLKEVczQF0X+ljLrICyNvo97koiJ
+         y6CHKC9h82mRUCmtohhyVSIpzCfc5cayufuTgN+RJxU386QfADAl2UqAyaNXgbC/alvr
+         UEtg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793953837; x=1794558637;
+        d=1e100.net; s=20260707; t=1793953836; x=1794558636;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=b25tkkPNAeRRnpE+CMTponpLZXifzTvvMAoqNcMPDG8=;
-        b=sgru1zxfPB+PYuh4xdq69aTYxlfhVcfJw36RN6kNWv7vztT3w4u/w+44Td5mDcHPby
-         CLPre4TIUVplh+O0p/llQe7uZVEstHmY9RxL3+yPLNaEWYe+QEOyBmgXx92usI7IBsi9
-         yIWjm/90KwlHa5Bk3cYKtxw83yF5BmAZ/wekYfvUXuo9h0zggFkPovvfk87+wueJFsEX
-         4l0qArSPnyrs2FMFLAqP6AvoM3zPUfalLcYUrS0JW3uuxEJIR/b6Hx4Ak+gGwTqnG7J2
-         1ppClYRsAofVXK869EkmC/fORu7WrpCPT7sdwebOjPRDJFvuvcxFF37VWFMgjdNin7Fc
-         gO9Q==
-X-Forwarded-Encrypted: i=1; AL+hErEUmleCwI3oeUHCDiHCramWDSqZvbbZB9iECyFyqhyCSH3joEsQE+qmKjdzDao47dy3LCNV+Qy+cPKSFXMeANX1@lists.infradead.org
-X-Gm-Message-State: APuU4Z9nAIMWI3Ib8eEokkBNzFe4rtQ8CJHlFWYjEpU2T9jEJ+xeybsm
-	XHiAw2XU5fo/3aUfmA8XLasqbpH5EI5Xx+eZMtvAWVCCQ2PGHjobEFcYLvc0sYBvzi8=
-X-Gm-Gg: AYBFou3Ftc8nNQu7CxupwPyIgxuRyPTERxGARpc2hILli7BAksF2UolXmhcNYWd/pzT
-	ztm+nPmZRltsKH/l2vgXq+iSWoEchs663+YIdCy5Jt4xJCI+62wHJES1QU7znnrZtfgvZY01ViF
-	oOIsfnw62Gjsuj0M5A5xqR6p3D60mWnFcixkCjT0eSIcLQj6gSwKXQvnjiPUeBXp/6m2PVKKugb
-	UASFOzf71iTDpdQMwlJ+MGZQFIGPDZDIQo5uttCwnSDTa8jZs/2G4Bodl0beHQeHeSmmrjTF31z
-	91BqErY/CNAUobruKOuyTovCX2TNTNFVxjvxb5E2PMmd1XfC49Vn9Z+MWfKHLAs96knztebJw4O
-	mPTC3uv2ovdV+MMhzZbFIzcMuIINYMzD3U9zJeXVjz4oeD0g3UbVmlW9yomJIBIdYf9HSUYYzA4
-	+Vz6ifbkWAyJgoe42lxGgowCQbDYKmsWNxhaoFbViUQ4dq1ANH7qTAMgBWbzPMZx+WFHS0bKt5T
-	2MChYyQj7sxH5NmqfXb55dKk9y25F93bhGbwpPAaPllEJpIVxnJfgl/P8pPquRhSsDmmxQiTDNG
-	D6m7jrCVrLvNPHx5mIvdlg0dfova3qWdOyMLdddUOSxlbYVzEoKNvPvBKYY4az9rEUpKPmChklK
-	hbU24iuIOMSqYJEtWHaMMVDhJhKdRBWvIyuzH+xxCRK1kog==
-X-Received: by 2002:a05:6000:469b:b0:48e:4ad2:32e0 with SMTP id ffacd0b85a97d-4911ab4c665mr5700123f8f.29.1793953836751;
-        Fri, 06 Nov 2026 00:30:36 -0800 (PST)
+        bh=z5PBEnq7VF6lYD89KsFrntzTjwO4LYAxU3lHBv/vL7c=;
+        b=I9l6sc5TezJ2EJVJAnHiBsg3Hf4rQbflrtixFPVTA7EhCzuHDUnPyFlaKaSpiNLElC
+         HkCKVWaInwMWVQJ7LREDIzEtCYeuMNDXyd+zeVcLGZ2h6lfbLaruqXjg3uP7VcnSyTra
+         R62mCkLn1+mEm5VyhlXXwlt9fta3u20Bzblk3GZCu6awMzn01SzjPdKBfjwmsvwFo2Ba
+         pQLbFyqubrip/JjpOd3urktxDApA05Chqhri1cYFgcO0SMTWkdWf2BM4UCI1+XFODQ3n
+         /UXkUkdVR+bOr04mLGjqYs17rdpc28zDP1d660QJYuDzCuDPvIpDIcMeuh+AJe77iquO
+         Z/Fw==
+X-Forwarded-Encrypted: i=1; AL+hErFDRfk7FcZT8ouR+ThDv9X83F54YdedQSG3VbNXDd3MMxCjA7/HZtRfYO8ictWy51mzi3ZZQYXWxCGWNkoxBpYq@lists.infradead.org
+X-Gm-Message-State: APuU4Z9oXqgpamD2kAWic4593F0kO7BxiiW7r8c/AlLiu5zYs+ANBKMj
+	0XMMlG5s56/SvuBErIt1OUxunQiPRU/SAH8xpLMtOSJyECyTFJfiR8xWF3jaAL5yGUg=
+X-Gm-Gg: AYBFou0GALXTSuxEgiJpLRRBYYhMB7d6HFYQZYJt+mCfUvwC7Abg7Ql/wAcsGtDd9JK
+	A/N9nU8szKi6987TZkh0lFZXEBdn6VTS/X+Ifox/hND67/ek8Y5WdU39Zt9PrThvZxxYIk3awii
+	zZgYWU166uuq/IaSJ+IiN2x0D4IYoRqNQSqGFH4TFDhVf9Ci3C8Z62SnlVt720bNVQAxYaUtMQg
+	zQU2TCvqO4AVQ9JcJJeDPW7pbt7VO0m+8e1sAABjS+qUnOVh/swgJsmxi0a5L0boXK3HC1b4Rde
+	E3kl6pj4T1IbM5ukWNpVMXtzaYSumvPDBmQqhApFu0+62RKXNZoEeZ4l54q3KvTxlMCytS0lvjA
+	HfTN0Ey9EeAJYQs919BxIDsg7RagbpfFuF8rz1ARM+Y0L/CCKMFDLOH+c0m1QZtt5NK+0deAcOS
+	nGPtM+dXmlU6tBx7CsN2GJ4mStMrCVPse48MoxJplcamGye0cLqQ0ecGLVqqiQgYAa1vMKNWGs0
+	qWIsd1Ssy00a9qZ+wn0DhDJs1+ePgVlVEd+clNl9+nwlYnUHF+QlV8lel+wpBb3zyzadLfSNCSW
+	/VV0HOox91vI4puSYbfwarqLM0ycthlPOKBNrdYT5dirYJ93xemn659r46IIAQcCUAX+opmQM91
+	YOYiMT7LTq/BqRAnwTbN0eF8dsbhMTTg6IHPB39nZeexmUg==
+X-Received: by 2002:a05:6000:1882:b0:487:27f9:834 with SMTP id ffacd0b85a97d-492778d1739mr3822099f8f.41.1793953835726;
+        Fri, 06 Nov 2026 00:30:35 -0800 (PST)
 Received: from macbook.homenet.telecomitalia.it (host-95-246-144-141.retail.telecomitalia.it. [95.246.144.141])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-492d8472969sm2366839f8f.58.2026.11.06.00.30.35
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-492d8472969sm2366839f8f.58.2026.11.06.00.30.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Nov 2026 00:30:36 -0800 (PST)
+        Fri, 06 Nov 2026 00:30:35 -0800 (PST)
 From: Carlo Caione <ccaione@baylibre.com>
-Date: Fri, 06 Nov 2026 09:30:27 +0100
-Subject: [PATCH 4/7] dt-bindings: clock: Add Amlogic S7 PLL clock
- controller
+Date: Fri, 06 Nov 2026 09:30:26 +0100
+Subject: [PATCH 3/7] clk: meson: pll: Support active-low resets
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261106-upstream-s7-clk-v1-4-7d501d62621f@baylibre.com>
+Message-Id: <20261106-upstream-s7-clk-v1-3-7d501d62621f@baylibre.com>
 References: <20261106-upstream-s7-clk-v1-0-7d501d62621f@baylibre.com>
 In-Reply-To: <20261106-upstream-s7-clk-v1-0-7d501d62621f@baylibre.com>
 To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
@@ -99,8 +98,8 @@ Cc: Jian Hu <jian.hu@amlogic.com>, Chuan Liu <chuan.liu@amlogic.com>,
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_003038_638465_4130F530 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20261106_003037_837904_DFDAEEC2 
+X-CRM114-Status: GOOD (  17.12  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,146 +119,120 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The S7 PLL controller supplies clock sources for the peripheral clock
-tree and receives its reference clocks through firmware-controlled
-oscillator gates.
+The common PLL code assumes that the reset of a PLL is active high. The
+S7 HDMI PLL has an active-low reset, and its lock flag only rises
+reliably when the PLL goes through it.
 
-Add the binding and clock identifiers needed to describe this
-controller and its connections.
+Add a flag for PLLs with an active-low reset so this PLL can use the
+common implementation.
 
 Signed-off-by: Carlo Caione <ccaione@baylibre.com>
 ---
- .../bindings/clock/amlogic,s7-pll-clkc.yaml        | 73 ++++++++++++++++++++++
- include/dt-bindings/clock/amlogic,s7-pll-clkc.h    | 42 +++++++++++++
- 2 files changed, 115 insertions(+)
+ drivers/clk/meson/clk-pll.c | 43 +++++++++++++++++++++++++++++++------------
+ drivers/clk/meson/clk-pll.h |  1 +
+ 2 files changed, 32 insertions(+), 12 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/clock/amlogic,s7-pll-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,s7-pll-clkc.yaml
-new file mode 100644
-index 000000000000..e2b5ba5524a7
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/amlogic,s7-pll-clkc.yaml
-@@ -0,0 +1,73 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright (c) 2026 BayLibre, SAS.
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/amlogic,s7-pll-clkc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/clk/meson/clk-pll.c b/drivers/clk/meson/clk-pll.c
+index 44b33051405f..4ac5e45c1e9b 100644
+--- a/drivers/clk/meson/clk-pll.c
++++ b/drivers/clk/meson/clk-pll.c
+@@ -293,13 +293,37 @@ static int meson_clk_pll_wait_lock(struct clk_hw *hw)
+ 	return -ETIMEDOUT;
+ }
+ 
++static bool meson_clk_pll_in_reset(struct clk_regmap *clk,
++				   struct meson_clk_pll_data *pll)
++{
++	unsigned int rst;
 +
-+title: Amlogic S7 Series PLL Clock Controller
++	if (!MESON_PARM_APPLICABLE(&pll->rst))
++		return false;
 +
-+maintainers:
-+  - Neil Armstrong <neil.armstrong@linaro.org>
-+  - Jerome Brunet <jbrunet@baylibre.com>
-+  - Carlo Caione <ccaione@baylibre.com>
++	rst = meson_parm_read(clk->map, &pll->rst);
 +
-+properties:
-+  compatible:
-+    const: amlogic,s7-pll-clkc
++	return pll->flags & CLK_MESON_PLL_RST_ACTIVE_LOW ? !rst : rst;
++}
 +
-+  reg:
-+    maxItems: 1
++static void meson_clk_pll_reset(struct clk_regmap *clk,
++				struct meson_clk_pll_data *pll, bool reset)
++{
++	if (!MESON_PARM_APPLICABLE(&pll->rst))
++		return;
 +
-+  '#clock-cells':
-+    const: 1
++	if (pll->flags & CLK_MESON_PLL_RST_ACTIVE_LOW)
++		reset = !reset;
 +
-+  clocks:
-+    items:
-+      - description: input fixed pll
-+      - description: input gp0 pll
-+      - description: input hifi pll
-+      - description: input hifi1 pll
-+      - description: input hdmi pll
++	meson_parm_write(clk->map, &pll->rst, reset);
++}
 +
-+  clock-names:
-+    items:
-+      - const: fix
-+      - const: gp0
-+      - const: hifi
-+      - const: hifi1
-+      - const: hdmi
-+
-+required:
-+  - compatible
-+  - reg
-+  - '#clock-cells'
-+  - clocks
-+  - clock-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/amlogic,s7-scmi-clkc.h>
-+
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        clock-controller@8000 {
-+            compatible = "amlogic,s7-pll-clkc";
-+            reg = <0x0 0x8000 0x0 0x1e8>;
-+            #clock-cells = <1>;
-+            clocks = <&scmi_clk CLKID_TOP_PLL_OSC>,
-+                     <&scmi_clk CLKID_TOP_PLL_OSC>,
-+                     <&scmi_clk CLKID_TOP_PLL_OSC>,
-+                     <&scmi_clk CLKID_TOP_PLL_OSC>,
-+                     <&scmi_clk CLKID_HDMI_PLL_OSC>;
-+            clock-names = "fix",
-+                          "gp0",
-+                          "hifi",
-+                          "hifi1",
-+                          "hdmi";
-+        };
-+    };
-diff --git a/include/dt-bindings/clock/amlogic,s7-pll-clkc.h b/include/dt-bindings/clock/amlogic,s7-pll-clkc.h
-new file mode 100644
-index 000000000000..4014314a3eb0
---- /dev/null
-+++ b/include/dt-bindings/clock/amlogic,s7-pll-clkc.h
-@@ -0,0 +1,42 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (c) 2026 BayLibre, SAS.
-+ */
-+
-+#ifndef _DT_BINDINGS_CLOCK_AMLOGIC_S7_PLL_CLKC_H
-+#define _DT_BINDINGS_CLOCK_AMLOGIC_S7_PLL_CLKC_H
-+
-+#define CLKID_FIXED_PLL_VCO			0
-+#define CLKID_FIXED_PLL				1
-+#define CLKID_FCLK_DIV2_DIV			2
-+#define CLKID_FCLK_DIV2				3
-+#define CLKID_FCLK_DIV3_DIV			4
-+#define CLKID_FCLK_DIV3				5
-+#define CLKID_FCLK_DIV4_DIV			6
-+#define CLKID_FCLK_DIV4				7
-+#define CLKID_FCLK_DIV5_DIV			8
-+#define CLKID_FCLK_DIV5				9
-+#define CLKID_FCLK_DIV7_DIV			10
-+#define CLKID_FCLK_DIV7				11
-+#define CLKID_FCLK_DIV2P5_DIV			12
-+#define CLKID_FCLK_DIV2P5			13
-+#define CLKID_GP0_PLL_DIV0P5			14
-+#define CLKID_GP0_PLL_VCO			15
-+#define CLKID_GP0_PLL				16
-+#define CLKID_HIFI_PLL_DIV0P5			17
-+#define CLKID_HIFI_PLL_VCO			18
-+#define CLKID_HIFI_PLL				19
-+#define CLKID_HIFI1_PLL_DIV0P5			20
-+#define CLKID_HIFI1_PLL_VCO			21
-+#define CLKID_HIFI1_PLL				22
-+#define CLKID_HDMI_PLL_DIV0P5			23
-+#define CLKID_HDMI_PLL_VCO			24
-+#define CLKID_HDMI_PLL_OD0			25
-+#define CLKID_HDMI_PLL_OD1			26
-+#define CLKID_HDMI_PLL				27
-+#define CLKID_HDMI_PLL_PIX_DIV5			28
-+#define CLKID_HDMI_PLL_PIX_DIV6P25		29
-+#define CLKID_HDMI_PLL_PIX_DIV7P5		30
-+#define CLKID_HDMI_PLL_PIX			31
-+
-+#endif /* _DT_BINDINGS_CLOCK_AMLOGIC_S7_PLL_CLKC_H */
+ static int meson_clk_pll_is_enabled(struct clk_hw *hw)
+ {
+ 	struct clk_regmap *clk = to_clk_regmap(hw);
+ 	struct meson_clk_pll_data *pll = meson_clk_pll_data(clk);
+ 
+-	if (MESON_PARM_APPLICABLE(&pll->rst) &&
+-	    meson_parm_read(clk->map, &pll->rst))
++	if (meson_clk_pll_in_reset(clk, pll))
+ 		return 0;
+ 
+ 	if (!meson_parm_read(clk->map, &pll->en) ||
+@@ -328,14 +352,12 @@ static int meson_clk_pll_init(struct clk_hw *hw)
+ 		return 0;
+ 
+ 	if (pll->init_count) {
+-		if (MESON_PARM_APPLICABLE(&pll->rst))
+-			meson_parm_write(clk->map, &pll->rst, 1);
++		meson_clk_pll_reset(clk, pll, true);
+ 
+ 		regmap_multi_reg_write(clk->map, pll->init_regs,
+ 				       pll->init_count);
+ 
+-		if (MESON_PARM_APPLICABLE(&pll->rst))
+-			meson_parm_write(clk->map, &pll->rst, 0);
++		meson_clk_pll_reset(clk, pll, false);
+ 	}
+ 
+ 	return 0;
+@@ -365,15 +387,13 @@ static int meson_clk_pll_enable(struct clk_hw *hw)
+ 		return 0;
+ 
+ 	/* Make sure the pll is in reset */
+-	if (MESON_PARM_APPLICABLE(&pll->rst))
+-		meson_parm_write(clk->map, &pll->rst, 1);
++	meson_clk_pll_reset(clk, pll, true);
+ 
+ 	/* Enable the pll */
+ 	meson_parm_write(clk->map, &pll->en, 1);
+ 
+ 	/* Take the pll out reset */
+-	if (MESON_PARM_APPLICABLE(&pll->rst))
+-		meson_parm_write(clk->map, &pll->rst, 0);
++	meson_clk_pll_reset(clk, pll, false);
+ 
+ 	/*
+ 	 * Compared with the previous SoCs, self-adaption current module
+@@ -406,8 +426,7 @@ static void meson_clk_pll_disable(struct clk_hw *hw)
+ 	struct meson_clk_pll_data *pll = meson_clk_pll_data(clk);
+ 
+ 	/* Put the pll is in reset */
+-	if (MESON_PARM_APPLICABLE(&pll->rst))
+-		meson_parm_write(clk->map, &pll->rst, 1);
++	meson_clk_pll_reset(clk, pll, true);
+ 
+ 	/* Disable the pll */
+ 	meson_parm_write(clk->map, &pll->en, 0);
+diff --git a/drivers/clk/meson/clk-pll.h b/drivers/clk/meson/clk-pll.h
+index 949157fb7bf5..8384b75ae38d 100644
+--- a/drivers/clk/meson/clk-pll.h
++++ b/drivers/clk/meson/clk-pll.h
+@@ -29,6 +29,7 @@ struct pll_mult_range {
+ 
+ #define CLK_MESON_PLL_ROUND_CLOSEST	BIT(0)
+ #define CLK_MESON_PLL_NOINIT_ENABLED	BIT(1)
++#define CLK_MESON_PLL_RST_ACTIVE_LOW	BIT(2)
+ 
+ struct meson_clk_pll_data {
+ 	struct parm en;
 
 -- 
 2.56.0
