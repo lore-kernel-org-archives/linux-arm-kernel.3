@@ -2,68 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32215606A32D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 04:50:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3756606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 05:00:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kbWSZJql;
-	dkim=pass (2048-bit key, unprotected) header.d=codeconstruct.com.au header.i=@codeconstruct.com.au header.a=rsa-sha256 header.s=2022a header.b=VdVV4V5Y
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XHnwd996;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=KaxjhaO4
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=kxFpMtQbzKIRxEyj/jc+g0b9VDx9hp1+9az4E+nbn3U=; b=kbWSZJqla7c7LaLAn2SJwAN+qM
-	/BogMx3xrDouU8PqVWyIrM0J7Nl6LA2Zgz8BEbRvrw7Nai4Mboa+JiqbwXMD3Pzdzge0E4ZKeevdF
-	pwq+MmXi8C8RxAL9DtiusOlltOjUsQwCxtq6sPuF75SfCzc7T6TVd8aEvw20Pd1GM0mAvLqflD2Km
-	OIFOJe8NvdZouQzKFCPtrXq1Jy7/OO11riLG7FNRpKTyLyrvnQD3//WraDMLvB9o9AmpJrlIe+JT/
-	dzUinKETJr//ZoJfXaW3qj+QY/N1dh8sykFPBPfbX/+KfPgceILR0ceRSUyNJFjA8r7hb10dJ8ke2
-	43JDl7Pw==;
+	bh=aNmrX4MC6Bh9Qcr+fK7YisQgvLZ4xp/IcO3qvAuBaEA=; b=XHnwd996ZAlVh1+yoat+C9rI6N
+	K+KWk1no4KDWSFrEt642ocVYr4F7K2S6SjuVOCdn7nwKK+5PrONyHpoLf4/CdlDCGtVETfGkXC6g+
+	+xNBBSiPYpjE/vL02Z2fgtW70ohPCL0YP44Xzt8KEQWvHrvPqtZgsSprrU64wUQzb7t350R/8qE+y
+	P4IN/QoF9XvFOeqDXxUUv42JY7snpO4BcudYZspqaAEks0LjcEJgS2+S8Rb2qX+j6oazci8cm0Dd8
+	VazviyY9TuNLMqnDj8A7cmkxrZ0PwwYxvNHWpoKvGRh8G7Sarr+AeUOoXqGJuVlTIj42E+6SA6hFl
+	yKyPJ2Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPBuc-0000000BEXP-2eFY;
-	Fri, 06 Nov 2026 04:50:50 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPBuZ-0000000BEX0-43eY
+	id 1xPC40-0000000BF8r-3uOC;
+	Fri, 06 Nov 2026 05:00:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xPC3y-0000000BF8S-21qN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 04:50:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1793940645;
-	bh=kxFpMtQbzKIRxEyj/jc+g0b9VDx9hp1+9az4E+nbn3U=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=VdVV4V5YyBeklNYMLlTDcpWHCtmgoy7lcLNQr36qF84kCLsoNnb/nc/Hd9v1lTf/W
-	 o7qbp9x44oun7kbQvUe1AOhr/28CoD/9ZLPqBuhRng+BHIx/JHeb6ciGFQoJxTeeJ5
-	 6uIXhQua2Lqsdmq12APk08T5vkuCOZib9/0JV6nZ0DSnQMto9gc1Wu0T8aXW2IVjyD
-	 4vXyYoPEoBWLrCr9l6ecnygTl2IFeqaZfamMw5da2cGnJiDGnq7Jc5yqLvuq7W4oRs
-	 RsM0t4sks6ZqXJ8i6dPi0oTJP+hNR7qCT98HzKgUy21OVHfLmENgNSWZsQUDj3efHO
-	 AmDX4/IYAwGBw==
-Received: from [192.168.68.117] (unknown [180.150.112.139])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 1C32964952;
-	Fri,  6 Nov 2026 12:50:45 +0800 (AWST)
-Message-ID: <7eda59ffde46142602c6d8e425fd4097872ee8c4.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v4 3/3] ARM: dts: aspeed: add Intel JNCRP BMC
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Dawid Glazik <dawid.glazik@linux.intel.com>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley	 <joel@jms.id.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	maciej.lawniczak@intel.com, Andrew Lunn <andrew@lunn.ch>
-Date: Fri, 06 Nov 2026 15:20:44 +1030
-In-Reply-To: <ffb7b028f317a3a2cd1a98b8f454b46a706cee42.1792749922.git.dawid.glazik@linux.intel.com>
-References: <cover.1792749922.git.dawid.glazik@linux.intel.com>
-	 <ffb7b028f317a3a2cd1a98b8f454b46a706cee42.1792749922.git.dawid.glazik@linux.intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Fri, 06 Nov 2026 05:00:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8FB591650;
+	Thu,  5 Nov 2026 21:00:25 -0800 (PST)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3957E3F673;
+	Thu,  5 Nov 2026 21:00:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793941228; bh=zoGeXWJG/zjj6ruzBbMLK2JJ8stAX3zjnqmT8z1h3wk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KaxjhaO4zLWXGCtZ1XhvYm2z/F12nQaoh6L/amZKDbkfaUIpYg0A7vGGZGzK0Mr9m
+	 /0Jttb63Rk+mKMHqyzsR+9wWlsamwgLP3JnBp1KvEeUWSPh9bSqYT6MLHptIxGfLec
+	 hsZfEr+enxuk6yGmzT1JJzOUfNBKWEaJX2M6ece4=
+Date: Fri, 6 Nov 2026 05:00:07 +0000
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Sascha Bischoff <sascha.bischoff@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, 
+	lpieralisi@kernel.org, timothy.hayes@arm.com, fuad.tabba@linux.dev
+Subject: Re: [PATCH v2 10/16] KVM: arm64: gic-v5: Add ITS userspace register
+ access
+Message-ID: <tjeu7wiqhbgo3zukxjupht5jsjg7hjqgnkpivekvem3w5p4ivy@s66rdsewuqw7>
+References: <20261102194454.4086911-1-sascha.bischoff@arm.com>
+ <20261102194454.4086911-11-sascha.bischoff@arm.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261102194454.4086911-11-sascha.bischoff@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_205048_209902_D7FDA8D6 
-X-CRM114-Status: GOOD (  14.18  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261105_210030_630938_250586B1 
+X-CRM114-Status: GOOD (  27.42  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,85 +72,129 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-20.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, 2026-10-26 at 17:40 +0100, Dawid Glazik wrote:
-> Add the initial AST2600 device tree for the Intel JNCRP BMC platform.
-
-Can you please provide more information about the platform design and
-its purpose?
->=20
-> Signed-off-by: Dawid Glazik <dawid.glazik@linux.intel.com>
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+On Mon, Nov 02, 2026 at 07:44:48PM +0000, Sascha Bischoff wrote:
+> Userspace needs access to the emulated GICv5 ITS MMIO state in order
+> to inspect and restore the device state around VM reset and migration.
+> Expose the GICv5 ITS register frame through KVM_DEV_ARM_VGIC_GRP_ITS_REGS.
+> 
+> Reuse the same MMIO register descriptors used by the guest-facing
+> IODEV, but apply the usual userspace access constraints: the ITS base
+> address must have been configured, the register offset must map to an
+> emulated ITS register, and userspace accesses must use the natural
+> 32-bit or 64-bit register alignment.
+> 
+> Add control handling for KVM_DEV_ARM_ITS_CTRL_RESET. The reset is
+> performed while all vCPUs are stopped and while holding the ITS lock,
+> so it cannot race with guest MMIO updates or translation lookups. The
+> reset clears guest-programmed state and cached translations while
+> preserving the advertised ITS capability defaults.
+> 
+> Do not expose GICv5 ITS SAVE_TABLES or RESTORE_TABLES controls. For
+> GICv5, the guest-owned DT and ITTs are the authoritative translation
+> state, and the KVM translation cache is disposable state that can be
+> rebuilt from guest memory.
+> 
+> Restore guest read-only IDR0-IDR2 through dedicated userspace writes,
+> validating the advertised capabilities before changing them. Also
+> allow userspace to restore READ_EVENT_DATAR while keeping guest writes
+> to that result register ignored.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 > ---
-> v4:
-> =C2=A0 - Rebased onto aspeed/arm/dt of bmc/linux.git, no other changes
-> v3:
-> =C2=A0 - Sorted nodes alphabetically
-> =C2=A0 - Sorted properties per dts-coding-style
-> =C2=A0 - Removed lpc-snoop label
-> =C2=A0 - Removed &i3c_global since it's enabled by default
-> =C2=A0 - Added &kcs3 and replaced flash layout with 128MB one
-> =C2=A0 - Restored Reviewed-by from Andrew Lunn, dropped by mistake in v2
-> v2:
-> =C2=A0 - Reviewed-by: Andrew Lunn for nodes: &mdio1, &mac1
-> =C2=A0 - Replace bootargs console=3DttyS4,115200n8 with stdout-path =3D &=
-uart5
-> ---
-> =C2=A0arch/arm/boot/dts/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
-> =C2=A0.../dts/aspeed/aspeed-bmc-intel-jncrp.dts=C2=A0=C2=A0=C2=A0=C2=A0 |=
- 276 ++++++++++++++++++
-> =C2=A02 files changed, 277 insertions(+)
-> =C2=A0create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-intel-jncrp.=
-dts
->=20
-> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed=
-/Makefile
-> index 1e4154f12228..5e685a625883 100644
-> --- a/arch/arm/boot/dts/aspeed/Makefile
-> +++ b/arch/arm/boot/dts/aspeed/Makefile
-> @@ -58,6 +58,7 @@ dtb-$(CONFIG_ARCH_ASPEED) +=3D \
-> =C2=A0	aspeed-bmc-ibm-sbp1.dtb \
-> =C2=A0	aspeed-bmc-ibm-system1.dtb \
-> =C2=A0	aspeed-bmc-intel-avcrp.dtb \
-> +	aspeed-bmc-intel-jncrp.dtb \
-> =C2=A0	aspeed-bmc-intel-s2600wf.dtb \
-> =C2=A0	aspeed-bmc-inspur-fp5280g2.dtb \
-> =C2=A0	aspeed-bmc-inspur-nf5280m6.dtb \
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-jncrp.dts b/arch/a=
-rm/boot/dts/aspeed/aspeed-bmc-intel-jncrp.dts
-> new file mode 100644
-> index 000000000000..e66ea7f00fed
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-jncrp.dts
-> @@ -0,0 +1,276 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +// Copyright 2025 Intel Corporation
+>  arch/arm64/kvm/vgic/vgic-its-v5.c | 371 ++++++++++++++++++++++++++----
+>  1 file changed, 322 insertions(+), 49 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-its-v5.c b/arch/arm64/kvm/vgic/vgic-its-v5.c
+> index b69a1d107c0ae..638ee47f6e27d 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its-v5.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its-v5.c
+> @@ -688,6 +688,70 @@ static void vgic_v5_mmio_write_its_misc(struct kvm *kvm, void *dev, gpa_t addr,
+>  	}
+>  }
+>  
+> +static int vgic_v5_uaccess_write_its_idr(struct kvm *kvm, void *dev,
+> +					gpa_t addr, unsigned int len,
+> +					unsigned long val)
+> +{
+> +	struct vgic_v5_its *its = dev;
+> +	size_t offset = addr & (SZ_64K - 1);
+> +	u64 mmfr0;
 > +
-> +/dts-v1/;
+> +	guard(mutex)(&its->its_lock);
 > +
-> +#include "aspeed-g6.dtsi"
-> +#include <dt-bindings/gpio/aspeed-gpio.h>
+> +	switch (offset) {
+> +	case GICV5_ITS_IDR0:
+> +		if (FIELD_GET(GICV5_ITS_IDR0_DOM, val) !=
+> +		    GICV5_ITS_IDR0_DOMAIN_NON_SECURE ||
+> +		    (val & ~(GICV5_ITS_IDR0_ITSID |
+> +			     GICV5_ITS_IDR0_PA_RANGE | GICV5_ITS_IDR0_DOM)))
+> +			return -EINVAL;
 > +
-> +/ {
-> +	compatible =3D "intel,jncrp-bmc", "aspeed,ast2600";
-> +	model =3D "Intel JNCRP BMC";
+> +		mmfr0 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
+> +		if (FIELD_GET(GICV5_ITS_IDR0_PA_RANGE, val) >
+> +		    cpuid_feature_extract_unsigned_field(mmfr0,
+> +					ID_AA64MMFR0_EL1_PARANGE_SHIFT))
+> +			return -EINVAL;
 > +
-> +	aliases {
-> +		serial4 =3D &uart5;
-> +	};
-> +
-> +	chosen {
-> +		bootargs =3D "earlycon";
+> +		its->idr0.pa_range = FIELD_GET(GICV5_ITS_IDR0_PA_RANGE, val);
 
-Please remove bootargs here, earlycon is for debugging.
+In addition to what Sashiko said, a pa_range change can also affect the
+translation table walk, so I believe we should also invalidate the cache
+here.
 
-Andrew
+Thanks,
+Wei-Lin Chang
+
+> +		its->idr0.its_id = FIELD_GET(GICV5_ITS_IDR0_ITSID, val);
+> +		return 0;
+> +	case GICV5_ITS_IDR1:
+> +		if ((val & ~(GICV5_ITS_IDR1_L2SZ |
+> +			     GICV5_ITS_IDR1_ITT_LEVELS |
+> +			     GICV5_ITS_IDR1_DT_LEVELS |
+> +			     GICV5_ITS_IDR1_DEVICEID_BITS)) ||
+> +		    FIELD_GET(GICV5_ITS_IDR1_DEVICEID_BITS, val) >
+> +		    VITS_V5_DEVICE_ID_BITS)
+> +			return -EINVAL;
+> +
+> +		/*
+> +		 * Userspace can change the DeviceID limit after translations have
+> +		 * been cached. Drop them so the old limit cannot remain in effect.
+> +		 */
+> +		if (its->idr1.device_id_bits !=
+> +		    FIELD_GET(GICV5_ITS_IDR1_DEVICEID_BITS, val))
+> +			its_cache_clear_translations(its);
+> +
+> +		its->idr1.device_id_bits = FIELD_GET(GICV5_ITS_IDR1_DEVICEID_BITS,
+> +							 val);
+> +		its->idr1.dt_levels = !!(val & GICV5_ITS_IDR1_DT_LEVELS);
+> +		its->idr1.itt_levels = !!(val & GICV5_ITS_IDR1_ITT_LEVELS);
+> +		its->idr1.l2sz = FIELD_GET(GICV5_ITS_IDR1_L2SZ, val);
+> +		return 0;
+> +	case GICV5_ITS_IDR2:
+> +		if ((val & ~GICV5_ITS_IDR2_EVENTID_BITS) ||
+> +		    FIELD_GET(GICV5_ITS_IDR2_EVENTID_BITS, val) >
+> +		    VITS_V5_EVENT_ID_BITS)
+> +			return -EINVAL;
+> +
+> +		its->idr2.event_id_bits = FIELD_GET(GICV5_ITS_IDR2_EVENTID_BITS,
+> +							 val);
+> +		return 0;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+> +
+>  static void vgic_v5_write_its_dt_reg(struct vgic_v5_its *its, size_t offset,
+>  				     unsigned long val)
+>  {
+
+[...]
 
