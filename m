@@ -2,44 +2,44 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08DD0606D834
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 12:02:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F574606D81E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 12:02:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fIvKORtt;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=rRn/ijYe
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qvM9hg01;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ipnaVFMC
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=O8RkL6vjgz7s3PYbOIeBih+CTzkMDKhpUQb62pbipoc=; b=fIvKORttl50j3Y
-	7cE05AeZaVp/joNeLhoFpDMSzKrQWsfDqQGdtbPL4zDv/P7s2eZrQwd/wvB1OQJ48An6ZvFQ5FRsq
-	S549aJ63NI255LTWMSbSgcTStOqXaF7MeYBxFvrrTHitOedZZBtoCdUPdnr4kuCIbbyQbHSBobyKB
-	6hKmYv3fH5YrkPV703nBRCidJ5X3eedUpWJG8Y85Ey5dCVW1i4vUJwqsjcYkS5U5A2Sf3RfLyIKUZ
-	diuLp+ZxYSaroGH0cpin83B5Z8WpzVj082HFAf4m5zDz4AOfpWwsu0jR+AFjkzDAtxz/X+Lid7e1A
-	iP/zV9dN4cYpsRYqHFbQ==;
+	List-Owner; bh=tsd9j7DQmVwsk7vQj7YFqkd+QENwFYwyAFiOo9ajOok=; b=qvM9hg01hP5sq9
+	fXnuegCnyy1WoCphzEdO2rdAe/z5dBia1SZbXfxXIdD8O71elWsXMd0BvGBP0L82T5FaJ2mNkM1RZ
+	YzU5cvd9wkz8MFvAqJvteHbr1b/5pwl+Mzqdu6IwwKF4Sn/zDkPd6rfSWNIGRc75LiQStLl6QLFRp
+	87cz7n9IrSAfRhxtgtJfBSjMWKM0ygki97SkoBWbMeHD9mFWpyJAa1Aeyvdyxwu8da9NiAMao2P69
+	jW04k3ifuLLMdVSfYds5B7yeKVJjx5bXEwY/CD0GWNrDtipXZR3LDObLd3C63sO/IA3oyQIu+pBCv
+	hRlkuzGsIDFDQ1b+NGrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPIeW-0000000CFOv-05KZ;
-	Fri, 06 Nov 2026 12:02:40 +0000
-Received: from out-14.mta0.migadu.com ([2001:41d0:1004:224b::e] helo=mta0.migadu.com)
+	id 1xPIeZ-0000000CFQx-0UmQ;
+	Fri, 06 Nov 2026 12:02:43 +0000
+Received: from out-15.mta0.migadu.com ([2001:41d0:1004:224b::f] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPIeT-0000000CFMy-2mVY
+	id 1xPIeV-0000000CFNP-0ddm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 12:02:38 +0000
+	Fri, 06 Nov 2026 12:02:40 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=yNefybntTG1L/O8byYfqw9hjpQSNkaHxLxwAmXPvo5I=;
+DKIM-Signature: a=rsa-sha256; bh=sqSqTyRpszyGBYB7Puxj95eSOJmKiJOqpyoy1g3EpU4=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793966555; v=1; x=1794571355;
- b=rRn/ijYeof31L17BBvUIqQ9rbsyPv42zcI1vz8cUu7CveTCLbsnCVzkUy/OM2OGxBYGlcl1s
- 94jDEKAKDK6fxwuTz86sjZ5vngbBnNSGKvN/iFitbMbRakivL6+fbxF3iwW8Sf1tCfTRITu+FWY
- JmrTiEy8DPVJI3vHAcTg3cQg=
+ t=1793966557; v=1; x=1794571357;
+ b=ipnaVFMChFK/kP0xFApf1PWsAKEE7nb4SvQT99mJIZEPPVoEuYjZEieb52tWCsT49enW0aAG
+ N+TSEvwQpKrOYxIhrsM9g01AMQQIGYTmyMjdtMnkAfwSGaQLt8AEqxy5JXTVRfBC3KQDTnnyfLm
+ 6wD2GBYLo2+k3ukrHoTjyR0I=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 4c246dde72db0327;
-	Fri, 06 Nov 2026 12:02:35 +0000
-X-Mizu-Trace-ID: 4c246dde72db0327
+Received: by smtp.migadu.com with ESMTPS id ff037b2ff7a2ece4;
+	Fri, 06 Nov 2026 12:02:37 +0000
+X-Mizu-Trace-ID: ff037b2ff7a2ece4
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: maz@kernel.org,
@@ -52,9 +52,9 @@ Cc: radu@rendec.net,
 	linux-kernel@vger.kernel.org,
 	will@kernel.org,
 	tabba@google.com
-Subject: [PATCH 2/3] irqchip/gic-v3-its: Order table zeroing before the GIC can see it
-Date: Fri,  6 Nov 2026 12:02:20 +0000
-Message-ID: <20261106120221.347309-3-fuad.tabba@linux.dev>
+Subject: [PATCH 3/3] irqchip/gic-v3-its: Clean a non-shareable vPE table to PoC
+Date: Fri,  6 Nov 2026 12:02:21 +0000
+Message-ID: <20261106120221.347309-4-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261106120221.347309-1-fuad.tabba@linux.dev>
 References: <20261106120221.347309-1-fuad.tabba@linux.dev>
@@ -62,8 +62,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_040237_846003_856EEE9B 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20261106_040239_327674_9AE93C4C 
+X-CRM114-Status: GOOD (  10.36  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,66 +83,35 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The ITS driver allocates the GIC's tables as zeroed pages. It exposes
-the ITS tables and the vPE tables with a single store: a relaxed
-GITS_BASER or GICR_VPROPBASER write with Valid set, the relaxed
-GITS_CTLR write that enables the ITS, or a valid level-1 entry for a
-level-2 page. However, on a coherent table the zeroing isn't ordered
-before that store, so the GIC can read the page's previous contents as
-table entries (UNPREDICTABLE: IHI 0069H.b 5.2.1, and GICR_VPROPBASER.Z
-in 12.11). A level-2 page is published at runtime, while the GIC may be
-walking the same level-1 table for other IDs.
+On a GICv4.1 redistributor that doesn't support shareability,
+allocate_vpe_l1_table() points GICR_VPROPBASER at a freshly zeroed
+vPE table with Z and Valid set, but leaves the zeroes in the CPU's
+cache. The redistributor reads the table from memory, where it may
+not be zero, and the spec makes that UNPREDICTABLE (GICR_VPROPBASER.Z,
+IHI 0069H.b 12.11).
 
-Add a dma_wmb() at the end of its_alloc_pages_node(). It orders the
-zeroing before later stores to memory and to MMIO alike.
+Clean the table to PoC when the redistributor is non-shareable, as the
+driver does for its other tables.
 
+Fixes: 846297e11e8ae ("irqchip/gic-v3-its: Handle non-coherent GICv4 redistributors")
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
-
-Notes:
-    herd7 -model aarch64.cat, the ITS modelled as an observer PE that
-    reads a published entry (e), then through it the zeroed page (p):
-    with no barrier the stale read is Sometimes, with dma_wmb()'s
-    DMB OSHST it is Never.
-    
-    AArch64 MP+dmb.st+addr-its-l1
-    {
-    0:X0=p; 0:X1=e; 0:X2=0; 0:X3=1;
-    1:X1=e; 1:X0=p;
-    p=1;
-    }
-     P0          | P1                ;
-     STR X2,[X0] | LDR X4,[X1]       ;
-     DMB OSHST   |                   ;
-     STR X3,[X1] | EOR X5,X4,X4      ;
-                 | LDR X6,[X0,X5]    ;
-    exists (1:X4=1 /\ 1:X6=1)
-    
-    The model puts both PEs in one Inner Shareable domain, so it does
-    not separate ISH from OSH. OSH reaches the GIC whichever domain it
-    is in: DDI0487 B2.10.1.1 says Outer Shareable "applies across both
-    the Inner Shareable and the Outer Shareable shareability domains".
-    
-    The register publishes (GITS_BASER, GITS_CTLR, GICR_VPROPBASER) are
-    the writel() case: the same DMB OSHST ahead of a Device write.
-
- drivers/irqchip/irq-gic-v3-its.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/irqchip/irq-gic-v3-its.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index de1f1b1f26623..badc3843d90ca 100644
+index badc3843d90ca..5b3273e0dfc79 100644
 --- a/drivers/irqchip/irq-gic-v3-its.c
 +++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -234,6 +234,9 @@ static struct page *its_alloc_pages_node(int node, gfp_t gfp,
- 	if (ret)
- 		return NULL;
- 
-+	/* Order the zeroing before any store that exposes the page to the GIC */
-+	dma_wmb();
-+
- 	return page;
- }
- 
+@@ -3012,6 +3012,8 @@ static int allocate_vpe_l1_table(void)
+ 	if (rdists_support_shareable()) {
+ 		val |= GICR_VPROPBASER_RaWb;
+ 		val |= GICR_VPROPBASER_InnerShareable;
++	} else {
++		gic_flush_dcache_to_poc(page_address(page), np * PAGE_SIZE);
+ 	}
+ 	val |= GICR_VPROPBASER_4_1_Z;
+ 	val |= GICR_VPROPBASER_4_1_VALID;
 -- 
 2.47.3
 
