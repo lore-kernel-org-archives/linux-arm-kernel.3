@@ -2,44 +2,44 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99A26606A33B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 10:47:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B64E606D80D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 10:47:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=swDPzmKI;
-	dkim=pass (1024-bit key, unprotected) header.d=student.uibk.ac.at header.i=@student.uibk.ac.at header.a=rsa-sha256 header.s=prod24a header.b=QV5zVbqx
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KaVa/Y7s;
+	dkim=pass (1024-bit key, unprotected) header.d=student.uibk.ac.at header.i=@student.uibk.ac.at header.a=rsa-sha256 header.s=prod24a header.b=WDiuIdwm
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=1aOQMD6JlTDLVsQjQedtpJM3c2lEIuqtDtE0HdhEhiI=; b=swDPzmKIgp2n8j
-	Y167wE2x/0sB+MSSbLzF4w9fBUy1cCA64CAdgwRRiVKbxpBqG3vpSS8gxU5HSrFSBn1+lTf9YZ5pE
-	GjLiSGGrCuuJKBZr4qEcr630T0Jh0v6x6Z99XW0UAs23C5m3avvKtIHECJkGOt77dC6k5m4eKHygu
-	05pfcKDsiIC4rRgMVuC1sKSYn6vI2/llQbnxkdKkDBXr18nDXB6hiKjbS1oJukjG6tkyh4OrVCdmn
-	roFxuWI9JBJcFzho0aS1JAfE/jdnlubdLHUJ9PIzF6i2aFFFNEKylsEZTQkypcZ3Z40BQ4v4nsKuS
-	cVkXGiovQ60pT2Dshslw==;
+	List-Owner; bh=pPs+LFjQd4/vwzx0cx5k8n7Xns8+xDNlOq6HRQ/nnB8=; b=KaVa/Y7skzF6fq
+	0Sm4b52iO6zC9aTKbEdsR6E+WrmxdeU5DJBOE9N8EfN96Lj9jNSCLkiYgoPK7WHK5RUf9T8XaEbmR
+	rVFwJLLlW15HByRwZmv2KveqzsJn+TSTyG+GoOfQycUuL9tZwohabXpuF5zYuR5XX+XReXfmNHhuN
+	6q9MD9+bK9HW6T8/ru//beH4uIQyOtNZvgcuQ4q7cqQeIVf57T4is/qdJ1xxCPBWibc5PdiCwY4Rh
+	1NJgP5h1X2pnyVMlI1/aX/gNz38tdoP61fwIt2vpC3RplmmZhrlSfCMWPs/rNZKAz3WFhqNTBkkN+
+	9nOcRlQeg/yCVuYcoNrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHTk-0000000C0XP-3P2X;
-	Fri, 06 Nov 2026 10:47:28 +0000
+	id 1xPHTm-0000000C0bJ-0l8F;
+	Fri, 06 Nov 2026 10:47:30 +0000
 Received: from smtp.uibk.ac.at ([138.232.1.140])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHTa-0000000C0Aw-1gzl;
-	Fri, 06 Nov 2026 10:47:20 +0000
+	id 1xPHTc-0000000C0D3-0Fxj;
+	Fri, 06 Nov 2026 10:47:24 +0000
 Received: from surface-pro-5.uibk.ac.at (ydWLT-U1-3-167.uibk.ac.at [172.25.3.167])
 	(authenticated bits=0)
-	by smtp.uibk.ac.at (8.15.2/8.15.2/F1) with ESMTPSA id 6A6Al07M1953426
+	by smtp.uibk.ac.at (8.15.2/8.15.2/F1) with ESMTPSA id 6A6Al07O1953426
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO);
-	Fri, 6 Nov 2026 11:47:11 +0100
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.uibk.ac.at 6A6Al07M1953426
+	Fri, 6 Nov 2026 11:47:13 +0100
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.uibk.ac.at 6A6Al07O1953426
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=student.uibk.ac.at;
-	s=prod24a; t=1793962032;
-	bh=1aOQMD6JlTDLVsQjQedtpJM3c2lEIuqtDtE0HdhEhiI=;
+	s=prod24a; t=1793962034;
+	bh=pPs+LFjQd4/vwzx0cx5k8n7Xns8+xDNlOq6HRQ/nnB8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=QV5zVbqxanNS1CeFFjg+76A+oNaXC5XKw8wiH1xXRkYtRe6w30RTfhZ/lm6yVCNUK
-	 uBitPPczjeZRTuRgC9NDz4yfT+smLsMEWnP8Yau3JEkJEoSGdsvmGgVhlnJpcQl0qN
-	 5bHlOfkk7zDvwrfnC2HNZxwLbNrZoyhPACg5rrpY=
+	b=WDiuIdwm8UFous+4e6je7OsE/8ufj1XtOgyvdnUxhllJALqtuVpEksTgZHay5aGN2
+	 OSUw31Y4Evz4a9e98UBjvLW2OBd38tJ2O2r6cA+qKRwc50nhkulAKp0Gczk+44weBF
+	 7rfLXx9GIzn+uaIW0S+fA31LeNfKiUyl4zfxnncc=
 From: christian.koever-draxl@student.uibk.ac.at
 To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
         neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com,
@@ -48,9 +48,9 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org,
         linux-amlogic@lists.infradead.org,
         =?UTF-8?q?Christian=20Stefan=20K=C3=B6v=C3=A9r-Draxl?= <ckoever@outlook.de>
-Subject: [PATCH 07/10] arm64: dts: amlogic: meson-s4: add the GE2D
-Date: Fri,  6 Nov 2026 11:46:56 +0100
-Message-ID: <20261106104659.54656-8-christian.koever-draxl@student.uibk.ac.at>
+Subject: [PATCH 09/10] arm64: dts: amlogic: meson-s4: add the AO CEC controller
+Date: Fri,  6 Nov 2026 11:46:58 +0100
+Message-ID: <20261106104659.54656-10-christian.koever-draxl@student.uibk.ac.at>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261106104659.54656-1-christian.koever-draxl@student.uibk.ac.at>
 References: <20261106104659.54656-1-christian.koever-draxl@student.uibk.ac.at>
@@ -61,8 +61,8 @@ Content-Transfer-Encoding: 8bit
 X-Spam-Score: () -13.0 ALL_TRUSTED,RCV_SMTP_AUTH,RCV_SMTP_UIBK,U_H_APTO_LONG,U_RCPTS_11_PLUS
 X-Scanned-By: MIMEDefang_3.2_at_uibk.ac.at
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_024718_656498_65C1C26E 
-X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-CacheID: sfid-20261106_024720_390893_A06795C6 
+X-CRM114-Status: UNSURE (   8.61  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -85,34 +85,55 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
 
-Add the GE2D 2D graphics accelerator, compatible with the AXG one.
+Add the AO_CEC_A controller and its pin group.
 
 Signed-off-by: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
 ---
- arch/arm64/boot/dts/amlogic/meson-s4.dtsi | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ arch/arm64/boot/dts/amlogic/meson-s4.dtsi | 24 +++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-index 1e8b845b80c3..8bbd70e52a29 100644
+index 155997649dc3..dd51e786d29d 100644
 --- a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
 +++ b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
-@@ -199,6 +199,16 @@ soc {
- 		#size-cells = <2>;
- 		ranges;
+@@ -747,6 +747,14 @@ mux {
+ 					};
+ 				};
  
-+		ge2d: ge2d@ff040000 {
-+			compatible = "amlogic,s4-ge2d";
-+			reg = <0x0 0xff040000 0x0 0x10000>;
-+			interrupts = <GIC_SPI 217 IRQ_TYPE_EDGE_RISING>;
-+			clocks = <&clkc_periphs CLKID_GE2D>;
-+			resets = <&reset RESET_GE2D>;
-+			power-domains = <&pwrc PWRC_S4_GE2D_ID>;
-+			status = "disabled";
-+		};
++				ao_cec_a_pins: ao-cec-a {
++					mux {
++						groups = "ao_cec_a";
++						function = "ao_cec_a";
++						bias-disable;
++					};
++				};
 +
- 		gpu: gpu@fe400000 {
- 			compatible = "amlogic,meson-g12a-mali", "arm,mali-bifrost";
- 			reg = <0x0 0xfe400000 0x0 0x40000>;
+ 			};
+ 
+ 			gpio_intc: interrupt-controller@4080 {
+@@ -970,6 +978,22 @@ sec_ao: ao-secure@10220 {
+ 				amlogic,has-chip-id;
+ 			};
+ 
++			cec_a: cec@44000 {
++				compatible = "amlogic,meson-gx-ao-cec";
++				reg = <0x0 0x44000 0x0 0x14>;
++				interrupts = <GIC_SPI 179 IRQ_TYPE_EDGE_RISING>;
++				clocks = <&clkc_periphs CLKID_CECA_32K_CLKOUT>;
++				clock-names = "core";
++				assigned-clocks = <&clkc_periphs CLKID_CECA_32K_DIV>,
++						  <&clkc_periphs CLKID_CECA_32K_SEL_PRE>,
++						  <&clkc_periphs CLKID_CECA_32K_SEL>;
++				assigned-clock-parents = <0>,
++							 <&clkc_periphs CLKID_CECA_32K_DIV>,
++							 <&clkc_periphs CLKID_CECA_32K_SEL_PRE>;
++				assigned-clock-rates = <32768>, <0>, <0>;
++				status = "disabled";
++			};
++
+ 			ir: ir@84040 {
+ 				compatible = "amlogic,meson-s4-ir";
+ 				reg = <0x0 0x84040 0x0 0x30>;
 -- 
 2.56.0
 
