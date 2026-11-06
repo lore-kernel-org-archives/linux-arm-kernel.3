@@ -2,114 +2,152 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA673606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 03:03:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18370606D81C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 03:16:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gbX/KqLI;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eFI67QEn
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VEvTCzyP;
+	dkim=pass (2048-bit key, unprotected) header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=HrsnGpPD
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=6pgUzHBMcni0x6QQo/FZyS4Wix+7yma0HG0CtbjYw9s=; b=gbX/KqLIP6rO/X
-	vRMLU+oc2NWG75cYJm4iy+fmhHEOymHw77wahNqPdfsKN1JTKGAdLxjzHU4adZwDUTRznZE8rWLhL
-	vMafLjE7vXU6TUAoWx/KkTFpHpNsRezuA6NhbvwbtonoJ5OXLA7yttv4DDupcLv8aBSbNl3du07hw
-	jcD/JTf+AYV3fpUA2WnFBw/pTOxuP3Jf3U9Nuol/cln2RQmkes6b/7U6jVR04wu0wvdua5NsFHIFn
-	OnZOUBgcT0MjMrp12iIsYrb72gQ3uvgbmnbZH7AJiI7N92zh4JsGFV9888/chO0tP4vhL8jqRGEmx
-	ktZ80P7PlMquFS+eE6NQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=dKQJ1hqxJMm5ufGt9cHkbgDEczEbIUAAlNGYNj6221E=; b=VEvTCzyP7Y8FSIBgQb8ONCkHt0
+	N8I22ypkyKMAOrXbJwn6K0umQqMPssYIaqZnRo7T6doq3hIf31+jwynWsDXBt8L1bi/vB7TmIZYdo
+	ZjHbP0B6ogJL2zuFhAmULL8vMV5NHh/WM92S1fOhGdA6/6MfOJIOeMN4GcMAMhIWbWfsppB+VIxpz
+	PVRSKiOi4UM/aZvYTSUUpYsgF8ESzxRmUzmcbRZElBZFmIiJNn2k5MNrNmMMs6GQ8FE+YgIYJ2toK
+	xsLp2PrDfIkc99oZgXL8wZQJeckZ6wzywmA+ZY0dxsIAKHj2W5uZPkXAdlgssTcfxBWzEt9qN6wwO
+	wDilUQ5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPAF4-0000000B8PT-4ALQ;
-	Fri, 06 Nov 2026 03:03:50 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1xPARV-0000000B98F-4A2m;
+	Fri, 06 Nov 2026 03:16:41 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPAF3-0000000B8Oj-0MVR
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 03:03:50 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2ed1b9e8f43so628115ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 19:03:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793934228; x=1794539028; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6pgUzHBMcni0x6QQo/FZyS4Wix+7yma0HG0CtbjYw9s=;
-        b=eFI67QEnIwUhwkSlUTBMoCHfiHKho1XqkXh0u1yT/iX6VeYhVkr5pdT7+YkwcVeJ+1
-         xGlf9Fp9HsWE40gjTDJashpnfDCgorCwCw4Cv88nhbM8FH89TjwjNA1+5m1b6snNvt7a
-         vqsjrKw5FU0gYpkXVFUPxmD4y+icnYSkAAMtjsSlC1QRcHCWawJjDHTXYwpeoe1b55c+
-         +RlEDoxMj3T2q8XkzXEgrvXYfoUHgcPg3kYFrC+Wk74eaoVAb7IeTTaT75r0ub5hIAYA
-         o9OCoxCzWXhzs0nzMiaeH/itRWpyCpx8KZk62h0HaNjPwdM7U7NngCLnQWWomZMVGw6Y
-         JVSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793934228; x=1794539028;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6pgUzHBMcni0x6QQo/FZyS4Wix+7yma0HG0CtbjYw9s=;
-        b=sf4VON8Z2dkXoEIJN3Md8xU0WQWWVgp2ypnUuTw+8p/qveRt8RbnzbKDB8lVCQtvoV
-         BXt+eY966cJvWcsP5GpiUmWRgzDkYaHU4RyOiSLtZkJNBQm+d/sT0GVeURYgN09dv/FQ
-         BBD7eAOEPHyYXOOPUw6/tXX7H3WMI7YhsMl2FazvOd/gW5rHawudWIB8sBrnJxyNDrVz
-         47GuHju6PFtxc0D1x2sCO2VXeXlqUSLJ61DJEuE78KGNPDKcvyAFx4toJnNqVujEUiY8
-         PT/uaFlZ7zjwBJjpAvuc7s0iagPTyu5tsuFFlSu+Q/Mj0wUS7jTOVkMJhcV4ib1KljRY
-         JZ1A==
-X-Forwarded-Encrypted: i=1; AL+hErE+wk3iN3Cl2TJNi3WZSG8dogF2rAj/nE/ruMlQ4+E52IhyP9PkaqQFpccJVttrxUHOqW38BS93zmEPf1H4zLA+@lists.infradead.org
-X-Gm-Message-State: APuU4Z/+GMI2TIyfi0pFmGuE5kHZzrxndGfHad2lwjb9jWQOs/03isYJ
-	aJqwh7TMAzJl6ua5jZm7D6sz2t5h8Qal4UtvWDImSQQQ4iEJ0MSLPg1zDJmwLA==
-X-Gm-Gg: AYBFou375uLYmH4Di6QBnr+dc3Qn8TiTucbwN6Egbw+pw3HWNjAH29xtZpdv0ttb/NE
-	vWoWCSqTu556zx6fUB2bu9nz7C5eJpvwi/Tv3STWK1uxRa1NUIZSA72Xr9w+oxBw40PdJXRBXmn
-	ak0J1qTtn6d8yQij781nvxA7yvfNIH+UEWRL/5BOzTW8oYk6lruzn8EiWVM+HUiyHy8rJdOez0U
-	RbJO2FfedsEZHGn9fg3epyOnFp+tsfWu2wqkWqhbGf+5QO0Dg6fbQKynZZVk++Gf6mo/Mo6CQMK
-	Dlk4WiPqc0Sq17EkRm9Q5453uGr1bPEclhDSEnPP7bzQUGD7aGD7qbqf9uEFY3z/V2ZN9tbqfCP
-	zWLzdcRYWhCXwsvEfNMkAp1Vaoe9wmD9Zv9JGBkZ0wtUq48BctAVFhRfr4abLOVTt69JcuuRm7M
-	n2ps8E+fxIJJt2LqCXPSXT9FAwuU8tNcb9VG/cJz9MPq9rD1wpSojfv5LvS2DCeYMGyVBYCf1zR
-	kYAzvmEQu5q+PorK4TTbazrQrRx5MBCldwqsePBButZu2wGjXdK24XkJEae+5sE8OU5NDLCSvt7
-	ehUcsi6XvInqqTml4ep7kf8ABLKMozcRmqF9VzXgk3oWKpTfTm0nyZDAkrKq0gyeb4zuMcLE2Es
-	WzGRX9h+mO2c3mgM=
-X-Received: by 2002:a17:90b:3950:b0:3b0:92b2:2e74 with SMTP id 98e67ed59e1d1-3b0db6f6c35mr1062138a91.62.1793934228109;
-        Thu, 05 Nov 2026 19:03:48 -0800 (PST)
-Received: from [127.0.1.1] (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cdb70a04a39sm118179a12.15.2026.11.05.19.03.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2026 19:03:46 -0800 (PST)
-From: Kyle Hsieh <kylehsieh1995@gmail.com>
-Date: Fri, 06 Nov 2026 11:08:04 +0800
-Subject: [PATCH 3/3] ARM: dts: aspeed: ventura2: Name the USB-UART bridge
- reset GPIOs
+	id 1xPART-0000000B97Y-0TPY;
+	Fri, 06 Nov 2026 03:16:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CMTZvMyLw7LWtaA4GjKrnog57msSZAOHQVDgKWCQfSZxoPhsxHaWE1vXg7o326J4bZO4x/upiVlL9JvPoArMtpgjI2fj3YQ9uN7sbv2GirpE+B5AHtUH70gy6BRvxaPwumGFfCHv+FpEfI1Ad5yWWZMMw0ohYs6aKtYkO+zr7Sf94fwKyg2A9nAY13BNn/43XaEmIMaDBMVPMVd7z6aZKqbHmjECbSi/SAyKDVQI/oRvXTV1SYdPRsU2IaMNGEthDs3QCFTQ795gMWsMsyidpjr2ZZvFHYW1OkSyoOrRb8QQhb8ATY/akBVbUzba1Fn0dGP1UF0jn6+TrkmMZXPPeA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dKQJ1hqxJMm5ufGt9cHkbgDEczEbIUAAlNGYNj6221E=;
+ b=E/ANFnAcrN6oRYyN7maSGEe0zBflAlPXfbITxIMJFHkjxUgVt9TylkNna7Af7GQVxnY+v7FauNT+b9OPCmccbKOY1r1rLsQO/BlRi8A/mSBOktNeJkwntRyLDcLqKQI/3HF+lXg+4UJGgCXKRC9jBTm7ZiQJTqEod6/EAHVw3/j7cfcKUfhbJuOp3vxcOaB/WR+8oOCzwYhjgjFdQkI7l6/herouPk0YJyF/OPZWKsqCM9IDE+xj5aqauWuU/+eeQ0ROeLU1O1mSBbcConkBaGoS3Jt56YQ4I+bH2Fd5KXToeJ1Pr7Q/AVWuy5LyfwVVcfLICdY5swuER24nd/Rehg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dKQJ1hqxJMm5ufGt9cHkbgDEczEbIUAAlNGYNj6221E=;
+ b=HrsnGpPD4CmNlbPEVL7Dq7DmuDRmBV0CsMJC/ltAWBIt4I3og/sRzWZb3TsY2cThGSvGP7JZSZhtgAj21n2WbK6orey4TgJhtrx/w7eaqGlETxzP/+KGXw3pgQFcCqWYjqicq62ocdBYlFN5zaIrDKMGBGV4KMaqteXiXWkaDSlCKRQH465O4zFowfLkK9xZ34ojOjcJtdvvrKNrW/pjGwrzUDyUr6TbZPGBVNjfbKYPazXQLf0hB1ZGUg0z5gTioVpOEbmR9cNcAOwxPh48qTvfNZazxRU5O9EetTIHeCfwW3mca4MOgguwzC4IDJxChAJPbuWA1ujCPwgGQpE+Pw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
+ by TYZPR03MB6893.apcprd03.prod.outlook.com (2603:1096:400:286::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Fri, 6 Nov
+ 2026 03:16:29 +0000
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::e1e:5c95:a889:828e]) by KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::e1e:5c95:a889:828e%4]) with mapi id 15.21.0569.011; Fri, 6 Nov 2026
+ 03:16:29 +0000
+Message-ID: <35dc1ebf-5194-4ec8-adfb-dcc8ea717750@amlogic.com>
+Date: Fri, 6 Nov 2026 11:16:21 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/7] dt-bindings: net: amlogic,meson-dwmac: add
+ amlogic,t7-dwmac
+To: Krzysztof Kozlowski <krzk@kernel.org>, Lucas Tanure <tanure@linux.com>
+Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261103163715.385394-1-tanure@linux.com>
+ <20261103163715.385394-3-tanure@linux.com>
+ <20261105-stoic-cricket-of-tolerance-cb3014@quoll>
+From: Chuan Liu <chuan.liu@amlogic.com>
+In-Reply-To: <20261105-stoic-cricket-of-tolerance-cb3014@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TP0P295CA0055.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:910:3::11) To KL1PR03MB5778.apcprd03.prod.outlook.com
+ (2603:1096:820:6d::13)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261106-ventura2-dts-update-v1-3-b085ece9bf57@gmail.com>
-References: <20261106-ventura2-dts-update-v1-0-b085ece9bf57@gmail.com>
-In-Reply-To: <20261106-ventura2-dts-update-v1-0-b085ece9bf57@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Ryan Chen <ryan_chen@aspeedtech.com>, 
- Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Kyle Hsieh <kylehsieh1995@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1037;
- i=kylehsieh1995@gmail.com; h=from:subject:message-id;
- bh=JErXBRcaQqttTRbJYkhlXXvroT4ugDdSkuI4a3TfxsQ=;
- b=owEBbQGS/pANAwAKAaWDQrcJVsSBAcsmYgBq7USWOSM+Se8JtxUUwtmuKQLlZfQThISypYBKs
- cRvRTZN/aiJATMEAAEKAB0WIQTJHsaNZOdY+THGqJelg0K3CVbEgQUCau1ElgAKCRClg0K3CVbE
- gTnNB/9gX6LuenOCksACETKUVDRyzmW1xPaQiXCUzc3TTNnKY5mK80xYSM49pNtveFr/8gL9L1A
- 4ZTufnTHOb/E1VsKBVmkHFP3tWQSskkBAlnMrvXeOd3N+edRLpX63+IKV+eKhChv6SxYyZmc+u3
- zEi27kslPErTUrWnjUKy2O8vpSLYLBLw3NOHCo/nweTGmxqnMat8zZwPczvXM9kS/b9HROaXEiN
- p9E6HlSi8G3q/mdZreGKcID0wHtwd/VagH7BxR4E+tLjYnpX2VVGiblyJa9VgBSu8RnDRyJPyVz
- 3t+HZ4TLKxdxa2ruyituo3pcO5ZAB3zSAPQ/hO//B75hvGtd
-X-Developer-Key: i=kylehsieh1995@gmail.com; a=openpgp;
- fpr=C91EC68D64E758F931C6A897A58342B70956C481
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|TYZPR03MB6893:EE_
+X-MS-Office365-Filtering-Correlation-Id: e5d1db88-85d7-42e6-b95b-08df3bb4594c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|7416014|366016|1800799024|22082099003|18002099003|10067099003|14125299003|11063799006|4143699003|56012099006|261028144727099003|261026121527099003|261021123027099003|261102123227099003|261022105027099003|261009223027099003|261021121427099003|261026140227099003;
+X-Microsoft-Antispam-Message-Info: ko1UReoZElL7bRcS5Y8cXY40TLHp2fud4HB0kEE96vUpwcldjvjYtSbJAD2FKfBMHSQZu6s8RSAYUZ/9hjNEzNR9uJgkVNl4U+1hhTzCTjum+pSIBaBRfLMf/SnWspiCyBDQ4W5c3x/gBaABWtaWScVJtXQSBoC7nqdIfAs5WcouEN0RWlGQKazZwI31cxvLZrb8kHBpOSObYvqwc3GkA0pHEjyIH1IeD2COV6MVHuHpr7e0mEvFBi4DkecEHYIz1a+GafpaiH4UKG70aaYLPz+LHhzmPQ4TfWsb+szQQuoRGId5RKUqZa588fM1zSH8PVhGKA3pCR+C+ceX6XPJwNkw+0X6XgmLsDKrCnfcCaBU+B4OgP1qDfdH6s6pN9zKleVlW98T29TrWK2Pn3aSevVPeYKPNI6nHd83vF4RnpH44Fx2MA2/OBlCgMDrLhaKqhh2lvuHLg9hsk5+94bS1wEK5FLMBVLGKHBchSCtpW1AhkhBNjxeG5OiM2nlNPGYNIwT4iRq9t0YnrMsHhcHplF02jgADOJaYtLL3l67DMiczlkJY6BF+sDnl6ikIiUfkEfVJTglJEheMHtXCDza66jYAa3l6rExhuQwYcNgdfoxBzegpIexOVvWzhNW20+Z+mdsW2yzoh2mVMcLFyJs0eZLbQatdwXe6dbjZ4P2MlA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(7416014)(366016)(1800799024)(22082099003)(18002099003)(10067099003)(14125299003)(11063799006)(4143699003)(56012099006)(261028144727099003)(261026121527099003)(261021123027099003)(261102123227099003)(261022105027099003)(261009223027099003)(261021121427099003)(261026140227099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y3hTNmNLNGdxOFVtNDczaUZEQ0JwL2REaW1RNit1YzdUQlUwZzZENndmVTdG?=
+ =?utf-8?B?anZqaWYxNytXa0lhU0Qwd21aQlNrcE8vSzdsWVFVWDYwRC93NmRZVFhCcG8x?=
+ =?utf-8?B?NVZPTlFuMjJualhWU3d0cXREMlZJMWpkcGtHOUpLNlFCRnVCdTVIc2lLQmNV?=
+ =?utf-8?B?WTAyN3k0cXVZQmFrOFhKakc0c1JBREJTT2FWakhQREY2ejhiRVZCWnhwdURB?=
+ =?utf-8?B?QTF3OWROSS9KaEsvY1FnU1NZdFpsazRQbGY2UXJQelg0elNLQ3oxaXlGbGIw?=
+ =?utf-8?B?MVNmNmxZWUlPeG5UaDVwWjFXZUJjd2FNS20vek53cTJqdjNDcGRsckpkMnlC?=
+ =?utf-8?B?dWl3OFViODhJUXY4cXFRSHcyeThLdi9mYmcyZ1RHZ1YyZ2VZazRUanNONXA1?=
+ =?utf-8?B?a3pQc1krL3JxWUMrY0kwajYrVFpjREM0dTc2cjlpOU1aS04zY3pXUDVvSyty?=
+ =?utf-8?B?TW5Wbi8yT1JxNno3WENBWkZ4eEQwSVlJT1NtSW9PRUdMeXgzUmxXck5QaDRm?=
+ =?utf-8?B?bFQ3S3BQaTU2YmVqQU5IRC9jOUdjcFR0Vk0vZ1JVRUx5SCtxbk01c2x4QWR2?=
+ =?utf-8?B?aDRTdUNEdkpsdUpVUVowbHVBWXZIam1BdVUrWmhWM3hHMlkybUsrVXRhNUEr?=
+ =?utf-8?B?bnRKQTZHbVBwS3VVOEdvTDJubE93VDhDY1pKT3RhQUh4KzFSTUJxa3B4OTFm?=
+ =?utf-8?B?Wlk0akdoZW9abmxWcDl3UDdnYTdpMWUxVmNGVVZYUnAxaHpyOXRJa0JXQXlI?=
+ =?utf-8?B?blBRdE1xaGZkWUtqdCtMSXJiSm1uNW9mVnNab3VaT200aTVPNi9MZnN0QVoy?=
+ =?utf-8?B?Uzc3V0xONVgzN3BkdlBxTEpwT0h3YWY5WEFZOTBBRFpocGJPc3lPOEQyRTZq?=
+ =?utf-8?B?dlpDeGEyTFZuQjRvVHFDY2o1RnlVcTZZL3E1UkVHVlpEVVM3OStNVGdjK011?=
+ =?utf-8?B?SGlZVUlCM0ZQK25zUU5sTzNlSlp1WGJ5UTMrdzIydks2MDh5bUZlbDVSaUp3?=
+ =?utf-8?B?ZGgzQmxjUzFVdzZMeWh2TExiYklPNTFWVE5FUzRSUHIyYS9KTExSSXV0UW4v?=
+ =?utf-8?B?NjYyZVpJT2tUY1FCTUFua3oyUFVXTlpJZ3BVMHcrUEZscVZSMnZJWjNrOXA4?=
+ =?utf-8?B?dlJaMi9sY1hKc2Y3YnBveHVDOEJoc2NORjRESS9DRWZuQlh5dVl0M0Y1anRi?=
+ =?utf-8?B?ZzlndjN2UEtlSnJvTEJ0dEdjT1RIMHdQZU9WYkZRNmdVYlM2TFNXWHp6Y3Vr?=
+ =?utf-8?B?RzJpeW9XMklxOG9uZHFjNktpVjgrdlMzR1NkSTMxUFBCbjN2L0dmTERPVlhY?=
+ =?utf-8?B?aVU0ZTNEU2tOYlRQbDQ5V3Z6KzVVSHE4R0lGN1ZURnVOK3RlblFTOEl4amtl?=
+ =?utf-8?B?NGhBKzhwS3NCRVd6dE1rZ2wvOVVzU3J2NVlvWmkzMU5ad0Rxc3lscnFwMmRo?=
+ =?utf-8?B?ZXl2amNHK2preElJUzJlTGQ1TXl0S2FLa1IrekRheFZuMXZQbWFLcnZRcFRi?=
+ =?utf-8?B?WE9MR3JPN01KWllVaHR0K2ZLUFhqY3VqcnlHbklSNEU4YkVzcW5NcGZ5akxm?=
+ =?utf-8?B?cG5zeE9OSVlOZFJpVzBaMGhkakMyVDVWMHVMVTNYR3lIYWpKbVFGL1Z4VEU2?=
+ =?utf-8?B?NFRxL1RhemVYS1dFWEkrZkxyZ3JWSkdkU2dEMFdDV2JDbmF5MUNNakp2NDVY?=
+ =?utf-8?B?Y1RJNG1UbEdOMTdwNUJmSzBIMHd0U2tlQ1lVWTA5QVZqVU9IZi9Iak1KT1FL?=
+ =?utf-8?B?djRoMkdoeXM4TnhNellnL2FkdU83ZGM3clp5MTNGMDdoU3R0MEFVdkpnQXJB?=
+ =?utf-8?B?ZmdCalVxWUliUjl4K0xiR1pIQWtSa0RYbE5hdG1MRzBXUnU0RXB0VGRjQ2FS?=
+ =?utf-8?B?Z0s3UlhUZXgxdWM0MWVLZmU2RTNTUW1RM3dtYXAwenA5N0x6TDIvamFkbnRV?=
+ =?utf-8?B?NkhUbzQ0dWJXTkNpaFNYUmx3alNJaHdLNG51Q1VMQ1kvRUo5WnFvc1ZnSlpQ?=
+ =?utf-8?B?azFZczBIWEhSVTdCM2hjRjVXWjE3V01iWmkzdU5iYmpqTkwvZHdFMm9Sa3BB?=
+ =?utf-8?B?a1N2MDRtYTYzWVlOczdwME1MVFRuQXp4MzJDMTMvN0E1NEJOQjJJcDRSR3pX?=
+ =?utf-8?B?QW9hK2VTa0hwaTVjVkowRWh1UGZhSUNRL0tiZ1ZTcE1ybWRVYUxUY1RoeVR3?=
+ =?utf-8?B?QXJkbit3S2ZUa205UEI5OG1ITUYwK2g5ZjJTTk1aSmVpcFhrTERXZWF4WFJV?=
+ =?utf-8?B?dHRBdGllWWIzYWt1RUZWK2dZN1ZaREYrcWJhbXdxM3VuTFByd2NTb1Z6Y2ov?=
+ =?utf-8?B?R2ZoOEZlc2FQU2RBV295RGFDOENPT3M1UnE2c1RvZVdqMFdCcGlNQT09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e5d1db88-85d7-42e6-b95b-08df3bb4594c
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2026 03:16:29.1079
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kXhOdMJZu2nvsEapOzqjhowOstq/bh5cMtt93ac5zaD6XAjURMKDesWCPDpjTGlxI3SdDtHyNOK3KlSLmlNkvw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB6893
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_190349_136364_77F45E9E 
-X-CRM114-Status: GOOD (  11.53  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261105_191639_170187_031FCCEE 
+X-CRM114-Status: GOOD (  22.43  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,40 +158,144 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Lines 2-4 of the PCA9555 at address 0x20 on I2C bus 6 drive the reset
-of the three USB-to-UART bridges. Name them RST_FT4232_{1,2,3}_BMC_N_R
-after the schematic nets so userspace can reset the bridges.
+Hi Krzysztof, Lucas,
 
-Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+On 11/5/2026 7:57 PM, Krzysztof Kozlowski wrote:
+> [ EXTERNAL EMAIL ]
+> 
+> On Tue, Nov 03, 2026 at 04:37:10PM +0000, Lucas Tanure wrote:
+>>
+>> Assisted-by: LLM
+> 
+> Drop this one.
+> 
+>> Signed-off-by: Lucas Tanure <tanure@linux.com>
+>> ---
+>>   .../bindings/net/amlogic,meson-dwmac.yaml     | 59 +++++++++++++++++++
+>>   1 file changed, 59 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+>> index e769c9bb70d8..6de013e3e8f6 100644
+>> --- a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+>> +++ b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
+>> @@ -23,6 +23,7 @@ select:
+>>             - amlogic,meson-gxbb-dwmac
+>>             - amlogic,meson-axg-dwmac
+>>             - amlogic,meson-g12a-dwmac
+>> +          - amlogic,t7-dwmac
+>>     required:
+>>       - compatible
+>>
+>> @@ -57,6 +58,59 @@ allOf:
+>>               - const: clkin1
+>>               - const: timing-adjustment
+>>
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: amlogic,t7-dwmac
+>> +    then:
+>> +      properties:
+>> +        clocks:
+>> +          items:
+>> +            - description: GMAC main clock
+>> +            - description: First parent clock of the internal mux
+>> +            - description: Second parent clock of the internal mux
+>> +            - description:
+>> +                clock of the pipeline stage inserted in the bus path between
+>> +                the controller and the DRAM. Without it, the controller cannot
+>> +                complete DMA transfers.
+>> +            - description:
+>> +                clock of the register block holding PRG_ETH0 and PRG_ETH1.
+>> +                Without it, the block reads as zero and ignores writes.
+> 
+> This sounds like you take clock from other block. That's wrong, that
+> device should take its own clock.
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
-index a9c5990ef969..af26256f19f4 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
-@@ -1937,8 +1937,8 @@ gpio@20 {
- 
- 		gpio-line-names =
- 			"", "",
--			"", "",
--			"", "PRSNT_FANBP_0_PWR_N",
-+			"RST_FT4232_1_BMC_N_R", "RST_FT4232_2_BMC_N_R",
-+			"RST_FT4232_3_BMC_N_R", "PRSNT_FANBP_0_PWR_N",
- 			"PRSNT_FANBP_0_SIG_N", "PRSNT_POE_PWR_N",
- 			"PRSNT_POE_SIG_N", "",
- 			"PWRGD_P3V3_ISO_POE_BMC_R", "",
+I see that the clock in the dts patch corresponds to <&clkc_periphs 
+CLKID_SYS_ETHPHY>. This clock provides the working clock for the APB Bus 
+of the ETH PHY controller, and this clock will affect the register 
+reading and writing of the ETH PHY (including the ETH_PLL). See section 
+15.3.4.2 RegisterDescription in A311D2 Datasheet for details.
+
+> 
+> 
+>> +
+>> +        clock-names:
+>> +          items:
+>> +            - const: stmmaceth
+>> +            - const: clkin0
+>> +            - const: clkin1
+>> +            - const: pipeline
+>> +            - const: pclk
+>> +
+>> +        # The PHY adds the 2ns RGMII delays, see ethernet-controller.yaml.
+>> +        # The RX delay line of this glue is fine tuning in 200ps steps,
+>> +        # added on top of what phy-mode describes. The TX side has no fine
+>> +        # tuning: its only step is a quarter of the clock period, the full
+>> +        # 2ns at 1Gbit/s, so the TX property is not accepted.
+>> +        tx-internal-delay-ps: false
+>> +
+>> +        # Deprecated: new SoCs use the standard *-internal-delay-ps
+>> +        # properties instead.
+>> +        amlogic,tx-delay-ns: false
+>> +        amlogic,rx-delay-ns: false
+>> +
+>> +  # Delay definitions for Meson8b and newer
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            enum:
+>> +              - amlogic,meson8b-dwmac
+>> +              - amlogic,meson8m2-dwmac
+>> +              - amlogic,meson-gxbb-dwmac
+>> +              - amlogic,meson-axg-dwmac
+>> +              - amlogic,meson-g12a-dwmac
+>> +    then:
+>> +      properties:
+>>           amlogic,tx-delay-ns:
+>>             enum: [0, 2, 4, 6]
+>>             default: 2
+>> @@ -106,6 +160,7 @@ allOf:
+>>             contains:
+>>               enum:
+>>                 - amlogic,meson-g12a-dwmac
+>> +              - amlogic,t7-dwmac
+>>       then:
+>>         properties:
+>>           rx-internal-delay-ps:
+>> @@ -142,6 +197,10 @@ properties:
+>>         - items:
+>>             - const: amlogic,meson6-dwmac
+>>             - const: snps,dwmac
+>> +      - items:
+>> +          - const: amlogic,t7-dwmac
+>> +          - const: snps,dwmac-5.10a
+>> +          - const: snps,dwmac
+> 
+> I see no such hunk in the code, so not sure how to review this.
+> 
+> Best regards,
+> Krzysztof
+> 
+> 
+> _______________________________________________
+> linux-amlogic mailing list
+> linux-amlogic@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-amlogic
 
 -- 
-2.34.1
+Best regards,
+Chuan
 
 
