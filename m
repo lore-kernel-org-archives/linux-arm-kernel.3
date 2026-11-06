@@ -2,82 +2,80 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 756ED606A337
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 10:35:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FAD6606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 10:36:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=EK3ftC3u;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=s1t/319T
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uFTHvbHF;
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=j+8jP0t3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=iHIRpsBrk5xyL/g4xRptAuMUZFHydbItCujSTfbpTwc=; b=EK3ftC3uOTyPrJ
-	s9SQJdmtWKRP578wxNzgmuoMRjVhl/Vq7coIJudlV1Z1LsIhrJ/UCVl8u51pRn378K9jzQnbpDDND
-	mPrGJdJgL0Z3SVHyqEEbGXcxUIZUXG6H+uJCqz0GCz6nTSXogcu32lKTg8GnjnPf7ZixN8BPE7BHf
-	M5+DNjMYi8MfUGoj9edUZdw8upLDysj57ZCP4j13sG9Ti94Be0t3ae0XsC1AsEwpoWs0N0W4EyNEn
-	CnC43D8Ky5OxuZyFfuSVQqzawLQUDhAYwDUNzUCqDzkvJWEt4x+daUezF8eysBqAHoz9xOU6eZwDS
-	J9AvHyaKHN4+ycOL0A3A==;
+	List-Owner; bh=zdiuVcrqXSCDP0HxvY49AL+onTI13fHzCVdhY2/D93w=; b=uFTHvbHF8uiYC3
+	WGLV7vVfHoozU6AZzMHCnCu+u205+9b87Vys/NsmeuXj9FLRUfgli5ZzSzbTvMiKkNiww0Eayf2x3
+	GNc+z7bo4QXq1O3/+agjJNNB/SGnUyqXlQqkMwh3br2WgrKx+eNZMwQ94qSTHzMwrpkhxOr1jLZZo
+	i/6wxemxPEj7+7Kzf3GG2C7XplpPg966vmwzJW1MgfWiJW4Ri4NQA+Eu90Er1zLmLGuSh71sM6rBV
+	DOVkcI4UXJ2fYj9fFVusaoHfDzyXDmNo+gvC5ELdQrq4Dh3UtcNlJCkW/KPZIvzUuYMouXlVidg/B
+	ujOGC6A/iMQmXWSCMnQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHHv-0000000BxFD-0qBc;
-	Fri, 06 Nov 2026 10:35:15 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1xPHIz-0000000BxVz-3Bu0;
+	Fri, 06 Nov 2026 10:36:23 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHHl-0000000BxCn-3tpQ
+	id 1xPHIo-0000000BxRF-3g0S
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 10:35:14 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261106103502euoutp02b52f448c1cb7ace94522e17798c38fc5~lbkyzAes22836028360euoutp02O
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  6 Nov 2026 10:35:02 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261106103502euoutp02b52f448c1cb7ace94522e17798c38fc5~lbkyzAes22836028360euoutp02O
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1793961302;
-	bh=iHIRpsBrk5xyL/g4xRptAuMUZFHydbItCujSTfbpTwc=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=s1t/319TN6+M32OjuD1p25EnzardJ6fNCvMQ+xzaBY/IK49DBP1fxnbR6lhATlBWZ
-	 JkcaoHqaCkw7ewO1SOdH2MMylpD2AHqT1AIolQ4AK0wECXk0WHK3bZkOLuXhOIBwzU
-	 xzgb1zRg1VFTqjp98TA/cn7+R2449h3h4USWUMI8=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261106103501eucas1p273fadcaacfcdf3bcfeb089633e386618~lbkya6AKn2351423514eucas1p2J;
-	Fri,  6 Nov 2026 10:35:01 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261106103501eusmtip291fc5a2055a28103ceea956f1076316a~lbkxq94mt1032110321eusmtip2g;
-	Fri,  6 Nov 2026 10:35:01 +0000 (GMT)
-Message-ID: <3947a409-0e97-4039-a145-12c04e1c380c@samsung.com>
-Date: Fri, 6 Nov 2026 11:35:00 +0100
+	Fri, 06 Nov 2026 10:36:16 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=zdiuVcrqXSCDP0HxvY49AL+onTI13fHzCVdhY2/D93w=;
+	b=j+8jP0t38yPoKZ3rHG/+O5xTmerw3/KNXeVSTgSVzHHPrxh0MWE1JX//C58bEdjJB+4X83pL+
+	l5I1LHMJE2ZS202tfaKPcP5cOsxK88iotFDrJG+IjX6VS1DprsCNiQNWN21cQ3Ssbz0D8YMGqVD
+	dpxxDOKtE/7splKn8XQRRc0=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4jLbDn4QNMz1cypH;
+	Fri,  6 Nov 2026 18:35:53 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0748140565;
+	Fri,  6 Nov 2026 18:36:06 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Fri, 6 Nov 2026 18:36:04 +0800
+Message-ID: <afcbf19b-bd13-4afc-ab56-8bc50c793e50@huawei.com>
+Date: Fri, 6 Nov 2026 18:36:04 +0800
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH 2/2] tty: serial: samsung: do not re-arm RX DMA once RX
- has been stopped
-To: Samarth Narang <samarth.colleges@gmail.com>, Krzysztof Kozlowski
-	<krzk@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, Greg
-	Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
-	<jirislaby@kernel.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-samsung-soc@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20261031004217.3340610-3-samarth.colleges@gmail.com>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261106103501eucas1p273fadcaacfcdf3bcfeb089633e386618
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261031004238eucas1p1157df5d88fe44ef0585c93f9d1fd0555
-X-EPHeader: CA
-X-CMS-RootMailID: 20261031004238eucas1p1157df5d88fe44ef0585c93f9d1fd0555
-References: <20261031004217.3340610-1-samarth.colleges@gmail.com>
-	<CGME20261031004238eucas1p1157df5d88fe44ef0585c93f9d1fd0555@eucas1p1.samsung.com>
-	<20261031004217.3340610-3-samarth.colleges@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 11/15] KVM: arm64: Reserve dirty ring space for the
+ HDBSS buffer
+To: Leonardo Bras <leo.bras@arm.com>
+CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
+	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <yangjinqian1@huawei.com>,
+	<caijian11@h-partners.com>, <liuyonglong@huawei.com>,
+	<tangchengchang@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
+	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>, <mark.rutland@arm.com>,
+	<seanjc@google.com>, <rdunlap@infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <skhan@linuxfoundation.org>
+References: <20260929103655.85107-1-zhengtian10@huawei.com>
+ <20260929103655.85107-12-zhengtian10@huawei.com> <auikG0clmr19sAjh@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <auikG0clmr19sAjh@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_023507_358092_6279AC60 
-X-CRM114-Status: GOOD (  21.15  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261106_023611_263363_D8132627 
+X-CRM114-Status: GOOD (  20.92  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,79 +86,84 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 31.10.2026 01:42, Samarth Narang wrote:
-> s3c24xx_serial_rx_dma_complete() unconditionally submits a new RX
-> descriptor after each completion, even when reception has been stopped
-> or the port is shutting down. A completion racing with
-> s3c24xx_serial_stop_rx() or shutdown may therefore restart DMA after the
-> channel has been terminated, potentially allowing it to access the RX
-> buffer after s3c24xx_serial_release_dma() has unmapped and freed it.
->
-> Only re-arm RX DMA while rx_enabled is set, and clear the flag under the
-> port lock during shutdown, since the hangup path can reach
-> s3c64xx_serial_shutdown() without calling stop_rx(). Because the
-> completion callback also holds the port lock, any descriptor submitted
-> before rx_enabled is cleared will be covered by the subsequent channel
-> termination.
->
-> Fixes: b543c301c2c5 ("serial: samsung: add DMA support for RX")
-> Link: https://lore.kernel.org/r/20261030162334.3000737-1-samarth.colleges@gmail.com
-> Assisted-by: LLM
-> Signed-off-by: Samarth Narang <samarth.colleges@gmail.com>
 
 
-This one requires a bit more work. rx_enabled might be temporarily set to
- 0 in s3c24xx_serial_rx_drain_fifo(), when uart_cons_flow_enabled()
-returns true, what would result in stopping DMA at all after this patch.
+On 11/2/2026 10:54 PM, Leonardo Bras wrote:
+> On Tue, Sep 29, 2026 at 06:36:51PM +0800, Tian Zheng wrote:
+>> The dirty ring reserves room for CPU-side dirty buffers via
+>> kvm_cpu_dirty_log_size(). Report the HDBSS buffer entry count
+>> through it, so a full buffer flush always fits in the ring.
+>>
+>> Pin the HDBSS buffer size to PAGE_SIZE when dirty-ring is enabled,
+>> via kvm_arch_dirty_ring_size_updated(): a larger buffer only
+>> shrinks the soft_limit and forces more frequent userspace drains.
+>>
+>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+>> ---
+>>   arch/arm64/kvm/arm.c | 8 ++++++++
+>>   arch/arm64/kvm/mmu.c | 8 ++++++++
+>>   2 files changed, 16 insertions(+)
+>>
+>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>> index 9d7bdece149a..5a7046acb62e 100644
+>> --- a/arch/arm64/kvm/arm.c
+>> +++ b/arch/arm64/kvm/arm.c
+>> @@ -215,6 +215,14 @@ static int kvm_arm_default_max_vcpus(void)
+>>   	return vgic_present ? kvm_vgic_get_max_vcpus() : KVM_MAX_VCPUS;
+>>   }
+>>
+>> +void kvm_arch_dirty_ring_size_updated(struct kvm *kvm)
+>> +{
+>> +	if (!system_supports_hdbss())
+>> +		return;
+>> +
+>> +	kvm->arch.hdbss_buffer_size = KVM_ARM_HDBSS_DEFAULT_SIZE;
+>> +}
+>> +
+> 
+> On the same subject as a previous patch:
+> I don't think this is the best approach, on top of adding a new weak
+> function to take care.
+> 
+> Maybe during the dirty-ring allocation, on vcpu creation, we could take
+> into account the requested dirty-ring size, and just allocate the HDBSS
+> buffer taking that into account. That would make it simpler, don't you
+> agree?
+> 
+> Thanks!
+> Leo
 
-The driver shutdown procedure requires much more checks and fixes, than
-such single flag check.
+Hi Leo,
 
+The "set once" guard we're discussing comes from the patch that adds the
+ioctl, and it isn't really needed. We discussed this earlier [1]: we can
+just initialize hdbss_buffer_size to PAGE_SIZE at VM creation and let
+the ring reservation use it directly. **That also means
+kvm_arch_dirty_ring_size_updated() can be removed.** Thanks for your 
+suggestion.
 
-> ---
->  drivers/tty/serial/samsung_tty.c | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/tty/serial/samsung_tty.c b/drivers/tty/serial/samsung_tty.c
-> index 2f6c69bec..3f2346f4f 100644
-> --- a/drivers/tty/serial/samsung_tty.c
-> +++ b/drivers/tty/serial/samsung_tty.c
-> @@ -622,7 +622,8 @@ static void s3c24xx_serial_rx_dma_complete(void *args)
->  		tty_kref_put(tty);
->  	}
->  
-> -	s3c64xx_start_rx_dma(ourport);
-> +	if (ourport->rx_enabled)
-> +		s3c64xx_start_rx_dma(ourport);
->  
->  	uart_port_unlock_irqrestore(port, flags);
->  }
-> @@ -1165,10 +1166,13 @@ static void s3c24xx_serial_release_dma(struct s3c24xx_uart_port *p)
->  static void s3c64xx_serial_shutdown(struct uart_port *port)
->  {
->  	struct s3c24xx_uart_port *ourport = to_ourport(port);
-> +	unsigned long flags;
->  
-> +	uart_port_lock_irqsave(port, &flags);
->  	ourport->tx_enabled = 0;
->  	ourport->tx_mode = 0;
->  	ourport->rx_enabled = 0;
-> +	uart_port_unlock_irqrestore(port, flags);
->  
->  	free_irq(port->irq, ourport);
->  
+As for why PAGE_SIZE is the right value in ring mode: the HDBSS buffer
+is flushed on every VM exit, so a larger buffer doesn't reduce the flush
+frequency. It only inflates the ring reservation (64 + size/
+sizeof(u64)), which shrinks the soft_limit and forces more frequent
+exits to userspace for the ring to be drained. Draining the dirty ring
+from QEMU is more expensive than draining the HDBSS buffer from the
+kernel, so the smallest buffer gives the best performance. In this mode,
+a larger buffer provides no benefit to users.
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+In my tests, I also saw performance degrade when more space is reserved.
 
+[1] 
+https://lore.kernel.org/all/5a096cca-713a-4449-83dc-c763dc06c085@huawei.com/
+
+Thanks,
+Tian
 
