@@ -2,105 +2,120 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADDB1606A32E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 07:59:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DEF0606A32D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 08:00:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=qIJtbhQm;
-	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Fm9edfda
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Pel6jZd2;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pqqtQl9/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=2FNHujqf/xW+WUTfvx7yJ09qH4DYbXo0SGisGW1B1tg=; b=qIJtbhQmq6JGEb
-	OFwPXyDsZ+uleZcICp5ou0/vh9ayBTyp4BSH7sQxxkC8dIQvo2Ip47lhxiL63N318RITdiq9wKzam
-	8psJ5eDe/+A8Sk16QtHCpCFksS1HP8OEmb5r5GayL0KgjT6WeGkwP+9sil2SeYNLkYwYqqAfBfGyJ
-	ByDLC55FSxa2/MKj0h6aZwzpfZLjxyTVt2lyqWSZJsXkSNVcph+KFVNh0gz6FYA7Z9LZWx0FdjTFF
-	xnFuIDcMnNvT+fPVNd7HKxs3/kP4Br+ajvx/+p/aemNl8cHwt43kWI1XZ3A9jcuf08n1bif9023AX
-	k1UsZlo2p+GhlnHVkz2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=JL/ejsWQpZh4uIBI1fUZsT9Ty7diuDK7PLmVq35sQrc=; b=Pel6jZd2AZKepRPsBOeZXrmeyF
+	8F/s8GwAPPUfT8Z/EtBgerjofXhtou9GfoM961qj7vq372iOnqp2rxLo2oy0Iq8vko39CY1F0kgPc
+	DWB/EXUevpqyPVoRoG1c9qy5tskbfTnIsKRakqyLhOkCaVItDuev05dqfGW0wW8HhW49FGj0UKm22
+	1AZ0AW1/8TWQFVoUcxH+WVBNjjoYWhQRJoa4W4HBW0qfiFeI8rf8npSn7oLLPCVcTJ8q85NXSWSLo
+	Azw2hcCOnaeD/PTRY1mZytiOkzKXH6q4+WTjln/zqzmownPIT8CwJKDwHEpKvSC8WQJzdbAWiPdpA
+	F5DiOTiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPEqw-0000000BVI5-0MmB;
-	Fri, 06 Nov 2026 07:59:14 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1xPEs6-0000000BVoa-02bc;
+	Fri, 06 Nov 2026 08:00:26 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPEqp-0000000BVEf-204B
+	id 1xPEri-0000000BVjZ-0rMs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 07:59:10 +0000
-Received: from ratatoskr.trumtrar.info (unknown [IPv6:2a00:1f:f805:2b01:a03:2f4:308a:7b52])
-	(Authenticated sender: str@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 2CB2720291F;
-	Fri, 06 Nov 2026 08:59:04 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1793951944;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2FNHujqf/xW+WUTfvx7yJ09qH4DYbXo0SGisGW1B1tg=;
-	b=Fm9edfdaJHMQzHYTEMRMNWQ7bDrHC87XClNqfzmPjXJYCU8iH6FUVIP/gygd7aDMpravOM
-	Z4tLLNUhXYqfKXKKqjQ5W+ixjyKeONLu+bebo7Z9qkFx8FRUBFA5u/HoAccjDWCcL7pQTo
-	JLZVd9JHqmZaMBEaB/0nfWRMVrWjNYuNs2Fn9jlLRUMk3eJQQSLFOZNwMHN2NZMTFuDA+1
-	pE4QYKaIFf/MM58p3sGH8g5bapx+2tLRJH7EgHBBDWRx1esGgP3bFOeY85ukS+twDlCLPb
-	apfpig9jF5cP1guyEzvrXT27O2zD3NiSgc8I1mG1jsysIfOxzXuTHjMd+zAmKg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1793951944;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2FNHujqf/xW+WUTfvx7yJ09qH4DYbXo0SGisGW1B1tg=;
-	b=JiLKs7Uv3TStW+q1zLmUQbTDuIS76f61w2SRbpB2sX5Wr0EIvAW6NFSEd4pA+UET1SBGJj
-	sYWs+u1cJEsmaK1Ic7Igy8nDP3DfZsEadEZfyP0bQEURj0qROAuG0k96iIcXRUzzVlgVpz
-	I7M9LSlQdQ9uavlyvBf/6iEkMo8kAyN+MtCTBM0S2+6Q2kUIjmJrC1CvYYoBaPRUUkqAWU
-	0kNpHUjN6PabHK3/K3InxEolWKNc1QyeFQBIJq8pfQ4H9l+ShyvYsxDTXOHu19A4bNKlnQ
-	s4WvIiNGp7E2MUb2lZpGKkdW/SRj9kAMxMdGXaI+67sPpUvGQ6Ne4Wi+TqQDZw==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=str@pengutronix.de smtp.mailfrom=s.trumtrar@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793951944; a=rsa-sha256;
-	cv=none;
-	b=WlfXEyqKTfPKwMo20+4+tLabKqz2pfqQdAuce240RY3ZLio95ImDK1dzVBbqnv4mlVA2Qh
-	BZ4DC+8pz6xLaEN20bmdTPNN/MlrGzA7R6F+2TC1tH7vgIMbTvjA7TEA7tgueUXrLduxhg
-	f45K+ZmHAShUertYVZ+wetJYfMz/kH+Ysyu6XsmCOw+IjnTqhzKg++Ud5ax4b0/SE3ys8Q
-	08yA3UzLGSh67/nkJB2+wLdxtpYALfFfgpw8D8g5CUJuwbJqnZt6B26bgkAWjc5SYew8Or
-	r1oRqSLeDOY4BCDH35R5y3PJOaHT6Kae+wZXahbASuVGzG1eXVqOJ1Vy+899Ww==
-From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Date: Fri, 06 Nov 2026 08:47:28 +0100
-Subject: [PATCH net-next v3 4/5] dt-bindings: net: dp83867: Add
- ti,output-impedance-ohms
+	Fri, 06 Nov 2026 08:00:24 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-6b6e8b6d424so84663a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Nov 2026 00:00:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1793952000; cv=none;
+        d=google.com; s=arc-20260327;
+        b=kM2Ms3XwTctBDX2Tj1sCZB8rWx4yyyp64dSX1ypGrUfpaSlT77IyDB8jLIVUQGnKjY
+         yqkeQhwsNv0u1V3st+wAdu8he7kGg9BRwfPAhMSlrFSaPxWczGtNeazN8gMVU577KbcS
+         okU2gRtnml54XiE2Om4DvPZqgoF3Jq40kz6/zJuNU9d+s+khpnMu+zf9tnYIIRvJd+Az
+         2wx0xzsGQ/ZSNX+xrCIx2PDXsfSgRamqNBqIVtWQk6KBVO78Bngqh6i1BzMMiulPV105
+         JE0s6J+3zLGjPyBIXRJU7YJJKAQeAiNzKO3akWAnJvLcOOOLSMoOzDVWDM9v3T4ChTCB
+         aa6Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=JL/ejsWQpZh4uIBI1fUZsT9Ty7diuDK7PLmVq35sQrc=;
+        fh=TdCqpDGmUqDFdRpzPDQOXHDgwOXkmpvTrIiKYOyN008=;
+        b=KnFMtzU/OnmLr7h0BoADcs3XIQLhJDLwnthpNYkE20wTj5xwtXUNVUG7K4kDO4dRqX
+         H01o2ouaGaXyhwWtdLMSaagcGNvU5/9POjAMZT6r5UK6xfqe9TdcikteNSURF8w+enO/
+         M/RmctuGCBPlW5WA3A3bbqekoRam95qVBeiVyrtwBz6tqkFT6X28W79yLw6fEAgcGxfg
+         wlbPDLfjS08SqVEfjr/lKE3yBWaKkPpvpsing9W7yxADNvPb/QNe0WidINf6BKZxDqRN
+         e5jMsxjl3MdrfYMEe29Rn6z2p/nRXkM5lx9FYvx57gWsTf6wQAdN8fpRNk/wcFtQ2kf/
+         haIQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793952000; x=1794556800; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JL/ejsWQpZh4uIBI1fUZsT9Ty7diuDK7PLmVq35sQrc=;
+        b=pqqtQl9/sNC0nFWgcvY5XEjxVELpMPV3DcXqzYweC7rpnYhQ8H1mFbd3Ci10xc7gN9
+         U2CKOAoRHt9svR0rYDGKX3htmekO2K/l9IkE0o3nRcuBZtyw0EDa9SkD0Fh2JpaF0TwI
+         0ivr49eKcELRGtjg99aFzhvGo6rbsu5tGfXW3J3QweO59qE9IEpSy8a6IbJO7dFNd6lh
+         vWTaO6/SmlVSkYXixnrB+iKEgUXko9c/BbaJZ/jXisTVHPw1Xmia7qjNkrnw8veHM9Mn
+         BiHkaIY+fnH9KxqG62A3hJBsIKd01pcT1W+6RXwJtF4xpyriKp/WA5nYY9triBnJY3Z4
+         N8sQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793952000; x=1794556800;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=JL/ejsWQpZh4uIBI1fUZsT9Ty7diuDK7PLmVq35sQrc=;
+        b=thjEPIVmgoZFImELPB0h6gm3mLMMpX3VV+HVLfeyKnOHvR+d8TqvZgIHG1uTDjSj1W
+         I4e/1woVwJQiWytY2+C2HahY4zv31UzQyInLt8IgAGvzUXhd/3AmSzBwTZUND05dddFT
+         kQ3RjCtzqBZG0XygMG3W2Xo79FNAkAVbw/JogepmJ7Tx0PWvAAQhpsyfIrhjIqMo59Ax
+         nVrAf8TD1fC/f0+U7mzL93Y6mhULCfJxYVJW3abnvKK6Mne/npeXX0q6gFtKRDU8f8gt
+         z7305Mn/zp4v9+laqRwlRsvdqm5dUzMKtrpD+cAIMU7HzknAOgFOWuXLhaDgewFm1NXX
+         /+IA==
+X-Forwarded-Encrypted: i=1; AKwUvByUPscPTwnm4rwSkaI+f7VNHHRbaTGyOXJRAJJqlhO+BxgnmpkhkqbDkY8LrkOYe8EHLWY+rn314Y48jtxzUbni@lists.infradead.org
+X-Gm-Message-State: APuU4Z9CYMgDJbMedgoaEIBifiWVozBcBrPxSC+LoMzgTJez8Ica+JvI
+	VH3XckdPvae1VghOEH69c3umrQZB/F7nsbamOsniG8VXZtnDqvIreMkg27ioXRURw2rTjjdGCuZ
+	qPU4te+SP1Lr/IJ/ZFXGPCT2R/kKZFf4=
+X-Gm-Gg: AYBFou26Mw+SaBoylyz+6KibtFH0bL0lArtZigFIMRLiWZKHEtnKAm91PjsXrPNWLsL
+	uUZb/p2awZOylA5YhLK8ieCeHcLglwYzHEp63LrEzgW2cK7VHylR4l/FwBKATCFj9dLAeu8sGlp
+	aZSsQfUnYr6OugUEogn0AZKiVWVst28snWfYY+IIN4iheAeDwITqjY+GSra8TKlc5FxxlTBdKrZ
+	qWlfdHXo2CnZvpFBrUYzB0LqDaFS/74Jax+3k0AU8k2nQPmKe5ap8Rog2pj//Ivqc6LdyJ69Txi
+	+PDPMXsjmsasjmftjMbhGJANkZ1HGdsvE5V6XVhK+OY4KUEK7FyHMnK4qmb7gBFoB2LAezLAqtr
+	YOkLO5n0r+p6xpuBywkacA0azKJFWL5sgA+lHODjUupKMNdX0rYnLs8xO
+X-Received: by 2002:a05:6402:440b:b0:6b5:9849:e335 with SMTP id
+ 4fb4d7f45d1cf-6b5985927b4mr1117288a12.1.1793952000065; Fri, 06 Nov 2026
+ 00:00:00 -0800 (PST)
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261106-v7-2-topic-dp83867-v3-4-45e1d3adf1bf@pengutronix.de>
-References: <20261106-v7-2-topic-dp83867-v3-0-45e1d3adf1bf@pengutronix.de>
-In-Reply-To: <20261106-v7-2-topic-dp83867-v3-0-45e1d3adf1bf@pengutronix.de>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Andrew Davis <afd@ti.com>, 
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, Michal Simek <michal.simek@amd.com>, 
- Eric Dumazet <edumazet@kernel.org>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Steffen Trumtrar <s.trumtrar@pengutronix.de>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1904;
- i=s.trumtrar@pengutronix.de; h=from:subject:message-id;
- bh=UNoS9edile30rBgykZiF8/v6sxxNw5SeyOvKa8PLluA=;
- b=owGbwMvMwCUmtVehiCsuTInxtFoSQ9bbjmO3+kXnRxjxHfx0K/Om7rFvi9zZfikukfqfo1PA3
- HT/+K3+jlIWBjEuBlkxRRaVhRV8oh4fPCOniXDBzGFlAhnCwMUpABOJaWVkOFXxmanlTt3B+cKM
- Tj5Cqy0eTM7aVnFFaaH479odhv6RPxj+KZy5uDR0YefJyx/mSRkJJ0mvV/v/Uqj1wMWmIGX57nu
- n2QA=
-X-Developer-Key: i=s.trumtrar@pengutronix.de; a=openpgp;
- fpr=24A1780E1548F0495996140A1ABD20720A5E5622
+References: <20261021105109.199886-1-l.scorcia@gmail.com> <20261103150936.GB792264@google.com>
+In-Reply-To: <20261103150936.GB792264@google.com>
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Date: Fri, 6 Nov 2026 08:59:48 +0100
+X-Gm-Features: AclHuK_yxwIK0Nk7bFmyEO_n6HuxXT4AJJgazikzKXrXwadabrKuwJfTV_QGR20
+Message-ID: <CAORyz2J_J0dYtg2BMKq9cuzo7U0j-cMQoFXn+2pOTztHz8dS-g@mail.gmail.com>
+Subject: Re: [PATCH v11 0/9] Add support for MT6392 PMIC
+To: Lee Jones <lee@kernel.org>
+Cc: linux-mediatek@lists.infradead.org, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>, 
+	Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Linus Walleij <linusw@kernel.org>, Val Packett <val@packett.cool>, Fabien Parent <parent.f@gmail.com>, 
+	Akari Tsuyukusa <akkun11.open@gmail.com>, Chen Zhong <chen.zhong@mediatek.com>, 
+	linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, mfd@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_235907_829936_75E18FAB 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20261106_000005_306348_0E719AF5 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,65 +127,21 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-2.9 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Currently, the output-impedance can only be set to default, minimum or
-maximum or via a nvmem cell.
-In cases where there is no backend for a nvmem cell, a value can not be
-set.
+> How many more Acks do you need now?
 
-Add a DT binding, 'ti,output-impedance-ohms', for specifying the
-output-impedance in ohms, between 35 and 70. Like the existing
-properties, it is mutually exclusive with the nvmem cell and with
-ti,{min,max}-output-impedance.
+Still missing acks for the regulator and pinctrl device. Yesterday I
+sent v12 of the series [1], rebased on v7.1-rc4.
+Thank you
 
-Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
----
- Documentation/devicetree/bindings/net/ti,dp83867.yaml | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/net/ti,dp83867.yaml b/Documentation/devicetree/bindings/net/ti,dp83867.yaml
-index 833540743bdf..557d2517a72e 100644
---- a/Documentation/devicetree/bindings/net/ti,dp83867.yaml
-+++ b/Documentation/devicetree/bindings/net/ti,dp83867.yaml
-@@ -53,6 +53,16 @@ properties:
-     items:
-       - const: io_impedance_ctrl
- 
-+  ti,output-impedance-ohms:
-+    description: |
-+      MAC Interface Impedance control to set the programmable output impedance
-+      to a value between minimum (35 ohms) and maximum (70 ohms). The PHY
-+      has 32 settings in this range; the datasheet does not specify the
-+      impedance of each setting, so the value is mapped linearly to the
-+      nearest one.
-+    minimum: 35
-+    maximum: 70
-+
-   ti,min-output-impedance:
-     type: boolean
-     description: |
-@@ -133,6 +143,12 @@ allOf:
-       required: [nvmem-cells, "ti,max-output-impedance"]
-   - not:
-       required: ["ti,min-output-impedance", "ti,max-output-impedance"]
-+  - not:
-+      required: [nvmem-cells, "ti,output-impedance-ohms"]
-+  - not:
-+      required: ["ti,output-impedance-ohms", "ti,min-output-impedance"]
-+  - not:
-+      required: ["ti,output-impedance-ohms", "ti,max-output-impedance"]
- 
- required:
-   - reg
-
--- 
-2.56.0
-
+[1] https://lore.kernel.org/linux-mediatek/20261105194426.1113050-1-l.scorcia@gmail.com/
+--
+Luca Leonardo Scorcia
+l.scorcia@gmail.com
 
