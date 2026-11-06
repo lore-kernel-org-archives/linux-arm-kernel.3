@@ -2,187 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78926606D803
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 07:56:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99491606D814
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 07:59:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=PgLwPXXy;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=IJzqRk3M
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=M14dNtGU;
+	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=ReNeYfCO
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=6T6z5x4IhOyYRLKWgrffiM7yFqTafPSADxmDhh/kQJA=; b=PgLwPXXy3hTLLJuLdNIjOfvKjp
-	CBEv838NxBlwzy1u8tXkho6pI8X82CtUsQK8a0vzhLasRxlWn2TkMx4XYZ+5TX9g0HNpwIukwPccc
-	ASQv3UzRq3m3adhxbXUxvN3aRQ0cxghoo/h6Fka25POdVvVTSrv6AqnwCzjgICpwxEnqDKudLP00k
-	gA12yuUSAh3jExg3/QC951M0siaz4hHw3FtJITz4WLfcJlVN9BLu09wdSUz3QaYVPyZL0gVAlIjOJ
-	ow1uh7+VTqyODExASpkbJB+E2M0rNMrTgkbUfoKzvejxsfpF9mupXz/BqZEg1pSFN9bXNIaI6Ta6I
-	jWNgU+OQ==;
+	bh=kPbSQnSE/QJ3x1rfPbGOXpcL9+sompGSau+wLZMj/jY=; b=M14dNtGU543+0dhJRA8+O5S2pS
+	VWn9SK1T3smRp/3cI2AYFddDQe0/yqckWLnH/Yj9S2m/JxhFlZWlzHnGR8vDLo1/ubJdLN1GbEshb
+	TUcP0aIE3S0IigM+zOA+RT7Zfw7ofniqHoJQm550jaFvPasR5zN3Fgx8ENZDso7OYl7zg801VgPBx
+	T9nApaUe8kbLI7ZmP7tILPFQOf0O/siLAPMHcGrlXwmvEmWP+k5o5hFYtN91WPL249wTUa6pv+YTc
+	/nbVyW/EXqWdMTPy0Oz/WmOhkg00OY2klrif1jFXbHMhuzANgPisPBBQZe+QG430FaevpSpJD5/Me
+	XkSKodKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPEoO-0000000BV23-0liW;
-	Fri, 06 Nov 2026 07:56:36 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1xPEqr-0000000BVG8-3fqX;
+	Fri, 06 Nov 2026 07:59:09 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPEoL-0000000BV1g-0QBS
+	id 1xPEqp-0000000BVEQ-1tej
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 07:56:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793951793; x=1825487793;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=gp1BlZqai+CwzNX/3689L96laLlHXDWtj+I/oOhdbMU=;
-  b=IJzqRk3MZ/t+b9rEZ5t1mK4OsC4NHKNW/uu+3siZ6Zw83T17c198dI7n
-   YTgxGc7amH1TskDA19XRJnfPHjswO17iMTfxFl+m6KaewB0tiIITxrmWd
-   aPFuZtRETvalCu8iY159AHGZYqi5DO5KKtxd7TtKcoY/iDLtk+svvjS3v
-   ISZwtwuNAK7KuQtcGas2axIc+7npnHcdMmjcvRYbhx1JUsVaAvMFsUo2u
-   I19zeFGbgYxDTf5lDTZc0624VJrvJqH92h4vGlZZQltsyLQptcCMNGIxT
-   zlrWsji1agqdJtm0iefBpohYfydUMVp5HLQDnowm2AGLM53ozmhhvavb8
-   w==;
-X-CSE-ConnectionGUID: S3wHqf0ISdqQJVDn7lLKTA==
-X-CSE-MsgGUID: 33IWI+dERhWaZpVy0tTJRQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11957"; a="2751721"
-X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
-   d="scan'208";a="2751721"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 23:56:33 -0800
-X-CSE-ConnectionGUID: UcHisO39Q2Krw1xcYAl1eA==
-X-CSE-MsgGUID: qhwsg5taQUejm+QJQEJ8Rw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
-   d="scan'208";a="7541049"
-Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
-  by fmviesa008.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 23:56:32 -0800
-Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
- fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 5 Nov 2026 23:56:29 -0800
-Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
- FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Thu, 5 Nov 2026 23:56:29 -0800
-Received: from BN8PR05CU002.outbound.protection.outlook.com (52.101.57.51) by
- edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 5 Nov 2026 23:56:29 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j7gpy0vsr/kXMCzCZTsQbcNd0cxhj1RoGU5YddAN21EFnS6K5cfB/CWzZRXopbtVuUk0AjxVZAVf2vFma7ZnjHCzc+Xq5ybDp+KHrxiP/QOoj1PjMBQlACbbq98vlZ02DcQmD1ixGzRo9MuMGJ+XnDN4ovEEMVSj50J+TQtc3a0n6/rpJXJRc3myh7I4cbATwPHneJ1ODgOhu9qk1PsVYMulUeB6y2E/icZfBjGgPdIH+c5YQCFtxTgfw/+QtIuxw3ls28GvJ+ewmD+JnPbg31yTOBARuRWVOdXpOmgZUcwXXb/FBTJQtmCPLzRhN9rS6HEZGba8XVZhgnlEBHvxQQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6T6z5x4IhOyYRLKWgrffiM7yFqTafPSADxmDhh/kQJA=;
- b=DBqwBU/xcyZ65qL0uP58dLxMYapue6wRCWN/7jzFrJJa0P0wzhI2mJCN/hMIql9kU7bMVS7mYmMn16QCZvXZ5ybL6opUCmp7sxoev7lOMTVBrfArBOxwguA7GNLMf5SRgUykfVMmzX1Hvyi4pYvAQxQGhRelZRWMEAM7vjDjgqToxeLMkbLTGuWEcNZOjrLPgWYin3VSWKOerCOxKcxX9MWuuCz89MkQ3r0bYmXLswKVnLUjozE0sXbe25gYbj23UXTBqykZKpU50IZZ4mxLgYz9jqDkOcz/A3E2peKD2pur6UppngbWIy3D1XPtbcAc3/udaec8WoXGI32rm6u+Cw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from CO1PR11MB4835.namprd11.prod.outlook.com (2603:10b6:303:9e::22)
- by SA3PR11MB866706.namprd11.prod.outlook.com (2603:10b6:806:532::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Fri, 6 Nov
- 2026 07:56:27 +0000
-Received: from CO1PR11MB4835.namprd11.prod.outlook.com
- ([fe80::d051:d948:c209:9225]) by CO1PR11MB4835.namprd11.prod.outlook.com
- ([fe80::d051:d948:c209:9225%6]) with mapi id 15.21.0592.010; Fri, 6 Nov 2026
- 07:56:26 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>
-CC: Alex Williamson <alex@shazbot.org>, Alexey Kardashevskiy <aik@amd.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Jacob Pan <jacob.pan@linux.microsoft.com>, "Jason
- Gunthorpe" <jgg@ziepe.ca>, Joerg Roedel <joro@8bytes.org>, Jonathan Cameron
-	<jic23@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, Krishna Reddy
-	<vdumpa@nvidia.com>, Lukas Wunner <lukas@wunner.de>, Nicolin Chen
-	<nicolinc@nvidia.com>, Robin Murphy <robin.murphy@arm.com>, Samuel Ortiz
-	<sameo@rivosinc.com>, Shameer Kolothum
-	<shameerali.kolothum.thodi@huawei.com>, Steven Price <steven.price@arm.com>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>, Suzuki K Poulose
-	<suzuki.poulose@arm.com>, Thierry Reding <thierry.reding@kernel.org>, "Vasant
- Hegde" <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>, Xu Yilun
-	<yilun.xu@linux.intel.com>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-coco@lists.linux.dev"
-	<linux-coco@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>
-Subject: RE: [PATCH v8 12/15] iommufd/viommu: Allow PCI TSM backends to
- provide vIOMMU operations
-Thread-Topic: [PATCH v8 12/15] iommufd/viommu: Allow PCI TSM backends to
- provide vIOMMU operations
-Thread-Index: AQHdbHg6xXjL5aZ9d0memJQCvEO+p7cgrT2g
-Date: Fri, 6 Nov 2026 07:56:25 +0000
-Message-ID: <CO1PR11MB483536F447DF311831A64D4D8C762@CO1PR11MB4835.namprd11.prod.outlook.com>
-References: <20261104161632.3547423-1-aneesh.kumar@kernel.org>
- <20261104161632.3547423-13-aneesh.kumar@kernel.org>
-In-Reply-To: <20261104161632.3547423-13-aneesh.kumar@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: CO1PR11MB4835:EE_|SA3PR11MB866706:EE_
-x-ms-office365-filtering-correlation-id: 99f23a6e-660a-486d-c27c-08df3bdb7528
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|23010399003|376014|1800799024|10067099003|22082099003|18002099003|6133799003|4143699003|11063799006|56012099006|261022105027099003|261026121527099003|261028144727099003|261102123227099003|261026140227099003|261021121427099003|261009223027099003|38070700021|261022075727099003;
-x-microsoft-antispam-message-info: 9scOgteyWxEmbk+N7/FP7LsjkAH/D2Yl+lOOgPDcKaEtqKS1Pjv1rOaXhImYUOC1GH9ZTMzz+2Gl9fmQZ2zAOZRthyn8byapJ07iS//9tvbBt4qLWG56aEoWWdNZbV0Dz665iO9hOsiQ/aRI0DFfoefuFvab8Ecw60aoWEeQtOHP0BiztTHyS2gx+kFufkvQh9CmpotZHJ9uGl0/3YN3o+y0dkGUpcMHfG1wxljq5uoevS2BJtjPeTMwQ6xzhVLDASFT7muPkbvC8Q4A8rq/JhLVuhPnJ1GsnmeqQLc8AkhZMRTePOmfI2qXi7DdoACdgsFl7BrWlooXzfTCoHCr2zBhYYvoaFznGSQWMYWxi2DWEIv0R01OEnWSgay1anmIXTMIIeaThyc+cP+wtgzb4ApPHnhc+Ktpe10DDm0LPLytGxBN6W5rtFIAk9m0W+LWGoafZw4nWxdsyI9ZaLnp1XeZjUarQcGXtK+UsaUMCjzPA/TQBO6dZTJucIdqwTli0i6P4mciY8+LIzIBDgbbf8EGOreGm0cpnNpwneyO1qB6GFGntje4Z217XjtLZgA96ZTlyN3lCuscU+ntGq2P5ksaRGnVzXpMDfecHFySLrMqKQMGnUIZNfeFS2NBKYfxlrngs3QjkTr21oLgx/4+aLSY1flbFBbNbAUtUD/rEfa/moRHHmQt96XDtuc1dkuqAlPjLlA3KQCds7KU/5Qctk7gM+QIWuJjuId6qJUo9XU=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB4835.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(23010399003)(376014)(1800799024)(10067099003)(22082099003)(18002099003)(6133799003)(4143699003)(11063799006)(56012099006)(261022105027099003)(261026121527099003)(261028144727099003)(261102123227099003)(261026140227099003)(261021121427099003)(261009223027099003)(38070700021)(261022075727099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?cbGKY/3NQzJCKU8FNMRkVbBxOAlpme/q4Vud8ehi6+z3L4NwquRLORarANIm?=
- =?us-ascii?Q?9RP514328FawUZFhOMHB7Qk6DMGl6BKbkMjPdQcePOIh0mrVj4rsSzfGcdNV?=
- =?us-ascii?Q?YUqqbTLRHXHA0IpZkAnCYzuUe1RK11XVZU91IlEdBLWtOD/f5wpmq53DRQSC?=
- =?us-ascii?Q?dgoGrgSzFYb36ZAi6wkI8BRAqDFpFmyMnyTtdlPOY4VQht8gz7MzdfmW/831?=
- =?us-ascii?Q?xCGvkXYDAaBJDeIQw23vbnH0SQyz7bNHdJT99tJMECzPhoHoCMiu86M0Hd26?=
- =?us-ascii?Q?cFpBt6Mbj50gXiDoJLN7RLLgvW1COEFJiKErarvHb7hmX4LUc3ejIgvAoOD3?=
- =?us-ascii?Q?8h1DFOpkYKO+XRIMTSv/2s+QFX4A0cJfDgaBu7D7DGZz//9MAIJ7hnApKzHz?=
- =?us-ascii?Q?XkQ+SzbtKYt3URNoTefH7b9Ur9d55RiTlEjkUyh/a909PeHWXwN2SwPTdqIp?=
- =?us-ascii?Q?9mLmsflMpbmhUId2Q74dRIri5FwSaD4Q4AXcuorC9joxsnklQMhHnUJJhd80?=
- =?us-ascii?Q?Md38djMhDb5D8fm2xXSLwRr2JPO3nj0+ECquNJKmBworV4nfZXyPLM3sgXB9?=
- =?us-ascii?Q?2Z9XGJkbrgANk2tpdvr8MLCmQRKTZFoNx1YsnB5EsOI2XzS5C7ZvLQKncafc?=
- =?us-ascii?Q?kBQ2TVpxZCDEe7ClFIkPEkel/UrKOf/KSejDb5DIviAkRfuoOHKRA+YX5u5F?=
- =?us-ascii?Q?oSbtSI5yKkKgVZQoVttid4qi/t6m/DVdB5A6+Nll7F8j6bR8/bVgK7LLDcJp?=
- =?us-ascii?Q?F+NUy7V8iG7NCvlCyJHSIHQ+LZsxNuE/eoDO8firReBaSGvdFUZFfa5EAmIc?=
- =?us-ascii?Q?Yhgkj2D6f4hg2+X3WWU1eCxEw44Z188BIPY3JS4n0ru64ZWnbmh3L6axs94d?=
- =?us-ascii?Q?jYZh2E2rppFPj3HrPnkghZiEZKQ/iN2ZiMxjosotX9+Hj/tEuzOKy1wR64+5?=
- =?us-ascii?Q?oDVbkPXg8QAYVOcA0/Ll2QUJHGcuREd1Bb4mnQkPof1srSPdkrwdYclTWGRS?=
- =?us-ascii?Q?Gdz8og2FlJc3/eHrrvfH02qWV+315khv64MgyAXnp3M5g3MMlqAt36D3ArWa?=
- =?us-ascii?Q?GhxCF0idgy2sw7+Eh6b2s9ZkK9rUlZXcJ9vR0wOvisAOspmc1AUyqZZq/yxy?=
- =?us-ascii?Q?VI6GN3Hgnoyk1KQEGp2vInz7ck5GDT8Q/BcJA07iI/vvZb9UTsvJF0jbsMHG?=
- =?us-ascii?Q?xFfnPahvKpDEeq5HtKVyi1cIfE4pbp6NZoqLZ9k9N/2xw4cBOyfTTq35TXfp?=
- =?us-ascii?Q?m8YoeaQqKVTJvvQ3NY7hBW6yElhbqbQkRqyJU90FeJ2eWxO0k4ZoEF0uzJdq?=
- =?us-ascii?Q?NBSrD2enx1p+PZVOPSP21w3wMKf1WHlpb6L0F5cNxfReyKI6VA7c9+02N8r/?=
- =?us-ascii?Q?YXpAOXjLAz9v5pN3ViG2JLcU8Qx7ceqkachdnhbgtMx9+ig9FyEM9JWqMD8z?=
- =?us-ascii?Q?1+kOPJrECmBYkBRMcnuE+5zeVM7RMSx4uKRIbaqKmaaYlO8YuDuLw+BV896k?=
- =?us-ascii?Q?JOLlKsaFVEU3H9rexJDiufDHSi2ptddMS9cwZFyrw2i0HypNre5FbqqcDBTS?=
- =?us-ascii?Q?KEQBJUfhe4FGjt0mmZpZKCR8htvtG2eUmhpqHHWiyJuVMGMCGa2ArvYfxc98?=
- =?us-ascii?Q?NJTZPG8Ob0cMGWrbPVpkvgutS9Mti8xmNCXxofo4aWuAvypKmSNe+/qRODyy?=
- =?us-ascii?Q?klDQJTjH56gUWiBkXgRZ8vKfmsw2OKdFk6Hjo4Vgbb5ttdBd?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 06 Nov 2026 07:59:09 +0000
+Received: from ratatoskr.trumtrar.info (unknown [IPv6:2a00:1f:f805:2b01:a03:2f4:308a:7b52])
+	(Authenticated sender: str@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 9F45F20041D;
+	Fri, 06 Nov 2026 08:59:02 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1793951942;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=kPbSQnSE/QJ3x1rfPbGOXpcL9+sompGSau+wLZMj/jY=;
+	b=ReNeYfCODfomlVdCheXppJS3kDPTfv3rlI0YZvjJ/dtPnNwHYpmcExyjMdsrh/CBRF2XY2
+	qolZHRay0uslgFVT01et+9/nYwOVCUyFhQiSkmMhbPOTcEN4c5QSCohzHrjMumo1gfg+1F
+	OkR9MtMtd1Bjg9FGot7qliNj2NAugwfv6NReWAYR7pjuPXwYjhV4TNNZK9ywcw1hQEiZNJ
+	Fc938oMv1iLS5M60NIpuPFZvhQxAMl1Zb5974ZVPpkeGhp8+lurrhv9KTwuD5gQDW+q+Wh
+	qqfp1IIVpSIcazMCtGwhanKbqCYswz88GaDV6EkYGBHCJRvwJonREXBXywIhZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1793951942;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=kPbSQnSE/QJ3x1rfPbGOXpcL9+sompGSau+wLZMj/jY=;
+	b=KE90NvHM+cd2vMrolv6/WcqIH2pfZ/OfuyV/xvREFuN7lMNiNc1WumxkyXqq9GQJjInHzV
+	rAgCQMJXolHuSArrE5EftrtTuBBAXAeO07Q2q9MrZzCIWR/pHjFy0FQqyIbYZNmqhEfTPz
+	LIULrT36MOdWrxRbSavmPmwXdDRxC3nandjHlCrOHGdj9q+AsriMdGbNT+Q/zwqi5AT04z
+	kZPUKfTqK0iEF2xXlFleXXZuG/uTXCZBHEZsLHXXD3nDMOT1ASwkc17wZYX+Ywboj1uZUB
+	BT0iP57vMSNsSpeX3xxno/PwiLLIbJLHXuEH8HSXAkmmu4XtBT4bvbQGIATmuQ==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=str@pengutronix.de smtp.mailfrom=s.trumtrar@pengutronix.de
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793951942; a=rsa-sha256;
+	cv=none;
+	b=fe87B8CcFvG6lvmdFWK1W5h7Pm0mxXwDrwUAG40Be9cPrlZucaA5nxWsS+Q8YKOn2fG7mJ
+	w1NixVzFu4R1w0CHb7smXBiWVMTSWquCdBnsc5q7LUmg3tU/JUjDa7GR+yO80ylY6GTuvv
+	i7iq3kUNb22R9qMGofTpnXOhw/F9HC2hNOcluTu+pxrRuWbW1+uua1r3SFEJMlXA3m/z0y
+	ekwqoQs7VgtyVdsllm1x9xAdsGQ65V34Q3jz+/9cNOqHi+uIo5jjWE5XPtRv66l5GkMPgG
+	Lvh206Ob04fPrpJ8zEELL6p+4tEuAha0WYOtFd26tezgNPwSZjUkJgE4VR/vrQ==
+From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Subject: [PATCH net-next v3 0/5] net: dp83867: add new output-impedance DT
+ binding
+Date: Fri, 06 Nov 2026 08:47:24 +0100
+Message-Id: <20261106-v7-2-topic-dp83867-v3-0-45e1d3adf1bf@pengutronix.de>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: jrflsySgexLR2tOcXPfDLRG7ddk5lRGO0kPKESOgeLdwEX7MVWmKVE6kcgMolSO+xg5WAkffGf+oTkAKvQc6qnPwHhLYOLeADtTuxKyMEBqQvS4kS3wwETGUW2o8SChoFo0w+UsC6vT3Jw07LMkr04RAop9mmWZlZ9i/fhdJMhr2hg8wX/tx78Bitu2nmDRSd+l/QdD5ewW6rwK0ZmeJ4F5RXsOxcUWhUZutZS5b0BBy7e98Oicgs+oCqwMYbKITFFagNrB6w7wTyYtkWsY+OuyXmfaxuLpY+ofU3Pt15ipDH5FQ4lyT5N65CMIYon6vrectpehdrmIQtzDQhKVtTg==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB4835.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 99f23a6e-660a-486d-c27c-08df3bdb7528
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Nov 2026 07:56:25.8886
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: YWTw81DfvW++yndaRH1j1o2VRg8moeisUFMQIn0BcpQc332NMT18udfrX2n06Gwwchz3NYR6AUIxz9sUy0uwgg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR11MB866706
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33NQQ6CMBAF0KuYrh1T2tqCK+9hXEAZoC5K05YGQ
+ 7i7BTcmGpc/M//9hQT0BgO5HBbiMZlgRpsDPx6IHmrbI5g2Z8Iok7SkApICBnF0RkPrSl5KBah
+ 4XQrNFS0kyUXnsTPzjt6IxQgW50ju70uYmgfquJnb72BCHP1z30/F3vg3lQqgUOhaVdicBWJ3d
+ Wj7KfrRmvnU4r6S2IfD5E+HZaeuVCM0aokV/3LWdX0Bo/XfkB0BAAA=
+X-Change-ID: 20260804-v7-2-topic-dp83867-e73a84c37016
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andrew Davis <afd@ti.com>, 
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, Michal Simek <michal.simek@amd.com>, 
+ Eric Dumazet <edumazet@kernel.org>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Steffen Trumtrar <s.trumtrar@pengutronix.de>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3673;
+ i=s.trumtrar@pengutronix.de; h=from:subject:message-id;
+ bh=al1FHRm3IZNEtLnKufWsjtPBIJAxTPWvgFsTaGtRGec=;
+ b=owGbwMvMwCUmtVehiCsuTInxtFoSQ9bbjkOe/0v7VvdolUyb6bB+Zt1LjwpB5n/Sx6pElKsZK
+ owPRUV1lLIwiHExyIopsqgsrOAT9fjgGTlNhAtmDisTyBAGLk4BmEhiF8N/97kc0xfz3rPgU2f2
+ sXTsks1+V7PPL+mhcen1nsk1s/8GAVVcT32xNLDO7tp1SX/trFO8Ft/WHy361ubHesO7uU3EgBM A
+X-Developer-Key: i=s.trumtrar@pengutronix.de; a=openpgp;
+ fpr=24A1780E1548F0495996140A1ABD20720A5E5622
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_235633_156516_DE63CC1A 
-X-CRM114-Status: GOOD (  20.39  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261105_235907_650051_5B2C6AE8 
+X-CRM114-Status: GOOD (  14.70  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,68 +113,86 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-> From: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> Sent: Thursday, November 5, 2026 12:16 AM
->=20
-> In confidential-computing configurations, a vIOMMU may be implemented by
-> a TEE Security Manager rather than by the physical IOMMU driver. Such an
+Currently the dp83867 supports setting the io impedance to minimum,
+maximum, default or a value from a nvmem cell. In situations where there
+is no backend for a nvmem cell, the value can not be set to anything but
+minimum, maximum or default.
 
-TSM is the firmware. Here it is the TSM driver.
+Add support for a ti,output-impedance-ohms binding, allowing to specify
+the impedance in ohms via the devicetree. It is mutually exclusive with
+the nvmem cell and the boolean bindings for minimum and maximum; the
+binding schema now enforces this for all of them.
 
-> implementation also needs the TSM identity when creating and validating
-> vdevices.
->=20
-> Allow VIOMMU_ALLOC to first query the TSM associated with the target PCI
-> device for vIOMMU operations. Fall back to the physical IOMMU driver
-> when the TSM does not provide operations for the requested vIOMMU type.
->=20
-> Resolve the PCI TSM association under pci_tsm_rwsem, pin the module
-> providing the operations, and take a TSM device reference. Store the TSM
-> device in the vIOMMU and release both references on allocation failure,
+Until now, dtschema never applied the binding: it had neither a
+compatible nor a select. The binding gets the compatible of the PHY ID,
+which several devicetrees already use. The Xilinx ZynqMP devicetrees
+then fail validation on an unused #phy-cells in their DP83867 nodes;
+patch 1 drops it. It does not depend on the rest of the series and can
+go through the Xilinx tree.
 
-what does "both references" mean?
+Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+---
+Changes in v3:
+- new patch: drop the unused #phy-cells from the Xilinx DP83867 nodes,
+  which fail validation once the binding applies to them
+- new patch: give the binding a compatible and reference
+  ethernet-phy.yaml; without a compatible or select, dtschema never
+  applied the binding, so the new constraints would not have been checked
+- ti,output-impedance-ohms takes ohms (35..70) instead of the register
+  value, the driver maps it linearly to the nearest of the 32 settings
+  (the datasheet does not specify the impedance of each setting)
+- fix the range check, out of range values were silently masked
+- describe the mutual exclusivity instead of a wrong precedence in the
+  commit messages
+- fix typo in commit message
+- also forbid ti,min-output-impedance together with
+  ti,max-output-impedance and drop the precedence note from the binding
+- rename the binding patch to "Add ti,output-impedance-ohms"
+- Link to v2: https://patch.msgid.link/20260826-v7-2-topic-dp83867-v2-0-a97b4cec6e93@pengutronix.de
 
-> fallback to the physical IOMMU driver, or vIOMMU destruction. Keep the
-> module pinned until after dropping the device reference, since the final
-> put may release the TSM device.
->=20
-> The device reference preserves the TSM allocation. Backends providing
-> vIOMMU operations must not unregister their TSM while the module is pinne=
-d,
-> since the reference does not prevent backend resource teardown.
->=20
-> This enables the Realm vIOMMU implementation to provide its operations
-> through the PCI TSM backend and retain the TSM identity needed by its
-> vdevices.
+Changes in v2:
+- change 'u8 *val' to 'u32 *val'
+- fix logic in driver
+- update description of new binding
+- rename ti,output-impedance -> ti,output-impedance-ohms
+- make mutual exclusivity explicit in binding
+- Link to v1: https://patch.msgid.link/20260804-v7-2-topic-dp83867-v1-0-1ca79eb54eef@pengutronix.de
 
-It's not specific to Realm vIOMMU, and Realm is never explained in
-prior patches.
+---
+Steffen Trumtrar (5):
+      arm64: dts: xilinx: drop unused #phy-cells from the DP83867 nodes
+      dt-bindings: net: dp83867: add compatible and reference ethernet-phy.yaml
+      dt-bindings: net: dp83867: make exclusivity explicit
+      dt-bindings: net: dp83867: Add ti,output-impedance-ohms
+      net: phy: dp83867: support setting output-impedance
 
-> @@ -49,15 +52,33 @@ int iommufd_viommu_alloc_ioctl(struct
-> iommufd_ucmd *ucmd)
->  		rc =3D -EOPNOTSUPP;
->  		goto out_put_idev;
->  	}
-> -	if (!iommu_dev->ops->get_viommu_ops) {
-> -		rc =3D -EOPNOTSUPP;
-> +	tsm_dev =3D tsm_get_device(idev->dev);
-> +	if (IS_ERR(tsm_dev)) {
-> +		rc =3D PTR_ERR(tsm_dev);
-> +		tsm_dev =3D NULL;
->  		goto out_put_idev;
->  	}
+ .../devicetree/bindings/net/ti,dp83867.yaml        | 47 ++++++++++++++++++----
+ .../boot/dts/xilinx/zynqmp-sck-kr-g-revA.dtso      |  2 -
+ .../boot/dts/xilinx/zynqmp-sck-kr-g-revB.dtso      |  2 -
+ .../boot/dts/xilinx/zynqmp-sck-kv-g-revA.dtso      |  1 -
+ .../boot/dts/xilinx/zynqmp-sck-kv-g-revB.dtso      |  1 -
+ arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts  |  1 -
+ arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revB.dts  |  1 -
+ arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revA.dts  |  1 -
+ arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revC.dts  |  1 -
+ arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts  |  1 -
+ arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts  |  1 -
+ drivers/net/phy/dp83867.c                          | 29 +++++++++++--
+ 12 files changed, 65 insertions(+), 23 deletions(-)
+---
+base-commit: 6584acd42820478910a771efb28a355a707e9cb0
+change-id: 20260804-v7-2-topic-dp83867-e73a84c37016
 
-Is it legal to have a device connected in tsm (i.e. with a valid
-pdev->tsm) but one wants to assign it to a non-confidential
-guest using a non-cc vIOMMU type?
+Best regards,
+--  
+Steffen Trumtrar <s.trumtrar@pengutronix.de>
 
-If yes we want to fallback to the physical IOMMU driver even
-when tsm_get_device() returns an error.
 
