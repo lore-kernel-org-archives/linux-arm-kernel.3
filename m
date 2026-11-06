@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0452606A32E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 14:20:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB4F4606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 14:20:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Kx6zVTMY;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MW2O4YCv
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YOH1kjC4;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=KsnDGo++
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
@@ -14,62 +14,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=4m1A02l9fBqeaT4qBdXhPAjM2BemeLPvn8bESL+dSEk=; b=Kx6zVTMYRhM6rLR9lyttxnJyjF
-	JVa+MtXM2gAiZIEBiq0EkQGFsZqhT9eksLQZ5q282gaKWjdGt3MkU8s54lazz+p41pcu7IVuuy/cr
-	cBBZlWgZMJq6D3h+sJ/FMEApKHlsUj1WdhJd+1lzWpZhMN39XJqrmNT6vwsJx9/9yoKACiXkHUHCK
-	AWjzkSHforidkzriaP/KUYpdPYnLfPfkbyfw3Fbc6HiMPCFlnRIWvMkMiW4QLNl7VAuyRO3xUHCpD
-	Wu/6okLMNBnCGaR/Xy26CpdiPavFjGtXB4kgNtx1rEH1NSGXuXYLvQz7v22P3+v5hnt8SPRfliZa/
-	9xicPL4A==;
+	bh=Q87JkWe4IOxAaj+S1cTCBpK2mbAExz1BAJFg9wuG6Mc=; b=YOH1kjC4EWsD6o1YOMMVV5LYB1
+	BkwtO17lIqh5DiIfLV8zCNFftc7GdYU5cdfYvr58fuQNhD8GEhCB4WAYeO1s5BdNhqdA2WTbkJod0
+	V+qGbK31LNexlYacpYG/dY0JsQ3SXq+kSCfYEKoFMfqXtaglRLrwqRvCf7E46WRUhzCRuJIBH983w
+	LqIjmTMHKSTHGJA9pPo9Dn5c5klsR4cA62HFyBXxZF0Hca91gGVp9U1eh+UCtCjQV98vLfdQJIJYJ
+	+KLkbNrMwriSGd6+qfqZGNCO3B9Y8x8ZZUlEIbEoVPfj7POQFysK/KzA/iRg0jJlnkS9RF9z+fvFo
+	Taq2EAYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPKnR-0000000CcrI-0TRb;
+	id 1xPKnR-0000000Ccrn-1BJJ;
 	Fri, 06 Nov 2026 14:20:01 +0000
-Received: from mail-wr1-x446.google.com ([2a00:1450:4864:20::446])
+Received: from mail-ej1-x648.google.com ([2a00:1450:4864:20::648])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPKnM-0000000Cckq-3SIU
+	id 1xPKnO-0000000Ccm9-2X2K
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 14:19:58 +0000
-Received: by mail-wr1-x446.google.com with SMTP id ffacd0b85a97d-492e3189fc9so653450f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Nov 2026 06:19:55 -0800 (PST)
+	Fri, 06 Nov 2026 14:19:59 +0000
+Received: by mail-ej1-x648.google.com with SMTP id a640c23a62f3a-c49b95262a5so54403966b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Nov 2026 06:19:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1793974794; x=1794579594; darn=lists.infradead.org;
+        d=google.com; s=20260707; t=1793974796; x=1794579596; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=4m1A02l9fBqeaT4qBdXhPAjM2BemeLPvn8bESL+dSEk=;
-        b=MW2O4YCvj25k0mNsUBqJ4pKQooHo5hwesXdDN1kKbLUm1r9lL8cTy8EbnonpMcHPQG
-         vm+8m8HdOxz9/DuYGx2YoGcJGAor76DXXpzJJ+0DgNzICGtNdYTES3yQGtoxbTtaqLQn
-         wrgZkEz7hpTEiBfSHTUcb+tc0UJ9ekZsMUInLJg/2Uo1GqV++YvCjvCpHQ1J+QdS1DsJ
-         vS1q4517e+u6DgBLJvmo9YB2dOyzu+jeO26SuBhPtXXh8Ax9LvEyGM521CRZL5NlpE1f
-         qgqozL2NlI52X3mcfR+tI+ibsY304ighMiFalbqYK4enYyqfkYWUomvAReKkxiJHxT/U
-         FqvQ==
+        bh=Q87JkWe4IOxAaj+S1cTCBpK2mbAExz1BAJFg9wuG6Mc=;
+        b=KsnDGo+++XZYj74m0xi1pQZ9nkNTye3XxJEPD+O8LquSy3yonLFMvJtqFfcpP+JT3/
+         bI6Cot8D7HaywG1MhovWPtoXkmQvA41Sa89tzXVUa4kVGRR+plVac5kptdvXKl1gl8WE
+         6KRW3J6HxeHbijQxRvgnO15KmftJDkHyGMD0/RCxzG22Yw/Uk0CGb4eUFpVw3bBo51s0
+         H1WzD9kn/f501CDHYBVlYQcSsMuWsY1M5yXnFUaC5jWqT0Ho5UT3/D8DdV9dp92qsVz6
+         39xTZ7YGDJPV7UPQmuGR2xyrn2tZFDlsZ+QgE/GejjhtZU7GcBBIzM6kavI+8noE0h7H
+         uZtA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793974794; x=1794579594;
+        d=1e100.net; s=20260707; t=1793974796; x=1794579596;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=4m1A02l9fBqeaT4qBdXhPAjM2BemeLPvn8bESL+dSEk=;
-        b=m5KnsBzhfuAJC/KzGDQbn/rC7OHJvEJQVToo+JiNIpPgEUhACYDyv+LO7fMkuI0nMf
-         MNAS69y/+XudlL0TLxobMEcYxnooKU+DeFES0l5bRMA0JJdwMBBzxYOiW5JbqeOwBQTS
-         c/FWWmRJwb+M+MfUr9s+BsFMb1TzC9Ku0cvC0iV9AVIK37SSFSVOrkgAEmxlL9FXn7Fb
-         LEqQGSndnfG/OREG680ZSxarT2XTn9Fvfk9EvxUrlqUIANnf5cWAqP1TzFj9oHvgRYUg
-         vLxh1Nw+o8QM8nJVvPcsm6Y2Bwiiv26KFjdL6A49t8bCZSD8EVZBdfGd/jhg8rerchQQ
-         V9wA==
-X-Gm-Message-State: APuU4Z/hca5fNaQKDKiA9BqGehHlBSTGvV3p75vTmlnnFhjF4lbiCqnh
-	FQ9Fe3AMj/MmsgBlkJndtyf7Zs9uNR3pCnWEvX9X28n6a1qsv2mnHYawu5364Hzvh0WmCgTXGg=
+        bh=Q87JkWe4IOxAaj+S1cTCBpK2mbAExz1BAJFg9wuG6Mc=;
+        b=dbYFxVOwoD1OlbZXkqqBqWMBBcjnmQDAhtmt8tieVrJKXZ6XszvYzMDB61v9lkEZ0l
+         HxQHmL8DXmVgofrO3ffMDodu/GcfkHd2oGSNSo0IVEqRAW229gHTPXOIOzAZDa+aB4O6
+         GudSkb6F0StwE1CASNKNlLntIqIPp/+R/kkDX6qUP9RelR63odBh9WT9kD9Gi325U8t6
+         7jOu8LC45fYXZVyM3oe4AQGOSYxufGsn1UJG2et+L4IRqLy5hIqqLXJwT3V2wMKvM2dY
+         KL5DC/5KbcvOPhL9dGnPwKsxI/5kxfolPSnMmyuhYkqzK9CcpyoWv1WAxtnbzHJKb5un
+         1apw==
+X-Gm-Message-State: APuU4Z9LLhkBry/YCL1X6MerK9w0ur8EoO3aOTY78ZMrkf1dZ8nvIKgJ
+	eNQO289BX0v56YubjDs5KO/kUUIFWM0W8zLebLDGl0zRF8tTNI/Ln21tnvLRChBn3Fw11VLZMA=
 	=
-X-Received: from wruw16.prod.google.com ([2002:a5d:6810:0:b0:48d:ee5b:2791])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:603:b0:490:9fe2:6a37
- with SMTP id ffacd0b85a97d-49275373b29mr5936762f8f.17.1793974794467; Fri, 06
- Nov 2026 06:19:54 -0800 (PST)
-Date: Fri,  6 Nov 2026 15:19:41 +0100
+X-Received: from ejda5.prod.google.com ([2002:a17:906:2745:b0:c3f:8199:7182])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a17:906:99c1:b0:c49:df71:14f5
+ with SMTP id a640c23a62f3a-c4d34c5fe59mr235201566b.31.1793974795660; Fri, 06
+ Nov 2026 06:19:55 -0800 (PST)
+Date: Fri,  6 Nov 2026 15:19:42 +0100
 In-Reply-To: <20261106141936.2744481-7-ardb+git@google.com>
 X-Archived-By: <archiver.kernel.org>
 Mime-Version: 1.0
 References: <20261106141936.2744481-7-ardb+git@google.com>
 X-Mailer: git-send-email 2.56.0.455.g6c5a503b38-goog
-Message-ID: <20261106141936.2744481-11-ardb+git@google.com>
-Subject: [PATCH 4/5] efi/arm64: Expose struct efi_image_info via the image header
+Message-ID: <20261106141936.2744481-12-ardb+git@google.com>
+Subject: [PATCH 5/5] efi/arm64: Drop build and linker script hacks to obtain
+ image code size
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-efi@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, 
@@ -77,8 +78,8 @@ Cc: linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com,
 	Jason Gunthorpe <jgg@nvidia.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_061956_931033_D6683B41 
-X-CRM114-Status: GOOD (  18.47  )
+X-CRM114-CacheID: sfid-20261106_061958_746377_E290BDA7 
+X-CRM114-Status: GOOD (  13.99  )
 X-Spam-Score: -9.5 (---------)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,145 +101,130 @@ X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-The zboot compressed kernel and the uncompressed Image both contain a
-copy of the EFI stub, and both are tightly coupled to the kernel image.
-
-However, the zboot stub is not linked into vmlinux like the ordinary EFI
-stub is, and so it does not have direct access to its symbols. This is
-needed today for things like image size and code size, but there are
-more cases coming (DRTM) where both stubs need to have a consistent view
-of these things.
-
-So add a struct efi_image_info that is built into vmlinux and exposed
-via the image header, so that zboot can access it easily.
+Instead of taking vmlinux symbol values at build time and poking them
+into the zboot linker script, wire up struct efi_image_info so this
+information can be obtained from the code.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- Documentation/arch/arm64/booting.rst      |  3 ++-
- arch/arm64/include/asm/efi.h              |  3 +++
- arch/arm64/include/asm/image.h            |  4 +++-
- arch/arm64/kernel/efi-header.S            |  6 ++++++
- arch/arm64/kernel/head.S                  |  3 ++-
- drivers/firmware/efi/libstub/arm64-stub.c | 14 ++++++++++++++
- drivers/firmware/efi/libstub/arm64.c      |  7 +++++++
- 7 files changed, 37 insertions(+), 3 deletions(-)
+ arch/arm64/boot/Makefile                  |  3 ---
+ arch/arm64/include/asm/efi.h              | 11 ++++++++---
+ arch/arm64/kernel/image-vars.h            |  4 ----
+ drivers/firmware/efi/libstub/arm64-stub.c |  2 ++
+ drivers/firmware/efi/libstub/arm64.c      |  4 +---
+ drivers/firmware/efi/libstub/zboot.lds    |  7 -------
+ 6 files changed, 11 insertions(+), 20 deletions(-)
 
-diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
-index dae5ff9fae26..2389558bd389 100644
---- a/Documentation/arch/arm64/booting.rst
-+++ b/Documentation/arch/arm64/booting.rst
-@@ -84,7 +84,8 @@ The decompressed kernel image contains a 64-byte header as follows::
-   u64 flags;			/* kernel flags, little endian */
-   u64 res2	= 0;		/* reserved */
-   u64 res3	= 0;		/* reserved */
--  u64 res4	= 0;		/* reserved */
-+  u32 res4	= 0;		/* reserved */
-+  u32 efi_image_info_offset;	/* Offset to struct efi_image_info */
-   u32 magic	= 0x644d5241;	/* Magic number, little endian, "ARM\x64" */
-   u32 res5;			/* reserved (used for PE COFF offset) */
+diff --git a/arch/arm64/boot/Makefile b/arch/arm64/boot/Makefile
+index d42d07667822..509b59518818 100644
+--- a/arch/arm64/boot/Makefile
++++ b/arch/arm64/boot/Makefile
+@@ -51,7 +51,4 @@ EFI_ZBOOT_BFD_TARGET	:= elf64-littleaarch64
+ EFI_ZBOOT_MACH_TYPE	:= ARM64
+ EFI_ZBOOT_FORWARD_CFI	:= $(CONFIG_ARM64_BTI_KERNEL)
  
+-EFI_ZBOOT_OBJCOPY_FLAGS	= --add-symbol zboot_code_size=0x$$( \
+-				$(NM) vmlinux|grep _kernel_codesize|cut -d' ' -f1)
+-
+ include $(srctree)/drivers/firmware/efi/libstub/Makefile.zboot
 diff --git a/arch/arm64/include/asm/efi.h b/arch/arm64/include/asm/efi.h
-index da6afd4a7a27..b0c9120b9741 100644
+index b0c9120b9741..3194e133a4d5 100644
 --- a/arch/arm64/include/asm/efi.h
 +++ b/arch/arm64/include/asm/efi.h
-@@ -154,4 +154,7 @@ void efi_icache_sync(unsigned long start, unsigned long end);
- // temporary resolution for efistub_get_code_size()
- #define efistub_get_code_size(image_info) ({ extern u32 code_size; code_size; })
+@@ -151,10 +151,15 @@ efi_status_t efi_handle_corrupted_x18(efi_status_t s, const char *f);
  
-+struct efi_image_info {
-+};
+ void efi_icache_sync(unsigned long start, unsigned long end);
+ 
+-// temporary resolution for efistub_get_code_size()
+-#define efistub_get_code_size(image_info) ({ extern u32 code_size; code_size; })
+-
+ struct efi_image_info {
++	s32 _text_offset;
++	s32 __inittext_end_offset;
+ };
+ 
++static inline u32 efistub_get_code_size(const struct efi_image_info *info)
++{
++	return info->__inittext_end_offset - info->_text_offset;
++}
++#define efistub_get_code_size efistub_get_code_size
 +
  #endif /* _ASM_EFI_H */
-diff --git a/arch/arm64/include/asm/image.h b/arch/arm64/include/asm/image.h
-index 9ba85173f857..10b35521cf28 100644
---- a/arch/arm64/include/asm/image.h
-+++ b/arch/arm64/include/asm/image.h
-@@ -36,6 +36,7 @@
-  * @image_size:		Effective Image size
-  * @flags:		kernel flags
-  * @reserved:		reserved
-+ * @efi_image_offset:	Offset to struct efi_image_info
-  * @magic:		Magic number
-  * @reserved5:		reserved, or
-  *   @pe_header:	  alternatively used for PE COFF offset
-@@ -49,7 +50,8 @@ struct arm64_image_header {
- 	__le64 flags;
- 	__le64 res2;
- 	__le64 res3;
--	__le64 res4;
-+	__le32 res4;
-+	__le32 efi_image_info_offset;
- 	__le32 magic;
- 	__le32 res5;
- };
-diff --git a/arch/arm64/kernel/efi-header.S b/arch/arm64/kernel/efi-header.S
-index 329e8df9215f..62061cb0bf21 100644
---- a/arch/arm64/kernel/efi-header.S
-+++ b/arch/arm64/kernel/efi-header.S
-@@ -7,6 +7,12 @@
- #include <linux/pe.h>
- #include <linux/sizes.h>
+diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+index 19d602e45523..b02234f080b0 100644
+--- a/arch/arm64/kernel/image-vars.h
++++ b/arch/arm64/kernel/image-vars.h
+@@ -150,10 +150,6 @@ KVM_NVHE_ALIAS(kvm_protected_mode_initialized);
  
-+#ifdef CONFIG_EFI
-+#define EFI_IMAGE_INFO_OFFSET  __efistub_efi_image_info - .L_head
-+#else
-+#define EFI_IMAGE_INFO_OFFSET	0
-+#endif
-+
- 	.macro	efi_signature_nop
- #ifdef CONFIG_EFI
- .L_head:
-diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index d6ba3c0af811..f1827e32b0e5 100644
---- a/arch/arm64/kernel/head.S
-+++ b/arch/arm64/kernel/head.S
-@@ -65,7 +65,8 @@
- 	le64sym	_kernel_flags_le		// Informative flags, little-endian
- 	.quad	0				// reserved
- 	.quad	0				// reserved
--	.quad	0				// reserved
-+       .long   0                               // reserved
-+       .long   EFI_IMAGE_INFO_OFFSET           // Offset to struct efi_image_info
- 	.ascii	ARM64_IMAGE_MAGIC		// Magic number
- 	.long	.Lpe_header_offset		// Offset to the PE header.
+ #endif /* CONFIG_KVM */
  
+-#ifdef CONFIG_EFI_ZBOOT
+-_kernel_codesize = ABSOLUTE(__inittext_end - _text);
+-#endif
+-
+ /*
+  * LLD will occasionally error out with a '__init_end does not converge' error
+  * if INIT_IDMAP_DIR_SIZE is defined in terms of _end, as this results in a
 diff --git a/drivers/firmware/efi/libstub/arm64-stub.c b/drivers/firmware/efi/libstub/arm64-stub.c
-index 2c3869356147..8daed681f97d 100644
+index 8daed681f97d..754cb2843967 100644
 --- a/drivers/firmware/efi/libstub/arm64-stub.c
 +++ b/drivers/firmware/efi/libstub/arm64-stub.c
-@@ -61,3 +61,17 @@ void efi_icache_sync(unsigned long start, unsigned long end)
- {
- 	caches_clean_inval_pou(start, end);
- }
-+
-+extern const struct efi_image_info efi_image_info;
-+
-+asm("	.section \".rodata\", \"a\", %progbits;			" \
-+    "	.align	3;						" \
-+    "	.globl	efi_image_info;					" \
-+    "efi_image_info:						" \
-+    "	.previous						");
-+
-+
-+const struct efi_image_info *efistub_get_image_info(void)
-+{
-+	return &efi_image_info;
-+}
+@@ -68,6 +68,8 @@ asm("	.section \".rodata\", \"a\", %progbits;			" \
+     "	.align	3;						" \
+     "	.globl	efi_image_info;					" \
+     "efi_image_info:						" \
++    "	.long	_text - efi_image_info;				" \
++    "	.long	__inittext_end - efi_image_info;		" \
+     "	.previous						");
+ 
+ 
 diff --git a/drivers/firmware/efi/libstub/arm64.c b/drivers/firmware/efi/libstub/arm64.c
-index 7ab634e37cf1..190cf180bb23 100644
+index 190cf180bb23..da6fa2f6c821 100644
 --- a/drivers/firmware/efi/libstub/arm64.c
 +++ b/drivers/firmware/efi/libstub/arm64.c
-@@ -135,3 +135,10 @@ void __noreturn efi_enter_kernel(unsigned long entrypoint,
- 	enter_kernel = (void *)entrypoint + primary_entry_offset();
- 	enter_kernel(fdt_addr, 0, 0, 0);
- }
-+
-+const struct efi_image_info *zboot_get_image_info(unsigned long image_base)
-+{
-+	auto header = (const struct arm64_image_header *)image_base;
-+
-+	return (void *)image_base + header->efi_image_info_offset;
-+}
+@@ -88,8 +88,6 @@ efi_status_t check_platform_features(void)
+ #define DCTYPE	"cvau"
+ #endif
+ 
+-u32 __weak code_size;
+-
+ void efi_cache_sync_image(unsigned long image_base,
+ 			  unsigned long alloc_size)
+ {
+@@ -100,7 +98,7 @@ void efi_cache_sync_image(unsigned long image_base,
+ 	/* only perform the cache maintenance if needed for I/D coherency */
+ 	if (!(ctr & BIT(CTR_EL0_IDC_SHIFT))) {
+ 		unsigned long base = image_base;
+-		unsigned long size = code_size;
++		unsigned long size = alloc_size;
+ 
+ 		do {
+ 			asm("dc " DCTYPE ", %0" :: "r"(base));
+diff --git a/drivers/firmware/efi/libstub/zboot.lds b/drivers/firmware/efi/libstub/zboot.lds
+index 367907eb7d86..61714a151766 100644
+--- a/drivers/firmware/efi/libstub/zboot.lds
++++ b/drivers/firmware/efi/libstub/zboot.lds
+@@ -2,8 +2,6 @@
+ 
+ ENTRY(__efistub_efi_zboot_header);
+ 
+-PROVIDE(zboot_code_size = ABSOLUTE(0));
+-
+ SECTIONS
+ {
+ 	.head : ALIGN(4096) {
+@@ -20,11 +18,6 @@ SECTIONS
+ 		__efistub_payload_size = . - 4;
+ 		__efistub__gzdata_end = .;
+ 		*(.rodata* .init.rodata* .srodata*)
+-
+-		. = ALIGN(4);
+-		__efistub_code_size = .;
+-		LONG(zboot_code_size);
+-
+ 		_etext = ALIGN(4096);
+ 		. = _etext;
+ 	}
 -- 
 2.56.0.455.g6c5a503b38-goog
 
