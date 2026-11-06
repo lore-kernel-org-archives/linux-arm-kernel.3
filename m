@@ -2,96 +2,91 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9ACA4606D81A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 12:04:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B052606A33A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 12:05:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=juXX6x5C;
-	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Su6il38E
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=a+ecKZDe;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ldB0NtAV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=0VMSuKuVUf2dlWYzVs5lJWxmrLEkc9V1Bcxwn1i5L2k=; b=juXX6x5CDr+sQxooRpnPnoctXc
-	ej2ZMfcLhj9qR3ZC7RMO9pFhioWOc+k2rn3P4QA9v5g+eBNgz0I37EQMCdsrZ9ocuj24J/j9AGdNj
-	5CghRAfA3dSnM3KyYIfmhZHFzlwb++xDzUtAyOLogs8xVY4SGj0XpjEVFE8M35fYYJKjqUj06NHQo
-	RQ0bI6DPQ96UmCZAzMYFMHNXuEtN2rqMLPdWGKRN1l17WCyFJv/BM6gLUipOqamNVAAml2BJXw+ku
-	U5Q1flskVM+Q2q5FAmIweIJfI3GMtx59eIkO2JueBeePXN13sjKlfSRTkJV4V6caVA/t8jT3N/aG5
-	Owen1vHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=ohw14vtNVpaw39MdfleV/FhLdxvIV9Kq8xUs5QaqRDg=; b=a+ecKZDervyORU
+	z7qpAFbvnH0RLnPZ5+VfbxNifNdgz8fSCCGWeIGiSl1dX0xGFlpA3ndUHwu3TH4Cw6dnDhqy3fpSS
+	GqzKL7V2I4IbDxSJUDDy/irWmAiw5fKcGU1khDakM3xIGcGRUXL058EAVH3fZSxChJ6p8WUWF7d+n
+	UGBlWRGEvK2XtL0xyhIBvG7QsIx/X0YGQPTFP/4XC12Es4kOjuZ0Pj2mK2mAp5QgPN2ufHLhJgKSL
+	dNfATQvsIWQTu/y0IC7sSw97keR5KaRMiP+wDWLlw8MhyehP3b+3K9Y+Gv8bvmVFLeOkyaOR+nz+q
+	5SizXLlRiQBE+DpOLpkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPIgT-0000000CG3W-3SVz;
-	Fri, 06 Nov 2026 12:04:41 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPIgQ-0000000CG24-2tzm
+	id 1xPIgh-0000000CG89-40Fo;
+	Fri, 06 Nov 2026 12:04:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xPIge-0000000CG66-3n4C
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 12:04:40 +0000
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id BBA542008B8;
-	Fri, 06 Nov 2026 13:04:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1793966676;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0VMSuKuVUf2dlWYzVs5lJWxmrLEkc9V1Bcxwn1i5L2k=;
-	b=Su6il38EHz3iTBVlv0SlQYW10yVxaG+ejejIeK798vykwVDWA90DGHk0IFdIx9iP6hIBah
-	2WzAY09Zu0fMcIQbLn1Buf6Fx8espq8It4foZFZdDhogvANqt8C3S3TzRaRm+BmqS6mAqJ
-	XDn1h3bgNidn6zoj30ya1afL+2BESUEuZKg6s3zQsmslXqvIOnGF50RpcNFAMGCszsccPc
-	hDCXnHD/E+V3LX+QUa1pWdmbCJCou8tYi6FF3i4aqMV0OnR41vkKI9bPey2qRRCO/ss7qv
-	hSjmtA9NAFk+wYk9If+ZWvawRVMGdAinibi4dwR7qkAwhgc8zeIncMWRvTM4cA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1793966676;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0VMSuKuVUf2dlWYzVs5lJWxmrLEkc9V1Bcxwn1i5L2k=;
-	b=IOJJSX9ztQ+7tZjTkiwUnQhDHtJZyOMRqVHT5szroNBYIQLV8me9BkyR1eA9pvwCVe9WyA
-	YRrvOBQy5+Nw6XsfoG4DYF2w+ZiVKw4jQBgkGBzaHAY/RCvR39d+gkba8gF6FLeHLS3ERV
-	+UcathHPfNvDni8rIljvnPzYolu+PvL93PC6/nfZsALSBdDp8so5H5tRxjR8vJCuqOH5vy
-	BToujHEwcXxf4aJa7xuodb2DXdVRK5J7fno2S4f7WAEQdrUSsQKJnllgf19y+3Nz7/Pf4t
-	M7NHIyXFZzHsOxFKD/ExruJluEsqsxxVF4MT5AefxdGKXywY08KhHFRMUzTsqg==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793966676; a=rsa-sha256;
-	cv=none;
-	b=WN+CuIG0kbvQZm/6IEIW0/xFm0gz9uZN0oE9xAVbEEG3era3lay+WVcsWdK+nEZwtkxmA2
-	u01SorhQP/aXH0Hm/O5xTky/Ugd3F+KiwbMNpmWAWqexuNSvb0yCT4a6VdVkdbUhyEt6jf
-	loFmHEiZ/eW9bv66/fJbguajdsJFwPET41eKHcdZKbl5ELQ6c0XdXOdP+gamAt7cflTwqA
-	tYxyKcZZv3xprq21O4X/zEd1xNFlLbsUZnJLSgGEA2QVMUa3AznqTJi0TEwi844AAX8rvk
-	ws2V9Wc6SNNwXz13fRVVMQjwjhDpMhiAkdszADlqXH5c9vOjkrZKlfHTbENmjA==
-Message-ID: <aa7385b6f373cd6467b772bf0a9941618b35c5ba.camel@pengutronix.de>
-Subject: Re: [PATCH 2/3] drm/panthor: Add initial support for CIX Sky1
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Cunyuan Liu <cunyuan.liu@cixtech.com>, boris.brezillon@collabora.com, 
-	steven.price@arm.com, liviu.dudau@arm.com, robh@kernel.org,
- krzk+dt@kernel.org, 	conor+dt@kernel.org, gary.yang@cixtech.com,
- fugang.duan@cixtech.com
-Cc: daniel.almeida@collabora.com, aliceryhl@google.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, cix-kernel-upstream@cixtech.com, 
-	robin.wang@cixtech.com
-Date: Fri, 06 Nov 2026 13:04:36 +0100
-In-Reply-To: <20261106104735.1651267-3-cunyuan.liu@cixtech.com>
-References: <20261106104735.1651267-1-cunyuan.liu@cixtech.com>
-	 <20261106104735.1651267-3-cunyuan.liu@cixtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Fri, 06 Nov 2026 12:04:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0AD421650;
+	Fri,  6 Nov 2026 04:04:47 -0800 (PST)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 80A033F673;
+	Fri,  6 Nov 2026 04:04:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793966690; bh=Zk/2kelxGIV5QGQC43f9+FkeyB8IVun3MQkt4kAhXew=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ldB0NtAV2HVZnAg2jAEn+stYKx+gAkfesFtazHTN2zlnLvpRzjaG4ep0uDtF9IOBV
+	 jjBom9QwOUlIrdLnEMGo3ZfaDpap1h8TCmN5qVfsjPNvk6U5DLKBj2ZYEaWPSFWvic
+	 poo7mVDjHXiGApAzxgxtVbYj+omuROC9n/KaBclw=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Tian Zheng <zhengtian10@huawei.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	maz@kernel.org,
+	oupton@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	corbet@lwn.net,
+	pbonzini@redhat.com,
+	yuzenghui@huawei.com,
+	wangzhou1@hisilicon.com,
+	yangjinqian1@huawei.com,
+	caijian11@h-partners.com,
+	liuyonglong@huawei.com,
+	tangchengchang@huawei.com,
+	yezhenyu2@huawei.com,
+	yubihong@huawei.com,
+	linuxarm@huawei.com,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	fuad.tabba@linux.dev,
+	mark.rutland@arm.com,
+	seanjc@google.com,
+	rdunlap@infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	skhan@linuxfoundation.org
+Subject: Re: [PATCH v5 05/15] KVM: arm64: Harvest stage-2 dirty state into the host folio account
+Date: Fri,  6 Nov 2026 12:04:29 +0000
+Message-ID: <au3CTZBpfN0VtO3_@LeoBrasDK>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <6e6fb626-d3d4-46f7-93ac-94e3d243eb69@huawei.com>
+References: <20260929103655.85107-1-zhengtian10@huawei.com> <20260929103655.85107-6-zhengtian10@huawei.com> <at-WceRKAVM2kEnI@LeoBrasDK> <009b13c6-f618-43fe-8a56-8519d31b239b@huawei.com> <auSMkdEhLI7k8QbV@LeoBrasDK> <6e6fb626-d3d4-46f7-93ac-94e3d243eb69@huawei.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_040438_885468_2BD08A27 
-X-CRM114-Status: GOOD (  23.42  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261106_040453_030642_FAC7FCA3 
+X-CRM114-Status: GOOD (  40.75  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,143 +97,112 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fr, 2026-11-06 at 18:47 +0800, Cunyuan Liu wrote:
-> Add Sky1 SoC data to support the external reset and system-level cache
-> settings, and to skip devfreq.
->=20
-> The GPU on CIX Sky1 needs an external reset before the driver first
-> accesses the hardware. Without this reset, the GPU hardware cannot be
-> accessed correctly.
->=20
-> Configure SYSC_ALLOC before L2 power-on. Without these settings, GPU
-> rendering results are displayed incorrectly.
->=20
-> Keep the clock settings provided by the PM firmware. This first version
-> does not read OPPs or enable devfreq. It does not register a GPU cooling
-> device.
->=20
-> Tested on Orion O6: offscreen pixel readback, kmscube, glmark2 at 1080p,
-> runtime suspend and resume with a retained EGL context, software-triggere=
-d
-> reset-worker tests, and module unload and reload. Display tests used
-> local Komeda support.
->=20
-> Signed-off-by: Cunyuan Liu <cunyuan.liu@cixtech.com>
-> ---
->  drivers/gpu/drm/panthor/panthor_devfreq.c  | 11 +++++++++-
->  drivers/gpu/drm/panthor/panthor_device.c   | 15 +++++++++++++
->  drivers/gpu/drm/panthor/panthor_device.h   | 25 ++++++++++++++++++++++
->  drivers/gpu/drm/panthor/panthor_drv.c      | 15 +++++++++++++
->  drivers/gpu/drm/panthor/panthor_gpu.c      | 14 ++++++++++++
->  drivers/gpu/drm/panthor/panthor_gpu_regs.h |  2 ++
->  6 files changed, 81 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.c b/drivers/gpu/drm/=
-panthor/panthor_devfreq.c
-> index 2249b41ca4af..1914549f7b1f 100644
-> --- a/drivers/gpu/drm/panthor/panthor_devfreq.c
-> +++ b/drivers/gpu/drm/panthor/panthor_devfreq.c
-[...]
-> diff --git a/drivers/gpu/drm/panthor/panthor_device.c b/drivers/gpu/drm/p=
-anthor/panthor_device.c
-> index 9687c59de350..1d682731a181 100644
-> --- a/drivers/gpu/drm/panthor/panthor_device.c
-> +++ b/drivers/gpu/drm/panthor/panthor_device.c
-> @@ -229,6 +229,13 @@ int panthor_device_init(struct panthor_device *ptdev=
-)
->  		return ret;
->  	}
-> =20
-> +	if (ptdev->soc_data && ptdev->soc_data->needs_external_reset) {
-> +		ptdev->reset_control =3D devm_reset_control_get_exclusive(ptdev->base.=
-dev, NULL);
+On Fri, Nov 06, 2026 at 11:16:33AM +0800, Tian Zheng wrote:
+> 
+> 
+> On 10/30/2026 8:24 PM, Leonardo Bras wrote:
+> > On Thu, Oct 29, 2026 at 10:02:10PM +0800, Tian Zheng wrote:
+> > > 
+> > > 
+> > > On 10/27/2026 2:05 AM, Leonardo Bras wrote:
+> > > > Hi Tian,
+> > > > Sorry for the delay in reviewing...
+> > > > 
+> > > > On Tue, Sep 29, 2026 at 06:36:45PM +0800, Tian Zheng wrote:
+> > > > > With VTCR_EL2.HD set, hardware promotes writable-clean descriptors to
+> > > > > writable-dirty without any VM exit, and the only record of the write
+> > > > > is the S2AP[1] bit in the stage-2 PTE. The write never passed through
+> > > > > the host stage-1, and no unmap path reads the bit, so the record dies
+> > > > > with the PTE and reclaim may discard written guest data (silent
+> > > > > corruption).
+> > > > 
+> > > > Sorry, I didn't get what you are trying to achieve here.
+> > > > 
+> > > > On your patch, I see you marking backing pages dirty at wrprotect and unmap
+> > > > walkers, and it's very confusing to me on why you are doing this.
+> > > > 
+> > > > IIUC, what you are trying to do is make sure a page does not lose it's
+> > > > contents in case it is reclaimed by the OS.
+> > > > 
+> > > > IIUC, when a page is reclaimed, it will unmap the S2 PTE, and save it's
+> > > > contents to swap, so when the guest read or write to that page will cause
+> > > > it to fault.
+> > > > 
+> > > > The page can never be just unmaped, as if there was a single write to it,
+> > > > the backing pages should be writable, and the contents need to be saved
+> > > > somewhere.
+> > > > 
+> > > > So, if I was able to understand your suggestion, we don't need to worry
+> > > > about this, and this patch wouldn't be necessary.
+> > > > 
+> > > > Did you hit this issue?
+> > > > Can you please expand on your issue, if I could not describe it above?
+> > > > 
+> > > > Thanks!
+> > > > Leo
+> > > 
+> > > Hi Leo,
+> > > 
+> > > Thanks for the review. I haven't hit this in practice, and based on your
+> > > analysis the patch doesn't look necessary.
+> > > 
+> > > Reclaim only writes back folios whose PG_dirty flag is set; a clean
+> > > folio is simply freed. A stage-2 write never touches the host
+> > > stage-1, so the folio depends entirely on kvm_release_faultin_page()
+> > > at fault-in to be marked as dirty; without it, the page stays clean from
+> > > the host's perspective and reclaim drops the data.
+> > > 
+> > 
+> > Oh, okay. IIUC it will be enough if PG_dirty flag is set once, right?
+> > 
+> > While on HAFDBS/HDBSS we will skip the fault for marking them dirty again,
+> > we always take the first fault for every PTE (or prefault them), so
+> > PG_dirty should always be set once the page is first wroten to.
+> > 
+> > 
+> > > Your **RFC v1** patch 2 changed that marking from writable to dirty:
+> > > 
+> > > ```
+> > > - kvm_release_faultin_page(kvm, s2vi->page, !!ret, writable);
+> > > + kvm_release_faultin_page(kvm, s2vi->page, !!ret, dirty);
+> > > ```
+> > > 
+> > > During logging, a read fault maps the page as WC: the folio is not
+> > > marked PG_dirty in kvm_s2_fault_map() and hardware promotes the PTE to
+> > > WD on write without any fault, so reclaim frees the page without saving
+> > > it (the folio was treated as clean).
+> > 
+> > Ah, I see your point.
+> > During dirty-tracking guest reads a page, then HAFDBS promotes it to
+> > writable without marking it as dirty. Good catch!
+> > 
+> > But wouldn't a simpler solution be to change the conditions in the fault
+> > handler, so that it indeed marks it as dirty if dirty-tracking is on, even
+> > if it's just a read fault?
+> > 
+> > Thanks!
+> > Leo
+> > 
+> Hi Leo,
+> 
+> Yes, that's exactly the simpler fix, and it's what I already did in
+> HDBSS v5 patch 2 — the folio is marked dirty for any write-permitting
+> mapping, so a read fault on a tracked memslot also marks it.
+> 
+> Since patch 2 covers this, patch 5 isn't needed. I'll drop it in the next
+> version.
+> 
+> Thanks,
+> Tian
+> 
 
-You can just use devm_reset_control_get_optional_exclusive()
-unconditionally.
-Device tree validation makes sure the required reset will be specified.
-
-> +		if (IS_ERR(ptdev->reset_control))
-> +			return dev_err_probe(ptdev->base.dev, PTR_ERR(ptdev->reset_control),
-> +					     "Failed to get GPU reset\n");
-> +	}
-> +
->  	ret =3D panthor_devfreq_init(ptdev);
->  	if (ret)
->  		return ret;
-> @@ -511,6 +518,12 @@ int panthor_device_resume(struct device *dev)
->  	if (ret)
->  		goto err_disable_stacks_clk;
-> =20
-> +	if (ptdev->reset_control && !panthor_device_is_initialized(ptdev)) {
-> +		ret =3D reset_control_reset(ptdev->reset_control);
-
-reset_control_reset() already checks that ptdev->reset_control !=3D NULL,
-so the first check is superfluous.
-
-
-[...]
-> diff --git a/drivers/gpu/drm/panthor/panthor_device.h b/drivers/gpu/drm/p=
-anthor/panthor_device.h
-> index b55a3f9edd41..0923cc5df042 100644
-> --- a/drivers/gpu/drm/panthor/panthor_device.h
-> +++ b/drivers/gpu/drm/panthor/panthor_device.h
-[...]
-> @@ -34,10 +36,30 @@ struct panthor_pwr;
->  struct panthor_vm;
->  struct panthor_vm_pool;
-> =20
-> +/**
-> + * struct panthor_sysc_config - GPU system-cache configuration
-> + */
-> +struct panthor_sysc_config {
-> +	/** @alloc: System-cache allocation policies for GPU access types. */
-> +	u32 alloc[8];
-> +};
-> +
->  /**
->   * struct panthor_soc_data - Panthor SoC Data
->   */
->  struct panthor_soc_data {
-> +	/**
-> +	 * @needs_external_reset: Reset the GPU after enabling its clocks
-> +	 * during initial probe.
-> +	 */
-> +	bool needs_external_reset;
-
-Not needed.
-
-[...]
-> diff --git a/drivers/gpu/drm/panthor/panthor_drv.c b/drivers/gpu/drm/pant=
-hor/panthor_drv.c
-> index dc8d0191aef4..766df6505a7b 100644
-> --- a/drivers/gpu/drm/panthor/panthor_drv.c
-> +++ b/drivers/gpu/drm/panthor/panthor_drv.c
-> @@ -1872,12 +1872,27 @@ static struct attribute *panthor_attrs[] =3D {
-> =20
->  ATTRIBUTE_GROUPS(panthor);
-> =20
-> +static const struct panthor_sysc_config sysc_config_cix_sky1 =3D {
-> +	/* Sky1 needs these SYSC_ALLOC policies for correct display of GPU outp=
-ut. */
-> +	.alloc =3D {
-> +		0x00230000, 0x00000023, 0x00000000, 0x00000000,
-> +		0x00523222, 0x00523200, 0x00000022, 0x00000032,
-> +	},
-> +};
-> +
-> +static const struct panthor_soc_data soc_data_cix_sky1 =3D {
-> +	.needs_external_reset =3D true,
-
-Not needed.
-
-regards
-Philipp
+Awesome, thanks!
+Leo
 
