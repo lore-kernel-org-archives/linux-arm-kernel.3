@@ -2,44 +2,44 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CC4D606A32E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 09:26:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F937606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 09:26:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4+mzQ7pZ;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Sx5qLwyY
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=sfVHvICH;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=i3/tDBnl
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=2iWpqd+QS7T4MloSrivjtj4sFwlrSEPUjkTDrb1eK64=; b=4+mzQ7pZsVYS7N
-	fYImcO7mfbkKe9w9QAs6IpFQttlW87TUT/z7LJ5kOy0tyeBIFVOJLJfMhZVQGJ0XkrxK3uhfc1F7H
-	v/7yq4ru6g7ln3xJ5GKeRbzesiwZf3l4LF+1PQceLgfrt+og27UCgIoFQUIR2wwD9AwzfllpYmcyq
-	WZhZP7jJgWuq2WCDimVpywnePy7aJFSFtOXhntW/NvcohuQYcrUEUN3VwIa7x8sQ/uoUkPNj5Jglw
-	I7Y5kYMSwS7segj31B/x2+qRcVrTQxA+knPYa97XuC9BFJRhirDLIAKTtZY1a/PzQWxA2iNzCNPGt
-	OEuWruehO6euHdxxLKRA==;
+	List-Owner; bh=NXsN+Nc9LKkQyfTr7a6I9Wtbd+7FU/tueUh4Tb5MxuY=; b=sfVHvICHxKeZbW
+	tI4tISnzoPF36eMtH26p447s7AJloo6p73x77vpQWsjhpkKQlo3F98gf8AVh8BQ42ItRoN6vyKQOL
+	XUGU29ZJVZ8n+0ZHenxPkxOBZYUQ0VXYZ/jlwSQGu88dtVk8GQfQThzZvyu/c3EbNZN9uSzXmO0ns
+	lNF5mZnOdZ+yLTpMYyi5KqWbr5IL90xR0KLMXbBZjFSlC4gjEc01SAfQLo3ipL6jArndOaanibNID
+	eDKEi6dlTmyN9C0mkFTtMKb04mcJXGOUX+DMWlzR3X41+gSplWtpjSvRH0JPYbF743NJWMDcS8DcP
+	/eZOFKndHFP/L0hEti8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPGDX-0000000Bh6d-2Dd3;
-	Fri, 06 Nov 2026 09:26:39 +0000
-Received: from out-1.mta0.migadu.com ([2001:41d0:1004:224b::1] helo=mta0.migadu.com)
+	id 1xPGDb-0000000Bh8V-2bOP;
+	Fri, 06 Nov 2026 09:26:43 +0000
+Received: from out-241.mta1.migadu.com ([95.215.58.241] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPGDU-0000000Bh52-3Iy4
+	id 1xPGDY-0000000Bh6V-3h9s
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 09:26:38 +0000
+	Fri, 06 Nov 2026 09:26:42 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=NCQXkL7nkRFAaY5Ahowq8NQ+CbyBoVtiWI3JXXlAYIs=;
+DKIM-Signature: a=rsa-sha256; bh=33+ek2IPCN0Ato3CURA0jrCZQOA/qb2gBvVhEO3MB8E=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793957194; v=1; x=1794561994;
- b=Sx5qLwyYP8NxWYgQK9zl3XPuEr9fkQQ+oQmdO3hCYj41+mNzsJDRY5Kr+BcRhGCUP6zsMIHx
- FYiNduvWtdKnXg8kJqTTZbKqaL1IE/z8p4rimb/rapt7s9d78rhbYoeqXS7RSK0y3OurTd4MJ0i
- nVGkT3vXrhkqgYUSq4/CDQ/o=
+ t=1793957199; v=1; x=1794561999;
+ b=i3/tDBnlGNxNPWwu5rd8XpQQwRAE6Sk3vxGISe//z8j4dZZXbGhBHySVUUJaHrx3LV0T2O6d
+ ZLVns5Th1Bb39N3qE9CWneNRCn7oM1XYHHubjuWknV75eH1oMcjnBG3eHfy7AScEB1GFjy9al6P
+ TIG0UoRhcI/S3IaMzuEK5gpw=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id efb7fa6828913f60;
-	Fri, 06 Nov 2026 09:26:34 +0000
-X-Mizu-Trace-ID: efb7fa6828913f60
+Received: by smtp.migadu.com with ESMTPS id cf7aeb392c53fa65;
+	Fri, 06 Nov 2026 09:26:38 +0000
+X-Mizu-Trace-ID: cf7aeb392c53fa65
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -51,9 +51,9 @@ Cc: Radu Rendec <radu@rendec.net>,
 	Fuad Tabba <tabba@google.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/3] irqchip/gic-v3-its: Align sub-page ITTs to 256 bytes
-Date: Fri,  6 Nov 2026 09:26:23 +0000
-Message-ID: <20261106092625.3977163-2-fuad.tabba@linux.dev>
+Subject: [PATCH 2/3] irqchip/gic-v3-its: Zero ITTs reused from the ITT pool
+Date: Fri,  6 Nov 2026 09:26:24 +0000
+Message-ID: <20261106092625.3977163-3-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261106092625.3977163-1-fuad.tabba@linux.dev>
 References: <20261106092625.3977163-1-fuad.tabba@linux.dev>
@@ -61,8 +61,8 @@ X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_012636_981728_CE667B75 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20261106_012641_065923_CADF0C11 
+X-CRM114-Status: GOOD (  11.98  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,37 +82,37 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Commit e36d4165f0796 ("irqchip/gic-v3-its: Rely on genpool alignment")
-dropped the ALIGN() of the ITT address in MAPD, on the premise that the
-ITT pool returns 256-byte aligned blocks. However, the pool's minimum
-allocation order is get_order(ITS_ITT_ALIGN), which is 0, so its
-granule is a single byte. An ITT whose size is not a multiple of 256
-leaves the next one misaligned, MAPD drops the low bits of its address,
-and that device's ITEs land on the previous device's ITT. QEMU's
-emulated ITS has 12-byte ITEs, so two devices with 32 vectors each are
-enough to hit it.
+Commit b08e2f42e86b5 ("irqchip/gic-v3-its: Share ITS tables with a
+non-trusted hypervisor") moved sub-page ITTs from kzalloc_node() to a
+genpool. The pages added to the pool are zeroed, but an ITT freed back
+to it goes to the next device as the previous one left it. MAPD is then
+UNPREDICTABLE: "When V == 1, the specified ITT does not contain all
+zeros" (IHI 0069H.b, 5.3.10).
 
-Create the pool with a granule of ITS_ITT_ALIGN.
+Zero the ITT when it comes from the pool.
 
-Fixes: e36d4165f0796 ("irqchip/gic-v3-its: Rely on genpool alignment")
+Fixes: b08e2f42e86b5 ("irqchip/gic-v3-its: Share ITS tables with a non-trusted hypervisor")
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- drivers/irqchip/irq-gic-v3-its.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/irqchip/irq-gic-v3-its.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 282e4bafb084f..5613c52adf88e 100644
+index 5613c52adf88e..5c3ab9d30f6af 100644
 --- a/drivers/irqchip/irq-gic-v3-its.c
 +++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -5849,7 +5849,7 @@ int __init its_init(struct fwnode_handle *handle, struct rdists *rdists,
- 	bool has_v4_1 = false;
- 	int err;
+@@ -267,8 +267,10 @@ static void *itt_alloc_pool(int node, int size)
  
--	itt_pool = gen_pool_create(get_order(ITS_ITT_ALIGN), -1);
-+	itt_pool = gen_pool_create(ilog2(ITS_ITT_ALIGN), -1);
- 	if (!itt_pool)
- 		return -ENOMEM;
+ 	do {
+ 		addr = gen_pool_alloc(itt_pool, size);
+-		if (addr)
++		if (addr) {
++			memset((void *)addr, 0, size);
+ 			break;
++		}
  
+ 		page = its_alloc_pages_node(node, GFP_KERNEL | __GFP_ZERO, 0);
+ 		if (!page)
 -- 
 2.47.3
 
