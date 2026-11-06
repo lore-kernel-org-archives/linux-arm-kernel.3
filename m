@@ -2,54 +2,54 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F4133606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 02:24:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11034606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 02:24:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=4+m0wxhM;
-	dkim=pass (2048-bit key, unprotected) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=Hor95ZOE
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=IcT4sScC;
+	dkim=pass (2048-bit key, unprotected) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=QmpgnhfA
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=NyTFiFpsDwOKjO2VPbpWmP0Im41/URytW32rn7Mp+g0=; b=4+m0wxhMbFOcEC
-	+Tgr/2UiC14wlKHs0q3gT2dboLmCUN4EvTKmjTHdQiVT0y6EufvQK8no7kXsZsXs/ldCyjeGCsSAL
-	Sg1ahRO4hve3c1Al3GQu5r6rO5Xb8TiliJhMHvhRsY/lF1tR4UPFKr4cpjHSZR6EcuzIEtnBIYTzZ
-	v4kHsgrVYfJ51oTHAG4+i/xkv0jk/zVnolHCgJE7pOaX6G9zGYve+/MuFjkmiw2d4nsZzfb63pVEy
-	7NrwHLYkKE1X4Dh5yezIXrNfjFmSaiseSNJcP/slQDAej2tXzxqIaDnbFlO6mmbz+gIWj/gFv47UN
-	PZrGMu0SHUO6HulF2YMA==;
+	List-Owner; bh=pfbkLA1oZODuoTPbiAm5neMQxGYu7Bp3PxPs9srY4Jo=; b=IcT4sScCcjNt+I
+	hQgepVYJ44ngCvz1YzGg8tJon+sTnykUIPKTidzixdlEeBc/qX1V/ozEGTvSqBJ6FqEPDtNsu7B/y
+	1GDISjT0TuRj7/109nXts5dhopOzyGNaeL4felHAutaXuoa/qA1vY157IepCimegS9u2DWoIJh0QN
+	SpmCRDwZqSJ29As8qyjWavXQmF2q/qNrXlo3qL8Cw+qaaxrxLBWybRySUVfVOgqFxoOfn5Lo2qI7n
+	JDP510yHRFJ7fX4FtoxZUlLMtMrOHjzMLspl89sIWSv9pO4vMaGSNoH7BbxjFSoTvPmkRjENxg/nj
+	SCJ/ItqleLjxRhZMBZaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP9ce-0000000B3I7-3L24;
-	Fri, 06 Nov 2026 02:24:08 +0000
+	id 1xP9ci-0000000B3KW-3n12;
+	Fri, 06 Nov 2026 02:24:12 +0000
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP9ca-0000000B3F7-2S8e
+	id 1xP9cg-0000000B3IY-1zmj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 02:24:05 +0000
+	Fri, 06 Nov 2026 02:24:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
 	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=NyTFiFpsDwOKjO2VPbpWmP0Im41/URytW32rn7Mp+g0=; t=1793931844; x=2109291844; 
-	b=Hor95ZOE8SuliKgiX8wSmu4anN/AgbIkUQblvuoMY/OFH9IPJ7fPLAdQcy1XW6UVbAK1Jx8aTjP
-	m5EIk5+n8Eimv13btLl1KPm26kqT9Sr1LYeRF4iFsHAc/7+jbjdr3kP/BICslLPg2SfYpaZaSZZeR
-	hVE5r/ftgCyiAK2PU//hVG5Mvh4kOVjYHHCaCGryf1h2Y7iVjDeR4g0uF/EERW+mBW4oC4VknNjkW
-	AaTj7W3zbr8ftBhFivmLhWUiUWhSvoy9H7GCHt27c2x7uiB7ghf7iwv8DQyPoXa9W8H+AMlZNMZn4
-	Nh7hXy3n3JnHsvVP1tCwxbMjKeOzoyrZCqVQ==;
+	bh=pfbkLA1oZODuoTPbiAm5neMQxGYu7Bp3PxPs9srY4Jo=; t=1793931850; x=2109291850; 
+	b=QmpgnhfAdgPxpxRYc4a+zFzaKChkeX3fIdox+7/0W/4J86OZRpg/TMRVkXrcgUtewGwh+b3C33u
+	FNFuVmnZMY2SwVCDVNX9/FeuTfUzf+xZtD8VTT4Dski28ckgXXLhJBcQ+VL5xh65eBFrHPX51KkUc
+	Oj/B7AopwxM/yMijrSi73dls7L9JEEn1Dz5S1ujWfKW0sYg/yioMph/kw/M5DMOSEnLoDZFdjXW4E
+	6XP6e91Itb2JXMpB4gviN8bXuGrc438Z9PmhFfcNyeHlXvdeaGkJEUKe7WSveipMeh/ncnCktnvEI
+	f6SW9LYZqtwhVrSjZSwtnp63qZLoc5c8m5gw==;
 Received: from [177.172.122.137] (helo=[192.168.15.100])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1xP9cJ-003xm9-SX; Fri, 06 Nov 2026 03:23:48 +0100
+	id 1xP9cO-003xm9-KB; Fri, 06 Nov 2026 03:23:52 +0100
 From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Thu, 05 Nov 2026 23:23:43 -0300
-Subject: [PATCH v10 2/3] arm64: vdso: Prepare for robust futex unlock
- support
+Date: Thu, 05 Nov 2026 23:23:44 -0300
+Subject: [PATCH v10 3/3] arm64: vdso: Implement
+ __vdso_futex_robust_try_unlock()
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20261105-tonyk-robust_arm-v10-2-366ed4a3435b@igalia.com>
+Message-Id: <20261105-tonyk-robust_arm-v10-3-366ed4a3435b@igalia.com>
 References: <20261105-tonyk-robust_arm-v10-0-366ed4a3435b@igalia.com>
 In-Reply-To: <20261105-tonyk-robust_arm-v10-0-366ed4a3435b@igalia.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -68,8 +68,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_182404_655221_B350419A 
-X-CRM114-Status: GOOD (  19.82  )
+X-CRM114-CacheID: sfid-20261105_182410_706474_980C4CDC 
+X-CRM114-Status: GOOD (  28.11  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,113 +89,236 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-To solve the robust futex's list_pending_op clearing race condition,
-prepare for implement __vdso_futex_robust_try_unlock() for arm64 with the
-following steps:
+The futex's robust list uAPI has a struct robust_list_head::list_op_pending
+pointer used by userspace as a temporary variable while the mutex unlock is
+happening. User sets it to the futex address that's about to be released
+and removed from the robust list, and list_op_pending is cleared after.
+After a thread dies, the kernel checks it's list_op_pending and wakes the
+mutex in that address, to prevent starvation, and flip a bit in the mutex
+word (FUTEX_OWNER_DIED).
 
-- Create a helper function that sets the struct futex_mm_data with the
-VDSO's labels addresses. The robust futex fixup mechanism needs to
-compare the current instruction pointer to the VDSO instructions range.
+However, there's a critical section where the user thread dies after the
+mutex is released but before list_op_pending is cleared. If that happens,
+another thread can wake up, use the lock, release it, and free its
+memory. Now, if the robust list cleanup happens after this, the
+killed thread's list_op_pending becomes a dandling pointer. The
+kernel wrongly treats this address as a mutex, calls a futex_wake()
+on it and flips a bit, causing a memory corruption.
 
-- Split vdso_mremap() in vdso_mremap() and aarch32_mremap(), this allows
-the VDSO to be setup correctly regarding the instructions addresses for
-both ABIs when a mremap happens.
+To avoid using the dangling pointer, implement
+__vdso_futex_robust_try_unlock() for arm64. Make the VDSO release the mutex
+and clear the list_op_pending fields, just as is done in userspace right
+now. But having it in a VDSO means that, in the case of a killed user
+thread, the kernel can know exactly in which part of the release process
+the thread was interrupt, check the registers for the operation success and
+clears the list_op_pending on behalf of the user thread to prevent the
+use-after-free bug.
 
-- Implement arch_futex_robust_unlock_get_pop() for arm64, checking for r2
-and r3 registers values for the fixup function. The role of this registers
-is explained in the commit that implement the assembly portion of the VDSO.
+The need for checking the instructions addresses and the register makes
+this mechanism arch-dependent. Implement it using LL/SC semantics. If the
+user instruction pointer is between the labels
+__futex_list64_try_unlock_cs_start and __futex_list64_try_unlock_cs_end,
+the critical section was interrupted. The kernel checks for the result
+register (always w3) of the stlxr instruction used for atomically releasing
+the mutex. If it's 0, the release happened and the kernel should clear the
+list_op_pending field (always stored at x2).
 
 Signed-off-by: André Almeida <andrealmeid@igalia.com>
 ---
 v9:
- - Simplify arm64_futex_robust_unlock_get_pop by using regs->regs[] and if
- instead of ternary operation
- - Split mremap changes into other patch
+ - Refactor assembly code style
+ - Make sure [pop_reg] is allocated to a register, defining it as a "r"
+ input
+ - Make [lock] a read-write param using +Q
+
+v7:
+ - Typo in message: success result for stlex is 0, not 1
+ - pop_reg is read afterwards so define it as an output parameter "+Q"
 
 v6:
- - Restructured this commit. Move the arch bits away, kept just the
- generic/helper functions.
+ - Complete reword of commit message to make it clear
+ - Better commit split, only the specific aarch64 things here
+ - Use explicity labels instead of macros
 
 v4:
-- Guard symbols from vdso.lds.S with ifdef
-- drop update_ips() from sigpage remap function
+ - Guard makefile for vfutex.o with ifdef
+ - Moved _start label one instruction above
+ - Use results register (w3) to check for store success instead of using zero
+   flag
 
 v3:
- - Fix adding vdso base addr twice
- - Call vdso_futex_robust_unlock_update_ips() on remap as well
-v2:
- - Fixed linker not finding VDSO symbols
+ - Managed to get pop to always be stored at x2
 ---
----
- arch/arm64/include/asm/futex_robust.h | 24 ++++++++++++++++++++++++
- arch/arm64/kernel/vdso.c              | 17 +++++++++++++++++
- 2 files changed, 41 insertions(+)
+ arch/arm64/Kconfig                |  1 +
+ arch/arm64/kernel/vdso.c          | 17 ++++++++++++++--
+ arch/arm64/kernel/vdso/Makefile   | 10 ++++++++++
+ arch/arm64/kernel/vdso/vdso.lds.S |  9 +++++++++
+ arch/arm64/kernel/vdso/vfutex.c   | 41 +++++++++++++++++++++++++++++++++++++++
+ 5 files changed, 76 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/futex_robust.h b/arch/arm64/include/asm/futex_robust.h
-new file mode 100644
-index 000000000000..389ce2a9484d
---- /dev/null
-+++ b/arch/arm64/include/asm/futex_robust.h
-@@ -0,0 +1,24 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_ARM64_FUTEX_ROBUST_H
-+#define _ASM_ARM64_FUTEX_ROBUST_H
-+
-+#include <asm/ptrace.h>
-+
-+static __always_inline void __user *arm64_futex_robust_unlock_get_pop(struct pt_regs *regs)
-+{
-+	/*
-+	 * In the asm for __vdso_futex_robust_list{64,32}_try_unlock(), w3
-+	 * stores the result of the stlxr instruction. If it's zero, the then
-+	 * the ll/sc cmpxchg succeeded and the pending op pointer needs to be
-+	 * cleared.
-+	 */
-+	if (regs->regs[3])
-+		return NULL;
-+
-+	return (void __user *)regs->regs[2];
-+}
-+
-+#define arch_futex_robust_unlock_get_pop(regs) \
-+	arm64_futex_robust_unlock_get_pop(regs)
-+
-+#endif /* _ASM_ARM64_FUTEX_ROBUST_H */
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 1075bc661833..bc436c11b82a 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -223,6 +223,7 @@ config ARM64
+ 	select HAVE_RELIABLE_STACKTRACE
+ 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
+ 	select HAVE_FUNCTION_ARG_ACCESS_API
++	select HAVE_FUTEX_ROBUST_UNLOCK
+ 	select HAVE_RSEQ
+ 	select HAVE_RUST
+ 	select HAVE_STACKPROTECTOR
 diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
-index 7cafa8208ef1..644def28f280 100644
+index 644def28f280..b8280afd8b42 100644
 --- a/arch/arm64/kernel/vdso.c
 +++ b/arch/arm64/kernel/vdso.c
-@@ -11,6 +11,7 @@
- #include <linux/clocksource.h>
- #include <linux/elf.h>
- #include <linux/err.h>
-+#include <linux/futex.h>
- #include <linux/errno.h>
- #include <linux/gfp.h>
- #include <linux/kernel.h>
-@@ -56,6 +57,22 @@ static struct vdso_abi_info vdso_info[] __ro_after_init = {
- #endif /* CONFIG_COMPAT_VDSO */
- };
+@@ -68,16 +68,27 @@ static inline void __vdso_futex_update_ips(struct mm_struct *mm, bool is_32bit,
+ 	futex_set_vdso_cs_range(fd, 0, start, end, is_32bit);
+ }
  
-+#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+static inline void __vdso_futex_update_ips(struct mm_struct *mm, bool is_32bit, void *startp,
-+					   void *endp)
++static inline void vdso_futex_update_ips(struct mm_struct *mm)
 +{
-+	unsigned long start = (unsigned long)startp;
-+	unsigned long end = (unsigned long)endp;
-+	struct futex_mm_data *fd = &mm->futex;
++	unsigned long vdso = (unsigned long)mm->context.vdso;
 +
-+	futex_set_vdso_cs_range(fd, 0, start, end, is_32bit);
++	__vdso_futex_update_ips(mm, false,
++				VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_start),
++				VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_end));
 +}
 +
-+#else
-+static inline void __vdso_futex_update_ips(struct mm_struct *mm, bool is_32bit, void *startp,
-+					   void *endp)
-+#endif /* CONFIG_FUTEX_ROBUST_UNLOCK */
+ #else
+-static inline void __vdso_futex_update_ips(struct mm_struct *mm, bool is_32bit, void *startp,
+-					   void *endp)
++static inline void vdso_futex_update_ips(struct mm_struct *mm) {}
+ #endif /* CONFIG_FUTEX_ROBUST_UNLOCK */
+ 
 +
  static int vdso_mremap(const struct vm_special_mapping *sm,
  		       struct vm_area_struct *new_vma)
  {
+ 	current->mm->context.vdso = (void *)new_vma->vm_start;
+ 
++	vdso_futex_update_ips(current->mm);
++
+ 	return 0;
+ }
+ 
+@@ -365,5 +376,7 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+ 	ret = __setup_additional_pages(VDSO_ABI_AA64, mm, bprm, uses_interp);
+ 	mmap_write_unlock(mm);
+ 
++	vdso_futex_update_ips(mm);
++
+ 	return ret;
+ }
+diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
+index f6619e1cb2ce..babeb1f33da3 100644
+--- a/arch/arm64/kernel/vdso/Makefile
++++ b/arch/arm64/kernel/vdso/Makefile
+@@ -11,6 +11,10 @@ include $(srctree)/lib/vdso/Makefile.include
+ 
+ obj-vdso := vgettimeofday.o note.o sigreturn.o vgetrandom.o vgetrandom-chacha.o
+ 
++ifdef CONFIG_FUTEX_ROBUST_UNLOCK
++  obj-vdso += vfutex.o
++endif
++
+ # Build rules
+ targets := $(obj-vdso) vdso.so vdso.so.dbg
+ obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
+@@ -45,9 +49,11 @@ CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables $(CONFIG_CC_
+ 
+ CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_REMOVE_VDSO)
+ CFLAGS_REMOVE_vgetrandom.o = $(CC_FLAGS_REMOVE_VDSO)
++CFLAGS_REMOVE_vfutex.o = $(CC_FLAGS_REMOVE_VDSO)
+ 
+ CFLAGS_vgettimeofday.o = $(CC_FLAGS_ADD_VDSO)
+ CFLAGS_vgetrandom.o = $(CC_FLAGS_ADD_VDSO)
++CFLAGS_vfutex.o = $(CC_FLAGS_ADD_VDSO)
+ 
+ ifneq ($(c-gettimeofday-y),)
+   CFLAGS_vgettimeofday.o += -include $(c-gettimeofday-y)
+@@ -57,6 +63,10 @@ ifneq ($(c-getrandom-y),)
+   CFLAGS_vgetrandom.o += -include $(c-getrandom-y)
+ endif
+ 
++ifneq ($(c-futex-y),)
++  CFLAGS_vfutex.o += -include $(c-futex-y)
++endif
++
+ targets += vdso.lds
+ CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
+ 
+diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
+index 6334ca0a7673..26f08e30306f 100644
+--- a/arch/arm64/kernel/vdso/vdso.lds.S
++++ b/arch/arm64/kernel/vdso/vdso.lds.S
+@@ -103,6 +103,9 @@ VERSION
+ 		__kernel_clock_gettime;
+ 		__kernel_clock_getres;
+ 		__kernel_getrandom;
++#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
++		__vdso_futex_robust_list64_try_unlock;
++#endif
+ 	local: *;
+ 	};
+ }
+@@ -111,3 +114,9 @@ VERSION
+  * Make the sigreturn code visible to the kernel.
+  */
+ VDSO_sigtramp		= __kernel_rt_sigreturn;
++
++#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
++VDSO_futex_list64_try_unlock_cs_start = __futex_list64_try_unlock_cs_start;
++VDSO_futex_list64_try_unlock_cs_success = __futex_list64_try_unlock_cs_success;
++VDSO_futex_list64_try_unlock_cs_end = __futex_list64_try_unlock_cs_end;
++#endif
+diff --git a/arch/arm64/kernel/vdso/vfutex.c b/arch/arm64/kernel/vdso/vfutex.c
+new file mode 100644
+index 000000000000..7622aa34bfdb
+--- /dev/null
++++ b/arch/arm64/kernel/vdso/vfutex.c
+@@ -0,0 +1,41 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++#include <linux/stringify.h>
++#include <vdso/futex.h>
++
++#define LABEL(l)						\
++	"	.globl " #l "\n"				\
++	#l ":\n"
++
++__u32 __vdso_futex_robust_list64_try_unlock(__u32 *lock, __u32 tid, __u64 *pop)
++{
++	/*
++	 * arm64_futex_robust_unlock_get_pop() depends on this exact register
++	 * allocation to work correctly.
++	 */
++	register __u64 pop_reg asm("x2") = (__u64) pop;
++	register __u32 result_reg asm("w3") = 0;
++	__u32 val;
++
++	asm volatile (
++		"	prfm	pstl1strm, %[lock]		\n"
++		"retry:						\n"
++		"	ldxr	%w[val], %[lock]		\n"
++		"	cmp	%w[tid], %w[val]		\n"
++		"	b.ne	__futex_list64_try_unlock_cs_end\n"
++		"	stlxr	%w[result], wzr, %[lock]	\n"
++		LABEL(__futex_list64_try_unlock_cs_start)
++		"	cbnz	%w[result], retry		\n"
++		LABEL(__futex_list64_try_unlock_cs_success)
++		"	str	xzr, [%x[pop_reg]]		\n"
++		LABEL(__futex_list64_try_unlock_cs_end)
++
++		: [val] "=&r" (val),
++		  [result] "=&r" (result_reg),
++		  [lock] "+Q" (*lock)
++		: [tid] "r" (tid),
++		  [pop_reg] "r" (pop_reg)
++		: "cc", "memory"
++	);
++
++	return val;
++}
 
 -- 
 2.56.0
