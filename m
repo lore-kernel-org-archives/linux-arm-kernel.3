@@ -2,92 +2,107 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59437606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 02:40:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82676606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 02:48:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=urAHHqpP;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=oF1Jj9TU
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=XWL0EsZa;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dEaRpNx1
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Cc:To:Message-Id:Content-Type:MIME-Version:Subject:
+	Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=carvPggkXb52nq1kon8OUgYNoFEqAoo0OSAHcurKhgg=; b=urAHHqpPv59c17K9S21XNoB+CC
-	7n3xVdZ/5QpLk9sQk6mt66tt8fbzyoml10fKa5SwWEpJgFiWKMnL1xn6/bfiih3hCOAooy/jviwlm
-	jgFOt/KlC39lJlu4IA9aGE+UAZMcRVQ8t3lfME2ImBDHd5erc09cykEyGkL0djV7dcMSNf3ZBX3eJ
-	DaGAHY9XBWafBSjN3CONo3BllEXaNBO3LtSvZUqhbefNDlGX5HhEhYjfJsbKTX7iO5UxyOGA3JmJ7
-	uk1fbmLZ5wU4rissdsLMtZRq5yNj1m/HcHnvLkmzkHsdkzCcBMESPilFGz7W6xEJM363vTBXa7Qhd
-	kHbQvjiQ==;
+	bh=0UaxTG5x25gmRjc6KZfHadcJjXgPqxLqtyLeTH1tBMo=; b=XWL0EsZan8blha+5wUrO5RlAb3
+	3AQZPIga9+DIQ6n5ZsVdCnug4OKJRnk5V/5p9OyDMLVLShfdAw1J7sKnb2LV7nyZb8POA+qnrlLqK
+	9kmxMJXuHoNG4QM40qYo2AtoLRQUhR3ZGrKTmUlOUkyf1n7KtMpiJ0vGX7PHDlGVphV7WDK7XDzTv
+	aO0+RU1qyn/4MSmxZhtTBlTaW5or7HNb4ayyJM2Y76n2LVlIxvrsTe3xKm/G77Y4UfuBD/PrT8sp9
+	4PKbDUeUlREWwpoXT06J0s5LrMMiQgTpuqsTHwuonKrsLGFfg0eKPoPveZ66JO5EpZzid7LlNyRGt
+	zXAGVP2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP9rz-0000000B6Ki-2zBN;
-	Fri, 06 Nov 2026 02:39:59 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1xP9zz-0000000B6tr-1u6I;
+	Fri, 06 Nov 2026 02:48:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xP9rx-0000000B6K1-0l5w
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 02:39:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1793932797; x=1825468797;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=9G+m15M8pgygjZiVmHGkqDC8/DoP+cHy6Aw+E24uXWg=;
-  b=oF1Jj9TU2vLesj1whvWviBJ/Zz0oUpMWx2VqVSLie3OfXv/utHnmiscY
-   WQTL4xGTn8E/BNLUA5fkZYf+WwgalgbpmRTA6RxKmwvMZLHGdZMDLMF4P
-   PiEiohGdL0JXdSBY9BYx0G8z46Gm3StLtsPR0GObarX7xH8QUem9yBROF
-   eoUXlsEANrV8TCgfKw6XX00/HljMRc0RWwVj1bHLE+VNj/QwA2QaiZjNj
-   AgfXujsMIizzmEckW23ioluv+3SgdHi0h8Tgqbr4ePMhiPsnG1Daj9Wvu
-   K2sndhNVUBfBjaXwAv9kKWCAB6H4o1db77lMQ2AkroJfA7w5wrXst2Ta7
-   w==;
-X-CSE-ConnectionGUID: SpnGtk40Q4+hcuxGxHu9mA==
-X-CSE-MsgGUID: 59FjIuuXTJ+lgEltQGiURA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11957"; a="2642945"
-X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
-   d="scan'208";a="2642945"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Nov 2026 18:39:56 -0800
-X-CSE-ConnectionGUID: KS9u3FBUTWWX+np6X1wz6Q==
-X-CSE-MsgGUID: UVNMrYxjTwqQ+PgcFopzdQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,197,1787036400"; 
-   d="scan'208";a="7293755"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa005.fm.intel.com with ESMTP; 05 Nov 2026 18:39:52 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xP9rn-00000000nCp-1GFE;
-	Fri, 06 Nov 2026 02:39:47 +0000
-Date: Fri, 6 Nov 2026 10:39:36 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alexander Dahl <ada@thorsis.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Ryan Wanner <ryan.wanner@microchip.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Mihai Sain <mihai.sain@microchip.com>,
-	Manikandan Muralidharan <manikandan.m@microchip.com>,
-	Durai Manickam KR <durai.manickamkr@microchip.com>
-Subject: Re: [PATCH v4 05/16] clk: at91: Allow enabling main_rc_osc through DT
-Message-ID: <202611061036.HmCbW9MI-lkp@intel.com>
-References: <20261105110715.2486432-6-ada@thorsis.com>
+	id 1xP9zy-0000000B6tV-0yYf;
+	Fri, 06 Nov 2026 02:48:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8C96D43231;
+	Fri,  6 Nov 2026 02:48:13 +0000 (UTC)
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1793933293;
+	b=uQs9iv7cvDd0HHy6i3BusgHnZ4bH9xTHWJ8CM3piV/pLPYPWK4Y8holKK+xDf1cBYD/g
+	 OLkrpiyelcwzeNgsW/khjUcfdyBsczcKsV3iL//pN47xgk5Uxq7ozcLnpwKGDd93igPvW
+	 OLWZxkjdKdzzh7ZsFpck+67TX28qio62eykwG+unig/OUMORCVL5pdmPhd/UDgzkyrMGd
+	 B9/0nJcbKCs+wS3uQT1d7sc5nbmhJqgUnxrJ852COLzfGyoxb9cdtLFlu7xZL2HNWKUaR
+	 kZhvuW01NGq3N9CtR8m6YUdwhAXJ4ZArhhkSknLu4cYaNBajVyi06BeWyfcoGiuUjgw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1793933293;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=0UaxTG5x25gmRjc6KZfHadcJjXgPqxLqtyLeTH1tBMo=;
+	b=OUQoi2nnTu2A2U3UMhAgIn406JQC7nzp0OY5hDNSCe0ATTPlY23fiyBZFESCemQPTdNY
+	 X95yi5c6u4K7cNfM/l0EZj4ZS8NBIgWhQ8RLknR2Wvom0FySjMeiNJ8eEowKsJ79nynLE
+	 /MxIivopNGAZUu+H+mqcpp12EpsX85s1BKyRKple8C5X05w0KSE0scU2h6SbBZDnegAqM
+	 dauqiQ34fj3lyuySBJZRauhlHtzzvm8k959Ok4GY5VgWyldsBeTFTwdl2O//T4Xrd3JTT
+	 agrYV421lBePE6j4m7ZseRY3zzAsqk5Pqp0BS6Oo2Sr9ZoXjyCLQ1LYSahXht3a6DqA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id C99811F0089F;
+	Fri,  6 Nov 2026 02:48:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793933293;
+	bh=0UaxTG5x25gmRjc6KZfHadcJjXgPqxLqtyLeTH1tBMo=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=dEaRpNx16Z9GiFUKj+kDvv4bXGPG1PD+vMpUefteWq8CKcUjOvQBBQ9oPX/ZniTps
+	 PmwsBgjSCEde8hgm6dAGxDOv2A7RC+NFnyILXwK+/jHzDS0U0iovDrDyAiIVirAvzh
+	 4JKa6rtlPiZHbxk5CxzfxxZjk9DYaLg6P7YnOkWupCm6K5w0OGRzRc1wqun3/rgnK6
+	 tPhr/CInY2O8uYaomiVZ9CI76gV4gLM0QHwKQDes2+pczy8RsVZmF0Nwr3ysbRBJp5
+	 FnMXjAWcNxUcDDIK9Hf8MsiGsG7GousSSwAaDG9ke4wo0Vn63pDRrAihEP2nxTmRbU
+	 omwbO+vWzKQaw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 45C5545B53;
+	Fri,  6 Nov 2026 02:48:12 +0000 (UTC)
+From: kvnshroom via B4 Relay <devnull+kvnshroom.gmail.com@kernel.org>
+Date: Fri, 06 Nov 2026 03:47:00 +0100
+Subject: [PATCH] wifi: mt76: mt76x0: select the VGA gain from the RSSI
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261105110715.2486432-6-ada@thorsis.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_183957_285910_41E03476 
-X-CRM114-Status: GOOD (  13.36  )
-X-Spam-Score: -4.4 (----)
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261106-mt76x0-rssi-agc-v1-1-9d2f3ad74096@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQwMz3dwSc7MKA92i4uJM3cT0ZF3TVPNEC2MzS/PEpGQloK6CotS0zAq
+ widGxtbUAHa7S42EAAAA=
+X-Change-ID: 20261106-mt76x0-rssi-agc-5e7a83697abc
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
+ Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ kvnshroom <kvnshroom@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1793933291; l=4777;
+ i=kvnshroom@gmail.com; s=20261106; h=from:subject:message-id;
+ bh=GOUrR0SBzLl91iB01un4+ocyPS/13W2NZJubzZQmBUM=;
+ b=u5iZ31sHOf1LNUdzPgpZzqWvjRaA3mYJPtptQvXyoEbww3yQIV9dtYYK4psF31FL6ZasMU6zF
+ GhVWAqLvr/uDC+3Y+jAiie91KB5QWbRnMie1jQfhRTWOQRdUG1Duqk1
+X-Developer-Key: i=kvnshroom@gmail.com; a=ed25519;
+ pk=8lajK9/tD4YlPR/MOkqpgUU4drxTtsOnUfM8foTue/4=
+X-Endpoint-Received: by B4 Relay for kvnshroom@gmail.com/20261106 with
+ auth_id=1426
+X-Original-From: kvnshroom <kvnshroom@gmail.com>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,341 +112,154 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: kvnshroom@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Alexander,
+From: kvnshroom <kvnshroom@gmail.com>
 
-kernel test robot noticed the following build warnings:
+Since commit e1534fef1ae4 ("wifi: mt76: feed the station RSSI average
+from the chain signals") mt76x0 gets the real station RSSI for its gain
+control. On an MT7610U (ASUS USB-AC51, 5 GHz, 80 MHz, about -60 dBm)
+this makes the false CCA based VGA loop worse: with low_gain 2 the gain
+moves between 44 and 56 and stays at 56 most of the time, the false CCA
+counter reads 30k-50k per calibration interval and the receiver is
+overdriven.
 
-[auto build test WARNING on 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4]
+Fixed gain (BBP AGC8 bits 14:8) against the false CCA counter, with a
+ping to the AP every 200 ms during a download at the 50 Mbit/s line
+rate:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Alexander-Dahl/MAINTAINERS-Add-sam9-sama-to-AT91-SoC-support/20261105-120637
-base:   6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-patch link:    https://lore.kernel.org/r/20261105110715.2486432-6-ada%40thorsis.com
-patch subject: [PATCH v4 05/16] clk: at91: Allow enabling main_rc_osc through DT
-config: arm-defconfig (https://download.01.org/0day-ci/archive/20261106/202611061036.HmCbW9MI-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 812626a41399a1d464a0d69627ab45c83b8ebfb9)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261106/202611061036.HmCbW9MI-lkp@intel.com/reproduce)
+  gain   false CCA   ping p95 / max     download
+  24-48  0.9k-4k     2.5-3.8 / 5-27 ms  51 Mbit/s
+  50     8k-11k      3.2-4.5 / 25-40 ms 51 Mbit/s
+  56     46k-59k     164-299 / 400 ms   39-43 Mbit/s
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611061036.HmCbW9MI-lkp@intel.com/
+The MediaTek Windows driver (netr28ux.sys 5.1.38) does not use the
+false CCA counter on MT7610/MT7650. It selects the gain from the RSSI
+in three steps, at -60 and -70 dBm. Do the same: reduce the calibrated
+initial gain by 42, 26 or 2 depending on the RSSI, with 2 dB of
+hysteresis between the steps. On this adapter the initial gain is 66,
+which gives the 24/40/64 used by that driver. MT7630 keeps the current
+behaviour.
 
-All warnings (new ones prefixed by >>):
+Same setup, 60 s per run, two runs each:
 
->> drivers/clk/at91/sama7d65.c:1141:45: warning: variable 'hw' is uninitialized when used here [-Wuninitialized]
-    1141 |         sama7d65_pmc->chws[SAMA7D65_PMC_MAIN_RC] = hw;
-         |                                                    ^~
-   drivers/clk/at91/sama7d65.c:1106:19: note: initialize the variable 'hw' to silence this warning
-    1106 |         struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
-         |                          ^
-         |                           = NULL
-   1 warning generated.
---
->> drivers/clk/at91/sama7g5.c:1017:43: warning: variable 'hw' is uninitialized when used here [-Wuninitialized]
-    1017 |         sama7g5_pmc->chws[SAMA7G5_PMC_MAIN_RC] = hw;
-         |                                                  ^~
-   drivers/clk/at91/sama7g5.c:982:19: note: initialize the variable 'hw' to silence this warning
-     982 |         struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
-         |                          ^
-         |                           = NULL
-   1 warning generated.
+             gain       false CCA  ping p95 / max     loss  download
+  CCA loop   mostly 56  30k-50k    1.1-1.8 s / 3.4 s  0-9%  18-39 Mbit/s
+  RSSI steps 40         ~300       3 ms / 8-15 ms     0%    46-51 Mbit/s
+
+Not tested: weak signal (below -70 dBm), 2.4 GHz and MT7610E/MT7650E.
+
+The Windows driver was analysed with Ghidra. The analysis, this change
+and the changelog were prepared with the help of an AI coding assistant
+(Claude); I reviewed and tested the result on my hardware.
+
+Signed-off-by: kvnshroom <kvnshroom@gmail.com>
+---
+Tested on an ASUS USB-AC51 (MT7610U) with Linux 7.3 and e1534fef1ae4
+backported. I can run more tests, for example with a weaker signal or
+on 2.4 GHz, if that helps.
+---
+ drivers/net/wireless/mediatek/mt76/mt76x0/phy.c | 64 +++++++++++++++++++++++++
+ 1 file changed, 64 insertions(+)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76x0/phy.c b/drivers/net/wireless/mediatek/mt76/mt76x0/phy.c
+index ec554a059..d052d8619 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76x0/phy.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76x0/phy.c
+@@ -1064,6 +1064,64 @@ static void mt76x0_phy_set_gain_val(struct mt76x02_dev *dev)
+ 		mt76x02_phy_dfs_adjust_agc(dev);
+ }
+ 
++/*
++ * MT7610/MT7650: select the VGA gain from the RSSI only. The gain is
++ * reduced from the calibrated initial value by a fixed amount per RSSI
++ * step, with some hysteresis between the steps. The false CCA counter is
++ * not used, since on these chips it drives the gain into a range where
++ * the receiver is overdriven.
++ */
++#define MT76X0_RSSI_GAIN_STRONG		-60
++#define MT76X0_RSSI_GAIN_MEDIUM		-70
++#define MT76X0_RSSI_GAIN_HYST		2
++
++static int mt76x0_phy_rssi_gain_step(int rssi, int prev)
++{
++	int strong = MT76X0_RSSI_GAIN_STRONG;
++	int medium = MT76X0_RSSI_GAIN_MEDIUM;
++
++	if (prev == 2)
++		strong -= MT76X0_RSSI_GAIN_HYST;
++	else if (prev >= 0)
++		strong += MT76X0_RSSI_GAIN_HYST;
++	if (prev >= 1)
++		medium -= MT76X0_RSSI_GAIN_HYST;
++	else if (prev == 0)
++		medium += MT76X0_RSSI_GAIN_HYST;
++
++	if (rssi > strong)
++		return 2;
++	if (rssi > medium)
++		return 1;
++	return 0;
++}
++
++static void mt76x0_phy_update_rssi_gain(struct mt76x02_dev *dev)
++{
++	static const u8 gain_adjust[] = { 2, 26, 42 };
++	int step;
++	u8 adjust;
++
++	/* keep the counter visible in debugfs and clear it */
++	dev->cal.false_cca = FIELD_GET(MT_RX_STAT_1_CCA_ERRORS,
++				       mt76_rr(dev, MT_RX_STAT_1));
++
++	if (!dev->cal.avg_rssi_all)
++		step = 1;
++	else
++		step = mt76x0_phy_rssi_gain_step(dev->cal.avg_rssi_all,
++						 dev->cal.low_gain);
++
++	adjust = min_t(u8, gain_adjust[step], dev->cal.agc_gain_init[0]);
++	if (step == dev->cal.low_gain && adjust == dev->cal.agc_gain_adjust)
++		return;
++
++	dev->cal.low_gain = step;
++	dev->cal.agc_gain_adjust = adjust;
++	dev->cal.agc_gain_cur[0] = dev->cal.agc_gain_init[0];
++	mt76x0_phy_set_gain_val(dev);
++}
++
+ static void
+ mt76x0_phy_update_channel_gain(struct mt76x02_dev *dev)
+ {
+@@ -1072,6 +1130,12 @@ mt76x0_phy_update_channel_gain(struct mt76x02_dev *dev)
+ 	int low_gain;
+ 
+ 	dev->cal.avg_rssi_all = mt76_get_min_avg_rssi(&dev->mt76, 0);
++
++	if (!is_mt7630(dev)) {
++		mt76x0_phy_update_rssi_gain(dev);
++		return;
++	}
++
+ 	if (!dev->cal.avg_rssi_all)
+ 		dev->cal.avg_rssi_all = -75;
+ 
+
+---
+base-commit: b8e5b0ae8ff47240366d38e5d12c65f878724316
+change-id: 20261106-mt76x0-rssi-agc-5e7a83697abc
+
+Best regards,
+-- 
+kvnshroom <kvnshroom@gmail.com>
 
 
-vim +/hw +1141 drivers/clk/at91/sama7d65.c
-
-  1097	
-  1098	static void __init sama7d65_pmc_setup(struct device_node *np)
-  1099	{
-  1100		const char *main_xtal_name = "main_xtal";
-  1101		struct pmc_data *sama7d65_pmc;
-  1102		const char *parent_names[11];
-  1103		void **alloc_mem = NULL;
-  1104		int alloc_mem_size = 0;
-  1105		struct regmap *regmap;
-  1106		struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
-  1107		struct clk_hw *td_slck_hw, *md_slck_hw;
-  1108		static struct clk_parent_data parent_data;
-  1109		struct clk_hw *parent_hws[10];
-  1110		bool bypass;
-  1111		int i, j;
-  1112	
-  1113		td_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "td_slck"));
-  1114		md_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "md_slck"));
-  1115		main_xtal_hw = __clk_get_hw(of_clk_get_by_name(np, main_xtal_name));
-  1116	
-  1117		if (!td_slck_hw || !md_slck_hw || !main_xtal_hw)
-  1118			return;
-  1119	
-  1120		regmap = device_node_to_regmap(np);
-  1121		if (IS_ERR(regmap))
-  1122			return;
-  1123	
-  1124		sama7d65_pmc = pmc_data_allocate(PMC_INDEX_MAX,
-  1125						 nck(sama7d65_systemck),
-  1126						 nck(sama7d65_periphck),
-  1127						 nck(sama7d65_gck), 8);
-  1128		if (!sama7d65_pmc)
-  1129			return;
-  1130	
-  1131		alloc_mem = kmalloc(sizeof(void *) *
-  1132				    (ARRAY_SIZE(sama7d65_mckx) + ARRAY_SIZE(sama7d65_gck)),
-  1133				    GFP_KERNEL);
-  1134		if (!alloc_mem)
-  1135			goto err_free;
-  1136	
-  1137		main_rc_hw = at91_clk_register_main_rc_osc(regmap, "main_rc_osc", 12000000,
-  1138							   50000000);
-  1139		if (IS_ERR(main_rc_hw))
-  1140			goto err_free;
-> 1141		sama7d65_pmc->chws[SAMA7D65_PMC_MAIN_RC] = hw;
-  1142	
-  1143		bypass = of_property_read_bool(np, "atmel,osc-bypass");
-  1144	
-  1145		parent_data.name = main_xtal_name;
-  1146		parent_data.fw_name = main_xtal_name;
-  1147		main_osc_hw = at91_clk_register_main_osc(regmap, "main_osc", NULL,
-  1148							 &parent_data, bypass);
-  1149		if (IS_ERR(main_osc_hw))
-  1150			goto err_free;
-  1151	
-  1152		parent_hws[0] = main_rc_hw;
-  1153		parent_hws[1] = main_osc_hw;
-  1154		hw = at91_clk_register_sam9x5_main(regmap, "mainck", NULL, parent_hws, 2);
-  1155		if (IS_ERR(hw))
-  1156			goto err_free;
-  1157	
-  1158		sama7d65_pmc->chws[SAMA7D65_PMC_MAIN] = hw;
-  1159	
-  1160		for (i = 0; i < PLL_ID_MAX; i++) {
-  1161			for (j = 0; j < PLL_COMPID_MAX; j++) {
-  1162				struct clk_hw *parent_hw;
-  1163	
-  1164				if (!sama7d65_plls[i][j].n)
-  1165					continue;
-  1166	
-  1167				switch (sama7d65_plls[i][j].t) {
-  1168				case PLL_TYPE_FRAC:
-  1169					switch (sama7d65_plls[i][j].p) {
-  1170					case SAMA7D65_PLL_PARENT_MAINCK:
-  1171						parent_hw = sama7d65_pmc->chws[SAMA7D65_PMC_MAIN];
-  1172						break;
-  1173					case SAMA7D65_PLL_PARENT_MAIN_XTAL:
-  1174						parent_hw = main_xtal_hw;
-  1175						break;
-  1176					default:
-  1177						/* Should not happen. */
-  1178						parent_hw = NULL;
-  1179						break;
-  1180					}
-  1181	
-  1182					hw = sam9x60_clk_register_frac_pll(regmap,
-  1183						&pmc_pll_lock, sama7d65_plls[i][j].n,
-  1184						NULL, parent_hw, i,
-  1185						sama7d65_plls[i][j].c,
-  1186						sama7d65_plls[i][j].l,
-  1187						sama7d65_plls[i][j].f);
-  1188					break;
-  1189	
-  1190				case PLL_TYPE_DIV:
-  1191					hw = sam9x60_clk_register_div_pll(regmap,
-  1192						&pmc_pll_lock, sama7d65_plls[i][j].n,
-  1193						NULL, sama7d65_plls[i][0].hw, i,
-  1194						sama7d65_plls[i][j].c,
-  1195						sama7d65_plls[i][j].l,
-  1196						sama7d65_plls[i][j].f,
-  1197						sama7d65_plls[i][j].safe_div);
-  1198					break;
-  1199	
-  1200				default:
-  1201					continue;
-  1202				}
-  1203	
-  1204				if (IS_ERR(hw))
-  1205					goto err_free;
-  1206	
-  1207				sama7d65_plls[i][j].hw = hw;
-  1208				if (sama7d65_plls[i][j].eid)
-  1209					sama7d65_pmc->chws[sama7d65_plls[i][j].eid] = hw;
-  1210			}
-  1211		}
-  1212	
-  1213		hw = at91_clk_register_master_div(regmap, "mck0", NULL,
-  1214						  sama7d65_plls[PLL_ID_CPU][1].hw,
-  1215						  &mck0_layout, &mck0_characteristics,
-  1216						  &pmc_mck0_lock, CLK_GET_RATE_NOCACHE, 5);
-  1217		if (IS_ERR(hw))
-  1218			goto err_free;
-  1219	
-  1220		sama7d65_pmc->chws[SAMA7D65_PMC_MCK0] = hw;
-  1221		sama7d65_mckx[PCK_PARENT_HW_MCK0].hw = hw;
-  1222	
-  1223		parent_hws[0] = md_slck_hw;
-  1224		parent_hws[1] = td_slck_hw;
-  1225		parent_hws[2] = sama7d65_pmc->chws[SAMA7D65_PMC_MAIN];
-  1226		for (i = PCK_PARENT_HW_MCK1; i < ARRAY_SIZE(sama7d65_mckx); i++) {
-  1227			u8 num_parents = 3 + sama7d65_mckx[i].ep_count;
-  1228			struct clk_hw *tmp_parent_hws[8];
-  1229			u32 *mux_table;
-  1230	
-  1231			mux_table = kmalloc_array(num_parents, sizeof(*mux_table),
-  1232						  GFP_KERNEL);
-  1233			if (!mux_table)
-  1234				goto err_free;
-  1235	
-  1236			alloc_mem[alloc_mem_size++] = mux_table;
-  1237	
-  1238			PMC_INIT_TABLE(mux_table, 3);
-  1239			PMC_FILL_TABLE(&mux_table[3], sama7d65_mckx[i].ep_mux_table,
-  1240				       sama7d65_mckx[i].ep_count);
-  1241			for (j = 0; j < sama7d65_mckx[i].ep_count; j++) {
-  1242				u8 pll_id = sama7d65_mckx[i].ep[j].pll_id;
-  1243				u8 pll_compid = sama7d65_mckx[i].ep[j].pll_compid;
-  1244	
-  1245				tmp_parent_hws[j] = sama7d65_plls[pll_id][pll_compid].hw;
-  1246			}
-  1247			PMC_FILL_TABLE(&parent_hws[3], tmp_parent_hws,
-  1248				       sama7d65_mckx[i].ep_count);
-  1249	
-  1250			hw = at91_clk_sama7g5_register_master(regmap, sama7d65_mckx[i].n,
-  1251							      num_parents, NULL, parent_hws,
-  1252							      mux_table, &pmc_mckX_lock,
-  1253							      sama7d65_mckx[i].id,
-  1254							      sama7d65_mckx[i].c,
-  1255							      sama7d65_mckx[i].ep_chg_id);
-  1256	
-  1257			if (IS_ERR(hw))
-  1258				goto err_free;
-  1259	
-  1260			sama7d65_mckx[i].hw = hw;
-  1261			if (sama7d65_mckx[i].eid)
-  1262				sama7d65_pmc->chws[sama7d65_mckx[i].eid] = hw;
-  1263		}
-  1264	
-  1265		parent_names[0] = "syspll_divpmcck";
-  1266		parent_names[1] = "usbpll_divpmcck";
-  1267		parent_names[2] = "main_osc";
-  1268		hw = sam9x60_clk_register_usb(regmap, "usbck", parent_names, 3);
-  1269		if (IS_ERR(hw))
-  1270			goto err_free;
-  1271	
-  1272		parent_hws[0] = md_slck_hw;
-  1273		parent_hws[1] = td_slck_hw;
-  1274		parent_hws[2] = sama7d65_pmc->chws[SAMA7D65_PMC_MAIN];
-  1275		parent_hws[3] = sama7d65_plls[PLL_ID_SYS][PLL_COMPID_DIV0].hw;
-  1276		parent_hws[4] = sama7d65_plls[PLL_ID_DDR][PLL_COMPID_DIV0].hw;
-  1277		parent_hws[5] = sama7d65_plls[PLL_ID_GPU][PLL_COMPID_DIV0].hw;
-  1278		parent_hws[6] = sama7d65_plls[PLL_ID_BAUD][PLL_COMPID_DIV0].hw;
-  1279		parent_hws[7] = sama7d65_plls[PLL_ID_AUDIO][PLL_COMPID_DIV0].hw;
-  1280		parent_hws[8] = sama7d65_plls[PLL_ID_ETH][PLL_COMPID_DIV0].hw;
-  1281	
-  1282		for (i = 0; i < 8; i++) {
-  1283			char name[6];
-  1284	
-  1285			snprintf(name, sizeof(name), "prog%d", i);
-  1286	
-  1287			hw = at91_clk_register_programmable(regmap, name, NULL, parent_hws,
-  1288							    9, i,
-  1289							    &programmable_layout,
-  1290							    sama7d65_prog_mux_table);
-  1291			if (IS_ERR(hw))
-  1292				goto err_free;
-  1293	
-  1294			sama7d65_pmc->pchws[i] = hw;
-  1295		}
-  1296	
-  1297		for (i = 0; i < ARRAY_SIZE(sama7d65_systemck); i++) {
-  1298			hw = at91_clk_register_system(regmap, sama7d65_systemck[i].n,
-  1299						      sama7d65_systemck[i].p, NULL,
-  1300						      sama7d65_systemck[i].id, 0);
-  1301			if (IS_ERR(hw))
-  1302				goto err_free;
-  1303	
-  1304			sama7d65_pmc->shws[sama7d65_systemck[i].id] = hw;
-  1305		}
-  1306	
-  1307		for (i = 0; i < ARRAY_SIZE(sama7d65_periphck); i++) {
-  1308			hw = at91_clk_register_sam9x5_peripheral(regmap, &pmc_pcr_lock,
-  1309								 &sama7d65_pcr_layout,
-  1310								 sama7d65_periphck[i].n,
-  1311								 NULL,
-  1312								 sama7d65_mckx[sama7d65_periphck[i].p].hw,
-  1313								 sama7d65_periphck[i].id,
-  1314								 &sama7d65_periphck[i].r,
-  1315								 sama7d65_periphck[i].chgp ? 0 :
-  1316								 INT_MIN, 0);
-  1317			if (IS_ERR(hw))
-  1318				goto err_free;
-  1319	
-  1320			sama7d65_pmc->phws[sama7d65_periphck[i].id] = hw;
-  1321		}
-  1322	
-  1323		parent_hws[0] = md_slck_hw;
-  1324		parent_hws[1] = td_slck_hw;
-  1325		parent_hws[2] = sama7d65_pmc->chws[SAMA7D65_PMC_MAIN];
-  1326		parent_hws[3] = sama7d65_pmc->chws[SAMA7D65_PMC_MCK1];
-  1327		for (i = 0; i < ARRAY_SIZE(sama7d65_gck); i++) {
-  1328			u8 num_parents = 4 + sama7d65_gck[i].pp_count;
-  1329			struct clk_hw *tmp_parent_hws[8];
-  1330			u32 *mux_table;
-  1331	
-  1332			mux_table = kmalloc_array(num_parents, sizeof(*mux_table),
-  1333						  GFP_KERNEL);
-  1334			if (!mux_table)
-  1335				goto err_free;
-  1336	
-  1337			alloc_mem[alloc_mem_size++] = mux_table;
-  1338	
-  1339			PMC_INIT_TABLE(mux_table, 4);
-  1340			PMC_FILL_TABLE(&mux_table[4], sama7d65_gck[i].pp_mux_table,
-  1341				       sama7d65_gck[i].pp_count);
-  1342			for (j = 0; j < sama7d65_gck[i].pp_count; j++) {
-  1343				u8 pll_id = sama7d65_gck[i].pp[j].pll_id;
-  1344				u8 pll_compid = sama7d65_gck[i].pp[j].pll_compid;
-  1345	
-  1346				tmp_parent_hws[j] = sama7d65_plls[pll_id][pll_compid].hw;
-  1347			}
-  1348			PMC_FILL_TABLE(&parent_hws[4], tmp_parent_hws,
-  1349				       sama7d65_gck[i].pp_count);
-  1350	
-  1351			hw = at91_clk_register_generated(regmap, &pmc_pcr_lock,
-  1352							 &sama7d65_pcr_layout,
-  1353							 sama7d65_gck[i].n, NULL,
-  1354							 parent_hws, mux_table,
-  1355							 num_parents,
-  1356							 sama7d65_gck[i].id,
-  1357							 &sama7d65_gck[i].r,
-  1358							 sama7d65_gck[i].pp_chg_id);
-  1359			if (IS_ERR(hw))
-  1360				goto err_free;
-  1361	
-  1362			sama7d65_pmc->ghws[sama7d65_gck[i].id] = hw;
-  1363		}
-  1364	
-  1365		of_clk_add_hw_provider(np, of_clk_hw_pmc_get, sama7d65_pmc);
-  1366		kfree(alloc_mem);
-  1367	
-  1368		return;
-  1369	
-  1370	err_free:
-  1371		if (alloc_mem) {
-  1372			for (i = 0; i < alloc_mem_size; i++)
-  1373				kfree(alloc_mem[i]);
-  1374			kfree(alloc_mem);
-  1375		}
-  1376	
-  1377		kfree(sama7d65_pmc);
-  1378	}
-  1379	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
