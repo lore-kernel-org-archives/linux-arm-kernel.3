@@ -2,115 +2,129 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2545606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 10:52:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B49B606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 10:53:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fAjjdGHE
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=vKASOudi;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=DfDlWLXg
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Bw3iYNs494OoZ2HUqf1eAnVbLeeNMMr6kGoN9P/R7gw=; b=fAjjdGHE7wGlpzT9BgH7cyzRL/
-	MupHv1X63iS+x97oPT7vKWhjxv+DAEimz12I34H2JIwZ45+/vVRGHppVx3rzRZKMbLlPqnteL99Pj
-	vSCfcniPpbl1hKFoWqylA5ehuHLLEMbGZ9smZ4yeXviB+soUA8E5yL3XP5WsOw/JdiHk137zkL/IQ
-	WfTOLL5LSWzKXifynvHM78yN27Ff2JdoW4twctHzIWtZFsmJI2lPJ6j1h77DA5GOQ46R7c9MO6wf2
-	BKD3ErcYr8PjUifTqN8OiU0ZoluTt6425frwhzn5i4hLQrBuaA34JFbw4Z0E1A0GwRtPo7fYa9qES
-	b7MZAEfg==;
+	bh=h6kLZ8i6rJjG0cT28y1NGxwCKUSmKTnRbGESAnsD4Hw=; b=vKASOudiWKwoDelsATiPvspyWr
+	V4gHKLL/ZAlWh5xB3hBnUy2XwC2GODAfq2L1vewooDiEvHUZU5S5BdtG3IsnaESKmA1KtREo8HgdN
+	3MLYpC7zsOn3C1hRqDhLn2Vy0XI91sL2qQE5O6QgK0JEg8LZOOYhMtTqjum1Dwg8ez0Ijix1qu3pc
+	PiRBr9h0LdzfPMAZq9tGRQxqttxISA2ypgYSG4ZNKQNeiE9u1NSaeez/EKiK28X3SBHis6DLH60v+
+	9J3zPcn0w3ItPZ+UhFKDl4j4bLa/0X0Ru1/V/DI+oyg4wrR1XMkLh7Utc9AZlk4HQK0gSTF4HoBOk
+	djFHuFyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHYe-0000000C2Cf-3J1t;
-	Fri, 06 Nov 2026 10:52:32 +0000
-Received: from mail-koreacentralazon11023090.outbound.protection.outlook.com ([40.107.44.90] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1xPHZA-0000000C2WU-3tZB;
+	Fri, 06 Nov 2026 10:53:04 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHYW-0000000C26u-3H3c
+	id 1xPHZ3-0000000C2SN-2LZ9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 10:52:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cunIVbDAMrwrAU3TwGeHzUugVvZcQQcMoIGh2WRSsG3EyRqqW0/yu60wuG95gn77EeVUfEImk79m5l7MHP7LNCQT3VLB31eC1QBZU+ThbKhHFZ0QqgBONEO6YM+FgkjpBYGZrnmGDByAXEBklc8vayof7Kt8dIrZkn5qBsk34Dl2D5zirwH+sv/mX1VbAxOuHpS+G6dvE9oSMLmWCHEzqtY7Hx/YlVIjN0DkEkbk4TCTMH0kw+8vLIgRuZFFcHoDKhhtjKZFOr3+Sn1J0KF3vjd3VwmNTrr42O2r10GXKfFoIllkb9Pf5DtLHMOHaLYhby7bwsqKLaofRONQ9KLbpw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Bw3iYNs494OoZ2HUqf1eAnVbLeeNMMr6kGoN9P/R7gw=;
- b=E5OleblEKQjvacly/aw7tZazjoNz0geSDzM4VIVVCXtFV/WL0rIdytpExspbL6PlwvSwysAPLKU63N1IqQO1V0Zcxh2AVNpLVcSQlOUCfIC0ydCz5np03EvOnT2MM6E8HRpyCU48w37GuQF4y7cdDuXYPpS0cQoJJ+3TzEAboQen9HXHcprGjjzwaRmB2ovuUWCverkDUdi5o/FRRXqds0Zjf4imuoq6yGKDZsm0H9IH65kjqQ+/wW2GpwmmdKN2GpFa0veD5hwCD0+Ial3A3m/fdkK6jgOBcmI2NIpiNoDR9bn/FZvxT/D31VM7kOYZVtBWGG0grI+hgHKPmRRutg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SGAP274CA0013.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b6::25) by
- TYZPR06MB7316.apcprd06.prod.outlook.com (2603:1096:405:a6::12) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4; Fri, 6 Nov 2026 10:52:14 +0000
-Received: from OSA0EPF000000CC.apcprd02.prod.outlook.com
- (2603:1096:4:b6:cafe::d) by SGAP274CA0013.outlook.office365.com
- (2603:1096:4:b6::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.10 via Frontend Transport; Fri, 6
- Nov 2026 10:52:13 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- OSA0EPF000000CC.mail.protection.outlook.com (10.167.240.58) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Fri, 6 Nov 2026 10:52:13 +0000
-Received: from cix (unknown [172.18.64.61])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 46F9A4102E6B;
-	Fri,  6 Nov 2026 18:52:11 +0800 (CST)
-From: joakim.zhang@cixtech.com
-To: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	p.zabel@pengutronix.de
-Cc: cix-kernel-upstream@cixtech.com,
-	linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Joakim Zhang <joakim.zhang@cixtech.com>
-Subject: [PATCH v5 1/4] ASoC: dt-bindings: Add Cadence I2S-SC controller
-Date: Fri,  6 Nov 2026 18:52:05 +0800
-Message-ID: <20261106105208.1246554-2-joakim.zhang@cixtech.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20261106105208.1246554-1-joakim.zhang@cixtech.com>
-References: <20261106105208.1246554-1-joakim.zhang@cixtech.com>
+	Fri, 06 Nov 2026 10:53:03 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-4922523d1afso300715f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Nov 2026 02:52:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1793962376; x=1794567176; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=h6kLZ8i6rJjG0cT28y1NGxwCKUSmKTnRbGESAnsD4Hw=;
+        b=DfDlWLXgcFs266cdVJb8qH6zKDj55yWP7dBOPuU8EhRyRYfPIaD1j0g+uEHETDoOCl
+         HxhfadvCpVbo4pnVflyVGe01sb2Li8CwVJXeNs0Gh07RBMSBACi8BEc8oDyjymG2vqc0
+         SApkAjsEGytriH4hW3EzcjRUQGXEGDYXTpgRVC2yNzi5EhS+6GdG42mvabig8GKPdTZN
+         fWjSZd9P1yzw3Lzd806uKUYuFBNz6FmuMJjhv0FJ27FVh1tFmNlXCs0iGLU5gzWubc/v
+         rCebOqnqmHoNiiqKwArXOrFHoz6/L/iv/S/o3xnx2WAswOcpVCK2Br4FaXpWj4Bwu3Ug
+         Cytg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793962376; x=1794567176;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=h6kLZ8i6rJjG0cT28y1NGxwCKUSmKTnRbGESAnsD4Hw=;
+        b=SIvzSKzAR6skDlLRJ/cmIxw2hYNM9fhBa0KYR5N+MPUCEH9MWxWndfHmYNCL5qZSj7
+         hsrm+NLbJ/9cOHIa5BBET8g9HCH1KiV/J6K+GhpHMaIqCszpJvO+H3DAIZSSb+zQ27KC
+         XSKCKCpSRKhwRkk79J9McsgXtnuv6KvsLOwonQfzsAWXmcsjR8681zqgdFsGjp2zD/UE
+         UVjM8Huye3DL06g3USM8PUVF3ArNl/EzcmXT5FNHgytdaHnsoPzqi3hh8Lgpn5q7mgLa
+         bIcGnXRozJ7UNp7ojPXx8eLOs61fiWPy/9f+XW3lp6RpllJEhA2lWyq/TTHbov8VKeND
+         bMAQ==
+X-Forwarded-Encrypted: i=1; AL+hErGfxSSRGTMH8Wkha21RJWsDkOWWmr1P7HejLsIaprt6Slgv5tGVW0espTUU24DRKZVa99DqlwnBPhY8OgZvBv10@lists.infradead.org
+X-Gm-Message-State: APuU4Z9SLYQLuaCvV/drZMPaNQ3pt68fNHmlJDAaVbjd3/dYBGK2p0P2
+	yjrE/NqnRnWUMKlVIX8WQS14O60NVZc+S4yC/o/HkXcqT7aAk0Hk6Zd69v8Sho/IkQo=
+X-Gm-Gg: AYBFou0azhougmrhXouVaFB0ASqPIXFwjZd2kOaQrzuBaDPSS07Ab++l+8tn1B9Towq
+	LuzHunzDg//ktbi5XwE2Xh7RqwwEwE9b9BtZN6ncSaZJdn3XfVp5kQuzofPkJTd5PIAKJ/CvppX
+	o7XId+YFDKuqqRXRrg3PxA7raYsMlXCExyZsyMOLARuIeEujNZZZwsHedv3g07Y8qJ0asi0+KMi
+	WC0TKeGdf1BpzrVhPRX/BL0DQpBByg8rVueq4o4aPG+d17Fw9auWoqyGuqCG5m3ZJZhOrwo3kop
+	8Ow18stivmdDOGbBRMuZ0rR8mY3521i1mWTpQqCndTQKbei7tse3ru2iSGFkTufOISTFJ69vM1O
+	yvRFLQqQZh4sDuFgubd+PxBFnD0hGeE0jMtb0hXpFnqf31ZyPeWPOy7s3Y+oWq+BgNDVYBSfKIZ
+	xI4QLKOx+BE43U92xDGNk6XuIv29/L8TpWA4qPLro865rWEcfG6HjVTXc6E9ovKZ1xCgcde1FSX
+	X0chWa7g7JxOS5f27pnPlDi5DDfWyMtGAIK+G9ALIRQ2FPy/8L7m/45HP2Dp/WCn8Oq4UFrtKUa
+	8dq9uIrdBOP5125KHCHSschOoUhAFa4gWUddY+mJwW/s/jhRVCcBuEdTqXHdscZ4Qb4+CkVItq1
+	JvVab2zY=
+X-Received: by 2002:a05:6000:4a06:b0:48d:f034:7fcd with SMTP id ffacd0b85a97d-49278a136fbmr4487405f8f.51.1793962375440;
+        Fri, 06 Nov 2026 02:52:55 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:106d:1080:9df2:2e39:58f0:72ca? ([2a01:e0a:106d:1080:9df2:2e39:58f0:72ca])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-492fc80e017sm2563298f8f.34.2026.11.06.02.52.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 06 Nov 2026 02:52:55 -0800 (PST)
+Message-ID: <cd5c6354-58c2-4e41-b7b5-af1e2910be57@linaro.org>
+Date: Fri, 6 Nov 2026 11:52:54 +0100
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: neil.armstrong@linaro.org
+Subject: Re: [PATCH 02/10] arm64: dts: amlogic: meson-s4: describe the CPU
+ caches
+To: christian.koever-draxl@student.uibk.ac.at, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, khilman@baylibre.com,
+ jbrunet@baylibre.com, martin.blumenstingl@googlemail.com
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ =?UTF-8?Q?Christian_Stefan_K=C3=B6v=C3=A9r-Draxl?= <ckoever@outlook.de>
+References: <20261106104659.54656-1-christian.koever-draxl@student.uibk.ac.at>
+ <20261106104659.54656-3-christian.koever-draxl@student.uibk.ac.at>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20261106104659.54656-3-christian.koever-draxl@student.uibk.ac.at>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSA0EPF000000CC:EE_|TYZPR06MB7316:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 6159cb23-3094-46ee-bd2e-08df3bf4041b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|23010399003|1800799024|376014|7416014|22082099003|10067099003|18002099003|3023799007|56012099006|261026140227099003|261102123227099003|261026121527099003|261022105027099003|261028144727099003|261021121427099003|261022075727099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info: KhWd5FLsywLOIRiATnkZ+cGmwnu480MHKuviJrTVhz2k3Pv4DJRhesxDHPUMtGf7ZZJ0KNXQUF9inezxghgEEM9/fP9xSfODyX195kY6ABfXa1cRydw/+4Tqx7D/RBv6kXnte9zJtFkl5HmbuZMIzOXOg8VD52DsKGZmQyzRkHuIyb9K9Apawb1WKZNZPJaL60nLGndY5c3m/rZtej1vLiF3q0Jq2nTyE9AfmTWzGpwE0Mc1SVac/bmHhMm2hOzfPizVzI4lzGtejhiKEUwNDiAbFz4z8JB1oujbawQoW1em5offzLDNWqTyCIJu1xVWBaoWsuWLIdUhzyAPFNDhPE8kMiyuBEts4dbZUuAx9U8iRUma1vzbtvrhCPyHk6JxYFUAc47oTSHU/5N1sFoqSZlaa8m0U+E6edZjgthUBxJRP/UqbphXck1GCIEzYRY4PHGZpCLjiP7bOl1FFNZqJdfXqf88hci1Bf1WaeTF8YtjfV2JOVZwO+OclbdGa0tHRs1CmSveh4s1HLV6lcMJx1FU/VVMgE3xwFRmCziRNWzJxXyb3epCdIm1oq+DfC1IS8oxTFhyw+MBctQ5aekwQj6XttvVf0IwHS5/SLKEq+q7GcvT39ZjSxuY5NTPDQmF9/MD03+tFpeoZl4Eb1v39Q==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(23010399003)(1800799024)(376014)(7416014)(22082099003)(10067099003)(18002099003)(3023799007)(56012099006)(261026140227099003)(261102123227099003)(261026121527099003)(261022105027099003)(261028144727099003)(261021121427099003)(261022075727099003)(261009223027099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 1wZ6K2cazbqSzBCamJ49FY3KfmjDwKoMbkMpxyNM0VtI6ilIo8ZJjo4WZXbJLMF8vVe6arKDSk/YQy+mXx9eVXw17PiPs/3LgdlJVJ4VA4aQJt84ajpdONRpsM9rSkYoFHq3lIWf5cd/LW2NZm9NQ++1evMjIZE5JZgmPOT/qZxmi6sAetfR7WF73TAs7CzIyMmSPS6NaAb9fD813AIA3KY2tJ7pllNCFP68c5KjKkHPqHNMkXFjirUc4pMfSfCLFJ1MaUdvRT+kVoLTv7cEaAWcerh27Sd74fGTv94ZTTQQMuPUlQryTWbA8DgCompLSb74Ooaf/1BDTZAHCaondGVe1W1AhuVFINku2QsBpMAUBoSJ+xhMCTcDFi/NdGwYZVC61CoLT7Yao/brBz+bzYMEDDIUe3BT4BbfalHCol/dF9hDQ4p9jXAzNijF1oTF
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2026 10:52:13.4421
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6159cb23-3094-46ee-bd2e-08df3bf4041b
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000CC.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB7316
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_025224_850864_2E3C2168 
-X-CRM114-Status: GOOD (  11.69  )
-X-Spam-Score: -1.9 (-)
+X-CRM114-CacheID: sfid-20261106_025257_645502_B7699432 
+X-CRM114-Status: GOOD (  13.93  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,124 +134,100 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Joakim Zhang <joakim.zhang@cixtech.com>
+On 11/6/26 11:46, christian.koever-draxl@student.uibk.ac.at wrote:
+> From: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
+> 
+> Describe the per-core L1 caches and the shared 512 KiB L2 cache, with
+> the geometry the cores report in CCSIDR_EL1 on an S905W2.
+> 
+> Signed-off-by: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
+> ---
+>   arch/arm64/boot/dts/amlogic/meson-s4.dtsi | 38 +++++++++++++++++++++++
+>   1 file changed, 38 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+> index 2a6fbd530836..675db02a8d5e 100644
+> --- a/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+> +++ b/arch/arm64/boot/dts/amlogic/meson-s4.dtsi
+> @@ -22,6 +22,13 @@ cpu0: cpu@0 {
+>   			compatible = "arm,cortex-a35";
+>   			reg = <0x0 0x0>;
+>   			enable-method = "psci";
+> +			d-cache-line-size = <64>;
+> +			d-cache-size = <0x8000>;
+> +			d-cache-sets = <128>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-size = <0x8000>;
+> +			i-cache-sets = <256>;
+> +			next-level-cache = <&l2>;
+>   		};
+>   
+>   		cpu1: cpu@1 {
+> @@ -29,6 +36,13 @@ cpu1: cpu@1 {
+>   			compatible = "arm,cortex-a35";
+>   			reg = <0x0 0x1>;
+>   			enable-method = "psci";
+> +			d-cache-line-size = <64>;
+> +			d-cache-size = <0x8000>;
+> +			d-cache-sets = <128>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-size = <0x8000>;
+> +			i-cache-sets = <256>;
+> +			next-level-cache = <&l2>;
+>   		};
+>   
+>   		cpu2: cpu@2 {
+> @@ -36,6 +50,13 @@ cpu2: cpu@2 {
+>   			compatible = "arm,cortex-a35";
+>   			reg = <0x0 0x2>;
+>   			enable-method = "psci";
+> +			d-cache-line-size = <64>;
+> +			d-cache-size = <0x8000>;
+> +			d-cache-sets = <128>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-size = <0x8000>;
+> +			i-cache-sets = <256>;
+> +			next-level-cache = <&l2>;
+>   		};
+>   
+>   		cpu3: cpu@3 {
+> @@ -43,6 +64,23 @@ cpu3: cpu@3 {
+>   			compatible = "arm,cortex-a35";
+>   			reg = <0x0 0x3>;
+>   			enable-method = "psci";
+> +			d-cache-line-size = <64>;
+> +			d-cache-size = <0x8000>;
+> +			d-cache-sets = <128>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-size = <0x8000>;
+> +			i-cache-sets = <256>;
+> +			next-level-cache = <&l2>;
+> +		};
+> +
+> +		/* Geometry as CCSIDR_EL1 reports it on S905W2. */
+> +		l2: l2-cache0 {
+> +			compatible = "cache";
+> +			cache-level = <2>;
+> +			cache-unified;
+> +			cache-size = <0x80000>; /* L2. 512 KB */
+> +			cache-line-size = <64>;
+> +			cache-sets = <1024>;
+>   		};
+>   	};
+>   
 
-Add the DT binding for the Cadence I2S-SC controller integrated in
-the CIX SKY1 audio subsystem. I2S-SC is a full-duplex stereo
-controller supporting standard I2S, left/right-justified and DSP
-formats, plus TDM operation with up to 16 slots.
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../bindings/sound/cix,sky1-i2s-sc.yaml       | 89 +++++++++++++++++++
- 1 file changed, 89 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml
-
-diff --git a/Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml b/Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml
-new file mode 100644
-index 000000000000..9ef11272d0fd
---- /dev/null
-+++ b/Documentation/devicetree/bindings/sound/cix,sky1-i2s-sc.yaml
-@@ -0,0 +1,89 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/sound/cix,sky1-i2s-sc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Cadence I2S-SC controller
-+
-+maintainers:
-+  - Joakim Zhang <joakim.zhang@cixtech.com>
-+
-+description: |
-+  The Cadence I2S-SC controller integrated in the CIX SKY1 audio subsystem.
-+  It supports full-duplex stereo playback and capture in standard I2S,
-+  left/right-justified and DSP modes, as well as TDM operation with up to
-+  16 slots. The transmitter and receiver are started and stopped together
-+  by the controller.
-+
-+allOf:
-+  - $ref: dai-common.yaml#
-+
-+properties:
-+  compatible:
-+    const: cix,sky1-i2s-sc
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 4
-+
-+  clock-names:
-+    items:
-+      - const: hst
-+      - const: i2s
-+      - const: audio-clk0
-+      - const: audio-clk2
-+
-+  resets:
-+    maxItems: 1
-+
-+  dmas:
-+    minItems: 1
-+    maxItems: 2
-+    description:
-+      One DMA channel for instances wired for a single direction, either
-+      "tx" or "rx", or two channels for both transmit and receive.
-+
-+  dma-names:
-+    minItems: 1
-+    items:
-+      - enum: [ tx, rx ]
-+      - const: rx
-+
-+  "#sound-dai-cells":
-+    const: 0
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - resets
-+  - dmas
-+  - dma-names
-+  - "#sound-dai-cells"
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    i2s@7020000 {
-+        compatible = "cix,sky1-i2s-sc";
-+        reg = <0x7020000 0x10000>;
-+        interrupts = <GIC_SPI 219 IRQ_TYPE_LEVEL_HIGH>;
-+        clocks = <&audss_cru 16>, <&audss_cru 26>,
-+                 <&scmi_clk 100>, <&scmi_clk 101>;
-+        clock-names = "hst", "i2s", "audio-clk0", "audio-clk2";
-+        resets = <&audss_cru 0>;
-+        dmas = <&audss_dmac 0>, <&audss_dmac 1>;
-+        dma-names = "tx", "rx";
-+        #sound-dai-cells = <0>;
-+    };
--- 
-2.50.1
-
+Thanks,
+Neil
 
