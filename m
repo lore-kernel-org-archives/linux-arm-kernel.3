@@ -2,85 +2,69 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB4F4606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 14:20:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22EA7606A32F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 14:22:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YOH1kjC4;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=KsnDGo++
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KfUUgaMM;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ih9nz3hB
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Q87JkWe4IOxAaj+S1cTCBpK2mbAExz1BAJFg9wuG6Mc=; b=YOH1kjC4EWsD6o1YOMMVV5LYB1
-	BkwtO17lIqh5DiIfLV8zCNFftc7GdYU5cdfYvr58fuQNhD8GEhCB4WAYeO1s5BdNhqdA2WTbkJod0
-	V+qGbK31LNexlYacpYG/dY0JsQ3SXq+kSCfYEKoFMfqXtaglRLrwqRvCf7E46WRUhzCRuJIBH983w
-	LqIjmTMHKSTHGJA9pPo9Dn5c5klsR4cA62HFyBXxZF0Hca91gGVp9U1eh+UCtCjQV98vLfdQJIJYJ
-	+KLkbNrMwriSGd6+qfqZGNCO3B9Y8x8ZZUlEIbEoVPfj7POQFysK/KzA/iRg0jJlnkS9RF9z+fvFo
-	Taq2EAYg==;
+	bh=4w1ffQwzkhuFO1YskUNSB+WHf1fs6R5DfzwqOkWXzDg=; b=KfUUgaMM/mFDGY768Huv26X8Yl
+	Y7Hx1DWjqa22KtCP9dWqg7QxgtsDqqtlC9EMG2MJZKug9J+lIS3GpC8H6uiaaaoQXEXb0WeBiQyTS
+	+lDLGWx8fxmO2EQMTQ/oeZ1ZAcPGbDVnmX3Vldx+aACpQGxdJnT815S/JQlp5MeLlyt6TidrDy4la
+	3woBUzjl/FWsXUemyf5IHVdjZCPqEob9/o/mbbmyno7iAO/i/oKxScd4Cm3+BiZ6qijg3XFvMZdzg
+	CO4aa9y+WxOVl6faPVQ0bbHCPm8qgfREmkR7Hjuk8uvK/A+96QccKTyumxJYvnphVBOCblNYTOjdq
+	rIErwyiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPKnR-0000000Ccrn-1BJJ;
-	Fri, 06 Nov 2026 14:20:01 +0000
-Received: from mail-ej1-x648.google.com ([2a00:1450:4864:20::648])
+	id 1xPKpJ-0000000Cdjs-3yTj;
+	Fri, 06 Nov 2026 14:21:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPKnO-0000000Ccm9-2X2K
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 14:19:59 +0000
-Received: by mail-ej1-x648.google.com with SMTP id a640c23a62f3a-c49b95262a5so54403966b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Nov 2026 06:19:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1793974796; x=1794579596; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Q87JkWe4IOxAaj+S1cTCBpK2mbAExz1BAJFg9wuG6Mc=;
-        b=KsnDGo+++XZYj74m0xi1pQZ9nkNTye3XxJEPD+O8LquSy3yonLFMvJtqFfcpP+JT3/
-         bI6Cot8D7HaywG1MhovWPtoXkmQvA41Sa89tzXVUa4kVGRR+plVac5kptdvXKl1gl8WE
-         6KRW3J6HxeHbijQxRvgnO15KmftJDkHyGMD0/RCxzG22Yw/Uk0CGb4eUFpVw3bBo51s0
-         H1WzD9kn/f501CDHYBVlYQcSsMuWsY1M5yXnFUaC5jWqT0Ho5UT3/D8DdV9dp92qsVz6
-         39xTZ7YGDJPV7UPQmuGR2xyrn2tZFDlsZ+QgE/GejjhtZU7GcBBIzM6kavI+8noE0h7H
-         uZtA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793974796; x=1794579596;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Q87JkWe4IOxAaj+S1cTCBpK2mbAExz1BAJFg9wuG6Mc=;
-        b=dbYFxVOwoD1OlbZXkqqBqWMBBcjnmQDAhtmt8tieVrJKXZ6XszvYzMDB61v9lkEZ0l
-         HxQHmL8DXmVgofrO3ffMDodu/GcfkHd2oGSNSo0IVEqRAW229gHTPXOIOzAZDa+aB4O6
-         GudSkb6F0StwE1CASNKNlLntIqIPp/+R/kkDX6qUP9RelR63odBh9WT9kD9Gi325U8t6
-         7jOu8LC45fYXZVyM3oe4AQGOSYxufGsn1UJG2et+L4IRqLy5hIqqLXJwT3V2wMKvM2dY
-         KL5DC/5KbcvOPhL9dGnPwKsxI/5kxfolPSnMmyuhYkqzK9CcpyoWv1WAxtnbzHJKb5un
-         1apw==
-X-Gm-Message-State: APuU4Z9LLhkBry/YCL1X6MerK9w0ur8EoO3aOTY78ZMrkf1dZ8nvIKgJ
-	eNQO289BX0v56YubjDs5KO/kUUIFWM0W8zLebLDGl0zRF8tTNI/Ln21tnvLRChBn3Fw11VLZMA=
-	=
-X-Received: from ejda5.prod.google.com ([2002:a17:906:2745:b0:c3f:8199:7182])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a17:906:99c1:b0:c49:df71:14f5
- with SMTP id a640c23a62f3a-c4d34c5fe59mr235201566b.31.1793974795660; Fri, 06
- Nov 2026 06:19:55 -0800 (PST)
-Date: Fri,  6 Nov 2026 15:19:42 +0100
-In-Reply-To: <20261106141936.2744481-7-ardb+git@google.com>
+	id 1xPKpI-0000000Cdjg-21ue;
+	Fri, 06 Nov 2026 14:21:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7889660232;
+	Fri,  6 Nov 2026 14:21:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9A611F008A4;
+	Fri,  6 Nov 2026 14:21:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1793974915;
+	bh=4w1ffQwzkhuFO1YskUNSB+WHf1fs6R5DfzwqOkWXzDg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ih9nz3hBrnOj+a/u//x+Uv89KdGtdo6z0gcPLZBJVjvbXGuZfsbrpUKOXP61U2f8r
+	 WsyXnXJnbC9CdsFV/DhjIOo+8LfeZjysNnDm+xCAphsxdwqZ8h/MvYc5zY8F3ODt+t
+	 GnDxJwMmW1oDrgtGySIT9JKidKiTQEBNpHUak+hn8BxWDYNqqi5ZYfH/FinwcQe42W
+	 IGCLxbClF9IHNG325x9F/XTUQ6DmyHG6pwfxzSLNVcc10axfS30WREAk98M68wUvmY
+	 iR6VUbL3YrFFMZ5hnfZa7bbValkZnH5aWDVGboRLdY7njU5XmGCZnQX+MW9wCRImYV
+	 LkKtdNu5Srfbw==
+Date: Fri, 6 Nov 2026 15:21:52 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Florian Maurer <fmaurer@disroot.org>
+Cc: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH wireless 1/2] wifi: mt76: npu: return rx slots to the NPU
+ only after refilling them
+Message-ID: <au3igPTxdz3i64SO@lore-desk>
+References: <cover.1793927986.git.fmaurer@disroot.org>
+ <d6314f34e0965464207656d38a145490b6437aa5.1793927986.git.fmaurer@disroot.org>
 X-Archived-By: <archiver.kernel.org>
-Mime-Version: 1.0
-References: <20261106141936.2744481-7-ardb+git@google.com>
-X-Mailer: git-send-email 2.56.0.455.g6c5a503b38-goog
-Message-ID: <20261106141936.2744481-12-ardb+git@google.com>
-Subject: [PATCH 5/5] efi/arm64: Drop build and linker script hacks to obtain
- image code size
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-efi@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, 
-	will@kernel.org, catalin.marinas@arm.com, Ard Biesheuvel <ardb@kernel.org>, 
-	Jason Gunthorpe <jgg@nvidia.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_061958_746377_E290BDA7 
-X-CRM114-Status: GOOD (  13.99  )
-X-Spam-Score: -9.5 (---------)
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="hjdNWhN+M75PWH0l"
+Content-Disposition: inline
+In-Reply-To: <d6314f34e0965464207656d38a145490b6437aa5.1793927986.git.fmaurer@disroot.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,141 +75,284 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-26.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIMWL_WL_MED,DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT,
-	USER_IN_DEF_DKIM_WL autolearn=ham autolearn_force=no version=4.0.1
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Ard Biesheuvel <ardb@kernel.org>
+--hjdNWhN+M75PWH0l
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Instead of taking vmlinux symbol values at build time and poking them
-into the zboot linker script, wire up struct efi_image_info so this
-information can be obtained from the code.
+> mt76_npu_dequeue() writes the new tail to the dma_idx register of the
+> NPU rx ring as soon as it has consumed a frame, while the slots are
+> only refilled with new buffers by mt76_npu_rx_poll() after the whole
+> NAPI budget. Until then, the descriptors of the released slots still
+> point to the buffers that were passed up the stack, and on the first
+> round of the ring the slot that was never filled points to address 0.
+> If the NPU completes one of these slots, the host processes an entry
+> without buffer, which crashes in dma_sync_single_for_cpu() under heavy
+> rx load:
+>=20
+>   Unable to handle kernel paging request at virtual address ffffffff80000=
+700
+>   pc : dcache_inval_poc+0x28/0x58
+>   lr : arch_sync_dma_for_cpu+0x28/0x38
+>   Call trace:
+>    dcache_inval_poc+0x28/0x58 (P)
+>    __dma_sync_single_for_cpu+0xe4/0xf8
+>    mt76_npu_rx_poll+0x184/0x390 [mt76]
+>    __napi_poll+0x34/0x180
+>=20
+> Write dma_idx after refilling the ring instead, up to the slot kept
+> free in front of the tail, which is the same value as before once the
+> ring is full.
+>=20
+> Also check that all slots of a frame are queued and complete before
+> building the skb. So far a frame whose later slots were not yet
+> done was freed together with the buffers of its first slots, which
+> were then used again on the next poll.
+>=20
+> Fixes: 7fb554b1b623 ("wifi: mt76: Introduce the NPU generic layer")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Florian Maurer <fmaurer@disroot.org>
+> ---
+>  drivers/net/wireless/mediatek/mt76/npu.c | 21 +++++++++++++++------
+>  1 file changed, 15 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/net/wireless/mediatek/mt76/npu.c b/drivers/net/wirel=
+ess/mediatek/mt76/npu.c
+> index c4c7c0af6321..6e503a4a890c 100644
+> --- a/drivers/net/wireless/mediatek/mt76/npu.c
+> +++ b/drivers/net/wireless/mediatek/mt76/npu.c
+> @@ -40,6 +40,11 @@ int mt76_npu_fill_rx_queue(struct mt76_dev *dev, struc=
+t mt76_queue *q)
+>  		nframes++;
+>  	}
+> =20
+> +	/* Hand the slots back to the NPU only once they have a new buffer,
+> +	 * up to the one kept free in front of the tail.
+> +	 */
+> +	Q_WRITE(q, dma_idx, (q->head + 1) % q->ndesc);
 
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- arch/arm64/boot/Makefile                  |  3 ---
- arch/arm64/include/asm/efi.h              | 11 ++++++++---
- arch/arm64/kernel/image-vars.h            |  4 ----
- drivers/firmware/efi/libstub/arm64-stub.c |  2 ++
- drivers/firmware/efi/libstub/arm64.c      |  4 +---
- drivers/firmware/efi/libstub/zboot.lds    |  7 -------
- 6 files changed, 11 insertions(+), 20 deletions(-)
+why are you writing q->head here?
 
-diff --git a/arch/arm64/boot/Makefile b/arch/arm64/boot/Makefile
-index d42d07667822..509b59518818 100644
---- a/arch/arm64/boot/Makefile
-+++ b/arch/arm64/boot/Makefile
-@@ -51,7 +51,4 @@ EFI_ZBOOT_BFD_TARGET	:= elf64-littleaarch64
- EFI_ZBOOT_MACH_TYPE	:= ARM64
- EFI_ZBOOT_FORWARD_CFI	:= $(CONFIG_ARM64_BTI_KERNEL)
- 
--EFI_ZBOOT_OBJCOPY_FLAGS	= --add-symbol zboot_code_size=0x$$( \
--				$(NM) vmlinux|grep _kernel_codesize|cut -d' ' -f1)
--
- include $(srctree)/drivers/firmware/efi/libstub/Makefile.zboot
-diff --git a/arch/arm64/include/asm/efi.h b/arch/arm64/include/asm/efi.h
-index b0c9120b9741..3194e133a4d5 100644
---- a/arch/arm64/include/asm/efi.h
-+++ b/arch/arm64/include/asm/efi.h
-@@ -151,10 +151,15 @@ efi_status_t efi_handle_corrupted_x18(efi_status_t s, const char *f);
- 
- void efi_icache_sync(unsigned long start, unsigned long end);
- 
--// temporary resolution for efistub_get_code_size()
--#define efistub_get_code_size(image_info) ({ extern u32 code_size; code_size; })
--
- struct efi_image_info {
-+	s32 _text_offset;
-+	s32 __inittext_end_offset;
- };
- 
-+static inline u32 efistub_get_code_size(const struct efi_image_info *info)
-+{
-+	return info->__inittext_end_offset - info->_text_offset;
-+}
-+#define efistub_get_code_size efistub_get_code_size
-+
- #endif /* _ASM_EFI_H */
-diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-index 19d602e45523..b02234f080b0 100644
---- a/arch/arm64/kernel/image-vars.h
-+++ b/arch/arm64/kernel/image-vars.h
-@@ -150,10 +150,6 @@ KVM_NVHE_ALIAS(kvm_protected_mode_initialized);
- 
- #endif /* CONFIG_KVM */
- 
--#ifdef CONFIG_EFI_ZBOOT
--_kernel_codesize = ABSOLUTE(__inittext_end - _text);
--#endif
--
- /*
-  * LLD will occasionally error out with a '__init_end does not converge' error
-  * if INIT_IDMAP_DIR_SIZE is defined in terms of _end, as this results in a
-diff --git a/drivers/firmware/efi/libstub/arm64-stub.c b/drivers/firmware/efi/libstub/arm64-stub.c
-index 8daed681f97d..754cb2843967 100644
---- a/drivers/firmware/efi/libstub/arm64-stub.c
-+++ b/drivers/firmware/efi/libstub/arm64-stub.c
-@@ -68,6 +68,8 @@ asm("	.section \".rodata\", \"a\", %progbits;			" \
-     "	.align	3;						" \
-     "	.globl	efi_image_info;					" \
-     "efi_image_info:						" \
-+    "	.long	_text - efi_image_info;				" \
-+    "	.long	__inittext_end - efi_image_info;		" \
-     "	.previous						");
- 
- 
-diff --git a/drivers/firmware/efi/libstub/arm64.c b/drivers/firmware/efi/libstub/arm64.c
-index 190cf180bb23..da6fa2f6c821 100644
---- a/drivers/firmware/efi/libstub/arm64.c
-+++ b/drivers/firmware/efi/libstub/arm64.c
-@@ -88,8 +88,6 @@ efi_status_t check_platform_features(void)
- #define DCTYPE	"cvau"
- #endif
- 
--u32 __weak code_size;
--
- void efi_cache_sync_image(unsigned long image_base,
- 			  unsigned long alloc_size)
- {
-@@ -100,7 +98,7 @@ void efi_cache_sync_image(unsigned long image_base,
- 	/* only perform the cache maintenance if needed for I/D coherency */
- 	if (!(ctr & BIT(CTR_EL0_IDC_SHIFT))) {
- 		unsigned long base = image_base;
--		unsigned long size = code_size;
-+		unsigned long size = alloc_size;
- 
- 		do {
- 			asm("dc " DCTYPE ", %0" :: "r"(base));
-diff --git a/drivers/firmware/efi/libstub/zboot.lds b/drivers/firmware/efi/libstub/zboot.lds
-index 367907eb7d86..61714a151766 100644
---- a/drivers/firmware/efi/libstub/zboot.lds
-+++ b/drivers/firmware/efi/libstub/zboot.lds
-@@ -2,8 +2,6 @@
- 
- ENTRY(__efistub_efi_zboot_header);
- 
--PROVIDE(zboot_code_size = ABSOLUTE(0));
--
- SECTIONS
- {
- 	.head : ALIGN(4096) {
-@@ -20,11 +18,6 @@ SECTIONS
- 		__efistub_payload_size = . - 4;
- 		__efistub__gzdata_end = .;
- 		*(.rodata* .init.rodata* .srodata*)
--
--		. = ALIGN(4);
--		__efistub_code_size = .;
--		LONG(zboot_code_size);
--
- 		_etext = ALIGN(4096);
- 		. = _etext;
+> +
+>  	return nframes;
+>  }
+> =20
+> @@ -69,17 +74,22 @@ static struct sk_buff *mt76_npu_dequeue(struct mt76_d=
+ev *dev,
+> =20
+>  	nframes =3D FIELD_GET(NPU_RX_DMA_PKT_COUNT_MASK, desc[index].info);
+>  	nframes =3D max_t(int, nframes, 1);
+> +	if (nframes > q->queued)
+> +		return NULL;
+
+can this really occur?
+
+> +
+> +	/* Only take the frame once all of its slots are complete */
+> +	for (i =3D 0; i < nframes; i++) {
+> +		int idx =3D (index + i) % q->ndesc;
+> +
+> +		if (!FIELD_GET(NPU_RX_DMA_DESC_DONE_MASK, desc[idx].ctrl))
+> +			return NULL;
+> +	}
+
+I got your time, and I agree this is an issue we need to fix but I guess we
+should avoid a double loop. What about the patch below? (just compiled and =
+not
+tested).
+
+Regards,
+Lorenzo
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wirele=
+ss/mediatek/mt76/mt76.h
+index 2ade848fe3bb..9537c6d28e8d 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76.h
++++ b/drivers/net/wireless/mediatek/mt76/mt76.h
+@@ -249,6 +249,7 @@ struct mt76_queue {
+ 	int ndesc;
+ 	int queued;
+ 	int buf_size;
++	int pending;
+ 	bool stopped;
+ 	bool blocked;
+=20
+diff --git a/drivers/net/wireless/mediatek/mt76/npu.c b/drivers/net/wireles=
+s/mediatek/mt76/npu.c
+index c4c7c0af6321..e2fc361a5248 100644
+--- a/drivers/net/wireless/mediatek/mt76/npu.c
++++ b/drivers/net/wireless/mediatek/mt76/npu.c
+@@ -56,61 +56,74 @@ void mt76_npu_queue_cleanup(struct mt76_dev *dev, struc=
+t mt76_queue *q)
+ 		q->tail =3D (q->tail + 1) % q->ndesc;
+ 		q->queued--;
  	}
--- 
-2.56.0.455.g6c5a503b38-goog
++	if (q->rx_head) {
++		dev_kfree_skb(q->rx_head);
++		q->rx_head =3D NULL;
++		q->pending =3D 0;
++	}
+ 	spin_unlock_bh(&q->lock);
+ }
+=20
+-static struct sk_buff *mt76_npu_dequeue(struct mt76_dev *dev,
+-					struct mt76_queue *q,
+-					u32 *info)
++static int mt76_npu_rx_process_entry(struct napi_struct *napi)
+ {
++	struct mt76_dev *dev =3D mt76_priv(napi->dev);
++	enum mt76_rxq_id qid =3D napi - dev->napi;
++	struct mt76_queue *q =3D &dev->q_rx[qid];
+ 	struct airoha_npu_rx_dma_desc *desc =3D (void *)q->desc;
+-	int i, nframes, index =3D q->tail;
+-	struct sk_buff *skb =3D NULL;
++	int nframes =3D q->pending;
++	u32 info =3D 0;
+=20
+-	nframes =3D FIELD_GET(NPU_RX_DMA_PKT_COUNT_MASK, desc[index].info);
+-	nframes =3D max_t(int, nframes, 1);
++	if (!nframes) {
++		nframes =3D FIELD_GET(NPU_RX_DMA_PKT_COUNT_MASK,
++				    desc[q->tail].info);
++		nframes =3D max_t(int, nframes, 1);
++	}
+=20
+-	for (i =3D 0; i < nframes; i++) {
+-		struct mt76_queue_entry *e =3D &q->entry[index];
++	while (nframes > 0) {
++		struct mt76_queue_entry *e =3D &q->entry[q->tail];
+ 		int len =3D FIELD_GET(NPU_RX_DMA_DESC_CUR_LEN_MASK,
+-				    desc[index].ctrl);
++				    desc[q->tail].ctrl);
+=20
+-		if (!FIELD_GET(NPU_RX_DMA_DESC_DONE_MASK, desc[index].ctrl)) {
+-			dev_kfree_skb(skb);
+-			return NULL;
+-		}
++		if (!FIELD_GET(NPU_RX_DMA_DESC_DONE_MASK, desc[q->tail].ctrl))
++			return -EBUSY;
+=20
+ 		dma_sync_single_for_cpu(dev->dma_dev, e->dma_addr[0],
+ 					e->dma_len[0],
+ 					page_pool_get_dma_dir(q->page_pool));
+=20
+-		if (!skb) {
+-			skb =3D napi_build_skb(e->buf, q->buf_size);
+-			if (!skb)
+-				return NULL;
++		if (!q->rx_head) {
++			q->rx_head =3D napi_build_skb(e->buf, q->buf_size);
++			if (!q->rx_head)
++				return -ENOMEM;
+=20
+-			__skb_put(skb, len);
+-			skb_reset_mac_header(skb);
+-			skb_mark_for_recycle(skb);
++			__skb_put(q->rx_head, len);
++			skb_reset_mac_header(q->rx_head);
++			skb_mark_for_recycle(q->rx_head);
+ 		} else {
+-			struct skb_shared_info *shinfo =3D skb_shinfo(skb);
++			struct skb_shared_info *shinfo =3D skb_shinfo(q->rx_head);
+ 			struct page *page =3D virt_to_head_page(e->buf);
+ 			int nr_frags =3D shinfo->nr_frags;
+=20
+ 			if (nr_frags < ARRAY_SIZE(shinfo->frags))
+-				skb_add_rx_frag(skb, nr_frags, page,
++				skb_add_rx_frag(q->rx_head, nr_frags, page,
+ 						e->buf - page_address(page),
+ 						len, q->buf_size);
+ 		}
+=20
+-		*info =3D desc[index].info;
+-		index =3D (index + 1) % q->ndesc;
++		info =3D desc[q->tail].info;
++		q->tail =3D (q->tail + 1) % q->ndesc;
++		q->queued--;
++		nframes--;
+ 	}
+-	q->tail =3D index;
+-	q->queued -=3D i;
++
++	dev->drv->rx_skb(dev, qid, q->rx_head, &info);
++	mt76_rx_poll_complete(dev, qid, napi);
++	q->rx_head =3D NULL;
++	q->pending =3D 0;
++
+ 	Q_WRITE(q, dma_idx, q->tail);
+=20
+-	return skb;
++	return 0;
+ }
+=20
+ void mt76_npu_check_ppe(struct mt76_dev *dev, struct sk_buff *skb,
+@@ -155,18 +168,10 @@ static int mt76_npu_rx_poll(struct napi_struct *napi,=
+ int budget)
+ 		goto out;
+=20
+ 	while (done < budget) {
+-		struct sk_buff *skb;
+-		u32 info =3D 0;
+-
+-		skb =3D mt76_npu_dequeue(dev, &dev->q_rx[qid], &info);
+-		if (!skb)
++		if (mt76_npu_rx_process_entry(napi))
+ 			break;
+-
+-		dev->drv->rx_skb(dev, qid, skb, &info);
+-		mt76_rx_poll_complete(dev, qid, napi);
+ 		done++;
+ 	}
+-
+ 	mt76_npu_fill_rx_queue(dev, &dev->q_rx[qid]);
+ out:
+ 	if (done < budget && napi_complete(napi))
 
+> =20
+>  	for (i =3D 0; i < nframes; i++) {
+>  		struct mt76_queue_entry *e =3D &q->entry[index];
+>  		int len =3D FIELD_GET(NPU_RX_DMA_DESC_CUR_LEN_MASK,
+>  				    desc[index].ctrl);
+> =20
+> -		if (!FIELD_GET(NPU_RX_DMA_DESC_DONE_MASK, desc[index].ctrl)) {
+> -			dev_kfree_skb(skb);
+> -			return NULL;
+> -		}
+> -
+>  		dma_sync_single_for_cpu(dev->dma_dev, e->dma_addr[0],
+>  					e->dma_len[0],
+>  					page_pool_get_dma_dir(q->page_pool));
+> @@ -108,7 +118,6 @@ static struct sk_buff *mt76_npu_dequeue(struct mt76_d=
+ev *dev,
+>  	}
+>  	q->tail =3D index;
+>  	q->queued -=3D i;
+> -	Q_WRITE(q, dma_idx, q->tail);
+> =20
+>  	return skb;
+>  }
+> --=20
+> 2.47.3
+>=20
+
+--hjdNWhN+M75PWH0l
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCau3igAAKCRA6cBh0uS2t
+rMP1AQDQW0nTl/iyQ8yyF1Ax+5X6SSbWqZBQL0LBfZ7WKMc0IAD/Z5rKVUbRgYMq
+xM8uGxYqPhvZ/cg9I3iGntIU2g0J8A8=
+=BKBZ
+-----END PGP SIGNATURE-----
+
+--hjdNWhN+M75PWH0l--
 
