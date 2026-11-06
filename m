@@ -2,77 +2,66 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC979606A331
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 12:58:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 701BF606A32D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 12:59:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ygqw0A8f;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dEVygYOq
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=w8uPELbt;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jGEFleaZ
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=bdazGzEMHpNo/xFZo4UuACj+NPbyfyXOOELqau7KKIc=; b=ygqw0A8ffJJGnq6ZChDt4XGdXn
-	yuBv/bi7YKpbBgwxgn6uMDNxwnTGi3pR4Bvzms2yVRh+yvIVcLxDxGaOAzf4NhYoskb2wjUIrPzFV
-	CvwFj780ShZq8rHxnQ0Wy4DJ0jkGEmik8gzPBx7mCDi7Klm0/S9MJQx6bPQ/tAx93n5BirtmZ1Upq
-	Ec4pFUc9buL+PUx5UBEI0Hk09S9QQQKFwDOZsHqK+3xjxy/FvRSYW+/nwmIJOASt/6XSEtg8gby9A
-	xmWE9Tkyp6wJ/w7KaqCSnZAKQLPHxQMY4BvhjLu8/OJMUMDkQsf0fSu2lqeCNYqHxrSnUU7lVIN+O
-	LA6JEcIA==;
+	bh=f1KVRO2gOA2koWtIFP5gpMRCIv0pNVNY2WRXRda16ag=; b=w8uPELbtKxdrlLOvzrSRhmg6g8
+	/4aYsHJccvcxUMZP5PViuaHWdx1LtDQOSkoBpyuQmryQtoA5fdVCe/QG9zO62TjjUUfKi14SuPfs4
+	KZXnTyjwjVRr6iaa0UBvAQvfq9+gdiRd56CvDVwGrLatUbh6qVTN8u66b8ZsKjFMercEaxeO05eCg
+	iv6HGZ1T0XzPRospnjw+2CYMwpAwq/SRiJDxJQKZE8ESL3fx1WoMWGB0S8wma330ZZzZRqRImCEHw
+	pro4LoOQTKKpk62cWXlXhyGZXzdcnKzhm+wLMktshyBnH/jYTfaIQ3ahOSvo8ZI11hDrQku+XD5rV
+	KM1zLkeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPJVy-0000000CN4V-3hoJ;
-	Fri, 06 Nov 2026 12:57:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1xPJXe-0000000CNHx-0TEV;
+	Fri, 06 Nov 2026 12:59:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPJVx-0000000CN46-0cEv
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 12:57:53 +0000
+	id 1xPJXc-0000000CNHm-2S9I;
+	Fri, 06 Nov 2026 12:59:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 962C3601BF;
-	Fri,  6 Nov 2026 12:57:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D98F1F0089F;
-	Fri,  6 Nov 2026 12:57:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0502942273;
+	Fri,  6 Nov 2026 12:59:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2166D1F0089F;
+	Fri,  6 Nov 2026 12:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793969872;
-	bh=bdazGzEMHpNo/xFZo4UuACj+NPbyfyXOOELqau7KKIc=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=dEVygYOqnRrT/sVNMu9qV4SOCkeLfSYdyomWHU2oiXdUiH9en1YWEYdmgfqcgbeS6
-	 txS1KoPhhLGfx6EZmUw+giNlzPy4MFm1GCz+fngS9NM0ZUDHEnxt7vO5SFN73eTSeX
-	 xp7c8Zrb3W+Z+Z2duQVDEFf3Kk6Y/FZ1oLyFNHveJOg20rJHSdf8yvlNA7iTQZmw9Y
-	 rgknbdP7HeCFl4+3rABR7i77LhbDR7CpdYp6Ts9sVSgerBTQBq/AgZLLiQDtCMedHo
-	 nzU0NiJq9EfXXM9WQNp4OfhY69bLuRoyyVwCwCNIl4157mEb4FM0mkRleIFrofs1iy
-	 Sj9e6EIQQR1xw==
-Date: Fri, 06 Nov 2026 06:57:49 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1793969975;
+	bh=f1KVRO2gOA2koWtIFP5gpMRCIv0pNVNY2WRXRda16ag=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=jGEFleaZkmrSCWhXeFWTgO9l9HXsIwWoX1pgl4OWWUYGGL8Hj7XXkfGr+mbhWw26J
+	 xdVAveX3YScuWYNpiWkB9YHJDE2XPmvuo+R1O+XSrYysq5gi+IOXKQ43gWXsJMWu6U
+	 IrK5jH3HXWDdr+BEY5EhsXHQ52o63Au09CzNFeX22FsPG0Lp4aVaYCv2ZFvi7F4W3y
+	 Yw/fXLktbD2ZfP7/IdjeVREW65E0kUPk28Kd0UhKctMqroIHzo7gujLgPoqbMvSUEN
+	 xSrd6Z4+dotRHgEuXgbCp6nkoqIA1yuwIsyqDs1B6zdAMO1jWeNFOBlQaCNrfMeo9v
+	 jshzfgUMBcDBw==
+Date: Fri, 6 Nov 2026 13:59:32 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Chris Morgan <macroalpha82@gmail.com>
+Cc: linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	david@ixit.cz, detlev.casanova@collabora.com, maz@kernel.org, 
+	michael.riesch@collabora.com, diederik@cknow-tech.com, shawn.lin@rock-chips.com, 
+	heiko@sntech.de, conor+dt@kernel.org, krzk+dt@kernel.org, robh@kernel.org, 
+	tglx@kernel.org, daniel.lezcano@kernel.org, 
+	Chris Morgan <macromorgan@hotmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: timer: rockchip: Add rk3568 compatible
+Message-ID: <20261106-obedient-daffy-seal-ca84cf@quoll>
+References: <20261103192331.394489-1-macroalpha82@gmail.com>
+ <20261103192331.394489-2-macroalpha82@gmail.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- Benjamin Larsson <benjamin.larsson@genexis.eu>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org, 
- Jonathan Corbet <corbet@lwn.net>, Anand Gore <anand.gore@broadcom.com>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- devicetree@vger.kernel.org, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Stephen Boyd <sboyd@kernel.org>, Kursad Oney <kursad.oney@broadcom.com>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- Randy Dunlap <rdunlap@infradead.org>, linux-pm@vger.kernel.org, 
- Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>, 
- Ulf Hansson <ulfh@kernel.org>, William Zhang <william.zhang@broadcom.com>, 
- linux-hwmon@vger.kernel.org, mfd@lists.linux.dev, 
- Brian Masney <bmasney+clk@redhat.com>, Conor Dooley <conor+dt@kernel.org>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>
-To: Linus Walleij <linusw@kernel.org>
-In-Reply-To: <20261106-xg6846b-bcmbca-xrdp-reset-v3-1-d6adeb71afc9@kernel.org>
-References: <20261106-xg6846b-bcmbca-xrdp-reset-v3-0-d6adeb71afc9@kernel.org>
- <20261106-xg6846b-bcmbca-xrdp-reset-v3-1-d6adeb71afc9@kernel.org>
-Message-Id: <179396957046.2456734.10877146693637618600.robh@kernel.org>
-Subject: Re: [PATCH v3 1/7] dt-bindings: mfd: Describe the BCM6846 PMC
- complex
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261103192331.394489-2-macroalpha82@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,55 +80,19 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-
-On Fri, 06 Nov 2026 09:26:44 +0100, Linus Walleij wrote:
-> The third generation Power Management Controller (PMC3) has
-> different subdevices.
+On Tue, Nov 03, 2026 at 01:23:30PM -0600, Chris Morgan wrote:
+> From: Chris Morgan <macromorgan@hotmail.com>
 > 
-> Identify the parent with the BCM6846-specific "brcm,bcm6846-pmc"
-> compatible.
+> Add compatible string for Rockchip RK3568 timer.
 > 
-> Describe the complex as a simple-mfd with a PMB bus child owning its
-> register resource. Include the PMB clock and reset controllers and
-> PVTMON, with its acquisition clock and reset resources.
-> 
-> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
 > ---
->  .../devicetree/bindings/mfd/brcm,bcm6846-pmc.yaml  | 82 ++++++++++++++++++++++
->  MAINTAINERS                                        |  5 ++
->  2 files changed, 87 insertions(+)
-> 
+>  Documentation/devicetree/bindings/timer/rockchip,rk-timer.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/mfd/brcm,bcm6846-pmc.yaml: Unresolvable reference: /schemas/soc/bcm/brcm,bcm6846-pmb.yaml#
-Documentation/devicetree/bindings/mfd/brcm,bcm6846-pmc.example.dts:18:18: fatal error: dt-bindings/clock/brcm,bcm6846-pmb.h: No such file or directory
-   18 |         #include <dt-bindings/clock/brcm,bcm6846-pmb.h>
-      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[2]: *** [scripts/Makefile.dtbs:140: Documentation/devicetree/bindings/mfd/brcm,bcm6846-pmc.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/linux-dt-review/Makefile:1726: dt_binding_check] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.kernel.org/project/devicetree/patch/20261106-xg6846b-bcmbca-xrdp-reset-v3-1-d6adeb71afc9@kernel.org
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+Best regards,
+Krzysztof
 
 
