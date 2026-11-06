@@ -2,79 +2,68 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 026B8606A929
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 11:40:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C876606C7C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 11:42:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UiwyhYzv;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YTnrqTvp
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ywGrLqXs;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=uJjYZrc/
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=mTZ0g/OW6bu+fEj7cWkXua+TJ8iDpzumwowuwu98h78=; b=UiwyhYzvq6Rma5NRYLvHzbP93z
-	6FU7ZNyS5Y/iQ2ED8CwP90xGJCT/MEjPDeAjYUexkIomsh9bNFCYbhcVPPr3T1Tdj4BT1/FJKTs92
-	dnZaR0fES+bvSGYTHKTjhAgC5N1Y/cxoQ0SUPkXtn3T6xmtRe8N+JCldx5XUBBI68o1qDbPJ+n8ul
-	M1MhJaaEqhK5TUARkvJ21a3OOPaNzUNoZl2IJ47zoH9ulZAC2lDRvk24JtLyrvlInFeTe4yHlbgew
-	0+MU1A4n+3/aHV7ItxA4/+HVzk6Yh47hIjHbI0R0rAAHsdvCNZwc56oMr7oJcyfT+yQQ3B0Nj4Tfb
-	5hJKe+ng==;
+	bh=ucL7Kplm9BcQfsNCszVakuHa/fV2YWpTEBClElt75lg=; b=ywGrLqXsdVMeLSetpcdoI2IqBa
+	NHam7lkb3jiyYMjJ0ZQvCCCZN/+iDji42hZz4QgpfP7ZjaTYjXEojbZ38bKfxMtNTKCPeEcHOFaeN
+	F07+WVB7cxe1bJJy97T10aNo94ghrYaKtdFbgK3VcpX+OniTGWA0Zs4LsuchPDyeB0DOnWa4qgzak
+	oum5Ooc5Cmui+rntZ1qHEQIOlOSJ2cIrybSw/gMAwKNtWQWpqSjTOPw6tdemFXL/UzYIvv6UB6olM
+	YbxF9xo2fypKJNTWX1TyCiV8lYiyeeXO5VcRSA26U5s18gsZAnKNOsvTU9LG3WNAsZZNOI/MbChE2
+	aFbXsFgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPIIa-0000000CAqN-0STN;
-	Fri, 06 Nov 2026 11:40:00 +0000
-Received: from out-177.mta1.migadu.com ([2001:41d0:203:375::b1] helo=mta1.migadu.com)
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPIIW-0000000CApU-220S
+	id 1xPIKW-0000000CBEM-1xKk;
+	Fri, 06 Nov 2026 11:42:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xPIKU-0000000CBDn-2B1Y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 11:39:59 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=EKMXTx2vpiPIJLSsvUsSLP2IlFMynyqwRwz2o9btAEY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793965195; v=1; x=1794569995;
- b=YTnrqTvphs/spjLFs58+EmifQlsXsHzkjgdjAJ3eU+SG2Mw9qyK1Ijbijwh+VPgDvTgrhyjT
- 8GJJ+lyAYE4/OrzpQBRr1Va/DohYudu0rn/RDqUtRCzP1SVe/7OaZHPLEIloebqkAX4C7QbdP1g
- /A5uCyMBB8dZ/oTsE3URu2+o=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 06d15aaf5ce9462d;
-	Fri, 06 Nov 2026 11:39:54 +0000
-X-Mizu-Trace-ID: 06d15aaf5ce9462d
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5bfca2a2af4so2813e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Nov 2026 03:39:50 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AKwUvBylhPg8An1BlfMaarLYNSJ2URoZPOSTIP7vyb9I6PXRNyZjS37giBRcjWV9lF/kBJcY2NbBnVJ9197s8r+taP9c@lists.infradead.org
-X-Gm-Message-State: APuU4Z90hNBZUY8K0nwD2YCSxVXcmzevyeqNDSmnSXT+2/0szf5ZhaMb
-	8gImjoV4eGLXszp2IIATKtUUEkLOP6gUhpSz62Fqt3ebpB09hMOlJ1UOuWtlU4mVAnj9/AIRd5h
-	EdciHocRrK+r/uYVcoLmq21UHYsGv+Ckbt8KuZORH
-X-Received: by 2002:ac2:4f13:0:b0:5bf:f1ea:16cb with SMTP id
- 2adb3069b0e04-5c00641eea8mr70154e87.4.1793965189940; Fri, 06 Nov 2026
- 03:39:49 -0800 (PST)
+	Fri, 06 Nov 2026 11:41:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B2091650;
+	Fri,  6 Nov 2026 03:41:54 -0800 (PST)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2B0BF3F628;
+	Fri,  6 Nov 2026 03:41:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793965317; bh=GtzZGsuJwQAob0R6SufhJGIdzZ65QSVgYvPV+jqju24=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uJjYZrc/QFCxqfHVhKctjEGSxaednrBocQV1LT6i1orIBGz0qqcGQPpLrM2WSMpwB
+	 qfqKjfZ2Qy/PyWXIziRTNNVrPqCt2B1bXxPF4p2plo9RC9+Z3rJbX9BAdQzmcvE6aa
+	 DMQON7BVfEHIZkZN8M/l6XEkKxV8CGl6EAQw/KBk=
+Date: Fri, 6 Nov 2026 11:41:52 +0000
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: maz@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev,
+	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, will@kernel.org, mark.rutland@arm.com,
+	linux-perf-users@vger.kernel.org, catalin.marinas@arm.com,
+	james.clark@linaro.org
+Subject: Re: [RFC PATCH v7 00/28] KVM: arm64: Add Statistical Profiling
+ Extension (SPE) support
+Message-ID: <au29ACRXFEOXaWPV@raptor>
+References: <20260903160623.315525-1-alexandru.elisei@arm.com>
+ <auy-TwnMbIn-r2xl@gremlin>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-References: <20261105-hyp-pool-and-map-v2-0-44a6ca90190b@cs.columbia.edu> <20261105-hyp-pool-and-map-v2-2-44a6ca90190b@cs.columbia.edu>
-In-Reply-To: <20261105-hyp-pool-and-map-v2-2-44a6ca90190b@cs.columbia.edu>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Fri, 6 Nov 2026 11:39:13 +0000
-X-Gmail-Original-Message-ID: <CA+EHjTzSKwuu6L8f0-=1s2XakCXJnM-k89XpagcwjSx6LX6wHA@mail.gmail.com>
-X-Gm-Features: AclHuK_vcUGWgqA69ZP0FaHZ948pJbQiiig001SQ8BB8nTw7GVezSPYMrN2-Fbw
-Message-ID: <CA+EHjTzSKwuu6L8f0-=1s2XakCXJnM-k89XpagcwjSx6LX6wHA@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] KVM: arm64: Check the host stage-2 PGD allocation
- for NULL
-To: xuheng@cs.columbia.edu
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Quentin Perret <qperret@google.com>, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <auy-TwnMbIn-r2xl@gremlin>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_033956_659147_1E97514E 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261106_034158_637126_0530F73B 
+X-CRM114-Status: GOOD (  38.66  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,23 +81,119 @@ X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi Xuheng,
+Hi Lorenzo,
 
-On Thu, 05 Nov 2026 22:59:49 +0000, Xuheng Li <xuheng@cs.columbia.edu> wrote:
-[...]
-> The pool is sized so that this allocation, the first one made from it,
-> cannot fail, so nothing in mainline reaches this path once the pool
-> size is computed correctly.  Return NULL early anyway, so that a
-> mis-sized pool makes initialisation fail cleanly.
+On Thu, Nov 05, 2026 at 05:47:45PM +0000, Lorenzo Stoakes (ARM) wrote:
+> Hi Alex,
+> 
+> I've gone through all of the patches now, thank you for your patience with
+> the review :)
 
-Could you drop this patch? Once patch 1 is in nothing reaches it, and
-before patch 1 pKVM init fails earlier on those machines.
+Many thanks for the stellar review, will start replying soonish.
 
-The guest-side twin, guest_s2_zalloc_pages_exact(), is reachable, and
-[1] fixes it by checking the PGD's alignment in __pkvm_init_vm().
+> 
+> So there are various dependencies/architectural decisions that need to be
+> made here to go from RFC -> non-RFC:
+> 
+> 1. The 'Ignore MMU notifiers for guest_memfd-only memslots' patch [0] is a
+>    hard dependency for the series. I chased over there, hopefully we can
+>    get something landed there.
 
-Cheers,
-/fuad
+Like you said, Sean is planning to send my original version of that patch with
+an updated commit message, thanks for the ping!
 
-[1] https://lore.kernel.org/all/20261105075606.367005-2-fuad.tabba@linux.dev/
+> 
+> 2. non-VHE, pKVM, NV disallowed for SPE - As I mentioned off-list, I spoke
+>    to Marc, and he confirmed that he's more than happy for these to be off
+>    the table for a v1. So I think you can drop the HACK: patches and just
+>    make these conditions of using SPE.
+
+Oliver, some time ago, expressed the opposite preference: VHE-only is OK for an
+RFC, but he was concerned about the discrepancy between VHE and nVHE
+configurations. Maybe the direction for KVM changed in the meantime.
+
+Fine by me to drop the HACK! patches, of course, that's just something to keep
+in mind.
+
+> 
+> 3. The entire VM needs to be pre-faulted, but who should do it? - I do
+>    think that relying on userland to do this is a little iffy. So I wonder
+
+There's plenty of iffiness that userspace already handles when it comes to
+virtual machines.
+
+Or, how Oliver put it [1] (regarding migration, but it fits):
+
+'My take is that there's no amount of idiot-proofing we can do in KVM to prevent
+the VMM from messing this up somehow'.
+
+[1] https://lore.kernel.org/kvm/alE3jRLtYeq-WesA@kernel.org/
+
+>    whether it might be possible to, on SPE first run, prefault the ranges
+>    there, and make that a condition of using it? Relatedly, KVM could
+>    reject non-guest_memfd memslots for an SPE VM rather than trusting
+>    userspace there too.
+
+I'm not sure that's the best idea. Mainly two reasons:
+
+1. KVM will be imposing the condition that *all* writable memslots be backed by
+guest_memfd, and *all* memory backing these memslots be pre-faulted and
+effectively pinned.
+
+There are use cases for writable memslots to describe guest memory that won't be
+used by SPE. First thing that comes to mind would be paravirtualized interfaces
+between host userspace and the guest. For example, pvtime - kvmtool creates a
+RAM memslot for pvtime (i.e, non-read-only memslot), and it looks to me that
+qemu does the same (but my knowledge of qemu is severely limited, so I might be
+completely wrong).
+
+Then there's also the possibility that a guest might want to assign a slice of
+RAM for use by SPE, to avoid pre-faulting and pinning the entire VM memory. In
+this case, userspace will want to have *only* the memslot describing that slice
+pre-faulted and pinned, and not the rest of system memory.
+
+2. Perfomance - userspace can pre-fault in parallel, KVM cannot easily do that.
+
+arm64 now has support for KVM_PRE_FAULT_MEMORY, I say let's use that :)
+
+> 
+> 4. Dirty page logging - patch 27/28 relies on series [1] being landed,
+>    which is also an RFC, and allows migration of SPE VMs. So we need to
+>    decide - do we want this migration? Additionally, I think it's
+>    reasonable to, if we want it, send both [1] and patch 27/28 as a follow
+>    up separate from the v1 non-RFC of the series.
+
+For background, I started this conversation in the LOG_DIRTY_PAGES support for
+guest_memfd series [2]. Oliver had some concerns, but he didn't follow up on my
+explanations, so I decided to send migration support as part of SPE so people
+can have a more complete picture of how everything fits together.
+
+I would be very happy to get basic support for SPE merged in KVM, and, if we
+decide it's useful, migration implemented as a follow up, as that involves
+landing dirty page logging support for guest_memfd.
+
+[2] https://lore.kernel.org/kvm/alAFmiAsNf6Xm49_@kernel.org/
+
+> 
+> 5. Errata handling - the default already disallows SPE on the affected
+>    silicon, which seems right. I wonder whether kvm-arm.ignore_spe_errata
+>    should exist at all though, other than in some sort of debug mode.
+
+It is intended as a debug/development option, to be used only when the VMs are
+trusted. As to why it's there, it's there because without it, SPE would be
+disabled on all the machines that I have access to, and I suspect systems not
+affected are few and rare between.
+
+> 
+> So 1 is a known dependency, I think there's no getting around that, and
+> thus that makes merging [0] or something like it a top priority.
+> 
+> It seems to me 2 is pretty clear-cut, and 4 can reasonably (if we want it)
+> be sent as a follow up.
+> 
+> So really 3 and 5 are the decisions to make here!
+
+I really appreciate your enthusiasm, thanks!
+
+Alex
 
