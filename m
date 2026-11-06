@@ -2,79 +2,79 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A58E606D813
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 07:59:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8A7A606D80B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 07:59:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=u+rU8lo7;
-	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=cnECqWCX
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=kj+SeWOu;
+	dkim=pass (2048-bit key, unprotected) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=VQY/+b98
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=ozS0HsIF2lssUIRaRndjvOgXBu43I7UaYAzMd09TIC8=; b=u+rU8lo73sL73N
-	wd2fUlp5FrtThD/2z4W/0fG0I7zqh3gFzbscaNV1NB51/hYebfQ9ZnqVxT9FFwkYwpOaBmlJAj+fb
-	ts07WlKKjesSVMBeHXZeJMHhwfiYqMimYn1RQaKYeQUVF6tr8qOUGY41b8SX5w2CU1uxHLoEvmc7e
-	W5REwhUd96tA3f3YDjb6ygpuLlassEoUs1L5Xh94zM1BHxPkm91zM5Rez0UB0RjvjMg6atmPzVBzm
-	EnZ6uZwQaHiwpvcn/yDe8zBh5SHXjt7ux+FC20GMplFgr6LGlnzyW649zkDOGe0nEnk83dmkBqgF9
-	Edee0ciUugo4p+qx4RjA==;
+	List-Owner; bh=AeArqFIHk/3fPHi/YkKVHDnKQvjnaUzDWy7sCvmnRfw=; b=kj+SeWOuoaS9yN
+	WfI8wg6DZzoSY9ppttBgaIDQnKATVUAJv9EnSpu1YIjXs2Dzd/L6L1vnaRQV9vdtJ0tijtrtkzMxm
+	xPY9txFVND68l4bElrd0E346+XJyVin8FaxGuI05f71/6f/VYHaU6lWbEK812mMts3bB8JaclxeXI
+	LEE1zg94jy/G5tVXRYDxxWSjuYhOXADvJIpQMtcNT7FAmxMqjFTSS1akZfRkHPGo2nlBSP9xf8Lfi
+	hFoTTxHI5Y8FbOO4tNLYSbQKxoJeYv25CE5gGKDIGqVN1bXpYbC2kkhS5Nvafge0nqqoX5u1mGffQ
+	ysMQFHdL+M8qEdwIC9mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPEqr-0000000BVG3-39pw;
-	Fri, 06 Nov 2026 07:59:09 +0000
+	id 1xPEqw-0000000BVJ8-2Fjc;
+	Fri, 06 Nov 2026 07:59:14 +0000
 Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPEqp-0000000BVER-1tfj
+	id 1xPEqs-0000000BVG1-2OP6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 07:59:08 +0000
+	Fri, 06 Nov 2026 07:59:11 +0000
 Received: from ratatoskr.trumtrar.info (unknown [IPv6:2a00:1f:f805:2b01:a03:2f4:308a:7b52])
 	(Authenticated sender: str@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 0AF90200938;
-	Fri, 06 Nov 2026 08:59:03 +0100 (CET)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 861E0202946;
+	Fri, 06 Nov 2026 08:59:04 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1793951943;
+	s=20260414; t=1793951944;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ozS0HsIF2lssUIRaRndjvOgXBu43I7UaYAzMd09TIC8=;
-	b=cnECqWCXPPLSRtRdhwHtTCt4rna/DoVZL78ejMab6/AWflEJC3jYaA3bQnN8fzXxFpcV5x
-	XLtfzEjc4SPUnYxOSuC736ZK8UwKArlKU7Tji72F/+V+cuNjNpR16zSNOvmTqi20RtjBJG
-	s+Saz9ST7jvVv4j+mBU7O9RnIUOplFaCfzgdvgnwu/oS+9ggL7gUpP8LX6PumW+YPu9oin
-	pZlL7bH8niQ2LcHKBlKHNiFGjzzKERn6jLD3hUnNsvls0gjeynbexs5v4OgVFJDGv4R3Ya
-	9yDpfPawr5YRQtj7Ze0kM0HjXdx99UNVs5k2b8p/+s4KxFCqQSo2ZDM648PcAw==
+	bh=AeArqFIHk/3fPHi/YkKVHDnKQvjnaUzDWy7sCvmnRfw=;
+	b=VQY/+b98ZYu0z0tUcpp9wjlWDAOTcClSy4Ivon898kiXaywWeCEPpKKtjs/WQ2qeVwNARA
+	S4jhCWycgSBXcJMvTSkgA0YkVah0h7yn766wGQD6+WkSM2tU794q7IKBD2WmFulVYtwV2x
+	rFkSfbdJXeJCEiymTzQwaJtW5tvfWMgSaNHE16FpohciRADOJ7EUe0xIIMg8pmaBv2PGe4
+	8kn/iLYHiLQL1TuLe/t0Vfiy8mXtm2nSqNpxFxiyifYmUTn4NcKlUKtq8wTC2l7M3hftZu
+	KedZIQJ871F63z2DjWuhF6/qUI2eYk1fw7J8vSNz6dhNfxXjK8hFqo9phbWJdw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1793951943;
+	s=20260414; t=1793951944;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ozS0HsIF2lssUIRaRndjvOgXBu43I7UaYAzMd09TIC8=;
-	b=MgIvFRkxBAiAaygjCDoi6NV+DIPAA2KxozDd70f4gn336GocJTm2jPSYq7ji6TOiKdU2fF
-	enbtQCMKJmaFRfHyhe84Td6f+IDQi7RXAVkR07aCxC3/bk/gM92Akq/HiU1efMZT/HXARC
-	0Bu+V7ogk/YLQ0OZ9WyEqm1qL+I8etppuA9J2ckJu1Z73xkHmDICu5bb3PfR40rfVY9UCr
-	8yzM5jZtPySvOajuReCYEI0rMTR3cI4vFYdPcEcmjk0rjqkenpqpqFBbdcXJZ+c0D976CS
-	lDcfWgD6WWoD8kHVJZLSnvD3vobkhTc8ekCyqjLP3X0C0W9uWyM4i0bqBSh7og==
+	bh=AeArqFIHk/3fPHi/YkKVHDnKQvjnaUzDWy7sCvmnRfw=;
+	b=NPua1Hc33tISfdLos9UVnC16wgluznPDQPsPcBC41b6BHHNUKrvBhm5bNhrxMr2+nM8T3U
+	scI0MOrDIuvqx3Aaqxk1wyEzrTJKxWArXXfH7x4ylt8FYcq5CVY6J7zMJz8MLc2NLY8Vk1
+	lu/3KPdZQzG72kXQ6mTT9isKrify6XEmlczyuq+8TRZfJjmMojxa0qwhORnd0ZLNcSPTtr
+	aLh+JW4P+47E/k3pVyLOtlVURz9MCVmQKcA9vkj23/udT28MVeaVCulI980WWMf/oo2n0/
+	6R3lxPitG45HHDz/8iiIG+bgsl9WdJdheY4PRLaJ1aCk5dotPRsBfU7DBscOqw==
 ARC-Authentication-Results: i=1;
 	ORIGINATING;
 	auth=pass smtp.auth=str@pengutronix.de smtp.mailfrom=s.trumtrar@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793951943; a=rsa-sha256;
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1793951944; a=rsa-sha256;
 	cv=none;
-	b=UqCmfhPTdKR/LEFltSDXEWquJCxrurbIfFWX8+byZvbzcaqzHUWhrfJQ4fJqAGxcf/EL5t
-	++1UuCybi49uhuMjoZrE4EILmJ5HU5S6fLMHgs8O27AARcY7dZVffZYAl3SkxEdvbAGsDh
-	dDvaR50pBefekMLgd1Lxr5enZuLeX56T8E91KTA4VV2MFRs59QiwBGrVToQQIS7Ce0yMmO
-	LfaCJMyW56lgf1PW0j08OlBFlKb8hO+RzoL3/rV9nZUgy49NzPWv7ETXQNatjD4Pf93LOY
-	InCicEj2qyY1AVKoW89z+1p+IBig6lETchhavWXIIN8XrGifRMAz5T36JpYd+w==
+	b=E6kUKyKvrFpSRiD0rN5FLECNYMKKF8D/vh0Zsz3DwWEdmqwD5u4fKRliwEL9jyrb1WK0JK
+	ONmKBYdHhRn9JNrx+H3EhlENoZC9L24m0nSRWNaoUYBKZGQhPGnNkR0P7Ip3QH53iSoH0P
+	urU+O80YUJ5cUqhTwyCNXr6IzpA/z1DcYhiTFXlKTKoPnFS9K47UJmKhjQI1VJg5HKWHrF
+	pgf+MhxwWQjk5KmLvm4MwbgEXeaTN+XsEoM3d/3RgaDHWiEWuX+WCAlkiTypLBqUPhv4ow
+	anG+TZAEgXEl9arcH3lZvLA/TjZu3AXZ19cbAU3lkX/9NeopKthPGp8tmb1okw==
 From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Date: Fri, 06 Nov 2026 08:47:25 +0100
-Subject: [PATCH net-next v3 1/5] arm64: dts: xilinx: drop unused #phy-cells
- from the DP83867 nodes
+Date: Fri, 06 Nov 2026 08:47:29 +0100
+Subject: [PATCH net-next v3 5/5] net: phy: dp83867: support setting
+ output-impedance
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261106-v7-2-topic-dp83867-v3-1-45e1d3adf1bf@pengutronix.de>
+Message-Id: <20261106-v7-2-topic-dp83867-v3-5-45e1d3adf1bf@pengutronix.de>
 References: <20261106-v7-2-topic-dp83867-v3-0-45e1d3adf1bf@pengutronix.de>
 In-Reply-To: <20261106-v7-2-topic-dp83867-v3-0-45e1d3adf1bf@pengutronix.de>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -89,18 +89,18 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  Steffen Trumtrar <s.trumtrar@pengutronix.de>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6739;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3663;
  i=s.trumtrar@pengutronix.de; h=from:subject:message-id;
- bh=1VOsPRL3wJvr3e89gbBMUTN0fzKah8vOne4ypiJ5r14=;
- b=owGbwMvMwCUmtVehiCsuTInxtFoSQ9bbjqMWnmfvim9QF3TtbV3/JmZhZe8LVfl7DvuSXlQsZ
- z7yvXVFRykLgxgXg6yYIovKwgo+UY8PnpHTRLhg5rAygQxh4OIUgIk8NGNkWP/4m5FN6Eavm0vf
- nBaOcbl3Kki8Z5NI5tNVB1hkfv47vZbhN/upL22nH/5X23BmasPMucXmPR6rLwflLE9bcNDV4i7
- 3CiYA
+ bh=8Jt3mHu3IEa9magDTytTV9qOVUCcJ1Sl0JabGDBitug=;
+ b=owGbwMvMwCUmtVehiCsuTInxtFoSQ9bbjmO7SjR2fuj50bK40bFqyvEafcmLzTz5a6L+JP1tU
+ bXkYyjqKGVhEONikBVTZFFZWMEn6vHBM3KaCBfMHFYmkCEMXJwCMJGG4wz/LD4JF8tPPfdLy5RP
+ OePYLtNUu/VrdhxLD8yR7D5kHtLyhJHhpMQFVz2m032Le90fnl3mei3dYqXuS6bOLfpBOixOE9J
+ 5AQ==
 X-Developer-Key: i=s.trumtrar@pengutronix.de; a=openpgp;
  fpr=24A1780E1548F0495996140A1ABD20720A5E5622
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_235907_650603_5001F103 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20261105_235910_771742_8F157871 
+X-CRM114-Status: GOOD (  19.08  )
 X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,163 +120,89 @@ X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-The DP83867 ethernet PHY nodes have a #phy-cells property, but no node
-refers to them with a phys property; the MACs use phy-handle, which
-takes no arguments. #phy-cells belongs to generic PHY providers.
+Currently the dp83867 supports setting the io impedance to minimum,
+maximum, default or a value from a nvmem cell. In situations where there
+is no backend for a nvmem cell, the value can not be set to anything but
+minimum, maximum or default.
 
-Drop it, so the nodes validate against the ti,dp83867 binding once it
-is applied to them.
+Add support for the ti,output-impedance-ohms binding, allowing to
+specify the impedance in ohms via the devicetree. The PHY has 32
+settings between 35 and 70 ohms. The datasheet does not specify the
+impedance of each setting, so the value is mapped linearly to the
+nearest one.
+
+With this mapping, 50 ohms results in 0x12. For non-OF devices, the
+driver sets 0x0f (IO_IMPEDANCE_MIN / 2) as the 50 ohm default "per
+datasheet", which would be 53 ohms with the linear mapping. As the
+datasheet only gives the range, neither value can be checked against it.
+
+The binding does not allow combining the new property with the nvmem
+cell or the boolean properties. The driver still reads the nvmem cell
+first, then ti,max-output-impedance, ti,min-output-impedance and
+ti,output-impedance-ohms.
 
 Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
 ---
- arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revA.dtso | 2 --
- arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revB.dtso | 2 --
- arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revA.dtso | 1 -
- arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revB.dtso | 1 -
- arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts    | 1 -
- arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revB.dts    | 1 -
- arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revA.dts    | 1 -
- arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revC.dts    | 1 -
- arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts    | 1 -
- arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts    | 1 -
- 10 files changed, 12 deletions(-)
+ drivers/net/phy/dp83867.c | 29 +++++++++++++++++++++++++----
+ 1 file changed, 25 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revA.dtso b/arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revA.dtso
-index b82a056be2f9..930f0e54fdac 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revA.dtso
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revA.dtso
-@@ -254,7 +254,6 @@ mdio: mdio {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		phy0: ethernet-phy@4 { /* u81 */
--			#phy-cells = <1>;
- 			compatible = "ethernet-phy-id2000.a231";
- 			reg = <4>;
- 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
-@@ -266,7 +265,6 @@ phy0: ethernet-phy@4 { /* u81 */
- 			reset-gpios = <&slg7xl45106 5 GPIO_ACTIVE_LOW>;
- 		};
- 		phy1: ethernet-phy@8 { /* u36 */
--			#phy-cells = <1>;
- 			compatible = "ethernet-phy-id2000.a231";
- 			reg = <8>;
- 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revB.dtso b/arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revB.dtso
-index 4dcf92a2158f..e05667f6e946 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revB.dtso
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revB.dtso
-@@ -255,7 +255,6 @@ mdio: mdio {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		phy0: ethernet-phy@4 { /* u81 */
--			#phy-cells = <1>;
- 			compatible = "ethernet-phy-id2000.a231";
- 			reg = <4>;
- 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
-@@ -267,7 +266,6 @@ phy0: ethernet-phy@4 { /* u81 */
- 			reset-gpios = <&slg7xl45106 5 GPIO_ACTIVE_LOW>;
- 		};
- 		phy1: ethernet-phy@8 { /* u36 */
--			#phy-cells = <1>;
- 			compatible = "ethernet-phy-id2000.a231";
- 			reg = <8>;
- 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revA.dtso b/arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revA.dtso
-index 52954761c9f3..af897c3cd168 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revA.dtso
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revA.dtso
-@@ -200,7 +200,6 @@ mdio: mdio {
- 		#size-cells = <0>;
+diff --git a/drivers/net/phy/dp83867.c b/drivers/net/phy/dp83867.c
+index a3cd5cb11ea0..ca668e75f0c9 100644
+--- a/drivers/net/phy/dp83867.c
++++ b/drivers/net/phy/dp83867.c
+@@ -119,6 +119,9 @@
+ #define DP83867_IO_MUX_CFG_IO_IMPEDANCE_MASK	0x1f
+ #define DP83867_IO_MUX_CFG_IO_IMPEDANCE_MAX	0x0
+ #define DP83867_IO_MUX_CFG_IO_IMPEDANCE_MIN	0x1f
++/* Output impedance at IO_IMPEDANCE_MIN and IO_IMPEDANCE_MAX (datasheet) */
++#define DP83867_IO_IMPEDANCE_MIN_OHMS		35
++#define DP83867_IO_IMPEDANCE_MAX_OHMS		70
+ #define DP83867_IO_MUX_CFG_CLK_O_DISABLE	BIT(6)
+ #define DP83867_IO_MUX_CFG_CLK_O_SEL_MASK	(0x1f << 8)
+ #define DP83867_IO_MUX_CFG_CLK_O_SEL_SHIFT	8
+@@ -542,7 +545,8 @@ static int dp83867_of_init_io_impedance(struct phy_device *phydev)
+ 	struct device *dev = &phydev->mdio.dev;
+ 	struct device_node *of_node = dev->of_node;
+ 	struct nvmem_cell *cell;
+-	u8 *buf, val;
++	u8 *buf;
++	u32 val;
+ 	int ret;
  
- 		phy0: ethernet-phy@1 {
--			#phy-cells = <1>;
- 			reg = <1>;
- 			compatible = "ethernet-phy-id2000.a231";
- 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revB.dtso b/arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revB.dtso
-index 49732de5fa4b..a1f0592e7958 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revB.dtso
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revB.dtso
-@@ -191,7 +191,6 @@ mdio: mdio {
- 		#size-cells = <0>;
+ 	cell = of_nvmem_cell_get(of_node, "io_impedance_ctrl");
+@@ -553,12 +557,29 @@ static int dp83867_of_init_io_impedance(struct phy_device *phydev)
+ 						"failed to get nvmem cell io_impedance_ctrl\n");
  
- 		phy0: ethernet-phy@1 {
--			#phy-cells = <1>;
- 			reg = <1>;
- 			compatible = "ethernet-phy-id2000.a231";
- 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_25_NS>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts
-index a5bc521ab679..42030547a32d 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts
-@@ -217,7 +217,6 @@ mdio: mdio {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		phy0: ethernet-phy@21 {
--			#phy-cells = <1>;
- 			compatible = "ethernet-phy-id2000.a231";
- 			reg = <21>;
- 			ti,rx-internal-delay = <0x8>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revB.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revB.dts
-index 3c28130909bc..bad59d7b1d26 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revB.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revB.dts
-@@ -19,7 +19,6 @@ &gem3 {
- 	phy-handle = <&phyc>;
- 	mdio: mdio {
- 		phyc: ethernet-phy@c {
--			#phy-cells = <0x1>;
- 			compatible = "ethernet-phy-id2000.a231";
- 			reg = <0xc>;
- 			ti,rx-internal-delay = <0x8>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revA.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revA.dts
-index 32509083e54f..898a9000daea 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revA.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revA.dts
-@@ -126,7 +126,6 @@ mdio: mdio {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		phy0: ethernet-phy@c {
--			#phy-cells = <1>;
- 			compatible = "ethernet-phy-id2000.a231";
- 			reg = <0xc>;
- 			ti,rx-internal-delay = <0x8>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revC.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revC.dts
-index 96699be8430f..b0a08cf1d03b 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revC.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revC.dts
-@@ -131,7 +131,6 @@ mdio: mdio {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		phy0: ethernet-phy@c {
--			#phy-cells = <1>;
- 			compatible = "ethernet-phy-id2000.a231";
- 			reg = <0xc>;
- 			ti,rx-internal-delay = <0x8>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts
-index 52441e5c8739..58684af4b98c 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts
-@@ -217,7 +217,6 @@ mdio: mdio {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		phy0: ethernet-phy@c {
--			#phy-cells = <1>;
- 			reg = <0xc>;
- 			compatible = "ethernet-phy-id2000.a231";
- 			ti,rx-internal-delay = <0x8>;
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts
-index b34e4c93d249..30f97f67e8c8 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts
-@@ -189,7 +189,6 @@ mdio: mdio {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		phy0: ethernet-phy@c {
--			#phy-cells = <1>;
- 			compatible = "ethernet-phy-id2000.a231";
- 			reg = <0xc>;
- 			ti,rx-internal-delay = <0x8>;
+ 		/* If no nvmem cell, check for the boolean properties. */
+-		if (of_property_read_bool(of_node, "ti,max-output-impedance"))
++		if (of_property_read_bool(of_node, "ti,max-output-impedance")) {
+ 			dp83867->io_impedance = DP83867_IO_MUX_CFG_IO_IMPEDANCE_MAX;
+-		else if (of_property_read_bool(of_node, "ti,min-output-impedance"))
++		} else if (of_property_read_bool(of_node, "ti,min-output-impedance")) {
+ 			dp83867->io_impedance = DP83867_IO_MUX_CFG_IO_IMPEDANCE_MIN;
+-		else
++		} else if (of_property_read_u32(of_node, "ti,output-impedance-ohms", &val) == 0) {
++			if (val < DP83867_IO_IMPEDANCE_MIN_OHMS ||
++			    val > DP83867_IO_IMPEDANCE_MAX_OHMS) {
++				phydev_err(phydev, "'ti,output-impedance-ohms' contents out of range\n");
++				return -ERANGE;
++			}
++			/*
++			 * 0x00 = 70 ohms ... 0x1f = 35 ohms. The datasheet
++			 * does not specify the settings in between, map the
++			 * range linearly to the nearest one.
++			 */
++			dp83867->io_impedance =
++				DIV_ROUND_CLOSEST((DP83867_IO_IMPEDANCE_MAX_OHMS - val) *
++						  DP83867_IO_MUX_CFG_IO_IMPEDANCE_MASK,
++						  DP83867_IO_IMPEDANCE_MAX_OHMS -
++						  DP83867_IO_IMPEDANCE_MIN_OHMS);
++		} else {
+ 			dp83867->io_impedance = -1; /* leave at default */
++		}
+ 
+ 		return 0;
+ 	}
 
 -- 
 2.56.0
