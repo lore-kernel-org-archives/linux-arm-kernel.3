@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAB77606A329
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 13:08:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCB4B606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 13:10:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=fDLiQLD/;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mt4fMWve
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=GiwJ6ToP;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nCh4IE6I
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
@@ -14,56 +14,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=Q2XxXyLnn3njFqADeLyzH8+KoIPL5C0YsaGXv/K6wvs=; b=fDLiQLD/VNLGsTXBNewGyAWwgf
-	NBWZ+++XndAmLDbjni2Cmc2SSzZX0ZnS2dMR9dLIfiueH9dM553ZPcxoAal/53xSy/bE7/twutg0b
-	pxo/YYZZuaLWzf2echGnl9EX7TcvzJ1htX4F7Ep9LxfsNNO8ACa5ldt8/jD8ROSpyI1hL5Dx4X3D4
-	24eYgXIp8GXhEwFzB7Xjz94/OktMRvyhDhYBdFn3R50HlQ3In7Znd5eyzmEOBecW8YyR2ASWow6dC
-	kLJV+wXpkMfCfAsm2DROMxCPD1Hk1R3a40pb+JQXmejp4qJXd4BSf65ASQH1LJxyrh4uvFjTLXxeI
-	7rZjmeAQ==;
+	bh=YbYmA1eZwnjs5cetbTbm+E9vWC5lU7xrhcJ8nb//OPk=; b=GiwJ6ToPhcXmW7DH9+5GIMPenI
+	HXYt7jCfXU3e5Ndgfpm7hjalKmr/53AL3jX1mQtUawzof8KFSCwhi1IOF8DuPKsLAVOKFFSu756WU
+	bWmVHXX7IDS0bIk4R2H6RmBn34HZZPYTJCsvArtAgO9QO8zICXeDnHXq8VqKaGBLK6kKVq7WxBnzd
+	SHKas8m9HfKOXksfrJGMHoUPhuhi8AGvr5p3jl/gTl+fQ2vonOxPRAAMNV+hLnGPYDRVn/DDMUemy
+	lXsZYt4I2GcA4HMcsggneLDY0PLLFYwRK5ZSou91vXJMLtsktwF7cztJ3M/i0Cdyk6cu5IcD7M2f6
+	4pQ0oIYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPJg5-0000000CO58-3ig0;
-	Fri, 06 Nov 2026 13:08:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1xPJhd-0000000COJV-0gzB;
+	Fri, 06 Nov 2026 13:09:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPJg4-0000000CO4t-0DjY;
-	Fri, 06 Nov 2026 13:08:20 +0000
+	id 1xPJhb-0000000COJ0-17PR;
+	Fri, 06 Nov 2026 13:09:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CB27F41747;
-	Fri,  6 Nov 2026 13:08:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C8E71F008A3;
-	Fri,  6 Nov 2026 13:08:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5B040605F2;
+	Fri,  6 Nov 2026 13:09:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 004CD1F008A3;
+	Fri,  6 Nov 2026 13:09:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793970499;
-	bh=Q2XxXyLnn3njFqADeLyzH8+KoIPL5C0YsaGXv/K6wvs=;
+	s=k20260515; t=1793970594;
+	bh=YbYmA1eZwnjs5cetbTbm+E9vWC5lU7xrhcJ8nb//OPk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mt4fMWveWj0v2A9Oge2UgT7fZ7UY61uJ2ZMoiQBDerqOfUinryjl7PLJwSNgEP/Xw
-	 RPJLaBoRF/l97fjF+0gae+7eUqjkSYq3ILZj/mvcrQFAqJkJJRlTJLEYfpxbI7SaKZ
-	 DRekVGiSjTxQE+7BOZnUfG5QWWZvHVIIRy5RKgs0qRPoX51LwlWDTjS7PeWpkfFiXH
-	 l9U/XHGHre1kQdTx78/aPTNHNaDI5TKtq1zpt2b0BoV+cNNNb11kFL44On9inLf1zh
-	 nT2nBAyLNnot2uY3UVBrdifOEZU2OnAXJVStl/Lqda8KnLPuy4FlxELKRzokDkFpwr
-	 Ui/MhHXJHxG/A==
-Date: Fri, 6 Nov 2026 07:08:17 -0600
+	b=nCh4IE6I/dmpvq5JKNNh09E+DHfZN3PXvtR9ors0GxwXeoEgXPTkZyEidzIPOHbHo
+	 YYfkAMdpXrjqhYpU5NL++Ggd12xlQOdvZ98VdlziV04uQL4Iy3FnJo/C8GcuyYg7wm
+	 N5gXtkclZ7dF61MmBLOqOR4FKIuOV2Eh0D3lcZSW9JX2S9LRr3vYhUGImLluNCON5T
+	 yfAWTBCWKvDx7Mt8hxIzIB+Hjk1ffJwLzM+815MivU26bk4b1P6njBvX0qwFwxXkvY
+	 yCRfRv0OIgetQMuZIKzblh1phP5gqK9xdvWZcgaCvoVzFR5hHzfOWV9WtRKcxBvu3O
+	 xtZaya/jZSlcw==
+Date: Fri, 6 Nov 2026 07:09:49 -0600
 From: Rob Herring <robh@kernel.org>
 To: christian.koever-draxl@student.uibk.ac.at
-Cc: mchehab@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	neil.armstrong@linaro.org, khilman@baylibre.com,
-	jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
-	sean@mess.org, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+Cc: krzk+dt@kernel.org, conor+dt@kernel.org, neil.armstrong@linaro.org,
+	khilman@baylibre.com, jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
 	Christian Stefan =?iso-8859-1?Q?K=F6v=E9r-Draxl?= <ckoever@outlook.de>
-Subject: Re: [PATCH v2 1/2] dt-bindings: media: amlogic,meson6-ir: allow
- wakeup-source
-Message-ID: <20261106130817.GA2526190-robh@kernel.org>
-References: <20261106101954.46907-1-christian.koever-draxl@student.uibk.ac.at>
- <20261106101954.46907-2-christian.koever-draxl@student.uibk.ac.at>
+Subject: Re: [PATCH v2 1/2] dt-bindings: firmware: amlogic,meson-gxbb-sm: add
+ amlogic,meson-s4-sm
+Message-ID: <20261106130949.GA2536456-robh@kernel.org>
+References: <20261106101854.46569-1-christian.koever-draxl@student.uibk.ac.at>
+ <20261106101854.46569-2-christian.koever-draxl@student.uibk.ac.at>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261106101954.46907-2-christian.koever-draxl@student.uibk.ac.at>
+In-Reply-To: <20261106101854.46569-2-christian.koever-draxl@student.uibk.ac.at>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,12 +80,13 @@ X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Fri, Nov 06, 2026 at 11:19:53AM +0100, christian.koever-draxl@student.uibk.ac.at wrote:
+On Fri, Nov 06, 2026 at 11:18:53AM +0100, christian.koever-draxl@student.uibk.ac.at wrote:
 > From: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
 > 
-> The receiver can stay powered across suspend and wake the system when
-> a remote control key is pressed. Allow boards to mark it as a wakeup
-> source.
+> The S4 secure monitor implements the GXBB interface, but its PSCI
+> SYSTEM_OFF needs an extra firmware call first (a shutdown flag), so the
+> driver has to tell it apart. Add an S4 compatible with the GXBB one as
+> fallback.
 > 
 > Signed-off-by: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
 
