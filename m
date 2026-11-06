@@ -2,116 +2,65 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BC25606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 11:00:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBE3F606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 11:01:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=P2HJINQs;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mv24GXNn
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=uomEEPLL;
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=J8N5T5xe
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=c6ZP+n4jTxODTuXEkRNjigB7pFafrPalf2+5uOxtheI=; b=P2HJINQstMHI63
-	LdoopidGG4+8MKPRpSRJNrn6tNByoqx/h+MfyXw2/M1fdBnknNeGyWyqJ6KmgpWxKGANByQsw0BBJ
-	B1m/CMSSorWKnTEEsI4NQLaT+XW4N8n/cPxZoU+bqra4rj37/ZJRMNoAGfM8v09ElTJPo30yQQTo/
-	Wx4AvfWV4Og3dJMstmnt7ILniRvyMsyu3EfhfkeDPmKr2gyNUZJPIwQD15PRNT/rMyUdnyk56B/Nk
-	1H9eau4qmCWRLdqZWlhZr7fAMH2x3QhbXPIhirv0F4JtRE+8qQOuc4AAtHTvFYmkG/+eF/cRHdEQV
-	IrTr/QtjX17MRjYPIe6A==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=ZIHJgBIecluMYLROh71YXq+HCih/5D9ly7hK71I8Bb4=; b=uomEEPLLbSAHv+
+	BsNPcV7/oTPHWMZpF6iAvv/vfFHBEd6EyrpRwuosNZfnM37oEYz0DArVhbl9Tf33fF+v2vyvWIvi3
+	7+cKsb8td+vACcBY3GJbMSVVVoZkR43h8VEDk2WpGtHMAqTxRbtgx4loLrTIqF4KqJn2Ol+UL1AQk
+	sN3KLhX3MUwEMLmsi9zAtY8aTh6aC6dXfWp5F34DTd6u8FOfS7ay0iVb4ghdN9b81SDhrZZi29gye
+	4JIg+OPkHmYeissvHYM+gTMfdDcOQjvQjA7Relv8dVT6gzQd3ns8rPHjR+j0ymTUQxoTW/2plS2m+
+	6Kksp3MQSzvxHriYkjrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHgR-0000000C4fk-0kt8;
-	Fri, 06 Nov 2026 11:00:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHgP-0000000C4fR-2DKc
+	id 1xPHha-0000000C4rf-1WV1;
+	Fri, 06 Nov 2026 11:01:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xPHhY-0000000C4r9-0n9B
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 11:00:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 350414307E;
-	Fri,  6 Nov 2026 11:00:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7077A1F008A5;
-	Fri,  6 Nov 2026 11:00:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793962833;
-	bh=c6ZP+n4jTxODTuXEkRNjigB7pFafrPalf2+5uOxtheI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Mv24GXNnYV8YQMLVWD1oPUYuwmDlI8kaswjcHMtv1s385+Lo1+75ZfyeCy9x/wr6L
-	 NhcC5C0RKSB70s9tQvJ0Qr8aWOsLVxYjE+dlhDZtTH7TNuSOJA5CwXEmch+eii0euR
-	 iF+qDBf+WZdlvoyV57a8ckoOcr3Xfm4Dv3T/46nsG1/eHSXqeYtQnLmF5ufm1md7jm
-	 J5vOP+7sstc4jmNLD2Wr6VHx7OPd+BbdzW9bgTItU1ScB+1Fv025D2oU9QLGIqnv8t
-	 6A3Jtr4lFTUDWYpHnv4GHN613uAi9KnWTiOQ3CWM48o1YdF/JS1hmws2alFRFlZDMQ
-	 Smve/rQyxo+KA==
-Message-ID: <13a16c37-90f1-43e6-a50c-80c8ad8a2168@kernel.org>
-Date: Fri, 6 Nov 2026 12:00:26 +0100
+	Fri, 06 Nov 2026 11:01:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DD1AF1476;
+	Fri,  6 Nov 2026 03:01:39 -0800 (PST)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C5C4B3F673;
+	Fri,  6 Nov 2026 03:01:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1793962903; bh=tuFbUaRK+W1wBzd5BZD3FUKT3qSXzJlu2M6LMGLUW8U=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=J8N5T5xe0WmE3JnueQsHlPV8nwzp8UA3pm5KFuiPkGTGALZ2nXy3Nqzla5vZVZySP
+	 hK8ywbnVYFdQLEDgfaOPtw+r84YwAglMzJwl4sDpTysEuUyv7KrF8Wrrpn3YT2Qk8w
+	 68/nUODgpukEWrpd/ejDVu9hZ2MkuCbSNjcoRmTo=
+Message-ID: <28cbd086-af52-47c4-9e71-6957ab8caf76@arm.com>
+Date: Fri, 6 Nov 2026 11:01:40 +0000
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] dt-bindings: nvmem: add STM32MPX TAMP backup
- registers
-To: Patrice CHOTARD <patrice.chotard@foss.st.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Christophe Roullier <christophe.roullier@foss.st.com>,
- Srinivas Kandagatla <srini@kernel.org>,
- Simeon Marijon <simeon.marijon@foss.st.com>,
- linux-stm32@st-md-mailman.stormreply.com, devicetree@vger.kernel.org,
+Subject: Re: [PATCH v3] arm_mpam: resctrl: Limit num_rmids to the CLOSIDs in
+ use
+To: Jinjie Ruan <ruanjinjie@huawei.com>, james.morse@arm.com,
+ reinette.chatre@intel.com, fenghuay@nvidia.com, gshan@redhat.com,
+ jic23@kernel.org, zengheng4@huawei.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261104-upstream_nvram_reworked-v4-0-144024496a44@foss.st.com>
- <20261104-upstream_nvram_reworked-v4-1-144024496a44@foss.st.com>
- <20261106-truthful-humorous-centipede-bc21ab@quoll>
- <f8a1dacf-f701-4d04-b837-906504d6afa8@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+References: <20261106081923.2333070-1-ruanjinjie@huawei.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <f8a1dacf-f701-4d04-b837-906504d6afa8@foss.st.com>
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20261106081923.2333070-1-ruanjinjie@huawei.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20261106_030144_312993_AE21F374 
+X-CRM114-Status: GOOD (  33.90  )
+X-Spam-Score: -4.4 (----)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,46 +71,154 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=4.0.1
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On 06/11/2026 11:33, Patrice CHOTARD wrote:
-> 
-> 
-> On 11/6/26 11:16, Krzysztof Kozlowski wrote:
->> On Wed, Nov 04, 2026 at 04:20:08PM +0100, Patrice Chotard wrote:
->>> +      nvmem-layout {
->>> +        compatible = "fixed-layout";
->>> +        #address-cells = <1>;
->>> +        #size-cells = <1>;
->>> +
->>> +        /* Data cells */
->>> +        wakeup_sec: tamp-bkp@0 {
->>> +            reg = <0x0 0x4>;
->>> +        };
->>> +        boot_mode: tamp-bkp@50 {
->>> +            /*see boot mode selection feature*/
->>> +            reg = <0x50 0x4>;
->>
->> Mixed up indentation. Please also run scripts/dtc/dt-check-style and fix
->> obvious issues.
-> 
-> Hi Krzysztof
-> 
-> scripts/dtc/dt-check-style  doesn't return any errors.
+Hi Jinjie,
 
-Yes, bindings should adhere to strict mode, see line ~40 in DT
-submitting patches doc. Srtict mode would complain:
+On 06/11/2026 08:19, Jinjie Ruan wrote:
+> On MPAM an RMID is a PMG within a PARTID, so resctrl can only allocate
+> the PMGs of the CLOSIDs it uses. info/L3_MON/num_rmids is instead set
+> to the whole PARTID and PMG space when the monitors are initialised,
+> and halved when CDP is enabled. It reports more RMIDs than resctrl can
+> allocate in two cases:
+> 
+> - With CDP each CLOSID takes two PARTIDs, and resctrl halves the
+>   CLOSID count rounding down, while MPAM halves the whole RMID space.
+>   With 5 PARTIDs and 2 PMGs resctrl has 2 CLOSIDs and 4 RMIDs, but
+>   num_rmids reads 5. The count is too high whenever the number of
+>   PARTIDs is odd and there is more than one PMG.
+> 
+> - On a monitor-only system there are no control groups and resctrl
+>   only uses the default CLOSID, but num_rmids still covers every
+>   PARTID. With 5 PARTIDs and 2 PMGs it reads 10 while only 2 RMIDs
+>   can be allocated.
+> 
+> RMID allocation is limited to the CLOSIDs in use, so only the value
+> reported to userspace is too high. Creating as many monitor groups as
+> num_rmids allows fails with -ENOSPC before that number is reached.
+> 
+> Work out the number of CLOSIDs with the rules resctrl applies when it
+> is mounted: schemata_list_add() halves a resource's CLOSID count
+> while CDP is enabled on it, rounding down, closid_init() takes the
+> smallest across the resources, and a monitor-only system has only the
+> default CLOSID. Report (pmg_max + 1) RMIDs for each of those CLOSIDs,
+> counting at monitor initialisation and from
+> resctrl_arch_set_cdp_enabled(), which resctrl calls whenever a mount
+> or unmount enables or disables CDP.
+> 
+> Fixes: 264c285999fc ("arm_mpam: resctrl: Add monitor initialisation and domain boilerplate")
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: <stable@vger.kernel.org> # 7.1.x
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Ben Horgan <ben.horgan@arm.com>
+> Cc: Reinette Chatre <reinette.chatre@intel.com>
+> Cc: Fenghua Yu <fenghuay@nvidia.com>
+> ---
+> v3:
+> - Drop resctrl_arch_set_mon_rmid_count() and count the CLOSIDs in the
+>   MPAM driver instead, as Ben suggested.
+> - v2: https://lore.kernel.org/all/20261105123304.2281987-1-ruanjinjie@huawei.com/
+> v2:
+> - Also fix num_rmids on monitor-only systems, as Ben suggested.
+> - Retitle from "arm_mpam: Round the CDP RMID count down to whole CLOSIDs".
+> - v1: https://lore.kernel.org/all/20261104101622.563280-1-ruanjinjie@huawei.com/
+> ---
+>  drivers/resctrl/mpam_resctrl.c | 45 +++++++++++++++++++++++-----------
+>  1 file changed, 31 insertions(+), 14 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index 5468367776e2..6859849f299b 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -191,6 +191,34 @@ static void mpam_resctrl_monitor_sync_abmc_vals(struct rdt_resource *l3)
+>  	 */
+>  }
+>  
+> +/* The RMID count follows the CLOSIDs resctrl uses. */
+> +static void mpam_resctrl_set_num_rmid(void)
+> +{
+> +	struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_L3];
+> +	struct rdt_resource *l3 = &res->resctrl_res;
+> +	enum resctrl_res_level rid;
+> +	u32 num_closid = UINT_MAX;
+> +
+> +	for_each_mpam_resctrl_control(res, rid) {
+> +		u32 res_num_closid;
+> +
+> +		if (!res->resctrl_res.alloc_capable)
+> +			continue;
+> +
+> +		res_num_closid = mpam_partid_max + 1;
+> +		if (res->cdp_enabled)
+> +			res_num_closid /= 2;
+> +
+> +		num_closid = min(num_closid, res_num_closid);
+> +	}
 
-Documentation/devicetree/bindings/nvmem/st,stm32-tamp-nvram.yaml:50:
-example 0 [indent-consistent] indent mismatch (expected depth 3 * '  ')
+There are global variables mpam_partid_max, cdp_enabled and a helper resctrl_arch_alloc_capable().
+Using these should make this simpler.
 
+> +
+> +	/* Monitor-only systems have only the default CLOSID. */
+> +	if (num_closid == UINT_MAX)
+> +		num_closid = 1;
+> +
+> +	l3->mon.num_rmid = (mpam_pmg_max + 1) * num_closid;
+> +}
+> +
+>  int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
+>  {
+>  	u32 partid_i = RESCTRL_RESERVED_CLOSID, partid_d = RESCTRL_RESERVED_CLOSID;
+> @@ -217,11 +245,6 @@ int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
+>  	cdp_enabled = enable;
+>  	mpam_resctrl_controls[rid].cdp_enabled = enable;
+>  
+> -	if (enable)
+> -		l3->mon.num_rmid = resctrl_arch_system_num_rmid_idx() / 2;
+> -	else
+> -		l3->mon.num_rmid = resctrl_arch_system_num_rmid_idx();
+> -
+>  	/* The mbw_max feature can't hide cdp as it's a per-partid maximum. */
+>  	if (cdp_enabled && !mpam_resctrl_controls[RDT_RESOURCE_MBA].cdp_enabled)
+>  		mpam_resctrl_controls[RDT_RESOURCE_MBA].resctrl_res.alloc_capable = false;
+> @@ -238,6 +261,8 @@ int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
+>  	if (!cdp_enabled && mpam_resctrl_controls[RDT_RESOURCE_MBA].class)
+>  		mpam_resctrl_controls[RDT_RESOURCE_MBA].resctrl_res.alloc_capable = true;
+>  
+> +	mpam_resctrl_set_num_rmid();
+> +
 
-Best regards,
-Krzysztof
+Why move the location of where num_rmid is set?
+
+Thanks,
+
+Ben
+
+>  	if (enable) {
+>  		if (mpam_partid_max < 1)
+>  			return -EINVAL;
+> @@ -1344,15 +1369,7 @@ static int mpam_resctrl_monitor_init(struct mpam_resctrl_mon *mon,
+>  	l3->name = "L3";
+>  	l3->mon_scope = RESCTRL_L3_CACHE;
+>  
+> -	/*
+> -	 * num-rmid is the upper bound for the number of monitoring groups that
+> -	 * can exist simultaneously, including the default monitoring group for
+> -	 * each control group. Hence, advertise the whole rmid_idx space even
+> -	 * though each control group has its own pmg/rmid space. Unfortunately,
+> -	 * this does mean userspace needs to know the architecture to correctly
+> -	 * interpret this value.
+> -	 */
+> -	l3->mon.num_rmid = resctrl_arch_system_num_rmid_idx();
+> +	mpam_resctrl_set_num_rmid();
+>  
+>  	if (type == QOS_L3_MBM_TOTAL_EVENT_ID) {
+>  		int err;
+
 
