@@ -2,192 +2,77 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4523C606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 09:09:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6534C606A326
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 09:11:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=xyYueA4r;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=qmlBm3NI
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nB5MZk0A;
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=jfUMs0uH
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=dFFIiNmGYYyD7yqXa86boXvzgKlZN2wQUf3Bcq9EGM4=; b=xyYueA4rUTwX+FX2QrYj5fc2UK
-	XsXvaggHuBg/jgH9P82pp18fvjiGx/9lK5tYUqzbhXhZNwFB698ezj8vI688WRHKCF2asUtZy12e+
-	KADVuZJmDSIIFW47TaQBpVCyw7/3LboadrwpGCVY/OEW1iySjwVflcX2qLIiW0bt/IlxQzMQ10qTR
-	BNaShX8WFz2nvDffkpmP56ae0KHgHEYRsc8eeIv6kfFw40h/3H++4IM/aTjONKTgKWdrsUzdQ2P7L
-	JoaY27ltDY/4Iw2r1ySte2+dQBPdUKEaGWHmFxbNpteIc0SjDpk4h3qvjc+6wPPDdde04BrwK89Ad
-	7fwT5NXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=qTD9uv7EbNta/9xuGWhItT6sXbpcUOA9/0K6CzF3X6A=; b=nB5MZk0ADdooKZ
+	HiBJegoaZlWQVjLvpa7YVyMtVPUiKgSm7vX6Aj1pl9L2dDp+cVdc45d8aGblA0KO5fh8EaABtrc75
+	qx8liEVzbfrbP4TnCvTMqpFS1aHCvCWCd9KutzWXIpOFLSp83D/BQ7QLeqXW6xac3Dty42vSbBYXY
+	rj4rs8vqEw+XZZw1w/GhGWXMqsKU//YelTZKU1mxyv2UB5H4DOUfvryq/XPzmHdCIAFvX1it9Jzy/
+	zBc+FFrH25tnhfnyWaRiwKk7LjrZ6wH01fDECrENqm0iGz8pz1CD2ilBhSSeilrNMgmCoZtXY4eDi
+	U8ShCBkMbgP1NKCYCnfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPFwz-0000000BfNi-37f2;
-	Fri, 06 Nov 2026 09:09:33 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1xPFtk-0000000Beu5-17k8;
+	Fri, 06 Nov 2026 09:06:12 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPFww-0000000BfNJ-0NAU
+	id 1xPFth-0000000BerC-1shh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 09:09:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NhO03tItUKuOWdypDAEu1CAQzyQGNqcFIIST8Bfc/u5Rqwt8GJd0bhIicgtRC3MRMCtp2nbF5xXuaMc1LUk+NivqqT/1pCse9eFnWrYG/jAVxezzme39pmuBCr2QhzF2cMl2Y7Z1mVw+iYK/RX5frqGuOZztzgN0RNpA+DPDJHs0/UFAwA7dJqYcE2G9LGcL3lQkv+voHw44ncTv4lRzqOFxnUixVGgbrffGpv+1cqSJZBJM5bD0KtXy40oeXPzBnF+W/XjsEXg+Av+qYpyHtBIbWyKF+xla6aoheNhM8mUynGTmnuNmjOTpkmoBFyIRlcGc7nvdM8DCd1le+ZRakg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dFFIiNmGYYyD7yqXa86boXvzgKlZN2wQUf3Bcq9EGM4=;
- b=XQ6xJpaOIA087dcw05t9ngQfPK0aNhhElRgaMBM2Vzo3JnGHRLrrXA++DWuf0asTF3N/NSxjr7CqCEcLvFnj5IMwQSupRfyvqDFLIbPP2G/CzE/GVJQ38eua367MVjVCKGdxXcBT3GNjwewFKZBhtYvkjaMb8qnn9TxbRd5RvBe5YMgG8FdbeYs4smD4SIxxn9OAEjGwZvtTqQA9FqHMUvE8aAhas6IFovsndXJPWhWOBaz7QWvoxrr9HnveedYjIIerUv3E8jnfQt1kNPkJ4eteEHcqcRoqPOdGl7eGDd1/sNQYtHD7NNG6YcJTHvTPrStnSbs9nkkkCuLvW10idw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dFFIiNmGYYyD7yqXa86boXvzgKlZN2wQUf3Bcq9EGM4=;
- b=qmlBm3NInqjHDNcmNqv4gvpPZ8u1vI9pjsj859ftiyVc30COIxGFrf3GnptFYB+N+oqdf/CBL3VmlbaA4QTLbTd/iSfBJi0ybk/z56oNalYDTzFLvAP2qN22WS9gVMwbg/T+Wc4rKvcXORNMpfkN2G4OAwvHnJ8RoxDcreLSanE=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
- by LV3PR12MB9409.namprd12.prod.outlook.com (2603:10b6:408:21d::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Fri, 6 Nov
- 2026 09:09:24 +0000
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287%5]) with mapi id 15.21.0592.010; Fri, 6 Nov 2026
- 09:09:24 +0000
-Message-ID: <bb85271a-4600-453e-8853-f12aeaa064bc@amd.com>
-Date: Fri, 6 Nov 2026 10:09:15 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 1/5] arm64: dts: xilinx: drop unused
- #phy-cells from the DP83867 nodes
-To: Steffen Trumtrar <s.trumtrar@pengutronix.de>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andrew Davis <afd@ti.com>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Eric Dumazet <edumazet@kernel.org>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20261106-v7-2-topic-dp83867-v3-0-45e1d3adf1bf@pengutronix.de>
- <20261106-v7-2-topic-dp83867-v3-1-45e1d3adf1bf@pengutronix.de>
-Content-Language: en-US
-From: Michal Simek <michal.simek@amd.com>
-Autocrypt: addr=michal.simek@amd.com; keydata=
- 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
- mpwx1d8=
-In-Reply-To: <20261106-v7-2-topic-dp83867-v3-1-45e1d3adf1bf@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BY1P220CA0008.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:59d::16) To LV5PR12MB9779.namprd12.prod.outlook.com
- (2603:10b6:408:301::14)
+	Fri, 06 Nov 2026 09:06:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=qT
+	D9uv7EbNta/9xuGWhItT6sXbpcUOA9/0K6CzF3X6A=; b=jfUMs0uHqVnMRPmIXI
+	rGruasEtBdE7RyTCNcfGyDXKpX/rWPcFcectzerj2WChz1HEGJTzQm69V14kFdjI
+	vn+GpcFH83BPK6T+pkf5kYl1H8NVcA2i1D/aBxbwKziCmcpanVKlUPoo9Pjn5yUf
+	FvuhoSTmgD5R4qrk3gLfpf+D8=
+Received: from 4CV529F122.company.local (unknown [])
+	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD3_7hJmO1qqwdQFQ--.15084S3;
+	Fri, 06 Nov 2026 17:05:33 +0800 (CST)
+From: Ding Hui <dinghui1111@163.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org (open list:STMMAC ETHERNET DRIVER),
+	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: dinghui@lixiang.com,
+	xiasanbo@lixiang.com,
+	yangchen11@lixiang.com,
+	liuxuanjun@lixiang.com
+Subject: [PATCH net-next v6 RESEND 1/4] net: stmmac: guard against NULL pointers when freeing TX/RX buffers
+Date: Fri,  6 Nov 2026 17:05:03 +0800
+Message-Id: <20261106090507.1020751-2-dinghui1111@163.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261106090507.1020751-1-dinghui1111@163.com>
+References: <20261106090507.1020751-1-dinghui1111@163.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|LV3PR12MB9409:EE_
-X-MS-Office365-Filtering-Correlation-Id: de3c068e-d408-4829-76f1-08df3be5a6c7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|23010399003|1800799024|10067099003|18002099003|22082099003|921020|56012099006|4143699003|261021123027099003|11063799006|261022105027099003|261028144727099003|261009223027099003|261026140227099003;
-X-Microsoft-Antispam-Message-Info: 3g02f4OZoAk4kwQj+bY9VeBFm5XE71PP+NiR4X1bhB+fV/lADh4QoxoQQ/RayQOrnUBr0GxnOsjmSlQ3WoYKeBttgfzjLG/Ot5qv4bP1zhB+rJErrbaCFAT5rC2S2xAM7Fa/dBaZ7cdsiQfNKlSHf1NZd7U8GWL+rQqKhBSLTA1H3DL24X5pNSci30O9MUqkNZ0vedzdJhjIriC/WEiqCuS/g1G4OSdwsqRyXF5meyIRizfThsOpsB7knelS0keQyf+GgzplCzIM9uNAZETDmAZAb3WnNvFpW3CptVwpsLeabJ0u2BtGgwoc37geWUPkRg78PgSExAqUUU0LW1mqyG9enq78ymwT+SwvSka8HiQQ/UkMhmLUmImoBmMdpIWAz1y1yuIeOBW4FnK0kvF0fc4r2uhQnoqY1ROX0p4bLF+7Saae9VuBJ3QfwM0K/MlCY0VnKTcZeaTifGd6O0fk+uDTPa/h4hO5ZSPqci/V1W8yt/8cGY+34qwY+z1xEzmUxFLJZ//X9GmHmNNg6ZwJN8MO1RxrRy5Ztl76TS2g2mfo9oLUj0jUaZxG4JluenLz1m5hqFqZACNlxWmWXarigOd8d9KAXgd32dTiAKco/KOpa+e9UQhaVajPg4ESftOfcWuG8CkF7B4aluGCeIb3MlhXxPHNkbWbAX8R0FQW6G/0DE6+K2OVXPXeHlVPwyIoqCWocaDmIvG0QnpmdtVqwA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(23010399003)(1800799024)(10067099003)(18002099003)(22082099003)(921020)(56012099006)(4143699003)(261021123027099003)(11063799006)(261022105027099003)(261028144727099003)(261009223027099003)(261026140227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MkNHMnNKcVcxSncxS1MrcjdpR2ZicllYUG1XMGdlTEZXeERncklQODdLSGNM?=
- =?utf-8?B?RGo4ZHpkWlBBTEcvVnZVdmtEcm1CbVNnWkw0aERzdW1JcldwTlErekJMT21W?=
- =?utf-8?B?c1doMjZRM0pKQXBYWXkvZzhBVU5JRUcxMlowaUo4WHVIWmUvMEE2NDFma2Rz?=
- =?utf-8?B?Q3FDN2o4TStyZjJOQmpNZGtlOXpHSmgydEdhOFNMRHlqM1FEbEtpMmh0SUlp?=
- =?utf-8?B?ZnhSRndtbUZUbG83bElPUnJHMjQwMGFXV2lndVFueC96dEp1MldBSW1pY3My?=
- =?utf-8?B?U3pqeXI5bEgrRUdFdUhlb09BTERiVmFsa1llUlBEL3VqQjZaSGFmaGlWa1NV?=
- =?utf-8?B?RHplL2lDdWw1QnNDMUdCOU8yeEJ3Yi9QektXMVFYdWxTaGtFN2NTMHdMRm1V?=
- =?utf-8?B?US9IZTdoYVlsTzkrUVJYOG1kZnhHdHpkK3BvRCtaTjZ5Rm9SdlZtTlo4cGc4?=
- =?utf-8?B?Yno2VDJDb2JsWWxsZUZDU0RPYVFSYkliamF1RjBueVYvNGpyQUVNL2dKeUZJ?=
- =?utf-8?B?R1NIKzJYUStqOWtPTlFlb2dkQkoxSUN6MGFpcGNpaUYxbk5wQzBxVEQ3dzBq?=
- =?utf-8?B?WFdJNUtFOFFPeEMrcjloSjFnMmJzNnBVTnZULzJSeS9KSDFrSGp2WU1wbnJs?=
- =?utf-8?B?Z1BDVnVld1dINXdtQlVJWDFJZFJISEVKZDk1S202c3U0bEkrNWE2TkgwSG05?=
- =?utf-8?B?ZjlTVzZ1eEJCOTcwK0xQTUdoRmNkSkltb24vN0wra0ZMRXpjdkZmejBMUzlR?=
- =?utf-8?B?SWtLSjgzSGhETUJYWllCdFZQdFMrSm54SXZaakd6TUszbCszRmoxZTZYYTFz?=
- =?utf-8?B?ODVQVlJyb2F1ZjNGbGoyOWpRdzNQT2J1L0lNSDFlbHdEZjVHRzFOeUtHVC92?=
- =?utf-8?B?aXRwWjdjUUJkUy9oNGhoOUxmUnJrNW9TZ1B2MWlCcHhPaE94c25ubW53NXhk?=
- =?utf-8?B?am1XUVNtWkQ3ZGNhd25rMDdCWDhFeEN5MXhZeXFYSi9jOTJCMm5Qb2NCUndr?=
- =?utf-8?B?TCtCdEZrb1pMOXhEM1NURWY4b0pvcW5rRWdIOHJ2T0lMQ3VEWG5sQWxUQURN?=
- =?utf-8?B?MnlrcUp1bTBjZk9BS0o5TXFtRHVlOTFVVER6Sm5XdkJ4dVRzR2pnbFF3emoy?=
- =?utf-8?B?Rmsxby9ZOUFCcmMyYTc1TkhkVi9nWHZteVBBckpuLzE3Z2dORmJNUEd4NjI1?=
- =?utf-8?B?S1hic1JQZ3RVMkhaRGUwVmZCUi9nTHl3RlNnUjcwM0pNaW1mdlFIUWh4LzhG?=
- =?utf-8?B?ZFVQb1dPV3FzcGpNQjFhc2lyYjROZncyNmxNZmhQaWhhUlY0Y0E5N3JXc3A0?=
- =?utf-8?B?VXF0V0RabzY5SEU3SzNPUEltT3ViZC93OXVrRmMvbW5MV3p2MGRZZjcxeDc0?=
- =?utf-8?B?aXF5WXZKcHRLWmJGVUhnaW5sTGN5cDJndW1ZNlhZa08vS2lZUmhtV0w0U2lW?=
- =?utf-8?B?RVZPZ3lkc2ljV010WnFBYXltYzFhTmxhVVNtRk5FdnVZMVFmRVd5VXg0Nlh2?=
- =?utf-8?B?a0JlUXgra0NYKy9QNHE3cDJDclhnRXlHeSt5REtwNUxwaTlmU1Ntc2FOb2Ra?=
- =?utf-8?B?QVlhenRUQ1NtYlFid1F1cWF3U1ZuMWY3MnROS2M3L2ZxWEpVQWRWMjJvNmUw?=
- =?utf-8?B?SDZETnRzNHRqck51bWtjNEYwWHNDbXMwc0lkdDhvOUEwY0QyY2VNNFRVSXJ2?=
- =?utf-8?B?aTQ4NWE0NzBwY3YyRTdJeGxtb3hUUlZhd1lCQjVFS3dTNFg2dUdaMDZ1SStX?=
- =?utf-8?B?TnZmUjJjMEN1T2pDMkFtTzI5aTRtckhCNGNQcEpyek15VTBhQ21UNjNQZXJV?=
- =?utf-8?B?NTJHcTZFakIvcHJIUUxQQ1M3aWNUS0VsZFliQWs3VEpBVHY0VHAvcTEzSzYz?=
- =?utf-8?B?bFo1ckJjeElBSjRWUmwvdWRBanBBN0hyQlZGVGNWUWFFVTFRSkdRWkdBMU5t?=
- =?utf-8?B?K1pGUWZqZ3BaT0xwRE1UZUVGL0tsOElkNFBJN2o0bXlGZWZZK3F0K2FUclZ6?=
- =?utf-8?B?Z3BFai9JcFk4NDl6Y0JHVjB3UEQ5ZUVXUnNZZHg3NWIrbkVqMVI1VzcwL3da?=
- =?utf-8?B?VFYwdlRrU3g4cTU3dEFZeUpLZ1FPOFdFc3YxbWtKSlE5ZkF1UUNBaUJQMHFv?=
- =?utf-8?B?WWNtSXdVd2l6TkcwS0lCbTg4SkF0TmRTQXpFZnByNzQza2E2RnRjbEZjMzJa?=
- =?utf-8?B?TEZPamZzVkRrNThBWWUwRlZlZzAyRWVVbHZrQVB1Q09rbHVUcnowa0ZKV0NX?=
- =?utf-8?B?OWFWQWlaY3c4Um1zWHJ0cDR1MEY0K2t5T1BOL1o2NEhreGM0aHVUejE2dVBn?=
- =?utf-8?B?OWVSVURidWlTWi9mWjgrWTltTkRwZkVSUjZlQWtsQVAzdWVKZUp1UT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: de3c068e-d408-4829-76f1-08df3be5a6c7
-X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2026 09:09:24.2127
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JQ8W68DKZrFUpKdb7OHAPI+Q1qyaopKteg1vWyBco7P0SW5cBHV8RF2W3+eirdYb
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9409
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3_7hJmO1qqwdQFQ--.15084S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWxCF43GF4fXw4xurWfuF1Utrb_yoWrur1rpr
+	srC3yvy34UtrnxGa1DJr48Xa45Jayrtr4YgayfKwnxZF1akryIgF45AryUCrykCrWkuF1f
+	KrZ8C3Z8Ar18JrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jw73gUUUUU=
+X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC0R1Tf2rtmF1QTwAA39
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_010930_156675_05967D3F 
-X-CRM114-Status: GOOD (  11.45  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261106_010609_804902_12FE63EA 
+X-CRM114-Status: GOOD (  15.23  )
+X-Spam-Score: -1.8 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,41 +83,139 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
+From: Ding Hui <dinghui@lixiang.com>
 
+The DMA resource free helpers may be invoked on queues whose buffers
+were never allocated:
 
-On 11/6/26 08:47, Steffen Trumtrar wrote:
-> The DP83867 ethernet PHY nodes have a #phy-cells property, but no node
-> refers to them with a phys property; the MACs use phy-handle, which
-> takes no arguments. #phy-cells belongs to generic PHY providers.
-> 
-> Drop it, so the nodes validate against the ti,dp83867 binding once it
-> is applied to them.
-> 
-> Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-> ---
->   arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revA.dtso | 2 --
->   arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revB.dtso | 2 --
->   arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revA.dtso | 1 -
->   arch/arm64/boot/dts/xilinx/zynqmp-sck-kv-g-revB.dtso | 1 -
->   arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts    | 1 -
->   arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revB.dts    | 1 -
->   arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revA.dts    | 1 -
->   arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revC.dts    | 1 -
->   arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts    | 1 -
->   arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts    | 1 -
->   10 files changed, 12 deletions(-)
-Reviewed-by: Michal Simek <michal.simek@amd.com>
+  - dma_free_rx_skbufs() and dma_free_rx_xskbufs() dereference
+    rx_q->buf_pool[i] via stmmac_free_rx_buffer(), but buf_pool may
+    be NULL if its kzalloc_objs() failed.
 
-If you want me to take it via my tree please send it separately.
+  - dma_free_tx_skbufs() dereferences tx_q->tx_skbuff_dma[i] via
+    stmmac_free_tx_buffer(), but tx_skbuff_dma may be NULL if its
+    kzalloc_objs() failed.
 
-Thanks,
-Michal
+  - stmmac_free_tx_buffer() dereferences tx_q->xdpf[i] and
+    tx_q->tx_skbuff[i] (aliased through a union), but tx_skbuff may
+    be NULL if its allocation failed while tx_skbuff_dma succeeded.
+
+Add NULL checks in the free helpers as a defensive measure, since they may
+be called on partially-initialized queues.
+Additionally, make __free_dma_rx_desc_resources() and
+__free_dma_tx_desc_resources() clear the pointers they free, so that
+the NULL guards in the free helpers hold reliably when the long-lived
+priv->dma_conf is reused across XDP open/release cycles.
+
+Signed-off-by: Ding Hui <dinghui@lixiang.com>
+---
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 32 +++++++++++++++++--
+ 1 file changed, 29 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index b20e5038eead..2f03600cc5bd 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1766,7 +1766,7 @@ static void stmmac_free_tx_buffer(struct stmmac_priv *priv,
+ 					 DMA_TO_DEVICE);
+ 	}
+ 
+-	if (tx_q->xdpf[i] &&
++	if (tx_q->xdpf && tx_q->xdpf[i] &&
+ 	    (tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_XDP_TX ||
+ 	     tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_XDP_NDO)) {
+ 		xdp_return_frame(tx_q->xdpf[i]);
+@@ -1778,7 +1778,7 @@ static void stmmac_free_tx_buffer(struct stmmac_priv *priv,
+ 		tx_q->tx_skbuff_dma[i].buf_type = STMMAC_TXBUF_T_SKB;
+ 	}
+ 
+-	if (tx_q->tx_skbuff[i] &&
++	if (tx_q->tx_skbuff && tx_q->tx_skbuff[i] &&
+ 	    tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_SKB) {
+ 		dev_kfree_skb_any(tx_q->tx_skbuff[i]);
+ 		tx_q->tx_skbuff[i] = NULL;
+@@ -1801,6 +1801,10 @@ static void dma_free_rx_skbufs(struct stmmac_priv *priv,
+ 	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
+ 	int i;
+ 
++	/* buf_pool may not be allocated if alloc failed early */
++	if (!rx_q->buf_pool)
++		return;
++
+ 	for (i = 0; i < dma_conf->dma_rx_size; i++)
+ 		stmmac_free_rx_buffer(priv, rx_q, i);
+ }
+@@ -1842,6 +1846,10 @@ static void dma_free_rx_xskbufs(struct stmmac_priv *priv,
+ 	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
+ 	int i;
+ 
++	/* buf_pool may not be allocated if alloc failed early */
++	if (!rx_q->buf_pool)
++		return;
++
+ 	for (i = 0; i < dma_conf->dma_rx_size; i++) {
+ 		struct stmmac_rx_buffer *buf = &rx_q->buf_pool[i];
+ 
+@@ -2137,6 +2145,10 @@ static void dma_free_tx_skbufs(struct stmmac_priv *priv,
+ 	struct stmmac_tx_queue *tx_q = &dma_conf->tx_queue[queue];
+ 	int i;
+ 
++	/* tx_skbuff_dma may not be allocated if alloc failed early */
++	if (!tx_q->tx_skbuff_dma)
++		return;
++
+ 	tx_q->xsk_frames_done = 0;
+ 
+ 	for (i = 0; i < dma_conf->dma_tx_size; i++)
+@@ -2194,13 +2206,20 @@ static void __free_dma_rx_desc_resources(struct stmmac_priv *priv,
+ 	size = stmmac_get_rx_desc_size(priv) * dma_conf->dma_rx_size;
+ 
+ 	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
++	rx_q->dma_erx = NULL;
++	rx_q->dma_rx = NULL;
++	rx_q->dma_rx_phy = 0;
+ 
+ 	if (xdp_rxq_info_is_reg(&rx_q->xdp_rxq))
+ 		xdp_rxq_info_unreg(&rx_q->xdp_rxq);
+ 
+ 	kfree(rx_q->buf_pool);
+-	if (rx_q->page_pool)
++	rx_q->buf_pool = NULL;
++
++	if (rx_q->page_pool) {
+ 		page_pool_destroy(rx_q->page_pool);
++		rx_q->page_pool = NULL;
++	}
+ }
+ 
+ static void free_dma_rx_desc_resources(struct stmmac_priv *priv,
+@@ -2242,9 +2261,16 @@ static void __free_dma_tx_desc_resources(struct stmmac_priv *priv,
+ 	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
+ 
+ 	dma_free_coherent(priv->device, size, addr, tx_q->dma_tx_phy);
++	tx_q->dma_etx = NULL;
++	tx_q->dma_entx = NULL;
++	tx_q->dma_tx = NULL;
++	tx_q->dma_tx_phy = 0;
+ 
+ 	kfree(tx_q->tx_skbuff_dma);
++	tx_q->tx_skbuff_dma = NULL;
++
+ 	kfree(tx_q->tx_skbuff);
++	tx_q->tx_skbuff = NULL;
+ }
+ 
+ static void free_dma_tx_desc_resources(struct stmmac_priv *priv,
+-- 
+2.34.1
+
 
