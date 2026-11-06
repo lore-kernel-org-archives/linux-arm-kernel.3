@@ -2,68 +2,162 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 705A9606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 09:26:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A71C606EE8F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 09:32:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Lo3WAkTY;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=j5FoTRMq
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=egFAJMq4;
+	dkim=fail reason="signature verification failed" (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=AWar91It;
+	dkim=pass (1024-bit key, unprotected) header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=VNkTy2yc
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=OCpCPLJE3r6L2HIy1QKUiDL1dFMxS7QTpUCfmL7TFEY=; b=Lo3WAkTYvCdgOy
-	ISj1p8s5aHrbgH2Ue/c5+cZxtNiLq14Xkkzgz1k6L+TTTc6Dtk44b3iNNvXBAcu6DKixIoiyJZpL6
-	oEDlCsu4KoFqTobiLtBMynW5UBLF9VR7/elCUL1bcO4sgnpVp96C8KIHE3H/op4Dty8h92lF4LahP
-	pPq/3vS/mla0wVlgQy/RFiZhEs7howpoMNcb1VUPI5W/XPBsqVj72pTkUu2k029M/2ImwOfYYPI9Z
-	41CSNUwvA/KJvsquQTuUl8jYIpYjMw0XXW9D1AjoOFEBx8gVH8WuJe9L0iNgQEREKt5XeKbUO03A6
-	ZnyKTRmj1ZcMEuHpvBMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=ASPlIG1CwQzrAUwwfTETz17PmLu9/+1u1KvOUg+yRy4=; b=egFAJMq4SfYpihtG6kuohaJN9O
+	GT/hqh9oRz/X1DxqcRzrrOnpIKlhHf1dbYY4xsPTDDCt9io/8G6eMxiAU6nOAnSEBuo8nT/+/ZuSz
+	I/QtWGezYWdvRVmGZdPfjJcNQR0Gbf1v5jQO9IFaA0Yg6vodsAbyFD6owR0MCKZeoqnX+GHgF/J8x
+	PAWwPe+Jr6WHGn1Ra9i7emGD4OdJNyq1/keLmd86HNkw76LmhHKPVE0NIVYuDdYFyJLEQxpYsmy5f
+	Vp1Z9xOFslWGKbozEK2Nz+l1BzYMLpaNKNeDrM+XtHPD9kqhrdwTjjLGRx5HPRrCXbyO/8KV0CAyz
+	XtI6ffbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPGDf-0000000BhB1-2yl5;
-	Fri, 06 Nov 2026 09:26:47 +0000
-Received: from out-247.mta1.migadu.com ([95.215.58.247] helo=mta1.migadu.com)
+	id 1xPGJH-0000000BjJ6-16HT;
+	Fri, 06 Nov 2026 09:32:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPGDd-0000000Bh8X-0Pob
+	id 1xPGJF-0000000BjFS-1Gbp
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 06 Nov 2026 09:32:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ASPlIG1CwQzrAUwwfTETz17PmLu9/+1u1KvOUg+yRy4=; b=AWar91It0Z6aGxZFgmL01okHtB
+	vi7iaSyuVHprqF8JHPq2Gp/Xl3yCJJBKscunW6CW1n942qdiOiqH8Ok0CkwzQEV2gS1T4+z97iG4F
+	fCpvsZV5zxOS1ZC/Oj5DF76NGrWV97aEWCmkxlLykR2EYiWHkzqOZN/QEL6br2JKdsxIsxIwuqA5g
+	vOEbOR+IB27TeLfGJGATpqowat307033Z1YQtZJCkDZ4Eabm9zBZXXBCTf9LpZTEIXRVTak1NX0Go
+	KJHhUEPRvBhU+wMW7AbEYxSUljXtLb6IhXBonQHPw+iKVld/ALDldMnmt2QadJ4omhMqGokI4hXVk
+	78LaH3QQ==;
+Received: from mail-japanwestazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c407::1] helo=OS0P286CU010.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xPGJ6-000000042qn-2oUI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 09:26:46 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=2ux1gTofI8zz3EdkWjLHTNMHqNkCiJdZMae9TBFV5d8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1793957203; v=1; x=1794562003;
- b=j5FoTRMqWfs8BiZwjp4KBhazjToi5y5m2vbjgvAP0azmQ6fgjQrvt9gObrc5DL7jZy6dO687
- /91eGcqhZ8fuHqPytHunKN7OsdhLv5QL5pNYy31+3e8yS4O/J11o72GqS/thxlvdl6yvCHZDOnj
- d6gNBfXvWxVrFC3E6QLJ6fBk=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id fc821fc381e2c071;
-	Fri, 06 Nov 2026 09:26:43 +0000
-X-Mizu-Trace-ID: fc821fc381e2c071
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>
-Cc: Radu Rendec <radu@rendec.net>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/3] irqchip/gic-v3-its: Free the page when gen_pool_add() fails
-Date: Fri,  6 Nov 2026 09:26:25 +0000
-Message-ID: <20261106092625.3977163-4-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261106092625.3977163-1-fuad.tabba@linux.dev>
-References: <20261106092625.3977163-1-fuad.tabba@linux.dev>
+	Fri, 06 Nov 2026 09:32:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=L0zT/i7X3J4dfrCzTrZyTGYuzMfdqLAzQ9xGCB5zObTTE8Nz8xgKhSJFwvgnxun9Z4VU6h+YnRr6bDxZDUE/PHJOmL1mpyvvOWo5xpw9wGrSNA0h88hrotPY/Ek0hu12D90BPzzAkjsd4qYbr04i68sEmQud6ZfpdVlRl35TP3YfVoTmrAQUMP+4TEYGWQSwWs8+EwbJh2+VpgdiioAOH5iyUso3+Oq4Tu4SlfTgSv9bpZVvuBaZj7MB+UCK58/inWQXIn/lLZAqnskyMiSy+dN/tN6WvvPzULuAPuA5XbgfS44BflmOh9ttj6Qh/KRVv1qiFblvcubWObSF2Q3V8w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ASPlIG1CwQzrAUwwfTETz17PmLu9/+1u1KvOUg+yRy4=;
+ b=KrNUWhTrFWadJhP0vWfd6QJ83MEzOsX0sOpSq2vX2nat/JTkesAxB2yCRfnWaLDuoWwOLjrTeUPM4khYYr1MTKnUnWwHdBqPuYv+Nd4C6h3EJrjp6GnehZ+rd2h0m6I/9Zl1OAoVDNceRzw+/J6/u5fA4XHTYY3gFd/vjApm0m3EcmcNQl07UzfRWiwVL9yJteXcffgIhsj88TvKrSp4rNUXMGCPW3LwbLS9stzsHjKSeoNr511pnUHOefGNWRyo5aXyLaAku/7pbH22yLOf4yuzUj475U481wr6ChGplW8SEBOVLhVQa0fp6UADG1luDViyRAsA63AVBMZvqqg4Mg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ASPlIG1CwQzrAUwwfTETz17PmLu9/+1u1KvOUg+yRy4=;
+ b=VNkTy2ycDZF0JwfXGp+pCTO+KBScQHBYgUikDWxKUsbwCnCFxGwgdYmSzG3b90n5FYVawGOSRA5YP7/ikdRl4l/edBU8azCy6pusXDY2FVuXuZ14Ve/m2tkOqiKxriCw3RsjDvW4RqCQm2gK9V6gLUghxb6GLqSVtMKd+HQhQN8=
+Received: from TYCPR01MB11332.jpnprd01.prod.outlook.com (2603:1096:400:3c0::7)
+ by OS9PR01MB17954.jpnprd01.prod.outlook.com (2603:1096:604:46a::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.9; Fri, 6 Nov 2026
+ 09:32:16 +0000
+Received: from TYCPR01MB11332.jpnprd01.prod.outlook.com
+ ([fe80::2511:10cd:e497:4d97]) by TYCPR01MB11332.jpnprd01.prod.outlook.com
+ ([fe80::2511:10cd:e497:4d97%4]) with mapi id 15.21.0592.009; Fri, 6 Nov 2026
+ 09:32:13 +0000
+From: Biju Das <biju.das.jz@bp.renesas.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>, Fabrizio Castro
+	<fabrizio.castro.jz@renesas.com>, Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol@kernel.org>, "biju.das.au" <biju.das.au@gmail.com>,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Brian Masney
+	<bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, Ulf
+ Hansson <ulfh@kernel.org>, "magnus.damm" <magnus.damm@gmail.com>
+CC: "linux-can@vger.kernel.org" <linux-can@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-renesas-soc@vger.kernel.org"
+	<linux-renesas-soc@vger.kernel.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "linux-pm@vger.kernel.org"
+	<linux-pm@vger.kernel.org>
+Subject: RE: [PATCH 3/9] can: rcar_canfd: Make clkp local
+Thread-Topic: [PATCH 3/9] can: rcar_canfd: Make clkp local
+Thread-Index: AQHdZ6ey9BsKmfUrHkS11C+eIKXt7rcg09OA
+Date: Fri, 6 Nov 2026 09:32:13 +0000
+Message-ID: <TYCPR01MB11332290214A3035A5EC80D8486762@TYCPR01MB11332.jpnprd01.prod.outlook.com>
+References: <cover.1793278754.git.geert+renesas@glider.be>
+ <415c8b26718e2e5d53f74e65daedf9986c76dcfe.1793278754.git.geert+renesas@glider.be>
+In-Reply-To: <415c8b26718e2e5d53f74e65daedf9986c76dcfe.1793278754.git.geert+renesas@glider.be>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYCPR01MB11332:EE_|OS9PR01MB17954:EE_
+x-ms-office365-filtering-correlation-id: 5346d15d-b74d-4e82-039e-08df3be8d6d0
+x-ld-processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|23010399003|376014|1800799024|7416014|22082099003|18002099003|10067099003|921020|38070700021|4143699003|11063799006|261028144727099003|261022105027099003|261021121427099003|261026140227099003|261021123027099003|56012099006|261009223027099003|261102123227099003;
+x-microsoft-antispam-message-info: 39AVCAlYbuYvBiubEe8IHWpO+OcsP9qHuI5d58jK0q9WGcfGKsNH558TaFD2HUC92AmypgZgO5jdnfI2vGjuaLZ0YuU6XgDGi8diZrREBDGg6vEI3AvsQaBaVtNMz8SE0wempPEcHLY4IT0WCPcCaX4KR8JazDJe4PIhA1rULpEbc3JVtzd+CRN+pOcpOaZFWOymwDgzyRVNhsz6Ml9TO6to6ZvP8S0JzMpVqW/JtyeZFcynY7WU1YxEKI6BOzuB13mK8O7RgbJHjHTbyppPcCHa82JYKh7XOlX2PRrhGdhmpz57Kp7H+akoNsAtaPLGSxsurjYmLmpriqgzCC/U9NiyIqcUEGfwrKahSskPF0cy+R0e3WxN7+D1zMJYm7seYKrmeKpRUtg/88kzINCC8O+kyELzGgBFiIaysgJUn3uv1+YtCQtIegxInYJ111lsmSA/SiDTG4x4oTjSNyaV0tdO2UlLE1wxAqdwecJE41js77dEvbfX64mEfb8w1tY5Hkhq+KjVe352fkYibeTtyw8EBOnqEs7Q4NgMjEoBhd4KBt9lU6lTohgpaQXcKd5/2Dl430HWEvxXute/kSibLal1N/bJuvpZoLnUvNqYE5BT5DmOc5PgLJSaQsrBUCdmQ0QlthCDHePiFugDPTWxLIsoRahDodanGRTLlZvi3krsa6+U+/TvUWkAwJ0/mghfAFGMrjZONWHzY8Y/ZmzqIIphx15rKZWcYzbF1vdG3GUMgdjr/KJ3Ntt0xaxFfJxw
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB11332.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(1800799024)(7416014)(22082099003)(18002099003)(10067099003)(921020)(38070700021)(4143699003)(11063799006)(261028144727099003)(261022105027099003)(261021121427099003)(261026140227099003)(261021123027099003)(56012099006)(261009223027099003)(261102123227099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?BxI0JvlHYuZNQby5o6f72kdlyD7MSNytpZCqEmpLwoI4OcVS6rR7/q9sjrjb?=
+ =?us-ascii?Q?00uzefk0QX3mkSisVaby1ZC4TqE0hWqJ2UgwZXt9PuAu2fALIrVYJM5NsMii?=
+ =?us-ascii?Q?FSn4ppKqSuekmLHzNTD984C6myd75p7MzL0MRbb9BcIJ8JXGpa+4PSb+VolQ?=
+ =?us-ascii?Q?WfpB7ZTR2cqySGy4fUrBX/h1IoPJb9D7mLCr1QoVGjR7jGQYP5CwiiScbH9T?=
+ =?us-ascii?Q?44sQBV1ai5z7uvY33SI4eWpZL2TRgllfJUFJsTKwXtAYP8SDEPiBmVG4P9+H?=
+ =?us-ascii?Q?OvurOxdpE0UKJ/G1pE56XGSGaBxDMMxtvKhYW4atx6mfR8amE9IRvNXS+J6d?=
+ =?us-ascii?Q?FtEw8u6RyKhCw0LkFuwtpaI1rARcb4qzH8u7p/FZLj58/IH8UjeifKLFOG+A?=
+ =?us-ascii?Q?v/FtmzW2XXOIWVgt7ytYGcCL+VrjEwiMTbxGn6f2DmCFMoFoxFXY7bTLAd/M?=
+ =?us-ascii?Q?IzECcsuuAgisIrb5qDuJeBU5WzKSAGV/v0EId/KwN3fdG5E7eXtvq97FRFq3?=
+ =?us-ascii?Q?nY2E9N1aaD8lwpSGu5mnOS/nrPsHAouacE9asoermUZkH87HhD09QfJQhejO?=
+ =?us-ascii?Q?DQS3jzLGtIIMP1SSZwvzVPM896E9rwlWR+FVFQO9qZAXY50Z79D6vfI1LNnP?=
+ =?us-ascii?Q?WmEjP8EFCKh98GgpRirQp/iMH2zhinHDEIr548+oLX8gYpwbkv6VkzYR2ZyE?=
+ =?us-ascii?Q?kPpTqBBW3ROVuruIaZOK9PqHqIN1lrYb4oWOXBzRjH8/5BhZjmfVlr7ZcUBT?=
+ =?us-ascii?Q?o+HWPcxE8kYhVJfpwbspNw4O/h65Y+CsVleW0Bj0r+AsCoPFruHHlIGmwH+F?=
+ =?us-ascii?Q?UV+xO44V1dqywMlukIsedXibOOOkE8ogZZeFX+waBDMehRGCuUKSlD67CvQX?=
+ =?us-ascii?Q?6pkrHbKcQtVtPxN4SoSSVKwEJoP/b2Yr5OfxH01flh2PMf3IliNBFQkujd3i?=
+ =?us-ascii?Q?m2sUIz8o4pIIkXtI1ZEbhRXyccrF5yirKvvuiAo9Jbbc+V9KF0gwxxdi5xP6?=
+ =?us-ascii?Q?OfJTzPEBpq4UMLvZEpOcRntP8XeqBuaTXrMORDfrzIzAkMPSZS3ZKBHQWbst?=
+ =?us-ascii?Q?AQLrto/+xW+iZ4aFG5/vyVwR2rqNrxL+DW/isULyWyQy30NRA7Uc00VAg4v9?=
+ =?us-ascii?Q?0aGpO13heN+ZSjmn2nY1f2jGXlk4j8aEgmnkqVwjxrjzPdOGMo7eiq/lBtqz?=
+ =?us-ascii?Q?3iqeJg8SnDmD1mIAn6OaacfI/Tgf1GtRTeJlQVnkIhsNQTIWHsjZpU7JirJa?=
+ =?us-ascii?Q?hqWt7GILqf+izsNOcQYZCGywYItkWDv/Nj/eS2c/TZcj+9qV+4/3aCxJtBRm?=
+ =?us-ascii?Q?aFjrZI0/+wXhA3JbrogbfwTVoRF+gddtvm7UZJVw1RFB+QwXFT+EIIrcTc1N?=
+ =?us-ascii?Q?kTQCfqtri8lV1fMvzyfEy4/R0hvyv6Ny1um9aN3L6IfECbMQbwpVSNhqWosh?=
+ =?us-ascii?Q?DEA7mQH17SYgkCVyRqxyR5rc8qGA+zAZLVzWKjXh3GIj47XvPDQsA1inRLRm?=
+ =?us-ascii?Q?jmLSjzVaWu8XLQo4DhnW2BO8gljiAEUncRGV0EsKCpqM8SoZ4LSBREVRjs1v?=
+ =?us-ascii?Q?eyUBMdUbvEmj/+BAqvIHWeFz5t8Dpib6V/3uO4uAoS568MOFbko/cAIx3rrX?=
+ =?us-ascii?Q?eDZZjKZfO4sihk90Lp619uIFuZee2pxPM5ceCT1Llp/ghzvXXoy4RuLMUyDs?=
+ =?us-ascii?Q?gP5s8H9gnBkahsedpDZf/QUmySmkGiBjcW0XBOmbIAJC5gKlDh+WjGMy5wtw?=
+ =?us-ascii?Q?rzrGJlIF6w=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB11332.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5346d15d-b74d-4e82-039e-08df3be8d6d0
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Nov 2026 09:32:13.1372
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Pt+c0LrjnWzBF7xTLVjI08kQYszRvOTHrXUSyQzRibstPBG68sRcJKXzHUB2HoupPkKhV6ZRsTpdj02rqSgPbs0HVT8QuKdXHFX0rFSYULM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS9PR01MB17954
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_012645_286318_F29D0A12 
-X-CRM114-Status: GOOD (  11.35  )
-X-Spam-Score: -2.8 (--)
+X-CRM114-CacheID: sfid-20261106_093226_759817_B1EFEA92 
+X-CRM114-Status: GOOD (  20.30  )
+X-Spam-Score: -0.2 (/)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,45 +168,72 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-When the ITT pool has no room, itt_alloc_pool() grows it by a page and
-retries. gen_pool_add() fails when it cannot allocate its chunk
-descriptor, but its return is ignored, so the page is leaked and the
-retry allocates another page to leak, until an add succeeds or a page
-allocation fails.
+Hi Geert,
 
-Free the page and fail the allocation instead.
+> -----Original Message-----
+> From: Geert Uytterhoeven <geert+renesas@glider.be>
+> Sent: 29 October 2026 13:11
+> Subject: [PATCH 3/9] can: rcar_canfd: Make clkp local
+>=20
+> The peripheral clock is only used in rcar_canfd_probe(), so convert clkp =
+to a local variable.
+>=20
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-Fixes: b08e2f42e86b5 ("irqchip/gic-v3-its: Share ITS tables with a non-trusted hypervisor")
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- drivers/irqchip/irq-gic-v3-its.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+Reviewed-by: Biju Das <biju.das.jz@bp.renesas.com>
 
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 5c3ab9d30f6af..bdf7c81e60c76 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -276,7 +276,10 @@ static void *itt_alloc_pool(int node, int size)
- 		if (!page)
- 			break;
- 
--		gen_pool_add(itt_pool, (unsigned long)page_address(page), PAGE_SIZE, node);
-+		if (gen_pool_add(itt_pool, (unsigned long)page_address(page), PAGE_SIZE, node)) {
-+			its_free_pages(page_address(page), 0);
-+			break;
-+		}
- 	} while (!addr);
- 
- 	return (void *)addr;
--- 
-2.47.3
+Cheers,
+Biju
+> ---
+>  drivers/net/can/rcar/rcar_canfd.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/net/can/rcar/rcar_canfd.c b/drivers/net/can/rcar/rca=
+r_canfd.c
+> index 74d9ffd2790587b9..9dbe44710dcced80 100644
+> --- a/drivers/net/can/rcar/rcar_canfd.c
+> +++ b/drivers/net/can/rcar/rcar_canfd.c
+> @@ -467,7 +467,6 @@ struct rcar_canfd_global {
+>  	void __iomem *base;		/* Register base address */
+>  	struct rcar_canfd_f_c __iomem *fcbase;
+>  	struct platform_device *pdev;	/* Respective platform device */
+> -	struct clk *clkp;		/* Peripheral clock */
+>  	struct clk *can_clk;		/* fCAN clock */
+>  	struct clk *clk_ram;		/* Clock RAM */
+>  	unsigned long channels_mask;	/* Enabled channels mask */
+> @@ -2111,6 +2110,7 @@ static int rcar_canfd_probe(struct platform_device =
+*pdev)
+>  	bool fdmode =3D true;			/* CAN FD only mode - default */
+>  	char name[9] =3D "channelX";
+>  	u32 ch, fcan_freq;
+> +	struct clk *clkp;
+>  	int i;
+>=20
+>  	info =3D of_device_get_match_data(dev);
+> @@ -2181,9 +2181,9 @@ static int rcar_canfd_probe(struct platform_device =
+*pdev)
+>  				     "failed to get rstc_n\n");
+>=20
+>  	/* Peripheral clock */
+> -	gpriv->clkp =3D devm_clk_get(dev, "fck");
+> -	if (IS_ERR(gpriv->clkp))
+> -		return dev_err_probe(dev, PTR_ERR(gpriv->clkp),
+> +	clkp =3D devm_clk_get(dev, "fck");
+> +	if (IS_ERR(clkp))
+> +		return dev_err_probe(dev, PTR_ERR(clkp),
+>  				     "cannot get peripheral clock\n");
+>=20
+>  	/* fCAN clock: Pick External clock. If not available fallback to
+> --
+> 2.43.0
+>=20
 
 
