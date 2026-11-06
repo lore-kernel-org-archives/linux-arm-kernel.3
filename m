@@ -2,77 +2,155 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6534C606A326
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 09:11:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8900C606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 09:12:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nB5MZk0A;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=jfUMs0uH
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=cSyknxgV;
+	dkim=pass (2048-bit key, unprotected) header.d=OUTLOOK.DE header.i=@OUTLOOK.DE header.a=rsa-sha256 header.s=selector1 header.b=E/re2+b3
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=qTD9uv7EbNta/9xuGWhItT6sXbpcUOA9/0K6CzF3X6A=; b=nB5MZk0ADdooKZ
-	HiBJegoaZlWQVjLvpa7YVyMtVPUiKgSm7vX6Aj1pl9L2dDp+cVdc45d8aGblA0KO5fh8EaABtrc75
-	qx8liEVzbfrbP4TnCvTMqpFS1aHCvCWCd9KutzWXIpOFLSp83D/BQ7QLeqXW6xac3Dty42vSbBYXY
-	rj4rs8vqEw+XZZw1w/GhGWXMqsKU//YelTZKU1mxyv2UB5H4DOUfvryq/XPzmHdCIAFvX1it9Jzy/
-	zBc+FFrH25tnhfnyWaRiwKk7LjrZ6wH01fDECrENqm0iGz8pz1CD2ilBhSSeilrNMgmCoZtXY4eDi
-	U8ShCBkMbgP1NKCYCnfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=sDhiS7xS9funjGrur12HNFKN/aC0zima1JjQpE/vZ74=; b=cSyknxgVyFQOIOzUpwIbLDNpTY
+	cXxKkuVxsF1k691K6M5gLQdOi6MGTqxOOz7GtCApl5kSnsDvYTw4N53Gmvayd6PD/2SAwC2iWYIvp
+	76RCqgbcQDLHB7rkZUL/Ot7XuAJfJMvcYPG/xCyb9/v5iyLNdLjnCMwMD+VyVky3bFV/RWLGVYfoP
+	b/OYhn3vKkZtrxA+b/ShM2MILzO6/TwGuBUbWqd0OsrwqrTrgvn2FCL9Q64cesUxpzj1RdSoxz1kt
+	AgOQPe74unNsFX5QbhEZX9oU1RzERrvjf0Gof/5Jsv4sK2AWv2Q17ElpYeHBVJKI1fQFxZKAWTXdw
+	CZR1k6Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPFtk-0000000Beu5-17k8;
-	Fri, 06 Nov 2026 09:06:12 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1xPFzv-0000000BfjB-1VmM;
+	Fri, 06 Nov 2026 09:12:35 +0000
+Received: from mail-northeuropeazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d200::] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPFth-0000000BerC-1shh
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 09:06:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=qT
-	D9uv7EbNta/9xuGWhItT6sXbpcUOA9/0K6CzF3X6A=; b=jfUMs0uHqVnMRPmIXI
-	rGruasEtBdE7RyTCNcfGyDXKpX/rWPcFcectzerj2WChz1HEGJTzQm69V14kFdjI
-	vn+GpcFH83BPK6T+pkf5kYl1H8NVcA2i1D/aBxbwKziCmcpanVKlUPoo9Pjn5yUf
-	FvuhoSTmgD5R4qrk3gLfpf+D8=
-Received: from 4CV529F122.company.local (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD3_7hJmO1qqwdQFQ--.15084S3;
-	Fri, 06 Nov 2026 17:05:33 +0800 (CST)
-From: Ding Hui <dinghui1111@163.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	netdev@vger.kernel.org (open list:STMMAC ETHERNET DRIVER),
-	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: dinghui@lixiang.com,
-	xiasanbo@lixiang.com,
-	yangchen11@lixiang.com,
-	liuxuanjun@lixiang.com
-Subject: [PATCH net-next v6 RESEND 1/4] net: stmmac: guard against NULL pointers when freeing TX/RX buffers
-Date: Fri,  6 Nov 2026 17:05:03 +0800
-Message-Id: <20261106090507.1020751-2-dinghui1111@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261106090507.1020751-1-dinghui1111@163.com>
-References: <20261106090507.1020751-1-dinghui1111@163.com>
+	id 1xPFzt-0000000Bfii-28UJ;
+	Fri, 06 Nov 2026 09:12:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=J+iIqVz6g51+f1j4QdBssYT13V9Yz2EE586tHUki2Q6CZ5ScPIx3lN0zf7/TeGvC9UTQDbFOz+0lZCk158WCURj1WqEX36wvYUjNyCHwNsOqWIic/2aPXUGoXFKyBZoQhs5pxjX60J8tT8AG5IwwNtQ5fqiOZyd9fT61L4RkdDFMcJLKpbZOIjLCZO7MZHz7Dwqq0EK4LS/AxEjTNUCgwpKorswfDC3KVpoHiIk2pNXtNv1BG9tN4DeC2EKLx6SsSUwnGcjK0YHxQ3qeDOdv4FLnPiCXvOzmt3hp60XuH+6buXj9ocjPvl9PtJnrr8axnT54NL6l5bVuIhBQAd7HwA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sDhiS7xS9funjGrur12HNFKN/aC0zima1JjQpE/vZ74=;
+ b=V+qs30sHI9plmhffpU4HJ+MiVrXL/wAQfD+YyWb7jjX9NRY6OzCvWx71nZHpYxyIBySii6WQa10Bqud5EVUff9PtfZnOySYnGSPeHP1ozT8lxzt7m9XUvjbzgbOhrv4aEYeWHMkXqJ41cySUXbLw5oEOAebB7zAlAVrS7GwP0mAU/PrIQiY/O11yZqnImJH7sILZuw5PCN5K7SwN+2l27hx8h9uA5njK16BjWTyFegiZcTh0kKeRwB5f1WsUAq2AnLhF95oHbW4AmhmmHcqcTAR6VGKGUkHSBeUTaBhtUrdqfRjYouysTemT+/e5nOglRw33EvQtwpR28L6y9Kst1Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=OUTLOOK.DE;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sDhiS7xS9funjGrur12HNFKN/aC0zima1JjQpE/vZ74=;
+ b=E/re2+b3Ef64id4PLuQ9MMQT8b7wzs70XtvaUOYC80wkCKeNDLv8pcMCjoYvJVHZtZ5fk2d4wgUHgJ+nfF+CFhn4NwRUipHtQ9bAqXKOXoS9EhgGCj0xPcoLWOcmIdJxSnjE8BZeg90Yt1jy//Yq9twD0aIQw/Z8oVGNXMi1VERS2HRuh1dQPU3r2/N1h1qkFHR4kXv84q36ruXO81R1uoz49oZYfXmsbhuaEtDDXcTSdj4/QwMzPPGjJGTwvWBbPFgH0ubLD52HWhp+wDtSSFgWWDHL7uUdVdaks8hWEIze9i1N/6HapOrwCal/KFWpw2RnxUimzM24HjqcZa4rSA==
+Received: from MMZPR08MB549315.eurprd08.prod.outlook.com
+ (2603:10a6:190:28::19) by GV2PR08MB440688.eurprd08.prod.outlook.com
+ (2603:10a6:150:38d::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.11; Fri, 6 Nov
+ 2026 09:12:28 +0000
+Received: from MMZPR08MB549315.eurprd08.prod.outlook.com
+ ([fe80::21ab:3314:172:c7e5]) by MMZPR08MB549315.eurprd08.prod.outlook.com
+ ([fe80::21ab:3314:172:c7e5%5]) with mapi id 15.21.0592.009; Fri, 6 Nov 2026
+ 09:12:28 +0000
+Message-ID: <MMZPR08MB549315FD98A6FE5E44C863F6E1DF762@MMZPR08MB549315.eurprd08.prod.outlook.com>
+Date: Fri, 6 Nov 2026 10:12:25 +0100
+User-Agent: Mozilla Thunderbird
+From: =?UTF-8?Q?Christain_Stefan_K=C3=B6ver-Draxl?= <ckoever@outlook.de>
+Subject: Re: [PATCH 2/2] media: rc: meson-ir: allow the receiver to wake the
+ system
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, neil.armstrong@linaro.org, khilman@baylibre.com,
+ jbrunet@baylibre.com, sean@mess.org, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261025192320.209446-1-christian.koever-draxl@student.uibk.ac.at>
+ <20261025192320.209446-3-christian.koever-draxl@student.uibk.ac.at>
+ <CAFBinCAaV0WEsO1oNF6q1t1hLF7oeO4oEpJQY_vHXvuQbWA47w@mail.gmail.com>
+Content-Language: en-US
+In-Reply-To: <CAFBinCAaV0WEsO1oNF6q1t1hLF7oeO4oEpJQY_vHXvuQbWA47w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: VI1PR07CA0135.eurprd07.prod.outlook.com
+ (2603:10a6:802:16::22) To MMZPR08MB549315.eurprd08.prod.outlook.com
+ (2603:10a6:190:28::19)
+X-Microsoft-Original-Message-ID: <43ee7829-f7dd-402d-8f3c-e636cf7e58d0@outlook.de>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3_7hJmO1qqwdQFQ--.15084S3
-X-Coremail-Antispam: 1Uf129KBjvJXoWxCF43GF4fXw4xurWfuF1Utrb_yoWrur1rpr
-	srC3yvy34UtrnxGa1DJr48Xa45Jayrtr4YgayfKwnxZF1akryIgF45AryUCrykCrWkuF1f
-	KrZ8C3Z8Ar18JrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jw73gUUUUU=
-X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC0R1Tf2rtmF1QTwAA39
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MMZPR08MB549315:EE_|GV2PR08MB440688:EE_
+X-MS-Office365-Filtering-Correlation-Id: bee57b92-5b64-479e-d4a1-08df3be61446
+X-Microsoft-Antispam: BCL:0;ARA:14566002|6090799003|16051099003|19110799012|8060799015|15080799012|23021999003|19101099003|51005399006|4140399003|25010399006|5072599009|40105399003|440099028|3412199025;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VUpmOHdpTVFIcUkxT3F5cy9IcFlSVkNCU1VnZzUwTE9yUDNLNy9wamE2T3Fz?=
+ =?utf-8?B?NUpGSDVITTFscFdTMGIrNy9pOE9aZHAzWTh3RklvUVBWd1lUN2E2cnhZL2Fi?=
+ =?utf-8?B?bHdrSFBLTkxvSWc2bjl3YklJL0lzOGxYRUZXdXd0MDQyYUxaaFBnaVlBNDZG?=
+ =?utf-8?B?bmVQYTdxRzZDVitXMHFEN2pMWFZUTkVYaTFmSkVxa3FmTjBaYUpDTzl6aTVH?=
+ =?utf-8?B?UVU5MGlkWnNaMHJlN3BtNjFQd0hubGZDck1MWnJiV3J0c0dNeFozYmo3SFRt?=
+ =?utf-8?B?Zk9KcERrczhZcTJoRGlGZWRMdVQxNkc1RGw1Uk8zYmxtc1p4ZDBXYlBrQ01K?=
+ =?utf-8?B?akU2Ump3TVgrc2o1YmFNUC9oZVlCbFMrZmFoN3BXQXgzOW0yT3Q5Y3A0ekVn?=
+ =?utf-8?B?SXE0NERHZzY0MkFFQzh2Q0xGS0lmZkxjWjJJK01mdEp1QzF0M2VoNko2dE1M?=
+ =?utf-8?B?Z2RJYW1saXVLWWFINGFTQXZZUFppMzFNaklQRWNHRkVTU1h5OGJ6WGRTTkxn?=
+ =?utf-8?B?QUR1Z0t0SUJnOTZkVkVSdlp1L0tiWHp3VVpWWTBjd09DdDRwdTRYM09waHVK?=
+ =?utf-8?B?QUIwWWhsOVhTRjZaSFZKa0tPZUt5alQ0Q1hNcHYvNVc3clFmdDIvTm55TjdZ?=
+ =?utf-8?B?dHR1U3MzL0dWUzloWXBTcmk3ZDF3MnlRN1dWWkhXSGQ4ZEVtOVIwd2pOUXFn?=
+ =?utf-8?B?UEJwRnF3VGRsN3F0S2xxY2dHWW5tc3I4dytXLzlyYjg4UHlSM2YyWUFaNVNq?=
+ =?utf-8?B?UlU1ZU1uQUdVTUQyN2pjcDJEeUIzY0JucnFJd2lzWjJCVGhqTjMxa1BKNlVI?=
+ =?utf-8?B?UDNoQ3hGOFBtWjBIWlFUenloZVRNbm1qQTNYYjAzOEpGczdBeEkyZGVyQ2Rl?=
+ =?utf-8?B?M3I5VHJnSzBEczRjM0ZHTnZwaXUwQ2t2L01Eck1JOVJ1SDR2VkNzV3dRL05U?=
+ =?utf-8?B?bXlCdStlWjRza3hKSVhCSlBKK0VaZFRlZG1ZOGFsYzU5V2VMNlZyVWhqa005?=
+ =?utf-8?B?WUJBR25kT3BoTnBQb1psdXlpVEVPVlNLRGUxZ0lWYVVmcUt1YjFxUDhBS3RK?=
+ =?utf-8?B?eFM1TE5zUXhUdXh6S243c3NsQnVNNVVIUXBsaUNzVUZkMklBYjNkL0xUWHk3?=
+ =?utf-8?B?bk16aGNLeGRUanhmbGlCWXBTbGlIdU5pOTFtdU82b2ZqYXlnd1I2VlhIaUgr?=
+ =?utf-8?B?QlJYUVM1dFNkdHkvN1ppV1Fyb09MYU4yMmswb2NQenRNNlg5Yy9QREhLSnNU?=
+ =?utf-8?B?SHNOdWdPdUpubzhDdC9TdSs1R0dMRFQ3SzdCc2RCa1pjR2c0V3pCWTZxMVM1?=
+ =?utf-8?Q?pdF5RhaapwoAPAoS2uIxF1SoqXIpMnlOwh?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TU56a3I1WUFIUHorL2dYaTBUOWpTM1hyN1UxcG90cURnY3ZIRk1QMDd5RHJ5?=
+ =?utf-8?B?Z2dDWE5jdUVGTFNuOStnR3JXNUttUUd1WUpxWU9PUW9yeUYzOUg5SkZxOE9O?=
+ =?utf-8?B?eWQ5QXFidXhlVHk3eGh2VHZMNHVQbHllTjBxMnYvcy9wS2dkZEdhZndTaGpN?=
+ =?utf-8?B?NVlNdVRYME9QZEhqcjR1Szh1RXhLdnJJYWdNTFgxY2VhVDhIdmZPclo0eWh0?=
+ =?utf-8?B?TWtZL2JqUjlDdE14TTR1cWpKQldabTlBTUgwZ1cvTENQNERRdnRCQUhiTjZN?=
+ =?utf-8?B?OHl4Q01ZOENYTjRWeExsNUx4cW1DNkJ0d0pFR1RvaW9rUTh0NGhRVTFPZTVB?=
+ =?utf-8?B?Q3VpRDkzVjI1M3NDYWRTdUFXNVJEQ3BLUko4YTE3ci9PbnM2M3h6d0IraFov?=
+ =?utf-8?B?c1ZnZ3NwMHQvMnp1WEN3anh5VGlPaUJ0TldFVW1vOU9qTm4zdTNoS2xOZWJp?=
+ =?utf-8?B?SjlJdzBRV2VlSHQzcDFqYWsvdkNqVTEzQVI4bVNEQUNOOTNiZE9hWFdKRFl4?=
+ =?utf-8?B?ak4xK21VNDhBbXJmZXhOcnk2aDlSa1BuaHBWVmlablU4cjFPSnBTWnIvNTNE?=
+ =?utf-8?B?ejNuSTJpS2pLM0p5ZVJoK2JNdGwzNERmb01BTm5aTkNxT0ZpSEVvclF4VTdF?=
+ =?utf-8?B?bUlTMndSaU9nMjBxY3J3ejViNjlZSE85aDRoaEFqZk53SUNoRENJRjI3bHZx?=
+ =?utf-8?B?NzVvdGRFL2RISkVqUzhYS0poL3ZqTWZhU0hJUXFaeTI0dm5pTXhPbHlXbVlN?=
+ =?utf-8?B?ckRzOUdpK3dRSHlhampkNkJJZ1p6Z2ZaQ2NncnYyQklqdk5sM09JWlgzYUNL?=
+ =?utf-8?B?RGlVby9qVnZLZFpsYko4MFZJWjRidXpMY0JoWEtRVlRIUDFqUE9iaDJTTzFE?=
+ =?utf-8?B?Nis4eW1HVk43dk8zemxUYllVZUYyRHl4QW9JcXV2U2JMMzNvcEZVL2lHVTF3?=
+ =?utf-8?B?NFU5S2gxWHpjUDBhSGplaXlDY29MY0NwMTFYSE1uYkdRYmRXYkQ5UnRGT1dC?=
+ =?utf-8?B?YzhvV0Z3Z2UyZnF2MDRLOHlSTkR0MjRMdWlxMXRhcmtmcWYvRkpNSVUrYnZ2?=
+ =?utf-8?B?VlBjS000V1h0eXBjTFlRYUQ4eHplN2tCamh6QXQrZmtRQjlpSThTZFVRKzNU?=
+ =?utf-8?B?YmNIQURlNnoxKzZTRmpHcVJrYnRFcTJZR3lnS1lDdzYwK3NKZ1pHR1paVXpw?=
+ =?utf-8?B?TWExS0JHVms3a0cwMU9lajVTbDhra3ZJM2lKbFprSGRpY3Mzb3I0RitiaEZn?=
+ =?utf-8?B?RGdQeDJub3hVSzNPODB5OUxnOE11L0tXd1ZDTkt0SFJpSVlOY2g0MDJyakc5?=
+ =?utf-8?B?S091bjVTSnZPRGwrekY2cjI0RE5Qd2N5VUU2NE12YmpCbGxPcXNhalZFQy8v?=
+ =?utf-8?B?dkJtSHEzdmRrUzVjWVRoUmZBU281M2YyR3ptMk9KVC9oSXlkMzJJRVliY0xH?=
+ =?utf-8?B?Z2lUM1NsNTJ6dmR0MDFKWFJobjBxSlVMM1R2aERFbTVYTmxob0FIdDE0TWR2?=
+ =?utf-8?B?TjJ4cXhIN1EzUFpLalZoVmx6VlJGOXFBNzlneWZqMTZWMDQ2OTh3dEFFdU9S?=
+ =?utf-8?B?ODVVSU45aEZsUCtJc0s4NTYrRkpSQVl6K3pJQkdhUGdnWDhEUmtHa1QxeGgr?=
+ =?utf-8?B?M3pDUFA3bm5Ld2htNUJ4YUpWSDY4aDRxbkV2K0dnV3BFS0FhYTYwVFlyaGtT?=
+ =?utf-8?B?dlhwb2FaNzVCQ0FZVnJGVC9yQy82OSt4aWdybGVIbjNpWEVDMFZxOGpqTGJC?=
+ =?utf-8?B?MnBpSDUxd01MQURDai9DUDg4VG85RjYvak1wMHEwVUk1VDRNYVhBSGhiSUpN?=
+ =?utf-8?B?cUZhYWRuK0kwN3QyaGxTZjdXR1BiWlB2Y01CeWp1MHZ1OHNpSGU0eCtuQmJB?=
+ =?utf-8?Q?T5egyUn4IA+SN?=
+X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-fbb9b.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: bee57b92-5b64-479e-d4a1-08df3be61446
+X-MS-Exchange-CrossTenant-AuthSource: MMZPR08MB549315.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2026 09:12:28.0219
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB440688
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_010609_804902_12FE63EA 
-X-CRM114-Status: GOOD (  15.23  )
-X-Spam-Score: -1.8 (-)
+X-CRM114-CacheID: sfid-20261106_011233_560591_7A15B7D9 
+X-CRM114-Status: GOOD (  11.46  )
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,139 +161,38 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+X-Spam-Status: No, score=-4.3 required=3.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=4.0.1
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Ding Hui <dinghui@lixiang.com>
+On 11/2/26 00:01, Martin Blumenstingl wrote:
+> Can you help me out with better understanding: is the firmware
+> involved in suspend or is this CPU core idle state suspend (meaning:
+> firmware is not involved)?
 
-The DMA resource free helpers may be invoked on queues whose buffers
-were never allocated:
+Hi Martin,
 
-  - dma_free_rx_skbufs() and dma_free_rx_xskbufs() dereference
-    rx_q->buf_pool[i] via stmmac_free_rx_buffer(), but buf_pool may
-    be NULL if its kzalloc_objs() failed.
+yes the commit message is a bit misleading.
 
-  - dma_free_tx_skbufs() dereferences tx_q->tx_skbuff_dma[i] via
-    stmmac_free_tx_buffer(), but tx_skbuff_dma may be NULL if its
-    kzalloc_objs() failed.
+For suspend to RAM ("mem") the firmware is involved: Linux calls PSCI 
+SYSTEM_SUSPEND, BL31 puts the DDR into self-refresh and turns vdd_cpu 
+off, and the always-on firmware runs its own IR decoder. It wakes the 
+board only on the remote's power key code and reports the wake reason on 
+the serial console. That wake does not need this patch at all.
 
-  - stmmac_free_tx_buffer() dereferences tx_q->xdpf[i] and
-    tx_q->tx_skbuff[i] (aliased through a union), but tx_skbuff may
-    be NULL if its allocation failed while tx_skbuff_dma succeeded.
+The patch is for s2idle ("freeze"), where the firmware is not involved 
+and only Linux interrupts can wake the CPUs. There the meson-ir 
+interrupt has to be a wake interrupt and the decoder has to stay 
+powered, which is what the patch does.
 
-Add NULL checks in the free helpers as a defensive measure, since they may
-be called on partially-initialized queues.
-Additionally, make __free_dma_rx_desc_resources() and
-__free_dma_tx_desc_resources() clear the pointers they free, so that
-the NULL guards in the free helpers hold reliably when the long-lived
-priv->dma_conf is reused across XDP open/release cycles.
+I tested it with suspend to RAM, which proved nothing for this patch. I 
+will test s2idle with and without the patch and, if it holds up, send a 
+v2 that says it is about s2idle; otherwise I will drop it.
 
-Signed-off-by: Ding Hui <dinghui@lixiang.com>
----
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 32 +++++++++++++++++--
- 1 file changed, 29 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index b20e5038eead..2f03600cc5bd 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1766,7 +1766,7 @@ static void stmmac_free_tx_buffer(struct stmmac_priv *priv,
- 					 DMA_TO_DEVICE);
- 	}
- 
--	if (tx_q->xdpf[i] &&
-+	if (tx_q->xdpf && tx_q->xdpf[i] &&
- 	    (tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_XDP_TX ||
- 	     tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_XDP_NDO)) {
- 		xdp_return_frame(tx_q->xdpf[i]);
-@@ -1778,7 +1778,7 @@ static void stmmac_free_tx_buffer(struct stmmac_priv *priv,
- 		tx_q->tx_skbuff_dma[i].buf_type = STMMAC_TXBUF_T_SKB;
- 	}
- 
--	if (tx_q->tx_skbuff[i] &&
-+	if (tx_q->tx_skbuff && tx_q->tx_skbuff[i] &&
- 	    tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_SKB) {
- 		dev_kfree_skb_any(tx_q->tx_skbuff[i]);
- 		tx_q->tx_skbuff[i] = NULL;
-@@ -1801,6 +1801,10 @@ static void dma_free_rx_skbufs(struct stmmac_priv *priv,
- 	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
- 	int i;
- 
-+	/* buf_pool may not be allocated if alloc failed early */
-+	if (!rx_q->buf_pool)
-+		return;
-+
- 	for (i = 0; i < dma_conf->dma_rx_size; i++)
- 		stmmac_free_rx_buffer(priv, rx_q, i);
- }
-@@ -1842,6 +1846,10 @@ static void dma_free_rx_xskbufs(struct stmmac_priv *priv,
- 	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
- 	int i;
- 
-+	/* buf_pool may not be allocated if alloc failed early */
-+	if (!rx_q->buf_pool)
-+		return;
-+
- 	for (i = 0; i < dma_conf->dma_rx_size; i++) {
- 		struct stmmac_rx_buffer *buf = &rx_q->buf_pool[i];
- 
-@@ -2137,6 +2145,10 @@ static void dma_free_tx_skbufs(struct stmmac_priv *priv,
- 	struct stmmac_tx_queue *tx_q = &dma_conf->tx_queue[queue];
- 	int i;
- 
-+	/* tx_skbuff_dma may not be allocated if alloc failed early */
-+	if (!tx_q->tx_skbuff_dma)
-+		return;
-+
- 	tx_q->xsk_frames_done = 0;
- 
- 	for (i = 0; i < dma_conf->dma_tx_size; i++)
-@@ -2194,13 +2206,20 @@ static void __free_dma_rx_desc_resources(struct stmmac_priv *priv,
- 	size = stmmac_get_rx_desc_size(priv) * dma_conf->dma_rx_size;
- 
- 	dma_free_coherent(priv->device, size, addr, rx_q->dma_rx_phy);
-+	rx_q->dma_erx = NULL;
-+	rx_q->dma_rx = NULL;
-+	rx_q->dma_rx_phy = 0;
- 
- 	if (xdp_rxq_info_is_reg(&rx_q->xdp_rxq))
- 		xdp_rxq_info_unreg(&rx_q->xdp_rxq);
- 
- 	kfree(rx_q->buf_pool);
--	if (rx_q->page_pool)
-+	rx_q->buf_pool = NULL;
-+
-+	if (rx_q->page_pool) {
- 		page_pool_destroy(rx_q->page_pool);
-+		rx_q->page_pool = NULL;
-+	}
- }
- 
- static void free_dma_rx_desc_resources(struct stmmac_priv *priv,
-@@ -2242,9 +2261,16 @@ static void __free_dma_tx_desc_resources(struct stmmac_priv *priv,
- 	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
- 
- 	dma_free_coherent(priv->device, size, addr, tx_q->dma_tx_phy);
-+	tx_q->dma_etx = NULL;
-+	tx_q->dma_entx = NULL;
-+	tx_q->dma_tx = NULL;
-+	tx_q->dma_tx_phy = 0;
- 
- 	kfree(tx_q->tx_skbuff_dma);
-+	tx_q->tx_skbuff_dma = NULL;
-+
- 	kfree(tx_q->tx_skbuff);
-+	tx_q->tx_skbuff = NULL;
- }
- 
- static void free_dma_tx_desc_resources(struct stmmac_priv *priv,
--- 
-2.34.1
-
+Kind regards,
+Christian K.-D.
 
