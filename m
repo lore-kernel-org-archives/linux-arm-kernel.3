@@ -2,60 +2,118 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80555606A32C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 08:09:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09A8E606A329
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 08:17:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=gsmV1XLQ;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=nyKGNyB1
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=JAj64ryV
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Unsubscribe-Post:List-Owner;
-	bh=CHrI1kjHp/5iGoHZkZHTx8sVaxFMZq6Cnqe7sXoFPl4=; b=gsmV1XLQtDF1NsflqFbd4koZe1
-	aLGD3vF+ThaLxGDaudTBcpORoRFWLjXDPujiGOJPDv2Et47pkE/CVtlWBXb5Zxs4CDnPf4fF5S7i+
-	Jwgf75PM3n6pW69NsRrPrjz+rC+kMmrRSmOpcOP89mGAgSUtyviIHC/Rwb9zP+Rq4VTPpK2oKNzyM
-	tQaYqRl4Pi9LYlG+Eipbcy9N8Ni34UpglUP2v8QQWiFghxOU9+zEFhRWM5mxSide3oc0xDGnlrpO8
-	rDOsG0LuuNT6Q7hI5QqKLa/M/8vhBSZp0jQWgnloaaFSCJYnIsNjiD0grjdfnjQbpfFfZuzRvRwfM
-	lC2g9BIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
+	List-Owner; bh=ni+CfVrV5EAINJXBPy7UDKr3UD6DUbF6aBcKCi8Dt2w=; b=JAj64ryVW7FC2J
+	VhQpHuf1mfp0ARjYxhVCPq6/1h2b1JW/xNYTO4iQYkFPw/0/kWNx5yLtOxsJI38mAr9f/fLX5BEJm
+	vo9zE0LoBHnFGveJ4VmZYyhj8+Mig/1fuPECf45s03Z8iXvGTl1Ng8I0okX9K4H0VcTdr6P3qjCdr
+	M2W2JRQUY7mqf9J08elE6WbIPQ9q9/EqSLTE+VVn/hB7yG1ubY0BRFZwZvT8OUYUaMDU6sFrteLq9
+	z0yJV2Tvlr8TdJX1HiPhB6iAeVr2P4eLdgjVZeyczwwgiwXF/T6hZhC4h0GtIMYvFBOzgBULxSQZp
+	VNZMjWIrGXhglKpsTLWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPF12-0000000BWh6-3Yyb;
-	Fri, 06 Nov 2026 08:09:40 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1xPF8W-0000000BX2U-3iOJ;
+	Fri, 06 Nov 2026 08:17:24 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPF10-0000000BWfw-0CNe;
-	Fri, 06 Nov 2026 08:09:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=CHrI1kjHp/5iGoHZkZHTx8sVaxFMZq6Cnqe7sXoFPl4=; b=nyKGNyB1GN6bxn4Vmwjn3rF3UC
-	+S8e/L/utkMkZDWQB31Si0I9y2MoS9aqjmU0uqp4avOKj855x9tM96oti7qTMCttyqW2YCf3oNTTQ
-	XtOiVdPRnJUSuPtzt3+81bNXLLSfJYw2oM69FTSKx1A1Mu2MK/Qud1sdG97DC7e+8dzaB7hKYSHQA
-	ZtK85bgLt0fQ46ldrAbI4dWVGfomHEYciJPMfriFCLE2SkMkuEZ3PJh+712CrwsWCKQsbnSH7Q2uz
-	IWQHV8KK4ncTo3QbYNe2guilYO+4veWMqUbly7fXO5B3W+rLAu7PvrBYp4xwqc4P5BbI4PMH8G63s
-	FFUKU4Qg==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Yaozhong Li <yaozhonguwl@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>,
- Jonas Karlman <jonas@kwiboo.se>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Yaozhong Li <yaozhonguwl@gmail.com>
-Subject: Re: [PATCH v3] arm64: dts: rockchip: enable SD UHS-I on Firefly-RK3399
-Date: Fri, 06 Nov 2026 09:09:30 +0100
-Message-ID: <6900453.LvFx2qVVIh@diego>
-In-Reply-To: <20261106061835.1316-1-yaozhonguwl@gmail.com>
-References: <20261106061835.1316-1-yaozhonguwl@gmail.com>
+	id 1xPF8T-0000000BX1p-2vRO
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Nov 2026 08:17:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mWuRAohTbzEjj+PgTKKJzHbSIdYqTi9A9IJaEEBE4PlsIHxMBC59AJLJUa9MIpMLfWgaBvi36g+UScR2Zpl0csLMVju8ub1AV1XwrY3xv3gYdcfFCYiS0Ep53D0QUIFrnNCwfNUXEmLayiHmArFUMzDBRWn1odJIvTGTbDnxXrD3FiKY3/TI14aUSyzs5rV++/Q7AReJYN97K+Nv7KVYXmnKVUtc7nRNa1jwtSwhXwyp3nYyuhVF3RZTAam0mwvfncgyUs/5nzbut3W5LNrovj9GJMb+JghAY4RxaEjfZK42CFGA3NXx3OK1a5482afAl+/IXnMwtDZnBhFpaD2rlA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ni+CfVrV5EAINJXBPy7UDKr3UD6DUbF6aBcKCi8Dt2w=;
+ b=m73RiscCXQaBWPbN5Y8vB4+B89nMNvcb4bJFicN/SMqJDnT7+NPKFnAYJL8zu1CGtpb/ZFm7rmAmfQlld/eO+nhM3Id38H/RdJvA7AOFPt4xiUnE+iESO5vmZcjdzqphzh5ioO4U1Cri5aqtcssIpHP2oTacfYRed/p55STbQKMtr0bsvPGVuQDLjOf7tXFRR1SldJvxE+bYZIHK6YT/eQop7qxx+A+1xdRAl0cFCBUQvPjT1oOXDI9MbtDM9ieFjWTes+9y90zP/z4lUWKezLBvLkjBeO+gBnXewkvFz2NGxRHOTwh8si9HVfxhIdGOqChSCdTCvSlooZOq2S2Lhw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cadence.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from JH0PR01CA0002.apcprd01.prod.exchangelabs.com
+ (2603:1096:990:56::11) by TY1PPF19F8E0514.apcprd06.prod.outlook.com
+ (2603:1096:408::908) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.8; Fri, 6 Nov 2026
+ 08:17:13 +0000
+Received: from OSA0EPF000000C8.apcprd02.prod.outlook.com
+ (2603:1096:990:56:cafe::b) by JH0PR01CA0002.outlook.office365.com
+ (2603:1096:990:56::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.10 via Frontend Transport; Fri, 6
+ Nov 2026 08:17:12 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000C8.mail.protection.outlook.com (10.167.240.54) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Fri, 6 Nov 2026 08:17:11 +0000
+Received: from hongliang-System-Product-Name (unknown [172.20.64.180])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id CCB8F4102E60;
+	Fri,  6 Nov 2026 16:17:09 +0800 (CST)
+From: Hongliang Yang <hongliang.yang@cixtech.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Peter Chen <peter.chen@kernel.org>,
+	Pawel Laszczak <pawell@cadence.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Hongliang Yang <hongliang.yang@cixtech.com>,
+	linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	cix-kernel-upstream@cixtech.com,
+	Gary Yang <gary.yang@cixtech.com>,
+	Fugang Duan <fugang.duan@cixtech.com>
+Subject: Re: [PATCH v6 1/3] dt-bindings: usb: Add CIX Sky1 USBSSP controller
+Date: Fri,  6 Nov 2026 16:17:09 +0800
+Message-ID: <20261106081709.1004397-1-hongliang.yang@cixtech.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <91d67c5d-d125-4834-b0c4-742951c59af8@kernel.org>
+References: <20261105011803.4058557-1-hongliang.yang@cixtech.com> <4d075b70-f2af-4aad-a1d7-cd8ea26387ca@kernel.org> <20261106055050.948470-1-hongliang.yang@cixtech.com> <8ffdf2f9-dd67-419f-83af-8dd4206d54de@kernel.org> <20261106072849.985274-1-hongliang.yang@cixtech.com> <91d67c5d-d125-4834-b0c4-742951c59af8@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000C8:EE_|TY1PPF19F8E0514:EE_
+X-MS-Office365-Filtering-Correlation-Id: 477cdb02-153e-4ffc-581e-08df3bde5bc3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|82310400026|36860700016|4143699003|56012099006|261026121527099003|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: q7J2hEVt8jxIhPcY4QeRyv2AZh/4yM0hpCM9BpmwIBX20ps4pxBJ5OjAeyYnz7XFJuB9FFz0dVhUVbrYk6wvSvxMExSTsH3Z+gbdgcDRC/VxpErckJZ/4oUUuGbbc++c0zMTuZjCewqn6NHcLYO3MjXE26EibH5ql3wg31HyQlr3Su6ZNjxyqt7VvOkDvLGgskZc0S7AtIYsX8hZF2vkPupwlSFCBl4cveAthu6U7oUCIEx3aOMdkc2JEZwdft9T24+dMgy2CQ6ASCJq/6aMu45lTtYExnE5PUzlKtm13cAPdqe5jPo3QtT56pfm3/2tFCZmgfzPGpzZiIPsP7nmoK/8v+Dx6Y3TK8f5QTmzN7bm59yQFLkCbKem5+BJd+nf7KLcKG7Ic1AZcI/cgH+5zEIcFSBzpQ3abz4N15Y+Iffv2fA4SWehmENEZRAXnKto63OUG6A27eEAbJdxo5M5oBXroOreETj6pCdS7ITbF6PsPSCwpPFF0+Q01BEj2zdzQEIPvnZ6E52UVzxgu4Cexw7uBJe90Xxk5h3vZcWvegR664YwjiuohbUpurKVA/A6NqTkCRUaXCZGxf6hvkKCMgcC2LNxaI57pQTXSHEtIkwdCXrM8pSSFieMj6U/TW2nh8jEZPVBhqxizPLpi/NGWR9RSDmvkYktbMbkTocfB9pTjuD5E+ktVa3WSCsqJAZK
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(82310400026)(36860700016)(4143699003)(56012099006)(261026121527099003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: V3BHb0I6FZ+jDeF7iWZU26+pa848wmwjoHqkCPgLfMmE/ifAWb75q7DuDzjYet5ksyWiCIk7t8qsI8Icjw7M4RWKz75a+dKmiB38xsjnFIWbl8WUmg3CxF4DfxBa+LhEDcvKMPNyEVcmoW6fvDFbp/BHVoGpDieTagsAv2hYgAoxdi45tAwE5osLdz9CckPsCqTwgh9XlFqUuJz726AfulxTxsObi1rQpbEeVkgrHBSVcHx8+at8XAiIJlKIg8owMcjUVAWuQt/uFpLfIagswoHabczOPMmkLcDWfG909WUzdpjzRBE8EaK6dm2X44flFd2I6xyAxWOsrgvpHCALGZnv40JO6CvblH7aUmdA4dpXBTFEdGpCbmrPB4dYHryWji5LUQUk8/3Bdm/z4+VdrBlovxlHLgHeZIEibghXK2PiFzkCRSTM8CcBkwDzNT85
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2026 08:17:11.2555
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 477cdb02-153e-4ffc-581e-08df3bde5bc3
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C8.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY1PPF19F8E0514
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_000938_109344_8D4F1A8C 
-X-CRM114-Status: GOOD (  23.00  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20261106_001721_738106_707094BD 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,120 +124,32 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-6.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
+	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-Hi,
+On 06/11/2026 08:39, Krzysztof Kozlowski wrote:
+> You still combine USB with other subsystem. Identify subsystems here,
+> please.
+> 1. USB
+> 2. SoC, no?
+> DTS cannot be placed here.
 
-Am Freitag, 6. November 2026, 07:18:35 Mitteleurop=C3=A4ische Normalzeit sc=
-hrieb Yaozhong Li:
-[...]
-> - Describe the slot's own supply, vcc_sd, and use it as the sdmmc
->   vmmc-supply (Heiko). It is fed from vcc3v3_sys, and GPIO4_D6 controls
->   the slot power switch: holding the pin low leaves the card unpowered.
->   This is the same arrangement as vcc3v0_sd on the ROC-PC. The existing,
->   unreferenced lcd_panel_reset pinctrl entry also names GPIO4_D6; the
->   vendor tree uses the pin only for vcc_sd.
+Yes:
+1. USB - the binding and the glue driver.
+2. SoC - the arm64 device tree.
 
-I you're reading the schematics, this is wrong.
+You are right, the dts does not belong in a USB series. v7 will be the
+two USB patches only:
 
-In the schematics file Shawn linked to earlier (and also the one I have),
-GPIO4_D6 is connected to the reset-pin of an AT18.
+  dt-bindings: usb: Add CIX Sky1 USBSSP controller
+  usb: cdns3: Add CIX Sky1 glue driver
 
-While the vcc3v0_sd is an always on regulator coming from vcc3v3_sys.
-As stated in v2, see page 20 of your schematics.
+and the arm64 dts will be sent separately once the binding is accepted,
+so that it is not mixed into this series and does not hold it up.
 
-So you essentially just set vmmc-supply to vcc3v3_sys. As I said that is
-merely descriptive.
-
-
-Heiko
-
-> - Link to v2: https://lore.kernel.org/all/20261105102556.1365-1-yaozhongu=
-wl@gmail.com/
->=20
-> Changes in v2:
-> - Point the sdio0 vmmc-supply at vcc3v3_sys, the WiFi module's VBAT input,
->   instead of dropping it (Heiko)
-> - Rewrite the commit message (Heiko)
-> - Link to v1: https://lore.kernel.org/all/20260922055011.14972-1-yaozhong=
-uwl@gmail.com/
->=20
-> On the boot-time issue described in v2: with the vmmc-supply in place
-> the sdmmc controller now probes after the GRF io-domain here, and a card
-> present at boot came up in SDR104 in 5 of 5 warm boots, against 0 of 8
-> before. That is a change in probe order rather than a fix for the
-> ordering problem itself.
->=20
->  .../boot/dts/rockchip/rk3399-firefly.dts      | 24 ++++++++++++++++++-
->  1 file changed, 23 insertions(+), 1 deletion(-)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts b/arch/arm64=
-/boot/dts/rockchip/rk3399-firefly.dts
-> index 0568dfa..03858a4 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts
-> @@ -233,6 +233,19 @@ vcc5v0_typec: regulator-vcc5v0-typec {
->  		vin-supply =3D <&vcc_sys>;
->  	};
-> =20
-> +	vcc_sd: regulator-vcc-sd {
-> +		compatible =3D "regulator-fixed";
-> +		enable-active-high;
-> +		gpio =3D <&gpio4 RK_PD6 GPIO_ACTIVE_HIGH>;
-> +		pinctrl-names =3D "default";
-> +		pinctrl-0 =3D <&vcc_sd_en>;
-> +		regulator-name =3D "vcc_sd";
-> +		regulator-boot-on;
-> +		regulator-min-microvolt =3D <3300000>;
-> +		regulator-max-microvolt =3D <3300000>;
-> +		vin-supply =3D <&vcc3v3_sys>;
-> +	};
-> +
->  	vcc_sys: regulator-vcc-sys {
->  		compatible =3D "regulator-fixed";
->  		regulator-name =3D "vcc_sys";
-> @@ -731,6 +744,12 @@ wifi_enable_h: wifi-enable-h {
->  		};
->  	};
-> =20
-> +	sdmmc {
-> +		vcc_sd_en: vcc-sd-en {
-> +			rockchip,pins =3D <4 RK_PD6 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
-> +
->  	usb-typec {
->  		vcc5v0_typec_en: vcc5v0_typec_en {
->  			rockchip,pins =3D <1 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>;
-> @@ -777,7 +796,7 @@ &sdio0 {
-> =20
->  	/* Power supply */
->  	vqmmc-supply =3D <&vcc1v8_s3>;	/* IO line */
-> -	vmmc-supply =3D <&vcc_sdio>;	/* card's power */
-> +	vmmc-supply =3D <&vcc3v3_sys>;	/* card's power */
-> =20
->  	#address-cells =3D <1>;
->  	#size-cells =3D <0>;
-> @@ -804,6 +823,9 @@ &sdmmc {
->  	max-frequency =3D <150000000>;
->  	pinctrl-names =3D "default";
->  	pinctrl-0 =3D <&sdmmc_clk &sdmmc_cmd &sdmmc_bus4>;
-> +	sd-uhs-sdr104;
-> +	vmmc-supply =3D <&vcc_sd>;
-> +	vqmmc-supply =3D <&vcc_sdio>;
->  	status =3D "okay";
->  };
-> =20
->=20
-> base-commit: 940de590b839f71d6dc846160534bf202401b8b7
->=20
-
-
-
-
+Hongliang
 
