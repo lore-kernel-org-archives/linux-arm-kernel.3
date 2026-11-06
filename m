@@ -2,68 +2,122 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48626606D839
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 10:47:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20009606A32C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 10:48:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UmIJliEj;
-	dkim=pass (1024-bit key, unprotected) header.d=student.uibk.ac.at header.i=@student.uibk.ac.at header.a=rsa-sha256 header.s=prod24a header.b=VeSm6fep
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=YfV+JdZv
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Unsubscribe-Post:
-	List-Owner; bh=aDLD52qaM3Fh625QgHrVjo+tYa81+ewXx2Mla/ADdcw=; b=UmIJliEjsBHqib
-	DMvESX7rpRlsLsRKlURlY209wLbqdL375lLIpiR0yRUkVgNwcE398LOG31yuxyun6Ym2buYzlpRpA
-	uVLq1F7mJViUjD4eZf3ZzP0eHiXZbgFXiFks8E74gPA9AkPVGv9MJ79vBOw09J62qlfgqSwmRBagT
-	U5lI62euhMaYxi5QKQs8WndOgFreJszmfcnkfi3xmo6hJCfnV5NTqwKn4qYuBJZBikWV2+BMqGFgA
-	ame1uW1uxfsoKrhnGAep8qwAED3EjD9HeMxjHb2OVehOor33eog2Kv7r2TW3C8udWwdRaKDPAfPEo
-	EStW7UFqwj2pdlDIpeKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Unsubscribe-Post:List-Owner;
+	bh=pGHjZZb01s//+FHZsg85wITdJCCurRihxWUJSHBj4ag=; b=YfV+JdZv0F6fCzkzIAVEeP2/z7
+	ZrDaZYCZHOGwobrAVioeCFKWWjgVigjjci56POj4AfHDSPowOu7MIZ7rbOVttM22nYUx0pcNoqADF
+	devAD6G07Z12LJO9rJqIX5lsWbucwSKJS2DwWXtcNYjE519dGZa9iSOq3CacpWabAEuDUpCY+QFkR
+	oRSp5wgm42TtWqdDhrWIXfK7zZ5ey8tzb66LQewli6fs0E9oaKuxPCytiP+wQTjbSXfPqrb+szrhD
+	5WEL01tvrRt8yyXx3wWVkmq5O4PKsC02XQjTFji4QapKmP+LK8UvV0nHDJSX+fHObiD+DKTELe7+q
+	dZa8kIXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHTn-0000000C0eS-2xnt;
-	Fri, 06 Nov 2026 10:47:31 +0000
-Received: from smtp.uibk.ac.at ([138.232.1.140])
+	id 1xPHUB-0000000C1Fp-0e2c;
+	Fri, 06 Nov 2026 10:47:55 +0000
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPHTd-0000000C0Fx-3bdJ;
-	Fri, 06 Nov 2026 10:47:24 +0000
-Received: from surface-pro-5.uibk.ac.at (ydWLT-U1-3-167.uibk.ac.at [172.25.3.167])
-	(authenticated bits=0)
-	by smtp.uibk.ac.at (8.15.2/8.15.2/F1) with ESMTPSA id 6A6Al07P1953426
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO);
-	Fri, 6 Nov 2026 11:47:14 +0100
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.uibk.ac.at 6A6Al07P1953426
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=student.uibk.ac.at;
-	s=prod24a; t=1793962035;
-	bh=aDLD52qaM3Fh625QgHrVjo+tYa81+ewXx2Mla/ADdcw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=VeSm6fep+uTL8Y//cVW8wf8r//+twNGA4Wulyvv8Nkd85E5VTBWE0fmxDLOO2kmpW
-	 PewmPmw4O1Fx2RlxWfxbuvPpsEsBpJIGiM+KERpILbR8tPP5V7OV/675tX9jqY3Aha
-	 AVcZRltn+5RsXR5kmYde8nPwGBYsYLgrF/eig6IE=
-From: christian.koever-draxl@student.uibk.ac.at
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com,
-        martin.blumenstingl@googlemail.com
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-amlogic@lists.infradead.org,
-        =?UTF-8?q?Christian=20Stefan=20K=C3=B6v=C3=A9r-Draxl?= <ckoever@outlook.de>
-Subject: [PATCH 10/10] arm64: dts: amlogic: add the Amediatech X98Q
-Date: Fri,  6 Nov 2026 11:46:59 +0100
-Message-ID: <20261106104659.54656-11-christian.koever-draxl@student.uibk.ac.at>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261106104659.54656-1-christian.koever-draxl@student.uibk.ac.at>
-References: <20261106104659.54656-1-christian.koever-draxl@student.uibk.ac.at>
+	id 1xPHTy-0000000C0wT-0z4R
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Nov 2026 10:47:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Sg7WxZAVIG1ZL+P2VnC39JWNz1lBPbXmy0fpNG2rGmTu73TRz9+FWeMf6WgiaiI2JtMVBfUSAE4bkqHaZTBR5/7tAHJKbUCVDofYbAfkQ7oC4ENKBVUMGn+2JnERLabOts78LjB3B0iofUtfYLZnFBH+Uwbzkvb1MJRsFjSZX++uvHgTTZ3UGLhNrSglQnA6cNZuwA8uBtkA0bRRdXlVUhpnPxvx1flwRUY5gHo+JBFPnawOn0hTf+Zx8lUqb2d262v0qwBvFGfjRFhzZg5fQv9tOj/uS6wx+EzxVfRBd1rXzYQ0xZa0rIeY3nhiyC5lU3rvkwRwyDmqdQ2UWlpamA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pGHjZZb01s//+FHZsg85wITdJCCurRihxWUJSHBj4ag=;
+ b=LnQJjSg57qwNBZU2E11tRDfJelnGxDwa6LR8vrUWIDfEGXJkUd+AaoHhklK3dR/uFOhhk/2zhADFTXERjFDaycqpaIRcQuL5PNSupqDE4EzCABJhnWR45kl6L96rQ7ZX6wNIwuxNq2N+PNGacHReXaa5aLfNjEaY6bdOQn0+QINGiJqWbmk69ZgcN/VEqBHAmsSit9OxOxwEn2nS4SyYdEdvj1K2bGbdZDdLcH03BjGUeON+i3qGDmZnvcwuaTs5DaIxjLOLml7TKtjQ1P46CDKhlTFGyLJao1EtugeM0yFFJxRt2F8U5duRL1LwL1vG/2AlrjX3P+nC/Q5SecjoTw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI2PR06CA0016.apcprd06.prod.outlook.com (2603:1096:4:186::22)
+ by SEZPR06MB8951.apcprd06.prod.outlook.com (2603:1096:101:33b::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.4; Fri, 6 Nov 2026
+ 10:47:38 +0000
+Received: from SG1PEPF000082E7.apcprd02.prod.outlook.com
+ (2603:1096:4:186:cafe::27) by SI2PR06CA0016.outlook.office365.com
+ (2603:1096:4:186::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.10 via Frontend Transport; Fri, 6
+ Nov 2026 10:47:37 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG1PEPF000082E7.mail.protection.outlook.com (10.167.240.7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Fri, 6 Nov 2026 10:47:37 +0000
+Received: from cix (unknown [172.16.64.42])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id C6C3D4102E6C;
+	Fri,  6 Nov 2026 18:47:35 +0800 (CST)
+From: Cunyuan Liu <cunyuan.liu@cixtech.com>
+To: boris.brezillon@collabora.com,
+	steven.price@arm.com,
+	liviu.dudau@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	gary.yang@cixtech.com,
+	fugang.duan@cixtech.com
+Cc: daniel.almeida@collabora.com,
+	aliceryhl@google.com,
+	p.zabel@pengutronix.de,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	rust-for-linux@vger.kernel.org,
+	cix-kernel-upstream@cixtech.com,
+	robin.wang@cixtech.com,
+	cunyuan.liu@cixtech.com
+Subject: [PATCH 3/3] arm64: dts: cix: Add GPU support for Sky1 Orion O6
+Date: Fri,  6 Nov 2026 18:47:35 +0800
+Message-ID: <20261106104735.1651267-4-cunyuan.liu@cixtech.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261106104735.1651267-1-cunyuan.liu@cixtech.com>
+References: <20261106104735.1651267-1-cunyuan.liu@cixtech.com>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Spam-Score: () -13.0 ALL_TRUSTED,RCV_SMTP_AUTH,RCV_SMTP_UIBK,U_H_APTO_LONG,U_RCPTS_11_PLUS
-X-Scanned-By: MIMEDefang_3.2_at_uibk.ac.at
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG1PEPF000082E7:EE_|SEZPR06MB8951:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: a30b3b41-6682-4983-4254-08df3bf35f4e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|23010399003|1800799024|376014|7416014|261009223027099003|261028144727099003|261026121527099003|261102123227099003|261022105027099003|56012099006|261026140227099003|261021121427099003|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: OZLxn711cP+GHtaMSQtN/X5uZFd0561llgSbtTD/dlJM4bma6/4iipnvRRGu8iREw9kxJ1xXZLdxGPmQ9R/1eb0kq7TFgWrvjzX7BWR58T1nMjh7x/LWd1rLPl/WOFpi9z+4BeQLWcEuCx9H01fn3iYqXD6XyVsaH2RN5RzlAHM5XZ2mH07UJTju+kDqb9jzFJCbN+MaYv7UsiYlUGm9wXTS4rxn6HO6bvjPbH7D6km3YBNq8H+tzMS0JtvRvjAmUxROpoe+N61kDOo9GkQEkvxruElX1OhxVeAzfx7HbsNqZw7MgBuw3gzL9uqF4/ERBExGOB3sdr4+SXltDnuuETr1g2qZmSGNXzpW5Xrs5+RTw2jnti6tXxUsQxyirxXLfYC8hWJEziYHxf9oqCHGw4iLVVzZaM36LH12j2q80WI4mXFRH6tDkrX83uUvNKBKSVHwUvDoep1ZQK7JbgGPmOUAeVBS3wpmXZqNFuPqPO2Aq4CPCsZLO71Ucm0To/qJD3iJhmTqCrKS64X5qLUAMiFG4orKGs7cxtswIWuGVIvPnmIXYr8yC0RSMsw1Tj8Jni7KzWl0cS1bUne0coGB1i1jnStRIu0IOWMuv2YfEDnZAUqPZRD4eXXyu8mxTikumHzY0LmtY0zMs3OrY1L20Zop5eUQp8dFsASnJdnYs7jqMx+o2fllgj7AuljbVZZEi0wuPN8ZAtwQPfAID8NMlQ==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(23010399003)(1800799024)(376014)(7416014)(261009223027099003)(261028144727099003)(261026121527099003)(261102123227099003)(261022105027099003)(56012099006)(261026140227099003)(261021121427099003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Xq18TsqlHWzOsPf+mvWxPwSYrjSQauy1CCxHEA86e03tXoyHIxZ37KXhvbAJvIrKmLm4E3PuYmPiS8V47NaPvC/g0+v0V8160ndkQy2zpmNzKNePZTBMQXJt9HjPRlo+EqNwmkFdnzSo9xKeTLhQbIsSY0snZIxmnsRMYWx3u4Ntfls9Fk8Rc4Wi36UMLQaCjA6yCyQqYnKOcXH77eXHM9IXE3Bue65kQ18No011wdWxgX14UREildiCz5Sns5zcsmEJvMHRqooh7ugt9hrWJXc0ckMWcFrubQ8nDHA5aG1onNjf/Wf51LVVHkeVuuW7EJaYz2ICodVRFJjbET1s4kffUzDGG6Isb+yiV+SNLpgS2yxnC4Mbv/hj1wr6ycaarqTWotGh1p//OaOUFF+JDEWGnJqZDip99a1qTy+HQbEusHxKcdKNciS5ejMQ27D0
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2026 10:47:37.0260
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a30b3b41-6682-4983-4254-08df3bf35f4e
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E7.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB8951
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261106_024722_366565_31950034 
-X-CRM114-Status: GOOD (  17.02  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261106_024742_307943_A6CF2F91 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -1.9 (-)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,367 +128,67 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_EF,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-From: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
+Add the Sky1 Mali GPU node with its registers, interrupts, clocks,
+external reset and GPU power domain.
 
-The Amediatech X98Q is a TV box with an Amlogic S905W2, eMMC, an SD
-slot, Fast Ethernet, two USB2 host ports, HDMI, a power LED, an IR
-receiver and an Amlogic W1 Wi-Fi/Bluetooth combo chip.
+Keep the node disabled in the SoC file and enable it on Orion O6.
 
-Supported:
- - serial console, eMMC, SD card, Ethernet, USB host
- - Mali GPU, GE2D, thermal throttling of the GPU
- - IR remote, also as a wakeup source
- - Bluetooth
-
-The CPU supply is described, but CPU frequency scaling and the video
-decoder are left for later, as their drivers are not upstream yet.
-The SDIO bus for the W1 Wi-Fi is described, but there is no mainline
-driver for it yet.
-
-Signed-off-by: Christian Stefan Kövér-Draxl <ckoever@outlook.de>
+Signed-off-by: Cunyuan Liu <cunyuan.liu@cixtech.com>
 ---
- arch/arm64/boot/dts/amlogic/Makefile          |   1 +
- .../boot/dts/amlogic/meson-s4-s905w2-x98q.dts | 310 ++++++++++++++++++
- 2 files changed, 311 insertions(+)
- create mode 100644 arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
+ arch/arm64/boot/dts/cix/sky1-orion-o6.dts |  4 ++++
+ arch/arm64/boot/dts/cix/sky1.dtsi         | 16 ++++++++++++++++
+ 2 files changed, 20 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
-index 57bc440fa55c..4e85c5227b7c 100644
---- a/arch/arm64/boot/dts/amlogic/Makefile
-+++ b/arch/arm64/boot/dts/amlogic/Makefile
-@@ -86,6 +86,7 @@ dtb-$(CONFIG_ARCH_MESON) += meson-gxm-ugoos-am3.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-gxm-vega-s96.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-gxm-wetek-core2.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-s4-s805x2-aq222.dtb
-+dtb-$(CONFIG_ARCH_MESON) += meson-s4-s905w2-x98q.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-s4-s905y4-khadas-vim1s.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-sm1-a95xf3-air-gbit.dtb
- dtb-$(CONFIG_ARCH_MESON) += meson-sm1-a95xf3-air.dtb
-diff --git a/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts b/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
-new file mode 100644
-index 000000000000..388198756a3a
---- /dev/null
-+++ b/arch/arm64/boot/dts/amlogic/meson-s4-s905w2-x98q.dts
-@@ -0,0 +1,310 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2026 Christian Stefan Kövér-Draxl <ckoever@outlook.de>
-+ * Based on meson-s4-s905y4-khadas-vim1s.dts:
-+ *  - Copyright (c) 2026 Khadas Technology Co., Ltd.
-+ */
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+
-+#include "meson-s4.dtsi"
-+
-+/ {
-+	model = "Shenzhen Amediatech Technology Co., Ltd X98Q";
-+	compatible = "amediatech,x98q", "amlogic,s905w2", "amlogic,s4";
-+	interrupt-parent = <&gic>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	aliases {
-+		mmc0 = &emmc;
-+		mmc1 = &sd;
-+		mmc2 = &sdio;
-+		serial0 = &uart_b;
-+		serial1 = &uart_a;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x0 0x0 0x40000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		/* 52 MiB reserved for ARM Trusted Firmware */
-+		secmon_reserved: secmon@5000000 {
-+			reg = <0x0 0x05000000 0x0 0x3400000>;
-+			no-map;
-+		};
-+	};
-+
-+	adc-keys {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 0>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1710000>;
-+
-+		button-function {
-+			label = "Function";
-+			linux,code = <KEY_POWER>;
-+			press-threshold-microvolt = <35000>;
-+		};
-+	};
-+
-+	emmc_pwrseq: emmc-pwrseq {
-+		compatible = "mmc-pwrseq-emmc";
-+		reset-gpios = <&gpio GPIOB_9 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led-power {
-+			color = <LED_COLOR_ID_BLUE>;
-+			function = LED_FUNCTION_POWER;
-+			gpios = <&gpio GPIOD_11 GPIO_ACTIVE_LOW>;
-+			default-state = "on";
-+		};
-+	};
-+
-+	main_5v: regulator-main-5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "5V";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+
-+	sd_3v3: regulator-sd-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "SD_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&gpio GPIOD_4 GPIO_ACTIVE_LOW>;
-+		regulator-always-on;
-+	};
-+
-+	vddao_3v3: regulator-vddao-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VDDAO_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&main_5v>;
-+		regulator-always-on;
-+	};
-+
-+	/* SY8120B1ABC DC/DC regulator behind an RC filter */
-+	vddcpu: regulator-vddcpu {
-+		compatible = "pwm-regulator";
-+		regulator-name = "VDDCPU";
-+		regulator-min-microvolt = <689000>;
-+		regulator-max-microvolt = <1049000>;
-+		vin-supply = <&main_5v>;
-+		pwms = <&pwm_ij 1 1500 0>;
-+		pwm-dutycycle-range = <100 0>;
-+		/*
-+		 * A duty cycle change takes a while to show on the filtered
-+		 * rail; without this the CPU is clocked up while the voltage
-+		 * is still ramping.
-+		 */
-+		regulator-settling-time-up-us = <3000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+		/* Voltage Duty-Cycle */
-+		voltage-table = <1049000 0>,
-+				<1039000 3>,
-+				<1029000 6>,
-+				<1019000 9>,
-+				<1009000 12>,
-+				<999000 14>,
-+				<989000 17>,
-+				<979000 20>,
-+				<969000 23>,
-+				<959000 26>,
-+				<949000 29>,
-+				<939000 31>,
-+				<929000 34>,
-+				<919000 37>,
-+				<909000 40>,
-+				<899000 43>,
-+				<889000 45>,
-+				<879000 48>,
-+				<869000 51>,
-+				<859000 54>,
-+				<849000 56>,
-+				<839000 59>,
-+				<829000 62>,
-+				<819000 65>,
-+				<809000 68>,
-+				<799000 70>,
-+				<789000 73>,
-+				<779000 76>,
-+				<769000 79>,
-+				<759000 81>,
-+				<749000 84>,
-+				<739000 87>,
-+				<729000 89>,
-+				<719000 92>,
-+				<709000 95>,
-+				<699000 98>,
-+				<689000 100>;
-+	};
-+
-+	vddio_ao1v8: regulator-vddio-ao1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VDDIO_AO1V8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vddao_3v3>;
-+		regulator-always-on;
-+	};
-+
-+	sdio_32k: sdio-32k {
-+		compatible = "pwm-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <32768>;
-+		pwms = <&pwm_ef 0 30518 0>;
-+	};
-+
-+	sdio_pwrseq: sdio-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&gpio GPIOX_6 GPIO_ACTIVE_LOW>;
-+		clocks = <&sdio_32k>;
-+		clock-names = "ext_clock";
-+	};
-+};
-+
-+&emmc {
-+	pinctrl-0 = <&emmc_pins>, <&emmc_ds_pins>;
-+	pinctrl-1 = <&emmc_clk_gate_pins>;
-+	pinctrl-names = "default", "clk-gate";
-+	bus-width = <8>;
-+	cap-mmc-highspeed;
-+	mmc-ddr-1_8v;
-+	mmc-hs200-1_8v;
-+	max-frequency = <200000000>;
-+	non-removable;
-+	disable-wp;
-+	mmc-pwrseq = <&emmc_pwrseq>;
-+	vmmc-supply = <&vddao_3v3>;
-+	vqmmc-supply = <&vddio_ao1v8>;
-+	status = "okay";
-+};
-+
-+&ethmac {
-+	phy-handle = <&internal_ephy>;
-+	phy-mode = "rmii";
-+	status = "okay";
-+};
-+
-+&ge2d {
-+	status = "okay";
-+};
-+
+diff --git a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+index e39c87774c12..853c9c6f202c 100644
+--- a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
++++ b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+@@ -52,6 +52,10 @@ &fch_gpio3 {
+ 	status = "okay";
+ };
+ 
 +&gpu {
 +	status = "okay";
 +};
 +
-+&ir {
-+	pinctrl-0 = <&remote_pins>;
-+	pinctrl-names = "default";
-+	linux,rc-map-name = "rc-x98q";
-+	wakeup-source;
-+	status = "okay";
-+};
+ &iomuxc {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_hog>;
+diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+index 0a820f45feb9..d5d347964ad7 100644
+--- a/arch/arm64/boot/dts/cix/sky1.dtsi
++++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+@@ -762,6 +762,22 @@ ppi_partition1: interrupt-partition-1 {
+ 			};
+ 		};
+ 
++		gpu: gpu@15010000 {
++			compatible = "cix,sky1-mali", "arm,mali-valhall-csf";
++			reg = <0x0 0x15010000 0x0 0x480000>;
++			interrupts = <GIC_SPI 237 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 238 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 239 IRQ_TYPE_LEVEL_HIGH 0>;
++			interrupt-names = "job", "mmu", "gpu";
++			clocks = <&scmi_clk CLK_TREE_GPU_CLK_CORE>,
++				 <&scmi_clk CLK_TREE_GPU_CLK_STACKS>;
++			clock-names = "core", "stacks";
++			resets = <&s5_syscon SKY1_GPU_RESET_N>;
++			power-domains = <&smc_devpd SKY1_PD_GPU>;
 +
-+&pwm_ef {
-+	pinctrl-0 = <&pwm_e_pins1>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
++			status = "disabled";
++		};
 +
-+&pwm_ij {
-+	pinctrl-0 = <&pwm_j_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&saradc {
-+	vref-supply = <&vddio_ao1v8>;
-+	status = "okay";
-+};
-+
-+&sd {
-+	pinctrl-0 = <&sdcard_pins>;
-+	pinctrl-1 = <&sdcard_clk_gate_pins>;
-+	pinctrl-names = "default", "clk-gate";
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	/* Fails CRC at 50 MHz with the default 180 degree phase */
-+	amlogic,core-phase-degrees = <270>;
-+	max-frequency = <50000000>;
-+	disable-wp;
-+	cd-gpios = <&gpio GPIOC_6 GPIO_ACTIVE_LOW>;
-+	vmmc-supply = <&vddao_3v3>;
-+	vqmmc-supply = <&vddao_3v3>;
-+	status = "okay";
-+};
-+
-+/* Wi-Fi half of the Amlogic W1 combo chip */
-+&sdio {
-+	pinctrl-0 = <&sdio_pins>;
-+	pinctrl-1 = <&sdio_clk_gate_pins>;
-+	pinctrl-names = "default", "clk-gate";
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	max-frequency = <200000000>;
-+	non-removable;
-+	disable-wp;
-+	no-sd;
-+	no-mmc;
-+	mmc-pwrseq = <&sdio_pwrseq>;
-+	vmmc-supply = <&vddao_3v3>;
-+	vqmmc-supply = <&vddio_ao1v8>;
-+	status = "okay";
-+};
-+
-+&uart_a {
-+	pinctrl-0 = <&uart_a_pins>, <&uart_a_cts_rts_pins>;
-+	pinctrl-names = "default";
-+	uart-has-rtscts;
-+	status = "okay";
-+
-+	/* Bluetooth half of the Amlogic W1 combo chip */
-+	bluetooth {
-+		compatible = "amlogic,w155s2-bt";
-+		clocks = <&sdio_32k>;
-+		enable-gpios = <&gpio GPIOX_17 GPIO_ACTIVE_HIGH>;
-+		vddio-supply = <&vddio_ao1v8>;
-+		firmware-name = "amlogic/aml_w1_bt_uart.bin";
-+		amlogic,shared-antenna;
-+	};
-+};
-+
-+&uart_b {
-+	status = "okay";
-+};
-+
-+&usb {
-+	status = "okay";
-+};
-+
-+&usb2_phy0 {
-+	status = "okay";
-+};
-+
-+&usb2_phy1 {
-+	status = "okay";
-+};
+ 		s5_syscon: syscon@16000000 {
+ 			compatible = "cix,sky1-s5-system-control", "syscon";
+ 			reg = <0x0 0x16000000 0x0 0x1000>;
 -- 
-2.56.0
+2.53.0
 
 
