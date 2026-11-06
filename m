@@ -2,66 +2,95 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7D75606A31B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 04:30:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74931606A31B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 04:36:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=iVsPWr6R;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=sjSFEuOq
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=RUYG6h8e;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=feFfhBfl
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
 	List-Unsubscribe-Post:List-Owner;
-	bh=QGCPiCqkjBkaHcHiJL1zla81wyPx1mdvA2MzlmPUBlg=; b=iVsPWr6RBiAhI39UethGuXJX1M
-	5n2p3X5JD7vIXeXDSj7nMcoEncWViGGFNbWyYVPG/QbJ+ACPLjgaFbmanomcaOGt9pMkhL07ieXd0
-	Zpc/anOmRHzAhFawz9hJ1oiKNcvtxdfqdiJ4pQkIMOL3mg9/0NEIXj3gqFWESQKoyejJrjSoccU2y
-	Z4KtyAdoLB42Ir6CoGEwTyRavULpCiBsicrILcFWl1juScyvp5rewYAX4YopCV2FzfRkFK12h7Mmt
-	K1J0NE9Ofb/En26FYOl0LJv5Cl5IAtKl6nGVucSKZNwp5bEI0TrTt5xJ1H74L+rGOGTHSpXFEOKdX
-	TWbC0cCg==;
+	bh=gkkse3cHzLqkAewg9gHiiK9N9CEab9zV0jXPIj/3blo=; b=RUYG6h8e/Lpp8JWP2EbeIWUTmp
+	7x2/g5R3JJRaHHFC2lAmjWTqzKmZCxNxgWSs1uGkWU4ysj8kPLFjBN7tzf/blRRxflBk+Rb2M6w1D
+	OamBV56i5UEeU+DcR7MVeJjIdWPVxg3D8aDNgNssZYIOZFjo0f/owYfx/gFMpELTCtzBfIvWHCxad
+	HthhBNnb0ClgzMroXxJLjopkTLe/2E+TfQsTvN5CAxCjhBEBOiSTTAddrI5PWQSvlAw+liwdyuPle
+	d2VClWSt5QcN9J4wYFTYEVAyqqJnKsPsVR9+JyXuZUpJ2g5UW5gFXCmlb51qdoVfXQCCY07f+xk/X
+	JCro6EtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPBaP-0000000BD49-3dz0;
-	Fri, 06 Nov 2026 04:29:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPBaN-0000000BD3g-2RTP
+	id 1xPBgZ-0000000BDcc-2CkG;
+	Fri, 06 Nov 2026 04:36:19 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xPBgX-0000000BDcK-038A
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Nov 2026 04:29:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8C81F1684;
-	Thu,  5 Nov 2026 20:29:48 -0800 (PST)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 408D33F673;
-	Thu,  5 Nov 2026 20:29:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1793939391; bh=Hh3IBRBXYWZYcWrW4B7lncFfAlY/7ljbqAzgjoX9vzU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sjSFEuOqVikrkZpdmRfo8CPj65lCDGOY2G7296cdtoPWQVgMrDIJZJPWeN6jA6amn
-	 nYVsgP0x15rSmDS+9CXSFfE0+KkVcPCfwvuVvQ9OG3bJgtkN+SmqgZWYs9QT720/XI
-	 3puSkJKyLM2rRNeNlpxf5btqf0JxNdC5s7As8kZM=
-Date: Fri, 6 Nov 2026 04:29:26 +0000
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Sascha Bischoff <sascha.bischoff@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, 
-	lpieralisi@kernel.org, timothy.hayes@arm.com, fuad.tabba@linux.dev
-Subject: Re: [PATCH v2 10/16] KVM: arm64: gic-v5: Add ITS userspace register
- access
-Message-ID: <aft27lm35sx4lywm57yfsy6pgsjrfoviiwi6xlkmhzq3v5jnwb@37vchfucxhdc>
-References: <20261102194454.4086911-1-sascha.bischoff@arm.com>
- <20261102194454.4086911-11-sascha.bischoff@arm.com>
+	Fri, 06 Nov 2026 04:36:18 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2e8da6ef7ddso1132815ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Nov 2026 20:36:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793939776; x=1794544576; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=gkkse3cHzLqkAewg9gHiiK9N9CEab9zV0jXPIj/3blo=;
+        b=feFfhBfl4mLXaKuzQ2h2UtW9LxScYJ1TxOXxgt2FhtE3GQCkCcoRtA7Fa+Ah/XctTm
+         MMjb5jZy4L4R9eMW6udPuzk4w6IpYDlXiGfxcgZhT7eHpEZ/bAm7v60KEggnIjd0ARur
+         0MQ07C5pZfVqanaZCOzzFq1y7e2S+fc5eQnnVaJUYUy8yfal5YvQ4fEJkOGTs1Z0ESC9
+         V0C0o498913tSpOHVBVJDFWcSZ+qyM8deoHUa9rOdd2jRyIzkoecJwuQBoUPycsRBask
+         YTyXqslMdCWwX51fQ0wzMosBIdYLsVa+il3THFTzB61fuvQpgx0JyMH67lwhxgJf2rn9
+         JZJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793939776; x=1794544576;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=gkkse3cHzLqkAewg9gHiiK9N9CEab9zV0jXPIj/3blo=;
+        b=F04OUtuInWvKpToOtAsaQg4Gea2g6ituDecebAutpr4GTcNuXj41vpXrGt02pp1Lgg
+         47xmZn06I9K00Knw9XmLarL+tLklagJ787quYQTgnR8ysiWWg81r9sdE5jiyUqhYGiFd
+         xqJ0IlI7zNbgZ/HStkdOMnlyq/B8YR2zRzlvJJgf56IG9G5tMbaXzDpT3hcwbhRTiEk7
+         Y1PpX4We9JX5HbUbxK9MoergHkvC5tv28sI7A0GOwLND5bCOT8IvzCN1LhboYRgMzZ4R
+         0djsrVYLPfOGFrmDpmfEsxVXXNQO8PLBJXQitm84Ql9uoRki1AuBFormqIUpskB6mIIg
+         3/Jg==
+X-Forwarded-Encrypted: i=1; AL+hErHPRSLXxYRtzStG0hy6UXwMDXqVnEM+s12XKO72QVUUkgHgaxdw54fmAr8LMtopfJEkMNXO02Fq4q8+xoFTm9eb@lists.infradead.org
+X-Gm-Message-State: APuU4Z8nKMGLA+J/nXhN9AM3wZWGtWyPSEOGuwo6oOhn3wALBiphfQFD
+	IDDrSVQe+kC6AdmUSYVfABNQSb1lCOohKxof1SJjbIczRQ80ulA9tppI
+X-Gm-Gg: AYBFou1Ih+YuAxaBLjepOIbP4VCbUfwh8+tHFyUpVbFcJUzTUJHpWQCFMJJ05PJlKeT
+	VLu3pM5Ey7XR7msf3PXFCvT5F48aTEzmqsymvl/FpLndnZ1M6Cu9T6YEwFcFJiaYnBDBw1o5Hau
+	tFsiCAM3t3EbFjgfLiXE7hRImj4ow66IIRxBY8vStzoyrds3jhFmPO6rLEY72T/XIFKSrCcZ1Vr
+	lGLV6HmnseJnzeE1723j3jpsAh3GovlafCN9hoehrm/r2d7XEw4XB2KQVC0Eir/S/bIVWSKGAvJ
+	ulhXsYlyBoMD2bp4x/h4xV6wme7TzFdbHkcq7yNJeqqutJuNaMdmekNM9cDYhnWcmqLCh5iJky1
+	5xVAVxK8gLk1Xih4w2yfw/Iwc4oTqz8MGVpf4iK5IBjSEMC5K3z5OFW+oMJpTVT9jJyPMSjdW2f
+	aUJyrbbZmS2tvnlh3b5g/Vy/Mh121vJaQkXT8SyVrvH0QmKkIkMl3PVH+5RYbN66MWziUpmsSbj
+	OivbV/BLS0haWOsV/7HNpI5F9V2TS5qqdLu4t+r3Vw0PF9ttnSxCcE+RuiB8ISuMlIjffFouk5L
+	Ey0ISWsx4rf4MIXJTx5SFgwT39ZgOYTum8VX1HSdPBNVDeXvLSNZENI=
+X-Received: by 2002:a17:902:cccd:b0:2dd:c100:4248 with SMTP id d9443c01a7336-2ed40deb075mr21202945ad.44.1793939775647;
+        Thu, 05 Nov 2026 20:36:15 -0800 (PST)
+Received: from server225.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ed477a97bcsm1385255ad.13.2026.11.05.20.36.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Nov 2026 20:36:15 -0800 (PST)
+From: Ping Li <leeonion.muyu@gmail.com>
+To: james.morse@arm.com,
+	ben.horgan@arm.com
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	reinette.chatre@intel.com,
+	fenghuay@nvidia.com
+Subject: arm_mpam: selecting hard or soft MBW_MAX limits
+Date: Fri,  6 Nov 2026 12:36:11 +0800
+Message-Id: <20261106043611.790930-1-leeonion.muyu@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261102194454.4086911-11-sascha.bischoff@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20261105_202955_876262_5784B57E 
-X-CRM114-Status: GOOD (  27.18  )
-X-Spam-Score: -4.4 (----)
+X-CRM114-CacheID: sfid-20261105_203617_051179_06110C27 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,128 +101,35 @@ List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
-X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=4.0.1
+X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no
+	version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
-On Mon, Nov 02, 2026 at 07:44:48PM +0000, Sascha Bischoff wrote:
-> Userspace needs access to the emulated GICv5 ITS MMIO state in order
-> to inspect and restore the device state around VM reset and migration.
-> Expose the GICv5 ITS register frame through KVM_DEV_ARM_VGIC_GRP_ITS_REGS.
-> 
-> Reuse the same MMIO register descriptors used by the guest-facing
-> IODEV, but apply the usual userspace access constraints: the ITS base
-> address must have been configured, the register offset must map to an
-> emulated ITS register, and userspace accesses must use the natural
-> 32-bit or 64-bit register alignment.
-> 
-> Add control handling for KVM_DEV_ARM_ITS_CTRL_RESET. The reset is
-> performed while all vCPUs are stopped and while holding the ITS lock,
-> so it cannot race with guest MMIO updates or translation lookups. The
-> reset clears guest-programmed state and cached translations while
-> preserving the advertised ITS capability defaults.
-> 
-> Do not expose GICv5 ITS SAVE_TABLES or RESTORE_TABLES controls. For
-> GICv5, the guest-owned DT and ITTs are the authoritative translation
-> state, and the KVM translation cache is disposable state that can be
-> rebuilt from guest memory.
-> 
-> Restore guest read-only IDR0-IDR2 through dedicated userspace writes,
-> validating the advertised capabilities before changing them. Also
-> allow userspace to restore READ_EVENT_DATAR while keeping guest writes
-> to that result register ignored.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/vgic/vgic-its-v5.c | 371 ++++++++++++++++++++++++++----
->  1 file changed, 322 insertions(+), 49 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-its-v5.c b/arch/arm64/kvm/vgic/vgic-its-v5.c
-> index b69a1d107c0ae..638ee47f6e27d 100644
-> --- a/arch/arm64/kvm/vgic/vgic-its-v5.c
-> +++ b/arch/arm64/kvm/vgic/vgic-its-v5.c
-> @@ -688,6 +688,70 @@ static void vgic_v5_mmio_write_its_misc(struct kvm *kvm, void *dev, gpa_t addr,
->  	}
->  }
->  
-> +static int vgic_v5_uaccess_write_its_idr(struct kvm *kvm, void *dev,
-> +					gpa_t addr, unsigned int len,
-> +					unsigned long val)
-> +{
-> +	struct vgic_v5_its *its = dev;
-> +	size_t offset = addr & (SZ_64K - 1);
-> +	u64 mmfr0;
-> +
-> +	guard(mutex)(&its->its_lock);
-> +
-> +	switch (offset) {
-> +	case GICV5_ITS_IDR0:
-> +		if (FIELD_GET(GICV5_ITS_IDR0_DOM, val) !=
-> +		    GICV5_ITS_IDR0_DOMAIN_NON_SECURE ||
-> +		    (val & ~(GICV5_ITS_IDR0_ITSID |
-> +			     GICV5_ITS_IDR0_PA_RANGE | GICV5_ITS_IDR0_DOM)))
-> +			return -EINVAL;
-> +
-> +		mmfr0 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
-> +		if (FIELD_GET(GICV5_ITS_IDR0_PA_RANGE, val) >
-> +		    cpuid_feature_extract_unsigned_field(mmfr0,
-> +					ID_AA64MMFR0_EL1_PARANGE_SHIFT))
-> +			return -EINVAL;
-> +
-> +		its->idr0.pa_range = FIELD_GET(GICV5_ITS_IDR0_PA_RANGE, val);
-> +		its->idr0.its_id = FIELD_GET(GICV5_ITS_IDR0_ITSID, val);
-> +		return 0;
-> +	case GICV5_ITS_IDR1:
-> +		if ((val & ~(GICV5_ITS_IDR1_L2SZ |
-> +			     GICV5_ITS_IDR1_ITT_LEVELS |
-> +			     GICV5_ITS_IDR1_DT_LEVELS |
-> +			     GICV5_ITS_IDR1_DEVICEID_BITS)) ||
-> +		    FIELD_GET(GICV5_ITS_IDR1_DEVICEID_BITS, val) >
-> +		    VITS_V5_DEVICE_ID_BITS)
-> +			return -EINVAL;
-> +
-> +		/*
-> +		 * Userspace can change the DeviceID limit after translations have
-> +		 * been cached. Drop them so the old limit cannot remain in effect.
-> +		 */
-> +		if (its->idr1.device_id_bits !=
-> +		    FIELD_GET(GICV5_ITS_IDR1_DEVICEID_BITS, val))
-> +			its_cache_clear_translations(its);
-> +
-> +		its->idr1.device_id_bits = FIELD_GET(GICV5_ITS_IDR1_DEVICEID_BITS,
-> +							 val);
-> +		its->idr1.dt_levels = !!(val & GICV5_ITS_IDR1_DT_LEVELS);
-> +		its->idr1.itt_levels = !!(val & GICV5_ITS_IDR1_ITT_LEVELS);
-> +		its->idr1.l2sz = FIELD_GET(GICV5_ITS_IDR1_L2SZ, val);
+Hi Ben,
 
-I think l2sz should be set to 0 if both dt_levels and itt_levels are 0,
-because a res0 read-only field should read as 0.
+mbw_max support in the driver always programs MPAMCFG_MBW_MAX without
+setting MPAMCFG_MBW_MAX.HARDLIM, so the limit is always soft: a
+PARTID above its MAX contends with low priority for bandwidth beyond
+the limit, but is not prevented from exceeding it. On our platform we
+would like to be able to select the hard limit, where a PARTID above
+its MAX is throttled even when the system is otherwise idle - soft
+limits let a noisy task exceed its limit and disturb higher-priority
+work when bandwidth contention appears.
+
+MPAMF_MBW_IDR.MAXLIM reports whether the MSC implements a hard limit,
+a soft limit, or both, but the driver does not read it today.
+
+Is there a preferred way to expose this choice? The options we see:
+
+  - a mount option or info flag, if the choice must be global
+  - a per-resource or per-group resctrl knob
+  - selecting hard limits by default whenever MAXLIM reports the MSC
+    supports them
 
 Thanks,
-Wei-Lin Chang
-
-> +		return 0;
-> +	case GICV5_ITS_IDR2:
-> +		if ((val & ~GICV5_ITS_IDR2_EVENTID_BITS) ||
-> +		    FIELD_GET(GICV5_ITS_IDR2_EVENTID_BITS, val) >
-> +		    VITS_V5_EVENT_ID_BITS)
-> +			return -EINVAL;
-> +
-> +		its->idr2.event_id_bits = FIELD_GET(GICV5_ITS_IDR2_EVENTID_BITS,
-> +							 val);
-> +		return 0;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +}
-> +
->  static void vgic_v5_write_its_dt_reg(struct vgic_v5_its *its, size_t offset,
->  				     unsigned long val)
->  {
-
-[...]
+Ping
 
