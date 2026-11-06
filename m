@@ -2,11 +2,11 @@ Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22EA7606A32F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 14:22:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 190E2606D826
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Nov 2026 14:25:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=KfUUgaMM;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ih9nz3hB
+	dkim=pass (2048-bit key, unprotected) header.d=lists.infradead.org header.i=@lists.infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=UFH0bNNV;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oMWJJCVW
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
@@ -14,57 +14,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
 	List-Unsubscribe-Post:List-Owner;
-	bh=4w1ffQwzkhuFO1YskUNSB+WHf1fs6R5DfzwqOkWXzDg=; b=KfUUgaMM/mFDGY768Huv26X8Yl
-	Y7Hx1DWjqa22KtCP9dWqg7QxgtsDqqtlC9EMG2MJZKug9J+lIS3GpC8H6uiaaaoQXEXb0WeBiQyTS
-	+lDLGWx8fxmO2EQMTQ/oeZ1ZAcPGbDVnmX3Vldx+aACpQGxdJnT815S/JQlp5MeLlyt6TidrDy4la
-	3woBUzjl/FWsXUemyf5IHVdjZCPqEob9/o/mbbmyno7iAO/i/oKxScd4Cm3+BiZ6qijg3XFvMZdzg
-	CO4aa9y+WxOVl6faPVQ0bbHCPm8qgfREmkR7Hjuk8uvK/A+96QccKTyumxJYvnphVBOCblNYTOjdq
-	rIErwyiA==;
+	bh=V1drwx/X81sFN4uek22troocxRg85PA6itzp1z0x/M4=; b=UFH0bNNVo24l1YokGF4xKECXtz
+	pGf0qtbgRMoNU1p9ez3ByS0VnsrRrNvnQU/4R4b461WPs/TMgD3/BBOlNM6NLCpNAzAXxeoCTsw6k
+	M+4nCxpmK5vr0RMuctFK4wlO88jPajQzKkXQFqyhazWeTiXgyChWctjsk0M6z6lkn5QqX5Ll+JszL
+	kQJapsZI3dRjK/x08Zh7aQc7W7NwTHQsr8iijB8orFhCEzQnaxeiyTOxpDYqnj5J3yZaP6PccfsPR
+	r5yrGnkHHedOxAf7kchH+oydYswotbGhDauV4jiS7DvWwTln+V2hQLCQmb+69gLySsIw+bVaRoE4G
+	CiRyBvwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPKpJ-0000000Cdjs-3yTj;
-	Fri, 06 Nov 2026 14:21:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1xPKsX-0000000CeI1-39Cm;
+	Fri, 06 Nov 2026 14:25:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xPKpI-0000000Cdjg-21ue;
-	Fri, 06 Nov 2026 14:21:56 +0000
+	id 1xPKsU-0000000CeGV-28BB
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Nov 2026 14:25:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7889660232;
-	Fri,  6 Nov 2026 14:21:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9A611F008A4;
-	Fri,  6 Nov 2026 14:21:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 46B1A42B8C;
+	Fri,  6 Nov 2026 14:25:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2B431F0089F;
+	Fri,  6 Nov 2026 14:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1793974915;
-	bh=4w1ffQwzkhuFO1YskUNSB+WHf1fs6R5DfzwqOkWXzDg=;
+	s=k20260515; t=1793975114;
+	bh=V1drwx/X81sFN4uek22troocxRg85PA6itzp1z0x/M4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ih9nz3hBrnOj+a/u//x+Uv89KdGtdo6z0gcPLZBJVjvbXGuZfsbrpUKOXP61U2f8r
-	 WsyXnXJnbC9CdsFV/DhjIOo+8LfeZjysNnDm+xCAphsxdwqZ8h/MvYc5zY8F3ODt+t
-	 GnDxJwMmW1oDrgtGySIT9JKidKiTQEBNpHUak+hn8BxWDYNqqi5ZYfH/FinwcQe42W
-	 IGCLxbClF9IHNG325x9F/XTUQ6DmyHG6pwfxzSLNVcc10axfS30WREAk98M68wUvmY
-	 iR6VUbL3YrFFMZ5hnfZa7bbValkZnH5aWDVGboRLdY7njU5XmGCZnQX+MW9wCRImYV
-	 LkKtdNu5Srfbw==
-Date: Fri, 6 Nov 2026 15:21:52 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Florian Maurer <fmaurer@disroot.org>
-Cc: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
+	b=oMWJJCVWX70l+/j2ALWj/cXWIN4i6dij1rlDaEcmju9ItAD/BEuj5aYtoKl4mSYJ5
+	 1LjPH+dmdR2DQLfMajxdwIEJNQMJNMmz5Tbyd5qSMShqrxg+VSwXuqZr026tlt3rjE
+	 uOjV6LR9zd7UT31f07+1sUc+aJg7Tiosqx5HTTlpqHoKetKMBJdLpnIKBSAToZCy+v
+	 hrSjPp79C4q8/nw17IKXZUWHlrwSiyAsxJpjgsprYrNiO+RyJm/JclqTpZZ7F0xIrt
+	 0/w7Gy6dGtXYS8JXmP4URLoam8cWoGzSKRIjcEZEfKr+9MHJdeYhcqdEjNwt96AWkc
+	 MO78iVgcMQORg==
+Date: Fri, 6 Nov 2026 08:25:10 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+	Anand Gore <anand.gore@broadcom.com>,
+	Kursad Oney <kursad.oney@broadcom.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	Russell King <linux@armlinux.org.uk>,
+	William Zhang <william.zhang@broadcom.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH wireless 1/2] wifi: mt76: npu: return rx slots to the NPU
- only after refilling them
-Message-ID: <au3igPTxdz3i64SO@lore-desk>
-References: <cover.1793927986.git.fmaurer@disroot.org>
- <d6314f34e0965464207656d38a145490b6437aa5.1793927986.git.fmaurer@disroot.org>
+	Florian Fainelli <florian.fainelli@broadcom.com>
+Subject: Re: [PATCH v5 1/3] dt-bindings: arm: cpus: Add brcm,bca-smp enable
+ method
+Message-ID: <179397510943.3079042.13198240905595064216.robh@kernel.org>
+References: <20261105-genexis-xg6846-smp-v7-3-rc1-v5-0-4103df2588d3@kernel.org>
+ <20261105-genexis-xg6846-smp-v7-3-rc1-v5-1-4103df2588d3@kernel.org>
 X-Archived-By: <archiver.kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="hjdNWhN+M75PWH0l"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <d6314f34e0965464207656d38a145490b6437aa5.1793927986.git.fmaurer@disroot.org>
+In-Reply-To: <20261105-genexis-xg6846-smp-v7-3-rc1-v5-1-4103df2588d3@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,281 +81,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=4.0.1
 X-Spam-Checker-Version: SpamAssassin 4.0.1 (2024-03-26) on
 	aws-us-west-2-korg-listserv-alma10-1
 
---hjdNWhN+M75PWH0l
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-> mt76_npu_dequeue() writes the new tail to the dma_idx register of the
-> NPU rx ring as soon as it has consumed a frame, while the slots are
-> only refilled with new buffers by mt76_npu_rx_poll() after the whole
-> NAPI budget. Until then, the descriptors of the released slots still
-> point to the buffers that were passed up the stack, and on the first
-> round of the ring the slot that was never filled points to address 0.
-> If the NPU completes one of these slots, the host processes an entry
-> without buffer, which crashes in dma_sync_single_for_cpu() under heavy
-> rx load:
->=20
->   Unable to handle kernel paging request at virtual address ffffffff80000=
-700
->   pc : dcache_inval_poc+0x28/0x58
->   lr : arch_sync_dma_for_cpu+0x28/0x38
->   Call trace:
->    dcache_inval_poc+0x28/0x58 (P)
->    __dma_sync_single_for_cpu+0xe4/0xf8
->    mt76_npu_rx_poll+0x184/0x390 [mt76]
->    __napi_poll+0x34/0x180
->=20
-> Write dma_idx after refilling the ring instead, up to the slot kept
-> free in front of the tail, which is the same value as before once the
-> ring is full.
->=20
-> Also check that all slots of a frame are queued and complete before
-> building the skb. So far a frame whose later slots were not yet
-> done was freed together with the buffers of its first slots, which
-> were then used again on the next poll.
->=20
-> Fixes: 7fb554b1b623 ("wifi: mt76: Introduce the NPU generic layer")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Florian Maurer <fmaurer@disroot.org>
+On Thu, 05 Nov 2026 14:24:46 +0100, Linus Walleij wrote:
+> BCMBCA systems booted through CFE can release a secondary CPU by
+> writing its ARM-state entry address to a 32-bit MMIO mailbox and
+> sending a wakeup interrupt.
+> 
+> Document brcm,bca-smp and its single-cell cpu-release-addr property.
+> Require the mailbox address on CPU1, which CFE leaves in a holding pen.
+> CPU0 is already running and does not need a release address. Add a
+> Cortex-A7 example with the mailbox address only on CPU1.
+> 
+> Suggested-by: William Zhang <william.zhang@broadcom.com>
+> Reviewed-by: William Zhang <william.zhang@broadcom.com>
+> Signed-off-by: Linus Walleij <linusw@kernel.org>
 > ---
->  drivers/net/wireless/mediatek/mt76/npu.c | 21 +++++++++++++++------
->  1 file changed, 15 insertions(+), 6 deletions(-)
->=20
-> diff --git a/drivers/net/wireless/mediatek/mt76/npu.c b/drivers/net/wirel=
-ess/mediatek/mt76/npu.c
-> index c4c7c0af6321..6e503a4a890c 100644
-> --- a/drivers/net/wireless/mediatek/mt76/npu.c
-> +++ b/drivers/net/wireless/mediatek/mt76/npu.c
-> @@ -40,6 +40,11 @@ int mt76_npu_fill_rx_queue(struct mt76_dev *dev, struc=
-t mt76_queue *q)
->  		nframes++;
->  	}
-> =20
-> +	/* Hand the slots back to the NPU only once they have a new buffer,
-> +	 * up to the one kept free in front of the tail.
-> +	 */
-> +	Q_WRITE(q, dma_idx, (q->head + 1) % q->ndesc);
+>  Documentation/devicetree/bindings/arm/cpus.yaml | 46 +++++++++++++++++++++++++
+>  1 file changed, 46 insertions(+)
+> 
 
-why are you writing q->head here?
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-> +
->  	return nframes;
->  }
-> =20
-> @@ -69,17 +74,22 @@ static struct sk_buff *mt76_npu_dequeue(struct mt76_d=
-ev *dev,
-> =20
->  	nframes =3D FIELD_GET(NPU_RX_DMA_PKT_COUNT_MASK, desc[index].info);
->  	nframes =3D max_t(int, nframes, 1);
-> +	if (nframes > q->queued)
-> +		return NULL;
-
-can this really occur?
-
-> +
-> +	/* Only take the frame once all of its slots are complete */
-> +	for (i =3D 0; i < nframes; i++) {
-> +		int idx =3D (index + i) % q->ndesc;
-> +
-> +		if (!FIELD_GET(NPU_RX_DMA_DESC_DONE_MASK, desc[idx].ctrl))
-> +			return NULL;
-> +	}
-
-I got your time, and I agree this is an issue we need to fix but I guess we
-should avoid a double loop. What about the patch below? (just compiled and =
-not
-tested).
-
-Regards,
-Lorenzo
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wirele=
-ss/mediatek/mt76/mt76.h
-index 2ade848fe3bb..9537c6d28e8d 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt76.h
-@@ -249,6 +249,7 @@ struct mt76_queue {
- 	int ndesc;
- 	int queued;
- 	int buf_size;
-+	int pending;
- 	bool stopped;
- 	bool blocked;
-=20
-diff --git a/drivers/net/wireless/mediatek/mt76/npu.c b/drivers/net/wireles=
-s/mediatek/mt76/npu.c
-index c4c7c0af6321..e2fc361a5248 100644
---- a/drivers/net/wireless/mediatek/mt76/npu.c
-+++ b/drivers/net/wireless/mediatek/mt76/npu.c
-@@ -56,61 +56,74 @@ void mt76_npu_queue_cleanup(struct mt76_dev *dev, struc=
-t mt76_queue *q)
- 		q->tail =3D (q->tail + 1) % q->ndesc;
- 		q->queued--;
- 	}
-+	if (q->rx_head) {
-+		dev_kfree_skb(q->rx_head);
-+		q->rx_head =3D NULL;
-+		q->pending =3D 0;
-+	}
- 	spin_unlock_bh(&q->lock);
- }
-=20
--static struct sk_buff *mt76_npu_dequeue(struct mt76_dev *dev,
--					struct mt76_queue *q,
--					u32 *info)
-+static int mt76_npu_rx_process_entry(struct napi_struct *napi)
- {
-+	struct mt76_dev *dev =3D mt76_priv(napi->dev);
-+	enum mt76_rxq_id qid =3D napi - dev->napi;
-+	struct mt76_queue *q =3D &dev->q_rx[qid];
- 	struct airoha_npu_rx_dma_desc *desc =3D (void *)q->desc;
--	int i, nframes, index =3D q->tail;
--	struct sk_buff *skb =3D NULL;
-+	int nframes =3D q->pending;
-+	u32 info =3D 0;
-=20
--	nframes =3D FIELD_GET(NPU_RX_DMA_PKT_COUNT_MASK, desc[index].info);
--	nframes =3D max_t(int, nframes, 1);
-+	if (!nframes) {
-+		nframes =3D FIELD_GET(NPU_RX_DMA_PKT_COUNT_MASK,
-+				    desc[q->tail].info);
-+		nframes =3D max_t(int, nframes, 1);
-+	}
-=20
--	for (i =3D 0; i < nframes; i++) {
--		struct mt76_queue_entry *e =3D &q->entry[index];
-+	while (nframes > 0) {
-+		struct mt76_queue_entry *e =3D &q->entry[q->tail];
- 		int len =3D FIELD_GET(NPU_RX_DMA_DESC_CUR_LEN_MASK,
--				    desc[index].ctrl);
-+				    desc[q->tail].ctrl);
-=20
--		if (!FIELD_GET(NPU_RX_DMA_DESC_DONE_MASK, desc[index].ctrl)) {
--			dev_kfree_skb(skb);
--			return NULL;
--		}
-+		if (!FIELD_GET(NPU_RX_DMA_DESC_DONE_MASK, desc[q->tail].ctrl))
-+			return -EBUSY;
-=20
- 		dma_sync_single_for_cpu(dev->dma_dev, e->dma_addr[0],
- 					e->dma_len[0],
- 					page_pool_get_dma_dir(q->page_pool));
-=20
--		if (!skb) {
--			skb =3D napi_build_skb(e->buf, q->buf_size);
--			if (!skb)
--				return NULL;
-+		if (!q->rx_head) {
-+			q->rx_head =3D napi_build_skb(e->buf, q->buf_size);
-+			if (!q->rx_head)
-+				return -ENOMEM;
-=20
--			__skb_put(skb, len);
--			skb_reset_mac_header(skb);
--			skb_mark_for_recycle(skb);
-+			__skb_put(q->rx_head, len);
-+			skb_reset_mac_header(q->rx_head);
-+			skb_mark_for_recycle(q->rx_head);
- 		} else {
--			struct skb_shared_info *shinfo =3D skb_shinfo(skb);
-+			struct skb_shared_info *shinfo =3D skb_shinfo(q->rx_head);
- 			struct page *page =3D virt_to_head_page(e->buf);
- 			int nr_frags =3D shinfo->nr_frags;
-=20
- 			if (nr_frags < ARRAY_SIZE(shinfo->frags))
--				skb_add_rx_frag(skb, nr_frags, page,
-+				skb_add_rx_frag(q->rx_head, nr_frags, page,
- 						e->buf - page_address(page),
- 						len, q->buf_size);
- 		}
-=20
--		*info =3D desc[index].info;
--		index =3D (index + 1) % q->ndesc;
-+		info =3D desc[q->tail].info;
-+		q->tail =3D (q->tail + 1) % q->ndesc;
-+		q->queued--;
-+		nframes--;
- 	}
--	q->tail =3D index;
--	q->queued -=3D i;
-+
-+	dev->drv->rx_skb(dev, qid, q->rx_head, &info);
-+	mt76_rx_poll_complete(dev, qid, napi);
-+	q->rx_head =3D NULL;
-+	q->pending =3D 0;
-+
- 	Q_WRITE(q, dma_idx, q->tail);
-=20
--	return skb;
-+	return 0;
- }
-=20
- void mt76_npu_check_ppe(struct mt76_dev *dev, struct sk_buff *skb,
-@@ -155,18 +168,10 @@ static int mt76_npu_rx_poll(struct napi_struct *napi,=
- int budget)
- 		goto out;
-=20
- 	while (done < budget) {
--		struct sk_buff *skb;
--		u32 info =3D 0;
--
--		skb =3D mt76_npu_dequeue(dev, &dev->q_rx[qid], &info);
--		if (!skb)
-+		if (mt76_npu_rx_process_entry(napi))
- 			break;
--
--		dev->drv->rx_skb(dev, qid, skb, &info);
--		mt76_rx_poll_complete(dev, qid, napi);
- 		done++;
- 	}
--
- 	mt76_npu_fill_rx_queue(dev, &dev->q_rx[qid]);
- out:
- 	if (done < budget && napi_complete(napi))
-
-> =20
->  	for (i =3D 0; i < nframes; i++) {
->  		struct mt76_queue_entry *e =3D &q->entry[index];
->  		int len =3D FIELD_GET(NPU_RX_DMA_DESC_CUR_LEN_MASK,
->  				    desc[index].ctrl);
-> =20
-> -		if (!FIELD_GET(NPU_RX_DMA_DESC_DONE_MASK, desc[index].ctrl)) {
-> -			dev_kfree_skb(skb);
-> -			return NULL;
-> -		}
-> -
->  		dma_sync_single_for_cpu(dev->dma_dev, e->dma_addr[0],
->  					e->dma_len[0],
->  					page_pool_get_dma_dir(q->page_pool));
-> @@ -108,7 +118,6 @@ static struct sk_buff *mt76_npu_dequeue(struct mt76_d=
-ev *dev,
->  	}
->  	q->tail =3D index;
->  	q->queued -=3D i;
-> -	Q_WRITE(q, dma_idx, q->tail);
-> =20
->  	return skb;
->  }
-> --=20
-> 2.47.3
->=20
-
---hjdNWhN+M75PWH0l
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCau3igAAKCRA6cBh0uS2t
-rMP1AQDQW0nTl/iyQ8yyF1Ax+5X6SSbWqZBQL0LBfZ7WKMc0IAD/Z5rKVUbRgYMq
-xM8uGxYqPhvZ/cg9I3iGntIU2g0J8A8=
-=BKBZ
------END PGP SIGNATURE-----
-
---hjdNWhN+M75PWH0l--
 
